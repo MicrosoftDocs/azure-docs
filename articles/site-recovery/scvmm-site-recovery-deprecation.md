@@ -38,7 +38,7 @@ Below are the options the customer has to ensure that their DR strategy is not i
 - Choose to [start using Azure as the DR target for VMs on Hyper-V hosts](hyper-v-azure-tutorial.md).
 
 > [!IMPORTANT]
-> Please note that your on-premises environment can still have SCVMMM, but you'll configure ASR with references to only the Hyper-V hosts.
+> Please note that your on-premises environment can still have SCVMM, but you'll configure ASR with references to only the Hyper-V hosts.
 
 - Choose to continue with site-to-site replication but using the underlying [Hyper-V Replica solution](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica), but will be unable to manage DR configurations using Azure Site Recovery in the Azure portal. 
 

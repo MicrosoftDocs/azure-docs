@@ -5788,11 +5788,6 @@ featureFlags:
                                     </div>
                                 </a>
                             </li>
-                         </ul>
-                    </li>
-                    <li>
-                        <a href="#security">Security</a>
-                        <ul id="security" class="cardsA">
                             <li>
                                 <a href="https://go.microsoft.com/fwlink/?linkid=2097091">
                                     <div class="cardSize">
@@ -5831,6 +5826,11 @@ featureFlags:
                                     </div>
                                 </a>
                             </li>
+                         </ul>
+                    </li>
+                    <li>
+                        <a href="#security">Security</a>
+                        <ul id="security" class="cardsA">                            
                             <li>
                                <a href="/azure/security-center/">
                                     <div class="cardSize">
