@@ -1,6 +1,28 @@
-# Migrate existing Refresh Tokens into MSAL Python
+---
+title: Migrate existing refresh tokens for MSAL Python | Azure
+description: Learn how to migrate your Azure Active Directory Authentication Library (ADAL) Android app to the Microsoft Authentication Library (MSAL).
+services: active-directory
+author: tylermsft
+manager: CelesteDG
+editor: ''
 
-MSAL is not a low-level OAuth2 library. MSAL actually wraps and hides the concept of Refresh Token (RT) away from you.
+ms.service: active-directory
+ms.subservice: develop
+ms.devlang: na
+ms.topic: conceptual
+ms.tgt_pltfrm: Android
+ms.workload: identity
+ms.date: 11/07/2019
+ms.author: twhitney
+ms.reviewer: shoatman
+ms.custom: aaddev
+#Customer intent: As an Android application developer, I want to learn how to migrate my v1 ADAL app to v2 MSAL.
+ms.collection: M365-identity-device-management
+---
+
+# Migrate existing refresh tokens for MSAL Python
+
+MSAL is not a low-level OAuth2 library. MSAL abstracts the concept of Refresh Token (RT) away from you.
 So if you started your project with MSAL Python and following its
 [3-steps usage pattern](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/dev/README.md#usage-and-samples)
 (specifically, the step 2), you don't even need to know and care about where to store an RT, how to look it up, and when to update it.

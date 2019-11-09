@@ -209,7 +209,7 @@ For more information, see [Configure adaptive sampling for ASP.NET Core applicat
 
 ### Adding TelemetryInitializers
 
-Use [telemetry initializers](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) when you want to define global properties that are sent with all telemetry.
+Use [telemetry initializers](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer) when you want to define global properties that are sent with all telemetry.
 
 Add any new `TelemetryInitializer` to the `DependencyInjection` container as shown in the following code. The SDK automatically picks up any `TelemetryInitializer` that's added to the `DependencyInjection` container.
 
