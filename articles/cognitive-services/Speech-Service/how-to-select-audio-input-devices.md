@@ -5,6 +5,7 @@ description: Learn about selecting audio input devices in the Speech SDK (C++, C
 services: cognitive-services
 author: chlandsi
 manager: nitinme
+
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
@@ -375,7 +376,7 @@ In JavaScript the [MediaDevices.enumerateDevices()](https://developer.mozilla.or
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [explore our samples on github](https://aka.ms/csspeech/samples)
+> [Explore our samples on GitHub](https://aka.ms/csspeech/samples)
 
 ## See also
 

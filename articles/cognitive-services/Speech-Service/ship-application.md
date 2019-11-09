@@ -5,6 +5,7 @@ description: Learn how to deploy an application that uses the Speech SDK on supp
 services: cognitive-services
 author: jhakulin
 manager: nitinme
+
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
@@ -34,8 +35,8 @@ For microphone input, the Media Foundation libraries must be installed. These li
 
 The required Speech SDK files can be deployed in the same directory as your application. This way your application can directly access the libraries. Make sure you select the correct version (Win32/x64) that matches your application.
 
-| Name                                            | Function                                             |
-| :---------------------------------------------- | :--------------------------------------------------- |
+| Name | Function |
+| :--- | :------- |
 | `Microsoft.CognitiveServices.Speech.core.dll`   | Core SDK, required for native and managed deployment |
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | Required for managed deployment                      |
 

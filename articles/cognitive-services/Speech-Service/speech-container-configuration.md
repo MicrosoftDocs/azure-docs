@@ -45,9 +45,9 @@ This setting can be found in the following place:
 
 - Azure portal: **Speech's** Overview, labeled `Endpoint`
 
-| Required | Name      | Data type | Description                                                                                                                                                                                                                                                                                                                             |
-| -------- | --------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Yes      | `Billing` | String    | Billing endpoint URI. For more information on obtaining the billing URI, see [gathering required parameters](speech-container-howto.md#gathering-required-parameters). For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](../cognitive-services-custom-subdomains.md). |
+| Required | Name | Data type | Description |
+| -------- | ---- | --------- | ----------- |
+| Yes | `Billing` | String | Billing endpoint URI. For more information on obtaining the billing URI, see [gathering required parameters](speech-container-howto.md#gathering-required-parameters). For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](../cognitive-services-custom-subdomains.md). |
 
 ## Eula setting
 
@@ -73,10 +73,10 @@ The Standard Speech containers don't use input or output mounts to store trainin
 
 The exact syntax of the host mount location varies depending on the host operating system. Additionally, the [host computer](speech-container-howto.md#the-host-computer)'s mount location may not be accessible due to a conflict between permissions used by the docker service account and the host mount location permissions.
 
-| Optional    | Name     | Data type | Description                                                                                                                                                                                          |
-| ----------- | -------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Not allowed | `Input`  | String    | Standard Speech containers do not use this. Custom speech containers use [volume mounts](#volume-mount-settings).                                                                                    |
-| Optional    | `Output` | String    | The target of the output mount. The default value is `/output`. This is the location of the logs. This includes container logs. <br><br>Example:<br>`--mount type=bind,src=c:\output,target=/output` |
+| Optional | Name | Data type | Description |
+| -------- | ---- | --------- | ----------- |
+| Not allowed | `Input` | String | Standard Speech containers do not use this. Custom speech containers use [volume mounts](#volume-mount-settings).                                                                                    |
+| Optional | `Output` | String | The target of the output mount. The default value is `/output`. This is the location of the logs. This includes container logs. <br><br>Example:<br>`--mount type=bind,src=c:\output,target=/output` |
 
 ## Volume mount settings
 
@@ -110,9 +110,9 @@ The following examples use the configuration settings to illustrate how to write
 
 Replace {_argument_name_} with your own values:
 
-| Placeholder        | Value                                                                        | Format or example                                                                                                   |
-| ------------------ | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| **{API_KEY}**      | The endpoint key of the `Speech` resource on the Azure `Speech` Keys page.   | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`                                                                                  |
+| Placeholder | Value | Format or example |
+| ----------- | ----- | ----------------- |
+| **{API_KEY}** | The endpoint key of the `Speech` resource on the Azure `Speech` Keys page.   | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`                                                                                  |
 | **{ENDPOINT_URI}** | The billing endpoint value is available on the Azure `Speech` Overview page. | See [gathering required parameters](speech-container-howto.md#gathering-required-parameters) for explicit examples. |
 
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
@@ -125,7 +125,7 @@ Replace {_argument_name_} with your own values:
 
 The following Docker examples are for the Speech container.
 
-# [Speech-to-text](#tab/stt)
+## [Speech-to-text](#tab/stt)
 
 ### Basic example for Speech-to-text
 
@@ -148,7 +148,7 @@ ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
 
-# [Custom Speech-to-text](#tab/cstt)
+## [Custom Speech-to-text](#tab/cstt)
 
 ### Basic example for Custom Speech-to-text
 
@@ -175,7 +175,7 @@ ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
 
-# [Text-to-speech](#tab/tss)
+## [Text-to-speech](#tab/tss)
 
 ### Basic example for Text-to-speech
 
@@ -198,7 +198,7 @@ ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
 
-# [Custom Text-to-speech](#tab/ctts)
+## [Custom Text-to-speech](#tab/ctts)
 
 ### Basic example for Custom Text-to-speech
 

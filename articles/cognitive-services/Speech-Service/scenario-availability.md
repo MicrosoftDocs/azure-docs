@@ -5,6 +5,7 @@ description: The Speech SDK features many scenarios across a wide variety of pro
 services: cognitive-services
 author: chrisbasoglu
 manager: xdh
+
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
