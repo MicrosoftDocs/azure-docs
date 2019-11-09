@@ -106,7 +106,7 @@
 - name: Resources
   items:
     - name: Pricing
-      href: https://azure.microsoft.com/en-us/pricing/details/app-configuration/
+      href: https://azure.microsoft.com/pricing/details/app-configuration/
     - name: Videos
       items:
         - name: Getting started
