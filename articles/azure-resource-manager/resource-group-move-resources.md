@@ -239,7 +239,7 @@ Moving a resource is a complex operation that has different phases. It can invol
 
 The 4-hour window is the maximum time allowed for resource move. To prevent modifications on the resources being moved, both the source and destination resource groups are locked for the duration of the resource move.
 
-There are two phases in a move request. In the first phase, the resource is moved. In the second phase, notifications are sent to other resource providers that are dependent on the resource being moved. A resource group can be locked for the entire 4-hour window when a resource provider involved in the move fails either phase. Resource Manager retries the failed step.
+There are two phases in a move request. In the first phase, the resource is moved. In the second phase, notifications are sent to other resource providers that are dependent on the resource being moved. A resource group can be locked for the entire 4-hour window when a resource provider fails either phase. During the allowed time, Resource Manager retries the failed step.
 
 If a resource can't be moved within the 4-hour window, Resource Manager unlocks both resource groups. Resources that were successfully moved are in the destination resource group. Resources that failed to move are left the source resource group.
 
@@ -247,9 +247,19 @@ If a resource can't be moved within the 4-hour window, Resource Manager unlocks 
 
 During a resource move operation, the source and destination resource groups are locked. The lock prevents you from deleting either resource group, creating a new resource in either resource group, or deleting any of the resources involved in the move.
 
-The following image shows an error message from the Azure portal when a user tries to delete a resource that is part of an ongoing move. 
+The following image shows an error message from the Azure portal when a user tries to delete a resource that is part of an ongoing move.
 
-![Move error message attempting to delete](./media/move-error-delete.png)
+![Move error message attempting to delete](./media/resource-group-move-resources/move-error-delete.png)
+
+The next image shows the error message when a user tries to create a new resource in one of the resource groups while the move operation is ongoing.
+
+![Move error message attempting to add](./media/resource-group-move-resources/move-error-add.png)
+
+**Question: What does the error code "MissingMoveDependentResources" mean?**
+
+Every resource move requires that the dependent resources for a resource being moved either already exists in the destination resource group or Subscription or are also moved as part of the resource move action.
+
+The MissingMoveDependentResources error code means the move request failed validation. One or more of the dependent resources required for the resource move action isn't available as part of the move request. Depending on the resource provider's implementation, resource move can either check that the source resource group has all the dependent resources, or check that the Destination Resource Group/Subscription has the dependent resource(s). The Error Message returned would have details on the resources that need to be included as part of the Resource Move operation to resolve the dependencies.
 
 ## Next steps
 
