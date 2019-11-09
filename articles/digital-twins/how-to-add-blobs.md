@@ -1,6 +1,6 @@
 ---
 title: 'How to add blobs to objects - Azure Digital Twins | Microsoft Docs'
-description: Learn how to add blobs to objects in Azure Digital Twins.
+description: Learn how to add blobs to users, devices, and spaces in Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof

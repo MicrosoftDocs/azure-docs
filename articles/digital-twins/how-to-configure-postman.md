@@ -1,6 +1,6 @@
 ---
 title: How to configure Postman - Azure Digital Twins | Microsoft Docs
-description: How to configure Postman for Azure Digital Twins.
+description: Learn how to configure and use Postman to test Azure Digital Twins APIs.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof

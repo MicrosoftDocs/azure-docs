@@ -1,6 +1,6 @@
 ---
 title: Egress and endpoints - Azure Digital Twins | Microsoft Docs
-description: Guidelines on how to create endpoints with Azure Digital Twins.
+description: Learn how to create and egress event endpoints in Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
