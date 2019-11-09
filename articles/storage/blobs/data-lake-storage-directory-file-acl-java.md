@@ -3,7 +3,7 @@ title: Manage directories, files, and permissions in Azure Data Lake Storage Gen
 description: Use Azure Storage libraries for Java to manage directories and file and directory access control lists (ACL) in storage accounts that have a hierarchical namespace.
 author: normesta
 ms.service: storage
-ms.date: 11/11/2019
+ms.date: 11/08/2019
 ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
@@ -68,7 +68,7 @@ static public DataLakeServiceClient GetDataLakeServiceClient
 }      
 
 ```
-### Create a file system
+## Create a file system
 
 A file system acts as a container for your files. You can create one by calling the **DataLakeServiceClient.createFileSystem** method.
 

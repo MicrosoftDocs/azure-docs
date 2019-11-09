@@ -3,7 +3,7 @@ title: Manage directories, files, and ACLs in Azure Data Lake Storage Gen2 (.NET
 description: Use the Azure Storage client library to manage directories and file and directory access control lists (ACL) in storage accounts that have a hierarchical namespace.
 author: normesta
 ms.service: storage
-ms.date: 10/31/2019
+ms.date: 11/08/2019
 ms.author: normesta
 ms.topic: article
 ms.subservice: data-lake-storage-gen2
