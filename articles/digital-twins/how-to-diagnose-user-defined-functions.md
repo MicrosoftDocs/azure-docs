@@ -1,5 +1,5 @@
 ---
-title: 'How to debug UDFs in Azure Digital Twins | Microsoft Docs'
+title: How to debug UDFs - Azure Digital Twins | Microsoft Docs
 description: Guideline about how to debug UDFs in Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu

@@ -1,5 +1,5 @@
 ---
-title: 'How to configure Postman for Azure Digital Twins | Microsoft Docs'
+title: How to configure Postman - Azure Digital Twins | Microsoft Docs
 description: How to configure Postman for Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
