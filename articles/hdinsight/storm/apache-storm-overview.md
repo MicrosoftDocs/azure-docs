@@ -113,7 +113,7 @@ The following are some common scenarios for which you might use Storm on HDInsig
 * Search
 * Mobile engagement
 
-For information about real-world scenarios, see the [How companies are using Apache Storm](https://storm.apache.org/documentation/Powered-By.html) document.
+For information about real-world scenarios, see the [How companies are using Apache Storm](https://storm.apache.org/Powered-By.html) document.
 
 ## Development
 
