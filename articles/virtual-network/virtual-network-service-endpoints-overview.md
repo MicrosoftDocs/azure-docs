@@ -117,7 +117,7 @@ Once you configure service endpoints to a specific service, validate that the se
 
 ## Provisioning
 
-Service endpoints can be configured on virtual networks independently by a user with write access to a virtual network. To secure Azure service resources to a VNet, the user must have permission to *Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action* for the subnets being added. This permission is included in the built-in service administrator roles, by default. You can modify the permission by creating custom roles.
+Service endpoints can be configured on virtual networks independently by a user with write access to a virtual network. To secure Azure service resources to a VNet, the user must have permission to *Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action* for the added subnets. The built-in service administrator roles includes this permission by default. You can modify the permission by creating custom roles.
 
 For more information about built-in roles, see [Built-in roles for Azure resources](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json). For more information about assigning specific permissions to custom roles, see [Custom roles for Azure resources](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -125,7 +125,7 @@ Virtual networks and Azure service resources can be in the same or different sub
 
 ## Pricing and limits
 
-There's no additional charge for using service endpoints. The current pricing model for Azure services (Azure Storage, Azure SQL Database etc.) applies as is today.
+There's no additional charge for using service endpoints. The current pricing model for Azure services (Azure Storage, Azure SQL Database, etc.) applies as is today.
 
 There's no limit on the total number of service endpoints in a virtual network.
 
