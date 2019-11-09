@@ -12,7 +12,7 @@ ms.date: 10/22/2019
 ms.custom: seodec18
 ---
 
-# Diagnose and troubleshoot
+# Diagnose and troubleshoot a Preview environment
 
 This article summarizes several common problems you might encounter when you work with your Azure Time Series Insights Preview environment. The article also describes potential causes and solutions for each problem.
 

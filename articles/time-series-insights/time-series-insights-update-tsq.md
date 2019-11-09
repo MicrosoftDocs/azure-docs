@@ -12,7 +12,7 @@ ms.date: 10/21/2019
 ms.custom: seodec18
 ---
 
-# Data querying
+# Data querying in Azure Time Series Insights Preview
 
 Azure Time Series Insights Preview enables data querying on events and metadata stored in the environment via public surface APIs. These APIs also are used in the [Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).
 
