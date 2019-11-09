@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: jehollan, klam, LADocs
 ms.topic: article
-ms.date: 06/04/2019
+ms.date: 11/08/2019
 ---
 
 # Call or trigger logic apps by using Azure Functions and Azure Service Bus
