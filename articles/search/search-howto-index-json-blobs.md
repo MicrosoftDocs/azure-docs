@@ -61,17 +61,11 @@ In the **data source** page, the source must be **Azure Blob Storage**, with the
 
    ![Blob data source definition](media/search-howto-index-json/import-wizard-json-data-source.png)
 
-### 4 - Skip the "Add cognitive search" page in the wizard
+### 4 - Skip the "Enrich content" page in the wizard
 
-Adding cognitive skills is not necessary for JSON document import. Unless you have a specific need to [add AI enrichment](cognitive-search-concept-intro.md) to your indexing pipeline, you should skip this step.
+Adding cognitive skills (or enrichment) is not an import requirement. Unless you have a specific need to [add AI enrichment](cognitive-search-concept-intro.md) to your indexing pipeline, you should skip this step.
 
-To skip the step, first go to the next page.
-
-   ![Next page button for cognitive search](media/search-get-started-portal/next-button-add-cog-search.png)
-
-From that page you can skip ahead to index customization.
-
-   ![Skip cognitive skill step](media/search-get-started-portal/skip-cog-skill-step.png)
+To skip the step, click the blue buttons at the bottom of the page for "Next" and "Skip".
 
 ### 5 - Set index attributes
 
