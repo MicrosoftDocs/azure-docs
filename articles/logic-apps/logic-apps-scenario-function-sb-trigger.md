@@ -27,13 +27,13 @@ You can use [Azure Functions](../azure-functions/functions-overview.md) to trigg
 
 ## Create logic app
 
-For this scenario, you have a function running each logic app that you want to trigger. First, create a logic app that starts with an HTTP request trigger. The function calls that endpoint whenever a queue message is received.  
+For this scenario, you have a function running each logic app that you want to trigger. First, create a logic app that starts with an HTTP request trigger. The function calls that endpoint whenever a queue message is received.
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and create blank logic app.
 
    If you're new to logic apps, review [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. In the search box, enter "http request". From the triggers list, select this trigger: **When a HTTP request is received**
+1. In the search box, enter `http request`. From the triggers list, select the **When a HTTP request is received** trigger.
 
    ![Select trigger](./media/logic-apps-scenario-function-sb-trigger/when-http-request-received-trigger.png)
 
@@ -148,4 +148,4 @@ Next, create the function that acts as the trigger and listens to the queue.
 
 ## Next steps
 
-[Call, trigger, or nest workflows by using HTTP endpoints](../logic-apps/logic-apps-http-endpoint.md)
+* [Call, trigger, or nest workflows by using HTTP endpoints](../logic-apps/logic-apps-http-endpoint.md)
