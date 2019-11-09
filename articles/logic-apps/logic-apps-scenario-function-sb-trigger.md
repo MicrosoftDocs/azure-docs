@@ -99,7 +99,7 @@ Next, create the function that acts as the trigger and listens to the queue.
 
 1. Under your function app name, expand **Functions**. On the **Functions** pane, select **New function**.
 
-   ![Expand "Functions" and select "New function"](./media/logic-apps-scenario-function-sb-trigger/create-new-function.png)
+   ![Expand "Functions" and select "New function"](./media/logic-apps-scenario-function-sb-trigger/add-new-function-to-function-app.png)
 
 1. Select this template based on whether you created a new function app where you selected .NET as the runtime stack, or you're using an existing function app.
 
