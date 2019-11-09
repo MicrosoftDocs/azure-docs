@@ -5,6 +5,7 @@ description: In this article, handle Custom Commands activities on client with t
 services: cognitive-services
 author: donkim
 manager: yetian
+
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
@@ -44,11 +45,11 @@ This article describes, step by step, how to make a client application to talk t
    > [!div class="mx-imgBorder"]
    > ![Send Activity completion rule](media/custom-speech-commands/fulfill-sdk-completion-rule.png)
 
-   | Setting    | Suggested value                                  | Description                                        |
-   | ---------- | ------------------------------------------------ | -------------------------------------------------- |
-   | Rule Name  | UpdateDeviceState                                | A name describing the purpose of the rule          |
-   | Conditions | Required Parameter - `OnOff` and `SubjectDevice` | Conditions that determine when the rule can run    |
-   | Actions    | `SendActivity` (see below)                       | The action to take when the rule condition is true |
+   | Setting | Suggested value | Description |
+   | ------- | --------------- | ----------- |
+   | Rule Name | UpdateDeviceState | A name describing the purpose of the rule |
+   | Conditions | Required Parameter - `OnOff` and `SubjectDevice` | Conditions that determine when the rule can run |
+   | Actions | `SendActivity` (see below) | The action to take when the rule condition is true |
 
    > [!div class="mx-imgBorder"]
    > ![Send Activity payload](media/custom-speech-commands/fulfill-sdk-send-activity-action.png)
@@ -137,4 +138,4 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [how to: add validations to custom command parameters (preview)](./how-to-custom-speech-commands-validations.md)
+> [How to: Add validations to Custom Command parameters (preview)](./how-to-custom-speech-commands-validations.md)

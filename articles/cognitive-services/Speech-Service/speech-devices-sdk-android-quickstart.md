@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Run the Speech Devices SDK on Android"
+title: 'Quickstart: Run the Speech Devices SDK on Android'
 titleSuffix: Azure Cognitive Services
 description: Prerequisites and instructions for getting started with an Android Speech Devices SDK.
 services: cognitive-services
@@ -123,14 +123,14 @@ To validate your development kit setup, build and install the sample application
 
    This table lists supported values:
 
-   | Variable           | Meaning                    | Available values                                          |
-   | ------------------ | -------------------------- | --------------------------------------------------------- |
-   | `DeviceGeometry`   | Physical mic configuration | For a circular dev kit: `Circular6+1`                     |
-   |                    |                            | For a linear dev kit: `Linear4`                           |
-   | `SelectedGeometry` | Software mic configuration | For a circular dev kit that uses all mics: `Circular6+1`  |
-   |                    |                            | For a circular dev kit that uses four mics: `Circular3+1` |
-   |                    |                            | For a linear dev kit that uses all mics: `Linear4`        |
-   |                    |                            | For a linear dev kit that uses two mics: `Linear2`        |
+   | Variable | Meaning | Available values |
+   | -------- | ------- | ---------------- |
+   | `DeviceGeometry` | Physical mic configuration | For a circular dev kit: `Circular6+1` |
+   |          |         | For a linear dev kit: `Linear4` |
+   | `SelectedGeometry` | Software mic configuration | For a circular dev kit that uses all mics: `Circular6+1` |
+   |          |         | For a circular dev kit that uses four mics: `Circular3+1` |
+   |          |         | For a linear dev kit that uses all mics: `Linear4` |
+   |          |         | For a linear dev kit that uses two mics: `Linear2` |
 
 1. To build the application, on the **Run** menu, select **Run 'app'**. The **Select Deployment Target** dialog box appears.
 
@@ -164,4 +164,4 @@ If you cannot connect to the Speech Device. Type the following command in a Comm
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [review the release notes](devices-sdk-release-notes.md)
+> [Review the release notes](devices-sdk-release-notes.md)

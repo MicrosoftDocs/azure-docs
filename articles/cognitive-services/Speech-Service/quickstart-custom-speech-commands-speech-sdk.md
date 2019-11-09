@@ -412,5 +412,5 @@ Add the code-behind source as follows:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [how to: fulfill commands on the client with the speech sdk (preview)](./how-to-custom-speech-commands-fulfill-sdk.md)
+> [How to: Fulfill commands on the client with the Speech SDK (preview)](./how-to-custom-speech-commands-fulfill-sdk.md)
 > [How To: Add validations to Custom Command parameters (Preview)](./how-to-custom-speech-commands-validations.md)

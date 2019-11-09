@@ -5,6 +5,7 @@ description: Learn how to stream compressed audio to Azure Speech Services with 
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
+
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
@@ -12,7 +13,7 @@ ms.date: 09/20/2019
 ms.author: amishu
 ---
 
-# Using codec compressed audio input with the Speech SDK on Android
+# How to: Use codec compressed audio input with the Speech SDK on Android
 
 The Speech SDK's **Compressed Audio Input Stream** API provides a way to stream compressed audio to the Speech Service using PullStream or PushStream.
 
@@ -155,5 +156,4 @@ String text = result.getText();
 ## Next steps
 
 - [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-
-* [See how to recognize speech in Java](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java)
+- [See how to recognize speech in Java](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java)

@@ -1,10 +1,11 @@
 ---
-title: "Quickstart: Run the Speech Devices SDK on Windows"
+title: 'Quickstart: Run the Speech Devices SDK on Windows'
 titleSuffix: Azure Cognitive Services
 description: Prerequisites and instructions for getting started with a Windows Speech Devices SDK.
 services: cognitive-services
 author: erhopf
 manager: nitinme
+
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
@@ -137,4 +138,4 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [review the release notes](devices-sdk-release-notes.md)
+> [Review the release notes](devices-sdk-release-notes.md)
