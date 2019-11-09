@@ -47,7 +47,7 @@ Here are a few examples of normalization that you should perform on the transcri
 | --------------------------- | ------------------------------------- |
 | Dr. Bruce Banner            | Doctor Bruce Banner                   |
 | James Bond, 007             | James Bond, double oh seven           |
-| Ke\$ha                      | Kesha                                 |
+| Ke$ha                       | Kesha                                 |
 | How long is the 2x4         | How long is the two by four           |
 | The meeting goes from 1-3pm | The meeting goes from one to three pm |
 | My blood type is O+         | My blood type is O positive           |
