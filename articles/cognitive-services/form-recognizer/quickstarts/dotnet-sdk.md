@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Form Recognizer client library for .NET | Microsoft Docs"
-description: Get started with the Form Recognizer client library for .NET.
+description: Get started with the Form Recognizer client library for .NET to train, extract, analyze and get structured data output.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
