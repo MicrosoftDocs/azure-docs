@@ -1,6 +1,5 @@
 ---
 title: Azure IoT Hub Device Provisioning Service - Security concepts
-123456789.123456789.123456789.123456789.123456789.123456789.
 description: Describes security provisioning concepts specific to devices with Device Provisioning Service and IoT Hub
 author: nberdy
 ms.author: nberdy
