@@ -245,7 +245,7 @@ If a resource can't be moved within the 4-hour window, Resource Manager unlocks 
 
 **Question: What are the implications of the source and destination resource groups being locked during the resource move?**
 
-During a resource move operation, the source and destination resource groups are locked. The lock prevents you from deleting either resource group, creating a new resource in either resource group, or deleting any of the resources involved in the move.
+The lock prevents you from deleting either resource group, creating a new resource in either resource group, or deleting any of the resources involved in the move.
 
 The following image shows an error message from the Azure portal when a user tries to delete a resource that is part of an ongoing move.
 
@@ -257,9 +257,9 @@ The next image shows the error message when a user tries to create a new resourc
 
 **Question: What does the error code "MissingMoveDependentResources" mean?**
 
-When moving a resource, its dependent resources must already exist in the destination resource group or subscription, or be included in the move request. You get the MissingMoveDependentResources error code when one or more of the dependent resources doesn't meet this requirement. The error message has details about the dependent resource that needs to be included in the move request.
+When moving a resource, its dependent resources must either exist in the destination resource group or subscription, or be included in the move request. You get the MissingMoveDependentResources error code when a dependent resource doesn't meet this requirement. The error message has details about the dependent resource that needs to be included in the move request.
 
-For example, moving a virtual machine could require moving seven resource types in three different resource providers. Those resource providers and types are:
+For example, moving a virtual machine could require moving seven resource types with three different resource providers. Those resource providers and types are:
 
 * Microsoft.Compute
    * virtualMachines
@@ -272,7 +272,7 @@ For example, moving a virtual machine could require moving seven resource types 
 * Microsoft.Storage
   * storageAccounts
 
-When moving a virtual network, you may have to move all other resource associated with that virtual network. The move request may require also moving public IP addresses, route tables, virtual network gateways, network security groups, and others.
+Another common example involves moving a virtual network. You may have to move several other resources associated with that virtual network. The move request could require moving public IP addresses, route tables, virtual network gateways, network security groups, and others.
 
 **Question: Why can’t I move some resources in Azure?**
 
