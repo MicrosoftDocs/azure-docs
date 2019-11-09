@@ -176,7 +176,7 @@ var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 
 Lastly, [cURL](https://curl.haxx.se/) users can make multipart form requests in the same manner:
 
-[![Device blobs](media/how-to-add-blobs/curl-img.png)](media/how-to-add-blobs/curl-img.png#lightbox)
+[![cURL example](media/how-to-add-blobs/curl-img.png)](media/how-to-add-blobs/curl-img.png#lightbox)
 
 ```bash
 curl -X POST "YOUR_MANAGEMENT_API_URL/spaces/blobs" \
