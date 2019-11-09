@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Deploy Azure Digital Twins | Microsoft Docs'
+title: 'Tutorial: Deploy a spatial graph - Azure Digital Twins | Microsoft Docs'
 description: Learn how to deploy your instance of Azure Digital Twins and configure your spatial resources by using the steps in this tutorial.
 services: digital-twins
 ms.author: alinast
