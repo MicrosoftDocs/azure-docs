@@ -92,21 +92,21 @@ This trigger starts a logic app workflow when the trigger detects when a file is
 
 1. For blank logic apps, in the search box, enter `ftp` as your filter. From the triggers list, select the **When a file is added or modified (properties only)** trigger.
 
-   ![Find and select the FTP trigger](./media/connectors-create-api-ftp/add-ftp-trigger-logic-app.png)  
+   ![Find and select the FTP trigger](./media/connectors-create-api-ftp/add-ftp-trigger-logic-app.png)
 
 1. Provide the necessary details for your connection, and then select **Create**.
 
    By default, this connector transfers files in text format. To transfer files in binary format, for example, where and when encoding is used, select **Binary Transport**.
 
-   ![Create connection to FTP server](./media/connectors-create-api-ftp/create-ftp-connection-trigger.png)  
+   ![Create connection to FTP server](./media/connectors-create-api-ftp/create-ftp-connection-trigger.png)
 
-1. Next to the **Folder** box, select the folder icon so a list appears. To find the folder you want to monitor for new or edited files, select the right angle arrow (**>**), browse to that folder, and then select the folder.
+1. In to the **Folder** property box, select the folder icon so that a list appears. To find the folder you want to monitor for new or edited files, select the right angle arrow (**>**), browse to that folder, and then select the folder.
 
-   ![Find and select folder to monitor](./media/connectors-create-api-ftp/select-folder.png)
+   ![Find and select folder to monitor](./media/connectors-create-api-ftp/select-folder-ftp-trigger.png)
 
-   Your selected folder appears in the **Folder** box.
+   Your selected folder appears in the **Folder** property.
 
-   ![Selected folder appears in the "Folder" property](./media/connectors-create-api-ftp/selected-folder.png)  
+   ![Selected folder appears in the "Folder" property](./media/connectors-create-api-ftp/selected-folder-ftp-trigger.png)
 
 Now that your logic app has a trigger, add the actions you want to run when your logic app finds a new or edited file. For this example, you can add an FTP action that gets the new or updated content.
 
@@ -120,7 +120,7 @@ This action gets the content from a file on an FTP server when that file is adde
 
 1. In the search box, enter `ftp` as your filter. From the actions list, select the **Get file content** action.
 
-   ![Select the "Get file content" action](./media/connectors-create-api-ftp/select-ftp-action.png)  
+   ![Select the "Get file content" action](./media/connectors-create-api-ftp/select-get-file-content-ftp-action.png)
 
 1. If you already have a connection to your FTP server and account, go to the next step. Otherwise, provide the necessary details for that connection, and then select **Create**.
 
@@ -128,11 +128,17 @@ This action gets the content from a file on an FTP server when that file is adde
 
 1. After the **Get file content** action opens, click inside the **File** box so that the dynamic content list appears. You can now select properties for the outputs from previous steps. From the dynamic content list, select the **List of Files Name** property, which contains the name of the added or updated file.
 
-   ![Find and select file](./media/connectors-create-api-ftp/ftp-action-get-file-content.png)
+   ![Find and select "List of Files Name" property](./media/connectors-create-api-ftp/select-list-of-file-names-output.png)
 
    The **List of Files Name** property now appears in the **File** box.
 
-   ![Selected "List of Files Name" property](./media/connectors-create-api-ftp/ftp-action-selected-file-content-property.png)
+   ![Selected "List of Files Name" property](./media/connectors-create-api-ftp/selected-list-file-names-ftp-action.png)
+
+1. Under the **Get file content** action, add another **Get file content** action.
+
+1. In the second **Get file content** action, click inside the **File** box so that the dynamic content list appears. This time, select the **File content** property, which lets you reference the content in the added or updated file.
+
+   ![Find and select "File content" property](./media/connectors-create-api-ftp/selected-file-content-ftp-action.png)
 
 1. Save your logic app. To test your workflow, add a file to the FTP folder that your logic app now monitors.
 
