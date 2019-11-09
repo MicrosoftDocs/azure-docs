@@ -6,7 +6,7 @@ author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
-author: tagore
+ms.author: tagore
 
 ---
 # How to configure and run startup tasks for a cloud service
@@ -157,5 +157,6 @@ Learn how to perform some [common startup tasks](cloud-services-startup-tasks-co
 [Variable]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
+
 
 

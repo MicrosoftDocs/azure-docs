@@ -7,7 +7,7 @@ author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 12/07/2016
-author: tagore
+ms.author: tagore
 
 ---
 # How to Configure Cloud Services
@@ -99,5 +99,6 @@ You may need to reconfigure your cloud service through the [service config (cscf
 * Configure a [custom domain name](cloud-services-custom-domain-name-portal.md).
 * [Manage your cloud service](cloud-services-how-to-manage-portal.md).
 * Configure [ssl certificates](cloud-services-configure-ssl-certificate-portal.md).
+
 
 

@@ -8,7 +8,7 @@ layout: LandingPage
 ms.service: cloud-services
 ms.topic: landing-page
 ms.date: 01/23/2017
-author: tagore
+ms.author: tagore
 ---
 # Cloud Services Documentation
 
@@ -125,6 +125,7 @@ Learn how to use Cloud Services to host and run highly available, scalable cloud
         </div>
     </li>
 </ul>
+
 
 
 

@@ -8,7 +8,7 @@ ms.service: cloud-services
 ms.devlang: python
 ms.topic: conceptual
 ms.date: 07/18/2017
-author: tagore
+ms.author: tagore
 
 ---
 # Python web and worker roles with Python Tools for Visual Studio
@@ -358,5 +358,6 @@ For more details about using Azure services from your web and worker roles, such
 [Azure SDK Tools for VS 2017]: https://go.microsoft.com/fwlink/?LinkId=746483
 [Python 2.7 32-bit]: https://www.python.org/downloads/
 [Python 3.5 32-bit]: https://www.python.org/downloads/
+
 
 

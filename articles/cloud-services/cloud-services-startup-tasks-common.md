@@ -7,7 +7,7 @@ author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
-author: tagore
+ms.author: tagore
 
 ---
 # Common Cloud Service startup tasks
@@ -507,5 +507,6 @@ Learn more about how [Tasks](cloud-services-startup-tasks.md) work.
 [LocalStorage]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
+
 
 

@@ -6,7 +6,7 @@ author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
-author: tagore
+ms.author: tagore
 
 ---
 # Expose role configuration settings as an environment variable with XPath
@@ -156,6 +156,7 @@ Learn more about the [ServiceConfiguration.cscfg](cloud-services-model-and-packa
 Create a [ServicePackage.cspkg](cloud-services-model-and-package.md#servicepackagecspkg) package.
 
 Enable [remote desktop](cloud-services-role-enable-remote-desktop-new-portal.md) for a role.
+
 
 
 

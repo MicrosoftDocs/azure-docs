@@ -7,7 +7,7 @@ author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
-author: tagore
+ms.author: tagore
 
 ---
 # Sizes for Cloud Services
@@ -211,5 +211,6 @@ Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceS
 ## Next steps
 * Learn about [azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 * Learn more [about high performance compute VM sizes](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for HPC workloads.
+
 
 

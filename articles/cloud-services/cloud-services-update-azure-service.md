@@ -6,7 +6,7 @@ author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
-author: tagore
+ms.author: tagore
 
 ---
 # How to update a cloud service
@@ -178,5 +178,6 @@ The following diagram illustrates how a service than contains two roles are dist
 [How to Manage Cloud Services](cloud-services-how-to-manage-portal.md)  
 [How to Monitor Cloud Services](cloud-services-how-to-monitor.md)  
 [How to Configure Cloud Services](cloud-services-how-to-configure-portal.md)  
+
 
 

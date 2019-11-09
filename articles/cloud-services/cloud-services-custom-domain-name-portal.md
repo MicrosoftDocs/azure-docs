@@ -7,7 +7,7 @@ author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
-author: tagore
+ms.author: tagore
 
 ---
 # Configuring a custom domain name for an Azure cloud service
@@ -135,5 +135,6 @@ This example demonstrates creating an A record for the root domain. If you wish 
 [Azure portal]: https://portal.azure.com
 [vip]: ./media/cloud-services-custom-domain-name-portal/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
+
 
 

@@ -9,7 +9,7 @@ ms.service: cloud-services
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
-author: tagore
+ms.author: tagore
 
 ---
 # Get started with Azure Cloud Services and ASP.NET
@@ -772,5 +772,6 @@ For more information, see the following resources:
 * [How to manage Cloud Services](cloud-services-how-to-manage-portal.md)
 * [Azure Storage](https://docs.microsoft.com/azure/storage/)
 * [How to choose a cloud service provider](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
+
 
 
