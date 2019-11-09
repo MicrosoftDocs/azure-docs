@@ -1599,6 +1599,8 @@
         href: mypolicies-provisioning-tutorial.md
       - name: Mindtickle
         href: mindtickle-provisioning-tutorial.md
+      - name: Miro
+        href: miro-provisioning-tutorial.md
     - name: N - Z
       items:
       - name: Netsuite
@@ -1641,6 +1643,8 @@
         href: smartfile-provisioning-tutorial.md
       - name: StarLeaf
         href: starleaf-provisioning-tutorial.md
+      - name: Storegate
+        href: storegate-provisioning-tutorial.md
       - name: Signagelive
         href: signagelive-provisioning-tutorial.md
       - name: Tableau Online
