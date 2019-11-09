@@ -1,6 +1,6 @@
 ---
-title: 'Query data from an Azure Time Series Insights GA environment using C# code | Microsoft Docs'
-description: This article describes how to query data from an Azure Time Series Insights environment by coding a custom app written in the  C# (C-sharp) .NET language.
+title: 'Query data from a GA environment using C# code - Azure Time Series Insights | Microsoft Docs'
+description: Learn how to query data from an Azure Time Series Insights environment using a custom app written in C#.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled

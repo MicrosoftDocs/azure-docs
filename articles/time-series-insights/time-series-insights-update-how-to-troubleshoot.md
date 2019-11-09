@@ -1,6 +1,6 @@
 ﻿---
-title: 'Diagnose and troubleshoot Azure Time Series Insights Preview | Microsoft Docs'
-description: Understand how to diagnose and troubleshoot with Azure Time Series Insights Preview.
+title: 'Diagnose and troubleshoot a Preview environment - Azure Time Series Insights | Microsoft Docs'
+description: Learn how to diagnose and troubleshoot an Azure Time Series Insights Preview environment.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
