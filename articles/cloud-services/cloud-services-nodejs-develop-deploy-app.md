@@ -3,7 +3,7 @@ title: Node.js Getting Started Guide
 description: Learn how to create a simple Node.js web application and deploy it to an Azure cloud service.
 services: cloud-services
 documentationcenter: nodejs
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.devlang: nodejs
 ms.topic: conceptual
@@ -177,3 +177,4 @@ For more information, see the [Node.js Developer Center].
 [A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
 [The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
 [The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
+

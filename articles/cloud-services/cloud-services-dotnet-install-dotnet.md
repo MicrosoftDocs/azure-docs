@@ -3,7 +3,7 @@ title: Install .NET on Azure Cloud Services roles | Microsoft Docs
 description: This article describes how to manually install the .NET Framework on your cloud service web and worker roles
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 manager: carmonm
 ms.service: cloud-services
 ms.devlang: dotnet
@@ -229,3 +229,4 @@ When you deploy your cloud service, the startup tasks install the .NET Framework
 <!--Image references-->
 [1]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithinstallerfiles.png
 [2]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithallfiles.png
+

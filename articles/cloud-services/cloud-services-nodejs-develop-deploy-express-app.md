@@ -3,7 +3,7 @@ title: Build and deploy a Node.js Express app to Azure Cloud Services
 description: Build and deploy a Express.js application in Node.js to Azure Cloud Services
 services: cloud-services
 documentationcenter: nodejs
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.devlang: nodejs
 ms.topic: article
@@ -120,5 +120,6 @@ For more information, see the [Node.js Developer Center](https://docs.microsoft.
 [Node.js Web Application]: https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
 [Express]: https://expressjs.com/
 [http://jade-lang.com]: http://jade-lang.com
+
 
 

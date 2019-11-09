@@ -3,7 +3,7 @@ title: Common startup tasks for Cloud Services | Microsoft Docs
 description: Provides some examples of common startup tasks you may want to perform in your cloud services web role or worker role.
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
@@ -507,3 +507,4 @@ Learn more about how [Tasks](cloud-services-startup-tasks.md) work.
 [LocalStorage]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
+

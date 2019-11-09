@@ -3,7 +3,7 @@ title: Common cloud service management tasks | Microsoft Docs
 description: Learn how to manage Cloud Services in the Azure portal. These examples use the Azure portal.
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
@@ -119,3 +119,4 @@ The **Overview** blade has a status bar at the top. When you select the bar, a n
 * Learn how to [deploy a cloud service](cloud-services-how-to-create-deploy-portal.md).
 * Configure a [custom domain name](cloud-services-custom-domain-name-portal.md).
 * Configure [SSL certificates](cloud-services-configure-ssl-certificate-portal.md).
+

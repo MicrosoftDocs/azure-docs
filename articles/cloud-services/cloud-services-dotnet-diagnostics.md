@@ -3,7 +3,7 @@ title: How to use Azure diagnostics (.NET) with Cloud Services | Microsoft Docs
 description: Using Azure diagnostics to gather data from Azure cloud Services for debugging, measuring performance, monitoring, traffic analysis, and more.
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 manager: carmonm
 ms.service: cloud-services
 ms.devlang: dotnet
@@ -196,3 +196,4 @@ If you have trouble, see [Troubleshooting Azure Diagnostics](../azure-diagnostic
 [Collect Logging Data by Using Azure Diagnostics]: https://msdn.microsoft.com/library/windowsazure/gg433048.aspx
 [Free Trial]: https://azure.microsoft.com/pricing/free-trial/
 [Install and configure Azure PowerShell version 0.8.7 or later]: https://azure.microsoft.com/documentation/articles/install-configure-powershell/
+

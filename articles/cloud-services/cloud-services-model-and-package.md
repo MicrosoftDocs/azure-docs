@@ -2,7 +2,7 @@
 title: What is a Cloud Service model and package | Microsoft Docs
 description: Describes the cloud service model (.csdef, .cscfg) and package (.cspkg) in Azure
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
@@ -284,3 +284,4 @@ I am using Visual Studio and I want to...
 [vs_deploy]: ../vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
 [vs_create]: ../vs-azure-tools-azure-project-create.md
+

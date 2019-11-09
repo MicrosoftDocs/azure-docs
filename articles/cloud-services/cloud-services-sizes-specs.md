@@ -3,7 +3,7 @@ title: Virtual machine sizes for Azure Cloud services | Microsoft Docs
 description: Lists the different virtual machine sizes (and IDs) for Azure cloud service web and worker roles.
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
@@ -211,3 +211,4 @@ Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceS
 ## Next steps
 * Learn about [azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 * Learn more [about high performance compute VM sizes](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for HPC workloads.
+

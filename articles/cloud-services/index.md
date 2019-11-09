@@ -2,7 +2,7 @@
 title: Azure Cloud Services Documentation - Tutorials, API Reference | Microsoft Docs
 description: Tutorials, API references and other documentation show you how to use Cloud Services to host and run highly available and scalable cloud applications and APIs.
 services: cloud-services
-author: georgewallace
+author: tgore03
 manager: gwallace
 layout: LandingPage
 ms.service: cloud-services
@@ -125,3 +125,4 @@ Learn how to use Cloud Services to host and run highly available, scalable cloud
         </div>
     </li>
 </ul>
+
