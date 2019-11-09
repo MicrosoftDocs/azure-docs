@@ -5,6 +5,7 @@ description: Get started with the Speech Devices SDK. The Speech Service works w
 services: cognitive-services
 author: erhopf
 manager: nitinme
+
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
@@ -47,6 +48,6 @@ The application is built with the Speech SDK package, and the Eclipse Java IDE (
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [choose your speech device](get-speech-devices-sdk.md)
+> [Choose your speech device](get-speech-devices-sdk.md)
 > [!div class="nextstepaction"]
 > [Get a Speech Service subscription key for free](get-started.md)

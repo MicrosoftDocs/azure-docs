@@ -5,6 +5,7 @@ description: To improve speech recognition accuracy, such as when words are dele
 services: cognitive-services
 author: erhopf
 manager: nitinme
+
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
@@ -24,11 +25,11 @@ Human-labeled transcriptions for English audio must be provided as plain text, o
 
 Here are a few examples:
 
-| Characters to avoid           | Substitution                   | Notes                                                                                             |
-| ----------------------------- | ------------------------------ | ------------------------------------------------------------------------------------------------- |
-| “Hello world”                 | "Hello world"                  | The opening and closing quotations marks have been substituted with appropriate ASCII characters. |
-| John’s day                    | John's day                     | The apostrophe has been substituted with the appropriate ASCII character.                         |
-| it was good—no, it was great! | it was good--no, it was great! | The em dash was substituted with two hyphens.                                                     |
+| Characters to avoid | Substitution | Notes |
+| ------------------- | ------------ | ----- |
+| “Hello world” | "Hello world" | The opening and closing quotations marks have been substituted with appropriate ASCII characters. |
+| John’s day | John's day | The apostrophe has been substituted with the appropriate ASCII character. |
+| it was good—no, it was great! | it was good--no, it was great! | The em dash was substituted with two hyphens. |
 
 ### Text normalization for US English
 
@@ -79,10 +80,10 @@ Human-labeled transcriptions for Mandarin Chinese audio must be UTF-8 encoded wi
 
 Here are a few examples:
 
-| Characters to avoid | Substitution   | Notes                                                                                       |
-| ------------------- | -------------- | ------------------------------------------------------------------------------------------- |
-| "你好"              | "你好"         | The opening and closing quotations marks have been substituted with appropriate characters. |
-| 需要什么帮助?       | 需要什么帮助？ | The question mark has been substituted with appropriate character.                          |
+| Characters to avoid | Substitution   | Notes |
+| ------------------- | -------------- | ----- |
+| "你好" | "你好" | The opening and closing quotations marks have been substituted with appropriate characters. |
+| 需要什么帮助? | 需要什么帮助？| The question mark has been substituted with appropriate character. |
 
 ### Text normalization for Mandarin Chinese
 
@@ -95,8 +96,8 @@ Here are a few examples of normalization that you should perform on the transcri
 
 | Original text | Text after normalization |
 | ------------- | ------------------------ |
-| 我今年 21     | 我今年二十一             |
-| 3 号楼 504    | 三号 楼 五 零 四         |
+| 我今年 21 | 我今年二十一 |
+| 3 号楼 504 | 三号 楼 五 零 四 |
 
 The following normalization rules are automatically applied to transcriptions:
 
@@ -107,15 +108,15 @@ The following normalization rules are automatically applied to transcriptions:
 
 Here are a few examples of normalization automatically performed on the transcription:
 
-| Original text     | Text after normalization   |
-| ----------------- | -------------------------- |
-| 3.1415            | 三 点 一 四 一 五          |
-| ￥ 3.5            | 三 元 五 角                |
-| w f y z           | W F Y Z                    |
+| Original text | Text after normalization |
+| ------------- | ------------------------ |
+| 3.1415 | 三 点 一 四 一 五 |
+| ￥ 3.5 | 三 元 五 角 |
+| w f y z | W F Y Z |
 | 1992 年 8 月 8 日 | 一 九 九 二 年 八 月 八 日 |
-| 你吃饭了吗?       | 你 吃饭 了 吗              |
-| 下午 5:00 的航班  | 下午 五点 的 航班          |
-| 我今年 21 岁      | 我 今年 二十 一 岁         |
+| 你吃饭了吗? | 你 吃饭 了 吗 |
+| 下午 5:00 的航班 | 下午 五点 的 航班 |
+| 我今年 21 岁 | 我 今年 二十 一 岁 |
 
 ## German (de-DE) and other languages
 

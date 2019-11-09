@@ -5,6 +5,7 @@ description: The speech-to-text feature enables real-time transcription of audio
 services: cognitive-services
 author: erhopf
 manager: nitinme
+
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
@@ -24,16 +25,16 @@ You can easily capture audio from a microphone, read from a stream, or access au
 
 Here are the features available via the Speech SDK and REST APIs:
 
-| Use case                                                                                                                         | SDK | REST    |
-| -------------------------------------------------------------------------------------------------------------------------------- | --- | ------- |
-| Transcribe short utterances (<15 seconds). Only supports final transcription result.                                             | Yes | Yes     |
-| Continuous transcription of long utterances and streaming audio (>15 seconds). Supports interim and final transcription results. | Yes | No      |
-| Derive intents from recognition results with [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis).      | Yes | No\*    |
-| Batch transcription of audio files asynchronously.                                                                               | No  | Yes\*\* |
-| Create and manage speech models.                                                                                                 | No  | Yes\*\* |
-| Create and manage custom model deployments.                                                                                      | No  | Yes\*\* |
-| Create accuracy tests to measure the accuracy of the baseline model versus custom models.                                        | No  | Yes\*\* |
-| Manage subscriptions.                                                                                                            | No  | Yes\*\* |
+| Use case | SDK | REST |
+|--------- | --- | ---- |
+| Transcribe short utterances (<15 seconds). Only supports final transcription result. | Yes | Yes |
+| Continuous transcription of long utterances and streaming audio (>15 seconds). Supports interim and final transcription results. | Yes | No |
+| Derive intents from recognition results with [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis). | Yes | No\* |
+| Batch transcription of audio files asynchronously. | No  | Yes\*\* |
+| Create and manage speech models. | No | Yes\*\* |
+| Create and manage custom model deployments. | No  | Yes\*\* |
+| Create accuracy tests to measure the accuracy of the baseline model versus custom models. | No  | Yes\*\* |
+| Manage subscriptions. | No  | Yes\*\* |
 
 \*_LUIS intents and entities can be derived using a separate LUIS subscription. With this subscription, the SDK can call LUIS for you and provide entity and intent results. With the REST API, you can call LUIS yourself to derive intents and entities with your LUIS subscription._
 
@@ -41,7 +42,7 @@ Here are the features available via the Speech SDK and REST APIs:
 
 ## Get started with speech-to-text
 
-We offer quickstarts in most popular programming languages, each designed to have you running code in less than 10 minutes. [This table](https://aka.ms/csspeech#5-minute-quickstarts) includes a complete list of Speech SDK quickstarts organized by platfrom and language. API reference can also be found [here](https://aka.ms/csspeech#reference).
+We offer quickstarts in most popular programming languages, each designed to have you running code in less than 10 minutes. [This table](https://aka.ms/csspeech#5-minute-quickstarts) includes a complete list of Speech SDK quickstarts organized by platform and language. API reference can also be found [here](https://aka.ms/csspeech#reference).
 
 If you prefer to use the speech-to-text REST service, see [REST APIs](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
@@ -66,7 +67,7 @@ In addition to the standard baseline model used by the Speech Services, you can 
 ## Migration guides
 
 > [!WARNING]
-> Bing Speech will be decommissioned on October 15, 2019.
+> Bing Speech was decommissioned on October 15, 2019.
 
 If your applications, tools, or products are using the Bing Speech APIs or Custom Speech, we've created guides to help you migrate to Speech Services.
 
