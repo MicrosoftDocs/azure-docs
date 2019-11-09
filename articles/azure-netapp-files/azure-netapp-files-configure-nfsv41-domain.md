@@ -40,20 +40,20 @@ As the above example shows, the user for `file1` should be `root`, but it maps t
     
     ![Updated configuration for NFSv4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-updated-config.png)
 
-2. Umount any currently mounted NFS volumes.
+2. Unmount any currently mounted NFS volumes.
 3. Update the `/etc/idmapd.conf` file.
 4. Restart the `rpcbind` service on your host (`service rpcbind restart`), or simply reboot the host.
 5. Mount the NFS volumes as required.   
 
     See [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md). 
 
-    The following example shows the resulting user/group change: 
+The following example shows the resulting user/group change: 
 
-    ![Resulting configuration for NFSv4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-resulting-config.png)
+![Resulting configuration for NFSv4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-resulting-config.png)
 
-    As the example shows, the user/group has now changed from `nobody` to `root`.
+As the example shows, the user/group has now changed from `nobody` to `root`.
 
-## Behavior about other (non-root) users and groups
+## Behavior of other (non-root) users and groups
 
 Azure NetApp Files supports local users (users created locally on a host) who have permissions associated with files or folders in NFSv4.1 volumes. However, the service does not currently support mapping the users/groups across multiple nodes. Therefore, users created on one host do not map by default to users created on another host. 
 

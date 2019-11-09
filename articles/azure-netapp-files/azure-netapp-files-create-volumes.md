@@ -110,7 +110,7 @@ A subnet must be delegated to Azure NetApp Files.
 
 ## Next steps  
 
-* [Configure NFSv4.1 default domain for Azure NetApp File(azure-netapp-files-configure-nfsv41-domain.md)
+* [Configure NFSv4.1 default domain for Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md)
 * [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Configure export policy for an NFS volume](azure-netapp-files-configure-export-policy.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
