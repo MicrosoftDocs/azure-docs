@@ -50,7 +50,7 @@ Enable Advanced Data Security for SQL Servers on Virtual Machines at the subscri
     Advanced Data Security for SQL Servers will be enabled on all SQL Servers connected to the selected workspace or the default workspace of the selected subscription.
 
     >[!NOTE]
-    > The solution will be active after the first restart of the SQL Server. 
+    > The solution will be fully active after the first restart of the SQL Server. 
 
 To create a new workspace, follow the instructions in [Create a Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
