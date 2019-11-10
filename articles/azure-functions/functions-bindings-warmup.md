@@ -252,6 +252,8 @@ No additional information is provided to a warmup triggered function when it is 
 
 ## Trigger - limits
 
+The warmup trigger is only available to apps running on the [Premium plan](./functions-premium-plan.md).
+
 The warmup trigger will only be invoked when a new instance is added to your running function app. It will not be invoked, for instance, when you restart your application. Because of this you should write your logic using lazy loading, or some other scheme to ensure you can load all necessary dependencies without using the warmup trigger. For example, the warmup trigger is not called when you restart your application.
 
 The warmup trigger cannot be invoked once an instance is already running.
