@@ -15,7 +15,7 @@ ms.author: alkarche
 
 # Azure Functions Warmup Trigger
 
-This article explains how to work with the warmup trigger in Azure Functions. This trigger type allows your function app to pre-load custom dependencies during the [pre-warming process](./functions-premium-plan.md#pre-warmed-instances) when running in the in the [Premium plan](./functions-premium-plan.md). You can use a warmup trigger to ensure your functions have already loaded all of their dependencies when they start processing requests.
+This article explains how to work with the warmup trigger in Azure Functions. This trigger type allows your function app to pre-load custom dependencies during the [pre-warming process](./functions-premium-plan.md#pre-warmed-instances) when running in the [Premium plan](./functions-premium-plan.md). You can use a warmup trigger to ensure your functions have already loaded all of their dependencies when they start processing requests.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -39,7 +39,11 @@ However, because the warmup trigger is only called during scale up operations, y
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that will run on each new instance when it is added to your app. A return value attribute isn't required.
 
-Your function must be named ```warmup``` and there may only be one warmup function per app.
+
+* Your function must be named ```warmup``` and there may only be one warmup function per app.
+* To use warmup in dotnet functions, please make sure you have a package reference to **Microsoft.Azure.WebJobs.Extensions >= 3.0.5**
+    * ```<PackageReference Include="Microsoft.Azure.WebJobs.Extensions" Version="3.0.5" />```
+
 
 Placeholder comments show where in the application to declare and initialize shared dependencies. 
 [Learn more about shared dependencies here](./manage-connections.md#client-code-examples).
@@ -66,7 +70,6 @@ namespace WarmupSample
     }
 }
 ```
-
 # [C# Script](#tab/csharp-script)
 
 
@@ -249,7 +252,7 @@ No additional information is provided to a warmup triggered function when it is 
 
 ## Trigger - limits
 
-The warmup trigger will only by invoked when a new instance is added to your running function app. It will not be invoked, for instance, when you restart your application. Because of this you should write your logic using lazy loading, or some other scheme to ensure you can load all necessary dependencies without using the warmup trigger. For example, the warmup trigger is not called when you restart your application.
+The warmup trigger will only be invoked when a new instance is added to your running function app. It will not be invoked, for instance, when you restart your application. Because of this you should write your logic using lazy loading, or some other scheme to ensure you can load all necessary dependencies without using the warmup trigger. For example, the warmup trigger is not called when you restart your application.
 
 The warmup trigger cannot be invoked once an instance is already running.
 
