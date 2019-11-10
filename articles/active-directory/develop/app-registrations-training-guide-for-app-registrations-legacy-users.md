@@ -1,5 +1,5 @@
 ---
-title: App registrations in the Azure portal training guide - Azure
+title: Azure portal app registrations training guide (legacy) - Azure
 description: An introduction to the new application registration experience in the Microsoft identity platform.
 services: active-directory
 documentationcenter: ''
@@ -20,7 +20,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Training guide: App registrations in the Azure portal
+# Training guide: App registrations in the Azure portal (legacy)
 
 You can find numerous improvements in the new [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience in the Azure portal. If you're more familiar with the legacy experience, use this training guide to get you started using the new experience.
 
