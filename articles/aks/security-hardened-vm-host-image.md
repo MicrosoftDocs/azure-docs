@@ -26,7 +26,7 @@ The goal of the security hardened host OS is to reduce the surface area of attac
 
 * AKS provides a security optimized host OS by default. There is no current option to select an alternate operating system. 
 
-* Azure applies daily patches (including security patches) to AKS virtual machine hosts. Some of these patches will require a reboot, while others will not. You are responsible for scheduling AKS VM host reboots as needed. For guidance on how to automate AKS patching see [patching AKS nodes](https://docs.microsoft.com/en-us/azure/aks/node-updates-kured).
+* Azure applies daily patches (including security patches) to AKS virtual machine hosts. Some of these patches will require a reboot, while others will not. You are responsible for scheduling AKS VM host reboots as needed. For guidance on how to automate AKS patching see [patching AKS nodes](https://docs.microsoft.com/azure/aks/node-updates-kured).
 
 Below is a summary of image hardening work that is implemented in AKS-Engine to produce the security optimized host OS. The work was implemented [in this GitHub project](https://github.com/Azure/aks-engine/projects/7).  
 

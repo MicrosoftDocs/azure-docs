@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 11/08/2019
 ms.author: diberry
 ---
 
@@ -36,8 +36,10 @@ Learn about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
 Both authoring and prediction endpoint APIS are available from REST APIs:
 
-* Authoring [reference documentation](https://go.microsoft.com/fwlink/?linkid=2092087)
-* Prediction runtime [reference documentation](https://go.microsoft.com/fwlink/?linkid=2092356)
+|Type|Version|
+|--|--|
+|Authoring|[V2](https://go.microsoft.com/fwlink/?linkid=2092087)<br>[preview V3](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview)|
+|Prediction|[V2](https://go.microsoft.com/fwlink/?linkid=2092356)<br>[V3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/)|
 
 ### Language-based SDKs
 

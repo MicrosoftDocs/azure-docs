@@ -1,6 +1,6 @@
 ---
 title: Manual failover of an Azure IoT hub | Microsoft Docs
-description: Show how to perform a manual failover for an Azure IoT hub
+description: Learn how to perform a manual failover of your IoT hub to a different region and confirm it's working, and then return it to the original region and check it again.
 author: robinsh
 manager: timlt
 ms.service: iot-hub

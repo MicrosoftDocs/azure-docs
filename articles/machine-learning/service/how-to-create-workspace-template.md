@@ -6,15 +6,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-
 ms.author: larryfr
 author: Blackmist
 ms.date: 11/04/2019
-
 ms.custom: seoapril2019
 
 # Customer intent: As a DevOps person, I need to automate or customize the creation of Azure Machine Learning by using templates.
 ---
+[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 # Use an Azure Resource Manager template to create a workspace for Azure Machine Learning
 

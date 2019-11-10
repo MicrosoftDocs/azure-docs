@@ -103,7 +103,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
    * For this article, create a cluster with **5.2** runtime.
    * Make sure you select the **Terminate after \_\_ minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
 
-   Select cluster worker and driver node size suitable for your technical criteria and [budget](https://azure.microsoft.com/en-us/pricing/details/databricks/).
+   Select cluster worker and driver node size suitable for your technical criteria and [budget](https://azure.microsoft.com/pricing/details/databricks/).
 
      Select **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 
