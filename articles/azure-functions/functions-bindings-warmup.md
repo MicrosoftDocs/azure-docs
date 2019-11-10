@@ -27,11 +27,11 @@ The [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsof
 
 ## Trigger
 
-The warmup trigger lets you invoke a function that will be run when a worker is added to your running app. You can use a warmup trigger to open connections, load dependencies, or run any other custom logic before your app will begin receiving traffic. 
+The warmup trigger lets you define a function that will be run on an instance when it is added to your running app. You can use a warmup function to open connections, load dependencies, or run any other custom logic before your app will begin receiving traffic. 
 
 The warmup trigger is intended to create shared dependencies that will be used by the other functions in your app. [See examples of shared dependencies here](./manage-connections.md#client-code-examples).
 
-However, because the warmup trigger is only called during scale up operations, you should write your logic using lazy loading, or some other scheme to ensure you can load all necessary dependencies without using the warmup trigger. For example, the warmup trigger is not called when you restart your application.
+Not that the warmup trigger is only called during scale up operations, not during restarts or other non-scale startups. You must ensure your logic can load all necessary dependencies without using the warmup trigger. Lazy loading is a good pattern to achieve this.
 
 ## Trigger - example
 
@@ -199,13 +199,13 @@ public void run( ExecutionContext context) {
 
 ## Trigger - attributes
 
-In [C# class libraries](functions-dotnet-class-library.md) and Java, the `HttpTrigger` attribute is available to configure the function.
-
-Note that your function must be called ```warmup``` and there can only be one warmup function per app.
+In [C# class libraries](functions-dotnet-class-library.md), the `WarmupTrigger` attribute is available to configure the function.
 
 # [C#](#tab/csharp)
 
 This example demonstrates how to use the [warmup](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions/Extensions/Warmup/Trigger/WarmupTriggerAttribute.cs) attribute.
+
+Note that your function must be called ```Warmup``` and there can only be one warmup function per app.
 
 ```csharp
  [FunctionName("Warmup")]
@@ -252,13 +252,10 @@ No additional information is provided to a warmup triggered function when it is 
 
 ## Trigger - limits
 
-The warmup trigger is only available to apps running on the [Premium plan](./functions-premium-plan.md).
-
-The warmup trigger will only be invoked when a new instance is added to your running function app. It will not be invoked, for instance, when you restart your application. Because of this you should write your logic using lazy loading, or some other scheme to ensure you can load all necessary dependencies without using the warmup trigger. For example, the warmup trigger is not called when you restart your application.
-
-The warmup trigger cannot be invoked once an instance is already running.
-
-There can only be one warmup trigger function per function app.
+* The warmup trigger is only available to apps running on the [Premium plan](./functions-premium-plan.md).
+* The warmup trigger is only called during scale up operations, not during restarts or other non-scale startups. You must ensure your logic can load all necessary dependencies without using the warmup trigger. Lazy loading is a good pattern to achieve this.
+* The warmup trigger cannot be invoked once an instance is already running.
+* There can only be one warmup trigger function per function app.
 
 ## Next steps
 
