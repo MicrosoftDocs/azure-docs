@@ -17,7 +17,7 @@ ms.author: erhopf
 In this quickstart, you'll use the Long Audio API to asynchronously convert text to speech, and retrieve the audio output from a URI provided by the service. This REST API is ideal for content providers that need to convert text files greater than 10,000 characters or 50 paragraphs into synthesized speech. For more information, see [Long Audio API](../../long-audio-api.md).
 
 > [!NOTE]
-> Asynchronous synthesis for long-form audio now only supports [Custom Neural Voice](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-custom-voice#custom-neural-voices).
+> Asynchronous synthesis for long-form audio now only supports [Custom Neural Voice](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice#custom-neural-voices).
 
 ## Prerequisites
 
