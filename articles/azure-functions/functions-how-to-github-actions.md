@@ -28,6 +28,9 @@ For an Azure Functions workflow, the file has three sections:
 | **Build** | <ol><li>Set up the environment.</li><li>Build the function app.</li></ol> |
 | **Deploy** | <ol><li>Deploy the function app.</li></ol>|
 
+> [!NOTE]
+> You do not need to create a service principal if you decide to use publishing profile for authentication.
+
 ## Create a service principal
 
 You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) by using the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command in the [Azure CLI](/cli/azure/). You can run this command using [Azure Cloud Shell](https://shell.azure.com) in the Azure portal or by selecting the **Try it** button.
@@ -37,9 +40,6 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 ```
 
 In this example, replace the placeholders in the resource with your subscription ID, resource group, and function app name. The output is the role assignment credentials that provides access to your function app. Copy this JSON object, which you can use to authenticate from GitHub.
-
-> [!NOTE]
-> You do not need to create a service principal if you decide to use publishing profile for authentication.
 
 > [!IMPORTANT]
 > It is always a good practice to grant minimum access. This is why the scope in the previous example is limited to the specific function app and not the entire resource group.
