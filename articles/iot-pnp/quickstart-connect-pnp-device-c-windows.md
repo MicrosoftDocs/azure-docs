@@ -12,9 +12,11 @@ ms.custom: mvc
 # As a device developer, I want to see a working IoT Plug and Play device sample connecting to IoT Hub and sending properties, commands and telemetry. As a solution developer, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
 ---
 
-# Quickstart: Connect a sample IoT Plug and Play Preview device application to IoT Hub
+# Quickstart: Connect a sample IoT Plug and Play Preview device application running on Windows to IoT Hub
 
 This quickstart shows you how to build a sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written in C and is included in the Azure IoT Hub Device C SDK. A solution developer can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Prerequisites
 
@@ -28,13 +30,9 @@ To complete this quickstart, you need to install the following software on your 
 
 Download and install the latest release of **Azure IoT explorer** from the tool's [repository](https://github.com/Azure/azure-iot-explorer/releases) page, by selecting the .msi file under "Assets" for the most recent update.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
+[!INCLUDE [iot-pnp-prepare-iot-hub-windows.md](../../includes/iot-pnp-prepare-iot-hub-windows.md)]
 
 ## Prepare the development environment
-
-### Get Azure IoT C SDKs and Libraries
 
 In this quickstart, you prepare a development environment you can use to clone and build the Azure IoT Hub Device C SDK.
 
@@ -49,7 +47,7 @@ You should expect this operation to take several minutes to complete.
 
 ## Build the code
 
-The application you build simulates a device that connects to an IoT hub. The application sends telemetry and properties and receives commands.
+You use the device SDK to build the included sample code. The application you build simulates a device that connects to an IoT hub. The application sends telemetry and properties and receives commands.
 
 1. Create a `cmake` subdirectory in the device SDK root folder, and navigate to that folder:
 
@@ -71,7 +69,7 @@ The application you build simulates a device that connects to an IoT hub. The ap
 
 ## Run the device sample
 
-Run your application by passing the _device connection string_ as parameter.
+Run a sample application in the SDK to simulate an IoT Plug and Play device that sends telemetry to your IoT hub. To run the sample application, use these commands and pass the _device connection string_ as a parameter.
 
 
 ```cmd\sh
@@ -80,7 +78,7 @@ copy ..\EnvironmentalSensor.interface.json .
 digitaltwin_sample_device.exe "<your device connection string>"
 ```
 
-The device application starts sending data to IoT Hub.
+The simulated device starts sending telemetry data to IoT Hub, listening for commands, and listening for property updates.
 
 [!INCLUDE [iot-pnp-iot-explorer-1.md](../../includes/iot-pnp-iot-explorer-1.md)]
 

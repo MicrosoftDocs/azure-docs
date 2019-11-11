@@ -26,6 +26,8 @@ ms.custom: mvc
 
 This quickstart shows you how to build a sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written in Java and is included in the Azure IoT Hub device SDK for Java. A solution developer can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
 ## Prerequisites
 
 To complete this quickstart, you need Java SE 8 on your development machine. You can download the Java SE Development Kit 8 for multiple platforms from [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/en-us/java/azure/jdk/?view=azure-java-stable). Make sure you select **Java 8** under **Long-term support** to get to downloads for JDK 8.
@@ -48,13 +50,9 @@ mvn --version
 
 Download and install the latest release of **Azure IoT explorer** from the tool's [repository](https://github.com/Azure/azure-iot-explorer/releases) page, by selecting the .msi file under "Assets" for the most recent update.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
+[!INCLUDE [iot-pnp-prepare-iot-hub-windows.md](../../includes/iot-pnp-prepare-iot-hub-windows.md)]
 
 ## Prepare the development environment
-
-### Get Microsoft Azure IoT SDKs for Java
 
 In this quickstart, you prepare a development environment you can use to clone and build the Azure IoT Hub device SDK for Java.
 
@@ -68,7 +66,7 @@ You should expect this operation to take several minutes to complete.
 
 ## Build the code
 
-The application you build simulates a device that connects to an IoT hub. The application sends telemetry and properties and receives commands.
+You use the device SDK to build the included sample code. The application you build simulates a device that connects to an IoT hub. The application sends telemetry and properties and receives commands.
 
 1. In a local terminal window, navigate to ...
 
@@ -80,7 +78,7 @@ The application you build simulates a device that connects to an IoT hub. The ap
 
 ## Run the device sample
 
-Run your application by passing the  _device connection string_ as parameter.
+Run a sample application in the SDK to simulate an IoT Plug and Play device that sends telemetry to your IoT hub. To run the sample application, use these commands and pass the _device connection string_ as a parameter.
 
 ```cmd\sh
 cd digitaltwin_client\samples\digitaltwin_sample_device\Release
@@ -88,7 +86,7 @@ copy ..\EnvironmentalSensor.interface.json .
 digitaltwin_sample_device.exe "<your device connection string>"
 ```
 
-The device application starts sending data to IoT Hub.
+The simulated device starts sending telemetry data to IoT Hub, listening for commands, and listening for property updates.
 
 [!INCLUDE [iot-pnp-iot-explorer-1.md](../../includes/iot-pnp-iot-explorer-1.md)]
 

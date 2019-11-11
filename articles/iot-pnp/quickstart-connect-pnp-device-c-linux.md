@@ -40,15 +40,14 @@ gcc --version
 
 ## Prepare an IoT hub
 
-You also need an Azure IoT hub in your Azure subscription to complete this quickstart. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+You also need an Azure IoT hub in your Azure subscription to complete this quickstart. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. If you don't have an IoT hub, follow [these instructions to create one](../iot-hub/iot-hub-create-using-cli.md).
 
 > [!IMPORTANT]
 > During public preview, IoT Plug and Play features are only available on IoT hubs created in the **Central US**, **North Europe**, and **Japan East** regions.
 
-If you're using the Azure CLI locally, the `az` version should be **2.0.73** or later, the Azure Cloud Shell uses the latest version. Use the `az --version` command to check the version installed on your machine.
+If you're using the Azure CLI locally, the `az` version should be **2.0.73** or later; the Azure Cloud Shell uses the latest version. Use the `az --version` command to check the version installed on your machine.
 
-Add the Microsoft Azure IoT Extension for Azure CLI:
-
+Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance:
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
 ```
@@ -63,31 +62,29 @@ az login
 
 If you're using Azure Cloud Shell, you're already automatically signed in.
 
-If you don't have an IoT Hub, follow [these instructions to create one](../iot-hub/iot-hub-create-using-cli.md). During public preview, IoT Plug and Play is available in the North Europe, Central US, and Japan East regions. Please make sure you create your hub in one of these regions.
-
-Run the following command to create the device identity in your IoT hub. Replace the **YourIoTHubName** placeholder with your actual IoT hub name:
+Run the following command to create the device identity in your IoT hub. Replace the **YourIoTHubName** and **YourDevice** placeholders with your actual names.
 
 ```azurecli-interactive
-az iot hub device-identity create --hub-name [YourIoTHubName] --device-id mydevice
+az iot hub device-identity create --hub-name [YourIoTHubName] --device-id [YourDevice]
 ```
 
-Run the following commands to get the _device connection string_ for the device you just registered:
+Run the following command to get the _device connection string_ for the device you just registered:
 
 ```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name [YourIoTHubName] --device-id mydevice --output table
+az iot hub device-identity show-connection-string --hub-name [YourIoTHubName] --device-id [YourDevice] --output table
 ```
 
 ## Prepare the development environment
 
-In this quickstart, you prepare a development environment you can use to clone and build the Azure IoT C device SDK.
+In this quickstart, you prepare a development environment you can use to clone and build the Azure IoT Hub Device C SDK.
 
-Open a command prompt. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
+Open a command prompt in the directory of your choice. Execute the following command to clone the [Azure IoT C SDKs and Libraries](https://github.com/Azure/azure-iot-sdk-c) GitHub repository into this location:
 
 ```bash
 git clone https://github.com/Azure/azure-iot-sdk-c --recursive -b public-preview
 ```
 
-This command takes several minutes to complete.
+You should expect this operation to take several minutes to complete.
 
 ## Build the code
 
@@ -128,7 +125,7 @@ Before you run the sample, add the device capability model and interface definit
 
 1. Select **Company repository** and then **Connection strings**. Make a note of the first company model repository connection string, you use it later in this quickstart.
 
-## Run the sample
+## Run the device sample
 
 Run a sample application in the SDK to simulate an IoT Plug and Play device that sends telemetry to your IoT hub. To run the sample application:
 
@@ -141,10 +138,10 @@ Run a sample application in the SDK to simulate an IoT Plug and Play device that
 1. Run the executable file:
 
     ```bash
-    ./digitaltwin_sample_device "{your device connection string}"
+    ./digitaltwin_sample_device "<your device connection string>"
     ```
 
-The simulated device starts sending telemetry, listening for commands, and listening for property updates.
+The simulated device starts sending telemetry data to IoT Hub, listening for commands, and listening for property updates.
 
 ### Use the Azure IoT CLI to validate the code
 
