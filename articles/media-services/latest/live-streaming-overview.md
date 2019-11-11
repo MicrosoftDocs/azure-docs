@@ -59,6 +59,12 @@ When using the pass-through **Live Event**, you rely on your on-premises live en
 
 When using cloud encoding with Media Services, you would configure your on-premises live encoder to send a single bitrate video as the contribution feed (up to 32Mbps aggregate) to the Live Event (using RTMP or fragmented-MP4 input protocol). The Live Event transcodes the incoming single bitrate stream into [multiple bitrate video streams](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) at varying resolutions to improve delivery and makes it available for delivery to playback devices via industry standard protocols like MPEG-DASH, Apple HTTP Live Streaming (HLS), and Microsoft Smooth Streaming. 
 
+### Live transcription
+Live Transcription is a feature you can use with Live Events that are either pass-through or live encoding. When this feature is enabled, the service uses the [Speech-To-Text](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-to-text) feature of Cognitive Services to transcribe the spoken words in the incoming audio into text. This text is then made available for delivery along with video and audio in MPEG-DASH and HLS protocols.
+
+> [!NOTE]
+> Currently, Live Transcription is available as a preview feature in West US 2.
+
 ## Live streaming workflow
 
 To understand the live streaming workflow in Media Services v3, you have to first review and understand the following concepts: 
