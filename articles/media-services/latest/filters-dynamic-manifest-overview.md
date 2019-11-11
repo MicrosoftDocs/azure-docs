@@ -30,15 +30,15 @@ This ability to specify different filters on your stream provides a powerful **D
 > [!NOTE]
 > Dynamic Manifests don't change the asset and the default manifest for that asset.
 
-##  Overview of manifests
+## Overview of manifests
 
-Azure Media Services supports HLS, MPEG DASH, and Smooth Streaming protocols. As part of [Dynamic Packaging](dynamic-packaging-overview.md), the streaming client manifests (HLS Master Playlist, DASH Media Presentation Description [MPD], and Smooth Streaming) are dynamically generated based on the format selector in the URL. See the delivery protocols in [Common on-demand workflow](dynamic-packaging-overview.md#delivery-protocols).
+Azure Media Services supports HLS, MPEG DASH, and Smooth Streaming protocols. As part of [Dynamic Packaging](dynamic-packaging-overview.md), the streaming client manifests (HLS Master Playlist, DASH Media Presentation Description [MPD], and Smooth Streaming) are dynamically generated based on the format selector in the URL. For more information, see the delivery protocols in [Common on-demand workflow](dynamic-packaging-overview.md#delivery-protocols).
 
 ### Get and examine manifest files
 
 You specify a list of filter track property conditions based on which tracks of your stream (live or video on demand [VOD]) should be included in a dynamically created manifest. To get and examine the properties of the tracks, you have to load the Smooth Streaming manifest first.
 
-The [Upload, encode, and stream files with .NET](stream-files-tutorial-with-api.md#get-streaming-urls) tutorial shows you how to build the streaming URLs with .NET. If you run the app, one of the URLs points to the Smooth Streaming manifest: `https://amsaccount-usw22.streaming.media.azure.net/00000000-0000-0000-0000-0000000000000/ignite.ism/manifest`.<br/> Copy and paste the URL into the address bar of a browser. The file will be downloaded. You can open it in a text editor of your choice.
+The [Upload, encode, and stream files with .NET](stream-files-tutorial-with-api.md#get-streaming-urls) tutorial shows you how to build the streaming URLs with .NET. If you run the app, one of the URLs points to the Smooth Streaming manifest: `https://amsaccount-usw22.streaming.media.azure.net/00000000-0000-0000-0000-0000000000000/ignite.ism/manifest`.<br/> Copy and paste the URL into the address bar of a browser. The file will be downloaded. You can open it in any text editor.
 
 For a REST example, see [Upload, encode, and stream files with REST](stream-files-tutorial-with-rest.md#list-paths-and-build-streaming-urls).
 
@@ -47,7 +47,7 @@ For a REST example, see [Upload, encode, and stream files with REST](stream-file
 You can use the [Azure Media Player demo page](https://aka.ms/azuremediaplayer) to monitor the bitrate of a video stream. The demo page displays diagnostics info on the **Diagnostics** tab:
 
 ![Azure Media Player diagnostics][amp_diagnostics]
- 
+
 ### Examples: URLs with filters in query string
 
 You can apply filters to ABR streaming protocols: HLS, MPEG-DASH, and Smooth Streaming. The following table shows some examples of URLs with filters:
@@ -64,24 +64,24 @@ You can choose to encode your asset to multiple encoding profiles (H.264 Baselin
 
 With Dynamic Manifest, you can create device profiles (such as mobile, console, or HD/SD) and include the tracks and qualities that you want to be a part of each profile. That's called rendition filtering. The following diagram shows an example of it.
 
-![Example of rendition filtering][renditions2]
+![Example of rendition filtering with Dynamic Manifest][renditions2]
 
-In the following example, an encoder was used to encode a mezzanine asset into seven ISO MP4s video renditions (from 180p to 1080p). The encoded asset can be [dynamically packaged](dynamic-packaging-overview.md) into any of the following streaming protocols: HLS, MPEG DASH, and Smooth. 
+In the following example, an encoder was used to encode a mezzanine asset into seven ISO MP4s video renditions (from 180p to 1080p). The encoded asset can be [dynamically packaged](dynamic-packaging-overview.md) into any of the following streaming protocols: HLS, MPEG DASH, and Smooth.
 
 The top of the following diagram shows the HLS manifest for the asset with no filters. (It contains all seven renditions.)  In the lower left, the diagram shows an HLS manifest to which a filter named "ott" was applied. The "ott" filter specifies the removal of all bitrates below 1 Mbps, so the bottom two quality levels were stripped off in the response. In the lower right, the diagram shows the HLS manifest to which a filter named "mobile" was applied. The "mobile" filter specifies the removal of renditions where the resolution is larger than 720p, so the two 1080p renditions were stripped off.
 
-![Rendition filtering][renditions1]
+![Rendition filtering with Dynamic Manifest][renditions1]
 
 ## Removing language tracks
-Your assets might include multiple audio languages such as English, Spanish, French, etc. Usually, the Player SDK managers default audio track selection and available audio tracks per user selection.
+Your assets might include multiple audio languages such as English, Spanish, French, and so on. Usually, the Player SDK manages default audio track selection and available audio tracks per user selection.
 
-Developing such Player SDKs is challenging, because it requires different implementations across device-specific player frameworks. Also, on some platforms, Player APIs are limited and do not include the audio selection feature where users cannot select or change the default audio track. With asset filters, you can control the behavior by creating filters that only include desired audio languages.
+Developing such Player SDKs is challenging because it requires different implementations across device-specific player frameworks. Also, on some platforms, Player APIs are limited and don't include the audio selection feature where users can't select or change the default audio track. With asset filters, you can control the behavior by creating filters that only include desired audio languages.
 
-![Filtering of language tracks][language_filter]
+![Filtering of language tracks with Dynamic Manifest][language_filter]
 
 ## Trimming the start of an asset
 
-In most live streaming events, operators run some tests before the actual event. For example, they might include a slate like this before the start of the event: "Program will begin momentarily." 
+In most live streaming events, operators run some tests before the actual event. For example, they might include a slate like this before the start of the event: "Program will begin momentarily."
 
 If the program is archiving, the test and slate data are also archived and included in the presentation. However, this information should not be shown to the clients. With Dynamic Manifest, you can create a start time filter and remove the unwanted data from the manifest.
 
@@ -89,7 +89,7 @@ If the program is archiving, the test and slate data are also archived and inclu
 
 ## Creating subclips (views) from a live archive
 
-Many live events are long running and live archive might include multiple events. After the live event ends, broadcasters may want to break up the live archive into logical program start and stop sequences. 
+Many live events are long running and live archive might include multiple events. After the live event ends, broadcasters may want to break up the live archive into logical program start and stop sequences.
 
 You can publish these virtual programs separately without post processing the live archive and not creating separate assets (which does not get the benefit of the existing cached fragments in the CDNs). Examples of such virtual programs are the quarters of a football or basketball game, innings in baseball, or individual events of any sports program.
 
