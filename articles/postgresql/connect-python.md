@@ -11,14 +11,15 @@ ms.date: 11/07/2019
 ---
 
 # Use Python to connect and query data in Azure Database for PostgreSQL - Single Server
-This quickstart demonstrates how to use [Python](https://python.org) with an Azure Database for PostgreSQL. The quickstart shows how to use macOS, Ubuntu Linux, or Windows to connect to the database and use SQL statements to query, insert, update, and delete data. The quickstart assumes that you're familiar with Python, but new to working with Azure Database for PostgreSQL.
+This quickstart demonstrates how to work with an Azure Database for PostgreSQL using [Python](https://python.org) on macOS, Ubuntu Linux, or Windows. The quickstart shows how to connect to the database and use SQL statements to query, insert, update, and delete data. The article assumes that you're familiar with Python, but new to working with Azure Database for PostgreSQL.
 
 ## Prerequisites
 - An Azure Database for PostgresQL - Single Server, created by using the steps in [Quickstart: Create an Azure Database for PostgreSQL server in the Azure portal](quickstart-create-server-database-portal.md) or [Quickstart: Create an Azure Database for PostgreSQL using the Azure CLI](quickstart-create-server-database-azure-cli.md). 
+  
 - [Python](https://www.python.org/downloads/) 2.7 or 3.4 or above, with [pip](https://pip.pypa.io/en/stable/installing/) package installer. `pip` is automatically installed with Python 2.7.9 or above, or Python 3.4 or above.
 
 ## Install the Python libraries for PostgreSQL
-The [psycopg2](https://pypi.python.org/pypi/psycopg2/) package enables connecting to and querying a PostgreSQL database, and is available as a Linux, macOS, or Windows [wheel](https://pythonwheels.com/) package. Install the binary version of the module, including all the dependencies. For more information about `psycopg2` installation and requirements, see [Installation](http://initd.org/psycopg/docs/install.html). 
+The [psycopg2](https://pypi.python.org/pypi/psycopg2/) module enables connecting to and querying a PostgreSQL database, and is available as a Linux, macOS, or Windows [wheel](https://pythonwheels.com/) package. Install the binary version of the module, including all the dependencies. For more information about `psycopg2` installation and requirements, see [Installation](http://initd.org/psycopg/docs/install.html). 
 
 To install `psycopg2`:
 
