@@ -757,13 +757,19 @@ The following steps describe the required configuration and code. These steps as
 6. Update your MessageListener implementation to add the following `import` statements:
 
     ```java
+    import javax.ejb.ActivationConfigProperty;
+    import javax.ejb.MessageDriven;
     import javax.ejb.TransactionAttribute;
     import javax.ejb.TransactionAttributeType;
     import javax.ejb.TransactionManagement;
     import javax.ejb.TransactionManagementType;
+    import javax.jms.JMSException;
+    import javax.jms.Message;
+    import javax.jms.MessageListener;
+    import javax.jms.TextMessage;
     ```
 
-7. Next, update your listener class annotations to match the following:
+7. Next, update your listener class annotations to match the following example. This class provides a sample implementation that logs the receipt of messages.
 
     ```java
     @TransactionManagement(TransactionManagementType.BEAN)
@@ -773,8 +779,24 @@ The following steps describe the required configuration and code. These steps as
             @ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "${property.helloworldmdb.queue}"),
             @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue"),
             @ActivationConfigProperty(propertyName = "acknowledgeMode", propertyValue = "Auto-acknowledge") })
-        public class MyQueueListener implements MessageListener {
-        // ...
+    public class MyQueueListener implements MessageListener {
+
+        private static final Logger LOGGER = Logger.getLogger(TopicListener.class.toString());
+
+        public void onMessage(Message rcvMessage) {
+            TextMessage msg = null;
+            try {
+                if (rcvMessage instanceof TextMessage) {
+                    msg = (TextMessage) rcvMessage;
+                    LOGGER.info("Received Message from topic: " + msg.getText());
+                } else {
+                    LOGGER.warning("Message of wrong type: " + rcvMessage.getClass().getName());
+                }
+            } catch (JMSException e) {
+                LOGGER.warning("Exception on message : " + e.getMessage());
+                throw new RuntimeException(e);
+            }
+        }
     }
     ```
 
