@@ -125,7 +125,11 @@ Image store viewer is a feature offered if using Native Image Store that allows 
 ![Service Fabric Explorer cluster map][sfx-imagestore]
 
 ## Backup and Restore
-Service Fabric Explorer offers the ability to interface with [Backup and Restore](./service-fabric-reliable-services-backup-restore.md). The following operations are possible:
+Service Fabric Explorer offers the ability to interface with [Backup and Restore](./service-fabric-reliable-services-backup-restore.md). In order to see Backup and Restore features in SFX, advanced mode must be enabled.
+
+![Enable advanced mode][0]
+ 
+The following operations are possible:
 
 * Create, edit, and delete a Backup Policy.
 * Enable and disable Backup for an application, service, or partition.
@@ -147,3 +151,4 @@ For more on the Backup and Restore service, see the [REST API reference](https:/
 [sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/sfx-create-app-instance.png
 [sfx-eventstore]: ./media/service-fabric-diagnostics-eventstore/eventstore.png
 [sfx-imagestore]: ./media/service-fabric-visualizing-your-cluster/sfx-image-store.png
+[0]: ./media/service-fabric-backuprestoreservice/advanced-mode.png
