@@ -146,7 +146,7 @@ For ASP.NET Core applications you may access `TelemetryConfiguration` instance u
 You can disable standard collectors (for example, performance counters, HTTP requests, or dependencies)
 
 * **ASP.NET applications** - Delete or comment out the relevant lines in [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)
-* **ASP.NET Core applicaitons** - Follow telemetry modules configuration options in [ApplicationInsights ASP.NET Core](../../azure-monitor/app/asp-net-core.md#configuring-or-removing-default-telemetrymodules)
+* **ASP.NET Core applications** - Follow telemetry modules configuration options in [ApplicationInsights ASP.NET Core](../../azure-monitor/app/asp-net-core.md#configuring-or-removing-default-telemetrymodules)
 
 ## View system performance counters
 Among the metrics you can show in metrics explorer are a set of system performance counters. There's a predefined blade titled **Servers** that displays several of them.
