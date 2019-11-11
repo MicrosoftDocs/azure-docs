@@ -103,7 +103,7 @@ For more information about recommendations, see [Managing security recommendatio
 
 1. Click **View effective policy**.
 
-   ![disable policy](./media/tutorial-security-policy/view_effective_policy.png)
+   ![disable policy](./media/tutorial-security-policy/view-effective-policy.png)
 
 1. Click the assigned policy.
 
