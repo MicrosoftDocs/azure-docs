@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: tutorial
 
 ms.reviewer: trbye, jmartens, larryfr
-ms.author: vaidya-s
+ms.author: vaidyas
 author: vaidya-s
 ms.date: 11/04/2019
 ms.custom: Ignite2019
