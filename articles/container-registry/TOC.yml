@@ -138,7 +138,7 @@
     - name: Health check errors
       href: container-registry-health-error-reference.md
       maintainContext: true
-- name: ACR Tasks
+- name: Tasks
   expanded: true
   items:
   - name: Overview
@@ -161,6 +161,8 @@
         href: container-registry-tutorial-multistep-task.md
       - name: Build on base image update
         href: container-registry-tutorial-base-image-update.md
+      - name: Schedule a task
+        href: container-registry-tasks-scheduled.md
   - name: Samples
     items:
     - name: Samples repo
@@ -171,8 +173,6 @@
         href: container-registry-tasks-multi-step.md
   - name: How-to guides
     items:
-      - name: Schedule a task
-        href: container-registry-tasks-scheduled.md
       - name: Access secured resources with managed identities
         items:
         - name: Enable managed identity on a task
