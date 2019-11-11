@@ -13,7 +13,7 @@ ms.author: rohink
 
 During public preview, private DNS zones were created using “dnszones” resource with “zoneType” property set to “Private”. Such zones will not be supported after December 31, 2019 and must be migrated to GA resource model which makes use of “privateDnsZones” resource type instead of “dnszones”. The migration process is  simple, and we've provided a PowerShell script to automate this process. This guide provides step by step instruction to migrate your Azure DNS private zones to the new resource model.
 
-To find out the dnszones resources that require migration; execute the below command in Azure CLI. Substitute <SubscriptionId> with your Azure subscription Id.
+To find out the dnszones resources that require migration; execute the below command in Azure CLI.
 ```azurecli
 az account set --subscription <SubscriptionId>
 az network dns zone list --query "[?zoneType=='Private']"
