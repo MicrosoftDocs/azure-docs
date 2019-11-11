@@ -1,9 +1,9 @@
 ---
-title: Interactive map search with Azure Maps | Microsoft Docs
+title: "Quickstart: Interactive map search with Azure Maps"
 description: Azure quickstart - Create a demo interactive map search by using Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 03/07/2019
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
@@ -11,7 +11,7 @@ manager: timlt
 ms.custom: mvc
 ---
 
-# Create an interactive search map by using Azure Maps
+# Quickstart: Create an interactive search map by using Azure Maps
 
 This article demonstrates the capabilities of Azure Maps to create a map that gives users an interactive search experience. It walks you through these basic steps:
 * Create your own Azure Maps account.

@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Azure SQL Data Warehouse 
+title: Troubleshooting
 description: Troubleshooting Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,6 +10,7 @@ ms.subservice: manage
 ms.date: 7/29/2019
 ms.author: kevin
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # Troubleshooting Azure SQL Data Warehouse
