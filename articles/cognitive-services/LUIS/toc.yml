@@ -40,12 +40,15 @@
       href: get-started-get-model-rest-apis.md
 - name: Tutorials
   items:
-  - name: Build app
+  - name: Build decomposable app
     items:
-    - name: Determine user intentions
+    - name: 1. Determine user intentions
       href: tutorial-intents-only.md
-    - name: Identify common user data with prebuilt models
-      href: luis-tutorial-prebuilt-intents-entities.md
+    - name: 2. Extract user data
+      href: tutorial-machine-learned-entity.md
+      displayName: n-depth, constraint, descriptor, phrase list, entity
+  - name: Build app
+    items: 
     - name: Get sentiment from user utterances
       href: luis-quickstart-intent-and-sentiment-analysis.md
     - name: Get well-formatted data with regular expressions
