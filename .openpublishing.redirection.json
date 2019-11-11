@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/digital-twins/how-to-use-legacy-aad.md",
+      "redirect_url": "/azure/digital-twins/quickstart-view-occupancy-dotnet#set-permissions-for-your-app",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/php-download-sdk.md",
       "redirect_url": "https://github.com/Azure/azure-sdk-for-php",
       "redirect_document_id": false
@@ -43591,6 +43596,11 @@
     {
       "source_path": "articles/active-directory/develop/app-registrations-training-guide.md",
       "redirect_url": "articles/active-directory/develop/app-registrations-training-guide-for-app-registrations-legacy-users.md",
+      "redirect_document_id": false
+    },
+	{
+      "source_path": "articles/azure-monitor/app/powershell-script-create-resource.md",
+      "redirect_url": "/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically",
       "redirect_document_id": false
     }
   ]
