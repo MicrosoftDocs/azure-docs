@@ -55,8 +55,8 @@ Use these steps to create an Azure FarmBeats offer in the marketplace:
 1. Sign-in to the Azure portal and select your account in the top-right corner, and switch to the Azure AD tenant where you want to deploy Microsoft Azure FarmBeats.
 2. Azure FarmBeats is available at Azure Marketplace. On the marketplace page, select on “Get it Now”.
 3. Select Create and enter the following information:
-  - subscription name.
-  - an existing resource group name (empty resource group only) or create a new resource group for deploying Azure FarmBeats. Make a note of this resource group in subsequent sections.
+    - subscription name.
+    - an existing resource group name (empty resource group only) or create a new resource group for deploying Azure FarmBeats. Make a note of this resource group in subsequent sections.
 4. The region you want to install Azure FarmBeats. Currently FarmBeats the following regions: Central US, West Europe, East US 2, North Europe, West US, Southeast Asia, East US, Australia East, West US 2.
 5. Select **OK**.
 The Terms of use page appears. Review the standard marketplace terms or select the hyperlink to review the Terms of Use.

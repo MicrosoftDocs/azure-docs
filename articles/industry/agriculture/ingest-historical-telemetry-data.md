@@ -244,7 +244,7 @@ Sensor
 ```
 The below sample request is to create a device (This has an input json as payload with the request body).  
 
-```json
+```bash
 curl -X POST "https://<datahub>.azurewebsites.net/Device" -H  
 "accept: application/json" -H  "Content-Type: application/json" -H
 "Authorization: Bearer <Access-Token>" -d "
@@ -269,7 +269,7 @@ You must send the Telemetry to Azure Event Hub for processing. Azure EventHub is
 Once you have a connection established as an EventHub client, you can send messages to the EventHub as a json.  
 Convert the historical sensor data format to a canonical format that Azure FarmBeats understands. The canonical message format is as below:  
 
-```
+``` 
   {   
       “deviceid”: “<id of the Device created>”,   
       "timestamp": "<timestamp in ISO 8601 format>",     
