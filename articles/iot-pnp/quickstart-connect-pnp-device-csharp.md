@@ -89,6 +89,8 @@ digitaltwin_sample_device.exe "<your device connection string>"
 
 The simulated device starts sending telemetry data to IoT Hub, listening for commands, and listening for property updates.
 
+## Use the Azure IoT explorer to validate the code
+
 [!INCLUDE [iot-pnp-iot-explorer-1.md](../../includes/iot-pnp-iot-explorer-1.md)]
 
 4. To ensure the tool can read the interface model definitions from your device, select **Settings**. In the Settings menu, **On the connected device** may already appear in the list of locations to check; if it does not, select **+ Add module definition source** and then **On the connected device** to add it.
