@@ -1,5 +1,5 @@
 ---
-title: FSLogix profile containers and Azure Files in Windows Virtual Desktop - Azure
+title: Windows Virtual Desktop FSLogix profile containers files - Azure
 description: This article describes FSLogix profile containers within Windows Virtual Desktop and Azure files.
 services: virtual-desktop
 author: Heidilohr
@@ -74,7 +74,7 @@ Since the acquisition, Microsoft started replacing existing user profile solutio
 
 ## Azure Files integration with Azure Active Directory Domain Service
 
-FSLogix profile containers' performance and features take advantage of the cloud. On August 7th, 2019, Microsoft Azure Files announced the general availability of [Azure Files authentication with Azure Active Directory Domain Service (AD DS)](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-active-directory-overview). By addressing both cost and administrative overhead, Azure Files with Azure AD DS Authentication is a premium solution for user profiles in the Windows Virtual Desktop service.
+FSLogix profile containers' performance and features take advantage of the cloud. On August 7th, 2019, Microsoft Azure Files announced the general availability of [Azure Files authentication with Azure Active Directory Domain Service (AD DS)](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview). By addressing both cost and administrative overhead, Azure Files with Azure AD DS Authentication is a premium solution for user profiles in the Windows Virtual Desktop service.
 
 ## Best practices for Windows Virtual Desktop
 

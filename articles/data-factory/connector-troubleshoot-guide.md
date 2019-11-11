@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure Data Factory Connectors| Microsoft Docs
+title: Troubleshoot Azure Data Factory Connectors
 description: Learn how to troubleshoot connector issues in Azure Data Factory. 
 services: data-factory
 author: linda33wj
