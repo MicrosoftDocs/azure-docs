@@ -1,7 +1,7 @@
 ---
 title: Add entities - LUIS
 titleSuffix: Azure Cognitive Services
-description: Create entities to extract key data from user utterances in Language Understanding (LUIS) apps.
+description: Create entities to extract key data from user utterances in Language Understanding (LUIS) apps. Extracted entity data is used by the client application to fullfil customer requests. 
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -13,19 +13,25 @@ ms.date: 11/11/2019
 ms.author: diberry
 ---
 
-# Create entities without utterances
+# Add entities to extract data
 
-The entity represents a word or phrase inside the utterance that you want extracted. An entity represents a class including a collection of similar objects (places, things, people, events, or concepts). Entities describe information relevant to the intent, and sometimes they are essential for your app to perform its task. You can create entities when you add an utterance to an intent or apart from (before or after) adding an utterance to an intent.
+Create entities to extract key data from user utterances in Language Understanding (LUIS) apps. Extracted entity data is used by the client application to fullfil customer requests.
 
-You can add, edit, or delete entities in your LUIS app through the **Entities list** on the **Entities** page. LUIS offers two main types of entities: [prebuilt entities](luis-reference-prebuilt-entities.md), and your own [custom entities](luis-concept-entity-types.md#types-of-entities).
+The entity represents a word or phrase inside the utterance that you want extracted. Entities describe information relevant to the intent, and sometimes they are essential for your app to perform its task. You can create entities when you add an utterance to an intent or apart from (before or after) adding an utterance to an intent.
 
-Once a machine-learned entity is created, you need to mark that entity in all the example utterance of all the intents it is in.
+You can add, edit, or delete entities in your LUIS app through the **Entities list** on the **Entities** page or while labeling an utterance in the intent details page. 
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+To take advantage of [decomposable concepts](luis-concept-model.md#v3-authoring-model-decomposition), start with the machine-learned entity. Follow the [machine-learned entity tutorial](tutorial-machine-learned-entity.md) for steps on how to create this type of entity. 
+
+Once a machine-learned entity is created, you need to label that entity when it appears in an example utterance.
+
+[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 <a name="add-prebuilt-entity"></a>
 
-## Add a prebuilt entity to your app
+## Create entity on Entity page
+
+### Add a prebuilt entity to your app
 
 Common prebuilt entities added to an application are *number* and *datetimeV2*. 
 
@@ -39,7 +45,7 @@ Common prebuilt entities added to an application are *number* and *datetimeV2*.
 
 <a name="add-simple-entities"></a>
 
-## Add simple entities for single concepts
+### Add simple entities for single concepts
 
 A simple entity describes a single concept. Use the following procedure to create an entity that extracts company department names such as *Human resources* or *Operations*.   
 
@@ -53,7 +59,7 @@ A simple entity describes a single concept. Use the following procedure to creat
 
 <a name="add-regular-expression-entities"></a>
 
-## Add regular expression entities for highly structured concepts
+### Add regular expression entities for highly structured concepts
 
 A regular expression entity is used to pull out data from the utterance based on a regular expression you provide. 
 
@@ -65,7 +71,7 @@ A regular expression entity is used to pull out data from the utterance based on
 
 <a name="add-composite-entities"></a>
 
-## Add composite entities to group into a parent-child relationship
+### Add composite entities to group into a parent-child relationship
 
 You can define relationships between entities of different types by creating a composite entity. In the following example, the entity contains a regular expression, and a prebuilt entity of name.  
 
@@ -89,7 +95,7 @@ In the utterance `Send hrf-123456 to John Smith`, the text `hrf-123456` is match
 
 <a name="add-pattern-any-entities"></a>
 
-## Add Pattern.any entities to capture free-form entities
+### Add Pattern.any entities to capture free-form entities
 
 [Pattern.any](luis-concept-entity-types.md) entities are only valid in [patterns](luis-how-to-model-intent-pattern.md), not intents. This type of entity helps LUIS find the end of entities of varying length and word choice. Because this entity is used in a pattern, LUIS knows where the end of the entity is in the utterance template.
 
@@ -107,7 +113,7 @@ In the utterance `Where is Request relocation from employee new to the company o
 
 <a name="add-a-role-to-pattern-based-entity"></a>
 
-## Add a role to distinguish different contexts
+### Add a role to distinguish different contexts
 
 A role is a named subtype based on context. It is available in all entities including prebuilt and non-machine-learned entities. 
 
@@ -125,7 +131,7 @@ The syntax for a role is **`{Entityname:Rolename}`** where the entity name is fo
 
 <a name="add-list-entities"></a>
 
-## Add list entities for exact matches
+### Add list entities for exact matches
 
 List entities represent a fixed, closed set of related words. 
 
@@ -184,41 +190,15 @@ See [Add pattern from existing utterance on intent or entity page](luis-how-to-m
 
 After you add, edit, or remove entities, [train](luis-how-to-train.md) and [publish](luis-how-to-publish-app.md) your app for your changes to affect endpoint queries. 
 
-# Add an entity to example utterances 
+## Create and label entity on Intent's detail page
 
-Example utterances are text examples of user questions or commands. To teach Language Understanding (LUIS), you need to add [example utterances](luis-concept-utterance.md) to an [intent](luis-concept-intent.md).
+You can create and label and entity in the Intent's detail page. This allows you to, after training, see how the entity is applied to the remaining example utterances. 
 
+## Labeling entities in example utterances
 
-Usually, you add an example utterance to an intent first, and then you create entities and label utterances on the **Intents** page. If you would rather create entities first, see [Add entities](luis-how-to-add-entities.md).
+When you select text in the example utterance to label for an entity, an in-place pop-up menu appears. Use this menu to either create or select an entity. 
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
-
-## Marking entities in example utterances
-
-When you select text in the example utterance to mark for an entity, an in-place pop-up menu appears. Use this menu to either create or select an entity. 
-
-Certain entity types, such as prebuilt entities and regular expression entities, cannot be tagged in the example utterance because they are tagged automatically. 
-
-## Add a simple entity
-
-In the following procedure, you create and tag a custom entity within the following utterance on the **Intents** page:
-
-```text
-Are there any SQL server jobs?
-```
-
-1. Select `SQL server` in the utterance to label it as a simple entity. In the entity drop-down box that appears, you can either select an existing entity or add a new entity. To add a new entity, type its name `Job` in the text box, and then select **Create new entity**.
-
-    ![Screenshot of entering entity name](./media/luis-how-to-add-example-utterances/create-simple-entity.png)
-
-    > [!NOTE]
-    > When selecting words to tag as entities:
-    > * For a single word, just select it. 
-    > * For a set of two or more words, select the first word and then the final word.
-
-1. In the **What type of entity do you want to create?** pop-up box, verify the entity name and select the **Simple** entity type, and then select **Done**.
-
-    A [phrase list](luis-concept-feature.md) is commonly used to boost the signal of a simple entity.
+You can't label entity types that use text matching because they are labeled automatically. 
 
 ## Add a list entity
 
@@ -326,6 +306,9 @@ If you add the pattern.any entities to your LUIS app, you can't label utterances
 
 After you add, edit, or remove utterances, [train](luis-how-to-train.md) and [publish](luis-how-to-publish-app.md) your app for your changes to affect endpoint queries. 
 
+## Learn more about creating and labeling entities
+
+[!INCLUDE [Create and label entities in machine-learned tutorial](includes/decomposable-tutorial-links.md)]
 
 ## Next steps
 
