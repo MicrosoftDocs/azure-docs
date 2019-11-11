@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Multi-Device Conversation, C++ (Windows) - Speech Service'
+title: 'Quickstart: Conversation Translator, C++ (Windows) - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn how to create a new multi-device conversation or join an existing one.
+description: In this quickstart, you'll learn how to use the conversation translator to create a new conversation, as well as join an existing conversation.
 services: cognitive-services
 author: ralphe
 manager: cpoulain
@@ -23,19 +23,14 @@ Before you get started, make sure to:
 
 ## Add sample code
 
-1. From Visual Studio, open the source file **helloworld.cpp**.
+1. Open the source file **helloworld.cpp**.
 
 1. Replace all the code with the following snippet:
 
     ```C++
-    #include "pch.h"
-    
-    #define WIN32_LEAN_AND_MEAN
-    #include <Windows.h>
-    
     #include <iostream>
     #include <thread>
-    #include <future>
+    #include <chrono>
     #include <string>
     #include <speechapi_cxx.h>
     
@@ -43,13 +38,8 @@ Before you get started, make sure to:
     using namespace Microsoft::CognitiveServices::Speech;
     using namespace Microsoft::CognitiveServices::Speech::Audio;
     using namespace Microsoft::CognitiveServices::Speech::Transcription;
-    
-    // create a promise we will set when the user presses Ctrl-C
-    std::promise<bool> promise;
-    // create the future we will use to wait for the promise to be fulfilled
-    std::future<bool> future = promise.get_future();
-    
-    void StartNewConversation()
+
+    void CreateConversation()
     {
         // set these
         std::string subscriptionKey("YourSubscriptionKey");
@@ -64,10 +54,6 @@ Before you get started, make sure to:
         // Start the conversation so you and others can join
         conversation->StartConversationAsync().get();
     
-        // Get the conversation ID. It will be up to your scenario to determine how this is shared
-        // with other participants.
-        std::cout << "Created conversation: " << conversation->GetConversationId() << std::endl;
-    
         // You can now call various commands to manage the room. For example:
         conversation->MuteAllParticipantsAsync().get();
     
@@ -75,80 +61,10 @@ Before you get started, make sure to:
         auto audioConfig = AudioConfig::FromDefaultMicrophoneInput();
         auto conversationTranslator = ConversationTranslator::FromConfig(audioConfig);
     
-        // add any event handlers
-        conversationTranslator->SessionStarted += [](const SessionEventArgs& args)
-        {
-            std::cout << "Session started " << args.SessionId << std::endl;
-        };
-        conversationTranslator->SessionStopped += [](const SessionEventArgs& args)
-        {
-            std::cout << "Session stopped " << args.SessionId << std::endl;
-        };
-        conversationTranslator->Canceled += [](const ConversationTranslationCanceledEventArgs& args)
-        {
-            switch (args.Reason)
-            {
-                case CancellationReason::EndOfStream:
-                    std::cout << "End of audio reached" << std::endl;
-                    break;
-    
-                case CancellationReason::Error:
-                    std::cout << "Canceled due to error. " << (long)args.ErrorCode << ": " << args.ErrorDetails << std::endl;
-                    break;
-            }
-        };
-        conversationTranslator->ConversationExpiration += [](const ConversationExpirationEventArgs& args)
-        {
-            std::cout << "Conversation will expire in " << args.ExpirationTime.count() << " minutes" << std::endl;
-        };
-        conversationTranslator->ParticipantsChanged += [](const ConversationParticipantsChangedEventArgs& args)
-        {
-            std::cout << "The following participant(s) have ";
-            switch (args.Reason)
-            {
-                case ParticipantChangedReason::JoinedConversation:
-                    std::cout << "joined";
-                    break;
-    
-                case ParticipantChangedReason::LeftConversation:
-                    std::cout << "left";
-                    break;
-    
-                case ParticipantChangedReason::Updated:
-                    std::cout << "been updated";
-                    break;
-            }
-    
-            std::cout << ":" << std::endl;
-    
-            for(std::shared_ptr<Participant> participant : args.Participants)
-            {
-                std::cout << "\t" << participant->DisplayName << std::endl;
-            }
-        };
-        conversationTranslator->Transcribing += [](const ConversationTranslationEventArgs& args)
-        {
-            std::cout << "Received a partial transcription from " << args.Result->ParticipantId << ": " << args.Result->Text << std::endl;
-            for (const auto& entry : args.Result->Translations)
-            {
-                std::cout << "\t" << entry.first << ": " << entry.second << std::endl;
-            }
-        };
+        // add any event handlers. For example to get final transcriptions for your speech recognitions
         conversationTranslator->Transcribed += [](const ConversationTranslationEventArgs& args)
         {
-            std::cout << "Received a transcription from " << args.Result->ParticipantId << ": " << args.Result->Text << std::endl;
-            for (const auto& entry : args.Result->Translations)
-            {
-                std::cout << "\t" << entry.first << ": " << entry.second << std::endl;
-            }
-        };
-        conversationTranslator->TextMessageReceived += [](const ConversationTranslationEventArgs& args)
-        {
-            std::cout << "Received an instant message from " << args.Result->ParticipantId << ": " << args.Result->Text << std::endl;
-            for (const auto& entry : args.Result->Translations)
-            {
-                std::cout << "\t" << entry.first << ": " << entry.second << std::endl;
-            }
+            std::cout << "Received a final transcription: '" << args.Result->Text << "'" << std::endl;
         };
     
         // Join the conversation so you can start receiving events
@@ -157,12 +73,9 @@ Before you get started, make sure to:
         // Send an instant message
         conversationTranslator->SendTextMessageAsync("This is a short test message").get();
     
-        // Start sending audio
+        // Start and stop sending audio
         conversationTranslator->StartTranscribingAsync().get();
-        std::cout << "Started transcribing. Press Ctrl + C to stop" << std::endl;
-        future.get(); // wait for Ctrl - C to be pressed
-    
-        // Stop audio capture
+        std::this_thread::sleep_for(15s);
         conversationTranslator->StopTranscribingAsync().get();
     
         // Leave the conversation. You will stop receiving events
@@ -172,25 +85,10 @@ Before you get started, make sure to:
         conversation->EndConversationAsync().get(); // You will not be able to rejoin after this
         conversation->DeleteConversationAsync().get(); // All participants still in the room will be ejected
     }
-    
+
     int main()
     {
-        // Register a handler for the Ctrl - C callback
-        SetConsoleCtrlHandler(
-            [](DWORD dwCtrlType) -> BOOL
-            {
-                if (dwCtrlType == CTRL_C_EVENT)
-                {
-                    // signal that the user has pressed ctrl + C
-                    promise.set_value(true);
-                    return TRUE;
-                }
-    
-                return FALSE;
-            },
-            TRUE);
-    
-        StartNewConversation();
+        CreateConversation();
     }
     ```
 
@@ -200,103 +98,15 @@ Before you get started, make sure to:
 
 1. From the menu bar, choose **File** > **Save All**.
 
-## Build and run the application to create a new conversation
+## Build and run the application
+
+## Build and run the application
 
 1. From the menu bar, select **Build** > **Build Solution** to build the application. The code should compile without errors now.
 
 1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the **helloworld** application.
 
-1. Once you see the ```Started transcribing``` message appear, you can start speaking. You'll see the transcriptions appear as you speak
-    - If you share the conversation code with the others and they join the conversation, you'll see their transcriptions as well.
-
-1. Once you're done speaking, press `Ctrl + C` on your keyboard to stop audio capture.
-
-    > [!NOTE]
-    > You may see a message from Visual Studio about an exception similar to: `Exception thrown at 0x76EB90BF (KernelBase.dll) in helloworld.exe: 0x40010005: Control-C.` You can safely ignore this.
-    > <br/> <br/>
-    > Press **F5** to continue.
-
-## Build and run the application to join an existing conversation
-
-1. Copy and paste the following function into your **helloworld.cpp** just before the `int main()` function:
-
-    ```C++
-    void JoinExistingConversation(const std::string& conversationId)
-    {
-        std::string speechLanguage("en-US");
-    
-        // You'll now need to create a ConversationTranslator to send audio, send IMs, and receive conversation events
-        auto audioConfig = AudioConfig::FromDefaultMicrophoneInput();
-        auto conversationTranslator = ConversationTranslator::FromConfig(audioConfig);
-    
-        // attach event handlers here. For example:
-        conversationTranslator->Transcribing += [](const ConversationTranslationEventArgs& args)
-        {
-            std::cout << "Received a partial transcription from " << args.Result->ParticipantId << ": " << args.Result->Text << std::endl;
-            for (const auto& entry : args.Result->Translations)
-            {
-                std::cout << "\t" << entry.first << ": " << entry.second << std::endl;
-            }
-        };
-        conversationTranslator->Transcribed += [](const ConversationTranslationEventArgs& args)
-        {
-            std::cout << "Received a transcription from " << args.Result->ParticipantId << ": " << args.Result->Text << std::endl;
-            for (const auto& entry : args.Result->Translations)
-            {
-                std::cout << "\t" << entry.first << ": " << entry.second << std::endl;
-            }
-        };
-        conversationTranslator->TextMessageReceived += [](const ConversationTranslationEventArgs& args)
-        {
-            std::cout << "Received an instant message from " << args.Result->ParticipantId << ": " << args.Result->Text << std::endl;
-            for (const auto& entry : args.Result->Translations)
-            {
-                std::cout << "\t" << entry.first << ": " << entry.second << std::endl;
-            }
-        };
-    
-        // Join the conversation
-        conversationTranslator->JoinConversationAsync(conversationId, "participant", speechLanguage).get();
-    
-        // Start sending audio
-        conversationTranslator->StartTranscribingAsync().get();
-        std::cout << "Started transcribing. Press Ctrl + C to stop" << std::endl;
-        future.get(); // wait for Ctrl - C to be pressed
-    
-        // Stop audio capture
-        conversationTranslator->StopTranscribingAsync().get();
-    
-        // Once you are done, leave the conversation
-        conversationTranslator->LeaveConversationAsync().get();
-    }
-    ```
-
-1. Replace `StartNewConversation();` in your `int main()` function with:
-
-    ```C++
-    // set this to the conversation you want to join
-    JoinExistingConversation("YourConversationId");
-    ```
-
-[!INCLUDE [create-from-web](../create-from-web.md)]
-
-4. Go back to Visual Studio and replace `YourConversationId` in your `int main()` function with the conversation ID from the previous step.
-
-1. From the menu bar, select **Build** > **Build Solution** to build the application. The code should compile without errors.
-
-1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the **helloworld** application.
-
-1. Once you see the ```Started transcribing``` message appear, you can start speaking. You'll see the transcriptions appear as you speak.
-    - If you go back to your browser, you should see your transcriptions appear there as you speak as well.
-
-1.  Once you're done speaking, press Ctrl + c to stop audio capture, and end the conversation.
-
-    > [!NOTE]
-    > You may see a message from Visual Studio about an exception similar to: `Exception thrown at 0x76EB90BF (KernelBase.dll) in helloworld.exe: 0x40010005: Control-C.` You can safely ignore this.
-    > <br/> <br/>
-    > Press **F5** to continue.
-
-1. Go back to your browser and exit the conversation using the ![exit button](../../../../media/scenarios/conversation_translator_web_exit_button.png) button in the upper right corner.
+1. TODO
 
 ## Next steps
 
