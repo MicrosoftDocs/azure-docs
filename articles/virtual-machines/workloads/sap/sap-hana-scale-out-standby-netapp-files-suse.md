@@ -86,7 +86,7 @@ Before you begin, refer to the following SAP notes and papers:
 
 ## Overview
 
-One method for achieving HANA high availability is by configuring host auto failover. To configure host auto failover, you add one or more virtual machines to the HANA system and configure them as standby nodes. When active node fails, a standby node automatically takes over. In the presented configuration with Azure virtual machines, you achieve standby node by using [NFS on Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/).  
+One method for achieving HANA high availability is by configuring host auto failover. To configure host auto failover, you add one or more virtual machines to the HANA system and configure them as standby nodes. When active node fails, a standby node automatically takes over. In the presented configuration with Azure virtual machines, you achieve auto failover by using [NFS on Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/).  
 
 > [!NOTE]
 > The standby node needs access to all database volumes. The HANA volumes must be mounted as NFSv4 volumes. The improved file lease-based locking mechanism in the NFSv4 protocol is used for `I/O` fencing. 
@@ -96,7 +96,7 @@ One method for achieving HANA high availability is by configuring host auto fail
 
 ![SAP NetWeaver High Availability overview](./media/high-availability-guide-suse-anf/sap-hana-scale-out-standby-netapp-files-suse.png)
 
-In the preceding diagram, which follows SAP HANA network recommendations, three subnets were created within one Azure virtual network: 
+In the preceding diagram, which follows SAP HANA network recommendations, three subnets are represented within one Azure virtual network: 
 * For communication with the storage system
 * For internal HANA inter-node communication
 * For client communication
@@ -136,7 +136,7 @@ The following instructions assume that you've already deployed your [Azure virtu
 
 5. Deploy Azure NetApp Files volumes by following the instructions in [Create an NFS volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes).  
 
-   As you're deploying the volumes, be sure to select the **NFSv4.1** version. Currently, access to NFSv4.1 requires additional permissions. Deploy the volumes in the designated Azure NetApp Files [subnet](https://docs.microsoft.com/rest/api/virtualnetwork/subnets). 
+   As you're deploying the volumes, be sure to select the **NFSv4.1** version. Currently, access to NFSv4.1 requires additional whitelisting. Deploy the volumes in the designated Azure NetApp Files [subnet](https://docs.microsoft.com/rest/api/virtualnetwork/subnets). 
    
    Keep in mind that the Azure NetApp Files resources and the Azure VMs must be in the same Azure virtual network or in peered Azure virtual networks. For example, **HN1**-data-mnt00001, **HN1**-log-mnt00001, and so on are the volume names and nfs://10.23.1.5/**HN1**-data-mnt00001, nfs://10.23.1.4/**HN1**-log-mnt00001, and so on are the file paths for the Azure NetApp Files volumes.  
 
@@ -181,7 +181,7 @@ The [Azure NetApp Files throughput limits](https://docs.microsoft.com/azure/azur
 - Premium Storage tier - 64 MiB/s  
 - Ultra Storage tier - 128 MiB/s  
 
-To meet the SAP minimum throughput requirements for data and log, according to the guidelines for /hana/shared, the recommended sizes would be:
+To meet the SAP minimum throughput requirements for data and log, and the guidelines for /hana/shared, the recommended sizes would be:
 
 | Volume | Size of<br>Premium Storage tier | Size of<br>Ultra Storage tier | Supported NFS protocol |
 | --- | --- | --- | --- |
@@ -263,13 +263,13 @@ The next instructions assume that you've already created the resource group, the
     b. Execute the following commands to enable accelerated networking for the additional network interfaces, which are attached to the `hana` and `client` subnets.  
 
     ```
-    az network nic update --id /subscriptions/**your subscription**/resourceGroups/**your resource group**/providers/Microsoft.Network/networkInterfaces/**hanadb1-hana** --accelerated-networking true
-    az network nic update --id /subscriptions/**your subscription**/resourceGroups/**your resource group**/providers/Microsoft.Network/networkInterfaces/**hanadb2-hana** --accelerated-networking true
-    az network nic update --id /subscriptions/**your subscription**/resourceGroups/**your resource group**/providers/Microsoft.Network/networkInterfaces/**hanadb3-hana** --accelerated-networking true
+    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb1-hana</b> --accelerated-networking true
+    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb2-hana</b> --accelerated-networking true
+    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb3-hana</b> --accelerated-networking true
     
-    az network nic update --id /subscriptions/**your subscription**/resourceGroups/**your resource group**/providers/Microsoft.Network/networkInterfaces/**hanadb1-client** --accelerated-networking true
-    az network nic update --id /subscriptions/**your subscription**/resourceGroups/**your resource group**/providers/Microsoft.Network/networkInterfaces/**hanadb2-client** --accelerated-networking true
-    az network nic update --id /subscriptions/**your subscription**/resourceGroups/**your resource group**/providers/Microsoft.Network/networkInterfaces/**hanadb3-client** --accelerated-networking true
+    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb1-client</b> --accelerated-networking true
+    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb2-client</b> --accelerated-networking true
+    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb3-client</b> --accelerated-networking true
     ```
 
 7. Start the virtual machines by doing the following:  
@@ -305,6 +305,7 @@ Configure and prepare your OS by doing the following:
     ```
 
 2. **[A]** Change DHCP and cloud config settings to avoid unintended hostname changes.  
+
     ```
     vi /etc/sysconfig/network/dhcp
     #Change the following DHCP setting to "no"
@@ -362,22 +363,22 @@ Configure and prepare your OS by doing the following:
 1. **[A]** Create mount points for the HANA database volumes.  
 
     ```
-    mkdir -p /hana/data/**HN1**/mnt00001
-    mkdir -p /hana/data/**HN1**/mnt00002
-    mkdir -p /hana/log/**HN1**/mnt00001
-    mkdir -p /hana/log/**HN1**/mnt00002
+    mkdir -p /hana/data/<b>HN1</b>/mnt00001
+    mkdir -p /hana/data/<b>HN1</b>/mnt00002
+    mkdir -p /hana/log/<b>HN1</b>/mnt00001
+    mkdir -p /hana/log/<b>HN1</b>/mnt00002
     mkdir -p /hana/shared
-    mkdir -p /usr/sap/**HN1**
+    mkdir -p /usr/sap/<b>HN1</b>
     ```
 
 2. **[1]** Create node-specific directories for /usr/sap on **HN1**-shared.  
 
     ```
-    # Create a temporary directory to mount **HN1**-shared
+    # Create a temporary directory to mount <b>HN1</b>-shared
     mkdir /mnt/tmp
-    mount **10.23.1.4**:/**HN1**-shared /mnt/tmp
+    mount <b>10.23.1.4</b>:/<b>HN1</b>*-shared /mnt/tmp
     cd /mnt/tmp
-    mkdir shared usr-sap-**hanadb1** usr-sap-**hanadb2** usr-sap-**hanadb3**
+    mkdir shared usr-sap-<b>hanadb1</b> usr-sap-<b>hanadb2</b> usr-sap-<b>hanadb3</b>
     # unmount /hana/shared
     cd
     umount /mnt/tmp
@@ -391,10 +392,10 @@ Configure and prepare your OS by doing the following:
     [General]
     Verbosity = 0
     Pipefs-Directory = /var/lib/nfs/rpc_pipefs
-    Domain = **localdomain**
+    Domain = <b>localdomain/<b>
     [Mapping]
-    Nobody-User = **nobody**
-    Nobody-Group = **nobody**
+    Nobody-User = <b>nobody</b>
+    Nobody-Group = <b>nobody</b>
     ```
 
 4. **[A]** Disable NFSv4 ID mapping. To create the directory structure where `nfs4_disable_idmapping` is located, execute the mount command. You won't be able to manually create the directory under /sys/modules, because access is reserved for the kernel / drivers.  
@@ -413,7 +414,7 @@ Configure and prepare your OS by doing the following:
     # Create user group 
     sudo groupadd -g 1001 sapsys
     # Create  users 
-    sudo useradd **hn1**adm -u 1001 -g 1001 -d /usr/sap/**HN1**/home -c "SAP HANA Database System" -s /bin/sh
+    sudo useradd <b>hn1</b>adm -u 1001 -g 1001 -d /usr/sap/<b>HN1</b>/home -c "SAP HANA Database System" -s /bin/sh
     sudo useradd sapadm -u 1002 -g 1001 -d /home/sapadm -c "SAP Local Administrator" -s /bin/sh
     # Set the password  for both user ids
     sudo passwd hn1adm
@@ -425,11 +426,11 @@ Configure and prepare your OS by doing the following:
     ```
     sudo vi /etc/fstab
     # Add the following entries
-    10.23.1.5:/**HN1**-data-mnt00001 /hana/data/**HN1**/mnt00001  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
-    10.23.1.6:/**HN1**-data-mnt00002 /hana/data/**HN1**/mnt00002  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
-    10.23.1.4:/**HN1**-log-mnt00001 /hana/log/**HN1**/mnt00001  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
-    10.23.1.6:/**HN1**-log-mnt00002 /hana/log/HN1/mnt00002  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
-    10.23.1.4:/**HN1**-shared/shared /hana/shared  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
+    10.23.1.5:/<b>HN1</b>-data-mnt00001 /hana/data/<b>HN1</b>/mnt00001  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
+    10.23.1.6:/<b>HN1</b>-data-mnt00002 /hana/data/<b>HN1</b>/mnt00002  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
+    10.23.1.4:/<b>HN1</b>-log-mnt00001 /hana/log/<b>HN1</b>/mnt00001  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
+    10.23.1.6:/<b>HN1</b>-log-mnt00002 /hana/log/HN1/mnt00002  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
+    10.23.1.4:/<b>HN1</b>-shared/shared /hana/shared  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
     # Mount all volumes
     sudo mount -a 
     ```
@@ -438,7 +439,7 @@ Configure and prepare your OS by doing the following:
     ```
     sudo vi /etc/fstab
     # Add the following entries
-    10.23.1.4:/**HN1**-shared/usr-sap-**hanadb1** /usr/sap/**HN1**  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
+    10.23.1.4:/<b>HN1</b>-shared/usr-sap-<b>hanadb1</b> /usr/sap/<b>HN1</b>  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
     # Mount the volume
     sudo mount -a 
     ```
@@ -447,7 +448,7 @@ Configure and prepare your OS by doing the following:
     ```
     sudo vi /etc/fstab
     # Add the following entries
-    10.23.1.4:/**HN1**-shared/usr-sap-**hanadb2** /usr/sap/**HN1**  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
+    10.23.1.4:/<b>HN1</b>-shared/usr-sap-<b>hanadb2</b> /usr/sap/<b>HN1</b>  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
     # Mount the volume
     sudo mount -a 
     ```
@@ -457,7 +458,7 @@ Configure and prepare your OS by doing the following:
     ```
     sudo vi /etc/fstab
     # Add the following entries
-    10.23.1.4:/**HN1**-shared/usr-sap-**hanadb3** /usr/sap/**HN1**  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
+    10.23.1.4:/<b>HN1</b>-shared/usr-sap-<b>hanadb3</b> /usr/sap/<b>HN1</b>  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
     # Mount the volume
     sudo mount -a 
     ```
@@ -466,20 +467,20 @@ Configure and prepare your OS by doing the following:
 
     ```
     sudo nfsstat -m
-    # Verify that flag vers is set to **4.1** 
-    # Example from **hanadb1**
-    /hana/data/**HN1**/mnt00001 from 10.23.1.5:/**HN1**-data-mnt00001
-     Flags: rw,noatime,vers=**4.1**,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.2.4,local_lock=none,addr=10.23.1.5
-    /hana/log/**HN1**/mnt00002 from 10.23.1.6:/**HN1**-log-mnt00002
-     Flags: rw,noatime,vers=**4.1**,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.2.4,local_lock=none,addr=10.23.1.6
-    /hana/data/**HN1**/mnt00002 from 10.23.1.6:/**HN1**-data-mnt00002
-     Flags: rw,noatime,vers=**4.1**,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.2.4,local_lock=none,addr=10.23.1.6
-    /hana/log/**HN1**/mnt00001 from 10.23.1.4:/**HN1**-log-mnt00001
-    Flags: rw,noatime,vers=**4.1**,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.2.4,local_lock=none,addr=10.23.1.4
-    /usr/sap/**HN1** from 10.23.1.4:/**HN1**-shared/usr-sap-**hanadb1**
-     Flags: rw,noatime,vers=**4.1**,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.2.4,local_lock=none,addr=10.23.1.4
-    /hana/shared from 10.23.1.4:/**HN1**-shared/shared
-     Flags: rw,noatime,vers=**4.1**,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.2.4,local_lock=none,addr=10.23.1.4
+    # Verify that flag vers is set to <b>4.1</b> 
+    # Example from <b>hanadb1</b>
+    /hana/data/<b>HN1</b>/mnt00001 from 10.23.1.5:/<b>HN1</b>-data-mnt00001
+     Flags: rw,noatime,vers=<b>4.1</b>,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.2.4,local_lock=none,addr=10.23.1.5
+    /hana/log/<b>HN1</b>/mnt00002 from 10.23.1.6:/<b>HN1</b>-log-mnt00002
+     Flags: rw,noatime,vers=<b>4.1</b>,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.2.4,local_lock=none,addr=10.23.1.6
+    /hana/data/<b>HN1</b>/mnt00002 from 10.23.1.6:/<b>HN1</b>-data-mnt00002
+     Flags: rw,noatime,vers=<b>4.1</b>,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.2.4,local_lock=none,addr=10.23.1.6
+    /hana/log/<b>HN1</b>/mnt00001 from 10.23.1.4:/<b>HN1</b>-log-mnt00001
+    Flags: rw,noatime,vers=<b>4.1</b>,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.2.4,local_lock=none,addr=10.23.1.4
+    /usr/sap/<b>HN1</b> from 10.23.1.4:/<b>HN1</b>-shared/usr-sap-<b>hanadb1</b>
+     Flags: rw,noatime,vers=<b>4.1</b>,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.2.4,local_lock=none,addr=10.23.1.4
+    /hana/shared from 10.23.1.4:/<b>HN1</b>-shared/shared
+     Flags: rw,noatime,vers=<b>4.1</b>,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.2.4,local_lock=none,addr=10.23.1.4
     ```
 
 ## Installation  
@@ -493,8 +494,8 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
 2. **[1]** Verify that you can log in via SSH to **hanadb2** and **hanadb3**, without being prompted for a password.  
 
     ```
-    ssh root@**hanadb2**
-    ssh root@**hanadb3**
+    ssh root@<b>hanadb2</b>
+    ssh root@<b>hanadb3</b>
     ```
 
 3. **[A]** Install additional packages, which are required for HANA 2.0 SP4. For more information, see SAP Note [2593824](https://launchpad.support.sap.com/#/notes/2593824). 
@@ -507,8 +508,8 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
 
     ```
     # Execute as root
-    sudo chown hn1adm:sapsys /hana/data/**HN1**
-    sudo chown hn1adm:sapsys /hana/log/**HN1**
+    sudo chown hn1adm:sapsys /hana/data/<b>HN1</b>
+    sudo chown hn1adm:sapsys /hana/log/<b>HN1</b>
     ```
 
 ### HANA installation
@@ -560,16 +561,16 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
    Display global.ini, and ensure that the configuration for the internal SAP HANA inter-node communication is in place. Verify the **communication** section. It should have the address space for the `hana` subnet, and `listeninterface` should be set to `.internal`. Verify the **internal_hostname_resolution** section. It should have the IP addresses for the HANA virtual machines that belong to the `hana` subnet.  
 
    ```
-    sudo cat /usr/sap/**HN1**/SYS/global/hdb/custom/config/global.ini
+    sudo cat /usr/sap/<b>HN1</b>/SYS/global/hdb/custom/config/global.ini
     # Example 
     #global.ini last modified 2019-09-10 00:12:45.192808 by hdbnameserve
     [communication]
-    internal_network = **10.23.3/24**
+    internal_network = <b>10.23.3/24</b>
     listeninterface = .internal
     [internal_hostname_resolution]
-    **10.23.3.4** = **hanadb1**
-    **10.23.3.5** = **hanadb2**
-    **10.23.3.6** = **hanadb3**
+    <b>10.23.3.4</b> = <b>hanadb1</b>
+    <b>10.23.3.5</b> = <b>hanadb2</b>
+    <b>10.23.3.6</b> = <b>hanadb3</b>
    ```
 
 3. **[1]** Add host mapping to ensure that the client IP addresses are used for client communication. Add section `public_host_resolution`, and add the corresponding IP addresses from the client subnet.  
@@ -578,26 +579,26 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
     sudo vi /usr/sap/HN1/SYS/global/hdb/custom/config/global.ini
     #Add the section
     [public_hostname_resolution]
-    map_**hanadb1** = **10.23.0.5**
-    map_**hanadb2** = **10.23.0.6**
-    map_**hanadb3** = **10.23.0.7**
+    map_<b>hanadb1</b> = <b>10.23.0.5</b>
+    map_<b>hanadb2</b> = <b>10.23.0.6</b>
+    map_<b>hanadb3</b> = <b>10.23.0.7</b>
    ```
 
 4. **[1]** Restart SAP HANA to activate the changes.  
 
    ```
-    sudo -u **hn1**adm /usr/sap/hostctrl/exe/sapcontrol -nr **03** -function StopSystem HDB
-    sudo -u **hn1**adm /usr/sap/hostctrl/exe/sapcontrol -nr **03** -function StartSystem HDB
+    sudo -u <b>hn1</b>adm /usr/sap/hostctrl/exe/sapcontrol -nr <b>03</b> -function StopSystem HDB
+    sudo -u <b>hn1</b>adm /usr/sap/hostctrl/exe/sapcontrol -nr <b>03</b> -function StartSystem HDB
    ```
 
 5. **[1]** Verify that the client interface will be using the IP addresses from the `client` subnet for communication.  
 
    ```
-    sudo -u hn1adm /usr/sap/HN1/HDB03/exe/hdbsql -u SYSTEM -p "**password**" -i 03 -d SYSTEMDB 'select * from SYS.M_HOST_INFORMATION'|grep net_publicname
+    sudo -u hn1adm /usr/sap/HN1/HDB03/exe/hdbsql -u SYSTEM -p "<b>password</b>" -i 03 -d SYSTEMDB 'select * from SYS.M_HOST_INFORMATION'|grep net_publicname
     # Expected result
-    "**hanadb3**","net_publicname","**10.23.0.7**"
-    "**hanadb2**","net_publicname","**10.23.0.6**"
-    "**hanadb1**","net_publicname","**10.23.0.5**"
+    "<b>hanadb3</b>","net_publicname","<b>10.23.0.7</b>"
+    "<b>hanadb2</b>","net_publicname","<b>10.23.0.6</b>"
+    "<b>hanadb1</b>","net_publicname","<b>10.23.0.5</b>"
    ```
 
    For information about how to verify the configuration, see SAP Note [2183363 - Configuration of SAP HANA internal network](https://launchpad.support.sap.com/#/notes/2183363).  
@@ -632,7 +633,7 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
 
    ```
     # Check the landscape status
-    python /usr/sap/**HN1**/HDB**03**/exe/python_support/landscapeHostConfiguration.py
+    python /usr/sap/<b>HN1</b>/HDB<b>03</b>/exe/python_support/landscapeHostConfiguration.py
     | Host    | Host   | Host   | Failover | Remove | Storage   | Storage   | Failover | Failover | NameServer | NameServer | IndexServer | IndexServer | Host    | Host    | Worker  | Worker  |
     |         | Active | Status | Status   | Status | Config    | Actual    | Config   | Actual   | Config     | Actual     | Config      | Actual      | Config  | Actual  | Config  | Actual  |
     |         |        |        |          |        | Partition | Partition | Group    | Group    | Role       | Role       | Role        | Role        | Roles   | Roles   | Groups  | Groups  |
@@ -641,7 +642,7 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
     | hanadb2 | yes    | ok     |          |        |         2 |         2 | default  | default  | master 2   | slave      | worker      | slave       | worker  | worker  | default | default |
     | hanadb3 | yes    | ignore |          |        |         0 |         0 | default  | default  | master 3   | slave      | standby     | standby     | standby | standby | default | -       |
     # Check the instance status
-    sapcontrol -nr **03**  -function GetSystemInstanceList
+    sapcontrol -nr <b>03</b>  -function GetSystemInstanceList
     GetSystemInstanceList
     OK
     hostname, instanceNr, httpPort, httpsPort, startPriority, features, dispstatus
@@ -659,7 +660,7 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
    c. Monitor the system for failover completion. When the failover has been completed, capture the status, which should look like the following:  
    ```
     # Check the instance status
-    sapcontrol -nr **03**  -function GetSystemInstanceList
+    sapcontrol -nr <b>03</b>  -function GetSystemInstanceList
     GetSystemInstanceList
     OK
     hostname, instanceNr, httpPort, httpsPort, startPriority, features, dispstatus
