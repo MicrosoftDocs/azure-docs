@@ -5,7 +5,7 @@ description: Learn how to use datasets in training
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual	
+ms.topic: conceptual
 ms.author: sihhu
 author: MayMSFT
 manager: cgronlun

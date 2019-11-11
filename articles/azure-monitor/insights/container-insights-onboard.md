@@ -6,7 +6,7 @@ ms.subservice:
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 10/15/2019
+ms.date: 11/11/2019
 
 ---
 
@@ -38,6 +38,13 @@ Before you start, make sure that you have the following:
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
 * Prometheus metrics are not collected by default. Before [configuring the agent](container-insights-prometheus-integration.md) to collect them, it is important you review the Prometheus [documentation](https://prometheus.io/) to understand what you can define.
+
+## Supported configurations
+
+The following is officially supported with Azure Monitor for containers.
+
+- Environments: Kubernetes on-premises, AKS Engine on Azure and Azure Stack. For more information, see [AKS Engine on Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
+- Versions of Kubernetes and support policy are the same as versions of [AKS supported](../../aks/supported-kubernetes-versions.md). 
 
 ## Network firewall requirements
 

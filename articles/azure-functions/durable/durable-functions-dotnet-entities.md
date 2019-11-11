@@ -113,7 +113,7 @@ For example, we can modify the counter entity so it starts an orchestration when
 
 ## Accessing entities directly
 
-Class-based entities can be accessed directly, using explicit string names for the entity and its operations. We provide some examples below; for a deeper explanation of the underlying concepts (such as signals vs. calls) see the discussion in [Accessing entities](durable-functions-entities.md#accessing-entities). 
+Class-based entities can be accessed directly, using explicit string names for the entity and its operations. We provide some examples below; for a deeper explanation of the underlying concepts (such as signals vs. calls) see the discussion in [Access entities](durable-functions-entities.md#access-entities). 
 
 > [!NOTE]
 > Where possible, we recommend [Accessing entities through interfaces](#accessing-entities-through-interfaces), because it provides more type checking.
