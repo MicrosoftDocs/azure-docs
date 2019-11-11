@@ -17,7 +17,7 @@ ms.custom: seodec18
 # Create and run machine learning pipelines with Azure Machine Learning SDK
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to create, publish, run, and track a [machine learning pipeline](concept-ml-pipelines.md) by using the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Use **ML pipelines** to create a workflow that stitches together various ML phases, and then publish that pipeline into your Azure Machine Learning workspace to access later or share with others.  ML pipelines are ideal for batch scoring scenarios, using various computes, reusing steps instead of rerunning them, as well as sharing ML workflows with others. 
+In this article, you learn how to create, publish, run, and track a [machine learning pipeline](concept-ml-pipelines.md) by using the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Use **ML pipelines** to create a workflow that stitches together various ML phases, and then publish that pipeline into your Azure Machine Learning workspace to access later or share with others.  ML pipelines are ideal for batch scoring scenarios, using various computes, reusing steps instead of rerunning them, as well as sharing ML workflows with others.
 
 While you can use a different kind of pipeline called an [Azure Pipeline](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml) for CI/CD automation of ML tasks, that type of pipeline is never stored inside your workspace. [Compare these different pipelines](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
 
@@ -404,17 +404,15 @@ response = requests.post(published_pipeline1.endpoint,
                                "ParameterAssignments": {"pipeline_arg": 20}})
 ```
 
-### View results of a published pipeline
+### View results of a pipeline
 
-See the list of all your published pipelines and their run details:
+See the list of all your pipelines and their run details:
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
 
 1. [View your workspace](how-to-manage-workspace.md#view) to find the list of pipelines.
- ![list of machine learning pipelines](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
+ ![list of machine learning pipelines](./media/how-to-create-your-first-pipeline/pipelines.png)
  
 1. Select a specific pipeline to see the run results.
-
-These results are also available in your workspace in [Azure Machine Learning studio]](https://ml.azure.com).
 
 ### Disable a published pipeline
 
