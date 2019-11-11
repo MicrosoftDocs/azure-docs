@@ -124,6 +124,8 @@
         href: microsoft-common-passwordbox.md
       - name: Section
         href: microsoft-common-section.md
+      - name: TagsByResource
+        href: microsoft-common-tagsbyresource.md
       - name: TextBlock
         href: microsoft-common-textblock.md
       - name: TextBox
