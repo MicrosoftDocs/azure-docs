@@ -12,7 +12,7 @@
 ---
 
 >[!NOTE]
->This section provides instructions for the [new Azure AD app registration](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). If you still have legacy native app registration, you may use it as long as it's supported. Additionally, if for some reason the new way of app registation is not working in your setup, you may try to create a legacy native AAD app. Read [Register your Azure Digital Twins app with Azure Active Directory legacy](../articles/digital-twins/how-to-use-legacy-aad.md) for more instructions. 
+>This section provides instructions for the [new Azure AD app registration](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). If you still have legacy native app registration, you may use it as long as it's supported. 
 
 1. In the [Azure portal](https://portal.azure.com), open **Azure Active Directory** from the expandable left menu, and then open the **App registrations** pane. Select the **New registration** button.
 
