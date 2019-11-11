@@ -1,5 +1,5 @@
 ---
-title: 'Always Encrypted: SQL Database - Azure Key Vault '
+title: Always Encrypted - Azure Key Vault
 description: This article shows you how to secure sensitive data in a SQL database with data encryption using the Always Encrypted Wizard in SQL Server Management Studio. 
 keywords: data encryption, encryption key, cloud encryption
 services: sql-database
