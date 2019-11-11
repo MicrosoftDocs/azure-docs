@@ -71,7 +71,7 @@ Your infrastructure needs the following things to support Windows Virtual Deskto
 * A Windows Server Active Directory in sync with Azure Active Directory. This can be enabled either through:
   * Azure AD Connect (for hybrid organizations)
   * Azure AD Domain Services (for hybrid or cloud organizations)
-* An Azure subscription, containing a virtual network that either contains or is connected to the Windows Server Active Directory
+* An Azure subscription that contains a virtual network that either contains or is connected to the Windows Server Active Directory
   
 The Azure virtual machines you create for Windows Virtual Desktop must be:
 
