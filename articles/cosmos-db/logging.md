@@ -396,9 +396,9 @@ Now that you've enabled data collection, run the following log search example by
 ![Sample log search for the 10 most recent logs](./media/logging/log-analytics-query.png)
 
 <a id="#queries"></a>
-### Queries
+### CosmosDB Log Analytics queries in Azure Monitor
 
-Here are some additional queries that you can enter into the **Log search** box to help you monitor your Azure Cosmos containers. These queries work with the [new language](../log-analytics/log-analytics-log-search-upgrade.md). 
+Here are some additional queries that you can enter into the **Log search** box to help you monitor your Azure Cosmos containers. These queries work with the [new language](../log-analytics/log-analytics-log-search-upgrade.md).  
 
 To learn about the meaning of the data that's returned by each log search, see [Interpret your Azure Cosmos DB logs](#interpret).
 
