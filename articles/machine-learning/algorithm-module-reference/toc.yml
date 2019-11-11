@@ -1,31 +1,23 @@
 - name: Azure Machine Learning Designer Module Reference
   href: module-reference.md
-- name: Overview
-  expanded: true
-  items:
-  - name: What is Azure Machine Learning?
-    displayName: AML, services, overview, introduction
-    href: ../overview-what-is-azure-ml.md
-  - name: Azure Machine Learning vs Studio
-    displayName: AML, Studio, designer
-    href: ../../compare-azure-ml-to-studio-classic.md
 - name: Modules
+  expanded: true
   items:
   - name: Data input and output
     items:
     - name: Import Data
-      href: import-data
+      href: import-data.md
     - name: Enter Data Manually
-      href: enter-data-manually
+      href: enter-data-manually.md
     - name: Export Data
-      href: export-data
-  - name: Data format conversions
+      href: export-data.md
+  - name: Data format conversion
     items:
     - name: Convert to CSV
       href: convert-to-csv.md
     - name: Convert to Dataset
       href: convert-to-dataset.md
-  - name: Data transformations
+  - name: Data transformation
     items:
     - name: Add Columns
       href: add-columns.md
@@ -47,8 +39,10 @@
       href: select-columns-transform.md
     - name: Select Columns in Dataset
       href: select-columns-in-dataset.md
-  - name: Data Sampling
+  - name: Data sampling
     items:
+    - name: Cross Validate Model
+      href: cross-validate-model.md
     - name: Partition and Sample
       href: partition-and-sample.md
     - name: SMOTE
@@ -61,7 +55,7 @@
       href: filter-based-feature-selection.md
     - name: Permutation Feature Importance
       href: permutation-feature-importance.md
-  - name: Python and R modules
+  - name: Python and R
     items:
     - name: Create Python Model
       href: create-python-model.md
@@ -90,7 +84,7 @@
       - name: Multiclass Neural Network
         href: multiclass-neural-network.md
       - name: One vs. All Multiclass
-        href: one-vs.-all-multiclass.md
+        href: one-vs-all-multiclass.md
       - name: Two-Class Logistic Regression
         href: two-class-logistic-regression.md
       - name: Two-Class Averaged Perceptron
@@ -121,34 +115,30 @@
       items: 
       - name: Train SVD Recommender
         href: train-svd-recommender.md
-  - name: Build and evaluate models
-    items:
-    - name: Train models
-      items: 
-      - name: Cross Validate Model
-        href: cross-validate-model.md
-      - name: Train Model
-        href: train-model.md
-      - name: Train Clustering Model
-        href: train-clustering-model.md
-      - name: Tune Model Hyperparameters
-        href: tune-model-hyperparameters.md
-    - name: Evaluate models
-      items: 
-      - name: Evaluate Model
-        href: evaluate-model.md
-      - name: Evaluate Recommender
-        href: evaluate-recommender.md
-    - name: Score models
-      items: 
-      - name: Apply Transformation
-        href: apply-transformation.md
-      - name: Assign Data to Clusters
-        href: assign-data-to-clusters.md
-      - name: Score Model
-        href: score-model.md
-      - name: Score SVD Recommender
-        href: score-svd-recommender.md
+  - name: Train models
+    items: 
+    - name: Train Model
+      href: train-model.md
+    - name: Train Clustering Model
+      href: train-clustering-model.md
+    - name: Tune Model Hyperparameters
+      href: tune-model-hyperparameters.md
+  - name: Evaluate models
+    items: 
+    - name: Evaluate Model
+      href: evaluate-model.md
+    - name: Evaluate Recommender
+      href: evaluate-recommender.md
+  - name: Score models
+    items: 
+    - name: Apply Transformation
+      href: apply-transformation.md
+    - name: Assign Data to Clusters
+      href: assign-data-to-clusters.md
+    - name: Score Model
+      href: score-model.md
+    - name: Score SVD Recommender
+      href: score-svd-recommender.md
   - name: Statistical functions
     items:
       - name: Apply Math Operation
