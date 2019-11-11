@@ -1,16 +1,16 @@
 ---
-title: How to monitor Azure Data Share Preview
-description: How to monitor Azure Data Share Preview
+title: How to monitor Azure Data Share 
+description: Learn how to monitor invitation status, share subscriptions, and snapshot history in Azure Data Share 
 author: joannapea
-
+ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: joanpo
 ---
-# Monitor Azure Data Share Preview 
 
-This article explains how you can monitor your data shares using Azure Data Share Preview. As a data provider, you are able to monitor various aspects of your data sharing relationships. Details such as whether your data consumers have accepted your invitation to the data share, as well as whether they have created a share subscription and started to use your data are all available to monitor. 
+# Monitor Azure Data Share  
+
+This article explains how you can monitor your data shares using Azure Data Share. As a data provider, you are able to monitor various aspects of your data sharing relationships. Details such as whether your data consumers have accepted your invitation to the data share, as well as whether they have created a share subscription and started to use your data are all available to monitor. 
 
 As a data consumer, you can monitor the snapshots that have been triggered into your Azure subscription. 
 
@@ -40,6 +40,10 @@ In the history tab, you are able to view the snapshots that have been copied in 
 ![Snapshot history](./media/sent-shares.png "Snapshot history") 
 
 You can view more details about each snapshot run by clicking on the run start date. 
+
+Up to 30 days of snapshot history is displayed by default. If you need to see more than 30 days worth of history, navigate to Monitoring -> Diagnostic settings and select **Add diagnostic setting**. You will be required to select a storage account to store these logs into. 
+
+![Snapshot history](./media/diagnostic-settings.png "Diagnostic settings") 
 
 ## Next Steps 
 

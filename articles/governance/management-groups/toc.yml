@@ -1,0 +1,16 @@
+- name: Azure management groups documentation
+  href: ./index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: Azure Management
+    href: ../azure-management.md
+  - name: Management groups
+    href: ./overview.md
+- name: How-to guides
+  expanded: true
+  items:
+  - name: Create management groups
+    href: ./create.md
+  - name: Manage your resources
+    href: ./manage.md

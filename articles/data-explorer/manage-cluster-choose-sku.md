@@ -1,7 +1,7 @@
 ---
 title: Select the correct VM SKU for your Azure Data Explorer cluster
 description: This article describes how to select the optimal SKU size for Azure Data Explorer cluster.
-author: avnera
+author: avneraa
 ms.author: avnera
 ms.reviewer: orspodek
 ms.service: data-explorer
@@ -78,7 +78,7 @@ The technical specifications for the Azure Data Explorer cluster VMs are describ
 |L16s_1| storage-optimized | 2.6&nbsp;TB | 16| 128&nbsp;GB | 0 | 2 | 1,000
 
 * You can view the updated VM SKU list per region by using the Azure Data Explorer [ListSkus API](/dotnet/api/microsoft.azure.management.kusto.clustersoperationsextensions.listskus?view=azure-dotnet). 
-* Learn more about the [various compute SKUs](/azure/virtual-machines/windows/sizes-compute). 
+* Learn more about the [various SKUs](/azure/virtual-machines/windows/sizes). 
 
 ## Next steps
 

@@ -19,7 +19,7 @@ CloudSimple retains full administrative access to the Private Cloud environment.
 When you create a Private Cloud, a **CloudOwner** user is created in the vCenter Single Sign-On domain, with **Cloud-Owner-Role** access to manage objects in the Private Cloud. This user also can set up additional [vCenter Identity Sources](set-vcenter-identity.md), and other users to the Private Cloud vCenter.
 
 > [!NOTE]
-> Default user for your CloudSimple Private Cloud vCenter is `cloudowner@cloudsimple.local` when a Private Cloud is created without linking it with your on-premises vCenter.
+> Default user for your CloudSimple Private Cloud vCenter is cloudowner@cloudsimple.local when a Private Cloud is created.
 
 ## User Groups
 
@@ -36,6 +36,9 @@ A group called **Cloud-Owner-Group** is created during the deployment of a Priva
 | Cloud-Global-VM-Admin-Group | Members of this group can manage virtual machines on the Private Cloud vCenter | [Cloud-VM-Admin-Role](#cloud-vm-admin-role) |
 
 To grant individual users permissions to manage the Private Cloud, create user accounts add to the appropriate groups.
+
+> [!CAUTION]
+> New users must be added only to *Cloud-Owner-Group*, *Cloud-Global-Cluster-Admin-Group*, *Cloud-Global-Storage-Admin-Group*, *Cloud-Global-Network-Admin-Group* or, *Cloud-Global-VM-Admin-Group*.  Users added to *Administrators* group will be removed automatically.  Only service accounts must be added to *Administrators* group.
 
 ## List of vCenter privileges for default roles
 

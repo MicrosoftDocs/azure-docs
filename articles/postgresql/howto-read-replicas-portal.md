@@ -5,15 +5,12 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 09/04/2019
 ---
 
 # Create and manage read replicas in Azure Database for PostgreSQL - Single Server from the Azure portal
 
 In this article, you learn how to create and manage read replicas in Azure Database for PostgreSQL from the Azure portal. To learn more about read replicas, see the [overview](concepts-read-replicas.md).
-
-> [!IMPORTANT]
-> You can create a read replica in the same region as your master server, or in any other Azure region of your choice. Cross-region replication is currently in public preview.
 
 
 ## Prerequisites
@@ -177,4 +174,4 @@ The **Replica Lag** metric shows the time since the last replayed transaction on
  
 ## Next steps
 * Learn more about [read replicas in Azure Database for PostgreSQL](concepts-read-replicas.md).
-* Learn how to [create and manage read replicas in the Azure CLI](howto-read-replicas-cli.md).
+* Learn how to [create and manage read replicas in the Azure CLI and REST API](howto-read-replicas-cli.md).

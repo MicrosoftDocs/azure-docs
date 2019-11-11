@@ -91,6 +91,8 @@
     href: service-bus-async-messaging.md
   - name: Handling outages and disasters
     href: service-bus-outages-disasters.md
+  - name: Throttling
+    href: service-bus-throttling.md
   - name: Security  
     items:
     - name: Authentication and authorization
@@ -108,8 +110,8 @@
           href: service-bus-managed-service-identity.md
         - name: Authenticate from an application 
           href: authenticate-application.md
-    - name: Azure common security attributes
-      href: service-bus-messaging-security-attributes.md
+    - name: Built-in security controls
+      href: service-bus-messaging-security-controls.md
 - name: How-to guides
   items:
   - name: Create a namespace

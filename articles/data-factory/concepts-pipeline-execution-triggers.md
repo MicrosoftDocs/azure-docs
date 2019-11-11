@@ -1,20 +1,16 @@
 ---
-title: Pipeline execution and triggers in Azure Data Factory | Microsoft Docs
+title: Pipeline execution and triggers in Azure Data Factory 
 description: This article provides information about how to execute a pipeline in Azure Data Factory, either on-demand or by creating a trigger.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
-
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.author: shlo
-
 ---
 
 # Pipeline execution and triggers in Azure Data Factory
@@ -141,7 +137,7 @@ Triggers are another way that you can execute a pipeline run. Triggers represent
 
 - Event-based trigger: A trigger that responds to an event.
 
-Pipelines and triggers have a many-to-many relationship. Multiple triggers can kick off a single pipeline, or a single trigger can kick off multiple pipelines. In the following trigger definition, the **pipelines** property refers to a list of pipelines that are triggered by the particular trigger. The property definition includes values for the pipeline parameters.
+Pipelines and triggers have a many-to-many relationship (except for the tumbling window trigger).Multiple triggers can kick off a single pipeline, or a single trigger can kick off multiple pipelines. In the following trigger definition, the **pipelines** property refers to a list of pipelines that are triggered by the particular trigger. The property definition includes values for the pipeline parameters.
 
 ### Basic trigger definition
 

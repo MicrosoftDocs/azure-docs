@@ -61,10 +61,10 @@ For devices running the Windows desktop operating system, supported version are 
 ### Windows down-level devices
 
 - Windows 8.1
-- Windows 7. For support information on Windows 7, please review this article [Support for Windows 7 is ending](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support)
+- Windows 7. For support information on Windows 7, see [Support for Windows 7 is ending](https://www.microsoft.com/microsoft-365/windows/end-of-windows-7-support).
 - Windows Server 2012 R2
 - Windows Server 2012
-- Windows Server 2008 R2
+- Windows Server 2008 R2. For support information on Windows Server 2008 and 2008 R2, see [Prepare for Windows Server 2008 end of support](https://www.microsoft.com/cloud-platform/windows-server-2008).
 
 As a first planning step, you should review your environment and determine whether you need to support Windows down-level devices.
 
@@ -72,9 +72,9 @@ As a first planning step, you should review your environment and determine wheth
 
 Hybrid Azure AD join is currently not supported if your environment consists of a single AD forest synchronizing identity data to more than one Azure AD tenant.
 
-Hybrid Azure AD join is currently not supported when using virtual desktop infrastructure (VDI).
+If your environment uses virtual desktop infrastructure (VDI), see [Device identity and desktop virtualization](https://docs.microsoft.com/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
 
-Hybrid Azure AD join is not supported for FIPS-compliant TPMs. If your devices have FIPS-compliant TPMs, you must disable them before proceeding with Hybrid Azure AD join. Microsoft does not provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Please contact your hardware OEM for support.
+Hybrid Azure AD join is supported for FIPS-compliant TPM 2.0 and not supported for TPM 1.2. If your devices have FIPS-compliant TPM 1.2, you must disable them before proceeding with Hybrid Azure AD join. Microsoft does not provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Please contact your hardware OEM for support. Starting from WIndows 10 1903 release, TPMs 1.2 are not used for hybrid Azure AD join and devices with those TPMs will be considered as if they don't have a TPM.
 
 Hybrid Azure AD join is not supported for Windows Server running the Domain Controller (DC) role.
 
@@ -94,7 +94,7 @@ If your Windows 10 domain joined devices are [Azure AD registered](overview.md#g
 
 ## Review controlled validation of hybrid Azure AD join
 
-When all of the pre-requisites are in place, Windows devices will automatically register as devices in your Azure AD tenant. The state of these device identities in Azure AD is referred as hybrid Azure AD join. More information about the concepts covered in this article can be found in the articles [Introduction to device identity management in Azure Active Directory](overview.md) and [Plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md).
+When all of the pre-requisites are in place, Windows devices will automatically register as devices in your Azure AD tenant. The state of these device identities in Azure AD is referred as hybrid Azure AD join. More information about the concepts covered in this article can be found in the article [Introduction to device identity management in Azure Active Directory](overview.md).
 
 Organizations may want to do a controlled validation of hybrid Azure AD join before enabling it across their entire organization all at once. Review the article [controlled validation of hybrid Azure AD join](hybrid-azuread-join-control.md) to understand how to accomplish it.
 
@@ -123,7 +123,7 @@ When you're using AD FS, you need to enable the following WS-Trust endpoints:
   `/adfs/services/trust/13/certificatemixed` 
 
 > [!WARNING] 
-> Both **adfs/services/trust/2005/windowstransport** or **adfs/services/trust/13/windowstransport** should be enabled as intranet facing endpoints only and must NOT be exposed as extranet facing endpoints through the Web Application Proxy. To learn more on how to disable WS-Trust Windows endpoints, see [Disable WS-Trust Windows endpoints on the proxy](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). You can see what endpoints are enabled through the AD FS management console under **Service** > **Endpoints**.
+> Both **adfs/services/trust/2005/windowstransport** or **adfs/services/trust/13/windowstransport** should be enabled as intranet facing endpoints only and must NOT be exposed as extranet facing endpoints through the Web Application Proxy. To learn more on how to disable WS-Trust Windows endpoints, see [Disable WS-Trust Windows endpoints on the proxy](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). You can see what endpoints are enabled through the AD FS management console under **Service** > **Endpoints**.
 
 > [!NOTE]
 > Azure AD does not support smartcards or certificates in managed domains.
@@ -148,13 +148,13 @@ The table below provides details on support for these on-premises AD UPNs in Win
 | ----- | ----- | ----- | ----- |
 | Routable | Federated | From 1703 release | Generally available |
 | Non-routable | Federated | From 1803 release | Generally available |
-| Routable | Managed | Not supported | |
+| Routable | Managed | From 1803 release | Generally available, Azure AD SSPR on Windows lockscreen is not supported |
 | Non-routable | Managed | Not supported | |
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure hybrid Azure Active Directory join for federated enviornment](hybrid-azuread-join-federated-domains.md)
+> [Configure hybrid Azure Active Directory join for federated environment](hybrid-azuread-join-federated-domains.md)
 > [Configure hybrid Azure Active Directory join for managed environment](hybrid-azuread-join-managed-domains.md)
 
 <!--Image references-->

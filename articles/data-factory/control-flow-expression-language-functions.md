@@ -1,21 +1,18 @@
 ---
-title: Expression and functions in Azure Data Factory | Microsoft Docs
+title: Expression and functions in Azure Data Factory 
 description: This article provides information  about expressions and functions that you can use in creating data factory entities.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
-
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-
 ---
+
 # Expressions and functions in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-functions-variables.md)
@@ -257,7 +254,7 @@ This [tutorial](https://azure.microsoft.com/mediahandler/files/resourcefiles/azu
 |addminutes|Adds an integer number of minutes to a string timestamp passed in. The number of minutes can be positive or negative. The result is a string in ISO 8601 format ("o") by default, unless a format specifier is provided. For example, `2015-03-15T14:00:36Z`:<br /><br /> `addminutes('2015-03-15T13:27:36Z', 33)`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Timestamp<br /><br /> **Description**: Required. A string that contains the time.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: Minutes<br /><br /> **Description**: Required. The number of minutes to add. May be negative to subtract minutes.<br /><br /> **Parameter number**: 3<br /><br /> **Name**: Format<br /><br /> **Description**: Optional. Either a [single format specifier character](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) or a [custom format pattern](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) that indicates how to format the value of this timestamp. If format is not provided, the ISO 8601 format ("o") is used.|  
 |addhours|Adds an integer number of hours to a string timestamp passed in. The number of hours can be positive or negative. The result is a string in ISO 8601 format ("o") by default, unless a format specifier is provided. For example `2015-03-16T01:27:36Z`:<br /><br /> `addhours('2015-03-15T13:27:36Z', 12)`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Timestamp<br /><br /> **Description**: Required. A string that contains the time.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: Hours<br /><br /> **Description**: Required. The  number of hours to add. May be negative to subtract hours.<br /><br /> **Parameter number**: 3<br /><br /> **Name**: Format<br /><br /> **Description**: Optional. Either a [single format specifier character](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) or a [custom format pattern](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) that indicates how to format the value of this timestamp. If format is not provided, the ISO 8601 format ("o") is used.|  
 |adddays|Adds an integer number of days to a string timestamp passed in. The number of days can be positive or negative. The result is a string in ISO 8601 format ("o") by default, unless a format specifier is provided. For example `2015-02-23T13:27:36Z`:<br /><br /> `adddays('2015-03-15T13:27:36Z', -20)`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Timestamp<br /><br /> **Description**: Required. A string that contains the time.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: Days<br /><br /> **Description**: Required. The number of days to add. May be negative to subtract days.<br /><br /> **Parameter number**: 3<br /><br /> **Name**: Format<br /><br /> **Description**: Optional. Either a [single format specifier character](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) or a [custom format pattern](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) that indicates how to format the value of this timestamp. If format is not provided, the ISO 8601 format ("o") is used.|  
-|formatDateTime|Returns a string in date format. The result is a string in ISO 8601 format ("o") by default, unless a format specifier is provided. For example `2015-02-23T13:27:36Z`:<br /><br /> `formatDateTime('2015-03-15T13:27:36Z', 'o')`<br /><br /> **Parameter number**: 1<br /><br /> **Name**: Date<br /><br /> **Description**: Required. A string that contains the date.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: Format<br /><br /> **Description**: Optional. Either a [single format specifier character](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) or a [custom format pattern](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) that indicates how to format the value of this timestamp. If format is not provided, the ISO 8601 format ("o") is used.|  
+|formatDateTime|Returns a string in date format. The result is a string in ISO 8601 format ("o") by default, unless a format specifier is provided. For example `2015-02-23T13:27:36Z`:<br /><br /> `formatDateTime('2015-03-15T13:27:36Z', 'o')`<br /><br />To format a date in 'yyyy/MM/dd', use formatDateTime(utcnow(),'yyyy/MM/dd').</br>To append a name to the date, use @concat('foo-','/',formatDateTime(utcnow(),'yyyy/MM/dd')).<br><br> **Parameter number**: 1<br /><br /> **Name**: Date<br /><br /> **Description**: Required. A string that contains the date.<br /><br /> **Parameter number**: 2<br /><br /> **Name**: Format<br /><br /> **Description**: Optional. Either a [single format specifier character](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx) or a [custom format pattern](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx) that indicates how to format the value of this timestamp. If format is not provided, the ISO 8601 format ("o") is used. |  
 
 ## Next steps
 For a list of system variables you can use in expressions, see [System variables](control-flow-system-variables.md).

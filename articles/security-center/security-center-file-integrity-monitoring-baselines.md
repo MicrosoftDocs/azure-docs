@@ -1,11 +1,10 @@
 ---
-title: Compare baselines with File Integrity Monitoring in Azure Security Center | Microsoft Docs
+title: File Integrity Monitoring in Azure Security Center
 description: Learn how to compare baselines with File Integrity Monitoring in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: c8a2a589-b737-46c1-b508-7ea52e301e8f
 ms.service: security-center
 ms.devlang: na
@@ -13,7 +12,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
-ms.author: "v-mohabe"
+ms.author: memildin
 ---
 
 # Compare baselines using File Integrity Monitoring (FIM)
@@ -56,7 +55,7 @@ FIM baselines start by identifying characteristics of a known-good state for the
 |Network security: Restrict NTLM: Audit NTLM authentication in this domain|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\AuditNTLMInDomain|
 
 > [!NOTE]
-> To learn more about registry settings supported by various operating system versions, refer to the [Group Policy Settings reference spreadsheet](https://www.microsoft.com/en-us/download/confirmation.aspx?id=25250).
+> To learn more about registry settings supported by various operating system versions, refer to the [Group Policy Settings reference spreadsheet](https://www.microsoft.com/download/confirmation.aspx?id=25250).
 
 *To configure FIM to monitor registry baselines:*
 

@@ -1,12 +1,11 @@
 ---
-title: Samples - IRS 1075 blueprint - Overview
-description: Overview of the IRS 1075 blueprint sample.
+title: IRS 1075 blueprint sample - Overview
+description: Overview of the IRS 1075 blueprint sample. This blueprint sample helps customers assess specific IRS 1075 controls.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 08/07/2019
 ms.topic: sample
 ms.service: blueprints
-manager: carmonm
 ---
 # Overview of the IRS 1075 blueprint sample
 
@@ -30,9 +29,9 @@ following articles to learn about the control mapping and how to deploy this sam
 > [!div class="nextstepaction"]
 > [IRS 1075 blueprint - Control mapping](./control-mapping.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
-- Learn about the [blueprint life-cycle](../../concepts/lifecycle.md).
+- Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).
 - Learn to customize the [blueprint sequencing order](../../concepts/sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](../../concepts/resource-locking.md).

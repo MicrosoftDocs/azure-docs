@@ -1,7 +1,7 @@
 ---
 title:  "Two-Class Decision Forest: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Two-Class Decision Forest module in Azure Machine Learning service to create a machine learning model based on the decision forests algorithm.  
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Two-Class Decision Forest module in Azure Machine Learning to create a machine learning model based on the decision forests algorithm.  
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,11 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ROBOTS: NOINDEX
+ms.date: 10/22/2019
 ---
 # Two-Class Decision Forest module
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to create a machine learning model based on the decision forests algorithm.  
 
@@ -45,7 +44,7 @@ For more information, see [Decision Forests](https://go.microsoft.com/fwlink/?Li
 
 ## How to configure
   
-1.  Add the **Two-Class Decision Forest** module to your experiment in Azure Machine Learning, and open the **Properties** pane of the module. 
+1.  Add the **Two-Class Decision Forest** module to your pipeline in Azure Machine Learning, and open the **Properties** pane of the module. 
 
     You can find the module under **Machine Learning**. Expand **Initialize**, and then **Classification**.  
   
@@ -93,11 +92,10 @@ After training is complete:
   
     Click each tree to drill down into the splits and see the rules for each node.
 
-+ To save a snapshot of the model, right-click the **Trained Model** output, and select **Save Model**. The saved model is not updated on successive runs of the experiment.
++ To save a snapshot of the model, right-click the **Trained Model** output, and select **Save Model**. The saved model is not updated on successive runs of the pipeline.
 
-+ To use the model for scoring, add the **Score Model** module to an experiment.
-
++ To use the model for scoring, add the **Score Model** module to a pipeline.
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

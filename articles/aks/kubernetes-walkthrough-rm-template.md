@@ -17,7 +17,7 @@ ms.custom: mvc
 
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you deploy an AKS cluster using an Azure Resource Manager template. A multi-container application that includes a web front end and a Redis instance is run in the cluster.
 
-![Image of browsing to Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Image of browsing to Azure Vote](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
 This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
@@ -257,7 +257,7 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 To see the Azure Vote app in action, open a web browser to the external IP address of your service.
 
-![Image of browsing to Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Image of browsing to Azure Vote](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
 ## Delete cluster
 

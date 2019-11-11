@@ -8,7 +8,7 @@ manager: xdh
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 11/05/2019
 ms.author: cbasoglu
 ---
 
@@ -21,14 +21,18 @@ The Speech service SDK features many scenarios across a wide variety of programm
 - **Text-to-Speech (TTS)**
   - C++/Windows & Linux
   - C#/Windows & UWP & Unity
+  - Java (Jre and Android)
+  - Python
+  - Swift
+  - Objective-C
   - TTS REST API can be used in every other situation.
-- **Wake Word (Keyword Spotter/KWS)**
+- **Keyword Spotting (KWS)**
   - C++/Windows & Linux
   - C#/Windows & Linux
   - Python/Windows & Linux
   - Java/Windows & Linux & Android (Speech Devices SDK)
-  - Wake Word (Keyword Spotter/KWS) functionality might work with any microphone type, official KWS support, however, is currently limited to the microphone arrays found in the Azure Kinect DK hardware or the Speech Devices SDK
-- **Voice-First Virtual Assistant**
+  - Keyword spotting (KWS) functionality might work with any microphone type, official KWS support, however, is currently limited to the microphone arrays found in the Azure Kinect DK hardware or the Speech Devices SDK
+- **Voice assistants**
   - C++/Windows & Linux & macOS
   - C#/Windows
   - Java/Windows & Linux & macOS & Android (Speech Devices SDK)
@@ -41,4 +45,4 @@ The Speech service SDK features many scenarios across a wide variety of programm
 - **Codec Compressed Audio Input**
   - C++/Linux
   - C#/Linux
-  - Java/Linux & Android
+  - Java/Linux, Android, and iOS

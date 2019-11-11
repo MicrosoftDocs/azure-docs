@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 09/06/2019
 ms.author: erhopf
 ---
 
@@ -46,11 +46,12 @@ If you'd like to test the quality of Microsoft's speech-to-text baseline model o
 
 To evaluate models side by side:
 
-1. Navigate to **Speech-to-text > Custom Speech > Testing**.
-2. Click **Add Test**.
-3. Select **Evaluate accuracy**. Give the test a name, description, and select your audio + human-labeled transcription dataset.
-4. Select up to two models that you'd like to test.
-5. Click **Create**.
+1. Sign in to the [Custom Speech portal](https://speech.microsoft.com/customspeech).
+2. Navigate to **Speech-to-text > Custom Speech > Testing**.
+3. Click **Add Test**.
+4. Select **Evaluate accuracy**. Give the test a name, description, and select your audio + human-labeled transcription dataset.
+5. Select up to two models that you'd like to test.
+6. Click **Create**.
 
 After your test has been successfully created, you can compare the results side by side.
 

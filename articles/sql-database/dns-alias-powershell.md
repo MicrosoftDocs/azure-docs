@@ -1,15 +1,16 @@
 ﻿---
-title: PowerShell for DNS alias Azure SQL | Microsoft Docs
+title: PowerShell for DNS alias
 description: PowerShell cmdlets such as New-AzSqlServerDNSAlias enable you to redirect new client connections to a different Azure SQL Database server, without having to touch any client configuration.
 keywords: dns sql database
+ms.custom: seo-lt-2019
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
 ms.devlang: PowerShell
 ms.topic: conceptual
-author: oslake
-ms.author: moslake
-ms.reviewer: genemi,amagarwa,maboja, jrasnick
+author: rohitnayakmsft
+ms.author: rohitna
+ms.reviewer: genemi, amagarwa, maboja, jrasnick, vanto
 ms.date: 05/14/2019
 ---
 # PowerShell for DNS Alias to Azure SQL Database

@@ -1,5 +1,5 @@
 ---
-title: Sign-in activity report error codes in the Azure Active Directory portal | Microsoft Docs
+title: Error codes in the Azure Active Directory portal | Microsoft Docs
 description: Reference of sign-in activity report error codes. 
 services: active-directory
 documentationcenter: ''
@@ -124,6 +124,7 @@ You can also programmatically access the sign-in data using the [reporting API](
 |50177|External challenge is not supported for passthrough users.|
 |50178|Session Control  is not supported for passthrough users.|
 |50180|Windows Integrated authentication is needed. Enable the tenant for Seamless SSO.|
+|50181|OTP related failure during sign-in. |
 |50201|This message prompt interrupt will be shown to the user during login when additional information should be provided to user.|
 |51001|Domain Hint is not present with On-Premises Security Identifier - On-Premises UPN.|
 |51004|User account doesn’t exist in the directory.|
@@ -150,6 +151,8 @@ You can also programmatically access the sign-in data using the [reporting API](
 |70018|Invalid verification code due to User typing in wrong user code for device code flow. Authorization is not approved.|
 |70019|Verification code expired. Have the user retry the sign-in.|
 |70037|Incorrect challenge response provided. Remote auth session denied.|
+|70043|Azure Conditional Access session management forces the session to expire|
+|70044|Azure Conditional Access session management forces the session to expire|
 |75001|An error occurred during SAML message binding.|
 |75003|The application returned an error related to unsupported Binding (SAML protocol response cannot be sent via bindings other than HTTP POST). Contact the application owner.|
 |75005|Azure AD doesn’t support the SAML Request sent by the application for Single Sign-on. Contact the application owner.|

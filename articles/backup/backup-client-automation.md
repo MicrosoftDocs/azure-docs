@@ -1,6 +1,6 @@
 ---
 title: Use PowerShell to back up Windows Server to Azure
-description: Learn how to deploy and manage Azure Backup using PowerShell
+description: In this article, learn how to use PowerShell for setting up Azure Backup on Windows Server or a Windows client, and managing backup and recovery.
 ms.reviewer: shivamg
 author: dcurwin
 manager: carmonm
@@ -14,6 +14,7 @@ ms.author: dacurwin
 This article shows you how to use PowerShell for setting up Azure Backup on Windows Server or a Windows client, and managing backup and recovery.
 
 ## Install Azure PowerShell
+
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 To get started, [install the latest PowerShell release](/powershell/azure/install-az-ps).
@@ -72,7 +73,6 @@ SubscriptionId    : 1234-567f-8910-abc
 Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
 
-
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## Installing the Azure Backup agent
@@ -94,7 +94,7 @@ To install the agent, run the following command in an elevated PowerShell consol
 MARSAgentInstaller.exe /q
 ```
 
-This installs the agent with all the default options. The installation takes a few minutes in the background. If you do not specify the */nu* option then the **Windows Update** window will open at the end of the installation to check for any updates. Once installed, the agent will show in the list of installed programs.
+This installs the agent with all the default options. The installation takes a few minutes in the background. If you do not specify the */nu* option, then the **Windows Update** window will open at the end of the installation to check for any updates. Once installed, the agent will show in the list of installed programs.
 
 To see the list of installed programs, go to **Control Panel** > **Programs** > **Programs and Features**.
 
@@ -102,7 +102,7 @@ To see the list of installed programs, go to **Control Panel** > **Programs** > 
 
 ### Installation options
 
-To see all the options available via the command-line, use the following command:
+To see all the options available via the command line, use the following command:
 
 ```powershell
 MARSAgentInstaller.exe /?
@@ -145,9 +145,9 @@ $CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Certificate $certifica
 ```
 
 On the Windows Server or Windows client machine, run the [Start-OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) cmdlet to register the machine with the vault.
-This, and other cmdlets used for backup, are from the MSONLINE module which the Mars AgentInstaller added as part of the installation process.
+This, and other cmdlets used for backup, are from the MSONLINE module, which the Mars AgentInstaller added as part of the installation process.
 
-The Agent installer does not update the $Env:PSModulePath variable. This means module auto-load fails. To resolve this you can do the following:
+The Agent installer does not update the $Env:PSModulePath variable. This means module auto-load fails. To resolve this, you can do the following:
 
 ```powershell
 $Env:PSModulePath += ';C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules'
@@ -240,10 +240,10 @@ At this time the policy is empty and other cmdlets are needed to define what ite
 
 ### Configuring the backup schedule
 
-The first of the 3 parts of a policy is the backup schedule, which is created using the [New-OBSchedule](https://technet.microsoft.com/library/hh770401) cmdlet. The backup schedule defines when backups need to be taken. When creating a schedule you need to specify 2 input parameters:
+The first of the three parts of a policy is the backup schedule, which is created using the [New-OBSchedule](https://technet.microsoft.com/library/hh770401) cmdlet. The backup schedule defines when backups need to be taken. When creating a schedule, you need to specify two input parameters:
 
 * **Days of the week** that the backup should run. You can run the backup job on just one day, or every day of the week, or any combination in between.
-* **Times of the day** when the backup should run. You can define up to 3 different times of the day when the backup will be triggered.
+* **Times of the day** when the backup should run. You can define up to three different times of the day when the backup will be triggered.
 
 For instance, you could configure a backup policy that runs at 4PM every Saturday and Sunday.
 
@@ -260,9 +260,10 @@ Set-OBSchedule -Policy $NewPolicy -Schedule $Schedule
 ```Output
 BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s) DsList : PolicyName : RetentionPolicy : State : New PolicyState : Valid
 ```
+
 ### Configuring a retention policy
 
-The retention policy defines how long recovery points created from backup jobs are retained. When creating a new retention policy using the [New-OBRetentionPolicy](https://technet.microsoft.com/library/hh770425) cmdlet, you can specify the number of days that the backup recovery points need to be retained with Azure Backup. The example below sets a retention policy of 7 days.
+The retention policy defines how long recovery points created from backup jobs are retained. When creating a new retention policy using the [New-OBRetentionPolicy](https://technet.microsoft.com/library/hh770425) cmdlet, you can specify the number of days that the backup recovery points need to be retained with Azure Backup. The example below sets a retention policy of seven days.
 
 ```powershell
 $RetentionPolicy = New-OBRetentionPolicy -RetentionDays 7
@@ -294,6 +295,7 @@ RetentionPolicy : Retention Days : 7
 State           : New
 PolicyState     : Valid
 ```
+
 ### Including and excluding files to be backed up
 
 An `OBFileSpec` object defines the files to be included and excluded in a backup. This is a set of rules that scope out the protected files and folders on a machine. You can have as many file inclusion or exclusion rules as required, and associate them with a policy. When creating a new OBFileSpec object, you can:
@@ -304,7 +306,7 @@ An `OBFileSpec` object defines the files to be included and excluded in a backup
 
 The latter is achieved by using the -NonRecursive flag in the New-OBFileSpec command.
 
-In the example below, we'll back up volume C: and D: and exclude the OS binaries in the Windows folder and any temporary folders. To do so we'll create two file specifications using the [New-OBFileSpec](https://technet.microsoft.com/library/hh770408) cmdlet - one for inclusion and one for exclusion. Once the file specifications have been created, they're associated with the policy using the [Add-OBFileSpec](https://technet.microsoft.com/library/hh770424) cmdlet.
+In the example below, we'll back up volume C: and D: and exclude the OS binaries in the Windows folder and any temporary folders. To do so, we'll create two file specifications using the [New-OBFileSpec](https://technet.microsoft.com/library/hh770408) cmdlet - one for inclusion and one for exclusion. Once the file specifications have been created, they're associated with the policy using the [Add-OBFileSpec](https://technet.microsoft.com/library/hh770424) cmdlet.
 
 ```powershell
 $Inclusions = New-OBFileSpec -FileSpec @("C:\", "D:\")
@@ -397,11 +399,13 @@ RetentionPolicy : Retention Days : 7
 State           : New
 PolicyState     : Valid
 ```
+
 ## Back up Windows Server System State in MABS agent
 
 This section covers the PowerShell command to set up System State in MABS agent
 
 ### Schedule
+
 ```powershell
 $sched = New-OBSchedule -DaysOfWeek Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday -TimesOfDay 2:00
 ```
@@ -426,7 +430,7 @@ Get-OBSystemStatePolicy
 
 ### Applying the policy
 
-Now the policy object is complete and has an associated backup schedule, retention policy, and an inclusion/exclusion list of files. This policy can now be committed for Azure Backup to use. Before you apply the newly created policy ensure that there are no existing backup policies associated with the server by using the [Remove-OBPolicy](https://technet.microsoft.com/library/hh770415) cmdlet. Removing the policy will prompt for confirmation. To skip the confirmation use the `-Confirm:$false` flag with the cmdlet.
+Now the policy object is complete and has an associated backup schedule, retention policy, and an inclusion/exclusion list of files. This policy can now be committed for Azure Backup to use. Before you apply the newly created policy, ensure that there are no existing backup policies associated with the server by using the [Remove-OBPolicy](https://technet.microsoft.com/library/hh770415) cmdlet. Removing the policy will prompt for confirmation. To skip the confirmation, use the `-Confirm:$false` flag with the cmdlet.
 
 ```powershell
 Get-OBPolicy | Remove-OBPolicy
@@ -436,7 +440,7 @@ Get-OBPolicy | Remove-OBPolicy
 Microsoft Azure Backup Are you sure you want to remove this backup policy? This will delete all the backed up data. [Y] Yes [A] Yes to All [N] No [L] No to All [S] Suspend [?] Help (default is "Y"):
 ```
 
-Committing the policy object is done using the [Set-OBPolicy](https://technet.microsoft.com/library/hh770421) cmdlet. This will also ask for confirmation. To skip the confirmation use the `-Confirm:$false` flag with the cmdlet.
+Committing the policy object is done using the [Set-OBPolicy](https://technet.microsoft.com/library/hh770421) cmdlet. This will also ask for confirmation. To skip the confirmation, use the `-Confirm:$false` flag with the cmdlet.
 
 ```powershell
 Set-OBPolicy -Policy $NewPolicy
@@ -539,7 +543,7 @@ IsRecursive : True
 
 ### Performing an ad hoc backup
 
-Once a backup policy has been set the backups will occur per the schedule. Triggering an ad hoc backup is also possible using the [Start-OBBackup](https://technet.microsoft.com/library/hh770426) cmdlet:
+Once a backup policy has been set, the backups will occur per the schedule. Triggering an ad hoc backup is also possible using the [Start-OBBackup](https://technet.microsoft.com/library/hh770426) cmdlet:
 
 ```powershell
 Get-OBPolicy | Start-OBBackup
@@ -764,7 +768,7 @@ Invoke-Command -Session $Session -Script { param($D, $A) Start-Process -FilePath
 
 ## Next steps
 
-For more information about Azure Backup for Windows Server/Client see
+For more information about Azure Backup for Windows Server/Client:
 
 * [Introduction to Azure Backup](backup-introduction-to-azure-backup.md)
 * [Back up Windows Servers](backup-configure-vault.md)
