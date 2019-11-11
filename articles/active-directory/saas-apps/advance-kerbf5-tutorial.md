@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 11/11/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -251,15 +251,19 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 * **Step 1: Create a Delegation Account**
 
     * Example
+    ```
     Domain Name : superdemo.live
     Sam Account Name : big-ipuser
 
-    * New-ADUser -Name "APM Delegation Account" -UserPrincipalName host/big-ipuser.superdemo.live@superdemo.live -SamAccountName "big-ipuser" -PasswordNeverExpires $true -Enabled $true -AccountPassword (Read-Host -AsSecureString "Password!1234")
+    New-ADUser -Name "APM Delegation Account" -UserPrincipalName host/big-ipuser.superdemo.live@superdemo.live -SamAccountName "big-ipuser" -PasswordNeverExpires $true -Enabled $true -AccountPassword (Read-Host -AsSecureString "Password!1234")
+    ```
 
 * **Step 2: Set SPN (on the APM Delegation Account)**
 
     *  Example
+    ```
     setspn –A host/big-ipuser.superdemo.live big-ipuser
+    ```
 
 * **Step 3: SPN Delegation ( for the App Service Account)**
 
@@ -279,6 +283,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. Below is the whole list of default SAML Attributes. GivenName is represented using the following string.
 `session.saml.last.attr.name.http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
 
+```
 | | |
 | -- | -- |
 | eb46b6b6.session.saml.last.assertionID | _9a4e4ddd-148f-45c4-b959-f4d148172e00 |
@@ -313,6 +318,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 | eb46b6b6.session.saml.last.subjectConfirmMethod | urn:oasis:names:tc:SAML:2.0:cm:bearer |
 | eb46b6b6.session.saml.last.validityNotBefore | 2019-06-16T19:13:03.054Z |
 | eb46b6b6.session.saml.last.validityNotOnOrAfter | 2019-06-16T20:13:03.054Z |
+```
 
 ### Create F5 test user
 
