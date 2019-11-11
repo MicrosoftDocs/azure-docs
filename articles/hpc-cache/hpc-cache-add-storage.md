@@ -4,7 +4,7 @@ description: How to define storage targets so that your Azure HPC Cache can use 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 11/11/2019
 ms.author: rohogue
 ---
 
@@ -36,7 +36,7 @@ To define an Azure Blob container, enter this information.
 
 * **Storage target name** - Set a name that identifies this storage target in the Azure HPC Cache.
 * **Target type** - Choose **Blob**.
-* **Storage account** - Select the account with the container to reference.
+* **Storage account** - Select the account with the container that you want to use.
 
   You will need to authorize the cache instance to access the storage account as described in [Add the access roles](#add-the-access-control-roles-to-your-account).
 
@@ -49,7 +49,7 @@ To define an Azure Blob container, enter this information.
 When finished, click **OK** to add the storage target.
 
 > [!NOTE]
-> If your storage account firewall is set to restrict access to selected networks only, use the temporary workaround documented in [Work around Blob storage account firewall settings](hpc-cache-blob-firewall-fix.md) to create Blob storage targets.
+> If your storage account firewall is set to restrict access to only "selected networks," use the temporary workaround documented in [Work around Blob storage account firewall settings](hpc-cache-blob-firewall-fix.md).
 
 ### Add the access control roles to your account
 
@@ -82,7 +82,7 @@ Steps to add the RBAC roles:
 
 ## Add a new NFS storage target
 
-An NFS storage target has some extra fields to specify how to reach the storage export and how to efficiently cache its data. Also, you can create multiple namespace paths from one NFS host if it has more than one export available.
+An NFS storage target has more fields than the Blob storage target. These fields specify how to reach the storage export and how to efficiently cache its data. Also, an NFS storage target lets you create multiple namespace paths if the NFS host has more than one export available.
 
 ![Screenshot of add storage target page with NFS target defined](media/hpc-cache-add-nfs-target.png)
 
@@ -127,17 +127,17 @@ There are three options:
 
   This option caches files that clients read, but passes writes through to the back-end storage immediately. Files stored in the cache are never compared to the files on the NFS storage volume.
 
-  Do not use this option if there is a risk that a file might be modified directly on the storage system without first writing it to the cache. If that happens, the cached version of the file will never be updated with changes from the back end, and the data set will become inconsistent.
+  Do not use this option if there is a risk that a file might be modified directly on the storage system without first writing it to the cache. If that happens, the cached version of the file will never be updated with changes from the back end, and the data set can become inconsistent.
 
-* **Greater than 15% writes** - This option balances read and write performance. With this option, all clients must access files through the Azure HPC Cache instead of mounting the back-end storage directly, because the cached files will have recent changes not stored on the back end.
+* **Greater than 15% writes** - This option speeds up both read and write performance. When using this option, all clients must access files through the Azure HPC Cache instead of mounting the back-end storage directly. The cached files will have recent changes that are not stored on the back end.
 
-  Files in the cache are not checked against the files on back-end storage. Also, a file that a client has changed is stored in the cache only for up to an hour before it is written to the long-term storage system.
+  In this usage model, files in the cache are not checked against the files on back-end storage. The cached version of the file is assumed to be more current. A modified file in the cache is only written to the back-end storage system after it has been in the cache for an hour with no additional changes.
 
 * **Clients write to the NFS target, bypassing the cache** - Choose this option if any clients in your workflow write data directly to the storage system without first writing to the cache. Files that clients request are cached, but any changes to those files from the client are passed back to the back-end storage system immediately.
 
   With this usage model, the files in the cache are frequently checked against the back-end versions for updates. This verification allows files to be changed outside of the cache while maintaining data consistency.
 
-This table summarizes the differences between the usage models.
+This table summarizes the usage model differences:
 
 | Usage model | Caching mode | Back-end verification | Maximum write-back delay |
 | ---- | ---- | ---- | ---- |
@@ -152,4 +152,4 @@ After creating storage targets, consider one of these tasks:
 * [Mount the Azure HPC Cache](hpc-cache-mount.md)
 * [Move data to Azure Blob storage](hpc-cache-ingest.md)
 
-If you need to change a storage target, read [Edit storage targets](hpc-cache-edit-storage.md) to learn how.
+You also can [edit a storage target](hpc-cache-edit-storage.md).

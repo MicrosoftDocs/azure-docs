@@ -16,9 +16,9 @@ The firewall setting that allows access only from "selected networks" can preven
 
 The issue is that the cache service uses a hidden service virtual network that is separate from customer environments. It isn't possible to explicitly authorize this network to access your storage account.
 
-When you create a Blob storage target, the cache service uses the service network to check whether or not the container is empty. If the firewall does not allow access from the hidden network, the check fails, and the storage target creation fails.
+When you create a Blob storage target, the cache service uses this network to check whether or not the container is empty. If the firewall does not allow access from the hidden network, the check fails, and the storage target creation fails.
 
-To work around the problem, temporarily change your firewall settings to create the storage target:
+To work around the problem, temporarily change your firewall settings while creating the storage target:
 
 1. Go to the storage account **Firewalls and virtual networks** page and change the setting "Allow access from" to **All networks**.
 1. Create the Blob storage target in your Azure HPC Cache.

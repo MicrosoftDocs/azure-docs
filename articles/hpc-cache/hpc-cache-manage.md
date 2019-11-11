@@ -40,7 +40,7 @@ After all the data is saved to storage targets, the cache automatically starts t
 
 ## Upgrade cache software
 
-If a new software version is available, the **Upgrade** button becomes active. You also might see a message at the top of the page about updating software.
+If a new software version is available, the **Upgrade** button becomes active. You also should see a message at the top of the page about updating software.
 
 ![screenshot of the top row of buttons with the Upgrade button enabled](media/hpc-cache-upgrade-button.png)
 

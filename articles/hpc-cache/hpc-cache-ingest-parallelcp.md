@@ -12,7 +12,7 @@ ms.author: rohogue
 
 This article gives instructions for creating the ``parallelcp`` script and using it to move data to a Blob storage container for use with Azure HPC Cache.
 
-To learn more about moving data to Blob storage for your Azure HPC Cache, read [Move data to Azure Blob storage for Azure HPC Cache](hpc-cache-ingest.md).
+To learn more about moving data to Blob storage for your Azure HPC Cache, read [Move data to Azure Blob storage](hpc-cache-ingest.md).
 
 ## Create the parallelcp script
 

@@ -12,7 +12,7 @@ ms.author: rohogue
 
 This article gives detailed instructions for manually copying data to a Blob storage container for use with Azure HPC Cache. It uses multi-threaded parallel operations to optimize the copy speed.
 
-To learn more about moving data to Blob storage for your Azure HPC Cache, read [Move data to Azure Blob storage for Azure HPC Cache](hpc-cache-ingest.md).
+To learn more about moving data to Blob storage for your Azure HPC Cache, read [Move data to Azure Blob storage](hpc-cache-ingest.md).
 
 ## Simple copy example
 
