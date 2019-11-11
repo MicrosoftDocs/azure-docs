@@ -91,7 +91,7 @@ In this quickstart, you use an existing sample device capability model and assoc
 
 ## Generate the C code stub
 
-Now you have a DCM and its associated interfaces, you can generate the device code that implements the model. To generate the C code stub in VS code:
+Now that you have a DCM and its associated interfaces, you can generate the device code that implements the model. To generate the C code stub in VS Code:
 
 1. With the folder with DCM files open, use **Ctrl+Shift+P** to open the command palette, enter **IoT Plug and Play**, and select **Generate Device Code Stub**.
 
@@ -169,7 +169,7 @@ To validate the device code with **Azure IoT Explorer**, you need to publish the
     > [!NOTE]
     > The connection string is only required the first time you connect to the repository.
 
-1. In VS Code output window and notification, you can check the files have been published successfully.
+1. In VS Code output window and notification, you can check that the files have been published successfully.
 
     > [!NOTE]
     > If you get errors on publishing the device model files, you can try use command **IoT Plug and Play: Sign out Model Repository** to sign out and go through the steps again.

@@ -1,6 +1,6 @@
 ---
-title: Connect IoT Plug and Play Preview sample device code to IoT Hub | Microsoft Docs
-description: Using C, build and run IoT Plug and Play Preview sample device code that connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
+title: Connect IoT Plug and Play Preview sample device code to IoT Hub (Windows) | Microsoft Docs
+description: Build and run IoT Plug and Play Preview sample device code on Windows that connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
 author: ChrisGMsft
 ms.author: chrisgre
 ms.date: 08/02/2019
@@ -40,6 +40,7 @@ In this quickstart, you prepare a development environment you can use to clone a
 
 Open a command prompt in the directory of your choice. Execute the following command to clone the [Azure IoT C SDKs and Libraries](https://github.com/Azure/azure-iot-sdk-c) GitHub repository into this location:
 
+
 ```cmd/sh
 git clone https://github.com/Azure/azure-iot-sdk-c --recursive -b public-preview
 ```
@@ -71,6 +72,7 @@ The application you build simulates a device that connects to an IoT hub. The ap
 ## Run the device sample
 
 Run your application by passing the _device connection string_ as parameter.
+
 
 ```cmd\sh
 cd digitaltwin_client\samples\digitaltwin_sample_device\Release
