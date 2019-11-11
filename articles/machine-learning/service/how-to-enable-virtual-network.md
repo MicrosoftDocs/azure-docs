@@ -1,5 +1,5 @@
 ---
-title: Secure experiments and inference in a virtual network
+title: Secure experiments and inference in virtual network
 titleSuffix: Azure Machine Learning
 description: learn how to secure experimentation/training jobs and inference/scoring jobs in Azure Machine Learning within an Azure Virtual Network.
 services: machine-learning
