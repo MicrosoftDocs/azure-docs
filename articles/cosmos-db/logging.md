@@ -440,24 +440,25 @@ To learn about the meaning of the data that's returned by each log search, see [
     | where Caller == "test@company.com" and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
     | summarize count() by Resource
     ```
+    > [!NOTE]
+    > This command is for an activity log, not a diagnostic log.
 
 * To get all queries greater than 100 RUs joined with data from DataPlaneRequests and QueryRunTimeStatistics
 
-```
-AzureDiagnostics
-| where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" and todouble(requestCharge_s) > 100.0
-| project activityId_g, requestCharge_s
-| join kind= inner (
-   AzureDiagnostics
-   | where ResourceProvider =="MICROSOFT.DOCUMENTDB" and Category == "QueryRuntimeStatistics"
-   | project activityId_g, querytext_s
-) on $left.activityId_g == $right.activityId_g
-| order by requestCharge_s desc
-| limit 100
-```
+    ```
+    AzureDiagnostics
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" and todouble(requestCharge_s) > 100.0
+    | project activityId_g, requestCharge_s
+    | join kind= inner (
+           AzureDiagnostics
+           | where ResourceProvider =="MICROSOFT.DOCUMENTDB" and Category == "QueryRuntimeStatistics"
+           | project activityId_g, querytext_s
+    ) on $left.activityId_g == $right.activityId_g
+    | order by requestCharge_s desc
+    | limit 100
+    ```
     
-    > [!NOTE]
-    > This command is for an activity log, not a diagnostic log.
+      
 
 * To query for which operations take longer than 3 milliseconds:
 
@@ -485,11 +486,13 @@ AzureDiagnostics
     ```
     
 * To get Partition Key statistics to evaluate skew across top 3 partitions for database account:
+
     ```
     AzureDiagnostics 
     | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
-    | where resourceId == "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>"
-    | limit 1
+    | project SubscriptionId, regionName_s, databaseName_s, collectionname_s, partitionkey_s, sizeKb_s, ResourceId 
+    
+   
     ```
     
 
