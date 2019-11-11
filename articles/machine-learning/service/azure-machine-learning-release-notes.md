@@ -22,20 +22,13 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 ## 2019-11-11
 
 ### Azure Machine Learning SDK for Python v1.0.74
-
-+ **New features**
-  + [Insert new features below. Reference articles and/or doc pages]
-  
+ 
   + **Preview features**
-    + [Contrib features below] 
     + **azureml-contrib-dataset**
       + After importing azureml-contrib-dataset, you can call `Dataset.Labeled.from_json_lines` instead of `._Labeled` to create a labeled dataset.
       + When calling `to_pandas_dataframe` on a labeled dataset with the download option, you can now specify whether to overwrite existing files or not.
       + When calling `keep_columns` or `drop_columns` that results in a timeseries, label, or image column being dropped, the corresponding capabilities will be dropped for the dataset as well.
       + Fixed issues with PyTorch loader when calling `dataset.to_torchvision()`.
-
-+ **Breaking changes**
-  + [Reference upcoming breaking changes and old API support drop date]
 
 + **Bug fixes and improvements**
   + **azure-cli-ml**
