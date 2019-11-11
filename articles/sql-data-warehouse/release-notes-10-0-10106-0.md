@@ -20,11 +20,24 @@ This article summarizes the new features and improvements in the recent releases
 
 As new features are rolled out to all regions, check the version deployed to your instance and the latest Azure SQL DW release notes for feature availability. To check your Azure SQL DW version, connect to your data warehouse via SQL Server Management Studio (SSMS) and run `SELECT @@VERSION;` to return the current version of Azure SQL DW.
 
-Example output:
+Sample output:
 
 ![SQL Data Warehouse version](./media/release-notes/sql_data_warehouse_version.png)
 
-Use the date identified to confirm which release has been applied to your Azure SQL DW.
+Use the version identified to confirm which release has been applied to your Azure SQL DW.
+
+## November 2019
+
+| Service improvements | Details |
+| --- | --- |
+|**Copy (Preview)**|We are excited to announce the public preview of a simple and flexible COPY statement for data ingestion. With only one statement, you can now seamlessly ingest data with additional flexibility and without requiring high privileged users. For more information, see our COPY command documentation.|
+|**Workload Isolation (Preview)**||
+|**PREDICT (Preview)**|You can now score machine learning models within your data warehouse avoiding the need for large and complex data movement. The T-SQL PREDICT function relies on open model framework and takes data and machine learning model as input to generate predictions.|
+|**SSDT CI/CD (GA)**|Today we are excited to announce the General Availability of the [highest requested feature](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247--in-preview-database-project-from-visual-studio-t) for SQL Data Warehouse – SQL Server Data Tools (SSDT) Database projects. This release includes support for SSDT with Visual Studio 2019 along with native platform integration with Azure DevOps providing built-in continuous integration and deployment (CI/CD) capabilities for enterprise level deployments. |
+|**Materialized view (GA)**|A Materialized View persists the data returned from the view definition query and automatically gets updated as data changes in the underlying tables. It improves the performance of complex queries (typically queries with joins and aggregations) while offering simple maintenance operations. For more information, see [Performance tuning with materialized views](/azure/sql-data-warehouse/performance-tuning-materialized-views).  Install [SQL Server Management Studio 18.4 or later](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) for scripting Materialized Views.|
+|**Dynamic data masking (GA)**|Dynamic Data Masking (DDM) prevents unauthorized access to your sensitive data in your data warehouse by obfuscating it on-the-fly in the query results, based on the masking rules you define. For more information, see [SQL Database dynamic data masking](/azure/sql-database/sql-database-dynamic-data-masking-get-started).|
+|**Read Committed Snapshot Isolation  (GA)**|You can use ALTER DATABSE to enable or disable snapshot isolation for a user database. To avoid impact to your current workload, you may want to set this option during database maintenance window or wait until there is no other active connection to the database. For more information, see Alter database set options.|
+|**Ordered Clustered Columnstore Index (GA)**|Columnstore is a key enabler for storing and efficiently querying large amounts of data. Ordered clustered columnstore indexes further optimize query execution by enabling efficient segment elimination.   For more information, see [Performance tuning with ordered clustered Columnstore index](/azure/sql-data-warehouse/performance-tuning-ordered-cci).|
 
 ## September 2019
 
