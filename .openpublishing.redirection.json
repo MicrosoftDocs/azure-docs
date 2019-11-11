@@ -41814,6 +41814,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-central/core/tutorial-add-edge-as-leaf-device.md",
+      "redirect_url": "/azure/iot-central/preview/tutorial-add-edge-as-leaf-device/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/iot-central/core/tutorial-use-device-groups-pnp.md",
       "redirect_url": "/azure/iot-central/preview/tutorial-use-device-groups/",
       "redirect_document_id": false
