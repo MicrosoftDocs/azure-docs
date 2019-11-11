@@ -19,7 +19,7 @@ There are two primary upgrade paths depending on if you enabled the Snapshot Deb
 ## Upgrading the site extension
 
 > [!IMPORTANT]
-> Older versions of Application Insights used a private site extension called "Application Insights Extension for App Service". The current Application Insights experience is enabled by setting App Settings to light up a pre-installed site extension.
+> Older versions of Application Insights used a private site extension called "Application Insights extension for Azure App Service". The current Application Insights experience is enabled by setting App Settings to light up a pre-installed site extension.
 > To avoid conflicts, which may cause your site to stop working, it is important to delete the private site extension first. See step 4 below.
 
 If you enabled the Snapshot debugger using the site extension, you can upgrade using the following procedure:
@@ -33,7 +33,7 @@ If you enabled the Snapshot debugger using the site extension, you can upgrade u
 
    ![Screenshot of App Service Extensions showing Application Insights extension for Azure App Service installed](./media/snapshot-debugger-upgrade/application-insights-site-extension-to-be-deleted.png)
 
-4. If any version of "Application Insights Site Extension for App Service" is installed, then select it and click Delete. Confirm "Yes" to delete the extension and wait for the delete to complete before moving to the next step.
+4. If any version of "Application Insights extension for Azure App Service" is installed, then select it and click Delete. Confirm "Yes" to delete the extension and wait for the delete to complete before moving to the next step.
 
    ![Screenshot of App Service Extensions showing Application Insights extension for Azure App Service with the Delete button highlighted](./media/snapshot-debugger-upgrade/application-insights-site-extension-delete.png)
 
