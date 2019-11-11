@@ -140,7 +140,7 @@ pipeline:
     default_compute: adlacomp
     steps:
         Step1:
-            runconfig: "yaml/default_runconfig.yml"
+            runconfig: "D:\\Yaml\\default_runconfig.yml"
             parameters:
                 NUM_ITERATIONS_2:
                     source: PipelineParam1
@@ -192,7 +192,7 @@ pipeline:
     default_compute: testbatch
     steps:
         Step1:
-            runconfig: "D:\\AzureMlCli\\cli_testing\\default_runconfig.yml"
+            runconfig: "D:\\Yaml\\default_runconfig.yml"
             parameters:
                 NUM_ITERATIONS_2:
                     source: PipelineParam1
@@ -245,7 +245,7 @@ pipeline:
     default_compute: mydatabricks
     steps:
         Step1:
-            runconfig: "D:\\AzureMlCli\\cli_testing\\default_runconfig.yml"
+            runconfig: "D:\\Yaml\\default_runconfig.yml"
             parameters:
                 NUM_ITERATIONS_2:
                     source: PipelineParam1
@@ -295,7 +295,7 @@ pipeline:
     default_compute: adftest
     steps:
         Step1:
-            runconfig: "yaml/default_runconfig.yml"
+            runconfig: "D:\\Yaml\\default_runconfig.yml"
             parameters:
                 NUM_ITERATIONS_2:
                     source: PipelineParam1
@@ -339,7 +339,7 @@ pipeline:
     default_compute: cpu-cluster
     steps:
         Step1:
-            runconfig: "yaml/default_runconfig.yml"
+            runconfig: "D:\\Yaml\\default_runconfig.yml"
             parameters:
                 NUM_ITERATIONS_2:
                     source: PipelineParam1
@@ -402,7 +402,7 @@ When defining a **recurring schedule**, use the following keys under `recurrence
 | `time_zone` | The time zone for the start time. If no time zone is provided, UTC is used. |
 | `hours` | If `frequency` is `"Day"` or `"Week"`, you can specify one or more integers from 0 to 23, separated by commas, as the hours of the day when the pipeline should run. Only `time_of_day` or `hours` and `minutes` can be used. |
 | `minutes` | If `frequency` is `"Day"` or `"Week"`, you can specify one or more integers from 0 to 59, separated by commas, as the minutes of the hour when the pipeline should run. Only `time_of_day` or `hours` and `minutes` can be used. |
-| `time_of_day` | If `frequency` is `"Day"` or `"Week"`, you can specify a time of day for the schedule to run. The string format of the value is `hh:mm`. Only `time_of_day` or `hours` and `minutes` can be used. |zzs
+| `time_of_day` | If `frequency` is `"Day"` or `"Week"`, you can specify a time of day for the schedule to run. The string format of the value is `hh:mm`. Only `time_of_day` or `hours` and `minutes` can be used. |
 | `week_days` | If `frequency` is `"Week"`, you can specify one or more days, separated by commas, when the schedule should run. Valid values are `"Monday"`, `"Tuesday"`, `"Wednesday"`, `"Thursday"`, `"Friday"`, `"Saturday"`, and `"Sunday"`. |
 
 The following example contains the definition for a recurring schedule:
