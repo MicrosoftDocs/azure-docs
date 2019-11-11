@@ -193,12 +193,14 @@
       href: speech-translation.md
   - name: Quickstarts
     items:
-    - name: Translate speech-to-text
-      href: quickstarts/translate-speech-to-text.md
-    - name: Translate speech to multiple target languages
-      href: quickstarts/translate-speech-to-text-multiple-languages.md
+    - name: Translate speech-to-text, for one or multiple languages
+      href: quickstarts/translate-speech-to-text-single-multiple-languages.md
+    # name: Translate speech to multiple target languages
+     # href: quickstarts/translate-speech-to-text-multiple-languages.md
     - name: Translate speech-to-speech
       href: quickstarts/translate-speech-to-speech.md
+    - name: Translate multi-device conversations
+      href: quickstarts/translate-multi-device-conversations.md
   - name: Tutorials
     items:
     - name: Build a Flask app to translate and synthesize text, REST
