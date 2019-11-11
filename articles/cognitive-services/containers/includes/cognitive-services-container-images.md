@@ -6,7 +6,7 @@ manager: nitinme
 description: Two tables representing the container registries, repositories and image names for all Cognitive Service offerings.
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 11/11/2019
 ms.author: dapine
 ---
 
@@ -39,5 +39,3 @@ The Container Preview registry hosts all of the publicly available "gated" conta
 | [Speech Service API](../../speech-service/speech-container-howto.md?tab=cstt) | Custom Speech-to-text | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text` |
 | [Speech Service API](../../speech-service/speech-container-howto.md?tab=tts) | Text-to-speech | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech` |
 | [Speech Service API](../../speech-service/speech-container-howto.md?tab=ctts) | Custom Text-to-speech | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech` |
-| [Translator Text](../../translator/how-to-install-containers.md) | Translator Text | `containerpreview.azurecr.io/microsoft/cognitive-services-translator-text` |
-
