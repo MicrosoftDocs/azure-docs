@@ -21,14 +21,16 @@ ms.collection: M365-identity-device-management
 ---
 # SCIM user provisioning with Azure Active Directory
 
-This article describes how to use System for Cross-Domain Identity Management ([SCIM](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/bg-p/IdentityStandards)) to automate the provisoning and deprovisioning of users and groups to an application.
+This article describes how to use System for Cross-Domain Identity Management ([SCIM](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/bg-p/IdentityStandards)) to automate the provisoning and deprovisioning of users and groups to an application. The SCIM specification provides a common user schema for provisioning. When used in conjunction with federation standards like SAML or OpenID Connect, provides administrators an end-to-end standards-based solution for access management.
 
-SCIM is a standardized definition of two endpoints – a /Users endpoint and a /Groups endpoint. Using common REST verbs to create, update, and delete objects, and a pre-defined schema for common attributes like group name, username, first name, last name and email, apps that offer a SCIM 2.0 REST API can reduce or eliminate the pain of working with a proprietary user management API. For example, any compliant SCIM client knows how to make an HTTP POST of a JSON object to the /Users endpoint to create a new user entry. This means that, instead of every app creating a slightly different API that does the same basic thing but requires proprietary code to call, apps can conform to the SCIM standard and instantly take advantage of pre-existing clients, tools and code.
+SCIM is a standardized definition of two endpoints: a /Users endpoint and a /Groups endpoint. Using common REST verbs to create, update, and delete objects, and a pre-defined schema for common attributes like group name, username, first name, last name and email, apps that offer a SCIM 2.0 REST API can reduce or eliminate the pain of working with a proprietary user management API. For example, any compliant SCIM client knows how to make an HTTP POST of a JSON object to the /Users endpoint to create a new user entry. This means that, instead of every app creating a slightly different API that does the same basic thing but requires proprietary code to call, apps can conform to the SCIM standard and instantly take advantage of pre-existing clients, tools and code.
 
-The standard user object schema and rest APIs for management defined in SCIM 2.0 (RFC 7642, 7643, 7644) allow identity providers and apps to more easily integrate with each other. Application developers that build an SCIM endpoint can integrate with any SCIM-compliant client without having to do custom work. 
+![Provisioning from Azure Active Directory to an app with SCIM](media/use-scim-to-provision-users-and-groups/scim-provisioning-overview.png)
+
+The standard user object schema and rest APIs for management defined in SCIM 2.0 (RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.ietf.org/html/rfc7643), [7644](https://tools.ietf.org/html/rfc7644)) allow identity providers and apps to more easily integrate with each other. Application developers that build an SCIM endpoint can integrate with any SCIM-compliant client without having to do custom work. 
 
 Automating provisioning to an application requires building and integrating a SCIM endpoint with the Azure AD SCIM compliant. Perform the following steps to start provisioning users and groups into your application. 
-
+    
   * **[Step 1: Design your user and group schema](#step-1-design-your-user-and-group-schema)** - Describes the user and group schema supported by the Azure AD SCIM implementation for non-gallery apps.
 
   * **[Step 2: Understand the Azure AD SCIM implementation](#step-2-understand-the-azure-ad-scim-implementation)** - If you're building an application that supports a SCIM 2.0 user management API, this section describes in detail how the Azure AD SCIM client is implemented, and how you should model your SCIM protocol request handling and responses.
@@ -39,12 +41,11 @@ Automating provisioning to an application requires building and integrating a SC
 
   * **[Step 5: Publish your application to the Azure AD application gallery](#step-5-publish-your-application-to-the-azure-ad-application-gallery)** - Make it easy for customers to discover your application and easily configure provisioning. 
 
-![Provisioning from Azure Active Directory to an application or identity store that implements SCIM*][0]<br/>
-*Figure 1: Provisioning from Azure Active Directory to an application or identity store that implements SCIM*
+![Steps for integrating a SCIM endpoint with Azure AD](media/use-scim-to-provision-users-and-groups/scim-development-flow.png)
 
 ## Step 1: Design your user and group schema
 
-Every application requires different attributes to create a user or group. Start your integration by identifying the objects(users/groups) and attributes (name, manager, jobtitle, etc.) that your applicaiton requires. You can then use the table below to understand ho the attributes your application requires could map to an attribute in Azure Active Directory and the SCIM RFC. Note that you can [customize](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) how attributes are mapped between Azure AD and your SCIM endpoint. 
+Every application requires different attributes to create a user or group. Start your integration by identifying the objects (users/groups) and attributes (name, manager, jobtitle, etc.) that your applicaiton requires. You can then use the table below to understand ho the attributes your application requires could map to an attribute in Azure Active Directory and the SCIM RFC. Note that you can [customize](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) how attributes are mapped between Azure AD and your SCIM endpoint. 
 
 User resources are identified by the schema identifier, `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User`, which is included in this protocol specification: https://tools.ietf.org/html/rfc7643.  The default mapping of the attributes of users in Azure Active Directory to the attributes of user resources is provided in Table 1.  
 
@@ -133,7 +134,7 @@ Group provisioning and de-provisioning are optional. When implemented and enable
 This section provides example SCIM requests emitted by the Azure AD SCIM client and example expected responses. For best results, you should code your app to handle these requests in this format and emit the expected responses.
 
 > [!IMPORTANT]
-> To understand how and when the Azure AD user provisioning service emits the operations described below, see [What happens during user provisioning?](user-provisioning.md#what-happens-during-provisioning).
+> To understand how and when the Azure AD user provisioning service emits the operations described below, see [What happens during user provisioning](user-provisioning.md#what-happens-during-provisioning)?
 
 [User Operations](#user-operations)
   - [Create User](#create-user) ([Request](#request) / [Response](#response))
