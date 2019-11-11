@@ -282,7 +282,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Below is the whole list of default SAML Attributes. GivenName is represented using the following string.
 `session.saml.last.attr.name.http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
-<<
+
 | | |
 | -- | -- |
 | eb46b6b6.session.saml.last.assertionID | `<TENANT ID>` |
@@ -317,7 +317,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 | eb46b6b6.session.saml.last.subjectConfirmMethod | urn:oasis:names:tc:SAML:2.0:cm:bearer |
 | eb46b6b6.session.saml.last.validityNotBefore | `<ID>` |
 | eb46b6b6.session.saml.last.validityNotOnOrAfter | `<ID>` |
->>
+
 ### Create F5 test user
 
 In this section, you create a user called B.Simon in F5. Work with [F5 Client support team](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) to add the users in the F5 platform. Users must be created and activated before you use single sign-on. 
