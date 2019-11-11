@@ -1,5 +1,5 @@
 ---
-title: Endpoint protection solutions discovery and health assessment in Azure Security Center | Microsoft Docs
+title: Endpoint protection recommendations in Azure Security Centers
 description: How the endpoint protection solutions are discovered and identified as healthy.
 services: security-center 
 documentationcenter: na
@@ -31,23 +31,23 @@ Azure Security Center provides health assessments of [supported](https://docs.mi
 
   * Any of the following properties are false:
 
-     **AMServiceEnabled**
+    **AMServiceEnabled**
 
-     **AntispywareEnabled**
+    **AntispywareEnabled**
 
-     **RealTimeProtectionEnabled**
+    **RealTimeProtectionEnabled**
 
-     **BehaviorMonitorEnabled**
+    **BehaviorMonitorEnabled**
 
-     **IoavProtectionEnabled**
+    **IoavProtectionEnabled**
 
-     **OnAccessProtectionEnabled**
+    **OnAccessProtectionEnabled**
 
   * If one or both of the following properties are 7 or more.
 
-     **AntispywareSignatureAge**
+    **AntispywareSignatureAge**
 
-     **AntivirusSignatureAge**
+    **AntivirusSignatureAge**
 
 ## Microsoft System Center endpoint protection
 
@@ -57,30 +57,30 @@ Azure Security Center provides health assessments of [supported](https://docs.mi
 
     * At least one of the following properties is false:
 
-       **AMServiceEnabled**
+            **AMServiceEnabled**
+
+            **AntispywareEnabled**
     
-       **AntispywareEnabled**
+            **RealTimeProtectionEnabled**
     
-       **RealTimeProtectionEnabled**
+            **BehaviorMonitorEnabled**
     
-       **BehaviorMonitorEnabled**
+            **IoavProtectionEnabled**
     
-       **IoavProtectionEnabled**
-    
-       **OnAccessProtectionEnabled**
+            **OnAccessProtectionEnabled**
           
     * If one or both of the following Signature Updates is greater or equal to 7. 
 
-       **AntispywareSignatureAge**
+            **AntispywareSignatureAge**
     
-       **AntivirusSignatureAge**
+            **AntivirusSignatureAge**
 
 ## Trend Micro
 
 * Security Center recommends you **"Install endpoint protection solutions on virtual machine"** when any of the following checks aren't met:
     * **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent** exists
     * **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent\InstallationFolder** exists
-    * The **dsq_query.cmd** file is found in the Installation Folder
+    * The **dsa_query.cmd** file is found in the Installation Folder
     * Running **dsa_query.cmd** results with **Component.AM.mode: on - Trend Micro Deep Security Agent detected**
 
 ## Symantec endpoint protection
@@ -98,7 +98,7 @@ Or
 
 Security Center recommends you **"Resolve endpoint protection health issues on your machines"** when any of the following checks aren't met:
 
-* Check Symantec Version >= 12:  Registry location: **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion" -Value "PRODUCTVERSION"**
+* Check Symantec Version >= 12: Registry location: **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion" -Value "PRODUCTVERSION"**
 
 * Check Real Time Protection status: **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\AV\Storages\Filesystem\RealTimeScan\OnOff == 1**
 
@@ -159,21 +159,21 @@ Security Center recommends you **"Install endpoint protection solutions on virtu
 
 Security Center recommends you **"Resolve endpoint protection health issues on your machines"** when any of the following checks aren't met:
 
-- **"/opt/sophos-av/bin/savlog --maxage=7 | grep -i "Scheduled scan .\* completed" | tail -1"**, returns a value   
+- **"/opt/sophos-av/bin/savlog --maxage=7 | grep -i "Scheduled scan .\* completed" | tail -1"**, returns a value
 
-- **"/opt/sophos-av/bin/savlog --maxage=7 | grep "scan finished"** | tail -1", returns a value   
+- **"/opt/sophos-av/bin/savlog --maxage=7 | grep "scan finished"** | tail -1", returns a value
 
 - **"/opt/sophos-av/bin/savdstatus --lastupdate"** returns lastUpdate, which should be <= 7 days 
 
 - **"/opt/sophos-av/bin/savdstatus -v"** is equal to **"On-access scanning is running"** 
 
-- **"/opt/sophos-av/bin/savconfig get LiveProtection"** returns enabled  
+- **"/opt/sophos-av/bin/savconfig get LiveProtection"** returns enabled
 
 ## Troubleshoot and support
 
 ### Troubleshoot
 
-Microsoft Antimalware extension logs are available at:  
+Microsoft Antimalware extension logs are available at:
 **%Systemdrive%\WindowsAzure\Logs\Plugins\Microsoft.Azure.Security.IaaSAntimalware(Or PaaSAntimalware)\1.5.5.x(version#)\CommandExecution.log**
 
 ### Support

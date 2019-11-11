@@ -1,5 +1,5 @@
 ---
-title: Join transformation in Azure Data Factory mapping data flow | Microsoft Docs
+title: Join transformation in Azure Data Factory mapping data flow 
 description: Combine data from two data sources using the join transformation in Azure Data Factory mapping data flow
 author: kromerm
 ms.author: makromer

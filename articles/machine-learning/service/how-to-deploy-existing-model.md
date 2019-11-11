@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 10/25/2019
+ms.date: 11/06/2019
 ---
 
 # Use an existing model with Azure Machine Learning
