@@ -31,6 +31,22 @@ In Azure Monitor for containers, the Health feature helps you identify and diagn
 |![Red button with white X indicates critical state](./media/container-insights-health/criticalicon.png)|Critical (red)|  
 |![Grayed-out icon](./media/container-insights-health/grayicon.png)|Out of contact (gray)|  
 
+On the **Health** page, you immediately see the overall health of the cluster without having to view individual performance utilization from **Node**, **Controllers**, or **Pods** tab. Under the **Cluster health summary** section, an overall health perspective is provided for:
+
+- Kubernetes infrastructure - provides a rollup of the Kubernetes API server, ReplicaSets, and DaemonSets running on nodes deployed in your cluster.
+
+    ![Kubernetes infrastructure health rollup view](./media/container-insights-health/health-view-kube-infra-01.png)
+
+- Nodes - provides a rollup of the node pools and state of individual nodes in each pool, by evaluating CPU and memory utilization, and a nodes availability.
+
+    ![Nodes health rollup view](./media/container-insights-health/health-view-nodes-01.png)
+
+- Workloads - provides a rollup of overall utilization of the cluster and for each containerized application or other workload running across all namespaces in the cluster.
+
+    ![Workloads health rollup view](./media/container-insights-health/health-view-workloads-01.png)
+
+All monitors are shown in a hierarchical layout, where an aggregate monitor represents the Kubernetes object (Kubernetes infrastructure, Node, Workload) and reflects combined health of all dependent monitors based on their current health state. 
+
 
 ## Monitor configuration (put into its own article)
 
@@ -46,19 +62,7 @@ Access to the Azure Monitor for containers health feature is available directly 
 
 ![Azure Monitor health dashboard example](./media/container-insights-health/health-view-01.png)
 
-Immediately you can see the overall health of the cluster without having to view from each tab - **Node**, **Controllers**, and **Pods**. Under the **Cluster health summary**, an overall health perspective is provided for:
 
-- Kubernetes infrastructure - provides a rollup of the Kubernetes API server, ReplicaSets, and DaemonSets running on nodes deployed in your cluster.
-
-    ![Kubernetes infrastructure health rollup view](./media/container-insights-health/health-view-kube-infra-01.png)
-
-- Nodes - provides a rollup of the node pools and state of individual nodes in each pool, by evaluating CPU and memory utilization, and a nodes availability.
-
-    ![Nodes health rollup view](./media/container-insights-health/health-view-nodes-01.png)
-
-- Workloads - provides a rollup of overall utilization of the cluster and for each containerized application or other workload running across all namespaces in the cluster.
-
-    ![Workloads health rollup view](./media/container-insights-health/health-view-workloads-01.png)
 
 Selecting 
 
