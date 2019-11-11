@@ -21,7 +21,9 @@ ms.custom: mvc
 #     84, 89                 -    takes same parameter as C project
 ---
 
-# Quickstart: Connect a sample IoT Plug and Play Preview device application to IoT Hub
+# Quickstart: Connect a sample IoT Plug and Play Preview device application to IoT Hub (C#)
+
+[!INCLUDE [iot-pnp-quickstarts-2-selector.md](../../includes/iot-pnp-quickstarts-2-selector.md)]
 
 This quickstart shows you how to build a sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written in C# (with .NET), and is included in the Microsoft Azure IoT Hub device SDK for C#. A solution developer can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 

@@ -17,7 +17,9 @@ ms.custom: mvc
 # 83                    -    Steps of this include have an issue
 ---
 
-# Quickstart: Connect a sample IoT Plug and Play Preview device application to IoT Hub
+# Quickstart: Connect a sample IoT Plug and Play Preview device application to IoT Hub (Node.js)
+
+[!INCLUDE [iot-pnp-quickstarts-2-selector.md](../../includes/iot-pnp-quickstarts-2-selector.md)]
 
 This quickstart shows you how to build a sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written for Node.js and is included in the Azure IoT Hub Device SDK for Node.js. A solution developer can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 

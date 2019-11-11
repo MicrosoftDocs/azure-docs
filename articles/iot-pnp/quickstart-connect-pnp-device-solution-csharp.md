@@ -23,7 +23,9 @@ ms.custom: mvc
 # 90-213                     -     The files, key names, and outputs are the same in the .NET project as they were in the Node.js one
 ---
 
-# Quickstart: Interact with an IoT Plug and Play Preview device that's connected to your solution
+# Quickstart: Interact with an IoT Plug and Play Preview device that's connected to your solution (C#)
+
+[!INCLUDE [iot-pnp-quickstarts-3-selector.md](../../includes/iot-pnp-quickstarts-3-selector.md)]
 
 IoT Plug and Play Preview simplifies IoT by enabling you to interact with a device's capabilities without knowledge of the underlying device implementation. This quickstart shows you how to use C# (with .NET) to connect to and control an IoT Plug and Play device that's connected to your solution.
 

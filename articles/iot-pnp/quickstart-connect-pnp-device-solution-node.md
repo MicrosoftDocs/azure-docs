@@ -12,7 +12,9 @@ ms.custom: mvc
 # As a solution developer, I want to connect to and interact with an IoT Plug and Play device that's connected to my solution. For example, to collect telemetry from the device or to control the behavior of the device.
 ---
 
-# Quickstart: Interact with an IoT Plug and Play Preview device that's connected to your solution
+# Quickstart: Interact with an IoT Plug and Play Preview device that's connected to your solution (Node.js)
+
+[!INCLUDE [iot-pnp-quickstarts-3-selector.md](../../includes/iot-pnp-quickstarts-3-selector.md)]
 
 IoT Plug and Play Preview simplifies IoT by enabling you to interact with a device's capabilities without knowledge of the underlying device implementation. This quickstart shows you how to use Node.js to connect to and control an IoT Plug and Play device that's connected to your solution.
 

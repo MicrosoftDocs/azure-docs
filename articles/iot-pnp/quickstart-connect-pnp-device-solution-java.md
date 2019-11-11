@@ -24,7 +24,9 @@ ms.custom: mvc
 # 99-222                     -     The files, key names, and outputs are the same in the Java project as they were in the Node.js one
 ---
 
-# Quickstart: Interact with an IoT Plug and Play Preview device that's connected to your solution
+# Quickstart: Interact with an IoT Plug and Play Preview device that's connected to your solution (Java)
+
+[!INCLUDE [iot-pnp-quickstarts-3-selector.md](../../includes/iot-pnp-quickstarts-3-selector.md)]
 
 IoT Plug and Play Preview simplifies IoT by enabling you to interact with a device's capabilities without knowledge of the underlying device implementation. This quickstart shows you how to use Java to connect to and control an IoT Plug and Play device that's connected to your solution.
 
