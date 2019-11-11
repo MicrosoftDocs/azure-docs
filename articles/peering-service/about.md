@@ -1,6 +1,6 @@
 ---
-title: Azure Peering Service Preview Overview
-description: Learn about Azure Peering Service Overview
+title: Azure Peering Service Preview overview
+description: Learn about Azure Peering Service overview
 services: peering-service
 author: ypitsch
 ms.service: peering-service
@@ -14,24 +14,24 @@ ms.author: v-meravi
 
 # Azure Peering Service Preview Overview
 
-Azure Peering Service is a networking service that enhances customer connectivity to Microsoft cloud services such as Office 365, Dynamics 365, software as a service (Saas) services, Azure, or any Microsoft services accessible via the public internet. Microsoft has partnered with internet service providers (ISP), internet exchange partners (IXP) and, software-defined cloud interconnect (SDCI) providers worldwide to provide reliable, and high-performing public connectivity with optimal routing from the customer to the Microsoft network.
+Azure Peering Service is a networking service that enhances customer connectivity to Microsoft cloud services such as Office 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet. Microsoft has partnered with internet service providers (ISPs), internet exchange partners (IXPs), and software-defined cloud interconnect (SDCI) providers worldwide to provide reliable and high-performing public connectivity with optimal routing from the customer to the Microsoft network.
 
-With Peering Service, customer can select a well connected partner service provider (SP) in a given region. Public connectivity is optimized for high reliability and minimal latency from cloud services to the end-user location.
+With Peering Service, customers can select a well-connected partner service provider in a given region. Public connectivity is optimized for high reliability and minimal latency from cloud services to the end-user location.
 
-![Distributed connectivity to Microsoft Cloud](./media/peering-service-about/peering-service-what.png)
+![Distributed connectivity to Microsoft cloud](./media/peering-service-about/peering-service-what.png)
 
-Customers can also opt for Peering Service telemetry such as user latency measures to Microsoft network, BGP route monitoring, and alerts against leaks, and hijacks by registering the Peering Service connection in the Azure portal.  
+Customers can also opt for Peering Service telemetry such as user latency measures to the Microsoft network, BGP route monitoring, and alerts against leaks and hijacks by registering the Peering Service connection in the Azure portal. 
 
-To use Peering Service, customer isn't required to register with Microsoft. The only requirement is to reach out to a [Peering Service partner](location-partners.md) to procure the service. However, to opt for Peering Service telemetry, customer must register for the same in the Azure portal.  
+To use Peering Service, customers aren't required to register with Microsoft. The only requirement is to contact a [Peering Service partner](location-partners.md) to get the service. To opt for Peering Service telemetry, customers must register for it in the Azure portal.
 
-For instructions on how to register the Peering Service, refer [here](azure-portal.md).  
+For instructions on how to register Peering Service, see [Register Peering Service Preview by using the Azure portal](azure-portal.md). 
 
-> [!Note]
+> [!NOTE]
 > This article is intended for network architects in charge of enterprise connectivity to the cloud and to the internet.
 
 >
 > [!IMPORTANT]
-> "Peering Service” is currently in public preview.
+> Peering Service is currently in public preview.
 > This preview version is provided without a service level agreement. We don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -39,61 +39,62 @@ For instructions on how to register the Peering Service, refer [here](azure-port
 
 Peering Service is:
 
-- An IP service that uses the public internet.  
-
-- A collaboration platform with SPs and a value-added service that is intended to offer optimal and reliable routing to the customer via service provider partner to the Microsoft Cloud over the public network.
+- An IP service that uses the public internet. 
+- A collaboration platform with service providers and a value-added service that's intended to offer optimal and reliable routing to the customer via service provider partners to the Microsoft cloud over the public network.
 
 Peering Service is not a private connectivity product like Azure ExpressRoute or a VPN product.
 
-> [!Note]
-> For more information about **ExpressRoute**, refer [here](https://docs.microsoft.com/azure/expressroute/)
+> [!NOTE]
+> For more information about ExpressRoute, see [ExpressRoute documentation](https://docs.microsoft.com/azure/expressroute/).
 >
 
 ## Background
 
-Office 365, Dynamics 365, and any other Microsoft SaaS services are hosted in multiple Microsoft data centers and can be accessed from any geographic location. The *Microsoft Global Network* has Microsoft Edge Point of Presence (PoP) locations around the world where it can connect to an end user via their service providers.  
+Office 365, Dynamics 365, and any other Microsoft SaaS services are hosted in multiple Microsoft datacenters and can be accessed from any geographic location. The Microsoft global network has Microsoft edge point-of-presence (PoP) locations around the world where it can connect to an end user via their service providers. 
 
-Microsoft and partner service providers ensure the traffic for the prefixes registered with Peering Service connection enters and exits the nearest Microsoft Edge PoP locations on the *Microsoft Global Network*. Microsoft ensures the networking traffic egressing from the prefixes registered with Peering Service connection takes the nearest Microsoft Edge PoP locations on the *Microsoft Global Network*.
+Microsoft and partner service providers ensure that the traffic for the prefixes registered with a Peering Service connection enters and exits the nearest Microsoft edge PoP locations on the Microsoft global network. Microsoft ensures that the networking traffic egressing from the prefixes registered with Peering Service connections takes the nearest Microsoft edge PoP locations on the Microsoft global network.
 
-![Microsoft Network and Public connectivity](./media/peering-service-about/peering-service-background-final.png)
+![Microsoft network and public connectivity](./media/peering-service-about/peering-service-background-final.png)
 
-> [!Note]
-> For more information about the Microsoft Global Network, refer [here](https://docs.microsoft.com/azure/networking/microsoft-global-network).
+> [!NOTE]
+> For more information about the Microsoft global network, see [Microsoft global network](https://docs.microsoft.com/azure/networking/microsoft-global-network).
 >
 
 ## Why use Peering Service?
 
-Enterprises looking for internet-first access to the Cloud or considering SD-WAN architecture or with high usage of Microsoft SaaS services need robust and high-performing internet connectivity. Customers can make that transition happen by using Peering Service. Microsoft and service providers have partnered to deliver reliable and performance-centric public connectivity to the Microsoft Cloud. Some of the key customer features are listed below:
+Enterprises looking for internet-first access to the cloud or considering SD-WAN architecture or with high usage of Microsoft SaaS services need robust and high-performing internet connectivity. Customers can make that transition happen by using Peering Service. Microsoft and service providers have partnered to deliver reliable and performance-centric public connectivity to the Microsoft cloud. Some of the key customer features are listed here:
 
-- Best public routing over internet to <i>Microsoft Cloud Services</i> for optimal performance and reliability.
-- Ability to select the preferred SP to connect to Microsoft cloud.
-- Traffic insights such as latency reporting, and prefix monitoring.
-- Optimum Network Hops (AS Hops) from the Microsoft cloud.
-- **Route analytics and statistics** - Events for ([BGP](https://en.wikipedia.org/wiki/Border_Gateway_Protocol)) route anomalies (leak/hijack detection), and suboptimal routing.
+- Best public routing over the internet to Microsoft Azure Cloud Services for optimal performance and reliability.
+- Ability to select the preferred service provider to connect to the Microsoft cloud.
+- Traffic insights such as latency reporting and prefix monitoring.
+- Optimum network hops (AS hops) from the Microsoft cloud.
+- Route analytics and statistics: Events for ([BGP](https://en.wikipedia.org/wiki/Border_Gateway_Protocol)) route anomalies (leak or hijack detection) and suboptimal routing.
 
-### Robust, Reliable Peering
+### Robust, reliable peering
 
 Peering Service uses two types of redundancy:
 
-- **Local Redundancy**
+- **Local redundancy**
 
-   Microsoft and service providers interconnect across multiple Microsoft Edge PoP locations to deliver Peering Service. In each location, interconnection must support failover across two routers.
+   Microsoft and service providers interconnect across multiple Microsoft edge PoP locations to deliver Peering Service. In each location, interconnection must support failover across two routers.
 
    Each peering location is provisioned with redundant and diverse peering links.
 
 - **Geo-redundancy**
 
-   Microsoft has interconnected with the service providers at multiple metro locations so that if one of the edge nodes has degraded performance, the traffic routes to/from Microsoft via alternate sites. Microsoft routes traffic in its global network using SDN-based routing policies for optimal performance.
+   Microsoft has interconnected with service providers at multiple metro locations so that if one of the edge nodes has degraded performance, the traffic routes to and from Microsoft via alternate sites. Microsoft routes traffic in its global network by using SDN-based routing policies for optimal performance.
 
-   Ensures to use the shortest routing path by always choosing the nearest Microsoft Edge POP to the end user and ensures the customer is one network hop (AS hops) away from Microsoft​.  
+    This type of redundancy uses the shortest routing path by always choosing the nearest Microsoft edge PoP to the end user and ensures that the customer is one network hop (AS hops) away from Microsoft​.
 
-   ![Geo Redundancy](./media/peering-service-about/peering-service-geo-shortest.png)
+   ![Geo-redundancy](./media/peering-service-about/peering-service-geo-shortest.png)
 
-### Optimal Routing
+### Optimal routing
 
--  **Cold-potato**
+The following routing technique is preferred:
 
-   Software defined cold-potato routing technique offers control over network traffic originating from the Microsoft Cloud. It ensures that traffic stays on the high capacity, low latency, and highly reliable Microsoft Global Network until it's as close to the destination as possible.
+-  **Cold-potato routing**
+
+   The software-defined cold-potato routing technique offers control over network traffic that originates from the Microsoft cloud. It ensures that traffic stays on the high-capacity, low-latency, and highly reliable Microsoft global network until it's as close to the destination as possible.
    
    Routing that doesn't use the cold-potato technique is referred to as hot-potato routing. Traffic that originates from the Microsoft cloud then goes over the internet.
 
@@ -101,17 +102,17 @@ Peering Service uses two types of redundancy:
 
 ### Monitoring platform
 
-   Service monitoring is offered to analyze customer traffic and routing, and it provides the following capabilities:  
+   Service monitoring is offered to analyze customer traffic and routing, and it provides the following capabilities: 
 
 -  **Internet BGP route anomalies detection**
           
-   This service to detect and alert for any route anomaly events like route hijacks to the customer prefixes.
+   This service is used to detect and alert for any route anomaly events like route hijacks to the customer prefixes.
 
 -  **Customer latency**
 
    This service monitors the routing performance between the customer's location and Microsoft. 
    
-   Routing performance is measured by validating the round-trip time taken from the client to reach the Microsoft Edge PoP. Customer can view the latency reports for different geographic locations.
+   Routing performance is measured by validating the round-trip time taken from the client to reach the Microsoft edge PoP. Customers can view the latency reports for different geographic locations.
 
    Monitoring captures the events in case of any service degradation.
 
@@ -119,22 +120,17 @@ Peering Service uses two types of redundancy:
 
 ### Traffic protection
 
-Routing happens only via a preferred path that's defined when the customer is registered with peering Service.
+Routing happens only via a preferred path that's defined when the customer is registered with Peering Service.
 
-Microsoft guarantees to route the traffic via preferred path even if malicious activity is detected.
+Microsoft guarantees to route the traffic via preferred paths even if malicious activity is detected.
 
 BGP route anomalies are reported in the Azure portal, if any.
 
 ## Next steps
 
-To learn about Peering Service connection, see [Peering Service connection](connection.md).
-
-To learn about Peering Service connection telemetry, see [Peering Service connection telemetry](connection-telemetry.md).
-
-To find a Service Provider partner, see [Peering Service partners and locations](location-partners.md).
-
-To onboard Peering Service connection, see [Onboarding Peering Service model](onboarding-model.md).
-
-To register a connection using the Azure portal, see [Register Peering Service connection using the Azure portal](azure-portal.md).
-
-To measure telemetry, see [Measure connection telemetry](measure-connection-telemetry.md).
+- To learn about Peering Service connections, see [Peering Service connections](connection.md).
+- To learn about Peering Service connection telemetry, see [Peering Service connection telemetry](connection-telemetry.md).
+- To find a service provider partner, see [Peering Service partners and locations](location-partners.md).
+- To onboard a Peering Service connection, see [Onboarding Peering Service model](onboarding-model.md).
+- To register a connection by using the Azure portal, see [Register a Peering Service connection by using the Azure portal](azure-portal.md).
+- To measure telemetry, see [Measure connection telemetry](measure-connection-telemetry.md).
