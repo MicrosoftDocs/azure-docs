@@ -1069,7 +1069,7 @@ The traditional machine learning model development process is highly resource-in
 
 Do not complete this section if you plan on running other Azure Machine Learning tutorials.
 
-### Stop the Notebook VM
+### Stop the compute instance
 
 [!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 
