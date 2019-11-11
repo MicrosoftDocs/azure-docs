@@ -15,84 +15,79 @@ ms.author: diberry
 
 # Add entities to extract data 
 
-Create entities to extract key data from user utterances in Language Understanding (LUIS) apps. Extracted entity data is used by the client application to fullfil customer requests.
+Create entities to extract key data from user utterances in Language Understanding (LUIS) apps. Extracted entity data is used by your client application to fullfil customer requests.
 
 The entity represents a word or phrase inside the utterance that you want extracted. Entities describe information relevant to the intent, and sometimes they are essential for your app to perform its task. You can create entities when you add an example utterance to an intent or apart from (before or after) adding an example utterance to an intent.
 
-You can add, edit, or delete entities in your LUIS app on the **Entities** page or while labeling an utterance in the **Intent details page**. 
-
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
-## Creating is not the same as labeling an entity
+## Creating an entity is different from labeling an entity
 
 You first need to create an entity before you can label the entity in the example utterance. 
 
-You can create the entity from the **Entities** page, or you can create an entity as part of labeling the entity in the example utterance on the **Intent details page**. Both methods create entities. 
+Use the following table to understand which entities where to create or add each entity to the app. 
 
-You can only _label_ an entity in an example utterance from the 
+|Entity|LUIS portal location|
+|--|--|
+|Machine-learned entity|Entities or Intent detail|
+|List entity|Entities or Intent detail|
+|Regular expression entity|Entities|
+|Pattern.any entity|Entities|
+|Prebuilt entity|Entities|
+|Prebuilt domain entity|Entities|
+
+You can create all the entities from the **Entities** page, or you can create a couple of the entities as part of labeling the entity in the example utterance on the **Intent detail** page. You can only _label_ an entity in an example utterance from the **Intent detail** page. 
 
 ## Create a machine-learned entity
 
-To take advantage of [decomposable entity concepts](luis-concept-model.md#v3-authoring-model-decomposition), start with the machine-learned entity. Follow the [machine-learned entity tutorial](tutorial-machine-learned-entity.md) for steps on how to create this type of entity. 
+[!INCLUDE [Create and label entities in machine-learned tutorial](includes/decomposable-tutorial-links.md)]
 
 ## Create text-matching entity
 
-Text-matching entities provide several ways to extract data:
+Use text-matching entities provide several ways to extract data:
 
-* Exact text match using a list entity
-* Regular expression match using a regular expression entity
-* Prebuilt entity or prebuilt domain entity to match data types (number, email, date) or subject domains
-* Pattern.any to match entities that may be easily confused with the surrounding text  
+|Text-matching entities|Purpose|
+|--|--|
+|List entity|list of canonical names along with synonyms as alternative forms|
+|Regular expression entity|match text using a regular expression entity|
+|Prebuilt entity|match common data types such as number, email, date|
+|Prebuilt domain entity|match using selected subject domains|
+|Pattern.any| to match entities that may be easily confused with the surrounding text|  
 
+Prebuilt entities work without providing any custom training data. The other entities need you to provide either customer training data (such as List entity's items) or an expression (such as a regular expression or pattern.any).
 
 <a name="add-list-entities"></a>
 
 ### Add list entities for exact matches
 
-List entities represent a fixed, closed set of related words. 
+> [!NOTE]
+> This procedure demonstrates creating and labeling a list entity from an example utterance in the **Intent detail** page. You can also create the same entity from the **Entities** page.
 
-For a Human Resources app, you can have a list of all departments along with any synonyms for the departments. You don't have to know all the values when you create the entity. You can add more after reviewing real user utterances with synonyms.
+List entities represent a fixed, closed set of related words. While you, as the author, can change the list, LUIS won't grow or shrink the list. 
 
-1. From the **Build** section, select **Entities** in the left panel, and then select **Create new entity**.
+The following list demonstrates the canonical name and the synonyms. 
 
-1. In the **Add Entity** dialog box, type `Department` in the **Entity name** box and select **List** as the **Entity type**. Select **Done**.
-  
-1. The list entity page allows you to add normalized names. In the **Values** textbox, enter a department name for the list, such as `HumanResources` then press Enter on the keyboard. 
+|Color - list item name|Color - synonyms|
+|--|--|
+|Red|crimson, blood, apple, fire-engine|
+|Blue|sky, azure, cobalt|
+|Green|kelly, lime|
 
-1. To the right of the normalized value, enter synonyms, pressing Enter on the keyboard after each item.
+1. From the **Build** section, select **Entities** in the left panel, and then select **+ Create**.
 
-1. If you want more normalized items for the list, select **Recommend** to see options from the [semantic dictionary](luis-glossary.md#semantic-dictionary).
+1. In the **Create an entity type** dialog box, enter the name of the entity, such as `Colors` and select **List**.
+1. In the **Create a list entity** dialog box, in the **Add new sublist....**, enter the list item name, such as `Green`, then add synonyms.
 
-    ![Screenshot of selecting Recommend feature to see options](./media/add-entities/hr-list-2.png)
+    > [!div class="mx-imgBorder"]
+    > ![Create a list of colors as a list entity in the Entity detail page.](media/how-to-add-entities/create-list-entity-of-colors.png) 
+
+1. When you are finished adding list items and synonyms, select **Create**.
 
 
-1. Select an item in the recommended list to add it as a normalized value or select **Add all** to add all the items. 
-    You can import values into an existing list entity using the following JSON format:
-
-    ```JSON
-    [
-        {
-            "canonicalForm": "Blue",
-            "list": [
-                "navy",
-                "royal",
-                "baby"
-            ]
-        },
-        {
-            "canonicalForm": "Green",
-            "list": [
-                "kelly",
-                "forest",
-                "avacado"
-            ]
-        }
-    ]  
-    ```
 
 ### Add a role to distinguish different contexts
 
-A role is a named subtype based on context. It is available in all entities including prebuilt and non-machine-learned entities. 
+A role is a named subtype based on context. It is available in all entities including prebuilt and non-machine-learned entities. You can also import to an existing list entity using a [list entity .json format(reference-entity-list.md#example-json-to-import-into-list-entity).
 
 The syntax for a role is **`{Entityname:Rolename}`** where the entity name is followed by a colon, then the role name. For example, `Move {personName} from {Location:Origin} to {Location:Destination}`.
 
@@ -105,8 +100,6 @@ The syntax for a role is **`{Entityname:Rolename}`** where the entity name is fo
 1. In the **Role name** textbox, enter the name of the role `Origin` and enter. Add a second role name of `Destination`. 
 
     ![Screenshot of adding Origin role to Location entity](./media/add-entities/roles-enter-role-name-text.png)
-
-
 
 <a name="add-pattern-any-entities"></a>
 
@@ -150,7 +143,6 @@ You can't label entity types that use text matching because they are labeled aut
 
 ## Learn more about creating and labeling entities
 
-[!INCLUDE [Create and label entities in machine-learned tutorial](includes/decomposable-tutorial-links.md)]
 
 ## Next steps
 
