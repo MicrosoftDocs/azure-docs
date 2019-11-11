@@ -28,7 +28,7 @@ In this article, you learn how to:
 ## Prerequisites
 
 - Interpretability features. Run `pip install azureml-interpret azureml-contrib-interpret` to get the necessary packages.
-- Knowledge of building automated ML experiments. For more information on how to use the SDK, complete this [regression model tutorial](tutorial-auto-train-models.md) or see how to [configure automated ML experiments](how-to-configure-auto-train.md).
+- Knowledge of building automated ML experiments. For more information on how to use the Azure Machine Learning SDK, complete this [regression model tutorial](tutorial-auto-train-models.md) or see how to [configure automated ML experiments](how-to-configure-auto-train.md).
 
 ## Interpretability during training for the best model
 
@@ -76,9 +76,13 @@ automl_explainer_setup_obj = automl_setup_model_explanations(fitted_model, X=X_t
 
 ### Initialize the Mimic Explainer for feature importance
 
-\***
+To generate an explanation for AutoML models, use the `MimicWrapper` class. You can initialize the MimicWrapper with these parameters:
 
-To generate an explanation for AutoML models, use the `MimicWrapper` class. The MimicWrapper can be initialized with parameters for the explainer setup object, your workspace, and a LightGBM model which acts as a surrogate model to explain the automated ML model (fitted_model here). The MimicWrapper also takes the automl_run object where the raw and engineered explanations will be uploaded.
+- the explainer setup object
+- your workspace
+- a LightGBM model, which acts as a surrogate to the `fitted_model` automated ML model
+
+The MimicWrapper also takes the `automl_run` object where the raw and engineered explanations will be uploaded.
 
 ```python
 from azureml.interpret.mimic.models.lightgbm_model import LGBMExplainableModel
@@ -93,7 +97,7 @@ explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator, LGBMEx
 
 ### Use MimicExplainer for computing and visualizing engineered feature importance
 
-The explain() method in MimicWrapper can be called with the transformed test samples to get the feature importance for the generated engineered features. You can also use ExplanationDashboard to view the dash board visualization of the feature importance values of the generated engineered features by automated ML featurizers.
+You can call the `explain()` method in MimicWrapper with the transformed test samples to get the feature importance for the generated engineered features. You can also use `ExplanationDashboard` to view the dashboard visualization of the feature importance values of the generated engineered features by automated ML featurizers.
 
 ```python
 from azureml.contrib.interpret.visualize import ExplanationDashboard
@@ -106,7 +110,7 @@ ExplanationDashboard(engineered_explanations, automl_explainer_setup_obj.automl_
 
 ### Use Mimic Explainer for computing and visualizing raw feature importance
 
-The explain() method in MimicWrapper can be again called with the transformed test samples and setting `get_raw` to True to get the feature importance for the raw features. You can also use ExplanationDashboard to view the dashboard visualization of the feature importance values of the raw features.
+You can call the `explain()` method in MimicWrapper again with the transformed test samples and setting `get_raw=True` to get the feature importance for the raw features. You can also use `ExplanationDashboard` to view the dashboard visualization of the feature importance values of the raw features.
 
 ```python
 from azureml.contrib.interpret.visualize import ExplanationDashboard
@@ -121,13 +125,13 @@ ExplanationDashboard(raw_explanations, automl_explainer_setup_obj.automl_pipelin
 
 ### Interpretability during inference
 
-In this section, you learn how to operationalize an automated ML model with the explainer, which was used to compute the explanations in the previous section.
+In this section, you learn how to operationalize an automated ML model with the explainer that was used to compute the explanations in the previous section.
 
 ### Register the model and the scoring explainer
 
-Use the `TreeScoringExplainer` to create the scoring explainer, which will be used to compute the raw and engineered feature importance values at inference time. Note that you initialize the scoring explainer with the feature_map that was computed previously. The feature_map will be used by the scoring explainer to return the raw feature importance.
+Use the `TreeScoringExplainer` to create the scoring explainer that'll compute the raw and engineered feature importance values at inference time. You initialize the scoring explainer with the `feature_map` that was computed previously. The scoring explainer uses the `feature_map` to return the raw feature importance.
 
-In the code below, you save the scoring explainer and register the model and the scoring explainer with the Model Management Service.
+Save the scoring explainer, and then register the model and the scoring explainer with the Model Management Service. Run the following code:
 
 ```python
 from azureml.interpret.scoring.scoring_explainer import TreeScoringExplainer, save
@@ -149,10 +153,10 @@ scoring_explainer_model = automl_run.register_model(model_name='scoring_explaine
 
 ### Create the conda dependencies for setting up the service
 
-Next you create the environment dependencies needed in the container for the deployed model.
+Next, create the necessary environment dependencies in the container for the deployed model.
 
 ```python
-from azureml.core.conda_dependencies import CondaDependencies 
+from azureml.core.conda_dependencies import CondaDependencies
 
 azureml_pip_packages = [
     'azureml-interpret', 'azureml-train-automl', 'azureml-defaults'
@@ -195,9 +199,9 @@ service = Model.deploy(ws, 'model-scoring', [scoring_explainer_model, original_m
 service.wait_for_deployment(show_output=True)
 ```
 
-### Inference using test data
+### Inference with test data
 
-Inference using some test data to see the predicted value from automated ML model, and view the engineered feature importance for the predicted value and raw feature importance for the predicted value.
+Inference with some test data to see the predicted value from automated ML model. View the engineered feature importance for the predicted value and raw feature importance for the predicted value.
 
 ```python
 if service.state == 'Healthy':
@@ -214,12 +218,12 @@ if service.state == 'Healthy':
     print(output['raw_local_importance_values'])
 ```
 
-### Visualizations to aid you in the discovery of patterns in data and explanations at training time
+### Visualize to discover patterns in data and explanations at training time
 
-You can also visualize the feature importance chart in your workspace in [Azure Machine Learning studio](https://ml.azure.com). Once your automated ML run is complete you will need to click on "View model details", which will take you to a specific run. From here, you click the "Explanations" tab to see the explanation visualization dashboard. 
+You can visualize the feature importance chart in your workspace in [Azure Machine Learning studio](https://ml.azure.com). After your automated ML run is complete, select **View model details** to view a specific run. Select the **Explanations** tab to see the explanation visualization dashboard.
 
 [![Machine Learning Interpretability Architecture](./media/machine-learning-interpretability-explainability/automl-explainability.png)](./media/machine-learning-interpretability-explainability/automl-explainability.png#lightbox)
 
 ## Next steps
 
-For more information on how model explanations and feature importance can be enabled in other areas of the SDK outside of automated machine learning, see the [concept](how-to-machine-learning-interpretability.md) article on interpretability.
+For more information about how you can enable model explanations and feature importance in areas of the Azure Machine Learning SDK other than automated machine learning, see the [concept article on interpretability](how-to-machine-learning-interpretability.md).
