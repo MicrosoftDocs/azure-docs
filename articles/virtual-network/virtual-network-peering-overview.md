@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2019
+ms.date: 11/15/2019
 ms.author: anavin
 
 ---
@@ -79,7 +79,7 @@ You can also troubleshoot connectivity to a virtual machine in a peered virtual 
 
 You can also try the [Troubleshoot virtual network peering issues](virtual-network-troubleshoot-peering-issues.md).
 
-## Contraints for peered virtual networks<a name="requirements-and-constraints"></a>
+## Constraints for peered virtual networks<a name="requirements-and-constraints"></a>
 
 The following constraints apply only when virtual networks are globally peered:
 
