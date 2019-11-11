@@ -240,9 +240,9 @@
   - name: Overview
     items:
     - name: Overview of conversation solutions
-      href: overview-conversation-solutions.md
+      href: conversation-solutions.md
     - name: What is multi-device conversation?
-      href: overview-multi-device-conversation.md
+      href: multi-device-conversation.md
     - name: What is conversation transcription?
       href: conversation-transcription.md
   - name: How-to guides
