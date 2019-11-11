@@ -20,6 +20,7 @@ This tutorial shows you, as an operator, how to use your Microsoft Azure IoT Cen
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Receive a notification
 > * Investigate an issue
 > * Remediate an issue
@@ -71,6 +72,7 @@ To change the target temperature of the device, use the **Settings** page:
 In this tutorial, you learned how to:
 
 > [!div class="nextstepaction"]
+>
 > * Receive a notification
 > * Investigate an issue
 > * Remediate an issue
