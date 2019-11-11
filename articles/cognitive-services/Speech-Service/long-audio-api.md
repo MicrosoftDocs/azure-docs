@@ -22,7 +22,7 @@ Additional benefits of the Long Audio API:
 * Since real-time responses aren't supported, there's no need to deploy a voice endpoint.
 
 > [!NOTE]
-> Long Audio API now only supports [Custom Neural Voice](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice#custom-neural-voices).
+> The Long Audio API now supports only [Custom Neural Voice](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice#custom-neural-voices).
 
 ## Workflow
 
