@@ -38,7 +38,7 @@ Kubernetes cluster health is cateogrized by the following Kubernetes objects and
 
     ![Workloads health rollup view](./media/container-insights-health/health-view-workloads-01.png)
 
-All monitors are shown in a hierarchical layout, where an aggregate monitor represents the Kubernetes object (Kubernetes infrastructure, Node, Workload) and reflects combined health of all dependent monitors based on their current health state. 
+All monitors are shown in a hierarchical layout, where an aggregate monitor represents the Kubernetes object or abstraction (Kubernetes infrastructure, Node, Workload) and reflects combined health of all dependent monitors based on their current health state. 
 
 The icons used to indicate state are as follows:
 
