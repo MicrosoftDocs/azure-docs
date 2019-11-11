@@ -1,6 +1,6 @@
 - name: Azure Machine Learning Designer Module Reference
   href: module-reference.md
-- name: Modules
+- name: Module categories
   expanded: true
   items:
   - name: Data input and output
@@ -11,12 +11,6 @@
       href: enter-data-manually.md
     - name: Export Data
       href: export-data.md
-  - name: Data format conversion
-    items:
-    - name: Convert to CSV
-      href: convert-to-csv.md
-    - name: Convert to Dataset
-      href: convert-to-dataset.md
   - name: Data transformation
     items:
     - name: Add Columns
@@ -25,6 +19,10 @@
       href: add-rows.md
     - name: Apply SQL Transformation
       href: apply-sql-transformation.md
+    - name: Convert to CSV
+      href: convert-to-csv.md
+    - name: Convert to Dataset
+      href: convert-to-dataset.md
     - name: Clean Missing Data
       href: clean-missing-data.md
     - name: Edit Metadata
@@ -39,7 +37,7 @@
       href: select-columns-transform.md
     - name: Select Columns in Dataset
       href: select-columns-in-dataset.md
-  - name: Data sampling
+  - name: Sampling
     items:
     - name: Cross Validate Model
       href: cross-validate-model.md
@@ -115,7 +113,7 @@
       items: 
       - name: Train SVD Recommender
         href: train-svd-recommender.md
-  - name: Train models
+  - name: Train model
     items: 
     - name: Train Model
       href: train-model.md
@@ -123,13 +121,13 @@
       href: train-clustering-model.md
     - name: Tune Model Hyperparameters
       href: tune-model-hyperparameters.md
-  - name: Evaluate models
+  - name: Evaluate model
     items: 
     - name: Evaluate Model
       href: evaluate-model.md
     - name: Evaluate Recommender
       href: evaluate-recommender.md
-  - name: Score models
+  - name: Score model
     items: 
     - name: Apply Transformation
       href: apply-transformation.md
