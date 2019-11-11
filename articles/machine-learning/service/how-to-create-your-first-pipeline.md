@@ -409,14 +409,28 @@ response = requests.post(published_pipeline1.endpoint,
 See the list of all your pipelines and their run details:
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
 
-1. [View your workspace](how-to-manage-workspace.md#view) to find the list of pipelines.
+1. [View your workspace](how-to-manage-workspace.md#view).
+
+1. On the left, select **Pipelines** to see all your pipeline runs.
  ![list of machine learning pipelines](./media/how-to-create-your-first-pipeline/pipelines.png)
  
 1. Select a specific pipeline to see the run results.
 
+### View and use published pipelines
+
+When you publish a pipeline, use the **Endpoints** section in the studio to view and use the published pipeline.
+
+1. On the left, select **Endpoints**.
+
+1. On the top, select **Pipeline endpoints**.
+ ![list of machine learning published pipelines](./media/how-to-create-your-first-pipeline/pipeline-endpoints.png)
+
+1. Select a specific pipeline to run, consume, or review results of previous runs of the pipeline endpoint.
+
+
 ### Disable a published pipeline
 
-To hide a pipeline from your list of published pipelines, you disable it:
+To hide a pipeline from your list of published pipelines, you disable it, either in the studio or from the SDK:
 
 ```
 # Get the pipeline by using its ID from Azure Machine Learning studio
