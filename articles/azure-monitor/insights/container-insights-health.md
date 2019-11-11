@@ -24,7 +24,7 @@ For information about how to enable Azure Monitor for containers, see [Onboard A
 
 In Azure Monitor for containers, the Health feature provides proactive health monitoring of your Kubernetes cluster to help you identify and diagnose issues. It gives you the ability to view these significant issues detected, and define [alerts](../platform/alerts-unified-log.md) to notify you when these state changes occur. 
 
-Kubernetes cluster health is cateogrized by the following Kubernetes objects and abstractions :
+Kubernetes cluster health is based on a number of monitoring scenarios organized by the following Kubernetes objects and abstractions:
 
 - Kubernetes infrastructure - provides a rollup of the Kubernetes API server, ReplicaSets, and DaemonSets running on nodes deployed in your cluster.
 
@@ -38,7 +38,12 @@ Kubernetes cluster health is cateogrized by the following Kubernetes objects and
 
     ![Workloads health rollup view](./media/container-insights-health/health-view-workloads-01.png)
 
-All monitors are shown in a hierarchical layout, where an aggregate monitor represents the Kubernetes object or abstraction (Kubernetes infrastructure, Node, Workload) and reflects combined health of all dependent monitors based on their current health state. 
+All monitors are shown in a hierarchical layout, where an aggregate monitor represents the Kubernetes object or abstraction (Kubernetes infrastructure, Node, Workload) and reflects combined health of all dependent monitors based on their current health state. The key monitoring scenarios used to derive health are:
+
+* Evaluate CPU utilization from the node and container.
+* Evaluate memory utilization from the node and container.
+* Status of Pods and Nodes based on calculation of their ready state reported by Kubernetes.
+* Evaluate memory and CPU capacity to verify there is sufficient resources to support all workload requests running across the cluster. 
 
 The icons used to indicate state are as follows:
 
