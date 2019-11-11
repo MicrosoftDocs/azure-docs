@@ -43605,12 +43605,12 @@
     },
     {
       "source_path": "articles/cognitive-services/translator/how-to-install-containers.md",
-      "redirect_url": "articles/cognitive-services/translator/translator-info-overview",
+      "redirect_url": "azure/cognitive-services/translator/translator-info-overview",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/translator/translator-text-container-config.md",
-      "redirect_url": "articles/cognitive-services/translator/translator-info-overview",
+      "redirect_url": "azure/cognitive-services/translator/translator-info-overview",
       "redirect_document_id": false
     }
   ]
