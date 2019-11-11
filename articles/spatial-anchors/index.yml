@@ -87,5 +87,5 @@ sections:
       - html: <a href="/azure/spatial-anchors/tutorials/tutorial-new-android-app">Starting a new Android app.</a>
 - title: Release Notes
   items:
-  - text: 'View release notes on GitHub.'
-    href: 'https://github.com/Azure/azure-spatial-anchors-samples/releases'
+  - type: paragraph
+    text: '<a href="https://github.com/Azure/azure-spatial-anchors-samples/releases">View release notes on GitHub.</a>'
