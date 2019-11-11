@@ -16,8 +16,8 @@ ms.date: 10/22/2019
 ms.author: cephalin
 ms.custom: seo-python-october2019
 
-experimental: false
-experiment_id: 1e304dc9-5add-4b
+experimental: true
+experiment_id: 01a9132f-eaab-4c
 ---
 # Quickstart: Create a Python app in Azure App Service on Linux
 
