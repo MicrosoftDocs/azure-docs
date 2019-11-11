@@ -114,7 +114,7 @@ If you share code with other projects, remember to remove your instrumentation k
 All data is encrypted at rest and as it moves between data centers.
 
 #### Is the data encrypted in transit from my application to Application Insights servers?
-Yes, we use https to send data to the portal from nearly all SDKs, including web servers, devices, and HTTPS web pages. The only exception is data sent from plain HTTP web pages.
+Yes, we use https to send data to the portal from nearly all SDKs, including web servers, devices, and HTTPS web pages. 
 
 ## Does the SDK create temporary local storage?
 
