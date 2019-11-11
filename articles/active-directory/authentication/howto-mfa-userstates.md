@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 10/15/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -135,6 +135,8 @@ which can also be shortened to:
 
 The following PowerShell can assist you in making the conversion to Conditional Access based Azure Multi-Factor Authentication.
 
+Run this PowerShell in an ISE window or save as a .PS1 file to run locally.
+
 ```PowerShell
 # Sets the MFA requirement state
 function Set-MfaState {
@@ -165,32 +167,12 @@ function Set-MfaState {
     }
 }
 
-# Wrapper to disable MFA with the option to keep the MFA methods (to avoid having to proof-up again later)
-function Disable-Mfa {
-
-    [CmdletBinding()]
-    param(
-        [Parameter(ValueFromPipeline=$True)]
-        $User,
-        [switch] $KeepMethods
-    )
-
-    Process {
-
-        Write-Verbose ("Disabling MFA for user '{0}'" -f $User.UserPrincipalName)
-        $User | Set-MfaState -State Disabled
-
-        if ($KeepMethods) {
-            # Restore the MFA methods which got cleared when disabling MFA
-            Set-MsolUser -ObjectId $User.ObjectId `
-                         -StrongAuthenticationMethods $User.StrongAuthenticationMethods
-        }
-    }
-}
-
-# Disable MFA for all users, keeping their MFA methods intact
-Get-MsolUser -All | Disable-MFA -KeepMethods
+# Disable MFA for all users
+Get-MsolUser -All | Set-MfaState -State Disabled
 ```
+
+> [!NOTE]
+> We recently changed the behavior and PowerShell script above accordingly. Previously, the script saved off the MFA methods, disabled MFA, and restored the methods. This is no longer necessary now that the default behavior for disable doesn't clear the methods.
 
 ## Next steps
 

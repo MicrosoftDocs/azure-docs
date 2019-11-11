@@ -6,7 +6,7 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 9/7/2018
+ms.date: 09/07/2018
 ms.author: dacurwin
 ---
 # Restore files to Windows by using the Azure Resource Manager deployment model

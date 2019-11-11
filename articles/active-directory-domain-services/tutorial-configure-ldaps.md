@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/14/2019
+ms.date: 10/30/2019
 ms.author: iainfou
 
 #Customer intent: As an identity administrator, I want to secure access to an Azure Active Directory Domain Services managed domain using secure lightweight directory access protocol (LDAPS)
@@ -61,12 +61,12 @@ The certificate you request or create must meet the following requirements. Your
 
 * **Trusted issuer** - The certificate must be issued by an authority trusted by computers connecting to the managed domain using secure LDAP. This authority may be a public CA or an Enterprise CA trusted by these computers.
 * **Lifetime** - The certificate must be valid for at least the next 3-6 months. Secure LDAP access to your managed domain is disrupted when the certificate expires.
-* **Subject name** - The subject name on the certificate must be your managed domain. For instance, if your domain is named *contoso.com*, the certificate's subject name must be *contoso.com*.
+* **Subject name** - The subject name on the certificate must be your managed domain. For instance, if your domain is named *contoso.com*, the certificate's subject name must be **.contoso.com*.
     * The DNS name or subject alternate name of the certificate must be a wildcard certificate to ensure the secure LDAP works properly with the Azure AD Domain Services. Domain Controllers use random names and can be removed or added to ensure the service remains available.
 * **Key usage** - The certificate must be configured for *digital signatures* and *key encipherment*.
 * **Certificate purpose** - The certificate must be valid for SSL server authentication.
 
-In this tutorial, let's create a self-signed certificate for secure LDAP using PowerShell. Open a PowerShell window as **Administrator** and run the following commands. Replace the *$dnsName* variable with the DNS name used by your own managed domain, such as *contoso.com*:
+In this tutorial, let's create a self-signed certificate for secure LDAP using the [New-SelfSignedCertificate][New-SelfSignedCertificate] cmdlet. Open a PowerShell window as **Administrator** and run the following commands. Replace the *$dnsName* variable with the DNS name used by your own managed domain, such as *contoso.com*:
 
 ```powershell
 # Define your own DNS name used by your Azure AD DS managed domain
@@ -76,7 +76,7 @@ $dnsName="contoso.com"
 $lifetime=Get-Date
 
 # Create a self-signed certificate for use with Azure AD DS
-New-SelfSignedCertificate -Subject $dnsName `
+New-SelfSignedCertificate -Subject *.$dnsName `
   -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment `
   -Type SSLServerAuthentication -DnsName *.$dnsName, $dnsName
 ```
@@ -84,7 +84,7 @@ New-SelfSignedCertificate -Subject $dnsName `
 The following example output shows that the certificate was successfully generated and is stored in the local certificate store (*LocalMachine\MY*):
 
 ```output
-PS C:\WINDOWS\system32> New-SelfSignedCertificate -Subject $dnsName `
+PS C:\WINDOWS\system32> New-SelfSignedCertificate -Subject *.$dnsName `
 >>   -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment `
 >>   -Type SSLServerAuthentication -DnsName *.$dnsName, $dnsName.com
 
@@ -174,7 +174,7 @@ The *.CER* certificate file can now be distributed to client computers that need
 
 With a digital certificate created and exported that includes the private key, and the client computer set to trust the connection, now enable secure LDAP on your Azure AD DS managed domain. To enable secure LDAP on an Azure AD DS managed domain, perform the following configuration steps:
 
-1. In the [Azure portal](https://portal.azure.com), search for *domain services* in the **Search resources** box. Select **Azure AD Domain Services** from the search result.
+1. In the [Azure portal](https://portal.azure.com), enter *domain services* in the **Search resources** box. Select **Azure AD Domain Services** from the search result.
 
     ![Search for and select your Azure AD DS managed domain in the Azure portal](./media/tutorial-configure-ldaps/search-for-domain-services.png)
 
@@ -205,7 +205,7 @@ When you enable secure LDAP access over the internet to your Azure AD DS managed
 Let's create a rule to allow inbound secure LDAP access over TCP port 636 from a specified set of IP addresses. A default *DenyAll* rule with a lower priority applies to all other inbound traffic from the internet, so only the specified addresses can reach your Azure AD DS managed domain using secure LDAP.
 
 1. In the Azure portal, select *Resource groups* on the left-hand side navigation.
-1. Choose you resource group, such as *myResourceGroup*, then select your network security group, such as *AADDS-contoso.com-NSG*.
+1. Choose you resource group, such as *myResourceGroup*, then select your network security group, such as *aaads-nsg*.
 1. The list of existing inbound and outbound security rules are displayed. On the left-hand side of the network security group windows, choose **Security > Inbound security rules**.
 1. Select **Add**, then create a rule to allow *TCP* port *636*. For improved security, choose the source as *IP Addresses* and then specify your own valid IP address or range for your organization.
 
@@ -295,3 +295,4 @@ In this tutorial, you learned how to:
 <!-- EXTERNAL LINKS -->
 [rsat]: /windows-server/remote/remote-server-administration-tools
 [ldap-query-basics]: /windows/desktop/ad/creating-a-query-filter
+[New-SelfSignedCertificate]: /powershell/module/pkiclient/new-selfsignedcertificate

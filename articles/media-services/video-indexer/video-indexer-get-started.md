@@ -1,6 +1,6 @@
 ---
 title: Sign up for Video Indexer and upload your first video - Azure
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: Learn how to sign up and upload your first video using the Video Indexer portal.
 services: media-services
 author: Juliako
@@ -9,7 +9,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
-ms.date: 05/15/2019
+ms.date: 10/10/2019
 ms.author: juliako
 ---
 
@@ -24,6 +24,9 @@ When creating a Video Indexer account, you can choose a free trial account (wher
 To start developing with Video Indexer, browse to the [Video Indexer](https://www.videoindexer.com) website and sign up.
 
 ## Upload a video using the Video Indexer website
+
+> [!NOTE]
+> A name of the video must be no greater than 80 characters.
 
 1. Sign in on the [Video Indexer](https://www.videoindexer.ai/) website.
 2. To upload a video, press the **Upload** button or link.

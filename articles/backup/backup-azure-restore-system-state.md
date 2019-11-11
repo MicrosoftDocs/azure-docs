@@ -6,7 +6,7 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/18/2017
+ms.date: 08/18/2017
 ms.author: dacurwin
 ---
 # Restore System State to Windows Server

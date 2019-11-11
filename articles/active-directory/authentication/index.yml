@@ -67,7 +67,7 @@ landingContent:
         links:
           - text: Pilot Azure MFA for specific applications
             url: tutorial-mfa-applications.md
-          - text: Use risk events to trigger Multi-Factor Authentication and password changes
+          - text: Use risk detections to trigger Multi-Factor Authentication and password changes
             url: tutorial-risk-based-sspr-mfa.md
       - linkListType: deploy
         links:

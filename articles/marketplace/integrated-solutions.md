@@ -7,6 +7,7 @@ author: qianw211
 
 
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: ellacroi
@@ -38,5 +39,7 @@ You can discover Integrated Solutions, and connect with these valued partners by
 * [Windows Server End-of-Support](https://azuremarketplace.microsoft.com/marketplace/consulting-services/new-signature.eos_appfactory)
 
 and by also visiting the Consulting Services section of [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/consulting-services).
+
+See [publishing Integrated Solutions](https://docs.microsoft.com/azure/marketplace/integrated-solutions-for-publishers) for more information.
 
 ---

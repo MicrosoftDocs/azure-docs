@@ -25,7 +25,7 @@ In this guide, you will learn how to:
 
 - An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 - [Azure CLI installed](/cli/azure/install-azure-cli?view=azure-cli-latest).
-- [Helm 2.13 or greater installed](https://github.com/helm/helm/blob/master/docs/install.md).
+- [Helm 2.13 or greater installed][helm-installed].
 
 ## Create an Azure Kubernetes Service cluster
 
@@ -33,14 +33,15 @@ You must create an AKS cluster in a [supported region][supported-regions]. The b
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --node-vm-size Standard_DS2_v2 --node-count 1 --disable-rbac --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --generate-ssh-keys
 ```
-
-The *MyAKS* cluster is also created with one node, using the *Standard_DS2_v2* size, and with RBAC disabled.
 
 ## Enable Azure Dev Spaces on your AKS cluster
 
 Use the `use-dev-spaces` command to enable Dev Spaces on your AKS cluster and follow the prompts. The below command enables Dev Spaces on the *MyAKS* cluster in the *MyResourceGroup* group and creates a dev space called *dev*.
+
+> [!NOTE]
+> The `use-dev-spaces` command will also install the Azure Dev Spaces CLI if its not already installed. You cannot install the Azure Dev Spaces CLI in the Azure Cloud Shell.
 
 ```cmd
 az aks use-dev-spaces -g MyResourceGroup -n MyAKS --space dev --yes
@@ -140,12 +141,12 @@ Use the `azds space list` command to list all the dev spaces and confirm *dev/az
 
 ```cmd
 $ azds space list
-Name            Selected
---------------  --------
-default         False
-dev             False
-dev/azureuser1  False
-dev/azureuser2  True
+   Name            DevSpacesEnabled
+-  --------------  ----------------
+   default         False
+   dev             True
+   dev/azureuser1  True
+*  dev/azureuser2  True
 ```
 
 Use the `azds list-uris` to display the URLs for the sample application in the currently selected space that is *dev/azureuser2*.
@@ -196,6 +197,9 @@ Navigate to the *bikesharingweb* service for the *dev/azureuser2* dev space by o
 
 ![Azure Dev Spaces Bike Sharing sample application updated](media/quickstart-team-development/bikeshare-update.png)
 
+> [!NOTE]
+> When you navigate to your service while running `azds up`, the HTTP request traces are also displayed in the output of the `azds up` command. These traces can help you troubleshoot and debug your service. You can disable these traces using `--disable-http-traces` when running `azds up`.
+
 ## Verify other Dev Spaces are unchanged
 
 If the `azds up` command is still running, press *Ctrl+c*.
@@ -229,5 +233,5 @@ Learn how Azure Dev Spaces helps you develop more complex apps across multiple c
 > [!div class="nextstepaction"]
 > [Working with multiple containers and team development](multi-service-nodejs.md)
 
-
+[helm-installed]: https://helm.sh/docs/using_helm/#installing-helm
 [supported-regions]: about.md#supported-regions-and-configurations

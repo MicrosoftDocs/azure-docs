@@ -1,5 +1,6 @@
 ---
-title: Configure an application's publisher domain | Azure
+title: Configure an application's publisher domain 
+titleSuffix: Microsoft identity platform
 description: Learn how to configure an application's publisher domain to let users know where their information is being sent.
 services: active-directory
 documentationcenter: dev-center-name
@@ -92,6 +93,12 @@ If your app isn't registered in a tenant, you'll only see the option to verify a
 ### To select a verified domain
 
 - If your tenant has verified domains, select one of the domains from the **Select a verified domain** dropdown.
+
+>[!Note]
+> The expected 'Content-Type' header that should be returned is `application/json`. You may get an error as mentioned below if you use anything else like `application/json; charset=utf-8` 
+> 
+>``` "Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value. " ```
+>
 
 ## Implications on the app consent prompt
 

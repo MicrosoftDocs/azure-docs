@@ -5,9 +5,10 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 2/15/2019
+ms.date: 09/17/2019
 ms.author: victorh
 ---
+
 # Azure Firewall log analytics samples
 
 The following Azure Monitor logs samples can be used to analyze your Azure Firewall logs. The sample file is built in View Designer in Azure Monitor, the [View Designer in Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) article has more information about the View Design concept.
@@ -64,7 +65,7 @@ SourcePort = tostring(SourcePortInt)
 TargetPort = tostring(TargetPortInt)
 | extend
 //make sure we only have Allowed / Deny in the Action Field
-Action1 = case(Action1 == "denied","Deny","Unknown Action")
+Action1 = case(Action1 == "Deny","Deny","Unknown Action")
 | extend
     Action = case(Action2 == "",Action1,Action2),
     Rule = case(Rule2a == "",case(Rule1 == "",case(Rule2b == "","N/A", Rule2b),Rule1),Rule2a), 
@@ -86,7 +87,7 @@ AzureDiagnostics
 | parse TempDetails with * "Deny." RuleCollection2b ". Proceeding with" Rule2b
 | extend SourcePort = tostring(SourcePortInt)
 | extend TargetPort = tostring(TargetPortInt)
-| extend Action1 = case(Action1 == "denied","Deny","Unknown Action")
+| extend Action1 = case(Action1 == "Deny","Deny","Unknown Action")
 | extend Action = case(Action2 == "",Action1,Action2),Rule = case(Rule2a == "", case(Rule1 == "",case(Rule2b == "","N/A", Rule2b),Rule1),Rule2a), 
 RuleCollection = case(RuleCollection2b == "",case(RuleCollection2a == "","No rule matched",RuleCollection2a), RuleCollection2b),FQDN = case(FQDN == "", "N/A", FQDN),TargetPort = case(TargetPort == "", "N/A", TargetPort)
 | project TimeGenerated, msg_s, Protocol, SourceIP, SourcePort, FQDN, TargetPort, Action ,RuleCollection, Rule

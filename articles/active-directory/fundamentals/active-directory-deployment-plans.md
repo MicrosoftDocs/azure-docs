@@ -45,13 +45,22 @@ Roles might include the following
 - **I**nformed of project plan and outcome
 
 
+## Best practices for a pilot
+A pilot allows you to test with a small group before turning a capability on for everyone. Ensure that as part of your testing, each use case within your organization is thoroughly tested. It’s best to target a specific group of pilot users before rolling this out to your organization as a whole.
+
+In your first wave, target IT, usability, and other appropriate users who can test and provide feedback. This feedback should be used to further develop the communications and instructions you send to your users, and to give insights into the types of issues your support staff may see. 
+
+Widening the rollout to larger groups of users should be carried out by increasing the scope of the group(s) targeted. This can be done through [dynamic group membership](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-membership), or by manually adding users to the targeted group(s).
+
+
 ## Deploy authentication
 
 | Capability | Description|
 | -| -|
-| [Multi-Factor Authentication](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-getstarted)| Azure Multi-Factor Authentication (MFA) is Microsoft's two-step verification solution. Using admin-approved authentication methods, Azure MFA helps safeguard access to your data and applications while meeting the demand for a simple sign-in process. |
+| [Multi-Factor Authentication](https://aka.ms/deploymentplans/mfa)| Azure Multi-Factor Authentication (MFA) is Microsoft's two-step verification solution. Using admin-approved authentication methods, Azure MFA helps safeguard access to your data and applications while meeting the demand for a simple sign-in process. |
 | [Conditional Access](https://aka.ms/deploymentplans/ca)| With Conditional Access, you can implement automated access control decisions for who can access your cloud apps, based on conditions. |
 | [Self-service password reset](https://aka.ms/deploymentplans/sspr)| Self-service password reset helps your users reset their passwords without administrator intervention, when and where they need to. |
+| [Passwordless](https://aka.ms/deploymentplans/passwordless) | Implement passwordless authentication using the the Microsoft Authenticator app or FIDO2 Security keys in your organization |
 
 ## Deploy application management
 
@@ -74,7 +83,7 @@ Roles might include the following
 
 | Capability | Description|
 | -| -|
-| [User provisioning](https://aka.ms/UserProvisioningDPDownload)| Azure AD helps you automate the creation, maintenance, and removal of user identities in cloud (SaaS) applications, such as Dropbox, Salesforce, ServiceNow, and more. |
+| [User provisioning](https://aka.ms/deploymentplans/userprovisioning)| Azure AD helps you automate the creation, maintenance, and removal of user identities in cloud (SaaS) applications, such as Dropbox, Salesforce, ServiceNow, and more. |
 | [Workday-driven Inbound User Provisioning](https://aka.ms/WorkdayDeploymentPlan)| Workday-driven Inbound User Provisioning to Active Directory creates a foundation for ongoing identity governance and enhances the quality of business processes that rely on authoritative identity data. Using this feature, you can seamlessly manage the identity lifecycle of employees and contingent workers by configuring rules that map Joiner-Mover-Leaver processes (such as New Hire, Terminate, Transfer) to IT provisioning actions (such as Create, Enable, Disable) |
 
 ## Deploy governance and reporting

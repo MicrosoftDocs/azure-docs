@@ -4,7 +4,7 @@ description: Learn how to troubleshoot the problem in which the Site-to-Site VPN
 services: vpn-gateway
 documentationcenter: na
 author: chadmath
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: ''
 

@@ -1,20 +1,16 @@
 ---
-title: Pipelines and activities in Azure Data Factory | Microsoft Docs
+title: Pipelines and activities in Azure Data Factory 
 description: 'Learn about pipelines and activities in Azure Data Factory.'
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 06/12/2018
-ms.author: shlo
-
 ---
 
 # Pipelines and activities in Azure Data Factory
@@ -148,7 +144,7 @@ Policies affect the run-time behavior of an activity, giving configurability opt
     "properties": {
       "activities": [
         {
-          "name": "MyCopyBlobtoSqlActivity"
+          "name": "MyCopyBlobtoSqlActivity",
           "type": "Copy",
           "typeProperties": {
             ...

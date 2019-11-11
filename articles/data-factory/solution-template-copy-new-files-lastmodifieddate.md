@@ -1,5 +1,5 @@
 ---
-title: Copy new and changed files by LastModifiedDate with Azure Data Factory | Microsoft Docs
+title: Copy new and changed files by LastModifiedDate with Azure Data Factory 
 description: Learn how to use a solution template to copy new and changed files by LastModifiedDate with Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -82,8 +82,8 @@ The template defines four parameters:
 11. Write the value for the **Trigger Run Parameters** as following, and select **Finish**.
     - **FolderPath_Source** = **/source/**.  You can replace with your folder in source data store.
     - **FolderPath_Destination** = **/destination/**.  You can replace with your folder in destination data store.
-    - **LastModified_From** =  **@trigger().outputs.windowStartTime**.  It is a system variable from the trigger determining the time when the pipeline was triggered last time.
-    - **LastModified_To** = **@trigger().outputs.windowEndTime**.  It is a system variable from the trigger determining the time when the pipeline is triggered this time.
+    - **LastModified_From** =  **\@trigger().outputs.windowStartTime**.  It is a system variable from the trigger determining the time when the pipeline was triggered last time.
+    - **LastModified_To** = **\@trigger().outputs.windowEndTime**.  It is a system variable from the trigger determining the time when the pipeline is triggered this time.
 	
     ![Input parameters](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate11.png)
 	

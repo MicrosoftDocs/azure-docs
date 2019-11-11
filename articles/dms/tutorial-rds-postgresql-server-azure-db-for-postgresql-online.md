@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 06/28/2019
+ms.date: 09/06/2019
 ---
 
 # Tutorial: Migrate RDS PostgreSQL to Azure Database for PostgreSQL online using DMS
@@ -44,10 +44,7 @@ To complete this tutorial, you need to:
 
     In addition, the RDS PostgreSQL version must match the Azure Database for PostgreSQL version. For example, RDS PostgreSQL 9.5.11.5 can only migrate to Azure Database for PostgreSQL 9.5.11 and not to version 9.6.7.
 
-    > [!NOTE]
-    > For PostgreSQL version 10, currently DMS only supports migration of version 10.3 to Azure Database for PostgreSQL.
-
-* Create an instance of [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal). Please refer to this [section](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal#connect-to-the-postgresql-server-using-pgadmin) of the document for detail on how to connect to the PostgreSQL Server using pgAdmin.
+* Create an instance of [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal). Refer to this [section](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal#connect-to-the-postgresql-server-using-pgadmin) of the document for detail on how to connect to the PostgreSQL Server using pgAdmin.
 * Create an Azure Virtual Network (VNet) for Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). For more information about creating a VNet, see the [Virtual Network Documentation](https://docs.microsoft.com/azure/virtual-network/), and especially the quickstart articles with step-by-step details.
 * Ensure that your VNet Network Security Group rules don't block the following inbound communication ports to Azure Database Migration Service: 443, 53, 9354, 445, and 12000. For more detail on Azure VNet NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 * Configure your [Windows Firewall for database engine access](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
@@ -62,7 +59,7 @@ To complete this tutorial, you need to:
 3. Create a new parameter group with the following configuration:
     a. Set the rds.logical_replication parameter in your DB parameter group to 1.
     b. max_wal_senders =[number of concurrent tasks] - The max_wal_senders parameter sets the number of concurrent tasks that can run, recommend 10 tasks.
-    c. max_replication_slots – = [number of slots], recommend set to 5 slots.
+    c. max_replication_slots – = [number of slots], recommend set to five slots.
 4. Associate the parameter group you created to the RDS PostgreSQL instance.
 
 ## Migrate the schema

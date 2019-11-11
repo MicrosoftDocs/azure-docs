@@ -1,5 +1,5 @@
 ---
-title: Copy data from IBM Informix sources using Azure Data Factory | Microsoft Docs
+title: Copy data from IBM Informix sources using Azure Data Factory 
 description: Learn how to copy data from IBM Informix sources to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
@@ -21,6 +21,11 @@ ms.author: jingwang
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from an IBM Informix data store. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Supported capabilities
+
+This Informix connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
 
 You can copy data from Informix source to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -80,7 +85,7 @@ The following properties are supported for Informix linked service:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by Informix dataset.
+For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Informix dataset.
 
 To copy data from Informix, the following properties are supported:
 
@@ -151,6 +156,11 @@ To copy data from Informix, the following properties are supported in the copy a
     }
 ]
 ```
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).

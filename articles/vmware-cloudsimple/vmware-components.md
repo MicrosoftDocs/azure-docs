@@ -24,10 +24,10 @@ A Private Cloud VMware stack is deployed with the following software version.
 
 | Component | Version | Licensed version |
 |-----------|---------|------------------|
-| ESXi | 6.7U1 | Enterprise Plus |
-| vCenter | 6.7U1 | vCenter Standard |
+| ESXi | 6.7U2 | Enterprise Plus |
+| vCenter | 6.7U2 | vCenter Standard |
 | vSAN | 6.7 | Enterprise |
-| NSX Data Center | 2.3 | Advanced |
+| NSX Data Center | 2.4.1 | Advanced |
 
 ## ESXi
 
