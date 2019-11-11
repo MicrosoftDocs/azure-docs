@@ -41849,11 +41849,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-central/core/howto-version-device-template-pnp.md",
-      "redirect_url": "/azure/iot-central/preview/howto-version-device-template/",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/iot-central/core/howto-manage-devices-pnp.md",
       "redirect_url": "/azure/iot-central/preview/howto-manage-devices/",
       "redirect_document_id": false
