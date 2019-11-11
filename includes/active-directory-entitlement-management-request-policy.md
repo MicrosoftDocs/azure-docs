@@ -5,7 +5,7 @@ services: active-directory
 author: msaburnley
 ms.service: active-directory
 ms.topic: include
-ms.date: 10/15/2019
+ms.date: 11/11/2019
 ms.author: ajburnle
 ms.custom: include file
 ---
@@ -130,6 +130,9 @@ In the Approval section, you specify whether an approval is required when users 
 ### Multi-stage approval
 
 1. If you require multi-stage approval, set the **How many stages** toggle to **2**
+
+    ![Access package - Requests - Multistage approval toggle](./media/active-directory-entitlement-management-request-policy/multistage-toggle.png)
+
 
 1. You will have to select at least two approvers. Under **First Approver**, select **Manager as approver** or add a specific user by clicking **Add users or groups** under **Choose specific approvers**. 
 
