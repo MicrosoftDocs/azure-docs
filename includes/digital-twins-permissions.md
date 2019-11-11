@@ -28,7 +28,7 @@
 
 1. To make sure that [the app is registered as a **public client**](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration), open the **Authentication** pane for your app registration, and scroll down in that pane. In the **Default client type** section, choose **Yes** for **Treat application as a public client**, and hit **Save**.
 
-    [![Public client configuration setting](./media/digital-twins-permissions/aad-public-client.png.png)](./media/digital-twins-permissions/aad-public-client.png#lightbox)
+    [![Public client configuration setting](./media/digital-twins-permissions/aad-public-client.png)](./media/digital-twins-permissions/aad-public-client.png#lightbox)
 
 1.  Open the **Overview** pane of your registered app, and copy the values of the following entities to a temporary file. You'll use these values to configure your sample application in the following sections.
 
