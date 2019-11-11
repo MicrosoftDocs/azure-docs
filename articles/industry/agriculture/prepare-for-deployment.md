@@ -126,7 +126,7 @@ Use the following steps to run the Azure AD application registration script:
 
 As part of the installation, create an input.json file as follows:
 
-    ```
+```json
     {  
        "sku":"both",
        "subscriptionId":"da9xxxec-dxxf-4xxc-xxx21-xxx3ee7xxxxx",
@@ -139,7 +139,7 @@ As part of the installation, create an input.json file as follows:
        "notificationEmailAddress":"dummy@yourorg.com",
        "updateIfExists":true
     }
-    ```
+```
 
 This file is your input file to Azure Cloud Shell and parameters whose values are used during the installation. All params in the json needs to be replaced with appropriate values or removed; if removed, installer will prompt you during installation
 
@@ -205,9 +205,9 @@ Sample JSON input:
 4. Go to your home directory in the cloud shell. By default, it is /home/<username>
 5. Type or paste the following command into the Cloud Shell. Make sure to modify the path to input. Json file and press enter.
 
-      ```azurepowershell-interactive
+   ```bash
       wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript && bash farmbeats-installer.sh /home/<username>/input.json
-     ```
+    ```
      The installer automatically downloads all dependencies and builds the deployer. You will be prompted to agree to the Azure FarmBeats End-user license agreement (EULA).
 
      - Enter ‘Y’ if you agree and you will proceed to the next step.
@@ -261,7 +261,7 @@ Follow the rest of the steps:
 4. Go to your home directory in the cloud shell. By default, it is /home/<username>
 5. Type or paste the following command into the Cloud Shell. Make sure to modify the path to input. Json file and press enter.
 
-    ```azurepowershell-interactive
+    ```bash
     wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript && bash farmbeats-installer.sh /home/<username>/input.json
     ```
 
@@ -319,7 +319,7 @@ The steps for upgrade are similar to the first-time installation. Follow these s
 5. Upload the input.json file to Azure Cloud Shell.
 6. Type or paste the following two commands into the Cloud Shell. Make sure to modify the path to input.json file and press enter.
 
-    ```azurepowershell-interactive
+    ```bash
     wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript && bash farmbeats-installer.sh /home/<username>/input.json
     ```
 Follow the onscreen instructions:
