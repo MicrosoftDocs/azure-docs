@@ -6,6 +6,7 @@ ms.service: logic-apps
 ms.suite: integration
 author: dlepow
 ms.author: danlep
+ms.manager: gwallace
 ms.reviewer: 
 ms.assetid: 
 ms.topic: article
@@ -74,7 +75,7 @@ and continue building your logic app's workflow.
 
   ![Create container group](./media/connectors-create-api-container-instances/logic-apps-aci-connector.png)
 
-  For an explanation of the properties you can set in the **Create container group** action, see the [connector reference](/connectors/aci/) or container group [YAML reference](container-instances/container-instances-reference-yaml.md).
+  For an explanation of the properties you can set in the **Create container group** action, see the [connector reference](/connectors/aci/) or container group [YAML reference](../container-instances/container-instances-reference-yaml.md).
 
 ## Connector reference
 
