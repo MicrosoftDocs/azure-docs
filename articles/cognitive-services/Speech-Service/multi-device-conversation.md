@@ -26,7 +26,7 @@ This helps you make a solution that works across an array of devices, including 
 Whereas **Conversation Transcription** works on a single device with a multichannel microphone array, **Multi-device Conversation** is suited for scenarios with multiple devices, each with a single microphone. 
 
 
-> [!Note]
+> [!NOTE]
 > You can have up to 100 participants per conversation, of which 10 can be speaking at any given time.
 
 ## Key features
@@ -41,10 +41,18 @@ Whereas **Conversation Transcription** works on a single device with a multichan
 
 ## Use cases
 
-### Presentations
+
+
 ### Multilingual group conversations
+
+
 ### Accessibility for people who are deaf or hard of hearing
+Build a solution or feature to help transcribe speech in a group scenario, so that each person can follow the transcript on his or her own device.
+
 ### Education
+
+### Presentations
+Build a solution for presentation scenarios, to help transcribe and/or translate the speech into the languages of the audience.
 
 ## How it works
 
