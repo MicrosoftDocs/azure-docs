@@ -5,7 +5,7 @@ author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 10/29/2019
+ms.date: 11/11/2019
 ms.author: bwren
 ms.subservice: logs
 ---

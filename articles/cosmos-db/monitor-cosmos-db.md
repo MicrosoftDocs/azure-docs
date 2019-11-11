@@ -33,7 +33,6 @@ The following sections build on this article by describing the specific data gat
 ## Monitoring data collected from Azure Cosmos DB
 Azure Cosmos DB collects the same kinds of monitoring data as other Azure resources which are described in [Monitoring data from Azure resources](../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). See [Azure Cosmos DB monitoring data reference](monitor-cosmos-db-reference.md) for a detailed reference of the logs and metrics created by Azure Cosmos DB.
 
-### Overview page
 The **Overview** page in the Azure portal for each Azure Cosmos database includes a brief view of the database usage including its request and hourly billing usage. This is useful information but only a small amount of the monitoring data available. Some of this data is collected automatically and available for analysis as soon as you create the database while you can enable additional data collection with some configuration.
 
 ![Overview page](media/monitor-cosmos-db/overview-page.png)
@@ -43,7 +42,7 @@ The **Overview** page in the Azure portal for each Azure Cosmos database include
 ## Configuration
 Platform metrics and the Activity log are collected automatically, but you must create a diagnostic setting to collect resource logs or forward them outside of Azure Monitor. See [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/platform/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell.
 
-When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure Cosmos DB are listed in the following sections along with sample data.
+When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure Cosmos DB are listed below along with sample data.
 
  * **DataPlaneRequests**: Select this option to log back-end requests to all APIs which includes SQL, Graph, MongoDB, Cassandra, and Table API accounts in Azure Cosmos DB. Key properties to note are: Requestcharge, statusCode, clientIPaddress, and partitionID.
 
@@ -74,7 +73,7 @@ When you create a diagnostic setting, you specify which categories of logs to co
 ## Analyzing metric data
 Azure Cosmos DB provides a custom experience for working with metrics. See [Monitor and debug Azure Cosmos DB metrics from Azure Monitor](cosmos-db-azure-monitor-metrics.md) for details on using this experience and for analyzing different Azure Cosmos DB scenarios.
 
-You can analyze metrics for Azure Cosmos DB with metrics from other Azure services using Metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) for details on using this tool. All metrics for Azure Cosmos DB are in the namespace **Cosmos DB standard metrics**, and you can use the following filters:
+You can analyze metrics for Azure Cosmos DB with metrics from other Azure services using Metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) for details on using this tool. All metrics for Azure Cosmos DB are in the namespace **Cosmos DB standard metrics**. You can use the following dimensions with these metrics when adding a filter to a chart:
 
 - CollectionName
 - DatabaseName
