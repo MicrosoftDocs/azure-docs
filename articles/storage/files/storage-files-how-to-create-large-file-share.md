@@ -4,7 +4,7 @@ description: In this article, you learn how to enable and create large file shar
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 11/11/2019
 ms.author: rogarana
 ms.subservice: files
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
@@ -151,6 +151,8 @@ Once you've enabled large file shares on your storage account, you can expand ex
 ![update-large-file-share-quota.png](media/storage-files-how-to-create-large-file-share/update-large-file-share-quota.png)
 
 ### CLI
+
+### PowerShell
 
 ## Next steps
 
