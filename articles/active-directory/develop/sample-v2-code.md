@@ -102,7 +102,7 @@ The following samples show how to protect a web API with the Microsoft identity 
 | ![This image shows the ASP.NET Core logo](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | ASP.NET Core web API (service) of [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph)  |
 | ![This image shows the ASP.NET logo](media/sample-v2-code/logo_NET.png)</p>ASP.NET MVC | Web API (service) of [ms-identity-aspnet-webapi-onbehalfof](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof) |
 
-## Azure Functions as Web APIs
+## Azure Functions as web APIs
 
 The following samples show how to protect an Azure Function using HttpTrigger and exposing a web API with the Microsoft identity platform endpoint, and how to call a downstream API from the web API.
 
