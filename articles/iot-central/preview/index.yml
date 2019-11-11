@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Azure IoT Central documentation
+title: Azure IoT Central documentation (preview features)
 summary: Azure IoT Central is a fully managed SaaS (software-as-a-service) solution that makes it easy to connect, monitor, and manage your IoT assets at scale. Azure IoT Central simplifies the initial setup of your IoT solution and reduces the management burden, operational costs, and overhead of a typical IoT project. Learn how to create, customize, manage, and use an Azure IoT Central application with our quickstarts and tutorials. # < 160 chars
 
 metadata:
@@ -13,7 +13,7 @@ metadata:
   ms.date: 10/25/2019 
 
 landingContent:
-  - title: About Azure IoT Central
+  - title: About Azure IoT Central (preview features)
     linkLists:
       - linkListType: overview
         links:
