@@ -112,6 +112,12 @@ When you create a function app, you must create or link to a general-purpose Azu
 
 [Learn more about storage account requirements.](./functions-create-function-app-portal.md#storage-account-requirements)
 
+### Using Key Vault references 
+
+Key Vault references allow you to use secrets from Azure Key Vault in your Azure Functions application without requiring any code changes. Azure Key Vault is a service that provides centralized secrets management, with full control over access policies and audit history.
+
+Currently [Key Vault references](../app-service/app-service-key-vault-references.md) will not work if your Key Vault is secured with service endpoints. To connect to a Key Vault using virtual network integration you will need to call key vault in your application code.
+
 ## Virtual network triggers (non-HTTP)
 
 Currently, to use function triggers other than HTTP from within a virtual network, you must run your function app in an App Service plan or in an App Service Environment.
