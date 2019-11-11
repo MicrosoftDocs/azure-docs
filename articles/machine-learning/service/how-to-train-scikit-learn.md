@@ -174,41 +174,33 @@ import joblib
 joblib.dump(svm_model_linear, 'model.joblib')
 ```
 
-Register the model to your workspace with the following code.
+Register the model to your workspace with the following code. By specifying the parameters `model_framework`, `model_framework_version`, and `resource_configuration`, no-code model deployment becomes available. This allows you to directly deploy your model as a web service from the registered model, and the `ResourceConfiguration` object defines the compute resource for the web service.
 
 ```Python
-model = run.register_model(model_name='sklearn-iris', model_path='model.joblib')
+from azureml.core import Model
+from azureml.core.resource_configuration import ResourceConfiguration
+
+model = run.register_model(model_name='sklearn-iris', 
+                           model_path='model.joblib',
+                           model_framework=Model.Framework.SCIKITLEARN,
+                           model_framework_version='0.19.1',
+                           resource_configuration=ResourceConfiguration(cpu=1, memory_in_gb=0.5))
 ```
 
 ## Deployment
 
-The model you just registered is deployed the exact same way as any other registered model in Azure 
-Machine Learning, regardless of which estimator you used for training. The deployment how-to
+The model you just registered can be deployed the exact same way as any other registered model in Azure Machine Learning, regardless of which estimator you used for training. The deployment how-to
 contains a section on registering models, but you can skip directly to [creating a compute target](how-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
 
 ### (Preview) No-code model deployment
 
-Instead of the traditional deployment route, you can also use the no-code deployment feature (preview) for scikit-learn. No-code model deployment is supported for all built-in scikit-learn model types.
-
-If you are following this how-to and have already registered the model named **sklearn-iris**, use this name in the `model_name` parameter of the `Model.register()` function below.
-
+Instead of the traditional deployment route, you can also use the no-code deployment feature (preview)for scikit-learn. No-code model deployment is supported for all built-in scikit-learn model types. By registering your model as shown above with the `model_framework`, `model_framework_version`, and `resource_configuration` parameters, you can simply use the `deploy()` static function to deploy your model.
 
 ```python
-from azureml.core import Model
-from azureml.core.resource_configuration import ResourceConfiguration
-
-model = Model.register(workspace=ws,
-                       model_name='sklearn-iris',                # Name of the registered model in your workspace.
-                       model_framework=Model.Framework.SCIKITLEARN,  # Framework used to create the model.
-                       model_framework_version='0.19.1',             # Version of scikit-learn used to create the model.
-                       resource_configuration=ResourceConfiguration(cpu=1, memory_in_gb=0.5)
-                       )
-                       
-service_name = 'my-sklearn-service'
-service = Model.deploy(ws, service_name, [model])
+web_service = Model.deploy(ws, "scikit-learn-service", [model])
 ```
 
-NOTE: These dependencies are included in the prebuilt sklearn inference container:
+NOTE: These dependencies are included in the pre-built scikit-learn inference container.
 
 ```yaml
     - azureml-defaults
@@ -219,8 +211,8 @@ NOTE: These dependencies are included in the prebuilt sklearn inference containe
 
 The full [how-to](how-to-deploy-and-where.md) covers deployment in Azure Machine Learning in greater depth.
 
-## Next steps
 
+## Next steps
 
 In this article, you trained and registered a scikit-learn model, and learned about deployment options. See these other articles to learn more about Azure Machine Learning.
 
