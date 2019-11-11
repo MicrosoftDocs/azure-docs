@@ -347,7 +347,18 @@ When you first run a pipeline, Azure Machine Learning:
 
 For more information, see the [Experiment class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) reference.
 
+### View results of a pipeline
 
+See the list of all your pipelines and their run details in the studio:
+
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
+
+1. [View your workspace](how-to-manage-workspace.md#view).
+
+1. On the left, select **Pipelines** to see all your pipeline runs.
+ ![list of machine learning pipelines](./media/how-to-create-your-first-pipeline/pipelines.png)
+ 
+1. Select a specific pipeline to see the run results.
 
 ## GitHub tracking and integration
 
@@ -404,21 +415,14 @@ response = requests.post(published_pipeline1.endpoint,
                                "ParameterAssignments": {"pipeline_arg": 20}})
 ```
 
-### View results of a pipeline
 
-See the list of all your pipelines and their run details:
+### Use published pipelines in the studio
+
+You can also run a published pipeline from the studio:
+
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
 
 1. [View your workspace](how-to-manage-workspace.md#view).
-
-1. On the left, select **Pipelines** to see all your pipeline runs.
- ![list of machine learning pipelines](./media/how-to-create-your-first-pipeline/pipelines.png)
- 
-1. Select a specific pipeline to see the run results.
-
-### View and use published pipelines
-
-When you publish a pipeline, use the **Endpoints** section in the studio to view and use the published pipeline.
 
 1. On the left, select **Endpoints**.
 
