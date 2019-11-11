@@ -25,9 +25,11 @@ The following considerations apply to the different performance tiers:
 | Area |Standard performance  |Premium performance  |
 |---------|---------|---------|
 |Region availability     |   All  regions      | In [select regions](https://azure.microsoft.com/global-infrastructure/services/?products=storage)       |
-|Supported storage account types     |     General purpose v1, General purpose v2, BlobStorage    |    BlockBlobStorage     |
-|Supports [high throughput block blobs](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/)     |    Yes, at greater than 4 MiB Put Block or Put Blob sizes     |    Yes, at greater than 256 KiB     |
-|Redundancy     |     See [Types of storage accounts](../common/storage-account-overview.md#types-of-storage-accounts)   |  Currently supports only locally-redundant storage (LRS)       |
+|Supported [storage account types](../common/storage-account-overview.md#types-of-storage-accounts)     |     General purpose v2, BlobStorage, General purpose v1    |    BlockBlobStorage     |
+|Supports [high throughput block blobs](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/)     |    Yes, at greater than 4 MiB PutBlock or PutBlob sizes     |    Yes, at greater than 256 KiB PutBlock or PutBlob sizes    |
+|Redundancy     |     See [Types of storage accounts](../common/storage-account-overview.md#types-of-storage-accounts)   |  Currently supports only locally-redundant storage (LRS) and zone-redudant storage (ZRS)<sup>1</sup>     |
+
+<div id="zone-redundant-storage"><sup>1</sup>Zone-redundant storage (ZRS) is available in select regions for premium performance block blob storage accounts.</div>
 
 Regarding cost, premium performance provides optimized pricing for applications with high transaction rates to help [lower total storage cost](https://azure.microsoft.com/blog/reducing-overall-storage-costs-with-azure-premium-blob-storage/) for these workloads.
 
