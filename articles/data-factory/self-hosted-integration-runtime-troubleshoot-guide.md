@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Self-hosted Integration Runtime 
+title: Troubleshoot Self-hosted Integration Runtime in Azure Data Factory
 description: Learn how to troubleshoot Self-hosted integration runtime issues in Azure Data Factory. 
 services: data-factory
 author: nabhishek
@@ -9,7 +9,7 @@ ms.date: 11/07/2019
 ms.author: abnarain
 ---
 
-# Troubleshoot Azure Data Factory Self-hosted Integration Runtime
+# Troubleshoot Self-hosted Integration Runtime
 
 This article explores common troubleshooting methods for self-hosted integration runtime in Azure Data Factory.
 
@@ -23,7 +23,7 @@ This article explores common troubleshooting methods for self-hosted integration
 
 - **Cause**: The self-hosted integration runtime isn't able to connect to data factory service (backend). Most often than not it's caused due to network settings in Firewall.
 
-- **Resolution**: Make sure that the container you're referencing in your dataset exists.
+- **Resolution**: 
 
     1. Check if the windows service "Integration Runtime Service" is running.
     
@@ -36,6 +36,8 @@ This article explores common troubleshooting methods for self-hosted integration
             ```powershell
             (New-Object System.Net.WebClient).DownloadString("https://wu2.frontend.clouddatahub.net/")
             ```
+            > [!NOTE] 
+            > The service URL may vary based on your data factory location. You can find the service URL under ADF UI -> Connections -> Integration runtimes -> Edit Self-hosted IR -> Nodes -> View Service URLs.
             
             Below is the expected response:
             
