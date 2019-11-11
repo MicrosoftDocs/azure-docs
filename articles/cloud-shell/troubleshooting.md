@@ -84,6 +84,12 @@ Known resolutions for troubleshooting issues in Azure Cloud Shell include:
 
 Azure Cloud Shell has the following known limitations:
 
+### Quota limitations
+
+Azure Cloud Shell has a limit of 20 concurrent users per tenant per region. If you try to open more simultaneous sessions than the limit, you will see an "Tenant User Over Quota" error. If you have a legitimate need to have more sessions open than this (for example for training sessions), contact support in advance of your anticipated usage to request a quota increase.
+
+Cloud Shell is provided as a free service and is designed to be used to configure your Azure environment, not as a general purpose computing platform. Excessive automated usage may be considered in breach to the Azure Terms of Service and could lead to Cloud Shell access being blocked.
+
 ### System state and persistence
 
 The machine that provides your Cloud Shell session is temporary, and it is recycled after your session is inactive for 20 minutes. Cloud Shell requires an Azure file share to be mounted. As a result, your subscription must be able to set up storage resources to access Cloud Shell. Other considerations include:
