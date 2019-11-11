@@ -10,15 +10,15 @@
   - name: Create a device
     items:
       - name: C Windows
-        href: quickstart-create-pnp-device.md
+        href: quickstart-create-pnp-device-windows.md
       - name: C Linux
         href: quickstart-create-pnp-device-linux.md
   - name: Connect a device to IoT Hub
     items:
       - name: C Windows
-        href: quickstart-connect-pnp-device-c.md
+        href: quickstart-connect-pnp-device-c-windows.md
       - name: C Linux
-        href: quickstart-connect-pnp-device-linux.md
+        href: quickstart-connect-pnp-device-c-linux.md
       - name: C#
         href: quickstart-connect-pnp-device-csharp.md
       - name: Node.js
