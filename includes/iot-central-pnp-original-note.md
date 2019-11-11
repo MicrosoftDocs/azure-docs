@@ -11,4 +11,4 @@
 ---
 
 > [!NOTE]
-> You're currently viewing the IoT Central documentation for [application templates that use preview features](../articles/iot-central/core/concepts-app-templates.md#preview-templates). To view the documentation for [application templates that use generally available features](../articles/iot-central/core/concepts-app-templates.md#preview-templates) go to [What is Azure IoT Central (preview features)?](../articles/iot-central/preview/overview-iot-central.md).
+> You're currently viewing the IoT Central documentation for [application templates that use preview features](../articles/iot-central/core/concepts-app-templates.md#preview-templates). To view the documentation for [application templates that use generally available features](../articles/iot-central/core/concepts-app-templates.md#preview-templates) go to [What is Azure IoT Central?](../articles/iot-central/core/overview-iot-central.md).

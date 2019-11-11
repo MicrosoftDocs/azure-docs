@@ -40,8 +40,6 @@ highlightedContent:
       itemType: learn
       url: https://docs.microsoft.com/learn/browse/?products=azure&term=iot
 
-
-
 # conceptualContent section
 conceptualContent:
   title: Get started building your IoT solution
@@ -53,7 +51,7 @@ conceptualContent:
         - url: ../iot-hub/about-iot-hub.md
           itemType: overview
           text: What is Azure IoT Hub?
-        - url: ../iot-hub/quickstart-send-telemetry-c.md
+        - url: ../iot-hub/quickstart-send-telemetry-cli.md
           itemType: quickstart
           text: Send telemetry from a device
         - url: ../iot-hub/quickstart-control-device-node.md

@@ -214,9 +214,9 @@
       href: /java/api/com.microsoft.azure.storage.queue
     - name: Storage Resource Provider
       href: /java/api/overview/azure/storage/management
-  - name: JavaScript (version 10.x)
+  - name: JavaScript (version 12.x)
     href: /javascript/api/@azure/storage-queue
-  - name: Python (version 2.x)
+  - name: Python (version 12.x)
     href: /python/api/azure-storage-queue/?view=azure-python
   - name: REST
     items:
