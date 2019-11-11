@@ -4,6 +4,7 @@ description: How to publish a new IoT Edge Module for the Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pabutler
