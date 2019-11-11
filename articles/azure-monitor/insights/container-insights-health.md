@@ -22,16 +22,9 @@ For information about how to enable Azure Monitor for containers, see [Onboard A
 
 ## Overview
 
-In Azure Monitor for containers, the Health feature helps you identify and diagnose failures in your Kubernetes cluster. It gives you the ability to view significant issues detected, and create [alerts](../platform/alerts-unified-log.md) when state changes occur. The icons used to indicate state are as follows:
+In Azure Monitor for containers, the Health feature provides proactive health monitoring of your Kubernetes cluster to help you identify and diagnose issues. It gives you the ability to view these significant issues detected, and define [alerts](../platform/alerts-unified-log.md) to notify you when these state changes occur. 
 
-|Icon|Meaning|  
-|--------|-----------|  
-|![Green check icon indicates healthy](./media/container-insights-health/healthyicon.png)|Success, health is OK (green)|  
-|![Yellow triangle and exclamation mark is warning](./media/container-insights-health/warningicon.png)|Warning (yellow)|  
-|![Red button with white X indicates critical state](./media/container-insights-health/criticalicon.png)|Critical (red)|  
-|![Grayed-out icon](./media/container-insights-health/grayicon.png)|Out of contact (gray)|  
-
-On the **Health** page, you immediately see the overall health of the cluster without having to view individual performance utilization from **Node**, **Controllers**, or **Pods** tab. Under the **Cluster health summary** section, an overall health perspective is provided for:
+Kubernetes cluster health is cateogrized by the following Kubernetes objects and abstractions :
 
 - Kubernetes infrastructure - provides a rollup of the Kubernetes API server, ReplicaSets, and DaemonSets running on nodes deployed in your cluster.
 
@@ -46,6 +39,17 @@ On the **Health** page, you immediately see the overall health of the cluster wi
     ![Workloads health rollup view](./media/container-insights-health/health-view-workloads-01.png)
 
 All monitors are shown in a hierarchical layout, where an aggregate monitor represents the Kubernetes object (Kubernetes infrastructure, Node, Workload) and reflects combined health of all dependent monitors based on their current health state. 
+
+The icons used to indicate state are as follows:
+
+|Icon|Meaning|  
+|--------|-----------|  
+|![Green check icon indicates healthy](./media/container-insights-health/healthyicon.png)|Success, health is OK (green)|  
+|![Yellow triangle and exclamation mark is warning](./media/container-insights-health/warningicon.png)|Warning (yellow)|  
+|![Red button with white X indicates critical state](./media/container-insights-health/criticalicon.png)|Critical (red)|  
+|![Grayed-out icon](./media/container-insights-health/grayicon.png)|Out of contact (gray)|  
+
+
 
 
 ## Monitor configuration (put into its own article)
