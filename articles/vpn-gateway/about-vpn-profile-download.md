@@ -30,7 +30,7 @@ Extract the zip file. The file contains the following folders:
 
 * AzureVPN
 * Generic
-* OpenVPN
+* OpenVPN (If you enabled the OpenVPN and Azure AD authentication settings on the gateway. See [Create a tenant](openvpn-azure-ad-tenant.md).)
 
 ## 3. Retrieve information
 
