@@ -106,8 +106,8 @@ Applications must be represented by an app object in Azure Active Directory so t
 >             note that the leading &quot;/&quot; is required for android:path
 >         --&gt;
 >         &lt;data android:scheme=&quot;msauth&quot;
->             android:host=&quot;Enter_the_Package_Name_Here&quot;
->             android:path=&quot;Enter_the_Signature_Hash_Here&quot;
+>             android:host=&quot;Enter_the_Package_Name&quot;
+>             android:path=&quot;Enter_the_Signature_Hash&quot;
 >             android:scheme = &quot;msauth&quot; /&gt;
 >     &lt;/intent-filter&gt;
 > &lt;/activity&gt;
