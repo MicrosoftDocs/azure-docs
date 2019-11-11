@@ -52,10 +52,10 @@ Use the following example to view custom routes:
 
 Use the following example to delete custom routes:
 
-    ```azurepowershell-interactive
-    $gw = Get-AzVirtualNetworkGateway -Name <name of gateway> -ResourceGroupName <name of resource group>
-    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute @0
-    ```
+  ```azurepowershell-interactive
+  $gw = Get-AzVirtualNetworkGateway -Name <name of gateway> -ResourceGroupName <name of resource group>
+  Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute @0
+  ```
 ## Next steps
 
 For additional P2S routing information, see [About point-to-site routing](vpn-gateway-about-point-to-site-routing.md).
