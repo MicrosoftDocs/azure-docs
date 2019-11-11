@@ -95,7 +95,7 @@ Applications must be represented by an app object in Azure Active Directory so t
 > 4. Inside **app** > **src** > **main**, open  **AndroidManifest.xml**.
 > 5. In the **manifest\application** node, replace the **activity android:name="com.microsoft.identity.client.BrowserTabActivity"** node with the following:	
 > ```xml
-> <!--Intent filter to catch Microsoft's callback after Sign In-->;
+> <!--Intent filter to catch Microsoft's callback after Sign In-->
 > <activity android:name="com.microsoft.identity.client.BrowserTabActivity">
 >     <intent-filter>
 >         <action android:name="android.intent.action.VIEW" />
