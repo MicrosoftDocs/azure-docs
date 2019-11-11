@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 
-ms.reviewer: trbye, jmartens, larryfr
+ms.reviewer: trbye, jmartens, larryfr,vaidyas
 ms.author: vaidyas
 author: vaidya-s
 ms.date: 11/04/2019
