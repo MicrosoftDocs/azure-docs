@@ -10,7 +10,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 08/21/2019
+ms.date: 11/07/2019
 ms.author: brendm
 ms.custom: seodec18
 ---
@@ -636,35 +636,43 @@ For more info on configuring database connectivity with WildFly, see [PostgreSQL
 
 ### Use Service Bus as a message broker
 
-You can configure WildFly and your message-driven beans to use [Azure Service Bus](/azure/service-bus-messaging) as your message broker. You can send and receive messages using [Apache Qpid](https://qpid.apache.org) as your Java Message Service (JMS) client.
+You can configure WildFly and your message-driven beans to use [Azure Service Bus](/azure/service-bus-messaging) as your message broker. After configuration, you can send and receive messages using [Apache Qpid](https://qpid.apache.org) as your Java Message Service (JMS) client.
 
-The following steps assume you have created an App Service instance for hosting your bean, and a Service Bus Namespace and Queue. For more info, see [Quickstart: Create a Java app on Azure App Service on Linux](/azure/app-service/containers/quickstart-java) and [Quickstart: Use the Azure CLI to create a Service Bus queue](/azure/service-bus-messaging/service-bus-quickstart-cli). You use a similar configuration when connecting to a Service Bus Topic.
+The following steps describe the required configuration and code. These steps assume you have created an App Service instance for hosting your bean, a Service Bus Namespace, a Queue, and a Topic with a Subscription. For information on creating these resources, see:
 
-1. Open a Bash terminal and use `export <variable>=<value>` to set each of the following environment variables.
+- [Quickstart: Create a Java app on Azure App Service on Linux](/azure/app-service/containers/quickstart-java)
+- [Quickstart: Use the Azure CLI to create a Service Bus queue](/azure/service-bus-messaging/service-bus-quickstart-cli)
+- [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions to the topic](/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal)
+
+1. Open a Bash terminal and use the following commands to save your Azure resource info in environment variables. Replace the placeholders (including the angle brackets) with the indicated values.
 
     | Variable            | Value                                                                      |
     |---------------------|----------------------------------------------------------------------------|
     | RESOURCEGROUP_NAME  | The name of the resource group containing your App Service instance.       |
     | WEBAPP_NAME         | The name of your App Service instance.                                     |
-    | WEBAPP_PLAN_NAME    | The name of your App Service plan.                                         |
     | REGION              | The name of the region where your app is hosted.                           |
     | DEFAULT_SBNAMESPACE | The name of your Service Bus Namespace.                                    |
-    | SB_QUEUE            | The name of your Service Bus Queue.                                        |
-    | SB_SAS_POLICY       | The name of the shared access signature (SAS) policy for your queue.       |
+    | SB_SAS_POLICY       | The name of the shared access signature (SAS) policy for your namespace.       |
     | SB_SAS_KEY          | The primary or secondary key for your queue's SAS policy.                  |
+    | SB_QUEUE            | The name of your Service Bus Queue.                                        |
+    | SB_TOPIC            | The name of your Service Bus Topic.                                        |
+    | SB_SUBSCRIPTION     | The name of the subscription to your topic.                                |
 
     ```bash
-    export RESOURCEGROUP_NAME = <resource group>
-    export WEBAPP_NAME = <web app>
-    export WEBAPP_PLAN_NAME = <App Service plan>
-    export REGION = <region>
-    export DEFAULT_SBNAMESPACE = <namespace>
-    export SB_QUEUE = <queue>
-    export SB_SAS_POLICY = <SAS policy>
-    export SB_SAS_KEY = <SAS key>
+    RESOURCEGROUP_NAME=<resource group>
+    WEBAPP_NAME=<web app>
+    WEBAPP_PLAN_NAME=${WEBAPP_NAME}-appservice-plan
+    REGION=<region>
+    DEFAULT_SBNAMESPACE=<namespace>
+    SB_SAS_POLICY=<SAS policy>
+    SB_SAS_KEY=<SAS key>
+    SB_QUEUE=<queue>
+    SB_TOPIC=<topic>
+    SB_SUBSCRIPTION=<subscription>
+    PROVIDER_URL=amqps://${DEFAULT_SBNAMESPACE}.servicebus.windows.net?amqp.idleTimeout=120000
     ```
 
-    You can find this information in the Azure portal. For the SAS policy and key, be sure to use the values for the queue, not for its namespace. To find these values on the Azure portal, navigate to your queue, select **Shared access policies**, and then select your SAS policy.
+    You can find this information in the Azure portal. For the SAS policy and key, be sure to use the values for the namespace so that your app can access both your queue and your topic subscription. To find these values on the Azure portal, navigate to your namespace resource, select **Shared access policies**, and then select the **RootManageSharedAccessKey** policy.
 
 2. Download the [Apache Qpid JMS Provider](https://qpid.apache.org/components/jms/index.html). Locate the .jar files in the *lib* and *lib/optional* directories.
 
@@ -697,44 +705,56 @@ The following steps assume you have created an App Service instance for hosting 
     </module>
     ```
 
-4. Create a file named *commands.cli* and add the following code.
-
-    ```console
-    /subsystem=ee:list-add(name=global-modules, value={"name" => "org.jboss.genericjms.provider", "slot" =>"main"}
-    /subsystem=naming/binding="java:global/remoteJMS":add(binding-type=external-context,module=org.jboss.genericjms.provider,class=javax.naming.InitialContext,environment=[java.naming.factory.initial=org.apache.qpid.jms.jndi.JmsInitialContextFactory,org.jboss.as.naming.lookup.by.string=true,java.naming.provider.url=/home/site/deployments/tools/jndi.properties])
-    /subsystem=resource-adapters/resource-adapter=generic-ra:add(module=org.jboss.genericjms,transaction-support=XATransaction)
-    /subsystem=resource-adapters/resource-adapter=generic-ra/connection-definitions=sbf-cd:add(class-name=org.jboss.resource.adapter.jms.JmsManagedConnectionFactory, jndi-name=java:/jms/SBF)
-    /subsystem=resource-adapters/resource-adapter=generic-ra/connection-definitions=sbf-cd/config-properties=ConnectionFactory:add(value=SBF)
-    /subsystem=resource-adapters/resource-adapter=generic-ra/connection-definitions=sbf-cd/config-properties=JndiParameters:add(value="java.naming.factory.initial=org.apache.qpid.jms.jndi.JmsInitialContextFactory;java.naming.provider.url=/home/site/deployments/tools/jndi.properties")
-    /subsystem=resource-adapters/resource-adapter=generic-ra/connection-definitions=sbf-cd:write-attribute(name=security-application,value=true)
-    /subsystem=ejb3:write-attribute(name=default-resource-adapter-name, value=generic-ra)
-    reload --use-current-server-config=true
-    ```
-
-    This file is a [Wildfly CLI](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface) script launched by the startup script described in the next step. The commands in this file configure JMS and JNDI to create a connection between your app and your Service Bus Queue.
-
-5. Create a file named *startup.sh* and add the following code.
+4. Create a file named *startup.sh* and add the following code.
 
     ```bash
     echo "Generating jndi.properties file in /home/site/deployments/tools directory"
-    echo "connectionfactory.SBF=amqps://${DEFAULT_SBNAMESPACE}.servicebus.windows.net?amqp.idleTimeout=120000&jms.username=${SB_SAS_POLICY}&jms.password=${SB_SAS_KEY}" > /home/site/deployments/tools/jndi.properties
-    echo "queue.jmstestqueue=${SB_QUEUE}" >> /home/site/deployments/tools/jndi.properties
+    echo "connectionfactory.${PROP_HELLOWORLDMDB_CONN}=amqps://${DEFAULT_SBNAMESPACE}.servicebus.windows.net?amqp.idleTimeout=120000&jms.username=${SB_SAS_POLICY}&jms.password=${SB_SAS_KEY}" > /home/site/deployments/tools/jndi.properties
+    echo "queue.${PROP_HELLOWORLDMDB_QUEUE}=${SB_QUEUE}" >> /home/site/deployments/tools/jndi.properties
+    echo "topic.${PROP_HELLOWORLDMDB_TOPIC}=${SB_TOPIC}" >> /home/site/deployments/tools/jndi.properties
+    echo "queue.${PROP_HELLOWOROLDMDB_SUBSCRIPTION}=${SB_TOPIC}/Subscriptions/${SB_SUBSCRIPTION}" >> /home/site/deployments/tools/jndi.properties
     echo "====== contents of /home/site/deployments/tools/jndi.properties ======"
     cat /home/site/deployments/tools/jndi.properties
     echo "====== EOF /home/site/deployments/tools/jndi.properties ======"
+    echo "Generating commands.cli file for /home/site/deployments/tools directory"
+    echo "# Start batching commands" > /home/site/deployments/tools/commands.cli
+    echo "batch" >> /home/site/deployments/tools/commands.cli
+    echo "# Configure the ee subsystem to enable MDB annotation property substitution" >> /home/site/deployments/tools/commands.cli
+    echo "/subsystem=ee:write-attribute(name=annotation-property-replacement,value=true)" >> /home/site/deployments/tools/commands.cli
+    echo "# Define system properties to be used in the substititution" >> /home/site/deployments/tools/commands.cli
+    echo "/system-property=property.helloworldmdb.queue:add(value=java:global/remoteJMS/${PROP_HELLOWORLDMDB_QUEUE})" >> /home/site/deployments/tools/commands.cli
+    echo "/system-property=property.helloworldmdb.topic:add(value=java:global/remoteJMS/${PROP_HELLOWOROLDMDB_SUBSCRIPTION})" >> /home/site/deployments/tools/commands.cli
+    echo "/system-property=property.connection.factory:add(value=java:global/remoteJMS/${PROP_HELLOWORLDMDB_CONN})" >> /home/site/deployments/tools/commands.cli
+    echo "/subsystem=ee:list-add(name=global-modules, value={\"name\" => \"org.jboss.genericjms.provider\", \"slot\" =>\"main\"}" >> /home/site/deployments/tools/commands.cli
+    echo "/subsystem=naming/binding=\"java:global/remoteJMS\":add(binding-type=external-context,module=org.jboss.genericjms.provider,class=javax.naming.InitialContext,environment=[java.naming.factory.initial=org.apache.qpid.jms.jndi.JmsInitialContextFactory,org.jboss.as.naming.lookup.by.string=true,java.naming.provider.url=/home/site/deployments/tools/jndi.properties])" >> /home/site/deployments/tools/commands.cli
+    echo "/subsystem=resource-adapters/resource-adapter=generic-ra:add(module=org.jboss.genericjms,transaction-support=XATransaction)" >> /home/site/deployments/tools/commands.cli
+    echo "/subsystem=resource-adapters/resource-adapter=generic-ra/connection-definitions=sbf-cd:add(class-name=org.jboss.resource.adapter.jms.JmsManagedConnectionFactory, jndi-name=java:/jms/${PROP_HELLOWORLDMDB_CONN})" >> /home/site/deployments/tools/commands.cli
+    echo "/subsystem=resource-adapters/resource-adapter=generic-ra/connection-definitions=sbf-cd/config-properties=ConnectionFactory:add(value=${PROP_HELLOWORLDMDB_CONN})" >> /home/site/deployments/tools/commands.cli
+    echo "/subsystem=resource-adapters/resource-adapter=generic-ra/connection-definitions=sbf-cd/config-properties=JndiParameters:add(value=\"java.naming.factory.initial=org.apache.qpid.jms.jndi.JmsInitialContextFactory;java.naming.provider.url=/home/site/deployments/tools/jndi.properties\")" >> /home/site/deployments/tools/commands.cli
+    echo "/subsystem=resource-adapters/resource-adapter=generic-ra/connection-definitions=sbf-cd:write-attribute(name=security-application,value=true)" >> /home/site/deployments/tools/commands.cli
+    echo "/subsystem=ejb3:write-attribute(name=default-resource-adapter-name, value=generic-ra)" >> /home/site/deployments/tools/commands.cli
+    echo "# Run the batch commands" >> /home/site/deployments/tools/commands.cli
+    echo "run-batch" >> /home/site/deployments/tools/commands.cli
+    echo "reload" >> /home/site/deployments/tools/commands.cli
+    echo "====== contents of /home/site/deployments/tools/commands.cli ======"
+    cat /home/site/deployments/tools/commands.cli
+    echo "======= EOF /home/site/deployments/tools/commands.cli ========"
     mkdir /opt/jboss/wildfly/modules/system/layers/base/org/jboss/genericjms/provider
     mkdir /opt/jboss/wildfly/modules/system/layers/base/org/jboss/genericjms/provider/main
     cp  /home/site/deployments/tools/*.jar /opt/jboss/wildfly/modules/system/layers/base/org/jboss/genericjms/provider/main/
     cp /home/site/deployments/tools/module.xml /opt/jboss/wildfly/modules/system/layers/base/org/jboss/genericjms/provider/main/
     cp /home/site/deployments/tools/jndi.properties /opt/jboss/wildfly/standalone/configuration/
     /opt/jboss/wildfly/bin/jboss-cli.sh -c --file=/home/site/deployments/tools/commands.cli
+    echo "Startup Run done"
     ```
 
-    Your App Service instance will run this script every time it starts, providing additional configuration needed by WildFly. This script copies your app dependencies to the required locations. It also generates a *jndi.properties* file that uses the environment variables shown in step 1. These values are passed to your App Service instance in a later step.
+    Your App Service instance will run this script every time it starts, providing additional configuration needed by WildFly. This script copies your app dependencies to the required locations. It also generates *jndi.properties* and *commands.cli* files, which use the environment variables shown in step 1. These values are also passed to your App Service instance in a later step.
 
-6. Use FTP to upload the .jar files, the module XML file, the JBoss CLI script, and the startup script to your App Service instance. Put *startup.sh* in your */home* directory and put the other files in the */home/site/deployments/tools* directory. For more info on FTP, see [Deploy your app to Azure App Service using FTP/S](https://docs.microsoft.com/azure/app-service/deploy-ftp).
+    The *commands.cli* file is a [Wildfly CLI](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface) script that is launched by the startup script. The commands in this file configure JMS and JNDI, making use of the *jndi.properties* file. These commands create a connection between your app and your Service Bus Queue or Topic.
 
-7. Update your MessageListener implementation to add the following `import` statements:
+5. Use FTP to upload the .jar files, the module XML file, and the startup script to your App Service instance. Put *startup.sh* in your */home* directory and put the other files in the */home/site/deployments/tools* directory. For more info on FTP, see [Deploy your app to Azure App Service using FTP/S](https://docs.microsoft.com/azure/app-service/deploy-ftp).
+
+6. Update your MessageListener implementation to add the following `import` statements:
 
     ```java
     import javax.ejb.TransactionAttribute;
@@ -743,37 +763,37 @@ The following steps assume you have created an App Service instance for hosting 
     import javax.ejb.TransactionManagementType;
     ```
 
-8. Next, update your listener class annotations to match the following:
+7. Next, update your listener class annotations to match the following:
 
     ```java
     @TransactionManagement(TransactionManagementType.BEAN)
     @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
-    @MessageDriven(name = "MyQueueListener", activationConfig = {
-            @ActivationConfigProperty(propertyName = "connectionFactory", propertyValue = "java:global/remoteJMS/SBF"),
-            @ActivationConfigProperty(propertyName = "destination", propertyValue = "java:global/remoteJMS/jmstestqueue"),
+    @MessageDriven(name = "HelloWorldQTopicMDB", activationConfig = {
+            @ActivationConfigProperty(propertyName = "connectionFactory", propertyValue = "${property.connection.factory}"),
+            @ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "${property.helloworldmdb.queue}"),
             @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue"),
-            @ActivationConfigProperty(propertyName = "acknowledgeMode", propertyValue = "Auto-acknowledge")})
-    public class MyQueueListener implements MessageListener {
+            @ActivationConfigProperty(propertyName = "acknowledgeMode", propertyValue = "Auto-acknowledge") })
+        public class MyQueueListener implements MessageListener {
         // ...
     }
     ```
 
-    The `connectionFactory` and `destination` values refer to the JNDI values configured previously. The `destinationType` value is `javax.jms.Queue`, indicating that you are connecting to a Service Bus Queue instance. This value should be `javax.jms.Topic` when you connect to a Service Bus Topic, as shown here:
+    The `connectionFactory` and `destinationLookup` values refer to the JNDI values configured previously. The `destinationType` value is `javax.jms.Queue`, indicating that you are connecting to a Service Bus Queue instance. This value should be `javax.jms.Topic` when you connect to a Service Bus Topic, as shown here:
 
     ```java
     @TransactionManagement(TransactionManagementType.BEAN)
     @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
-    @MessageDriven(name = "MyTopicListener", activationConfig = {
-            @ActivationConfigProperty(propertyName = "connectionFactory", propertyValue = "java:global/remoteJMS/SBF"),
-            @ActivationConfigProperty(propertyName = "destination", propertyValue = "java:global/remoteJMS/jmstestqueue"),
+    @MessageDriven(name = "HelloWorldQTopicMDB", activationConfig = {
+            @ActivationConfigProperty(propertyName = "connectionFactory", propertyValue = "${property.connection.factory}"),
+            @ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "${property.helloworldmdb.topic}"),
             @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Topic"),
-            @ActivationConfigProperty(propertyName = "acknowledgeMode", propertyValue = "Auto-acknowledge")})
-    public class MyTopicListener implements MessageListener {
+            @ActivationConfigProperty(propertyName = "acknowledgeMode", propertyValue = "Auto-acknowledge") })
+        public class MyTopicListener implements MessageListener {
         // ...
     }
     ```
 
-9. Update the `azure-webapp-maven-plugin` configuration in your bean's *pom.xml* file to refer to your Service Bus account info. If necessary, change `1.7.0` to the current version of the [Maven Plugin for Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme).
+8. Update the `azure-webapp-maven-plugin` configuration in your bean's *pom.xml* file to refer to your Service Bus account info. If necessary, change `1.7.0` to the current version of the [Maven Plugin for Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme).
 
     ```xml
     <plugin>
@@ -811,6 +831,14 @@ The following steps assume you have created an App Service instance for hosting 
                     <name>SB_QUEUE</name>
                     <value>${SB_QUEUE}</value>
                 </property>
+                <property>
+                    <name>SB_TOPIC</name>
+                    <value>${SB_TOPIC}</value>
+                </property>
+                <property>
+                    <name>SB_SUBSCRIPTION</name>
+                    <value>${SB_SUBSCRIPTION}</value>
+                </property>
             </appSettings>
         </configuration>
     </plugin>
@@ -818,7 +846,7 @@ The following steps assume you have created an App Service instance for hosting 
 
     These settings configure your App Service instance so that it has the same environment variables that you set locally. It uses environment variables to keep your account information out of your source files.
 
-10. Rebuild and redeploy your app.
+9. Rebuild and redeploy your app.
 
     ```bash
     mvn package -DskipTests azure-webapp:deploy
@@ -834,7 +862,7 @@ You can configure Tomcat to use an external session store such as [Azure Cache f
 
 To use Tomcat with Redis, you must configure your app to use a [PersistentManager](http://tomcat.apache.org/tomcat-8.5-doc/config/manager.html) implementation. The following steps explain this process using [Pivotal Session Manager: redis-store](https://github.com/pivotalsoftware/session-managers/tree/master/redis-store) as an example.
 
-1. Open a Bash terminal and use `export <variable>=<value>` to set each of the following environment variables.
+1. Open a Bash terminal and use `<variable>=<value>` to set each of the following environment variables.
 
     | Variable                 | Value                                                                      |
     |--------------------------|----------------------------------------------------------------------------|
@@ -848,14 +876,14 @@ To use Tomcat with Redis, you must configure your app to use a [PersistentManage
     | REDIS_SESSION_KEY_PREFIX | A value that you specify to identify session keys that come from your app. |
 
     ```bash
-    export RESOURCEGROUP_NAME = <resource group>
-    export WEBAPP_NAME = <web app>
-    export WEBAPP_PLAN_NAME = <App Service plan>
-    export REGION = <region>
-    export REDIS_CACHE_NAME = <cache>
-    export REDIS_PORT = <port>
-    export REDIS_PASSWORD = <access key>
-    export REDIS_SESSION_KEY_PREFIX = <prefix>
+    RESOURCEGROUP_NAME=<resource group>
+    WEBAPP_NAME=<web app>
+    WEBAPP_PLAN_NAME=<App Service plan>
+    REGION=<region>
+    REDIS_CACHE_NAME=<cache>
+    REDIS_PORT=<port>
+    REDIS_PASSWORD=<access key>
+    REDIS_SESSION_KEY_PREFIX=<prefix>
     ```
 
     You can find the name, port, and access key information on the Azure portal by looking in the **Properties** or **Access keys** sections of your service instance.
