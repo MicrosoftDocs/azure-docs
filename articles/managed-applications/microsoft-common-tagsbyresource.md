@@ -48,8 +48,8 @@ A control for associating [tags](../azure-resource-manager/resource-group-using-
 ## Remarks
 
 - At least one item in the `resources` array must be specified.
-- Each element in `resources` must be a fully qualified resource type. Elements included here appear in the **Resource** dropdown. The user can apply tags to any resources in the dropdown.
-- The output of the control is formatted for easy assignment of tag values in an Azure Resource Manager template. To receive the control's output in a template, include a parameter as shown in the following example:
+- Each element in `resources` must be a fully qualified resource type. These elements appear in the **Resource** dropdown, and are taggable by the user.
+- The output of the control is formatted for easy assignment of tag values in an Azure Resource Manager template. To receive the control's output in a template, include a parameter in your template as shown in the following example:
 
   ```json
   "parameters": {
@@ -57,7 +57,7 @@ A control for associating [tags](../azure-resource-manager/resource-group-using-
   }
   ```
 
-  And for each resource that can be tagged, include a tags property that accesses the parameter values for that type:
+  For each resource that can be tagged, assign the tags property to the parameter value for that resource type:
 
   ```json
   {
