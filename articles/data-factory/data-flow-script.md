@@ -8,19 +8,21 @@ ms.topic: conceptual
 ms.date: 11/10/2019
 ---
 
-# Data Flow Script (DFS)
-## What is the DFS?
-The data flow script (DFS) is the underlying text, similar to a coding language, that is used to execute the transformations that are included in a mapping data flow. Every transformation is represented by a series of properties that provide the necessary information to run the job properly.
+# Data flow script (DFS)
+## What is DFS?
+The data flow script (DFS) is the underlying metadata, similar to a coding language, that is used to execute the transformations that are included in a mapping data flow. Every transformation is represented by a series of properties that provide the necessary information to run the job properly. The script is visible and editable from ADF by clicking on the "script" button on the top ribbon of the browser UI.
+
+![Script button](media/data-flow/scriptbutton.png "Script Button")
 
 For instance, `allowSchemaDrift: true,` in a source transformation tells the service to include all columns from the source dataset in the data flow even if they are not included in the schema projection.
 
 ## Use cases
-The DFS is usually hidden from users and is automatically produced by the user interface. As a result, most of the time reading or editing the DFS directly is unnecessary. There are some cases, though, where it can be helpful or necessary to have an understanding of the script while debugging and producing data flows.
+The DFS is automatically produced by the user interface. You can click the Script button to view and customize the script. You can also generate scripts outside of the ADF UI and then pass that into the PowerShell cmdlet. When debugging complex data flows, you may find it easier to scan the script code-behind instead of scanning the UI graph representation of your flows.
 
-Here are a few examples:
-- Programatically producing many data flows that are fairly similar
-- Complex expressions that are difficult to manage in the UI or are resulting in validation issues
-- Debugging and better understanding various errors returned during execution
+Here are a few example use cases:
+- Programatically producing many data flows that are fairly similar, i.e. "stamping-out" data flows.
+- Complex expressions that are difficult to manage in the UI or are resulting in validation issues.
+- Debugging and better understanding various errors returned during execution.
 
 ## How to add transforms
 Adding transformations requires three basic steps: adding the core transformation data, rerouting the input stream, and then rerouting the output stream. This can be seen easiest in an example.
@@ -86,8 +88,7 @@ source1 derive(upperCaseTitle = upper(title)) ~> deriveTransformationName
 </pre>
 
 ## DFS fundamentals
-The DFS is composed of a series of connected transformations, including sources, sinks, and various others which can add new columns, filter data, join data, and much more.
-Usually, the script with start with one or more sources followed by many transformations and ending with one or more sinks.
+The DFS is composed of a series of connected transformations, including sources, sinks, and various others which can add new columns, filter data, join data, and much more. Usually, the script with start with one or more sources followed by many transformations and ending with one or more sinks.
 
 Sources all have the same basic construction:
 <pre>
