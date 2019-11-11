@@ -94,7 +94,7 @@ Create an [Azure Cosmos SQL API account](../cosmos-db/create-cosmosdb-resources-
 
 ## Create a Private Endpoint for your Azure Cosmos account
 
-Create a Private Link for your Azure Cosmos account as described in the [Create a Private Link using the Azure portal](../cosmos-db/how-to-configure-private-endpoints.md#create-a-private-link-using-the-azure-portal) section of the linked article.
+Create a Private Link for your Azure Cosmos account as described in the [Create a Private Link using the Azure portal](../cosmos-db/how-to-configure-private-endpoints.md#create-a-private-endpoint-by-using-the-azure-portal) section of the linked article.
 
 ## Connect to a VM from the internet
 

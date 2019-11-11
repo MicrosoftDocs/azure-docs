@@ -16,7 +16,7 @@ Private Link allows users to access an Azure Cosmos DB account from within the v
 
 You can connect to an Azure Cosmos DB account configured with Private Link by using the automatic or manual approval method. To learn more, see the [Approval workflow](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow) section of the Private Link documentation. 
 
-This article describes the steps to create a private enpoint. It assumes that you're using the automatic approval method.
+This article describes the steps to create a private endpoint. It assumes that you're using the automatic approval method.
 
 ## Create a private endpoint by using the Azure portal
 
