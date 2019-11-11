@@ -26,11 +26,11 @@ In Azure Monitor for containers, the Health feature provides proactive health mo
 
 Kubernetes cluster health is based on a number of monitoring scenarios organized by the following Kubernetes objects and abstractions:
 
-- Kubernetes infrastructure - provides a rollup of the Kubernetes API server, ReplicaSets, and DaemonSets running on nodes deployed in your cluster.
+- Kubernetes infrastructure - provides a rollup of the Kubernetes API server, ReplicaSets, and DaemonSets running on nodes deployed in your cluster by evaluating CPU and memory utilization, and a Pods availability
 
     ![Kubernetes infrastructure health rollup view](./media/container-insights-health/health-view-kube-infra-01.png)
 
-- Nodes - provides a rollup of the node pools and state of individual nodes in each pool, by evaluating CPU and memory utilization, and a nodes availability.
+- Nodes - provides a rollup of the Node pools and state of individual Nodes in each pool, by evaluating CPU and memory utilization, and a Nodes availability.
 
     ![Nodes health rollup view](./media/container-insights-health/health-view-nodes-01.png)
 
@@ -55,11 +55,9 @@ The icons used to indicate state are as follows:
 |![Grayed-out icon](./media/container-insights-health/grayicon.png)|Out of contact (gray)|  
 
 
-
-
 ## Monitor configuration (put into its own article)
 
-Describe the behavior and configuration of each monitor (describe difference between unit monitor and aggregate monitor, the config of each
+To understand the behavior and configuration of each monitor supporting Azure Monitor for containers Health feature, see [article name].
 
 ## Sign in to the Azure portal
 
@@ -67,7 +65,9 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## View health from an AKS cluster
 
-Access to the Azure Monitor for containers health feature is available directly from an AKS cluster by selecting **Insights** from the left pane in the Azure portal. From the **Cluster** performance tab, select **Health**.  
+Access to the Azure Monitor for containers Health feature is available directly from an AKS cluster by selecting **Insights** from the left pane in the Azure portal. 
+
+From the **Cluster** performance tab, select **Health**.  
 
 ![Azure Monitor health dashboard example](./media/container-insights-health/health-view-01.png)
 
