@@ -24,7 +24,7 @@ Here are a few example use cases:
 - Complex expressions that are difficult to manage in the UI or are resulting in validation issues.
 - Debugging and better understanding various errors returned during execution.
 
-When you build a data flow script to use with PowerShell or an API, you must collapse the formatted text into a single line. You can keep tabs and newlines as escape characters. But the text must be formatted to fit inside a JSON property. There is a button on the script editor UI at the bottom which will format the script as a single line for you.
+When you build a data flow script to use with PowerShell or an API, you must collapse the formatted text into a single line. You can keep tabs and newlines as escape characters. But the text must be formatted to fit inside a JSON property. There is a button on the script editor UI at the bottom that will format the script as a single line for you.
 
 ![Copy button](media/data-flow/copybutton.png "Copy button")
 
