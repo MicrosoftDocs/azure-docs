@@ -18,7 +18,7 @@ ms.reviewer: jroth
 ms.custom: "seo-lt-2019"
 
 ---
-# Use Azure quickstart templates to configure an Always On availability group for SQL Server on an Azure VM
+# Use Azure quickstart templates to configure an availability group for SQL Server on an Azure VM
 This article describes how to use the Azure quickstart templates to partially automate the deployment of an Always On availability group configuration for SQL Server virtual machines in Azure. Two Azure quickstart templates are used in this process: 
 
    | Template | Description |

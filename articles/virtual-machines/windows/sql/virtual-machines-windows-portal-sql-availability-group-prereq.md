@@ -21,7 +21,7 @@ ms.custom: "seo-lt-2019"
 
 ---
 
-# Complete the prerequisites for creating Always On availability groups on Azure virtual machines
+# Prerequisites for creating Always On availability groups on SQL Server on Azure virtual machines
 
 This tutorial shows how to complete the prerequisites for creating a [SQL Server Always On availability group on Azure virtual machines (VMs)](virtual-machines-windows-portal-sql-availability-group-tutorial.md). When you've finished the prerequisites, you have a domain controller, two SQL Server VMs, and a witness server in a single resource group.
 

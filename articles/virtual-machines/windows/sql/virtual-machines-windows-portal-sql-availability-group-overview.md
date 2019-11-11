@@ -20,7 +20,7 @@ ms.custom: "seo-lt-2019"
 
 ---
 
-# Introducing SQL Server Always On availability groups on Azure virtual machines #
+# Introducing SQL Server availability groups on Azure virtual machines
 
 This article introduces SQL Server availability groups on Azure Virtual Machines. 
 

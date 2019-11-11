@@ -19,7 +19,7 @@ ms.author: mikeray
 ms.custom: "seo-lt-2019"
 
 ---
-# Configure an external listener for Always On Availability Groups in Azure
+# Configure an external listener for availability Groups on Azure SQL Server VMs
 > [!div class="op_single_selector"]
 > * [Internal Listener](../classic/ps-sql-int-listener.md)
 > * [External Listener](../classic/ps-sql-ext-listener.md)
