@@ -1,5 +1,5 @@
 ---
-title: Pre-filtering manifests using Dynamic Packager | Microsoft Docs
+title: Filter your manifests using Dynamic Packager | Microsoft Docs
 description: Learn how to create filters using Dynamic Packager to filter and selectively stream your manifests.
 services: media-services
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.author: juliako
 #Customer intent: As a developer or a content provider, when delivering adaptive bitrate streaming content to devices, you often need to target specific device capabilities or available network bandwidth. Pre-filtering manifests with Dynamic Packager allows your clients to manipulate the streaming of your content without you needing to create multiple copies of the same media file. 
 ---
 
-# Pre-filtering manifests using Dynamic Packager
+# Filter your manifests using Dynamic Packager
 
 When you're delivering adaptive bitrate streaming content to devices, you sometimes need to publish multiple versions of a manifest to target specific device capabilities or available network bandwidth. The [Dynamic Packager](dynamic-packaging-overview.md) lets you specify filters which can filter out specific codecs, resolutions, bitrates, and audio track combinations on-the-fly. This filtering removes the need to create multiple copies. You simply need to publish a new URL with a specific set of filters configured to your target devices (iOS, Android, SmartTV, or browsers) and the network capabilities (high-bandwidth, mobile, or low-bandwidth scenarios). In this case, clients can manipulate the streaming of your content through the query string (by specifying available [Asset filters or Account filters](filters-concept.md)) and use filters to stream specific sections of a stream.
 
