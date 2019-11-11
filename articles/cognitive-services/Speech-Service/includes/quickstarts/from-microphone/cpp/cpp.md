@@ -18,7 +18,7 @@ ms.author: erhopf
 
 [!INCLUDE [linux](./linux.md)]
 
-# [MacOS](#tab/MacOS)
+# [macOS](#tab/MacOS)
 
 [!INCLUDE [macos](./macos.md)]
 
