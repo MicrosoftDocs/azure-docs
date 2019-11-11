@@ -22,7 +22,7 @@ Azure provides built-in diagnostics to assist with debugging an [App Service app
 This article uses the [Azure portal](https://portal.azure.com) and Azure CLI to work with diagnostic logs. For information on working with diagnostic logs using Visual Studio, see [Troubleshooting Azure in Visual Studio](troubleshoot-dotnet-visual-studio.md).
 
 > [!NOTE]
-> In addition to the logging instructions in this article, there's new, integrated logging capability with Azure Monitoring. You'll find more on this capability in the [Send logs to Azure Monitor (preview)](#send-logs-to-azure-monitor-with-diagnostic-settings-preview) section. 
+> In addition to the logging instructions in this article, there's new, integrated logging capability with Azure Monitoring. You'll find more on this capability in the [Send logs to Azure Monitor (preview)](#send-logs-to-azure-monitor-preview) section. 
 >
 >
 
