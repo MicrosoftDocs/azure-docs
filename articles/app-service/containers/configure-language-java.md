@@ -918,7 +918,7 @@ The following steps describe the required configuration and code. These steps as
 
 Your message-driven bean is now configured to use Service Bus as the messaging mechanism.
 
-For a sample that you can use to test these instructions, see the [migrate-java-ee-app-to-azure-2](https://github.com/Azure-Samples/migrate-java-ee-app-to-azure-2) repo on GitHub.
+For a sample that you can use to test these instructions, see the [migrate-java-ee-app-to-azure-2](https://github.com/Azure-Samples/migrate-java-ee-app-to-azure-2) repo on GitHub, and look for the `helloworld-mdb-propertysubstitution` sample.
 
 ## Use Redis as a session cache with Tomcat
 
