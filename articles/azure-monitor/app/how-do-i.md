@@ -94,11 +94,11 @@ Or
 <a name="search-specific-users"></a>
 
 ### Filter out anonymous or authenticated users
-If your users sign in, you can set the [authenticated user id](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users). (It doesn't happen automatically.)
+If your users sign in, you can set the [authenticated user ID](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users). (It doesn't happen automatically.)
 
 You can then:
 
-* Search on specific user ids
+* Search on specific user IDs
 
 ![](./media/how-do-i/110-search.png)
 
@@ -110,12 +110,12 @@ You can then:
 Create a [filter](../../azure-monitor/app/api-filtering-sampling.md#filtering). This lets you modify or filter telemetry before it is sent from your app to Application Insights.
 
 ## List specific users and their usage
-If you just want to [search for specific users](#search-specific-users), you can set the [authenticated user id](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users).
+If you just want to [search for specific users](#search-specific-users), you can set the [authenticated user ID](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users).
 
 If you want a list of users with data such as what pages they look at or how often they log in, you have two options:
 
-* [Set authenticated user id](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users), [export to a database](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) and use suitable tools to analyze your user data there.
-* If you have only a small number of users, send custom events or metrics, using the data of interest as the metric value or event name, and setting the user id as a property. To analyze page views, replace the standard JavaScript trackPageView call. To analyze server-side telemetry, use a telemetry initializer to add the user id to all server telemetry. You can then filter and segment metrics and searches on the user id.
+* [Set authenticated user ID](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users), [export to a database](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) and use suitable tools to analyze your user data there.
+* If you have only a small number of users, send custom events or metrics, using the data of interest as the metric value or event name, and setting the user ID as a property. To analyze page views, replace the standard JavaScript trackPageView call. To analyze server-side telemetry, use a telemetry initializer to add the user ID to all server telemetry. You can then filter and segment metrics and searches on the user ID.
 
 ## Reduce traffic from my app to Application Insights
 * In [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md), disable any modules you don't need, such the performance counter collector.

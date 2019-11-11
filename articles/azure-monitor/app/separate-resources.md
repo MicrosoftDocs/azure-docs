@@ -47,7 +47,7 @@ Set the key in an initialization method, such as global.aspx.cs in an ASP.NET se
 In this example, the ikeys for the different resources are placed in different versions of the web configuration file. Swapping the web configuration file - which you can do as part of the release script - will swap the target resource.
 
 ### Web pages
-The iKey is also used in your app's web pages, in the [script that you got from the quick start blade](../../azure-monitor/app/javascript.md). Instead of coding it literally into the script, generate it from the server state. For example, in an ASP.NET app:
+The iKey is also used in your app's web pages, in the [script that you got from the quickstart blade](../../azure-monitor/app/javascript.md). Instead of coding it literally into the script, generate it from the server state. For example, in an ASP.NET app:
 
 *JavaScript in Razor*
 
