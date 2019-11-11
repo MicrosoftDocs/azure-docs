@@ -121,6 +121,33 @@ To add permission(s) to access resource APIs from your client:
 1. Once you've selected the APIs, you'll see the **Request API Permissions** page. If the API exposes both delegated and application permissions, select which type of permission your application needs.
 1. When finished, select **Add permissions**. You will return to the **API permissions** page, where the permissions have been saved and added to the table.
 
+## Understanding API permissions and admin consent UI
+
+### Configured permissions
+
+This section shows the permissions that have been explicitly configured on the application object (ie. they are part of the app's required resource access list). You may add or remove permissions from this table. As an admin, you can also grant/revoke admin consent for individual APIs or permissions in this section.
+
+### Other permissions granted
+
+If your application is registered in a tenant, you may see an additional section titled **Other permissions granted for Tenant**. This section shows permissions that have been granted for the tenant but have not been explicitly configured on the application object (e.g. permissions that were dynamically requested and consented). This section only appears if there is at least one permission that applies.
+
+You may add individual APIs or permissions that appear in this section to the **Configured permissions** section. As an admin, you can also revoke admin consent for individual APIs or permissions in this section.
+
+### Admin consent button
+
+If your application is registered in a tenant, you will see a **Grant admin consent for Tenant** button. It will be disabled if you are not an admin, or if no permissions have been configured for the application.
+This button allows an admin to easily grant admin consent to the permissions configured for the application. Clicking the admin consent button launches a new window with a consent prompt showing all the configured permissions.
+
+> [!NOTE]
+> There is a delay between permissions being configured for the application and them appearing on the consent prompt. If you do not see all the configured permissions in the consent prompt, close it and launch it again.
+
+If you have permissions that have been granted but not configured, when clicking the admin consent button you will be prompted to decide how to handle these permissions. You may add them to configured permissions or you may remove them.
+
+The consent prompt provides the option to **Accept** or **Cancel**. If you select **Accept**, admin consent is granted. If you select **Cancel**, admin consent is not granted, and you will see an error stating that consent has been declined.
+
+> [!NOTE]
+> There is a delay between granting admin consent (selecting Accept on the consent prompt) and the status of admin consent being reflected in the UI.
+
 ## Next steps
 
 Learn about these other related app management quickstarts for apps:
