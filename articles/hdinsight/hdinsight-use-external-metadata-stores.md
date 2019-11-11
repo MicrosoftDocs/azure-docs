@@ -54,14 +54,15 @@ HDInsight also supports custom metastores, which are recommended for production 
 
 ### Create and config Azure SQL Database for the custom metastore
 
-You need to create or have an existing Azure SQL Database before setting up costom Hive metastore for HDInsight cluster. Learn how to create an Azure SQL Database [here](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal).
+You need to create or have an existing Azure SQL Database before setting up a custom Hive metastore for a HDInsight cluster.  For more information, see [Quickstart: Create a single database in Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal).
 
->[!IMPORTANT]
->To make sure HDInsight cluster could access the connected Azure SQL Database, you need to configure Azure SQL Database firewall rules to allow Azure services and resources to access the Azure SQL Database. 
->
->You can configure that in Azure Portal through **Set server firewall**, turn on **Allow Azure services and resources to access this server** for the Azure SQL Database.
->![Configure Azure SQL Database Firewall](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall.png)
->
+To make sure that your HDInsight cluster can access the connected Azure SQL Database, configure Azure SQL Database firewall rules to allow Azure services and resources to access the server.
+
+You can enable this option in the Azure portal by clicking **Set server firewall**, and clicking **ON** underneath **Allow Azure services and resources to access this server** for the Azure SQL Database server or database. For more information, see [Create and manage IP firewall rules](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
+
+![set server firewall button](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall1.png)
+
+![allow azure services access](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall2.png)
 
 ### Select a custom metastore during cluster creation
 
