@@ -42,15 +42,10 @@ Use `project download` to download all blobs referenced in the project.ini to yo
 
 ## Lockers
 
-Project contents are stored within a **locker**. You can upload the contents of your project to any locker defined in your CycleCloud install via the command `cyclecloud project upload (locker)`, where (locker) is the name of a cloud storage locker in your CycleCloud install. This locker will be set as the default target. Alternatively, you can see what lockers are available to you with the command `cyclecloud locker list`. Details about a specific locker can be viewed with `cyclecloud locker show (locker)`.
+Project contents are stored within a **locker**, which is an Azure Storage container configured in CycleCloud. To upload a project via the CLI, run `cyclecloud project upload [locker]` from that project's directory. After uploading, your project will be stored in your locker at _projects/[project]/[version]/[spec]_. You can list the currently configured lockers by running `cyclecloud locker list` and show details for a specific locker using `cyclecloud locker show [locker]`.
 
-If you add more than one locker, you can set your default with `cyclecloud project default_target (locker)`, then simply run `cyclecloud project upload`. You can also set a global default locker that can be shared by projects with the command `cyclecloud project default locker (locker) -global`.
+You can also set a default project from the command line. To do this, run `cyclecloud project default_locker [locker]` from your project's directory. Once this is set, `cyclecloud project upload` will work with no locker specified. To set a global default locker across all of your projects, run `cyclecloud project default_locker --global [locker]`.
 
 > [!NOTE]
-> Default lockers will be stored in the CycleCloud config file (usually located in _~/.cycle/config.ini_),
+> Default lockers are configured via the CycleCloud CLI configuration file (usually located in _~/.cycle/config.ini_),
 > not in the _project.ini_. This is done to allow _project.ini_ to be version controlled.
-
-Uploading your project contents will zip the chef directories and sync both chef and cluster init to your target locker. These will be stored at:
-
-* (locker)/projects/(project)/(version)/(spec_name)/cluster-init
-* (locker)/projects/(project)/(version)/(spec_name)/chef
