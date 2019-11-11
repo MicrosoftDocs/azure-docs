@@ -11,7 +11,7 @@ ms.author: atsenthi
 ---
 
 #  Service Fabric Secrets Store
-This article describes how to create and use secrets in Service Fabric applications using Service Fabric Secrets Store(CSS). CSS is a local secret store cache, it is used to keep sensitive data such as a password, token, key, etc, encrypted in memory.
+This article describes how to create and use secrets in Service Fabric applications using Service Fabric Secrets Store(CSS). CSS is a local secret store cache, used to keep sensitive data such as a password, token and keys encrypted in memory.
 
 ## Enabling Secrets Store.
  Add the below to your cluster configuration under `fabricSettings` to enable CSS. It's recommended to use a certificate different from cluster certificate for CSS. Make sure the encryption certificate is installed on all nodes and `NetworkService` has read permission to certificate's private key.
@@ -62,25 +62,25 @@ Secret store secrets are versioned resources, you can create a secret resource e
     }
   ]
 ```
-This will create a secret resource named `supersecret`, note that we haven't set the value for the secret yet.
+This will create `supersecret` secret resource, note that we haven't set the value for the secret yet.
 
 2. Using the REST API
 
-To create secret resource `supersecret` make a PUT request to `https://<clusterfqdn>:19080/Resources/Secrets/supersecret?api-version=6.4-preview`. You need the cluster certificate or admin client certificate to create a secret.
+To create secret resource, `supersecret` make a PUT request to `https://<clusterfqdn>:19080/Resources/Secrets/supersecret?api-version=6.4-preview`. You need the cluster certificate or admin client certificate to create a secret.
 
 ```powershell
 Invoke-WebRequest  -Uri https://<clusterfqdn>:19080/Resources/Secrets/supersecret?api-version=6.4-preview -Method PUT -CertificateThumbprint <CertThumbprint>
 ```
 
 ## Set secret value
-To set `supersecret` version `v1` value make a PUT request as below.
+To set `supersecret` version `v1` value, make a PUT request as below.
 ```powershell
 $Params = @{"properties": {"value": "mysecretpassword"}}
 Invoke-WebRequest -Uri https://<clusterfqdn>:19080/Resources/Secrets/supersecret/values/v1?api-version=6.4-preview -Method PUT -Body $Params -CertificateThumbprint <ClusterCertThumbprint>
 ```
 ## Using the secret in your application
 
-1.  Add a section in settings.xml file with the below content. Note here the Value is of the format {secretname:version}
+1.  Add a section in settings.xml file with the below content. Note here the Value is of the format {`secretname:version`}
 
 ```xml
   <Section Name="testsecrets">
@@ -107,7 +107,7 @@ secretValue = IO.ReadFile(Path.Join(Environment.GetEnvironmentVariable("SecretPa
 ```
 3. Mounting secrets to a container
 
-Only change required to make the secrets available inside the container is to specify a MountPoint in `<ConfigPackage>`
+Only change required to make the secrets available inside the container is to specify a MountPoint in `<ConfigPackage>`.
 Here is the modified ApplicationManifest.xml  
 
 ```xml
