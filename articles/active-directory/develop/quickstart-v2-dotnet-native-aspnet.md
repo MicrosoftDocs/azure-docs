@@ -1,5 +1,5 @@
 ---
-title: Call an ASP.NET Web API protected by Azure AD- Microsoft identity
+title: Call an ASP.NET Web API protected by Azure AD - Microsoft identity
 description: In this quickstart, learn how to call an ASP.NET web API protected by Azure Active Directory from a Windows Desktop (WPF) application. The WPF client authenticates a user, requests an access token, and calls the web API.
 services: active-directory
 documentationcenter: dev-center-name
@@ -45,7 +45,7 @@ You can clone this sample from your shell or command line:
 
 Or, you can [download the sample as a ZIP file](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/complete.zip).
 
-## Register your Web API - *TodoListService* in the *Application registration portal*
+## Register your Web API in the application registration portal
 
 ### Choose the Azure AD tenant where you want to create your applications
 
@@ -78,7 +78,7 @@ If you want to register your apps manually, as a first step you'll need to:
      - Keep **State** as **Enabled**
      - Select **Add scope**
 
-### Configure your *TodoListService* and *TodoListClient* projects to match the Web API you just registered
+### Configure the service and client projects to match the registered Web API 
 
 1. Open the solution in Visual Studio and then open the **Web.config** file under the root of **TodoListService** project.
 1. Replace the value of `ida:ClientId` parameter with the **Client ID (Application ID)** from the application you just registered in the Application Registration Portal.
@@ -137,7 +137,7 @@ One of the ways to allow users from other directories to access your Web API is 
 1. In the *Authorized scopes* section, select the scope for this Web API `api://<Application ID>/access_as_user`.
 1. Press the **Add application** button at the bottom of the page.
 
-##  Run your project
+## Run your project
 
 1. Press `<F5>` to run your project. Your *TodoListClient* should open.
 1. Select **Sign in** at the top right (or Clear Cache/Sign-in) and then sign-in either using a personal Microsoft account (live.com or hotmail.com) or work or school account.

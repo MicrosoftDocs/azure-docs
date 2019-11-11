@@ -1,7 +1,6 @@
 ---
-title: Azure MFA sign-in with two-step verification - Azure Active Directory | Microsoft Docs
-description: This page will provide you guidance on where to go to see the various sign-in methods available with Azure MFA.
-keywords: user authentication, sign-in experience, sign-in with mobile phone, sign-in with office phone
+title: Sign in using two-factor verification - Azure AD
+description: Learn how to sign in to your work or school account using the various two-factor verification methods.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -18,7 +17,8 @@ ms.custom: "end-user, seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
 ---
 
-# The sign-in experience with Azure Multi-Factor Authentication
+# Sign in to your work or school account using two-factor verification
+
 > [!NOTE]
 > The purpose of this article is to walk through a typical sign-in experience. For help with signing in, or to troubleshoot problems, see [Having trouble with Azure Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
 

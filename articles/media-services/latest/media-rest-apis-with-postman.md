@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2019
+ms.date: 11/07/2019
 ms.author: juliako
 
 ---
@@ -87,6 +87,11 @@ Before you start manipulating AMS v3 resources you need to get and set Azure AD 
 4. The response comes back with the token and sets the "AccessToken" environment variable to the token value.  
 
     ![Get AAD token](./media/develop-with-postman/postman-get-aad-auth-token.png)
+
+## Troubleshooting 
+
+* If your application fails with "HTTP 504: Gateway Timeout", make sure that the location variable has not been explicitly set to a value other than the expected location of the Media Services account. 
+* If you get an "account not found" error, also check to make sure that the location property in the Body JSON message is set to the location that the Media Services account is in. 
 
 ## See also
 

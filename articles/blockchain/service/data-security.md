@@ -6,7 +6,7 @@ keywords:
 author: PatAltimore
 ms.author: patricka
 ms.date: 05/02/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-blockchain
 ms.reviewer: seal
 manager: femila

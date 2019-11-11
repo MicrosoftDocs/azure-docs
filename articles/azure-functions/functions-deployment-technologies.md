@@ -1,11 +1,8 @@
 ---
 title: Deployment technologies in Azure Functions  | Microsoft Docs
 description: Learn the different ways you can deploy code to Azure Functions.
-services: functions
-documentationcenter: .net
 author: ColbyTresness
-manager: dariac
-
+manager: gwallace
 ms.service: azure-functions
 ms.custom: vs-azure
 ms.topic: conceptual
@@ -28,7 +25,7 @@ Azure Functions supports cross-platform local development and hosting on Windows
 
 Each plan has different behaviors. Not all deployment technologies are available for each flavor of Azure Functions. The following chart shows which deployment technologies are supported for each combination of operating system and hosting plan:
 
-| Deployment technology | Windows Consumption | Windows Premium (preview) | Windows Dedicated  | Linux Consumption | Linux Premium (preview) | Linux Dedicated |
+| Deployment technology | Windows Consumption | Windows Premium | Windows Dedicated  | Linux Consumption | Linux Premium | Linux Dedicated |
 |-----------------------|:-------------------:|:-------------------------:|:------------------:|:---------------------------:|:-------------:|:---------------:|
 | External package URL<sup>1</sup> |✔|✔|✔|✔|✔|✔|
 | Zip deploy |✔|✔|✔|✔|✔|✔|
@@ -83,7 +80,7 @@ When apps are built remotely on Linux, they [run from the deployment package](ru
 
 Linux function apps running in the Consumption plan don't have an SCM/Kudu site, which limits the deployment options. However, function apps on Linux running in the Consumption plan do support remote builds.
 
-##### Dedicated and Premium (preview) plans
+##### Dedicated and Premium plans
 
 Function apps running on Linux in the [Dedicated (App Service) plan](functions-scale.md#app-service-plan) and the [Premium plan](functions-scale.md#premium-plan) also have a limited SCM/Kudu site.
 
@@ -180,8 +177,8 @@ In the portal-based editor, you can directly edit the files that are in your fun
 
 The following table shows the operating systems and languages that support portal editing:
 
-| | Windows Consumption | Windows Premium (preview) | Windows Dedicated | Linux Consumption | Linux Premium (preview)| Linux Dedicated |
-|-|:-----------------: |:-------------------------:|:-----------------:|:---------------------------:|:---------------:|:---------------:|
+| | Windows Consumption | Windows Premium | Windows Dedicated | Linux Consumption | Linux Premium | Linux Dedicated |
+|-|:-----------------: |:----------------:|:-----------------:|:-----------------:|:-------------:|:---------------:|
 | C# | | | | | |
 | C# Script |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|
 | F# | | | | | | |
