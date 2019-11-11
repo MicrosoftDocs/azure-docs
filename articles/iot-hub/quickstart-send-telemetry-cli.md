@@ -39,7 +39,7 @@ To launch the Cloud Shell:
     ![Select CLI environment](media/quickstart-send-telemetry-cli/cloud-shell-environment.png)
 
 ## Prepare two CLI sessions
-In this section, you prepare two Azure CLI sessions. In the Cloud Shell, you will run the two sessions in separate browser tabs. In a local CLI client, you will run two separate CLI instances. You'll use the first session as a simulated device, and the second session to monitor and send messages. To run a command, select **Copy** to copy a block of code in this quickstart, paste it into your shell session, and run it.
+In this section, you prepare two Azure CLI sessions. If you're using the Cloud Shell, you will run the two sessions in separate browser tabs. If using a local CLI client, you will run two separate CLI instances. You'll use the first session as a simulated device, and the second session to monitor and send messages. To run a command, select **Copy** to copy a block of code in this quickstart, paste it into your shell session, and run it.
 
 Azure CLI requires you to be logged into your Azure account. All communication between your Azure CLI shell session and your IoT hub is authenticated and encrypted. As a result, this quickstart does not need additional authentication that you'd use with a real device, such as a connection string.
 
@@ -141,7 +141,7 @@ The Azure portal enables you to manage all aspects of your IoT Hub and devices. 
 To visualize messaging metrics in the Azure portal:
 1. In the left navigation menu on the portal, select **All Resources**. This lists all resources in your subscription, including the IoT hub you created. 
 
-1. Click the link on the IoT hub you created. The portal displays the overview page for the hub.
+1. Select the link on the IoT hub you created. The portal displays the overview page for the hub.
 
 1. Select **Metrics** in the left pane of your IoT Hub. 
 
