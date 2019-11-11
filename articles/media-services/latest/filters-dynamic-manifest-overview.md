@@ -23,7 +23,7 @@ When you're delivering adaptive bitrate streaming content to devices, you someti
 
 Some delivery scenarios require that you make sure a customer can't access specific tracks. For example, maybe you don't want to publish a manifest that contains HD tracks to a specific subscriber tier. Or, maybe you want to remove specific adaptive bitrate (ABR) tracks to reduce cost of delivery to a specific device that wouldn't benefit from the additional tracks. In this case, you could associate a list of pre-created filters with your [Streaming Locator](streaming-locators-concept.md) on creation. Clients then can't manipulate how the content is streamed because it's defined by the **Streaming Locator**.
 
-You can combine filtering through specifying [filters on Streaming Locator](filters-concept.md#associating-filters-with-streaming-locator) + additional device specific filters that your client specifies in the URL. This is useful to restrict additional tracks like metadata or event streams, audio languages, or descriptive audio tracks.
+You can combine filtering through specifying [filters on Streaming Locator](filters-concept.md#associating-filters-with-streaming-locator) + additional device-specific filters that your client specifies in the URL. This is useful to restrict additional tracks like metadata or event streams, audio languages, or descriptive audio tracks.
 
 This ability to specify different filters on your stream provides a powerful **Dynamic Manifest** manipulation solution to target multiple use-case scenarios for your target devices. This topic explains concepts related to **Dynamic Manifests** and gives examples of scenarios in which you can use this feature.
 
@@ -36,7 +36,7 @@ Azure Media Services supports HLS, MPEG DASH, and Smooth Streaming protocols. As
 
 ### Get and examine manifest files
 
-You specify a list of filter track property conditions based on which tracks of your stream (live or video on demand [VOD]) should be included in a dynamically created manifest. To get and examine the properties of the tracks, you have to load the Smooth Streaming manifest first.
+You specify a list of filter track property conditions based on which tracks of your stream (live or video on-demand [VOD]) should be included in a dynamically created manifest. To get and examine the properties of the tracks, you have to load the Smooth Streaming manifest first.
 
 The [Upload, encode, and stream files with .NET](stream-files-tutorial-with-api.md#get-streaming-urls) tutorial shows you how to build the streaming URLs with .NET. If you run the app, one of the URLs points to the Smooth Streaming manifest: `https://amsaccount-usw22.streaming.media.azure.net/00000000-0000-0000-0000-0000000000000/ignite.ism/manifest`.<br/> Copy and paste the URL into the address bar of a browser. The file will be downloaded. You can open it in any text editor.
 
@@ -126,10 +126,10 @@ You can combine multiple filtering rules in a single filter. For example, you ca
 You can also combine multiple filters in a single URL. The following scenario demonstrates why you might want to combine filters:
 
 1. You need to filter your video qualities for mobile devices, like Android or iPad (in order to limit video qualities). To remove the unwanted qualities, you'll create an account filter suitable for the device profiles. You can use account filters for all your assets under the same Media Services account without any further association.
-1. You also want to trim the start and end time of an asset. To achieve this, you'll create an asset filter and set the start/end time.
+1. You also want to trim the start and end time of an asset. To do the trimming, you'll create an asset filter and set the start/end time.
 1. You want to combine both of these filters. Without combination, you would need to add quality filtering to the trimming filter, which would make filter usage more difficult.
 
-To combine filters, you need to set the filter names to the manifest/playlist URL in semicolon-delimited format. Let’s assume you have a filter named *MyMobileDevice* that filters qualities, and you have another named *MyStartTime* to set a specific start time. You can combine up to three filters. 
+To combine filters, set the filter names to the manifest/playlist URL in semicolon-delimited format. Let’s assume you have a filter named *MyMobileDevice* that filters qualities, and you have another named *MyStartTime* to set a specific start time. You can combine up to three filters.
 
 For more information, see [this blog post](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
