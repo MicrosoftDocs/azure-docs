@@ -282,45 +282,42 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Below is the whole list of default SAML Attributes. GivenName is represented using the following string.
 `session.saml.last.attr.name.http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
-
-``
+<<
 | | |
 | -- | -- |
-| eb46b6b6.session.saml.last.assertionID | _9a4e4ddd-148f-45c4-b959-f4d148172e00 |
-| eb46b6b6.session.saml.last.assertionIssueInstant	| 2019-06-16T19:18:03.054Z |
+| eb46b6b6.session.saml.last.assertionID | `<TENANT ID>` |
+| eb46b6b6.session.saml.last.assertionIssueInstant	| `<ID>` |
 | eb46b6b6.session.saml.last.assertionIssuer | `https://sts.windows.net/<TENANT ID>`/ |
 | eb46b6b6.session.saml.last.attr.name.http:\//schemas.microsoft.com/claims/authnmethodsreferences | `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password` |
 | eb46b6b6.session.saml.last.attr.name.http:\//schemas.microsoft.com/identity/claims/displayname | user0 |
 | eb46b6b6.session.saml.last.attr.name.http:\//schemas.microsoft.com/identity/claims/identityprovider | `https://sts.windows.net/<TENANT ID>/` |
-| eb46b6b6.session.saml.last.attr.name.http:\//schemas.microsoft.com/identity/claims/objectidentifier | 90d5f0e5-8f46-4bfd-b40f-ec973d00fcb7 |
-| eb46b6b6.session.saml.last.attr.name.http:\//schemas.microsoft.com/identity/claims/tenantid | e6abffcf-4d23-4388-91c2-bfdfcbb1530c |
-| eb46b6b6.session.saml.last.attr.name.http:\//schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress | user0@superdemo.live |
+| eb46b6b6.session.saml.last.attr.name.http:\//schemas.microsoft.com/identity/claims/objectidentifier | `<TENANT ID>` |
+| eb46b6b6.session.saml.last.attr.name.http:\//schemas.microsoft.com/identity/claims/tenantid | `<TENANT ID>` |
+| eb46b6b6.session.saml.last.attr.name.http:\//schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress | `user0@superdemo.live` |
 | eb46b6b6.session.saml.last.attr.name.http:\//schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname | user0 |
-| eb46b6b6.session.saml.last.attr.name.http:\//schemas.xmlsoap.org/ws/2005/05/identity/claims/name | user0@superdemo.live |
+| eb46b6b6.session.saml.last.attr.name.http:\//schemas.xmlsoap.org/ws/2005/05/identity/claims/name | `user0@superdemo.live` |
 | eb46b6b6.session.saml.last.attr.name.http:\//schemas.xmlsoap.org/ws/2005/05/identity/claims/surname | 0 |
 | eb46b6b6.session.saml.last.audience | `https://kerbapp.superdemo.live` |
 | eb46b6b6.session.saml.last.authNContextClassRef | urn:oasis:names:tc:SAML:2.0:ac:classes:Password |
-| eb46b6b6.session.saml.last.authNInstant | 2019-06-16T19:18:00.318Z |
-| eb46b6b6.session.saml.last.identity | user0@superdemo.live |
-| eb46b6b6.session.saml.last.inResponseTo | _b9c67faa63a224d7a63f4f3cbb09f78dc05fab |
-| eb46b6b6.session.saml.last.nameIDValue | user0@superdemo.live |
+| eb46b6b6.session.saml.last.authNInstant | `<ID>` |
+| eb46b6b6.session.saml.last.identity | `user0@superdemo.live` |
+| eb46b6b6.session.saml.last.inResponseTo | `<TENANT ID>` |
+| eb46b6b6.session.saml.last.nameIDValue | `user0@superdemo.live` |
 | eb46b6b6.session.saml.last.nameIdFormat | urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress |
 | eb46b6b6.session.saml.last.responseDestination | `https://kerbapp.superdemo.live/saml/sp/profile/post/acs` |
-| eb46b6b6.session.saml.last.responseId | _a1eca95a-6c41-449e-bb53-1477ba106470 |
-| eb46b6b6.session.saml.last.responseIssueInstant | 2019-06-16T19:18:03.070Z |
+| eb46b6b6.session.saml.last.responseId | `<TENANT ID>` |
+| eb46b6b6.session.saml.last.responseIssueInstant | `<ID>` |
 | eb46b6b6.session.saml.last.responseIssuer | `https://sts.windows.net/<TENANT ID>/` |
 | eb46b6b6.session.saml.last.result | 1 |
 | eb46b6b6.session.saml.last.samlVersion | 2.0 |
-| eb46b6b6.session.saml.last.sessionIndex | _9a4e4ddd-148f-45c4-b959-f4d148172e00 |
+| eb46b6b6.session.saml.last.sessionIndex | `<TENANT ID>` |
 | eb46b6b6.session.saml.last.statusValue | urn:oasis:names:tc:SAML:2.0:status:Success |
-| eb46b6b6.session.saml.last.subjectConfirmDataNotOnOrAfter | 2019-06-16T19:23:03.054Z |
+| eb46b6b6.session.saml.last.subjectConfirmDataNotOnOrAfter | `<ID>` |
 | eb46b6b6.session.saml.last.subjectConfirmDataRecipient | `https://kerbapp.superdemo.live/saml/sp/profile/post/acs` |
 | eb46b6b6.session.saml.last.subjectConfirmMethod | urn:oasis:names:tc:SAML:2.0:cm:bearer |
-| eb46b6b6.session.saml.last.validityNotBefore | 2019-06-16T19:13:03.054Z |
-| eb46b6b6.session.saml.last.validityNotOnOrAfter | 2019-06-16T20:13:03.054Z |
-
-``
-
+| eb46b6b6.session.saml.last.validityNotBefore | `<ID>` |
+| eb46b6b6.session.saml.last.validityNotOnOrAfter | `<ID>` |
+>>
 ### Create F5 test user
 
 In this section, you create a user called B.Simon in F5. Work with [F5 Client support team](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) to add the users in the F5 platform. Users must be created and activated before you use single sign-on. 
