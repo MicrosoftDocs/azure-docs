@@ -124,21 +124,6 @@ First you need to enable the _backup and restore service_ in your cluster. Get t
 
 4. Once you have updated your cluster template with the preceding changes, apply them and let the deployment/upgrade complete. Once complete, the _backup and restore service_ starts running in your cluster. The Uri of this service is `fabric:/System/BackupRestoreService` and the service can be located under system service section in the Service Fabric explorer. 
 
-### Using Service Fabric Explorer
-
-1. Make sure Advanced Mode is enabled.
-
-    ![Enable Advanced Mode][2]
-
-2. Select an application and go to action. Click Enable/Update Application Backup.
-
-    ![Enable Application Backup][3] 
-
-3. Finally, select the desired policy and click Enable Backup.
-
-    ![Select Policy][4]
-
-
 ## Enabling periodic backup for Reliable Stateful service and Reliable Actors
 Let's walk through steps to enable periodic backup for Reliable Stateful service and Reliable Actors. These steps assume
 - That the cluster is setup using X.509 security with _backup and restore service_.
@@ -221,6 +206,17 @@ $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Applications
 
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ``` 
+
+#### Using Service Fabric Explorer
+
+1. Select an application and go to action. Click Enable/Update Application Backup.
+
+    ![Enable Application Backup][3]
+
+2. Finally, select the desired policy and click Enable Backup.
+
+    ![Select Policy][4]
+
 
 ### Verify that periodic backups are working
 
@@ -308,7 +304,6 @@ To view backups in Service Fabric Explorer, navigate to a partition and select t
 
 [0]: ./media/service-fabric-backuprestoreservice/partition-backedup-health-event-azure.png
 [1]: ./media/service-fabric-backuprestoreservice/enable-backup-restore-service-with-portal.png
-[2]: ./media/service-fabric-backuprestoreservice/advanced-mode.png
 [3]: ./media/service-fabric-backuprestoreservice/enable-app-backup.png
 [4]: ./media/service-fabric-backuprestoreservice/enable-application-backup.png
 [5]: ./media/service-fabric-backuprestoreservice/backup-enumeration.png

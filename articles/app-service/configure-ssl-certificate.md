@@ -64,6 +64,10 @@ The free App Service Managed Certificate is a turn-key solution for securing you
 - Does not support naked domains.
 - Is not exportable.
 
+> [!NOTE]
+> The free certificate is issued by DigiCert. For some top-level domains, you must explicitly allow DigiCert as a certificate issuer by creating a [CAA domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) with the value: `0 issue digicert.com`.
+> 
+
 To create a free App Service Managed Certificate:
 
 In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, from the left menu, select **App Services** > **\<app-name>**.

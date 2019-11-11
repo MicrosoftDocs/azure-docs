@@ -241,6 +241,8 @@
           href: migrate-android-adal-msal.md
         - name: Migrate to MSAL.iOS and MacOS
           href: migrate-objc-adal-msal.md
+        - name: Migrate to MSAL Java
+          href: migrate-adal-msal-java.md
         - name: Migrate Xamarin apps using brokers from ADAL.NET to MSAL.NET
           href: msal-net-migration-ios-broker.md
       - name: Supported authentication flows
@@ -450,6 +452,12 @@
               href: request-custom-claims.md
             - name: Redirect URI configuration
               href: redirect-uris-ios.md
+        - name: MSAL Java
+          items:
+            - name: Token cache serialization
+              href: msal-java-token-cache-serialization.md
+            - name: Add and remove accounts from the token cache
+              href: msal-java-get-remove-accounts-token-cache.md
     - name: Work with Visual Studio
       items:
       - name: Use the Active Directory connected service
