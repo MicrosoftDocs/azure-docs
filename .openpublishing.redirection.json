@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/digital-twins/how-to-use-legacy-aad.md",
+      "redirect_url": "/azure/digital-twins/quickstart-view-occupancy-dotnet#set-permissions-for-your-app",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/php-download-sdk.md",
       "redirect_url": "https://github.com/Azure/azure-sdk-for-php",
       "redirect_document_id": false
@@ -41811,6 +41816,11 @@
     {
       "source_path": "articles/iot-central/core/tutorial-define-edge-device-type-pnp.md",
       "redirect_url": "/azure/iot-central/preview/tutorial-define-edge-device-type/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/tutorial-add-edge-as-leaf-device.md",
+      "redirect_url": "/azure/iot-central/preview/tutorial-add-edge-as-leaf-device/",
       "redirect_document_id": false
     },
     {
