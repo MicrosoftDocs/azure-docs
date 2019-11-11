@@ -134,4 +134,4 @@ derive1 sink(allowSchemaDrift: true,
 
 ## Next Steps
 
-Explore Data Flows staring on the [data flows overview article](concepts-data-flow-overview.md)
+Explore Data Flows by starting with the [data flows overview article](concepts-data-flow-overview.md)
