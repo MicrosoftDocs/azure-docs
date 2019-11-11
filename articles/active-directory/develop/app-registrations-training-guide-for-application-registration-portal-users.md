@@ -1,6 +1,6 @@
 ---
-title: Application Registration Portal app registrations training guide - Microsoft identity platform | Azure
-description: App registrations in the Azure portal for users familiar with Application registration portal
+title: Transitioning from Application Registration Portal to the new App registrations experience in the Azure portal
+description: An introduction to the new App registration experience in the Azure portal
 services: active-directory
 documentationcenter: ''
 author: archieag
@@ -20,7 +20,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Training guide: Using App registrations in the Azure portal instead of Application Registration Portal
+# Transitioning from Application Registration Portal to the new App registrations experience in the Azure portal
 
 There are many improvements in the new [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience in the Azure portal. If you're more familiar with the Application registration portal (apps.dev.microsoft.com) experience for registering or managing converged applications, referred to as the old experience, this training guide will get you started using the new experience.
 
