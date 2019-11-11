@@ -93,26 +93,26 @@ Applications must be represented by an app object in Azure Active Directory so t
 
 > [!div class="sxs-lookup" renderon="portal"]
 > 4. Inside **app** > **src** > **main**, open  **AndroidManifest.xml**.
-> 5. In the **manifest\application** node, replace the **<activity android:name="com.microsoft.identity.client.BrowserTabActivity">** node with the following:	
+> 5. In the **manifest\application** node, replace the **activity android:name="com.microsoft.identity.client.BrowserTabActivity"** node with the following:	
 > ```xml
-> &lt;!--Intent filter to catch Microsoft's callback after Sign In--&gt;
-> &lt;activity android:name=&quot;com.microsoft.identity.client.BrowserTabActivity&quot;&gt;
->     &lt;intent-filter&gt;
->     &lt;action android:name=&quot;android.intent.action.VIEW&quot; /&gt;
->     &lt;category android:name=&quot;android.intent.category.DEFAULT&quot; /&gt;
->     &lt;category android:name=&quot;android.intent.category.BROWSABLE&quot; /&gt;
->         &lt;!--
+> <!--Intent filter to catch Microsoft's callback after Sign In-->
+> <activity android:name="com.microsoft.identity.client.BrowserTabActivity">
+>     <intent-filter>
+>         <action android:name="android.intent.action.VIEW" />
+>         <category android:name="android.intent.category.DEFAULT" />
+>         <category android:name="android.intent.category.BROWSABLE" />
+>         <!--
 >             Add in your scheme/host from registered redirect URI 
->             note that the leading &quot;/&quot; is required for android:path
->         --&gt;
->         &lt;data android:scheme=&quot;msauth&quot;
->             android:host=&quot;Enter_the_Package_Name&quot;
->             android:path=&quot;Enter_the_Signature_Hash&quot;
->             android:scheme = &quot;msauth&quot; /&gt;
->     &lt;/intent-filter&gt;
-> &lt;/activity&gt;
+>             note that the leading "/" is required for android:path
+>         -->
+>         <data 
+>             android:host="Enter_the_Package_Name"
+>             android:path="/Enter_the_Signature_Hash"
+>             android:scheme= "msauth" />
+>     </intent-filter>
+> </activity>
 > ```
-> 6. Run the app!
+> 6. Run the app!   
 > The sample app starts on the **Single Account Mode** screen. A default scope, **user.read**, is provided by default, which is used when reading your own profile data during the Microsoft Graph API call. The URL for the Microsoft Graph API call is provided by default. You can change both of these if you wish.
 >
 > ![MSAL sample app showing single and multiple account usage](./media/quickstart-v2-android/quickstart-sample-app.png)
