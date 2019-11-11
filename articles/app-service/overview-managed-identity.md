@@ -38,7 +38,7 @@ To set up a managed identity in the portal, you will first create an application
 
 2. If using a function app, navigate to **Platform features**. For other app types, scroll down to the **Settings** group in the left navigation.
 
-3. Select **Managed identity**.
+3. Select **Identity**.
 
 4. Within the **System assigned** tab, switch **Status** to **On**. Click **Save**.
 
@@ -165,7 +165,7 @@ First, you'll need to create a user-assigned identity resource.
 
 3. If using a function app, navigate to **Platform features**. For other app types, scroll down to the **Settings** group in the left navigation.
 
-4. Select **Managed identity**.
+4. Select **Identity**.
 
 5. Within the **User assigned** tab, click **Add**.
 
@@ -190,7 +190,7 @@ Any resource of type `Microsoft.Web/sites` can be created with an identity by in
 > [!NOTE] 
 > An application can have both system-assigned and user-assigned identities at the same time. In this case, the `type` property would be `SystemAssigned,UserAssigned`
 
-Adding the user-assigned type and a cotells Azure to create and manage the identity for your application.
+Adding the user-assigned type tells Azure to use the user-assigned identity specified for your application.
 
 For example, a web app might look like the following:
 ```json
