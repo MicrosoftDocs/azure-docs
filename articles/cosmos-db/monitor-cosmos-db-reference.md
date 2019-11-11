@@ -37,7 +37,7 @@ The following table lists the properties for Azure Cosmos DB resource logs when 
 | **responseLength** | **responseLength_s** | The length of the response, in bytes.|
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | This value is non-empty when [resource tokens](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) are used for authentication. The value points to the resource ID of the user. |
 
-### Metrics
+## Metrics
 The following tables list the platform metrics collected for Azure CosmOS DB. All metrics are stored in the namespace **Cosmos DB standard metrics**.
 
 #### Request metrics
