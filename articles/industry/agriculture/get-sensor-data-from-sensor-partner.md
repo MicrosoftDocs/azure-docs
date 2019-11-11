@@ -56,7 +56,7 @@ Alternatively, you can generate the credentials by running this script from the 
 
     ```azurepowershell-interactive 
 
-    PS> ./generateCredentials.ps1   
+    ./generateCredentials.ps1   
 
     ```
 7. Follow the onscreen instructions to capture the values. (API Endpoint, Tenant ID, Client ID, Client Secret and EventHub Connection String).

@@ -4,7 +4,7 @@ description: Describes how to set up an appliance for assessment of physical ser
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 10/21/2019
+ms.date: 11/11/2019
 ms.author: raynew
 ---
 
@@ -12,6 +12,9 @@ ms.author: raynew
 # Set up an appliance for physical servers
 
 This article describes how to set up the Azure Migrate appliance if you're assessing physical servers with the Azure Migrate: Server Assessment tool.
+
+> [!NOTE]
+> If features are mentioned here that you don't yet see in the Azure Migrate portal, hang on. They will appear over the next week or so.
 
 The Azure Migrate appliance is a lightweight appliance, used by Azure Migrate Server Assessment to do the following:
 
