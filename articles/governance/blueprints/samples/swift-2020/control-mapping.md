@@ -451,7 +451,7 @@ articles to learn about the blueprint and how to deploy this sample:
 > [SWIFT CSP-CSCF v2020 blueprint - Overview](./index.md)
 > [SWIFT CSP-CSCF v2020 blueprint - Deploy steps](./deploy.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).

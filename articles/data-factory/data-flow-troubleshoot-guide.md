@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure Data Factory Data Flows | Microsoft Docs
+title: Troubleshoot Azure Data Factory Data Flows 
 description: Learn how to troubleshoot data flow issues in Azure Data Factory. 
 services: data-factory
 author: kromerm
@@ -63,6 +63,23 @@ This article explores common troubleshooting methods for data flows in Azure Dat
 
 - **Resolution**: Change the name of the table that you are trying to create
 
+### Error message: DF-SYS-01: com.microsoft.sqlserver.jdbc.SQLServerException: String or binary data would be truncated. 
+
+- **Symptoms**: When writing data to a SQL sink, your data flow fails on pipeline execution with possible truncation error.
+
+- **Cause**: A field from your data flow maps to a column in your SQL database is not wide enough to store the value, causing the SQL driver to throw this error
+
+- **Resolution**: You can reduce the length of the data for string columns using ```left()``` in a Derived Column or implement the ["error row" pattern.](how-to-data-flow-error-rows.md)
+
+### Error message: Since Spark 2.3, the queries from raw JSON/CSV files are disallowed when the referenced columns only include the internal corrupt record column. 
+
+- **Symptoms**: Reading from a JSON source fails
+
+- **Cause**: When reading from a JSON source with a single document on many nested lines, ADF, via Spark, is unable to determine where a new document begins and the previous document ends.
+
+- **Resolution**: On the Source transformation that is using a JSON dataset, expand "JSON Settings" and turn on "Single Document".
+
+
 ## General troubleshooting guidance
 
 1. Check the status of your dataset connections. In each Source and Sink transformation, visit the Linked Service for each dataset that you are using and test connections.
@@ -79,4 +96,4 @@ For more troubleshooting help, try these resources:
 *  [MSDN forum](https://social.msdn.microsoft.com/Forums/home?sort=relevancedesc&brandIgnore=True&searchTerm=data+factory)
 *  [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
-*  [ADF Mapping Data Flows Performance Guide](concepts-data-flow-performance.md)
+*  [ADF mapping data flows Performance Guide](concepts-data-flow-performance.md)

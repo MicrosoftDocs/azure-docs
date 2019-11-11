@@ -1,14 +1,15 @@
 ---
 title: Partners who integrate with Azure Monitor
 description: Learn about Azure Monitor's partners and how you can access documentation for integrating with them.
-author: rboucher
-services: azure-monitor
-ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 03/14/2019
-ms.author: robb
+ms.service:  azure-monitor
 ms.subservice: ""
+ms.topic: conceptual
+author: rboucher
+ms.author: robb
+ms.date: 03/14/2019
+
 ---
+
 # Azure Monitor partner integrations
 
 Listed in alphabetical order. 
@@ -262,5 +263,5 @@ Turbonomic delivers workload automation for hybrid clouds by simultaneously opti
 [solarwinds-doc]: https://www.solarwinds.com/topics/azure-monitoring "SolarWinds documentation."
 [splunk-doc]: https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk "Splunk documentation."
 [sumologic-doc]: https://www.sumologic.com/azure "SumoLogic documentation."
-[turbonomic-doc]: https://turbonomic.com/solutions/technologies/azure-cloud/ "Turbonomic introduction."
+[turbonomic-doc]: https://turbonomic.com/ "Turbonomic introduction."
 

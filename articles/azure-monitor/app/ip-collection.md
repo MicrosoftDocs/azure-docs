@@ -1,15 +1,13 @@
 ---
 title: Azure Application Insights IP address collection | Microsoft Docs
 description: Understanding how IP addresses and geolocation are handled with Azure Application Insights
-services: application-insights
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
-ms.service: application-insights
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 09/11/2019
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 09/11/2019
+
 ---
 
 # Geolocation and IP address handling
@@ -122,7 +120,7 @@ Content-Length: 54
 
 ## Telemetry initializer
 
-If you need a more flexible alternative than `DisableIpMasking` to  record all or part of IP addresses, you can use a [telemetry initializer](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) to copy all or part the IP to a custom field. 
+If you need a more flexible alternative than `DisableIpMasking` to  record all or part of IP addresses, you can use a [telemetry initializer](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer) to copy all or part the IP to a custom field. 
 
 ### ASP.NET / ASP.NET Core
 

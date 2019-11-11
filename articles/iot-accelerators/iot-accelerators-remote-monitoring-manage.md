@@ -1,5 +1,5 @@
 ---
-title: Configure devices in a remote monitoring solution tutorial - Azure | Microsoft Docs
+title: Configure devices in Remote Monitoring Solution - Azure | Microsoft Docs
 description: This tutorial shows you how to configure devices connected to the Remote Monitoring solution accelerator.
 author: dominicbetts
 manager: timlt

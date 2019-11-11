@@ -1,5 +1,5 @@
 ---
-title: Backup and recover with Microsoft Authenticator app - Azure Active Directory | Microsoft Docs
+title: Backup and recover with the Microsoft Authenticator app - Azure AD
 description: Learn how to back up and recover your account credentials, using the Microsoft Authenticator app.
 services: active-directory
 author: eross-msft

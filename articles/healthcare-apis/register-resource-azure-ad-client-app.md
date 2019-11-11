@@ -1,6 +1,6 @@
 ---
-title: Register a resource application in Azure Active Directory - Azure API for FHIR
-description: This article explains how to register a resource application in Azure Active Directory.
+title: Register a resource app in Azure AD - Azure API for FHIR
+description: Register a resource (or API) app in Azure Active Directory, so that client applications can request access to the resource when authenticating.
 services: healthcare-apis
 author: hansenms
 ms.service: healthcare-apis
@@ -18,7 +18,7 @@ In this article, you'll learn how to register a resource (or API) application in
 
 1. In the [Azure portal](https://portal.azure.com), on the left navigation panel, click **Azure Active Directory**.
 
-2. In the **Azure Active Directory** blade click **App registrations (Preview)**:
+2. In the **Azure Active Directory** blade click **App registrations**:
 
     ![Azure portal. New App Registration.](media/how-to-aad/portal-aad-new-app-registration.png)
 
