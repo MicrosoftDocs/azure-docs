@@ -234,15 +234,21 @@
     items:
     - name: Speech translation FAQ
       href: https://www.microsoft.com/translator/faq.aspx
-- name: Conversation transcription
+- name: Conversation solutions
   expanded: false
   items:
   - name: Overview
     items:
+    - name: Overview of conversation solutions
+      href: overview-conversation-solutions.md
+    - name: What is multi-device conversation?
+      href: overview-multi-device-conversation.md
     - name: What is conversation transcription?
       href: conversation-transcription.md
   - name: How-to guides
     items:
+    - name: Multi-device Conversation
+      href: how-to-use-multi-device-conversation.md
     - name: Real time Conversation Transcription
       href: how-to-use-conversation-transcription.md
     - name: Asynchronous Conversation Transcription
