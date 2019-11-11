@@ -1,6 +1,6 @@
 ---
 title: Azure Container Registry content formats
-description: Learn about supported content formats in Azure Container Registry.
+description: Learn about content formats supported by Azure Container Registry, including Docker-compatible container images, Helm charts, OCI images, and OCI artifacts.
 services: container-registry
 author: dlepow
 manager: gwallace
