@@ -93,7 +93,7 @@ Optionally, you can include query parameters on GET calls to filter, limit the s
 
 The below sample request is to get the list of devices:
 
-```azurepowershell-interactive
+```bash
 curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H
 "Content-Type: application/json" -H
 "Authorization: Bearer <Access-Token>”
@@ -104,7 +104,7 @@ Most GET, POST, and PUT calls require a JSON request body.
 The below sample request is to create a device (This has an input JSON with the request body).
 
 
-```azurepowershell-interactive
+```bash
 curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  
 "accept: application/json" -H  
 "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>" -d
@@ -322,6 +322,7 @@ Following are the system defined values:
   ]
 }
 ```
+
 This will be a one-time setup, and the scope of this new scenetype is limited to the subscription in which FarmBeats project is deployed.
 
 Example: To add SceneSource: “SlantRange”, you do PUT on the ID of the /ExtendedType with key: “SceneSource” Input payload:
