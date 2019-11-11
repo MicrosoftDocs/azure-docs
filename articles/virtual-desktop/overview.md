@@ -68,11 +68,9 @@ We plan to add support for the following OSes, so make sure you have the [approp
 Your infrastructure needs the following things to support Windows Virtual Desktop:
 
 * An [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)
-* A Windows Server Active Directory in sync with Azure Active Directory. This can be enabled through:
-  * Azure AD Connect
-  * Azure AD Domain Services
-     >[!NOTE]
-     >If you use Azure AD Domain Services, your users must be sourced from Azure Active Directory. Using Azure AD Domain Services with users sourced from Windows Server AD isn't supported at this time.
+* A Windows Server Active Directory in sync with Azure Active Directory. This can be enabled either through:
+  * Azure AD Connect (for hybrid organizations)
+  * Azure AD Domain Services (for hybrid or cloud organizations)
 * An Azure subscription, containing a virtual network that either contains or is connected to the Windows Server Active Directory
   
 The Azure virtual machines you create for Windows Virtual Desktop must be:
@@ -95,7 +93,7 @@ The Azure virtual machines you create for Windows Virtual Desktop must have outb
 >[!NOTE]
 >Opening these URLs is essential for a reliable Windows Virtual Desktop deployment. Blocking access to these URLs is unsupported and will affect service functionality. These URLs only correspond to Windows Virtual Desktop sites and resources, and do not include URLS for other services like Azure AD.
 
-Windows Virtual Desktop comprises the Windows desktops and apps you deliver to users and the management solution, which is hosted as a service on Azure by Microsoft. Desktops and apps can be deployed on virtual machines (VMs) in any Azure region, and the management solution and data for these VMs will reside in the United States (US East 2 region). This may result in data transfer to the United States.
+Windows Virtual Desktop comprises the Windows desktops and apps you deliver to users and the management solution, which is hosted as a service on Azure by Microsoft. Desktops and apps can be deployed on virtual machines (VMs) in any Azure region, and the management solution and data for these VMs will reside in the United States. This may result in data transfer to the United States.
 
 For optimal performance, make sure your network meets the following requirements:
 
