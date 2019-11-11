@@ -270,7 +270,7 @@ Convert the historical sensor data format to a canonical format that Azure FarmB
 ```json
 {
 "deviceid": "<id of the Device created>",
- "timestamp": "<timestamp in ISO 8601 format>",
+"timestamp": "<timestamp in ISO 8601 format>",
 "version" : "1",
 "sensors": [
     {
