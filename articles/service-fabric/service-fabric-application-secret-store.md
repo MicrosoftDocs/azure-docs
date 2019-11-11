@@ -13,7 +13,7 @@ ms.author: atsenthi
 #  Service Fabric Secrets Store
 This article describes how to create and use secrets in Service Fabric applications using Service Fabric Secrets Store(CSS). CSS is a local secret store cache, used to keep sensitive data such as a password, token and keys encrypted in memory.
 
-## Enabling Secrets Store.
+## Enabling Secrets Store
  Add the below to your cluster configuration under `fabricSettings` to enable CSS. It's recommended to use a certificate different from cluster certificate for CSS. Make sure the encryption certificate is installed on all nodes and `NetworkService` has read permission to certificate's private key.
   ```json
     "fabricSettings": 
@@ -44,27 +44,27 @@ This article describes how to create and use secrets in Service Fabric applicati
             ]
 ```
 ## Declare secret resource
-Secret store secrets are versioned resources, you can create a secret resource either using the ARM template or using the REST API
-1. Using ARM template
+Secret store secrets are versioned resources, you can create a secret resource either using the Resource Manager template or using the REST API.
+* Using Resource Manager template
 ```json
-"resources": [
-    {
-      "apiVersion": "2018-07-01-preview",
-      "name": "supersecret",
-      "type": "Microsoft.ServiceFabricMesh/secrets",
-      "location": "[parameters('location')]", 
-      "dependsOn": [],
-      "properties": {
-        "kind": "inlinedValue",
-        "description": "Application Secret",
-        "contentType": "text/plain",
-      }
-    }
-  ]
+   "resources": [
+      {
+        "apiVersion": "2018-07-01-preview",
+        "name": "supersecret",
+        "type": "Microsoft.ServiceFabricMesh/secrets",
+        "location": "[parameters('location')]", 
+        "dependsOn": [],
+        "properties": {
+          "kind": "inlinedValue",
+            "description": "Application Secret",
+            "contentType": "text/plain",
+          }
+        }
+      ]
 ```
 This will create `supersecret` secret resource, note that we haven't set the value for the secret yet.
 
-2. Using the REST API
+* Using the REST API
 
 To create secret resource, `supersecret` make a PUT request to `https://<clusterfqdn>:19080/Resources/Secrets/supersecret?api-version=6.4-preview`. You need the cluster certificate or admin client certificate to create a secret.
 
@@ -73,10 +73,10 @@ Invoke-WebRequest  -Uri https://<clusterfqdn>:19080/Resources/Secrets/supersecre
 ```
 
 ## Set secret value
-To set `supersecret` version `v1` value, make a PUT request as below.
+To set `supersecret` version `ver1` value, make a PUT request as below.
 ```powershell
 $Params = @{"properties": {"value": "mysecretpassword"}}
-Invoke-WebRequest -Uri https://<clusterfqdn>:19080/Resources/Secrets/supersecret/values/v1?api-version=6.4-preview -Method PUT -Body $Params -CertificateThumbprint <ClusterCertThumbprint>
+Invoke-WebRequest -Uri https://<clusterfqdn>:19080/Resources/Secrets/supersecret/values/ver1?api-version=6.4-preview -Method PUT -Body $Params -CertificateThumbprint <ClusterCertThumbprint>
 ```
 ## Using the secret in your application
 
@@ -84,19 +84,18 @@ Invoke-WebRequest -Uri https://<clusterfqdn>:19080/Resources/Secrets/supersecret
 
 ```xml
   <Section Name="testsecrets">
-  <Parameter Name="TopSecret" Type="SecretsStoreRef" Value="supersecret:v1"/
+   <Parameter Name="TopSecret" Type="SecretsStoreRef" Value="supersecret:ver1"/
   </Section>
-</Settings>
 ```
 2. Now import the section in ApplicationManifest.xml
 ```xml
-<ServiceManifestImport>
+  <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="testservicePkg" ServiceManifestVersion="1.0.0" />
     <ConfigOverrides />
     <Policies>
       <ConfigPackagePolicies CodePackageRef="Code">
         <ConfigPackage Name="Config" SectionName="testsecrets" EnvironmentVariableName="SecretPath" />
-      </ConfigPackagePolicies>
+        </ConfigPackagePolicies>
     </Policies>
   </ServiceManifestImport>
 ```
@@ -125,3 +124,6 @@ Here is the modified ApplicationManifest.xml
   </ServiceManifestImport>
 ```
 Secrets will be available under the mount point inside your container.
+
+## Next steps
+Learn more about [application and service security](service-fabric-application-and-service-security.md)

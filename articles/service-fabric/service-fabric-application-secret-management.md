@@ -143,7 +143,8 @@ string MyEnvVariable = Environment.GetEnvironmentVariable("MyEnvVariable");
 ```
 
 ## Next steps
-Learn more about [application and service security](service-fabric-application-and-service-security.md)
+* Service Fabric [Secrets Store](service-fabric-application-secret-store.md) 
+* Learn more about [application and service security](service-fabric-application-and-service-security.md)
 
 <!-- Links -->
 [parameters-link]:service-fabric-how-to-parameterize-configuration-files.md
