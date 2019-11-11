@@ -176,7 +176,7 @@ For Windows apps, the ZIP file contains the contents of the *D:\Home\LogFiles* d
 
 ## Send logs to Azure Monitor (preview)
 
-With the new Azure Monitor integration, you can [create Diagnostic Settings](https://azure.github.io/AppService/2019/11/01/App-Service-Integration-with-Azure-Monitor.html#create-a-diagnostic-setting) (preview) to send logs to Storage Accounts, Event Hubs and Log Analytics. 
+With the new [Azure Monitor integration](https://aka.ms/appsvcblog-azmon), you can [create Diagnostic Settings (preview)](https://azure.github.io/AppService/2019/11/01/App-Service-Integration-with-Azure-Monitor.html#create-a-diagnostic-setting) to send logs to Storage Accounts, Event Hubs and Log Analytics. 
 
 > [!div class="mx-imgBorder"]
 > ![Diagnostic Settings (preview)](media/troubleshoot-diagnostic-logs/diagnostic-settings-page.png)
@@ -193,8 +193,6 @@ The following table shows the supported log types and descriptions:
 | AppServiceAuditLogs | Yes | Yes | Login activity via FTP and Kudu |
 | AppServiceFileAuditLogs | TBA | TBA | File changes via FTP and Kudu |
 | AppServiceAppLogs | TBA | Java SE & Tomcat | Application logs |
-
-See the [announcement](https://aka.ms/appsvcblog-azmon) for more information on Diagnostic Settings (preview)).
 
 ## <a name="nextsteps"></a> Next steps
 * [Query logs with Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
