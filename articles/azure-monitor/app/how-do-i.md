@@ -68,7 +68,7 @@ Some points to consider:
 [Use PowerShell to create new alerts](../../azure-monitor/app/alerts.md#automation)
 
 ## Use PowerShell to Manage Application Insights
-* [Create new resources](../../azure-monitor/app/powershell-script-create-resource.md)
+* [Create new resources](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
 * [Create new alerts](../../azure-monitor/app/alerts.md#automation)
 
 ## Separate telemetry from different versions

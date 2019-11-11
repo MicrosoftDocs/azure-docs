@@ -43587,6 +43587,11 @@
       "source_path": "articles/active-directory/develop/app-registrations-training-guide.md",
       "redirect_url": "articles/active-directory/develop/app-registrations-training-guide-for-app-registrations-legacy-users.md",
       "redirect_document_id": false
+    },
+	{
+      "source_path": "articles/azure-monitor/app/powershell-script-create-resource.md",
+      "redirect_url": "articles/azure-monitor/app/create-new-resource#creating-a-resource-automatically",
+      "redirect_document_id": false
     }
   ]
 }
