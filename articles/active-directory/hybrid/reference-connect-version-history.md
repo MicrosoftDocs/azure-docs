@@ -38,9 +38,18 @@ Download| [Download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=61
 While we go through this process, the version number of the release will be shown with an "X" in the minor release number position, as in "1.3.X.0" - this indicates that the release notes in this document are valid for all versions beginning with "1.3.". As soon as we have finalized the release process the release version number will be updated to the most recently released version and the release status will be updated to "Released for download and auto upgrade".
 Not all releases of Azure AD Connect will be made available for auto upgrade. The release status will indicate whether a release is made available for auto upgrade or for download only. If auto upgrade was enabled on your Azure AD Connect server then that server will automatically upgrade to the latest version of Azure AD Connect that is released for auto upgrade. Note that not all Azure AD Connect configurations are eligible for auto upgrade. Please follow this link to read more about [auto upgrade](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
+## 1.4.32.0
+### Release status
+08/11/2019: Released for download. Not available for auto-upgrade
+
+>[!IMPORTANT]
+>Due to an internal schema change in this release of Azure AD Connect, if you manage ADFS trust relationship configuration settings using MSOnline PowerShell then you must update your MSOnline PowerShell module to version 1.1.183.57 or higher
+### Fixed issues
+
+This version fixes an issue with existing Hybrid Azure AD joined devices. This release contains a new device sync rule that corrects this issue.
+Note that this rule change may cause deletion of obsolete devices from Azure AD. This is not a cause for concern, as these device objects are not used by Azure AD during Conditional Access authorization. For some customers, the number of devices that will be deleted through this rule change can exceed the deletion threshold. If you see the deletion of device objects in Azure AD exceeding the Export Deletion Threshold, it is advised to allow the deletions to go through. [How to allow deletes to flow when they exceed the deletion threshold](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sync-feature-prevent-accidental-deletes)
+
 ## 1.4.25.0
-
-
 
 ### Release status
 9/28/2019: Released for auto-upgrade to select tenants. Not available for download.
