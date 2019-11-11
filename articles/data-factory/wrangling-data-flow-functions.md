@@ -1,5 +1,5 @@
 ---
-title: Wrangling data flow transformation functions in Azure Data Factory | Microsoft Docs
+title: Wrangling data flow transformation functions in Azure Data Factory 
 description: An overview of available wrangling data flow functions in Azure Data Factory
 author: djpmsft
 ms.author: daperlov

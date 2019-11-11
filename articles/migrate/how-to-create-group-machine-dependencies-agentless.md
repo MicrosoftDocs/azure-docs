@@ -11,6 +11,9 @@ ms.author: hamusa
 
 # Set up agentless dependency visualization for assessment
 
+> [!NOTE]
+> If you don't yet see this feature in the Azure Migrate portal, hang on. It will appear over the next week or so.
+
 This article describes how to set up agentless dependency mapping in Azure Migrate: Server Assessment. This capability is currently available in preview for VMware machines discovered using an Azure Migrate appliance. 
 
 > [!IMPORTANT]

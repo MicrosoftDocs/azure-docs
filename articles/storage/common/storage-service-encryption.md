@@ -70,7 +70,7 @@ The following list explains the numbered steps in the diagram:
 
 To revoke access to customer-managed keys on the storage account, see [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) and [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). Revoking access effectively blocks access to all data in the storage account, as the encryption key is inaccessible by Azure Storage.
 
-Customer-managed keys are not supported for [Azure managed disks](../../virtual-machines/windows/managed-disks-overview.md).
+Customer-managed keys are also available for Azure managed disks as a public preview, customer-managed keys work a bit differently for managed disks than the rest of storage. For details, see our [article on the subject](../../virtual-machines/linux/disk-encryption.md#customer-managed-keys-public-preview).
 
 To learn how to use customer-managed keys with Azure Storage, see one of these articles:
 
