@@ -155,8 +155,6 @@ To use the pattern.any entity, add a pattern on the **Patterns** page, in the **
 
 If you find that your pattern, when it includes a Pattern.any, extracts entities incorrectly, use an [explicit list](reference-pattern-syntax.md#explicit-lists) to correct this problem. 
 
-The syntax for a role is **`{Entityname:Rolename}`** where the entity name is followed by a colon, then the role name. For example, `Move {personName} from {Location:Origin} to {Location:Destination}`.
-
 ## Do not change entity type
 
 LUIS does not allow you to change the type of the entity because it doesn't know what to add or remove to construct that entity. In order to change the type, it is better to create a new entity of the correct type with a slightly different name. Once the entity is created, in each utterance, remove the old labeled entity name and add the new entity name. Once all the utterances have been relabeled, delete the old entity. 
@@ -164,6 +162,11 @@ LUIS does not allow you to change the type of the entity because it doesn't know
 <a name="create-a-pattern-from-an-utterance"></a>
 
 ## Next steps
+
+Learn more about patterns:
+
+* [Patterns Concepts](luis-concept-patterns.md)
+* [Patterns Syntax](reference-pattern-syntax.md)
 
 For more information about prebuilt entities, see the [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) project. 
 
