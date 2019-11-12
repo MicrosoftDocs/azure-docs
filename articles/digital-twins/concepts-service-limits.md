@@ -1,6 +1,6 @@
 ---
-title: 'Azure Digital Twins public preview service limits | Microsoft Docs'
-description: Understand Azure Digital Twins public preview service limits.
+title: Public preview service limits - Azure Digital Twins | Microsoft Docs
+description: Learn about public preview service limits for Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof

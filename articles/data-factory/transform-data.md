@@ -14,6 +14,7 @@ manager: craigg
 ---
 # Transform data in Azure Data Factory
 > [!div class="op_single_selector"]
+> * [Mapping data flow](data-flow-create.md)
 > * [Hive](transform-data-using-hadoop-hive.md)  
 > * [Pig](transform-data-using-hadoop-pig.md)  
 > * [MapReduce](transform-data-using-hadoop-map-reduce.md)  
@@ -28,7 +29,7 @@ manager: craigg
 > * [.NET custom](transform-data-using-dotnet-custom-activity.md)
 
 ## Overview
-This article explains data transformation activities in Azure Data Factory that you can use to transform and processes your raw data into predictions and insights. A transformation activity executes in a computing environment such as Azure HDInsight cluster or an Azure Batch. It provides links to articles with detailed information on each transformation activity.
+This article explains data transformation activities in Azure Data Factory that you can use to transform and processes your raw data into predictions and insights at scale. A transformation activity executes in a computing environment such as Azure Databricks or Azure HDInsight. It provides links to articles with detailed information on each transformation activity.
 
 Data Factory supports the following data transformation activities that can be added to [pipelines](concepts-pipelines-activities.md) either individually or chained with another activity.
 
@@ -43,6 +44,8 @@ Mapping data flows are visually designed data transformations in Azure Data Fact
 Wrangling data flows in Azure Data Factory allow you to do code-free data preparation at cloud scale iteratively. Wrangling data flows integrate with [Power Query Online](https://docs.microsoft.com/power-query/) and makes Power Query M functions available for data wrangling at cloud scale via spark execution. For more information, see [wrangling data flows](wrangling-data-flow-overview.md).
 
 ## External transformations
+
+Optionally, you can hand-code transformations and manage the external compute environment yourself.
 
 ### HDInsight Hive activity
 The HDInsight Hive activity in a Data Factory pipeline executes Hive queries on your own or on-demand Windows/Linux-based HDInsight cluster. See [Hive activity](transform-data-using-hadoop-hive.md) article for details about this activity. 
@@ -74,7 +77,7 @@ Data Lake Analytics U-SQL activity runs a U-SQL script on an Azure Data Lake Ana
 
 ### Databricks Notebook activity
 
-The Azure Databricks Notebook Activity in a Data Factory pipeline runs a Databricks notebook in your Azure Databricks workspace.Azure Databricks is a managed platform for running Apache Spark. See [Transform data by running a Databricks notebook](transform-data-databricks-notebook.md).
+The Azure Databricks Notebook Activity in a Data Factory pipeline runs a Databricks notebook in your Azure Databricks workspace. Azure Databricks is a managed platform for running Apache Spark. See [Transform data by running a Databricks notebook](transform-data-databricks-notebook.md).
 
 ### Databricks Jar activity
 

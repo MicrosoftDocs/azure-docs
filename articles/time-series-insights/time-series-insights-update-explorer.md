@@ -1,6 +1,6 @@
 ---
-title: 'Visualize data in the Azure Time Series Insights Preview explorer | Microsoft Docs'
-description: This article describes features and options available in the Azure Time Series Insights Preview explorer web app.
+title: 'Visualize data in the Preview explorer - Azure Time Series Insights | Microsoft Docs'
+description:  Learn about features and options available in the Azure Time Series Insights Preview explorer.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
