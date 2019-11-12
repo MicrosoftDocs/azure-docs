@@ -300,9 +300,9 @@ For inline comments, you can use either `//` or `/* ... */` but this syntax does
   ],
 ```
 
-In Visual Studio Code, the VS Code extension can automatically detect languages. If you see **Azure Resource Manager Template** at the bottom right corner of VS Code, you can use the inline comments. The inline comments are no longer marked as invalid.
+In Visual Studio Code, the [Azure Resource Manager Tools extension](./resource-manager-tools-vs-code.md#install-resource-manager-tools-extension) can automatically detect Resource Manager template and change the language mode accordingly. If you see **Azure Resource Manager Template** at the bottom right corner of VS Code, you can use the inline comments. The inline comments are no longer marked as invalid.
 
-![Visual Studio Code Azure Resource Manager template mode](./media/resource-group-authoring-templates/resource-manager-template-arm-mode.png)
+![Visual Studio Code Azure Resource Manager template mode](./media/resource-group-authoring-templates/resource-manager-template-editor-mode.png)
 
 ### Metadata
 
