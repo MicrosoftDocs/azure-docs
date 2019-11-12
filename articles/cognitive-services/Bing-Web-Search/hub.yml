@@ -37,7 +37,6 @@ productDirectory:
   items:
     - title: Bing Web Search API
       imageSrc: ./media/hub/web-search.svg
-      url: https://docs.microsoft.com/azure/cognitive-services/
       links: 
         - text: Overview
           url: https://docs.microsoft.com/azure/cognitive-services/
@@ -54,7 +53,6 @@ productDirectory:
 
     - title: Bing Custom Search API
       imageSrc: ./media/hub/custom-search.svg
-      url: https://docs.microsoft.com/azure/cognitive-services/
       links:
         - text: Overview
           url: https://docs.microsoft.com/azure/cognitive-services/
@@ -71,7 +69,6 @@ productDirectory:
 
     - title: Bing Image Search API
       imageSrc: ./media/hub/image-search.svg
-      url: https://docs.microsoft.com/azure/cognitive-services/
       links:
         - text: Overview
           url: https://docs.microsoft.com/azure/cognitive-services/
