@@ -22,7 +22,7 @@ For information about how to enable Azure Monitor for containers, see [Onboard A
 
 ## Overview
 
-In Azure Monitor for containers, the Health feature provides proactive health monitoring of your Kubernetes cluster to help you identify and diagnose issues. It gives you the ability to view significant issues detected. 
+In Azure Monitor for containers, the Health feature provides proactive health monitoring of your Kubernetes cluster to help you identify and diagnose issues. It gives you the ability to view significant issues detected. Monitors evaluating the health of your cluster run on the containerized agent in your cluster, and the data collected is written to the **KubeHealth** table in your Log Analytics workspace. 
 
 Kubernetes cluster health is based on a number of monitoring scenarios organized by the following Kubernetes objects and abstractions:
 
@@ -75,18 +75,25 @@ When the Health page opens, by default **Kubernetes Infrastructure** is selected
 
 On the property pane, you learn the following:
 
-- On the **Overview** tab, it shows the last state change history up to the last four hours. 
+- On the **Overview** tab, it shows the current state of the monitor selected, when the monitor was last calculated, and when the last state change occurred. Additional information is shown depending on the type of monitor selected in the hierarchy.
 
-    ![Health property pane Overview tab](./media/container-insights-health/health-overview-unit-montior.png)
-
-    
-
-    If you selected an aggregate monitor, the pane shows a rollup of the total number of aggregate monitors in the hierarchy, and how many aggregate monitors are in a critical, warning, and healthy state. 
+    If you select an aggregate monitor, the pane shows a rollup of the total number of aggregate monitors in the hierarchy, and how many aggregate monitors are in a critical, warning, and healthy state. 
 
     ![Health property pane Overview tab for aggregate monitor](./media/container-insights-health/health-view-overview-aggregate-monitor.png)
 
-- On the**Config** tab, it shows the default configuration parameter settings (only for unit monitors) and their values.
+    If you select a child monitor, it also shows the previous samples calculated and reported by the agent within the last four hours under **Last state change**. When you select CPU or memory utilization of a Node or Pod, it shows the last three samples. When you select the status of a Pod or Node, it shows the last two samples.
+    
+    ![Health property pane Overview tab](./media/container-insights-health/health-overview-unit-montior.png)    
+
+    If the time range for **Last state change** is a day or older, this is the result of not receiving data from the agent for more than four hours. If the agent knows that a particular resource exists, for example a Node, but hasnt received data from the node, then it marks the node monitos (Node CPU/Memory) as Unknown 
+
+    When you select an aggregate monitor, 
+
+    
+
+- On the**Config** tab, it shows the default configuration parameter settings (only for monitors, not aggregate monitors) and their values.
 - On the **Knowledge** tab, it contains information explaining the behavior of the monitor and how it evaluates for the unhealthy condition.
 
-Monitoring data on this page does not refresh automatically.  
+Monitoring data on this page does not refresh automatically and you need to select **Refresh** at the top of the page to see the most recent health state based on the latest records received from the cluster.
+
 ## Next steps
