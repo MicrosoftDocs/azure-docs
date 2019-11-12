@@ -1,7 +1,7 @@
 ---
 title: Application settings - LUIS
 titleSuffix: Azure Cognitive Services
-description: Understand applications settings for Language understanding apps.
+description: Applications settings for Azure Cognitive Services language understanding apps are stored in the app and portal. 
 services: cognitive-services
 author: diberry
 manager: nitinme
