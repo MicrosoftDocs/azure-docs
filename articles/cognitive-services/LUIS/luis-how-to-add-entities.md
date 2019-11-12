@@ -27,7 +27,7 @@ You first need to create an entity before you can label the entity in the exampl
 
 Use the following table to understand which entities where to create or add each entity to the app. 
 
-|Entity|LUIS portal location|
+|Entity type|Where to create entity in the LUIS portal|
 |--|--|
 |Machine-learned entity|Entities or Intent detail|
 |List entity|Entities or Intent detail|
@@ -48,15 +48,21 @@ Use text-matching entities provide several ways to extract data:
 
 |Text-matching entities|Purpose|
 |--|--|
-|List entity|list of canonical names along with synonyms as alternative forms|
+|[List entity](#add-list-entities-for-exact-matches)|list of canonical names along with synonyms as alternative forms|
 |Regular expression entity|match text using a regular expression entity|
-|Prebuilt entity|match common data types such as number, email, date|
+|[Prebuilt entity](tutorial-machine-learned-entity.md#add-list-entities-for-exact-matches)|match common data types such as number, email, date|
 |Prebuilt domain entity|match using selected subject domains|
-|Pattern.any| to match entities that may be easily confused with the surrounding text|  
+|[Pattern.any](#add-a-patternany-entity)| to match entities that may be easily confused with the surrounding text|  
 
 Prebuilt entities work without providing any custom training data. The other entities need you to provide either customer training data (such as List entity's items) or an expression (such as a regular expression or pattern.any).
 
 <a name="add-list-entities"></a>
+
+### How to create a new custom entity
+
+1. In the LUIS portal, goto the **Manage** section, then the **Entities** page. 
+1. Select **+ Create**, then select the entity type. 
+1. Continue configuring the entity then select **Create** when you are done. 
 
 ### Add list entities for exact matches
 
@@ -87,9 +93,11 @@ Use the procedure to create a list entity. Once the list entity is created, you 
     > [!NOTE]
     > This procedure demonstrates creating and labeling a list entity from an example utterance in the **Intent detail** page. You can also create the same entity from the **Entities** page.
 
-### Add a role to distinguish different contexts
+## Add a role for an entity
 
 A role is a named subtype of an entity, based on context. 
+
+### Add a role to distinguish different contexts
 
 In the following utterance, there are two locations, and each is specified semantically by the words around it such as `to` and `from`: 
 
@@ -112,7 +120,7 @@ In this procedure, add `origin` and `destination` roles to a prebuilt geographyV
 
     The role is added to the prebuilt entity but isn't added to any utterances using that entity. 
 
-## Label text with a role in an example utterance
+### Label text with a role in an example utterance
 
 1. Go to the Intent details page, which has example utterances that use the role. 
 1. To label with the role, select the entity label (solid line under text) in the example utterance, then select **View in entity palette** from the drop-down list. 
@@ -129,9 +137,11 @@ In this procedure, add `origin` and `destination` roles to a prebuilt geographyV
 
 <a name="add-pattern-any-entities"></a>
 
-## Add Pattern.any entities to capture free-form entities
+## Add a pattern.any entity
 
 [Pattern.any](luis-concept-entity-types.md) entities are only valid in [patterns](luis-how-to-model-intent-pattern.md), not intents' example utterances. This type of entity helps LUIS find the end of entities of varying length and word choice. Because this entity is used in a pattern, LUIS knows where the end of the entity is in the utterance template.
+
+### Steps to create a pattern.any entity
 
 1. From the **Build** section, select **Entities** in the left panel, and then select **+ Create**.
 
@@ -139,7 +149,7 @@ In this procedure, add `origin` and `destination` roles to a prebuilt geographyV
 
     Once you [create a pattern utterance](luis-how-to-model-intent-pattern.md) using this entity, the entity is extracted with a combined machine-learned and text-matching algorithm. 
 
-## Create pattern template utterance to use pattern.any entity
+### Create pattern template utterance to use pattern.any entity
 
     To use the pattern.any entity, add a pattern on the **Patterns** page, in the **Improve app performance** section, with the correct curly brace syntax, such as `Where is **{HumanResourcesFormTitle}** on the server?`.
 
@@ -147,30 +157,11 @@ In this procedure, add `origin` and `destination` roles to a prebuilt geographyV
 
 The syntax for a role is **`{Entityname:Rolename}`** where the entity name is followed by a colon, then the role name. For example, `Move {personName} from {Location:Origin} to {Location:Destination}`.
 
-<a name="add-a-role-to-pattern-based-entity"></a>
-
-
-<a name="change-entity-type"></a>
-
 ## Do not change entity type
 
 LUIS does not allow you to change the type of the entity because it doesn't know what to add or remove to construct that entity. In order to change the type, it is better to create a new entity of the correct type with a slightly different name. Once the entity is created, in each utterance, remove the old labeled entity name and add the new entity name. Once all the utterances have been relabeled, delete the old entity. 
 
 <a name="create-a-pattern-from-an-utterance"></a>
-
-## Create and label entity on Intent's detail page
-
-You can create and label and entity in the Intent's detail page. This allows you to, after training, see how the entity is applied to the remaining example utterances. 
-
-## Labeling entities in example utterances
-
-When you select text in the example utterance to label for an entity, an in-place pop-up menu appears. Use this menu to either create or select an entity. 
-
-You can't label entity types that use text matching because they are labeled automatically. 
-
-
-## Learn more about creating and labeling entities
-
 
 ## Next steps
 
