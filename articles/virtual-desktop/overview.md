@@ -110,7 +110,7 @@ The following Remote Desktop clients support Windows Virtual Desktop:
 
 ## Supported virtual machine OS images
 
-Windows Virtual Desktop supports the following OS images:
+Windows Virtual Desktop supports the following x64 operating system images:
 
 * Windows 10 Enterprise multi-session
 * Windows 10 Enterprise
@@ -118,6 +118,8 @@ Windows Virtual Desktop supports the following OS images:
 * Windows Server 2019
 * Windows Server 2016
 * Windows Server 2012 R2
+
+Windows Virtual Desktop does not support 32-bit x86 operating system images.
 
 Available automation and deployment options depend on which OS and version you choose, as shown in the following table: 
 
