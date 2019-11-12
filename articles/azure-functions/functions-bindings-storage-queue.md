@@ -256,7 +256,7 @@ In [C# class libraries](functions-dotnet-class-library.md), use the following at
   }
   ```
 
-  For a complete example, see [Trigger - C# example](#trigger---c-example).
+  For a complete example, see [Trigger - C# example](#trigger).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
@@ -623,7 +623,7 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 }
 ```
 
-For a complete example, see [Output - C# example](#output---c-example).
+For a complete example, see [Output - C# example](#output).
 
 You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see Trigger - attributes.
 
