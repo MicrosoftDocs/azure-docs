@@ -34,7 +34,7 @@ This quickstart shows you how to create and run a Stream Analytics job using the
 
 ## Activate the Azure Stream Analytics extension
 
-1. Select the **Azure** icon on the VS Code activity bar. **Stream Analytics** will be visible in the side bar. Under **Stream Analytics**, select **Sign in to Azure**. 
+1. Select the **Azure** icon on the VS Code activity bar. **Stream Analytics** will be visible in the side bar. Under **Stream Analytics**, select **Sign in to Azure**.
 
    ![Sign in to Azure in Visual Studio Code](./media/quick-create-vs-code/azure-sign-in.png)
 
@@ -54,7 +54,7 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
 2. Select **Create a resource** > **Internet of Things** > **IoT Hub**.
 
 3. In the **IoT Hub** pane, enter the following information:
-   
+
    |**Setting**  |**Suggested value**  |**Description**  |
    |---------|---------|---------|
    |Subscription  | \<Your subscription\> |  Select the Azure subscription that you want to use. |
@@ -79,6 +79,16 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
 8. Once the device is created, open the device from the **IoT devices** list. Copy the **Connection string -- primary key** and save it to a notepad to use later.
 
    ![Copy IoT Hub device connection string](./media/quick-create-vs-code/save-iot-device-connection-string.png)
+
+## Run the IoT simulator
+
+1. Open the [Raspberry Pi Azure IoT Online Simulator](https://azure-samples.github.io/raspberry-pi-web-simulator/) in a new browser tab or window.
+
+2. Replace the placeholder in Line 15 with the Azure IoT Hub device connection string you saved in a previous section.
+
+3. Click **Run**. The output should show the sensor data and messages that are being sent to your IoT Hub.
+
+   ![Raspberry Pi Azure IoT Online Simulator](./media/quick-create-vs-code/ras-pi-connection-string.png)
 
 ## Create blob storage
 
@@ -106,13 +116,11 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
 
     ![Create project name](./media/quick-create-vs-code/create-project-name.png)
 
-3. The new project will be added to your workspace. An ASA project consists of the query script **(*.asaql)**, a **JobConfig.json** file, and an **asaproj.json** configuration file.
+3. The new project will be added to your workspace. An ASA project consists of three folders: Input, Outputs and Functions. It also has the query script **(*.asaql)**, a **JobConfig.json** file, and an **asaproj.json** configuration file.
 
    ![Stream Analytics project files in VS Code](./media/quick-create-vs-code/asa-project-files.png)
 
 4. The **asaproj.json** configuration file contains the inputs, outputs, and job configuration file information needed for submitting the Stream Analytics job to Azure.
-
-   ![Stream Analytics job configuration file in VS Code](./media/quick-create-vs-code/job-configuration.png)
 
 > [!Note]
 > When adding inputs and outputs from the command palette, the corresponding paths will be added into **asaproj.json** automatically. If you add or remove inputs or outputs on disk directly, you need to manually add or remove them from **asaproj.json**. You can choose to put the inputs and outputs in one place then reference them in different jobs by specifying the paths in each **asaproj.json**.
@@ -129,30 +137,40 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
    FROM Input
    HAVING Temperature > 27
    ```
-## Test with sample data
-Before running the query in the cloud, you can test your query with local sample data to verify the query logic.
 
-Follow the instructions in [Test with sample data](vscode-local-run.md) for more details. 
+## Test the query locally with sample data
 
+Before running the query in the cloud, you can test your query locally with either a (TODO: add a link to the sample file on github) local sample data file to verify the query logic.
+
+Follow the instructions in [Test query locally with sample data](vscode-local-run.md) for more details.
+
+[TODO: update the gif]
  ![Test with sample data in VS Code](./media/quick-create-vs-code/vscode-localrun.gif)
 
-## Define an input
+## Define a live input
 
-1. Select **Ctrl+Shift+P** to open the command palette and enter **ASA: Add Input**.
+1. Right click the **Inputs** folder in your Stream Analytics project.
+Then select **ASA: Add Input** from the context menu.
+
+    ![Add input from Inputs folder](./media/quick-create-vs-code/add-input-from-inputs-folder.png)
+
+    Or Select **Ctrl+Shift+P** to open the command palette and enter **ASA: Add Input**.
 
    ![Add Stream Analytics input in VS Code](./media/quick-create-vs-code/add-input.png)
 
-2. Choose **IoT Hub** for the input type.
+2. Choose **IoT Hub** for the input type. [TODO: update the picture]
 
    ![Select IoT Hub as input option](./media/quick-create-vs-code/iot-hub.png)
 
-3. Choose the ASA query script that will use the input. It should automatically populate with the file path to **myASAproj.asaql**.
+3. If you added the input from command palette, choose the ASA query script that will use the input. It should automatically populate with the file path to **myASAproj.asaql**.
 
    ![Select an ASA script in Visual Studio Code](./media/quick-create-vs-code/asa-script.png)
 
-4. Enter the input file name as **IotHub**.
+4. Choose **Select from your Azure Subscriptions** from the dropdown menu.
 
-5. Edit **IoTHub.json** with the following values. Keep default values for fields not mentioned below. You can use the CodeLens to help you enter a string, select from a dropdown list, or change the text directly in the file.
+    ![Select from Subscriptions](./media/quick-create-vs-code/add-input-select-subscription.png)
+
+5. Edit the newly generated **IoTHub1.json** with the following values. Keep default values for fields not mentioned below.
 
    |Setting|Suggested value|Description|
    |-------|---------------|-----------|
@@ -160,9 +178,15 @@ Follow the instructions in [Test with sample data](vscode-local-run.md) for more
    |IotHubNamespace|MyASAIoTHub|Choose or enter the name of your IoT Hub. IoT Hub names are automatically detected if they are created in the same subscription.|
    |SharedAccessPolicyName|iothubowner| |
 
+   You can use the CodeLens such as **Select from your Subscriptions** in the screenshot below to help you enter a string, select from a dropdown list, or change the text directly in the file.
+
    ![Configure input in Visual Studio Code](./media/quick-create-vs-code/configure-input.png)
 
+## Preview input
 
+Click **Preview data** in **IoTHub1.json** from the top line. Some input data will be fetched from IoTHub and shown in the preview window. Note that this may take a while.
+
+ ![Preview live input](./media/quick-create-vs-code/preview-live-input.png)
 
 ## Define an output
 
@@ -189,11 +213,11 @@ Follow the instructions in [Test with sample data](vscode-local-run.md) for more
 
 ## Compile the script
 
-Script compilation does two things: check syntax and generate the Azure Resource Manager templates for autodeployment.
+Script compilation does two things: check syntax and generate the Azure Resource Manager templates for auto deployment.
 
 There are two ways to trigger script compilation:
 
-1. Select the script from workspace and then trigger compile from the command palette. 
+1. Select the script from workspace and then trigger compile from the command palette.
 
    ![Use the VS Code command palette to compile the script](./media/quick-create-vs-code/compile-script1.png)
 
@@ -207,9 +231,9 @@ There are two ways to trigger script compilation:
 
 ## Submit a Stream Analytics job to Azure
 
-1. In the script editor window of Visual Studio Code, select **Select from your subscriptions**.
+1. In the script editor window of your query script, click **Submit to Azure**.
 
-   ![Select from your subscriptions text in script editor](./media/quick-create-vs-code/select-subscription.png)
+   ![Select from your subscriptions text in script editor](./media/quick-create-vs-code/submit-job.png)
 
 2. Select your subscription from the popup list.
 
@@ -221,18 +245,7 @@ There are two ways to trigger script compilation:
 
 6. When your job is created, you can see it in the **Stream Analytics Explorer**.
 
-![List job in Stream Analytics Explorer](./media/quick-create-vs-code/list-job.png)
-
-
-## Run the IoT simulator
-
-1. Open the [Raspberry Pi Azure IoT Online Simulator](https://azure-samples.github.io/raspberry-pi-web-simulator/) in a new browser tab or window.
-
-2. Replace the placeholder in Line 15 with the Azure IoT Hub device connection string you saved in a previous section.
-
-3. Click **Run**. The output should show the sensor data and messages that are being sent to your IoT Hub.
-
-   ![Raspberry Pi Azure IoT Online Simulator](./media/quick-create-vs-code/ras-pi-connection-string.png)
+    ![List job in Stream Analytics Explorer](./media/quick-create-vs-code/list-job.png)
 
 ## Start the Stream Analytics job and check output
 
