@@ -20,12 +20,12 @@ The following table provides information about what kind of weather information 
 
 | Symbol | Meaning |
 |--------|---------|
-|*       | Covers Current Conditions, Hourly Forecast, Quarter-day Forecasts, Daily Forecast|
+|*       |Covers Weather along route, Current Conditions, Hourly Forecast, Quarter-day Forecast and Daily Forecast APIs |
 
 
 ## Americas
 
-| Country/region              |  Satellite Tiles | Minute Forecast | Other* | 
+| Country/region              |  Satellite Tiles | Minute Forecast, Radar Tiles | Other* | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|  
 | Anguilla                                 | ✓ |   |  ✓| 
 | Antarctica                               | ✓ |   |  ✓|
@@ -90,7 +90,7 @@ The following table provides information about what kind of weather information 
 
 ## Middle East and Africa
 
-| Country/region              |  Satellite Tiles | Minute Forecast | Other* | 
+| Country/region              |  Satellite Tiles | Minute Forecast, Radar Tiles | Other* | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|  
 | Algeria                     | ✓               |                              |        ✓| 
 | Angola                      | ✓               |                              |        ✓| 
@@ -169,7 +169,7 @@ The following table provides information about what kind of weather information 
 
 ## Asia Pacific
 
-| Country/region              |  Satellite Tiles | Minute Forecast | Other* | 
+| Country/region              |  Satellite Tiles | Minute Forecast, Radar Tiles | Other* | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|  
 | Afghanistan                       | ✓ |   |  ✓| 
 | American Samoa                    | ✓ |   |  ✓| 
@@ -237,7 +237,7 @@ The following table provides information about what kind of weather information 
 
 ## Europe
 
-| Country/region              |  Satellite Tiles | Minute Forecast | Other* | 
+| Country/region              |  Satellite Tiles | Minute Forecast, Radar Tiles | Other* | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|
 | Albania                | ✓ |   |  ✓| 
 | Andorra                | ✓ |   |  ✓| 
