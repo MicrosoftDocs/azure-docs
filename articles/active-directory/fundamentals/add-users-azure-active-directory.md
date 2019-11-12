@@ -56,7 +56,7 @@ The user is created and added to your Azure AD organization.
 
 ## Add a new guest user
 
-You can also invite new guest user to collaborate with your organization by simply choosing Invite user from the new user page. If your organization's external collaboration settings are configured such that you're allowed to invite guests, the user will be emailed an invitation they can accept in order to begin collaborating. For more information about inviting B2B users, see [Invite B2B users to Azure Active Directory](../b2b/add-users-administrator.md)
+You can also invite new guest user to collaborate with your organization by selecting **Invite user** from the **New user** page. If your organization's external collaboration settings are configured such that you're allowed to invite guests, the user will be emailed an invitation they must accept in order to begin collaborating. For more information about inviting B2B collaboration users, see [Invite B2B users to Azure Active Directory](../b2b/add-users-administrator.md)
 
 ## Add a consumer user
 
