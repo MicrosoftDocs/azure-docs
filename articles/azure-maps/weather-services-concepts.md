@@ -17,7 +17,7 @@ This article introduces concepts that apply to the [Azure Maps Weather Services]
 
 ## Radar and satellite imagery color scale
 
-The latest radar and infrared satellite images can be requested via the [Get Map Tile API](https://aka.ms/AzureMapsWeatherTiles). The table below helps interpret colors used for the radar and satellite tiles.
+Via [Get Map Tile API](https://aka.ms/AzureMapsWeatherTiles) users can request latest radar and infrared satellite images. Please see below guide to help interpret colors used for radar and satellite tiles.
 
 ### Radar Images
 
@@ -112,11 +112,11 @@ Detailed color palette for radar tiles with Hex color codes and dBZ values is sh
 
 ### Satellite Images
 
-The table below provides guidance to interpret the infrared satellite images and create a map legend for Satellite tiles.
+The table below provides guidance to interpret the infrared satellite images showing clouds by their temperature and how to create a map legend for these tiles. 
 
-| Hex color code | Color sample | Weather condition |
+| Hex color code | Color sample | Cloud Temprature |
 |----------------|--------------|-------------------|
-| #b5b5b5        | ![](./media/weather-services-concepts/color-b5b5b5.png) | Clouds-Low | 
+| #b5b5b5        | ![](./media/weather-services-concepts/color-b5b5b5.png) | Temprature-Low | 
 | #d24fa0        | ![](./media/weather-services-concepts/color-d24fa0.png) | Clouds |
 | #8a32d7        | ![](./media/weather-services-concepts/color-8a32d7.png) | Clouds |
 | #144bed        | ![](./media/weather-services-concepts/color-144bed.png) | Clouds |
@@ -127,7 +127,7 @@ The table below provides guidance to interpret the infrared satellite images and
 | #f05514        | ![](./media/weather-services-concepts/color-f05514.png) | Clouds |
 | #dc250e        | ![](./media/weather-services-concepts/color-dc250e.png) | Clouds |
 | #ba0808        | ![](./media/weather-services-concepts/color-ba0808.png) | Clouds |
-| #1f1f1f        | ![](./media/weather-services-concepts/color-1f1f1f.png) | Clouds-High |
+| #1f1f1f        | ![](./media/weather-services-concepts/color-1f1f1f.png) | Temprature-High |
 
 
 Detailed color palette for infrared satellite tiles is shown below.
