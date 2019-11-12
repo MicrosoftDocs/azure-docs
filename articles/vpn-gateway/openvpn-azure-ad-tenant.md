@@ -2,17 +2,21 @@
 title: 'Create an Azure Active Directory tenant for P2S VPN connections: Azure AD authentication| Microsoft Docs'
 description: You can use P2S VPN to connect to your VNet using Azure AD authentication
 services: vpn-gateway
-author: cherylmc
+author: anzaman
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/08/2019
-ms.author: cherylmc
+ms.date: 11/07/2019
+ms.author: alzam
 
 ---
-# Create an Azure Active Directory tenant for P2S Open VPN connections that use Azure AD authentication
+# Create an Azure Active Directory tenant for P2S OpenVPN protocol connections
 
 When connecting to your VNet, you can use certificate-based authentication or RADIUS authentication. However, when you use the Open VPN protocol, you can also use Azure Active Directory authentication. This article helps you set up an Azure AD tenant for P2S Open VPN authentication.
+
+> [!NOTE]
+> Azure AD authentication is supported only for OpenVPN® protocol connections.
+>
 
 ## <a name="tenant"></a>1. Create the Azure AD tenant
 

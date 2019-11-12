@@ -85,8 +85,10 @@
     href: https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/
 - name: Resources
   items:
+  - name: Release Notes
+    href: https://github.com/Azure/azure-spatial-anchors-samples/releases
   - name: Azure Mixed Reality Resource Management REST API
-    href: https://docs.microsoft.com/en-us/rest/api/mixedreality/
+    href: https://docs.microsoft.com/rest/api/mixedreality/
   - name: FAQ
     href: spatial-anchor-faq.md
   - name: Provide Product Feedback

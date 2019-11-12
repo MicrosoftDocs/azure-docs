@@ -162,7 +162,7 @@ To attach Azure Databricks as a compute target, provide the following informatio
 
 * __Databricks compute name__: The name you want to assign to this compute resource.
 * __Databricks workspace name__: The name of the Azure Databricks workspace.
-* __Databricks access token__: The access token used to authenticate to Azure Databricks. To generate an access token, see the [Authentication](https://docs.azuredatabricks.net/api/latest/authentication.html) document.
+* __Databricks access token__: The access token used to authenticate to Azure Databricks. To generate an access token, see the [Authentication](https://docs.azuredatabricks.net/dev-tools/api/latest/authentication.html) document.
 
 The following code demonstrates how to attach Azure Databricks as a compute target with the Azure Machine Learning SDK:
 
@@ -407,14 +407,14 @@ response = requests.post(published_pipeline1.endpoint,
 ### View results of a published pipeline
 
 See the list of all your published pipelines and their run details:
-1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
+1. Sign in to [Azure Machine Learning](https://ml.azure.com).
 
 1. [View your workspace](how-to-manage-workspace.md#view) to find the list of pipelines.
  ![list of machine learning pipelines](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. Select a specific pipeline to see the run results.
 
-These results are also available in your workspace in [Azure Machine Learning studio]](https://ml.azure.com).
+These results are also available in your workspace in [Azure Machine Learning](https://ml.azure.com).
 
 ### Disable a published pipeline
 

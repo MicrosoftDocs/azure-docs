@@ -90,7 +90,7 @@ The examples also include error codes to help debug or improve failing tests.
 > [!NOTE]
 > * The user principal that created the Azure Digital Twins resource will have a Space Administrator role assignment and will be able to create additional role assignments for other users. Such users and their roles can be authorized to call the APIs.
 
-1. Follow the steps in [this quickstart](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) or [Register your Azure Digital Twins app with Azure Active Directory legacy](./how-to-use-legacy-aad.md) to create and configure an Azure AD application. Alternatively, you can reuse an existing app registration.
+1. Follow the steps in [this quickstart](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) to create and configure an Azure AD application. Alternatively, you can reuse an existing app registration.
 
 1. Add the following reply url to the app registration:
 

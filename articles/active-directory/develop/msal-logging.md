@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/05/2019
+ms.date: 10/31/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
@@ -114,14 +114,15 @@ To disable logging personal data and organization data:
 Logger.getInstance().setEnablePII(false);
 ```
 
-By default logging to logcat is disabled. To enable: 
+By default logging to logcat is disabled. To enable:
+
 ```java
 Logger.getInstance().setEnableLogcatLog(true);
 ```
 
 ## Logging in MSAL.js
 
- Enable logging in MSAL.js by passing a logger object during the configuration for creating a `UserAgentApplication` instance. This logger object has the following properties:
+ Enable logging in MSAL.js (Javascript) by passing a logger object during the configuration for creating a `UserAgentApplication` instance. This logger object has the following properties:
 
 - `localCallback`: a Callback instance that can be provided by the developer to consume and publish logs in a custom manner. Implement the localCallback method depending on how you want to redirect logs.
 - `level` (optional): the configurable log level. The supported log levels are: `Error`, `Warning`, `Info`, and `Verbose`. The default is `Info`.
@@ -199,9 +200,9 @@ MSALGlobalConfig.loggerConfig.setLogCallback { (level, message, containsPII) in
 }
 ```
 
-### Personal Identifiable Information (PII)
+### Personal data
 
-By default, MSAL doesn't capture or log any PII. The library allows app developers to turn this on through a property in the MSALLogger class. By turning on PII, the app takes responsibility for safely handling highly sensitive data and following regulatory requirements.
+By default, MSAL doesn't capture or log any personal data (PII). The library allows app developers to turn this on through a property in the MSALLogger class. By turning on `pii.Enabled`, the app takes responsibility for safely handling highly sensitive data and following regulatory requirements.
 
 Objective-C
 ```objc
@@ -235,7 +236,7 @@ To set the logging level when you log using MSAL for iOS and macOS, use one of t
 | `MSALLogLevelError` | Default level, prints out information only when errors occur |
 | `MSALLogLevelWarning` | Warnings |
 | `MSALLogLevelInfo` |  Library entry points, with parameters and various keychain operations |
-|`MSALLogLevelVerbose`     |  API tracing       |
+|`MSALLogLevelVerbose`     |  API tracing |
 
 For example:
 
@@ -258,3 +259,51 @@ For example:
 `TID = 551563 MSAL 0.2.0 iOS Sim 12.0 [2018-09-24 00:36:38 - 36764181-EF53-4E4E-B3E5-16FE362CFC44] acquireToken returning with error: (MSALErrorDomain, -42400) User cancelled the authorization session.`
 
 Providing correlation IDs and timestamps are helpful for tracking down issues. Timestamp and correlation ID information is available in the log message. The only reliable place to retrieve them is from MSAL logging messages.
+
+## Logging in MSAL for Java
+
+MSAL for Java (MSAL4J) allows you to use the logging library that you are already using with your app, as long as it is compatible with SLF4J. MSAL4j uses the [Simple Logging Facade for Java](http://www.slf4j.org/) (SLF4J) as a simple facade or abstraction for various logging frameworks, such as [java.util.logging](https://docs.oracle.com/javase/7/docs/api/java/util/logging/package-summary.html), [Logback](http://logback.qos.ch/) and [Log4j](https://logging.apache.org/log4j/2.x/). SLF4J allows the end-user to plug in the desired logging framework at deployment time.
+
+For example, to use Logback as the logging framework in your application, add the Logback dependency to the Maven pom file for your application:
+
+```xml
+<dependency>
+    <groupId>ch.qos.logback</groupId>
+    <artifactId>logback-classic</artifactId>
+    <version>1.2.3</version>
+</dependency>
+```
+
+Then add the Logback configuration file:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+
+</configuration>
+```
+
+SLF4J automatically binds to Logback at deployment time. MSAL logs will be written to the console.
+
+For instructions on how to bind to other logging frameworks, see the [SLF4J manual](http://www.slf4j.org/manual.html).
+
+### Personal and organization information
+
+By default, MSAL logging does not capture or log any personal or organizational data. In the following example, logging personal or organizational data is off by default:
+
+```java
+    PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
+            .authority(AUTHORITY)
+            .build();
+```
+
+Turn on personal and organizational data logging by setting `logPii()` on the client application builder. If you turn on personal or organizational data logging, your app must take responsibility for safely handling highly-sensitive data and complying with any regulatory requirements.
+
+In the following example, logging personal or organizational data is enabled:
+
+```java
+PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
+        .authority(AUTHORITY)
+        .logPii(true)
+        .build();
+```

@@ -1,5 +1,5 @@
 ---
-title: Enable automatic tuning for Azure SQL Database 
+title: Enable automatic tuning
 description: You can enable automatic tuning on your Azure SQL Database easily.
 services: sql-database
 ms.service: sql-database

@@ -42,7 +42,7 @@ Multiple projects can be associated to a single resource. More detail about [Pri
 
 ## Find your limited trial project information
 
-To move your project, you will need the _project ID_ and _training key_ for the project you are trying to migrate. If you do not have this information, visit [https://limitedtrial.customvision.ai/projects](https://limitedtrial.customvision.ai/projects) to obtain the ID and key for each of your projects. 
+To move your project, you will need the _project ID_ and _training key_ for the project you are trying to migrate. If you do not have this information, visit [https://www.customvision.ai/projects](https://www.customvision.ai/projects) to obtain the ID and key for each of your projects. 
 
 ## Use the Python sample code to copy your project to Azure
 

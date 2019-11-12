@@ -9,7 +9,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: development
-ms.date: 10/17/2019
+ms.date: 11/06/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
@@ -25,14 +25,8 @@ Visual Studio **2019** SQL Server Data Tools (SSDT) is a single tool allowing yo
 - Integrate your database project with source control systems such as Git with Azure Repos
 - Set up continuous integration and deployment pipelines with automation servers such as Azure DevOps
 
-> [!NOTE]
-> Currently Visual Studio SSDT Database Projects is in preview. To receive periodic updates on this feature, please vote on [UserVoice].
-
-## Install Visual Studio 2019 Preview
+## Install Visual Studio 2019
 See [Download Visual Studio 2019][] to download and install Visual Studio **16.3 and above**. During install, select the data storage and processing workload. Standalone SSDT installation is no longer required in Visual Studio 2019.
-
-## Reporting issues with SSDT Visual Studio 2019 (preview)
-To report issues when using SSDT with SQL Data Warehouse, email the following email distribution list: <sqldwssdtpreview@service.microsoft.com>
 
 ## Next steps
 Now that you have the latest version of SSDT, you're ready to [connect][connect] to your SQL Data Warehouse.

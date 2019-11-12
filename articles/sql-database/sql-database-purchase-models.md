@@ -1,5 +1,5 @@
 ---
-title: 'Azure SQL Database purchasing models '
+title: Purchasing models
 description: Learn about the purchasing models that are available for Azure SQL Database.  
 services: sql-database
 ms.service: sql-database

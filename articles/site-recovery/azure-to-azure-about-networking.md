@@ -1,5 +1,5 @@
 ---
-title: About networking in Azure to Azure disaster recovery using Azure Site Recovery  | Microsoft Docs
+title: About networking in Azure VM disaster recovery with Azure Site Recovery 
 description: Provides an overview of networking for replication of Azure VMs using Azure Site Recovery.
 services: site-recovery
 author: sujayt
@@ -10,7 +10,7 @@ ms.date: 10/22/2019
 ms.author: sutalasi
 
 ---
-# About networking in Azure to Azure replication
+# About networking in Azure VM disaster recovery
 
 
 
@@ -57,7 +57,7 @@ If you are using an IP-based firewall proxy, or NSG rules to control outbound co
     - Allow these addresses so that data can be written to the cache storage account, from the VM.
 - Create a [Azure Active Directory (AAD) service tag](../virtual-network/security-overview.md#service-tags) based NSG rule for allowing access to all IP addresses corresponding to AAD
     - If new addresses are added to the Azure Active Directory (AAD) in the future, you need to create new NSG rules.
-- Site Recovery service endpoint IP addresses - available in an [XML file](https://aka.ms/site-recovery-public-ips) and depend on your target location. It is recommended to allow access to the tag **"AzureSiteRecovery"** for Site Recovery service access.
+- Site Recovery service endpoint IP addresses - available in an [XML file](https://aka.ms/site-recovery-public-ips) and depend on your target location. 
 - We recommend that you create the required NSG rules on a test NSG, and verify that there are no problems before you create the rules on a production NSG.
 
 
@@ -121,9 +121,6 @@ This example shows how to configure NSG rules for a VM to replicate.
 
 - If you're using NSG rules to control outbound connectivity, use "Allow HTTPS outbound" rules to port:443 for all the required IP address ranges.
 - The example presumes that the VM source location is "East US" and the target location is "Central US".
-
-> [!NOTE]
-> It is recommended to use **AzureSiteRecovery tag** instead of IP addresses to allow access to **Site Recovery service**.
 
 ### NSG rules - East US
 
