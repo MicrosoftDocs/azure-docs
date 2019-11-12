@@ -5,7 +5,7 @@ ms.service: terraform
 author: tomarchermsft
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/26/2019
+ms.date: 11/07/2019
 ---
 
 # Tutorial: Create Azure virtual machine scale set from a Packer custom image using Terraform
@@ -450,4 +450,4 @@ Type `yes` when asked to confirm for the deletion of the resources. The destruct
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Terraform on Azure](/azure/ansible/)
+> [Learn more about using Terraform in Azure](/azure/terraform)

@@ -40,12 +40,15 @@
       href: get-started-get-model-rest-apis.md
 - name: Tutorials
   items:
-  - name: Build app
+  - name: Build decomposable app
     items:
-    - name: Determine user intentions
+    - name: 1. Determine user intentions
       href: tutorial-intents-only.md
-    - name: Identify common user data with prebuilt models
-      href: luis-tutorial-prebuilt-intents-entities.md
+    - name: 2. Extract user data
+      href: tutorial-machine-learned-entity.md
+      displayName: n-depth, constraint, descriptor, phrase list, entity
+  - name: Build app
+    items: 
     - name: Get sentiment from user utterances
       href: luis-quickstart-intent-and-sentiment-analysis.md
     - name: Get well-formatted data with regular expressions
@@ -164,9 +167,7 @@
     items:
     - name: Add an intent
       href: luis-how-to-add-intents.md
-    - name: Add entity to utterance 
-      href: luis-how-to-add-example-utterances.md
-    - name: Add entity without utterance
+    - name: Add an entity to extract data
       href: luis-how-to-add-entities.md
       displayName: roles, import
     - name: Use prebuilt models
@@ -304,6 +305,8 @@
     displayName: Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web
   - name: Custom entity reference
     items: 
+    - name: Machine-learned entity
+      href: reference-entity-machine-learned-entity.md
     - name: Composite entity
       href: reference-entity-composite.md
     - name: List entity
@@ -314,6 +317,8 @@
       href: reference-entity-regular-expression.md
     - name: Simple entity
       href: reference-entity-simple.md
+  - name: Pattern syntax
+    href: reference-pattern-syntax.md
   - name: Sentiment 
     href: luis-reference-prebuilt-sentiment.md
   - name: Developer resources

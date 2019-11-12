@@ -56,7 +56,7 @@ This template includes sample water consumption device template, simulated devic
     * **URL**: IoT Central will autogenerate a URL for you based on the application name. You can choose to update the URL to your liking. You can change the URL later too. 
     * If you have an Azure subscription, enter your *Directory, Azure subscription, and Region*. If you don't have a subscription, you can enable **7-day free trial** and complete the required contact information.  
 
-    For more information about directories and subscriptions, see the [create an application quickstart](../core/quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+    For more information about directories and subscriptions, see the [create an application quickstart](../preview/quick-deploy-iot-central.md).
 
 5. Click **Create** button at the bottom of the page. 
 

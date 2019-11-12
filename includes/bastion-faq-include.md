@@ -46,3 +46,8 @@ For more information, see the [pricing page](https://aka.ms/BastionHostPricing).
 ### <a name="session"></a>Why do I get "Your session has expired" error message before the Bastion session starts?
 
 A session should be initiated only from the Azure portal. Sign in to the Azure portal and begin your session again. If you go to the URL directly from another browser session or tab, this error is expected. It helps ensure that your session is more secure and that the session can be accessed only through the Azure portal.
+
+### <a name="keyboard"></a>What keyboard layouts are supported during the Bastion remote session?
+
+Azure Bastion currently supports en-us-qwerty keyboard layout inside the VM.  Support for other locales for keyboard layout is work in progress.
+
