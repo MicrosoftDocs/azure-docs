@@ -1,6 +1,6 @@
 ---
 title: Azure resource not found errors | Microsoft Docs
-description: Describes how to resolve errors when a resource cannot be found.
+description: Describes how to resolve errors when a resource cannot be found when deploying with an Azure Resource Manager template.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: troubleshooting

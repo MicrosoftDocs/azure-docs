@@ -27,6 +27,10 @@
   items:
   - name: Labeled data
     href: labeled-data.md
+- name: Tutorials
+  items:
+  - name: Use Form Recognizer with Logic Apps
+    href: tutorial-form-recognizer-with-logic-apps.md
 - name: How-to guides
   items:
   - name: Build a training data set

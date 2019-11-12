@@ -1,5 +1,5 @@
 ---
-title: Manage and monitor SQL Server databases on an Azure VM with Azure Backup
+title: Manage and monitor SQL Server DBs on an Azure VM - Azure Backup
 description: This article describes how to manage and monitor SQL Server databases that are running on an Azure VM.
 author: dcurwin
 manager: carmonm
@@ -7,9 +7,8 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: dacurwin
-
-
 ---
+
 # Manage and monitor backed up SQL Server databases
 
 This article describes common tasks for managing and monitoring SQL Server databases that are running on an Azure virtual machine (VM) and that are backed up to an Azure Backup Recovery Services vault by the [Azure Backup](backup-overview.md) service. You'll learn how to monitor jobs and alerts, stop and resume database protection, run backup jobs, and unregister a VM from backups.
@@ -27,7 +26,6 @@ Azure Backup shows all manually triggered jobs in the **Backup jobs** portal. Th
 >
 
 For details on Monitoring scenarios, go to [Monitoring in the Azure portal](backup-azure-monitoring-built-in-monitor.md) and [Monitoring using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).  
-
 
 ## View backup alerts
 
@@ -53,14 +51,14 @@ To monitor database backup alerts:
 
 You can stop backing up a SQL Server database in a couple of ways:
 
-* Stop all future backup jobs, and delete all recovery points.
-* Stop all future backup jobs, and leave the recovery points intact.
+- Stop all future backup jobs, and delete all recovery points.
+- Stop all future backup jobs, and leave the recovery points intact.
 
 If you choose to leave recovery points, keep these details in mind:
 
-* All recovery points will remain intact forever, all pruning shall stop at stop protection with retain data.
-* You will be charged for the protected instance and the consumed storage. For more information, see [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/).
-* If you delete a data source without stopping backups, new backups will fail.
+- All recovery points will remain intact forever, all pruning shall stop at stop protection with retain data.
+- You will be charged for the protected instance and the consumed storage. For more information, see [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/).
+- If you delete a data source without stopping backups, new backups will fail.
 
 To stop protection for a database:
 
@@ -78,22 +76,20 @@ To stop protection for a database:
 
     ![Select Stop backup](./media/backup-azure-sql-database/stop-db-button.png)
 
-
 5. On the **Stop Backup** menu, select whether to retain or delete data. If you want, provide a reason and comment.
 
     ![Retain or delete data on the Stop Backup menu](./media/backup-azure-sql-database/stop-backup-button.png)
 
 6. Select **Stop backup**.
 
-
 > [!NOTE]
 >
 >For more information about the delete data option, see the FAQ below:
->* [If I delete a database from an autoprotected instance, what will happen to the backups?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
->* [If I do stop backup operation of an autoprotected database what will be its behavior?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
+>
+>- [If I delete a database from an autoprotected instance, what will happen to the backups?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
+>- [If I do stop backup operation of an autoprotected database what will be its behavior?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
 >
 >
-
 
 ## Resume protection for a SQL database
 
@@ -111,12 +107,13 @@ To resume protection for a SQL database:
 
 You can run different types of on-demand backups:
 
-* Full backup
-* Copy-only full backup
-* Differential backup
-* Log backup
+- Full backup
+- Copy-only full backup
+- Differential backup
+- Log backup
 
-While you need to specify the retention duration for Copy-only full backup, the retention range for ad-hoc full backup will automatically be set to 45 days from current time. <br/>
+While you need to specify the retention duration for Copy-only full backup, the retention range for ad-hoc full backup will automatically be set to 45 days from current time.
+
 For more information, see [SQL Server backup types](backup-architecture.md#sql-server-backup-types).
 
 ## Unregister a SQL Server instance
@@ -137,8 +134,8 @@ Unregister a SQL Server instance after you disable protection but before you del
 
    ![Select Delete](./media/backup-azure-sql-database/delete-protected-server.jpg)
 
-
 ## Modify policy
+
 Modify policy to change backup frequency or retention range.
 
 > [!NOTE]
@@ -150,22 +147,21 @@ In the vault dashboard, go to **Manage** > **Backup Policies** and choose the po
 
   ![Modify backup policy](./media/backup-azure-sql-database/modify-backup-policy-impact.png)
 
-Policy modification will impact all the associated Backup Items and trigger corresponding **configure protection** jobs. 
+Policy modification will impact all the associated Backup Items and trigger corresponding **configure protection** jobs.
 
-#### Inconsistent Policy 
+### Inconsistent Policy
 
 Sometimes, a modify policy operation can lead to an **inconsistent** policy version for some backup items. This happens when the corresponding **configure protection** job fails for the backup item after a modify policy operation is triggered. It appears as follows in the backup item view:
- 
+
   ![Inconsistent policy](./media/backup-azure-sql-database/inconsistent-policy.png)
 
 You can fix the policy version for all the impacted items in one click:
 
   ![Fix inconsistent policy](./media/backup-azure-sql-database/fix-inconsistent-policy.png)
- 
 
 ## Re-register extension on the SQL Server VM
 
-Sometimes, the workload extension on the VM may get impacted for one reason or the other. In such cases, all the operations triggered on the VM will begin to fail. You may then need to re-register the extension on the VM. **Re-register** operation reinstalls the workload backup extension on the VM for operations to continue.  <br>
+Sometimes, the workload extension on the VM may get impacted for one reason or the other. In such cases, all the operations triggered on the VM will begin to fail. You may then need to re-register the extension on the VM. **Re-register** operation reinstalls the workload backup extension on the VM for operations to continue.
 
 Use this option with caution; when triggered on a VM with an already healthy extension, this operation will cause the extension to get restarted. This may result in all the in-progress jobs to fail. Kindly check for one or more of the [symptoms](backup-sql-server-azure-troubleshoot.md#re-registration-failures) before triggering the re-register operation.
 

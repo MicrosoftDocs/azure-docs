@@ -87,7 +87,7 @@ After a few moments, the new setting appears in your list of settings for this r
 
 
 ## Create diagnostic settings using PowerShell
-Use the [Set-AzDiagnosticSetting](https://docs.microsoft.com/en-us/powershell/module/az.monitor/set-azdiagnosticsetting) cmdlet to create a diagnostic setting with [Azure PowerShell](powershell-quickstart-samples.md). See the documentation for this cmdlet for descriptions of its parameters.
+Use the [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) cmdlet to create a diagnostic setting with [Azure PowerShell](powershell-quickstart-samples.md). See the documentation for this cmdlet for descriptions of its parameters.
 
 Following is an example PowerShell cmdlet to create a diagnostic setting using all three destinations.
 

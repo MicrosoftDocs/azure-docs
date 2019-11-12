@@ -21,7 +21,7 @@ This article shows how the Azure portal guides you through creating a deployment
 ## Prerequisites
 
 * An [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in your Azure subscription.
-* An [IoT Edge device](how-to-register-device-portal.md) with the IoT Edge runtime installed.
+* An [IoT Edge device](how-to-register-device.md#register-in-the-azure-portal) with the IoT Edge runtime installed.
 
 ## Select your device
 

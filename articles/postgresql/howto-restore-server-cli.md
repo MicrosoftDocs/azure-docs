@@ -6,12 +6,11 @@ ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 10/25/2019
 ---
 
 # How to back up and restore a server in Azure Database for PostgreSQL - Single Server using the Azure CLI
 
-## Backup happens automatically
 Azure Database for PostgreSQL servers are backed up periodically to enable Restore features. Using this feature you may restore the server and all its databases to an earlier point-in-time, on a new server.
 
 ## Prerequisites
@@ -75,9 +74,9 @@ When you restore a server to an earlier point in time, a new server is created. 
 
 The location and pricing tier values for the restored server remain the same as the original server. 
 
-After the restore process finishes, locate the new server and verify that the data is restored as expected.
+After the restore process finishes, locate the new server and verify that the data is restored as expected. The new server has the same server admin login name and password that was valid for the existing server at the time the restore was initiated. The password can be changed from the new server's **Overview** page.
 
-The new server created during a restore does not have the firewall rules that existed on the original server. Firewall rules need to be set up separately for this new server.
+The new server created during a restore does not have the firewall rules or VNet service endpoints that existed on the original server. These rules need to be set up separately for this new server.
 
 ## Geo restore
 If you configured your server for geographically redundant backups, a new server can be created from the backup of that existing server. This new server can be created in any region that Azure Database for PostgreSQL is available.  
@@ -112,14 +111,13 @@ The `az postgres server georestore` command requires the following parameters:
 |location | eastus | The location of the new server. |
 |sku-name| GP_Gen4_8 | This parameter sets the pricing tier, compute generation, and number of vCores of the new server. GP_Gen4_8 maps to a General Purpose, Gen 4 server with 8 vCores.|
 
+When creating a new server by a geo restore, it inherits the same storage size and pricing tier as the source server. These values cannot be changed during creation. After the new server is created, its storage size can be scaled up.
 
->[!Important]
->When creating a new server by a geo restore, it inherits the same storage size and pricing tier as the source server. These values cannot be changed during creation. After the new server is created, its storage size can be scaled up.
+After the restore process finishes, locate the new server and verify that the data is restored as expected. The new server has the same server admin login name and password that was valid for the existing server at the time the restore was initiated. The password can be changed from the new server's **Overview** page.
 
-After the restore process finishes, locate the new server and verify that the data is restored as expected.
-
-The new server created during a restore does not have the firewall rules that existed on the original server. Firewall rules need to be set up separately for this new server.
+The new server created during a restore does not have the firewall rules or VNet service endpoints that existed on the original server. These rules need to be set up separately for this new server.
 
 ## Next steps
-- Learn more about the service's [backups](concepts-backup.md).
-- Learn more about [business continuity](concepts-business-continuity.md) options.
+- Learn more about the service's [backups](concepts-backup.md)
+- Learn about [replicas](concepts-read-replicas.md)
+- Learn more about [business continuity](concepts-business-continuity.md) options

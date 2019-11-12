@@ -1,5 +1,5 @@
 ---
-title: Create and deploy an Azure Resource Manager template by using the IntelliJ IDEA | Microsoft Docs
+title: Deploy Azure Resource Manager template - IntelliJ IDEA
 description: Learn how to create your first Azure Resource Manager template using the IntelliJ IDEA, and how to deploy it.
 services: azure-resource-manager
 documentationcenter: ''

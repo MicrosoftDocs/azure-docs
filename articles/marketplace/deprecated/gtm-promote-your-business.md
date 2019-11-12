@@ -9,6 +9,7 @@ author: qianw211
 
 
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 
 
 

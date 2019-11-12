@@ -31,6 +31,7 @@ There are several ways to create a virtual machine (VM) in Azure:
 
 Don't use a specialized disk if you want to create multiple VMs. Instead, for larger deployments, [create an image](capture-image-resource.md) and then [use that image to create multiple VMs](create-vm-generalized-managed.md).
 
+We recommend that you limit the number of concurrent deployments to 20 VMs from a single snapshot or VHD. 
 
 ## Copy a disk
 
@@ -71,6 +72,7 @@ After you have the managed disk VHD that you want to use, you can create the VM 
 10. On the **Guest config** page, add any extensions as needed.
 11. When you're done, select **Review + create**. 
 12. If the VM configuration passes validation, select **Create** to start the deployment.
+
 
 ## Next steps
 

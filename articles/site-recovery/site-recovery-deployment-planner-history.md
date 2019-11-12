@@ -6,12 +6,20 @@ author: Daya-Patil
 manager: carmonm
 ms.topic: article
 ms.service: site-recovery
-ms.date: 07/29/2019
+ms.date: 10/16/2019
 ms.author: dapatil
 ---
 # Azure Site Recovery Deployment Planner Version History
 
 This article provides history of all versions of Azure Site Recovery Deployment Planner along with the fixes, known limitations in each and their release dates.
+
+## Version 2.51
+
+**Release Date: August 22, 2019**
+
+**Fixes:**
+
+- Fixed the cost recommendation issue with Deployment Planner version 2.5
 
 ## Version 2.5
 

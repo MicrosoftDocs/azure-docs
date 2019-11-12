@@ -298,7 +298,7 @@ following articles to learn about the architecture and how to deploy this sample
 > [ISO 27001 Shared Services blueprint - Overview](./index.md)
 > [ISO 27001 Shared Services blueprint - Deploy steps](./deploy.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).

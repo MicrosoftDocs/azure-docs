@@ -25,7 +25,9 @@ If your subscription expires, you lose access to all the other resources associa
 All of your users have a single *home* directory for authentication. However, your users can also be guests in other directories. You can see both the home and guest directories for each user in Azure AD.
 
 > [!Important]
-> When you associate a subscription to a different directory, users that have roles assigned using [role-based access control (RBAC)](../../role-based-access-control/role-assignments-portal.md) will lose their access. Classic subscription administrators (Service Administrator and Co-Administrators) will also lose access.
+> When you associate a subscription to a different directory, users that have roles assigned using [role-based access control (RBAC)](../../role-based-access-control/role-assignments-portal.md) will lose their access. Classic subscription administrators (Service Administrator and Co-Administrators) will also lose access. 
+>
+> Policy Assignments are also removed from a subscription when the subscription is associated with a different directory.
 > 
 > Additionally, moving your Azure Kubernetes Service (AKS) cluster to a different subscription, or moving the cluster-owning subscription to a new tenant, causes the cluster to lose functionality due to lost role assignments and service principals rights. For more information about AKS, see [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/).
 

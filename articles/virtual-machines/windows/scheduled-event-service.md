@@ -160,7 +160,7 @@ Once the events are pushed to Log Analytics, you can run the following [query](/
 1. Under **Actions**, select **Create action group**. The **Add action group** page will open.
 1. In **Action group name**, type *myActionGroup*.
 1. In **Short name**, type **myActionGroup**.
-1. In **Resource group**, select *myResourceGroupAvailability**.
+1. In **Resource group**, select **myResourceGroupAvailability**.
 1. Under Actions, in **ACTION NAME** type **Email**, and then select **Email/SMS/Push/Voice**. The **Email/SMS/Push/Voice** page will open.
 1. Select **Email**, type in your e-mail address, then select **OK**.
 1. In the **Add action group** page, select **OK**. 

@@ -125,7 +125,7 @@ If you'd like to switch the default payment method to check/wire transfer, learn
 1. Select an existing card or add a new one.
 
 ## Troubleshooting
-If you are getting errors when adding or updating your credit card, try opening your browser in private mode.
+We do not support virtual or prepaid cards. If you are getting errors when adding or updating a valid credit card, try opening your browser in private mode.
 
 ## Frequently asked questions
 The following sections answer commonly asked questions about changing your credit card information.

@@ -28,8 +28,6 @@ To create a copy of your existing Linux VM for backup or debugging, or to upload
 
 You can use the **Azure VM Image Builder (Public Preview)** service to build your custom image, no need to learn any tools, or setup build pipelines, simply providing an image configuration, and the Image Builder will create the Image. For more information, see [Getting Started with Azure VM Image Builder](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
 
-Additonally, use **Packer** to create your custom configuration. For more information, see [How to use Packer to create Linux virtual machine images in Azure](build-image-with-packer.md).
-
 You'll need the following items before creating an image:
 
 * An Azure VM created in the Resource Manager deployment model that uses managed disks. If you haven't yet created a Linux VM, you can use the [portal](quick-create-portal.md), the [Azure CLI](quick-create-cli.md), or [Resource Manager templates](create-ssh-secured-vm-from-template.md). Configure the VM as needed. For example, [add data disks](add-disk.md), apply updates, and install applications. 
