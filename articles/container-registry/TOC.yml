@@ -152,6 +152,7 @@
     - name: Build, push, and run image - CLI
       href: container-registry-quickstart-task-cli.md
   - name: Tutorials
+    expanded: false
     items:
     - name: Automate container image builds
       items:
