@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.date: 11/07/2019
 ---
 
-# Tutorial: Create Azure virtual machine scale set from a Packer custom image by using Terraform
+# Tutorial: Create an Azure VM scale set from a Packer custom image by using Terraform
 
 In this tutorial, you use [Terraform](https://www.terraform.io/) to create and deploy an [Azure virtual machine scale set](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview) created with a custom image produced by using [Packer](https://www.packer.io/intro/index.html) with managed disks that use the [HashiCorp Configuration Language](https://www.terraform.io/docs/configuration/syntax.html) (HCL). 
 
