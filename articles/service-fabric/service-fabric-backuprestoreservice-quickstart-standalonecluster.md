@@ -1,5 +1,5 @@
 ---
-title: Periodic backup and restore in Azure Service Fabric | Microsoft Docs
+title: Periodic backup/restore in standalone Azure Service Fabric
 description: Use Service Fabric's periodic backup and restore feature for enabling periodic data backup of your application data.
 services: service-fabric
 documentationcenter: .net
