@@ -59,11 +59,13 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## View health of an AKS or non-AKS cluster
 
-Access to the Azure Monitor for containers Health feature is available directly from an AKS cluster by selecting **Insights** from the left pane in the Azure portal. Under the **Insights** section, select **Containers**. From the **Cluster** page, select **Health**.
+Access to the Azure Monitor for containers Health feature is available directly from an AKS cluster by selecting **Insights** from the left pane in the Azure portal. Under the **Insights** section, select **Containers**. 
+
+To view health from a non-AKS cluster, that is an AKS Engine cluster hosted on-premises or on Azure Stack, select **Azure Monitor** from the left pane in the Azure portal. Under the **Insights** section, select **Containers**.  On the multi-cluster page, select the non-AKS cluster from the list.
+
+In Azure Monitor for containers, from the **Cluster** page select **Health**.
 
 ![Cluster health dashboard example](./media/container-insights-health/health-view-01.png)
-
-To view health from a non-AKS cluster, that is an AKS Engine cluster hosted on-premises or on Azure Stack, select **Azure Monitor** from the left pane in the Azure portal. Under the **Insights** section, select **Containers**.  On the multi-cluster page, select the non-AKS cluster from the list to drill-down and view health for that specific cluster.  
 
 ## Review cluster health
 
