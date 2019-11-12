@@ -5,6 +5,7 @@ author: JnHs
 manager: evansma
 ms.author: jenhayes 
 ms.service: marketplace 
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---
@@ -26,7 +27,7 @@ Select the **+ New offer** button, then select the **Dynamics 365 for Customer E
 
 ### Offer ID and alias
 
-- **Offer ID**: Unique identifier for each offer in your account. This ID will be visible to customers in the URL address for the marketplace offer and Azure Resource Manager templates (if applicable). Offer ID must be lowercase alphanumeric characters (including hyphens and underscores, but no whitespace). This is limited to 50 characters and can’t be changed after you select **Create**.  For example, if you enter *test-offer-1* here, the offer URL will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- **Offer ID**: Unique identifier for each offer in your account. This ID will be visible to customers in the URL address for the marketplace offer and Azure Resource Manager templates (if applicable). Offer ID must be lowercase alphanumeric characters (including hyphens and underscores, but no whitespace). This is limited to 50 characters and can't be changed after you select **Create**.  For example, if you enter *test-offer-1* here, the offer URL will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 
 - **Offer alias**: The name used to refer to the offer within the Partner Center. This name won't be used in the marketplace, and is different than the offer name and other values that will be shown to customers. This value can't be changed after you select **Create**.
 
@@ -53,7 +54,7 @@ List your offer to customers with a link to a free trial by providing a valid UR
 
 #### Contact me
 
-Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you’ve configured. For more information about configuring your CRM, see [Connect lead management](#connect-lead-management). 
+Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you've configured. For more information about configuring your CRM, see [Connect lead management](#connect-lead-management). 
 
 ### Test drive
 
@@ -96,7 +97,7 @@ Select a minimum of one and a maximum of three categories. These will be used to
 
 ### Industry
 
-You can optionally select up to two industries to help categorize your offer in the marketplace. If your offer is not specific to an industry, leave this section blank. Be sure to call out how your offer supports the selected industries in the offer description. 
+[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
 ### Applicable Dynamics 365 products
 
@@ -127,7 +128,7 @@ The Offer listing page displays the languages in which your offer will be listed
 You will need to define marketplace details (offer name, description, images, etc.) for each language/market. Select the language/market name to provide this info.
 
 > [!NOTE]
-> Offer listing content (such as the description, documents, screenshots, terms of use, etc.) is not required to be in English, as long as the offer description begins with the phrase, "This application is available only in [non-English language].” It is also acceptable to provide a *Useful Link URL* to offer content in a language other than the one used in the Offer listing content.
+> Offer listing content (such as the description, documents, screenshots, terms of use, etc.) is not required to be in English, as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Useful Link URL* to offer content in a language other than the one used in the Offer listing content.
 
 ### Name
 
@@ -214,7 +215,7 @@ The **Availability** page gives you options about where and how to make your off
 
 This section lets you specify the markets in which your offer should be available. To do so, select **Edit markets.** This will display the **Market selection** popup window.
 
-By default, no markets are selected, but you must select at least one market in order to publish your offer. Click  **Select all** to make your offer available in every possible market, or select the specific markets that you want to add. Once you’ve finished, select **Save**.
+By default, no markets are selected, but you must select at least one market in order to publish your offer. Click  **Select all** to make your offer available in every possible market, or select the specific markets that you want to add. Once you've finished, select **Save**.
 
 Note that your selections here apply only to new acquisitions; if someone already has your app in a certain market, and you later remove that market, the people who already have the offer in that market can continue to use it, but no new customers in that market will be able to get your offer.
 
@@ -366,9 +367,9 @@ Once you have completed all the required sections of the offer, select **publish
 If this is your first time publishing this offer, you can:
 
 - See the completion status for each section of the offer.
-    - *Not started* – means the section has not been touched and needs to be completed.
-    - *Incomplete* – means the section has errors that need to be fixed or requires more information to be provided. Please go back to the section(s) and update it.
-    - *Complete* – means the section is complete, all required data has been provided and there are no errors. All sections of the offer must be in a complete state before you can submit the offer.
+    - *Not started* - means the section has not been touched and needs to be completed.
+    - *Incomplete* - means the section has errors that need to be fixed or requires more information to be provided. Please go back to the section(s) and update it.
+    - *Complete* - means the section is complete, all required data has been provided and there are no errors. All sections of the offer must be in a complete state before you can submit the offer.
 - In the **Notes for certification** section, provide testing instructions to the certification team to ensure that your app is tested correctly, in addition to any supplementary notes helpful for understanding your app.
 - Submit the offer for publishing by selecting **Submit**. We will send you an email to let you know when a preview version of the offer is available for you to review and approve. You must return to Partner Center and select **Go-live** for the offer to publish your offer to the public (or if a private offer, to the private audience).
 

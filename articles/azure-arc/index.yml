@@ -1,0 +1,35 @@
+### YamlMime:Landing
+title: Azure Arc
+summary: Azure Arc extends Azure Resource Manager capabilities to Linux and Windows servers, as well as Kubernetes clusters on any infrastructure across on-premises, multi-cloud, and edge. With Azure Arc, customers can also run Azure data services anywhere, realizing the benefits of cloud innovation, including always up-to-date data capabilities, deployment in seconds (rather than hours), and dynamic scalability on any infrastructure. Azure Arc for servers is currently in public preview.
+
+metadata:
+  title: Azure Arc for servers
+  description: Learn about how to manage on-premises machines in Azure
+  author: bobbytreed
+  manager: carmonm
+  ms.service: azure-arc
+  ms.topic: landing-page
+  ms.date: 11/04/2019
+  ms.author: robreed
+
+landingContent:
+  
+  - title: Azure Arc overview
+    linkLists:
+     - linkListType: overview
+       links:
+          - text: Learn more about Azure Arc
+            url: https://aka.ms/Azure-Arc-Info
+  
+  - title: Connect machines to Azure using Azure Arc for servers
+    linkLists: 
+      - linkListType: overview
+        links:
+          - text: What is Azure Arc for servers?
+            url: ./servers/overview.md 
+      - linkListType: quickstart
+        links:
+          - text: Connect machines to Azure using Azure Arc for servers - Portal
+            url: ./servers/quickstart-onboard-portal.md
+          - text: Connect machines to Azure using Azure Arc for servers - PowerShell
+            url: ./servers/quickstart-onboard-portal.md

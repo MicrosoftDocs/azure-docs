@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
@@ -38,7 +38,7 @@ The protocol diagrams below describe the single sign-on sequence for both a serv
 
 1. In the Azure portal, select **Azure Active Directory > Enterprise applications** and select **New application**.
 
-2. Under **Add your own app**, select **Non-gallery application**.
+2. In the **On-premises applications** section, select **Add an on-premises application**.
 
 3. Enter the display name for your new application, and then select **Add**.
 

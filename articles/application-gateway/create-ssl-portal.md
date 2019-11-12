@@ -57,7 +57,7 @@ Use [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclie
 > Do not use any special characters in your .pfx file password. Only alphanumeric characters are supported.
 
 ```powershell
-$pwd = ConvertTo-SecureString -String "Azure123456!" -Force -AsPlainText
+$pwd = ConvertTo-SecureString -String "Azure123456" -Force -AsPlainText
 Export-PfxCertificate `
   -cert cert:\localMachine\my\E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630 `
   -FilePath c:\appgwcert.pfx `
@@ -145,7 +145,7 @@ On the **Configuration** tab, you'll connect the frontend and backend pool you c
 
    - **PFX certificate file** - Browse to and select the c:\appgwcert.pfx file that you create earlier.
    - **Certificate name** - Type *mycert1* for the name of the certificate.
-   - **Password** - Type *Azure123456!* for the password.
+   - **Password** - Type *Azure123456* for the password.
   
         Accept the default values for the other settings on the **Listener** tab, then select the **Backend targets** tab to configure the rest of the routing rule.
 
@@ -189,7 +189,7 @@ To do this, you'll:
     - **Resource group**: Select **myResourceGroupAG** for the resource group name.
     - **Virtual machine name**: Enter *myVM* for the name of the virtual machine.
     - **Username**: Enter *azureuser* for the administrator user name.
-    - **Password**: Enter *Azure123456!* for the administrator password.
+    - **Password**: Enter *Azure123456* for the administrator password.
 4. Accept the other defaults and then select **Next: Disks**.  
 5. Accept the **Disks** tab defaults and then select **Next: Networking**.
 6. On the **Networking** tab, verify that **myVNet** is selected for the **Virtual network** and the **Subnet** is set to **myBackendSubnet**. Accept the other defaults and then select **Next: Management**.

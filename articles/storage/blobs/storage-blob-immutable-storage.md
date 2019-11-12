@@ -104,7 +104,7 @@ Immutable storage is available only for General Purpose v2 and Blob Storage Acco
 
 The most recent releases of the [Azure portal](https://portal.azure.com), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), and [Azure PowerShell](https://github.com/Azure/azure-powershell/releases) support immutable storage for Azure Blob storage. [Client library support](#client-libraries) is also provided.
 
-### Azure portal
+### [Portal](#tab/azure-portal)
 
 1. Create a new container or select an existing container to store the blobs that need to be kept in the immutable state.
  The container must be in a GPv2 or blob storage account.
@@ -140,12 +140,12 @@ The most recent releases of the [Azure portal](https://portal.azure.com), [Azure
 
 9. To clear a legal hold, simply remove the applied legal hold identifier tag.
 
-### Azure CLI
+### [Azure CLI](#tab/azure-cli)
 
 The feature is included in the following command groups:
 `az storage container immutability-policy`  and `az storage container legal-hold`. Run `-h` on them to see the commands.
 
-### PowerShell
+### [PowerShell](#tab/azure-powershell)
 
 The Az.Storage module supports immutable storage.  To enable the feature, follow these steps:
 
@@ -154,6 +154,8 @@ The Az.Storage module supports immutable storage.  To enable the feature, follow
 3. Install Azure PowerShell: `Install-Module Az –Repository PSGallery –AllowClobber`.
 
 The [Sample PowerShell code](#sample-powershell-code) section later in this article illustrates the feature usage.
+
+---
 
 ## Client libraries
 

@@ -11,7 +11,7 @@ ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/22/2019
+ms.date: 11/05/2019
 ms.author: juliako
 ---
 
@@ -90,11 +90,12 @@ Clone a GitHub repository that contains the  Postman collection and environment 
 In this section, we send requests that are relevant to encoding and creating URLs so you can stream your file. Specifically, the following requests are sent:
 
 1. Get Azure AD Token for Service Principal Authentication
+1. Start a Streaming Endpoint
 2. Create an output asset
-3. Create a **Transform**
-4. Create a **Job**
-5. Create a **Streaming Locator**
-6. List paths of the **Streaming Locator**
+3. Create a Transform
+4. Create a Job
+5. Create a Streaming Locator
+6. List paths of the Streaming Locator
 
 > [!Note]
 >  This tutorial assumes you are creating all resources with unique names.  
@@ -114,6 +115,33 @@ In this section, we send requests that are relevant to encoding and creating URL
 4. The response comes back with the token and sets the "AccessToken" environment variable to the token value. To see the code that sets "AccessToken" , click on the **Tests** tab. 
 
     ![Get AAD token](./media/develop-with-postman/postman-get-aad-auth-token.png)
+
+
+### Start a Streaming Endpoint
+
+To enable streaming, you first have to start the [Streaming Endpoint](https://docs.microsoft.com/azure/media-services/latest/streaming-endpoint-concept) from which you want to stream the video.
+
+> [!NOTE]
+> You are only billed when your Streaming Endpoint is in the running state.
+
+1. In the left window of the Postman app, select "Streaming and Live".
+2. Then, select "Start StreamingEndpoint".
+3. Press **Send**.
+
+    * The following **POST** operation is sent:
+
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/streamingEndpoints/:streamingEndpointName/start?api-version={{api-version}}
+        ```
+    * If the request is successful, the `Status: 202 Accepted` is returned.
+
+        This status means that the request has been accepted for processing; however, the processing has not been completed. You can query for the operation status based on the value in the `Azure-AsyncOperation` response header.
+
+        For example, the following GET operation returns the status of your operation:
+        
+        `https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/<resourceGroupName>/providers/Microsoft.Media/mediaservices/<accountName>/streamingendpointoperations/1be71957-4edc-4f3c-a29d-5c2777136a2e?api-version=2018-07-01`
+
+        The [track asynchronous Azure operations](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) article explains in depth how to track the status of asynchronous Azure operations through values returned in the response.
 
 ### Create an output asset
 
@@ -226,34 +254,36 @@ See [Error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcod
 
 ### Create a streaming locator
 
-After the encoding job is complete, the next step is to make the video in the output **Asset** available to clients for playback. You can accomplish this in two steps: first, create a [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators), and second, build the streaming URLs that clients can use. 
+After the encoding job is complete, the next step is to make the video in the output **Asset** available to clients for playback. You can accomplish this in two steps: first, create a [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), and second, build the streaming URLs that clients can use. 
 
-The process of creating a **Streaming Locator** is called publishing. By default, the **Streaming Locator** is valid immediately after you make the API calls, and lasts until it is deleted, unless you configure the optional start and end times. 
+The process of creating a streaming locator is called publishing. By default, the streaming locator is valid immediately after you make the API calls, and lasts until it is deleted, unless you configure the optional start and end times. 
 
-When creating a [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators), you need to specify the desired **StreamingPolicyName**. In this example, you will be streaming in-the-clear (or non-encrypted) content, so the predefined clear streaming policy "Predefined_ClearStreamingOnly" is used.
+When creating a [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), you need to specify the desired **StreamingPolicyName**. In this example, you will be streaming in-the-clear (or non-encrypted) content, so the predefined clear streaming policy "Predefined_ClearStreamingOnly" is used.
 
 > [!IMPORTANT]
 > When using a custom [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies), you should design a limited set of such policies for your Media Service account, and re-use them for your StreamingLocators whenever the same encryption options and protocols are needed. 
 
-Your Media Service account has a quota for the number of **Streaming Policy** entries. You should not be creating a new **Streaming Policy** for each **Streaming Locator**.
+Your Media Service account has a quota for the number of **Streaming Policy** entries. You should not be creating a new **Streaming Policy** for each streaming locator.
 
-1. In the left window of the Postman app, select "Streaming Policies".
-2. Then, select "Create a Streaming Locator".
+1. In the left window of the Postman app, select "Streaming Policies and Locators".
+2. Then, select "Create a Streaming Locator (clear)".
 3. Press **Send**.
 
     * The following **PUT** operation is sent.
 
         ```
-        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName?api-version={{api-version}}
         ```
     * The operation has the following body:
 
         ```json
         {
-            "properties":{
-            "assetName": "{{assetName}}",
-            "streamingPolicyName": "{{streamingPolicyName}}"
-            }
+          "properties": {
+            "streamingPolicyName": "Predefined_ClearStreamingOnly",
+            "assetName": "testAsset1",
+            "contentKeys": [],
+            "filters": []
+         }
         }
         ```
 

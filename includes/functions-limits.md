@@ -21,7 +21,7 @@ ms.author: glenga
 | [App Service plans](../articles/app-service/overview-hosting-plans.md) | 100 per [region](https://azure.microsoft.com/global-infrastructure/regions/) |100 per resource group |100 per resource group |
 | Storage<sup>6</sup> |1 GB |250 GB |50-1000 GB |
 | Custom domains per app</a> |500<sup>7</sup> |500 |500 |
-| Custom domain [SSL support](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |unbounded SNI SSL connection included | unbounded SNI SSL and 1 IP SSL connections included |unbounded SNI SSL and 1 IP SSL connections included | 
+| Custom domain [SSL support](../articles/app-service/configure-ssl-bindings.md) |unbounded SNI SSL connection included | unbounded SNI SSL and 1 IP SSL connections included |unbounded SNI SSL and 1 IP SSL connections included | 
 
 <sup>1</sup> For specific limits for the various App Service plan options, see the [App Service plan limits](../articles/azure-subscription-service-limits.md#app-service-limits).  
 <sup>2</sup> By default, the timeout for the Functions 1.x runtime in an App Service plan is unbounded.  

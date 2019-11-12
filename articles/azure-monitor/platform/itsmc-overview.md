@@ -1,18 +1,13 @@
 ---
 title: IT Service Management Connector in Azure Log Analytics | Microsoft Docs
 description: This article provides an overview of IT Service Management Connector (ITSMC) and information about how to use this solution to centrally monitor and manage the ITSM work items in Azure Log Analytics, and resolve any issues quickly.
-services: log-analytics
-documentationcenter: ''
-author: jyothirmaisuri
-manager: riyazp
-editor: ''
-ms.assetid: 0b1414d9-b0a7-4e4e-a652-d3a6ff1118c4
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service:  azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 05/24/2018
+author: JYOTHIRMAISURI
 ms.author: v-jysur
+ms.date: 05/24/2018
+
 ---
 
 # Connect Azure to ITSM tools using IT Service Management Connector
@@ -69,7 +64,7 @@ Before you can create a connection, you need to add the ITSM Connector Solution.
 
 5. Click **Create**.
 
-When the solution resource is deployed, a notification appears at the top right of the window.
+When the solution resource is deployed, a notification appears at the top right- of the window.
 
 
 ## Creating an ITSM  connection

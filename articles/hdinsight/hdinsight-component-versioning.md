@@ -1,6 +1,6 @@
 ---
 title: Apache Hadoop components and versions - Azure HDInsight 
-description: Learn the Apache Hadoop components and versions in HDInsight and the service levels available in this cloud distribution of Hortonworks Data Platform.
+description: Learn the Apache Hadoop components and versions in Azure HDInsight.
 keywords: hadoop versions,hadoop ecosystem components,hadoop components,how to check hadoop version
 author: hrasheed-msft
 ms.author: hrasheed

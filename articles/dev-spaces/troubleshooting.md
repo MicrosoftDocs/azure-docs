@@ -88,6 +88,10 @@ Despite the error message when running `az aks use-dev-spaces` with a version of
 
 To fix this issue, update your installation of the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) to 2.0.63 or later. This update will resolve the error message you receive when running `az aks use-dev-spaces`. Alternatively, you can continue to use your current version of the Azure CLI and the Azure Dev Spaces CLI.
 
+### AKS clusters with API server authorized IP address ranges enabled
+
+If you have [API server authorized IP address ranges](../aks/api-server-authorized-ip-ranges.md) enabled for your AKS cluster, you must also [create](../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled) or [update](../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges) your cluster to [allow additional ranges based on your region](https://github.com/Azure/dev-spaces/tree/master/public-ips).
+
 ## Common issues when preparing your project for Azure Dev Spaces
 
 ### Warning "Dockerfile could not be generated due to unsupported language"
@@ -425,3 +429,17 @@ Below is an example of a proxy-resources annotation that is to be applied to you
 ```
 azds.io/proxy-resources: "{\"Limits\": {\"cpu\": \"300m\",\"memory\": \"400Mi\"},\"Requests\": {\"cpu\": \"150m\",\"memory\": \"200Mi\"}}"
 ```
+
+### Enable Azure Dev Spaces on an existing namespace with running pods
+
+You may have an existing AKS cluster and namespace with running pods where you want to enable Azure Dev Spaces.
+
+To enable Azure Dev Spaces on an existing namespace in an AKS cluster, run `use-dev-spaces` and use `kubectl` to restart all pods in that namespace.
+
+```console
+az aks get-credentials --resource-group MyResourceGroup --name MyAKS
+az aks use-dev-spaces -g MyResourceGroup -n MyAKS --space my-namespace --yes
+kubectl -n my-namespace delete pod --all
+```
+
+After your pods have restarted, you can begin using your existing namespace with Azure Dev Spaces.

@@ -33,7 +33,7 @@ You can stream logs from [Azure AD Identity Protection](https://docs.microsoft.c
 
 ## Connect to Azure AD Identity Protection
 
-If you already have Azure AD Identity Protection, make sure it is [enabled on your network](../active-directory/identity-protection/enable.md).
+If you already have Azure AD Identity Protection, make sure it is [enabled on your network](../active-directory/identity-protection/overview-identity-protection.md).
 If Azure AD Identity Protection is deployed and getting data, the alert data can easily be streamed into Azure Sentinel.
 
 

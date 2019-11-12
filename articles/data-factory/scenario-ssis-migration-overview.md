@@ -1,5 +1,5 @@
 ---
-title: Migrate on-premises SSIS workloads to SSIS in Azure Data Factory | Microsoft Docs
+title: Migrate on-premises SSIS workloads to SSIS in Azure Data Factory 
 description: Migrate on-premises SSIS workloads to SSIS in ADF.
 services: data-factory
 documentationcenter: ''

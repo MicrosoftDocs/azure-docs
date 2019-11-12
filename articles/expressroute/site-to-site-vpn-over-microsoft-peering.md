@@ -21,7 +21,7 @@ This article helps you configure secure encrypted connectivity between your on-p
 >
 >
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 ## <a name="architecture"></a>Architecture
 
@@ -64,7 +64,7 @@ Once you have configured your circuit and Microsoft peering, you can easily view
 
 ## <a name="routefilter"></a>2. Configure route filters
 
-A route filter lets you identify services you want to consume through your ExpressRoute circuit's Microsoft peering. It is essentially a whitelist of all the BGP community values. 
+A route filter lets you identify services you want to consume through your ExpressRoute circuit's Microsoft peering. It is essentially an allow list of all the BGP community values. 
 
 ![route filter](./media/site-to-site-vpn-over-microsoft-peering/route-filter.png)
 
