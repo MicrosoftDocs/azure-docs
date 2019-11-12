@@ -344,7 +344,7 @@
     href: reference-azure-machine-learning-cli.md
   - name: REST API
     href: https://docs.microsoft.com/rest/api/azureml/
-  - name: Designer algorithm & modules reference
+  - name: Designer module reference
     displayName: module, reference, algorithm, studio
     href: ../algorithm-module-reference/module-reference.md
   - name: ML at scale

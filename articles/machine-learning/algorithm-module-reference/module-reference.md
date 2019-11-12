@@ -11,7 +11,7 @@ author: peterclu
 ms.author: peterlu
 ms.date: 11/11/2019
 ---
-# Algorithm & module reference overview
+# Algorithm & module reference
 
 This reference content provides the technical background on each of the machine learning algorithms and modules available in Azure Machine Learning designer (preview).
 
@@ -42,3 +42,7 @@ Modules are organized by functionality:
 | Evaluate Model | Measure the accuracy of the trained model. |  [Evaluate Model](evaluate-model.md) |
 | Score | Get predictions from the model you've just trained. | [Apply Transformation](apply-transformation.md)<br/>[Assign Data to Clusters](assign-data-to-clusters.md) <br/>[Score Model](score-model.md) |
 | Statistical Functions | Provide a wide variety of statistical methods related to data science. | [Apply Math Operation](apply-math-operation.md) <br/> [Summarize Data](summarize-data.md)|
+
+## Error messages
+
+Learn about the [error messages and exception codes](machine-learning-module-error-codes.md)  you might encounter using modules in Azure Machine Learning designer.
