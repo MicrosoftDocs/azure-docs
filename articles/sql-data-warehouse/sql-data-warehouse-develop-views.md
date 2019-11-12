@@ -1,5 +1,5 @@
 ---
-title: Using T-SQL views in Azure SQL Data Warehouse | Microsoft Docs
+title: Using T-SQL views
 description: Tips for using T-SQL views in Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
 author: XiaoyuMSFT 
@@ -10,6 +10,7 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # Views in Azure SQL Data Warehouse
@@ -29,6 +30,14 @@ Views in SQL Data Warehouse are stored as metadata only. Consequently, the follo
 
 Standard views can  be utilized to enforce performance optimized joins between tables. For example, a view can incorporate a redundant distribution key as part of the joining criteria to minimize data movement. Another benefit of a view could be to force a specific query or joining hint. Using views in this manner guarantees that joins are always performed in an optimal fashion avoiding the need for users to remember the correct construct for their joins.
 
+## Materialized view
+A materialized view pre-computes, stores, and maintains its data in Azure SQL Data Warehouse just like a table. There's no recomputation needed each time when a materialized view is used. As the data gets loaded into base tables, Azure SQL Data Warehouse synchronously refreshes the materialized views.  The query optimizer automatically uses deployed materialized views to improve query performance even if the views are not referenced in the query.  Queries benefiting most from materialized views are complex queries (typically queries with joins and aggregations) on large tables that produce small result set.  
+
+For details on the materialized view syntax and other requirements, refer to [CREATE MATERIALIZED VIEW AS SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest).  
+
+For query tuning guidance, check [Performance tuning with materialized views](https://docs.microsoft.com/azure/sql-data-warehouse/performance-tuning-materialized-views). 
+
+## Example
 A common application pattern is to re-create tables using CREATE TABLE AS SELECT (CTAS) followed by an object renaming pattern whilst loading data.  The following example adds new date records to a date dimension. Note how a new table, DimDate_New, is first created and then renamed to replace the original version of the table.
 
 ```sql
@@ -48,11 +57,6 @@ RENAME OBJECT DimDate_New TO DimDate;
 
 ```
 However, this approach can result in tables appearing and disappearing from a user's view as well as "table does not exist" error messages. Views can be used to provide users with a consistent presentation layer whilst the underlying objects are renamed. By providing access to data through views, users do not need visibility to the underlying tables. This layer provides a consistent user experience while ensuring that the data warehouse designers can evolve the data model. Being able to evolve the underlying tables means designers can use CTAS to maximize performance during the data loading process.   
-
-## Materialized view
-A materialized view pre-computes, stores, and maintains its data in Azure SQL Data Warehouse just like a table. There's no recomputation needed each time when a materialized view is used.  Most of the requirements on a standard view still apply to a materialized view. For details on the materialized view syntax and other requirements, refer to [CREATE MATERIALIZED VIEW AS SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest).  
-
-To use materialized views to improve query performance, check [Performance tuning guidance](https://docs.microsoft.com/azure/sql-data-warehouse/performance-tuning-materialized-views). 
 
 ## Next steps
 For more development tips, see [SQL Data Warehouse development overview](sql-data-warehouse-overview-develop.md).

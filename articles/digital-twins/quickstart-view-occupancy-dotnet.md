@@ -1,5 +1,5 @@
 ---
-title: 'Find available rooms - Azure Digital Twins | Microsoft Docs'
+title: 'Quickstart: Find available rooms - Azure Digital Twins'
 description: In this quickstart, you run two .NET Core sample applications to send simulated motion and carbon dioxide telemetry to a space in Azure Digital Twins. The goal is to find available rooms with fresh air from Management APIs after computed processing in the cloud.
 ms.author: alinast
 author: alinamstanciu
@@ -9,7 +9,7 @@ services: digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc seodec18
-ms.date: 10/03/2019
+ms.date: 11/08/2019
 # As a developer new to Azure Digital Twins, I need to see how to send motion and carbon dioxide telemetry to a space in Azure Digital Twins and how to find available rooms with fresh air by using a back-end application. 
 ---
 
@@ -55,6 +55,8 @@ Build the occupancy application by following these steps.
     - **Tenant**: Enter the Directory ID of your Azure AD tenant, also noted in the previous section.
     - **BaseUrl**: The Management API URL of your Digital Twins instance is in the format `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Replace the placeholders in this URL with values for your instance from the previous section.
 
+    Save the updated file.
+
 ## Provision graph
 
 This step provisions your Digital Twins spatial graph with:
@@ -87,14 +89,16 @@ The spatial graph is provisioned by using the [provisionSample.yaml](https://git
     >[!TIP]
     > You can view and modify your spatial graph using the [Azure Digital Twins Graph Viewer](https://github.com/Azure/azure-digital-twins-graph-viewer).
 
+Keep the console window open for use again later.
+
 ## Send sensor data
 
-Build and run the sensor simulator application by following these steps.
+Build and run the sensor simulator device application by following these steps.
 
-1. Open a new command prompt. Go to the project you downloaded in the digital-twins-samples-csharp-master folder.
+1. Open a new command prompt. Go to the project you downloaded in the `digital-twins-samples-csharp-master` folder.
 1. Run `cd device-connectivity`.
 1. Run `dotnet restore`.
-1. Edit [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) to update **DeviceConnectionString** with the previous `ConnectionString`.
+1. Edit [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) to update **DeviceConnectionString** with the previous `ConnectionString`. Save the updated file.
 1. Run `dotnet run` to start sending sensor data. You see it sent to Digital Twins as shown in the following image.
 
      [![Device Connectivity](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png)](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png#lightbox)
@@ -109,17 +113,17 @@ Build and run the sensor simulator application by following these steps.
 
 The sensor sample simulates random data values for two sensors. They're motion and carbon dioxide. Available spaces with fresh air are defined in the sample by no presence in the room. They're also defined by a carbon dioxide level under 1,000 ppm. If the condition isn't fulfilled, the space isn't available or the air quality is poor.
 
-1. Open the command prompt you used to run the previous provisioning step.
+1. Open the command prompt you used to run the provisioning step earlier.
 1. Run `dotnet run GetAvailableAndFreshSpaces`.
 1. Look at this command prompt and the sensor data command prompt side by side.
 
-    One command prompt sends simulated motion and carbon dioxide data to Digital Twins every five seconds. The other command reads the graph in real time to find out available rooms with fresh air based on random simulated data. It displays one of these conditions in near real time based on the sensor data that was sent last:
+    The sensor data command prompt sends simulated motion and carbon dioxide data to Digital Twins every five seconds. The other command prompt reads the graph in real time to find out available rooms with fresh air based on random simulated data. It displays one of these conditions in near real time based on the sensor data that was sent last:
    - Available rooms with fresh air.
    - Occupied or poor air quality of the room.
 
      [![Get available spaces with fresh air](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png)](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png#lightbox)
 
-To understand what happened in this quickstart and what APIs were called, open [Visual Studio Code](https://code.visualstudio.com/Download) with the code workspace project found in digital-twins-samples-csharp. Use the following command:
+To understand what happened in this quickstart and what APIs were called, open [Visual Studio Code](https://code.visualstudio.com/Download) with the code workspace project found in `digital-twins-samples-csharp`. Use the following command:
 
 ```plaintext
 <path>\occupancy-quickstart\src>code ..\..\digital-twins-samples.code-workspace
@@ -134,7 +138,7 @@ https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 | Name | Replace with |
 | --- | --- |
 | YOUR_INSTANCE_NAME | The name of your Digital Twins instance |
-| YOUR_LOCATION | Which server region your instance is hosted on |
+| YOUR_LOCATION | The server region where your instance is hosted |
 
 Or for convenience, browse to [Digital Twins Swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
 
@@ -151,11 +155,11 @@ To continue to the tutorials, don't clean up the resources created in this quick
 1. From the menu on the left in the [Azure portal](https://portal.azure.com), select **All resources**. Then select your Digital Twins resource. At the top of the **All resources** pane, select **Delete**.
 
     > [!TIP]
-    > If you experienced trouble deleting your Digital Twins instance, a service update has been rolled out with the fix. Please retry deleting your instance.
+    > If you previously experienced trouble deleting your Digital Twins instance, a service update has been rolled out with the fix. Please retry deleting your instance.
 
 ## Next steps
 
-This quickstart used a simple scenario to show how to find rooms with good working conditions. For in-depth analysis of this scenario, see this tutorial:
+This quickstart used a simple scenario and sample applications to show how Digital Twins can be used to find rooms with good working conditions. For in-depth analysis of this scenario, see this tutorial:
 
 >[!div class="nextstepaction"]
 >[Tutorial: Deploy Azure Digital Twins and configure a spatial graph](tutorial-facilities-setup.md)

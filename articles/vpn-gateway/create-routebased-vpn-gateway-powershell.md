@@ -75,7 +75,7 @@ Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0
 Set the subnet configuration for the virtual network using the [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork) cmdlet.
 
 ```azurepowershell-interactive
-$virtualNetwork | Set-AzVirtualNetwork
+$vnet | Set-AzVirtualNetwork
 ```
 
 ## <a name="PublicIP"></a>Request a public IP address

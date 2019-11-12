@@ -1,5 +1,5 @@
 ---
-title: Transform data by using Databricks in Azure Data Factory | Microsoft Docs
+title: Transform data by using Databricks in Azure Data Factory 
 description:  Learn how to use a solution template to transform data by using a Databricks notebook in Azure Data Factory.
 services: data-factory
 documentationcenter: ''

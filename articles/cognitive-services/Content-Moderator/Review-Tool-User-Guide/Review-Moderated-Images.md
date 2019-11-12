@@ -53,4 +53,4 @@ Text reviews function similarly to image reviews. Instead of uploading content, 
 
 ## Next steps
 
-In this guide, you learned how to set up and use reviews from the Content Moderator [Review tool](https://contentmoderator.cognitive.microsoft.com). Next, see the [REST API guide](../try-review-api-review.md) or the [.NET SDK guide](../moderation-reviews-quickstart-dotnet.md) to learn how to create reviews programmatically.
+In this guide, you learned how to set up and use reviews from the Content Moderator [Review tool](https://contentmoderator.cognitive.microsoft.com). Next, see the [REST API guide](../try-review-api-review.md) or the [.NET SDK quickstart](../dotnet-sdk-quickstart.md) to learn how to create reviews programmatically.

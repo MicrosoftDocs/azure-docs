@@ -36,7 +36,6 @@ Choose to [start using Azure as the DR target for VMs on Hyper-V hosts](hyper-v-
   > [!IMPORTANT]
   > Please note that your on-premises environment can still have SCVMMM, but you'll configure ASR with references to only the Hyper-V hosts.
 
-
 ## Remediation steps
 
 If you are choosing to go with Option 1, please execute the following steps:

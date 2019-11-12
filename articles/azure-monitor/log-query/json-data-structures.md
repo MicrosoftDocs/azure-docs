@@ -1,20 +1,14 @@
 ---
 title: Working with strings in Azure Monitor log queries | Microsoft Docs
 description: This article provides a tutorial for using Azure Monitor Log Analytics in the Azure portal to query and analyze log data in Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: 
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service:  azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
----
+ms.date: 08/16/2018
 
+---
 
 # Working with JSON and data Structures in Azure Monitor log queries
 

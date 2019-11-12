@@ -1,18 +1,13 @@
 ---
 title: Connect Windows computers to Azure Monitor | Microsoft Docs
 description: This article describes how to connect Windows computers hosted in other clouds or on-premises to Azure Monitor with the Log Analytics agent for Windows.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service:  azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 10/07/2019
+author: MGoedtel
 ms.author: magoedte
+ms.date: 10/07/2019
+
 ---
 
 # Connect Windows computers to Azure Monitor

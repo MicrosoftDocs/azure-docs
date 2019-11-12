@@ -24,9 +24,9 @@ Before you can back up (or protect) a virtual machine, you must complete the [pr
 
 ## Before you start
 
-- [Learn more](backup-azure-recovery-services-vault-overview.md) about Recovery Services vaults.
-- [Review](backup-architecture.md#architecture-direct-backup-of-azure-vms) the architecture for Azure VM backup, [learn about](backup-azure-vms-introduction.md) the backup process, and [review](backup-support-matrix-iaas.md) support, limitations, and prerequisites.
-- Review the PowerShell object hierarchy for Recovery Services.
+* [Learn more](backup-azure-recovery-services-vault-overview.md) about Recovery Services vaults.
+* [Review](backup-architecture.md#architecture-direct-backup-of-azure-vms) the architecture for Azure VM backup, [learn about](backup-azure-vms-introduction.md) the backup process, and [review](backup-support-matrix-iaas.md) support, limitations, and prerequisites.
+* Review the PowerShell object hierarchy for Recovery Services.
 
 ## Recovery Services object hierarchy
 
@@ -79,7 +79,6 @@ To begin:
 
     In the command output, the **RegistrationState** should change to **Registered**. If not, just run the **[Register-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/register-azresourceprovider)** cmdlet again.
 
-
 ## Create a Recovery Services vault
 
 The following steps lead you through creating a Recovery Services vault. A Recovery Services vault is different than a Backup vault.
@@ -89,11 +88,13 @@ The following steps lead you through creating a Recovery Services vault. A Recov
     ```powershell
     New-AzResourceGroup -Name "test-rg" -Location "West US"
     ```
+
 2. Use the [New-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/new-azrecoveryservicesvault?view=azps-1.4.0) cmdlet to create the Recovery Services vault. Be sure to specify the same location for the vault as was used for the resource group.
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
     ```
+
 3. Specify the type of storage redundancy to use; you can use [Locally Redundant Storage (LRS)](../storage/common/storage-redundancy-lrs.md) or [Geo Redundant Storage (GRS)](../storage/common/storage-redundancy-grs.md). The following example shows the -BackupStorageRedundancy option for testvault is set to GeoRedundant.
 
     ```powershell
@@ -126,7 +127,6 @@ SubscriptionId    : 1234-567f-8910-abc
 Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
 
-
 ## Back up Azure VMs
 
 Use a Recovery Services vault to protect your virtual machines. Before you apply the protection, set the vault context (the type of data protected in the vault), and verify the protection policy. The protection policy is the schedule when the backup jobs run, and how long each backup snapshot is retained.
@@ -147,6 +147,7 @@ We plan on deprecating the vault context setting in accordance with Azure PowerS
 $targetVault = Get-AzRecoveryServicesVault -ResourceGroupName "Contoso-docs-rg" -Name "testvault"
 $targetVault.ID
 ```
+
 Or
 
 ```powershell
@@ -189,10 +190,10 @@ DefaultPolicy        AzureVM            AzureVM              4/14/2016 5:00:00 P
 
 A backup protection policy is associated with at least one retention policy. A retention policy defines how long a recovery point is kept before it is deleted.
 
-- Use [Get-AzRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject) to view the default retention policy.
-- Similarly you can use [Get-AzRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject) to obtain the default schedule policy.
-- The [New-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy) cmdlet creates a PowerShell object that holds backup policy information.
-- The schedule and retention policy objects are used as inputs to the New-AzRecoveryServicesBackupProtectionPolicy cmdlet.
+* Use [Get-AzRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject) to view the default retention policy.
+* Similarly you can use [Get-AzRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject) to obtain the default schedule policy.
+* The [New-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy) cmdlet creates a PowerShell object that holds backup policy information.
+* The schedule and retention policy objects are used as inputs to the New-AzRecoveryServicesBackupProtectionPolicy cmdlet.
 
 By default, a start time is defined in the Schedule Policy Object. Use the following example to change the start time to the desired start time. The desired start time should be in UTC as well. The below example assumes the desired start time is 01:00 AM UTC for daily backups.
 
@@ -469,7 +470,6 @@ Provide an additional parameter **TargetResourceGroupName** to specify the RG to
 >
 >
 
-
 ```powershell
 $restorejob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks" -VaultId $targetVault.ID
 ```
@@ -503,10 +503,9 @@ Once you restore the disks, go to the next section to create the VM.
 
 To replace the disks and configuration information, perform the below steps:
 
-- Step 1: [Restore the disks](backup-azure-vms-automation.md#restore-the-disks)
-- Step 2: [Detach data disk using PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk#detach-a-data-disk-using-powershell)
-- Step 3: [Attach data disk to Windows VM with PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps)
-
+* Step 1: [Restore the disks](backup-azure-vms-automation.md#restore-the-disks)
+* Step 2: [Detach data disk using PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk#detach-a-data-disk-using-powershell)
+* Step 3: [Attach data disk to Windows VM with PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps)
 
 ## Create a VM from restored disks
 
@@ -643,6 +642,7 @@ The following section lists steps necessary to create a VM using "VMConfig" file
       $osBlob.ICloudBlob.Metadata["DiskEncryptionSettings"] = $encSetting
       $osBlob.ICloudBlob.SetMetadata()
       ```
+
    After the **key/secrets are available** and the encryption details are set on the OS Blob, attach the disks using the script given below.
 
     If the source keyVault/key/secrets are available, then the above script need not be executed.
@@ -743,9 +743,9 @@ The following section lists steps necessary to create a VM using "VMConfig" file
       ```powershell  
       Set-AzVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -SkipVmBackup -VolumeType "All"
       ```
+
 > [!NOTE]
 > Ensure to manually delete the JASON files created as part of encrypted VM restore disk process.
-
 
 ## Restore files from an Azure VM backup
 
