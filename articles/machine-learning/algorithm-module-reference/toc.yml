@@ -1,10 +1,7 @@
 - name: Azure Machine Learning designer module reference
-  href: module-reference.md
-- name: Azure Machine Learning documentation
-  href: ../index.yml
-- name: Module categories
-  expanded: true
   items:
+  - name: Overview
+    href: module-reference.md
   - name: Data input and output
     items:
     - name: Import Data
