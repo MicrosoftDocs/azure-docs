@@ -19,9 +19,9 @@ For details on the changes that Connected Services makes in your project to enab
 ## Prerequisites
 
 - **An Azure subscription**. If you don't have a subscription, sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
-- **Visual Studio 2019 version 16.3 Preview 1** or later, or **Visual Studio 2017 version 15.7** with the **Web Development** workload installed. [Download it now](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- **Visual Studio 2019 version 16.3** or later, or **Visual Studio 2017 version 15.7** with the **Web Development** workload installed. [Download it now](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 - For ASP.NET (not Core) with Visual Studio 2017, you need the .NET Framework 4.7.1 or later Development Tools, which are not installed by default. To install them, launch the Visual Studio Installer, choose **Modify**, and then choose **Individual Components**, then on the right-hand side, expand **ASP.NET and web development**, and choose **.NET Framework 4.7.1 Development Tools**.
-- An ASP.NET 4.7.1 or later, or ASP.NET Core 2.0 web project open.
+- An ASP.NET 4.7.1 or later, or ASP.NET Core 2.0 or later web project open. With Visual Studio 2019, you need an ASP.NET Core web project; adding a key vault connected service to an ASP.NET project is not supported in Visual Studio 2019.
 
 ## Add Key Vault support to your project
 
@@ -60,19 +60,12 @@ Now, you can access your secrets in code. The next steps are different depending
 ## Access your secrets in code
 
 1. In Solution Explorer, right-click on your project, and select **Manage NuGet Packages**. In the **Browse** tab, locate and install these two NuGet packages:
-   [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) and [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
+   [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) and for .NET Core 2, add [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) or for .NET Core 3, add[Microsoft.Azure.KeyVault.Core](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core).
 
-1. Select the `Program.cs` tab and replace the Program class with the following code:
+1. For .NET Core 2, select the `Program.cs` tab and change the `BuildWebHost` definition in the Program class to the following:
 
    ```csharp
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            BuildWebHost(args).Run();
-        }
-
-        public static IWebHost BuildWebHost(string[] args) =>
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
            WebHost.CreateDefaultBuilder(args)
                .ConfigureAppConfiguration((ctx, builder) =>
                {
@@ -87,24 +80,53 @@ Now, you can access your secrets in code. The next steps are different depending
                            keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
                    }
                }
-            ).UseStartup<Startup>()
-             .Build();
+            ).UseStartup<Startup>();
 
         private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
     }
    ```
 
-1. Next open `About.cshtml.cs` file and write the following code:
+   For .NET Core 3, use the following code.
+
+   ```csharp
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration((context, config) =>
+                {
+                    var keyVaultEndpoint = GetKeyVaultEndpoint();
+                    if (!string.IsNullOrEmpty(keyVaultEndpoint))
+                    {
+                        var azureServiceTokenProvider = new AzureServiceTokenProvider();
+                        var keyVaultClient = new KeyVaultClient(
+                            new KeyVaultClient.AuthenticationCallback(
+                                azureServiceTokenProvider.KeyVaultTokenCallback));
+                        config.AddAzureKeyVault(keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
+                    }
+                })
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                });
+        private static string GetKeyVaultEndpoint() => "https://WebApplication4-3-kv.vault.azure.net";
+    ```
+
+1. Next open one of the page files, such as *Index.cshtml.cs* and write the following code:
    1. Include a reference to `Microsoft.Extensions.Configuration` by this using statement:
 
        ```csharp
-       using Microsoft.Extensions.Configuration
+       using Microsoft.Extensions.Configuration;
        ```
 
-   1. Add this constructor:
+   1. Add the configuration variable.
+
+      ```csharp
+      private static readonly IConfiguration _configuration;
+      ```
+
+   1. Add this constructor or replace the existing constructor with this:
 
        ```csharp
-       public AboutModel(IConfiguration configuration)
+       public IndexModel(IConfiguration configuration)
        {
            _configuration = configuration;
        }
@@ -115,12 +137,17 @@ Now, you can access your secrets in code. The next steps are different depending
        ```csharp
        public void OnGet()
        {
-           //Message = "Your application description page.";
-           Message = "My key val = " + _configuration["<YourSecretNameThatWasCreatedAbove>"];
+           ViewData["Message"] = "My key val = " + _configuration["<YourSecretNameThatWasCreatedAbove>"];
        }
        ```
 
-Run the app locally by browsing to the About page. You should see your secret value retrieved.
+   1. To confirm the value at runtime, add code to display `ViewData["Message"]` to the *.cshtml* file to display the secret in a message.
+
+      ```cshtml
+          <p>@ViewData["Message"]</p>
+      ```
+
+You can run the app locally to verify that the secret is obtained successfully from the key vault.
 
 ## Clean up resources
 
