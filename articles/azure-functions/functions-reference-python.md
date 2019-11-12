@@ -383,11 +383,13 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 For local development, application settings are [maintained in the local.settings.json file](functions-run-local.md#local-settings-file).  
 
-## Python version and package management
+## Python version 
 
 Currently, Azure Functions supports both Python 3.6.x and 3.7.x (official CPython distributions). When running locally, the runtime uses the available Python version. To request a specific Python version when you create your function app in Azure, use the `--runtime-version` option of the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command.  
 
-When developing locally using the Azure Functions Core Tools or Visual Studio Code, add the names and versions of the required packages to the `requirements.txt` file and install them using `pip`.
+## Package management
+
+When developing locally using the Azure Functions Core Tools or Visual Studio Code, add the names and versions of the required packages to the `requirements.txt` file and install them using `pip`. 
 
 For example, the following requirements file and pip command can be used to install the `requests` package from PyPI.
 
@@ -403,21 +405,34 @@ pip install -r requirements.txt
 
 When you're ready to publish, make sure that all your dependencies are listed in the *requirements.txt* file, which is located at the root of your project directory. Azure Functions can [remotely build](functions-deployment-technologies.md#remote-build) these dependencies.
 
-Project files and folders that are excluded from publishing, including the virtual environment folder, are listed in the .funcignore file. 
+Project files and folders that are excluded from publishing, including the virtual environment folder, are listed in the .funcignore file.
 
-Both the [Azure Functions Core Tools](functions-run-local.md#v2) and the [Azure Functions Extension for VS Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) will perform a remote build by default. For example, use the following command:
+### Publish with remote build
+
+By default, the Azure Functions Core Tools requests a remote build when you use the following [func azure functionapp publish](functions-run-local.md#publish) command to publish your Python project to Azure. 
 
 ```bash
 func azure functionapp publish <app name>
 ```
 
-If you wish to build your app locally instead of in Azure, [install Docker](https://docs.docker.com/install/) on your local machine and run the following command to publish using the [Azure Functions Core Tools](functions-run-local.md#v2) (func). Remember to replace `<app name>` with the name of your function app in Azure. 
+The [Azure Functions Extension for Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) also requests a remote build by default.
 
-```bash
-func azure functionapp publish <app name> --build-native-deps
+### Publish with local build
+
+If you choose to build your Python project locally instead of in Azure, run the following command to install the dependencies locally:
+
+```command
+pip install  --target="/.python_packages/lib/python3.6/site-packages"  -r requirements.txt
 ```
 
-Underneath the covers, Core Tools will use docker to run the [mcr.microsoft.com/azure-functions/python](https://hub.docker.com/r/microsoft/azure-functions/) image as a container on your local machine. Using this environment, it will then build and install the required modules from source distribution, before packaging them up for final deployment to Azure.
+With the dependencies installed, you can use the following [func azure functionapp publish](functions-run-local.md#publish) command to publish with a local build. 
+
+```bash
+func azure functionapp publish <app name> --build local
+```
+Remember to replace `<app name>` with the name of your function app in Azure. 
+
+If your project has native OS dependencies, you should use `--build-native-deps` instead of `--build local`. When you specify `--build-native-deps`, Core Tools uses docker to run the [mcr.microsoft.com/azure-functions/python](https://hub.docker.com/r/microsoft/azure-functions/) image as a container on your local machine. Using this environment, it builds and installs the required modules from source distribution, before packaging them up for final deployment to Azure. You must [install Docker](https://docs.docker.com/install/) on your local machine when using `--build-native-deps`.
 
 To build your dependencies and publish using a continuous delivery (CD) system, [use Azure Pipelines](functions-how-to-azure-devops.md). 
 
@@ -429,7 +444,7 @@ For example, following is a mock test of an HTTP triggered function:
 
 ```json
 {
-  "scriptFile": "httpfunc.py",
+  "scriptFile": "__init__.py",
   "entryPoint": "my_function",
   "bindings": [
     {
@@ -452,7 +467,7 @@ For example, following is a mock test of an HTTP triggered function:
 ```
 
 ```python
-# __app__/httpfunc.py
+# __app__/HttpTrigger/__init__.py
 import azure.functions as func
 import logging
 
@@ -478,11 +493,11 @@ def my_function(req: func.HttpRequest) -> func.HttpResponse:
 ```
 
 ```python
-# tests/test_httpfunc.py
+# tests/test_httptrigger.py
 import unittest
 
 import azure.functions as func
-from __app__.httpfunc import my_function
+from __app__.HttpTrigger import my_function
 
 class TestFunction(unittest.TestCase):
     def test_my_function(self):
@@ -505,17 +520,32 @@ class TestFunction(unittest.TestCase):
 
 Here is another example, with a queue triggered function:
 
-```python
-# __app__/__init__.py
-import azure.functions as func
+```json
+{
+  "scriptFile": "__init__.py",
+  "entryPoint": "my_function",
+  "bindings": [
+    {
+      "name": "msg",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "python-queue-items",
+      "connection": "AzureWebJobsStorage"
+    }
+  ]
+}
+```
 
+```python
+# __app__/QueueTrigger/__init__.py
+import azure.functions as func
 
 def my_function(msg: func.QueueMessage) -> str:
     return f'msg body: {msg.get_body().decode()}'
 ```
 
 ```python
-# tests/test_func.py
+# tests/test_queuetrigger.py
 import unittest
 
 import azure.functions as func
