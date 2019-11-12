@@ -672,7 +672,7 @@ public static MyPoco TableOutput(
 
 For a complete example, see [Output - C# example](#output---example).
 
-You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see [Input - attributes](#input---attributes).
+You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see [Input - attributes](#input---attributes-and-annotations).
 
 # [C# Script](#tab/csharp-script)
 
