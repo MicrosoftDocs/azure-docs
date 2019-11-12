@@ -82,7 +82,7 @@ You can change the default behavior of a function by optionally specifying the `
 
 ## Folder structure
 
-The folder structure for a Python Functions project looks like the following example:
+The recommended folder structure for a Python Functions project looks like the following example:
 
 ```
  __app__
@@ -100,8 +100,7 @@ The folder structure for a Python Functions project looks like the following exa
  | - requirements.txt
  tests
 ```
-
-The main project folder can contain the following files:
+The main project folder (\_\_app\_\_) can contain the following files:
 
 * *local.settings.json*: Used to store app settings and connection strings when running locally. This file doesn't get published to Azure. To learn more, see [local.settings.file](functions-run-local.md#local-settings-file).
 * *requirements.txt*: Contains the list of packages the system installs when publishing to Azure.
@@ -111,19 +110,19 @@ The main project folder can contain the following files:
 
 Each function has its own code file and binding configuration file (function.json). 
 
-Shared code should be kept in a separate folder. To reference modules in the SharedCode folder, you can use the following syntax:
+Shared code should be kept in a separate folder in \_\_app\_\_. To reference modules in the SharedCode folder, you can use the following syntax:
 
-```
+```python
 from __app__.SharedCode import myFirstHelperFunction
 ```
 
 To reference modules local to a function, you can use the relative import syntax as follows:
 
-```
+```python
 from . import example
 ```
 
-When deploying your project to a function app in Azure, the entire content of the *FunctionApp* folder should be included in the package, but not the folder itself.
+When deploying your project to a function app in Azure, the entire content of the *FunctionApp* folder should be included in the package, but not the folder itself. We recommend that you maintain your tests in a folder separate from the project folder, in this example `tests`. This keeps you from deploying test code with your app. For more information, see [Unit Testing](#unit-testing).
 
 ## Triggers and Inputs
 
@@ -403,38 +402,55 @@ pip install -r requirements.txt
 
 ## Publishing to Azure
 
-When you're ready to publish, make sure that all your dependencies are listed in the *requirements.txt* file, which is located at the root of your project directory. Azure Functions can [remotely build](functions-deployment-technologies.md#remote-build) these dependencies.
+When you're ready to publish, make sure that all your publicly available dependencies are listed in the requirements.txt file, which is located at the root of your project directory. 
 
 Project files and folders that are excluded from publishing, including the virtual environment folder, are listed in the .funcignore file.
 
-### Publish with remote build
+There are three build actions supported for publishing your Python project to Azure:
+
++ Remote build: Dependencies are obtained remotely based on the contents of the requirements.txt file. [Remote build](functions-deployment-technologies.md#remote-build) is the recommended build method. Remote is also the default build option of Azure tooling. 
++ Local build: Dependencies are obtained locally based on the contents of the requirements.txt file. 
++ Custom dependencies: Your project has native OS dependencies or uses packages not publicly available. (Requires Docker.)
+
+To build your dependencies and publish using a continuous delivery (CD) system, [use Azure Pipelines](functions-how-to-azure-devops.md).
+
+### Remote build
 
 By default, the Azure Functions Core Tools requests a remote build when you use the following [func azure functionapp publish](functions-run-local.md#publish) command to publish your Python project to Azure. 
 
 ```bash
-func azure functionapp publish <app name>
+func azure functionapp publish <APP_NAME>
 ```
 
-The [Azure Functions Extension for Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) also requests a remote build by default.
+Remember to replace `<APP_NAME>` with the name of your function app in Azure.
 
-### Publish with local build
+The [Azure Functions Extension for Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) also requests a remote build by default. 
 
-If you choose to build your Python project locally instead of in Azure, run the following command to install the dependencies locally:
+### Local build
+
+With the dependencies installed, you can use the following [func azure functionapp publish](functions-run-local.md#publish) command to publish with a local build. 
+
+```command
+func azure functionapp publish <APP_NAME> --build local
+```
+
+Project files and dependencies are deployed from your local computer to Azure. Remember to replace `<APP_NAME>` with the name of your function app in Azure. 
+
+### Custom dependencies
+
+If your project has native OS dependencies or uses packages not publicly available, you must build your Python project locally instead of in Azure. Before publishing, run the following command to install the dependencies locally to the \_\_app\_\_/.python_packages folder:
 
 ```command
 pip install  --target="/.python_packages/lib/python3.6/site-packages"  -r requirements.txt
 ```
 
-With the dependencies installed, you can use the following [func azure functionapp publish](functions-run-local.md#publish) command to publish with a local build. 
+When using custom dependencies, you should use `--build-native-deps` instead of `--build local`. When you specify `--build-native-deps`, Core Tools uses docker to run the [mcr.microsoft.com/azure-functions/python](https://hub.docker.com/r/microsoft/azure-functions/) image as a container on your local machine. Using this environment, it builds and installs the required modules from source distribution, before packaging them up for final deployment to Azure. 
 
-```bash
-func azure functionapp publish <app name> --build local
+```command
+func azure functionapp publish <APP_NAME> --build-native-deps
 ```
-Remember to replace `<app name>` with the name of your function app in Azure. 
 
-If your project has native OS dependencies, you should use `--build-native-deps` instead of `--build local`. When you specify `--build-native-deps`, Core Tools uses docker to run the [mcr.microsoft.com/azure-functions/python](https://hub.docker.com/r/microsoft/azure-functions/) image as a container on your local machine. Using this environment, it builds and installs the required modules from source distribution, before packaging them up for final deployment to Azure. You must [install Docker](https://docs.docker.com/install/) on your local machine when using `--build-native-deps`.
-
-To build your dependencies and publish using a continuous delivery (CD) system, [use Azure Pipelines](functions-how-to-azure-devops.md). 
+You must [install Docker](https://docs.docker.com/install/) on your local machine when using `--build-native-deps`. Remember to replace `<APP_NAME>` with the name of your function app in Azure.
 
 ## Unit Testing
 
