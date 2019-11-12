@@ -648,6 +648,8 @@
       href: scenario-ssis-migration-ssisdb-mi.md
 - name: Reference
   items:
+  - name: Data flow script
+    href: data-flow-script.md
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.datafactory
   - name: PowerShell

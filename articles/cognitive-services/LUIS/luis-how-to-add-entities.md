@@ -100,6 +100,8 @@ In this procedure, add `origin` and `destination` roles to a prebuilt geographyV
 1. From the **Build** section, select **Entities** in the left panel.
 
 1. Select **+ Add prebuilt entity**. Select **geographyV2** then select **Done**. This adds a prebuilt entity to the app.
+    
+    If you find that your pattern, when it includes a Pattern.any, extracts entities incorrectly, use an [explicit list](reference-pattern-syntax.md#explicit-lists) to correct this problem. 
 
 1. Select the newly added prebuilt geographyV2 entity from the **Entities** page list of entities. 
 1. To add a new role, select **+** next to **No roles added**.

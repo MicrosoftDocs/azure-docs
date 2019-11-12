@@ -26,7 +26,7 @@ You can stream logs from [Cloud App Security](https://docs.microsoft.com/cloud-a
 ## Prerequisites
 
 - User with global administrator or security administrator permissions
-- To stream Cloud Discovery logs into Azure Sentinel, [enable Azure Sentinel as your SIEM in Microsoft Cloud App Security](aka.ms.https://aka.ms/AzureSentinelMCAS).
+- To stream Cloud Discovery logs into Azure Sentinel, [enable Azure Sentinel as your SIEM in Microsoft Cloud App Security](https://aka.ms/AzureSentinelMCAS).
 
 > [!IMPORTANT]
 > Ingestion of Cloud Discovery logs is currently in public preview.
