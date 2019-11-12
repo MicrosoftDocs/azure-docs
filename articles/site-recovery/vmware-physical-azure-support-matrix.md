@@ -60,7 +60,7 @@ Ports | 443 used for control channel orchestration<br/>9443 for data transport
 Site Recovery supports replication of any workload running on a supported machine.
 
 > [!Note]
-> The following table lists the support for machines with BIOS boot. Please refer to [Storage](#Storage) section for support on UEFI based machines.
+> The following table lists the support for machines with BIOS boot. Please refer to [Storage](#storage) section for support on UEFI based machines.
 
 **Component** | **Details**
 --- | ---
