@@ -1,5 +1,5 @@
 ---
-title: Configure message routing for Azure IoT Hub using Azure PowerShell | Microsoft Docs
+title: Configure message routing for Azure IoT Hub with Azure PowerShell
 description: Configure message routing for Azure IoT Hub using Azure PowerShell. Depending on properties in the message, route to either a storage account or a Service Bus queue.
 author: robinsh
 manager: philmea
