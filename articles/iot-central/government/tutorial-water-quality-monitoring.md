@@ -15,12 +15,12 @@ manager: abjork
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-This tutorial guides you through the creation of an Azure IoT Central water quality monitoring application. You create the application from the Azure IoT Central **Water quality monitoring** application template.
+This tutorial guides you through the creation of a water quality monitoring application in Azure IoT Central. You create the application from the Azure IoT Central **Water quality monitoring** application template.
 
 In this tutorial, you learn to:
 
 > [!div class="checklist"]
-> * Use the Azure IoT Central **Water quality monitoring** template to create a water quality monitoring application.
+> * Use the **Water quality monitoring** template to create a water quality monitoring application.
 > * Explore and customize an operator dashboard.
 > * Explore a water quality monitoring device template.
 > * Explore simulated devices.
@@ -34,7 +34,7 @@ We recommend that you have an Azure subscription to complete this tutorial. If y
 
 ## Create a water quality monitoring application in Azure IoT Central
 
-In this section, you use the Azure IoT Central **Water quality monitoring** template to create a water quality monitoring application in Azure IoT Central.
+In this section, you use the Azure IoT Central **Water quality monitoring** template to create a water quality monitoring application.
 
 1. Go to the [Azure IoT Central home page](https://aka.ms/iotcentral).
 
@@ -121,7 +121,7 @@ The water quality monitoring application you created comes with a water quality 
 To view the device template:
 
 1. Select **Device templates** on the leftmost pane of your application in Azure IoT Central.
-1. The list of device templates shows **Water Quality Monitor**. Select that name to open the template.
+1. From the list of device templates, select **Water Quality Monitor**. That device template opens.
 
     ![The device template](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-devicetemplate.png)
 
@@ -153,7 +153,7 @@ If you make any changes, be sure to select **Publish** to publish the device tem
 
 ### Create a new device template
 
-1. Select **+ New** to create a new device template and then follow the creation process.
+1. Select **+ New** to create a new device template and follow the creation process.
 1. Create a custom device template or choose a device template from the Azure IoT device catalog.
 
 ## Explore simulated devices
@@ -228,7 +228,7 @@ As a builder, you can change several settings to customize the user experience i
 1. Select **Administration** > **Customize your application**.
 1. Under **Application logo**, select **Change** to choose the image to upload as the logo.
 1. Under **Browser icon**, select **Change** to choose the image that appears on browser tabs.
-1. Under **Browser colors**, you can replace the default values with your HTML hexadecimal color codes.
+1. Under **Browser colors**, you can replace the default values with HTML hexadecimal color codes.
 1. Select **Settings** to change the value of **Theme**.
 
    ![Customize your application](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-customize-your-application1.png)
@@ -244,7 +244,7 @@ As a builder, you can change several settings to customize the user experience i
 If you're not going to continue to use your application, delete the application with the following steps:
 
 1. Open the **Administration** tab on the leftmost pane of your application.
-1. Select **Application settings** and then select the **Delete** button.
+1. Select **Application settings** and select the **Delete** button.
 
     ![Delete your application](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-application-settings-delete-app1.png)
 
