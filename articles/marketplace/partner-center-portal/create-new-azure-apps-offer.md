@@ -29,7 +29,7 @@ The video [Building Solution Templates, and Managed Applications for the Azure M
 
 There are two kinds of Azure application plans, managed applications and solution templates.
 
-* **Solution template** is one of the main ways to publish a solution in the Marketplace. This plan type is used when your solution requires additional deployment and configuration automation beyond a single virtual machine (VM).  With a solution template, you can automate providing of more than one resource, including VMs, networking, and storage resources to provide complex IaaS solutions.  For more more information about building solution templates, see the [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) documentation.
+* **Solution template** is one of the main ways to publish a solution in the Marketplace. This plan type is used when your solution requires additional deployment and configuration automation beyond a single virtual machine (VM).  With a solution template, you can automate providing of more than one resource, including VMs, networking, and storage resources to provide complex IaaS solutions.  For more information about building solution templates, see the [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) documentation.
 
 * **Managed application** is similar to solution templates, with one key difference. In a managed application, the resources are deployed to a resource group that's managed by the publisher of the app. The resource group is present in the consumer's subscription, but an identity in the publisher's tenant has access to the resource group. As the publisher, you specify the cost for ongoing support of the solution. Use Managed applications to easily build and deliver fully managed, turnkey applications to your customers.  For more information about the advantages and types of managed applications, see the [Azure managed applications overview](https://docs.microsoft.com/azure/managed-applications/overview).
 
@@ -72,7 +72,7 @@ Your engineering team should have knowledge about the following Microsoft techno
 
 * Basic understanding of [Azure Services](https://azure.microsoft.com/services/).
 * How to [design and architect Azure applications](https://azure.microsoft.com/solutions/architecture/).
-* Working knowledge of [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/en-us/services/?filter=storage#storage), and [Azure Networking](https://azure.microsoft.com/services/?filter=networking#networking).
+* Working knowledge of [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage), and [Azure Networking](https://azure.microsoft.com/services/?filter=networking#networking).
 * Working knowledge of [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/).
 * Working knowledge of [JSON](https://www.json.org/).
 
@@ -270,21 +270,21 @@ Once created, you will see your plan names, IDs, plan type, availability (Public
 
 ### Create new plan
 
-***Plan ID*** - Create a unique plan ID for each plan in this offer. This ID will be visible to customers in the product URL.  Use only lowercase, alphanumeric characters, dashes, or underscores. A maximum of 50 characters are allowed for this plan ID. Note that the ID cannot be modified after selecting create.
+***Plan ID*** - Create a unique plan ID for each plan in this offer. This ID will be visible to customers in the product URL.  Use only lowercase, alphanumeric characters, dashes, or underscores. A maximum of 50 characters are allowed for this plan ID. This ID cannot be modified after selecting create.
 
 ***Plan name*** - Customers will see this name when deciding which plan to select within your offer. Create a unique offer name for each plan in this offer. The plan name is used to differentiate software plans that may be a part of the same offer (E.g. Offer name: Windows Server; plans: Windows Server 2016, Windows Server 2019).
 
 ### Plan setup
 
-The **Plan setup** tab enables you to set the high level configuration for the type of plan, whether it re-uses packages from another plan, and what clouds the plan should be available in.  Your answers on this tab will affect which fields are displayed on other tabs for the same plan.
+The **Plan setup** tab enables you to set the high-level configuration for the type of plan, whether it reuses packages from another plan, and what clouds the plan should be available in.  Your answers on this tab will affect which fields are displayed on other tabs for the same plan.
 
 #### Plan type
 
 As outlined in the [Types of Azure application plans](#types-of-azure-application-plans), select whether your plan will contain a solution template or a managed application.
 
-#### This plan re-uses packages
+#### This plan reuses packages
 
-If you have more than one plan of the same type and the packages are identical between them, you may select **this plan re-uses packages from another plan**.  When you select this option, you will be able to select one of the other plans of the same type for this offer to re-use packages from. 
+If you have more than one plan of the same type and the packages are identical between them, you may select **this plan reuses packages from another plan**.  When you select this option, you will be able to select one of the other plans of the same type for this offer to reuse packages from. 
 
 >[!Note]
 >When you re-use packages from another plan, the entire Technical configuration tab will disappear from this plan.  The Technical configuration details from the other plan, including any updates that you make in the future, will be used for this plan as well. <br> <br> Also, this setting cannot be changed once this plan is published.
@@ -295,7 +295,7 @@ This plan must be made available in at least one cloud.
 
 Select the **Public Azure** option to make your solution deployable to customers in all public Azure regions that have Marketplace integration.  Learn more about [geographic availability](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
 
-Select the **Azure Government Cloud** option to make your solution deployabe in the [Azure Government Cloud](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome), a government-community cloud with controlled access for customers from the US Federal, State, local or tribal and partners eligible to serve these entities.  You, as the publisher, are responsible for any compliance controls, security measures, and best practices to serve this cloud community.  Azure Government uses physically isolated data centers and networks (located in U.S. only).  Before publishing to the [Azure Government](https://aka.ms/azuregovpublish), Microsoft recommends that you test and validate your solution in the environment as certain endpoints may differ. To stage and test your solution, request a trial account from this [link](https://azure.microsoft.com/global-infrastructure/government/request/).
+Select the **Azure Government Cloud** option to make your solution deployable in the [Azure Government Cloud](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome), a government-community cloud with controlled access for customers from the US Federal, State, local or tribal and partners eligible to serve these entities.  You, as the publisher, are responsible for any compliance controls, security measures, and best practices to serve this cloud community.  Azure Government uses physically isolated data centers and networks (located in U.S. only).  Before publishing to the [Azure Government](https://aka.ms/azuregovpublish), Microsoft recommends that you test and validate your solution in the environment as certain endpoints may differ. To stage and test your solution, request a trial account from this [link](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 >[!Note]
 >Once a plan is published as available in a specific cloud, that cloud cannot be removed.
@@ -351,7 +351,7 @@ The **Pricing and availability** tab is visible to managed application plans onl
 
 Every plan must be available in at least one market. Select the checkbox for any market location where you would like to make this plan available. A search box and button for selecting "Tax Remitted" countries, in which Microsoft remits sales and use tax on your behalf, are included to help.
 
-If you have already set prices for your plan in United States Dollars (USD) and add another market location, the price for the new market will be calculated according to the current exchange rates. You should always review the price for each market before publishing. Pricing can be reviewed by using the "Export prices (xlsx)" link after saving your changes.
+If you have already set prices for your plan in United States Dollars (USD) and add another market location, the price for the new market will be calculated according to the current exchange rates. Always review the price for each market before publishing. Pricing can be reviewed by using the "Export prices (xlsx)" link after saving your changes.
 
 ### Pricing
 
@@ -387,7 +387,7 @@ The **technical configuration** tab allows you to upload the deployment package 
 
 ### Package details
 
-The **Package details** sub-tab enables you to edit the draft version of your technical configuration.
+The **Package details** subtab enables you to edit the draft version of your technical configuration.
 
 ***Version*** - Assign the current version of the technical configuration.  You must increment this version each time you publish a change to this page. Version must be in the format `{integer}.{integer}.{integer}`.
 
@@ -403,7 +403,7 @@ All new Azure application offers must also include an [Azure partner customer us
 
 ### Previously published packages 
 
-The **Previously published packages** sub-tab enables you to view all published versions of your technical configuration.
+The **Previously published packages** subtab enables you to view all published versions of your technical configuration.
 
 ## Technical configuration (managed application plans only)
 
@@ -431,7 +431,7 @@ Specify an HTTPS Webhook endpoint to receive notifications about all CRUD operat
 
 ### Customize allowed customer actions
 
-Select this option to specify which actions customers can perform on the managed resources in addition to the “`*/read`” actions which is available by default. 
+Select this option to specify which actions customers can perform on the managed resources in addition to the “`*/read`” actions that is available by default. 
 
 List the additional actions you would like to enable your customer to perform here, separated by semicolons.  For more information, see [Understanding deny assignments for Azure resources](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments).  For available actions, see [Azure Resource Manager resource provider operations](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations). For example, to permit consumers to restart virtual machines, add `Microsoft.Compute/virtualMachines/restart/action` to the allowed actions.
 
@@ -441,9 +441,9 @@ Indicate who should have management access to this managed application in each s
 
 ***Azure Active Directory Tenant ID*** - The AAD Tenant ID (also known as directory ID) containing the identities of the users, groups, or applications you want to grant permissions to.  You can find your AAD Tenant ID on the Azure portal, in [Properties for Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
 
-***Authorizations*** - Add the Azure Active Directory object ID of the user, group, or application that you want to be granted permission to the managed resource group. Identify the user by their Principal ID, which can be found at the [Azure Active Directory users blade on the Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers).
+***Authorizations*** - Add the Azure Active Directory object ID of the user, group, or application that you want to be granted permission to the managed resource group. Identify the user by their Principal ID, which can be found at the [Azure Active Directory users blade on the Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers).
 
-For each principal, select one of the Azure AD built-in roles from the list (Owner or Contributor). The role you select will describe the permissions the principal will have on the resources in the customer subscription. For more information, see [Built-in roles for Azure resources](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).  For more information about role-based access control (RBAC), see [Get started with RBAC in the Azure portal](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview).
+For each principal, select one of the Azure AD built-in roles from the list (Owner or Contributor). The role you select will describe the permissions the principal will have on the resources in the customer subscription. For more information, see [Built-in roles for Azure resources](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).  For more information about role-based access control (RBAC), see [Get started with RBAC in the Azure portal](https://docs.microsoft.com/azure/role-based-access-control/overview).
 
 >[!Note]
 >Although you may add up to 100 authorizations per cloud, it’s generally easier to create an Active Directory user group and specify its ID in the "Principal ID."  This will enable you to add more users to the management group after the plan is deployed and reduce the need to update the plan just to add more authorizations.
@@ -454,7 +454,7 @@ Apply [Azure Policies](https://docs.microsoft.com/azure/governance/policy/overvi
 
 ## Co-Sell
 
-Providing information on the Co-sell tab is entirely optional for publishing your offer. It is required to achieve Co-sell Ready and IP Co-sell Ready status. The information you provide will be used by Microsoft sales teams to learn more about your solution when evaluating its fit for customer needs. It is not available directly to customers.
+Providing information on the Cosell tab is entirely optional for publishing your offer. It is required to achieve Co-sell Ready and IP Co-sell Ready status. The information you provide will be used by Microsoft sales teams to learn more about your solution when evaluating its fit for customer needs. It is not available directly to customers.
 
 For more information about completing this tab, see [Co-sell option in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell).
 
@@ -472,7 +472,7 @@ In order to deploy the Test Drive on your behalf, please create and provide a se
 
 - **Azure subscription ID** (required for Azure Resource Manager and Logic apps): Enter the subscription ID to grant access to your Azure account services for resource usage reporting and billing. We recommend that you consider [creating a separate Azure subscription](https://docs.microsoft.com/azure/billing/billing-create-subscription) to use for test drives if you don't have one already. You can find your Azure subscription ID by logging in to the [Azure portal](https://portal.azure.com/) and navigating to the **Subscriptions** tab of the left-side menu. Selecting the tab will display your subscription ID (e.g. "a83645ac-1234-5ab6-6789-1h234g764ghty").
 
-- **Azure AD tenant ID** (required): Enter your Azure Active Directory (AD) [tenant ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). To find this ID, sign in to the [Azure portal](https://portal.azure.com/), select the Active Directory tab in the left-menu, select **Properties** , then look for the **Directory ID** number listed (e.g. 50c464d3-4930-494c-963c-1e951d15360e). You can also look up your organization's tenant ID using your domain name URL at:  [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
+- **Azure AD tenant ID** (required): Enter your Azure Active Directory (AD) [tenant ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). To find this ID, sign in to the [Azure portal](https://portal.azure.com/), select the Active Directory tab in the left-menu, select **Properties, then look for the **Directory ID** number listed (e.g. 50c464d3-4930-494c-963c-1e951d15360e). You can also look up your organization's tenant ID using your domain name URL at:  [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
 
 - **Azure AD tenant name** (required for Dynamic 365): Enter your Azure Active Directory (AD) name. To find this name, sign in to the [Azure portal](https://portal.azure.com/), in the upper right corner your tenant name will be listed under your account name.
 
@@ -492,10 +492,10 @@ The **Test Drive listings** option found under the **Test drive** tab displays t
 
 - **User Manual** (required): An in-depth walkthrough of your test drive experience. The User Manual should cover exactly what you want the customer to gain from experiencing the test drive and serve as a reference for any questions that they may have. The file must be in PDF format and be named (255 characters max) after uploading.
 
-- **Videos: Add videos** (optional): Videos can be uploaded to YouTube or Vimeo and referenced here with a link and thumbnail image (533 x 324 pixels) so that a customer can view a walk through of information to help them better understand the test drive, including how to successfully use the features of your offer and understand scenarios that highlight their benefits.
+- **Videos: Add videos** (optional): Videos can be uploaded to YouTube or Vimeo and referenced here with a link and thumbnail image (533 x 324 pixels) so that a customer can view a walk-through of information to help them better understand the test drive, including how to successfully use the features of your offer and understand scenarios that highlight their benefits.
   - **Name** (required)
   - **URL (YouTube or Vimeo only)** (required)
-  - **Thumbnail (533 x 324px)**: Image file must be in PNG format.
+  - **Thumbnail (533 x 324 px)**: Image file must be in PNG format.
 
 Select **Save** after completing these fields.
 
@@ -503,7 +503,7 @@ Select **Save** after completing these fields.
 
 ### Submit offer to preview
 
-Once you have completed all the required sections of the offer, select **publish** in the top-right corner of the portal. You will be re-directed to the **Review and publish** page. 
+Once you have completed all the required sections of the offer, select **publish** in the top-right corner of the portal. You will be redirected to the **Review and publish** page. 
 
 If this is your first time publishing this offer, you can:
 
@@ -512,11 +512,11 @@ If this is your first time publishing this offer, you can:
     - *Incomplete* - means the section has errors that need to be fixed or requires more information to be provided. Please go back to the section(s) and update it.
     - *Complete* - means the section is complete, all required data has been provided and there are no errors. All sections of the offer must be in a complete state before you can submit the offer.
 - Provide testing instructions to the certification team to ensure that your app is tested correctly, in addition to any supplementary notes helpful for understanding your app.
-- Submit the offer for publishing by selecting **Submit**. We will send you an email to let you know when a preview version of the offer is available for you to review and approve. You must return to Partner Center and select **Go-live** for the offer to publish your offer to the public (or if a private offer, to the private audience).
+- Submit the offer for publishing by selecting **Submit**. We will send you an email to let you know when a preview version of the offer is available for you to review and approve. Return to Partner Center and select **Go-live** for the offer to publish your offer to the public (or if a private offer, to the private audience).
 
 ### Errors and review feedback
 
-The **Manual validation** step in the publishing process represents an extensive review of your offer and its associated technical assets (especially the Azure Resource Manager template), issues are typically presented as pull request (PR) links. An explanation of how to view and respond to these PRs, see [Handling review feedback](https://docs.microsoft.com/en-us/azure/marketplace/cloud-partner-portal/azure-applications/cpp-handling-review-feedback).
+The **Manual validation** step in the publishing process represents an extensive review of your offer and its associated technical assets (especially the Azure Resource Manager template), issues are typically presented as pull request (PR) links. An explanation of how to view and respond to these PRs, see [Handling review feedback](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-handling-review-feedback).
 
 If you encountered errors in one or more of the publishing steps, you must correct them and republish your offer.
 
