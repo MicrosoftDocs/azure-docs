@@ -521,6 +521,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/luis-how-to-add-example-utterances.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities",
+      "redirect_document_id": false
+    },  
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-tutorial-prebuilt-intents-entities.md",
       "redirect_url": "/azure/cognitive-services/LUIS/tutorial-machine-learned-entity",
       "redirect_document_id": false
