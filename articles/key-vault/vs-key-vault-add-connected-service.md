@@ -21,13 +21,13 @@ For details on the changes that Connected Services makes in your project to enab
 - **An Azure subscription**. If you don't have a subscription, sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
 - **Visual Studio 2019 version 16.3** or later, or **Visual Studio 2017 version 15.7** with the **Web Development** workload installed. [Download it now](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 - For ASP.NET (not Core) with Visual Studio 2017, you need the .NET Framework 4.7.1 or later Development Tools, which are not installed by default. To install them, launch the Visual Studio Installer, choose **Modify**, and then choose **Individual Components**, then on the right-hand side, expand **ASP.NET and web development**, and choose **.NET Framework 4.7.1 Development Tools**.
-- An ASP.NET 4.7.1 or later, or ASP.NET Core 2.0 or later web project open. With Visual Studio 2019, you need an ASP.NET Core web project; adding a key vault connected service to an ASP.NET project is not supported in Visual Studio 2019.
+- An ASP.NET 4.7.1 or later, or ASP.NET Core 2.0 or later web project open. With Visual Studio 2019, you need an ASP.NET Core web project; adding a Key Vault connected service to an ASP.NET project is not supported in Visual Studio 2019.
 
 ## Add Key Vault support to your project
 
 Before you begin, make sure that you're signed into Visual Studio. Sign in with the same account that you use for your Azure subscription. Then open an ASP.NET 4.7.1 or later, or ASP.NET Core 2.0 web project, and do the follow steps:
 
-1. In **Solution Explorer**, right-click the project that you want to add the key vault support to, and choose **Add** > **Connected Service**.
+1. In **Solution Explorer**, right-click the project that you want to add the Key Vault support to, and choose **Add** > **Connected Service**.
    The Connected Service page appears with services you can add to your project.
 1. In the menu of available services, choose **Secure Secrets With Azure Key Vault**.
 
@@ -45,7 +45,7 @@ Before you begin, make sure that you're signed into Visual Studio. Sign in with 
 1. Choose **OK** to accept the configuration choices.
 1. After you select an existing Key Vault or have configured a new Key Vault, in the **Azure Key Vault** tab of Visual Studio, select **Add** to add the Connected Service.
 1. Select the **Manage secrets stored in this Key Vault** link to open the **Secrets** page for your Key Vault. If you closed the page or the project, you can navigate to it in the [Azure portal](https://portal.azure.com) by choosing **All Services** and, under **Security**, choosing **Key Vault**, then choose your Key Vault.
-1. In the Key Vault section for the key vault you created, choose **Secrets**, then **Generate/Import**.
+1. In the Key Vault section for the Key Vault you created, choose **Secrets**, then **Generate/Import**.
 
    ![Generate/Import a secret](media/vs-key-vault-add-connected-service/azure-generate-secrets.png)
 
@@ -147,7 +147,7 @@ Now, you can access your secrets in code. The next steps are different depending
           <p>@ViewData["Message"]</p>
       ```
 
-You can run the app locally to verify that the secret is obtained successfully from the key vault.
+You can run the app locally to verify that the secret is obtained successfully from the Key Vault.
 
 ## Access your secrets (ASP.NET)
 
@@ -167,11 +167,11 @@ You can set up the configuration so that the web.config file has a dummy value i
        ViewBag.Message = "Key vault value = " + ConfigurationManager.AppSettings["mysecret"];
    }
    ```
-1. Run the app locally under the debugger, switch to the **About** tab, and verify that the value from the key vault is displayed.
+1. Run the app locally under the debugger, switch to the **About** tab, and verify that the value from the Key Vault is displayed.
 
 ## Clean up resources
 
-When no longer needed, delete the resource group. This deletes the key vault and related resources. To delete the resource group through the portal:
+When no longer needed, delete the resource group. This deletes the Key Vault and related resources. To delete the resource group through the portal:
 
 1. Enter the name of your resource group in the Search box at the top of the portal. When you see the resource group used in this quickstart in the search results, select it.
 2. Select **Delete resource group**.
@@ -179,7 +179,7 @@ When no longer needed, delete the resource group. This deletes the key vault and
 
 ## Troubleshooting
 
-If your key vault is running on an different Microsoft account than the one you're logged in to Visual Studio (for example, the key vault is running on your work account, but Visual Studio is using your private account) you get an error in your Program.cs file, that Visual Studio can't get access to the key vault. To fix this issue:
+If your Key Vault is running on an different Microsoft account than the one you're logged in to Visual Studio (for example, the Key Vault is running on your work account, but Visual Studio is using your private account) you get an error in your Program.cs file, that Visual Studio can't get access to the Key Vault. To fix this issue:
 
 1. Go to the [Azure portal](https://portal.azure.com) and open your Key Vault.
 
@@ -190,7 +190,7 @@ Select **Add an account** from the **All account** section. Sign in with the acc
 
 1. Choose **Tools** > **Options**, and look for **Azure Service Authentication**. Then select the account you just added to Visual Studio.
 
-Now, when you debug your application, Visual Studio connects to the account your key vault is located on.
+Now, when you debug your application, Visual Studio connects to the account your Key Vault is located on.
 
 ## How your ASP.NET Core project is modified
 
@@ -282,6 +282,6 @@ Affects the project file .NET references and `packages.config` (NuGet references
 
 ## Next steps
 
-If you followed this tutorial, your key vault permissions are set up to run with your own Azure subscription, but that might not be desirable for a production scenario. You can create a managed identity to manage key vault access for your app. See [Provide Key Vault authentication with a managed identity](/azure/key-vault/managed-identity).
+If you followed this tutorial, your Key Vault permissions are set up to run with your own Azure subscription, but that might not be desirable for a production scenario. You can create a managed identity to manage Key Vault access for your app. See [Provide Key Vault authentication with a managed identity](/azure/key-vault/managed-identity).
 
 Learn more about Key Vault development by reading the [Key Vault Developer's Guide](key-vault-developers-guide.md).
