@@ -203,17 +203,19 @@ To stop log streaming at any time, type `Ctrl`+`C`.
 
 ## Manage the Azure app
 
-You manage the app you created in the <a href="https://portal.azure.com" target="_blank">Azure portal</a>. 
+Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the app you created. Search for and select **App Services**.
 
-From the left menu, select **App Services**, and then select the name of your Azure app.
+![Navigate to App Services in the Azure portal](./media/quickstart-python/navigate-to-app-services-in-the-azure-portal.png)
+
+Select the name of your Azure app.
 
 ![Navigate to your Python app in App Services in the Azure portal](./media/quickstart-python/navigate-to-app-in-app-services-in-the-azure-portal.png)
 
-Your app's Overview page then appears. On this page you can perform basic management tasks like browse, stop, start, restart, and delete.
+You see your app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete.
 
 ![Manage your Python app in the Overview page in the Azure portal](./media/quickstart-python/manage-an-app-in-app-services-in-the-azure-portal.png)
 
-The left menu provides different pages for configuring your app. 
+The App Service menu provides different pages for configuring your app.
 
 ## Clean up resources
 

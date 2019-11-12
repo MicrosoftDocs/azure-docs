@@ -1,5 +1,5 @@
 ﻿---
-title: Resolving T-SQL differences-migration-Azure SQL Database | Microsoft Docs
+title: Resolving T-SQL differences-migration
 description: Transact-SQL statements that are less than fully supported in Azure SQL Database
 services: sql-database
 ms.service: sql-database

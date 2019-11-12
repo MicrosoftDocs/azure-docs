@@ -45,7 +45,7 @@
       href: tutorial-deploy-function.md
     - name: Find averages with Azure Stream Analytics
       href: tutorial-deploy-stream-analytics.md
-    - name: Score data with Azure Machine Learning service
+    - name: Score data with Azure Machine Learning
       href: tutorial-deploy-machine-learning.md
     - name: Classify images with Custom Vision
       href: tutorial-deploy-custom-vision.md

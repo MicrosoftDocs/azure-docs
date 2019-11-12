@@ -1,5 +1,5 @@
 ---
-title: Move data from DB2 by using Azure Data Factory | Microsoft Docs
+title: Move data from DB2 by using Azure Data Factory 
 description: Learn how to move data from an on-premises DB2 database by using Azure Data Factory Copy Activity
 services: data-factory
 documentationcenter: ''

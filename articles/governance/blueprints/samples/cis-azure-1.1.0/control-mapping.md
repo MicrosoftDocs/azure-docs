@@ -437,12 +437,12 @@ ensure web applications are accessible only over secure connections.
 ## Next steps
 
 Now that you've reviewed the control mapping of the CIS Microsoft Azure Foundations Benchmark
-blueprint, visit the following article to learn about the blueprint or visit Azure Policy in the
+blueprint, visit the following articles to learn about the blueprint or visit Azure Policy in the
 Azure portal to assign the initiative:
 
 > [!div class="nextstepaction"]
 > [CIS Microsoft Azure Foundations Benchmark blueprint - Overview](./index.md)
-> [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/Definitions)
+> [CIS Microsoft Azure Foundations Benchmark blueprint - Deploy steps](./deploy.md)
 
 Additional articles about blueprints and how to use them:
 

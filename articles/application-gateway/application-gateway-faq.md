@@ -68,7 +68,7 @@ If you're using a public IP address as an endpoint, you'll find the IP and DNS i
 
 ### Does the IP or DNS name change over the lifetime of the application gateway?
 
-The VIP can change if you stop and start the application gateway. But the DNS name associated with the application gateway doesn't change over the lifetime of the gateway. Because the DNS name doesn't change, you should use a CNAME alias and point it to the DNS address of the application gateway.
+In Application Gateway V1 SKU, the VIP can change if you stop and start the application gateway. But the DNS name associated with the application gateway doesn't change over the lifetime of the gateway. Because the DNS name doesn't change, you should use a CNAME alias and point it to the DNS address of the application gateway. In Application Gateway V2 SKU, you can set the IP address as static, so IP and DNS name will not change over the lifetime of the application gateway. 
 
 ### Does Application Gateway support static IP?
 
@@ -322,6 +322,19 @@ Yes. You can enable DDoS protection on the virtual network where the application
 ### Is there guidance available to migrate from the v1 SKU to the v2 SKU?
 
 Yes. For details see, [Migrate Azure Application Gateway and Web Application Firewall from v1 to v2](migrate-v1-v2.md).
+
+## Configuration - ingress controller for AKS
+
+### What is an Ingress Controller?
+
+Kubernetes allows creation of `deployment` and `service` resource to expose a group of pods internally in the cluster. To expose the same service externally, an [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) resource is defined which provides load balancing, SSL termination and name-based virtual hosting.
+To satisfy this `Ingress` resource, an Ingress Controller is required which listens for any changes to `Ingress` resources and configures the load balancer policies.
+
+The Application Gateway Ingress Controller allows [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) to be used as the ingress for an [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) also known as an AKS cluster.
+
+### Can a single ingress controller instance manage multiple Application Gateways?
+
+Currently, one instance of Ingress Controller can only be associated to one Application Gateway.
 
 ## Diagnostics and logging
 

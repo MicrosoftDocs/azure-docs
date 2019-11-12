@@ -125,7 +125,10 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
-                config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"]);
+                config.AddAzureAppConfiguration(options => {
+                    options.Connect(settings["ConnectionStrings:AppConfig"])
+                            .UseFeatureFlags();
+                });
             })
             .UseStartup<Startup>();
     ```
@@ -139,7 +142,8 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
         webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
         {
             var settings = config.Build();
-            config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"]);
+            config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"])
+                .UseFeatureFlags();
         })
         .UseStartup<Startup>());
     ```

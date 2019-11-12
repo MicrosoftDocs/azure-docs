@@ -98,8 +98,9 @@ When a cluster administrator configures a Service Fabric standalone cluster, the
    * Have Service Fabric runtime uninstalled 
    * Have the Windows Firewall service (mpssvc) enabled
    * Have the Remote Registry Service (remote registry) enabled
+   * Have file sharing (SMB) enabled
    * Have necessary ports opened, based on cluster configuration ports
-   * Have necessary ports opened for Remote Registry service: 135, 137, 138, and 139
+   * Have necessary ports opened for Windows SMB and Remote Registry service: 135, 137, 138, 139, and 445
    * Have network connectivity to one another
 3. None of the cluster node machines should be a Domain Controller.
 4. If the cluster to be deployed is a secure cluster, validate the necessary security prerequisites are in place, and are configured correctly against the configuration.

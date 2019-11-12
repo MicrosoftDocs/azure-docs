@@ -215,7 +215,7 @@ After the application gateway is created with its public IP address, you can get
 
 ## Test the application gateway
 
-1. Enter your domain name into the address bar of your browser. Such as, http://www.contoso.com.
+1. Enter your domain name into the address bar of your browser. Such as, `http://www.contoso.com`.
 
     ![Test contoso site in application gateway](./media/create-multiple-sites-portal/application-gateway-iistest.png)
 

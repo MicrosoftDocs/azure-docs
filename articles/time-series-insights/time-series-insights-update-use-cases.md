@@ -1,6 +1,6 @@
 ﻿---
-title: 'Azure Time Series Insights Preview use cases | Microsoft Docs'
-description: Understand Azure Time Series Insights Preview use cases.
+title: 'Preview use cases - Azure Time Series Insights | Microsoft Docs'
+description: Learn about Azure Time Series Insights Preview use cases.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -65,7 +65,7 @@ Use Time Series Insights to monitor the health, usage, and performance of equipm
 
 Streaming and continuous processing of data coming from operational processes can successfully transform any business if it's combined with the right technology or solution. Often these solutions are a combination of multiple systems. They enable exploration and analysis of data that changes constantly, especially in the IoT realm, and share a common pattern.
 
-These patterns often start with IoT-enabled platforms that ingest billions of events from devices and sensors that span various locales. These systems process and analyze streaming data to derive real-time insights and actions. Data is typically archived to warm and cold storage for near real-time and batch analytics.
+These patterns often start with IoT-enabled platforms that ingest billions of events from devices and sensors that span various locales. These systems process and analyze streaming data to derive real-time insights and actions. Data is typically archived to warm and cold store for near real-time and batch analytics.
 
 Data that's collected goes through a series of processing to cleanse and contextualize it for downstream querying and analytics scenarios. Azure offers rich services that can be applied to IoT scenarios such as asset maintenance and manufacturing. These services include Time Series Insights, IoT Hub, Event Hubs, Azure Stream Analytics, Azure Functions, Azure Logic Apps, Azure Databricks, Azure Machine Learning, and Power BI.
 

@@ -1,5 +1,5 @@
 ---
-title: Copy data from SFTP server using Azure Data Factory | Microsoft Docs
+title: Copy data from SFTP server using Azure Data Factory 
 description: Learn about MySQL connector in Azure Data Factory that lets you copy data from an SFTP server to a data store supported as a sink.
 services: data-factory
 documentationcenter: ''

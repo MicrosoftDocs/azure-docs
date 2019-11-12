@@ -25,7 +25,7 @@ In this guide, you will learn how to:
 
 - An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 - [Azure CLI installed](/cli/azure/install-azure-cli?view=azure-cli-latest).
-- [Helm 2.13 or greater installed](https://github.com/helm/helm/blob/master/docs/install.md).
+- [Helm 2.13 or greater installed][helm-installed].
 
 ## Create an Azure Kubernetes Service cluster
 
@@ -233,5 +233,5 @@ Learn how Azure Dev Spaces helps you develop more complex apps across multiple c
 > [!div class="nextstepaction"]
 > [Working with multiple containers and team development](multi-service-nodejs.md)
 
-
+[helm-installed]: https://helm.sh/docs/using_helm/#installing-helm
 [supported-regions]: about.md#supported-regions-and-configurations
