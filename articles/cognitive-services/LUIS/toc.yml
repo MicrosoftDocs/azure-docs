@@ -167,7 +167,9 @@
     items:
     - name: Add an intent
       href: luis-how-to-add-intents.md
-    - name: Add an entity to extract data
+    - name: Add entity to utterance 
+      href: luis-how-to-add-example-utterances.md
+    - name: Add entity without utterance
       href: luis-how-to-add-entities.md
       displayName: roles, import
     - name: Use prebuilt models
