@@ -21,6 +21,9 @@ Additional benefits of the Long Audio API:
 * Synthesized speech returned by the service uses neural voices, which ensures high-fidelity audio outputs.
 * Since real-time responses aren't supported, there's no need to deploy a voice endpoint.
 
+> [!NOTE]
+> The Long Audio API now supports only [Custom Neural Voice](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice#custom-neural-voices).
+
 ## Workflow
 
 Typically, when using the Long Audio API, you'll submit a text file or files to be synthesized, poll for the status, then if the status is successful, you can download the audio output.

@@ -1,6 +1,6 @@
 ---
 title: 'How to add blobs to objects - Azure Digital Twins | Microsoft Docs'
-description: Learn how to add blobs to objects in Azure Digital Twins.
+description: Learn how to add blobs to users, devices, and spaces in Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -176,7 +176,7 @@ var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 
 Lastly, [cURL](https://curl.haxx.se/) users can make multipart form requests in the same manner:
 
-[![Device blobs](media/how-to-add-blobs/curl-img.png)](media/how-to-add-blobs/curl-img.png#lightbox)
+[![cURL example](media/how-to-add-blobs/curl-img.png)](media/how-to-add-blobs/curl-img.png#lightbox)
 
 ```bash
 curl -X POST "YOUR_MANAGEMENT_API_URL/spaces/blobs" \

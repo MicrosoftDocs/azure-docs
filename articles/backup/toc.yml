@@ -20,6 +20,8 @@
   items:
   - name: Back up Azure VMs at scale
     href: tutorial-backup-vm-at-scale.md
+  - name: Back up Azure VMs with PowerShell
+    href: tutorial-backup-azure-vm.md
   - name: Restore a disk
     href: tutorial-restore-disk.md
   - name: Restore individual files

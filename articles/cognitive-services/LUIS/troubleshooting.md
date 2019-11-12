@@ -9,7 +9,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/08/2019
 ms.author: diberry
 ---
 # Language Understanding Frequently Asked Questions (FAQ)
@@ -68,7 +68,7 @@ In the LUIS portal, you can label text for the exact entity you are interested i
 
 ### I tried to import an app or version file but I got an error, what happened? 
 
-Read more about [version import errors](luis-how-to-manage-versions.md#import-errors) and [app import errors](luis-how-to-start-new-app.md#import-errors).
+Read more about [version import errors](luis-how-to-manage-versions.md#import-errors).
 
 <a name="luis-collaborating"></a>
 
