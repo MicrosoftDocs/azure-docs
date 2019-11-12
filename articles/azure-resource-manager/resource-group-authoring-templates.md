@@ -281,7 +281,7 @@ For examples of how to use outputs, see [Outputs in Azure Resource Manager templ
 
 You have a few options for adding comments and metadata to your template.
 
-## Comments
+### Comments
 
 For inline comments, you can use either `//` or `/* ... */` but this syntax doesn't work with all tools. You can't use the portal template editor to work on templates with inline comments. If you add this style of comment, be sure the tools you use support inline JSON comments.
 
@@ -304,7 +304,7 @@ In Visual Studio Code, the VS Code extension can automatically detect languages.
 
 ![Visual Studio Code Azure Resource Manager template mode](./media/resource-group-authoring-templates/resource-manager-template-arm-mode.png)
 
-## Metadata
+### Metadata
 
 You can add a `metadata` object almost anywhere in your template. Resource Manager ignores the object, but your JSON editor may warn you that the property isn't valid. In the object, define the properties you need.
 
