@@ -1,5 +1,5 @@
 ---
-title: 'Copy data from Azure Blob Storage to SQL Database '
+title: Copy data from Azure Blob Storage to Azure SQL Database
 description: 'This tutorial provides step-by-step instructions for copying  data from Azure Blob Storage to Azure SQL Database.'
 services: data-factory
 documentationcenter: ''
@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
-ms.date: 02/20/2019
+ms.date: 11/08/2019
 ms.author: jingwang
 ---
 # Copy data from Azure Blob to Azure SQL Database using Azure Data Factory
@@ -27,36 +27,40 @@ You perform the following steps in this tutorial:
 > * Start a pipeline run.
 > * Monitor the pipeline and activity runs.
 
-This tutorial uses .NET SDK. You can use other mechanisms to interact with Azure Data Factory, refer to samples under "Quickstarts".
+This tutorial uses .NET SDK. You can use other mechanisms to interact with Azure Data Factory, refer to samples under **Quickstarts**.
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
-* **Azure Storage account**. You use the blob storage as **source** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-quickstart-create-account.md) article for steps to create one.
-* **Azure SQL Database**. You use the database as **sink** data store. If you don't have an Azure SQL Database, see the [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md) article for steps to create one.
-* **Visual Studio** 2015, or 2017. The walkthrough in this article uses Visual Studio 2017.
-* **Download and install [Azure .NET SDK](https://azure.microsoft.com/downloads/)**.
-* **Create an application in Azure Active Directory** following [this instruction](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Make note of the following values that you use in later steps: **application ID**, **authentication key**, and **tenant ID**. Assign application to "**Contributor**" role by following instructions in the same article.
+* **Azure Storage account**. You use the blob storage as **source** data store. If you don't have an Azure storage account, see [Create a general-purpose storage account](../storage/common/storage-quickstart-create-account.md).
+* **Azure SQL Database**. You use the database as **sink** data store. If you don't have an Azure SQL Database, see [Create an Azure SQL database](../sql-database/sql-database-single-database-get-started.md).
+* **Visual Studio**. The walkthrough in this article uses Visual Studio 2019.
+* **[Azure .NET SDK](https://azure.microsoft.com/downloads/)**.
+* **Azure Active Directory application**. If you don't have an Azure Active Directory application, see the [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) section of [How to: Use the portal to create an Azure AD application](../active-directory/develop/howto-create-service-principal-portal.md). Make note of the following values that you use in later steps: **application ID**, **authentication key**, and **tenant ID**. Assign application to "**Contributor**" role by following instructions in the same article.
 
 ### Create a blob and a SQL table
 
-Now, prepare your Azure Blob and Azure SQL Database for the tutorial by performing the following steps:
+Now, prepare your Azure Blob and Azure SQL Database for the tutorial by creating a source blog and a sink SQL table.
 
 #### Create a source blob
 
-1. Launch Notepad. Copy the following text and save it as **inputEmp.txt** file on your disk.
+First, create a source blob by creating a container and uploading an input text file to it:
+
+1. Open Notepad. Copy the following text and save it as *inputEmp.txt* file on your disk.
 
 	```
     John|Doe
     Jane|Doe
 	```
 
-2. Use tools such as [Azure Storage Explorer](https://storageexplorer.com/) to create the **adfv2tutorial** container, and to upload the **inputEmp.txt** file to the container.
+2. Use tools such as [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to create the *adfv2tutorial* container, and to upload the *inputEmp.txt* file to the container.
 
 #### Create a sink SQL table
 
-1. Use the following SQL script to create the **dbo.emp** table in your Azure SQL Database.
+Next, create a sink SQL table:
+
+1. Use the following SQL script to create the *dbo.emp* table in your Azure SQL Database.
 
     ```sql
     CREATE TABLE dbo.emp
@@ -79,20 +83,19 @@ Now, prepare your Azure Blob and Azure SQL Database for the tutorial by performi
 
 ## Create a Visual Studio project
 
-Using Visual Studio 2015/2017, create a C# .NET console application.
+Using Visual Studio, create a C# .NET console application.
 
-1. Launch **Visual Studio**.
-2. Click **File**, point to **New**, and click **Project**.
-3. Select **Visual C#** -> **Console App (.NET Framework)** from the list of project types on the right. .NET version 4.5.2 or above is required.
-4. Enter **ADFv2Tutorial** for the Name.
-5. Click **OK** to create the project.
+1. Open **Visual Studio**.
+2. In the **Start** window, select **Create a new project**.
+3. In the **Create a new project** window, choose the C# version of **Console App (.NET Framework)** from the list of project types. Then select **Next**.
+4. In the **Configure your new project** window, enter a **Project name** of *ADFv2Tutorial*. For **Location**, browse to and/or create the directory to save the project in. Then select **Create**. The new project appears in the Visual Studio IDE.
 
 ## Install NuGet packages
 
-1. Click **Tools** -> **NuGet Package Manager** -> **Package Manager Console**.
-2. In the **Package Manager Console**, run the following commands to install packages. Refer to [Microsoft.Azure.Management.DataFactory nuget package](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/) with details.
+1. In the menu bar, choose **Tools** > **NuGet Package Manager** > **Package Manager Console**.
+2. In the **Package Manager Console** pane, run the following commands to install packages. Refer to [Microsoft.Azure.Management.DataFactory nuget package](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/) with details.
 
-    ```powershell
+    ```package manager console
     Install-Package Microsoft.Azure.Management.DataFactory
     Install-Package Microsoft.Azure.Management.ResourceManager
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
@@ -336,7 +339,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 ## Monitor a pipeline run
 
-1. Add the following code to the **Main** method to continuously check the status of the pipeline run until it finishes copying the data.
+1. Add the following code to the **Main** method to continuously check the statuses of the pipeline run until it finishes copying the data.
 
     ```csharp
     // Monitor the pipeline run
