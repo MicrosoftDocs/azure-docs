@@ -452,7 +452,7 @@
       href: ./partner-center-portal/account-migration-from-cpp-to-pc.md
   - name: Create a new offer
     items:
-    - name: Azure pplication offers
+    - name: Azure application offers
       items:
         - name: Create a Azure application offer
           href: ./partner-center-portal/create-new-azure-apps-offer.md
