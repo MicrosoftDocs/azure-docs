@@ -1,11 +1,11 @@
 ---
 title: Azure Resource Manager templates for Azure Cosmos DB
 description: Use Azure Resource Manager templates to create and configure Azure Cosmos DB. 
-author: markjbrown
+author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/31/2019
-ms.author: mjbrown
+ms.date: 11/07/2019
+ms.author: thvankra
 ---
 
 # Azure Resource Manager templates for Azure Cosmos DB
@@ -32,8 +32,6 @@ The following tables include links to Azure Resource Manager templates for Azure
 |**Template**|**Description**|
 |---| ---|
 |[Create an Azure Cosmos account, keyspace, table](manage-cassandra-with-resource-manager.md#create-resource) | This template creates a Cassandra API account in two regions with multi-master enabled. The Azure Cosmos account will have two tables that share keyspace-level throughput. |
-|[Update throughput (RU/s) for a keyspace](manage-cassandra-with-resource-manager.md#keyspace-ru-update) | This template updates the throughput for a keyspace in a Cassandra API account. |
-|[Update throughput (RU/s) for a table](manage-cassandra-with-resource-manager.md#table-ru-update) | This template updates the throughput for a table in a Cassandra API account. |
 
 ## Gremlin API
 

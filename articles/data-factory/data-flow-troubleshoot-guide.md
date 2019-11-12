@@ -71,6 +71,15 @@ This article explores common troubleshooting methods for data flows in Azure Dat
 
 - **Resolution**: You can reduce the length of the data for string columns using ```left()``` in a Derived Column or implement the ["error row" pattern.](how-to-data-flow-error-rows.md)
 
+### Error message: Since Spark 2.3, the queries from raw JSON/CSV files are disallowed when the referenced columns only include the internal corrupt record column. 
+
+- **Symptoms**: Reading from a JSON source fails
+
+- **Cause**: When reading from a JSON source with a single document on many nested lines, ADF, via Spark, is unable to determine where a new document begins and the previous document ends.
+
+- **Resolution**: On the Source transformation that is using a JSON dataset, expand "JSON Settings" and turn on "Single Document".
+
+
 ## General troubleshooting guidance
 
 1. Check the status of your dataset connections. In each Source and Sink transformation, visit the Linked Service for each dataset that you are using and test connections.

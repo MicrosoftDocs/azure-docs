@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: laobri
 author: lobrien
-ms.date: 11/04/2019
+ms.date: 11/06/2019
 ---
 
 # What are Azure Machine Learning pipelines?

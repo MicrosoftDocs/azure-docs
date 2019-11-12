@@ -150,6 +150,8 @@
         href: check-cluster-health.md
     - name: Database
       items:
+      - name: Follower databases
+        href: follower.md  
       - name: Manage database permissions
         href: manage-database-permissions.md
       - name: Policies

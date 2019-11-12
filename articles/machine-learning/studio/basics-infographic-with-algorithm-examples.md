@@ -1,6 +1,6 @@
 ---
 title: Algorithm examples
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: An easy-to-understand overview of machine learning basics includes algorithm examples. The downloadable infographic covers most machine learning questions.
 services: machine-learning
 ms.service: machine-learning

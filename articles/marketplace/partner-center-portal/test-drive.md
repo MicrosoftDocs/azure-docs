@@ -5,6 +5,7 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe 
 ms.service: marketplace 
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/13/2019
 ---

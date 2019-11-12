@@ -1,5 +1,5 @@
 ---
-title: Set up security info (preview) to use phone calls - Azure Active Directory | Microsoft Docs
+title: Set up security info (preview) for phone calls - Azure AD
 description: How to set up your security info to verify your identity using phone calls.
 services: active-directory
 author: eross-msft

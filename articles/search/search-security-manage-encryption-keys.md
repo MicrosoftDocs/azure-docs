@@ -1,7 +1,7 @@
 ---
 title:  Encryption-at-rest using customer-managed keys in Azure Key Vault (preview)
 titleSuffix: Azure Cognitive Search
-description: Supplement server-side encryption over indexes and synonym maps in Azure Cognitive Search through keys that you create and manage in Azure Key Vault.
+description: Supplement server-side encryption over indexes and synonym maps in Azure Cognitive Search through keys that you create and manage in Azure Key Vault. This feature is currently in public preview.
 
 manager: nitinme
 author: NatiNimni
@@ -13,10 +13,9 @@ ms.date: 05/02/2019
 
 # Content encryption of Azure Cognitive Search using customer-managed keys in Azure Key Vault
 
-> [!Note]
-> Encryption with customer-managed keys is in preview and not intended for production use. The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. You can also use the .NET SDK version 8.0-preview.
->
-> This feature is not available for free services. You must use a billable search service created on or after 2019-01-01. There is no portal support at this time.
+> [!IMPORTANT] 
+> Support for encryption-at-rest is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> The [REST API version 2019-05-06-Preview](search-api-preview.md) and [.NET SDK version 8.0-preview](search-dotnet-sdk-migration-version-9.md) provides this feature. There is currently no portal support.
 
 By default, Azure Cognitive Search encrypts user content at rest with [service-managed keys](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#data-encryption-models). 
 You can supplement default encryption with an additional encryption layer using keys that you create and manage in Azure Key Vault. This article walks you through the steps.

@@ -10,5 +10,4 @@
  ms.custom: include file
 ---
 
-> [!NOTE]
-> You're currently viewing the Azure IoT Central *preview features* documentation. To view the original documentation, go to [What is Azure IoT Central?](../articles/iot-central/core/overview-iot-central.md).
+You're currently viewing the IoT Central documentation for [application templates that use preview features](../articles/iot-central/core/concepts-app-templates.md#preview-templates). To view the documentation for [application templates that use generally available features](../articles/iot-central/core/concepts-app-templates.md#preview-templates) go to [What is Azure IoT Central?](../articles/iot-central/core/overview-iot-central.md).

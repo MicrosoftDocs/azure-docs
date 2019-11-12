@@ -209,6 +209,8 @@
       href: format-avro.md
     - name: Azure Blob Storage
       href: connector-azure-blob-storage.md
+    - name: Azure Cognitive Search
+      href: connector-azure-search.md
     - name: Azure Cosmos DB SQL API
       href: connector-azure-cosmos-db.md
     - name: Azure Cosmos DB's API for MongoDB
@@ -227,8 +229,6 @@
       href: connector-azure-database-for-postgresql.md
     - name: Azure File Storage
       href: connector-azure-file-storage.md
-    - name: Azure Search
-      href: connector-azure-search.md
     - name: Azure SQL Database
       href: connector-azure-sql-database.md
     - name: Azure SQL Database Managed Instance
@@ -616,6 +616,8 @@
       href: connector-troubleshoot-guide.md
     - name: Troubleshooting Azure-SSIS IR Management
       href: ssis-integration-runtime-management-troubleshoot.md
+    - name: Troubleshooting Self-hosted IR
+      href: self-hosted-integration-runtime-troubleshoot-guide.md
     - name: Troubleshooting Package Execution in Azure-SSIS IR
       href: ssis-integration-runtime-ssis-activity-faq.md
     - name: Troubleshooting Data Flows
@@ -646,6 +648,8 @@
       href: scenario-ssis-migration-ssisdb-mi.md
 - name: Reference
   items:
+  - name: Data flow script
+    href: data-flow-script.md
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.datafactory
   - name: PowerShell

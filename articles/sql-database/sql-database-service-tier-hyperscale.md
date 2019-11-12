@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database Hyperscale Overview 
+title: Hyperscale Overview
 description: This article describes the Hyperscale service tier in the vCore-based purchasing model in Azure SQL Database and explains how it is different from the General Purpose and Business Critical service tiers.
 services: sql-database
 ms.service: sql-database
