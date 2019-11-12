@@ -96,7 +96,7 @@ Use the steps in [this article](../active-directory/fundamentals/add-users-azure
 9. Create and download the profile by running the following commands. Change the -ResourcGroupName and -Name values to match your own.
 
     ```azurepowershell-interactive
-    $profile = New-AzVpnClientConfiguration -ResourceGroupName AADAuth -Name AADauthGW -AuthenticationMethod "EapTls"
+    $profile = New-AzVpnClientConfiguration -Name <name of VPN gateway> -ResourceGroupName <Resource group> -AuthenticationMethod "EapTls"
     $PROFILE.VpnProfileSASUrl
     ```
 
