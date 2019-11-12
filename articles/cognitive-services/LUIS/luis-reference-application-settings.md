@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/16/2019
+ms.date: 11/12/2019
 ms.author: diberry
 ---
 
@@ -145,9 +145,9 @@ Turn on utterance normalization for punctuation to your LUIS JSON app file in th
 ] 
 ```
 
-The following utterances show how diacritics impacts utterances:
+The following utterances show how punctuation impacts utterances:
 
-|With diacritics set to False|With diacritics set to True|
+|With punctuation set to False|With punctuation set to True|
 |--|--|
 |`Hmm..... I will take the cappuccino`|`Hmm I will take the cappuccino`|
 |||
