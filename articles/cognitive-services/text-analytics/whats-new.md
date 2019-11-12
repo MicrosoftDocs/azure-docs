@@ -29,7 +29,7 @@ The next version of Named Entity Recognition(NER) is now available for public pr
 
 Entity linking supports English and Spanish. NER language support varies by the entity type. 
 
-[Try it today](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral), or see the link below for more information. 
+[Try it today](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionPii), or see the link below for more information. 
 
 > [!div class="nextstepaction"]
 > [Learn more about Named Entity Recognition v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-v3-public-preview)
