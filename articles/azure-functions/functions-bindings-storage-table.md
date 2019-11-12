@@ -38,19 +38,9 @@ Use the Azure Table storage input binding to read a table in an Azure Storage ac
 
 ## Input - example
 
-See the language-specific example:
+# [C#](#tab/csharp)
 
-* [C# read one entity](#input---c-example---one-entity)
-* [C# bind to IQueryable](#input---c-example---iqueryable)
-* [C# bind to CloudTable](#input---c-example---cloudtable)
-* [C# script read one entity](#input---c-script-example---one-entity)
-* [C# script bind to IQueryable](#input---c-script-example---iqueryable)
-* [C# script bind to CloudTable](#input---c-script-example---cloudtable)
-* [F#](#input---f-example)
-* [JavaScript](#input---javascript-example)
-* [Java](#input---java-example)
-
-### Input - C# example - one entity
+### One entity
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that reads a single table row. 
 
@@ -77,7 +67,7 @@ public class TableStorage
 }
 ```
 
-### Input - C# example - IQueryable
+### IQueryable
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that reads multiple table rows. Note that the `MyPoco` class derives from `TableEntity`.
 
@@ -103,7 +93,7 @@ public class TableStorage
 }
 ```
 
-### Input - C# example - CloudTable
+### CloudTable
 
 `IQueryable` isn't supported in the [Functions v2 runtime](functions-versions.md). An alternative is to use a `CloudTable` method parameter to read the table by using the Azure Storage SDK. Here's an example of a 2.x function that queries an Azure Functions log table:
 
@@ -155,7 +145,9 @@ For more information about how to use CloudTable, see [Get started with Azure Ta
 
 If you try to bind to `CloudTable` and get an error message, make sure that you have a reference to [the correct Storage SDK version](#azure-storage-sdk-version-in-functions-1x).
 
-### Input - C# script example - one entity
+# [C# Script](#tab/csharp-script)
+
+### One entity
 
 The following example shows a table input binding in a *function.json* file and [C# script](functions-reference-csharp.md) code that uses the binding. The function uses a queue trigger to read a single table row. 
 
@@ -204,7 +196,7 @@ public class Person
 }
 ```
 
-### Input - C# script example - IQueryable
+### IQueryable
 
 The following example shows a table input binding in a *function.json* file and [C# script](functions-reference-csharp.md) code that uses the binding. The function reads entities for a partition key that is specified in a queue message.
 
@@ -256,7 +248,7 @@ public class Person : TableEntity
 }
 ```
 
-### Input - C# script example - CloudTable
+### CloudTable
 
 `IQueryable` isn't supported in the [Functions v2 runtime](functions-versions.md). An alternative is to use a `CloudTable` method parameter to read the table by using the Azure Storage SDK. Here's an example of a 2.x function that queries an Azure Functions log table:
 
@@ -319,54 +311,8 @@ For more information about how to use CloudTable, see [Get started with Azure Ta
 
 If you try to bind to `CloudTable` and get an error message, make sure that you have a reference to [the correct Storage SDK version](#azure-storage-sdk-version-in-functions-1x).
 
-### Input - F# example
 
-The following example shows a table input binding in a *function.json* file and [F# script](functions-reference-fsharp.md) code that uses the binding. The function uses a queue trigger to read a single table row. 
-
-The *function.json* file specifies a `partitionKey` and a `rowKey`. The `rowKey` value "{queueTrigger}" indicates that the row key comes from the queue message string.
-
-```json
-{
-  "bindings": [
-    {
-      "queueName": "myqueue-items",
-      "connection": "MyStorageConnectionAppSetting",
-      "name": "myQueueItem",
-      "type": "queueTrigger",
-      "direction": "in"
-    },
-    {
-      "name": "personEntity",
-      "type": "table",
-      "tableName": "Person",
-      "partitionKey": "Test",
-      "rowKey": "{queueTrigger}",
-      "connection": "MyStorageConnectionAppSetting",
-      "direction": "in"
-    }
-  ],
-  "disabled": false
-}
-```
-
-The [configuration](#input---configuration) section explains these properties.
-
-Here's the F# code:
-
-```fsharp
-[<CLIMutable>]
-type Person = {
-  PartitionKey: string
-  RowKey: string
-  Name: string
-}
-
-let Run(myQueueItem: string, personEntity: Person) =
-    log.LogInformation(sprintf "F# Queue trigger function processed: %s" myQueueItem)
-    log.LogInformation(sprintf "Name in Person entity: %s" personEntity.Name)
-```
-
-### Input - JavaScript example
+# [JavaScript](#tab/javascript)
 
 The following example shows a  table input binding in a *function.json* file and [JavaScript code](functions-reference-node.md) that uses the binding. The function uses a queue trigger to read a single table row. 
 
@@ -408,7 +354,11 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-### Input - Java example
+# [Python](#tab/python)
+
+**TODO**
+
+# [Java](#tab/java)
 
 The following example shows an HTTP triggered function which returns the total count of the items in a specified partition in Table storage.
 
@@ -426,6 +376,7 @@ public int run(
 }
 ```
 
+---
 
 ## Input - attributes
  
@@ -535,14 +486,7 @@ Use an Azure Table storage output binding to write entities to a table in an Azu
 
 ## Output - example
 
-See the language-specific example:
-
-* [C#](#output---c-example)
-* [C# script (.csx)](#output---c-script-example)
-* [F#](#output---f-example)
-* [JavaScript](#output---javascript-example)
-
-### Output - C# example
+# [C#](#tab/csharp)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that uses an HTTP trigger to write a single table row. 
 
@@ -566,7 +510,7 @@ public class TableStorage
 }
 ```
 
-### Output - C# script example
+# [C# Script](#tab/csharp-script)
 
 The following example shows a table output binding in a *function.json* file and [C# script](functions-reference-csharp.md) code that uses the binding. The function writes multiple table entities.
 
@@ -621,54 +565,7 @@ public class Person
 
 ```
 
-### Output - F# example
-
-The following example shows a table output binding in a *function.json* file and [F# script](functions-reference-fsharp.md) code that uses the binding. The function writes multiple table entities.
-
-Here's the *function.json* file:
-
-```json
-{
-  "bindings": [
-    {
-      "name": "input",
-      "type": "manualTrigger",
-      "direction": "in"
-    },
-    {
-      "tableName": "Person",
-      "connection": "MyStorageConnectionAppSetting",
-      "name": "tableBinding",
-      "type": "table",
-      "direction": "out"
-    }
-  ],
-  "disabled": false
-}
-```
-
-The [configuration](#output---configuration) section explains these properties.
-
-Here's the F# code:
-
-```fsharp
-[<CLIMutable>]
-type Person = {
-  PartitionKey: string
-  RowKey: string
-  Name: string
-}
-
-let Run(input: string, tableBinding: ICollector<Person>, log: ILogger) =
-    for i = 1 to 10 do
-        log.LogInformation(sprintf "Adding Person entity %d" i)
-        tableBinding.Add(
-            { PartitionKey = "Test"
-              RowKey = i.ToString()
-              Name = "Name" + i.ToString() })
-```
-
-### Output - JavaScript example
+# [JavaScript](#tab/javascript)
 
 The following example shows a  table output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function writes multiple table entities.
 
@@ -715,6 +612,16 @@ module.exports = function (context) {
 };
 ```
 
+# [Python](#tab/python)
+
+**TODO**
+
+# [Java](#tab/java)
+
+**TODO**
+
+---
+
 ## Output - attributes
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables/TableAttribute.cs).
@@ -745,7 +652,7 @@ public static MyPoco TableOutput(
 }
 ```
 
-For a complete example, see [Output - C# example](#output---c-example).
+For a complete example, see [Output - C# example](#output---example).
 
 You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see [Input - attributes](#input---attributes).
 
@@ -777,7 +684,7 @@ The Table storage output binding supports the following scenarios:
 
   In C# and C# script, access the output table entity by using a method parameter `ICollector<T> paramName` or `IAsyncCollector<T> paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. `T` specifies the schema of the entities you want to add. Typically, `T` derives from `TableEntity` or implements `ITableEntity`, but it doesn't have to. The partition key and row key values in *function.json* or the `Table` attribute constructor are not used in this scenario.
 
-  An alternative is to use a `CloudTable` method parameter to write to the table by using the Azure Storage SDK. If you try to bind to `CloudTable` and get an error message, make sure that you have a reference to [the correct Storage SDK version](#azure-storage-sdk-version-in-functions-1x). For an example of code that binds to `CloudTable`, see the input binding examples for [C#](#input---c-example---cloudtable) or [C# script](#input---c-script-example---cloudtable) earlier in this article.
+  An alternative is to use a `CloudTable` method parameter to write to the table by using the Azure Storage SDK. If you try to bind to `CloudTable` and get an error message, make sure that you have a reference to [the correct Storage SDK version](#azure-storage-sdk-version-in-functions-1x). For an example of code that binds to `CloudTable`, see the input [binding examples](#input---example) for C# or C# Script earlier in this article.
 
 * **Write one or more rows in JavaScript**
 
