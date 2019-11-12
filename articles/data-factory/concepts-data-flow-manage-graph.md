@@ -30,7 +30,7 @@ If you have no subsequent transformations after the node you've selected, then o
 
 # Hide graph and show graph
 
-There is a a button on the far-right of the bottom configuration pane where you can expand the bottom pane to full screen when working on transformation configurations. This will allow you to use "previous" and "next" buttons to navigate through the graph's configurations. To move back to graph view, click the down button and return to split screen.
+There is a button on the far-right of the bottom configuration pane where you can expand the bottom pane to full screen when working on transformation configurations. This will allow you to use "previous" and "next" buttons to navigate through the graph's configurations. To move back to graph view, click the down button and return to split screen.
 
 # Search graph
 
