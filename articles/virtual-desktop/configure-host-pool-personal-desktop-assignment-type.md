@@ -16,9 +16,9 @@ Configuring the personal desktop host pool assignment type for a host pool allow
 >[!NOTE]
 > This does not apply to a pooled host pool because users would not have 1:1 mapping to a session host within the host pool.
 
-## Configure direct assignment
+## Configure automatic assignment
 
-Breadth-first load balancing is the default configuration for new non-persistent host pools. Breadth-first load balancing distributes new user sessions across all available session hosts in the host pool. When configuring breadth-first load balancing, you may set a maximum session limit per session host in the host pool.
+Automatic assignment is the default assignment type for new personal desktop host pools. With automatic assignment, you must first assign the user to the personal desktop host pool to display the desktop in their feed, but do not need to assign the user to a specific session host. Once assigned, the user can launch the personal desktop in their feed and claim a session host, if one is available. 
 
 First, [download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already. After that, run the following cmdlet to sign in to your account:
 
@@ -26,24 +26,34 @@ First, [download and import the Windows Virtual Desktop PowerShell module](https
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```
 
-To configure a host pool to perform breadth-first load balancing without adjusting the maximum session limit, run the following PowerShell cmdlet:
+To configure a host pool to automatically assign users to VMs, run the following PowerShell cmdlet:
 
 ```powershell
-Set-RdsHostPool <tenantname> <hostpoolname> -BreadthFirstLoadBalancer
+Set-RdsHostPool <tenantname> <hostpoolname> -AssignmentType Automatic
 ```
 
-To configure a host pool to perform breadth-first load balancing and to use a new maximum session limit, run the following PowerShell cmdlet:
+To assign a user to the personal desktop host pool, run the following Powershell cmdlet:
 
 ```powershell
-Set-RdsHostPool <tenantname> <hostpoolname> -BreadthFirstLoadBalancer -MaxSessionLimit ###
+Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
 ```
 
-## Configure depth-first load balancing
+## Configure direct assignment
 
-Depth-first load balancing distributes new user sessions to an available session host with the highest number of connections but has not reached its maximum session limit threshold. When configuring depth-first load balancing, you **must** set a maximum session limit per session host in the host pool.
+With direct assignment, you must assign the user to both the personal desktop host pool and a specific session host before a user will be able to view and successfully connect to their personal desktop. If the user is only assigned to the host pool but not a specific session host, the user will see an error indicating there are no resources available.
 
-To configure a host pool to perform depth-first load balancing, run the following PowerShell cmdlet:
+To configure a host pool to require direct assignment of users to session hosts, run the following PowerShell cmdlet:
 
 ```powershell
-Set-RdsHostPool <tenantname> <hostpoolname> -DepthFirstLoadBalancer -MaxSessionLimit ###
+Set-RdsHostPool <tenantname> <hostpoolname> -AssignmentType Direct
+```
+
+To assign a user to the personal desktop host pool, run the following PowerShell cmdlet:
+```powershell
+Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
+```
+
+To assign a user to a specific session host, run the following PowerShell cmdlet:
+```powershell
+Set-RdsSessionHost <tenantname> <hostpoolname> -Name <sessionhostname> -AssignedUser <userupn>
 ```
