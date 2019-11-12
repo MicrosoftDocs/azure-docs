@@ -393,7 +393,7 @@ Configure and prepare your OS by doing the following:
     [General]
     Verbosity = 0
     Pipefs-Directory = /var/lib/nfs/rpc_pipefs
-    Domain = <b>localdomain/<b>
+    Domain = <b>localdomain</b>
     [Mapping]
     Nobody-User = <b>nobody</b>
     Nobody-Group = <b>nobody</b>
@@ -499,7 +499,7 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
     <pre><code>
     ssh root@<b>hanadb2</b>
     ssh root@<b>hanadb3</b>
-    <pre><code>
+    </code></pre>
 
 3. **[A]** Install additional packages, which are required for HANA 2.0 SP4. For more information, see SAP Note [2593824](https://launchpad.support.sap.com/#/notes/2593824). 
 
@@ -714,7 +714,8 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
     <pre><code>
         hn1adm@hanadb1:/usr/sap/HN1/HDB03> HDB kill
     </code></pre>
-    The standby node **hanadb3** will take over as master node. Here is the resource state after the failover test completed:  
+    
+    The standby node **hanadb3** will take over as master node. Here is the resource state after the failover test is completed:  
 
     <pre><code>
         # Check the instance status
