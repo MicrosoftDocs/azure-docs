@@ -79,6 +79,8 @@ On the property pane, you learn the following:
 
     ![Health property pane Overview tab](./media/container-insights-health/health-overview-unit-montior.png)
 
+    
+
     If you selected an aggregate monitor, the pane shows a rollup of the total number of aggregate monitors in the hierarchy, and how many aggregate monitors are in a critical, warning, and healthy state. 
 
     ![Health property pane Overview tab for aggregate monitor](./media/container-insights-health/health-view-overview-aggregate-monitor.png)
