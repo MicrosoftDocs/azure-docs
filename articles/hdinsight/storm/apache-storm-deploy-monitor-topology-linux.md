@@ -18,13 +18,13 @@ In this document, learn the basics of managing and monitoring [Apache Storm](htt
 
 * An Apache Storm cluster on HDInsight. See [Create Apache Hadoop clusters using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md) and select **Storm** for **Cluster type**.
 
-* (Optional) Familiarity with Secure Shell (SSH) and Secure Copy (SCP): For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* (Optional) Familiarity with Secure Shell (SSH) and Secure Copy (SCP). For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* (Optional) Visual Studio: Azure SDK 2.5.1 or newer and the Data Lake Tools for Visual Studio. For more information, see [Apache Hadoop & Visual Studio Data Lake Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
+* (Optional) Visual Studio, Azure SDK 2.5.1 or newer, and the Data Lake Tools for Visual Studio. For more information, see [Apache Hadoop & Visual Studio Data Lake Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
 ## Submit a topology using Visual Studio
 
-The Data Lake Tools for Visual Studio can be used to submit C# or hybrid topologies to your Storm cluster. The following steps use a sample application. For information about topology creation using the Data Lake Tools, see [Apache Storm topologies with Visual Studio and C#](apache-storm-develop-csharp-visual-studio-topology.md).
+You can use the Data Lake Tools for Visual Studio to submit C# or hybrid topologies to your Storm cluster. The following steps use a sample application. For information about topology creation using the Data Lake Tools, see [Apache Storm topologies with Visual Studio and C#](apache-storm-develop-csharp-visual-studio-topology.md).
 
 1. If you haven't already installed the latest version of the Data Lake tools for Visual Studio, see [Use Data Lake Tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
@@ -54,7 +54,7 @@ The Data Lake Tools for Visual Studio can be used to submit C# or hybrid topolog
 
 To submit a topology to Storm using SSH:
 
-1. Use SSH to connect to the HDInsight cluster. Replace `USERNAME` the name of your SSH user name (such as *sshuser*). Replace `CLUSTERNAME` with your HDInsight cluster name:
+1. Use SSH to connect to the HDInsight cluster. Replace `USERNAME` with the name of your SSH user name (such as *sshuser*). Replace `CLUSTERNAME` with your HDInsight cluster name.
 
     ```shell
     ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
@@ -81,7 +81,7 @@ You can programmatically deploy a topology using the Nimbus service. [https://gi
 
 ## Monitor and manage a topology in Visual Studio
 
-When a topology is submitted using Visual Studio, the **Storm Topologies View** window appears. Select the topology from the list to view information about the running topology.
+When you submit a topology using Visual Studio, the **Storm Topologies View** window appears. Select the topology from the list to view information about the running topology.
 
 ![Monitor topology, Storm Topologies View window, Visual Studio](./media/apache-storm-deploy-monitor-topology-linux/visual-studio-monitor.png)
 
@@ -163,7 +163,7 @@ storm rebalance TOPOLOGYNAME
 The Storm UI provides a web interface for working with running topologies, and it's included on your HDInsight cluster. To view the Storm UI, use a web browser to open `https://CLUSTERNAME.azurehdinsight.net/stormui`, where *CLUSTERNAME* is the name of your cluster.
 
 > [!NOTE]  
-> If you're asked to provide a user name and password, enter the cluster administrator (admin) and password that you used when creating the cluster.
+> If you're asked to provide a user name and password, enter the cluster administrator username and password that you used when creating the cluster.
 
 ### Storm UI main page
 
