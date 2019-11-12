@@ -86,12 +86,13 @@ You may submit an access request to an access package and your request is denied
 **Prerequisite role:** Requestor
 
 1. Log in to the **My Access** portal.
+
 1. Click **Request history** from the navigation menu to the left.
-    
-    ![Select request history](./media/entitlement-management-request-access/resubmit-request-select-request-history.png)
 
 1. Find the access package for which you are resubmitting a request.
+
 1. When you find the access package, click the bubble next to it.
+
 1. Click the blue **View** link to the right of the selected access package.
     
     ![Select access package and view link](./media/entitlement-management-request-access/resubmit-request-select-request-and-view.png)
