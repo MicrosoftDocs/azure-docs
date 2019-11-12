@@ -51,4 +51,4 @@
     
    Your application will use the modified URL as the base URL to access your instance. Copy this modified URL to a temporary file. You'll need this in the next section.
 
-   [![Management API](./media/create-digital-twins-portal/digital-twins-management-api.png)](./media/create-digital-twins-portal/digital-twins-management-api.png#lightbox)
+   [![Management API overview](./media/create-digital-twins-portal/digital-twins-management-api.png)](./media/create-digital-twins-portal/digital-twins-management-api.png#lightbox)
