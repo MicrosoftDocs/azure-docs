@@ -71,7 +71,7 @@ It's up to the app for which the token was generated, the web app that signed-in
 
 Tokens are only valid for a limited amount of time. Usually the STS provides a pair of tokens: an access token to access the application or protected resource, and a refresh token used to refresh the access token when the access token is close to expiring. 
 
-Access tokens are passed to a Web API as the bearer token in the `Authenticate` header. An app can provide a refresh token to the STS, and if the user access to the app wasn't revoked, it will get back a new access token and a new refresh token. This is how the scenario of someone leaving the enterprise is handled. When the STS receives the refresh token, it won't issue another valid access token if the user is no longer authorized.
+Access tokens are passed to a Web API as the bearer token in the `Authorization` header. An app can provide a refresh token to the STS, and if the user access to the app wasn't revoked, it will get back a new access token and a new refresh token. This is how the scenario of someone leaving the enterprise is handled. When the STS receives the refresh token, it won't issue another valid access token if the user is no longer authorized.
 
 ## Application model
 
