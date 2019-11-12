@@ -91,7 +91,7 @@ By choosing this option, you're opting your offer out of the CSP program. You ca
 
 ### Cloud Partner Portal opt-in
 
-In Cloud Partner Portal, the opt-in is set on the Marketplace or Storefront tab.
+In Cloud Partner Portal, the opt-in is set on the Marketplace or Storefront tab. The ability to choose specific partners in the CSP program is only available in Partner Center.
 
 ![CSP opt-in experience in CPP](media/marketplace-publishers-guide/csp-opt-in.png)
 
