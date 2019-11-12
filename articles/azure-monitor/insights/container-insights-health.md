@@ -65,7 +65,7 @@ To view health from a non-AKS cluster, that is an AKS Engine cluster hosted on-p
 
 In Azure Monitor for containers, from the **Cluster** page, select **Health**.
 
-![Cluster health dashboard example](./media/container-insights-health/health-view.png)
+![Cluster health dashboard example](./media/container-insights-health/container-insights-health-page.png)
 
 ## Review cluster health
 
@@ -79,11 +79,11 @@ On the property pane, you learn the following:
 
     If you select an aggregate monitor, the pane shows a rollup of the total number of aggregate monitors in the hierarchy, and how many aggregate monitors are in a critical, warning, and healthy state. 
 
-    ![Health property pane Overview tab for aggregate monitor](./media/container-insights-health/health-view-overview-aggregate-monitor.png)
+    ![Health property pane Overview tab for aggregate monitor](./media/container-insights-health/health-overview-aggregate-monitor.png)
 
     If you select a child monitor, it also shows under **Last state change** the previous samples calculated and reported by the containerized agent within the last four hours. This is based on the unit monitors calculation for comparing several consecutive values to determine its threshold. For example, if you selected one of the resource utilization unit monitors (that is CPU or memory utilization) of a Node or Pod, it shows the last three samples.
     
-    ![Health property pane Overview tab](./media/container-insights-health/health-overview-unit-montior.png)    
+    ![Health property pane Overview tab](./media/container-insights-health/health-overview-unit-montior.png)
 
     If the time reported by **Last state change** is a day or older, it is the result of not receiving data from the containerized agent for more than four hours. If the agent knows that a particular resource exists, for example a Node, but it hasn't received data from the Node, then the health state of the monitor is set to **Unknown**.  
 
@@ -93,3 +93,4 @@ On the property pane, you learn the following:
 Monitoring data on this page does not refresh automatically and you need to select **Refresh** at the top of the page to see the most recent health state received from the cluster.
 
 ## Next steps
+
