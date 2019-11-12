@@ -4,7 +4,7 @@ description: Use Azure Resource Manager templates to create and configure Azure 
 author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/07/2019
+ms.date: 11/12/2019
 ms.author: thvankra
 ---
 
@@ -24,7 +24,7 @@ Create Azure Cosmos DB resources using an Azure Resource Manager template. This 
 
 ## Deploy with the Azure CLI
 
-To deploy the Azure Resource Manager template using the Azure CLI, **Copy** the script and select **Try it** to open Azure Cloud shell. To paste the script, right-click the shell, and then select **Paste**:
+To deploy the Azure Resource Manager template using the Azure CLI, **Copy** the script and select **Try it** to open Azure Cloud Shell. To paste the script, right-click the shell, and then select **Paste**:
 
 ```azurecli-interactive
 
