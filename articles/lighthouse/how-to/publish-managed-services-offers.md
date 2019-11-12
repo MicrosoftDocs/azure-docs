@@ -146,7 +146,7 @@ After a customer adds your offer, they'll be able to [delegate one or more speci
 After the customer delegates a subscription (or one or more resource groups within a subscription), the **Microsoft.ManagedServices** resource provider will be registered for that subscription, and users in your tenant will be able to access the delegated resources according to the authorizations in your offer.
 
 > [!NOTE]
-> Currently, subscriptions (or resource groups within a subscription) can't be delegated if the subscription uses Azure Databricks. Similarly, if a subscription (or resource groups within a subscription) has already been delegated, it currently isn't possible to create Databricks workspaces in that subscription.
+> At this time, subscriptions (or resource groups within a subscription) can't be delegated if the subscription uses Azure Databricks. Similarly, if a subscription (or resource groups within a subscription) has already been delegated, it currently isn't possible to create Databricks workspaces in that subscription.
 
 ## Next steps
 
