@@ -1,15 +1,15 @@
 ---
-title: Support matrix for disaster recovery of Azure VMs between Azure regions with Azure Site Recovery | Microsoft Docs
-description: Summarizes prerequisites and support for disaster recovery of Azure VMs from one region to another with Azure Site Recovery
+title: Support matrix for Azure VM disaster recovery with Azure Site Recovery 
+description: Summarizes support for Azure VMs disaster recovery to a secondary region with Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/26/2019
+ms.date: 11/12/2019
 ms.author: raynew
 
 ---
-# Support matrix for replicating Azure VMs from one region to another
+# Support matrix for Azure VM disaster recovery between Azure regions
 
 This article summarizes support and prerequisites for disaster recovery of Azure VMs from one Azure region to another, using the [Azure Site Recovery](site-recovery-overview.md) service.
 

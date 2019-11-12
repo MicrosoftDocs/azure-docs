@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Mobility Service push installation failures when enabling replication for disaster recovery | Microsoft Docs
-description: Troubleshoot Mobility Services installation errors when enabling replication for disaster recovery
+title: Troubleshoot Mobility Service push installation with Azure Site Recovery f
+description: Troubleshoot Mobility Services installation errors when enabling replication for disaster recovery with Azure Site Recovery.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.author: ramamill
 ms.date: 09/11/2019
 ---
-# Troubleshoot Mobility Service push installation issues
+# Troubleshoot Mobility Service push installation 
 
 Installation of Mobility service is a key step during Enable Replication. The success of this step depends solely on meeting prerequisites and working with supported configurations. The most common failures you face during Mobility service installation are due to:
 

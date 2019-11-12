@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: C# SDK query prediction endpoint - LUIS"
 titleSuffix: Azure Cognitive Services 
-description: Use the C# SDK to send a user utterance to LUIS and receive a prediction. 
+description: This article will show you how to use the C# SDK to send a user utterance to the Azure Cognitive Services LUIS application and receive a prediction. 
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
