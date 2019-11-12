@@ -77,7 +77,7 @@ Data Lake Analytics U-SQL activity runs a U-SQL script on an Azure Data Lake Ana
 
 ### Databricks Notebook activity
 
-The Azure Databricks Notebook Activity in a Data Factory pipeline runs a Databricks notebook in your Azure Databricks workspace.Azure Databricks is a managed platform for running Apache Spark. See [Transform data by running a Databricks notebook](transform-data-databricks-notebook.md).
+The Azure Databricks Notebook Activity in a Data Factory pipeline runs a Databricks notebook in your Azure Databricks workspace. Azure Databricks is a managed platform for running Apache Spark. See [Transform data by running a Databricks notebook](transform-data-databricks-notebook.md).
 
 ### Databricks Jar activity
 
