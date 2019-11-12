@@ -28,7 +28,7 @@ Example Usage Scenarios:
 
 **Deny**: When the effect of a policy is set to deny, the policy will block the creation of new components such as certificates as well as block new versions of existing components that do not comply with the policy definition. Existing non-compliant resources within a key vault are not affected. The 'audit' capabilities will continue to operate.
 
-Example Scenario – You manage a key vault used by multiple teams that contains 100 certificates, and you want to make sure that none of the certificates in the key vault are valid for longer than 2 years.
+**Example Scenario**: You manage a key vault used by multiple teams that contains 100 certificates, and you want to make sure that none of the certificates in the key vault are valid for longer than 2 years.
 
 1. You assign the 'Manage certificate validity period' policy, specify that the maximum validity period of a certificate is 24 months, and set the effect of the policy to 'audit'. 
 1. You view the compliance report on the Azure Portal, and you discover that 20 certificates are non-compliant and valid for > 2 years, and the remaining certificates are compliant. 
@@ -48,9 +48,9 @@ This policy allows you to manage the maximum validity period of your certificate
 ### Manage allowed certificate key types (preview)
 This policy allows you to restrict the type of certificates that can be in your key vault. You can use this policy to make sure that your certificate private keys are RSA, ECC, or are HSM backed. You can choose from the following list which certificate types are allowed.
 - RSA
-- RSA – HSM
+- RSA - HSM
 - ECC 
-- ECC – HSM 
+- ECC - HSM 
 
 ### Manage certificate lifetime action triggers (preview)
 
@@ -64,7 +64,7 @@ If you use a Key Vault integrated certificate authority (Digicert or GlobalSign)
 
 If you use an internal certificate authority or a certificate authority not integrated with key vault and you want users to use a certificate authority from a list you provide, you can use this policy to create an allowed list of certificate authorities by issuer name. This policy can also be used to audit or deny the creation of self-signed certificates in key vault. 
 
-### - Manage allowed curve names for elliptic curve cryptography certificates (preview)
+### Manage allowed curve names for elliptic curve cryptography certificates (preview)
 If you use elliptic curve cryptography or ECC certificates, you can customize an allowed list of curve names from the list below. The default option allows all the following curve names. 
 - P-256,
 - P-256K
@@ -83,35 +83,35 @@ Your service can experience an outage if a certificate that is not being adequat
 ## Select a Policy Definition
 
 1 Log in to the Azure Portal. 
-1. Search 'Policy' in the Search Bar and Select 'Policy'
-1. In the Policy window, select 'Definitions' 
-1. In the Category Filter, Unselect 'Select All' then Select “Key Vault” 
+1. Search "Policy" in the Search Bar and Select **Policy**.
+1. In the Policy window, select **Definitions**.
+1. In the Category Filter, Unselect **Select All** and select **Key Vault**. 
 1. Now you should be able to see all the policies available for Public Preview, for Azure Key Vault. Make sure you have read and understood the policy guidance section above and select a policy you want to assign to a scope.  
 
 ## Assign a Policy to a Scope 
 
-1. Select a policy you wish to apply, in this example, the “Manage Certificate Validity Period” policy is shown. Click the assign button in the top-left corner
-1. Select the subscription where you want the policy to be applied. You can choose to restrict the scope to only a single resource group within a subscription. If you want to apply the policy to the entire subscription and exclude some resource groups, you can also configure an exclusion list. Set the policy enforcement selector to “Enabled” if you want the effect of the policy (audit or deny) to occur or “Disabled” to turn the effect (audit or deny) off. 
-1. Click on the parameters tab at the top of the screen in order to specify the maximum validity period in months that you want. Select “audit” or “deny” for the effect of the policy following the guidance in the sections above. Then select the review + create button. 
+1. Select a policy you wish to apply, in this example, the **Manage Certificate Validity Period** policy is shown. Click the assign button in the top-left corner
+1. Select the subscription where you want the policy to be applied. You can choose to restrict the scope to only a single resource group within a subscription. If you want to apply the policy to the entire subscription and exclude some resource groups, you can also configure an exclusion list. Set the policy enforcement selector to **Enabled** if you want the effect of the policy (audit or deny) to occur or **Disabled** to turn the effect (audit or deny) off. 
+1. Click on the parameters tab at the top of the screen in order to specify the maximum validity period in months that you want. Select **audit** or **deny** for the effect of the policy following the guidance in the sections above. Then select the review + create button. 
 
 ## View Compliance Results
 
 1. Go back to the Policy blade and select the compliance tab. Click on the policy assignment you wish to view compliance results for.
 1. From this page you can filter results by compliant or non-compliant vaults. Here you can see a list of non-compliant key vaults within the scope of the policy assignment. A vault is considered non-compliant if any of the components (certificates) in the vault are non-compliant. You can select an individual vault to view the individual non-compliant components (certificates). 
 1. View the name of the components within a vault that are non-compliant
-1. If you need to check whether users are being denied the ability to create resources within key vault, you can click on the “Component Events (preview)” tab to view a summary of denied certificate operations with the requestor and timestamps of requests. 
+1. If you need to check whether users are being denied the ability to create resources within key vault, you can click on the **Component Events (preview)** tab to view a summary of denied certificate operations with the requestor and timestamps of requests. 
 
 ## Feature Limitations
 
-Assigning a policy with a “deny” effect may take up to 30 mins (average case) and 1 hour (worst case) to start denying the creation of non-compliant resources. 
+Assigning a policy with a "deny" effect may take up to 30 mins (average case) and 1 hour (worst case) to start denying the creation of non-compliant resources. 
 The policy evaluation of existing components in a vault may take up to 1 hour (average case) and 2 hours (worst case) before compliance results are viewable in the portal UI. 
-If the compliance results show up as “Not Started” it may be due to the following reasons:
+If the compliance results show up as "Not Started" it may be due to the following reasons:
 - The policy valuation has not completed yet. Initial evaluation latency can take up to 2 hours in the worst-case scenario. 
 - There are no key vaults in the scope of the policy assignment.
 - There are no key vaults with certificates within the scope of the policy assignment. 
 
 ## Next Steps
 
-- Learn more about the [[Azure Policy service](../governance/policy/overview.md)
-- See a sample: [Key Vault vaults with no virtual network endpoints](../governance/policy/keyvault-no-vnet-rules.md)
+- Learn more about the [Azure Policy service](../governance/policy/overview.md)
+- See a sample: [Key Vault vaults with no virtual network endpoints](../governance/policy/samples/keyvault-no-vnet-rules.md)
 
