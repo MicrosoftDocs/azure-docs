@@ -43617,6 +43617,11 @@
       "source_path": "articles/cognitive-services/translator/translator-text-container-config.md",
       "redirect_url": "/azure/cognitive-services/translator/translator-info-overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/virtual-kubelet.md",
+      "redirect_url": "/azure/aks/concepts-scale#burst-to-azure-container-instances",
+      "redirect_document_id": false
     }
   ]
 }
