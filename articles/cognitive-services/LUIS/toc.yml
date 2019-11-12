@@ -317,6 +317,8 @@
       href: reference-entity-regular-expression.md
     - name: Simple entity
       href: reference-entity-simple.md
+  - name: Pattern syntax
+    href: reference-pattern-syntax.md
   - name: Sentiment 
     href: luis-reference-prebuilt-sentiment.md
   - name: Developer resources
