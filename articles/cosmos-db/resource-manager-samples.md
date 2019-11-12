@@ -46,4 +46,4 @@ The following tables include links to Azure Resource Manager templates for Azure
 > [!TIP]
 > To enable shared throughput when using Table API, enable account-level throughput in the Azure Portal.
 
-See [ARM reference for Azure Cosmos DB](/azure/templates/microsoft.documentdb/allversions) page for the reference documentation.
+See [Azure Resource Manager reference for Azure Cosmos DB](/azure/templates/microsoft.documentdb/allversions) page for the reference documentation.
