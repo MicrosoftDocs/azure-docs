@@ -98,7 +98,7 @@ Create a webhook to trigger your newly created runbook.
 
 1.  Select **Add Webhook**.
 
-    ![](media/image5.png)
+    ![Add Webhook button](media/image5.png)
 
 1.  Select **Create new Webhook**.
 
