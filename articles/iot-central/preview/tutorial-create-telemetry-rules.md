@@ -104,10 +104,6 @@ Choose the rule you want to enable or disable. Add a filter in the **Scopes** se
 
 ## Next steps
 
-Now that you have learned how to create rules in your Azure IoT Central application, the suggested next step is to learn [How to manage your devices](howto-manage-devices.md)
-
-## Next steps
-
 In this tutorial, you learned how to:
 
 * Create a telemetry-based rule
