@@ -10,11 +10,13 @@ ms.topic: conceptual
 ms.date: 11/11/2019
 ---
 
-# The Azure application offer type
+# Create an Azure application offer
+
+## Azure application offer type
 
 This topic outlines fundamentals about Azure application offers.  You should be familiar with these concepts before starting the process of publishing a new Azure application offer in the Marketplace.
 
-## Publishing overview
+### Publishing overview
 
 The video [Building Solution Templates, and Managed Applications for the Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603) is an introduction to the Azure application offer type:
 
@@ -41,7 +43,7 @@ All Azure applications include at least two files in the root folder of a `.zip`
 
 All new Azure application offers must include an [Azure partner customer usage attribution GUID](??).
 
-## Before you begin
+### Before you begin
 
 Review the following Azure application documentation, which provides Quickstarts, Tutorials, and Samples.
 

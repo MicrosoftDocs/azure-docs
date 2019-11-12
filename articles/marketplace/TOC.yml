@@ -454,7 +454,7 @@
     items:
     - name: Azure application offers
       items:
-        - name: Create a Azure application offer
+        - name: Create an Azure application offer
           href: ./partner-center-portal/create-new-azure-apps-offer.md
     - name: Dynamics 365 offers
       items: 
