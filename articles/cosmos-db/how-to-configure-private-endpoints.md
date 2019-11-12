@@ -352,7 +352,7 @@ Adding or removing regions to an Azure Cosmos account requires you to add or rem
 
 1. When the Azure Cosmos DB administrator adds or removes regions, the network administrator gets a notification about the pending changes. For the private endpoint mapped to an Azure Cosmos account, the value of the `ActionsRequired` property changes from `None` to `Recreate`. Then the network administrator updates the private endpoint by issuing a PUT request with the same Resource Manager payload that was used to create it.
 
-1. After you update the private endpoint, you can update the subnet's private DNS zone to reflect the added or removed DNS entries and their corresponding private IP addresses.
+1. After the private endpoint is updated, you can update the subnet's private DNS zone to reflect the added or removed DNS entries and their corresponding private IP addresses.
 
 For example, imagine that you deploy an Azure Cosmos account in three regions: "West US," "Central US," and "West Europe." When you create a private endpoint for your account, four private IPs are reserved in the subnet. There's one IP for each of the three regions, and there's one IP for the global/region-agnostic endpoint.
 
