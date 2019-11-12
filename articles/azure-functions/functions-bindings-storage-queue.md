@@ -595,9 +595,11 @@ def main(req: func.HttpRequest, msg: func.Out[typing.List[str]]) -> func.HttpRes
 
 In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@QueueOutput` annotation on parameters whose value would be written to Queue storage.  The parameter type should be `OutputBinding<T>`, where T is any native Java type of a POJO.
 
+---
+
 ## Output - attributes
 
-
+# [C#](#tab/csharp)
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs).
 
@@ -626,6 +628,24 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 For a complete example, see [Output - C# example](#output).
 
 You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see Trigger - attributes.
+
+# [C# Sharp](#tab/csharp-sharp)
+
+**TODO**
+
+# [JavaScript](#tab/javascript)
+
+**TODO**
+
+# [Python](#tab/python)
+
+**TODO**
+
+# [Java](#tab/java)
+
+**TODO**
+
+---
 
 ## Output - configuration
 
@@ -708,7 +728,6 @@ This section describes the global configuration settings available for this bind
     }
 }
 ```
-
 
 |Property  |Default | Description |
 |---------|---------|---------|
