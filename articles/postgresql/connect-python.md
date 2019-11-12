@@ -14,7 +14,7 @@ ms.date: 11/07/2019
 This quickstart demonstrates how to work with an Azure Database for PostgreSQL using [Python](https://python.org) on macOS, Ubuntu Linux, or Windows. The quickstart shows how to connect to the database and use SQL statements to query, insert, update, and delete data. The article assumes that you're familiar with Python, but new to working with Azure Database for PostgreSQL.
 
 ## Prerequisites
-- An Azure Database for PostgresQL - Single Server, created by using the steps in [Quickstart: Create an Azure Database for PostgreSQL server in the Azure portal](quickstart-create-server-database-portal.md) or [Quickstart: Create an Azure Database for PostgreSQL using the Azure CLI](quickstart-create-server-database-azure-cli.md). 
+- An Azure Database for PostgreSQL - Single Server, created by using the steps in [Quickstart: Create an Azure Database for PostgreSQL server in the Azure portal](quickstart-create-server-database-portal.md) or [Quickstart: Create an Azure Database for PostgreSQL using the Azure CLI](quickstart-create-server-database-azure-cli.md). 
   
 - [Python](https://www.python.org/downloads/) 2.7 or 3.4 or above, with [pip](https://pip.pypa.io/en/stable/installing/) package installer. `pip` is automatically installed with Python 2.7.9 or above, or Python 3.4 or above.
 
@@ -25,7 +25,7 @@ To install `psycopg2`:
 
 1. Launch a command-line interface, such as Bash shell for Linux, Terminal for macOS, or Windows Command Prompt.
 1. Make sure you're using the current version of `pip`, by running a command like `pip install -U pip`.
-3. Run `pip install psycopg2`.
+1. Run `pip install psycopg2`.
 
 ## Get database connection information
 Connecting to an Azure Database for PostgreSQL database requires the fully qualified server name and login credentials. You can get this information from the Azure portal.
@@ -92,7 +92,7 @@ cursor.close()
 conn.close()
 ```
 
-When the code runs successfully, the output appears as follows:
+When the code runs successfully, it produces the following output:
 
 ![Command-line output](media/connect-python/2-example-python-output.png)
 
