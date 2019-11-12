@@ -110,15 +110,19 @@ output_data1 = PipelineData(
 
 ### Configure data using datasets
 
-If you have tabular data stored in a file or set of files, a [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) is an efficient alternative to a `DataReference`. `TabularDataset` objects support versioning, diffs, and summary statistics. `TabularDataset`s are lazily evaluated (like Python generators) and it's efficient to subset them by splitting or filtering. 
+If you have tabular data stored in a file or set of files, a [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) is an efficient alternative to a `DataReference`. `TabularDataset` objects support versioning, diffs, and summary statistics. `TabularDataset`s are lazily evaluated (like Python generators) and it's efficient to subset them by splitting or filtering. The `FileDataset` class provides similar lazily-evaluated data representing one or more files. 
 
-You create a `TabularDataset` using methods like [from_delimited_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none-). You can learn more about working with [datasets from this notebook](https://aka.ms/tabulardataset-samplenotebook).
+You create a `TabularDataset` using methods like [from_delimited_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none-).
 
 ```python
 from azureml.data import TabularDataset
 
 iris_tabular_dataset = Dataset.Tabular.from_delimited_files([(def_blob_store, 'train-dataset/tabular/iris.csv')])
 ```
+
+ You create a `FileDataset` using [from_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-).
+
+ You can learn more about working with datasets from [Add & register datasets](how-to-create-register-datasets.md) or [this sample notebook](https://aka.ms/tabulardataset-samplenotebook).
 
 ## Set up compute target
 
@@ -329,7 +333,7 @@ pipeline1 = Pipeline(workspace=ws, steps=steps)
 
 ### Use a dataset 
 
-To use a `TabularDataset` in your pipeline, you'll need to turn it into a  [DatasetConsumptionConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_consumption_config.datasetconsumptionconfig?view=azure-ml-py) object by calling [as_named_input(name)](https://docs.microsoft.com/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset?view=azure-ml-py#as-named-input-name-). You'll pass this `DatasetConsumptionConfig` object as one of the `inputs` to your pipeline step. 
+To use eith a `TabularDataset` or `FileDataset` in your pipeline, you need to turn it into a  [DatasetConsumptionConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_consumption_config.datasetconsumptionconfig?view=azure-ml-py) object by calling [as_named_input(name)](https://docs.microsoft.com/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset?view=azure-ml-py#as-named-input-name-). You pass this `DatasetConsumptionConfig` object as one of the `inputs` to your pipeline step. 
 
 ```python
 dataset_consuming_step = PythonScriptStep(
@@ -340,7 +344,7 @@ dataset_consuming_step = PythonScriptStep(
 )
 ```
 
-You can then retrieve the dataset in your pipeline by using the [Run.input_datasets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#input-datasets) dictionary.
+You then retrieve the dataset in your pipeline by using the [Run.input_datasets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#input-datasets) dictionary.
 
 ```python
 # iris_train.py
