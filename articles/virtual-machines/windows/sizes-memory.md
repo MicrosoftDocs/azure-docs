@@ -15,7 +15,7 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/08/2019
+ms.date: 11/06/2019
 ms.author: jonbeck
 
 ---

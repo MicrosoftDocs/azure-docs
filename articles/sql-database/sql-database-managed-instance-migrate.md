@@ -1,10 +1,10 @@
 ---
-title: Migrate database from SQL Server instance to Azure SQL Database - Managed instance | Microsoft Docs
+title: Migrate from SQL Server to managed instance
 description: Learn how to migrate a database from SQL Server instance to Azure SQL Database - Managed instance. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: migration
-ms.custom: 
+ms.custom: seo-lt-2019
 ms.devlang: 
 ms.topic: conceptual
 author: bonova

@@ -10,6 +10,8 @@ ms.author: mjbrown
 
 # Manage Azure Cosmos DB Table API resources using Azure Resource Manager Templates
 
+This article describes how to perform different operations to automate management of your Azure Cosmos DB accounts, databases and containers using Azure Resource Manager templates. This article has examples for Table API accounts only, to find examples for other API type accounts see: use Resource Manager templates with Azure Cosmos DB's API for  [Cassandra](manage-cassandra-with-resource-manager.md), [Gremlin](manage-gremlin-with-resource-manager.md), [MongoDB](manage-mongodb-with-resource-manager.md), [SQL](manage-sql-with-resource-manager.md) articles.
+
 ## Create Azure Cosmos account and table <a id="create-resource"></a>
 
 Create Azure Cosmos DB resources using an Azure Resource Manager template. This template will create an Azure Cosmos account for Table API with one table at 400 RU/s throughput. Copy the template and deploy as shown below or visit [Azure Quickstart Gallery](https://azure.microsoft.com/resources/templates/101-cosmosdb-table/) and deploy from the Azure portal. You can also download the template to your local computer or create a new template and specify the local path with the `--template-file` parameter.
