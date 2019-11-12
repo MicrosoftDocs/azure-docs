@@ -15,9 +15,9 @@ ms.author: mbaldwin
 
 # How to: Receive and respond to key vault notifications with Azure Event Grid (preview)
 
-Azure Key Vault integration with Azure Event Grid (currently in preview) enables user notification when the status of a secret stored in a key vault has changed. For an overview of this feature, see [Monitoring Key Vault with Azure Event Grid](event-grid-overview.md).
+Azure Key Vault integration with Azure Event Grid (currently in preview) enables user notification when the status of a secret stored in a key vault has changed. For an overview of this feature, see [Monitoring Key Vault with Event Grid](event-grid-overview.md).
 
-This guide describes how to receive Key Vault notifications through Azure Event Grid, and how to respond to status changes through Azure Automation.
+This guide describes how to receive Key Vault notifications through Event Grid, and how to respond to status changes through Azure Automation.
 
 ## Prerequisites
 
