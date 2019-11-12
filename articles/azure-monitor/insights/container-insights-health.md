@@ -10,7 +10,7 @@ ms.assetid:
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 11/11/2019
+ms.date: 11/12/2019
 ms.author: magoedte
 ---
 
@@ -75,9 +75,16 @@ When the Health page opens, by default **Kubernetes Infrastructure** is selected
 
 On the property pane, you learn the following:
 
-- On the **Overview** tab, it shows the last state change history over the last three hours. If you selected an aggregate monitor, the pane shows a rollup of the total number of aggregate monitors, and how many aggregate monitors are in a critical, warning, and healthy state.
+- On the **Overview** tab, it shows the last state change history up to the last four hours. 
+
+    ![Health property pane Overview tab](./media/container-insights-health/health-overview-unit-montior.png)
+
+    If you selected an aggregate monitor, the pane shows a rollup of the total number of aggregate monitors in the hierarchy, and how many aggregate monitors are in a critical, warning, and healthy state. 
+
+    ![Health property pane Overview tab for aggregate monitor](./media/container-insights-health/health-view-overview-aggregate-monitor.png)
+
 - On the**Config** tab, it shows the default configuration parameter settings (only for unit monitors) and their values.
 - On the **Knowledge** tab, it contains information explaining the behavior of the monitor and how it evaluates for the unhealthy condition.
 
-
+Monitoring data on this page does not refresh automatically.  
 ## Next steps
