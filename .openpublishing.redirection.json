@@ -9268,7 +9268,7 @@
     {
       "source_path": "articles/active-directory/active-directory-saas-splunkenterpriseandsplunkcloud-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/splunkenterpriseandsplunkcloud-tutorial",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-saas-spring-cm-tutorial.md",
