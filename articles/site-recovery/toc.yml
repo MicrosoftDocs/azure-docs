@@ -363,8 +363,6 @@
       items:
       - name: Deprecation of DR between customer owned sites
         href: site-to-site-deprecation.md  
-      - name: Deprecation of SCVMM Site to Azure support  
-        href: scvmm-site-recovery-deprecation.md
       - name: Upgrade Windows Servers configured with Site Recovery
         href: upgrade-2012R2-to-2016.md
       - name: Remove servers and disable protection
