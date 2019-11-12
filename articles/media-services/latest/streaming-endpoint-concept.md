@@ -24,7 +24,7 @@ When you create a Media Services account, a **default** Streaming Endpoint is cr
 
 > [!NOTE]
 > To start streaming videos, you need to start the **Streaming Endpoint** from which you want to stream the video.
->  
+>
 > You're only billed when your Streaming Endpoint is in the running state.
 
 ## Naming convention
@@ -39,11 +39,11 @@ When using the default streaming endpoint, `servicename` is omitted so the URL i
 * The streaming endpoint name has a max value of 24 characters.
 * The name should follow this [regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) pattern: `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`.
 
-## Types  
+## Types
 
 There are two **Streaming Endpoint** types: **Standard** (preview) and **Premium**. The type is defined by the number of scale units (`scaleUnits`) you allocate for the streaming endpoint.
 
-The table describes the types:  
+The table describes the types:
 
 |Type|Scale units|Description|
 |--------|--------|--------|  
@@ -65,7 +65,7 @@ Billing is prorated| Daily|Daily
 Dynamic encryption|Yes|Yes
 Dynamic packaging|Yes|Yes
 Scale|Auto scales up to the targeted throughput.|Additional SUs
-IP filtering/G20/Custom host  <sup>1</sup>|Yes|Yes
+IP filtering/G20/Custom host <sup>1</sup>|Yes|Yes
 Progressive download|Yes|Yes
 Recommended usage |Recommended for the vast majority of streaming scenarios.|Professional usage.
 
@@ -78,7 +78,7 @@ This section gives details about some of the Streaming Endpoint's properties. Fo
 - `accessControl`: Used to configure the following security settings for this streaming endpoint: Akamai Signature Header Authentication keys and IP addresses that are allowed to connect to this endpoint. This property can only be set when `cdnEnabled` is set to false.
 
 - `cdnEnabled`: Indicates if the Azure CDN integration for this streaming endpoint is enabled (disabled by default). If you set `cdnEnabled` to true, the following configurations get disabled: `customHostNames` and `accessControl`.
-  
+
     Not all data centers support the Azure CDN integration. To check if your data center has the Azure CDN integration available, do the following steps:
 
   - Try to set the `cdnEnabled` to true.
@@ -86,12 +86,12 @@ This section gives details about some of the Streaming Endpoint's properties. Fo
 
     If you get this error, the data center doesn't support it. Try another data center.
 
-- `cdnProfile`:  When `cdnEnabled` is set to true, you can also pass `cdnProfile` values. `cdnProfile` is the name of the CDN profile where the CDN endpoint point will be created. You can provide an existing cdnProfile or use a new one. If value is NULL and `cdnEnabled` is true, the default value "AzureMediaStreamingPlatformCdnProfile" is used. If the provided `cdnProfile` already exists, an endpoint is created under it. If the profile doesn't exist, a new profile automatically gets created.
+- `cdnProfile`: When `cdnEnabled` is set to true, you can also pass `cdnProfile` values. `cdnProfile` is the name of the CDN profile where the CDN endpoint point will be created. You can provide an existing cdnProfile or use a new one. If value is NULL and `cdnEnabled` is true, the default value "AzureMediaStreamingPlatformCdnProfile" is used. If the provided `cdnProfile` already exists, an endpoint is created under it. If the profile doesn't exist, a new profile automatically gets created.
 - `cdnProvider`: When CDN is enabled, you can also pass `cdnProvider` values. `cdnProvider` controls which provider will be used. Currently, three values are supported: "StandardVerizon", "PremiumVerizon" and "StandardAkamai". If no value is provided and `cdnEnabled` is true, "StandardVerizon" is used (that's the default value).
 - `crossSiteAccessPolicies`: Used to specify cross site access policies for various clients. For more information, see [Cross-domain policy file specification](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) and [Making a Service Available Across Domain Boundaries](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx). The settings only apply to Smooth Streaming.
-- `customHostNames`: Used to configure a Streaming Endpoint to accept traffic directed to a custom host name.  This property is valid for Standard and Premium Streaming Endpoints and can be set when `cdnEnabled`: false.
+- `customHostNames`: Used to configure a Streaming Endpoint to accept traffic directed to a custom host name. This property is valid for Standard and Premium Streaming Endpoints and can be set when `cdnEnabled`: false.
 
-    The ownership of the domain name must be confirmed by Media Services. Media Services verifies the domain name ownership by requiring a `CName` record containing the Media Services account ID as a component to be added to the domain in use. As an example, for "sports.contoso.com" to be used as a custom host name for the streaming endpoint, a record for `<accountId>.contoso.com` must be configured to point to one of Media Services verification host names. The verification host name is composed of verifydns.\<mediaservices-dns-zone>. 
+    The ownership of the domain name must be confirmed by Media Services. Media Services verifies the domain name ownership by requiring a `CName` record containing the Media Services account ID as a component to be added to the domain in use. As an example, for "sports.contoso.com" to be used as a custom host name for the streaming endpoint, a record for `<accountId>.contoso.com` must be configured to point to one of Media Services verification host names. The verification host name is composed of verifydns.\<mediaservices-dns-zone>.
 
     The following are the expected DNS zones to be used in the verify record for different Azure regions.
   
@@ -107,7 +107,7 @@ This section gives details about some of the Streaming Endpoint's properties. Fo
 
     For example, a `CName` record that maps "945a4c4e-28ea-45cd-8ccb-a519f6b700ad.contoso.com" to "verifydns.media.azure.net" proves that the Media Services ID 945a4c4e-28ea-45cd-8ccb-a519f6b700ad has the ownership of the contoso.com domain, thus enabling any name under contoso.com to be used as a custom host name for a streaming endpoint under that account. To find the Media Service ID value, go to the [Azure portal](https://portal.azure.com/) and select your Media Service account. The **Account ID** appears on the top right of the page.
 
-    If there's an attempt to set a custom host name without a proper verification of the `CName` record, the DNS response will fail and then be cached for some time. Once a proper record is in place, it might take a while until the cached response is revalidated. Depending on the DNS provider for the custom domain, it could take anywhere from a few minutes to an hour to revalidate the record.
+    If there's an attempt to set a custom host name without a proper verification of the `CName` record, the DNS response will fail and then be cached for some time. Once a proper record is in place, it might take a while until the cached response is revalidated. Depending on the DNS provider for the custom domain, it takes anywhere from a few minutes to an hour to revalidate the record.
 
     In addition to the `CName` that maps `<accountId>.<parent domain>` to `verifydns.<mediaservices-dns-zone>`, you must create another `CName` that maps the custom host name (for example, `sports.contoso.com`) to your Media Services Streaming Endpoint's host name (for example, `amstest-usea.streaming.media.azure.net`).
 
