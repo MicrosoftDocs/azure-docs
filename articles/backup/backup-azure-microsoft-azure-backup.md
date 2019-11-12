@@ -332,7 +332,7 @@ Use the following steps to upgrade MABS:
    >
    > Do not exit while your SQL instance is being upgraded, exiting will uninstall the SQL reporting instance and hence an attempt to re-upgrade MABS will fail.
 
-   Important things to note:
+
 
    > [!IMPORTANT]
    >

@@ -21,6 +21,7 @@ You can use Azure Backup Server to recover the data you've backed up to a Recove
 To recover data from an Azure Backup Server:
 
 1. From the **Recovery** tab of the Azure Backup Server management console, click **'Add External DPM'** (at the top left of the screen).
+
     ![Add External DPM](./media/backup-azure-alternate-dpm-server/add-external-dpm.png)
 2. Download new **vault credentials** from the vault associated with the **Azure Backup Server** where the data is being recovered, choose the Azure Backup Server from the list of Azure Backup Servers registered with the Recovery Services vault, and provide the **encryption passphrase** associated with the server whose data is being recovered.
 

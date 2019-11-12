@@ -13,8 +13,6 @@ ms.author: dacurwin
 
 This article has answers to common questions abound backing up files and folders with the Microsoft Azure Recovery Services (MARS) Agent in the [Azure Backup](backup-overview.md) service.
 
-## General
-
 ## Configure backups
 
 ### Where can I download the latest version of the MARS agent?
