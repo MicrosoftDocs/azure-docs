@@ -8,6 +8,7 @@
     - name: About Container Registry
       href: container-registry-intro.md
   - name: Quickstarts
+    expanded: true
     items:
     - name: Create container registry - CLI
       href: container-registry-get-started-azure-cli.md
@@ -146,6 +147,7 @@
     - name: About ACR Tasks
       href: container-registry-tasks-overview.md
   - name: Quickstarts
+    expanded: true
     items:
     - name: Build, push, and run image - CLI
       href: container-registry-quickstart-task-cli.md
