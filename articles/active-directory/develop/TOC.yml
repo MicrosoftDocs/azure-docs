@@ -395,7 +395,7 @@
       - name: Transitioning from App registrations (Legacy) to the new App registrations experience in the Azure portal
         href: app-registrations-training-guide-for-app-registrations-legacy-users.md
       - name: Transitioning from Application Registration Portal to the new App registrations experience in the Azure portal
-        href: app-registrations-training-guide-for-application-registration-portal-users.md
+        href: app-registration-portal-training-guide.md
       - name: Convert a single-tenant app to a multi-tenant app
         href: howto-convert-app-to-be-multi-tenant.md
       - name: Create service principal
