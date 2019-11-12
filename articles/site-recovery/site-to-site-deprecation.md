@@ -1,5 +1,5 @@
 ---
-title: Upcoming deprecation of DR between customer owned sites manged by SCVMM using Site Recovery & Azure| Microsoft Docs
+title: Upcoming deprecation of DR between customer owned sites manged by SCVMM using Site Recovery| Microsoft Docs
 description: Details about Upcoming deprecation of DR between customer owned sites using Hyper-V and between sites managed by SCVMM to Azure and alternate options
 services: site-recovery
 author: rajani-janaki-ram 
@@ -10,11 +10,11 @@ ms.date: 11/12/2019
 ms.author: rajanaki  
 
 ---
-# Upcoming deprecation of DR between a customer owned site managed by VMM & Azure using Site Recovery
+# Upcoming deprecation of DR between customer owned sites managed by VMM using Site Recovery
 
 This article describes the upcoming deprecation plan, the corresponding implications,  and the alternative options available for the customers for the following scenario:
 
-DR between customer owned sites manged by System Center Virtual Machine Manager (SCVMM) using Site Recovery & Azure using Site Recovery
+DR between customer owned sites managed by System Center Virtual Machine Manager (SCVMM) using Site Recovery
 
 > [!IMPORTANT]
 > Customers are advised to take the remediation steps at the earliest to avoid any disruption to their environment. 
@@ -25,16 +25,18 @@ DR between customer owned sites manged by System Center Virtual Machine Manager 
 
 - If you have an existing configuration, you will not be able to register new VMMs.
 
-- Once the scenarios are deprecated unless the customer follows the alternate approaches, the existing replications will get disrupted. Customers won't be able to view, manage, or performs any DR-related operations via the Azure Site Recovery experience in Azure portal.
+- Once the scenarios are deprecated unless the customer follows the alternate approaches, the existing replications may get disrupted. Customers won't be able to view, manage, or performs any DR-related operations via the Azure Site Recovery experience in Azure portal.
  
 ## Alternatives 
 
-Below is the alternative approach that the customer can perform from to ensure that their DR strategy is not impacted once the scenario is deprecated. 
+Below are the alternatives that the customer can choose from to ensure that their DR strategy is not impacted once the scenario is deprecated. 
 
-Choose to [start using Azure as the DR target for VMs on Hyper-V hosts](hyper-v-azure-tutorial.md).
+- Option 1 (Recommended): Choose to [start using Azure as the DR target for VMs on Hyper-V hosts](hyper-v-azure-tutorial.md).
 
-  > [!IMPORTANT]
-  > Please note that your on-premises environment can still have SCVMMM, but you'll configure ASR with references to only the Hyper-V hosts.
+    > [!IMPORTANT]
+    > Please note that your on-premises environment can still have SCVMMM, but you'll configure ASR with references to only the Hyper-V hosts.
+
+- Option 2: Choose to continue with site-to-site replication  using the underlying [Hyper-V Replica solution](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica), but you will be unable to manage DR configurations using Azure Site Recovery in the Azure portal. 
 
 
 ## Remediation steps
@@ -54,7 +56,13 @@ If you are choosing to go with Option 1, please execute the following steps:
 5. [Set up replication for the VMs](hyper-v-azure-tutorial.md)
 6. Optional but recommended: [Run a DR drill](tutorial-dr-drill-azure.md)
 
+If you are choosing to go with Option 2 of using Hyper-V replica, please execute the following steps:
+
+1. In **Protected Items** > **Replicated Items**, right-click the machine > **Disable replication**.
+2. In **Disable replication**, select **Remove**.
+
+    This removes the replicated item from Azure Site Recovery (billing is stopped). Replication configuration on the on-premises virtual machine **will not** be cleaned up. 
 
 ## Next Steps
-Plan for the deprecation and execute the remediation steps. In case you have any queries regarding this, please reach out to Microsoft Support
+Plan for the deprecation and choose an alternate option that's best suited for your infrastructure and business. In case you have any queries regarding this, please reach out to Microsoft Support
 
