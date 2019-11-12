@@ -1,7 +1,7 @@
 ---
 title: What's New - Language Understanding (LUIS)
 titleSuffix: Azure Cognitive Services
-description: This article contains news about Language Understanding.
+description: This article is regularly updated with news about the Azure Cognitive Services Language Understanding API.
 author: diberry
 manager: nitinme
 ms.custom: experiment-luis-0519
