@@ -1,7 +1,7 @@
 ---
 title: Export & delete data - LUIS
 titleSuffix: Azure Cognitive Services 
-description: Delete customer data to ensure privacy and compliance. 
+description: You have full control over viewing, exporting, and deleting their data. Delete customer data to ensure privacy and compliance.
 services: cognitive-services
 author: diberry
 manager: nitinme
