@@ -42,7 +42,7 @@ You can create all the entities from the **Entities** page, or you can create a 
 
 [!INCLUDE [Create and label entities in machine-learned tutorial](includes/decomposable-tutorial-links.md)]
 
-## Create text-matching entity
+## Create a text-matching entity
 
 Use text-matching entities provide several ways to extract data:
 
@@ -149,7 +149,7 @@ In this procedure, add `origin` and `destination` roles to a prebuilt geographyV
 
     Once you [create a pattern utterance](luis-how-to-model-intent-pattern.md) using this entity, the entity is extracted with a combined machine-learned and text-matching algorithm. 
 
-### Create pattern template utterance to use pattern.any entity
+### Create a pattern template utterance to use pattern.any entity
 
 To use the pattern.any entity, add a pattern on the **Patterns** page, in the **Improve app performance** section, with the correct curly brace syntax, such as `Where is **{HumanResourcesFormTitle}** on the server?`.
 
