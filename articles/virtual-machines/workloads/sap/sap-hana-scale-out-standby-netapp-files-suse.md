@@ -262,7 +262,7 @@ The next instructions assume that you've already created the resource group, the
 
     b. Execute the following commands to enable accelerated networking for the additional network interfaces, which are attached to the `hana` and `client` subnets.  
 
-    ```
+    <pre><code>
     az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb1-hana</b> --accelerated-networking true
     az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb2-hana</b> --accelerated-networking true
     az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb3-hana</b> --accelerated-networking true
@@ -270,7 +270,7 @@ The next instructions assume that you've already created the resource group, the
     az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb1-client</b> --accelerated-networking true
     az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb2-client</b> --accelerated-networking true
     az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb3-client</b> --accelerated-networking true
-    ```
+    </code></pre>
 
 7. Start the virtual machines by doing the following:  
 
@@ -289,7 +289,8 @@ The instructions in the next sections are prefixed with one of the following:
 Configure and prepare your OS by doing the following:
 
 1. **[A]** Maintain the host files on the virtual machines. Include entries for all subnets. The following entries were added to `/etc/hosts` for this example.  
-    ```
+
+    <pre><code>
     # Storage
     10.23.2.4   hanadb1
     10.23.2.5   hanadb2
@@ -302,11 +303,11 @@ Configure and prepare your OS by doing the following:
     10.23.3.4   hanadb1-hana
     10.23.3.5   hanadb2-hana
     10.23.3.6   hanadb3-hana
-    ```
+    </code></pre>
 
 2. **[A]** Change DHCP and cloud config settings to avoid unintended hostname changes.  
 
-    ```
+    <pre><code>
     vi /etc/sysconfig/network/dhcp
     #Change the following DHCP setting to "no"
     DHCLIENT_SET_HOSTNAME="no"
@@ -314,11 +315,11 @@ Configure and prepare your OS by doing the following:
     # Edit ifcfg-eth0 
     #Change CLOUD_NETCONFIG_MANAGE='yes' to "no"
     CLOUD_NETCONFIG_MANAGE='no'
-    ```
+    </code></pre>
 
 3. **[A]** Prepare the OS for running SAP HANA on NetApp Systems with NFS, as described in [SAP HANA on NetApp AFF Systems with NFS configuration guide](https://www.netapp.com/us/media/tr-4435.pdf). Create configuration file */etc/sysctl.d/netapp-hana.conf* for the NetApp configuration settings.  
 
-    ```
+    <pre><code>
     vi /etc/sysctl.d/netapp-hana.conf
     # Add the following entries in the configuration file
     net.core.rmem_max = 16777216
@@ -335,11 +336,11 @@ Configure and prepare your OS by doing the following:
     net.ipv4.tcp_window_scaling = 1
     net.ipv4.tcp_timestamps = 1
     net.ipv4.tcp_sack = 1
-    ```
+    </code></pre>
 
 4. **[A]** Create configuration file */etc/sysctl.d/ms-az.conf* with Microsoft for Azure configuration settings.  
 
-    ```
+    <pre><code>
     vi /etc/sysctl.d/ms-az.conf
     # Add the following entries in the configuration file
     ipv6.conf.all.disable_ipv6 = 1
@@ -348,32 +349,32 @@ Configure and prepare your OS by doing the following:
     net.ipv4.conf.all.rp_filter = 0
     sunrpc.tcp_slot_table_entries = 128
     vm.swappiness=10
-    ```
+    </code></pre>
 
 4. **[A]** Adjust the sunrpc settings, as recommended in the [SAP HANA on NetApp AFF Systems with NFS configuration guide](https://www.netapp.com/us/media/tr-4435.pdf).  
 
-    ```
+    <pre><code>
     vi /etc/modprobe.d/sunrpc.conf
     # Insert the following line
     options sunrpc tcp_max_slot_table_entries=128
-    ```
+    </code></pre>
 
 ## Mount the Azure NetApp Files volumes
 
 1. **[A]** Create mount points for the HANA database volumes.  
 
-    ```
+    <pre><code>
     mkdir -p /hana/data/<b>HN1</b>/mnt00001
     mkdir -p /hana/data/<b>HN1</b>/mnt00002
     mkdir -p /hana/log/<b>HN1</b>/mnt00001
     mkdir -p /hana/log/<b>HN1</b>/mnt00002
     mkdir -p /hana/shared
     mkdir -p /usr/sap/<b>HN1</b>
-    ```
+    </code></pre>
 
 2. **[1]** Create node-specific directories for /usr/sap on **HN1**-shared.  
 
-    ```
+    <pre><code>
     # Create a temporary directory to mount <b>HN1</b>-shared
     mkdir /mnt/tmp
     mount <b>10.23.1.4</b>:/<b>HN1</b>*-shared /mnt/tmp
@@ -382,11 +383,11 @@ Configure and prepare your OS by doing the following:
     # unmount /hana/shared
     cd
     umount /mnt/tmp
-    ```
+    </code></pre>
 
 3. **[A]** Verify the NFS domain setting. Make sure that the domain is configured as **`localdomain`** and the mapping is set to **nobody**.  
 
-    ```
+    <pre><code>
     sudo cat  /etc/idmapd.conf
     # Example
     [General]
@@ -396,21 +397,21 @@ Configure and prepare your OS by doing the following:
     [Mapping]
     Nobody-User = <b>nobody</b>
     Nobody-Group = <b>nobody</b>
-    ```
+    </code></pre>
 
 4. **[A]** Disable NFSv4 ID mapping. To create the directory structure where `nfs4_disable_idmapping` is located, execute the mount command. You won't be able to manually create the directory under /sys/modules, because access is reserved for the kernel / drivers.  
 
-    ```
+    <pre><code>
     mkdir /mnt/tmp
     mount 10.23.1.4:/HN1-shared /mnt/tmp
     umount  /mnt/tmp
     # Disable NFSv4 idmapping. 
     echo "N" > /sys/module/nfs/parameters/nfs4_disable_idmapping
-    ```
+    </code></pre>`
 
 5. **[A]** Create the SAP HANA group and user manually. The IDs for group sapsys and user **hn1**adm must be set to the same IDs, which are provided during the onboarding. (In this example, the IDs are set to **1001**.) If the IDs aren't set correctly, you won't be able to access the volumes. The IDs for group sapsys and user accounts **hn1**adm and sapadm must be the same on all virtual machines.  
 
-    ```
+    <pre><code>
     # Create user group 
     sudo groupadd -g 1001 sapsys
     # Create  users 
@@ -419,11 +420,11 @@ Configure and prepare your OS by doing the following:
     # Set the password  for both user ids
     sudo passwd hn1adm
     sudo passwd sapadm
-    ```
+    </code></pre>
 
 6. **[A]** Mount the shared Azure NetApp Files volumes.  
 
-    ```
+    <pre><code>
     sudo vi /etc/fstab
     # Add the following entries
     10.23.1.5:/<b>HN1</b>-data-mnt00001 /hana/data/<b>HN1</b>/mnt00001  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
@@ -433,39 +434,41 @@ Configure and prepare your OS by doing the following:
     10.23.1.4:/<b>HN1</b>-shared/shared /hana/shared  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
     # Mount all volumes
     sudo mount -a 
-    ```
+    </code></pre>
 
 7. **[1]** Mount the node-specific volumes on **hanadb1**.  
-    ```
+
+    <pre><code>
     sudo vi /etc/fstab
     # Add the following entries
     10.23.1.4:/<b>HN1</b>-shared/usr-sap-<b>hanadb1</b> /usr/sap/<b>HN1</b>  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
     # Mount the volume
     sudo mount -a 
-    ```
+    </code></pre>
 
 8. **[2]** Mount the node-specific volumes on **hanadb2**.  
-    ```
+
+    <pre><code>
     sudo vi /etc/fstab
     # Add the following entries
     10.23.1.4:/<b>HN1</b>-shared/usr-sap-<b>hanadb2</b> /usr/sap/<b>HN1</b>  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
     # Mount the volume
     sudo mount -a 
-    ```
+    </code></pre>
 
 9. **[3]** Mount the node-specific volumes on **hanadb3**.  
 
-    ```
+    <pre><code>
     sudo vi /etc/fstab
     # Add the following entries
     10.23.1.4:/<b>HN1</b>-shared/usr-sap-<b>hanadb3</b> /usr/sap/<b>HN1</b>  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
     # Mount the volume
     sudo mount -a 
-    ```
+    </code></pre>
 
 10. **[A]** Verify that all HANA volumes are mounted with NFS protocol version **NFSv4**.  
 
-    ```
+    <pre><code>
     sudo nfsstat -m
     # Verify that flag vers is set to <b>4.1</b> 
     # Example from <b>hanadb1</b>
@@ -481,7 +484,7 @@ Configure and prepare your OS by doing the following:
      Flags: rw,noatime,vers=<b>4.1</b>,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.2.4,local_lock=none,addr=10.23.1.4
     /hana/shared from 10.23.1.4:/<b>HN1</b>-shared/shared
      Flags: rw,noatime,vers=<b>4.1</b>,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.2.4,local_lock=none,addr=10.23.1.4
-    ```
+    </code></pre>
 
 ## Installation  
 
@@ -493,24 +496,24 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
 
 2. **[1]** Verify that you can log in via SSH to **hanadb2** and **hanadb3**, without being prompted for a password.  
 
-    ```
+    <pre><code>
     ssh root@<b>hanadb2</b>
     ssh root@<b>hanadb3</b>
-    ```
+    <pre><code>
 
 3. **[A]** Install additional packages, which are required for HANA 2.0 SP4. For more information, see SAP Note [2593824](https://launchpad.support.sap.com/#/notes/2593824). 
 
-    ```
+    <pre><code>
     sudo zypper install libgcc_s1 libstdc++6 libatomic1 
-    ```
+    </code></pre>
 
 4. **[2], [3]** Change ownership of SAP HANA `data` and `log` directories to **hn1**adm.   
 
-    ```
+    <pre><code>
     # Execute as root
     sudo chown hn1adm:sapsys /hana/data/<b>HN1</b>
     sudo chown hn1adm:sapsys /hana/log/<b>HN1</b>
-    ```
+    </code></pre>
 
 ### HANA installation
 
@@ -518,9 +521,9 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
 
    a. Start the **hdblcm** program from the HANA installation software directory. Use the `internal_network` parameter and pass the address space for subnet, which is used for the internal HANA inter-node communication.  
 
-    ```
+    <pre><code>
     ./hdblcm --internal_network=10.23.3.0/24
-    ```
+    </code></pre>
 
    b. At the prompt, enter the following values:
 
@@ -560,7 +563,7 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
 
    Display global.ini, and ensure that the configuration for the internal SAP HANA inter-node communication is in place. Verify the **communication** section. It should have the address space for the `hana` subnet, and `listeninterface` should be set to `.internal`. Verify the **internal_hostname_resolution** section. It should have the IP addresses for the HANA virtual machines that belong to the `hana` subnet.  
 
-   ```
+   <pre><code>
     sudo cat /usr/sap/<b>HN1</b>/SYS/global/hdb/custom/config/global.ini
     # Example 
     #global.ini last modified 2019-09-10 00:12:45.192808 by hdbnameserve
@@ -571,35 +574,35 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
     <b>10.23.3.4</b> = <b>hanadb1</b>
     <b>10.23.3.5</b> = <b>hanadb2</b>
     <b>10.23.3.6</b> = <b>hanadb3</b>
-   ```
+   </code></pre>
 
 3. **[1]** Add host mapping to ensure that the client IP addresses are used for client communication. Add section `public_host_resolution`, and add the corresponding IP addresses from the client subnet.  
 
-   ```
+   <pre><code>
     sudo vi /usr/sap/HN1/SYS/global/hdb/custom/config/global.ini
     #Add the section
     [public_hostname_resolution]
     map_<b>hanadb1</b> = <b>10.23.0.5</b>
     map_<b>hanadb2</b> = <b>10.23.0.6</b>
     map_<b>hanadb3</b> = <b>10.23.0.7</b>
-   ```
+   </code></pre>
 
 4. **[1]** Restart SAP HANA to activate the changes.  
 
-   ```
+   <pre><code>
     sudo -u <b>hn1</b>adm /usr/sap/hostctrl/exe/sapcontrol -nr <b>03</b> -function StopSystem HDB
     sudo -u <b>hn1</b>adm /usr/sap/hostctrl/exe/sapcontrol -nr <b>03</b> -function StartSystem HDB
-   ```
+   </code></pre>
 
 5. **[1]** Verify that the client interface will be using the IP addresses from the `client` subnet for communication.  
 
-   ```
+   <pre><code>
     sudo -u hn1adm /usr/sap/HN1/HDB03/exe/hdbsql -u SYSTEM -p "<b>password</b>" -i 03 -d SYSTEMDB 'select * from SYS.M_HOST_INFORMATION'|grep net_publicname
     # Expected result
     "<b>hanadb3</b>","net_publicname","<b>10.23.0.7</b>"
     "<b>hanadb2</b>","net_publicname","<b>10.23.0.6</b>"
     "<b>hanadb1</b>","net_publicname","<b>10.23.0.5</b>"
-   ```
+   </code></pre>
 
    For information about how to verify the configuration, see SAP Note [2183363 - Configuration of SAP HANA internal network](https://launchpad.support.sap.com/#/notes/2183363).  
 
@@ -631,7 +634,7 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
 
    a. Before you simulate the node crash, run the following commands as **hn1**adm to capture the status of the environment:  
 
-   ```
+   <pre><code>
     # Check the landscape status
     python /usr/sap/<b>HN1</b>/HDB<b>03</b>/exe/python_support/landscapeHostConfiguration.py
     | Host    | Host   | Host   | Failover | Remove | Storage   | Storage   | Failover | Failover | NameServer | NameServer | IndexServer | IndexServer | Host    | Host    | Worker  | Worker  |
@@ -649,16 +652,17 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
     hanadb2, 3, 50313, 50314, 0.3, HDB|HDB_WORKER, GREEN
     hanadb1, 3, 50313, 50314, 0.3, HDB|HDB_WORKER, GREEN
     hanadb3, 3, 50313, 50314, 0.3, HDB|HDB_STANDBY, GREEN
-   ```
+   </code></pre>
 
    b. To simulate a node crash, run the following command as root on the worker node, which is **hanadb2** in this case:  
    
-   ```
+   <pre><code>
     echo b > /proc/sysrq-trigger
-   ```
+   </code></pre>
 
    c. Monitor the system for failover completion. When the failover has been completed, capture the status, which should look like the following:  
-   ```
+
+    <pre><code>
     # Check the instance status
     sapcontrol -nr <b>03</b>  -function GetSystemInstanceList
     GetSystemInstanceList
@@ -676,7 +680,7 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
     | hanadb1 | yes    | ok     |          |        |         1 |         1 | default  | default  | master 1   | master     | worker      | master      | worker  | worker  | default | default |
     | hanadb2 | no     | info   |          |        |         2 |         0 | default  | default  | master 2   | slave      | worker      | standby     | worker  | standby | default | -       |
     | hanadb3 | yes    | info   |          |        |         0 |         2 | default  | default  | master 3   | slave      | standby     | slave       | standby | worker  | default | default |
-   ```
+   </code></pre>
 
    > [!IMPORTANT]
    > When a node experiences kernel panic, avoid delays with SAP HANA failover by setting `kernel.panic` to 20 seconds on *all* HANA virtual machines. The configuration is done in `/etc/sysctl`. Reboot the virtual machines to activate the change. If this change isn't performed, failover can take 10 or more minutes when a node is experiencing kernel panic.  
@@ -685,7 +689,7 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
 
    a. Prior to the test, check the status of the environment by running the following commands as **hn1**adm:  
 
-   ```
+   <pre><code>
     #Landscape status 
     python /usr/sap/HN1/HDB03/exe/python_support/landscapeHostConfiguration.py
     | Host    | Host   | Host   | Failover | Remove | Storage   | Storage   | Failover | Failover | NameServer | NameServer | IndexServer | IndexServer | Host    | Host    | Worker | Worker  |
@@ -703,16 +707,16 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
     hanadb2, 3, 50313, 50314, 0.3, HDB|HDB_WORKER, GREEN
     hanadb1, 3, 50313, 50314, 0.3, HDB|HDB_WORKER, GREEN
     hanadb3, 3, 50313, 50314, 0.3, HDB|HDB_STANDBY, GRAY
-   ```
+   </code></pre>
 
    b. Run the following commands as **hn1**adm on the active master node, which is **hanadb1** in this case:  
 
-    ```
+    <pre><code>
         hn1adm@hanadb1:/usr/sap/HN1/HDB03> HDB kill
-    ```
+    </code></pre>
     The standby node **hanadb3** will take over as master node. Here is the resource state after the failover test completed:  
 
-    ```
+    <pre><code>
         # Check the instance status
         sapcontrol -nr 03 -function GetSystemInstanceList
         GetSystemInstanceList
@@ -730,17 +734,17 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
         | hanadb1 | no     | info   |          |        |         1 |         0 | default  | default  | master 1   | slave      | worker      | standby     | worker  | standby | default | -       |
         | hanadb2 | yes    | ok     |          |        |         2 |         2 | default  | default  | master 2   | slave      | worker      | slave       | worker  | worker  | default | default |
         | hanadb3 | yes    | info   |          |        |         0 |         1 | default  | default  | master 3   | master     | standby     | master      | standby | worker  | default | default |
-    ```
+    </code></pre>
 
    c. Restart the HANA instance on **hanadb1** (that is, on the same virtual machine, where the name server was killed). The **hanadb1** node will rejoin the environment and will keep its standby role.  
 
-   ```
+   <pre><code>
     hn1adm@hanadb1:/usr/sap/HN1/HDB03> HDB start
-   ```
+   </code></pre>
 
    After SAP HANA has started on **hanadb1**, expect the following status:  
 
-   ```
+   <pre><code>
     # Check the instance status
     sapcontrol -nr 03 -function GetSystemInstanceList
     GetSystemInstanceList
@@ -758,17 +762,17 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
     | hanadb1 | yes    | info   |          |        |         1 |         0 | default  | default  | master 1   | slave      | worker      | standby     | worker  | standby | default | -       |
     | hanadb2 | yes    | ok     |          |        |         2 |         2 | default  | default  | master 2   | slave      | worker      | slave       | worker  | worker  | default | default |
     | hanadb3 | yes    | info   |          |        |         0 |         1 | default  | default  | master 3   | master     | standby     | master      | standby | worker  | default | default |
-   ```
+   </code></pre>
 
    d. Again, kill the name server on the currently active master node (that is, on node **hanadb3**).  
    
-   ```
+   <pre><code>
     hn1adm@hanadb3:/usr/sap/HN1/HDB03> HDB kill
-   ```
+   </code></pre>
 
    Node **hanadb1** will resume the role of master node. After the failover test has been completed, the status will look like this:
 
-   ```
+   <pre><code>
     # Check the instance status
     sapcontrol -nr 03  -function GetSystemInstanceList & python /usr/sap/HN1/HDB03/exe/python_support/landscapeHostConfiguration.py
     GetSystemInstanceList
@@ -789,17 +793,17 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
     | hanadb1 | yes    | ok     |          |        |         1 |         1 | default  | default  | master 1   | master     | worker      | master      | worker  | worker  | default | default |
     | hanadb2 | yes    | ok     |          |        |         2 |         2 | default  | default  | master 2   | slave      | worker      | slave       | worker  | worker  | default | default |
     | hanadb3 | no     | ignore |          |        |         0 |         0 | default  | default  | master 3   | slave      | standby     | standby     | standby | standby | default | -       |
-   ```
+   </code></pre>
 
    e. Start SAP HANA on **hanadb3**, which will be ready to serve as a standby node.  
 
-   ```
+   <pre><code>
     hn1adm@hanadb3:/usr/sap/HN1/HDB03> HDB start
-   ```
+   </code></pre>
 
    After SAP HANA has started on **hanadb3**, the status looks like the following:  
 
-   ```
+   <pre><code>
     # Check the instance status
     sapcontrol -nr 03  -function GetSystemInstanceList & python /usr/sap/HN1/HDB03/exe/python_support/landscapeHostConfiguration.py
     GetSystemInstanceList
@@ -820,7 +824,7 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
     | hanadb1 | yes    | ok     |          |        |         1 |         1 | default  | default  | master 1   | master     | worker      | master      | worker  | worker  | default | default |
     | hanadb2 | yes    | ok     |          |        |         2 |         2 | default  | default  | master 2   | slave      | worker      | slave       | worker  | worker  | default | default |
     | hanadb3 | no     | ignore |          |        |         0 |         0 | default  | default  | master 3   | slave      | standby     | standby     | standby | standby | default | -       |
-   ```
+   </code></pre>
 
 ## Next steps
 
