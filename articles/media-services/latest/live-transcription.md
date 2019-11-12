@@ -1,6 +1,6 @@
 ---
-title: Using Azure Media Services time-shifting and live-to-VOD (video on demand) | Microsoft Docs
-description: This article explains what Live Output is and how to use a cloud DVR.  
+title: Azure Media Services live transcription | Microsoft Docs
+description: This article explains what the Azure Media Services live transcription is.  
 services: media-services
 documentationcenter: ''
 author: Juliako
