@@ -565,7 +565,7 @@ def my_function(msg: func.QueueMessage) -> str:
 import unittest
 
 import azure.functions as func
-from __app__ import my_function
+from __app__.QueueTrigger import my_function
 
 class TestFunction(unittest.TestCase):
     def test_my_function(self):
