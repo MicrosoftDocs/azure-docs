@@ -27,7 +27,9 @@ The next version of Named Entity Recognition(NER) is now available for public pr
 * A new endpoint for recognizing personal information entity types (English only)
 * Separate endpoints for entity recognition and entity linking.
 
-Entity linking supports English and Spanish. NER language support varies by the entity type. For more information, see the link below. 
+Entity linking supports English and Spanish. NER language support varies by the entity type. 
+
+[Try it today](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral), or see the link below for more information. 
 
 > [!div class="nextstepaction"]
 > [Learn more about Named Entity Recognition v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-v3-public-preview)
@@ -39,7 +41,9 @@ The next version of Sentiment Analysis is now available for public preview, and 
 * Automatic labeling for different sentiments in text.
 * Sentiment analysis and output on a document and sentence level. 
 
-It supports English (`en`), Japanese (`ja`), Chinese Simplified (`zh-Hans`),  Chinese Traditional (`zh-Hant`), French (`fr`), Italian (`it`), Spanish (`es`), Dutch (`nl`), Portuguese (`pt`), and German (`de`), and is available in the following regions: `Australia East`, `Central Canada`, `Central US`, `East Asia`, `East US`, `East US 2`, `North Europe`, `Southeast Asia`, `South Central US`, `UK South`, `West Europe`, and `West US 2`.
+It supports English (`en`), Japanese (`ja`), Chinese Simplified (`zh-Hans`),  Chinese Traditional (`zh-Hant`), French (`fr`), Italian (`it`), Spanish (`es`), Dutch (`nl`), Portuguese (`pt`), and German (`de`), and is available in the following regions: `Australia East`, `Central Canada`, `Central US`, `East Asia`, `East US`, `East US 2`, `North Europe`, `Southeast Asia`, `South Central US`, `UK South`, `West Europe`, and `West US 2`. 
+
+[Try it today](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment), or see the link below for more information. 
 
 > [!div class="nextstepaction"]
 > [Learn more about Sentiment Analysis v3](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-v3-public-preview)
