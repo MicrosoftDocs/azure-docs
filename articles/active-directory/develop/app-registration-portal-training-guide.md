@@ -114,7 +114,7 @@ separate pages. Here's where you can find the equivalent functionality:
 
 -   Advanced option - Live SDK support is on the Authentication page.
 
-## Application Secrets/Certificates & secrets
+## Application secrets/Certificates & secrets
 
 In the new experience, **Application secrets** have been renamed to
 **Certificates & secrets**. In addition, **Public keys** are referred to as
@@ -122,7 +122,7 @@ In the new experience, **Application secrets** have been renamed to
 chose to not bring this functionality along in the new experience for
 security reasons, hence, you can no longer generate a new key pair.
 
-## Platforms/Authentication - Reply URLs/Redirect URIs
+## Platforms/Authentication: Reply URLs/redirect URIs
 In the old experience, an app had Platforms section for Web, native, and
 Web API to configure Redirect URLs, Logout URL and Implicit flow.
 
@@ -139,7 +139,7 @@ Web APIs are configured in Expose an API page.
 configure settings for your application based on the platform or device
 that you want to target. [Learn more](quickstart-configure-app-access-web-apis.md#configure-platform-settings-for-your-application)
 
-## Microsoft Graph Permissions/API permissions
+## Microsoft Graph permissions/API permissions
 
 -   When selecting an API in the old experience, you could choose from
     Microsoft Graph APIs only. In the new experience, you can choose
