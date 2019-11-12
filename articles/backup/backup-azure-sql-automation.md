@@ -19,6 +19,7 @@ This article describes how to use Azure PowerShell to back up and recover a SQL 
 This tutorial explains how to:
 
 > [!div class="checklist"]
+>
 > * Set up PowerShell and register the Azure Recovery Services Provider.
 > * Create a Recovery Services vault.
 > * Configure backup for SQL DB within an Azure VM.
@@ -268,7 +269,7 @@ Azure Backup can restore SQL Server databases that are running on Azure VMs as f
 1. Restore to a specific date or time (to the second) by using transaction log backups. Azure Backup automatically determines the appropriate full differential backup and the chain of log backups that are required to restore based on the selected time.
 2. Restore a specific full or differential backup to restore to a specific recovery point.
 
-Check the pre-requisites mentioned [here](restore-sql-database-azure-vm.md#prerequisites) before restoring SQL DBs.
+Check the prerequisites mentioned [here](restore-sql-database-azure-vm.md#prerequisites) before restoring SQL DBs.
 
 First fetch the relevant backed up SQL DB using the [Get-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem?view=azps-1.5.0) PS cmdlet.
 
