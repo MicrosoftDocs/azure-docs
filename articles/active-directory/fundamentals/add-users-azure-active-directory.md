@@ -54,6 +54,14 @@ You can create a new user using the Azure Active Directory portal.
 
 The user is created and added to your Azure AD organization.
 
+## Add a new guest user
+
+You can also invite new guest user to collaborate with your organization by simply choosing Invite user from the new user page. If your organization's external collaboration settings are configured such that you're allowed to invite guests, the user will be emailed an invitation they can accept in order to begin collaborating. For more information about inviting B2B users, see [Invite B2B users to Azure Active Directory](../b2b/add-users-administrator.md)
+
+## Add a consumer user
+
+There might be scenarios in which you want to manually create consumer accounts in your Azure Active Directory B2C (Azure AD B2C) directory. For more information about creating consumer accounts, see [Create and delete consumer users in Azure AD B2C](../../active-directory-b2c/manage-users-portal.md)
+
 ## Add a new user within a hybrid environment
 
 If you have an environment with both Azure Active Directory (cloud) and Windows Server Active Directory (on-premises), you can add new users by syncing the existing user account data. For more information about hybrid environments and users, see [Integrate your on-premises directories with Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
