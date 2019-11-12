@@ -14,7 +14,7 @@ The mapping data flows design surface is a "construction" surface where you buil
 
 Below are built-in mechanisms to manage the data flow graph.
 
-# Move nodes
+## Move nodes
 
 ![Aggregate Transformation options](media/data-flow/agghead.png "aggregator header")
 
@@ -28,11 +28,11 @@ If you are moving a transformation with one or more transformations after it, th
 
 If you have no subsequent transformations after the node you've selected, then only that transform will move to the new location.
 
-# Hide graph and show graph
+## Hide graph and show graph
 
 There is a button on the far-right of the bottom configuration pane where you can expand the bottom pane to full screen when working on transformation configurations. This will allow you to use "previous" and "next" buttons to navigate through the graph's configurations. To move back to graph view, click the down button and return to split screen.
 
-# Search graph
+## Search graph
 
 You can search the graph with the search button on the design surface.
 
