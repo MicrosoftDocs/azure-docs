@@ -346,7 +346,7 @@
     href: https://docs.microsoft.com/rest/api/azureml/
   - name: Designer algorithm & modules reference
     displayName: module, reference, algorithm, studio
-    href: algorithm-module-reference/module-reference.md
+    href: ../algorithm-module-reference/module-reference.md
   - name: ML at scale
     href: /azure/architecture/data-guide/big-data/machine-learning-at-scale
   - name: Monitor data reference
