@@ -22,7 +22,7 @@ For information about how to enable Azure Monitor for containers, see [Onboard A
 
 ## Overview
 
-In Azure Monitor for containers, the Health feature provides proactive health monitoring of your Kubernetes cluster to help you identify and diagnose issues. It gives you the ability to view these significant issues detected. 
+In Azure Monitor for containers, the Health feature provides proactive health monitoring of your Kubernetes cluster to help you identify and diagnose issues. It gives you the ability to view significant issues detected. 
 
 Kubernetes cluster health is based on a number of monitoring scenarios organized by the following Kubernetes objects and abstractions:
 
@@ -57,18 +57,25 @@ To understand the behavior and configuration of each monitor supporting Azure Mo
 
 Sign in to the [Azure portal](https://portal.azure.com). 
 
-## View health from an AKS cluster
+## View health of an AKS or non-AKS cluster
 
-Access to the Azure Monitor for containers Health feature is available directly from an AKS cluster by selecting **Insights** from the left pane in the Azure portal. Select the **Health** tab and the Health page appears.  
+Access to the Azure Monitor for containers Health feature is available directly from an AKS cluster by selecting **Insights** from the left pane in the Azure portal. Under the **Insights** section, select **Containers**. From the **Cluster** page, select **Health**.
 
-![Azure Monitor health dashboard example](./media/container-insights-health/health-view-01.png)
+![Cluster health dashboard example](./media/container-insights-health/health-view-01.png)
 
-## View health from non-AKS clusters
+To view health from a non-AKS cluster, that is an AKS Engine cluster hosted on-premises or on Azure Stack, select **Azure Monitor** from the left pane in the Azure portal. Under the **Insights** section, select **Containers**.  On the multi-cluster page, select the non-AKS cluster from the list to drill-down and view health for that specific cluster.  
 
-To view health from a non-AKS cluster, that is an AKS Engine cluster hosted on-premises or on Azure Stack, i
+## Review cluster health
 
-Go to the multi-cluster view and then select the non-AKS cluster from the list to drill-down and view health for that specific cluster.
+When the Health page opens, by default **Kubernetes Infrastructure** is selected in the **Health Aspect** grid.  The grid summarizes current health rollup state of Kubernetes infrastructure and cluster nodes. Selecting either health aspect updates the results in the middle-pane and shows all child monitors in a hierarchical layout, displaying their current health state. To view more information about any dependent monitor, you can select one and a property pane automatically displays on the right side of the page. 
 
-## Alerting
+![Cluster health property pane](./media/container-insights-health/health-view-property-pane.png)
+
+On the property pane, you can learn the following:
+
+- On the **Overview** tab, it shows the last state change history over the last three hours.
+- On the**Config** tab, it shows the default configuration parameter settings (only for unit monitors).
+- On the **Knowledge** tab, it contains information explaining the behavior of the monitor and how it evaluates for the unhealthy condition.
+
 
 ## Next steps
