@@ -1,5 +1,5 @@
 ---
-title: Deploy models with a custom Docker base image
+title: Deploy models with custom Docker image
 titleSuffix: Azure Machine Learning
 description: 'Learn how to use a custom Docker base image when deploying your Azure Machine Learning models. While Azure Machine Learning provides a default base image for you, you can also use your own base image.'
 services: machine-learning

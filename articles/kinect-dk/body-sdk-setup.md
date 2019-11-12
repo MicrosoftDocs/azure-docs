@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Set up Azure Kinect body tracking
-description: This quickstart provides steps to set up body tracking SDK for Azure Kinect
+description: In this quickstart, you will set up the body tracking SDK for Azure Kinect.
 author: qm13
 ms.author: quentinm
 ms.prod: kinect-dk
