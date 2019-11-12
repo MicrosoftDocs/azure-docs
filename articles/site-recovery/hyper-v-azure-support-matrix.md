@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ---
 
@@ -126,6 +126,7 @@ Cool storage | No | No
 Hot storage| No | No
 Block blobs | No | No
 Encryption at rest (SSE)| Yes | Yes
+Encryption at rest (CMK)| No | No
 Premium storage | Yes | Yes
 Import/export service | No | No
 Azure storage accounts with firewall enabled | Yes. For target storage and cache. | Yes. For target storage and cache.
