@@ -97,11 +97,11 @@ Users from the configured Azure AD instance can now sign in to the developer por
 
 ## <a id="log_in_to_dev_portal"/> Developer portal - add Azure AD account authentication
 
-To enable sign in with AAD in the developer portal, you need to add the **OAuth buttons** widget to the sign-in form.
+In the developer portal, sign-in with AAD is possible with the **OAuth buttons** widget. The widget is already included on the sign-in page of the default developer portal content.
 
 ![AAD buttons widget](./media/api-management-howto-aad/portal-oauth-widget.png)
 
-Although a new account will be automatically created whenever a new user signs in with AAD, you may consider adding the same widget in the sign-up form.
+Although a new account will be automatically created whenever a new user signs in with AAD, you may consider adding the same widget to the sign-up page.
 
 ## Legacy developer portal - how to sign in with Azure AD
 

@@ -20,8 +20,8 @@ Each response from the v3 endpoints includes a `model-version` field specifying 
 
 ```json
 {
-    “documents”: […]
-    “errors”: []
-    “model-version”: “2019-10-01”
+    "documents": […]
+    "errors": []
+    "model-version": "2019-10-01"
 }
 ```
