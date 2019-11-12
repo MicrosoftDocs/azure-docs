@@ -1,5 +1,5 @@
 ---
-title: 'Azure ExpressRoute: Configure S2S VPN over Microsoft peering'
+title: Configure a site-to-site VPN over Microsoft peering - ExpressRoute - Azure | Microsoft Docs
 description: Configure IPsec/IKE connectivity to Azure over an ExpressRoute Microsoft peering circuit using a site-to-site VPN gateway.
 services: expressroute
 author: cherylmc
