@@ -190,7 +190,9 @@ model = run.register_model(model_name='chainer-dnn-mnist', model_path='outputs/m
 ```
 
 > [!TIP]
-> If you receive an error that the model is not found, give it a minute and try again.  Sometimes there is a slight lag between the end of the training run and the availability of the model in the outputs directory.
+> The model you just registered is deployed the exact same way as any other registered model in Azure 
+Machine Learning, regardless of which estimator you used for training. The deployment how-to
+contains a section on registering models, but you can skip directly to [creating a compute target](how-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
 
 You can also download a local copy of the model. This can be useful for doing additional model validation work locally. In the training script, `chainer_mnist.py`, a saver object persists the model to a local folder (local to the compute target). You can use the Run object to download a copy from datastore.
 
