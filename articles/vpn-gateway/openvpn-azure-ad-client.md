@@ -20,7 +20,11 @@ This article helps you configure a VPN client to connect to a virtual network us
 
 ## <a name="profile"></a>Working with client profiles
 
-To connect, you need to [download](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab) the Azure VPN CLient and configure a VPN client profile on every computer that wants to connect to the VNet. You can create a client profile on a computer, export it, and then import it to additional computers.
+To connect, you need to download the Azure VPN Client (Preview) and configure a VPN client profile on every computer that wants to connect to the VNet. You can create a client profile on a computer, export it, and then import it to additional computers.
+
+### To download the Azure VPN client
+
+Use this [link](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab) to download the Azure VPN Client (Preview).
 
 ### <a name="cert"></a>To create a certificate-based client profile
 
