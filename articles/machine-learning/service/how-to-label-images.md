@@ -16,7 +16,7 @@ After your project administrator creates a labeling project in Azure Machine Lea
 
 > [!div class="checklist"]
 > * How to access your labeling projects.
-> * Labeling tools.
+> * The labeling tools.
 > * How to use the tools for specific labeling tasks.
 
 ## Prerequisites
@@ -58,13 +58,13 @@ After you submit tags for the data at hand, Azure refreshes the page with a new 
 
 If your project is of type "Image Classification Multi-Class," you'll assign a single tag to the entire image. At any time, go to the **Instructions** page and select **View detailed instructions** to review the guidance.
 
-If you realize you made a mistake after you assign a tag to an image, you can fix it. Select the "X" on the label that's displayed below the image to clear the tag. Or,  select the image and choose another class, and the newly selected value will replace the previously applied tag.
+If you realize you made a mistake after you assign a tag to an image, you can fix it. Select the "**X**" on the label that's displayed below the image to clear the tag. Or,  select the image and choose another class, and the newly selected value will replace the previously applied tag.
 
 ## Tag images for multi-label classification
 
 If you're working on a project of type "Image Classification Multi-Label", you'll apply one *or more* tags to an image. At any time, select **Instructions** and go to **View detailed instructions** to see the project-specific guidance.
 
-Select the image that you want to label and then select the tag. The tag is applied it to all the selected images, and the images are deselected. To apply more tags, you must reselect the images. This animation shows a multi-label tagging page:
+Select the image that you want to label and then select the tag. The tag is applied it to all the selected images, and the images are deselected. To apply more tags, you must reselect the images. The following animation shows multi-label tagging:
 
 1. **Select all** is used to apply the "Ocean" tag,
 1. A single image is selected and tagged "Closeup."
@@ -72,7 +72,7 @@ Select the image that you want to label and then select the tag. The tag is appl
 
 ![Animation showing multilabel flow](media/how-to-label-images/multilabel.gif)
 
-To correct a mistake, click the "X" to clear an individual tag or select the images and then choose the tag, which clears the tag from all the selected images. In this scenario, clicking  "Land" will clear that tag from the two selected images.
+To correct a mistake, click the "**X**" to clear an individual tag or select the images and then choose the tag, which clears the tag from all the selected images. In this scenario, clicking  "Land" will clear that tag from the two selected images.
 
 ![Screenshot showing multiple deselections](media/how-to-label-images/multiple-deselection.png)
 

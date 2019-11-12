@@ -39,7 +39,7 @@ In this article, you'll learn how to:
 
 ## Create a labeling project
 
-Labeling projects are administered from [Azure Machine Learning studio](https://ml.azure.com/). Use the **Labeling projects** page to manage your projects and people. A project has one or more teams assigned to it, and a team has one or more people assigned to it.
+Labeling projects are administered from [Azure Machine Learning Studio](https://ml.azure.com/). Use the **Labeling projects** page to manage your projects and people. A project has one or more teams assigned to it, and a team has one or more people assigned to it.
 
 If your data is already in Azure blob storage, you should make it available as a datastore before you create your labeling project. For details, see [Create and register datastores](https://docs.microsoft.com/azure/machine-learning/service/how-to-access-data#create-and-register-datastores).
 
@@ -81,7 +81,7 @@ To directly upload your data:
 1. Select **Create a dataset** > **From local files**.
 1. Assign a **Name** to your dataset.
 1. Choose "File" as the **Dataset type**.
-1. You can select **Advanced settings** to customize the datastore, container, and path to your data.
+1. *Optional:* Select **Advanced settings** to customize the datastore, container, and path to your data.
 1. Select **Browse** to select the local files to upload.
 1. Provide a description of your dataset.
 1. Select **Next**.
@@ -97,7 +97,7 @@ Enter one label per row. Use the **+** button to add a new row. If you have more
 
 ## Describe the labeling task
 
-It's important to clearly explain the labeling task. The **Labeling instructions** page allows you to link to an external site for instructions for the labelers. Keep the instructions task-oriented and appropriate to the audience. Consider:
+It's important to clearly explain the labeling task. The **Labeling instructions** page allows you to link to an external site for instructions for the labelers. Keep the instructions task-oriented and appropriate to the audience. Consider these questions:
 
 * What are the labels they'll see, and how will they choose among them? Is there a reference text to refer to?
 * What should they do if no label seems appropriate?
