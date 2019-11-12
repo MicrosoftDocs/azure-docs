@@ -40,7 +40,7 @@ The following sections will provide more detail about how these services work to
 
 ## HDInsight high availability services
 
-Microsoft provides support for the four Apache services in the following table in HDInsight clusters. To distinguish them from availability services supported by components from Apache, they are called *HDInsight HA services*.
+Microsoft provides support for the four Apache services in the following table in HDInsight clusters. To distinguish them from high availability services supported by components from Apache, they are called *HDInsight HA services*.
 
 | Service | Cluster nodes | Cluster types | Purpose |
 |---|---|---|---|
