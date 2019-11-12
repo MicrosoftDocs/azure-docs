@@ -5,7 +5,7 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/21/2019
+ms.date: 11/4/2019
 ms.author: mayg
 
 ---
@@ -230,8 +230,6 @@ For example, if the workload characteristics of a disk put it in the P20 or P30 
 * Source IOPS exceeds supported storage IOPS limit of 80,000 per VM.
 
 * Average data churn exceeds supported Site Recovery data churn limit of 20 MB/s for average I/O size for the disk.
-
-* Average data churn exceeds supported Site Recovery data churn limit of 25 MB/s for average I/O size for the VM (sum of all disks churn).
 
 * Peak data churn across all disks on the VM exceeds the maximum supported Site Recovery peak data churn limit of 54 MB/s per VM.
 
