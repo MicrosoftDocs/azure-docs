@@ -28,7 +28,7 @@ Jenkins supports a model where the Jenkins server delegates work to one or more 
 
 ## Connect to Jenkins
 
-Navigate to your virtual machine (for example, http://jenkins2517454.eastus.cloudapp.azure.com/) in  your web browser. The Jenkins console is inaccessible through unsecured HTTP so instructions are provided on the page to access the Jenkins console securely from your computer using an SSH tunnel.
+Navigate to your virtual machine (for example, `http://jenkins2517454.eastus.cloudapp.azure.com/`) in  your web browser. The Jenkins console is inaccessible through unsecured HTTP so instructions are provided on the page to access the Jenkins console securely from your computer using an SSH tunnel.
 
 ![Unlock jenkins](./media/install-jenkins-solution-template/jenkins-ssh-instructions.png)
 

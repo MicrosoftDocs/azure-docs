@@ -242,11 +242,11 @@ Use disclosure as an opportunity to fail gracefully.
 
 ## Reference docs
 
-* [Transparency Note](https://aka.ms/neural-tts-transparency-note)
+* [Disclosure for Voice Talent](https://aka.ms/disclosure-voice-talent)
 * [Guidelines for Responsible Deployment of Synthetic Voice Technology](concepts-guidelines-responsible-deployment-synthetic.md)
 * [Gating Overview](concepts-gating-overview.md)
 * [How to Disclose](concepts-disclosure-guidelines.md)
 
 ## Next steps
 
-* [Transparency Note](https://aka.ms/neural-tts-transparency-note)
+* [Disclosure for Voice Talent](https://aka.ms/disclosure-voice-talent)

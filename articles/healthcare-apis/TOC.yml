@@ -55,6 +55,8 @@
     href: get-healthcare-apis-access-token-cli.md
   - name: Find identity object IDs
     href: find-identity-object-ids.md
+  - name: Enable Diagnostics Logging in Azure API for FHIR®
+    href: enable-diagnostic-logging.md
 - name: Resources
   items:
   - name: FAQ

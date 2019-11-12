@@ -1,10 +1,11 @@
 ---
-title: Azure SQL Database and SQL Data Warehouse Connectivity Architecture 
+title: Connectivity Architecture 
 description: This document explains the Azure SQL connectivity architecture for database connections from within Azure or from outside of Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
 ms.custom: fasttrack-edit
+titleSuffix: Azure SQL Database and SQL Data Warehouse
 ms.devlang: 
 ms.topic: conceptual
 author: rohitnayakmsft

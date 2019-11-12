@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Data Sync 
+title: Data Sync
 description: This overview introduces Azure SQL Data Sync
 services: sql-database
 ms.service: sql-database

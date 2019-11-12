@@ -1,6 +1,6 @@
 ---
 title: Define custom R modules
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: This topic describes how to author and deploy a custom R Studio (classic). It explains what custom R modules are and what files are used to define them. 
 services: machine-learning
 ms.service: machine-learning

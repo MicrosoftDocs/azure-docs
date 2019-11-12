@@ -1,5 +1,5 @@
 ---
-title: Get values for app authentication - Azure SQL Database 
+title: Get values for app authentication
 description: Create a service principal for accessing SQL Database from code.
 services: sql-database
 ms.service: sql-database

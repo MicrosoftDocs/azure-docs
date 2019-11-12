@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 10/23/2019
+ms.date: 11/07/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -13,6 +13,10 @@ ms.custom: mvc
 # Prepare for assessment and migration of physical servers to Azure
 
 This article describes how to prepare for assessment of on-premises physical servers with [Azure Migrate](migrate-services-overview.md).
+
+
+> [!NOTE]
+> If you don't yet see some of these features in the Azure Migrate portal, hang on. They will appear over the next week or so.
 
 [Azure Migrate](migrate-overview.md) provides a hub of tools that help you to discover, assess, and migrate apps, infrastructure, and workloads to Microsoft Azure. The hub includes Azure Migrate tools, and third-party independent software vendor (ISV) offerings. 
 

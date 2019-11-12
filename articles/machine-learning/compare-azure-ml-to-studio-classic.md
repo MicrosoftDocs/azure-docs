@@ -33,10 +33,10 @@ Here is a quick comparison.
 
 ||  Azure Machine Learning designer|Studio (classic) |
 |---| --- | --- |
-||Designer is in preview, Azure Machine Learning is GA|Generally available (GA) | 
+||The designer is in preview, Azure Machine Learning is GA|Generally available (GA) | 
 |Drag-and-drop interface| Yes | Yes|
 |Experiment| Scale with compute target|Scale (10GB training data limit) | 
-|Modules for interface|  Many popular modules|Many |
+|Modules for interface| [Many popular modules](algorithm-module-reference/module-reference.md) | Many |
 |Training compute targets| AML Compute(GPU/CPU)|Proprietary compute target, CPU only|
 |Inferencing compute targets| Azure Kubernetes Service for real-time inference <br/>AML Compute for batch inference|Proprietary web service format, not customizable | 
 |ML Pipeline| Pipeline authoring <br/> Published pipeline <br/> Pipeline endpoint <br/> [Learn more about ML pipeline](service/concept-ml-pipelines.md)|Not supported | 
@@ -44,7 +44,7 @@ Here is a quick comparison.
 |Model| Standard format, various depends on the training job|Proprietary, non portable format.| 
 |Automated model training|Not yet in the designer, but possible through the interface and SDKs.| No | 
 
-## Get started with Azure Machine Learning designer
+## Get started with Azure Machine Learning
 
 The following resources can help you get started with Azure Machine Learning
 
@@ -52,12 +52,11 @@ The following resources can help you get started with Azure Machine Learning
 
 - [Create your first designer pipeline](service/tutorial-designer-automobile-price-train-score.md) to predict auto prices.
 
-
 ![Azure Machine Learning designer example](service/media/concept-ml-pipelines/designer-drag-and-drop.gif)
 
 ## Next steps
 
-In addition to the drag-n-drop capabilities in the designer, Azure Machine Learning has other tools available:  
+In addition to the drag-and-drop capabilities in the designer, Azure Machine Learning has other tools available:  
   + [Use Python notebooks to train & deploy ML models](./service/tutorial-1st-experiment-sdk-setup.md)
   + [Use R Markdown to train & deploy ML models](./service/tutorial-1st-r-experiment.md) 
   + [Use automated machine learning to train & deploy ML models](./service/tutorial-designer-automobile-price-train-score.md) 

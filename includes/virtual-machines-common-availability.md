@@ -78,5 +78,5 @@ VMs within an availability set are also automatically distributed across update 
 ![Availability sets](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
 ## Next steps
-You can now start to use these availability and redundancy features to build your Azure environment. For best practices information, see [Azure availability best practices](../articles/best-practices-availability-checklist.md).
+You can now start to use these availability and redundancy features to build your Azure environment. For best practices information, see [Azure availability best practices](/azure/architecture/checklist/resiliency-per-service).
 
