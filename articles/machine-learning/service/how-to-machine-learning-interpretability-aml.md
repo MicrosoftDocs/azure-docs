@@ -1,7 +1,7 @@
 ---
 title: Model interpretability for local and remote runs
 titleSuffix: Azure Machine Learning
-description: Get explanations for how your ML model determines feature importance and makes predictions when using the Azure Machine Learning SDK.
+description: Learn how to get explanations for how your machine learning model determines feature importance and makes predictions when using the Azure Machine Learning SDK.
 services: machine-learning
 services: machine-learning
 ms.service: machine-learning
@@ -17,18 +17,18 @@ ms.date: 10/25/2019
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn why your model made the predictions it did with the interpretability package of the Azure Machine Learning Python SDK. You learn the following tasks:
+In this article, you learn to use the interpretability package of the Azure Machine Learning Python SDK to understand why your model made its predictions. You learn how to:
 
-* Interpret machine learning models trained both locally and on remote compute resources
-* Store local and global explanations on Azure Run History
-* View interpretability visualizations in [Azure Machine Learning studio](https://ml.azure.com)
-* Deploy a scoring explainer with your model
+* Interpret machine learning models trained both locally and on remote compute resources.
+* Store local and global explanations on Azure Run History.
+* View interpretability visualizations in [Azure Machine Learning studio](https://ml.azure.com).
+* Deploy a scoring explainer with your model.
 
-To learn more about model interpretability, see the [concept article](how-to-machine-learning-interpretability.md).
+For more information, see [Model interpretability in Azure Machine Learning service](how-to-machine-learning-interpretability.md).
 
 ## Local interpretability
 
-The following example shows how to use the interpret package locally without contacting Azure services. Run `pip install azureml-interpret` to get the interpretability package.
+The following example shows how to use the interpretability package locally without contacting Azure services. Run `pip install azureml-interpret` to get the interpretability package.
 
 1. Train a sample model in a local Jupyter notebook.
 
@@ -50,7 +50,13 @@ The following example shows how to use the interpret package locally without con
     model = clf.fit(x_train, y_train)
     ```
 
-2. Call the explainer locally: To initialize an explainer object, you need to pass your model and some training data to the explainer's constructor. You can also optionally pass in feature names and output class names (if doing classification) which will be used to make your explanations and visualizations more informative. Here is how to instantiate an explainer object using `TabularExplainer`, `MimicExplainer`, and `PFIExplainer` locally. `TabularExplainer` is calling one of the three SHAP explainers underneath (`TreeExplainer`, `DeepExplainer`, or `KernelExplainer`), and is automatically selecting the most appropriate one for your use case. You can however,call each of its three underlying explainers directly.
+1. Call the explainer locally.
+   * To initialize an explainer object, pass your model and some training data to the explainer's constructor.
+   * To make your explanations and visualizations more informative, you can choose to pass in feature names and output class names if doing classification.
+
+   The following code blocks show how to instantiate an explainer object with `TabularExplainer`, `MimicExplainer`, and `PFIExplainer` locally.
+   * `TabularExplainer` calls one of the three SHAP explainers underneath (`TreeExplainer`, `DeepExplainer`, or `KernelExplainer`).
+   * `TabularExplainer` automatically selects the most appropriate one for your use case, but you can call each of its three underlying explainers directly.
 
     ```python
     from interpret.ext.blackbox import TabularExplainer
@@ -76,7 +82,7 @@ The following example shows how to use the interpret package locally without con
     from interpret.ext.glassbox import DecisionTreeExplainableModel
 
     # "features" and "classes" fields are optional
-    # augment_data is optional and if true, oversamples the initialization examples to improve surrogate model accuracy to fit original model.  Useful for high-dimensional data where the number of rows is less than the number of columns. 
+    # augment_data is optional and if true, oversamples the initialization examples to improve surrogate model accuracy to fit original model.  Useful for high-dimensional data where the number of rows is less than the number of columns.
     # max_num_of_augmentations is optional and defines max number of times we can increase the input data size.
     # LGBMExplainableModel can be replaced with LinearExplainableModel, SGDExplainableModel, or DecisionTreeExplainableModel
     explainer = MimicExplainer(model, 
@@ -101,7 +107,7 @@ The following example shows how to use the interpret package locally without con
 
 ### Overall (global) feature importance values
 
-Get the global feature importance values.
+To get the global feature importance values, use the following code.
 
 ```python
 
@@ -122,10 +128,12 @@ global_explanation.get_feature_importance_dict()
 
 ### Instance-level (local) feature importance values
 
-Get the local feature importance values: use the following function calls to explain an individual instance or a group of instances. Please note that PFIExplainer does not support local explanations.
+To get the local feature importance values, use the following code. These functions call the explanations for an individual instance or a group of instances.
+> [!NOTE]
+> `PFIExplainer` does not support local explanations.
 
 ```python
-# explain the first data point in the test set
+# get explanation for the first data point in the test set
 local_explanation = explainer.explain_local(x_test[0:5])
 
 # sorted feature importance values and feature names
