@@ -12,7 +12,7 @@ ms.date: 11/11/2019
 ms.author: diberry
 ---
 
-## Pattern syntax
+# Pattern syntax
 
 Pattern syntax is a template for an utterance. The template should contain words and entities you want to match as well as words and punctuation you want to ignore. It is **not** a regular expression. 
 
@@ -128,3 +128,7 @@ Mark optional text in the utterance using the regular expression square bracket 
 |`Can you help me[?]|The punctuation mark is optional|
 
 Punctuation marks (`?`, `!`, `.`) should be ignored and you need to ignore them using the square bracket syntax in patterns. 
+
+## Next steps
+
+Understand how [sentiment](luis-reference-prebuilt-sentiment.md) is returned in the .json response.
