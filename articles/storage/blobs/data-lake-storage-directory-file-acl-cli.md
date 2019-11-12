@@ -49,6 +49,16 @@ This article shows you how to use the [Azure Command-Line Interface (CLI)](https
 
    Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
+## Create a file system
+
+A file system acts as a container for your files. You can create one by using the `az storage container create` command. 
+
+This example creates a file system named `my-file-system`.
+
+```azurecli
+az storage container create --name my-file-system
+```
+
 ## Create a directory
 
 Create a directory reference by using the `az storage blob directory create` command. 
