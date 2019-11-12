@@ -44,7 +44,7 @@ In your IoT Hub in the Azure portal, IoT Edge devices are created and managed se
 
 All the edge-enabled devices that connect to your IoT hub are listed on the **IoT Edge** page.
 
-![View all IoT Edge devices in your IoT hub](./media/how-to-register-device/portal-view-devices.png)
+![View all IoT Edge devices in your IoT hub](./media/how-to-register-device/azure-iot-hub-devices.png)
 
 ### Retrieve the connection string in the Azure portal
 
