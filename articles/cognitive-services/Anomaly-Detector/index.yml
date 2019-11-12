@@ -40,7 +40,7 @@ landingContent:
           url: https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162
         - text: Overview of SR-CNN algorithm
           url: https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798  
-        - text: Algorithm used in anomaly detection (KDD Paper)
+        - text: Algorithm used in anomaly detection (KDD paper)
           url: https://arxiv.org/abs/1906.03821
 
 - title: "Detect anomalies in your data"
