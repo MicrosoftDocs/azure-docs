@@ -1,5 +1,5 @@
 ---
-title: Azure CLI script sample - Route traffic for high availability of applications | Microsoft Docs
+title: Route traffic for HA of applications - Azure CLI - Traffic Manager
 description: Azure CLI script sample - Route traffic for high availability of applications
 services: traffic-manager
 documentationcenter: traffic-manager
