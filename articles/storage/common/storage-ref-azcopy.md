@@ -24,7 +24,7 @@ To report issues or to learn more about the tool, see [https://github.com/Azure/
 
 [Get started with AzCopy](storage-use-azcopy-v10.md)
 [Transfer data with AzCopy and Blob storage](storage-use-azcopy-blobs.md)
-[Transfer data with AzCopy and file storage](storage-use-azcopy-file.md)
+[Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
 [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
 
 ## Options
