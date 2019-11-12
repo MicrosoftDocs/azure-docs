@@ -1,11 +1,8 @@
 ---
 title: Troubleshoot common errors
 description: Learn how to troubleshoot issues creating, assigning, and removing blueprints.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 12/11/2018
 ms.topic: troubleshooting
-ms.service: blueprints
 ---
 # Troubleshoot errors using Azure Blueprints
 

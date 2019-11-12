@@ -1,11 +1,8 @@
 ---
 title: Guidance for throttled requests
 description: Learn to create better queries to avoid requests to Azure Resource Graph from being throttled.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/18/2019
 ms.topic: conceptual
-ms.service: resource-graph
 ---
 # Guidance for throttled requests in Azure Resource Graph
 
