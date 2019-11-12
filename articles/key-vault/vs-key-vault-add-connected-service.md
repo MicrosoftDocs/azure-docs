@@ -111,7 +111,7 @@ Now, you can access your secrets in code. The next steps are different depending
     ```
 
 1. Next open one of the page files, such as *Index.cshtml.cs* and write the following code:
-   1. Include a reference to `Microsoft.Extensions.Configuration` by this using statement:
+   1. Include a reference to `Microsoft.Extensions.Configuration` by this using directive:
 
        ```csharp
        using Microsoft.Extensions.Configuration;
