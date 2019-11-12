@@ -36,7 +36,7 @@ To complete this tutorial, you first need to create an Azure Maps account and ge
 
 To create an Azure Maps account subscription in the S1 pricing tier, follow the instructions in [Manage your Azure Maps account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account). 
 
-To get the primary subscription key for your account, follow the instructions [here](https://docs.microsoft.com/en-us/azure/azure-maps/quick-demo-map-app#create-an-account-and-get-your-key).
+To get the primary subscription key for your account, follow the instructions [here](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-account-and-get-your-key).
 
 ## Create an Azure notebook
 
