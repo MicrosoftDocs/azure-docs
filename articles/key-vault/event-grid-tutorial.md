@@ -26,13 +26,13 @@ This guide describes how to receive Key Vault notifications through Azure Event 
 
 ## Concepts
 
-Azure Event Grid is an eventing service for the cloud. By following the steps in this guide, you'll subscribe to events for Key Vault and route events to Azure Automation. When one of the secrets in the key vault is about to expire, Event Grid is notified of the status change and makes an HTTP POST to the endpoint. A web hook then triggers an Azure Automation execution of a PowerShell script.
+Event Grid is an eventing service for the cloud. By following the steps in this guide, you'll subscribe to events for Key Vault and route events to Automation. When one of the secrets in the key vault is about to expire, Event Grid is notified of the status change and makes an HTTP POST to the endpoint. A web hook then triggers an Automation execution of a PowerShell script.
 
 ![image](media/image1.png)
 
-## Create an Azure Automation account
+## Create an Automation account
 
-Create an Azure Automation account through the [Azure portal](https://portal.azure.com):
+Create an Automation account through the [Azure portal](https://portal.azure.com):
 
 1.  Go to portal.azure.com and log in to your subscription.
 
@@ -48,11 +48,11 @@ Create an Azure Automation account through the [Azure portal](https://portal.azu
 
 ## Create a runbook
 
-After your Azure Automation account is ready, create a runbook.
+After your Automation account is ready, create a runbook.
 
 ![](media/image3.png)
 
-1.  Select the automation account you just created.
+1.  Select the Automation account you just created.
 
 1.  Select **Runbooks** under **Process Automation**.
 
@@ -92,9 +92,9 @@ write-Error "No input data found."
 
 ## Create a webhook
 
-Now, create a webhook to trigger your newly created runbook.
+Create a webhook to trigger your newly created runbook.
 
-1.  Select **Webhooks** from the resources section of the runbook you just published.
+1.  Select **Webhooks** from the **Resources** section of the runbook you just published.
 
 1.  Select **Add Webhook**.
 
@@ -135,7 +135,7 @@ Create an Event Grid subscription through the [Azure portal](https://portal.azur
 
 1.  For **Endpoint Type**, select **Webhook**.
 
-1.  Select **Select an endpoint**. In the new context pane, paste the webhook URL from the [Create a webhook](#create-a-webhook) step into the **Subscriber Endpoint** field.
+1.  Choose **Select an endpoint**. In the new context pane, paste the webhook URL from the [Create a webhook](#create-a-webhook) step into the **Subscriber Endpoint** field.
 
 1.  Select **Confirm Selection** on the context pane.
 
@@ -153,7 +153,7 @@ Verify that your Event Grid subscription is properly configured.  This test assu
 
 1.  Go to your key vault on the Azure portal.
 
-1.  Create a new secret. For testing purposes, set the expiration to date to next day.
+1.  Create a new secret. For testing purposes, set the expiration to date to the next day.
 
 1.  On the **Events** tab in your key vault, select the Event Grid subscription you created.
 
@@ -161,11 +161,11 @@ Verify that your Event Grid subscription is properly configured.  This test assu
 
     ![](media/image11.png)
 
-1.  Go to your Azure Automation account.
+1.  Go to your Automation account.
 
 1.  Select the **Runbooks** tab, and then select the runbook you created.
 
-1.  Select the **Webhooks** tab, and confirm that the "last triggered" timestamp is within 60 seconds of when you created the new secret. This result confirms that Event Grid made a POST to the webhook with the event details of the status change in your key vault, and the webhook was triggered.
+1.  Select the **Webhooks** tab, and confirm that the "last triggered" timestamp is within 60 seconds of when you created the new secret. This result confirms that Event Grid made a POST to the webhook with the event details of the status change in your key vault and that the webhook was triggered.
 
     ![](media/image12.png)
 
@@ -187,7 +187,7 @@ Reregister Event Grid and the key vault provider in your Azure subscription reso
 
 Congratulations! If you've correctly followed all these steps, you're now ready to programmatically respond to status changes of secrets stored in your key vault.
 
-If you've been using a polling-based system to search for status changes of secrets in your key vaults, migrate to using this notification feature. You can also replace the test script in your runbook with code to programmatically renew your secrets when they're about to expire.
+If you've been using a polling-based system to search for status changes of secrets in your key vaults, you can now start using this notification feature. You can also replace the test script in your runbook with code to programmatically renew your secrets when they're about to expire.
 
 Learn more:
 
