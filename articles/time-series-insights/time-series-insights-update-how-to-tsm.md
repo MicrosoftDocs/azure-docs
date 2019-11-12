@@ -71,7 +71,7 @@ To learn more about how to use the update, read [Azure Time Series Insights Prev
 
 1. Enter the hierarchy details, and select **Create**.
 
-    [![Hieararchy details and "Create" button](media/v2-update-how-to-tsm/portal-nine.png)](media/v2-update-how-to-tsm/portal-nine.png#lightbox)
+    [![Hierarchy details and "Create" button](media/v2-update-how-to-tsm/portal-nine.png)](media/v2-update-how-to-tsm/portal-nine.png#lightbox)
 
 ### Bulk upload one or more hierarchies
 
