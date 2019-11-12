@@ -49,7 +49,7 @@ For more information, see [Stream logs in Cloud Shell](troubleshoot-diagnostic-l
 
 ### App logging
 
-Enable [application logging](troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#enable-application-logging-windows) through the Azure portal or [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) to configure App Service to write your application's standard console output and standard console error streams to the local filesystem or Azure Blob Storage. Logging to the local App Service filesystem instance is disabled 12 hours after it is configured. If you need longer retention, configure the application to write output to a Blob storage container. Your Java and Tomcat app logs can be found in the */LogFiles/Application/* directory.
+Enable [application logging](troubleshoot-diagnostic-logs.md#enable-application-logging-windows) through the Azure portal or [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) to configure App Service to write your application's standard console output and standard console error streams to the local filesystem or Azure Blob Storage. Logging to the local App Service filesystem instance is disabled 12 hours after it is configured. If you need longer retention, configure the application to write output to a Blob storage container. Your Java and Tomcat app logs can be found in the */LogFiles/Application/* directory.
 
 If your application uses [Logback](https://logback.qos.ch/) or [Log4j](https://logging.apache.org/log4j) for tracing, you can forward these traces for review into Azure Application Insights using the logging framework configuration instructions in [Explore Java trace logs in Application Insights](/azure/application-insights/app-insights-java-trace-logs).
 
@@ -58,15 +58,15 @@ If your application uses [Logback](https://logback.qos.ch/) or [Log4j](https://l
 
 Azure App Service supports out of the box tuning and customization through the Azure portal and CLI. Review the following articles for non-Java-specific web app configuration:
 
-- [Configure app settings](configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)
-- [Set up a custom domain](app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-- [Enable SSL](app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-- [Add a CDN](../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Configure app settings](configure-common.md#configure-app-settings)
+- [Set up a custom domain](app-service-web-tutorial-custom-domain.md)
+- [Configure SSL bindings](configure-ssl-bindings.md)
+- [Add a CDN](../cdn/cdn-add-to-web-app.md)
 - [Configure the Kudu site](https://github.com/projectkudu/kudu/wiki/Configurable-settings)
 
 ### Set Java runtime options
 
-To set allocated memory or other JVM runtime options, create an [app setting](configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) named `JAVA_OPTS` with the options. App Service passes this setting as an environment variable to the Java runtime when it starts.
+To set allocated memory or other JVM runtime options, create an [app setting](configure-common.md#configure-app-settings) named `JAVA_OPTS` with the options. App Service passes this setting as an environment variable to the Java runtime when it starts.
 
 In the Azure portal, under **Application Settings** for the web app, create a new app setting named `JAVA_OPTS` that includes the additional settings, such as `-Xms512m -Xmx1204m`.
 
@@ -131,7 +131,7 @@ Java applications running in App Service have the same set of [security best pra
 
 ### Authenticate users (Easy Auth)
 
-Set up app authentication in the Azure portal with the **Authentication and Authorization** option. From there, you can enable authentication using Azure Active Directory or social logins like Facebook, Google, or GitHub. Azure portal configuration only works when configuring a single authentication provider. For more information, see [Configure your App Service app to use Azure Active Directory login](configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) and the related articles for other identity providers. If you need to enable multiple sign-in providers, follow the instructions in the [customize App Service authentication](app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) article.
+Set up app authentication in the Azure portal with the **Authentication and Authorization** option. From there, you can enable authentication using Azure Active Directory or social logins like Facebook, Google, or GitHub. Azure portal configuration only works when configuring a single authentication provider. For more information, see [Configure your App Service app to use Azure Active Directory login](configure-authentication-provider-aad.md) and the related articles for other identity providers. If you need to enable multiple sign-in providers, follow the instructions in the [customize App Service authentication](app-service-authentication-how-to.md) article.
 
 #### Tomcat and Wildfly
 
@@ -169,7 +169,7 @@ To disable this feature, create an Application Setting named `WEBSITE_AUTH_SKIP_
 
 ### Configure TLS/SSL
 
-Follow the instructions in the [Bind an existing custom SSL certificate](app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) to upload an existing SSL certificate and bind it to your application's domain name. By default your application will still allow HTTP connections-follow the specific steps in the tutorial to enforce SSL and TLS.
+Follow the instructions in the [Secure a custom DNS name with an SSL binding in Azure App Service](configure-ssl-bindings.md) to upload an existing SSL certificate and bind it to your application's domain name. By default your application will still allow HTTP connections-follow the specific steps in the tutorial to enforce SSL and TLS.
 
 ### Use KeyVault References
 
@@ -281,7 +281,7 @@ Finally, we will place the driver JARs in the Tomcat classpath and restart your 
 
 3. Connect to the local tunneling port with your SFTP client and upload the files to the */home/tomcat/lib* folder.
 
-Alternatively, you can use an FTP client to upload the JDBC driver. Follow these [instructions for getting your FTP credentials](deploy-configure-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+Alternatively, you can use an FTP client to upload the JDBC driver. Follow these [instructions for getting your FTP credentials](deploy-configure-credentials.md).
 
 ## Configuring Tomcat
 

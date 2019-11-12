@@ -41,8 +41,9 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 First, enable Update Management on your VM for this tutorial:
 
-1. In the Azure portal, in the left menu, select **Virtual machines**. Select a VM from the list.
-2. On the VM page, under **OPERATIONS**, select **Update management**. The **Enable Update Management** pane opens.
+1. In the [Azure portal](https://portal.azure.com) menu, select **Virtual machines** or search for and select **Virtual machines** from the **Home** page.
+1. Select the VM for which you want to enable Update Management.
+1. On the VM page, under **OPERATIONS**, select **Update management**. The **Enable Update Management** pane opens.
 
 Validation is performed to determine whether Update Management is enabled for this VM. This validation includes checks for an Azure Log Analytics workspace and linked Automation account, and whether the Update Management solution is in the workspace.
 
@@ -163,7 +164,7 @@ Under **New update deployment**, specify the following information:
   * If the maintenance window is exceeded on Windows, it is often because of a service pack update taking a long time to install.
 
   > [!NOTE]
-  > “By the way” info not critical to a taskTo avoid updates being applied outside of a maintenance window on Ubuntu, reconfigure the Unattended-Upgrade package to disable automatic updates. For information about how to configure the package, see [Automatic Updates topic in the Ubuntu Server Guide](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
+  > To avoid updates being applied outside of a maintenance window on Ubuntu, reconfigure the Unattended-Upgrade package to disable automatic updates. For information about how to configure the package, see [Automatic Updates topic in the Ubuntu Server Guide](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
 * **Reboot options**: This setting determines how reboots should be handled. Available options are:
   * Reboot if required (Default)

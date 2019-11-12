@@ -9,12 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: sgilley
-ms.date: 04/19/2019
+ms.date: 11/08/2019
 ms.custom: seodec18
 
 ---
 
 # Train models with Azure Machine Learning using estimator
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 With Azure Machine Learning, you can easily submit your training script to [various compute targets](how-to-set-up-training-targets.md#compute-targets-for-training), using [RunConfiguration object](how-to-set-up-training-targets.md#whats-a-run-configuration) and [ScriptRunConfig object](how-to-set-up-training-targets.md#submit). That pattern gives you a lot of flexibility and maximum control.
 
@@ -132,7 +133,8 @@ For a notebook that trains a scikit-learn model by using estimator, see:
 * [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
 For notebooks on training models by using deep-learning-framework specific estimators, see:
-* [how-to-use-azureml/training-with-deep-learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
+
+* [how-to-use-azureml/ml-frameworks](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

@@ -149,7 +149,7 @@ On UWP, you can use corporate networks. For additional information about using t
 On Android and iOS, brokers enable:
 
 - Single Sign On (SSO) when device is registered with AAD. Your users won't need to sign-in to each application.
-- Device identification. Enables Azure AD device related conditional access policies, by accessing the device certificate that was created on the device when it was workplace joined.
+- Device identification. Enables Azure AD device related Conditional Access policies, by accessing the device certificate that was created on the device when it was workplace joined.
 - Application identification verification. When an application calls the broker, it passes its redirect url, and the broker verifies it.
 
 ### Enable the broker on Xamarin

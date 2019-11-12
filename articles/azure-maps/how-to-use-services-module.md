@@ -119,7 +119,7 @@ The Azure Maps Web SDK provides a *services module*. This module is a helper lib
 
     For more information, see [Authentication with Azure Maps](azure-maps-authentication.md).
 
-1. The following code uses the newly created Azure Search service URL client to geocode an address: "1 Microsoft Way, Redmond, WA". The code uses the `searchAddress` function and displays the results as a table in the body of the page.
+1. The following code uses the newly created Azure Maps Search service URL client to geocode an address: "1 Microsoft Way, Redmond, WA". The code uses the `searchAddress` function and displays the results as a table in the body of the page.
 
     ```javascript
     // Search for "1 microsoft way, redmond, wa".

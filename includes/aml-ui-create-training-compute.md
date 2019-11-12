@@ -11,7 +11,7 @@ ms.topic: "include"
 ms.date: 10/09/2019
 ---
 
-A pipeline runs on a compute target, a compute resource that is attached to your workspace.  Once you create a compute target, you can reuse it for future runs.
+A pipeline runs on a compute target, which is a compute resource that's attached to your workspace. After you create a compute target, you can reuse it for future runs.
 
 1. Select **Run** at the top of the canvas to run the pipeline.
 
@@ -20,9 +20,9 @@ A pipeline runs on a compute target, a compute resource that is attached to your
     If you already have an available compute target, you can select it to run this pipeline.
 
     > [!NOTE]
-    > The visual interface can only run experiments on Machine Learning Compute targets. Other compute targets will not be shown.
+    > The designer can run experiments only on Azure Machine Learning Compute targets. Other compute targets won't be shown.
 
-1. Provide a name for the compute resource.
+1. Enter a name for the compute resource.
 
 1. Select **Save**.
 
@@ -30,15 +30,18 @@ A pipeline runs on a compute target, a compute resource that is attached to your
 
 1. Select **Run**.
 
-1. In the **Set up pipeline run** dialog, select **+ New experiment** for the **Experiment**
+1. In the **Set up pipeline run** dialog box, select **+ New experiment** for the **Experiment**.
 
-    * Enter a descriptive **Experiment Name**
+    > [!NOTE]
+    > Experiments group similar pipeline runs together. If you run a pipeline multiple times, you can select the same experiment for successive runs.
 
-    * Select **Run**
+    1. Enter a descriptive name for **Experiment Name**.
+
+    1. Select **Run**.
     
     You can view run status and details at the top right of the canvas.
 
     > [!NOTE]
-    > It takes approximately 5 minutes to create a compute resource. After the resource is created, you can reuse it and skip this wait time for future runs.
+    > It takes approximately five minutes to create a compute resource. After the resource is created, you can reuse it and skip this wait time for future runs.
     >
-    > The compute resource will autoscale to 0 nodes when it is idle to save cost.  When you use it again after a delay, you may again experience approximately 5 minutes of wait time while it scales back up.
+    > The compute resource autoscales to zero nodes when it's idle to save cost. When you use it again after a delay, you might experience approximately five minutes of wait time while it scales back up.

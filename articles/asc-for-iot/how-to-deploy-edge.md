@@ -104,7 +104,7 @@ There are three steps to create an IoT Edge deployment for Azure Security Center
 1. Click **Save**.
 1. Scroll to the bottom of the tab and select **Configure advanced Edge Runtime settings**. 
    
-1. Change the **Image** under **Edge Hub** to **mcr.microsoft.com/azureiotedge-hub:1.0.9-rc2**.
+1. Change the **Image** under **Edge Hub** to **mcr.microsoft.com/azureiotedge-hub:1.0.8.3**.
 
 1. Verify **Create Options** is set to: 
          
@@ -165,9 +165,9 @@ If you encounter an issue, container logs are the best way to learn about the st
    
    | Name | IMAGE |
    | --- | --- |
-   | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.0 |
-   | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.9-rc2 |
-   | edgeAgent | mcr.microsoft.com/azureiotedge-agent:1.0 |
+   | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.1 |
+   | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.8.3 |
+   | edgeAgent | mcr.microsoft.com/azureiotedge-agent:1.0.1 |
    
    If the minimum required containers are not present, check if your IoT Edge deployment manifest is aligned with the recommended settings. For more information, see [Deploy IoT Edge module](#deployment-using-azure-portal).
 
