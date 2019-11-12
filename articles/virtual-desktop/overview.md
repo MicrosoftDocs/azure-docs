@@ -119,7 +119,7 @@ Windows Virtual Desktop supports the following x64 operating system images:
 * Windows Server 2016
 * Windows Server 2012 R2
 
-Windows Virtual Desktop does not support 32-bit x86 operating system images.
+Windows Virtual Desktop does not support x86 (32-bit) operating system images.
 
 Available automation and deployment options depend on which OS and version you choose, as shown in the following table: 
 
