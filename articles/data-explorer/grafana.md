@@ -108,27 +108,25 @@ Now you've finished configuring Azure Data Explorer as a data source for Grafana
 
 ## Create Alerts
 
-1. On the **Dashboard**, select **Edit** from **<Panel title>** dropdown.
+1. On the **Dashboard**, select **Edit** from the dropdown.
 
     ![select edit in dashboard](media/grafana/edit-panel-4-alert.png)
 
-1. Select alert icon to open the alert property panel. Select **+** to create a new alert notification.
+1. Select the alert bell icon to open the **Alert** pane. Select **+** to create a new alert notification.
 
     ![alert notification](media/grafana/alert-notifications.png)
 
-1. Create new **Notification channel**, then **Save**.
+1. Create a new **Notification channel**, then **Save**.
 
     ![Create new notification channel](media/grafana/new-notification-channel-adx.png)
 
-1. Fill out the following properties in **Alert** pane.
+1. Complete the following properties in the **Alert** pane.
 
     ![alert properties](media/grafana/alert-properties.png)
 
-1. Select **Save dashboard** icon to save your changes
+1. Select the **Save dashboard** icon to save your changes.
 
 
 ## Next steps
 
 * [Write queries for Azure Data Explorer](write-queries.md)
-
-* [Tutorial: Visualize data from Azure Data Explorer in Power BI](visualize-power-bi.md)
