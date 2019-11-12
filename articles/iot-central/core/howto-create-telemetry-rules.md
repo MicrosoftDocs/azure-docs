@@ -1,5 +1,5 @@
 ---
-title: Create and manage telemetry rules in your Azure IoT Central application | Microsoft Docs
+title: Use telemetry rules in your Azure IoT Central application | Microsoft Docs
 description: Azure IoT Central telemetry rules enable you to monitor your devices in near real time and to automatically invoke actions, such as sending an email, when the rule triggers.
 author: ankitgupta
 ms.author: ankitgup
