@@ -1,8 +1,8 @@
 ---
 title: Transitioning from Application Registration Portal to the new App registrations experience in the Azure portal
+titleSuffix: Microsoft identity platform
 description: An introduction to the new App registration experience in the Azure portal
 services: active-directory
-titleSuffix: Microsoft identity platform
 documentationcenter: ''
 author: archieag
 manager: CelesteDG
@@ -173,7 +173,7 @@ the manifest editor or the API, or didn't exist.
 
 -   Implicit grant flow (oauth2AllowImplicitFlow) can be found on the
     Authentication page. Unlike the old experience, you can enable
-    access tokens or id tokens, or both.
+    access tokens or ID tokens, or both.
 
 -   Scopes defined by this API (oauth2Permissions) and Authorized client
     applications (preAuthorizedApplications) can be configured through
