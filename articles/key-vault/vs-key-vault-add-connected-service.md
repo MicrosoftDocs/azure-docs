@@ -57,7 +57,7 @@ Before you begin, make sure that you're signed into Visual Studio. Sign in with 
 
 Now, you can access your secrets in code. The next steps are different depending on whether you are using ASP.NET 4.7.1 or ASP.NET Core.
 
-## Access your secrets in code
+## Access your secrets in code (ASP.NET Core)
 
 1. In Solution Explorer, right-click on your project, and select **Manage NuGet Packages**. In the **Browse** tab, locate and install these two NuGet packages:
    [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) and for .NET Core 2, add [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) or for .NET Core 3, add[Microsoft.Azure.KeyVault.Core](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core).
@@ -149,9 +149,29 @@ Now, you can access your secrets in code. The next steps are different depending
 
 You can run the app locally to verify that the secret is obtained successfully from the key vault.
 
+## Access your secrets (ASP.NET)
+
+You can set up the configuration so that the web.config file has a dummy value in the `appSettings` element that is replaced by the true value at runtime. You can then access this via the `ConfigurationManager.AppSettings` data structure.
+
+1. Edit your web.config file.  Find the appSettings tag, add an attribute `configBuilders="AzureKeyVault"`, and add a line:
+
+   ```xml
+      <add key="mysecret" value="dummy"/>
+   ```
+
+1. Edit the `About` method in *HomeController.cs*, to display the value for confirmation.
+
+   ```csharp
+   public ActionResult About()
+   {
+       ViewBag.Message = "Key vault value = " + ConfigurationManager.AppSettings["mysecret"];
+   }
+   ```
+1. Run the app locally under the debugger, switch to the **About** tab, and verify that the value from the key vault is displayed.
+
 ## Clean up resources
 
-When no longer needed, delete the resource group. This deletes the Key Vault and related resources. To delete the resource group through the portal:
+When no longer needed, delete the resource group. This deletes the key vault and related resources. To delete the resource group through the portal:
 
 1. Enter the name of your resource group in the Search box at the top of the portal. When you see the resource group used in this quickstart in the search results, select it.
 2. Select **Delete resource group**.
