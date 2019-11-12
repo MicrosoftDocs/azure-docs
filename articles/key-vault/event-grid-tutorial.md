@@ -117,7 +117,7 @@ Now create a webhook, to trigger your newly created runbook.
 
 Create an Event Grid subscription through the [Azure portal](https://portal.azure.com).
 
-1.  Open the Azure portal using the following link: https://ms.portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true
+1.  Open the Azure portal using the following link: https://portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true
 
 1.  Go to your key vault and select the "Events" tab. If you cannot see the Events tab, make sure that you are using the [preview version of the portal](https://ms.portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true).
 

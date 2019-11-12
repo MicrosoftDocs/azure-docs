@@ -92,7 +92,7 @@ It's a best practice to use the least privileged role to perform administrative 
 
 ## Next steps
 
-- [What is Azure AD entitlement management? (Preview)](entitlement-management-overview.md)
+- [What is Azure AD entitlement management?](entitlement-management-overview.md)
 - [What are Azure AD access reviews?](access-reviews-overview.md)
 - [What is Azure AD Privileged Identity Management?](../privileged-identity-management/pim-configure.md)
 - [What can I do with Terms of use?](active-directory-tou.md)

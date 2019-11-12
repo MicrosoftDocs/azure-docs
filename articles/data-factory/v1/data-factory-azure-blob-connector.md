@@ -1,5 +1,5 @@
 ---
-title: Copy data to/from Azure Blob Storage | Microsoft Docs
+title: Copy data to/from Azure Blob Storage 
 description: 'Learn how to copy blob data in Azure Data Factory. Use our sample: How to copy data to and from Azure Blob Storage and Azure SQL Database.'
 services: data-factory
 documentationcenter: ''

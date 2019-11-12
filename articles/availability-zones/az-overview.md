@@ -34,7 +34,7 @@ To achieve comprehensive business continuity on Azure, build your application ar
 ![conceptual view of one zone going down in a region](./media/az-overview/az-graphic-two.png)
 
 > [!IMPORTANT]
-> The Availability Zone identifiers (the numbers 1, 2 and 3 in the picture above) are logically mapped to the actual physical zones for each subscription independently. That means that Availability Zone 1 in a given subscription might refer to a different physical zone than Availability Zone 1 in a different subscription. As a consequence, it's recommended to not relay in Availability Zone IDs across different subscriptions for virtual machine placement.
+> The Availability Zone identifiers (the numbers 1, 2 and 3 in the picture above) are logically mapped to the actual physical zones for each subscription independently. That means that Availability Zone 1 in a given subscription might refer to a different physical zone than Availability Zone 1 in a different subscription. As a consequence, it's recommended to not rely on Availability Zone IDs across different subscriptions for virtual machine placement.
 
 ## Services support by region
 

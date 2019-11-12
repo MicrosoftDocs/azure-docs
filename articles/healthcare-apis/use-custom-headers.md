@@ -1,6 +1,6 @@
 ---
-title: Using custom headers to add data to audit logs is Azure API for FHIR
-description: This article describes how to add data to audit logs via custom HTTP headers.
+title: Add data to audit logs using custom headers - Azure API for FHIR
+description: This article describes how to add data to audit logs via custom HTTP headers in Azure API for FHIR.
 services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -33,7 +33,7 @@ There are several ways to use custom headers when calling APIs. For example:
 
 ## How to use custom headers
 
-Any HTTP header named with the following convention: X-MS-AZUREFHIR-AUDIT-AUDIT-<name> will be included in a property bag that is added to the log. Examples:
+Any HTTP header named with the following convention: X-MS-AZUREFHIR-AUDIT-AUDIT-\<name> will be included in a property bag that is added to the log. Examples:
 
 * X-MS-AZUREFHIR-AUDIT-USERID: 1234 
 * X-MS-AZUREFHIR-AUDIT-USERLOCATION: XXXX
@@ -42,9 +42,9 @@ Any HTTP header named with the following convention: X-MS-AZUREFHIR-AUDIT-AUDIT-
 This information will then be serialized to JSON when added to the properties column in the log.  Example:
 
 ```json
-{ “X-MS-AZUREFHIR-AUDIT-USERID” : “1234”,
-“X-MS-AZUREFHIR-AUDIT-USERLOCATION” : “XXXX”,
-“X-MS-AZUREFHIR-AUDIT-XYZ” : “1234” }
+{ "X-MS-AZUREFHIR-AUDIT-USERID" : "1234",
+"X-MS-AZUREFHIR-AUDIT-USERLOCATION" : "XXXX",
+"X-MS-AZUREFHIR-AUDIT-XYZ" : "1234" }
 ```
  
 As with any HTTP header the same header name may be repeated with different values. Example:
@@ -54,7 +54,7 @@ As with any HTTP header the same header name may be repeated with different valu
 
 When added to the log the values with be combined a comma delimited list. Example:
 
-{ “X-MS-AZUREFHIR-AUDIT-USERLOCATION” : “HospitalA, Emergency” }
+{ "X-MS-AZUREFHIR-AUDIT-USERLOCATION" : "HospitalA, Emergency" }
  
 A maximum of 10 unique headers may be added (repetitions of the same header with different values would only be counted as one).
  

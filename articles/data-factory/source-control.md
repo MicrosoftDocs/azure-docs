@@ -1,5 +1,5 @@
 ---
-title: Source control in Azure Data Factory | Microsoft Docs
+title: Source control in Azure Data Factory 
 description: Learn how to configure source control in Azure Data Factory
 services: data-factory
 documentationcenter: ''

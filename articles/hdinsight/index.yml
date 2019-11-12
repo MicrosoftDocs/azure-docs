@@ -30,6 +30,8 @@ landingContent:
         links:
           - text: HDInsight components and versions
             url: ./hdinsight-component-versioning.md
+          - text: Selecting the right VM size
+            url: ./hdinsight-selecting-vm-size.md
           - text: HDInsight supported VM types
             url: ./hdinsight-supported-node-configuration.md
           - text: Compare storage options

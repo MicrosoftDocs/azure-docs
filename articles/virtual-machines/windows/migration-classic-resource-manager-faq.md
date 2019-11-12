@@ -19,6 +19,7 @@ ms.author: kasing
 
 ---
 
+# Frequently asked questions about classic to Azure Resource Manager migration
 [!INCLUDE [virtual-machines-common-migration-faq](../../../includes/virtual-machines-common-classic-resource-manager-migration-faq.md)]
 
 ## Next steps

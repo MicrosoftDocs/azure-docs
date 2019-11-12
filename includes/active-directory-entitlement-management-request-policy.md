@@ -100,19 +100,19 @@ Follow these steps to specify the approval settings for the users you previously
 
 1. To require approval for requests from the selected users, set the **Require approval** toggle to **Yes**. To have requests automatically approved, set the toggle to **No**.
 
-    ![Access package - Requests - Approval settings](./media/active-directory-entitlement-management-request-policy/approval.png)
-
 1. To require users to provide a justification to request the access package, set the **Require requestor justification** toggle to **Yes**.
 
-1. Determine if the request will require a single or multi-stage approval. Set the **How many stages** toggle to **1** for single-stage.
+    ![Access package - Requests - Approval settings](./media/active-directory-entitlement-management-request-policy/approval.png)
+
+### Single-stage approval
 
 1. For approvers, select **Manager as approver** or **Choose specific approvers**.
 
-    The manager is determined by the **Manager** attribute in the user's profile of Azure AD. For more information, see [Add or update a user's profile information using Azure Active Directory](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
-
-    ![Azure Active Directory user profile - Manager attribute](./media/active-directory-entitlement-management-request-policy/profile-manager.png)
+    ![Access package - Requests - Single-stage settings](./media/active-directory-entitlement-management-request-policy/approval-single-stage.png)
 
 1. If you selected Manager as approver, click **Add fallback** to select one or more users or groups in your directory to be a fallback approver in case entitlement management cannot find the manager.
+
+    The manager is determined by the **Manager** attribute in the user's profile of Azure AD. For more information, see [Add or update a user's profile information using Azure Active Directory](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
 
 1. If you selected Choose specific approvers, click **Add approvers** to select one or more users or groups in your directory to be approvers.
 
@@ -120,9 +120,34 @@ Follow these steps to specify the approval settings for the users you previously
 
     If a request is not approved within this time period, it will be automatically denied. The user will have to submit another request for the access package.
 
-1. To require users to provide a justification to request the access package, set **Require justification** to **Yes**.
+1. To require users to provide a justification to request the access package, set **Require approver justification** to **Yes**.
 
     A justification is visible to other approvers and the requestor.
+
+### Alternate approvers
+
+In addition to specifying the primary approvers who can approve requests, you can specify alternate approvers. This will help ensure that the requests are approved or denied before they expire (timeout).
+
+By specifying alternate approver(s), in the event that the primary approver(s) haven't been able to approve or deny the request, the pending request gets forwarded to the alternate approver(s), per the forwarding schedule you specified during policy set up. They receive an email to approve or deny the pending request.
+
+After the request is forwarded to the alternate approvers, the primary approvers can still approve or deny the request. Alternate approvers use the same My Access site, as the primary approvers, to approve or deny the pending request.
+
+We can list people or group(s) of people to be the primary approvers and alternate approvers. Please ensure that you list different sets of people to be the primary approvers and the alternate approvers.
+For example, if you listed Alice and Bob as the primary approver(s), list Carol and Dave as the alternate approver(s). Use the following steps to add alternate approvers to an access package:
+
+1. Click **Show advanced request settings**.
+
+    ![Access package - Policy - Show advanced request settings](./media/active-directory-entitlement-management-request-policy/alternate-approvers-click-advanced-request.png)
+
+1. Set **If no action taken, forward to alternate approvers?** toggle to **Yes**.
+
+1. Click **Add alternate approvers** and select the alternate approver(s) from the list.
+
+    ![Access package - Policy - Add Alternate Approvers](./media/active-directory-entitlement-management-request-policy/alternate-approvers-add.png)
+
+1. In the **Forward to alternate approver(s) after how many days** box, put in the number of days the approvers have to approve or deny a request. If no approvers have approved or denied the request before the request duration, the request expires (timeout), and the user will have to submit another request for the access package. 
+
+    Requests can only be forwarded to alternate approvers a day after the the request duration reaches half-life. In this example, the duration of the request is 14 days. This means that the request duration reaches half-life at day 7. So the request can be forwarded no earlier than day 8. Also, requests cannot be forwarded to the alternate approver on the last day of the request duration. So in the example, the latest the request can be forwarded is day 13.
 
 ## Enable requests
 
