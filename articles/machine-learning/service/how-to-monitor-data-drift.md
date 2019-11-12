@@ -1,7 +1,7 @@
 ---
-title: Detect data drift (preview) on AKS deployments
+title: Detect data drift on AKS deployments
 titleSuffix: Azure Machine Learning
-description: Detect data drift on Azure Kubernetes Service deployed models in Azure Machine Learning.
+description: Detect data drift (preview) on Azure Kubernetes Service deployed models in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

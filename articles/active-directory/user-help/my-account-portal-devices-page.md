@@ -1,5 +1,5 @@
 ---
-title: Manage your connected devices from the My Account portal - Azure Active Directory | Microsoft Docs
+title: Manage your connected devices on the My Account portal - Azure AD
 description: How to view and disable your connected devices from the Devices page of the My Account portal.
 services: active-directory
 author: eross-msft

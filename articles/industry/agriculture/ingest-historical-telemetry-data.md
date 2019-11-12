@@ -45,16 +45,17 @@ Follow the below steps to generate these:
 
     ![Project Farm Beats](./media/for-tutorials/power-shell-two-1.png)
 
-5. Go to the directory where the files were uploaded (By default it gets uploaded to the home directory /home/username/.
+5. Go to the directory where the files were uploaded
+
+   >[!NOTE]
+   > By default, file gets uploaded to the home directory /home/username/.
 6. Run the script by using the command:  
 
     ```azurepowershell-interactive
-    PS> ./generateCredentials.ps1
+    ./generateCredentials.ps1
     ```
 
 7. Follow the onscreen instructions to complete the procedure.
-
-    Contact the FarmBeats administrator in case you don’t have access to FarmBeats or your Azure subscription.
 
 ## Create device/sensor metadata
 
@@ -124,7 +125,9 @@ FarmBeats Data hub uses bearer authentication, which needs the following credent
 
 Using the above credentials, the caller can request for an access token, which needs to be sent in the subsequent API requests in the header section as follows:
 
+```
 headers = *{"Authorization": "Bearer " + access_token, …}*
+```
 
 **HTTP Request Headers**:
 
@@ -158,8 +161,10 @@ Here are the most common request headers that need to be specified when making a
     "additionalProp3": {}
   }
 }
+```
 
 Device
+
 ```json
 {
   "deviceModelId": "string",
@@ -235,17 +240,15 @@ Sensor
     "additionalProp3": {}
   }
 }
-
 ```
 The below sample request is to create a device (This has an input json as payload with the request body).  
 
-```
+```bash
 curl -X POST "https://<datahub>.azurewebsites.net/Device" -H  
 "accept: application/json" -H  "Content-Type: application/json" -H
-"Authorization: Bearer <Access-Token>" -d "
-{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",  
+"Authorization: Bearer <Access-Token>" -d "{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",  
 \"reportingInterval\": 900,  \"name\": \"Device123\",  
-\"description\": \"Test Device 123\",}"*
+\"description\": \"Test Device 123\"}" *
 ```
 
 > [!NOTE]
@@ -264,30 +267,28 @@ You must send the Telemetry to Azure Event Hub for processing. Azure EventHub is
 Once you have a connection established as an EventHub client, you can send messages to the EventHub as a json.  
 Convert the historical sensor data format to a canonical format that Azure FarmBeats understands. The canonical message format is as below:  
 
-
- ```
-  {   
-      “deviceid”: “<id of the Device created>”,   
-      "timestamp": "<timestamp in ISO 8601 format>",     
-      "version" : "1",   
-      "sensors":
-      [     
-      {        
-          "id": "<id of the sensor created>”       
-          "sensordata": [         
-          {            
-              "timestamp": "< timestamp in ISO 8601 format >",           
-              "<sensor measure name (as defined in the Sensor Model)>": value          
-    },          
-    {            
-    "timestamp": "<timestamp in ISO 8601 format>",           
-     "<sensor measure name (as defined in the Sensor Model)>": value          
-    }        
-    ]      
-    }  
+```json
+{
+"deviceid": "<id of the Device created>",
+"timestamp": "<timestamp in ISO 8601 format>",
+"version" : "1",
+"sensors": [
+    {
+      "id": "<id of the sensor created>",
+      "sensordata": [
+        {
+          "timestamp": "< timestamp in ISO 8601 format >",
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+        },
+        {
+          "timestamp": "<timestamp in ISO 8601 format>",
+          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+        }
+      ]
     }
+ ]
+}
 ```
-
 
 After adding the corresponding devices and sensors, obtain the deviceid and the sensorid in the telemetry message, as described in the previous section
 

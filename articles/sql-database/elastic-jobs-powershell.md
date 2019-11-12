@@ -66,7 +66,7 @@ Creating an Elastic Job agent requires a database (S0 or higher) for use as the 
 
 *The script below creates a new resource group, server, and database for use as the Job database. The script below also creates a second server with two blank databases to execute jobs against.*
 
-Elastic Jobs has no specific naming requirements so you can use whatever naming conventions you want, as long as they conform to any [Azure requirements](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
+Elastic Jobs has no specific naming requirements so you can use whatever naming conventions you want, as long as they conform to any [Azure requirements](/azure/architecture/best-practices/resource-naming).
 
 ```powershell
 # Sign in to your Azure account
