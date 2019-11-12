@@ -13,7 +13,7 @@ ms.author: mbaldwin
 
 ---
 
-# How to: Receive and respond to key vault notifications with Azure Event Grid (preview)
+# Receive and respond to key vault notifications with Azure Event Grid (preview)
 
 Azure Key Vault integration with Azure Event Grid (currently in preview) enables user notification when the status of a secret stored in a key vault has changed. For an overview of this feature, see [Monitoring Key Vault with Event Grid](event-grid-overview.md).
 
@@ -28,7 +28,7 @@ This guide describes how to receive Key Vault notifications through Event Grid, 
 
 Event Grid is an eventing service for the cloud. By following the steps in this guide, you'll subscribe to events for Key Vault and route events to Automation. When one of the secrets in the key vault is about to expire, Event Grid is notified of the status change and makes an HTTP POST to the endpoint. A web hook then triggers an Automation execution of a PowerShell script.
 
-![image](media/image1.png)
+![HTTP POST flowchart](media/image1.png)
 
 ## Create an Automation account
 
@@ -36,13 +36,13 @@ Create an Automation account through the [Azure portal](https://portal.azure.com
 
 1.  Go to portal.azure.com and log in to your subscription.
 
-1.  In the search box, type **Automation Accounts**.
+1.  In the search box, enter **Automation Accounts**.
 
 1.  Under the **Services** section of the drop-down list on the search bar, select **Automation Accounts**.
 
 1.  Select **Add**.
 
-    ![](media/image2.png)
+    ![Automation accounts pane](media/image2.png)
 
 1.  Enter the required information in the **Add Automation Account** pane and then select **Create**.
 
@@ -50,7 +50,7 @@ Create an Automation account through the [Azure portal](https://portal.azure.com
 
 After your Automation account is ready, create a runbook.
 
-![](media/image3.png)
+![Create a runbook UI](media/image3.png)
 
 1.  Select the Automation account you just created.
 
@@ -88,7 +88,7 @@ write-Error "No input data found."
 }
 ```
 
-![](media/image4.png)
+![Publish runbook UI](media/image4.png)
 
 ## Create a webhook
 
@@ -111,7 +111,7 @@ Create a webhook to trigger your newly created runbook.
 
 1. Select **OK** and then select **Create**.
 
-    ![](media/image6.png)
+    ![Create new Webhook UI](media/image6.png)
 
 ## Create an Event Grid subscription
 
@@ -121,7 +121,7 @@ Create an Event Grid subscription through the [Azure portal](https://portal.azur
 
 1.  Go to your key vault and select the **Events** tab. If you can't see it, make sure you're using the [preview version of the portal](https://ms.portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true).
 
-    ![](media/image7.png)
+    ![Events tab in Azure portal](media/image7.png)
 
 1.  Select the **Event Subscription** button.
 
@@ -141,15 +141,15 @@ Create an Event Grid subscription through the [Azure portal](https://portal.azur
 
 1.  Select **Create**.
 
-    ![](media/image8.png)
+    ![Create event subscription](media/image8.png)
 
 ## Test and verify
 
-Verify that your Event Grid subscription is properly configured.  This test assumes that you have subscribed to the "Secret New Version Created" notification in the [Create an Event Grid subscription](#create-an-event-grid-subscription), and that you have the necessary privileges to create a new version of a secret in a key vault.
+Verify that your Event Grid subscription is properly configured. This test assumes you have subscribed to the "Secret New Version Created" notification in the [Create an Event Grid subscription](#create-an-event-grid-subscription), and that you have the necessary permissions to create a new version of a secret in a key vault.
 
-![](media/image9.png)
+![Test config of Event Grid subscription](media/image9.png)
 
-![](media/image10.png)
+![Create-a-secret pane](media/image10.png)
 
 1.  Go to your key vault on the Azure portal.
 
@@ -159,21 +159,21 @@ Verify that your Event Grid subscription is properly configured.  This test assu
 
 1.  Under **Metrics**, check whether an event was captured. Two events are expected: SecretNewVersion and SecretNearExpiry. These events validate that Event Grid successfully captured the status change of the secret in your key vault.
 
-    ![](media/image11.png)
+    ![Metrics pane: check for captured events](media/image11.png)
 
 1.  Go to your Automation account.
 
 1.  Select the **Runbooks** tab, and then select the runbook you created.
 
-1.  Select the **Webhooks** tab, and confirm that the "last triggered" timestamp is within 60 seconds of when you created the new secret. This result confirms that Event Grid made a POST to the webhook with the event details of the status change in your key vault and that the webhook was triggered.
+1.  Select the **Webhooks** tab, and confirm that the "last triggered" time stamp is within 60 seconds of when you created the new secret. This result confirms that Event Grid made a POST to the webhook with the event details of the status change in your key vault and that the webhook was triggered.
 
-    ![](media/image12.png)
+    ![Webhooks tab, Last Triggered time stamp](media/image12.png)
 
 1. Return to your runbook and select the **Overview** tab.
 
 1. Look at the **Recent Jobs** list. You should see that a job was created and that the status is complete. This confirms that the webhook triggered the runbook to start executing its script.
 
-    ![](media/image13.png)
+    ![Webhook Recent Jobs list](media/image13.png)
 
 1. Select the recent job and look at the POST request that was sent from Event Grid to the webhook. Examine the JSON and make sure that the parameters for your key vault and event type are correct. If the "event type" parameter in the JSON object matches the event that occurred in the key vault (in this example, Microsoft.KeyVault.SecretNearExpiry), the test was successful.
 
