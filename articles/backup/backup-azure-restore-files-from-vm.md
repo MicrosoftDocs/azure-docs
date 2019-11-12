@@ -180,6 +180,7 @@ The following table shows the compatibility between server and computer operatin
 
 |Server OS | Compatible client OS  |
 | --------------- | ---- |
+| Windows Server 2019    | Windows 10 |
 | Windows Server 2016    | Windows 10 |
 | Windows Server 2012 R2 | Windows 8.1 |
 | Windows Server 2012    | Windows 8  |
