@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sanpil
 author: sanpil
-ms.date: 08/09/2019
+ms.date: 11/12/2019
 ms.custom: seodec18
 
 ---
@@ -17,7 +17,7 @@ ms.custom: seodec18
 # Create and run machine learning pipelines with Azure Machine Learning SDK
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to create, publish, run, and track a [machine learning pipeline](concept-ml-pipelines.md) by using the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Use **ML pipelines** to create a workflow that stitches together various ML phases, and then publish that pipeline into your Azure Machine Learning workspace to access later or share with others.  ML pipelines are ideal for batch scoring scenarios, using various computes, reusing steps instead of rerunning them, as well as sharing ML workflows with others. 
+In this article, you learn how to create, publish, run, and track a [machine learning pipeline](concept-ml-pipelines.md) by using the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Use **ML pipelines** to create a workflow that stitches together various ML phases, and then publish that pipeline into your Azure Machine Learning workspace to access later or share with others.  ML pipelines are ideal for batch scoring scenarios, using various computes, reusing steps instead of rerunning them, as well as sharing ML workflows with others.
 
 While you can use a different kind of pipeline called an [Azure Pipeline](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml) for CI/CD automation of ML tasks, that type of pipeline is never stored inside your workspace. [Compare these different pipelines](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
 
@@ -97,7 +97,7 @@ blob_input_data = DataReference(
     path_on_datastore="20newsgroups/20news.pkl")
 ```
 
-Intermediate data (or output of a step) is represented by a [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) object. `output_data1` is produced as the output of a step, and used as the input of one or more future steps. `PipelineData` introduces a data dependency between steps, and creates an implicit execution order in the pipeline.
+Intermediate data (or output of a step) is represented by a [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) object. `output_data1` is produced as the output of a step, and used as the input of one or more future steps. `PipelineData` introduces a data dependency between steps, and creates an implicit execution order in the pipeline. This object will be used later when creating pipeline steps.
 
 ```python
 from azureml.pipeline.core import PipelineData
@@ -110,7 +110,7 @@ output_data1 = PipelineData(
 
 ## Set up compute target
 
-In Azure Machine Learning, the term computes__ (or __compute target__) refers to the machines or clusters that perform the computational steps in your machine learning pipeline.   See [compute targets for model training](how-to-set-up-training-targets.md) for a full list of compute targets and how to create and attach them to your workspace.  The process for creating and or attaching a compute target is the same regardless of whether you are training a model or running a pipeline step. After you create and attach your compute target, use the `ComputeTarget` object in your [pipeline step](#steps).
+In Azure Machine Learning, the term __computes__ (or __compute target__) refers to the machines or clusters that perform the computational steps in your machine learning pipeline.   See [compute targets for model training](how-to-set-up-training-targets.md) for a full list of compute targets and how to create and attach them to your workspace.  The process for creating and or attaching a compute target is the same regardless of whether you are training a model or running a pipeline step. After you create and attach your compute target, use the `ComputeTarget` object in your [pipeline step](#steps).
 
 > [!IMPORTANT]
 > Performing management operations on compute targets is not supported from inside remote jobs. Since machine learning pipelines are submitted as a remote job, do not use management operations on compute targets from inside the pipeline.
@@ -347,7 +347,18 @@ When you first run a pipeline, Azure Machine Learning:
 
 For more information, see the [Experiment class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) reference.
 
+### View results of a pipeline
 
+See the list of all your pipelines and their run details in the studio:
+
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
+
+1. [View your workspace](how-to-manage-workspace.md#view).
+
+1. On the left, select **Pipelines** to see all your pipeline runs.
+ ![list of machine learning pipelines](./media/how-to-create-your-first-pipeline/pipelines.png)
+ 
+1. Select a specific pipeline to see the run results.
 
 ## GitHub tracking and integration
 
@@ -404,21 +415,26 @@ response = requests.post(published_pipeline1.endpoint,
                                "ParameterAssignments": {"pipeline_arg": 20}})
 ```
 
-### View results of a published pipeline
 
-See the list of all your published pipelines and their run details:
-1. Sign in to [Azure Machine Learning](https://ml.azure.com).
+### Use published pipelines in the studio
 
-1. [View your workspace](how-to-manage-workspace.md#view) to find the list of pipelines.
- ![list of machine learning pipelines](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
- 
-1. Select a specific pipeline to see the run results.
+You can also run a published pipeline from the studio:
 
-These results are also available in your workspace in [Azure Machine Learning](https://ml.azure.com).
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
+
+1. [View your workspace](how-to-manage-workspace.md#view).
+
+1. On the left, select **Endpoints**.
+
+1. On the top, select **Pipeline endpoints**.
+ ![list of machine learning published pipelines](./media/how-to-create-your-first-pipeline/pipeline-endpoints.png)
+
+1. Select a specific pipeline to run, consume, or review results of previous runs of the pipeline endpoint.
+
 
 ### Disable a published pipeline
 
-To hide a pipeline from your list of published pipelines, you disable it:
+To hide a pipeline from your list of published pipelines, you disable it, either in the studio or from the SDK:
 
 ```
 # Get the pipeline by using its ID from Azure Machine Learning studio
