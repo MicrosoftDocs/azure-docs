@@ -296,10 +296,10 @@
       displayName: create client consume request response synchronous
       href: how-to-consume-web-service.md
     - name: Run batch predictions
-      displayName: score scoring asynchronous consume pipeline
+      displayName: score scoring asynchronous consume pipeline parallelrunstep inference
       href: how-to-run-batch-predictions.md
     - name: Use the designer for batch predictions
-      displayName: score scoring asynchronous consume pipeline
+      displayName: score scoring asynchronous consume pipeline parallelrunstep inference
       href: how-to-run-batch-predictions-ui.md
   - name: Monitor models
     items:
