@@ -28,13 +28,6 @@ Example Usage Scenarios:
 
 **Deny**: When the effect of a policy is set to deny, the policy will block the creation of new components such as certificates as well as block new versions of existing components that do not comply with the policy definition. Existing non-compliant resources within a key vault are not affected. The 'audit' capabilities will continue to operate.
 
-**Example Scenario**: You manage a key vault used by multiple teams that contains 100 certificates, and you want to make sure that none of the certificates in the key vault are valid for longer than 2 years.
-
-1. You assign the 'Manage certificate validity period' policy, specify that the maximum validity period of a certificate is 24 months, and set the effect of the policy to 'audit'. 
-1. You view the compliance report on the Azure Portal, and you discover that 20 certificates are non-compliant and valid for > 2 years, and the remaining certificates are compliant. 
-1. You contact the owners of these certificates and communicate the new security requirement that certificates cannot be valid for longer than 2 years. Some teams respond and 15 of the certificates were renewed with a maximum validity period of 2 years or less. Other teams do not respond, and you still have 5 non-compliant certificates in your key vault.
-1. You change the effect of the policy you assigned to 'deny'. The 5 non-compliant certificates are not revoked, and they continue to function. However, they cannot be renewed with a validity period that is greater than 2 years. 
-
 ## Available "Built-In" Policy Definitions
 
 Key Vault has created a set of policies, which you can assign for common scenarios to manage certificates. These policies are 'Built-In', which means they don't require you to write any custom JSON to enable them and they are available in the Azure Portal for you to assign. You can still customize certain parameters to fit your organization's needs. 
@@ -80,7 +73,18 @@ If you use RSA certificates, you can choose a minimum key size that your certifi
 ### Manage certificates that are within a specified number of days of expiration (preview)
 Your service can experience an outage if a certificate that is not being adequately monitored is not rotated prior to its expiration. This policy is critical to making sure that your certificates stored in key vault are being monitored. It is recommended that you apply this policy multiple times with different expiration thresholds, for example, at 180, 90, 60, and 30-day thresholds. This policy can be used to monitor and triage certificate expiration in your organization. 
 
-## Select a Policy Definition
+## Example Scenario
+
+You manage a key vault used by multiple teams that contains 100 certificates, and you want to make sure that none of the certificates in the key vault are valid for longer than 2 years.
+
+1. You assign the [Manage certificate validity period](#manage-certificate-validity-period-preview) policy, specify that the maximum validity period of a certificate is 24 months, and set the effect of the policy to "audit". 
+1. You view the [compliance report on the Azure Portal](../governance/policy/how-to/get-compliance-data.md), and discover that 20 certificates are non-compliant and valid for > 2 years, and the remaining certificates are compliant. 
+1. You contact the owners of these certificates and communicate the new security requirement that certificates cannot be valid for longer than 2 years. Some teams respond and 15 of the certificates were renewed with a maximum validity period of 2 years or less. Other teams do not respond, and you still have 5 non-compliant certificates in your key vault.
+1. You change the effect of the policy you assigned to "deny". The 5 non-compliant certificates are not revoked, and they continue to function. However, they cannot be renewed with a validity period that is greater than 2 years. 
+
+## Enabling and managing a Key Vault policy through the Azure Portal
+
+### Select a Policy Definition
 
 1 Log in to the Azure Portal. 
 1. Search "Policy" in the Search Bar and Select **Policy**.
@@ -88,13 +92,13 @@ Your service can experience an outage if a certificate that is not being adequat
 1. In the Category Filter, Unselect **Select All** and select **Key Vault**. 
 1. Now you should be able to see all the policies available for Public Preview, for Azure Key Vault. Make sure you have read and understood the policy guidance section above and select a policy you want to assign to a scope.  
 
-## Assign a Policy to a Scope 
+### Assign a Policy to a Scope 
 
-1. Select a policy you wish to apply, in this example, the **Manage Certificate Validity Period** policy is shown. Click the assign button in the top-left corner
+1. Select a policy you wish to apply, in this example, the **Manage Certificate Validity Period** policy is shown. Click the assign button in the top-left corner.
 1. Select the subscription where you want the policy to be applied. You can choose to restrict the scope to only a single resource group within a subscription. If you want to apply the policy to the entire subscription and exclude some resource groups, you can also configure an exclusion list. Set the policy enforcement selector to **Enabled** if you want the effect of the policy (audit or deny) to occur or **Disabled** to turn the effect (audit or deny) off. 
 1. Click on the parameters tab at the top of the screen in order to specify the maximum validity period in months that you want. Select **audit** or **deny** for the effect of the policy following the guidance in the sections above. Then select the review + create button. 
 
-## View Compliance Results
+### View Compliance Results
 
 1. Go back to the Policy blade and select the compliance tab. Click on the policy assignment you wish to view compliance results for.
 1. From this page you can filter results by compliant or non-compliant vaults. Here you can see a list of non-compliant key vaults within the scope of the policy assignment. A vault is considered non-compliant if any of the components (certificates) in the vault are non-compliant. You can select an individual vault to view the individual non-compliant components (certificates). 
