@@ -81,19 +81,15 @@ On the property pane, you learn the following:
 
     ![Health property pane Overview tab for aggregate monitor](./media/container-insights-health/health-view-overview-aggregate-monitor.png)
 
-    If you select a child monitor, it also shows the previous samples calculated and reported by the agent within the last four hours under **Last state change**. When you select CPU or memory utilization of a Node or Pod, it shows the last three samples. When you select the status of a Pod or Node, it shows the last two samples.
+    If you select a child monitor, it also shows under **Last state change** the previous samples calculated and reported by the containerized agent within the last four hours. This is based on the unit monitors calculation for comparing several consecutive values to determine its threshold. For example, if you selected one of the resource utilization unit monitors (that is CPU or memory utilization) of a Node or Pod, it shows the last three samples.
     
     ![Health property pane Overview tab](./media/container-insights-health/health-overview-unit-montior.png)    
 
-    If the time range for **Last state change** is a day or older, this is the result of not receiving data from the agent for more than four hours. If the agent knows that a particular resource exists, for example a Node, but hasnt received data from the node, then it marks the node monitos (Node CPU/Memory) as Unknown 
+    If the time reported by **Last state change** is a day or older, it is the result of not receiving data from the containerized agent for more than four hours. If the agent knows that a particular resource exists, for example a Node, but it hasn't received data from the Node, then the health state of the monitor is set to **Unknown**.  
 
-    When you select an aggregate monitor, 
-
-    
-
-- On the**Config** tab, it shows the default configuration parameter settings (only for monitors, not aggregate monitors) and their values.
+- On the**Config** tab, it shows the default configuration parameter settings (only for unit monitors, not aggregate monitors) and their values.
 - On the **Knowledge** tab, it contains information explaining the behavior of the monitor and how it evaluates for the unhealthy condition.
 
-Monitoring data on this page does not refresh automatically and you need to select **Refresh** at the top of the page to see the most recent health state based on the latest records received from the cluster.
+Monitoring data on this page does not refresh automatically and you need to select **Refresh** at the top of the page to see the most recent health state received from the cluster.
 
 ## Next steps
