@@ -36,8 +36,6 @@ The Table storage bindings are provided in the [Microsoft.Azure.WebJobs.Extensio
 
 Use the Azure Table storage input binding to read a table in an Azure Storage account.
 
-## Input - example
-
 # [C#](#tab/csharp)
 
 ### One entity
@@ -500,8 +498,6 @@ Use an Azure Table storage output binding to write entities to a table in an Azu
 > [!NOTE]
 > This output binding does not support updating existing entities. Use the `TableOperation.Replace` operation [from the Azure Storage SDK](https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-table-dotnet#delete-an-entity) to update an existing entity.   
 
-## Output - example
-
 # [C#](#tab/csharp)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that uses an HTTP trigger to write a single table row. 
@@ -670,7 +666,7 @@ public static MyPoco TableOutput(
 }
 ```
 
-For a complete example, see [Output - C# example](#output---example).
+For a complete example, see [Output - C# example](#output).
 
 You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see [Input - attributes](#input---attributes-and-annotations).
 
@@ -720,7 +716,7 @@ The Table storage output binding supports the following scenarios:
 
   In C# and C# script, access the output table entity by using a method parameter `ICollector<T> paramName` or `IAsyncCollector<T> paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. `T` specifies the schema of the entities you want to add. Typically, `T` derives from `TableEntity` or implements `ITableEntity`, but it doesn't have to. The partition key and row key values in *function.json* or the `Table` attribute constructor are not used in this scenario.
 
-  An alternative is to use a `CloudTable` method parameter to write to the table by using the Azure Storage SDK. If you try to bind to `CloudTable` and get an error message, make sure that you have a reference to [the correct Storage SDK version](#azure-storage-sdk-version-in-functions-1x). For an example of code that binds to `CloudTable`, see the input [binding examples](#input---example) for C# or C# Script earlier in this article.
+  An alternative is to use a `CloudTable` method parameter to write to the table by using the Azure Storage SDK. If you try to bind to `CloudTable` and get an error message, make sure that you have a reference to [the correct Storage SDK version](#azure-storage-sdk-version-in-functions-1x). For an example of code that binds to `CloudTable`, see the input [binding examples](#input) for C# or C# Script earlier in this article.
 
 * **Write one or more rows in JavaScript**
 
