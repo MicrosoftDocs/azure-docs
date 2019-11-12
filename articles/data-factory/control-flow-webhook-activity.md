@@ -1,5 +1,5 @@
 ---
-title: Webhook activity in Azure Data Factory | Microsoft Docs
+title: Webhook activity in Azure Data Factory 
 description: The Webhook activity does not continue execution of the pipeline until it validates the attached dataset with certain criteria the user specifies.
 services: data-factory
 documentationcenter: ''

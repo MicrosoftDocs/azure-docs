@@ -238,8 +238,8 @@ To get started:
     | ------------- | ------------- | ------------- |
     | HR | targetHR.public | public.countries.country_id |
     | HR | targetHR.trgthr | trgthr.countries.country_id |
-    | HR | targetHR.TARGETHR | “TARGETHR”.”COUNTRIES”.”COUNTRY_ID” |
-    | HR | targetHR.HR | “HR”.”COUNTRIES”.”COUNTRY_ID” |
+    | HR | targetHR.TARGETHR | "TARGETHR"."COUNTRIES"."COUNTRY_ID" |
+    | HR | targetHR.HR | "HR"."COUNTRIES"."COUNTRY_ID" |
     | HR | targetHR.Hr | *Unable to map mixed cases |
 
     *To create mixed case schema and table names in target PostgreSQL, contact [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com). We can provide a script to set up mixed case table schema in the target PostgreSQL database.

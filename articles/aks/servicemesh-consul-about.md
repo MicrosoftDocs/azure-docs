@@ -32,7 +32,7 @@ The following architecture diagram demonstrates how the various components withi
 
 ## Selection criteria
 
-It's important to understand and consider the following areas when evaluating Linkerd for your workloads:
+It's important to understand and consider the following areas when evaluating Consul for your workloads:
 
 - [Consul Principles](#consul-principles)
 - [Capabilities](#capabilities)

@@ -4,7 +4,7 @@ description: Shows how to apply tags to organize Azure resources for billing and
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 10/30/2019
 ms.author: tomfitz
 
 ---

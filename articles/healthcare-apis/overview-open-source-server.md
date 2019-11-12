@@ -1,6 +1,6 @@
 ---
-title: What is FHIR Server for Azure - FHIR Server for Azure
-description: This article describes FHIR Server for Azure.
+title: What is FHIR Server for Azure? - FHIR Server for Azure
+description: Learn about FHIR Server for Azure, an open-source implementation of the HL7 Fast Healthcare Interoperability Resources (FHIR) specification for the cloud. 
 services: healthcare-apis
 author: matjazl
 ms.service: healthcare-apis
@@ -10,7 +10,7 @@ ms.date: 02/07/2019
 ms.author: matjazl
 ---
 
-# What is FHIR Server for Azure
+# What is FHIR Server for Azure?
 
 FHIR&reg; Server for Azure is an open-source implementation of the emerging [HL7 Fast Healthcare Interoperability Resources (FHIR) specification](https://www.hl7.org/fhir/) designed for the Microsoft cloud. The FHIR specification defines how clinical health data can be made interoperable across systems. FHIR Server for Azure helps facilitate that interoperability in the cloud. The goal of this Microsoft Healthcare project is to enable developers to rapidly deploy FHIR service.
  

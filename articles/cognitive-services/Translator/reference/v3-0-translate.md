@@ -1,7 +1,7 @@
 ---
 title: Translator Text API Translate Method
 titleSuffix: Azure Cognitive Services
-description: Use the Translator Text API Translate method.
+description: Understand the parameters, headers and body messages for the Azure Cognitive Services Translator Text API Translate method to translate text.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -506,7 +506,7 @@ If you already know the translation you want to apply to a word or a phrase, you
 The markup to supply uses the following syntax.
 
 ``` 
-<mstrans:dictionary translation=”translation of phrase”>phrase</mstrans:dictionary>
+<mstrans:dictionary translation="translation of phrase">phrase</mstrans:dictionary>
 ```
 
 For example, consider the English sentence "The word wordomatic is a dictionary entry." To preserve the word _wordomatic_ in the translation, send the request:
@@ -521,7 +521,7 @@ The result is:
 [
     {
         "translations":[
-            {"text":"Das Wort "wordomatic" ist ein Wörterbucheintrag.","to":"de"}
+            {"text":"Das Wort \"wordomatic\" ist ein Wörterbucheintrag.","to":"de"}
         ]
     }
 ]

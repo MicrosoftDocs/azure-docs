@@ -26,7 +26,7 @@ highlightedContent:
     # Card
     - title: Browse Azure IoT code samples
       itemType: overview
-      url: https://docs.microsoft.com/en-us/samples/browse/?term=iot
+      url: https://docs.microsoft.com/samples/browse/?term=iot
     # Card
     - title: Secure your Azure IoT deployment
       itemType: concept
@@ -38,9 +38,7 @@ highlightedContent:
     # Card
     - title: Azure IoT on Microsoft Learn
       itemType: learn
-      url: https://docs.microsoft.com/en-us/learn/browse/?products=azure&term=iot
-
-
+      url: https://docs.microsoft.com/learn/browse/?products=azure&term=iot
 
 # conceptualContent section
 conceptualContent:
@@ -53,7 +51,7 @@ conceptualContent:
         - url: ../iot-hub/about-iot-hub.md
           itemType: overview
           text: What is Azure IoT Hub?
-        - url: ../iot-hub/quickstart-send-telemetry-c.md
+        - url: ../iot-hub/quickstart-send-telemetry-cli.md
           itemType: quickstart
           text: Send telemetry from a device
         - url: ../iot-hub/quickstart-control-device-node.md
@@ -65,18 +63,18 @@ conceptualContent:
     # Card
     - title: Use Azure IoT Central to deploy a fully managed IoT solution
       links:
-        - url: ../iot-central/overview-iot-central.md
+        - url: ../iot-central/core/overview-iot-central.md
           itemType: overview
           text: What is Azure IoT Central?
-        - url: ../iot-central/quick-deploy-iot-central.md
+        - url: ../iot-central/core/quick-deploy-iot-central.md
           itemType: quickstart
           text: Create an IoT Central application
-        - url: ../iot-central/tutorial-define-device-type.md
+        - url: ../iot-central/core/tutorial-define-device-type.md
           itemType: tutorial
           text: Define the type for your device
       # footerLink
       footerLink:
-        url: ../iot-central/index.yml
+        url: ../iot-central/core/index.yml
         text: See more
     # Card
     - title: Use Azure IoT solution accelerators to customize a pre-built IoT solution
@@ -182,7 +180,7 @@ tools:
     # Card
     - title: Azure IoT SDK for C reference
       imageSrc: https://docs.microsoft.com/media/logos/logo_c.svg
-      url: https://docs.microsoft.com/en-us/azure/iot-hub/iot-c-sdk-ref/
+      url: https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/
     # Card
     - title: Azure IoT SDK for Python (Preview)
       imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
@@ -190,12 +188,12 @@ tools:
     # Card
     - title: Azure IoT SDK for Node.js reference
       imageSrc: https://docs.microsoft.com/media/logos/logo_nodejs.svg
-      url: https://docs.microsoft.com/en-us/javascript/api/overview/azure/iot-hub?view=azure-node-latest
+      url: https://docs.microsoft.com/javascript/api/overview/azure/iot-hub?view=azure-node-latest
     # Card
     - title: Azure IoT SDK for Java reference
       imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
-      url: https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.sdk.iot.service?view=azure-java-stable
+      url: https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.service?view=azure-java-stable
     # Card
     - title: Azure IoT SDK for .NET reference
       imageSrc: https://docs.microsoft.com/media/logos/logo_NET.svg
-      url: https://docs.microsoft.com/en-us/dotnet/api/overview/azure/iot?view=azure-dotnet
+      url: https://docs.microsoft.com/dotnet/api/overview/azure/iot?view=azure-dotnet
