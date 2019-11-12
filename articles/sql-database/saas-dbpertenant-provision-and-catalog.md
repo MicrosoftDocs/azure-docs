@@ -1,16 +1,15 @@
 ---
-title: Provision new tenants in a multitenant app that uses Azure SQL Database | Microsoft Docs
+title: Provision new tenants in a multitenant app
 description: Learn how to provision and catalog new tenants in an Azure SQL Database multitenant SaaS app
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: 
+ms.custom: seo-lt-2019
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-manager: craigg
 ms.date: 09/24/2018
 ---
 # Learn how to provision new tenants and register them in the catalog

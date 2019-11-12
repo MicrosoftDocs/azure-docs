@@ -2,14 +2,13 @@
 title: Manage Azure Key Vault using CLI - Azure Key Vault | Microsoft Docs
 description: Use this article to automate common tasks in Key Vault by using the Azure CLI 
 services: key-vault
-author: barclayn
-manager: barbkess
-tags: azure-resource-manager
+author: msmbaldwin
+manager: rkarlin
 
 ms.service: key-vault
-ms.topic: conceptual
-ms.date: 01/10/2019
-ms.author: barclayn
+ms.topic: tutorial
+ms.date: 08/12/2019
+ms.author: mbaldwin
 
 ---
 # Manage Key Vault using the Azure CLI 
@@ -32,7 +31,7 @@ Azure Key Vault is available in most regions. For more information, see the [Key
 > This article does not include instructions on how to write the Azure application that one of the steps includes, which shows how to authorize an application to use a key or secret in the key vault.
 >
 
-For an overview of Azure Key Vault, see [What is Azure Key Vault?](key-vault-whatis.md)
+For an overview of Azure Key Vault, see [What is Azure Key Vault?](key-vault-overview.md)
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites

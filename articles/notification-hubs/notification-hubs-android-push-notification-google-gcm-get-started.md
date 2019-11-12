@@ -1,12 +1,12 @@
 ---
-title: Push notifications to Android apps using Azure Notification Hubs and Google Cloud Messaging | Microsoft Docs
+title: Send push notifications to Android using Azure Notification Hubs and Google Cloud Messaging | Microsoft Docs
 description: In this tutorial, you learn how to use Azure Notification Hubs and Google Firebase Cloud Messaging to push notifications to Android devices.
 services: notification-hubs
 documentationcenter: android
 keywords: push notifications,push notification,android push notification
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 
 ms.assetid: 8268c6ef-af63-433c-b14e-a20b04a0342a
 ms.service: notification-hubs
@@ -16,7 +16,9 @@ ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
-ms.author: jowargo
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
 ---
 
 # Tutorial: Push notifications to Android devices by using Azure Notification Hubs and Google Cloud Messaging (deprecated)
@@ -106,7 +108,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
 
 ### Updating the project's AndroidManifest.xml
 
-1. To support GCM, implement an Instance ID listener service in the code that is used to [obtain registration tokens](https://developers.google.com/cloud-messaging/android/client#sample-register) using [Google's Instance ID API](https://developers.google.com/instance-id/). In this tutorial, the name of the class is `MyInstanceIDService`.
+1. To support GCM, implement an Instance ID listener service in the code that is used to [obtain registration tokens](https://developers.google.com/cloud-messaging/) using [Google's Instance ID API](https://developers.google.com/instance-id/). In this tutorial, the name of the class is `MyInstanceIDService`.
 
     Add the following service definition to the AndroidManifest.xml file, inside the `<application>` tag. Replace the `<your package>` placeholder with your actual package name shown at the top of the `AndroidManifest.xml` file.
   
@@ -140,7 +142,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
     ```
 4. Add the following necessary GCM permissions below the  `</application>` tag. Replace `<your package>` with the package name shown at the top of the `AndroidManifest.xml` file.
 
-    For more information on these permissions, see [Setup a GCM Client app for Android](https://developers.google.com/cloud-messaging/android/client#manifest).
+    For more information on these permissions, see [Setup a GCM Client app for Android](https://developers.google.com/cloud-messaging/).
 
     ```xml
     <uses-permission android:name="android.permission.INTERNET"/>

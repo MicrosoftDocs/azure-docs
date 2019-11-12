@@ -6,7 +6,7 @@ author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/29/2018
+ms.date: 04/29/2019
 ms.author: asgang
 
 ---
@@ -47,6 +47,6 @@ After the enable replication job runs and the initial replication finishes, the 
 
 
 
-# Next steps
+## Next steps
 
 [Learn more](site-recovery-test-failover-to-azure.md) about running a test failover.

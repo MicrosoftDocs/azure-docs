@@ -58,9 +58,11 @@ For more details on the configurable options available, see [Initializing applic
 
 ```javascript
 //In app.module.ts
+import { MsalModule } from '@azure/msal-angular';
+
 @NgModule({
   imports: [ MsalModule.forRoot({
-                clientId: 'your_app_id'
+                clientID: 'your_app_id'
             })]
          })
 

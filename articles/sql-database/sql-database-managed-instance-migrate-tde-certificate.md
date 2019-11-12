@@ -1,5 +1,5 @@
 ---
-title: 'Migrate TDE certificate - Azure SQL Database Managed Instance | Microsoft Docs'
+title: Migrate TDE certificate - managed instance
 description: Migrate certificate protecting Database Encryption Key of a database with transparent Data Encryption to Azure SQL Database Managed Instance
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
-manager: craigg
 ms.date: 04/25/2019
 ---
 

@@ -425,7 +425,7 @@ For all use cases listed earlier, we conducted the performance tests in an Azure
 
 ## Performance tools
 
-You can find performance tools for Azure SignalR Service on [GitHub](https://github.com/Azure/azure-signalr-bench/tree/master/SignalRServiceBenchmarkPlugin).
+You can find performance tools for Azure SignalR Service on [GitHub](https://github.com/Azure/azure-signalr-bench/).
 
 ## Next steps
 

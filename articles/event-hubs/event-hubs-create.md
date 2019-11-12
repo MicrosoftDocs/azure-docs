@@ -1,5 +1,5 @@
 ---
-title: Azure Quickstart - Create an event hub using the Azure portal | Microsoft Docs
+title: Azure Quickstart - Create an event hub using the Azure portal
 description: In this quickstart, you learn how to create an Azure event hub using Azure portal and then send and receive events using .NET Standard SDK.
 services: event-hubs
 documentationcenter: ''
@@ -9,7 +9,7 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/23/2019
+ms.date: 11/05/2019
 ms.author: shvija
 #Customer intent: How do I stream data and process telemetry from an event hub? 
 
@@ -55,7 +55,7 @@ An Event Hubs namespace provides a unique scoping container, referenced by its f
    ![Search for Event Hubs](./media/event-hubs-quickstart-portal/select-event-hubs-menu.png)
 3. Select **Event Hubs** under **FAVORITES** in the left navigational menu, and select **Add** on the toolbar.
 
-   ![Add toolbar button](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
+   ![Add button](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
 4. On the **Create namespace** page, take the following steps:
     1. Enter a name for the namespace. The system immediately checks to see if the name is available.
     2. Choose the pricing tier (Basic or Standard).

@@ -4,80 +4,76 @@ description: How to choose from the available VM sizes for compute nodes in Azur
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: 
 ms.service: batch
 ms.workload: 
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 09/12/2019
 ms.author: lahugh
 ms.custom: seodec18
 
 ---
+
 # Choose a VM size for compute nodes in an Azure Batch pool
 
 When you select a node size for an Azure Batch pool, you can choose from among almost all the VM sizes available in Azure. Azure offers a range of sizes for Linux and Windows VMs for different workloads.
 
 There are a few exceptions and limitations to choosing a VM size:
 
-* Some VM families or VM sizes are not supported in Batch. 
+* Some VM series or VM sizes are not supported in Batch.
 * Some VM sizes are restricted and need to be specifically enabled before they can be allocated.
 
-## Supported VM families and sizes
+## Supported VM series and sizes
 
 ### Pools in Virtual Machine configuration
 
-Batch pools in the Virtual Machine configuration support all VM sizes ([Linux](../virtual-machines/linux/sizes.md), [Windows](../virtual-machines/windows/sizes.md)) *except* for the following:
+Batch pools in the Virtual Machine configuration support almost all VM sizes ([Linux](../virtual-machines/linux/sizes.md), [Windows](../virtual-machines/windows/sizes.md)). See the following table to learn more about supported sizes and restrictions.
 
-| Family  | Unsupported sizes  |
-|---------|---------|
-| Basic A-series | Basic_A0 (A0) |
-| A-series | Standard_A0 |
-| B-series | All |
-| DC-series | All |
-| Extreme memory optimized | All |
-| Hb-series<sup>1,2</sup> | All |
-| Hc-series<sup>1,2</sup> | All |
-| Lsv2-series | All |
-| NDv2-series<sup>1,2</sup> | All |
-| NVv2-series<sup>1</sup> | All |
-| SAP HANA | All |
+Any promotional or preview VM sizes not listed aren't guaranteed for support.
 
+| VM series  | Supported sizes | Batch account pool allocation mode<sup>1</sup> |
+|------------|---------|-----------------|
+| Basic A-series | All sizes *except* Basic_A0 (A0) | Any |
+| A-series | All sizes *except* Standard_A0 | Any |
+| Av2-series | All sizes | Any |
+| B-series | None | Not available |
+| DC-series | None | Not available |
+| Dv2, DSv2-series | All sizes | Any |
+| Dv3, Dsv3-series | All sizes | Any |
+| Ev3, Esv3-series | All sizes | Any |
+| Fsv2-series | All sizes | Any |
+| H-series | All sizes | Any |
+| HB-series<sup>2</sup> | All sizes | Any |
+| HC-series<sup>2</sup> | All sizes | Any |
+| Ls-series | All sizes | Any |
+| Lsv2-series | None | Not available |
+| M-series | Standard_M64ms (low-priority only), Standard_M128s (low-priority only) | Any |
+| Mv2-series | None | Not available |
+| NC-series | All sizes | Any |
+| NCv2-series<sup>2</sup> | All sizes | Any |
+| NCv3-series<sup>2</sup> | All sizes | Any |
+| ND-series<sup>2</sup> | All sizes | Any |
+| NDv2-series | All sizes | User subscription mode |
+| NV-series | All sizes | Any |
+| NVv3-series | None | Not available |
+| SAP HANA | None | Not available |
 
-<sup>1</sup> Planned for support.  
-<sup>2</sup> Can be used by Batch accounts in user subscription mode; the user subscription mode Batch account needs to have the core quota set. See [configuration for user subscription mode](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode) for more information.
+<sup>1</sup> Some newer VM series are partially supported initially. These VM series can be allocated by Batch accounts with the **pool allocation mode** set to **user subscription**. See [Manage Batch accounts](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode) for more information on Batch account configuration. See [Quotas and limits](batch-quota-limit.md) to learn how to request quota for these partially supported VM series for **user subscription** Batch accounts.  
 
-The following VM sizes are supported only for low-priority nodes:
-
-| Family  | Supported sizes  |
-|---------|---------|
-| M-series | Standard_M64ms |
-| M-series | Standard_M128s |
-
-Other VM sizes in the M-series family are currently unsupported.
+<sup>2</sup> These VM sizes can be allocated in Batch pools in Virtual Machine configuration, but you must request a specific [quota increase](batch-quota-limit.md#increase-a-quota).
 
 ### Pools in Cloud Service configuration
 
-Batch pools in the Cloud Service configuration support all [VM sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md) *except* for the following:
+Batch pools in the Cloud Service configuration support all [VM sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md) **except** for the following:
 
-| Family  | Unsupported sizes  |
-|---------|---------|
-| A-series | ExtraSmall |
+| VM series  | Unsupported sizes |
+|------------|-------------------|
+| A-series   | Extra small       |
 | Av2-series | Standard_A1_v2, Standard_A2_v2, Standard_A2m_v2 |
-
-## Restricted VM families
-
-The following VM families can be allocated in Batch pools, but you must request a specific quota increase (see [this article](batch-quota-limit.md#increase-a-quota)):
-
-* NCv2-series
-* NCv3-series
-* ND-series
-
-These sizes can only be used in pools in the Virtual Machine configuration.
 
 ## Size considerations
 
@@ -85,9 +81,9 @@ These sizes can only be used in pools in the Virtual Machine configuration.
 
 * **Tasks per node** - It's typical to select a node size assuming one task runs on a node at a time. However, it might be advantageous to have multiple tasks (and therefore multiple application instances) [run in parallel](batch-parallel-node-tasks.md) on compute nodes during job execution. In this case, it is common to choose a multicore node size to accommodate the increased demand of parallel task execution.
 
-* **Load levels for different tasks** - All of the nodes in a pool are the same size. If you intend to run applications with differing system requirements and/or load levels, we recommend that you use separate pools. 
+* **Load levels for different tasks** - All of the nodes in a pool are the same size. If you intend to run applications with differing system requirements and/or load levels, we recommend that you use separate pools.
 
-* **Region availability** - A VM family or size might not be available in the regions where you create your Batch accounts. To check that a size is available, see [Products available by region](https://azure.microsoft.com/regions/services/).
+* **Region availability** - A VM series or size might not be available in the regions where you create your Batch accounts. To check that a size is available, see [Products available by region](https://azure.microsoft.com/regions/services/).
 
 * **Quotas** - The [cores quotas](batch-quota-limit.md#resource-quotas) in your Batch account can limit the number of nodes of a given size you can add to a Batch pool. To request a quota increase, see [this article](batch-quota-limit.md#increase-a-quota). 
 

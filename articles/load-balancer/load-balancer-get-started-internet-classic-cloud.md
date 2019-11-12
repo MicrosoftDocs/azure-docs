@@ -5,7 +5,7 @@ description: Learn how to create an Internet facing load balancer in classic dep
 services: load-balancer
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 tags: azure-service-management
 ms.service: load-balancer
 ms.devlang: na

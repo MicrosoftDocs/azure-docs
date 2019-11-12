@@ -1,5 +1,5 @@
 ---
-title: Load terabytes of data into SQL Data Warehouse | Microsoft Docs
+title: Load terabytes of data into SQL Data Warehouse 
 description: Demonstrates how 1 TB of data can be loaded into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory
 services: data-factory
 documentationcenter: ''
@@ -39,7 +39,7 @@ This article provides step-by-step instructions for moving data into Azure SQL D
 > [!NOTE]
 >  For general information about capabilities of Data Factory in moving data to/from Azure SQL Data Warehouse, see [Move data to and from Azure SQL Data Warehouse using Azure Data Factory](data-factory-azure-sql-data-warehouse-connector.md) article.
 >
-> You can also build pipelines using Azure portal, Visual Studio, PowerShell, etc. See [Tutorial: Copy data from Azure Blob to Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for a quick walkthrough with step-by-step instructions for using the Copy Activity in Azure Data Factory.  
+> You can also build pipelines using Visual Studio, PowerShell, etc. See [Tutorial: Copy data from Azure Blob to Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for a quick walkthrough with step-by-step instructions for using the Copy Activity in Azure Data Factory.  
 >
 >
 

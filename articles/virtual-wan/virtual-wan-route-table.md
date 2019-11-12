@@ -74,7 +74,7 @@ Make sure you install the latest version of the Resource Manager PowerShell cmdl
 3. Create a virtual hub.
 
    ```powershell
-   New-AzVirtualHub -VirtualWan $virtualWan -ResourceGroupName "testRG" -Name "westushub" -AddressPrefix "10.0.1.0/24"
+   New-AzVirtualHub -VirtualWan $virtualWan -ResourceGroupName "testRG" -Name "westushub" -AddressPrefix "10.0.1.0/24" -Location "West US"
    ```
 
 ## <a name="connections"></a>3. Create connections

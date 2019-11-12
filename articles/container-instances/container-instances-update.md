@@ -3,24 +3,28 @@ title: Update containers in Azure Container Instances
 description: Learn how to update running containers in your Azure Container Instances container groups.
 services: container-instances
 author: dlepow
+manager: gwallace
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 09/03/2019
 ms.author: danlep
 ---
 
 # Update containers in Azure Container Instances
 
-During normal operation of your container instances, you may find it necessary to update the containers in a container group. For example, you might wish to update the image version, change a DNS name, update environment variables, or refresh the state of a container whose application has crashed.
+During normal operation of your container instances, you may find it necessary to update the running containers in a [container group](container-instances-container-groups.md). For example, you might wish to update the image version, change a DNS name, update environment variables, or refresh the state of a container whose application has crashed.
+
+> [!NOTE]
+> Terminated or deleted container groups can't be updated. Once a container group has terminated (is in either a Succeeded or Failed state) or has been deleted, the group must be deployed as new.
 
 ## Update a container group
 
-Update the containers in a container group by redeploying an existing group with at least one modified property. When you update a container group, all running containers in the group are restarted in-place.
+Update the containers in a running container group by redeploying an existing group with at least one modified property. When you update a container group, all running containers in the group are restarted in-place, usually on the same underlying container host.
 
-Redeploy an existing container group by issuing the create command (or use the Azure portal) and specify the name of an existing group. Modify at least one valid property of the group when you issue the create command to trigger the redeployment. Not all container group properties are valid for redeployment. See [Properties that require delete](#properties-that-require-container-delete) for a list of unsupported properties.
+Redeploy an existing container group by issuing the create command (or use the Azure portal) and specify the name of an existing group. Modify at least one valid property of the group when you issue the create command to trigger the redeployment, and leave the remaining properties unchanged (or continue to use default values). Not all container group properties are valid for redeployment. See [Properties that require delete](#properties-that-require-container-delete) for a list of unsupported properties.
 
-The following Azure CLI example updates a container group with a new DNS name label. Because the DNS name label property of the group is modified, the container group is redeployed, and its containers restarted.
+The following Azure CLI example updates a container group with a new DNS name label. Because the DNS name label property of the group is one that can be updated, the container group is redeployed, and its containers restarted.
 
 Initial deployment with DNS name label *myapplication-staging*:
 
@@ -30,10 +34,10 @@ az container create --resource-group myResourceGroup --name mycontainer \
     --image nginx:alpine --dns-name-label myapplication-staging
 ```
 
-Update the container group with a new DNS name label, *myapplication*:
+Update the container group with a new DNS name label, *myapplication*, and leave the remaining properties unchanged:
 
 ```azurecli-interactive
-# Update container group (restarts container)
+# Update DNS name label (restarts container), leave other properties unchanged
 az container create --resource-group myResourceGroup --name mycontainer \
     --image nginx:alpine --dns-name-label myapplication
 ```
@@ -76,10 +80,10 @@ Mentioned several times in this article is the **container group**. Every contai
 
 [Deploy a multi-container group](container-instances-multi-container-group.md)
 
+[Manually stop or start containers in Azure Container Instances](container-instances-stop-start.md)
+
 <!-- LINKS - External -->
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create
-[az-container-logs]: /cli/azure/container?view=azure-cli-latest#az-container-logs
-[az-container-show]: /cli/azure/container?view=azure-cli-latest#az-container-show
 [azure-cli-install]: /cli/azure/install-azure-cli

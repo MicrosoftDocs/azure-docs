@@ -3,8 +3,8 @@ title: Complete an access review of groups or applications - Azure Active Direct
 description: Learn how to complete an access review of group members or application access in Azure Active Directory access reviews.
 services: active-directory
 documentationcenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,8 +12,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 05/22/2019
-ms.author: rolyon
+ms.date: 07/23/2019
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
@@ -35,7 +35,7 @@ For more information, see [Which users must have licenses?](access-reviews-overv
 
 You can track the progress as the reviewers complete their reviews.
 
-1. Sign in to the Azure portal and open the [Access reviews page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+1. Sign in to the Azure portal and open the [Identity Governance page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
 1. In the left menu, click **Access reviews**.
 

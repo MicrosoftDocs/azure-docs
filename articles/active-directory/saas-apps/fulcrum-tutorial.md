@@ -9,6 +9,7 @@ ms.reviewer: barbkess
 
 ms.assetid: 2e3d7800-583d-46b7-a7ed-3ce3925e076c
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -115,7 +116,7 @@ To configure Azure AD single sign-on with Fulcrum, perform the following steps:
 	> [!NOTE]
 	> The Reply URL value is not real. Update the value with the actual Reply URL. Contact [Fulcrum Client support team](mailto:support@fulcrumapp.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-6. Fulcrum application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
+6. Fulcrum application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
 
 	![image](common/edit-attribute.png)
 
@@ -230,5 +231,5 @@ When you click the Fulcrum tile in the Access Panel, you should be automatically
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

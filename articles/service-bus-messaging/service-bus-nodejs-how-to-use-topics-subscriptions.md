@@ -1,6 +1,6 @@
 ---
-title: How to use Azure Service Bus topics and subscriptions with Node.js | Microsoft Docs
-description: Learn how to use Service Bus topics and subscriptions in Azure from a Node.js app.
+title: 'Quickstart: How to use Azure Service Bus topics and subscriptions with Node.js'
+description: 'Quickstart: Learn how to use Service Bus topics and subscriptions in Azure from a Node.js app.'
 services: service-bus-messaging
 documentationcenter: nodejs
 author: axisc
@@ -12,12 +12,12 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: article
-ms.date: 04/15/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
 
 ---
-# How to Use Service Bus topics and subscriptions with Node.js and the azure-sb package
+# Quickstart: How to Use Service Bus topics and subscriptions with Node.js and the azure-sb package
 > [!div class="op_multi_selector" title1="Programming language" title2="Node.js pacakge"]
 > - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
 > - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
@@ -161,13 +161,13 @@ restricts the set of messages delivered to the subscription's virtual
 queue.
 
 > [!NOTE]
-> Subscriptions are persistent until
+> By default, subscriptions are persistent until
 > either they, or the topic they are associated with, are deleted. If your
 > application contains logic to create a subscription, it should first
 > check if the subscription exists by using the
 > `getSubscription` method.
 >
->
+> You can have the subscriptions automatically deleted by setting the [AutoDeleteOnIdle property](https://docs.microsoft.com/javascript/api/azure-arm-sb/sbsubscription?view=azure-node-latest#autodeleteonidle).
 
 ### Create a subscription with the default (MatchAll) filter
 The **MatchAll** filter is the default filter used when a subscription is created. When you use the **MatchAll**
@@ -406,7 +406,7 @@ to handle duplicate message delivery. You can use the
 delivery attempts.
 
 ## Delete topics and subscriptions
-Topics and subscriptions are persistent, and must be explicitly deleted
+Topics and subscriptions are persistent unless the [autoDeleteOnIdle property](https://docs.microsoft.com/javascript/api/azure-arm-sb/sbsubscription?view=azure-node-latest#autodeleteonidle) is set, and must be explicitly deleted
 either through the [Azure portal][Azure portal] or programmatically.
 The following example demonstrates how to delete the topic named `MyTopic`:
 

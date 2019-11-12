@@ -35,7 +35,6 @@ The result is a private and isolated relationship between the workloads bound to
 > - Integration with Azure Event Grid
 > - Azure IoT Hub Routes
 > - Azure IoT Device Explorer
-> - Azure Data Explorer
 >
 > The below Microsoft services are required to be on a virtual network
 > - Azure Web Apps
@@ -69,7 +68,7 @@ Template parameters:
 
 * **namespaceName**: Event Hubs namespace.
 * **vnetRuleName**: Name for the Virtual Network rule to be created.
-* **virtualNetworkingSubnetId**: Fully qualified Resource Manager path for the virtual network subnet; for example, `subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` for the default subnet of a virtual network.
+* **virtualNetworkingSubnetId**: Fully qualified Resource Manager path for the virtual network subnet; for example, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` for the default subnet of a virtual network.
 
 > [!NOTE]
 > While there are no deny rules possible, the Azure Resource Manager template has the default action set to **"Allow"** which doesn't restrict connections.

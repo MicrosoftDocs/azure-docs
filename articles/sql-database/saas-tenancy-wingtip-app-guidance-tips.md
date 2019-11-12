@@ -1,16 +1,15 @@
 ---
-title: "Guidance for SQL Database multi-tenant app example - Wingtip SaaS | Microsoft Docs"
+title: Multi-tenant app example - Wingtip SaaS
 description: "Provides steps and guidance for installing and running the sample multi-tenant application that uses Azure SQL Database, the Wingtip Tickets SaaS example."
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: 
+ms.custom: seo-lt-2019
 ms.devlang: 
 ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
-manager: craigg
 ms.date: 12/18/2018
 ---
 # General guidance for working with Wingtip Tickets sample SaaS apps

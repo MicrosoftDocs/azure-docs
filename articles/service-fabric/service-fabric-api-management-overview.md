@@ -51,7 +51,7 @@ Azure API Management can be used with any combination of stateless services, sta
 
 ## Send traffic to a stateless service
 
-In the simplest case, traffic is forwarded to a stateless service instance. To achieve this, an API Management operation contains an inbound processing policy with a Service Fabric back-end that maps to a specific stateless service instance in the Service Fabric back-end. Requests sent to that service are sent to a random replica of the stateless service instance.
+In the simplest case, traffic is forwarded to a stateless service instance. To achieve this, an API Management operation contains an inbound processing policy with a Service Fabric back-end that maps to a specific stateless service instance in the Service Fabric back-end. Requests sent to that service are sent to a random instance of the service.
 
 #### Example
 In the following scenario, a Service Fabric application contains a stateless service named `fabric:/app/fooservice`, that exposes an internal HTTP API. The service instance name is well known and can be hard-coded directly in the API Management inbound processing policy. 
@@ -74,7 +74,7 @@ The service is partitioned using the Int64 partition scheme with two partitions 
 
 In more advanced scenarios, you can define an API Management operation that maps requests to more than one service instance. In this case, each operation contains a policy that maps requests to a specific service instance based on values from the incoming HTTP request, such as the URL path or query string, and in the case of stateful services, a partition within the service instance. 
 
-To achieve this, an API Management operation contains an inbound processing policy with a Service Fabric back-end that maps to a stateless service instance in the Service Fabric back-end based on values retrieved from the incoming HTTP request. Requests to a service instance are sent to a random replica of the service instance.
+To achieve this, an API Management operation contains an inbound processing policy with a Service Fabric back-end that maps to a stateless service instance in the Service Fabric back-end based on values retrieved from the incoming HTTP request. Requests to a service are sent to a random instance of the service.
 
 #### Example
 

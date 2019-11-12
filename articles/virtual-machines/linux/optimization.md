@@ -5,7 +5,7 @@ keywords: linux virtual machine,virtual machine linux,ubuntu virtual machine
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 
@@ -13,7 +13,7 @@ ms.assetid: 8baa30c8-d40e-41ac-93d0-74e96fe18d4c
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
+
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
@@ -49,16 +49,16 @@ When dealing with high IOps workloads and you have chosen Standard Storage for y
 ## Your VM Temporary drive
 By default when you create a VM, Azure provides you with an OS disk (**/dev/sda**) and a temporary disk (**/dev/sdb**).  All additional disks you add show up as **/dev/sdc**, **/dev/sdd**, **/dev/sde** and so on. All data on your temporary disk (**/dev/sdb**) is not durable, and can be lost if specific events like VM Resizing, redeployment, or maintenance forces a restart of your VM.  The size and type of your temporary disk is related to the VM size you chose at deployment time. All of the premium size VMs (DS, G, and DS_V2 series) the temporary drive are backed by a local SSD for additional performance of up to 48k IOps. 
 
-## Linux Swap File
+## Linux Swap Partition
 If your Azure VM is from an Ubuntu or CoreOS image, then you can use CustomData to send a cloud-config to cloud-init. If you [uploaded a custom Linux image](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) that uses cloud-init, you also configure swap partitions using cloud-init.
 
 On Ubuntu Cloud Images, you must use cloud-init to configure the swap partition. For more information, see [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
 
 For images without cloud-init support, VM images deployed from the Azure Marketplace have a VM Linux Agent integrated with the OS. This agent allows the VM to interact with various Azure services. Assuming you have deployed a standard image from the Azure Marketplace, you would need to do the following to correctly configure your Linux swap file settings:
 
-Locate and modify two entries in the **/etc/waagent.conf** file. They control the existence of a dedicated swap file and size of the swap file. The parameters you are looking to modify are `ResourceDisk.EnableSwap=N` and `ResourceDisk.SwapSizeMB=0` 
+Locate and modify two entries in the **/etc/waagent.conf** file. They control the existence of a dedicated swap file and size of the swap file. The parameters you need to verify are are `ResourceDisk.EnableSwap` and `ResourceDisk.SwapSizeMB` 
 
-Change the parameters to the following settings:
+To enable a properly enabled disk and mounted swap file, ensure the parameters have the following settings:
 
 * ResourceDisk.EnableSwap=Y
 * ResourceDisk.SwapSizeMB={size in MB to meet your needs} 
@@ -123,6 +123,8 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 
 ## Using Software RAID to achieve higher I/Ops
 If your workloads require more IOps than a single disk can provide, you need to use a software RAID configuration of multiple disks. Because Azure already performs disk resiliency at the local fabric layer, you achieve the highest level of performance from a RAID-0 striping configuration.  Provision and create disks in the Azure environment and attach them to your Linux VM before partitioning, formatting and mounting the drives.  More details on configuring a software RAID setup on your Linux VM in azure can be found in the **[Configuring Software RAID on Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** document.
+
+As an alternative to a traditional RAID configuration, you can also choose to install Logical Volume Manager (LVM) in order to configure a number of physical disks into a single striped logical storage volume. In this configuration, reads and writes are distributed to multiple disks contained in the volume group (similar to RAID0). For performance reasons, it is likely you will want to stripe your logical volumes so that reads and writes utilize all your attached data disks.  More details on configuring a striped logical volume on your Linux VM in Azure can be found in the **[Configure LVM on a Linux VM in Azure](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** document.
 
 ## Next Steps
 Remember, as with all optimization discussions, you need to perform tests before and after each change to measure the impact the change has.  Optimization is a step by step process that has different results across different machines in your environment.  What works for one configuration may not work for others.

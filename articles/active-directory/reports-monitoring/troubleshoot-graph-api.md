@@ -4,7 +4,7 @@ title: 'Troubleshoot errors in Azure Active Directory reporting API | Microsoft 
 description: Provides you with a resolution to errors while calling Azure Active Directory Reporting APIs.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management

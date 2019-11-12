@@ -28,7 +28,7 @@
 
     Select **Review+Create**. You can skip the **Network** and **Tags** section. 
 
-    ![The new account blade for Azure Cosmos DB](./media/cosmos-db-create-dbaccount-graph/azure-cosmos-db-create-new-account.png)
+    ![The new account section for Azure Cosmos DB](./media/cosmos-db-create-dbaccount-graph/azure-cosmos-db-create-new-account.png)
 
 4. The account creation takes a few minutes. Wait for the portal to display the **Congratulations! Your Azure Cosmos DB account was created** page.
 

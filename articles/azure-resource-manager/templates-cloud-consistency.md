@@ -43,7 +43,7 @@ The rest of this guide describes the areas to consider when planning to develop 
 * Ensure the template parameters you use work in the target clouds.
 * Verify that resource-specific properties are available the target clouds.
 
-For an introduction to Azure Resource Manger templates, see [Template deployment](resource-group-overview.md#template-deployment).
+For an introduction to Azure Resource Manger templates, see [Template deployment](template-deployment-overview.md).
 
 ## Ensure template functions work
 

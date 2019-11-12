@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2017
+ms.date: 09/03/2019
 ms.author: mimart
 ms.reviewer: asteen
 
@@ -30,9 +30,9 @@ You should always start by finding the setup tutorial specific to setting up pro
 
 Once the service is configured, most insights into the operation of the service can be drawn from two places:
 
--   **Audit logs** – The provisioning audit logs record all the operations performed by the provisioning service, including querying Azure AD for assigned users that are in scope for provisioning. Query the target app for the existence of those users, comparing the user objects between the system. Then add, update, or disable the user account in the target system based on the comparison. The provisioning audit logs can be accessed in the Azure portal, in the **Azure Active Directory &gt; Enterprise Apps &gt; \[Application Name\] &gt; Audit Logs** tab. Filter the logs on the **Account Provisioning** category to only see the provisioning events for that app.
+-   **Provisioning logs (preview)** – The [provisioning logs](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) record all the operations performed by the provisioning service, including querying Azure AD for assigned users that are in scope for provisioning. Query the target app for the existence of those users, comparing the user objects between the system. Then add, update, or disable the user account in the target system based on the comparison. You can access the provisioning logs in the Azure portal by selecting **Azure Active Directory** &gt; **Enterprise Apps** &gt; **Provisioning logs (preview)** in the **Activity** section.
 
--   **Provisioning status –** A summary of the last provisioning run for a given app can be seen in the **Azure Active Directory &gt; Enterprise Apps &gt; \[Application Name\] &gt;Provisioning** section, at the bottom of the screen under the service settings. This section summarizes how many users (and/or groups) are currently being synchronized between the two systems, and if there are any errors. Error details be in the audit logs. Note that the provisioning status not be populated until one full initial synchronization has been completed between Azure AD and the app.
+-   **Current status –** A summary of the last provisioning run for a given app can be seen in the **Azure Active Directory &gt; Enterprise Apps &gt; \[Application Name\] &gt;Provisioning** section, at the bottom of the screen under the service settings. The Current Status section shows whether a provisioning cycle has started provisioning user accounts. You can watch the progress of the cycle, see how many users and groups have been provisioned, and see how many roles are created. If there are any errors, details can be found in the [Provisioning logs (preview)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context).
 
 ## General problem areas with provisioning to consider
 
@@ -40,14 +40,14 @@ Below is a list of the general problem areas that you can drill into if you have
 
 * [Provisioning service does not appear to start](#provisioning-service-does-not-appear-to-start)
 * Can’t save configuration due to app credentials not working
-* [Audit logs say users are “skipped” and not provisioned, even though they are assigned](#audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned)
+* [Provisioning logs say users are “skipped” and not provisioned, even though they are assigned](#provisioning-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned)
 
 ## Provisioning service does not appear to start
 
-If you set the **Provisioning Status** to be **On** in the **Azure Active Directory &gt; Enterprise Apps &gt; \[Application Name\] &gt;Provisioning** section of the Azure portal. However no other status details are shown on that page after subsequent reloads. It is likely that the service is running but has not completed an initial synchronization yet. Check the **Audit logs** described above to determine what operations the service is performing, and if there are any errors.
+If you set the **Provisioning Status** to be **On** in the **Azure Active Directory &gt; Enterprise Apps &gt; \[Application Name\] &gt;Provisioning** section of the Azure portal. However no other status details are shown on that page after subsequent reloads. It is likely that the service is running but has not completed an initial cycle yet. Check the **Provisioning logs** described above to determine what operations the service is performing, and if there are any errors.
 
 >[!NOTE]
->An initial sync can take anywhere from 20 minutes to several hours, depending on the size of the Azure AD directory and the number of users in scope for provisioning. Subsequent syncs after the initial sync be faster, as the provisioning service stores watermarks that represent the state of both systems after the initial sync, improving performance of subsequent syncs.
+>An initial cycle can take anywhere from 20 minutes to several hours, depending on the size of the Azure AD directory and the number of users in scope for provisioning. Subsequent syncs after the initial cycle be faster, as the provisioning service stores watermarks that represent the state of both systems after the initial cycle, improving performance of subsequent syncs.
 >
 >
 
@@ -55,9 +55,9 @@ If you set the **Provisioning Status** to be **On** in the **Azure Active Direct
 
 In order for provisioning to work, Azure AD requires valid credentials that allow it to connect to a user management API provided by that app. If these credentials don’t work, or you don’t know what they are, review the tutorial for setting up this app, described previously.
 
-## Audit logs say users are skipped and not provisioned even though they are assigned
+## Provisioning logs say users are skipped and not provisioned even though they are assigned
 
-When a user shows up as “skipped” in the audit logs, it is very important to read the extended details in the log message to determine the reason. Below are common reasons and resolutions:
+When a user shows up as “skipped” in the provisioning logs, it is very important to read the extended details in the log message to determine the reason. Below are common reasons and resolutions:
 
 - **A scoping filter has been configured** **that is filtering the user out based on an attribute value**. For more information on scoping filters, see <https://docs.microsoft.com/azure/active-directory/active-directory-saas-scoping-filters>.
 

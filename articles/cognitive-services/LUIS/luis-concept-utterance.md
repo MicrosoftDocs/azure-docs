@@ -1,6 +1,6 @@
 ---
-title: Good example utterances 
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Good example utterances - LUIS
+titleSuffix: Azure Cognitive Services
 description: Utterances are input from the user that your app needs to interpret. Collect phrases that you think users will enter. Include utterances that mean the same thing but are constructed differently in word length and word placement.
 services: cognitive-services
 author: diberry
@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 10/15/2019
 ms.author: diberry
 ---
 # Understand what good utterances are for your LUIS app
@@ -102,7 +102,11 @@ Normalization doesn’t mean you will not see punctuation and diacritics in your
 
 ### Punctuation marks
 
+Punctuation is a separate token in LUIS. An utterance that contains a period at the end versus an utterance that does not contain a period at the end are two separate utterances and may get two different predictions. 
+
 If punctuation is not normalized, LUIS doesn't ignore punctuation marks, by default, because some client applications may place significance on these marks. Make sure your example utterances use both punctuation and no punctuation in order for both styles to return the same relative scores. 
+
+Make sure the model handles punctuation either in the [example utterances](luis-concept-utterance.md) (having and not having punctuation) or in the [patterns](luis-concept-patterns.md) where it is easier to ignore punctuation with the special syntax: `I am applying for the {Job} position[.]`
 
 If punctuation has no specific meaning in your client application, consider [ignoring punctuation](#utterance-normalization) by normalizing punctuation. 
 
@@ -126,6 +130,20 @@ After your model is trained, published, and receiving [endpoint](luis-glossary.m
 ## Best practices
 
 Review [best practices](luis-concept-best-practices.md) and apply them as part of your regular authoring cycle.
+
+## Label for word meaning
+
+If the word choice or word arrangement is the same, but doesn't mean the same thing, do not label it with the entity. 
+
+The following utterances, the word `fair` is a homograph. It is spelled the same but has a different meaning:
+
+|Utterance|
+|--|
+|What kind of county fairs are happening in the Seattle area this summer?|
+|Is the current rating for the Seattle review fair?|
+
+If you wanted an event entity to find all event data, label the word `fair` in the first utterance, but not in the second.
+
 
 ## Next steps
 See [Add example utterances](luis-how-to-add-example-utterances.md) for information on training a LUIS app to understand user utterances.

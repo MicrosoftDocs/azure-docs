@@ -1,6 +1,6 @@
 ---
-title: Pause, resume, scale with REST in Azure SQL Data Warehouse | Microsoft Docs
-description: Manage compute power in SQL Data Warehouse through REST APIs.
+title: Pause, resume, scale with REST APIs
+description: Manage compute power in Azure SQL Data Warehouse through REST APIs.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,6 +10,7 @@ ms.subservice: implement
 ms.date: 03/29/2019
 ms.author: kevin
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # REST APIs for Azure SQL Data Warehouse
@@ -46,6 +47,9 @@ POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups
 ```
 
 ## Check database state
+
+> [!NOTE]
+> Currently Check database state might return ONLINE while the database is completing the online workflow, resulting in connection errors. You might need to add a 2 to 3 minutes delay in your application code if you are using this API call to trigger connection attempts.
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01 HTTP/1.1

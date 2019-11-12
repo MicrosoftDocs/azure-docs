@@ -1,13 +1,16 @@
 ---
 title: Azure Key Vault - How to use soft-delete with PowerShell
 description: Use case examples of soft-delete with PowerShell code snips
+services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
+
 ms.service: key-vault
-ms.topic: conceptual
-ms.date: 03/19/2019
+ms.topic: tutorial
+ms.date: 08/12/2019
 ms.author: mbaldwin
 ---
+
 # How to use Key Vault soft-delete with PowerShell
 
 Azure Key Vault's soft delete feature allows recovery of deleted vaults and vault objects. Specifically, soft-delete addresses the following scenarios:
@@ -44,6 +47,9 @@ For more information on permissions and access control, see [Secure your key vau
 ## Enabling soft-delete
 
 You enable "soft-delete" to allow recovery of a deleted key vault, or objects stored in a key vault.
+
+> [!IMPORTANT]
+> Enabling 'soft delete' on a key vault is an irreversible action. Once the soft-delete property has been set to "true", it cannot be changed or removed.  
 
 ### Existing key vault
 

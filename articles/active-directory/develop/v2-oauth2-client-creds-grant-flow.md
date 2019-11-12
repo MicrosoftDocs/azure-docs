@@ -14,10 +14,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 08/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
 ---
 
@@ -38,7 +38,7 @@ In the more typical *three-legged OAuth*, a client application is granted permis
 
 The entire client credentials flow looks similar to the following diagram. We describe each of the steps later in this article.
 
-![Client credentials flow](./media/v2-oauth2-client-creds-grant-flow/convergence-scenarios-client-creds.svg)
+![Diagram showing the client credentials flow](./media/v2-oauth2-client-creds-grant-flow/convergence-scenarios-client-creds.svg)
 
 ## Get direct authorization
 
@@ -89,7 +89,7 @@ When you're ready to request permissions from the organization's admin, you can 
 
 > [!TIP]
 > Try executing this request in Postman! (Use your own app ID for best results - the tutorial application won't request useful permissions.)
-> [![Run in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> [![Try running this request in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ```
 // Line breaks are for legibility only.
@@ -152,7 +152,7 @@ After you've acquired the necessary authorization for your application, proceed 
 
 > [!TIP]
 > Try executing this request in Postman! (Use your own app ID for best results - the tutorial application won't request useful permissions.)
-> [![Run in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> [![Try running this request in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ### First case: Access token request with a shared secret
 
@@ -168,7 +168,8 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 ```
 
 ```
-curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.microsoftonline.com/common/oauth2/v2.0/token'
+// Replace {tenant} with your tenant! 
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token'
 ```
 
 | Parameter | Condition | Description |
@@ -248,10 +249,6 @@ An error response looks like this:
 | `trace_id` | A unique identifier for the request to help with diagnostics. |
 | `correlation_id` | A unique identifier for the request to help with diagnostics across components. |
 
-> [!NOTE]
-> In order for your application to be able to recieve the v2 token you can update the manifest file of the application from within azure portal. You can add the attribute `accessTokenAcceptedVersion` and set the value to 2 as `"accessTokenAcceptedVersion": 2`. Please check the article [Application manifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-reference) to understand more about the same. By default the application currently recieves a v1 token . if this is not defined within the application/Web API manifest , it the value for this attribute in teh manifest defaults to 1 and hence the application will recieve v1 token.  
-
-
 ## Use a token
 
 Now that you've acquired a token, use the token to make requests to the resource. When the token expires, repeat the request to the `/token` endpoint to acquire a fresh access token.
@@ -267,7 +264,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 ```
 
 ```
-curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q" 'https://graph.microsoft.com/v1.0/me/messages'
+curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbG...." 'https://graph.microsoft.com/v1.0/me/messages'
 ```
 
 ## Code samples and other documentation

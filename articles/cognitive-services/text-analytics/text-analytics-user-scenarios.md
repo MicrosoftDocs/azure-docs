@@ -24,7 +24,7 @@ Draw insights from customer and employee survey results by processing the raw te
 
 ## Analyze recorded inbound customer calls​
 
-Extract insights from customer services calls using Text to Speech, Sentiment Analysis, and Key Phrase Extraction. Display the results in Power BI dashboard or a portal to better understand customers, highlight customer service trends, and drive customer engagement.​ Send API requests as a batch for reporting, or in real-time for intervention. ​
+Extract insights from customer services calls using Text to Speech, Sentiment Analysis, and Key Phrase Extraction. Display the results in Power BI dashboard or a portal to better understand customers, highlight customer service trends, and drive customer engagement.​ Send API requests as a batch for reporting, or in real-time for intervention. See [sample code](https://github.com/rlagh2/callcenteranalytics).​
 
 ![An image describing how to automate getting insights from customer service calls using sentiment analysis](media/use-cases/azure-inbound.svg)
 
@@ -43,4 +43,4 @@ Monitor user product feedback on your product’s twitter or Facebook page. Use 
 ## Next steps
 
 * [What is the Text Analytics API?](overview.md)
-* [Send a request to the Text Analytics API using C#](quickstarts/csharp.md)
+* [Send a request to the Text Analytics API using the client library](quickstarts/text-analytics-sdk.md)

@@ -1,5 +1,6 @@
 ---
-title: Provide an HttpClient and proxy (MSAL.NET) | Azure
+title: Provide an HttpClient and proxy (MSAL.NET) 
+titleSuffix: Microsoft identity platform
 description: Learn about providing your own HttpClient and proxy to connect to Azure AD using Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
@@ -10,7 +11,7 @@ editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/23/2019
@@ -22,7 +23,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Providing your own HttpClient and proxy using MSAL.NET
-When initializing a public client application, you can use the `.WithHttpClientFactory method` to provide your own HttpClient.  Providing your own HttpClient enables advanced scenarios such fine-grained control of an HTTP proxy, customizing user agent headers, or forcing MSAL to use a specific HttpClient (for example in ASP.NET Core web apps/APIs).
+When [initializing a public client application](msal-net-initializing-client-applications.md), you can use the `.WithHttpClientFactory method` to provide your own HttpClient.  Providing your own HttpClient enables advanced scenarios such fine-grained control of an HTTP proxy, customizing user agent headers, or forcing MSAL to use a specific HttpClient (for example in ASP.NET Core web apps/APIs).
 
 ## Initialize with HttpClientFactory
 The following example shows to create an `HttpClientFactory` and then initialize a public client application with it:

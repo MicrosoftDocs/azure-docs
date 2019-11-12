@@ -1,12 +1,11 @@
 ---
-title: Set up disaster recovery to Azure for on-premises VMware VMs with Azure Site Recovery | Microsoft Docs
+title: Set up VMware VM disaster recovery to Azure with Azure Site Recovery
 description: Learn how to set up disaster recovery to Azure for on-premises VMware VMs with Azure Site Recovery.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/10/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 
@@ -155,7 +154,7 @@ Select and verify target resources.
 
 ## Create a replication policy
 
-1. Open the [Azure portal](https://portal.azure.com), and select **All resources**.
+1. Open the [Azure portal](https://portal.azure.com). Search for and select **Recovery Services vaults**.
 2. Select the Recovery Services vault (**ContosoVMVault** in this tutorial).
 3. To create a replication policy, select **Site Recovery infrastructure** > **Replication Policies** > **+Replication Policy**.
 4. In **Create replication policy**, enter the policy name. We're using **VMwareRepPolicy**.

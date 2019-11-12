@@ -7,7 +7,7 @@ author: shizn
 manager: philmea
 
 ms.author: xshi
-ms.date: 04/23/2019
+ms.date: 11/07/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: "mvc, seodec18"
@@ -112,7 +112,7 @@ The default module code receives messages on an input queue and passes them alon
       )
       ```
 
-   3. Add **my_parson** to the list of libraries in the **target_link_libraries** function of CMakeLists.txt.
+   3. Add `my_parson` to the list of libraries in the **target_link_libraries** function of CMakeLists.txt.
 
    4. Save the **CMakeLists.txt** file.
 
@@ -131,20 +131,20 @@ The default module code receives messages on an input queue and passes them alon
 1. Find the `CreateMessageInstance` function in main.c. Replace the inner if-else statement with the following code that adds a few lines of functionality: 
 
    ```c
-   if ((messageInstance->messageHandle = IoTHubMessage_Clone(message)) == NULL)
-   {
-       free(messageInstance);
-       messageInstance = NULL;
-   }
-   else
-   {
-       messageInstance->messageTrackingId = messagesReceivedByInput1Queue;
-       MAP_HANDLE propMap = IoTHubMessage_Properties(messageInstance->messageHandle);
-       if (Map_AddOrUpdate(propMap, "MessageType", "Alert") != MAP_OK)
+       if ((messageInstance->messageHandle = IoTHubMessage_Clone(message)) == NULL)
        {
-          printf("ERROR: Map_AddOrUpdate Failed!\r\n");
+           free(messageInstance);
+           messageInstance = NULL;
        }
-   }
+       else
+       {
+           messageInstance->messageTrackingId = messagesReceivedByInput1Queue;
+           MAP_HANDLE propMap = IoTHubMessage_Properties(messageInstance->messageHandle);
+           if (Map_AddOrUpdate(propMap, "MessageType", "Alert") != MAP_OK)
+           {
+              printf("ERROR: Map_AddOrUpdate Failed!\r\n");
+           }
+       }
    ```
 
    The new lines of code in the else statement add a new property to the message, which labels the message as an alert. This code labels all messages as alerts, because we'll add functionality that only sends messages to IoT Hub if they report high temperatures. 
@@ -152,6 +152,14 @@ The default module code receives messages on an input queue and passes them alon
 1. Replace the entire `InputQueue1Callback` function with the following code. This function implements the actual messaging filter. When a message is received, it checks whether the reported temperature exceeds the threshold. If yes, then it forwards the message through its output queue. If not, then it ignores the message. 
 
     ```c
+    static unsigned char *bytearray_to_str(const unsigned char *buffer, size_t len)
+    {
+        unsigned char *ret = (unsigned char *)malloc(len + 1);
+        memcpy(ret, buffer, len);
+        ret[len] = '\0';
+        return ret;
+    }
+
     static IOTHUBMESSAGE_DISPOSITION_RESULT InputQueue1Callback(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
     {
         IOTHUBMESSAGE_DISPOSITION_RESULT result;
@@ -161,7 +169,10 @@ The default module code receives messages on an input queue and passes them alon
         unsigned const char* messageBody;
         size_t contentSize;
 
-        if (IoTHubMessage_GetByteArray(message, &messageBody, &contentSize) != IOTHUB_MESSAGE_OK)
+        if (IoTHubMessage_GetByteArray(message, &messageBody, &contentSize) == IOTHUB_MESSAGE_OK)
+        {
+            messageBody = bytearray_to_str(messageBody, contentSize);
+        } else
         {
             messageBody = "<null>";
         }
@@ -218,7 +229,7 @@ The default module code receives messages on an input queue and passes them alon
     static void moduleTwinCallback(DEVICE_TWIN_UPDATE_STATE update_state, const unsigned char* payLoad, size_t size, void* userContextCallback)
     {
         printf("\r\nTwin callback called with (state=%s, size=%zu):\r\n%s\r\n",
-            ENUM_TO_STRING(DEVICE_TWIN_UPDATE_STATE, update_state), size, payLoad);
+            MU_ENUM_TO_STRING(DEVICE_TWIN_UPDATE_STATE, update_state), size, payLoad);
         JSON_Value *root_value = json_parse_string(payLoad);
         JSON_Object *root_object = json_value_get_object(root_value);
         if (json_object_dotget_value(root_object, "desired.TemperatureThreshold") != NULL) {
@@ -240,12 +251,12 @@ The default module code receives messages on an input queue and passes them alon
        if (IoTHubModuleClient_LL_SetInputMessageCallback(iotHubModuleClientHandle, "input1", InputQueue1Callback, (void*)iotHubModuleClientHandle) != IOTHUB_CLIENT_OK)
        {
            printf("ERROR: IoTHubModuleClient_LL_SetInputMessageCallback(\"input1\")..........FAILED!\r\n");
-           ret = __FAILURE__;
+           ret = MU_FAILURE;
        }
        else if (IoTHubModuleClient_LL_SetModuleTwinCallback(iotHubModuleClientHandle, moduleTwinCallback, (void*)iotHubModuleClientHandle) != IOTHUB_CLIENT_OK)
        {
            printf("ERROR: IoTHubModuleClient_LL_SetModuleTwinCallback(default)..........FAILED!\r\n");
-           ret = __FAILURE__;
+           ret = MU_FAILURE;
        }
        else
        {
@@ -304,7 +315,7 @@ Make sure that your IoT Edge device is up and running.
 
 3. Select the **deployment.json** file in the **config** folder and then click **Select Edge Deployment Manifest**. Do not use the deployment.template.json file.
 
-4. Click the refresh button. You should see the new **CModule** running along with the **TempSensor** module and the **$edgeAgent** and **$edgeHub**.
+4. Click the refresh button. You should see the new **CModule** running along with the **SimulatedTemperatureSensor** module and the **$edgeAgent** and **$edgeHub**.
 
 ## View generated data
 
@@ -312,7 +323,7 @@ Once you apply the deployment manifest to your IoT Edge device, the IoT Edge run
 
 You can view the status of your IoT Edge device using the **Azure IoT Hub Devices** section of the Visual Studio Code explorer. Expand the details of your device to see a list of deployed and running modules.
 
-1. In the Visual Studio Code explorer, right-click the name of your IoT Edge device and select **Start Monitoring D2C Messages**.
+1. In the Visual Studio Code explorer, right-click the name of your IoT Edge device and select **Start Monitoring Built-in Event Endpoint**.
 
 2. View the messages arriving at your IoT Hub. It may take a while for the messages to arrive, because the IoT Edge device has to receive its new deployment and start all the modules. Then, the changes we made to the CModule code wait until the machine temperature reaches 25 degrees before sending messages. It also adds the message type **Alert** to any messages that reach that temperature threshold. 
 

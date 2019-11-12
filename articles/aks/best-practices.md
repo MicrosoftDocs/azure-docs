@@ -2,12 +2,12 @@
 title: Best practices for Azure Kubernetes Service (AKS)
 description: Collection of the cluster operator and developer best practices to build and manage applications in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: article
 ms.date: 12/07/2018
-ms.author: iainfou
+ms.author: mlearned
 ---
 
 # Cluster operator and developer best practices to build and manage applications on Azure Kubernetes Service (AKS)
@@ -36,7 +36,7 @@ As a cluster operator, work together with application owners and developers to u
 * [Best practices for cluster security and upgrades](operator-best-practices-cluster-security.md)
     * Includes securing access to the API server, limiting container access, and managing upgrades and node reboots.
 * [Best practices for container image management and security](operator-best-practices-container-image-management.md)
-    * Includes securing the image and runtimes, using trusted registries, and automated builds on base image updates..
+    * Includes securing the image and runtimes and automated builds on base image updates.
 * [Best practices for pod security](developer-best-practices-pod-security.md)
     * Includes securing access to resources, limiting credential exposure, and using pod identities and digital key vaults.
 

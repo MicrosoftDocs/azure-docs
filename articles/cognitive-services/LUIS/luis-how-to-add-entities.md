@@ -1,6 +1,6 @@
 ---
-title: Add entities
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Add entities - LUIS
+titleSuffix: Azure Cognitive Services
 description: Create entities to extract key data from user utterances in Language Understanding (LUIS) apps.
 services: cognitive-services
 author: diberry
@@ -8,8 +8,8 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 04/01/2019
+ms.topic: conceptual
+ms.date: 11/11/2019
 ms.author: diberry
 ---
 
@@ -20,6 +20,8 @@ The entity represents a word or phrase inside the utterance that you want extrac
 You can add, edit, or delete entities in your LUIS app through the **Entities list** on the **Entities** page. LUIS offers two main types of entities: [prebuilt entities](luis-reference-prebuilt-entities.md), and your own [custom entities](luis-concept-entity-types.md#types-of-entities).
 
 Once a machine-learned entity is created, you need to mark that entity in all the example utterance of all the intents it is in.
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 <a name="add-prebuilt-entity"></a>
 
@@ -101,7 +103,7 @@ In the utterance `Where is Request relocation from employee new to the company o
 
     To use the pattern.any entity, add a pattern on the **Patterns** page, in the **Improve app performance** section, with the correct curly brace syntax, such as `Where is **{HumanResourcesFormTitle}** on the server?`.
 
-    If you find that your pattern, when it includes a Pattern.any, extracts entities incorrectly, use an [explicit list](luis-concept-patterns.md#explicit-lists) to correct this problem. 
+    If you find that your pattern, when it includes a Pattern.any, extracts entities incorrectly, use an [explicit list](reference-pattern-syntax.md#explicit-lists) to correct this problem. 
 
 <a name="add-a-role-to-pattern-based-entity"></a>
 
@@ -109,13 +111,13 @@ In the utterance `Where is Request relocation from employee new to the company o
 
 A role is a named subtype based on context. It is available in all entities including prebuilt and non-machine-learned entities. 
 
-The syntax for a role is **`{Entityname:Rolename}`** where the entity name is followed by a colon, then the role name. For example, `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
+The syntax for a role is **`{Entityname:Rolename}`** where the entity name is followed by a colon, then the role name. For example, `Move {personName} from {Location:Origin} to {Location:Destination}`.
 
 1. From the **Build** section, select **Entities** in the left panel.
 
-1. Select **Create new entity**. Enter the name of `LocationUsingRoles`. Select the type **Simple** and select **Done**. 
+1. Select **Create new entity**. Enter the name of `Location`. Select the type **Simple** and select **Done**. 
 
-1. Select **Entities** from the left panel, then select the new entity **LocationUsingRoles** created in the previous step.
+1. Select **Entities** from the left panel, then select the new entity **Location** created in the previous step.
 
 1. In the **Role name** textbox, enter the name of the role `Origin` and enter. Add a second role name of `Destination`. 
 

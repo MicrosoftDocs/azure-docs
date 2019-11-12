@@ -1,6 +1,6 @@
 ---
 title: Azure PasswordBox UI element | Microsoft Docs
-description: Describes the Microsoft.Common.PasswordBox UI element for Azure portal.
+description: Describes the Microsoft.Common.PasswordBox UI element for Azure portal. Enables users to provide a secret value when deploying managed applications.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac

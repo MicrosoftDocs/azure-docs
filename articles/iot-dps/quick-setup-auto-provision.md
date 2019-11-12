@@ -1,9 +1,9 @@
 ---
-title: Set up Device Provisioning in the Azure portal | Microsoft Docs
+title: "Quickstart: Set up Device Provisioning in the Azure portal"
 description: Azure Quickstart - Set up the Azure IoT Hub Device Provisioning Service in the Azure Portal
 author: wesmc7777
 ms.author: wesmc
-ms.date: 07/12/2018
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
@@ -11,7 +11,7 @@ manager: timlt
 ms.custom: mvc
 ---
 
-# Set up the IoT Hub Device Provisioning Service with the Azure portal
+# Quickstart: Set up the IoT Hub Device Provisioning Service with the Azure portal
 
 These steps show how to set up the Azure cloud resources in the portal for provisioning your devices. This article includes steps for: creating your IoT hub, creating a new IoT Hub Device Provisioning Service, and linking the two services together. 
 

@@ -9,7 +9,6 @@ editor: ''
 
 ms.service: azure-functions
 ms.workload: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche

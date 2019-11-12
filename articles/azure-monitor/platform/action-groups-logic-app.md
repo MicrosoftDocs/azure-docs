@@ -1,4 +1,4 @@
----
+﻿---
 title: How to trigger complex actions with Azure Monitor alerts 
 description: Learn how to create a logic app action to process Azure Monitor alerts.
 author: dkamstra
@@ -20,7 +20,7 @@ The general process is:
 
 -   Create the logic app for the respective alert type.
 
--   Import the schema for the respective alert type into the logic app.
+-   Import a sample payload for the respective alert type into the logic app.
 
 -   Define the logic app behavior.
 
@@ -32,7 +32,7 @@ The process is similar if you want the logic app to perform a different action.
 
 1.  In the Azure portal, select **Create a resource** in the upper-left corner.
 
-2.  Search for and select **Logic App**, then select **Create**.
+2.  Search for and select **Logic App**, then select **Create**.
 
 3.  Give your logic app a **Name**, choose a **Resource group**, and so on.
 
@@ -52,7 +52,7 @@ The process is similar if you want the logic app to perform a different action.
 
     ![Use a sample payload](media/action-groups-logic-app/use-sample-payload-button.png "Use a sample payload")
 
-8.  Copy and paste the following sample schema into the dialog box:
+8.  Copy and paste the following sample payload into the dialog box:
 
     ```json
         {
@@ -134,7 +134,7 @@ The next time an alert calls your action group, your logic app is called.
 Azure Service Health entries are part of the activity log. The process for creating the alert is similar to [creating an activity log alert](#create-an-activity-log-alert-administrative), but with a few changes:
 
 - Steps 1 through 7 are the same.
-- For step 8, use the following sample schema for the HTTP request trigger:
+- For step 8, use the following sample payload for the HTTP request trigger:
 
     ```json
     {
@@ -222,7 +222,7 @@ Azure Service Health entries are part of the activity log. The process for creat
 The process for creating a metric alert is similar to [creating an activity log alert](#create-an-activity-log-alert-administrative), but with a few changes:
 
 - Steps 1 through 7 are the same.
-- For step 8, use the following sample schema for the HTTP request trigger:
+- For step 8, use the following sample payload for the HTTP request trigger:
 
     ```json
     {

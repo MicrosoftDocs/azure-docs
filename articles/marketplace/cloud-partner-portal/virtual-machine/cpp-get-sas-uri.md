@@ -4,6 +4,7 @@ description: Explains how to get the shared access signature (SAS) URI for your 
 services: Azure, Marketplace, Cloud Partner Portal, 
 author: pbutlerm
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pabutler
@@ -39,7 +40,7 @@ Use the following steps to generate a SAS URI with Azure CLI.
    az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' --name <vhd-name> --permissions rl --start '<start-date>' --expiry '<expiry-date>'
    ```
     
-3. Edit the file to supply the following parameter values.  Dates should be provided in UTC datetime format, for example `10-25-2016T00:00:00Z`.
+3. Edit the file to supply the following parameter values.  Dates should be provided in UTC datetime format, for example `2016-10-25T00:00:00Z`.
    - `<account-name>` - Your Azure storage account name
    - `<account-key>` - Your Azure storage account key
    - `<vhd-name>` - Your VHD name

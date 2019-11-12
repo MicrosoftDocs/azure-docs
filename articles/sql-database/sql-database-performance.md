@@ -1,5 +1,5 @@
 ---
-title: Monitor and improve performance - Azure SQL Database | Microsoft Docs
+title: Monitor and improve performance
 description: The Azure SQL Database provides performance tools to help you identify areas that can improve current query performance.
 ms.service: sql-database
 ms.subservice: performance
@@ -9,7 +9,6 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 01/25/2019
 ---
 # Monitor and improve performance

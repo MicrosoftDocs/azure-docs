@@ -11,7 +11,6 @@ ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/16/2018
 ms.author: stefsch
@@ -63,7 +62,7 @@ For example, if an App Service Environment has four front ends, it will take rou
 
 ## Disable TLS 1.0 and TLS 1.1
 
-If you want to manage TLS settings on an app by app basis, then you can use the guidance provided with the [Enforce TLS settings](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl#enforce-tls-versions) documentation. 
+If you want to manage TLS settings on an app by app basis, then you can use the guidance provided with the [Enforce TLS settings](../configure-ssl-bindings.md#enforce-tls-versions) documentation. 
 
 If you want to disable all inbound TLS 1.0 and TLS 1.1 traffic for all of the apps in an ASE, you can set the following **clusterSettings** entry:
 

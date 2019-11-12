@@ -3,7 +3,7 @@ title: Create an Azure Service Fabric container application on Linux | Microsoft
 description: Create your first Linux container application on Azure Service Fabric. Build a Docker image with your application, push the image to a container registry, build and deploy a Service Fabric container application.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/4/2019
-ms.author: aljo
+ms.author: atsenthi
 ---
 
 # Create your first Service Fabric container application on Linux
@@ -80,10 +80,12 @@ from flask import Flask
 
 app = Flask(__name__)
 
+
 @app.route("/")
 def hello():
-    
+
     return 'Hello World!'
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
@@ -137,9 +139,9 @@ docker rm my-web-site
 ## Push the image to the container registry
 After you verify that the application runs in Docker, push the image to your registry in Azure Container Registry.
 
-Run `docker login` to log in to your container registry with your [registry credentials](../container-registry/container-registry-authentication.md).
+Run `docker login` to sign in to your container registry with your [registry credentials](../container-registry/container-registry-authentication.md).
 
-The following example passes the ID and password of an Azure Active Directory [service principal](../active-directory/develop/app-objects-and-service-principals.md). For example, you might have assigned a service principal to your registry for an automation scenario. Or, you could log in using your registry username and password.
+The following example passes the ID and password of an Azure Active Directory [service principal](../active-directory/develop/app-objects-and-service-principals.md). For example, you might have assigned a service principal to your registry for an automation scenario. Or, you could sign in using your registry username and password.
 
 ```bash
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -175,29 +177,11 @@ Specify the port mapping in the appropriate format. For this article, you need t
 ![Service Fabric Yeoman generator for containers][sf-yeoman]
 
 ## Configure container repository authentication
- If your container needs to authenticate with a private repository, then add `RepositoryCredentials`. For this article, add the account name and password for the myregistry.azurecr.io container registry. Ensure the policy is added under the 'ServiceManifestImport' tag corresponding to the right service package.
 
-```xml
-   <ServiceManifestImport>
-      <ServiceManifestRef ServiceManifestName="MyServicePkg" ServiceManifestVersion="1.0.0" />
-	<Policies>
-	    <ContainerHostPolicies CodePackageRef="Code">
-		<RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-		<PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
-	    </ContainerHostPolicies>
-	</Policies>
-   </ServiceManifestImport>
-``` 
-
-We recommend that you encrypt the repository password. Refer to [
-Manage encrypted secrets in Service Fabric applications](service-fabric-application-secret-management.md) for instructions.
-
-### Configure cluster-wide credentials
-Refer to [documentation here](
-service-fabric-get-started-containers.md#configure-cluster-wide-credentials)
+See [Container Repository Authentication](configure-container-repository-credentials.md)to learn how to configure different types of authentication for container image downloading.
 
 ## Configure isolation mode
-With the 6.3 runtime release, VM isolation is supported for Linux containers, thereby supporting two isolation modes for containers: process and hyperv. With the hyperv isolation mode, the kernels are isolated between each container and the container host. The hyperv isolation is implemented using [Clear Containers](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). The isolation mode is specified for Linux clusters in the `ServicePackageContainerPolicy` element in the application manifest file. The isolation modes that can be specified are `process`, `hyperv`, and `default`. The default is process isolation mode. The following snippet shows how the isolation mode is specified in the application manifest file.
+With the 6.3 runtime release, VM isolation is supported for Linux containers, thereby supporting two isolation modes for containers: process and Hyper-V. With the Hyper-V isolation mode, the kernels are isolated between each container and the container host. The Hyper-V isolation is implemented using [Clear Containers](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). The isolation mode is specified for Linux clusters in the `ServicePackageContainerPolicy` element in the application manifest file. The isolation modes that can be specified are `process`, `hyperv`, and `default`. The default is process isolation mode. The following snippet shows how the isolation mode is specified in the application manifest file.
 
 ```xml
 <ServiceManifestImport>
@@ -228,7 +212,12 @@ With the 6.3 runtime release, VM isolation is supported for Linux containers, th
 
 
 ## Configure docker HEALTHCHECK 
-Starting v6.1, Service Fabric automatically integrates [docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) events to its system health report. This means that if your container has **HEALTHCHECK** enabled, Service Fabric will report health whenever the health status of the container changes as reported by Docker. An **OK** health report will appear in [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) when the *health_status* is *healthy* and **WARNING** will appear when *health_status* is *unhealthy*. The **HEALTHCHECK** instruction pointing to the actual check that is performed for monitoring container health must be present in the Dockerfile used while generating the container image. 
+
+Starting v6.1, Service Fabric automatically integrates [docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) events to its system health report. This means that if your container has **HEALTHCHECK** enabled, Service Fabric will report health whenever the health status of the container changes as reported by Docker. An **OK** health report will appear in [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) when the *health_status* is *healthy* and **WARNING** will appear when *health_status* is *unhealthy*. 
+
+Starting with the latest refresh release of v6.4, you have the option to specify that docker HEALTHCHECK evaluations should be reported as an error. If this option is enabled, an **OK** health report will appear when *health_status* is *healthy* and **ERROR** will appear when *health_status* is *unhealthy*.
+
+The **HEALTHCHECK** instruction pointing to the actual check that is performed for monitoring container health must be present in the Dockerfile used while generating the container image.
 
 ![HealthCheckHealthy][1]
 
@@ -243,12 +232,18 @@ You can configure **HEALTHCHECK**  behavior for each container by specifying **H
     <ServiceManifestRef ServiceManifestName="ContainerServicePkg" ServiceManifestVersion="2.0.0" />
     <Policies>
       <ContainerHostPolicies CodePackageRef="Code">
-        <HealthConfig IncludeDockerHealthStatusInSystemHealthReport="true" RestartContainerOnUnhealthyDockerHealthStatus="false" />
+        <HealthConfig IncludeDockerHealthStatusInSystemHealthReport="true"
+		      RestartContainerOnUnhealthyDockerHealthStatus="false" 
+		      TreatContainerUnhealthyStatusAsError="false" />
       </ContainerHostPolicies>
     </Policies>
 </ServiceManifestImport>
 ```
-By default *IncludeDockerHealthStatusInSystemHealthReport* is set to **true** and *RestartContainerOnUnhealthyDockerHealthStatus* is set to **false**. If *RestartContainerOnUnhealthyDockerHealthStatus* is set to **true**, a container repeatedly reporting unhealthy is restarted (possibly on other nodes).
+By default *IncludeDockerHealthStatusInSystemHealthReport* is set to **true**, *RestartContainerOnUnhealthyDockerHealthStatus* is set to **false**, and *TreatContainerUnhealthyStatusAsError* is set to **false**. 
+
+If *RestartContainerOnUnhealthyDockerHealthStatus* is set to **true**, a container repeatedly reporting unhealthy is restarted (possibly on other nodes).
+
+If *TreatContainerUnhealthyStatusAsError* is set to **true**, **ERROR** health reports will appear when the container's *health_status* is *unhealthy*.
 
 If you want to the disable the **HEALTHCHECK** integration for the entire Service Fabric cluster, you will need to set [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) to **false**.
 

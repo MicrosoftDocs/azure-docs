@@ -4,18 +4,19 @@ description: Compare CoreMark compute benchmark scores for Azure VMs running Lin
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
 ms.assetid: 93e812c1-79dd-40c5-b97b-aa79f5cd7d76
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/09/2018
-ms.author: cynthn;davberg
+ms.author: cynthn
+ms.reviewer: davberg
 
 ---
 # Compute benchmark scores for Linux VMs

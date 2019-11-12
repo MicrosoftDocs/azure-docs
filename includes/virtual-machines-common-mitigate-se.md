@@ -5,36 +5,31 @@
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 05/22/2019
+ ms.date: 11/12/2019
  ms.author: cynthn;kareni
  ms.custom: include file
 ---
 
 
-**Last document update**: 14 May 2019 10:00 AM PST.
+**Last document update**: 12 November 2019 10:00 AM PST.
 
 The disclosure of a [new class of CPU vulnerabilities](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) known as speculative execution side-channel attacks has resulted in questions from customers seeking more clarity.  
 
 Microsoft has deployed mitigations across all our cloud services. The infrastructure that runs Azure and isolates customer workloads from each other is protected. This means that a potential attacker using the same infrastructure can’t attack your application using these vulnerabilities.
 
-Azure is using [memory preserving maintenance](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#maintenance-not-requiring-a-reboot) whenever possible, to minimize customer impact and eliminate the need for reboots. Azure will continue utilizing these methods when making systemwide updates to the host and protect our customers.
+Azure is using [memory preserving maintenance](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#maintenance-that-doesnt-require-a-reboot) whenever possible, to minimize customer impact and eliminate the need for reboots. Azure will continue utilizing these methods when making systemwide updates to the host and protect our customers.
 
 More information about how security is integrated into every aspect of Azure is available on the [Azure Security Documentation](https://docs.microsoft.com/azure/security/) site. 
 
 > [!NOTE] 
 > Since this document was first published, multiple variants of this vulnerability class have been disclosed. Microsoft continues to be heavily invested in protecting our customers and providing guidance. This page will be updated as we continue to release further fixes. 
 > 
-> On May 14, 2019, [Intel disclosed](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00233.html) a new set of speculative execution side channel vulnerability known as Microarchitectural Data Sampling (MDS see the Microsoft Security Guidance [ADV190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)), which has been assigned multiple CVEs: 
-> - CVE-2019-11091 - Microarchitectural Data Sampling Uncacheable Memory (MDSUM)
-> - CVE-2018-12126 - Microarchitectural Store Buffer Data Sampling (MSBDS) 
-> - CVE-2018-12127 - Microarchitectural Load Port Data Sampling (MLPDS)
-> - CVE-2018-12130 - Microarchitectural Fill Buffer Data Sampling (MFBDS)
->
-> This vulnerability affects Intel® Core® processors and Intel® Xeon® processors.  Microsoft Azure has released operating system updates and is deploying new microcode, as it is made available by Intel, throughout our fleet to protect our customers against these new vulnerabilities.   Azure is closely working with Intel to test and validate the new microcode prior to its official release on the platform. 
+> On November 12, 2019, [Intel published](https://software.intel.com/security-software-guidance/insights/deep-dive-intel-transactional-synchronization-extensions-intel-tsx-asynchronous-abort) a technical advisory around Intel® Transactional Synchronization Extensions (Intel® TSX) Transaction Asynchronous Abort (TAA) vulnerability that is assigned [CVE-2019-11135](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-11135). This vulnerability affects Intel® Core® processors and Intel® Xeon® processors.  Microsoft Azure has released operating system updates and is deploying new microcode, as it is made available by Intel, throughout our fleet to protect our customers against these new vulnerabilities.   Azure is closely working with Intel to test and validate the new microcode prior to its official release on the platform. 
 >
 > **Customers that are running untrusted code within their VM** need to take action to protect against these vulnerabilities by reading below for additional guidance on all speculative execution side-channel vulnerabilities (Microsoft Advisories ADV [180002](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002), [180018](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/adv180018), and [190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)).
 >
 > Other customers should evaluate these vulnerabilities from a Defense in Depth perspective and consider the security and performance implications of their chosen configuration.
+> 
 
 
 
@@ -73,7 +68,7 @@ You can enable additional security features inside your VM or Cloud Service if y
 Your target operating system must be up-to-date to enable these additional security features. While numerous speculative execution side channel mitigations are enabled by default, the additional features described here must be enabled manually and may cause a performance impact. 
 
 
-**Step 1: Disable hyperthreading on the VM** - Customers running untrusted code on a hyperthreaded VM will need to disable hyperthreading or move to a non-hyperthreaded VM size. To check if your VM has hyperthreading enabled, please refer to the below script using the Windows command line from within the VM.
+**Step 1: Disable hyper-threading on the VM** - Customers running untrusted code on a hyper-threaded VM will need to disable hyper-threading or move to a non-hyper-threaded VM size. Reference [this doc](https://docs.microsoft.com/azure/virtual-machines/windows/acu) for a list of hyper-threaded VM sizes (where ratio of vCPU to Core is 2:1). To check if your VM has hyper-threading enabled, please refer to the below script using the Windows command line from within the VM.
 
 Type `wmic` to enter the interactive interface. Then type the below to view the amount of physical and logical processors on the VM.
 
@@ -81,7 +76,7 @@ Type `wmic` to enter the interactive interface. Then type the below to view the 
 CPU Get NumberOfCores,NumberOfLogicalProcessors /Format:List
 ```
 
-If the number of logical processors is greater than physical processors (cores), then hyperthreading is enabled.  If you are running a hyperthreaded VM, please [contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) to get hyperthreading disabled.  Once hyperthreading is disabled, **support will require a full VM reboot**. 
+If the number of logical processors is greater than physical processors (cores), then hyper-threading is enabled.  If you are running a hyper-threaded VM, please [contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) to get hyper-threading disabled.  Once hyper-threading is disabled, **support will require a full VM reboot**. Please refer to [Core count](#core-count) to understand why your VM core count decreased.
 
 
 **Step 2**: In parallel to Step 1, follow the instructions in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) to verify protections are enabled using the [SpeculationControl](https://aka.ms/SpeculationControlPS) PowerShell module.
@@ -99,6 +94,7 @@ Windows OS support for kernel VA shadow is enabled: True
 Windows OS support for speculative store bypass disable is enabled system-wide: False
 Windows OS support for L1 terminal fault mitigation is enabled: True
 Windows OS support for MDS mitigation is enabled: True
+Windows OS support for TAA mitigation is enabled: True
 ```
 
 If the output shows `MDS mitigation is enabled: False`, please [contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) for available mitigation options.
@@ -119,14 +115,14 @@ If the output shows `MDS mitigation is enabled: False`, please [contact Azure Su
 <a name="linux"></a>Enabling the set of additional security features inside requires that the target operating system be fully up-to-date. Some mitigations will be enabled by default. The following section describes the features which are off by default and/or reliant on hardware support (microcode). Enabling these features may cause a performance impact. Reference your operating system provider’s documentation for further instructions
 
 
-**Step 1: Disable hyperthreading on the VM** - Customers running untrusted code on a hyperthreaded VM will need to disable hyperthreading or move to a non-hyperthreaded VM.  To check if you are running a hyperthreaded VM, run the `lscpu` command in the Linux VM. 
+**Step 1: Disable hyper-threading on the VM** - Customers running untrusted code on a hyper-threaded VM will need to disable hyper-threading or move to a non-hyper-threaded VM.  Reference [this doc](https://docs.microsoft.com/azure/virtual-machines/linux/acu) for a list of hyper-threaded VM sizes (where ratio of vCPU to Core is 2:1). To check if you are running a hyper-threaded VM, run the `lscpu` command in the Linux VM. 
 
-If `Thread(s) per core = 2`, then hyperthreading has been enabled. 
+If `Thread(s) per core = 2`, then hyper-threading has been enabled. 
 
-If `Thread(s) per core = 1`, then hyperthreading has been disabled. 
+If `Thread(s) per core = 1`, then hyper-threading has been disabled. 
 
  
-Sample output for a VM with hyperthreading enabled: 
+Sample output for a VM with hyper-threading enabled: 
 
 ```console
 CPU Architecture:      x86_64
@@ -141,7 +137,8 @@ NUMA node(s):          1
 
 ```
 
-If you are running a hyperthreaded VM, please [contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) to get hyperthreading disabled.  Once hyperthreading is disabled, **support will require a full VM reboot**.
+If you are running a hyper-threaded VM, please [contact Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) to get hyper-threading disabled.  Once hyper-threading is disabled, **support will require a full VM reboot**. Please refer to [Core count](#core-count) to understand why your VM core count decreased.
+
 
 
 **Step 2**: To mitigate against any of the below speculative execution side-channel vulnerabilities, refer to your operating system provider’s documentation:   
@@ -149,6 +146,11 @@ If you are running a hyperthreaded VM, please [contact Azure Support](https://ak
 - [Redhat and CentOS](https://access.redhat.com/security/vulnerabilities) 
 - [SUSE](https://www.suse.com/support/kb/?doctype%5B%5D=DT_SUSESDB_PSDB_1_1&startIndex=1&maxIndex=0) 
 - [Ubuntu](https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/) 
+
+
+### Core count
+
+When a hyper-threaded VM is created, Azure allocates 2 threads per core - these are called vCPUs. When hyper-threading is disabled, Azure removes a thread and surfaces up single threaded cores (physical cores). The ratio of vCPU to CPU is 2:1, so once hyper-threading is disabled, the CPU count in the VM will appear to have decreased by half. For example, a D8_v3 VM is a hyper-threaded VM running on 8 vCPUs (2 threads per core x 4 cores).  When hyper-threading is disabled, CPUs will drop to 4 physical cores with 1 thread per core. 
 
 ## Next steps
 
@@ -158,6 +160,7 @@ This article provides guidance to the below speculative execution side-channel a
 - CVE-2017-5715 - Branch Target Injection (BTI)  
 - CVE-2017-5754 - Kernel Page Table Isolation (KPTI)
 - CVE-2018-3639 – Speculative Store Bypass (KPTI) 
+- [CVE-2019-1125](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1125) – Windows Kernel Information – variant of Spectre Variant 1
  
 [L1 Terminal Fault (L1TF)](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180018):
 - CVE-2018-3615 - Intel Software Guard Extensions (Intel SGX)
@@ -169,6 +172,9 @@ This article provides guidance to the below speculative execution side-channel a
 - CVE-2018-12126 - Microarchitectural Store Buffer Data Sampling (MSBDS)
 - CVE-2018-12127 - Microarchitectural Load Port Data Sampling (MLPDS)
 - CVE-2018-12130 - Microarchitectural Fill Buffer Data Sampling (MFBDS)
+
+Transactional Synchronization Extensions (Intel® TSX) Transaction Asynchronous Abort:  
+- [CVE-2019-11135](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-11135) – TSX Transaction Asynchronous Abort (TAA)
 
 
 

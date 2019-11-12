@@ -3,9 +3,9 @@ title: Diagnose dropped notifications in Azure Notification Hubs
 description: Learn how to diagnose common issues with dropped notifications in Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: Mobile
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 
 ms.assetid: b5c89a2a-63b8-46d2-bbed-924f5a4cce61
 ms.service: notification-hubs
@@ -14,7 +14,9 @@ ms.tgt_pltfrm: NA
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/04/2019
-ms.author: jowargo
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 04/04/2019
 ---
 
 # Diagnose dropped notifications in Azure Notification Hubs

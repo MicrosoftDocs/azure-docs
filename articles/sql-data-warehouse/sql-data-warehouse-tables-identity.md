@@ -1,8 +1,8 @@
 ---
-title: Using IDENTITY to create surrogate keys - Azure SQL Data Warehouse| Microsoft Docs
+title: Using IDENTITY to create surrogate keys
 description: Recommendations and examples for using the IDENTITY property to create surrogate keys on tables in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author:  XiaoyuL-Preview
+author:  XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,6 +10,7 @@ ms.subservice: development
 ms.date: 04/30/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # Using IDENTITY to create surrogate keys in Azure SQL Data Warehouse

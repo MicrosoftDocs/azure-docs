@@ -3,14 +3,13 @@ title: 'Query data from an Azure Time Series Insights Preview environment using 
 description: This article describes how to query data from an Azure Time Series Insights environment by coding a custom app written in the  C# (C-sharp) .NET language.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 10/08/2019
 ms.custom: seodec18
 ---
 
@@ -37,6 +36,6 @@ The sample shows several basic examples of Query API usage:
 
 ## Next steps
 
-- To learn more about querying, read the [Query API reference](/rest/api/time-series-insights/preview-query).
+- To learn more about querying, read the [Query API reference](https://docs.microsoft.com/rest/api/time-series-insights/preview-query).
 
-- Read how to [connect a JavaScript single-page app](tutorial-create-tsi-sample-spa.md) to Time Series Insights.
+- Read how to [connect a JavaScript app using the client SDK](https://github.com/microsoft/tsiclient) to Time Series Insights.

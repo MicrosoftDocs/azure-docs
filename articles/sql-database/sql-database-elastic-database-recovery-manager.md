@@ -1,16 +1,15 @@
 ---
-title: Using Recovery Manager to fix shard map problems | Microsoft Docs
+title: Recovery Manager to fix shard map problems
 description: Use the RecoveryManager class to solve problems with shard maps
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: 
+ms.custom: seo-lt-2019
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-manager: craigg
 ms.date: 01/03/2019
 ---
 # Using the RecoveryManager class to fix shard map problems

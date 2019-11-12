@@ -27,6 +27,8 @@ If you're new to Resource Manager templates, learn about [template deployments](
 
 - You need to have either [Azure PowerShell](/powershell/azure) or [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) installed.
 
+- Your VM resource must be in a [region that supports custom metrics](metrics-custom-overview.md#supported-regions). 
+
 
 ## Set up Azure Monitor as a data sink
 The Azure Diagnostics extension uses a feature called "data sinks" to route metrics and logs to different locations. The following steps show how to use a Resource Manager template and PowerShell to deploy a VM by using the new "Azure Monitor" data sink.
@@ -71,8 +73,8 @@ Add this Managed Service Identity (MSI) extension to the template at the top of 
 // Add this code directly below.
     {
         "type": "Microsoft.Compute/virtualMachines/extensions",
-        "name": "WADExtensionSetup",
-        "apiVersion": "2015-05-01-preview",
+        "name": "[concat(variables('vmName'), '/', 'WADExtensionSetup')]",
+        "apiVersion": "2017-12-01",
         "location": "[resourceGroup().location]",
         "dependsOn": [
             "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]" ],
@@ -140,9 +142,9 @@ Add the following configuration to enable the Diagnostics extension on a Windows
 //Start of section to add
 "resources": [
 {
-            "type": "extensions",
-            "name": "Microsoft.Insights.VMDiagnosticsSettings",
-            "apiVersion": "2015-05-01-preview",
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "name": "[concat(variables('vmName'), '/', 'Microsoft.Insights.VMDiagnosticsSettings')]",
+            "apiVersion": "2017-12-01",
             "location": "[resourceGroup().location]",
             "dependsOn": [
             "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"

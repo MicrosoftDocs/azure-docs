@@ -59,11 +59,15 @@ Navigate to `iOS/Objective-C/`.
 cd ./iOS/Objective-C/
 ```
 
-***
+---
 
 Run `pod install --repo-update` to install the CocoaPods for the project.
 
 Now open the `.xcworkspace` in Xcode.
+
+> [!NOTE]
+> See the troubleshooting steps [here](#cocoapods-issues-on-macos-catalina-1015) if you're having CocoaPod issues after
+> upgrading to macOS Catalina (10.15).
 
 # [Swift](#tab/openproject-swift)
 
@@ -77,7 +81,7 @@ open ./SampleSwift.xcworkspace
 open ./SampleObjC.xcworkspace
 ```
 
-***
+---
 
 ## Configure account identifier and key
 
@@ -99,7 +103,7 @@ Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the accoun
 
 Locate the `SpatialAnchorsAccountId` field and replace `Set me` with the account identifier.
 
-***
+---
 
 ## Deploy the app to your iOS device
 
@@ -116,6 +120,20 @@ Select **Build and then run the current scheme**.
 > `.xcworkspace`. Open the `.xcworkspace` and try again.
 
 In Xcode, stop the app by pressing **Stop**.
+
+## Troubleshooting
+
+### CocoaPods issues on macOS Catalina (10.15)
+
+If you recently updated to macOS Catalina (10.15) and had CocoaPods installed beforehand, CocoaPods may be in a broken
+state and fail to properly configure your pods and `.xcworkspace` project files. To resolve this issue, you'll need to
+reinstall CocoaPods by running the following commands:
+
+```shell
+brew update
+brew install cocoapods --build-from-source
+brew link --overwrite cocoapods
+```
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

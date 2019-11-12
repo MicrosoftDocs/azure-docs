@@ -1,16 +1,15 @@
 ---
-title: PowerShell example - create a managed instance in Azure SQL Database | Microsoft Docs
+title: Template example - create a managed instance in Azure SQL Database 
 description: Azure PowerShell example script to create a managed instance in Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: 
+ms.custom: "seo-dt-2019"
 ms.devlang: PowerShell
 ms.topic: sample
 author: jovanpop-msft
-ms.author: jovanpop-msft
+ms.author: jovanpop
 ms.reviewer: sstein
-manager: craigg
 ms.date: 03/12/2019
 ---
 # Use PowerShell with Azure Resource Manager template to create a managed instance in Azure SQL Database
@@ -19,7 +18,7 @@ Azure SQL Database Managed Instance can be created using Azure PowerShell librar
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the PowerShell locally, this tutorial requires AZ PowerShell 1.4.0 or later. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 

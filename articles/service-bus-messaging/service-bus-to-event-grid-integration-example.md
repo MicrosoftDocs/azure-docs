@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus to Event Grid integration examples | Microsoft Docs
-description: This article provides examples of Service Bus messaging and Event Grid integration.
+title: 'Tutorial: Azure Service Bus to Event Grid integration examples'
+description: 'Tutorial: This article provides examples of Service Bus messaging and Event Grid integration.'
 services: service-bus-messaging
 documentationcenter: .net
 author: spelluru
@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: tutorial
-ms.date: 05/14/2019
+ms.date: 11/05/2019
 ms.author: spelluru
 
 ---
-# Respond to Azure Service Bus events received via Azure Event Grid by using Azure Functions and Azure Logic Apps
+# Tutorial: Respond to Azure Service Bus events received via Azure Event Grid by using Azure Functions and Azure Logic Apps
 In this tutorial, you learn how to respond to Azure Service Bus events that are received via Azure Event Grid by using Azure Functions and Azure Logic Apps. You'll do the following steps:
  
 - Create a test Azure function for debugging and viewing the initial flow of events from the Event Grid.
@@ -231,7 +231,7 @@ In this section, you'll learn how to receive and process messages after you rece
         ![Get publish profile for the function](./media/service-bus-to-event-grid-integration-example/function-download-publish-profile.png)
     4. Save the file to your project's folder. 
 4. In Visual Studio, right-click **SBEventGridIntegration**, and then select **Publish**. 
-5. Select *Start** on the **Publish** page. 
+5. Select **Start** on the **Publish** page. 
 6. On the **Pick a publish target** page, do the following steps, select **Import Profile**. 
 
     ![Visual Studio - Import Profile button](./media/service-bus-to-event-grid-integration-example/visual-studio-import-profile-button.png)
@@ -276,7 +276,6 @@ Connect a logic app with Azure Service Bus and Azure Event Grid by following the
     3. For **Resource Name**, select your Service Bus namespace. 
     4. Select **Add new parameter**, and select **Suffix Filter**. 
     5. For **Suffix Filter**, enter the name of your second Service Bus topic subscription. 
-
         ![Logic Apps Designer - configure event](./media/service-bus-to-event-grid-integration-example/logic-app-configure-event.png)
 6. Select **+ New Step** in the designer, and do the following steps:
     1. Search for **Service Bus**.

@@ -1,5 +1,5 @@
 ---
-title: Provision in SaaS multi-tenant Azure | Microsoft Docs
+title: Provision in SaaS multi-tenant 
 description: "Learn how to provision and catalog new tenants in an Azure SQL Database multi-tenant SaaS app"
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib,andrela,stein
-manager: craigg
 ms.date: 09/24/2018
 ---
 # Provision and catalog new tenants in a SaaS application using a sharded multi-tenant Azure SQL database

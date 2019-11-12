@@ -5,32 +5,12 @@
  author: anavinahar
  ms.service: networking
  ms.topic: include
- ms.date: 05/15/2019
+ ms.date: 06/25/2019
  ms.author: anavin
  ms.custom: include file
 
 ---
-
-<a name="virtual-networking-limits-classic"></a>The following limits apply only for networking resources managed through the **classic** deployment model per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
-
-| Resource | Default limit | Maximum limit |
-| --- | --- | --- |
-| Virtual networks |50 |100 |
-| Local network sites |20 |Contact support. |
-| DNS servers per virtual network |20 |20 |
-| Private IP addresses per virtual network |4,096 |4,096 |
-| Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500,000, up to 1,000,000 for two or more NICs. |500,000, up to 1,000,000 for two or more NICs. |
-| Network Security Groups (NSGs) |200 |200 |
-| NSG rules per NSG |1,000 |1,000 |
-| User-defined route tables |200 |200 |
-| User-defined routes per route table |400 |400 |
-| Public IP addresses (dynamic) |5 |Contact support |
-| Reserved public IP addresses |20 |Contact support |
-| Public VIP per deployment |5 |Contact support |
-| Private VIP (internal load balancing) per deployment |1 |1 |
-| Endpoint access control lists (ACLs) |50 |50 |
-
-#### <a name="azure-resource-manager-virtual-networking-limits"></a>Networking limits - Azure Resource Manager
+<a name="azure-resource-manager-virtual-networking-limits"></a>Networking limits - Azure Resource Manager
 The following limits apply only for networking resources managed through **Azure Resource Manager** per region per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
 
 > [!NOTE]
@@ -45,6 +25,8 @@ The following limits apply only for networking resources managed through **Azure
 | Private IP addresses per virtual network |65,536 |
 | Private IP addresses per network interface |256 |
 | Private IP addresses per virtual machine |256 |
+| Public IP addresses per network interface |256 |
+| Public IP addresses per virtual machine |256 |
 | Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500,000 |
 | Network interface cards |65,536 |
 | Network Security Groups |5,000 |
@@ -65,8 +47,8 @@ The following limits apply only for networking resources managed through **Azure
 | --- | --- | --- |
 | Public IP addresses - dynamic | 1,000 for Basic. |Contact support. |
 | Public IP addresses - static | 1,000 for Basic. |Contact support. |
-| Public IP addresses - static | 200 for Standard.|Contact support. |
-| Public IP prefix size | /28 | Contact support. |
+| Public IP addresses - static | 1,000 for Standard.|Contact support. |
+| Public IP prefix length | /28 | Contact support. |
 
 #### <a name="load-balancer"></a>Load balancer limits
 The following limits apply only for networking resources managed through Azure Resource Manager per region per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
@@ -77,7 +59,7 @@ The following limits apply only for networking resources managed through Azure R
 | Rules per resource, Basic | 250 |
 | Rules per resource, Standard | 1,500 | 
 | Rules per IP configuration | 299 |
-| Rules per NIC | 500 |
+| Rules per NIC | 300 |
 | Front-end IP configurations, Basic | 200 |
 | Front-end IP configurations, Standard | 600 |
 | Back-end pool, Basic | 100, single availability set |
@@ -87,3 +69,21 @@ The following limits apply only for networking resources managed through Azure R
 
 <sup>1</sup>The limit is up to 150 resources, in any combination of standalone virtual machine resources, availability set resources, and virtual machine scale-set resources.
 
+#### <a name="virtual-networking-limits-classic"></a>The following limits apply only for networking resources managed through the **classic** deployment model per subscription. Learn how to [view your current resource usage against your subscription limits](../articles/networking/check-usage-against-limits.md).
+
+| Resource | Default limit | Maximum limit |
+| --- | --- | --- |
+| Virtual networks |100 |100 |
+| Local network sites |20 |50 |
+| DNS servers per virtual network |20 |20 |
+| Private IP addresses per virtual network |4,096 |4,096 |
+| Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500,000, up to 1,000,000 for two or more NICs. |500,000, up to 1,000,000 for two or more NICs. |
+| Network Security Groups (NSGs) |200 |200 |
+| NSG rules per NSG |1,000 |1,000 |
+| User-defined route tables |200 |200 |
+| User-defined routes per route table |400 |400 |
+| Public IP addresses (dynamic) |500 |500 |
+| Reserved public IP addresses |500 |500 |
+| Public VIP per deployment |5 |Contact support |
+| Private VIP (internal load balancing) per deployment |1 |1 |
+| Endpoint access control lists (ACLs) |50 |50 |

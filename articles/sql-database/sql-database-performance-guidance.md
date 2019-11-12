@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database performance tuning guidance | Microsoft Docs
+title: Performance tuning guidance
 description: Learn about using recommendations to manually tune your Azure SQL Database query performance.
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 01/25/2019
 ---
 # Manual tune query performance in Azure SQL Database

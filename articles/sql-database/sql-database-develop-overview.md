@@ -1,5 +1,5 @@
 ---
-title: SQL Database Application Development Overview | Microsoft Docs
+title: Application Development Overview 
 description: Learn about available connectivity libraries and best practices for applications connecting to SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
-manager: craigg
 ms.service: sql-database
 ms.date: 02/07/2019
 ---

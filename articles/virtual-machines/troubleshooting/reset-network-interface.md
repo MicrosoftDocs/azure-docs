@@ -4,7 +4,7 @@ description: Shows how to reset network interface for Azure Windows VM
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
 author: genlin
-manager: willchen
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue, azure-resource-manager
 

@@ -4,7 +4,7 @@ description: Learn how to troubleshoot the issue in which you cannot delete a vi
 services: virtual-network
 documentationcenter: na
 author: chadmath
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 

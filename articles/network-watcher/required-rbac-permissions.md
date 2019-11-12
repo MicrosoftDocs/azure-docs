@@ -7,9 +7,9 @@ author: KumudD
 manager: twooley
 editor: ''
 
-ms.assetid: 
+ms.assetid:
 ms.service: network-watcher
-ms.workload: 
+ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
@@ -24,7 +24,7 @@ Azure role-based access control (RBAC) enables you to assign only the specific a
 
 ## Network Watcher
 
-| Action                                                              | Name                                                           |
+| Action                                                              | Description                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/read                              | Get a network watcher                                          |
 | Microsoft.Network/networkWatchers/write                             | Create or update a network watcher                             |
@@ -32,14 +32,14 @@ Azure role-based access control (RBAC) enables you to assign only the specific a
 
 ## NSG flow logs
 
-| Action                                                              | Name                                                           |
+| Action                                                              | Description                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/configureFlowLog/action           | Configure a flow Log                                           |
 | Microsoft.Network/networkWatchers/queryFlowLogStatus/action         | Query status for a flow log                                    |
 
 ## Connection troubleshoot
 
-| Action                                                              | Name                                                           |
+| Action                                                              | Description                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/connectivityCheck/action          | Initiate a connection troubleshoot test
 | Microsoft.Network/networkWatchers/queryTroubleshootResult/action    | Query results of a connection troubleshoot test                |
@@ -47,7 +47,7 @@ Azure role-based access control (RBAC) enables you to assign only the specific a
 
 ## Connection monitor
 
-| Action                                                              | Name                                                           |
+| Action                                                              | Description                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/connectionMonitors/start/action   | Start a connection monitor                                     |
 | Microsoft.Network/networkWatchers/connectionMonitors/stop/action    | Stop a connection monitor                                      |
@@ -58,7 +58,7 @@ Azure role-based access control (RBAC) enables you to assign only the specific a
 
 ## Packet capture
 
-| Action                                                              | Name                                                           |
+| Action                                                              | Description                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/packetCaptures/queryStatus/action | Query the status of a packet capture                           |
 | Microsoft.Network/networkWatchers/packetCaptures/stop/action        | Stop a packet capture                                          |
@@ -68,51 +68,48 @@ Azure role-based access control (RBAC) enables you to assign only the specific a
 
 ## IP flow verify
 
-| Action                                                              | Name                                                           |
+| Action                                                              | Description                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/ipFlowVerify/action               | Verify an IP flow                                              |
 
 ## Next hop
 
-| Action                                                              | Name                                                           |
+| Action                                                              | Description                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/nextHop/action                    | Get the next hop from a VM                                     |
 
 ## Network security group view
 
-| Action                                                              | Name                                                           |
+| Action                                                              | Description                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/securityGroupView/action          | View security groups                                           |
 
 ## Topology
 
-| Action                                                              | Name                                                           |
+| Action                                                              | Description                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/topology/action                   | Get topology                                                   |
 
 ## Reachability report
 
-| Action                                                              | Name                                                           |
+| Action                                                              | Description                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/azureReachabilityReport/action    | Get an Azure reachability report                               |
+
 
 ## Additional actions
 
 Network Watcher capabilities also require the following actions:
 
-- Microsoft.Authorization/\*/Read
-- Microsoft.Resources/subscriptions/resourceGroups/Read
-- Microsoft.Storage/storageAccounts/Read
-- Microsoft.Storage/storageAccounts/listServiceSas/Action
-- Microsoft.Storage/storageAccounts/listAccountSas/Action
-- Microsoft.Storage/storageAccounts/listKeys/Action
-- Microsoft.Compute/virtualMachines/Read
-- Microsoft.Compute/virtualMachines/Write
-- Microsoft.Compute/virtualMachines/extensions/Read
-- Microsoft.Compute/virtualMachines/extensions/Write
-- Microsoft.Compute/virtualMachineScaleSets/Read
-- Microsoft.Compute/virtualMachineScaleSets/Write
-- Microsoft.Compute/virtualMachineScaleSets/extensions/Read
-- Microsoft.Compute/virtualMachineScaleSets/extensions/Write
-- Microsoft.Insights/alertRules/*
-- Microsoft.Support/*
+| Action(s)                                                           | Description                                                    |
+| ---------                                                           | -------------                                                  |
+| Microsoft.Authorization/\*/Read                                     | Used to fetch RBAC role assignments and policy definitions          |
+| Microsoft.Resources/subscriptions/resourceGroups/Read               | Used to enumerate all the resource groups in a subscription    |
+| Microsoft.Storage/storageAccounts/Read                              | Used to get the properties for the specified storage account   |
+| Microsoft.Storage/storageAccounts/listServiceSas/Action, </br> Microsoft.Storage/storageAccounts/listAccountSas/Action, <br> Microsoft.Storage/storageAccounts/listKeys/Action| Used to fetch shared access signatures (SAS) enabling [secure access to storage account](https://docs.microsoft.com/azure/storage/common/storage-sas-overview) and write to the storage account |
+| Microsoft.Compute/virtualMachines/Read, </br> Microsoft.Compute/virtualMachines/Write| Used to log in to the VM, do a packet capture and upload it to storage account|
+| Microsoft.Compute/virtualMachines/extensions/Read </br> Microsoft.Compute/virtualMachines/extensions/Write| Used to check if Network Watcher extension is present, and install if required |
+| Microsoft.Compute/virtualMachineScaleSets/Read, </br> Microsoft.Compute/virtualMachineScaleSets/Write| Used to access virtual machine scale sets, do packet captures and upload them to storage account|
+| Microsoft.Compute/virtualMachineScaleSets/extensions/Read, </br> Microsoft.Compute/virtualMachineScaleSets/extensions/Write| Used to check if Network Watcher extension is present, and install if required |
+| Microsoft.Insights/alertRules/*                                     | Used to set up metric alerts                                     |
+| Microsoft.Support/*                                                 | Used to create and update support tickets from Network Watcher |

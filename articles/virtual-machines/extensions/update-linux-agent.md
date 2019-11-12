@@ -3,8 +3,8 @@ title: Update the Azure Linux Agent from GitHub | Microsoft Docs
 description: Learn how to update Azure Linux Agent for your Linux VM in Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: roiyz-msft
-manager: jeconnoc
+author: axayjo
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
@@ -12,10 +12,9 @@ ms.assetid: f1f19300-987d-4f29-9393-9aba866f049c
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
-ms.author: roiyz
+ms.author: akjosh
 
 ---
 # How to update the Azure Linux Agent on a VM

@@ -50,7 +50,7 @@ Service Fabric provides a set of APIs to achieve the following functionality rel
 - Retention management of backups (upcoming)
 
 ## Prerequisites
-* Service Fabric cluster with Fabric version 6.2 and above. The cluster should be set up on Windows Server. Refer to this [article](service-fabric-cluster-creation-for-windows-server.md) for steps to download required package.
+* Service Fabric cluster with Fabric version 6.4 or above. Refer to this [article](service-fabric-cluster-creation-for-windows-server.md) for steps to download required package.
 * X.509 Certificate for encryption of secrets needed to connect to storage to store backups. Refer [article](service-fabric-windows-cluster-x509-security.md) to know how to acquire or to Create a self-signed X.509 certificate.
 
 * Service Fabric Reliable Stateful application built using Service Fabric SDK version 3.0 or above. For applications targeting .Net Core 2.0, application should be built using Service Fabric SDK version 3.1 or above.
@@ -112,6 +112,8 @@ First you need to enable the _backup and restore service_ in your cluster. Get t
     ```
 
 4. Once you have updated your cluster configuration file with the preceding changes, apply them and let the deployment/upgrade complete. Once complete, the _backup and restore service_ starts running in your cluster. The Uri of this service is `fabric:/System/BackupRestoreService` and the service can be located under system service section in the Service Fabric explorer. 
+
+
 
 ## Enabling periodic backup for Reliable Stateful service and Reliable Actors
 Let's walk through steps to enable periodic backup for Reliable Stateful service and Reliable Actors. These steps assume
@@ -190,6 +192,16 @@ $url = "http://localhost:19080/Applications/SampleApp/$/EnableBackup?api-version
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json'
 ``` 
 
+#### Using Service Fabric Explorer
+
+1. Select an application and go to action. Click Enable/Update Application Backup.
+
+    ![Enable Application Backup][3] 
+
+2. Finally, select the desired policy and click Enable Backup.
+
+    ![Select Policy][4]
+
 ### Verify that periodic backups are working
 
 After enabling backup for the application, all partitions belonging to Reliable Stateful services and Reliable Actors under the application will start getting backed-up periodically as per the associated backup policy.
@@ -259,6 +271,12 @@ CreationTimeUtc         : 2018-04-01T20:09:44Z
 FailureError            : 
 ```
 
+#### Using Service Fabric Explorer
+
+To view backups in Service Fabric Explorer, navigate to a partition and select the Backups tab.
+
+![Enumerate Backups][5]
+
 ## Limitation/ caveats
 - Service Fabric PowerShell cmdlets are in preview mode.
 - No support for Service Fabric clusters on Linux.
@@ -267,5 +285,7 @@ FailureError            :
 - [Understanding periodic backup configuration](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [Backup restore REST API reference](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
-[0]: ./media/service-fabric-backuprestoreservice/PartitionBackedUpHealthEvent.png
-
+[0]: ./media/service-fabric-backuprestoreservice/partition-backedup-health-event.png
+[3]: ./media/service-fabric-backuprestoreservice/enable-app-backup.png
+[4]: ./media/service-fabric-backuprestoreservice/enable-application-backup.png
+[5]: ./media/service-fabric-backuprestoreservice/backup-enumeration.png

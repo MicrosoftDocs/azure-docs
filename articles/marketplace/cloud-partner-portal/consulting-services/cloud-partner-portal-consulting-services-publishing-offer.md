@@ -4,6 +4,7 @@ description: Guide for defining and publishing an Azure or Dynamics 365 consulti
 services: Azure, Marketplace, Cloud Partner Portal, 
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pabutler
@@ -28,6 +29,7 @@ This section outlines the elements of publishing a consulting service offer. Pub
 
 - [Consulting service prerequisites](./cpp-consulting-service-prerequisites.md) lists the requirements to publish a consulting service offer for:
  
+    - Microsoft Azure
     - Dynamics 365 for Customer Engagement 
     - Dynamics 365 for Finance & Operations 
     - Dynamics 365 Business Central 

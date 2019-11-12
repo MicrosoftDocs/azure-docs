@@ -2,12 +2,14 @@
 title: 'Tutorial: Capture events from an Azure Digital Twins space | Microsoft Docs'
 description: Learn how to receive notifications from your spaces by integrating Azure Digital Twins with Logic Apps, using the steps in this tutorial.
 services: digital-twins
-author: dsk-2015
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial 
-ms.date: 12/18/2018
-ms.author: dkshir
+ms.date: 09/23/2019
+#Customer intent: As an Azure IoT developer, I want to walk through a sample application to learn how to capture events from a Azure Digital Twins space. 
 ---
 
 # Tutorial: Receive notifications from your Azure Digital Twins spaces by using Logic Apps
@@ -34,6 +36,9 @@ This tutorial assumes that you have [configured](tutorial-facilities-setup.md) a
 - [.NET Core SDK version 2.1.403 or later](https://www.microsoft.com/net/download) on your development machine to run the sample. Run `dotnet --version` to verify that the right version is installed.
 - An Office 365 account to send notification e-mails.
 
+> [!TIP]
+> Use a unique Digital Twins instance name if you're provisioning a new instance.
+
 ## Integrate events with Event Grid
 
 In this section, you set up [Event Grid](../event-grid/overview.md) to collect events from your Azure Digital Twins instance, and redirect them to an [event handler](../event-grid/event-handlers.md) such as Logic Apps.
@@ -50,13 +55,13 @@ An [event grid topic](../event-grid/concepts.md#topics) provides an interface to
 
 1. Enter a **Name** for your event grid topic, and choose the **Subscription**. Select the **Resource group** that you used or created for your Digital Twins instance, and the **Location**. Select **Create**. 
 
-    ![Create an event grid topic](./media/tutorial-facilities-events/create-event-grid-topic.png)
+    [![Create an event grid topic](./media/tutorial-facilities-events/create-event-grid-topic.png)](./media/tutorial-facilities-events/create-event-grid-topic.png#lightbox)
 
 1. Browse to the event grid topic from your resource group, select **Overview**, and copy the value for **Topic Endpoint** to a temporary file. You'll need this URL in the next section. 
 
 1. Select **Access keys**, and copy **YOUR_KEY_1** and **YOUR_KEY_2** to a temporary file. You'll need these values to create the endpoint in the next section.
 
-    ![Event Grid keys](./media/tutorial-facilities-events/event-grid-keys.png)
+    [![Event Grid keys](./media/tutorial-facilities-events/event-grid-keys.png)](./media/tutorial-facilities-events/event-grid-keys.png#lightbox)
 
 ### Create an endpoint for the event grid topic
 
@@ -71,16 +76,16 @@ An [event grid topic](../event-grid/concepts.md#topics) provides an interface to
       - SpaceChange
       - TopologyOperation
       - UdfCustom
-      connectionString: Primary_connection_string_for_your_Event_Grid
-      secondaryConnectionString: Secondary_connection_string_for_your_Event_Grid
-      path: Event_Grid_Topic_Path
+      connectionString: <Primary connection string for your Event Grid>
+      secondaryConnectionString: <Secondary connection string for your Event Grid>
+      path: <Event Grid Topic Name without https:// and /api/events, e.g. eventgridname.region.eventgrid.azure.net>
     ```
 
-1. Replace the placeholder `Primary_connection_string_for_your_Event_Grid` with the value of **YOUR_KEY_1**.
+1. Replace the placeholder `<Primary connection string for your Event Grid>` with the value of **YOUR_KEY_1**.
 
-1. Replace the placeholder `Secondary_connection_string_for_your_Event_Grid` with the value of **YOUR_KEY_2**.
+1. Replace the placeholder `<Secondary connection string for your Event Grid>` with the value of **YOUR_KEY_2**.
 
-1. Replace the placeholder `Event_Grid_Topic_Path` with the path of the event grid topic. Get this path by removing **https://** and the trailing resource paths from the **Topic Endpoint** URL. It should look similar to this format: *yourEventGridName.yourLocation.eventgrid.azure.net*.
+1. Replace the placeholder for **path** with the path of the event grid topic. Get this path by removing **https://** and the trailing resource paths from the **Topic Endpoint** URL. It should look similar to this format: *yourEventGridName.yourLocation.eventgrid.azure.net*.
 
     > [!IMPORTANT]
     > Enter all values without any quotes. Make sure there's at least one space character after the colons in the YAML file. You can also validate your YAML file contents by using any online YAML validator such as [this tool](https://onlineyamltools.com/validate-yaml).
@@ -93,7 +98,7 @@ An [event grid topic](../event-grid/concepts.md#topics) provides an interface to
 
    This command creates the endpoint for Event Grid. 
 
-   ![Endpoints for Event Grid](./media/tutorial-facilities-events/dotnet-create-endpoints.png)
+   [![Endpoints for Event Grid](./media/tutorial-facilities-events/dotnet-create-endpoints.png)](./media/tutorial-facilities-events/dotnet-create-endpoints.png#lightbox)
 
 ## Notify events with Logic Apps
 
@@ -105,11 +110,11 @@ You can use the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service
 
 1. Enter a **Name** for your Logic App resource, and then select your **Subscription**, **Resource group**, and **Location**. Select **Create**.
 
-    ![Create a Logic Apps resource](./media/tutorial-facilities-events/create-logic-app.png)
+    [![Create a Logic Apps resource](./media/tutorial-facilities-events/create-logic-app.png)](./media/tutorial-facilities-events/create-logic-app.png#lightbox)
 
 1. Open your Logic Apps resource when it's deployed, and then open the **Logic App Designer** pane. 
 
-1. Select the **When an Event Grid event occurs** trigger. Sign in to your tenant with your Azure account when prompted. Select **Allow access** for your Event Grid resource when prompted. Select **Continue**.
+1. Select the **When an Event Grid resource event occurs** trigger. Sign in to your tenant with your Azure account when prompted. Select **Allow access** for your Event Grid resource if prompted. Select **Continue**.
 
 1. In the **When a resource event occurs (Preview)** window: 
    
@@ -119,7 +124,7 @@ You can use the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service
 
    c. Select your Event Grid resource from the drop-down box for **Resource Name**.
 
-   ![Logic App Designer pane](./media/tutorial-facilities-events/logic-app-resource-event.png)
+   [![Logic App Designer pane](./media/tutorial-facilities-events/logic-app-resource-event.png)](./media/tutorial-facilities-events/logic-app-resource-event.png#lightbox)
 
 1. Select the **New step** button.
 
@@ -129,7 +134,7 @@ You can use the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service
 
    b. In the **Content** field, select **Body** from the **Dynamic content** list.
 
-   c. Select **Use sample to payload to generate schema**. Paste the following JSON payload, and then select **Done**.
+   c. Select **Use sample payload to generate schema**. Paste the following JSON payload, and then select **Done**.
 
     ```JSON
     {
@@ -151,7 +156,7 @@ You can use the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service
 
     This payload has fictitious values. Logic Apps uses this sample payload to generate a *schema*.
 
-    ![Logic Apps Parse JSON window for Event Grid](./media/tutorial-facilities-events/logic-app-parse-json.png)
+    [![Logic Apps Parse JSON window for Event Grid](./media/tutorial-facilities-events/logic-app-parse-json.png)](./media/tutorial-facilities-events/logic-app-parse-json.png#lightbox)
 
 1. Select the **New step** button.
 
@@ -163,19 +168,19 @@ You can use the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service
 
    c. In the second **Choose a value** text box, enter `UdfCustom`.
 
-   ![Selected conditions](./media/tutorial-facilities-events/logic-app-condition.png)
+   [![Selected conditions](./media/tutorial-facilities-events/logic-app-condition.png)](./media/tutorial-facilities-events/logic-app-condition.png#lightbox)
 
 1. In the **If true** window:
 
    a. Select **Add an action**, and select **Office 365 Outlook**.
 
-   b. From the **Actions** list, select **Send an email**. Select **Sign in** and use your email account credentials. Select **Allow access** when prompted.
+   b. From the **Actions** list, select **Send an email**. Select **Sign in** and use your email account credentials. Select **Allow access** if prompted.
 
    c. In the **To** box, enter your email ID to receive notifications. In **Subject**, enter the text **Digital Twins notification for poor air quality in space**. Then select **TopologyObjectId** from the **Dynamic content** list for **Parse JSON**.
 
    d. Under **Body** in the same window, enter text similar to this: **Poor air quality detected in a room, and temperature needs to be adjusted**. Feel free to elaborate by using elements from the **Dynamic content** list.
 
-   ![Logic Apps "Send an email" selections](./media/tutorial-facilities-events/logic-app-send-email.png)
+   [![Logic Apps "Send an email" selections](./media/tutorial-facilities-events/logic-app-send-email.png)](./media/tutorial-facilities-events/logic-app-send-email.png#lightbox)
 
 1. Select the **Save** button at the top of the **Logic App Designer** pane.
 
@@ -183,7 +188,7 @@ You can use the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service
 
 In a few minutes, you should start getting email notifications from this Logic Apps resource. 
 
-   ![Email notification](./media/tutorial-facilities-events/logic-app-notification.png)
+   [![Email notification](./media/tutorial-facilities-events/logic-app-notification.png)](./media/tutorial-facilities-events/logic-app-notification.png#lightbox)
 
 To stop receiving these emails, go to your Logic Apps resource in the portal, and select the **Overview** pane. Select **Disable**.
 

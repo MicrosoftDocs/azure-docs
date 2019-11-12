@@ -4,17 +4,17 @@ description: In this quickstart, you learn how to use Azure PowerShell to create
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 01/22/2019
+ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
 ---

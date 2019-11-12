@@ -7,16 +7,40 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 09/03/2019
 ms.author: alkohli
+ms.localizationpriority: high
 #Customer intent: As an IT admin, I need to quickly deploy Data Box so as to import data into Azure.
 ---
+
+::: zone target="docs"
+
 # Quickstart: Deploy Azure Data Box using the Azure portal
+
+::: zone-end
+
+::: zone target="chromeless"
+
+# Get started with Azure Data Box 
+
+::: zone-end
+
+::: zone target="docs"
 
 This quickstart describes how to deploy the Azure Data Box using the Azure portal. The steps include how to cable, configure, and copy data to Data Box so that it uploads to Azure. The quickstart is performed in the Azure portal and on the local web UI of the device.
 
 For detailed step-by-step deployment and tracking instructions, go to [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md)
 
+::: zone-end 
+
+::: zone target="chromeless"
+
+This guide describes how to deploy the Azure Data Box using the Azure portal. The steps include review the prerequisites, cable and connect your device, and copy data to your device so that it uploads to Azure.
+
+::: zone-end
+
+::: zone target="docs"
+ 
 ## Prerequisites
 
 Before you begin:
@@ -37,6 +61,27 @@ Before you begin:
     - One RJ-45 CAT 6 network cable (use with MGMT network interface)
     - One RJ-45 CAT 6A OR one RJ-45 CAT 6 network cable (use with DATA 3 network interface configured as 10 Gbps or 1 Gbps respectively)
 
+::: zone-end 
+
+::: zone target="chromeless"
+
+## Prerequisites
+
+Before you begin, make sure that you've:
+
+1. Completed the [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
+2. Received your Data Box and the order status in the portal is **Delivered**. 
+3. Reviewed the [Data Box safety guidelines](data-box-safety.md).
+4. Received one grounded power cord to use with your 100-TB storage device.
+5. Access to a host computer that has the data that you want to copy over to Data Box. Your host computer must
+    - Run a [Supported operating system](data-box-system-requirements.md).
+    - Be connected to high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, a 1-GbE data link can be used but the copy speeds are impacted. 
+6. Access to a flat surface to place the Data Box. To place the device flat or upright in a standard rack shelf, you need a 7U slot in your rack.
+
+::: zone-end
+
+::: zone target="docs"
+
 ## Sign in to Azure
 
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
@@ -51,6 +96,8 @@ This step takes roughly 5 minutes.
 4. Enter the order details and shipping information. If the service is available in your region, provide notification email addresses, review the summary, and then create the order.
 
 Once the order is created, the device is prepared for shipment.
+
+
 
 ## Cable 
 
@@ -128,5 +175,7 @@ In this quickstart, you’ve deployed an Azure Data Box to help import your data
 
 > [!div class="nextstepaction"]
 > [Use the Azure portal to administer Data Box](data-box-portal-admin.md)
+
+::: zone-end
 
 

@@ -22,7 +22,7 @@ It's used in apps that benefit from fast, real-time communication, such as chat,
 
 To establish a WebSocket connection, a specific HTTP-based handshake is exchanged between the client and the server. If successful, the application-layer protocol is "upgraded" from HTTP to WebSockets, using the previously established TCP connection. Once this occurs, HTTP is completely out of the picture; data can be sent or received using the WebSocket protocol by both endpoints, until the WebSocket connection is closed. 
 
-![addcert](./media/application-gateway-websocket/websocket.png)
+![websocket](./media/application-gateway-websocket/websocket.png)
 
 ### Listener configuration element
 
@@ -62,7 +62,7 @@ An existing HTTP listener can be used to support WebSocket traffic. The followin
 
 ## BackendAddressPool, BackendHttpSetting, and Routing rule configuration
 
-A BackendAddressPool is used to define a backend pool with WebSocket enabled servers. The backendHttpSetting is defined with a backend port 80 and 443. The properties for cookie-based affinity and requestTimeouts are not relevant to WebSocket traffic. There is no change required in the routing rule, 'Basic' is used to tie the appropriate listener to the corresponding backend address pool. 
+A BackendAddressPool is used to define a backend pool with WebSocket enabled servers. The backendHttpSetting is defined with a backend port 80 and 443. The request timeout value in HTTP Settings also applies to the WebSocket session. There is no change required in the routing rule, which is used to tie the appropriate listener to the corresponding backend address pool. 
 
 ```json
 "requestRoutingRules": [{

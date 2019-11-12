@@ -1,14 +1,12 @@
 ---
 title: Configure a custom domain name for your Azure storage account | Microsoft Docs
 description: Use the Azure portal to map your own canonical name (CNAME) to the Blob storage or web endpoint in an Azure storage account.
-services: storage
 author: normesta
-
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: normesta
-ms.reviewer: seguler
+ms.reviewer: dineshm
 ms.subservice: blobs
 ---
 
@@ -24,16 +22,16 @@ You can configure a custom domain for accessing blob data in your Azure storage 
 > Storage accounts currently support only one custom domain name per account. You can't map a custom domain name to both the web and blob service endpoints.
 > 
 > [!NOTE]
-> The mapping does only work for subdomains (e.g. www\.contoso.com). If you want to have your web endpoint available on the root domain (e.g. contoso.com), then you have to [use Azure CDN with custom domains](storage-https-custom-domain-cdn.md)
+> The mapping does only work for subdomains (e.g. www\.contoso.com). If you want to have your web endpoint available on the root domain (e.g. contoso.com), then you have to [Add a custom domain to your Azure CDN endpoint](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain).
 
 The following table shows a few sample URLs for blob data that's located in a storage account named *mystorageaccount*. The custom subdomain that's registered for the storage account is *www\.contoso.com*:
 
 | Resource type | Default URL | Custom domain URL |
 | --- | --- | --- |
-| Storage account | http://mystorageaccount.blob.core.windows.net | http://www.contoso.com |
-| Blob |http://mystorageaccount.blob.core.windows.net/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
-| Root container | http://mystorageaccount.blob.core.windows.net/myblob or http://mystorageaccount.blob.core.windows.net/$root/myblob| http://www.contoso.com/myblob or http://www.contoso.com/$root/myblob |
-| Web |  http://mystorageaccount.[zone].web.core.windows.net/$web/[indexdoc] or http://mystorageaccount.[zone].web.core.windows.net/[indexdoc] or http://mystorageaccount.[zone].web.core.windows.net/$web or http://mystorageaccount.[zone].web.core.windows.net/ | http://www.contoso.com/$web or http://www.contoso.com/ or http://www.contoso.com/$web/[indexdoc] or  http://www.contoso.com/[indexdoc] |
+| Storage account | http:\//mystorageaccount.blob.core.windows.net | http:\//www.contoso.com |
+| Blob |http:\//mystorageaccount.blob.core.windows.net/mycontainer/myblob | http:\//www.contoso.com/mycontainer/myblob |
+| Root container | http:\//mystorageaccount.blob.core.windows.net/myblob or http:\//mystorageaccount.blob.core.windows.net/$root/myblob | http:\//www.contoso.com/myblob or http:\//www.contoso.com/$root/myblob |
+| Web |  http:\//mystorageaccount.[zone].web.core.windows.net/$web/[indexdoc] or http:\//mystorageaccount.[zone].web.core.windows.net/[indexdoc] or http:\//mystorageaccount.[zone].web.core.windows.net/$web or http:\//mystorageaccount.[zone].web.core.windows.net/ | http:\//www.contoso.com/$web or http:\//www.contoso.com/ or http:\//www.contoso.com/$web/[indexdoc] or  http:\//www.contoso.com/[indexdoc] |
 
 > [!NOTE]  
 > As shown in the following sections, all examples for the blob service endpoint also apply to the web service endpoint.

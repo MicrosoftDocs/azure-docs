@@ -2,12 +2,12 @@
 title: Tutorial - Create an Azure Red Hat OpenShift cluster | Microsoft Docs
 description: Learn how to create a Microsoft Azure Red Hat OpenShift cluster using the Azure CLI
 services: container-service
-author: TylerMSFT
-ms.author: twhitney
+author: jimzim
+ms.author: jzim
 manager: jeconnoc
 ms.topic: tutorial
-ms.service: openshift
-ms.date: 05/14/2019
+ms.service: container-service
+ms.date: 11/04/2019
 #Customer intent: As a developer, I want learn how to create an Azure Red Hat OpenShift cluster, scale it, and then clean up resources so that I am not charged for what I'm not using.
 ---
 
@@ -30,8 +30,6 @@ In this tutorial series you learn how to:
 
 > [!IMPORTANT]
 > This tutorial requires version 2.0.65 of the Azure CLI.
->    
-> Before you can use Azure Red Hat OpenShift, you'll need to purchase a minimum of 4 Azure Red Hat OpenShift reserved application nodes as described in [Set up your Azure Red Hat OpenShift development environment](howto-setup-environment.md#purchase-azure-red-hat-openshift-application-nodes-reserved-instances).
 
 Before you begin this tutorial:
 
@@ -103,6 +101,10 @@ az group create --name $CLUSTER_NAME --location $LOCATION
 
 If you don't need to connect the virtual network (VNET) of the cluster you create to an existing VNET via peering, skip this step.
 
+If peering to a network outside the default subscription then in that subscription, you will also need to register the provider Microsoft.ContainerService. To do this, run the below command in that subscription. Else, if the VNET you are peering is located in the same subscription, you can skip the registering step. 
+
+`az provider register -n Microsoft.ContainerService --wait`
+
 First, get the identifier of the existing VNET. The identifier will be of the form:
 `/subscriptions/{subscription id}/resourceGroups/{resource group of VNET}/providers/Microsoft.Network/virtualNetworks/{VNET name}`.
 
@@ -120,6 +122,9 @@ For example: `VNET_ID=$(az network vnet show -n MyVirtualNetwork -g MyResourceGr
 
 You're now ready to create a cluster. The following will create the cluster in the specified Azure AD tenant, specify the Azure AD app object and secret to use as a security principal, and the security group that contains the members that have admin access to the cluster.
 
+> [!IMPORTANT]
+> Make sure you have correctly added the appropriate permissions for the Azure AD app as [detailed here](howto-aad-app-configuration.md#add-api-permissions) before creating the cluster
+
 If you are **not** peering your cluster to a virtual network, use the following command:
 
 ```bash
@@ -135,8 +140,7 @@ az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCA
 > [!NOTE]
 > If you get an error that the host name is not available, it may be because your
 > cluster name is not unique. Try deleting your original app registration and
-> redoing the steps with a different cluster name in [Create a new app registration]
-> (howto-aad-app-configuration.md#create-a-new-app-registration), omitting the
+> redoing the steps with a different cluster name in [Create a new app registration](howto-aad-app-configuration.md#create-an-azure-ad-app-registration), omitting the
 > step of creating a new user and security group.
 
 After a few minutes, `az openshift create` will complete.
