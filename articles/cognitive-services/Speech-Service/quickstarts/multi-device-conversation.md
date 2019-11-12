@@ -13,7 +13,7 @@ ms.author: ralphe
 zone_pivot_groups: programming-languages-set-two
 ---
 
-# Quickstart: Multi-device Conversation 
+# Quickstart: Multi-Device Conversation 
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/multi-device-conversation/header.md)]
