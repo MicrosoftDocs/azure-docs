@@ -58,7 +58,7 @@ The following sections provide examples of how you can declare the parent/child 
 
 #### Option 1: IoT Hub Portal
 
-You can declare the parent-child relationship when creating a new device. Or for existing devices, you can declare the relationship from the device details page of your Iot Hub for either the parent IoT Edge device or the child IoT device.
+You can declare the parent-child relationship when creating a new device. For existing devices, you can declare the relationship from the device details page on your Iot Hub, for either the parent IoT Edge device or the child IoT device.
 
    ![Manage child devices from the IoT Edge device details page](./media/offline-capabilities/manage-child-devices.png)
 
