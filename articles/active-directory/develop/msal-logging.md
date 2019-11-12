@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/31/2019
+ms.date: 11/11/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
@@ -152,7 +152,7 @@ var msalConfig = {
 var UserAgentApplication = new Msal.UserAgentApplication(msalConfig);
 ```
 
-## Logging in MSAL for iOS and macOS
+## MSAL for iOS and macOS logging
 
 Set a callback to capture MSAL logging and incorporate it in your own application's logging. The signature for the callback looks like this:
 
@@ -260,7 +260,7 @@ For example:
 
 Providing correlation IDs and timestamps are helpful for tracking down issues. Timestamp and correlation ID information is available in the log message. The only reliable place to retrieve them is from MSAL logging messages.
 
-## Logging in MSAL for Java
+## MSAL for Java logging
 
 MSAL for Java (MSAL4J) allows you to use the logging library that you are already using with your app, as long as it is compatible with SLF4J. MSAL4j uses the [Simple Logging Facade for Java](http://www.slf4j.org/) (SLF4J) as a simple facade or abstraction for various logging frameworks, such as [java.util.logging](https://docs.oracle.com/javase/7/docs/api/java/util/logging/package-summary.html), [Logback](http://logback.qos.ch/) and [Log4j](https://logging.apache.org/log4j/2.x/). SLF4J allows the end-user to plug in the desired logging framework at deployment time.
 
@@ -307,3 +307,31 @@ PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
         .logPii(true)
         .build();
 ```
+
+## MSAL for Python logging
+
+Logging in MSAL Python uses the standard Python logging mechanism. What you know about logging in Python applies to logging with MSAL Python.
+
+### Enable debug logging for all modules
+
+By default, the logging in any Python script is turned off. If you want to enable debug logging for all of the modules in your entire Python script, use:
+
+```python
+logging.basicConfig(level=logging.DEBUG)
+```
+
+### Silence only MSAL logging
+
+To silence only MSAL library logging, while enabling debug logging in all of the other modules in your Python script, turn off the logger used by MSAL Python:
+
+```Python
+logging.getLogger("msal").setLevel(logging.WARN)
+```
+
+### Personal and organizational data in Python
+
+MSAL for Python does not log personal data or organizational data. There is no property to turn personal or organization data logging on or off.
+
+You can use standard Python logging to log whatever you want, but you are responsible for safely handling sensitive data and following regulatory requirements.
+
+For more information about logging in Python, please refer to Python's  [Logging HOWTO](https://docs.python.org/3/howto/logging.html#logging-basic-tutorial).
