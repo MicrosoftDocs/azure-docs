@@ -1,6 +1,6 @@
 ---
 title: About Azure Kinect DK
-description: Azure Kinect DK overview
+description: Overview of the Azure Kinect developer kit (DK) tools and integrated services.
 author: tesych
 ms.author: tesych
 ms.prod: kinect-dk
