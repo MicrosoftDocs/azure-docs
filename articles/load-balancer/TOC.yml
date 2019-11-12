@@ -141,27 +141,6 @@
     items:
     - name: Troubleshoot Azure Load Balancer
       href: load-balancer-troubleshoot.md
-  - name: Classic deployment model articles
-    items:
-    - name: Outbound connections (classic)
-      href: load-balancer-outbound-connections-classic.md
-    - name: Configure multiple VIPs for cloud service
-      href: load-balancer-multivip.md
-      items:
-      - name: Configure internal Load Balancer for Cloud Services
-        href: load-balancer-get-started-ilb-classic-cloud.md
-        items:
-        - name: Configure internal Load Balancer for Cloud Services (PowerShell)
-          href: load-balancer-get-started-ilb-classic-ps.md
-        - name: Configure internal Load Balancer for Cloud Services (CLI)
-          href: load-balancer-get-started-ilb-classic-cli.md
-      - name: Configure public Load Balancer (Classic PowerShell)
-        href: load-balancer-get-started-internet-classic-ps.md
-        items:
-        - name: Configure public Load Balancer (Classic Cloud)
-          href: load-balancer-get-started-internet-classic-cloud.md
-        - name: Configure public Load Balancer (Classic CLI)
-          href: load-balancer-get-started-internet-classic-cli.md
 - name: Reference
   items:
   - name: Code samples
