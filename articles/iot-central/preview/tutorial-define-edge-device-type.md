@@ -17,29 +17,29 @@ manager: peterpr
 
 This tutorial shows you, as a builder, how to use a device template to define a new type of Azure IoT Edge device in your Azure IoT Central application. 
 
-To get an overview of Azure IoT Edge, [refer this article](overview-iot-central.md). 
+For an overview, see [What is Azure IoT Central (preview features)?](overview-iot-central.md). 
 
-Azure IoT Edge is made up of three components:
-* **IoT Edge modules** are containers that run Azure services, third-party services, or your own code. Modules are deployed to IoT Edge devices and execute locally on those devices.
-* The **IoT Edge runtime** runs on each IoT Edge device and manages the modules deployed to each device.
-* A **cloud-based interface** enables you to remotely monitor and manage IoT Edge devices. IoT Central will be the cloud interface.
+IoT Edge is made up of three components:
+* **IoT Edge modules** are containers that run Azure services, third-party services, or your own code. Modules are deployed to IoT Edge devices, and run locally on those devices.
+* The **IoT Edge runtime** runs on each IoT Edge device, and manages the modules deployed to each device.
+* A **cloud-based interface** enables you to remotely monitor and manage IoT Edge devices. IoT Central is the cloud interface.
 
-An **Azure IoT Edge** device can be a gateway device with downstream devices connecting into the Azure IoT Edge device. Downstream device connectivity patterns will be discussed in this tutorial.
+An **Azure IoT Edge** device can be a gateway device, with downstream devices connecting into the IoT Edge device. This tutorial shares more information about downstream device connectivity patterns.
 
-A **device template** defines the capabilities of your device & IoT Edge modules. Capabilities include telemetry the module sends, module properties, and the commands a module responds to.
+A **device template** defines the capabilities of your device and IoT Edge modules. Capabilities include telemetry the module sends, module properties, and the commands a module responds to.
 
-In this tutorial, you create an **Environment Sensor** device template. An environmental sensor device:
+In this tutorial, you create an Environment Sensor device template. An environmental sensor device:
 
-* Sends telemetry such as temperature.
-* Responds to writeable properties when updated in the cloud such as telemetry send interval.
-* Responds to commands such as resetting temperature.
+* Sends telemetry, such as temperature.
+* Responds to writeable properties when updated in the cloud, such as telemetry send interval.
+* Responds to commands, such as resetting temperature.
 
-Also in this tutorial, you create an **Environment Gateway** device template. An environmental gateway device:
+Also in this tutorial, you create an Environment Gateway device template. An environmental gateway device:
 
-* Sends telemetry such as temperature.
-* Responds to writeable properties when updated in the cloud such as telemetry send interval.
-* Responds to commands such as resetting temperature.
-* Allows relationships to other device capability models
+* Sends telemetry, such as temperature.
+* Responds to writeable properties when updated in the cloud, such as telemetry send interval.
+* Responds to commands, such as resetting temperature.
+* Allows relationships to other device capability models.
 
 
 In this tutorial, you learn how to:
@@ -47,62 +47,62 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create a new Azure IoT Edge device device template.
 > * Upload a deployment manifest.
-> * Create capabilities including telemetry, properties and commands for each module
+> * Create capabilities including telemetry, properties, and commands for each module.
 > * Define a visualization for the module telemetry.
-> * Add relationships to downstream device templates
+> * Add relationships to downstream device templates.
 > * Publish your device template.
 
 ## Prerequisites
 
-To complete this tutorial, you need an Azure IoT Central application. Follow this quickstart to [Create an Azure IoT Central application](quick-deploy-iot-central.md).
+To complete this tutorial, you need to [create an Azure IoT Central application](quick-deploy-iot-central.md).
 
 
-## Downstream device relationships with gateway & modules
+## Downstream device relationships with a gateway and modules
 
-Downstream devices can connect to Azure IoT Edge gateway device through the $edgeHub module. This Azure IoT Edge device becomes a transparent gateway in this scenario
+Downstream devices can connect to an IoT Edge gateway device through the `$edgeHub` module. This IoT Edge device becomes a transparent gateway in this scenario.
 
-![Central Application page](./media/tutorial-define-edge-device-type/gateway-transparent.png)
+![Diagram of transparent gateway](./media/tutorial-define-edge-device-type/gateway-transparent.png)
 
-Downstream devices can connect to Azure IoT Edge gateway device through a custom module. In the scenario below downstream devices are connecting through a Modbus custom module and Downstream devices can connect to Azure IoT Edge gateway device through the $edgeHub module.
+Downstream devices can also connect to an IoT Edge gateway device through a custom module. In the following scenario, downstream devices connect through a Modbus custom module.
 
-![Central Application page](./media/tutorial-define-edge-device-type/gateway-module.png)
+![Diagram of custom module connection](./media/tutorial-define-edge-device-type/gateway-module.png)
 
-Downstream devices can connect to Azure IoT Edge gateway device through a custom module. In the scenario below downstream devices are connecting through a Modbus custom module. 
+The following diagram shows connection to an IoT Edge gateway device through both types of modules (custom and `$edgeHub`).  
 
-![Central Application page](./media/tutorial-define-edge-device-type/gateway-module-transparent.png)
+![Diagram of connecting via both connection modules](./media/tutorial-define-edge-device-type/gateway-module-transparent.png)
 
-Downstream devices can connect to Azure IoT Edge gateway device through multiple custom modules. In the scenario below downstream devices are connecting through a Modbus custom module, BLE custom module and Downstream devices can connect to Azure IoT Edge gateway device through the $edgeHub module. 
+Finally, downstream devices can connect to an IoT Edge gateway device through multiple custom modules. The following diagram shows downstream devices connecting through a Modbus custom module, a BLE custom module, and the `$edgeHub` module. 
 
-![Central Application page](./media/tutorial-define-edge-device-type/gateway-module2-transparent.png)
+![Diagram of connecting via multiple custom modules](./media/tutorial-define-edge-device-type/gateway-module2-transparent.png)
 
 
 ## Create a template
 
-As a builder, you can create and edit Azure IoT Edge device templates in your application. After you publish a device template, you can connect real devices that implement the device template.
+As a builder, you can create and edit IoT Edge device templates in your application. After you publish a device template, you can connect real devices that implement the device template.
 
 ### Select device template type 
 
-To add a new device template to your application, go to the **Device Templates** page. To do so select the **Device Templates** tab on the left pane.
+To add a new device template to your application, select **Device Templates** on the left pane.
 
-![Central Application page](./media/tutorial-define-edge-device-type/edgedevicetemplate.png)
+![Screenshot of Preview Application, with Device Templates highlighted](./media/tutorial-define-edge-device-type/edgedevicetemplate.png)
 
-Click **+ New** to start creating a new device template.
+Select **+ New** to start creating a new device template.
 
-![Device Templates - New](./media/tutorial-define-edge-device-type/edgedevicetemplatenew.png)
+![Screenshot of Device templates page, with New highlighted](./media/tutorial-define-edge-device-type/edgedevicetemplatenew.png)
 
-You will land on device template type selection page. Select **Azure IoT Edge** Tile and click **Next: Customize** button at the bottom
+On the **Select template type** page, select **Azure IoT Edge**, and select **Next: Customize**.
 
-![Device Templates Selection - Azure IoT Edge](./media/tutorial-define-edge-device-type/selectiotedge.png)
+![Screenshot of Select template type page](./media/tutorial-define-edge-device-type/selectiotedge.png)
 
 ### Customize device template
 
-Azure IoT Edge lets you deploy and manage business logic in the form of modules. **Azure IoT Edge modules** are the smallest unit of computation managed by IoT Edge, and can contain Azure services (such as Azure Stream Analytics) or your own solution-specific code. To understand how modules are developed, deployed, and maintained read [IoT Edge Modules](../../iot-edge/iot-edge-modules.md).
+In IoT Edge, you can deploy and manage business logic in the form of modules. IoT Edge modules are the smallest unit of computation managed by IoT Edge, and can contain Azure services (such as Azure Stream Analytics), or your own solution-specific code. To understand how modules are developed, deployed, and maintained, see [IoT Edge modules](../../iot-edge/iot-edge-modules.md).
 
-At a high level, a deployment manifest is a list of module twins that are configured with their desired properties. A deployment manifest tells an IoT Edge device (or a group of devices) which modules to install and how to configure them. Deployment manifests include the desired properties for each module twin. IoT Edge devices report back the reported properties for each module.
+At a high level, a deployment manifest is a list of module twins that are configured with their desired properties. A deployment manifest tells an IoT Edge device (or a group of devices) which modules to install, and how to configure them. Deployment manifests include the desired properties for each module twin. IoT Edge devices report back the reported properties for each module.
 
-Use Visual Studio Code to create a deployment manifest. Follow documentation on how to create a [deployment manifest](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).
+Use Visual Studio Code to create a deployment manifest. To learn more, see [Azure IoT Edge for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).
 
-Here's a basic deployment manifest with one module as an example to be used for this tutorial. Copy the below JSON and save it as .json file. 
+Here's a basic deployment manifest, with one module as an example to be used for this tutorial. Copy the following JSON, and save it as .json file. 
 
    ```JSON
    {
@@ -171,33 +171,33 @@ Here's a basic deployment manifest with one module as an example to be used for 
    }
    ```
 
-**Upload an Azure IoT Edge deployment manifest**
+#### Upload an IoT Edge deployment manifest
 
-Click  **Browse** button 
+On the **Customize device** page, under **Upload an Azure IoT Edge deployment manifest**, select **Browse**. 
 
-![Device Template - Azure IoT Edge](./media/tutorial-define-edge-device-type/edgedevicetemplateuploadmanifest.png)
+![Screenshot of Customize device page, with Browse highlighted](./media/tutorial-define-edge-device-type/edgedevicetemplateuploadmanifest.png)
 
-If you plan to create an Azure IoT Edge Gateway device template make sure to select **Gateway device with downstream devices** checkbox
+If you plan to create an IoT Edge Gateway device template, make sure to select **Gateway device with downstream devices**.
 
-![Device Template - Azure IoT Edge](./media/tutorial-define-edge-device-type/gateway-upload.png)
+![Screenshot of Customize device page, with Gateway device with downstream devices highlighted](./media/tutorial-define-edge-device-type/gateway-upload.png)
 
-You will be presented with a file selection dialog. Select the deployment manifest file and click **Open** button.
+In the file selection dialog box, select the deployment manifest file, and select **Open**.
 
-Deployment Manifest file will be validated against a schema. After successful validation click on **Review** button
+IoT Edge validates the deployment manifest file against a schema. If the validation is successful, select **Review**.
 
-![Device Template - Azure IoT Edge](./media/tutorial-define-edge-device-type/deploymentmanifestvalidate.png)
+![Screenshot of Customize device page, with Deployment Manifest and Review highlighted](./media/tutorial-define-edge-device-type/deploymentmanifestvalidate.png)
 
-Below is the flow of a Deployment Manifest life cycle in IoT Central.
+The following flowchart shows a deployment manifest life cycle in IoT Central.
 
-![Device Template - Azure IoT Edge](./media/tutorial-define-edge-device-type/dmflow.png)
+![Flowchart of deployment manifest life cycle](./media/tutorial-define-edge-device-type/dmflow.png)
 
-Review page is displayed with details of the deployment manifest. List of modules from the deployment manifest will be displayed on the review page. In this tutorial, you will see SimulatedTemperatureSensor module listed. Click **Create** button.
+Next, you'll see a review page, with details of the deployment manifest. This page shows a list of modules from the deployment manifest. In this tutorial, note that the `SimulatedTemperatureSensor` module is listed. Select **Create**.
 
-![Device Template - Azure IoT Edge](./media/tutorial-define-edge-device-type/edgedevicetemplatereview.png)
+![Screenshot of Review page, with Module and Create highlighted](./media/tutorial-define-edge-device-type/edgedevicetemplatereview.png)
 
-If you would have selected gateway device you will see this review page
+If you had selected a gateway device, you see the following review page.
 
-![Device Template - Azure IoT Edge](./media/tutorial-define-edge-device-type/gateway-review.png)
+![Screenshot of Review page, with Azure IoT Edge Gateway highlighted](./media/tutorial-define-edge-device-type/gateway-review.png)
 
 
 Creating a new device template spinner will be displayed which the device template is being created in IoT Central.
