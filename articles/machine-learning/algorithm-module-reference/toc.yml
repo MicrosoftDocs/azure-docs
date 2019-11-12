@@ -1,5 +1,7 @@
 - name: Azure Machine Learning designer module reference
   href: module-reference.md
+- name: Azure Machine Learning documentation
+  href: ../index.yml
 - name: Module categories
   expanded: true
   items:
