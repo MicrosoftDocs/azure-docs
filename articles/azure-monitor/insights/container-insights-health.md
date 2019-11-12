@@ -63,9 +63,9 @@ Access to the Azure Monitor for containers Health feature is available directly 
 
 To view health from a non-AKS cluster, that is an AKS Engine cluster hosted on-premises or on Azure Stack, select **Azure Monitor** from the left pane in the Azure portal. Under the **Insights** section, select **Containers**.  On the multi-cluster page, select the non-AKS cluster from the list.
 
-In Azure Monitor for containers, from the **Cluster** page select **Health**.
+In Azure Monitor for containers, from the **Cluster** page, select **Health**.
 
-![Cluster health dashboard example](./media/container-insights-health/health-view-01.png)
+![Cluster health dashboard example](./media/container-insights-health/health-view.png)
 
 ## Review cluster health
 
@@ -73,10 +73,10 @@ When the Health page opens, by default **Kubernetes Infrastructure** is selected
 
 ![Cluster health property pane](./media/container-insights-health/health-view-property-pane.png)
 
-On the property pane, you can learn the following:
+On the property pane, you learn the following:
 
-- On the **Overview** tab, it shows the last state change history over the last three hours.
-- On the**Config** tab, it shows the default configuration parameter settings (only for unit monitors).
+- On the **Overview** tab, it shows the last state change history over the last three hours. If you selected an aggregate monitor, the pane shows a rollup of the total number of aggregate monitors, and how many aggregate monitors are in a critical, warning, and healthy state.
+- On the**Config** tab, it shows the default configuration parameter settings (only for unit monitors) and their values.
 - On the **Knowledge** tab, it contains information explaining the behavior of the monitor and how it evaluates for the unhealthy condition.
 
 
