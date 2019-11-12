@@ -165,8 +165,8 @@
         href: concepts-data-flow-monitoring.md
       - name: Data flow performance
         href: concepts-data-flow-performance.md
-      - name: Move nodes
-        href: concepts-data-flow-move-nodes.md
+      - name: Manage graph
+        href: concepts-data-flow-manage-graph.md
       - name: Expression builder
         href: concepts-data-flow-expression-builder.md
       - name: Expression language
