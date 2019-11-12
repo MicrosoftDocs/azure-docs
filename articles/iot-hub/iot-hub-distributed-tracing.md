@@ -1,5 +1,5 @@
 ---
-title: Add correlation IDs to IoT messages with distributed tracing (preview)
+title: Add correlation IDs to IoT messages w/distributed tracing (pre)
 description: Learn how to use the distributed tracing ability to trace IoT messages throughout the Azure services used by your solution.
 author: jlian
 manager: briz
