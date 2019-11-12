@@ -1,6 +1,6 @@
 ---
-title: Configure replication for storage spaces direct (S2d) VMs in Azure Site Recovery | Microsoft Docs
-description: This article describes how to configure replication for VMs having S2D, from one Azure region to another using Site Recovery.
+title: Replicate Azure VMs running Storage Spaces Direct using Azure Site Recovery 
+description: This article describes how to replicate Azure VMs running Storage Spaces Direct using Azure Site Recovery.
 services: site-recovery
 author: asgang
 manager: rochakm
@@ -11,7 +11,7 @@ ms.author: asgang
 
 ---
 
-# Replicate Azure virtual machines using storage spaces direct to another Azure region
+# Replicate Azure VMs running Storage Spaces Direct to another region
 
 This article describes how to enable disaster recovery of Azure VMs running storage spaces direct.
 
