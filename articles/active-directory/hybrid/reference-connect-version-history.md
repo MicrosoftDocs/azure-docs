@@ -35,7 +35,7 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 
 ## 1.4.32.0
 ### Release status
-08/11/2019: Released for download. Not available for auto-upgrade
+11/08/2019: Released for download. Not available for auto-upgrade
 
 >[!IMPORTANT]
 >Due to an internal schema change in this release of Azure AD Connect, if you manage ADFS trust relationship configuration settings using MSOnline PowerShell then you must update your MSOnline PowerShell module to version 1.1.183.57 or higher
