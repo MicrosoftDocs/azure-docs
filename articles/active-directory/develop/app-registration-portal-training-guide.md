@@ -2,6 +2,7 @@
 title: Transitioning from Application Registration Portal to the new App registrations experience in the Azure portal
 description: An introduction to the new App registration experience in the Azure portal
 services: active-directory
+titleSuffix: Microsoft identity platform
 documentationcenter: ''
 author: archieag
 manager: CelesteDG
