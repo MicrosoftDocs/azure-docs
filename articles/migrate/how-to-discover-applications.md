@@ -10,6 +10,9 @@ ms.author: snehaa
  
 # Discover machine apps, roles, and features 
 
+> [!NOTE]
+> If you don't yet see this feature in the Azure Migrate portal, hang on. It will appear over the next week or so.
+
 This article describes how to discover applications, roles, and features on on-premises servers, using Azure Migrate: Server Assessment.
 
 Discovering the inventory of apps, and roles/features running on your on-premises machines helps you to identify and plan a migration path to Azure that's tailored for your workloads. 

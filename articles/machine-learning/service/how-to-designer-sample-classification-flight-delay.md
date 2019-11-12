@@ -1,5 +1,5 @@
 ---
-title: "Designer example #6: Classification to predict  flight delays"
+title: 'Designer: Classify, predict flight delays' 
 titleSuffix: Azure Machine Learning
 description: This article shows you how to build a machine learning model to predict flight delays using the drag-and-drop designer and custom R code.
 services: machine-learning

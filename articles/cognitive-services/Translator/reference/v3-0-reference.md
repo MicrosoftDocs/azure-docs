@@ -1,7 +1,7 @@
 ---
 title: Translator Text API V3.0 Reference
 titleSuffix: Azure Cognitive Services
-description: Reference documentation for the Translator Text API V3.0.
+description: Reference documentation for the Translator Text API V3.0. Version 3 of the Translator Text API provides a modern JSON-based Web API.
 services: cognitive-services
 author: swmachan
 manager: nitinme

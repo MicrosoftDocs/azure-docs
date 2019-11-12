@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Device SDKs Platform Support | Microsoft Docs
-description: Concepts - list of platforms supported by the Azure IoT Device SDKs
+description: Open-source device SDKs are available on GitHub in C, .NET (C#), Java, Node.js, and Python, to connect devices to Azure IoT Hub and Device Provisioning Service (DPS).
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -45,7 +45,7 @@ The [Azure IoT Hub C device SDK](https://github.com/Azure/azure-iot-sdk-c) is te
 | iOS 12.2            | OpenSSL or Native OSX        | XCode emulated in OSX 10.13.4                                                               |
 | Windows 10 family   | SChannel                     |                                                                                             |
 | Mbed OS 5.4         | Mbed TLS 2                   | [MXChip IoT dev kit](https://microsoft.github.io/azure-iot-developer-kit/)                  |
-| Azure Sphere OS     | WolfSSL                      | [Azure Sphere MT3620](https://azure.microsoft.com/en-us/services/azure-sphere/get-started/) |
+| Azure Sphere OS     | WolfSSL                      | [Azure Sphere MT3620](https://azure.microsoft.com/services/azure-sphere/get-started/) |
 
 ### Python SDK
 
@@ -110,11 +110,11 @@ Microsoft works with a number of partners to continually expand the Azure IoT un
 
 * To browse Azure IoT certified devices, see [Microsoft Azure Certified for IoT Device Catalog](https://catalog.azureiotsolutions.com/).
 
-* To learn more about Microsoft trusted partners or to learn how to become a Microsoft trusted partner, see [Microsoft Azure Certified Internet of Things Trusted Partners](https://azure.microsoft.com/en-us/marketplace/certified-iot-partners/).
+* To learn more about Microsoft trusted partners or to learn how to become a Microsoft trusted partner, see [Microsoft Azure Certified Internet of Things Trusted Partners](https://azure.microsoft.com/marketplace/certified-iot-partners/).
 
 ## Connecting to IoT Hub without an SDK
 
-If you're not able to use one of the IoT Hub device SDKs, you can connect directly to IoT Hub using the [IoT Hub REST APIs](https://docs.microsoft.com/en-us/rest/api/iothub/) from any application capable of sending and receiving HTTPS requests and responses.
+If you're not able to use one of the IoT Hub device SDKs, you can connect directly to IoT Hub using the [IoT Hub REST APIs](https://docs.microsoft.com/rest/api/iothub/) from any application capable of sending and receiving HTTPS requests and responses.
 
 ## Support and other resources
 

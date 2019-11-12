@@ -64,7 +64,7 @@ Monitoring a model's serving data for drift from the model's training data | Res
 Monitoring a time series dataset for drift from a previous time period. | This scenario is more general, and can be used to monitor datasets involved upstream or downstream of model building.  The target dataset must have a timestamp column, while the baseline dataset can be any tabular dataset which has features in common with the target dataset.
 Performing analysis on past data. | This can be used to understand historical data and inform decisions in settings for dataset monitors.
 
-## How dataset can monitors data
+## How dataset can monitor data
 
 Using Azure Machine Learning, data drift is monitored through datasets. To monitor for data drift, a baseline dataset - usually the training dataset for a model - is specified. A target dataset - usually model input data - is compared over time to your baseline dataset. This means that your target dataset must have a timestamp column specified.
 
@@ -324,3 +324,4 @@ Columns, or features, in the dataset are classified as categorical or numeric ba
 
 * Head to the [Azure Machine Learning studio](https://ml.azure.com) or the [Python notebook](https://aka.ms/datadrift-notebook) to set up a dataset monitor.
 * See how to set up data drift on [models deployed to Azure Kubernetes Service](how-to-monitor-data-drift.md).
+* Set up dataset drift monitors with [event grid](how-to-use-event-grid.md). 

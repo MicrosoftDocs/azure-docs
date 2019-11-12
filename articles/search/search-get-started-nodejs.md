@@ -3,9 +3,9 @@ title: 'Quickstart: Create a search index in Node.js using REST APIs'
 titleSuffix: Azure Cognitive Search
 description: Node.js sample for Azure Cognitive Search, demonstrating how to create, load data into, and query from JavaScript.
 
-author: lobrien
+author: HeidiSteen
 manager: nitinme
-ms.author: laobri
+ms.author: heidist
 ms.devlang: nodejs
 ms.service: cognitive-search
 ms.topic: quickstart
@@ -675,7 +675,7 @@ Run the program with `node index.js`. Now, in addition to the previous steps, th
 
 The sample uses a small amount of hotel data, sufficient to demonstrate the basics of creating and querying an Azure Cognitive Search index.
 
-The **AzureSearchClient** class encapsulates the configuration, URLs, and basic HTTP requests for the search service. The **index.js** file loads the configuration data for the Azure Cognitive Search service, the hotel data that will be uploaded for indexing, and, in it's `run` function, orders, and executes the various operations.
+The **AzureSearchClient** class encapsulates the configuration, URLs, and basic HTTP requests for the search service. The **index.js** file loads the configuration data for the Azure Cognitive Search service, the hotel data that will be uploaded for indexing, and, in its `run` function, orders, and executes the various operations.
 
 The overall behavior of the `run` function is to delete the Azure Cognitive Search index if it exists, create the index, add some data, and perform some queries.  
 

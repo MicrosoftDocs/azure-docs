@@ -29,4 +29,4 @@ ms.author: marsma
 1. Select **Grant admin consent for (your tenant name)**.
 1. Select a tenant administrator account.
 1. Select **Accept**.
-1. Select **Refresh**, and then verify that "Granted for ..." appears under **STATUS**. It might take a few minutes for the permissions to propagate.
+1. Select **Refresh**, and then verify that "Granted for ..." appears under **Status**. It might take a few minutes for the permissions to propagate.

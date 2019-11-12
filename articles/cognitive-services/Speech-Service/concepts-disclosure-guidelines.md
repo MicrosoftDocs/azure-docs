@@ -71,7 +71,7 @@ Use the following diagram to determine whether your synthetic voice experience r
 
 ## Reference docs
 
-* [Transparency note](https://aka.ms/neural-tts-transparency-note)
+* [Disclosure for Voice Talent](https://aka.ms/disclosure-voice-talent)
 * [Guidelines for Responsible Deployment of Synthetic Voice Technology](concepts-guidelines-responsible-deployment-synthetic.md)
 * [Gating overview](concepts-gating-overview.md)
 

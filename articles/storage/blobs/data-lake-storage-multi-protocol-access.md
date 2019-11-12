@@ -73,7 +73,7 @@ Just like the list of supported Blob storage features, the items that appear in 
 |[Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal)|Generally available|
 |[IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c)|Generally available|
 |[Logic apps](https://azure.microsoft.com/services/logic-apps/)|Generally available|
-|[Azure Search](https://docs.microsoft.com/azure/search/search-blob-storage-integration)|Preview|
+|[Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-howto-index-azure-data-lake-storage)|Preview|
 
 For the complete list of Azure ecosystem support for Data Lake Storage Gen2, see [Integrate Azure Data Lake Storage with Azure services](data-lake-storage-integrate-with-azure-services.md).
 
