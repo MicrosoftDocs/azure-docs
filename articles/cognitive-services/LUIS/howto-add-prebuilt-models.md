@@ -38,7 +38,7 @@ LUIS includes a set of prebuilt models for quickly adding common, conversational
 1. Select the **Utilities.Cancel** intent from the pop-up dialog. 
 
     > [!div class="mx-imgBorder"]
-    > ![Add prebuilt intent](./media/luis-prebuilt-intents/add-prebuilt-domain-intents.png)
+    > ![Add prebuilt intent](./media/luis-prebuilt-domains/add-prebuilt-domain-intents.png)
 
 1. Select the **Done** button.
 
@@ -51,7 +51,7 @@ LUIS includes a set of prebuilt models for quickly adding common, conversational
 1. In **Add prebuilt entities** dialog box, select the prebuilt entity. 
 
     > [!div class="mx-imgBorder"]
-    > ![Add prebuilt entity dialog box](./media/luis-use-prebuilt-entity/add-prebuilt-entity.png)
+    > ![Add prebuilt entity dialog box](./media/luis-prebuilt-domains/add-prebuilt-entity.png)
 
 1. Select **Done**. After the entity is added, you do not need to train the app. 
 
