@@ -9,6 +9,7 @@ ms.author: rogarana
 ms.subservice: disks
 ---
 
+# Azure premium storage: design for high performance
 [!INCLUDE [virtual-machines-common-premium-storage-introduction](../../../includes/virtual-machines-common-premium-storage-introduction.md)]
 
 > [!NOTE]
