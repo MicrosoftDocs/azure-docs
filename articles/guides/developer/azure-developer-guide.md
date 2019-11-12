@@ -208,7 +208,7 @@ Whether it's provisioning VMs or publishing your web apps with continuous integr
 
 ## Azure regions
 
-Azure is a global cloud platform that is generally available in many regions around the world. When you provision a service, application, or VM in Azure, you are asked to select a region, which represents a specific datacenter where your application runs or where your data is stored. These regions correspond to specific locations, which are
+Azure is a global cloud platform that is generally available in many regions around the world. When you provision a service, application, or VM in Azure, you're asked to select a region. This region represents a specific datacenter where your application runs or where your data is stored. These regions correspond to specific locations, which are
 published on the [Azure regions](https://azure.microsoft.com/regions/) page.
 
 ### Choose the best region for your application and data
@@ -230,7 +230,7 @@ Azure provides a rich set of experiences for you to create and manage your Azure
 
 ### Command-line interfaces and PowerShell
 
-Azure provides two ways to manage your applications and services from the command line by using Bash, Terminal, the command prompt, or your command-line tool of choice. Usually, you can perform the same tasks from the command line as in the Azure portal—such as creating and configuring virtual machines, virtual networks, web apps, and other services.
+Azure provides two ways to manage your applications and services from the command line. You can use tools like Bash, Terminal, the command prompt, or your command-line tool of choice. Usually, you can do the same tasks from the command line as in the Azure portal—such as creating and configuring virtual machines, virtual networks, web apps, and other services.
 
 -   [Azure Command-Line Interface (CLI)](../../xplat-cli-install.md): Lets you connect to an Azure subscription and program various tasks against Azure resources from the command line.
 
@@ -238,7 +238,11 @@ Azure provides two ways to manage your applications and services from the comman
 
 ### Azure portal
 
-The Azure portal is a web-based application that you can use to create, manage, and remove Azure resources and services. The Azure portal is located at <https://portal.azure.com>. It includes a customizable dashboard, tools for managing Azure resources, and access to subscription settings and billing information. For more information, see the [Azure portal overview](../../azure-portal-overview.md).
+The [Azure portal](https://portal.azure.com) is a web-based application. You can use the Azure portal to create, manage, and remove Azure resources and services. It includes:
+
+* A configurable dashboard
+* Azure resource management tools
+* Access to subscription settings and billing information. For more information, see the [Azure portal overview](../../azure-portal-overview.md).
 
 ### REST APIs
 
@@ -246,7 +250,7 @@ Azure is built on a set of REST APIs that support the Azure portal UI. Most of t
 
 ### APIs
 
-In addition to REST APIs, many Azure services also let you programmatically manage resources from your applications by using platform-specific Azure SDKs, including SDKs for the following development platforms:
+Along with REST APIs, many Azure services also let you programmatically manage resources from your applications by using platform-specific Azure SDKs, including SDKs for the following development platforms:
 
 -   [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
 -   [Node.js](https://docs.microsoft.com/azure/javascript/)
@@ -261,9 +265,9 @@ and [Azure Media Services](../../media-services/previous/media-services-dotnet-h
 
 ### Azure Resource Manager 
  	
-Running your app on Azure likely involves working with multiple Azure services, all of which follow the same life cycle and can be thought of as a logical unit. For example, a web app might use Web Apps, SQL Database, Storage, Azure Cache for Redis, and Azure Content Delivery Network services. [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) lets you work with the resources in your application as a group. You can deploy, update, or delete all the resources in a single, coordinated operation.
+Running your app on Azure likely involves working with multiple Azure services. These services follow the same life cycle and can be thought of as a logical unit. For example, a web app might use Web Apps, SQL Database, Storage, Azure Cache for Redis, and Azure Content Delivery Network services. [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) lets you work with the resources in your application as a group. You can deploy, update, or delete all the resources in a single, coordinated operation.
 
-In addition to logically grouping and managing related resources, Azure Resource Manager includes deployment capabilities that let you customize the deployment and configuration of related resources. For example, by using Resource Manager, you can deploy and configure an application that consists of multiple virtual machines, a load balancer, and an Azure SQL database as a single unit.
+Along with logically grouping and managing related resources, Azure Resource Manager includes deployment capabilities that let you customize the deployment and configuration of related resources. For example, by using Resource Manager, you can deploy and configure an application that consists of multiple virtual machines, a load balancer, and an Azure SQL database as a single unit.
 
 You develop these deployments by using an Azure Resource Manager template, which is a JSON-formatted document. Templates let you define a deployment and manage your applications by using declarative templates, rather than scripts. Your templates can work for different environments, such as testing, staging, and production. For example, by using templates, you can add a button to a GitHub repo that deploys the code in the repo to a set of Azure services with a single click.
 
@@ -273,11 +277,11 @@ You develop these deployments by using an Azure Resource Manager template, which
 
 ## Understanding accounts, subscriptions, and billing
 
-As developers, we like to dive right into the code and try to get started as fast as possible with making our applications run. We certainly want to encourage you to start working in Azure as easily as possible. To help make it easy, Azure offers a [free trial](https://azure.microsoft.com/free/). Some services even have a "Try it for free" functionality, like [Azure App Service](https://tryappservice.azure.com/), which doesn't require you to  even create an account. As fun as it is to dive into coding and deploying your application to Azure, it's also important to take some time to understand how Azure works from a standpoint of user accounts, subscriptions, and billing.
+As developers, we like to dive right into the code and try to get started as fast as possible with making our applications run. We certainly want to encourage you to start working in Azure as easily as possible. To help make it easy, Azure offers a [free trial](https://azure.microsoft.com/free/). Some services even have a "Try it for free" functionality, like [Azure App Service](https://tryappservice.azure.com/), which doesn't require you to  even create an account. As fun as it is to dive into coding and deploying your application to Azure, it's also important to take some time to understand how Azure works. Specifically,  you should understand how it works from a standpoint of user accounts, subscriptions, and billing.
 
 ### What is an Azure account?
 
-To be able to create or work with an Azure subscription, you must have an Azure account. An Azure account is simply an identity in Azure AD or in a directory, such as a work or school organization, that is trusted by Azure AD. If you don't belong to such an organization, you can always create a subscription by using your Microsoft Account, which is trusted by Azure AD. To learn more about integrating on-premises Windows Server Active Directory with Azure AD, see [Integrating your on-premises identities with Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md).
+To create or work with an Azure subscription, you must have an Azure account. An Azure account is simply an identity in Azure AD or in a directory, such as a work or school organization, that Azure AD trusts. If you don't belong to such an organization, you can always create a subscription by using your Microsoft Account, which is trusted by Azure AD. To learn more about integrating on-premises Windows Server Active Directory with Azure AD, see [Integrating your on-premises identities with Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md).
 
 Every Azure subscription has a trust relationship with an Azure AD instance. This means that it trusts that directory to authenticate users, services, and devices. Multiple subscriptions can trust the same directory, but a subscription trusts only one directory. To learn more, see [How Azure subscriptions are associated with Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
@@ -315,16 +319,16 @@ Azure Resource Manager lets you assign custom tags to individual resources. Tags
 
 ### Billing
 
-In the move from on-premises computing to cloud-hosted services, tracking and estimating service usage and related costs are significant concerns. It’s important to be able to estimate what new resources cost to run on a monthly basis. You also need to be able to project how the billing looks for a given month based on the current spending.
+In the move from on-premises computing to cloud-hosted services, tracking and estimating service usage and related costs are significant concerns. It’s important to estimate what new resources cost to run on a monthly basis. You can also project how the billing looks for a given month based on the current spending.
 
 #### Get resource usage data
 
-Azure provides a set of Billing REST APIs that give access to resource consumption and metadata information for Azure subscriptions. These Billing APIs give you the ability to better predict and manage Azure costs. You can track and analyze spending in hourly increments, create spending alerts, and predict future billing based on current usage trends.
+Azure provides a set of Billing REST APIs that give access to resource consumption and metadata information for Azure subscriptions. These Billing APIs give you the ability to better predict and manage Azure costs. You can track and analyze spending in hourly increments and create spending alerts. You can also predict future billing based on current usage trends.
 
 >**Get started**: To learn more about using the Billing APIs, see [Azure Billing Usage and RateCard APIs overview](../../billing-usage-rate-card-overview.md).
 
 #### Predict future costs
 
-Although it's challenging to estimate costs ahead of time, Azure has a [pricing calculator](https://azure.microsoft.com/pricing/calculator/) that you can use when you estimate the cost of deployed resources. You can also use the Billing blade in the portal and the Billing REST APIs to estimate future costs, based on current consumption.
+Although it's challenging to estimate costs ahead of time, Azure has tools that can help. It has a [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to help estimate the cost of deployed resources. You can also use the Billing resources in the portal and the Billing REST APIs to estimate future costs, based on current consumption.
 
 >**Get started**: See [Azure Billing Usage and RateCard APIs overview](../../billing-usage-rate-card-overview.md).
