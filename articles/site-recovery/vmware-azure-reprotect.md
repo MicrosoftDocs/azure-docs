@@ -1,5 +1,5 @@
 ---
-title: Reprotect VMs from Azure to an on-premises site during disaster recovery of VMware VMs and physical servers | Microsoft Docs
+title: Reprotect VMware VMs/physical servers to an on-premises site with Azure Site Recovery
 description: After failover to Azure during disaster recovery of VMware VMs and physical servers, learn how to fail back from Azure to the on-premises site.
 author: mayurigupta13
 manager: rochakm
