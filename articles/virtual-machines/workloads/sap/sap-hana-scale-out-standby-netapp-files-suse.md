@@ -377,7 +377,7 @@ Configure and prepare your OS by doing the following:
     <pre><code>
     # Create a temporary directory to mount <b>HN1</b>-shared
     mkdir /mnt/tmp
-    mount <b>10.23.1.4</b>:/<b>HN1</b>*-shared /mnt/tmp
+    mount <b>10.23.1.4</b>:/<b>HN1</b>-shared /mnt/tmp
     cd /mnt/tmp
     mkdir shared usr-sap-<b>hanadb1</b> usr-sap-<b>hanadb2</b> usr-sap-<b>hanadb3</b>
     # unmount /hana/shared
