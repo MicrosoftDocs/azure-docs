@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Conversation Translator (.Net Framework Windows) - Speech Service'
+title: 'Quickstart: Multi-Device Conversation (.Net Framework Windows) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to use the conversation translator to create a new conversation, as well as join an existing conversation.
 services: cognitive-services
@@ -19,7 +19,35 @@ Before you get started make sure to:
 > [!div class="checklist"]
 > * [Create an Azure Speech Resource](../../../../get-started.md)
 > * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=dotnet)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=dotnet)
+<!-- >> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=dotnet) -->
+
+## Create helloworld project
+
+1. Open Visual Studio 2019.
+
+1. In the Start window, select **Create a new project**. 
+
+1. In the **Create a new project** window, choose **Console App (.NET Framework)**, and then select **Next**.
+
+1. In the **Configure your new project** window, enter *helloworld* in **Project name**, choose or create the directory path in **Location**, and then select **Create**.
+
+1. Right click on the **helloworld** project and click on **Open Folder in File Explorer**.
+
+1. Right click on **helloworld.csproj** and choose **Open with** --> **Choose another app**.
+
+1. If you see **Notepad** in the list, click on that. If you don't, click on **More apps** and choose Notepad from the list.
+
+1. Scroll to the end of the file and add the following just after the ```<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />``` line:
+
+    ```Xml
+    <Import Project="$(SolutionDir)ext\Microsoft.CognitiveServices.Speech.csharp.targets" />
+    ```
+
+1. Navigate one directory up. You should see a **helloworld.sln** file.
+
+1. Create a new folder called **ext**.
+
+1. Download the [multi-device conversation preview DLLs](https://aka.ms/mdc-preview) and extract its contents to the **ext** folder you created in the previous step.
 
 ## Add sample code
 
@@ -38,16 +66,7 @@ Before you get started make sure to:
         {
             public static void Main(string[] args)
             {
-                string conversationId = null;
-
-                if (string.IsNullOrWhiteSpace(conversationId))
-                {
-                    CreateConversationAsync().Wait();
-                }
-                else
-                {
-                    JoinConversationAsync(conversationId).Wait();
-                }
+                CreateConversationAsync().Wait();
             }
     
             static async Task CreateConversationAsync()
@@ -94,7 +113,7 @@ Before you get started make sure to:
                     // to mute everyone else in the room you can call this method:
                     await conversation.MuteAllParticipantsAsync().ConfigureAwait(false);
     
-                    // configure which audio source you want to to use. If you are using a text only language, you
+                    // configure which audio source you want to use. If you are using a text only language, you
                     // can use the other overload of the constructor that takes no arguments
                     var audioConfig = AudioConfig.FromDefaultMicrophoneInput();
                     using (var conversationTranslator = new ConversationTranslator(audioConfig))
@@ -196,57 +215,11 @@ Before you get started make sure to:
                         await conversationTranslator.LeaveConversationAsync().ConfigureAwait(false);
                     }
     
-                    // end the converastion
+                    // end the conversation
                     await conversation.EndConversationAsync().ConfigureAwait(false);
     
                     // delete the conversation. Any other participants that are still in the conversation will be removed
                     await conversation.DeleteConversationAsync().ConfigureAwait(false);
-                }
-            }
-    
-            static async Task JoinConversationAsync(string conversationId)
-            {
-                // Set this to the display name you want for the participant
-                string displayName = "participant";
-    
-                // Set the speech to text, or text language you want to use
-                string language = "en-US";
-    
-                // create the task completion source that will be used to wait until the user presses Ctrl + c
-                var completionSource = new TaskCompletionSource<bool>();
-    
-                // register to listen for Ctrl + C
-                Console.CancelKeyPress += (s, e) =>
-                {
-                    completionSource.TrySetResult(true);
-                    e.Cancel = true; // don't terminate the current process
-                };
-    
-                // as a participant, you don't need to specify any subscription key, or region. You can directly create
-                // the conversation translator object
-                var audioConfig = AudioConfig.FromDefaultMicrophoneInput();
-                using (var conversationTranslator = new ConversationTranslator(audioConfig))
-                {
-                    // register for any events you are interested here. See previous method for more details
-    
-                    // to start receiving events, you will need to join the conversation
-                    await conversationTranslator.JoinConversationAsync(conversationId, displayName, language).ConfigureAwait(false);
-    
-                    // you can now send an instant message
-                    await conversationTranslator.SendTextMessageAsync("Message from participant").ConfigureAwait(false);
-    
-                    // start capturing audio if you specified a speech to text language
-                    await conversationTranslator.StartTranscribingAsync().ConfigureAwait(false);
-    
-                    // at this point, you should start receiving transcriptions for what you are saying using
-                    // the default microphone. Press Ctrl+c to stop audio capture
-                    await completionSource.Task.ConfigureAwait(false);
-    
-                    // stop audio capture
-                    await conversationTranslator.StopTranscribingAsync().ConfigureAwait(false);
-    
-                    // leave the conversation. You will stop receiving events after this
-                    await conversationTranslator.LeaveConversationAsync().ConfigureAwait(false);
                 }
             }
         }
@@ -267,35 +240,82 @@ Before you get started make sure to:
 
 1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the **helloworld** application.
 
-1. Once you see the ```Started transcribing``` message appear, you can start speaking. You will the transcriptions appear as you speak
+1. Once you see the ```Started transcribing``` message appear, you can start speaking. You will the transcriptions appear as you speak.
     - If you share the conversation code with the others and they join the conversation, you will see their transcriptions as well.
 
-1. Once you are done speaking, press Ctrl + c to stop audio capture, and end the conversation
+1. Once you are done speaking, press `Ctrl + C` to stop audio capture, and end the conversation.
 
 ## Build and run the application to join an existing conversation
 
-1. You will first need to create a conversation that you can join
-    1. Launch your browser and navigate to: https://translator.microsoft.com/
-    1. Click on "Start conversation"
-    1. Sign in using any of the available options
-    1. Type in a name (e.g. The host)
-    1. Select a language (e.g. English)
-    1. Click on "Enter"
-    1. Note the conversation code at the top of the page
+1. Copy and paste the following function into your **Program.cs**:
 
-1. Go back to Visual Studio and open **Program.cs**
+    ```C#
+    static async Task JoinConversationAsync(string conversationId)
+    {
+        // Set this to the display name you want for the participant
+        string displayName = "participant";
 
-1. Set the ```converastionId``` string to match the conversation ID you just created
+        // Set the speech to text, or text language you want to use
+        string language = "en-US";
 
-1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the **helloworld** application
+        // create the task completion source that will be used to wait until the user presses Ctrl + c
+        var completionSource = new TaskCompletionSource<bool>();
 
-1. Once you see the ```Started transcribing``` message appear, you can start speaking. You will the transcriptions appear as you speak
-    - If you go back to your browser, you should see your transcriptions appear there as you speak as well
+        // register to listen for Ctrl + C
+        Console.CancelKeyPress += (s, e) =>
+        {
+            completionSource.TrySetResult(true);
+            e.Cancel = true; // don't terminate the current process
+        };
 
-1.  Once you are done speaking, press Ctrl + c to stop audio capture, and end the conversation
+        // as a participant, you don't need to specify any subscription key, or region. You can directly create
+        // the conversation translator object
+        var audioConfig = AudioConfig.FromDefaultMicrophoneInput();
+        using (var conversationTranslator = new ConversationTranslator(audioConfig))
+        {
+            // register for any events you are interested here. See previous method for more details
 
-1. Go back to your browser and exit the conversation using the ![exit conversation button](media/scenarios/conversation_translator_web_exit_button.png) button in the upper right corner
+            // to start receiving events, you will need to join the conversation
+            await conversationTranslator.JoinConversationAsync(conversationId, displayName, language).ConfigureAwait(false);
 
+            // you can now send an instant message
+            await conversationTranslator.SendTextMessageAsync("Message from participant").ConfigureAwait(false);
+
+            // start capturing audio if you specified a speech to text language
+            await conversationTranslator.StartTranscribingAsync().ConfigureAwait(false);
+
+            // at this point, you should start receiving transcriptions for what you are saying using
+            // the default microphone. Press Ctrl+c to stop audio capture
+            await completionSource.Task.ConfigureAwait(false);
+
+            // stop audio capture
+            await conversationTranslator.StopTranscribingAsync().ConfigureAwait(false);
+
+            // leave the conversation. You will stop receiving events after this
+            await conversationTranslator.LeaveConversationAsync().ConfigureAwait(false);
+        }
+    }
+    ```
+
+[!INCLUDE [create-from-web](../create-from-web.md)]
+
+3. Replace `CreateConversationAsync().Wait();` in your `public static void Main(string[] args)` function with:
+
+    ```C#
+    // set this to the conversation you want to join
+    JoinConversationAsync("YourConversationId").Wait();
+    ```
+
+3. Set the ```YourConversationId``` string to match the conversation ID you just created.
+
+1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the **helloworld** application.
+
+1. Once you see the ```Started transcribing``` message appear, you can start speaking. You will the transcriptions appear as you speak.
+    - If you go back to your browser, you should see your transcriptions appear there as you speak as well.
+
+1.  Once you are done speaking, press `Ctrl + C` to stop audio capture, and end the conversation.
+
+1. Go back to your browser and exit the conversation using the <img src="../../../../media/scenarios/conversation_translator_web_exit_button.png" width="20" /> button in the upper right corner.
 
 ## Next Steps
 
