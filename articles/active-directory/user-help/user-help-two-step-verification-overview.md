@@ -1,5 +1,5 @@
 ---
-title: Two-factor verification & your work or school account - Azure AD
+title: Security verification & your work or school account - Azure AD
 description: Learn about how to set up your security verification methods to use two-factor verification with your work or school account.
 services: active-directory
 author: eross-msft
