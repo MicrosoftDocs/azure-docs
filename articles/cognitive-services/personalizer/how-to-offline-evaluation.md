@@ -1,7 +1,7 @@
 ---
 title: How to perform offline evaluation - Personalizer
 titleSuffix: Azure Cognitive Services
-description: Learn how to analyze your learning loop with an offline evaluation
+description: This article will show you how to use offline evaluation to measure effectiveness of your app and analyze your learning loop.
 services: cognitive-services
 author: diberry
 manager: nitinme

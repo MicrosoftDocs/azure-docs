@@ -1,7 +1,7 @@
 ---
-title: Machine learning CLI extension
+title: CLI extension
 titleSuffix: Azure Machine Learning
-description: Learn about the Azure Machine Learning CLI extension for the Azure CLI. The Azure CLI is a cross-platform command-line utility that enables you to work with resources in the Azure cloud. The Machine Learning extension enables you to work with Azure Machine Learning. 
+description: Learn about the Azure Machine Learning CLI extension for the Azure CLI. The Azure CLI is a cross-platform command-line utility that enables you to work with resources in the Azure cloud. The Machine Learning extension enables you to work with Azure Machine Learning. The ML CLI creates and manages resources such as your workspace, datastores, datasets, pipelines, models, and deployments.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
