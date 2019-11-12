@@ -39,17 +39,11 @@ The Event Grid trigger is provided in the [Microsoft.Azure.WebJobs.Extensions.Ev
 
 ## Example
 
-See the language-specific example for an Event Grid trigger:
-
-* C#
-* [C# script (.csx)](#c-script-example)
-* [Java](#trigger---java-examples)
-* [JavaScript](#javascript-example)
-* [Python](#python-example)
+# [C#](#tab/csharp)
 
 For an HTTP trigger example, see [How to use HTTP trigger](#use-an-http-trigger-as-an-event-grid-trigger) later in this article.
 
-### C# (2.x)
+### Version 2.x
 
 The following example shows a Functions 2.x [C# function](functions-dotnet-class-library.md) that binds to `EventGridEvent`:
 
@@ -75,7 +69,7 @@ namespace Company.Function
 
 For more information, see Packages, [Attributes](#attributes), [Configuration](#configuration), and [Usage](#usage).
 
-### C# (Version 1.x)
+### Version 1.x
 
 The following example shows a Functions 1.x [C# function](functions-dotnet-class-library.md) that binds to `JObject`:
 
@@ -100,7 +94,7 @@ namespace Company.Function
 }
 ```
 
-### C# script example
+# [C# Script](#tab/csharp-script)
 
 The following example shows a trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding.
 
@@ -119,7 +113,7 @@ Here's the binding data in the *function.json* file:
 }
 ```
 
-#### C# script (Version 2.x)
+### Version 2.x
 
 Here's Functions 2.x C# script code that binds to `EventGridEvent`:
 
@@ -136,7 +130,7 @@ public static void Run(EventGridEvent eventGridEvent, ILogger log)
 
 For more information, see Packages, [Attributes](#attributes), [Configuration](#configuration), and [Usage](#usage).
 
-#### C# script (Version 1.x)
+### Version 1.x
 
 Here's Functions 1.x C# script code that binds to `JObject`:
 
@@ -152,7 +146,7 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 }
 ```
 
-### JavaScript example
+# [JavaScript](#tab/javascript)
 
 The following example shows a trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding.
 
@@ -183,7 +177,7 @@ module.exports = function (context, eventGridEvent) {
 };
 ```
 
-### Python example
+# [Python](#tab/python)
 
 The following example shows a trigger binding in a *function.json* file and a [Python function](functions-reference-python.md) that uses the binding.
 
@@ -217,12 +211,12 @@ def main(event: func.EventGridEvent):
     logging.info("  Data: %s", event.get_json())
 ```
 
-### Trigger - Java examples
+# [Java](#tab/java)
 
 This section contains the following examples:
 
-* [Event Grid trigger, String parameter](#event-grid-trigger-string-parameter-java)
-* [Event Grid trigger, POJO parameter](#event-grid-trigger-pojo-parameter-java)
+* [Event Grid trigger, String parameter](#event-grid-trigger-string-parameter)
+* [Event Grid trigger, POJO parameter](#event-grid-trigger-pojo-parameter)
 
 The following examples show trigger binding in a *function.json* file and [Java functions](functions-reference-java.md) that use the binding and print out an event, first receiving the event as ```String``` and second as a POJO.
 
@@ -238,7 +232,7 @@ The following examples show trigger binding in a *function.json* file and [Java 
 }
 ```
 
-#### Event Grid trigger, String parameter (Java)
+### Event Grid trigger, String parameter
 
 ```java
   @FunctionName("eventGridMonitorString")
@@ -252,7 +246,7 @@ The following examples show trigger binding in a *function.json* file and [Java 
   }
 ```
 
-#### Event Grid trigger, POJO parameter (Java)
+### Event Grid trigger, POJO parameter
 
 This example uses the following POJO, representing the top-level properties of an Event Grid event:
 
@@ -294,7 +288,11 @@ Upon arrival, the event's JSON payload is de-serialized into the ```EventSchema`
 
 In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `EventGridTrigger` annotation on parameters whose value would come from EventGrid. Parameters with these annotations cause the function to run when an event arrives.  This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
 
+---
+
 ## Attributes
+
+# [C#](#tab/csharp)
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/TriggerBinding/EventGridTriggerAttribute.cs) attribute.
 
@@ -310,6 +308,24 @@ public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, ILog
 
 For a complete example, see C# example.
 
+# [C# Script](#tab/csharp-script)
+
+**TODO**
+
+# [JavaScript](#tab/javascript)
+
+**TODO**
+
+# [Python](#tab/python)
+
+**TODO**
+
+# [Java](#tab/java)
+
+**TODO**
+
+---
+
 ## Configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file. There are no constructor parameters or properties to set in the `EventGridTrigger` attribute.
@@ -322,19 +338,37 @@ The following table explains the binding configuration properties that you set i
 
 ## Usage
 
-For C# and F# functions in Azure Functions 1.x, you can use the following parameter types for the Event Grid trigger:
+# [C#](#tab/csharp)
+
+In Azure Functions 1.x, you can use the following parameter types for the Event Grid trigger:
 
 * `JObject`
 * `string`
 
-For C# and F# functions in Azure Functions 2.x, you also have the option to use the following parameter type for the Event Grid trigger:
+In Azure Functions 2.x, you also have the option to use the following parameter type for the Event Grid trigger:
 
 * `Microsoft.Azure.EventGrid.Models.EventGridEvent`- Defines properties for the fields common to all event types.
 
 > [!NOTE]
 > In Functions v1 if you try to bind to `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`, the compiler will display a "deprecated" message and advise you to use `Microsoft.Azure.EventGrid.Models.EventGridEvent` instead. To use the newer type, reference the [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet package and fully qualify the `EventGridEvent` type name by prefixing it with `Microsoft.Azure.EventGrid.Models`. For information about how to reference NuGet packages in a C# script function, see [Using NuGet packages](functions-reference-csharp.md#using-nuget-packages)
 
-For JavaScript functions, the parameter named by the *function.json* `name` property has a reference to the event object.
+# [C# Script](#tab/csharp-script)
+
+**TODO**
+
+# [JavaScript](#tab/javascript)
+
+The parameter named by the *function.json* `name` property has a reference to the event object.
+
+# [Python](#tab/python)
+
+**TODO**
+
+# [Java](#tab/java)
+
+**TODO**
+
+---
 
 ## Event schema
 
@@ -636,6 +670,10 @@ For information about the URL to use for invoking the function locally or when i
 
 ### Event Grid schema
 
+**TODO**
+
+# [C#](#tab/csharp)
+
 The following sample C# code for an HTTP trigger simulates Event Grid trigger behavior. Use this example for events delivered in the Event Grid schema.
 
 ```csharp
@@ -743,6 +781,11 @@ public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLeve
     return req.CreateResponse(HttpStatusCode.OK);
 }
 ```
+# [C# Script](#tab/csharp-script)
+
+**TODO**
+
+# [JavaScript](#tab/javascript)
 
 The following sample JavaScript code for an HTTP trigger simulates Event Grid trigger behavior. Use this example for events delivered in the CloudEvents schema.
 
@@ -768,6 +811,16 @@ module.exports = function (context, req) {
     context.done();
 };
 ```
+
+# [Python](#tab/python)
+
+**TODO**
+
+# [Java](#tab/java)
+
+**TODO**
+
+---
 
 ## Next steps
 
