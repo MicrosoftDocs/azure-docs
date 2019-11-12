@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ---
 
@@ -92,7 +92,7 @@ Accelerated Networking | No | No
 NFS | NA | NA
 SMB 3.0 | Yes | Yes
 SAN (ISCSI) | Yes | Yes
-Multi-path (MPIO). Tested with:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4<br/><br/> EMC PowerPath DSM for CLARiiON | Yes | Yes
+Multi-path (MPIO). Tested with:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON | Yes | Yes
 
 ## Hyper-V VM guest storage
 
@@ -101,7 +101,7 @@ Multi-path (MPIO). Tested with:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4<br
 VMDK | NA | NA
 VHD/VHDX | Yes | Yes
 Generation 2 VM | Yes | Yes
-EFI/UEFI| Yes | Yes
+EFI/UEFI<br></br>The migrated VM in Azure will be automatically converted to a BIOS boot VM. The VM should be running Windows Server 2012 and later only. The OS disk should have up to five partitions or fewer and the size of OS disk should be less than 300 GB.| Yes | Yes
 Shared cluster disk | No | No
 Encrypted disk | No | No
 NFS | NA | NA
@@ -128,6 +128,7 @@ Cool storage | No | No
 Hot storage| No | No
 Block blobs | No | No
 Encryption at rest (SSE)| Yes | Yes
+Encryption at rest (CMK)| No | No
 Premium storage | Yes | Yes
 Import/export service | No | No
 Azure storage accounts with firewall enabled | Yes. For target storage and cache. | Yes. For target storage and cache.
