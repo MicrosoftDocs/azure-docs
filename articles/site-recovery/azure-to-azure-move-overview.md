@@ -1,7 +1,6 @@
 ---
-title: Move Azure IaaS VMs to another Azure region by using the Azure Site Recovery service | Microsoft Docs
+title: Move Azure Ms to another region with Azure Site Recovery
 description: Use Azure Site Recovery to move Azure IaaS VMs from one Azure region to another.
-services: site-recovery
 author: rajani-janaki-ram
 ms.service: site-recovery
 ms.topic: tutorial
