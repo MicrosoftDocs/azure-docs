@@ -1,5 +1,5 @@
 ---
-title: Upcoming deprecation of DR between customer owned sites manged by SCVMM using Azure Site Recovery| Microsoft Docs
+title: Upcoming deprecation of DR between customer owned sites managed by SCVMM using Azure Site Recovery| Microsoft Docs
 description: Details about Upcoming deprecation of DR between customer owned sites using Hyper-V and between sites managed by SCVMM to Azure and alternate options
 services: site-recovery
 author: rajani-janaki-ram 
@@ -12,7 +12,7 @@ ms.author: rajanaki
 ---
 # Upcoming deprecation of DR between customer owned sites managed by VMM using Site Recovery
 
-This article describes the upcoming deprecation plan, the corresponding implications,  and the alternative options available for the customers for the following scenario:
+This article describes the upcoming deprecation plan, the corresponding implications, and the alternative options available for the customers for the following scenario:
 
 DR between customer owned sites managed by System Center Virtual Machine Manager (SCVMM) using Site Recovery
 
@@ -63,6 +63,6 @@ If you are choosing to go with Option 2 of using Hyper-V replica, please execute
 
     This removes the replicated item from Azure Site Recovery (billing is stopped). Replication configuration on the on-premises virtual machine **will not** be cleaned up. 
 
-## Next Steps
+## Next steps
 Plan for the deprecation and choose an alternate option that's best suited for your infrastructure and business. In case you have any queries regarding this, please reach out to Microsoft Support
 

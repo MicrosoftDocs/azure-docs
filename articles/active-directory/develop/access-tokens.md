@@ -260,9 +260,9 @@ Refresh tokens can be invalidated or revoked at any time, for different reasons.
 | [Single sign-out](v1-protocols-openid-connect-code.md#single-sign-out) on web | Revoked | Stays alive | Revoked | Stays alive | Stays alive |
 
 > [!NOTE]
-> A "Non-password based" login is one where the user didn't type in a password to get it. For example, using your face with Windows Hello, a FIDO key, or a PIN.
+> A "Non-password based" login is one where the user didn't type in a password to get it. For example, using your face with Windows Hello, a FIDO2 key, or a PIN.
 >
-> A known issue exists with the Windows Primary Refresh Token. If the PRT is obtained via a password, and then the user logs in via Hello, this does not change the origination of the PRT, and it will be revoked if the user changes their password.
+> Primary Refresh Tokens (PRT) on Windows 10 are segregated based on the credential. For example, Windows Hello and password have their respective PRTs, isolated from one another. When a user signs-in with a Hello credential (PIN or biometrics) and then changes the password, the password based PRT obtained previously will be revoked. Signing back in with a password invalidates the old PRT and requests a new one.
 >
 > Refresh tokens aren't invalidated or revoked when used to fetch a new access token and refresh token.  
 

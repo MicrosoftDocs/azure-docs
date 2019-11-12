@@ -1,6 +1,6 @@
 ---
 title: View Azure IoT Hub message routing results (.NET) | Microsoft Docs
-description: View Azure IoT Hub message routing results
+description: After setting up all of the resources using Part 1 of the tutorial, add the ability to route messages to Azure Stream Analytics and view the results in PowerBI.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -111,9 +111,9 @@ To see the data in a Power BI visualization, first set up a Stream Analytics job
 
 ### Add an input to the Stream Analytics job
 
-4. Under **Job Topology**, select **Inputs**.
+1. Under **Job Topology**, select **Inputs**.
 
-5. In the **Inputs** pane, select **Add stream input** and select IoT Hub. On the screen that comes up, fill in the following fields:
+2. In the **Inputs** pane, select **Add stream input** and select IoT Hub. On the screen that comes up, fill in the following fields:
 
    **Input alias**: This tutorial uses **contosoinputs**.
 
@@ -133,7 +133,7 @@ To see the data in a Power BI visualization, first set up a Stream Analytics job
 
    ![Set up the inputs for the stream analytics job](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-inputs.png)
 
-6. Select **Save**.
+3. Select **Save**.
 
 ### Add an output to the Stream Analytics job
 

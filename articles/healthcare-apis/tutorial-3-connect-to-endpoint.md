@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Connect to Azure API for FHIR endpoint with application
+title: 'Tutorial: Write an app to connect to Azure API for FHIR endpoint'
 description: This tutorial shows how to write application that connects to Azure API for FHIR endpoint using Azure AD OAuth2 token.
 services: healthcare-apis
 ms.service: healthcare-apis
