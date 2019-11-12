@@ -114,6 +114,7 @@ Follow the *Before you begin* steps in the appropriate doc to correctly create a
 
 Naming restrictions are implemented by both the Azure platform and AKS. If a resource name or parameter breaks one of these restrictions, an error is returned that asks you provide a different input. The following common naming guidelines apply:
 
+* Cluster names must be 1-63 characters. The only allowed characters are letters, numbers, dashes, and underscores. The first and last character must be a letter or a number.
 * The AKS *MC_* resource group name combines resource group name and resource name. The auto-generated syntax of `MC_resourceGroupName_resourceName_AzureRegion` must be no greater than 80 chars. If needed, reduce the length of your resource group name or AKS cluster name.
 * The *dnsPrefix* must start and end with alphanumeric values. Valid characters include alphanumeric values and hyphens (-). The *dnsPrefix* can't include special characters such as a period (.).
 
