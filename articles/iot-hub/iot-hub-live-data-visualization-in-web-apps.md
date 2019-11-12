@@ -1,5 +1,5 @@
 ---
-title: Real-time data visualization of sensor data from your Azure IoT hub in a web app | Microsoft Docs
+title: Real-time data visualization of your IoT hub data in a web app
 description: Use a web application to visualize temperature and humidity data that is collected from a sensor and sent to your Iot hub.
 author: robinsh
 ms.service: iot-hub
