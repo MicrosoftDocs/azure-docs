@@ -310,7 +310,7 @@ PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
 
 ## MSAL for Python logging
 
-Logging in MSAL Python uses the standard Python logging mechanism. What you know about logging in Python applies to logging with MSAL Python.
+Logging in MSAL Python uses the standard Python logging mechanism, for example `logging.info("msg")` You can configure MSAL logging as follows (and see it in action in the [username_password_sample](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.0.0/sample/username_password_sample.py#L31L32)):
 
 ### Enable debug logging for all modules
 
