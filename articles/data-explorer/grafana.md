@@ -1,12 +1,12 @@
 ---
 title: Visualize data from Azure Data Explorer using Grafana
-description: In this how-to, you learn how to set up Azure Data Explorer as a data source for Grafana, and then visualize data from a sample cluster.
+description: In this article, you learn how to set up Azure Data Explorer as a data source for Grafana, and then visualize data from a sample cluster.
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 6/30/2019
+ms.date: 11/12/2019
 ---
 
 # Visualize data from Azure Data Explorer in Grafana
