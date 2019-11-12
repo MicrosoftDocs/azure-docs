@@ -1,5 +1,5 @@
 ---
-title: Connect a generic Node.js client application to Azure IoT Central | Microsoft Docs
+title: Connect a generic Node.js client app to Azure IoT Central | Microsoft Docs
 description: As a device developer, how to connect a generic Node.js device to your Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
