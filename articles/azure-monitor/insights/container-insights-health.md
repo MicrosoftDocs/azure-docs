@@ -83,7 +83,7 @@ On the property pane, you learn the following:
 
     If you select a child monitor, it also shows under **Last state change** the previous samples calculated and reported by the containerized agent within the last four hours. This is based on the unit monitors calculation for comparing several consecutive values to determine its threshold. For example, if you selected one of the resource utilization unit monitors (that is CPU or memory utilization) of a Node or Pod, it shows the last three samples.
     
-    ![Health property pane Overview tab](./media/container-insights-health/health-overview-unit-montior.png)
+    ![Health property pane Overview tab](./media/container-insights-health/health-overview-unit-monitor.png)
 
     If the time reported by **Last state change** is a day or older, it is the result of not receiving data from the containerized agent for more than four hours. If the agent knows that a particular resource exists, for example a Node, but it hasn't received data from the Node, then the health state of the monitor is set to **Unknown**.  
 
