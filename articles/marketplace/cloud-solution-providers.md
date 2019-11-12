@@ -1,36 +1,36 @@
 ---
 title: Cloud Solution Providers | Azure Marketplace
 description: Publishers can now sell their offers through Microsoft Cloud Solution Provider (CSP) partner channel.
-services: Azure, Marketplace, Compute, Storage, Networking
+services: Azure, Marketplace, Compute, Storage, Networking, Partner Center
 author: ChJenk
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 11/07/2019
+ms.date: 11/12/2019
 ms.author: v-chjen
-
 ---
+
 # Cloud Solution Providers
 
 Software offers can reach millions of qualified Microsoft customers served by partners in the Cloud Solution Provider (CSP) program, in addition to public availability of offers through [Microsoft web storefronts](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace).
 
 Publishers configure offers for availability in the CSP program on an opt-in basis, for a new offer or an existing one, enabling partners to sell your products and create bundled solutions for customers.
 
-Publishers are responsible for providing break-fix support to end customers and for providing a mechanism for CSP partners and/or customers to contact you for support. It is best practices to provide CSP partners with user documentation, training, and service health/outage notifications (as applicable) so that CSP partners are equipped to handle tier 1 support requests from customers.  
+Publishers are responsible for providing break-fix support to end customers and for providing a mechanism for partners in the CSP program and/or customers to contact you for support. It is a best practice to provide partners in the CSP program with user documentation, training, and service health/outage notifications (as applicable) so that partners in the CSP program are equipped to handle tier 1 support requests from customers.  
 
-The following offers are eligible to be opted into the CSP program:
+The following offers are eligible to be opted in to be sold by partners in the CSP program:
 
-- Transactable Software-as-a-Service (SaaS) offers
+- Software-as-a-Service (SaaS) transact offers
 - Virtual Machines (VMs)
 - Solution templates
 - Managed applications
 
 > [!NOTE]
-> Containers and Bring Your Own License (BYOL) VM SKUs are opted into the CSP channel by default.
+> Containers and Bring Your Own License (BYOL) VM SKUs are opted in to be sold by partners in the CSP program by default.
 
 ## How to configure an offering
 
-The CSP program opt-in setting is configured in the Partner Center or Cloud Partner Portal offer creation experience. [Learn more about the changing publisher experience.](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293)
+The CSP program opt-in setting is configured in the Partner Center or Cloud Partner Portal offer creation experience. [Learn more about the changing publisher experience](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293).
 
 ### Partner Center opt-in
 
@@ -41,32 +41,47 @@ In Partner Center, you'll find the opt-in experience under the CSP Reseller audi
 In the CSP Reseller audience module, you have three options to choose from:
 
 - Option one: Any partner in the CSP program
-- Option two: Specific partners in the CSP program
+- Option two: Specific partners in the CSP program I select
 - Option three: No partners in the CSP program
 
 #### Option one: Any partner in the CSP program
 
-![Any partner in the CSP program](media/marketplace-publishers-guide/csp-reseller-option-one.png) 
+![Any partner in the CSP program](media/marketplace-publishers-guide/csp-reseller-option-one.png)
 
  By choosing this option, all partners in the CSP program are eligible to resell your offer to their customers.
 
-#### Option two: Specific partners in the CSP program
+#### Option two: Specific partners in the CSP program I select
 
 ![Specific partners in the CSP program I select](media/marketplace-publishers-guide/csp-reseller-option-two.png)
 
 By choosing this option, you authorize which partners in the CSP program are eligible to resell your offer.
 
-To authorize CSPs, click **Select CSP Partners** and a menu appears that lets you search by CSP name or CSP Azure Active Directory (AAD) tenant ID. You can also apply filters, such as **Country**, **Competency**, or **Skill**.
+To authorize partners, click **Select CSP Partners** and a menu appears that lets you search by partner name or CSP Azure Active Directory (AAD) tenant ID.
 
 ![Select CSP menu](media/marketplace-publishers-guide/csp-pop-up-module.png)
 
-Once you've chosen CSPs, select **Add** and a table showing the CSPs you've selected appears. Select **Save** to register your changes.
+You can apply search filters, such as **Country**, **Competency**, or **Skill**.
 
-If this offer is unpublished, you'll need to publish your offer for it to be available to your selected CSPs.
+![Country, competency, and skill filters for partner search](media/marketplace-publishers-guide/csp-add-resellers.png)
 
-If you're updating the CSP list on an already published offer, add the additional CSPs and select **Sync CSP audience**.
+Once you've chosen the list of partners, select **Add**.
 
-If you have an offer that already has a list of CSPs that have been authorized and if you would like to use the same list for another offer, use **Import/Export**. You'll need to navigate to the offer that has the CSP list and select **Export CSPs**. A .csv file is developed and it can then be imported into another offer.
+![Example list of authorized partners in the CSP program](media/marketplace-publishers-guide/csp-add-resellers-details.png)
+
+A table showing the list of partners you selected appears on the CSP Reseller audience page.
+
+![Table with list of partners on CSP Reseller audience page](media/marketplace-publishers-guide/csp-option-two-add-reseller.png)
+
+Select **Save draft** to register your changes.
+
+If this offer is unpublished, you'll need to publish your offer to make it available to your selected partners.
+
+>[!NOTE]
+>If you authorize a partner in the CSP program in a given region, they can sell the offer to any customer that belongs to that particular region. See [Cloud Solution Provider program regional markets and currency](https://docs.microsoft.com/partner-center/regional-authorization-overview) for more information on how CSP offers are classified under regions.
+
+If you're updating the CSP list of an already published offer, add the additional partners and select **Sync CSP audience**.
+
+If you have an offer that already has a list of authorized partners and you'd like to use the same list for another offer, use **Import/Export**. Navigate to the offer that has the CSP list and select **Export CSPs**. The function develops a .csv file that can be imported into another offer.
 
 #### Option three: No partners in the CSP program
 
@@ -80,31 +95,83 @@ In Cloud Partner Portal, the opt-in is set on the Marketplace or Storefront tab.
 
 ![CSP opt-in experience in CPP](media/marketplace-publishers-guide/csp-opt-in.png)
 
-## Deauthorize CSPs
+## Deauthorize Partners in the CSP program
 
-If you've authorized a CSP and that CSP has resold the product to their customers, you'll not be allowed to deauthorize that CSP.
+If you've authorized a partner in the CSP program and that partner has already resold the product to their customers, you won't be allowed to deauthorize that partner.
 
-If a CSP has not sold your product to their customers and you'd like to remove the CSP after your offer has been published, use the following instructions:
+If a partner in the CSP program has not sold your product to their customers and you'd like to remove the CSP after your offer has been published, use the following instructions:
 
-1. Go to the support page. The first few dropdown menus are automatically filled in for you.
+1. Go to the [Support request page](https://aka.ms/marketplacepublishersupport). The first few dropdown menus are automatically filled in for you.
 
    > [!NOTE]
-   > Do not change the pre-populated dropdown menu selections.
+   > Don't change the pre-populated dropdown menu selections.
 
-2. For **Marketplace support**, identify the product family as **Cloud and Online Services** and the product as **Marketplace Publisher**.
-3. For **Select the product version**, select **Live offer management**.
-4. For **Select a category that best describe the issue**, choose the category that refers to your offer.
-5. For **Select a problem that best describes the issue**, select **Update existing offer**.
-6. Select **Next** to be directed to the **Issue details page**, where you can enter more details about your issue.
-7. Use **Deauthorize CSP** as the issue title and fill out the rest of the sections as required.
+2. For **Select the product version**, select **Live offer management**.
+3. For **Select a category that best describe the issue**, choose the category that refers to your offer.
+4. For **Select a problem that best describes the issue**, select **Update existing offer**.
+5. Select **Next** to be directed to the **Issue details page** to enter more details about your issue.
+6. Use **Deauthorize CSP** as the issue title and fill out the rest of the required sections.
+
+
+
 
 ## Navigate between options
 
-This section is TBD.
+Use this section to navigate between the three CSP reseller options.
 
-## Sharing sales and support materials with CSP partners
+### Navigate from Option one: Any partner in the CSP program
 
-To enable partners in the Cloud Solution Provider program to most effectively represent your offering and engage with your organization, you must submit sales and support materials that will be available to the resellers. These resources will not be exposed to customers in the marketplace storefronts.
+If your offer is currently **Option 1: Any partner in the CSP program** and you'd like to navigate to either of the other two options, use the following instructions to create a request:
+
+1. Go to the [Support request page](https://aka.ms/marketplacepublishersupport). The first few dropdown menus are automatically filled in for you.
+
+   > [!NOTE]
+   > Don't change the pre-populated dropdown menu selections.
+
+2. For **Select the product version**, select **Live offer management**.
+3. For **Select a category that best describe the issue**, choose the category that refers to your offer.
+4. For **Select a problem that best describes the issue**, select **Update existing offer**.
+5. Select **Next** to be directed to the **Issue details page** to enter more details about your issue.
+6. Use **Deauthorize CSP** as the issue title and fill out the rest of the required sections.
+
+> [!NOTE]
+> If you're trying to navigate to Option two and a partner in the CSP program has already resold the offer to their customers, that partner is by default already in your list of authorized partners.  
+
+### Navigate from Option two: Specific partners in the CSP program I select
+
+If your offer is currently **Option 2: Specific partners in the CSP program I select** and you'd like to navigate to **Option one: Any partner in the CSP program**, use the following instructions to create a request:
+
+1. Go to the [Support request page](https://aka.ms/marketplacepublishersupport). The first few dropdown menus are automatically filled in for you.
+
+   > [!NOTE]
+   > Don't change the pre-populated dropdown menu selections.
+
+2. For **Select the product version**, select **Live offer management**.
+3. For **Select a category that best describe the issue**, choose the category that refers to your offer.
+4. For **Select a problem that best describes the issue**, select **Update existing offer**.
+5. Select **Next** to be directed to the **Issue details page** to enter more details about your issue.
+6. Use **Deauthorize CSP** as the issue title and fill out the rest of the required sections.
+
+ If your offer is currently **Option 2: Specific partners in the CSP program I select** and you'd like to navigate to **Option 3: No partners in the CSP program**, you'll only be able to navigate to that option if the partners in the CSP program you'd previously authorized have not resold your offer to end customers. Please use the following instructions to create a request:
+
+1. Go to the [Support request page](https://aka.ms/marketplacepublishersupport). The first few dropdown menus are automatically filled in for you.
+
+   > [!NOTE]
+   > Don't change the pre-populated dropdown menu selections.
+
+2. For **Select the product version**, select **Live offer management**.
+3. For **Select a category that best describe the issue**, choose the category that refers to your offer.
+4. For **Select a problem that best describes the issue**, select **Update existing offer**.
+5. Select **Next** to be directed to the **Issue details page** to enter more details about your issue.
+6. Use **Deauthorize CSP** as the issue title and fill out the rest of the required sections.
+
+### Navigate from Option 3: No partners in the CSP program
+
+If your offer is currently **Option 3: No partners in the CSP program**, you can navigate to either of the other two options at any time.
+
+## Sharing sales and support materials with partners in the CSP program
+
+To help partners in the Cloud Solution Provider program most effectively represent your offering and engage with your organization, you must submit sales and support materials that will be available to the resellers. These resources will not be exposed to customers in the marketplace storefronts.
 
 ### Partner Center CSP channel
 
@@ -120,8 +187,8 @@ If you have opted into the CSP channel in Cloud Partner Portal, publishers must 
 
 ## Next steps
 
-Visit the [Azure Marketplace and AppSource Publisher Guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) page.
+Visit the [Azure Marketplace and AppSource Publisher Guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide).
 
-To learn more about marketplace GTM services, use [Go-to-market services](https://partner.microsoft.com/reach-customers/gtm).
+To learn more about marketplace GTM services, see [Go-to-market services](https://partner.microsoft.com/reach-customers/gtm).
 
-Sign in to the [Cloud Partner Portal](https://cloudpartner.azure.com/), or the [Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) for SaaS offers, and to create and configure your offer.
+Sign in to [Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) or [Cloud Partner Portal](https://cloudpartner.azure.com/) to create and configure your offer.
