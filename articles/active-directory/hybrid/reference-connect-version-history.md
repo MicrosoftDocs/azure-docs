@@ -65,7 +65,7 @@ Under certain circumstances, servers that were auto upgraded to version 1.4.18.0
 
 
 ### Release status
-9/25/2019: Removed from manual download until incident investigation is complete.
+9/25/2019: Released for auto-upgrade only.
 
 ### New features and improvements
 - New troubleshooting tooling helps troubleshoot "user not syncing", "group not syncing" or "group member not syncing" scenarios.
