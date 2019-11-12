@@ -92,7 +92,7 @@ The dashboard includes the following kinds of tiles:
 
 * **Water monitoring area map**: Azure IoT Central uses Azure Maps, which you can directly set in your application to show device location. You can also map location information from your application to your device and then use Azure Maps to show the information on a map. Hover over the map and try the controls.
 
-* **Average pH distribution heat-map chart**: You can select different visualization charts to show device telemetry in the way that is most appropriate for your application. Heat map
+* **Average pH distribution heat-map chart**: You can select different visualization charts to show device telemetry in the way that is most appropriate for your application.
 
 * **Critical quality indicators line chart**: You can visualize device telemetry plotted as a line chart over a time range.  
 
@@ -106,7 +106,7 @@ The dashboard includes the following kinds of tiles:
 
 As a builder, you can customize views on the dashboard for use by operators.
 
-1. Select **Edit** to customize the **Wide World water quality dashboard** pane. You can customize the dashboard by selecting commands on the **Edit** menu. Once the dashboard is in edit mode, you can add new tiles, or you can configure
+1. Select **Edit** to customize the **Wide World water quality dashboard** pane. You can customize the dashboard by selecting commands on the **Edit** menu. Once the dashboard is in edit mode, you can add new tiles, or you can configure the existing files.
 
     ![Edit your dashboard](./media/tutorial-waterqualitymonitoring/edit-dashboard.png)
 
