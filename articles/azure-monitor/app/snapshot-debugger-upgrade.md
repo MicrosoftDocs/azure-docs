@@ -4,8 +4,8 @@ description: How to upgrade Snapshot Debugger to the latest version on Azure App
 ms.service:  azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-author: MarioHewardt
-ms.author: marioh
+author: pharring
+ms.author: pharring
 ms.date: 03/28/2019
 
 ms.reviewer: mbullwin
