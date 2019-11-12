@@ -14,7 +14,7 @@ ms.author: v-chjen
 
 An Integrated Solution brings together best-of-breed technologies from Microsoft partners, along with consultation, deployment, and supports provided by expert Systems Integrators (SI).
 
-These solutions are built to address a specific customer need or scenario, which begins with an understanding of the industry challenge or pain points. Two or more best-of-breed technologies are then integrated by an SI to create a unified and repeatable deployment experience for customers, to get them up and running rapidly. The systems integrator also provides a single point of contact for the customer, providing relevant customization and consulting, and support around the solution.  The outcome is an integrated solution, including technology and services.
+These solutions are built to address a specific customer need or scenario, which begins with an understanding of the industry challenge or pain points. Two or more best-of-breed technologies are integrated by an SI to create a unified and repeatable deployment experience for customers, which helps get them up and running rapidly. The systems integrator also provides a single point of contact for the customer, providing relevant customization, consulting, and support around the solution.  The outcome is an integrated solution, including technology and services.
 
 ## Advantages
 
@@ -24,7 +24,7 @@ Advantages of an integrated approach are:
 * *Time to value*: Integrated deployment approach to help you realize immediate benefits
 * *Best-of-breed solutions*: Discover the ease of an integrated buying and implementation experience
 
-See [Publish an Integrated Solution](https://docs.microsoft.com/azure/marketplace/integrated-solutions-for-publishers) for more information.
+For more information, see [Publish an Integrated Solution](https://docs.microsoft.com/azure/marketplace/integrated-solutions-for-publishers).
 
 ## Submit a nomination
 
