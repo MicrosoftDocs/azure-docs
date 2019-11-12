@@ -1,5 +1,5 @@
 ---
-title: Upcoming deprecation of DR between customer owned sites manged by SCVMM using Site Recovery| Microsoft Docs
+title: Upcoming deprecation of DR between customer owned sites manged by SCVMM using Azure Site Recovery| Microsoft Docs
 description: Details about Upcoming deprecation of DR between customer owned sites using Hyper-V and between sites managed by SCVMM to Azure and alternate options
 services: site-recovery
 author: rajani-janaki-ram 
