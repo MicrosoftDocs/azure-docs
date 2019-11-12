@@ -21,7 +21,7 @@ ms.author: juliako
 # Monitor Media Services metrics and diagnostic logs via Azure Monitor
 
 [Azure Monitor](../../azure-monitor/overview.md) lets you monitor metrics and diagnostic logs that help you understand how your apps are performing. All data collected by Azure Monitor fits into one of two fundamental types: metrics and logs. You can monitor Media Services diagnostic logs and create alerts and notifications for the collected metrics and logs. 
-You can visualize and analyze the metrics data using [Metrics explorer](../../azure-monitor/platform/metrics-getting-started.md). You can send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), export them to [Log Analytics](https://azure.microsoft.com/services/log-analytics/), or use 3rd party services.
+You can visualize and analyze the metrics data using [Metrics explorer](../../azure-monitor/platform/metrics-getting-started.md). You can send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), export them to [Log Analytics](https://azure.microsoft.com/services/log-analytics/), or use third-party services.
 
 For a detailed overview, see [Azure Monitor Metrics](../../azure-monitor/platform/data-platform.md) and [Azure Monitor Diagnostic logs](../../azure-monitor/platform/resource-logs-overview.md).
 
@@ -69,12 +69,12 @@ The following Media Services [Streaming Endpoints](https://docs.microsoft.com/re
 Here are examples of how monitoring Media Services metrics can help you understand how your apps are performing. Some questions that can be addressed with Media Services metrics are:
 
 * How do I monitor my Standard Streaming Endpoint to know when I have exceeded the limits?
-* How do I know if I have enough Premium Streaming Endpoint scale units? 
+* How do I know if I've enough Premium Streaming Endpoint scale units?
 * How can I set an alert to know when to scale up my Streaming Endpoints?
 * How do I set an alert to know when the max egress configured on the account was reached?
 * How can I see the breakdown of requests failing and what is causing the failure?
 * How can I see how many HLS or DASH requests are being pulled from the packager?
-* How do I set an alert to know when the threshold value of # of failed requests was hit? 
+* How do I set an alert to know when the threshold value of # of failed requests was hit?
 
 ### Example
 
@@ -92,7 +92,7 @@ Media Services supports the following diagnostic logs:
 
 |Name|Description|
 |---|---|
-|Key delivery service request|Logs that show the key delivery service request information. For more details, see [schemas](media-services-diagnostic-logs-schema.md).|
+|Key delivery service request|Logs that show the key delivery service request information. For more information, see [schemas](media-services-diagnostic-logs-schema.md).|
 
 ### Why would I want to use diagnostics logs?
 
