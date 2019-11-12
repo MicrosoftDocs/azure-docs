@@ -41,6 +41,12 @@ To use Application Proxy, you need a Windows server running Windows Server 2012 
 
 For high availability in your production environment, we recommend having more than one Windows server. For this tutorial, one Windows server is sufficient.
 
+> [!IMPORTANT]
+> If you are installing the connector on Windows Server 2019 there is a HTTP2 limitation. A workaround to use the connector on this version is adding the following registry key and restarting the server. Note, this is a machine registry wide key. 
+	```
+	HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
+	```
+
 #### Recommendations for the connector server
 
 1. Physically locate the connector server close to the application servers to optimize performance between the connector and the application. For more information, see [Network topology considerations](application-proxy-network-topology.md).

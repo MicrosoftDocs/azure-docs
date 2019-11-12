@@ -75,7 +75,7 @@ Azure Security Center has added File Integrity Monitoring (FIM) built on Azure C
 If you have already enabled FIM and would like to try out the full Change Tracking solution, you need to perform the following steps. You settings are not removed by this process.
 
 > [!NOTE]
-> Enabling the full Change Tracking solution may cause additional charges, for more information, see [Automation Pricing](https://azure.microsoft.com/en-us/pricing/details/automation/).
+> Enabling the full Change Tracking solution may cause additional charges, for more information, see [Automation Pricing](https://azure.microsoft.com/pricing/details/automation/).
 
 1. Remove the monitoring solution by navigating to the workspace and locating it in the [List of installed monitoring solutions](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions).
 2. Click on the name of the solution to open its summary page and then click on Delete, as detailed in [Remove a monitoring solution](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution).
