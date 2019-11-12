@@ -37,13 +37,13 @@ This quickstart assumes you are running [Azure CLI](/cli/azure/install-azure-cli
 
 From the console window, install the Azure Key Vault secrets library for Python.
 
-```console
+```shell
 pip install azure-keyvault-secrets
 ```
 
 For this quickstart, you will need to install the azure.identity package as well:
 
-```console
+```shell
 pip install azure.identity
 ```
 
@@ -72,7 +72,7 @@ az ad sp create-for-rbac -n "http://mySP" --sdk-auth
 
 This operation will return a series of key / value pairs. 
 
-```console
+```shell
 {
   "clientId": "7da18cae-779c-41fc-992e-0527854c6583",
   "clientSecret": "b421b443-1669-4cd7-b5b1-394d5c945002",
@@ -93,7 +93,7 @@ Take note of the clientId and clientSecret, as we will use them in the [Set envi
 
 Create an access policy for your key vault that grants permission to your service principal by passing the clientId to the [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command. Give the service principal get, list, and set permissions for both keys and secrets.
 
-```azurecli
+```shell
 az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
 ```
 
@@ -103,7 +103,7 @@ The DefaultAzureCredential method in our application relies on three environment
 
 You will also need to save your key vault name as an environment variable called `KEY_VAULT_NAME`.
 
-```console
+```shell
 export AZURE_CLIENT_ID=<your-clientID>
 
 export AZURE_CLIENT_SECRET=<your-clientSecret>
@@ -117,7 +117,6 @@ export KEY_VAULT_NAME=<your-key-vault-name>
 
 The Azure Key Vault client library for Python allows you to manage keys and related assets such as certificates and secrets. The code samples below will show you how to create a client, set a secret, retrieve a secret, and delete a secret.
 
-The entire console app is available at https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/key-vault-console-app.
 
 ## Code examples
 
