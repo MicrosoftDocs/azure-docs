@@ -60,10 +60,7 @@ Prebuilt entities work without providing any custom training data. The other ent
 
 ### Add list entities for exact matches
 
-> [!NOTE]
-> This procedure demonstrates creating and labeling a list entity from an example utterance in the **Intent detail** page. You can also create the same entity from the **Entities** page.
-
-List entities represent a fixed, closed set of related words. While you, as the author, can change the list, LUIS won't grow or shrink the list. 
+List entities represent a fixed, closed set of related words. While you, as the author, can change the list, LUIS won't grow or shrink the list. You can also import to an existing list entity using a [list entity .json format(reference-entity-list.md#example-json-to-import-into-list-entity). 
 
 The following list demonstrates the canonical name and the synonyms. 
 
@@ -72,6 +69,8 @@ The following list demonstrates the canonical name and the synonyms.
 |Red|crimson, blood, apple, fire-engine|
 |Blue|sky, azure, cobalt|
 |Green|kelly, lime|
+
+Use the procedure to create a list entity. Once the list entity is created, you don't need to label example utterances in an intent. List items and synonyms are matched using exact text. 
 
 1. From the **Build** section, select **Entities** in the left panel, and then select **+ Create**.
 
@@ -83,41 +82,68 @@ The following list demonstrates the canonical name and the synonyms.
 
 1. When you are finished adding list items and synonyms, select **Create**.
 
+    When you are done with a group of changes to the app, remember to **Train** the app. Do not train the app after a single change. 
 
+    > [!NOTE]
+    > This procedure demonstrates creating and labeling a list entity from an example utterance in the **Intent detail** page. You can also create the same entity from the **Entities** page.
 
 ### Add a role to distinguish different contexts
 
-A role is a named subtype based on context. It is available in all entities including prebuilt and non-machine-learned entities. You can also import to an existing list entity using a [list entity .json format(reference-entity-list.md#example-json-to-import-into-list-entity).
+A role is a named subtype of an entity, based on context. 
 
-The syntax for a role is **`{Entityname:Rolename}`** where the entity name is followed by a colon, then the role name. For example, `Move {personName} from {Location:Origin} to {Location:Destination}`.
+In the following utterance, there are two locations, and each is specified semantically by the words around it such as `to` and `from`: 
+
+`Pick up the package from Seattle and deliver to New York City.`
+
+In this procedure, add `origin` and `destination` roles to a prebuilt geographyV2 entity.
 
 1. From the **Build** section, select **Entities** in the left panel.
 
-1. Select **Create new entity**. Enter the name of `Location`. Select the type **Simple** and select **Done**. 
+1. Select **+ Add prebuilt entity**. Select **geographyV2** then select **Done**. This adds a prebuilt entity to the app.
 
-1. Select **Entities** from the left panel, then select the new entity **Location** created in the previous step.
+1. Select the newly added prebuilt geographyV2 entity from the **Entities** page list of entities. 
+1. To add a new role, select **+** next to **No roles added**.
+1. In the **Type role...** textbox, enter the name of the role `Origin` then enter. Add a second role name of `Destination` then enter. 
 
-1. In the **Role name** textbox, enter the name of the role `Origin` and enter. Add a second role name of `Destination`. 
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of adding Origin role to Location entity](media/how-to-add-entities//add-role-to-prebuilt-geographyv2-entity.png)
 
-    ![Screenshot of adding Origin role to Location entity](./media/add-entities/roles-enter-role-name-text.png)
+    The role is added to the prebuilt entity but isn't added to any utterances using that entity. 
+
+## Label text with a role in an example utterance
+
+1. Go to the Intent details page, which has example utterances that use the role. 
+1. To label with the role, select the entity label (solid line under text) in the example utterance, then select **View in entity palette** from the drop-down list. 
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of selecting View in entity Palette](media/how-to-add-entities/select-text-label-with-entity-palette-for-role.png)   
+
+    The entity palette opens to the right. 
+
+1. Select the entity, then go to the bottom of the palette and select the role. 
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of selecting View in entity Palette](media/how-to-add-entities/select-role-from-entity-palette-entity-inspector.png)
 
 <a name="add-pattern-any-entities"></a>
 
-### Add Pattern.any entities to capture free-form entities
+## Add Pattern.any entities to capture free-form entities
 
-[Pattern.any](luis-concept-entity-types.md) entities are only valid in [patterns](luis-how-to-model-intent-pattern.md), not intents. This type of entity helps LUIS find the end of entities of varying length and word choice. Because this entity is used in a pattern, LUIS knows where the end of the entity is in the utterance template.
+[Pattern.any](luis-concept-entity-types.md) entities are only valid in [patterns](luis-how-to-model-intent-pattern.md), not intents' example utterances. This type of entity helps LUIS find the end of entities of varying length and word choice. Because this entity is used in a pattern, LUIS knows where the end of the entity is in the utterance template.
 
-If an app has a `FindHumanResourcesForm` intent, the extracted form title may interfere with the intent prediction. In order to clarify which words are in the form title, use a Pattern.any within a pattern. The LUIS prediction begins with the utterance. First, the utterance is checked and matched for entities, when the entities are found, then the pattern is checked and matched. 
+1. From the **Build** section, select **Entities** in the left panel, and then select **+ Create**.
 
-In the utterance `Where is Request relocation from employee new to the company on the server?`, the form title is tricky because it is not contextually obvious where the title ends and where the rest of the utterance begins. Titles can be any order of words including a single word, complex phrases with punctuation, and nonsensical ordering of words. A pattern allows you to create an entity where the full and exact entity can be extracted. Once the title is found, the `FindHumanResourcesForm` intent is predicted because that is the intent for the pattern.
+1. In the **Choose an entity type** dialog box, enter the entity name in the **Name** box, and select **Pattern.Any** as the **Type** then select **Create**.
 
-1. From the **Build** section, select **Entities** in the left panel, and then select **Create new entity**.
+    Once you [create a pattern utterance](luis-how-to-model-intent-pattern.md) using this entity, the entity is extracted with a combined machine-learned and text-matching algorithm. 
 
-1. In the **Add Entity** dialog box, enter `HumanResourcesFormTitle` in the **Entity name** box, and select **Pattern.any** as the **Entity type**.
+## Create pattern template utterance to use pattern.any entity
 
     To use the pattern.any entity, add a pattern on the **Patterns** page, in the **Improve app performance** section, with the correct curly brace syntax, such as `Where is **{HumanResourcesFormTitle}** on the server?`.
 
     If you find that your pattern, when it includes a Pattern.any, extracts entities incorrectly, use an [explicit list](luis-concept-patterns.md#explicit-lists) to correct this problem. 
+
+The syntax for a role is **`{Entityname:Rolename}`** where the entity name is followed by a colon, then the role name. For example, `Move {personName} from {Location:Origin} to {Location:Destination}`.
 
 <a name="add-a-role-to-pattern-based-entity"></a>
 
