@@ -442,15 +442,15 @@ The storage account to use is determined in the following order:
 
 # [JavaScript](#tab/javascript)
 
-**TODO**
+Attributes are not supported by JavaScript.
 
 # [Python](#tab/python)
 
-**TODO**
+Attributes are not supported by Python.
 
 # [Java](#tab/java)
 
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@TableInput` annotation on parameters whose value would come from Table storage.  This annotation can be used with native Java types, POJOs, or nullable values using `Optional\<T>`.
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@TableInput` annotation on parameters whose value would come from Table storage.  This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
 
 ---
 
@@ -676,11 +676,11 @@ You can use the `StorageAccount` attribute to specify the storage account at cla
 
 # [JavaScript](#tab/javascript)
 
-**TODO**
+Attributes are not supported by JavaScript.
 
 # [Python](#tab/python)
 
-**TODO**
+Attributes are not supported by Python.
 
 # [Java](#tab/java)
 
