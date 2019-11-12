@@ -165,7 +165,7 @@ Soil moisture is the water that is held in the spaces between soil particl
 Ensure the following before you attempt to generate a Soil Moisture Heatmap:
 
 - At least three soil moisture sensors must be deployed. Microsoft recommends that you do not try to create a Soil Moisture map before sensors are deployed and associated with the farm.  
-- At least one cloud free Sentinel Scene must be available for the last 120 days, from the day for which the Soil Moisture map was requested.
+- Generate Soil Moisture Heatmap is influenced by Sentinel's path coverage, cloud cover and cloud shadow. At least one cloud free Sentinel Scene must be available for the last 120 days, from the day for which the Soil Moisture map was requested.
 - At least half of the sensors deployed on the farm must be online and have data streaming to the Data hub.
 - The Heatmap should be generated using sensor measures from the same provider.
 
@@ -215,6 +215,6 @@ Use the following steps:
 4. Select the **Sort** icon next to the table headers to sort according to Farm, Date, Created On, Job ID, and Job Type.
 5. Scroll through the list of maps available using the navigation buttons at the end of the page.
 6. Select the map you want to view. A pop-up window displays the preview for the selected map.
-7. Select **Download** drop-down menu to select the download format and the map is downloaded and stored in the local folder of your computer.
+7. Select **Download** drop-down menu to select the download format and the map is downloaded and stored in the specified folder.
 
     ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/download-soil-moisture-map-1.png)

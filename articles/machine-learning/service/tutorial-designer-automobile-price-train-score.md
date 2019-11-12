@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Predict automobile price with the designer'
 titleSuffix: Azure Machine Learning
-description: Learn how to train, score, and deploy a machine learning model using a drag and drop interface. This tutorial is part one of a two-part series on predicting automobile prices using linear regression.
+description: Learn how to train, score, and deploy a machine learning model by using a drag-and-drop interface. This tutorial is part one of a two-part series on predicting automobile prices by using linear regression.
 
 author: peterclu
 ms.author: peterlu
@@ -17,23 +17,23 @@ ms.date: 11/04/2019
 
 In this two-part tutorial, you learn how to use the Azure Machine Learning designer to develop and deploy a predictive analytics solution that predicts the price of any car. 
 
-In part one, you set up your environment, drag-and-drop modules onto an interactive canvas, and connect them together to create an Azure Machine Learning pipeline.
+In part one, you set up your environment, drag modules onto an interactive canvas, and connect them together to create an Azure Machine Learning pipeline.
 
-In part one of the tutorial you learn how to:
+In part one of the tutorial, you'll learn how to:
 
 > [!div class="checklist"]
-> * Create a new pipeline
-> * Import data
-> * Prepare data
-> * Train a machine learning model
-> * Evaluate a machine learning model
+> * Create a new pipeline.
+> * Import data.
+> * Prepare data.
+> * Train a machine learning model.
+> * Evaluate a machine learning model.
 
-In [part two](tutorial-designer-automobile-price-deploy.md) of the tutorial, you learn how to deploy your predictive model as a real-time inferencing endpoint to predict the price of any car based on technical specifications you send it. 
+In [part two](tutorial-designer-automobile-price-deploy.md) of the tutorial, you'll learn how to deploy your predictive model as a real-time inferencing endpoint to predict the price of any car based on technical specifications you send it. 
 
-> [!Note]
+> [!NOTE]
 >A completed version of this tutorial is available as a sample pipeline.
 >
->To find it, go to the **designer in your workspace**. In the **New pipeline** section, select **Sample 1 - Regression: Automobile Price Prediction(Basic)**.
+>To find it, go to the designer in your workspace. In the **New pipeline** section, select **Sample 1 - Regression: Automobile Price Prediction(Basic)**.
 
 ## Create a new pipeline
 
@@ -41,13 +41,13 @@ Azure Machine Learning pipelines organize multiple, dependent machine learning a
 
 ### Create a new workspace
 
-If you have an Azure Machine Learning workspace with an **Enterprise edition**, [skip to the next section](#create-the-pipeline).
+If you have an Azure Machine Learning workspace with an Enterprise edition, [skip to the next section](#create-the-pipeline).
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal-enterprise.md)]
 
 ### Create the pipeline
 
-1. Sign into [ml.azure.com](https://ml.azure.com) and select the workspace you want to work with.
+1. Sign in to [ml.azure.com](https://ml.azure.com), and select the workspace you want to work with.
 
 1. Select **Designer**.
 
@@ -55,25 +55,25 @@ If you have an Azure Machine Learning workspace with an **Enterprise edition**, 
 
 1. Select **Easy-to-use prebuilt modules**.
 
-1. Select the default pipeline name, **"Pipeline-Created-on ..."** at the top of the canvas, and rename it to something meaningful. For example, **"Automobile price prediction"**. The name doesn't need to be unique.
+1. Select the default pipeline name **Pipeline-Created-on** at the top of the canvas. Rename it to something meaningful. An example is *Automobile price prediction*. The name doesn't need to be unique.
 
 ## Import data
 
 There are several sample datasets included in the designer for you to experiment with. For this tutorial, use **Automobile price data (Raw)**. 
 
-1. To the left of the pipeline canvas is a palette of datasets and modules. Select **Datasets** then view the **Samples** section to view the available sample datasets.
+1. To the left of the pipeline canvas is a palette of datasets and modules. Select **Datasets**, and then view the **Samples** section to view the available sample datasets.
 
-1. Select the dataset, **Automobile price data (Raw)**, and drag it onto the canvas.
+1. Select the dataset **Automobile price data (Raw)**, and drag it onto the canvas.
 
    ![Drag data to canvas](./media/ui-tutorial-automobile-price-train-score/drag-data.gif)
 
 ### Visualize the data
 
-You can visualize the data to understand the dataset you will be using.
+You can visualize the data to understand the dataset that you'll use.
 
 1. Select the **Automobile price data (Raw)** module.
 
-1. In the **Properties** pane to the right of the canvas, select **Outputs**.
+1. In the properties pane to the right of the canvas, select **Outputs**.
 
 1. Select the graph icon to visualize the data.
 
@@ -85,17 +85,17 @@ You can visualize the data to understand the dataset you will be using.
 
 ## Prepare data
 
-Datasets typically require some preprocessing before analysis. You might have noticed some missing values when inspect the dataset. These missing values need to be cleaned so that the model can analyze the data correctly.
+Datasets typically require some preprocessing before analysis. You might have noticed some missing values when you inspected the dataset. These missing values must be cleaned so that the model can analyze the data correctly.
 
 ### Remove a column
 
-When you train a model, you have to do something about the data that's missing. In this dataset, the **normalized-losses** column is missing many values, so you'll exclude that column from the model altogether.
+When you train a model, you have to do something about the data that's missing. In this dataset, the **normalized-losses** column is missing many values, so you exclude that column from the model altogether.
 
-1. Enter **Select** in the Search box at the top of the palette to find the **Select Columns in Dataset** module.
+1. Enter **Select** in the search box at the top of the palette to find the **Select Columns in Dataset** module.
 
-1. Click and drag the **Select Columns in Dataset** module onto the canvas. Drop the module below the dataset module.
+1. Drag the **Select Columns in Dataset** module onto the canvas. Drop the module below the dataset module.
 
-1. Connect the **Automobile price data (Raw)** dataset to the **Select Columns in Dataset**. Drag from the dataset's output port, which is the small circle at the bottom of the dataset on the canvas, to the input port of **Select Columns in Dataset**, which is the small circle at the top of the module.
+1. Connect the **Automobile price data (Raw)** dataset to the **Select Columns in Dataset** module. Drag from the dataset's output port, which is the small circle at the bottom of the dataset on the canvas, to the input port of **Select Columns in Dataset**, which is the small circle at the top of the module.
 
     > [!TIP]
     > You create a flow of data through your pipeline when you connect the output port of one module to an input port of another.
@@ -105,13 +105,13 @@ When you train a model, you have to do something about the data that's missing. 
 
 1. Select the **Select Columns in Dataset** module.
 
-1. In the **Properties** pane to the right of the canvas, select **Parameters** > **Edit column**.
+1. In the properties pane to the right of the canvas, select **Parameters** > **Edit column**.
 
 1. Select the **+** to add a new rule.
 
 1. From the drop-down menu, select **Exclude** and **Column names**.
     
-1. Enter **normalized-losses** into the text box.
+1. Enter *normalized-losses* in the text box.
 
 1. In the lower right, select **Save** to close the column selector.
 
@@ -121,26 +121,26 @@ When you train a model, you have to do something about the data that's missing. 
 
 1. Select the **Select Columns in Dataset** module. 
 
-1. In the **Properties** pane, select **Parameters** > **Comment** and enter "Exclude normalized losses.".
+1. In the properties pane, select **Parameters** > **Comment** and enter *Exclude normalized losses*.
 
 ### Clean missing data
 
-Your dataset still has missing values after removing the **normalized-losses** column. You can remove the remaining missing data using the **Clean Missing Data** module.
+Your dataset still has missing values after you remove the **normalized-losses** column. You can remove the remaining missing data by using the **Clean Missing Data** module.
 
 > [!TIP]
 > Cleaning the missing values from input data is a prerequisite for using most of the modules in the designer.
 
-1. Enter **Clean** in the Search box to find the **Clean Missing Data** module.
+1. Enter **Clean** in the search box to find the **Clean Missing Data** module.
 
-1. Drag the **Clean Missing Data** module to the pipeline canvas and connect it to the **Select Columns in Dataset** module. 
+1. Drag the **Clean Missing Data** module to the pipeline canvas. Connect it to the **Select Columns in Dataset** module. 
 
-1. In the Properties pane, select **Remove entire row** under **Cleaning mode**.
+1. In the properties pane, select **Remove entire row** under **Cleaning mode**.
 
-1. In the Properties pane **Comment** box, enter "Remove missing value rows."  
+1. In the properties pane **Comment** box, enter *Remove missing value rows*. 
 
     Your pipeline should now look something like this:
     
-    ![select-column](./media/ui-tutorial-automobile-price-train-score/pipeline-clean.png)
+    ![Select-column](./media/ui-tutorial-automobile-price-train-score/pipeline-clean.png)
 
 ## Train a machine learning model
 
@@ -148,23 +148,23 @@ Now that the data is processed, you can train a predictive model.
 
 ### Select an algorithm
 
-**Classification** and **regression** are two types of supervised machine learning algorithms. **Classification** predicts an answer from a defined set of categories, such as a color (red, blue, or green). **Regression** is used to predict a number.
+*Classification* and *regression* are two types of supervised machine learning algorithms. Classification predicts an answer from a defined set of categories, such as a color like red, blue, or green. Regression is used to predict a number.
 
-Since you want to predict price, which is a number, you can use a regression algorithm. For this example, you'll use a linear regression model.
+Because you want to predict price, which is a number, you can use a regression algorithm. For this example, you use a linear regression model.
 
 ### Split the data
 
 Split your data into two separate datasets for training the model and testing it.
 
-1. Enter **split data** in the search box to find the **Split Data** module and connect it to the left port of the **Clean Missing Data** module.
+1. Enter **split data** in the search box to find the **Split Data** module. Connect it to the left port of the **Clean Missing Data** module.
 
 1. Select the **Split Data** module.
 
-1. In the Properties pane, set the **Fraction of rows in the first output dataset** to 0.7.
+1. In the properties pane, set the **Fraction of rows in the first output dataset** to 0.7.
 
-    This splits 70 percent of the data to train the model and 30 percent for testing it.
+    This option splits 70 percent of the data to train the model and 30 percent for testing it.
 
-1. In the Properties **Comment** box, enter "Split the dataset into training set (0.7) and test set (0.3)."
+1. In the properties pane **Comment** box, enter *Split the dataset into training set (0.7) and test set (0.3)*.
 
 ### Train the model
 
@@ -174,9 +174,9 @@ Train the model by giving it a set of data that includes the price. The model sc
 
 1. Expand **Machine Learning Algorithms**.
     
-    This displays several categories of modules that you can use to initialize learning algorithms.
+    This option displays several categories of modules that you can use to initialize learning algorithms.
 
-1. Select **Regression** > **Linear Regression** and drag it to the pipeline canvas.
+1. Select **Regression** > **Linear Regression**, and drag it to the pipeline canvas.
 
 1. Find and drag the **Train Model** module to the pipeline canvas. 
 
@@ -188,11 +188,11 @@ Train the model by giving it a set of data that includes the price. The model sc
 
 1. Select the **Train Model** module.
 
-1. In the Properties pane, select **Edit column** selector.
+1. In the properties pane, select **Edit column** selector.
 
-1. In the **Label column** dialog, expand the drop-down menu and select **Column names**. 
+1. In the **Label column** dialog box, expand the drop-down menu and select **Column names**. 
 
-1. In the text box, enter **price**. Price is the value that your model is going to predict.
+1. In the text box, enter *price*. Price is the value that your model is going to predict.
 
     Your pipeline should look like this:
 
@@ -200,13 +200,13 @@ Train the model by giving it a set of data that includes the price. The model sc
 
 ## Evaluate a machine learning model
 
-After training your model using 70 percent of the data, you can use it to score the other 30 percent to see how well your model functions.
+After you train your model by using 70 percent of the data, you can use it to score the other 30 percent to see how well your model functions.
 
-1. Enter **score model** in the search box to find the **Score Model** module and drag the module to the pipeline canvas. 
+1. Enter *score model* in the search box to find the **Score Model** module. Drag the module to the pipeline canvas. 
 
 1. Connect the output of the **Train Model** module to the left input port of **Score Model**. Connect the test data output (right port) of the **Split Data** module to the right input port of **Score Model**.
 
-1. Enter **evaluate** in the search box to find the **Evaluate Model** and drag the module to the pipeline canvas. 
+1. Enter *evaluate* in the search box to find the **Evaluate Model** module. Drag the module to the pipeline canvas. 
 
 1. Connect the output of the **Score Model** module to the left input of **Evaluate Model**. 
 
@@ -224,23 +224,23 @@ After the run completes, you can view the results of the pipeline run.
 
 1. Select the **Score Model** module to view its output.
 
-1. In the **Properties** pane, select **Outputs** > **Visualize**.
+1. In the properties pane, select **Outputs** > **Visualize**.
 
     Here you can see the predicted prices and the actual prices from the testing data.
 
-    ![Screenshot of the output visualization highlighting the "Scored Label" column](./media/ui-tutorial-automobile-price-train-score/score-result.png)
+    ![Screenshot of the output visualization highlighting the Scored Label column](./media/ui-tutorial-automobile-price-train-score/score-result.png)
 
 1. Select the **Evaluate Model** module to view its output.
 
-1. In the **Properties** pane, select **Output** > **Visualize**.
+1. In the properties pane, select **Output** > **Visualize**.
 
 The following statistics are shown for your model:
 
-* **Mean Absolute Error (MAE)**: The average of absolute errors (an error is the difference between the predicted value and the actual value).
+* **Mean Absolute Error (MAE)**: The average of absolute errors. An error is the difference between the predicted value and the actual value.
 * **Root Mean Squared Error (RMSE)**: The square root of the average of squared errors of predictions made on the test dataset.
 * **Relative Absolute Error**: The average of absolute errors relative to the absolute difference between actual values and the average of all actual values.
 * **Relative Squared Error**: The average of squared errors relative to the squared difference between the actual values and the average of all actual values.
-* **Coefficient of Determination**: Also known as the R squared value, this is a statistical metric indicating how well a model fits the data.
+* **Coefficient of Determination**: Also known as the R squared value, this statistical metric indicates how well a model fits the data.
 
 For each of the error statistics, smaller is better. A smaller value indicates that the predictions are closer to the actual values. For the coefficient of determination, the closer its value is to one (1.0), the better the predictions.
 

@@ -1,6 +1,6 @@
 ---
-title: Schedule Azure Container Registry tasks
-description: Set timers to run an Azure Container Registry task on a defined schedule.
+title: Schedule Azure Container Registry Tasks
+description: Learn how to run an Azure Container Registry Task on a defined schedule by setting one or more timer triggers
 services: container-registry
 author: dlepow
 manager: gwallace
@@ -12,7 +12,7 @@ ms.author: danlep
 ---
 # Run an ACR task on a defined schedule
 
-This article shows you how to run an [ACR task](container-registry-tasks-overview.md) on a schedule. Schedule a task by setting up one or more *timer triggers*.
+This article shows you how to run an [ACR Task](container-registry-tasks-overview.md) on a schedule. Schedule a task by setting up one or more *timer triggers*.
 
 Scheduling a task is useful for scenarios like the following:
 
