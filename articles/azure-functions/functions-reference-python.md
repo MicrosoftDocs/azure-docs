@@ -567,6 +567,8 @@ class TestFunction(unittest.TestCase):
         )
 ```
 
+We recommend that you maintain your tests in a folder separate from the project folder. This keeps you from deploying test code with your app. 
+
 ## Known issues and FAQ
 
 All known issues and feature requests are tracked using [GitHub issues](https://github.com/Azure/azure-functions-python-worker/issues) list. If you run into a problem and can't find the issue in GitHub, open a new issue and include a detailed description of the problem.
