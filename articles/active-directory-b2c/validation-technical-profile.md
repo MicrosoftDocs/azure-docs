@@ -35,6 +35,9 @@ A validation technical profile can be conditionally executed based on preconditi
 
 A self-asserted technical profile may define a validation technical profile to be used for validating some or all of its output claims. All of the input claims of the referenced technical profile must appear in the output claims of the referencing validation technical profile.
 
+> [!NOTE]
+> Only Self-Asserted Technical Profiles can use Validation Technical Profiles. If you need to validate the output claims from non-Self-Asserted Technical Profiles please consider using an additional Orchestration Step in your User Journey to accommodate the Technical Profile in charge of the validation.    
+
 ## ValidationTechnicalProfiles
 
 The **ValidationTechnicalProfiles** element contains the following elements:
