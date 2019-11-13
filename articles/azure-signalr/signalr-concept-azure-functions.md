@@ -1,10 +1,10 @@
 ---
 title: Build Real-time app - Azure Functions & Azure SignalR Service
-description: An overview of using Azure SignalR Service in serverless applications.
+description: Learn how to develop real-time serverless web application with Azure SignalR Service by following example.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 11/13/2019
 ms.author: zhshang
 ---
 # Build real-time Apps with Azure Functions and Azure SignalR Service
