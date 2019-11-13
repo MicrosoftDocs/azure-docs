@@ -153,7 +153,7 @@ Follow these steps to assign the User Access Administrator role to the MS-PIM se
 
    After a few moments, the MS-PIM service principal is assigned the User Access Administrator role at the subscription scope.
 
-   ![Access control (IAM) blade showing User Access Administrator role assignment for MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-user-access-administrator.png)
+   ![Access control page showing User access admin role assignment for the MS-PIM service principal](./media/pim-how-to-add-role-to-user/ms-pim-user-access-administrator.png)
 
 # [New version](#tab/new)
 
