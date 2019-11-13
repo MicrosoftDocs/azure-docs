@@ -94,3 +94,4 @@ Monitoring data on this page does not refresh automatically and you need to sele
 
 ## Next steps
 
+View [log query examples](container-insights-log-search.md#search-logs-to-analyze-data) to see predefined queries and examples to evaluate or customize to alert, visualize, or analyze your clusters.
