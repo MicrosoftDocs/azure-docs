@@ -10,7 +10,7 @@ ms.assetid:
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 11/12/2019
+ms.date: 11/13/2019
 ms.author: magoedte
 ---
 
@@ -22,7 +22,7 @@ For information about how to enable Azure Monitor for containers, see [Onboard A
 
 ## Overview
 
-In Azure Monitor for containers, the Health feature provides proactive health monitoring of your Kubernetes cluster to help you identify and diagnose issues. It gives you the ability to view significant issues detected. Monitors evaluating the health of your cluster run on the containerized agent in your cluster, and the data collected is written to the **KubeHealth** table in your Log Analytics workspace. 
+In Azure Monitor for containers, the Health feature provides proactive health monitoring of your Kubernetes cluster to help you identify and diagnose issues. It gives you the ability to view significant issues detected. Monitors evaluating the health of your cluster run on the containerized agent in your cluster, and the health data is written to the **KubeHealth** table in your Log Analytics workspace. 
 
 Kubernetes cluster health is based on a number of monitoring scenarios organized by the following Kubernetes objects and abstractions:
 
@@ -81,7 +81,7 @@ On the property pane, you learn the following:
 
     ![Health property pane Overview tab for aggregate monitor](./media/container-insights-health/health-overview-aggregate-monitor.png)
 
-    If you select a child monitor in the Health Hierarchy pane, it also shows under **Last state change** the previous samples calculated and reported by the containerized agent within the last four hours. This is based on the unit monitors calculation for comparing several consecutive values to determine its threshold. For example, if you selected one of the resource utilization unit monitors (that is CPU or memory utilization) of a Node or Pod, it shows the last three samples.
+    If you select a child monitor in the Health Hierarchy pane, it also shows under **Last state change** the previous samples calculated and reported by the containerized agent within the last four hours. This is based on the unit monitors calculation for comparing several consecutive values to determine its threshold. For example, if you selected the *Pod ready state* unit monitor, it shows the last two samples.
     
     ![Health property pane Overview tab](./media/container-insights-health/health-overview-unit-monitor.png)
 
