@@ -113,11 +113,17 @@ In this section, you create an Azure function that implements your custom alloca
     > [!NOTE]
     > By default, **Application Insights** is enabled. If you want to, you can disable it by selecting the **Monitoring** tab and selecting **No** for **Enable Application Insights**.
 
+    ![Create an Azure Function App to host the custom allocation function](./media/how-to-use-custom-allocation-policies/create-function-app.png)
+
 4. On the **Summary** page, select **Create** to create the function app. Deployment may take several minutes. When it completes, select **Go to resource**.
 
 5. On the left-hand pane of the **Overview** page, select **+** next to **Functions** to add a new function.
 
+    ![Add a function to the Function App](./media/how-to-use-custom-allocation-policies/create-function.png)
+
 6. On **Azure Functions for .NET - getting started**, for the **CHOOSE A DEPLOYMENT ENVIRONMENT** step, select the **In-portal** tile, then select **Continue**.
+
+    ![Select the portal development environment](./media/how-to-use-custom-allocation-policies/function-choose-environment.png)
 
 7. On the next page, for the **CREATE A FUNCTION** step, select the **Webhook + API** tile, then select **Create**. A function named **HttpTrigger1** is created, and the portal displays the contents of the **run.csx** code file.
 
@@ -137,7 +143,13 @@ In this section, you create an Azure function that implements your custom alloca
         </Project>
         ```
 
-    2. On the **HttpTrigger1** function, expand the **View Files** tab on the right side of the window. Select **Upload** and browse to the **function.proj** file you saved previously and select **Open** to upload the file.
+    2. On the **HttpTrigger1** function, expand the **View Files** tab on the right side of the window.
+
+        ![Open view files](./media/how-to-use-custom-allocation-policies/function-open-view-files.png)
+
+    3. Select **Upload** and browse to the **function.proj** file you saved previously and select **Open** to upload the file.
+
+        ![Select upload file](./media/how-to-use-custom-allocation-policies/function-choose-upload-file.png)
 
 9. Replace the code for the **HttpTrigger1** function with the following code and click **Save**:
 
@@ -284,7 +296,7 @@ In this section, you'll create a new enrollment group that uses the custom alloc
 
 1. Still on the [Azure portal](https://portal.azure.com), open your Device Provisioning Service instance.
 
-2. Select the **Manage enrollments** tab, and then click the **Add enrollment group** button at the top of the page.
+2. Select **Manage enrollments** on the left pane, and then click the **Add enrollment group** button at the top of the page.
 
 3. On **Add Enrollment Group**, enter the following information, and click the **Save** button.
 
