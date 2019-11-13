@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Create a pipeline with Copy Activity using Visual Studio | Microsoft Docs'
+title: 'Tutorial: Create a pipeline with Copy Activity using Visual Studio '
 description: In this tutorial, you create an Azure Data Factory pipeline with a Copy Activity by using Visual Studio.
 services: data-factory
 documentationcenter: ''

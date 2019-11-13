@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/01/2019
+ms.date: 11/05/2019
 ms.author: magoedte
 ms.subservice: 
 ---
@@ -285,7 +285,7 @@ To see the count of **billable** events ingested per computer, use
 union withsource = tt * 
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
-| summarize eventCount=count() by computerName  | sort by count_ nulls last
+| summarize eventCount=count() by computerName  | sort by eventCount nulls last
 ```
 
 If you want to see counts for billable data types are sending data to a specific computer, use:

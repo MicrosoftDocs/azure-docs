@@ -16,7 +16,9 @@ ms.author: diberry
 
 In machine learning, a *feature* is a distinguishing trait or attribute of data that your system observes & learns through. In Language Understanding (LUIS), a feature describes and explains what is significant about your intents and entities.
 
-## Features in Language Understanding
+In the [preview LUIS portal](https://preview.luis.ai), features are _descriptors_ because they are used to _describe_ the intent or entity.  
+
+## Features (_descriptors_) in Language Understanding
 
 Features, also known as descriptors, describe clues to help Language Understanding identify the example utterances. Features include: 
 

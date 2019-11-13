@@ -1,5 +1,5 @@
 ---
-title: Best practices for SQL Analytics in Azure Synapse Analytics (formerly SQL DW) | Microsoft Docs
+title: Best practices for SQL Analytics in Azure Synapse Analytics (formerly SQL DW) 
 description: Recommendations and best practices for developing solutions for SQL Analytics in Azure Synapse Analytics (formerly SQL DW). 
 services: sql-data-warehouse
 author: mlee3gsd

@@ -1,15 +1,14 @@
 ---
 title: "Quickstart: Create a LUIS key"
 titleSuffix: Azure Cognitive Services
-description: In this tutorial, you learn how to quickly create a LUIS application.
+description: In this quickstart, you'll learn how to create a LUIS application and get a key.
 services: cognitive-services
 author: wolfma61
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
-ms.date: 08/28/2019
+ms.date: 11/04/2019
 ms.author: wolfma
 
 # Customer intent: As a C# programmer, I want to learn how to derive speaker intent from their utterances so that I can create a conversational UI for my application.
@@ -52,7 +51,7 @@ On the **Keys and Endpoint settings** page:
    * Under **Subscription Name**, choose the Azure subscription that contains the LUIS resource you want to use.
    * Under **Key**, choose the LUIS resource that you want to use with the app.
 
-   In a moment, the new subscription appears in the table at the bottom of the page. 
+   In a moment, the new subscription appears in the table at the bottom of the page.
 
 1. Select the icon next to a key to copy it to the clipboard. (You may use either key.)
 

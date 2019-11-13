@@ -186,6 +186,8 @@ Next, open the template file in a text editor and make three updates to support 
         ...
     ```
 
+For additional information see [Change cluster from certificate thumbprint to common name.](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn)
+
 ## Deploy the updated template
 Redeploy the updated template after making the changes.
 

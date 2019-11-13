@@ -12,7 +12,7 @@ ms.date: 11/04/2019
 
 # How to tag images in a labeling project
 
-Once your project administrator has created a labeling project in Azure Machine Learning studio, you can use the labeling tool to rapidly prepare data for a machine learning project. 
+Once your project administrator has created a labeling project in Azure Machine Learning, you can use the labeling tool to rapidly prepare data for a machine learning project. 
 
 > [!div class="checklist"]
 > * How to access your labeling projects

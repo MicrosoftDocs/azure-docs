@@ -1,8 +1,18 @@
 {
   "redirections": [
     {
+      "source_path": "articles/digital-twins/how-to-use-legacy-aad.md",
+      "redirect_url": "/azure/digital-twins/quickstart-view-occupancy-dotnet#set-permissions-for-your-app",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/php-download-sdk.md",
       "redirect_url": "https://github.com/Azure/azure-sdk-for-php",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/container-registry/container-registry-upgrade.md",
+      "redirect_url": "/azure/container-registry/container-registry-skus",
       "redirect_document_id": false
     },
     {
@@ -235,6 +245,12 @@
       "redirect_url": "/azure/site-recovery/vmware-physical-mobility-service-overview#install-mobility-agent-through-ui",
       "redirect_document_id": false
     },
+
+    {
+      "source_path": "articles/site-recovery/scvmm-site-recovery-deprecation.md",
+      "redirect_url": "/azure/site-recovery/site-to-site-deprecation",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/machine-learning/service/quickstart-get-started.md",
       "redirect_url": "/azure/machine-learning/service/quickstart-run-cloud-notebook",
@@ -351,18 +367,13 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/machine-learning/desktop-workbench/model-management-custom-container.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/machine-learning/desktop-workbench/model-management-overview.md",
-      "redirect_url": "/azure/machine-learning/service",
+      "redirect_url": "/azure/machine-learning",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/desktop-workbench/model-management-service-deploy.md",
-      "redirect_url": "/azure/machine-learning/service",
+      "redirect_url": "/azure/machine-learning",
       "redirect_document_id": false
     },
     {
@@ -372,27 +383,27 @@
     },
     {
       "source_path": "articles/machine-learning/desktop-workbench/quickstart-visual-studio-code-tools.md",
-      "redirect_url": "/azure/machine-learning/service",
+      "redirect_url": "/azure/machine-learning",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/desktop-workbench/quickstart-visual-studio-tools.md",
-      "redirect_url": "/azure/machine-learning/service",
+      "redirect_url": "/azure/machine-learning",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/desktop-workbench/reference-logging-api.md",
-      "redirect_url": "/azure/machine-learning/service",
+      "redirect_url": "/azure/machine-learning",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/desktop-workbench/reference-python-package-overview.md",
-      "redirect_url": "/azure/machine-learning/service",
+      "redirect_url": "/azure/machine-learning",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/desktop-workbench/roaming-and-collaboration.md",
-      "redirect_url": "/azure/machine-learning/service",
+      "redirect_url": "/azure/machine-learning",
       "redirect_document_id": false
     },
     {
@@ -482,127 +493,12 @@
     },
     {
       "source_path": "articles/machine-learning/desktop-workbench/tutorial-iris-azure-cli.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/use-azure-iot-edge-ai-toolkit.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/using-git-ml-project.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/how-to-use-mmlspark.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/how-to-use-model-data-collection.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/how-to-use-run-history-model-metrics.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/how-to-use-tdsp-in-azure-ml.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/known-issues-and-troubleshooting-guide.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/model-data-collection-api-reference.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/model-management-api-reference.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/model-management-cli-reference.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/model-management-configuration.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/model-management-consumption.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/how-to-configure-your-IDE.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/how-to-create-dsvm-hdi.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/how-to-deploy-troubleshooting-guide.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/how-to-find-best-accuracy-cli.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/how-to-improve-accuracy-for-computer-vision-models.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/how-to-read-write-files.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/how-to-scale-clusters.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/how-to-setup-ssl-on-mlc.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/how-to-use-gpu.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/how-to-use-jupyter-notebooks.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/export-delete-experimentation-model-management-data-dsr.md",
-      "redirect_url": "/azure/machine-learning/service",
+      "redirect_url": "/azure/machine-learning",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/desktop-workbench/frequently-asked-questions.md",
-      "redirect_url": "/azure/machine-learning/service",
+      "redirect_url": "/azure/machine-learning",
       "redirect_document_id": false
     },
     {
@@ -612,157 +508,37 @@
     },
     {
       "source_path": "articles/machine-learning/desktop-workbench/how-to-build-deploy-image-classification-models.md",
-      "redirect_url": "/azure/machine-learning/service",
+      "redirect_url": "/azure/machine-learning",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/desktop-workbench/how-to-build-deploy-image-similarity-models.md",
-      "redirect_url": "/azure/machine-learning/service",
+      "redirect_url": "/azure/machine-learning",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/desktop-workbench/how-to-build-deploy-object-detection-models.md",
-      "redirect_url": "/azure/machine-learning/service",
+      "redirect_url": "/azure/machine-learning",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/desktop-workbench/how-to-build-deploy-text-classification-models.md",
-      "redirect_url": "/azure/machine-learning/service",
+      "redirect_url": "/azure/machine-learning",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/machine-learning/desktop-workbench/data-prep-user-guide.md",
-      "redirect_url": "/azure/machine-learning/service",
+      "source_path": "articles/cognitive-services/LUIS/luis-how-to-add-example-utterances.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-tutorial-prebuilt-intents-entities.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-machine-learned-entity",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/machine-learning/desktop-workbench/data-source-wizard.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/deploy-to-iot-edge-device.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/deployment-setup-configuration.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/experimentation-service-configuration-reference.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/experimentation-service-configuration.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/experimentation-service-template.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/data-prep-derive-column-by-example.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/data-prep-expand-json.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/data-prep-getting-started.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/data-prep-load-azure-cosmos-db.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/data-prep-python-execution-api.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/data-prep-python-extensibility-overview.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/data-prep-split-column-by-example.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/data-prep-supported-runtime-data-environments.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/data-prep-appendix5-supported-destinations.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/data-prep-appendix6-sample-filter-expressions-python.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/data-prep-appendix7-sample-transform-data-flow-python.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/data-prep-appendix8-sample-source-connections-python.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/data-prep-appendix9-sample-destination-connections-python.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/data-prep-appendix10-sample-custom-column-transforms-python.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/data-prep-combine-columns-by-example.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/service/reference-fpga-package-overview.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/cli-for-azure-machine-learning.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/data-prep-appendix2-supported-data-sources.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/data-prep-appendix3-supported-transforms.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/desktop-workbench/data-prep-appendix4-supported-inspectors.md",
-      "redirect_url": "/azure/machine-learning/service",
+      "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intents-only.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-intents-only",
       "redirect_document_id": false
     },
     {
@@ -1208,6 +984,61 @@
     {
       "source_path": "articles/machine-learning/service/how-to-choose-a-dev-environment.md",
       "redirect_url": "/azure/machine-learning/service/how-to-configure-environment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-faq.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-front-door-rate-limit-powershell.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-rate-limit-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-front-door-configure-ip-restriction.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-configure-ip-restriction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-front-door-configure-custom-response-code.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-configure-custom-response-code",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-front-door-policy-configure-bot-protection.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-policy-configure-bot-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-front-door-custom-rules-powershell.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-custom-rules-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-front-door-create-portal.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-create-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-front-door-monitor.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-monitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-front-door-policy-settings.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-policy-settings",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-front-door-custom-rules.md",
+      "redirect_url": "/azure/web-application-firewall/afds/waf-front-door-custom-rules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/frontdoor/waf-overview.md",
+      "redirect_url": "/azure/web-application-firewall/afds/afds-overview",
       "redirect_document_id": false
     },
     {
@@ -2181,23 +2012,8 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/machine-learning/desktop-workbench/data-prep-operationalization.md",
-      "redirect_url": "/azure/machine-learning/preview/data-prep-python-extensibility-overview",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/service/aml-pricing.md",
-      "redirect_url": "https://azure.microsoft.com/pricing/details/machine-learning-services",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/machine-learning/preview/index.md",
-      "redirect_url": "/azure/machine-learning/service",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/aml-pricing.md",
-      "redirect_url": "/azure/machine-learning/service/aml-pricing",
+      "redirect_url": "/azure/machine-learning",
       "redirect_document_id": true
     },
     {
@@ -2231,71 +2047,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/machine-learning/preview/scenario-aerial-image-classification.md",
-      "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/preview/scenario-big-data.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/scenario-big-data",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/preview/scenario-churn-prediction.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/scenario-churn-prediction",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/scenario-deep-learning-for-predictive-maintenance.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/scenario-deep-learning-for-predictive-maintenance",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/scenario-distributed-tuning-of-hyperparameters.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/scenario-distributed-tuning-of-hyperparameters",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/scenario-document-collection-analysis.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/scenario-document-collection-analysis",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/scenario-image-classification-using-cntk.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/scenario-image-classification-using-cntk",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/scenario-predictive-maintenance.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/scenario-predictive-maintenance",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/scenario-qna-matching.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/scenario-qna-matching",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/scenario-sentiment-analysis-deep-learning.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/scenario-sentiment-analysis-deep-learning",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/scenario-tdsp-biomedical-recognition.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/scenario-tdsp-biomedical-recognition",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/scenario-tdsp-classifying-us-incomes.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/scenario-tdsp-classifying-us-incomes",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/scenario-time-series-forecasting.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/scenario-time-series-forecasting",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/machine-learning/preview/tutorial-bikeshare-dataprep.md",
       "redirect_url": "/azure/machine-learning/desktop-workbench/tutorial-bikeshare-dataprep",
       "redirect_document_id": true
@@ -2303,36 +2054,6 @@
     {
       "source_path": "articles/machine-learning/preview/how-to-use-tdsp-in-azure-ml.md",
       "redirect_url": "/azure/machine-learning/desktop-workbench/how-to-use-tdsp-in-azure-ml",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/model-data-collection-api-reference.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/model-data-collection-api-reference",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/model-management-api-reference.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/model-management-api-reference",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/model-management-cli-reference.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/model-management-cli-reference",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/model-management-configuration.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/model-management-configuration",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/model-management-consumption.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/model-management-consumption",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/model-management-custom-container.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/model-management-custom-container",
       "redirect_document_id": true
     },
     {
@@ -2344,11 +2065,6 @@
       "source_path": "articles/active-directory/pp/msi-known-issues.md",
       "redirect_url": "/azure/active-directory/managed-service-identity/known-issues",
       "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/preview/model-management-overview.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/model-management-overview",
-      "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/pp/msi-qs-configure-cli-windows-vm.md",
@@ -2393,11 +2109,6 @@
     {
       "source_path": "articles/machine-learning/service/support-for-aml-services.md",
       "redirect_url": "https://aka.ms/aml-forum-service",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/model-management-service-deploy.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/model-management-service-deploy",
       "redirect_document_id": true
     },
     {
@@ -2476,224 +2187,9 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/machine-learning/preview/data-prep-appendix10-sample-custom-column-transforms-python.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/data-prep-appendix10-sample-custom-column-transforms-python",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/data-prep-appendix2-supported-data-sources.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/data-prep-appendix2-supported-data-sources",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/data-prep-appendix3-supported-transforms.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/data-prep-appendix3-supported-transforms",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/data-prep-appendix4-supported-inspectors.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/data-prep-appendix4-supported-inspectors",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/data-prep-appendix5-supported-destinations.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/data-prep-appendix5-supported-destinations",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/data-prep-appendix6-sample-filter-expressions-python.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/data-prep-appendix6-sample-filter-expressions-python",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/data-prep-appendix7-sample-transform-data-flow-python.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/data-prep-appendix7-sample-transform-data-flow-python",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/data-prep-appendix8-sample-source-connections-python.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/data-prep-appendix8-sample-source-connections-python",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/data-prep-appendix9-sample-destination-connections-python.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/data-prep-appendix9-sample-destination-connections-python",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/data-prep-combine-columns-by-example.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/data-prep-combine-columns-by-example",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/data-prep-derive-column-by-example.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/data-prep-derive-column-by-example",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/data-prep-expand-json.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/data-prep-expand-json",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/data-prep-getting-started.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/data-prep-getting-started",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/data-prep-load-azure-cosmos-db.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/data-prep-load-azure-cosmos-db",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/data-prep-operationalization.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/data-prep-operationalization",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/data-prep-python-execution-api.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/data-prep-python-execution-api",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/data-prep-python-extensibility-overview.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/data-prep-python-extensibility-overview",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/data-prep-split-column-by-example.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/data-prep-split-column-by-example",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/data-prep-supported-runtime-data-environments.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/data-prep-supported-runtime-data-environments",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/data-prep-user-guide.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/data-prep-user-guide",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/data-source-wizard.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/data-source-wizard",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/deploy-to-iot-edge-device.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/deploy-to-iot-edge-device",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/deployment-setup-configuration.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/deployment-setup-configuration",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/experimentation-service-configuration-reference.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/experimentation-service-configuration-reference",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/experimentation-service-configuration.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/experimentation-service-configuration",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/experimentation-service-template.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/experimentation-service-template",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/machine-learning/preview/frequently-asked-questions.md",
-      "redirect_url": "/azure/machine-learning/service",
+      "redirect_url": "/azure/machine-learning",
       "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/machine-learning/preview/how-to-configure-your-IDE.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/how-to-configure-your-IDE",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/how-to-create-dsvm-hdi.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/how-to-create-dsvm-hdi",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/how-to-deploy-troubleshooting-guide.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/how-to-deploy-troubleshooting-guide",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/how-to-find-best-accuracy-cli.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/how-to-find-best-accuracy-cli",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/how-to-read-write-files.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/how-to-read-write-files",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/how-to-scale-clusters.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/how-to-scale-clusters",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/how-to-setup-ssl-on-mlc.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/how-to-setup-ssl-on-mlc",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/how-to-use-gpu.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/how-to-use-gpu",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/how-to-use-jupyter-notebooks.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/how-to-use-jupyter-notebooks",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/how-to-use-mmlspark.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/how-to-use-mmlspark",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/how-to-use-model-data-collection.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/how-to-use-model-data-collection",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/use-azure-iot-edge-ai-toolkit.md",
-      "redirect_url": "/azure/machine-learning/desktop-workbench/use-azure-iot-edge-ai-toolkit",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/release-notes-sprint-0.md",
-      "redirect_url": "/azure/machine-learning/preview/release-notes-sprint-1",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/release-notes-sprint-1.md",
-      "redirect_url": "/azure/machine-learning/preview/release-notes-sprint-2",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/release-notes-sprint-2.1.md",
-      "redirect_url": "/azure/machine-learning/preview/release-notes-sprint-3",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/release-notes-sprint-2.md",
-      "redirect_url": "/azure/machine-learning/preview/release-notes-sprint-2.1",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/machine-learning/preview/release-notes-sprint-3.md",
-      "redirect_url": "/azure/machine-learning/preview/azure-machine-learning-release-notes",
-      "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/studio/what-is-machine-learning.md",
@@ -3110,21 +2606,21 @@
       "redirect_url": "/azure/iot-edge/how-to-install-iot-edge-linux",
       "redirect_document_id": false
     },
-    {
-      "source_path": "articles/iot-edge/how-to-register-device-portal.md",
-      "redirect_url": "/azure/iot-edge/how-to-register-device",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/iot-edge/how-to-register-device-vscode.md",
-      "redirect_url": "/azure/iot-edge/how-to-register-device",
-      "redirect_document_id": false
-    },
-        {
-      "source_path": "articles/iot-edge/how-to-register-device-cli.md",
-      "redirect_url": "/azure/iot-edge/how-to-register-device",
-      "redirect_document_id": false
-    },
+    {
+      "source_path": "articles/iot-edge/how-to-register-device-portal.md",
+      "redirect_url": "/azure/iot-edge/how-to-register-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-edge/how-to-register-device-vscode.md",
+      "redirect_url": "/azure/iot-edge/how-to-register-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-edge/how-to-register-device-cli.md",
+      "redirect_url": "/azure/iot-edge/how-to-register-device",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/cognitive-services/cognitive-services-recommendations-quick-start.md",
       "redirect_url": "/azure/cognitive-services/recommendations/overview",
@@ -5273,6 +4769,66 @@
     {
       "source_path": "articles/app-service-mobile/app-service-mobile-xamarin-forms-blob-storage.md",
       "redirect_url": "/azure/app-service-mobile",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-web-application-firewall-portal.md",
+      "redirect_url": "/azure/web-application-firewall/ag/application-gateway-web-application-firewall-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/tutorial-restrict-web-traffic-powershell.md",
+      "redirect_url": "/azure/web-application-firewall/ag/tutorial-restrict-web-traffic-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/tutorial-restrict-web-traffic-cli.md",
+      "redirect_url": "/azure/web-application-firewall/ag/tutorial-restrict-web-traffic-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/configure-waf-custom-rules.md",
+      "redirect_url": "/azure/web-application-firewall/ag/configure-waf-custom-rules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/create-custom-waf-rules.md",
+      "redirect_url": "/azure/web-application-firewall/ag/create-custom-waf-rules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-customize-waf-rules-portal.md",
+      "redirect_url": "/azure/web-application-firewall/ag/application-gateway-customize-waf-rules-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-customize-waf-rules-powershell.md",
+      "redirect_url": "/azure/web-application-firewall/ag/application-gateway-customize-waf-rules-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-customize-waf-rules-cli.md",
+      "redirect_url": "/azure/web-application-firewall/ag/application-gateway-customize-waf-rules-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/custom-waf-rules-overview.md",
+      "redirect_url": "/azure/web-application-firewall/ag/custom-waf-rules-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-waf-configuration.md",
+      "redirect_url": "/azure/web-application-firewall/ag/application-gateway-waf-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/web-application-firewall-troubleshoot.md",
+      "redirect_url": "/azure/web-application-firewall/ag/web-application-firewall-troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/waf-overview.md",
+      "redirect_url": "/azure/web-application-firewall/ag/ag-overview",
       "redirect_document_id": false
     },
     {
@@ -16211,11 +15767,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/stream-analytics/powerbi-output-managed-identity.md",
-      "redirect_url": "/azure/stream-analytics/stream-analytics-define-outputs#power-bi",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/stream-analytics/vs-code-how-to.md",
       "redirect_url": "/azure/stream-analytics/vscode-explore-jobs",
       "redirect_document_id": false
@@ -16313,6 +15864,31 @@
     {
       "source_path": "articles/cognitive-services/cognitive-services-text-analytics-quick-start.md",
       "redirect_url": "/azure/cognitive-services/text-analytics/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/csharp.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/python-sdk.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/go-sdk.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/ruby-sdk.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/text-analytics/quickstarts/nodejs-sdk.md",
+      "redirect_url": "/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk",
       "redirect_document_id": false
     },
     {
@@ -34814,6 +34390,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/machine-learning/service/machine-learning-interpretability-explainability.md",
+      "redirect_url": "/azure/machine-learning/service/how-to-machine-learning-interpretability",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/identity-protection/overview-v2.md",
       "redirect_url": "/azure/active-directory/identity-protection/overview-identity-protection",
       "redirect_document_id": true
@@ -36310,57 +35891,57 @@
     },
     {
       "source_path": "articles/iot-central/core/concepts-connectivity-pnp.md",
-      "redirect_url": "/azure/iot-central/core/overview-iot-central-get-connected-pnp",
+      "redirect_url": "/azure/iot-central/preview/overview-iot-central-get-connected",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/core/concepts-stay-connected.md",
-      "redirect_url": "/azure/iot-central/core/overview-iot-central-stay-connected-pnp",
+      "redirect_url": "/azure/iot-central/preview/overview-iot-central-stay-connected",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/core/overview-iot-central-transform.md",
-      "redirect_url": "/azure/iot-central/core/overview-iot-central-transform-pnp",
+      "redirect_url": "/azure/iot-central/preview/overview-iot-central-transform",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/core/howto-create-event-rules-pnp.md",
-      "redirect_url": "/azure/iot-central/core/tutorial-create-telemetry-rules",
+      "redirect_url": "/azure/iot-central/preview/tutorial-create-telemetry-rules",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/core/howto-create-telemetry-rules-pnp.md",
-      "redirect_url": "/azure/iot-central/core/tutorial-create-telemetry-rules",
+      "redirect_url": "/azure/iot-central/preview/tutorial-create-telemetry-rules",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/core/tutorial-configure-rules-pnp.md",
-      "redirect_url": "/azure/iot-central/core/tutorial-create-telemetry-rules",
+      "redirect_url": "/azure/iot-central/preview/tutorial-create-telemetry-rules",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/core/tutorial-monitor-devices-pnp.md",
-      "redirect_url": "/azure/iot-central/core/quick-monitor-devices-pnp",
+      "redirect_url": "/azure/iot-central/preview/quick-monitor-devices",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/tutorial-add-device-pnp.md",
-      "redirect_url": "/azure/iot-central/core/quick-create-pnp-device-pnp",
+      "redirect_url": "/azure/iot-central/preview/quick-create-pnp-device",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/tutorial-define-device-type-pnp.md",
-      "redirect_url": "/azure/iot-central/core/quick-create-pnp-device-pnp",
+      "redirect_url": "/azure/iot-central/preview/quick-create-pnp-device",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/howto-export-data-blob-storage-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-export-data-pnp",
+      "redirect_url": "/azure/iot-central/preview/howto-export-data",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/howto-export-data-event-hubs-service-bus-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-export-data-pnp",
+      "redirect_url": "/azure/iot-central/preview/howto-export-data",
       "redirect_document_id": false
     },
     {
@@ -41579,6 +41160,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/synapse-analytics/index.yml",
+      "redirect_url": "/azure/sql-data-warehouse/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-stack/user/index.yml",
       "redirect_url": "/azure-stack/user",
       "redirect_document_id": false
@@ -41830,7 +41416,7 @@
     },
     {
       "source_path": "articles/iot-central/concepts-architecture-pnp.md",
-      "redirect_url": "/azure/iot-central/core/concepts-architecture-pnp/",
+      "redirect_url": "/azure/iot-central/preview/concepts-architecture/",
       "redirect_document_id": true
     },
     {
@@ -41840,7 +41426,7 @@
     },
     {
       "source_path": "articles/iot-central/concepts-connectivity-pnp.md",
-      "redirect_url": "/azure/iot-central/core/concepts-connectivity-pnp/",
+      "redirect_url": "/azure/iot-central/preview/concepts-connectivity/",
       "redirect_document_id": true
     },
     {
@@ -41855,7 +41441,7 @@
     },
     {
       "source_path": "articles/iot-central/howto-administer-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-administer-pnp/",
+      "redirect_url": "/azure/iot-central/preview/howto-administer/",
       "redirect_document_id": true
     },
     {
@@ -41880,7 +41466,7 @@
     },
     {
       "source_path": "articles/iot-central/howto-connect-devkit-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-connect-devkit-pnp/",
+      "redirect_url": "/azure/iot-central/preview/howto-connect-devkit/",
       "redirect_document_id": true
     },
     {
@@ -41890,7 +41476,7 @@
     },
     {
       "source_path": "articles/iot-central/howto-connect-pnp-device-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-connect-pnp-device-pnp/",
+      "redirect_url": "/azure/iot-central/preview/howto-connect-pnp-device/",
       "redirect_document_id": true
     },
     {
@@ -41945,7 +41531,7 @@
     },
     {
       "source_path": "articles/iot-central/howto-create-event-rules-pnp.md",
-      "redirect_url": "/azure/iot-central/core/tutorial-create-telemetry-rules-pnp/",
+      "redirect_url": "/azure/iot-central/preview/tutorial-create-telemetry-rules/",
       "redirect_document_id": true
     },
     {
@@ -41955,7 +41541,7 @@
     },
     {
       "source_path": "articles/iot-central/howto-create-telemetry-rules-pnp.md",
-      "redirect_url": "/azure/iot-central/core/tutorial-create-telemetry-rules-pnp",
+      "redirect_url": "/azure/iot-central/preview/tutorial-create-telemetry-rules",
       "redirect_document_id": true
     },
     {
@@ -41970,7 +41556,7 @@
     },
     {
       "source_path": "articles/iot-central/howto-customize-ui-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-customize-ui-pnp/",
+      "redirect_url": "/azure/iot-central/preview/howto-customize-ui/",
       "redirect_document_id": true
     },
     {
@@ -41990,7 +41576,7 @@
     },
     {
       "source_path": "articles/iot-central/howto-manage-devices-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-manage-devices-pnp/",
+      "redirect_url": "/azure/iot-central/preview/howto-manage-devices/",
       "redirect_document_id": true
     },
     {
@@ -42020,7 +41606,7 @@
     },
     {
       "source_path": "articles/iot-central/howto-manage-users-roles-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-manage-users-roles-pnp/",
+      "redirect_url": "/azure/iot-central/preview/howto-manage-users-roles/",
       "redirect_document_id": true
     },
     {
@@ -42045,7 +41631,7 @@
     },
     {
       "source_path": "articles/iot-central/howto-set-up-template-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-set-up-template-pnp/",
+      "redirect_url": "/azure/iot-central/preview/howto-set-up-template/",
       "redirect_document_id": true
     },
     {
@@ -42070,12 +41656,12 @@
     },
     {
       "source_path": "articles/iot-central/howto-use-device-groups-pnp.md",
-      "redirect_url": "/azure/iot-central/core/tutorial-use-device-groups-pnp/",
+      "redirect_url": "/azure/iot-central/preview/tutorial-use-device-groups/",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/iot-central/core/howto-use-device-groups-pnp.md",
-      "redirect_url": "/azure/iot-central/core/tutorial-use-device-groups-pnp/",
+      "redirect_url": "/azure/iot-central/preview/tutorial-use-device-groups/",
       "redirect_document_id": true
     },
     {
@@ -42100,7 +41686,7 @@
     },
     {
       "source_path": "articles/iot-central/howto-version-device-template-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-version-device-template-pnp/",
+      "redirect_url": "/azure/iot-central/preview/howto-version-device-template/",
       "redirect_document_id": true
     },
     {
@@ -42110,7 +41696,7 @@
     },
     {
       "source_path": "articles/iot-central/howto-view-bill-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-view-bill-pnp/",
+      "redirect_url": "/azure/iot-central/preview/howto-view-bill/",
       "redirect_document_id": true
     },
     {
@@ -42130,7 +41716,7 @@
     },
     {
       "source_path": "articles/iot-central/overview-iot-central-pnp.md",
-      "redirect_url": "/azure/iot-central/core/overview-iot-central-pnp/",
+      "redirect_url": "/azure/iot-central/preview/overview-iot-central/",
       "redirect_document_id": true
     },
     {
@@ -42140,7 +41726,7 @@
     },
     {
       "source_path": "articles/iot-central/overview-iot-central-tour-pnp.md",
-      "redirect_url": "/azure/iot-central/core/overview-iot-central-tour-pnp/",
+      "redirect_url": "/azure/iot-central/preview/overview-iot-central-tour/",
       "redirect_document_id": true
     },
     {
@@ -42150,7 +41736,7 @@
     },
     {
       "source_path": "articles/iot-central/quick-create-pnp-device-pnp.md",
-      "redirect_url": "/azure/iot-central/core/quick-create-pnp-device-pnp/",
+      "redirect_url": "/azure/iot-central/preview/quick-create-pnp-device/",
       "redirect_document_id": true
     },
     {
@@ -42160,7 +41746,7 @@
     },
     {
       "source_path": "articles/iot-central/quick-deploy-iot-central-pnp.md",
-      "redirect_url": "/azure/iot-central/core/quick-deploy-iot-central-pnp/",
+      "redirect_url": "/azure/iot-central/preview/quick-deploy-iot-central/",
       "redirect_document_id": true
     },
     {
@@ -42175,7 +41761,7 @@
     },
     {
       "source_path": "articles/iot-central/tutorial-configure-rules-pnp.md",
-      "redirect_url": "/azure/iot-central/core/tutorial-create-telemetry-rules-pnp/",
+      "redirect_url": "/azure/iot-central/preview/tutorial-create-telemetry-rules/",
       "redirect_document_id": true
     },
     {
@@ -42194,8 +41780,163 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/iot-central/core/overview-iot-central-pnp.md",
+      "redirect_url": "/azure/iot-central/preview/overview-iot-central/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/overview-iot-central-tour-pnp.md",
+      "redirect_url": "/azure/iot-central/preview/overview-iot-central-tour/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/overview-iot-central-stay-connected-pnp.md",
+      "redirect_url": "/azure/iot-central/preview/overview-iot-central-stay-connected/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/quick-deploy-iot-central-pnp.md",
+      "redirect_url": "/azure/iot-central/preview/quick-deploy-iot-central/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/quick-create-pnp-device-pnp.md",
+      "redirect_url": "/azure/iot-central/preview/quick-create-pnp-device/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/quick-configure-rules-pnp.md",
+      "redirect_url": "/azure/iot-central/preview/quick-configure-rules/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/quick-monitor-devices-pnp.md",
+      "redirect_url": "/azure/iot-central/preview/quick-monitor-devices/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/tutorial-define-iot-device-type-pnp.md",
+      "redirect_url": "/azure/iot-central/preview/tutorial-define-iot-device-type/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/tutorial-connect-pnp-device-pnp.md",
+      "redirect_url": "/azure/iot-central/preview/tutorial-connect-pnp-device/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/tutorial-define-edge-device-type-pnp.md",
+      "redirect_url": "/azure/iot-central/preview/tutorial-define-edge-device-type/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/tutorial-add-edge-as-leaf-device.md",
+      "redirect_url": "/azure/iot-central/preview/tutorial-add-edge-as-leaf-device/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/tutorial-use-device-groups-pnp.md",
+      "redirect_url": "/azure/iot-central/preview/tutorial-use-device-groups/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/tutorial-create-telemetry-rules-pnp.md",
+      "redirect_url": "/azure/iot-central/preview/tutorial-create-telemetry-rules/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/concepts-architecture-pnp.md",
+      "redirect_url": "/azure/iot-central/preview/concepts-architecture/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/howto-connect-devkit-pnp.md",
+      "redirect_url": "/azure/iot-central/preview/howto-connect-devkit/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/howto-connect-ruuvi-pnp.md",
+      "redirect_url": "/azure/iot-central/preview/howto-connect-ruuvi/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/howto-connect-rigado-cascade-500-pnp.md",
+      "redirect_url": "/azure/iot-central/preview/howto-connect-rigado-cascade-500/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/howto-monitor-devices-azure-cli-pnp.md",
+      "redirect_url": "/azure/iot-central/preview/howto-monitor-devices-azure-cli/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/howto-manage-devices-pnp.md",
+      "redirect_url": "/azure/iot-central/preview/howto-manage-devices/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/howto-create-analytics-pnp.md",
+      "redirect_url": "/azure/iot-central/preview/howto-create-analytics/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/howto-version-device-template-pnp.md",
+      "redirect_url": "/azure/iot-central/preview/howto-version-device-template/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/howto-export-data-pnp.md",
+      "redirect_url": "/azure/iot-central/preview/howto-export-data/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/howto-create-webhooks-pnp.md",
+      "redirect_url": "/azure/iot-central/preview/howto-create-webhooks/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/howto-use-action-groups-pnp.md",
+      "redirect_url": "/azure/iot-central/preview/howto-use-action-groups/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/howto-create-custom-rules-pnp.md",
+      "redirect_url": "/azure/iot-central/preview/howto-create-custom-rules/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/howto-create-custom-analytics-pnp.md",
+      "redirect_url": "/azure/iot-central/preview/howto-create-custom-analytics/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/howto-administer-pnp.md",
+      "redirect_url": "/azure/iot-central/preview/howto-administer/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/howto-manage-users-roles-pnp.md",
+      "redirect_url": "/azure/iot-central/preview/howto-manage-users-roles/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/howto-view-bill-pnp.md",
+      "redirect_url": "/azure/iot-central/preview/howto-view-bill/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/howto-customize-ui-pnp.md",
+      "redirect_url": "/azure/iot-central/preview/howto-customize-ui/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/howto-use-app-templates-pnp.md",
+      "redirect_url": "/azure/iot-central/preview/howto-use-app-templates/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/iot-central/tutorial-monitor-devices-pnp.md",
-      "redirect_url": "/azure/iot-central/core/quick-monitor-devices-pnp/",
+      "redirect_url": "/azure/iot-central/preview/quick-monitor-devices/",
       "redirect_document_id": true
     },
     {
@@ -43316,6 +43057,9 @@
     {
       "source_path": "articles/machine-learning/algorithm-module-reference/import-from-web-url-via-http.md",
       "redirect_url": "/azure/machine-learning/algorithm-module-reference/module-reference",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/industry/financial/actuarial-risk-analysis-and-financial-modeling-overview.md",
       "redirect_url": "/azure/industry-marketing/financial/actuarial-risk-analysis-and-financial-modeling-overview",
       "redirect_document_id": false
@@ -43433,11 +43177,6 @@
     {
       "source_path": "articles/industry/retail/visual-search-use-case-overview.md",
       "redirect_url": "/azure/industry-marketing/retail/visual-search-use-case-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/industry/index.md",
-      "redirect_url": "/azure/industry-marketing/index",
       "redirect_document_id": false
     },
     {
@@ -43705,5 +43444,227 @@
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-use-conversation-transcription",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/machine-learning/service/publish-a-machine-learning-web-service.md",
+      "redirect_url": "/azure/machine-learning/service/deploy-a-machine-learning-web-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/linear-regression-in-azure.md",
+      "redirect_url": "/azure/machine-learning/studio/use-case-excel-studio",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/azure-log-integration-overview.md",
+      "redirect_url": "/previous-versions/azure/security/fundamentals/azure-log-integration-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/azure-log-integration-get-started.md",
+      "redirect_url": "/previous-versions/azure/security/fundamentals/azure-log-integration-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/azure-log-integration-ad.md",
+      "redirect_url": "/previous-versions/azure/security/fundamentals/azure-log-integration-ad",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/azure-log-integration-keyvault-eventhub.md",
+      "redirect_url": "/previous-versions/azure/security/fundamentals/azure-log-integration-keyvault-eventhub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/azure-log-integration-faq.md",
+      "redirect_url": "/previous-versions/azure/security/fundamentals/azure-log-integration-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/au-protected-iaaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/au-protected-iaaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/au-protected-paaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/au-protected-paaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/azure-health.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/azure-health",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/fedramp-analytics-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/fedramp-analytics-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/fedramp-datawarehouse-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/fedramp-datawarehouse-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/fedramp-iaaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/fedramp-iaaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/fedramp-paaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/fedramp-paaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/ffiec-analytics-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/ffiec-analytics-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/ffiec-dw-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/ffiec-dw-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/ffiec-iaaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/ffiec-iaaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/ffiec-paaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/ffiec-paaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/nist171-analytics-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/nist171-analytics-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/nist171-datawarehouse-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/nist171-datawarehouse-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/nist171-iaaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/nist171-iaaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/nist171-paaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/nist171-paaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/pcidss-analytics-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/pcidss-analytics-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/pcidss-dw-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/pcidss-dw-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/pcidss-iaaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/pcidss-iaaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/pcidss-paaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/pcidss-paaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/uknhs-analytics-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/uknhs-analytics-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/uknhs-datawarehouse-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/uknhs-datawarehouse-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/uknhs-iaaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/uknhs-iaaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/uknhs-paaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/uknhs-paaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/ukofficial-iaaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/ukofficial-iaaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/ukofficial-paaswa-overview.md",
+      "redirect_url": "/previous-versions/azure/security/blueprints/ukofficial-paaswa-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/develop/app-registrations-training-guide.md",
+      "redirect_url": "articles/active-directory/develop/app-registrations-training-guide-for-app-registrations-legacy-users.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/app/powershell-script-create-resource.md",
+      "redirect_url": "/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-outbound-connections-classic.md",
+      "redirect_url": "/previous-versions/azure/load-balancer/load-balancer-outbound-connections-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-multivip.md",
+      "redirect_url": "/previous-versions/azure/load-balancer/load-balancer-multivip",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-get-started-ilb-classic-cloud.md",
+      "redirect_url": "/previous-versions/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-get-started-ilb-classic-ps.md",
+      "redirect_url": "/previous-versions/azure/load-balancer/load-balancer-get-started-ilb-classic-ps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-get-started-ilb-classic-cli.md",
+      "redirect_url": "/previous-versions/azure/load-balancer/load-balancer-get-started-ilb-classic-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-get-started-internet-classic-ps.md",
+      "redirect_url": "/previous-versions/azure/load-balancer/load-balancer-get-started-internet-classic-ps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-get-started-internet-classic-cloud.md",
+      "redirect_url": "/previous-versions/azure/load-balancer/load-balancer-get-started-internet-classic-cloud",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-get-started-internet-classic-cli.md",
+      "redirect_url": "/previous-versions/azure/load-balancer/load-balancer-get-started-internet-classic-cli",
+      "source_path": "articles/cognitive-services/translator/how-to-install-containers.md",
+      "redirect_url": "/azure/cognitive-services/translator/translator-info-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/translator/translator-text-container-config.md",
+      "redirect_url": "/azure/cognitive-services/translator/translator-info-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/virtual-kubelet.md",
+      "redirect_url": "/azure/aks/concepts-scale#burst-to-azure-container-instances",
+      "redirect_document_id": false
+    }
   ]
 }

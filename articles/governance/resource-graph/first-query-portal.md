@@ -1,11 +1,8 @@
 ---
 title: Run your first query using Azure Resource Graph Explorer
 description: This article walks you through the steps to run your first query from Azure portal using Azure Resource Graph Explorer.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: quickstart
-ms.service: resource-graph
 ---
 # Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer
 
@@ -156,9 +153,9 @@ can do so with the following steps:
 
 ## Next steps
 
-- Get more information about the [query language](./concepts/query-language.md)
-- Learn to [explore resources](./concepts/explore-resources.md)
-- Run your first query with [Azure CLI](first-query-azurecli.md)
-- See samples of [Starter queries](./samples/starter.md)
-- See samples of [Advanced queries](./samples/advanced.md)
-- Provide feedback on [UserVoice](https://feedback.azure.com/forums/915958-azure-governance)
+- Get more information about the [query language](./concepts/query-language.md).
+- Learn more about how to [explore resources](./concepts/explore-resources.md).
+- Run your first query with [Azure CLI](first-query-azurecli.md).
+- See samples of [Starter queries](./samples/starter.md).
+- See samples of [Advanced queries](./samples/advanced.md).
+- Provide feedback on [UserVoice](https://feedback.azure.com/forums/915958-azure-governance).
