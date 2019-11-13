@@ -26,8 +26,9 @@ takes the following high-level steps:
 The Azure Blueprints service principal is granted owner rights to the assigned subscription or
 subscriptions when a [system-assigned managed
 identity](../../../active-directory/managed-identities-azure-resources/overview.md) managed identity
-is used. The granted role allows Blueprints to create, and later revoke, the **system-assigned**.
-The Azure Blueprints service principal only requires owner rights.
+is used. The granted role allows Blueprints to create, and later revoke, the **system-assigned**
+managed identity. If using a **user-assigned** managed identity, the Azure Blueprints service
+principal doesn't get and doesn't need owner rights on the subscription.
 
 The rights are granted automatically if the assignment is done through the portal. However, if the
 assignment is done through the REST API, granting the rights needs to be done with a separate API
