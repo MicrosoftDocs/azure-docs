@@ -17,5 +17,6 @@ ms.date: 08/03/2018
 ms.author: yashar
 
 ---
+# Virtual machine size flexibility with Reserved VM Instances
 [!INCLUDE [virtual-machines-common-reserved-vm-instance-size-flexibility](../../../includes/virtual-machines-common-reserved-vm-instance-size-flexibility.md)]
 

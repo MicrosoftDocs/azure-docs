@@ -138,6 +138,8 @@
     - name: Time-shifting and live-to-VOD
       displayName: archive, dvr
       href: live-event-cloud-dvr.md
+    - name: Live transcription
+      href: live-transcription.md
     - name: Feature comparison
       href: live-event-types-comparison.md
     - name: States and billing

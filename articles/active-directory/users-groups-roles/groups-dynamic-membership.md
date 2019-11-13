@@ -1,19 +1,17 @@
 ---
-title: Dynamic automatic group membership rules - Azure Active Directory | Microsoft Docs
+title: Rules for dynamic group membership - Azure AD | Microsoft Docs
 description: How to create membership rules to automatically populate groups, and a rule reference.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
-
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
