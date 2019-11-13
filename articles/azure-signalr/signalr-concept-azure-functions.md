@@ -1,5 +1,5 @@
 ---
-title: Build Real-time apps with Azure Functions and Azure SignalR Service
+title: Build Real-time app - Azure Functions & Azure SignalR Service
 description: An overview of using Azure SignalR Service in serverless applications.
 author: sffamily
 ms.service: signalr

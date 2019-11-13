@@ -1,5 +1,5 @@
 ---
-title: Azure CLI Script Sample - Create a SignalR Service with an App Service
+title: Create SignalR Service with App Service using Azure CLI
 description: Azure CLI Script Sample - Create SignalR Service with an App Service
 author: sffamily
 ms.service: signalr
