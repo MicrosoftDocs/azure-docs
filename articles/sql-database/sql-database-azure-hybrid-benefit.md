@@ -8,14 +8,16 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 10/08/2019
+ms.date: 11/13/2019
 ---
 # Azure Hybrid Benefit
 
-In the provisioned compute tier of the vCore-based purchasing model, you can exchange your existing licenses for discounted rates on SQL Database by using [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). This Azure benefit allows you to save up to 30 percent on Azure SQL Database by using your on-premises SQL Server licenses with Software Assurance.
+In the provisioned compute tier of the vCore-based purchasing model, you can exchange your existing licenses for discounted rates on SQL Database by using [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). This Azure benefit allows you to save up to 30 percent on Azure SQL Database by using your on-premises SQL Server licenses with Software Assurance. 
+
+> [!NOTE]
+> Changing to Azure Hybrid Benefit does not require any downtime.
 
 ![pricing](./media/sql-database-service-tiers/pricing.png)
-
 
 ## Choose a license model
 
@@ -43,8 +45,6 @@ You can choose or change your licensing model by using the Azure portal or by us
   - [Databases - Update](https://docs.microsoft.com/rest/api/sql/databases/update)
   - [Managed Instances - Create Or Update](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)
   - [Managed Instances - Update](https://docs.microsoft.com/rest/api/sql/managedinstances/update)
-
-
 
 ## Next steps
 
