@@ -1,5 +1,5 @@
 ---
-title: Back up Files in Azure Stack VMs
+title: Back up files in Azure Stack VMs - Azure Backup
 description: Use Azure Backup to back up and recover Azure Stack files and applications to your Azure Stack environment.
 ms.reviewer: adigan
 author: dcurwin

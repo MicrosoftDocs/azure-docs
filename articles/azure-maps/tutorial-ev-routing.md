@@ -36,7 +36,7 @@ To complete this tutorial, you first need to create an Azure Maps account and ge
 
 To create an Azure Maps account subscription in the S1 pricing tier, follow the instructions in [Manage your Azure Maps account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account). 
 
-To get the primary subscription key for your account, follow the instructions in [Search nearby points of interest by using Azure Maps](./tutorial-search-location.md#getkey) .
+To get the primary subscription key for your account, follow the instructions in [Create an account and get your key](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-account-and-get-your-key).
 
 ## Create an Azure notebook
 
@@ -276,7 +276,7 @@ display(Image(poiRangeMap))
 
 After you've determined all the potential charging stations within the reachable range, you want to know which of them can be reached in a minimum amount of time. 
 
-The following script calls the Azure Maps [Matrix Routing API](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview), which returns for the specified vehicle location the travel time and distance to each charging station. The script in the next cell parses the response to locate the closest reachable charging station with respect to time.
+The following script calls the Azure Maps [Matrix Routing API](https://docs.microsoft.com/rest/api/maps/route/postroutematrix), which returns for the specified vehicle location the travel time and distance to each charging station. The script in the next cell parses the response to locate the closest reachable charging station with respect to time.
 
 To find the closest reachable charging station that can be reached in the least amount of time, run the script in the following cell:
 
@@ -390,7 +390,7 @@ To explore the Azure Maps APIs that are used in this tutorial, see:
 * [Post Search Inside Geometry](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)
 * [Data Upload](https://docs.microsoft.com/rest/api/maps/data/uploadpreview)
 * [Render - Get Map Image](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
-* [Post Route Matrix](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview)
+* [Post Route Matrix](https://docs.microsoft.com/rest/api/maps/route/postroutematrix)
 * [Get Route Directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)
 
 For a complete list of Azure Maps REST APIs, see [Azure Maps REST APIs](https://docs.microsoft.com/azure/azure-maps/#reference).
