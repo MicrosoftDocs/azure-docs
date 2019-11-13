@@ -165,7 +165,8 @@ role](../../role-based-access-control/custom-roles.md).
 > portal, this role is automatically granted and revoked for the deployment. If using the REST API,
 > this role must be manually granted, but is still automatically revoked after the deployment
 > completes. If using a user-assigned managed identity, only the user creating the blueprint
-> assignment needs **Owner** permissions.
+> assignment needs the `Microsoft.Blueprint/blueprintAssignments/write` permission, which is
+> included in both the **Owner** and **Blueprint Operator** built-in roles.
 
 ## Naming limits
 

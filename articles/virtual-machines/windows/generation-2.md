@@ -1,5 +1,5 @@
 ---
-title: Azure support for generation 2 VMs | Microsoft Docs
+title: Azure support for generation 2 VMs 
 description: Overview of Azure support for generation 2 VMs
 services: virtual-machines-windows
 documentationcenter: ''

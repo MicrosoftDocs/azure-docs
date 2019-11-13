@@ -206,12 +206,16 @@
     items:
     - name: Queues (version 11.x)
       href: /dotnet/api/microsoft.azure.storage.queue
+    - name: Queues (version 12.x)
+      href: /dotnet/api/azure.storage.queues
     - name: Storage Resource Provider
       href: /dotnet/api/overview/azure/storage/management
   - name: Java
     items:
     - name: Queues (version 8.x)
       href: /java/api/com.microsoft.azure.storage.queue
+    - name: Queues (version 12.x)
+      href: https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/index.html
     - name: Storage Resource Provider
       href: /java/api/overview/azure/storage/management
   - name: JavaScript (version 12.x)
@@ -267,11 +271,11 @@
     items:
     - name: Microsoft.Azure.Storage.Common (version 11.x)
       href: https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/
-    - name: Azure.Storage.Common (version 12.x - preview)
+    - name: Azure.Storage.Common (version 12.x)
       href: https://www.nuget.org/packages/Azure.Storage.Common/
     - name: Microsoft.Azure.Storage.Queue (version 11.x)
       href: https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/
-    - name: Azure.Storage.Queue (version 12.x - preview)
+    - name: Azure.Storage.Queue (version 12.x)
       href: https://www.nuget.org/packages/Azure.Storage.Queues/
     - name: Azure Configuration Manager
       href: https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/
@@ -283,7 +287,7 @@
       items:
       - name: Azure Storage client library
         items: 
-        - name: Version 12.x (preview)
+        - name: Version 12.x
           href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage
         - name: Version 11.x and earlier
           href: https://github.com/Azure/azure-storage-net
@@ -293,7 +297,7 @@
         href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.Management.Storage
     - name: Java
       items:
-      - name: Azure Storage client library version 12.x (preview)
+      - name: Azure Storage client library version 12.x
         href: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage
       - name: Blobs, Queues, and Files (version 8)
         href: https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy
@@ -301,13 +305,13 @@
         href: https://github.com/Azure/azure-storage-java
     - name: Node.js
       items:
-      - name: Azure Storage client library version 12.x (preview)
+      - name: Azure Storage client library version 12.x
         href: https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage
       - name: Azure Storage client library version 10.x     
         href: https://github.com/Azure/azure-storage-node
     - name: Python
       items: 
-      - name: Azure Storage client library version 12.x (preview)
+      - name: Azure Storage client library version 12.x
         href: https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage
       - name: Azure Storage client library version 2.1     
         href: https://github.com/Azure/azure-storage-python
