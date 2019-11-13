@@ -1,5 +1,5 @@
 ---
-title: Handling maintenance notifications for Windows VMs in Azure | Microsoft Docs
+title: Handling maintenance notifications for Windows VMs in Azure 
 description: View maintenance notifications for Windows virtual machines running in Azure and start self-service maintenance.
 services: virtual-machines-windows
 documentationcenter: ''

@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell Script Sample - Docker | Microsoft Docs
+title: Azure PowerShell Script Sample - Docker 
 description: Azure PowerShell Script Sample - Docker
 services: virtual-machines-linux
 documentationcenter: virtual-machines
