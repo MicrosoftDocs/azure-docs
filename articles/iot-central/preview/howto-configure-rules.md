@@ -26,7 +26,7 @@ Use the target devices section to filter down the set devices on which the rule 
 
 ## Use multiple conditions
 
-Conditions are what. Currently, when you add multiple conditions to a rule, they are logically AND'd together. All conditions must be met for the rule to evaluate as true.  
+Conditions are what rules trigger on. Currently, when you add multiple conditions to a rule, they are logically AND'd together. All conditions must be met for the rule to evaluate as true.  
 
 In the following screenshot, the conditions check when the temperature is greater than 90 and the humidity is less than 10. When both of these statements are true, the rule evaluates to true and triggers an action.
 
