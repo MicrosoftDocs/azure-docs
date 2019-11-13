@@ -61,7 +61,7 @@ When using cloud encoding with Media Services, you would configure your on-premi
 
 ### Live transcription
 
-Live transcription is a feature you can use with Live Events that are either pass-through or live encoding. For more information, see [Live transcription](live-transcription.md). When this feature is enabled, the service uses the [Speech-To-Text](../cognitive-services/speech-service/speech-to-text.md) feature of Cognitive Services to transcribe the spoken words in the incoming audio into text. This text is then made available for delivery along with video and audio in MPEG-DASH and HLS protocols.
+Live transcription is a feature you can use with Live Events that are either pass-through or live encoding. For more information, see [Live transcription](live-transcription.md). When this feature is enabled, the service uses the [Speech-To-Text](../../cognitive-services/speech-service/speech-to-text.md) feature of Cognitive Services to transcribe the spoken words in the incoming audio into text. This text is then made available for delivery along with video and audio in MPEG-DASH and HLS protocols.
 
 > [!NOTE]
 > Currently, live transcription is available as a preview feature in West US 2.
