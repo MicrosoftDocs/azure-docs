@@ -15,8 +15,6 @@ ms.author: raynew
 
 This article summarizes the supported components and settings for disaster recovery of on-premises Hyper-V VMs to Azure by using [Azure Site Recovery](site-recovery-overview.md).
 
-> [!WARNING]
-> Please note that ASR support for using SCVMM configuration into account will soon be deprecated, and hence we recommend you to read the [deprecation](scvmm-site-recovery-deprecation.md) details before proceeding.
 
 
 ## Supported scenarios

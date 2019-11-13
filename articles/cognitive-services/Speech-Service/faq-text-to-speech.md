@@ -1,7 +1,7 @@
 ---
 title: Frequently asked questions about the Text to Speech service in Azure
 titleSuffix: Azure Cognitive Services
-description: Get answers to the most popular questions about the Text to Speech service.
+description: Get answers to the frequently asked questions about the Text to Speech service.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -21,7 +21,7 @@ If you can't find answers to your questions in this FAQ, check out [other suppor
 
 **Q: What is the difference between a standard voice model and a custom voice model?**
 
-**A**: The standard voice model (also called a *voice font*) has been trained by using Microsoft-owned data and is already deployed in the cloud. You can use a custom voice model either to adapt an average model and transfer the timbre and expression of the speaker’s voice style or train a full, new model based on the training data prepared by the user. Today, more and more customers want a one-of-a-kind, branded voice for their bots. The custom voice-building platform is the right choice for that option.
+**A**: The standard voice model (also called a _voice font_) has been trained by using Microsoft-owned data and is already deployed in the cloud. You can use a custom voice model either to adapt an average model and transfer the timbre and expression of the speaker’s voice style or train a full, new model based on the training data prepared by the user. Today, more and more customers want a one-of-a-kind, branded voice for their bots. The custom voice-building platform is the right choice for that option.
 
 **Q: Where do I start if I want to use a standard voice model?**
 
@@ -59,5 +59,5 @@ We provide additional services to help you prepare scripts for recording. Contac
 
 ## Next steps
 
-* [Troubleshooting](troubleshooting.md)
-* [Release notes](releasenotes.md)
+- [Troubleshooting](troubleshooting.md)
+- [Release notes](releasenotes.md)
