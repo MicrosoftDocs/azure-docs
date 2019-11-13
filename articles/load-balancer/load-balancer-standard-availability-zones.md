@@ -83,7 +83,7 @@ The following excerpt is an illustration for how to define a zone-redundant fron
                 ],
 ```
 
-The preceeding excerpts are not complete templates but intended to show how to express availability zones properties.  You need to incorporate these statements into your templates.
+The preceding excerpts are not complete templates but intended to show how to express availability zones properties.  You need to incorporate these statements into your templates.
 
 #### Optional zone isolation
 
