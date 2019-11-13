@@ -267,7 +267,10 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 ---
 
 > [!NOTE]
-> Be aware that while `=~` allows case insensitive matching, use of properties (such as **properties.storageProfile.osDisk.osType**) in the query require the case to be correct. If the property is the incorrect case, it can still return a value, but the grouping or summarization would be incorrect.
+> Be aware that while `=~` allows case insensitive matching, use of properties (such as
+> **properties.storageProfile.osDisk.osType**) in the query require the case to be correct. If the
+> property is the incorrect case, a null or incorrect value is returned and the grouping or
+> summarization would be incorrect.
 
 ## <a name="show-storage" />Show resources that contain storage
 

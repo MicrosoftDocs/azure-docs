@@ -204,7 +204,7 @@ The default graphs give you Kusto queries for basic scenarios on which you can b
 The diagnostic data from the vault is pumped to the Log Analytics workspace with some lag. Every event arrives at the Log Analytics workspace *20 to 30 minutes* after it's pushed from the Recovery Services vault. Here are further details about the lag:
 
 - Across all solutions, the backup service's built-in alerts are pushed as soon as they're created. So they usually appear in the Log Analytics workspace after 20 to 30 minutes.
-- Across all solutions, ad hoc backup jobs and restore jobs are pushed as soon as they *finish*.
+- Across all solutions, on-demand backup jobs and restore jobs are pushed as soon as they *finish*.
 - For all solutions except SQL backup, scheduled backup jobs are pushed as soon as they *finish*.
 - For SQL backup, because log backups can occur every 15 minutes, information for all the completed scheduled backup jobs, including logs, is batched and pushed every 6 hours.
 - Across all solutions, other information such as the backup item, policy, recovery points, storage, and so on, is pushed at least *once per day.*
