@@ -17,7 +17,7 @@ Before you can [connect to on-premises data sources from Azure Logic Apps](../lo
 
 * [Microsoft Power BI on-premises data gateway](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
 * [Microsoft Power Apps on-premises data gateway](https://powerapps.microsoft.com/tutorials/gateway-management/)
-* [Power Automate on-premises data gateway](https://flow.microsoft.com/documentation/gateway-manage/)
+* [Power Automate on-premises data gateway](/power-automate/gateway-reference)
 * [Azure Analysis Services on-premises data gateway](../analysis-services/analysis-services-gateway.md)
 
 This article shows how to download, install, and set up your on-premises data gateway so that you can access on-premises data sources from Azure Logic Apps. You can also learn more about [how the data gateway works](#gateway-cloud-service) later in this topic. For more information about the gateway, see [What is an on-premises gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem)?
