@@ -73,7 +73,48 @@ Invoke-WebRequest  -Uri https://<clusterfqdn>:19080/Resources/Secrets/supersecre
 ```
 
 ## Set secret value
-To set `supersecret` version `ver1` value, make a PUT request as below.
+* Using Resource Manager template
+
+The below resource manager template creates and set value for secret `supersecret` with version `ver1`.
+```json
+  {
+  "parameters": {
+  "supersecret": {
+      "type": "string",
+      "metadata": {
+        "description": "supersecret value"
+      }
+   }
+  },
+  "resources": [
+    {
+      "apiVersion": "2018-07-01-preview",
+        "name": "supersecret",
+        "type": "Microsoft.ServiceFabricMesh/secrets",
+        "location": "[parameters('location')]", 
+        "dependsOn": [],
+        "properties": {
+          "kind": "inlinedValue",
+            "description": "Application Secret",
+            "contentType": "text/plain",
+        }
+    },
+    {
+      "apiVersion": "2018-07-01-preview",
+      "name": "supersecret/ver1",
+      "type": "Microsoft.ServiceFabricMesh/secrets/values",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "Microsoft.ServiceFabricMesh/secrets/supersecret"
+      ],
+      "properties": {
+        "value": "[parameters('supersecret')]"
+      }
+    }
+  ],
+  ```
+* Using the REST API
+
 ```powershell
 $Params = @{"properties": {"value": "mysecretpassword"}}
 Invoke-WebRequest -Uri https://<clusterfqdn>:19080/Resources/Secrets/supersecret/values/ver1?api-version=6.4-preview -Method PUT -Body $Params -CertificateThumbprint <ClusterCertThumbprint>
@@ -125,5 +166,14 @@ Here is the modified ApplicationManifest.xml
 ```
 Secrets will be available under the mount point inside your container.
 
+4. Binding secret to an environment variable 
+
+You can bind secret to a process environment variable by specifying Type='SecretsStoreRef'. Here is an example of how to bind `supersecret` version `ver1` to environment variable `MySuperSecret` in ServiceManifest.xml.
+
+```xml
+<EnvironmentVariables>
+  <EnvironmentVariable Name="MySuperSecret" Type="SecretsStoreRef" Value="supersecret:ver1"/>
+</EnvironmentVariables>
+```
 ## Next steps
 Learn more about [application and service security](service-fabric-application-and-service-security.md)
