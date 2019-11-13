@@ -801,10 +801,10 @@
           href: insights/container-insights-hybrid-setup.md
         - name: Region mappings
           href: insights/container-insights-region-mapping.md
-      - name: Analyze 
+      - name: Monitor performance
         href: insights/container-insights-analyze.md
-      - name: Disable monitoring
-        href: insights/container-insights-optout.md
+      - name: Monitor health
+        href: insights/container-insights-health.md
       - name: View live data
         items:
         - name: Live Data (preview) overview
@@ -827,6 +827,8 @@
         href: insights/container-insights-agent-config.md
       - name: Update to enable metrics
         href: insights/container-insights-update-metrics.md
+      - name: Disable monitoring
+        href: insights/container-insights-optout.md
       - name: Troubleshooting
         href: insights/container-insights-troubleshoot.md
     - name: Docker and Windows Container monitoring
