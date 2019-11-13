@@ -11,7 +11,7 @@ ms.author: atsenthi
 ---
 
 #  Service Fabric Secrets Store
-This article describes how to create and use secrets in Service Fabric applications using Service Fabric Secrets Store(CSS). CSS is a local secret store cache, used to keep sensitive data such as a password, token and keys encrypted in memory.
+This article describes how to create and use secrets in Service Fabric applications using Service Fabric Secrets Store(CSS). CSS is a local secret store cache, used to keep sensitive data such as a password, tokens, and keys encrypted in memory.
 
 ## Enabling Secrets Store
  Add the below to your cluster configuration under `fabricSettings` to enable CSS. It's recommended to use a certificate different from cluster certificate for CSS. Make sure the encryption certificate is installed on all nodes and `NetworkService` has read permission to certificate's private key.
@@ -44,7 +44,8 @@ This article describes how to create and use secrets in Service Fabric applicati
             ]
 ```
 ## Declare secret resource
-Secret store secrets are versioned resources, you can create a secret resource either using the Resource Manager template or using the REST API.
+You can create a secret resource either using the Resource Manager template or using the REST API.
+
 * Using Resource Manager template
 ```json
    "resources": [
@@ -62,7 +63,7 @@ Secret store secrets are versioned resources, you can create a secret resource e
         }
       ]
 ```
-This will create `supersecret` secret resource, note that we haven't set the value for the secret yet.
+The above template creates `supersecret` secret resource, but no value is set for the secret resource yet.
 
 * Using the REST API
 
@@ -75,7 +76,7 @@ Invoke-WebRequest  -Uri https://<clusterfqdn>:19080/Resources/Secrets/supersecre
 ## Set secret value
 * Using Resource Manager template
 
-The below resource manager template creates and set value for secret `supersecret` with version `ver1`.
+The below Resource Manager template creates and set value for secret `supersecret` with version `ver1`.
 ```json
   {
   "parameters": {
