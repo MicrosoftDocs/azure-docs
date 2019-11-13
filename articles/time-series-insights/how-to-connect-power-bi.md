@@ -22,7 +22,7 @@ You'll learn how to:
 * Create visuals with your data in Power BI
 * Publish the report to Power BI and share with the rest of your organization
 
-By the end, you'll be able to visualize time-series data through Azure Time Series Insights and enhance it with the strong data visualization, and easy sharing capabilities of Power BI.
+By the end, you'll learn how to visualize time-series data through Azure Time Series Insights and enhance it with the strong data visualization and easy sharing capabilities of Power BI.
 
 Make sure to sign up for a [free Azure subscription](https://azure.microsoft.com/free/) if you don't already have one.
 
@@ -71,7 +71,7 @@ To get started:
 
 1. Select **Copy query to clipboard**.
 1. Now, launch Power BI Desktop.
-1. In Power BI Desktop on the **Home** tab, select **Get Data** in the upper left corner, then **More.**.
+1. In Power BI Desktop on the **Home** tab, select **Get Data** in the upper left corner, then **More**.
 
     [![Home dropdown](media/how-to-connect-power-bi/power-bi-home-drop-down.png)](media/how-to-connect-power-bi/power-bi-home-drop-down.png#lightbox)
 
