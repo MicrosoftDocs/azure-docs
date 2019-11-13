@@ -53,14 +53,14 @@ Name | Description
 --- | ---
 BT | BibTex document type ('a':Journal article, 'b':Book, 'c':Book chapter, 'p':Conference paper)
 BV | BibTex venue name
-CC | Citation Contexts – List of referenced paper ID’s and the corresponding context in the paper (e.g. [{123:[“brown foxes are known for jumping as referenced in paper 123”, “the lazy dogs are a historical misnomer as shown in paper 123”]})
+CC | Citation Contexts – List of referenced paper ID’s and the corresponding context in the paper (e.g. [{123:["brown foxes are known for jumping as referenced in paper 123", "the lazy dogs are a historical misnomer as shown in paper 123"]})
 DN | Original paper title
 DOI | Digital Object Identifier
 FP | First page of paper in publication
 I | Publication issue
 IA | Inverted Abstract
 IA.IndexLength | Number of items in the index (abstract's word count)
-IA.InvertedIndex | List of abstract words and their corresponding position in the original abstract (e.g. [{“the”:[0, 15, 30]}, {“brown”:[1]}, {“fox”:[2]}])
+IA.InvertedIndex | List of abstract words and their corresponding position in the original abstract (e.g. [{"the":[0, 15, 30]}, {"brown":[1]}, {"fox":[2]}])
 LP | Last page of paper in publication
 PB | Publisher
 S | Sources - list of web sources of the paper, sorted by static rank

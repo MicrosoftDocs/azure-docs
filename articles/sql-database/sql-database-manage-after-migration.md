@@ -1,5 +1,5 @@
 ---
-title: Manage single and pooled databases after migration - Azure SQL Database | Microsoft Docs
+title: Manage single and pooled databases after migration
 description: Learn how to manage your database after migration to Azure SQL Database.
 services: sql-database
 ms.service: sql-database

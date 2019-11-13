@@ -6,7 +6,7 @@ ms.subservice:
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 09/24/2019
+ms.date: 10/29/2019
 
 ---
 
@@ -33,14 +33,20 @@ Before you start, make sure that you understand the information in the following
 Azure Monitor for VMs supports a Log Analytics workspace in the following regions:
 
 - West Central US
+- West US<sup>1</sup>
 - West US 2<sup>1</sup>
+- South Central US<sup>1</sup>
 - East US
 - East US2<sup>1</sup>
+- Central US<sup>1</sup>
+- North Central US<sup>1</sup>
 - Canada Central
 - UK South
 - North Europe<sup>1</sup>
 - West Europe
+- East Asia<sup>1</sup>
 - Southeast Asia
+- Central India<sup>1</sup>
 - Japan East<sup>1</sup>
 - Australia East<sup>1</sup>
 - Australia Southeast<sup>1</sup>
@@ -195,6 +201,9 @@ Enable Azure Monitor for VMs by using one of the methods described in this table
 ## Performance counters enabled 
 
 Azure Monitor for VMs configures a Log Analytics workspace to collect the performance counters that it uses. The following tables list the objects and counters that are collected every 60 seconds.
+
+>[!NOTE]
+>The following list of performance counters enabled by Azure Monitor for VMs does not limit you from enabling additional counters you need to collect from VMs reporting to the workspace. Also, if you disable these counters, it will prevent the set of performance charts included with the Performance feature from showing resource utilization from your VMs.
 
 ### Windows performance counters
 

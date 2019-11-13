@@ -1,5 +1,5 @@
 ﻿---
-title: Microsoft Defender Advanced Threat Protection with Azure Security Center
+title: Microsoft Defender Advanced Threat Protection - Azure Security Center
 description: This document introduces the integration between Azure Security Center and Microsoft Defender Advanced Threat Protection.
 services: security-center
 documentationcenter: na
@@ -89,7 +89,7 @@ If you have a proxy or firewall that is blocking anonymous traffic, as a Microso
 
 To generate a benign Microsoft Defender ATP test alert:
 
-1. Use Remote Desktop to access either a Windows Server 2012 R2 VM or a Windows Server 2016 VM.  Open a Command Prompt window.
+1. Use Remote Desktop to access either a Windows Server 2012 R2 VM or a Windows Server 2016 VM. Open a Command Prompt window.
 
 2. At the prompt, copy and run the following command. The Command Prompt window will close automatically.
 
@@ -101,7 +101,7 @@ To generate a benign Microsoft Defender ATP test alert:
 
 3. If the command is successful, you'll see a new alert on the Azure Security Center dashboard and the Microsoft Defender ATP portal. This alert might take a few minutes to appear.
 
-4. To review the alert in Security Center, go to **Security Alerts** >  **Suspicious Powershell CommandLine**.
+4. To review the alert in Security Center, go to **Security Alerts** > **Suspicious Powershell CommandLine**.
 
 5. From the investigation window, select the link to go to the Microsoft Defender ATP portal.
 

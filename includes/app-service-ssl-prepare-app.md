@@ -14,15 +14,19 @@ ms.custom: "include file"
 
 To bind a custom SSL certificate (a third-party certificate or App Service certificate) to your web app, your [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be in the **Basic**, **Standard**, **Premium**, or **Isolated** tier. In this step, you make sure that your web app is in the supported pricing tier.
 
-### Log in to Azure
+### Sign in to Azure
 
 Open the [Azure portal](https://portal.azure.com).
 
 ### Navigate to your web app
 
-From the left menu, click **App Services**, and then click the name of your web app.
+Search for and select **App Services**.
 
-![Select web app](./media/app-service-ssl-prepare-app/select-app.png)
+![Select App Services](./media/app-service-ssl-prepare-app/app-services.png)
+
+On the **App Services** page, select the name of your Azure app.
+
+![Portal navigation to Azure app](./media/app-service-ssl-prepare-app/select-app.png)
 
 You have landed in the management page of your web app.  
 

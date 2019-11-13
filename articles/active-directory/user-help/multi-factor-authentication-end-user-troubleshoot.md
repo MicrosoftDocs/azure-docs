@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot common two-factor verification problems - Azure Active Directory | Microsoft Docs
+title: Troubleshoot common two-factor verification problems - Azure AD
 description: Learn about possible solutions to some of the more common two-factor verification problems.
 services: active-directory
 author: eross-msft

@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Create your first access package in Azure AD entitlement management (Preview) - Azure Active Directory
-description: Step-by-step tutorial for how to create your first access package in Azure Active Directory entitlement management (Preview).
+title: Tutorial - Create your first access package in Azure AD entitlement management - Azure Active Directory
+description: Step-by-step tutorial for how to create your first access package in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -21,12 +21,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a IT admin, I want step-by-step instructions of the entire workflow for how to use entitlement management so that I can start to use in my organization.
 
 ---
-# Tutorial: Create your first access package in Azure AD entitlement management (Preview)
-
-> [!IMPORTANT]
-> Azure Active Directory (Azure AD) entitlement management is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Tutorial: Create your first access package in Azure AD entitlement management
 
 Managing access to all the resources employees need, such as groups, applications, and sites, is an important function for organizations. You want to grant employees the right level of access they need to be productive and remove their access when it is no longer needed.
 
@@ -47,7 +42,7 @@ For a step-by-step demonstration of the process of deploying Azure Active Direct
 
 ## Prerequisites
 
-To use Azure AD entitlement management (Preview), you must have one of the following licenses:
+To use Azure AD entitlement management, you must have one of the following licenses:
 
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5 license

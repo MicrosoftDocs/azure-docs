@@ -21,8 +21,9 @@ This article shows how you can use an [Azure Resource Manager template](../../az
 The basic steps are as follows:
 
 1. Use one of the templates below as a JSON file that describes how to create the alert.
-2. Edit and use the corresponding parameters file as a JSON to customize the alert
-3. Deploy the template using [any deployment method](../../azure-resource-manager/resource-group-template-deploy.md).
+2. Edit and use the corresponding parameters file as a JSON to customize the alert.
+3. For the `metricName` parameter, see the available metrics in [Azure Monitor supported metrics](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
+4. Deploy the template using [any deployment method](../../azure-resource-manager/resource-group-template-deploy.md).
 
 ## Template for a simple static threshold metric alert
 

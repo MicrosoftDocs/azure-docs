@@ -1,5 +1,5 @@
 ---
-title: Create an HTTP triggered function in Azure
+title: Create an HTTP triggered Python function in Azure
 description: Learn how to create your first Python function in Azure using the Azure Functions Core Tools and the Azure CLI.
 author: ggailey777
 ms.author: glenga
@@ -11,7 +11,7 @@ ms.devlang: python
 manager: gwallace
 ---
 
-# Create an HTTP triggered function in Azure
+# Create an HTTP triggered Python function in Azure
 
 This article shows you how to use command-line tools to create a Python project that runs in Azure Functions. You also create a function that is triggered by an HTTP request. Finally, you publish your project to run as a [serverless function](functions-scale.md#consumption-plan) in Azure.
 

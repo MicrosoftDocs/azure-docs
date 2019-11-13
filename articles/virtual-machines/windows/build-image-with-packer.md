@@ -1,5 +1,5 @@
 ---
-title: How to create Windows VM Images with Packer in Azure | Microsoft Docs
+title: How to create Windows VM Images with Packer in Azure 
 description: Learn how to use Packer to create images of Windows virtual machines in Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
