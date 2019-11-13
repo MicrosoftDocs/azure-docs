@@ -58,16 +58,16 @@ The following example show schema for **Microsoft.KeyVault.SecretNewVersionCreat
 
 ## Event properties
 
-An event has the following top-level data.
+An event has the following top-level data:
 
 | Property | Type | Description |
 | ---------- | ----------- |---|
 | id | string | The ID of the object that triggered this event |
-| vaultName | string | Key vault name of the object that triggered this event |
+| vaultName | string | The key vault name of the object that triggered this event |
 | objectType | string | The type of the object that triggered this event |
 | objectName | string | The name of the object that triggered this event |
 | version | string | The version of the object that triggered this event |
-| nbf | number | Not before date in seconds since 1970-01-01T00:00:00Z of the object that triggered this event |
+| nbf | number | The not-before date in seconds since 1970-01-01T00:00:00Z of the object that triggered this event |
 | exp | number | The expiration date in seconds since 1970-01-01T00:00:00Z of the object that triggered this event |
 
 
