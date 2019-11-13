@@ -6,7 +6,7 @@ ms.author: orspodek
 ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 11/13/2019
 ---
 
 # Visualize data from Azure Data Explorer in Grafana
@@ -112,6 +112,10 @@ Now you've finished configuring Azure Data Explorer as a data source for Grafana
 
     ![create notification channel](media/grafana/create-notification-channel.png)
 
+1. Create a new **Notification channel**, then **Save**.
+
+    ![Create new notification channel](media/grafana/new-notification-channel-adx.png)
+
 1. On the **Dashboard**, select **Edit** from the dropdown.
 
     ![select edit in dashboard](media/grafana/edit-panel-4-alert.png)
@@ -120,16 +124,11 @@ Now you've finished configuring Azure Data Explorer as a data source for Grafana
 
     ![alert notification](media/grafana/alert-notifications.png)
 
-1. Create a new **Notification channel**, then **Save**.
-
-    ![Create new notification channel](media/grafana/new-notification-channel-adx.png)
-
 1. Complete the following properties in the **Alert** pane.
 
     ![alert properties](media/grafana/alert-properties.png)
 
 1. Select the **Save dashboard** icon to save your changes.
-
 
 ## Next steps
 
