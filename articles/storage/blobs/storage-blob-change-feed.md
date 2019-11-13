@@ -36,7 +36,7 @@ Change feed support is well-suited for scenarios that process data based on obje
 > [!NOTE]
 > [Blob Storage Events](storage-blob-event-overview.md) provides real-time one-time events which enable your Azure Functions or applications to react to changes that occur to a blob. The change feed provides a durable, ordered log model of the changes. Changes in your change feed are made available in your change feed at within an order of a few minutes of the change. If your application has to react to events much quicker than this, consider using [Blob Storage events](storage-blob-event-overview.md) instead. Blob Storage events enable your Azure Functions or applications to react individual events in real-time.
 
-## Enabling and disabling the change feed
+## Enable and disable the change feed
 
 You have to enable the change feed on your storage account to begin capturing changes. Disable the change feed to stop capturing changes. You can enable and disable changes by using Azure Resource Manager templates on Portal or Powershell.
 
@@ -60,27 +60,28 @@ To deploy the template by using Azure portal:
 
 3. Choose **Template deployment**, choose **Create**, and then choose **Build your own template in the editor**.
 
-5. In the template editor, paste in the following json. Replace the `<accountName>` placeholder with the name of your storage account.
+4. In the template editor, paste in the following json. Replace the `<accountName>` placeholder with the name of your storage account.
 
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {},
-    "variables": {},
-    "resources": [{
-        "type": "Microsoft.Storage/storageAccounts/blobServices",
-        "apiVersion": "2019-04-01",
-        "name": "<accountName>/default",
-        "properties": {
-            "changeFeed": {
-                "enabled": true
-            }
-        } 
-     }]
-}
-```
-4. Choose the **Save** button, specify the resource group of the account, and then choose the **Purchase** button to deploy the template and enable the change feed.
+   ```json
+   {
+       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "contentVersion": "1.0.0.0",
+       "parameters": {},
+       "variables": {},
+       "resources": [{
+           "type": "Microsoft.Storage/storageAccounts/blobServices",
+           "apiVersion": "2019-04-01",
+           "name": "<accountName>/default",
+           "properties": {
+               "changeFeed": {
+                   "enabled": true
+               }
+           } 
+        }]
+   }
+   ```
+    
+5. Choose the **Save** button, specify the resource group of the account, and then choose the **Purchase** button to deploy the template and enable the change feed.
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -114,7 +115,7 @@ To deploy the template by using PowerShell:
 
 ---
 
-## Understanding change feed organization
+## Understand change feed organization
 
 <a id="segment-index"></a>
 
@@ -204,18 +205,18 @@ Here's an example of change event record from change feed file converted to Json
          }
   }
 }
-
 ```
+
 For a description of each property, see [Azure Event Grid event schema for Blob Storage](https://docs.microsoft.com/azure/event-grid/event-schema-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties).
 
 > [!NOTE]
 > The change feed files for a segment don't immediately appear after a segment is created. The length of delay is within the normal interval of publishing latency of the change feed which is within a few minutes of the change.
 
-## Consuming the change feed
+## Consume the change feed
 
 The change feed produces several metadata and log files. These files are located in the **$blobchangefeed** container of the storage account. 
 
->[!NOTE]
+> [!NOTE]
 > In the current release, the **$blobchangefeed** container is not visible in Azure Storage Explorer or the Azure portal. You currently cannot see the $blobchangefeed container when you call ListContainers API but you are able to call the ListBlobs API directly on the container to see the blobs.
 
 Your client applications can consume the change feed by using the blob change feed processor library that is provided with the Change feed processor SDK. 
@@ -270,10 +271,11 @@ Because the change feed is only in public preview, you'll need to register your 
 
 In a PowerShell console, run these commands:
 
-   ```powershell
-   Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
-   Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-   ```
+```powershell
+Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
+Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
+```
+   
 ### Register by using Azure CLI
 
 In Azure Cloud Shell, run these commands:
