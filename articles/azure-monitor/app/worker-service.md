@@ -365,7 +365,7 @@ The Application Insights SDK for Worker Service supports both fixed-rate and ada
 
 ### Adding TelemetryInitializers
 
-Use [telemetry initializers](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) when you want to define properties that are sent with all telemetry.
+Use [telemetry initializers](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer) when you want to define properties that are sent with all telemetry.
 
 Add any new `TelemetryInitializer` to the `DependencyInjection` container and SDK will automatically add them to the `TelemetryConfiguration`.
 

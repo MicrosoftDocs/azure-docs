@@ -27,7 +27,8 @@ If you choose to install and use the CLI locally, this article requires the Azur
 > This preview version is provided without a service level agreement. We don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Prerequisites  
+## Prerequisites 
+You must have the following:
 
 ### Azure account
 
@@ -41,7 +42,7 @@ Make sure that the connectivity providers are partnered with Microsoft.
 
 ### 1. Sign in to your Azure account, and select your subscription
 
-To begin your configuration, sign in to your Azure account. If you use the Cloud Shell "Try It" option, you're signed in automatically. Use the following examples to help you connect.
+To begin your configuration, sign in to your Azure account. If you use the Cloud Shell **Try It** option, you're signed in automatically. Use the following examples to help you connect.
 
 ```azurecli
 az login
@@ -102,12 +103,8 @@ az peering service prefix create \
 
 ## Next steps
 
-To learn more about Peering Service connection, see [Peering Service Connection](connection.md).
-
-To learn about Peering Service connection telemetry, see [Peering Service connection telemetry](connection-telemetry.md).
-
-To measure telemetry, see [Measure connection telemetry](measure-connection-telemetry.md).
-
-To register the connection using the Azure PowerShell, see [Register Peering Service connection - Azure PowerShell](powershell.md).
-
-To register the connection using Azure portal, see [Register Peering Service connection - Azure portal](azure-portal.md).
+- To learn more about Peering Service connection, see [Peering Service connection](connection.md).
+- To learn about Peering Service connection telemetry, see [Peering Service connection telemetry](connection-telemetry.md).
+- To measure telemetry, see [Measure connection telemetry](measure-connection-telemetry.md).
+- To register the connection by using Azure PowerShell, see [Register a Peering Service connection - Azure PowerShell](powershell.md).
+- To register the connection by using the Azure portal, see [Register a Peering Service connection - Azure portal](azure-portal.md).

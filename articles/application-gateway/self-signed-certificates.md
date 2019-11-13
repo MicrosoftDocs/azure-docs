@@ -82,7 +82,7 @@ Use the following command to generate the key for the server certificate.
 The CSR is a public key that is given to a CA when requesting a certificate. The CA issues the certificate for this specific request.
 
 > [!NOTE]
-> The CN (Common Name) for the server certificate must be different from the issuer’s domain. For example, in this case, the CN for the issuer is www.contoso.com and the server certificate’s CN is www.fabrikam.com
+> The CN (Common Name) for the server certificate must be different from the issuer’s domain. For example, in this case, the CN for the issuer is `www.contoso.com` and the server certificate’s CN is `www.fabrikam.com`.
 
 
 1. Use the following command to generate the CSR:
