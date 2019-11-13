@@ -43,21 +43,6 @@ Form Recognizer also includes a model for reading sales thermal receipts. This m
 
 Form Recognizer can also extract text using high-definition optical character recognition (OCR). It also extracts the structures of tables (row and column numbers).
 
-## Input requirements
-### Custom model
-
-[!INCLUDE [input requirements](./includes/input-requirements.md)]
-
-### Prebuilt receipt model
-
-The input requirements for the receipt model are slightly different.
-
-* Format must be JPEG, PNG, BMP, PDF (text or scanned) or TIFF.
-* File size must be less than 20 MB.
-* Image dimensions must be between 50 x 50 pixels and 10000 x 10000 pixels. 
-* PDF dimensions must be at most 17 x 17 inches, corresponding to Legal or A3 paper sizes and smaller.
-* For PDF and TIFF, only the first 200 pages are processed (with a free tier subscription, only the first two pages are processed).
-
 ## Where do I start?
 
 **Step 1:** Request access:
@@ -98,6 +83,53 @@ You'll use the following APIs to train models and extract structured data from f
 | **Analyze Layout** |Analyze the layout of a form to extract text and table strcutre.|
 
 Explore the [REST API reference documentation](https://aka.ms/form-recognizer/api) to learn more. If you're familiar with a previous version of the API, see the [What's new](./whats-new.md) article to learn about recent changes.
+
+## What's new
+
+This section highlights the major changes that have come with new versions of the Form Recognizer API.
+
+> [!NOTE]
+> The quickstarts and guides in this doc set always use the latest version of the API, unless they specify otherwise.
+
+### Form Recognizer 2.0 (preview)
+
+#### Custom model API changes
+
+All of the APIs for training and using custom models have been renamed, and some synchronous methods are now asynchronous. The following are major changes:
+
+* The process of training a model is now asynchronous. You initiate training through the **/custom/models** API call. This call returns an operation ID, which you can pass into **custom/models/{modelID}** to return the training results.
+* Key/value extraction is now initiated by the **/custom/models/{modelID}/analyze** API call. This call returns an operation ID, which you can pass into **custom/models/{modelID}/analyzeResults/{resultID}** to return the extraction results.
+* Operation IDs are now found in the **Location** header of HTTP responses, not the **Operation-Location** header.
+
+#### Receipt API changes
+
+The APIs for reading sales receipts have been renamed.
+
+* Receipt data extraction is now initiated by the **/prebuilt/receipt/analyze** API call. This call returns an operation ID, which you can pass into **/prebuilt/receipt/analyzeResults/{resultID}** to return the extraction results.
+* Operation IDs are now found in the **Location** header of HTTP responses, not the **Operation-Location** header.
+
+#### Output format changes
+
+The JSON responses for all API calls have new formats. Some keys and values have been added, removed, or renamed. See the quickstarts for examples of the current JSON formats.
+
+#### Large data support
+
+Your training data set for custom models can now be up to 50 MB in size.
+
+## Input requirements
+### Custom model
+
+[!INCLUDE [input requirements](./includes/input-requirements.md)]
+
+### Prebuilt receipt model
+
+The input requirements for the receipt model are slightly different.
+
+* Format must be JPEG, PNG, BMP, PDF (text or scanned) or TIFF.
+* File size must be less than 20 MB.
+* Image dimensions must be between 50 x 50 pixels and 10000 x 10000 pixels. 
+* PDF dimensions must be at most 17 x 17 inches, corresponding to Legal or A3 paper sizes and smaller.
+* For PDF and TIFF, only the first 200 pages are processed (with a free tier subscription, only the first two pages are processed).
 
 ## Data privacy and security
 
