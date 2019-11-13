@@ -214,6 +214,8 @@ Settings for app passwords, trusted IPs, verification options, and remember mult
 
 ![Azure Multi-Factor Authentication service settings](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-service-settings.png)
 
+The trusted IP address ranges can be private or public.
+
 ## App passwords
 
 Some applications, like Office 2010 or earlier and Apple Mail before iOS 11, don't support two-step verification. The apps aren't configured to accept a second verification. To use these applications, take advantage of the _app passwords_ feature. You can use an app password in place of your traditional password to allow an app to bypass two-step verification and continue working.
