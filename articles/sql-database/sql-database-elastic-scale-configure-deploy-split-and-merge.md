@@ -1,5 +1,5 @@
 ---
-title: Deploy a split-merge service 
+title: Deploy a split-merge service
 description: Use the split-merge too to move data between sharded databases.
 services: sql-database
 ms.service: sql-database

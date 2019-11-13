@@ -139,7 +139,7 @@ Use `git push` to push your new branch to your forked repository:
 git push origin bike-images
 ```
 
-After the push is complete, navigate to your forked repository on GitHub create a pull request with the *dev* in your forked repository as the base branch compared to the *bike-images* branch.
+After the push is complete, navigate to your forked repository on GitHub to create a pull request with the *master* branch in your forked repository as the base branch compared to the *bike-images* branch.
 
 After your pull request is opened, navigate to the *Actions* tab. Verify a new action has started and is building the *Bikes* service.
 
@@ -152,7 +152,7 @@ After the action has completed, you will see a comment with a URL to your new ch
 
 Navigate to the *bikesharingweb* service by opening the URL from the comment. Select *Aurelia Briggs (customer)* as the user, then select a bike to rent. Verify you no longer see the placeholder image for the bike.
 
-If you merge your changes into the *dev* branch, another action will run to rebuild and run your entire application in the parent dev space. In this example, the parent space is *dev*. This action is configured in [.github/workflows/bikesharing.yml][github-action-bikesharing-yaml].
+If you merge your changes into the *master* branch in your fork, another action will run to rebuild and run your entire application in the parent dev space. In this example, the parent space is *dev*. This action is configured in [.github/workflows/bikesharing.yml][github-action-bikesharing-yaml].
 
 ## Clean up your Azure resources
 

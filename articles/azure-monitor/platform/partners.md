@@ -263,5 +263,5 @@ Turbonomic delivers workload automation for hybrid clouds by simultaneously opti
 [solarwinds-doc]: https://www.solarwinds.com/topics/azure-monitoring "SolarWinds documentation."
 [splunk-doc]: https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk "Splunk documentation."
 [sumologic-doc]: https://www.sumologic.com/azure "SumoLogic documentation."
-[turbonomic-doc]: https://turbonomic.com/solutions/technologies/azure-cloud/ "Turbonomic introduction."
+[turbonomic-doc]: https://turbonomic.com/ "Turbonomic introduction."
 

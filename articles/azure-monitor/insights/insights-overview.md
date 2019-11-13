@@ -43,8 +43,8 @@ See [What is Azure Monitor for VMs?](vminsights-overview.md)
 
 ![Azure Monitor for VMs](media/insights-overview/vm-insights.png)
 
-## Azure Monitor for Network (preview)
-Azure Monitor for Network provides a comprehensive view of health and metrics for all your network resource. The advanced search capability helps you identify resource dependencies, enabling scenarios like identifying resource that are hosting your website, by simply searching for your website name.
+## Azure Monitor for Networks (preview)
+[Azure Monitor for Networks](network-insights-overview.md) provides a comprehensive view of health and metrics for all your network resource. The advanced search capability helps you identify resource dependencies, enabling scenarios like identifying resource that are hosting your website, by simply searching for your website name.
 
 ![Azure Monitor for Networks](media/insights-overview/network-insights.png)
 

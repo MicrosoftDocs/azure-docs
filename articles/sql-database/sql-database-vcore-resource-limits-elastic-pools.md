@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database vCore resource limits - elastic pools| Microsoft Docs
+title: vCore resource limits - elastic pools
 description: This page describes some common vCore resource limits for elastic pools in Azure SQL Database.
 services: sql-database
 ms.service: sql-database

@@ -1,5 +1,5 @@
 ---
-title: Provision in SaaS multi-tenant Azure 
+title: Provision in SaaS multi-tenant 
 description: "Learn how to provision and catalog new tenants in an Azure SQL Database multi-tenant SaaS app"
 services: sql-database
 ms.service: sql-database

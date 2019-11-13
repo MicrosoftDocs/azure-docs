@@ -1,5 +1,5 @@
 ---
-title: 'Migrate TDE certificate - Azure SQL Database Managed Instance '
+title: Migrate TDE certificate - managed instance
 description: Migrate certificate protecting Database Encryption Key of a database with transparent Data Encryption to Azure SQL Database Managed Instance
 services: sql-database
 ms.service: sql-database
