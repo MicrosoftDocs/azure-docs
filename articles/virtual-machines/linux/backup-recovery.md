@@ -1,5 +1,5 @@
 ---
-title: Overview backup options for Linux Azure VMs | Microsoft Docs
+title: Overview backup options for Linux Azure VMs 
 description: Overview backup options for Linux Azure virtual machines.
 services: virtual-machines-windows
 documentationcenter: virtual-machines

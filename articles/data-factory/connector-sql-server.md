@@ -1,5 +1,5 @@
 ---
-title: Copy data to and from SQL Server by using Azure Data Factory | Microsoft Docs
+title: Copy data to and from SQL Server by using Azure Data Factory 
 description: Learn about how to move data to and from SQL Server database that is on-premises or in an Azure VM by using Azure Data Factory.
 services: data-factory
 documentationcenter: ''

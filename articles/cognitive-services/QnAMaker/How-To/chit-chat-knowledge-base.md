@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 11/04/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -40,15 +40,15 @@ Chit-chat data sets are supported in the following languages:
 
 |Language|
 |--|
-|Chinese, `zh-cn`|
-|English, `en-us`|
-|French, `fr-fr`|
-|Germany, `de-de`|
-|Italian, `it-it`|
-|Japanese, `ja-jp`|
-|Korean, `ko-kr`|
-|Portuguese, `pr-br`|
-|Spanish, `es-es`|
+|Chinese|
+|English|
+|French|
+|Germany|
+|Italian|
+|Japanese|
+|Korean|
+|Portuguese|
+|Spanish|
 
 
 ## Add chit-chat during KB creation

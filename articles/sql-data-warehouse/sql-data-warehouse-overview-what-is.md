@@ -1,6 +1,6 @@
 ---
-title: What is Azure Synapse Analytics (formerly SQL DW)?| Microsoft Docs
-description: Azure Synapse Analytics provides a fully integrated analytics experience built to ingest, prepare, manage, and serve data so it’s immediately ready for BI, machine learning, and AI needs.
+title: What is Azure Synapse Analytics (formerly SQL DW)?
+description: Azure Synapse Analytics (formerly SQL DW) is a limitless analytics service that brings together enterprise data warehousing and Big Data analytics.
 services: sql-data-warehouse
 author: mlee3gsd 
 manager: craigg
@@ -14,26 +14,22 @@ ms.reviewer: igorstan
 
 # What is Azure Synapse Analytics (formerly SQL DW)?
 
-Azure Synapse Analytics is a limitless analytics service that gives you the freedom to query data on your terms, using on-demand or provisioned resources. Synapse Analytics brings a multitude of new capabilities that simplify enterprise data lake and data warehousing solutions. 
+Azure Synapse is a limitless analytics service that brings together enterprise data warehousing and Big Data analytics. It gives you the freedom to query data on your terms, using either serverless on-demand or provisioned resources—at scale. Azure Synapse brings these two worlds together with a unified experience to ingest, prepare, manage, and serve data for immediate BI and machine learning needs
 
-Empower all data engineers and SQL data professionals to collaborate, manage, and analyze all your most important data with ease. Enable a fully integrated analytics experience built to ingest, prepare, manage, and serve data so it’s immediately ready for your BI, machine learning, and AI needs.
-
-Azure Synapse Analytics has four components:
-- SQL Analytics : Complete T-SQL based analytics – Generally Available
+Azure Synapse has four components:
+- SQL Analytics: Complete T-SQL based analytics – Generally Available
     - SQL pool (pay per DWU provisioned) 
     - SQL on-demand (pay per TB processed) – (Preview)
-- Spark : Deeply integrated Apache Spark (Preview) 
-- Data Integration : Hybrid data integration (Preview)
-- Studio : Unified user experience.  (Preview)
+- Spark: Deeply integrated Apache Spark (Preview) 
+- Data Integration: Hybrid data integration (Preview)
+- Studio: Unified user experience.  (Preview)
 
 > [!NOTE]
-> To access the preview features of Azure Synapse Analytics, request access [here](https://aka.ms/synapsepreview). Microsoft will triage all requests and respond as soon as possible.
+> To access the preview features of Azure Synapse, request access [here](https://aka.ms/synapsepreview). Microsoft will triage all requests and respond as soon as possible.
 
+## SQL Analytics and SQL pool in Azure Synapse
 
-
-## SQL Analytics and SQL pools
-
-SQL Analytics is a cloud-based Enterprise Data Warehouse (EDW) built upon Massively Parallel Processing (MPP) to quickly run complex queries across petabytes of data and is a key component of an optimized big data solution.
+SQL Analytics refers to the enterprise data warehousing features that are generally available with Azure Synapse. 
 
 SQL pool represents a collection of analytic resources that are being provisioned when using SQL Analytics. The size of SQL pool is determined by Data Warehousing Units (DWU).
 
@@ -53,12 +49,12 @@ The analysis results can go to worldwide reporting databases or applications. Bu
 
 ## Next steps
 
-- Explore [Azure Synapse Analytics architecture](/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture)
-- Quickly [create a Synapse SQL pool](create-data-warehouse-portal.md)
+- Explore [Azure Synapse architecture](/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture)
+- Quickly [create a SQL pool](create-data-warehouse-portal.md)
 - [Load sample data][load sample data].
 - Explore [Videos](/azure/sql-data-warehouse/sql-data-warehouse-videos)
 
-Or look at some of these other Synapse Analytics resources.  
+Or look at some of these other Azure Synapse resources.  
 * Search [Blogs]
 * Submit a [Feature requests]
 * Search [Customer Advisory Team blogs]

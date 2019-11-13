@@ -44,9 +44,14 @@
   - name: CIS Microsoft Azure Foundations Benchmark
     items:
     - name: Overview
+      displayName: standards, cis
       href: ./samples/cis-azure-1.1.0/index.md
     - name: Recommendation mapping
+      displayName: standards, cis
       href: ./samples/cis-azure-1.1.0/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, cis
+      href: ./samples/cis-azure-1.1.0/deploy.md
   - name: FedRAMP Moderate
     items:
     - name: Overview

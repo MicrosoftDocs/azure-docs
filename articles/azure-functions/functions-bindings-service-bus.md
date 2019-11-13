@@ -28,7 +28,7 @@ The Service Bus bindings are provided in the [Microsoft.Azure.WebJobs.ServiceBus
 
 ## Packages - Functions 2.x
 
-The Service Bus bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus) NuGet package, version 3.x. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/) GitHub repository.
+The Service Bus bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus) NuGet package, version 3.x. Source code for the package is in the [azure-functions-servicebus-extension](https://github.com/Azure/azure-functions-servicebus-extension) GitHub repository.
 
 > [!NOTE]
 > Version 2.x does not create the topic or subscription configured in the `ServiceBusTrigger` instance. Version 2.x is based on [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) and does not handle queue management.
@@ -471,12 +471,12 @@ public static void Run(TimerInfo myTimer, ILogger log, out string outputSbQueue)
 Here's C# script code that creates multiple messages:
 
 ```cs
-public static void Run(TimerInfo myTimer, ILogger log, ICollector<string> outputSbQueue)
+public static async Task Run(TimerInfo myTimer, ILogger log, IAsyncCollector<string> outputSbQueue)
 {
     string message = $"Service Bus queue messages created at: {DateTime.Now}";
     log.LogInformation(message); 
-    outputSbQueue.Add("1 " + message);
-    outputSbQueue.Add("2 " + message);
+    await outputSbQueue.AddAsync("1 " + message);
+    await outputSbQueue.AddAsync("2 " + message);
 }
 ```
 

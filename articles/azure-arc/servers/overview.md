@@ -30,7 +30,7 @@ Machines will have a status of **Connected** or **Disconnected** based on how re
 
 In Public Preview, we support:
 
-- Windows Server 2012 R2 and above
+- Windows Server 2012 R2 and newer
 - Ubuntu 16.04 and 18.04
 
 The Public Preview release is designed for evaluation purposes and should not be used to manage critical production resources.
@@ -79,7 +79,7 @@ See the section [Proxy server configuration](quickstart-onboard-powershell.md#pr
 
 ## Register the required Resource Providers
 
-Once the 'Feature Flag' registration has been approved, you must register the required Resource Providers.
+In order to use Azure Arc for Servers, you must register the required Resource Providers.
 
 * **Microsoft.HybridCompute**
 * **Microsoft.GuestConfiguration**

@@ -1,11 +1,8 @@
 ---
 title: Overview of Azure Resource Graph
 description: Understand how the Azure Resource Graph service enables complex querying of resources at scale.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: overview
-ms.service: resource-graph
 ---
 # Overview of the Azure Resource Graph service
 
@@ -129,7 +126,9 @@ structured the same for each language. Learn how to enable Resource Graph with:
 
 ## Next steps
 
+- Run your first query by using the [Azure portal](first-query-portal.md).
 - Run your first query with [Azure CLI](first-query-azurecli.md).
 - Run your first query with [Azure PowerShell](first-query-powershell.md).
+- Get more information about the [query language](./concepts/query-language.md).
 - Start with [Starter Queries](./samples/starter.md).
 - Enhance your understanding with [Advanced Queries](./samples/advanced.md).

@@ -9,7 +9,7 @@
   - name: Create an Internet Analyzer test using Portal
     href: internet-analyzer-create-test-portal.md
   - name: Create an Internet Analyzer test using CLI
-    herf: internet-analyzer-cli.md
+    href: internet-analyzer-cli.md  
 - name: How-to guides
   items:
   - name: Embed client

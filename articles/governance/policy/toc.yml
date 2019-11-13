@@ -218,9 +218,6 @@
       - name: Audit SQL Server level audit setting
         displayName: auditIfNotExists
         href: samples/audit-sql-server-audit-setting.md
-      - name: Require SQL Server version 12.0
-        displayName: deny, builtin
-        href: samples/require-sql-12.md
     - name: SQL Databases
       items:
       - name: Allowed SQL DB SKUs

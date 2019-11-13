@@ -48,7 +48,7 @@ An outbound connection sends blockchain data to Azure Event Grid. You configure 
 
 1. Select **OK**.
 
-    It takes less than a minute to create a Blockchain Data Manager instance. After the instance is deployed, it is automatically started. A running Blockchain Data Manager instance captures blockchain events from the transaction node and sends data to the outbound connections. If you want to also capture decoded event and property data from the transaction node, then create a blockchain application for the Blockchain Data Manager instance.
+    It takes less than a minute to create a Blockchain Data Manager instance. After the instance is deployed, it is automatically started. A running Blockchain Data Manager instance captures blockchain events from the transaction node and sends data to the outbound connections.
 
     The new instance appears in the list of Blockchain Data Manager instances for the Azure Blockchain Service member.
 
@@ -58,7 +58,10 @@ An outbound connection sends blockchain data to Azure Event Grid. You configure 
 
 If you add a blockchain application, Blockchain Data Manager decodes event and property state for the application. Otherwise, only raw block and raw transaction data is sent. Blockchain Data Manager also discovers contract addresses when the contract is deployed. You can add multiple blockchain applications to a Blockchain Data Manager instance.
 
-Blockchain Data Manager requires a smart contract ABI and bytecode file to add the application.
+> [!IMPORTANT]
+> Currently, blockchain applications that declare Solidity [array types](https://solidity.readthedocs.io/en/v0.5.12/types.html#arrays) or [mapping types](https://solidity.readthedocs.io/en/v0.5.12/types.html#mapping-types) are not fully supported. Properties declared as array or mapping types will not be decoded in *ContractPropertiesMsg* or *DecodedContractEventsMsg* messages.
+
+Blockchain Data Manager requires a smart contract ABI and deployed bytecode file to add the application.
 
 ### Get Contract ABI and bytecode
 
@@ -74,17 +77,15 @@ The contract ABI defines the smart contract interfaces. It describes how to inte
 
 1. Save the **abi** array as a JSON file. For example, *abi.json*. You use the file in a later step.
 
-The contract bytecode is the compiled smart contract executed by the Ethereum virtual machine. You can use the extension to copy the contract bytecode to the clipboard.
+Blockchain Data Manager requires the deployed bytecode for the smart contract. The deployed bytecode is different than the smart contract bytecode. You can get the deployed bytecode from the compiled contract metadata file.
 
-1. In the Visual Studio Code explorer pane, expand the **build/contracts** folder of your Solidity project.
-1. Right-click the contract metadata JSON file. The file name is the smart contract name followed by the **.json** extension.
-1. Select **Copy Contract Bytecode**.
+1. Open the contract metadata file contained in the **build/contracts** folder of your Solidity project. The file name is the smart contract name followed by the **.json** extension.
+1. Find the **deployedBytecode** element in the JSON file.
+1. Copy the hexadecimal value without the quotes.
 
-    ![Visual Studio Code pane with the Copy Contract Bytecode selection](./media/data-manager-portal/bytecode-devkit.png)
+    ![Visual Studio Code pane with bytecode in the metadata](./media/data-manager-portal/bytecode-metadata.png)
 
-    The contract bytecode is copied to the clipboard.
-
-1. Save the **bytecode** value as a JSON file. For example, *bytecode.json*. Save only the hexadecimal value. You use the file in a later step.
+1. Save the **bytecode** value as a JSON file. For example, *bytecode.json*. You use the file in a later step.
 
 The following example shows *abi.json* and *bytecode.json* files open in the VS Code editor. Your files should look similar.
 
@@ -164,4 +165,7 @@ Stop the Blockchain Manager instance when you want to stop capturing blockchain 
 
 ## Next steps
 
-Learn more about [Event handlers in Azure Event Grid](../../event-grid/event-handlers.md).
+Try creating a blockchain transaction message explorer using Blockchain Data Manager and Azure Cosmos DB.
+
+> [!div class="nextstepaction"]
+> [Tutorial: Use Blockchain Data Manager to send data to Azure Cosmos DB](data-manager-cosmosdb.md)

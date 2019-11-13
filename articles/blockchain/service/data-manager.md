@@ -5,7 +5,7 @@ services: azure-blockchain
 author: PatAltimore
 ms.author: patricka
 ms.date: 11/04/2019
-ms.topic: article
+ms.topic: overview
 ms.service: azure-blockchain
 ms.reviewer: chroyal
 #Customer intent: As a developer, I want to understand how I can use Blockchain Data Manager to get data from a blockchain ledger.

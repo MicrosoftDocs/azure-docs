@@ -83,11 +83,11 @@ Azure Active Directory B2C is a cloud identity management solution for consumer-
 
 ## Developer portal - add Azure AD B2C account authentication
 
-To enable sign in with AAD B2C in the developer portal, you need to add the **OAuth buttons** widget to the sign-in form.
+In the developer portal, sign-in with AAD B2C is possible with the **OAuth buttons** widget. The widget is already included on the sign-in page of the default developer portal content.
 
 ![AAD buttons widget](./media/api-management-howto-aad/portal-oauth-widget.png)
 
-Although a new account will be automatically created whenever a new user signs in with AAD B2C, you may consider adding the same widget in the sign-up form.
+Although a new account will be automatically created whenever a new user signs in with AAD B2C, you may consider adding the same widget to the sign-up page.
 
 ## Legacy developer portal - how to sign up with Azure AD B2C
 

@@ -1,5 +1,5 @@
 ---
-title: Copy data to or from Azure Blob storage by using Data Factory | Microsoft Docs
+title: Copy data to or from Azure Blob storage by using Data Factory 
 description: Learn how to copy data from supported source data stores to Azure Blob storage, or from Blob storage to supported sink data stores, by using Data Factory.
 author: linda33wj
 manager: craigg

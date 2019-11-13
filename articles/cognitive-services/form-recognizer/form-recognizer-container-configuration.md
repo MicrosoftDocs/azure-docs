@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 11/07/2019
 ms.author: dapine
 ---
 # Configure Form Recognizer containers
@@ -41,7 +41,7 @@ You can find this setting in the Azure portal, in **Form Recognizer Overview**, 
 
 |Required| Name | Data type | Description |
 |--|------|-----------|-------------|
-|Yes| `Billing` | String | Billing endpoint URI<br><br>Example:<br>`Billing=https://westus2.api.cognitive.microsoft.com/` |
+|Yes| `Billing` | String | Billing endpoint URI. For more information on obtaining the billing URI, see [gathering required parameters](form-recognizer-container-howto.md#gathering-required-parameters). For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](../cognitive-services-custom-subdomains.md). |
 
 ## Eula setting
 

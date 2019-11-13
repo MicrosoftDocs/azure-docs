@@ -14,10 +14,10 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 11/13/2019
 ms.author: sethm
 ms.reviewer: jowargo
-ms.lastreviewed: 03/11/2019
+ms.lastreviewed: 11/13/2019
 ---
 
 # Push notifications with Azure Notification Hubs: Frequently asked questions
@@ -161,7 +161,7 @@ To send sensitive payloads, we recommend using a Secure Push pattern. The sender
 
 ### What support is provided for disaster recovery?
 
-We provide metadata disaster recovery coverage on our end (the Notification Hubs name, the connection string, and other critical information). When a disaster recovery scenario is triggered, registration data is the *only segment* of the Notification Hubs infrastructure that is lost. You will need to implement a solution to repopulate this data into your new hub post-recovery:
+We provide metadata disaster recovery coverage on our end (the Notification Hubs name, the connection string, and other critical information). When a disaster recovery scenario is triggered, registration data is the *only segment* of the Notification Hubs infrastructure that is lost. You must implement a solution to repopulate this data into your new hub post-recovery:
 
 1. Create a secondary notifications hub in a different data center. We recommend creating one from the beginning to shield you from a disaster recovery event that might affect your management capabilities. You can also create one at the time of the disaster recovery event.
 
@@ -178,6 +178,10 @@ We have two recommendations for app backends:
 If you don’t have a backend, when the app starts on target devices, they perform a new registration in the secondary notification hub. Eventually the secondary notification hub will have all the active devices registered.
 
 There will be a time period when devices with unopened apps won't receive notifications.
+
+### Is all of my data stored in encrypted form?
+
+Azure Notification Hubs encrypts all customer data at rest with the exception of registration tags. For this reason, you should not store personal or confidential data using tags.
 
 ### Is there audit log capability?
 

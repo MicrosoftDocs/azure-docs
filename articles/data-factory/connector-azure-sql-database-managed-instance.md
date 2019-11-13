@@ -1,5 +1,5 @@
 ---
-title: Copy data to and from Azure SQL Database Managed Instance by using Azure Data Factory | Microsoft Docs
+title: Copy data to and from Azure SQL Database Managed Instance by using Azure Data Factory 
 description: Learn how to move data to and from Azure SQL Database Managed Instance by using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
