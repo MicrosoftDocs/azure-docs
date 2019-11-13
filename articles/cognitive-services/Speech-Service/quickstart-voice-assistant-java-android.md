@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Custom voice assistant, Java (Android)'
+title: 'Quickstart: Custom voice assistant, Java (Android) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Learn how to create a voice assistant application in Java on Android using the Speech SDK
 services: cognitive-services

@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Connect to a Custom Commands app with Speech SDK'
+title: 'Quickstart: Connect to a Custom Commands app with Speech SDK - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: In this article, you will create a Speech SDK client application with Custom Commands.
 services: cognitive-services

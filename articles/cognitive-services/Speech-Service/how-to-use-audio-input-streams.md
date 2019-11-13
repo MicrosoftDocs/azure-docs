@@ -24,7 +24,7 @@ The following steps are required when using audio input streams:
 
   The corresponding code in the SDK to create the audio format looks like this:
 
-  ```cs
+  ```csharp
   byte channels = 1;
   byte bitsPerSample = 16;
   int samplesPerSecond = 16000;
@@ -35,7 +35,7 @@ The following steps are required when using audio input streams:
 
 - Create your own audio input stream class derived from `PullAudioInputStreamCallback`. Implement the `Read()` and `Close()` members. The exact function signature is language-dependent, but the code will look similar to this code sample:
 
-  ```cs
+  ```csharp
    public class ContosoAudioStream : PullAudioInputStreamCallback {
       ContosoConfig config;
 
@@ -56,7 +56,7 @@ The following steps are required when using audio input streams:
 
 - Create an audio configuration based on your audio format and input stream. Pass in both your regular speech configuration and the audio input configuration when you create your recognizer. For example:
 
-  ```cs
+  ```csharp
   var audioConfig = AudioConfig.FromStreamInput(new ContosoAudioStream(config), audioFormat);
 
   var speechConfig = SpeechConfig.FromSubscription(...);

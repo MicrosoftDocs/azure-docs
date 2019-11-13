@@ -1,5 +1,5 @@
 ---
-title: How To Fulfill Custom Commands on the client with the Speech SDK
+title: How to fulfill Custom Commands on the client with the Speech SDK
 titleSuffix: Azure Cognitive Services
 description: In this article, handle Custom Commands activities on client with the Speech SDK
 services: cognitive-services

@@ -126,4 +126,4 @@ higher sample rates and bit depths.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about the Speech devices SDK](speech-devices-sdk.md)
+> [Learn more about the Speech Devices SDK](speech-devices-sdk.md)

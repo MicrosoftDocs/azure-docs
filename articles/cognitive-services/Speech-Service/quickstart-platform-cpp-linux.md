@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Speech SDK C++ (Linux) platform setup'
+title: 'Quickstart: Speech SDK C++ (Linux) platform setup - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Use this guide to set up your platform for C++ on Linux with the Speech Services SDK.
 services: cognitive-services

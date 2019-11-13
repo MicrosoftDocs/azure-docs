@@ -1,25 +1,25 @@
 ---
-title: Recognize intents from speech using the Speech SDK C# tutorial
+title: How to recognize intents from speech using the Speech SDK C#
 titleSuffix: Azure Cognitive Services
-description: In this tutorial, you learn how to recognize intents from speech using the Speech SDK for C#.
+description: In this guide, you learn how to recognize intents from speech using the Speech SDK for C#.
 services: cognitive-services
 author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: wolfma
 ---
 
-# Tutorial: Recognize intents from speech using the Speech SDK for C
+# How to recognize intents from speech using the Speech SDK for C#
 
 The Cognitive Services [Speech SDK](speech-sdk.md) integrates with the [Language Understanding service (LUIS)](https://www.luis.ai/home) to provide **intent recognition**. An intent is something the user wants to do: book a flight, check the weather, or make a call. The user can use whatever terms feel natural. Using machine learning, LUIS maps user requests to the intents you've defined.
 
 > [!NOTE]
 > A LUIS application defines the intents and entities you want to recognize. It's separate from the C# application that uses the Speech service. In this article, "app" means the LUIS app, while "application" means the C# code.
 
-In this tutorial, you use the Speech SDK to develop a C# console application that derives intents from user utterances through your device's microphone. You'll learn how to:
+In this guide, you use the Speech SDK to develop a C# console application that derives intents from user utterances through your device's microphone. You'll learn how to:
 
 > [!div class="checklist"]
 >
@@ -32,7 +32,7 @@ In this tutorial, you use the Speech SDK to develop a C# console application tha
 
 ## Prerequisites
 
-Be sure you have the following items before you begin this tutorial:
+Be sure you have the following items before you begin this guide:
 
 - A LUIS account. You can get one for free through the [LUIS portal](https://www.luis.ai/home).
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (any edition).
@@ -49,9 +49,9 @@ LUIS uses three kinds of keys:
 | Starter   | Lets you test your LUIS application using text only   |
 | Endpoint  | Authorizes access to a particular LUIS app            |
 
-For this tutorial, you need the endpoint key type. The tutorial uses the example Home Automation LUIS app, which you can create by following the [Use prebuilt Home automation app](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) quickstart. If you've created a LUIS app of your own, you can use it instead.
+For this guide, you need the endpoint key type. This guide uses the example Home Automation LUIS app, which you can create by following the [Use prebuilt Home automation app](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) quickstart. If you've created a LUIS app of your own, you can use it instead.
 
-When you create a LUIS app, LUIS automatically generates a starter key so you can test the app using text queries. This key doesn't enable the Speech Services integration and won't work with this tutorial. Create a LUIS resource in the Azure dashboard and assign it to the LUIS app. You can use the free subscription tier for this tutorial.
+When you create a LUIS app, LUIS automatically generates a starter key so you can test the app using text queries. This key doesn't enable the Speech Services integration and won't work with this guide. Create a LUIS resource in the Azure dashboard and assign it to the LUIS app. You can use the free subscription tier for this guide.
 
 After you create the LUIS resource in the Azure dashboard, log into the [LUIS portal](https://www.luis.ai/home), choose your application on the **My Apps** page, then switch to the app's **Manage** page. Finally, select **Keys and Endpoints** in the sidebar.
 
@@ -114,7 +114,7 @@ Next, you add code to the project.
    | `YourLanguageUnderstandingServiceRegion` | The short identifier for the region your LUIS subscription is in, such as `westus` for West US. See [Regions](regions.md). |
    | `YourLanguageUnderstandingAppId` | The LUIS app ID. You can find it on your app's **Settings** page in the [LUIS portal](https://www.luis.ai/home). |
 
-With these changes made, you can build (**Control+Shift+B**) and run (**F5**) the tutorial application. When you're prompted, try saying "Turn off the lights" into your PC's microphone. The application displays the result in the console window.
+With these changes made, you can build (**Control+Shift+B**) and run (**F5**) the application. When you're prompted, try saying "Turn off the lights" into your PC's microphone. The application displays the result in the console window.
 
 The following sections include a discussion of the code.
 
@@ -135,8 +135,8 @@ To add intents, you must provide three arguments: the LUIS model (which has been
 
 | `AddIntent()`&nbsp;argument | Purpose |
 | --------------------------- | ------- |
-| **`intentName`** | The name of the intent as defined in the LUIS app. This value must match the LUIS intent name exactly. |
-| **`intentID`** | An ID assigned to a recognized intent by the Speech SDK. This value can be whatever you like; it doesn't need to correspond to the intent name as defined in the LUIS app. If multiple intents are handled by the same code, for instance, you could use the same ID for them. |
+| `intentName` | The name of the intent as defined in the LUIS app. This value must match the LUIS intent name exactly. |
+| `intentID` | An ID assigned to a recognized intent by the Speech SDK. This value can be whatever you like; it doesn't need to correspond to the intent name as defined in the LUIS app. If multiple intents are handled by the same code, for instance, you could use the same ID for them. |
 
 The Home Automation LUIS app has two intents: one for turning on a device, and another for turning off a device. The lines below add these intents to the recognizer; replace the three `AddIntent` lines in the `RecognizeIntentAsync()` method with this code.
 
@@ -156,19 +156,19 @@ With the recognizer created and the intents added, recognition can begin. The Sp
 | Single-shot | `RecognizeOnceAsync()` | Returns the recognized intent, if any, after one utterance. |
 | Continuous | `StartContinuousRecognitionAsync()`<br>`StopContinuousRecognitionAsync()` | Recognizes multiple utterances; emits events (for example, `IntermediateResultReceived`) when results are available. |
 
-The tutorial application uses single-shot mode and so calls `RecognizeOnceAsync()` to begin recognition. The result is an `IntentRecognitionResult` object containing information about the intent recognized. You extract the LUIS JSON response by using the following expression:
+The application uses single-shot mode and so calls `RecognizeOnceAsync()` to begin recognition. The result is an `IntentRecognitionResult` object containing information about the intent recognized. You extract the LUIS JSON response by using the following expression:
 
 ```csharp
 result.Properties.GetProperty(PropertyId.LanguageUnderstandingServiceResponse_JsonResult)
 ```
 
-The tutorial application doesn't parse the JSON result. It only displays the JSON text in the console window.
+The application doesn't parse the JSON result. It only displays the JSON text in the console window.
 
 ![Single LUIS recognition results](media/sdk/luis-results.png)
 
 ## Specify recognition language
 
-By default, LUIS recognizes intents in US English (`en-us`). By assigning a locale code to the `SpeechRecognitionLanguage` property of the speech configuration, you can recognize intents in other languages. For example, add `config.SpeechRecognitionLanguage = "de-de";` in our tutorial application before creating the recognizer to recognize intents in German. For more information, see [Supported Languages](language-support.md#speech-to-text).
+By default, LUIS recognizes intents in US English (`en-us`). By assigning a locale code to the `SpeechRecognitionLanguage` property of the speech configuration, you can recognize intents in other languages. For example, add `config.SpeechRecognitionLanguage = "de-de";` in our application before creating the recognizer to recognize intents in German. For more information, see [Supported Languages](language-support.md#speech-to-text).
 
 ## Continuous recognition from a file
 

@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Custom voice assistant for Java (Windows, Linux)'
+title: 'Quickstart: Custom voice assistant for Java (Windows, Linux) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to use the Cognitive Services Speech SDK in a Java console application. You'll learn how you can connect your client application to a previously created Bot Framework bot configured to use the Direct Line Speech channel and enable a voice assistant experience.
 services: cognitive-services
