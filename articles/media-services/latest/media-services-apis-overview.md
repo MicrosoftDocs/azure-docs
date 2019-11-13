@@ -106,7 +106,7 @@ Media Services has the following long-running operations:
 * [Stop StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/stop)
 * [Scale StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/scale)
 
-On successful submission of a long operation you receive a '202 Accepted' and must poll for operation completion using the returned operation ID.
+On successful submission of a long operation, you receive a '202 Accepted' and must poll for operation completion using the returned operation ID.
 
 The [track asynchronous Azure operations](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) article explains in depth how to track the status of asynchronous Azure operations through values returned in the response.
 
