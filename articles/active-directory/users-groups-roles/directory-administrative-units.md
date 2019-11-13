@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: article
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 11/12/2019
+ms.date: 11/13/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
