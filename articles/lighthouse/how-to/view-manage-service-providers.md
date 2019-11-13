@@ -47,7 +47,7 @@ If the customer wants to remove a service provider offer, they can select the tr
 
 ## Update service provider offers
 
-If a service provider publishes an updated version of an offer to Azure Marketplace, the customer will see an "update" icon next to the offer on the **Provider offers** page. The customer can select this icon to review the differences between the current version of the offer and the new one. For example, the service provider may have changed the authorization info to include a new role.
+If a service provider publishes an updated version of an offer to Azure Marketplace, the customer will see an "update" icon next to the offer on the **Provider offers** page. The customer can select this icon to review the differences between the current version of the offer and the new one. For example, the service provider may have changed the authorization info to include a new role. The customer can choose view the full details of  the current version and of the new version, or show only the differences between them.
 
 After reviewing the changes, the customer can choose to update to the new version. After doing so, the authorizations specified in the updated version will apply to the subscriptions and/or resource groups that have been delegated for that offer.
 
