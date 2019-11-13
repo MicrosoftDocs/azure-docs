@@ -22,13 +22,13 @@ Azure Backup Server V2 and later supports Modern Backup Storage that offers stor
 
 Backup Server V2 or later accepts storage volumes. When you add a volume, Backup Server formats the volume to Resilient File System (ReFS), which Modern Backup Storage requires. To add a volume, and to expand it later if you need to, we suggest that you use this workflow:
 
-1.	Set up Backup Server on a VM.
-2.	Create a volume on a virtual disk in a storage pool:
-    1.  Add a disk to a storage pool and create a virtual disk with simple layout.
-    2.  Add any additional disks, and extend the virtual disk.
-    3.  Create volumes on the virtual disk.
-3.	Add the volumes to Backup Server.
-4.	Configure workload-aware storage.
+1. Set up Backup Server on a VM.
+2. Create a volume on a virtual disk in a storage pool:
+    1. Add a disk to a storage pool and create a virtual disk with simple layout.
+    2. Add any additional disks, and extend the virtual disk.
+    3. Create volumes on the virtual disk.
+3. Add the volumes to Backup Server.
+4. Configure workload-aware storage.
 
 ## Create a volume for Modern Backup Storage
 
@@ -70,7 +70,7 @@ With workload-aware storage, you can select the volumes that preferentially stor
 
 ### Update-DPMDiskStorage
 
-You can set up workload-aware storage by using the PowerShell cmdlet Update-DPMDiskStorage, which updates the properties of a volume in the storage pool on an Azure Backup Server. 
+You can set up workload-aware storage by using the PowerShell cmdlet Update-DPMDiskStorage, which updates the properties of a volume in the storage pool on an Azure Backup Server.
 
 Syntax:
 
@@ -79,6 +79,7 @@ Syntax:
 ```powershell
 Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-DatasourceType] <VolumeTag[]> ] [-Confirm] [-WhatIf] [ <CommonParameters>]
 ```
+
 The following screenshot shows the Update-DPMDiskStorage cmdlet in the PowerShell window.
 
 ![The Update-DPMDiskStorage command in the PowerShell window](./media/backup-mabs-add-storage/mabs-add-storage-8.png)
@@ -87,8 +88,8 @@ The changes you make by using PowerShell are reflected in the Backup Server Admi
 
 ![Disks and volumes in the Administrator Console](./media/backup-mabs-add-storage/mabs-add-storage-9.png)
 
-
 ## Migrate legacy storage to Modern Backup Storage
+
 After you upgrade to or install Backup Server V2 and upgrade the operating system to Windows Server 2016, update your protection groups to use Modern Backup Storage. By default, protection groups are not changed. They continue to function as they were initially set up.
 
 Updating protection groups to use Modern Backup Storage is optional. To update the protection group, stop protection of all data sources by using the retain data option. Then, add the data sources to a new protection group.
@@ -115,11 +116,12 @@ To add disk storage:
 
     ![Add Disk Storage dialog](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
 
-4. In the **Add Disk Storage** dialog, select **Add disks**.
+2. In the **Add Disk Storage** dialog, select **Add disks**.
 
-5. In the list of available disks, select the disks you want to add, select **Add**, and then select **OK**.
+3. In the list of available disks, select the disks you want to add, select **Add**, and then select **OK**.
 
 ## Next steps
+
 After you install Backup Server, learn how to prepare your server, or begin protecting a workload.
 
 - [Prepare Backup Server workloads](backup-azure-microsoft-azure-backup.md)
