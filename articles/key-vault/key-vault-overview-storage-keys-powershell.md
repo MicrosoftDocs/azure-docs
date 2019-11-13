@@ -234,7 +234,7 @@ You can verify that the shared access signature definition has been stored in yo
 First, find the shared access signature definition in your key vault.
 
 ```azurepowershell-interactive
-Get-AzKeyVaultSecret -vault-name <YourKeyVaultName>
+Get-AzKeyVaultSecret -VaultName <YourKeyVaultName>
 ```
 
 The secret corresponding to your SAS definition will have these properties:
