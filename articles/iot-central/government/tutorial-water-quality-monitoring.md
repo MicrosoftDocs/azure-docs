@@ -64,11 +64,11 @@ You've now created a water quality monitoring application by using the Azure IoT
 
 Your new application comes with these preconfigured components:
 
-* Operator dashboards.
-* Water quality monitoring device templates.
-* Simulated water quality monitoring devices.
-* Rules and jobs.
-* Branding that uses white labeling.
+* Operator dashboards
+* Water quality monitoring device templates
+* Simulated water quality monitoring devices
+* Rules and jobs
+* Branding that uses white labeling
 
 You can modify your application at any time.
 
@@ -106,7 +106,7 @@ The dashboard includes the following kinds of tiles:
 
 As a builder, you can customize views on the dashboard for use by operators.
 
-1. Select **Edit** to customize the **Wide World water quality dashboard** pane. You can customize the dashboard by selecting commands on the **Edit** menu. Once the dashboard is in edit mode, you can add new tiles, or you can configure the existing files.
+1. Select **Edit** to customize the **Wide World water quality dashboard** pane. You can customize the dashboard by selecting commands on the **Edit** menu. After the dashboard is in edit mode, you can add new tiles, or you can configure the existing files.
 
     ![Edit your dashboard](./media/tutorial-waterqualitymonitoring/edit-dashboard.png)
 
