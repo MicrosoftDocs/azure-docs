@@ -521,10 +521,15 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/luis-how-to-add-example-utterances.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities",
+      "redirect_document_id": false
+    },  
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-tutorial-prebuilt-intents-entities.md",
       "redirect_url": "/azure/cognitive-services/LUIS/tutorial-machine-learned-entity",
       "redirect_document_id": false
-    },       
+    },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intents-only.md",
       "redirect_url": "/azure/cognitive-services/LUIS/tutorial-intents-only",
@@ -43609,6 +43614,43 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/load-balancer/load-balancer-outbound-connections-classic.md",
+      "redirect_url": "/previous-versions/azure/load-balancer/load-balancer-outbound-connections-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-multivip.md",
+      "redirect_url": "/previous-versions/azure/load-balancer/load-balancer-multivip",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-get-started-ilb-classic-cloud.md",
+      "redirect_url": "/previous-versions/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-get-started-ilb-classic-ps.md",
+      "redirect_url": "/previous-versions/azure/load-balancer/load-balancer-get-started-ilb-classic-ps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-get-started-ilb-classic-cli.md",
+      "redirect_url": "/previous-versions/azure/load-balancer/load-balancer-get-started-ilb-classic-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-get-started-internet-classic-ps.md",
+      "redirect_url": "/previous-versions/azure/load-balancer/load-balancer-get-started-internet-classic-ps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-get-started-internet-classic-cloud.md",
+      "redirect_url": "/previous-versions/azure/load-balancer/load-balancer-get-started-internet-classic-cloud",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/load-balancer-get-started-internet-classic-cli.md",
+      "redirect_url": "/previous-versions/azure/load-balancer/load-balancer-get-started-internet-classic-cli",
       "source_path": "articles/cognitive-services/translator/how-to-install-containers.md",
       "redirect_url": "/azure/cognitive-services/translator/translator-info-overview",
       "redirect_document_id": false
