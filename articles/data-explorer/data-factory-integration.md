@@ -7,7 +7,7 @@ ms.author: orspodek
 ms.reviewer: tomersh26
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 11/13/2019
 
 #Customer intent: I want to use Azure Data Factory to integrate with Azure Data Explorer.
 ---
@@ -44,9 +44,11 @@ The [Copy in bulk from a database to Azure Data Explorer by using the Azure Data
 
 ## Select between Copy and Azure Data Explorer Command activities when copying data 
 
+This section will assist you in selecting the correct activity for your data copying needs.
+
 When copying data from or to Azure Data Explorer, there are two available options in Azure Data Factory:
-1. Use the Copy activity.
-2. Use the Azure Data Explorer Command activity, and execute one of the control commands that transfer data in Azure Data Explorer. This section will assist you in selecting the correct activity for your needs.
+* Copy activity.
+* Azure Data Explorer Command activity. Execute one of the control commands that transfer data in Azure Data Explorer. 
 
 ### Copying data from Azure Data Explorer
   
@@ -66,62 +68,68 @@ See the following table for a comparison of the Copy activity and `.export` comm
 
 ### Copying data to Azure Data Explorer
 
-**Rule of thumb 1:** When copying data from ADX to ADX: Prefer the ‘ingest from query’ commands.  
-**Rule of thumb 2:** For large data sets (>1GB), prefer the Copy activity.  
-| | Copy Activity | Ingest from query <br> .set-or-append / .set-or-replace / .set / .replace | Ingest from storage <br> .ingest |
+You can copy data to Azure Data Explorer using the copy activity or ingestion commands such as ingest from query (`.set-or-append`, `.set-or-replace`, `.set`, `.replace)` and ingest from storage (`.ingest`) . 
+
+See the following table for a comparison of the Copy activity, and ingestion commands for copying data to Azure Data Explorer.
+
+| | Copy activity | Ingest from query <br> `.set-or-append` / `.set-or-replace` / `.set` / `.replace` | Ingest from storage <br> `.ingest` |
 |---|---|---|---|
-| **Flow description** | ADF fetches the data from the source data store, convert it into a tabular format, performs the required schema mapping changes, uploads the data to Azure blobs split to chunks, and when that process finishes – ADF downloads all these blobs and ingests them into ADX table. <br> (Flow: Source data store -> ADF -> Azure blobs -> ADX) | These commands execute a query or a .show command, and ingest the results of the query into a table. Using the *externaldata* operator, allows using these commands where the source data is a data read from an external raw file. <br> (Flows: 1. ADX -> ADX;  2. External raw file -> ADX) | This command ingests data into a table by "pulling" the data from one or more cloud storage artifacts. |
-| **Supported source data stores** | A wide variety of options: [link](https://docs.microsoft.com/en-us/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats) | ADLS Gen 2, Azure Blob, SQL (using the sql_request plugin), Cosmos (using the cosmosdb_sql_request plugin), and practically any data store which provides an HTTP or Python APIs. | Filesystem, Azure Blob Storage, ADLS Gen 1, ADLS Gen 2 |
-| **Performance** | Ingestions are queued and managed by your Data Management cluster, which assures higher availability, by providing load balancing, retries and error handling, and ensures smaller size ingestions). | Those commands were not designed for high volume data importing. <br>They work as expected, and even considered cheaper than using the copy activity via ADF, but for production scenarios and mainly when traffic rates and data sizes are large, it would be recommended to use the copy activity. 
-| **Server Limits** | No size limit. <br> Max timeout limit – 1 hour per ingested blob. | There is only a size limit on the query part, which can be skipped by specifying noTruncation=true. <br>Max timeout limit – 1 hour. | No size limit. <br>Max timeout limit – 1 hour.|
+| **Flow description** | ADF gets the data from the source data store, converts it into a tabular format, and performs the required schema mapping changes. ADF then uploads the data to Azure blobs, splits it into chunks, then downloads the blobs to ingest them into the ADX table. <br> (**Source data store > ADF > Azure blobs > ADX**) | * These commands execute a query or `.show` command, and ingest the results of the query into a table (**ADX > ADX**). <br>  * Use the `externaldata` operator, when the source data is read from an external raw file. (**External raw file > ADX**) | This command ingests data into a table by "pulling" the data from one or more cloud storage artifacts. |
+| **Supported source data stores** |  [variety of options](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats) | ADLS Gen 2, Azure Blob, SQL (using the sql_request plugin), Cosmos (using the cosmosdb_sql_request plugin), and any other data store that provides HTTP or Python APIs. | Filesystem, Azure Blob Storage, ADLS Gen 1, ADLS Gen 2 |
+| **Performance** | Ingestions are queued and managed, which ensures small size ingestions and assures high availability by providing load balancing, retries and error handling. | * Those commands weren't designed for high volume data importing. <br>* Works as expected and cheaper. But for production scenarios and when traffic rates and data sizes are large, use the Copy activity. 
+| **Server Limits** | No size limit. <br> Max timeout limit: 1 hour per ingested blob. | There is only a size limit on the query part, which can be skipped by specifying `noTruncation=true`. <br>Max timeout limit: 1 hour. | No size limit. <br>Max timeout limit: 1 hour.|
 
-## Required Permissions
+> [!TIP]
+> * When copying data from ADF to Azure Data Explorer use the `ingest from query` commands.  
+> * For large data sets (>1GB), use the Copy activity.  
 
-\\to do: determine what activity relevant for\\
+## Required permissions
 
-| Step | Operation | Minimum level of permissions | Comments |
+The following table lists the required permissions for various steps in the integration with Azure Data Factory.
+
+| Step | Operation | Minimum level of permissions | Notes |
 |---|---|---|---|
-| Creating a Linked Service | Databases Navigation | Database viewer. <br>The logged in user (the user using ADF UX) should be authorized to read database metadata. | User can also provide the database name manually. |
-|   | Test Connection | Database monitor / table ingestor. <br>Service principal should be authorized to either execute database level .show commands or table level ingestion. | TestConnection verifies connection to the cluster, and not to the database. It can succeed even if the database doesn’t exists. <br>Table admin permissions are not sufficient.|
-| Creating a Dataset | Tables Navigation | Database monitor. <br>The logged in user (the user using ADF UX) should be authorized to execute database level .show commands. | User can also provide table name manually.|
-| Creating a Dataset / Copy Activity | Preview data | Database viewer. <br>Service principal should be authorized to read database metadata. | | 
-|   | Import Schema | Database viewer. <br>Service principal should be authorized to read database metadata. | When Kusto is acting as the Source of a tabular-to-tabular copy, ADF will import schema automatically, even if user didn’t import schema explicitly. |
-| ADX as Sink | Try creating a by-name column mapping | Database monitor. <br>Service principal should be authorized to execute database level .show commands. | Bottom line – can work with a table ingestor. Some operations will fail, but they are optional operations. |
-|   | Try creating a CSV mapping on the table, and upon completion, try dropping that mapping | Table ingestor / database admin. <br>Service principal should be authorized to perform changes to a table. | |
-|   | Ingest data | Table ingestor / database admin. <br>Service principal should be authorized to perform changes to a table. | | 
-| ADX as Source | Execute query | Database viewer. <br>Service principal should be authorized to read database metadata. | |
-| Kusto Command | | Differentiates according to the permissions level of each command. |
+| **Create a Linked Service** | Database navigation | *database viewer* <br>The logged-in user using ADF should be authorized to read database metadata. | User can provide the database name manually. |
+| | Test Connection | *database monitor* or *table ingestor* <br>Service principal should be authorized to execute database level `.show` commands or table level ingestion. | * TestConnection verifies the connection to the cluster, and not to the database. It can succeed even if the database doesn’t exists. <br>* Table admin permissions are not sufficient.|
+| **Creating a Dataset** | Table navigation | *database monitor* <br>The logged in user using ADF, must be authorized to execute database level `.show commands`. | User can provide table name manually.|
+| **Creating a Dataset** or **Copy Activity** | Preview data | *database viewer* <br>Service principal must be authorized to read database metadata. | | 
+|   | Import schema | *database viewer* <br>Service principal must be authorized to read database metadata. | When ADX is the source of a tabular-to-tabular copy, ADF will import schema automatically, even if the user didn’t import schema explicitly. |
+| **ADX as Sink** | Create a by-name column mapping | *database monitor* <br>Service principal must be authorized to execute database level `.show` commands. | * All mandatory operations will work with *table ingestor*. <br>* Some optional operations can fail. |
+|   | * Create a CSV mapping on the table <br> * Drop the mapping | *table ingestor* or *database admin* <br>Service principal must be authorized to perform changes to a table. | |
+|   | Ingest data | *table ingestor* or *database admin* <br>Service principal must be authorized to perform changes to a table. | | 
+| **ADX as source** | Execute query | **database viewer* <br>Service principal must be authorized to read database metadata. | |
+| Kusto command | | According to the permissions level of each command. |
 
 ## Performance 
 
-As for Lookup activity or copy activity where ADX is the source, please refer to [query best practices](https://kusto.azurewebsites.net/docs/query/best-practices.html) documentation.  
-As for Azure Data Explorer Command activity, if that command consists of a query then the link above is still relevant.  
-That section mainly addresses the copy activity where Azure Data Explorer is the sink.  
-For additional info on performance, please refer to [ADF documentation](https://docs.microsoft.com/en-us/azure/data-factory/copy-activity-performance).
+If Azure Data Explorer is the source and you use the Lookup, copy, or command activity that contains a query where, refer to [query best practices](/azure/kusto/query/best-practices) for performance information and [ADF documentation for copy activity](/azure/data-factory/copy-activity-performance).
   
-Estimated throughput for Azure Data Explorer sink: 11-13 MBps.
-
-Parameters influencing the performance of Azure Data Explorer sink: 
+This section addresses the use of copy activity where Azure Data Explorer is the sink. The estimated throughput for Azure Data Explorer sink is 11-13 MBps. The following table details the parameters influencing the performance of the Azure Data Explorer sink.
  
-| Parameter | Recommendations / Notes |
+| Parameter | Notes |
 |---|---|
-| Components geographical proximity | Try having all components in the same region: <ul><li>Source and Sink data stores.</li> <li>ADF’s integration runtime.</li> <li>Your ADX cluster.</li></ul>If that’s not possible, at least try having your integration runtime in the same region as your ADX cluster. |
-|Amount of DIUs | Every 4 DIUs result in an additional VM used by ADF. <br>Increasing the DIUs will help only in case your source is a file-based store, and in case you have multiple files in that source.<br>In such a case, each VM will process a different file in parallel.<br>For that reason, copying a single large file will have a higher latency than copying multiple smaller files.|
-|Amount and SKU of your ADX cluster | High amount of strong ADX Engine nodes will boost up the ingestion process time.|
-| Data processing complexity | For instance, latency can differ according to the source file format, the column mapping, and whether the source file is compressed or not.|
-| The VM running your integration runtime | For Azure copy, those would be ADF VMs and user has no way to change the SKU of those machines.
-For On-Prem to Azure copy, make sure the VM hosting your self-hosted IR is strong enough.|
+| **Components geographical proximity** | Place all components in the same region: <br>* source and sink data stores.<br> * ADF integration runtime.<br> * Your ADX cluster. <br>Make sure that at least your integration runtime is in the same region as your ADX cluster. |
+| **Number of DIUs** | 1 VM for every 4 DIUs used by ADF. <br>Increasing the DIUs will help only if your source is a file-based store with multiple files. Each VM will then process a different file in parallel. Therefore, copying a single large file will have a higher latency than copying multiple smaller files.|
+|**Amount and SKU of your ADX cluster** | High number of ADX nodes will boost ingestion processing time.|
+| **Data processing complexity** | Latency varies according to source file format, column mapping, and compression.|
+| **The VM running your integration runtime** | * For Azure copy, those are ADF VMs and machine SKUs can't be changed.<br>
+* For on-prem to Azure copy, ascertain that the VM hosting your self-hosted IR is strong enough.|
 
-**FAQ:**  
-\\To do: NOTES:
-**Q:** When monitoring the activity progress, how come the “Data written” property is much larger than the “Data read” property?
-**A:** That’s because “Data read” is calculated according to the binary file size, while “Data written” is calculated according to the in-memory size, after data was deserialized, and possibly also decompressed.
+## Monitoring activity progress
 
-**Q:** When monitoring the activity progress, I see that data was written to the Azure Data Explorer sink, but when I’m querying the Azure Data Explorer table – I don’t see that data has still arrived.
-**A:** There are two stages when copying to Azure Data Explorer. First stage reads the source data, split it to chunks of 900 MB, and upload each chunk to an Azure blob.
-     That stage is the one that is reflected by the ADF activity progress view. Once all data is uploaded to Azure blobs, the second stage begins. In that stage, the Azure Data Explorer engine nodes are starting to download the blobs and ingest the data into the sink table.
-     Only during the process of the second stage, you will start seeing data piled up in your Azure Data Explorer table.
+* When monitoring the activity progress, the *Data written* property may be much larger than the *Data read* property
+because *Data read* is calculated according to the binary file size, while *Data written* is calculated according to the in-memory size, after data is de-serialized and decompressed.
 
+* When monitoring the activity progress, you can see that data is written to the Azure Data Explorer sink. When querying the Azure Data Explorer table, you see that data hasn't arrived. This is due to the fact that there are two stages when copying to Azure Data Explorer. 
+    * First stage reads the source data, splits it to 900 MB chunks, and uploads each chunk to an Azure Blob. The first stage is seen by the ADF activity progress view. 
+    * The second stage begins once all the data is uploaded to Azure Blobs. The Azure Data Explorer engine nodes are begin to download the blobs and ingest the data into the sink table. The data can be then be seen in your Azure Data Explorer table.
+
+## Next steps
+
+* Learn how to [copy data to Azure Data Explorer by using Azure Data Factory](data-factory-load-data.md).
+* Learn about using [Azure Data Factory template for bulk copy from database to Azure Data Explorer](data-factory-template.md).
+* Learn about using [Azure Data Factory command activity to run Azure Data Explorer control commands](data-factory-command-activity.md).
+* Learn about [Azure Data Explorer queries](/azure/data-explorer/web-query-data) for data querying.
 
 
 
