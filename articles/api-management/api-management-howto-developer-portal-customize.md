@@ -34,7 +34,7 @@ You can find more details on the developer portal in the [Azure API Management d
 
 > [!WARNING]
 > The developer portal is currently being rolled out to API Management services.
-> If your service is newly created or is a Developer tier service, you should already have the latest version. Otherwise, you might experience problems (for example, with the publishing functionality). The feature rollout will complete on Monday November 11th, 2019. 
+> If your service is newly created or is a Developer tier service, you should already have the latest version. Otherwise, you might experience problems (for example, with the publishing functionality). The feature rollout is expected to complete by Friday November 22nd, 2019. 
 
 ## Prerequisites
 
