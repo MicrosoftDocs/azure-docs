@@ -35,19 +35,13 @@ You have the following options when you train custom models: training with label
 
 ### Train without labels
 
-The model uses unsupervised learning to understand the layout and relationships between fields and entries without manual data labeling or intensive coding and maintenance.
+By default, Form Recognizer uses unsupervised learning to understand the layout and relationships between fields and entries in your forms. This doesn't require manual data labeling or intensive coding and maintenance.
 
 ### Train with labels
 
-The model uses supervised learning to extract the values of interest, based on the labeled forms you provide.
+When you train with labeled data, the model does supervised learning to extract values of interest, using the labeled forms you provide. This results in better-performing models and can produce models that work with complex forms or forms containing values without keys.
 
-The Form Recognizer service normally does unsupervised learning to train a custom model for your forms, but you can also manually label some or all of your training data. This lets the service do supervised learning and results in better-performing models. It can also produce models that work on complex forms or forms containing values without keys.
-
-The Form Recognizer labelled data feature uses the new document Layout API to detect and extract printed and handwritten text from the forms.
-
-You use the following APIs to train and extract structured data from forms.
-
-Train a new model to analyze your forms by using 10 manually labeled forms of the same type. 
+The Form Recognizer labelled data feature uses the document [Layout API](#layout-api) to learn the expected sizes and positions of printed and handwritten text elements. Then it uses specially-formatted JSON documents that reflect the labels you have manually applied to different fields. We recommend that you use 10 manually labeled forms of the same type when training a new model.
 
 ## Prebuilt receipt model
 
