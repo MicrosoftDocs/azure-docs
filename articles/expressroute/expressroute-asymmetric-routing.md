@@ -9,7 +9,6 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: osamam
 
-
 ---
 # Asymmetric routing with multiple network paths
 This article explains how forward and return network traffic might take different routes when multiple paths are available between network source and destination.
