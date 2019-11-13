@@ -235,7 +235,7 @@ conceptualContent:
           itemType: quickstart
           url: ../bing-custom-search/sdk-python-quickstart.md
         - text: Create a single page web-app
-          itemType: quickstart
+          itemType: tutorial
           url: ../bing-custom-search/tutorials/custom-search-web-page.md
       footerLink:
         url: ../bing-custom-search/overview.md
@@ -256,12 +256,60 @@ conceptualContent:
           itemType: quickstart
           url: ../bing-image-search/image-search-sdk-node-quickstart.md
         - text: Create a single page web-app
-          itemType: quickstart
+          itemType: tutorial
           url: ../bing-image-search/tutorial-bing-image-search-single-page-app.md
       footerLink:
         url: ../bing-image-search/overview.md
         text: See more
+  
+          
+    - title: Bing Entity Search API
+      links:
+        - text: Overview
+          itemType: get-started
+          url: ../bing-entities-search/overview.md
+        - text: Using C#
+          itemType: quickstart
+          url: ../bing-entities-search/quickstarts/entity-sdk-csharp-quickstart.md
+        - text: Using Java
+          itemType: quickstart
+          url: ../bing-entities-search/quickstarts/entity-sdk-java-quickstart.md
+        - text: Using Node.js
+          itemType: quickstart
+          url: ../bing-entities-search/quickstarts/entity-sdk-node-quickstart.md
+        - text: Using Python
+          itemType: quickstart
+          url: ../bing-entities-search/quickstarts/entity-sdk-python-quickstart.md
+        - text: Create a single page web-app
+          itemType: tutorial
+          url: ../bing-entities-search/tutorial-bing-entities-search-single-page-app.md
+      footerLink:
+        url: ../bing-entities-search/overview.md
+        text: See more
 
+    - title: Bing News Search API
+      links:
+        - text: Overview
+          itemType: get-started
+          url: ../bing-news-search/search-the-web.md
+        - text: Using C#
+          itemType: quickstart
+          url: ../bing-news-search/news-search-sdk-quickstart.md
+        - text: Using Java
+          itemType: quickstart
+          url: ../bing-news-search/news-sdk-java-quickstart.md
+        - text: Using Node.js
+          itemType: quickstart
+          url: ../bing-news-search/news-search-sdk-node-quickstart.md
+        - text: Using Python
+          itemType: quickstart
+          url: ../bing-news-search/news-sdk-python-quickstart.md
+        - text: Create a single page web-app
+          itemType: tutorial
+          url: ../bing-news-search/tutorial-bing-news-search-single-page-app.md
+      footerLink:
+        url: ../bing-news-search/search-the-web.md
+        text: See more
 
 additionalContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
