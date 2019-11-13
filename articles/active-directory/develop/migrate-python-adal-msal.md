@@ -30,9 +30,9 @@ This article highlights changes you need to make to migrate an app that uses the
 ADAL works with the Azure Active Directory v1.0 endpoint. The Microsoft Authentication Library (MSAL) works with the Microsoft identity platform--formerly known as the Azure Active Directory v2.0 endpoint. The Microsoft identity platform differs from Azure Active Directory v1.0 in that it:
 
 Supports:
-  - Organizational Identity (Azure Active Directory)
-  - Non-organizational identities such as Outlook.com, Xbox Live, and so on
-  - (B2C Only) Federated login with Google, Facebook, Twitter, and Amazon
+  - Work and school accounts (Azure AD provisioned accounts)
+  - Personal accounts (such as Outlook.com or Hotmail.com)
+  - Your customers who bring their own email or social identity (such as LinkedIn, Facebook, Google) via the Azure AD B2C offering
 
 - Is standards compatible with:
   - OAuth v2.0
@@ -42,7 +42,7 @@ See [What's different about the Microsoft identity platform (v2.0) endpoint?](ht
 
 ### Scopes not resources
 
-ADAL Python acquires tokens for resources, but MSAL Python acquires tokens for scopes. The API surface in MSAL Python does not have resource paramater anymore. You would need to provide scopes as a list of strings that declare the desired permissions and resources that are requested. Well known scopes are the [Microsoft Graph's scopes](https://docs.microsoft.com/en-us/graph/permissions-reference).
+ADAL Python acquires tokens for resources, but MSAL Python acquires tokens for scopes. The API surface in MSAL Python does not have resource parameter anymore. You would need to provide scopes as a list of strings that declare the desired permissions and resources that are requested. To see some example of scopes, see [Microsoft Graph's scopes](https://docs.microsoft.com/en-us/graph/permissions-reference).
 
 ### Error handling
 
@@ -71,7 +71,7 @@ The following table lists an API in ADAL for Python, and the one to use in its p
 
 The Microsoft authentication library (MSAL) abstracts the concept of refresh tokens. MSAL Python provides an in-memory token cache by default so that you don't need to store, lookup, or update refresh tokens. Users will also see fewer sign-in prompts because refresh tokens can usually be updated without user intervention. For more information about the token cache, see [Custom token cache serialization in MSAL for Python](msal-python-token-cache-serialization.md).
 
-This following will help you migrate your refresh tokens managed by another OAuth2 library (including but not limited to ADAL Python) to be managed by MSAL for Python. One reason for migrating those refresh tokens is to prevent existing users from needing to sign in again when you migrate your app to MSAL for Python.
+The following code will help you migrate your refresh tokens managed by another OAuth2 library (including but not limited to ADAL Python) to be managed by MSAL for Python. One reason for migrating those refresh tokens is to prevent existing users from needing to sign in again when you migrate your app to MSAL for Python.
 
 The method for migrating a refresh token is to use MSAL for Python to acquire a new access token using the previous refresh token. When the new refresh token is returned, MSAL for Python will store it in the cache. Here is an example of how to do it:
 
