@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Developing with v3 APIs
+title: Develop with v3 APIs
 titleSuffix: Azure Media Services
 description: Learn about rules that apply to entities and APIs when developing with Media Services v3. 
 services: media-services
@@ -18,11 +18,11 @@ ms.custom: seodec18
 
 ---
 
-# Developing with Media Services v3 APIs
+# Develop with Media Services v3 APIs
 
 As a developer, you can use Media Services [REST API](https://aka.ms/ams-v3-rest-ref) or client libraries that allow you to interact with the REST API to easily create, manage, and maintain custom media workflows. The [Media Services v3](https://aka.ms/ams-v3-rest-sdk) API is based on the OpenAPI specification (formerly known as a Swagger).
 
-This article discusses rules that apply to entities and APIs when developing with Media Services v3.
+This article discusses rules that apply to entities and APIs when you develop with Media Services v3.
 
 ## Accessing the Azure Media Services API
 
