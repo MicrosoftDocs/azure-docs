@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
-ms.date: 04/18/2019
+ms.date: 11/14/2019
 ---
 # SQL Database resource limits for Azure SQL Database server
 
@@ -53,7 +53,7 @@ When encountering high compute utilization, mitigation options include:
 
 ### Storage
 
-When database space used reaches the max size limit, database inserts and updates that increase the data size fail and clients receive an [error message](sql-database-develop-error-messages.md). Database SELECTS and DELETES continue to succeed.
+When database space used reaches the max size limit, database inserts and updates that increase the data size fail and clients receive an [error message](troubleshoot-connectivity-issues-microsoft-azure-sql-database.md). Database SELECTS and DELETES continue to succeed.
 
 When encountering high space utilization, mitigation options include:
 
