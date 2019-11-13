@@ -36,9 +36,9 @@ Azure SQL Database Edge exposes two optional parameters through the `module twin
 
 ## Using SQL Database DAC packages with SQL Database Edge
 
-To use a SQL Database DAC package (*.dacpac) with SQL Database Edge, complete these steps:
+To use a SQL Database DAC package (*.dacpac) with SQL Database Edge, take these steps:
 
-1. Create or extract a SQL Database DAC package. See [Extracting DAC from an existing database](/sql/relational-databases/data-tier-applications/extract-a-dac-from-a-database/) for information on how to generate a DAC package for an existing SQL database.
+1. Create or extract a SQL Database DAC package. See [Extracting a DAC from a database](/sql/relational-databases/data-tier-applications/extract-a-dac-from-a-database/) for information on how to generate a DAC package for an existing SQL Server database.
 
 2. Zip the *.dacpac and upload to an Azure Blob storage account. For more information on uploading files to Azure Blob storage, see [Upload, download, and list blobs with the Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md).
 
