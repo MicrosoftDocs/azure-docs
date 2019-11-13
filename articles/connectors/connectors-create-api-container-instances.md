@@ -1,5 +1,5 @@
 ---
-title: Connect to Container Instances from Azure Logic Apps | Microsoft Docs
+title: Deploy & manage Azure Container Instances - Azure Logic Apps
 description: Automate tasks and workflows that create and manage container deployments in Azure Container Instances by using Azure Logic Apps
 services: logic-apps, container-instances
 ms.service: logic-apps
@@ -7,24 +7,23 @@ ms.suite: integration
 author: dlepow
 ms.author: danlep
 ms.manager: gwallace
-ms.reviewer: 
-ms.assetid: 
+ms.reviewer: estfan, macolso
 ms.topic: article
 tags: connectors
 ms.date: 11/11/2019
 ---
 
-# Trigger and manage Azure Container Instances deployments by using Azure Logic Apps
+# Deploy and manage Azure Container Instances by using Azure Logic Apps
 
 With Azure Logic Apps and the Azure Container Instance connector, 
-you can set up automated tasks and workflows that trigger and manage deployments of [container groups](../container-instances/container-instances-container-groups.md) . The connector supports the following Azure Container Instances actions:
+you can set up automated tasks and workflows that deploy and manage [container groups](../container-instances/container-instances-container-groups.md). The Container Instance connector supports the following actions:
 
 * Create or delete a container group
 * Get the properties of a container group
 * Get a list of container groups
 * Get the logs of a container instance
 
-Use these actions in your logic apps to perform an action such as running a container workload in response to a Logic Apps trigger. You can also have other actions use the output from Azure Container Instances actions. 
+Use these actions in your logic apps for tasks such as running a container workload in response to a Logic Apps trigger. You can also have other actions use the output from Container Instance actions. 
 
 This connector provides only actions, so to start your logic app, 
 use a separate trigger, such as a **Recurrence** trigger to run a container workload on a regular schedule. Or, you might have need to trigger a container group deployment after an event such as arrival of an Outlook e-mail. 
@@ -44,7 +43,7 @@ If you're new to logic apps, review
 To use an action, start your logic app with another trigger, 
 for example, the **Recurrence** trigger.
 
-## Trigger an Azure Container Instance action
+## Add a Container Instance action
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
@@ -75,18 +74,11 @@ and continue building your logic app's workflow.
 
   ![Create container group](./media/connectors-create-api-container-instances/logic-apps-aci-connector.png)
 
-  For an explanation of the properties you can set in the **Create container group** action, see the [connector reference](/connectors/aci/) or container group [YAML reference](../container-instances/container-instances-reference-yaml.md).
-
 ## Connector reference
 
 For technical details about triggers, actions, and limits, which are 
 described by the connector's OpenAPI (formerly Swagger) description, 
-review the connector's [reference page](/connectors/aci/).
-
-## Get support
-
-* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
+review the connector's [reference page](/connectors/aci/) or container group [YAML reference](../container-instances/container-instances-reference-yaml.md).
 
 ## Next steps
 
