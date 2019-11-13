@@ -44,9 +44,9 @@ Before you get started, make sure to:
 
 1. Right click on the **helloworld** project and click on **Open Folder in File Explorer**.
 
-1. Right click on **helloworld.vcxproj** and choose **Open with** --> **Choose another app**.
+1. Right click on **helloworld.vcxproj** and choose **Open with**, **Choose another app**.
 
-1. If you see **Notepad** in the list, click on that. If you don't, click on **More apps** and choose Notepad from the list.
+1. Click on **Notepad** in the list. If you don't see it, click on **More apps** and choose Notepad from the list.
 
 1. Scroll to the end of the file and add the following just after the ```<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />``` line:
 
@@ -81,7 +81,7 @@ Before you get started, make sure to:
     using namespace Microsoft::CognitiveServices::Speech::Audio;
     using namespace Microsoft::CognitiveServices::Speech::Transcription;
     
-    // create a promise that we will set when the user presses Ctrl-C
+    // create a promise we will set when the user presses Ctrl-C
     std::promise<bool> promise;
     // create the future we will use to wait for the promise to be fulfilled
     std::future<bool> future = promise.get_future();
@@ -243,10 +243,10 @@ Before you get started, make sure to:
 
 1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the **helloworld** application.
 
-1. Once you see the ```Started transcribing``` message appear, you can start speaking. You will the transcriptions appear as you speak
-    - If you share the conversation code with the others and they join the conversation, you will see their transcriptions as well.
+1. Once you see the ```Started transcribing``` message appear, you can start speaking. You'll see the transcriptions appear as you speak
+    - If you share the conversation code with the others and they join the conversation, you'll see their transcriptions as well.
 
-1. Once you are done speaking, press `Ctrl + C` on your keyboard to stop audio capture.
+1. Once you're done speaking, press `Ctrl + C` on your keyboard to stop audio capture.
 
 ## Build and run the application to join an existing conversation
 
@@ -298,10 +298,10 @@ Before you get started, make sure to:
 
 1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the **helloworld** application.
 
-1. Once you see the ```Started transcribing``` message appear, you can start speaking. You will the transcriptions appear as you speak.
+1. Once you see the ```Started transcribing``` message appear, you can start speaking. You'll see the transcriptions appear as you speak.
     - If you go back to your browser, you should see your transcriptions appear there as you speak as well.
 
-1.  Once you are done speaking, press Ctrl + c to stop audio capture, and end the conversation.
+1.  Once you're done speaking, press Ctrl + c to stop audio capture, and end the conversation.
 
 1. Go back to your browser and exit the conversation using the <img src="../../../../media/scenarios/conversation_translator_web_exit_button.png" width="20" /> button in the upper right corner.
 
