@@ -1,6 +1,6 @@
 ---
 title: Azure Kinect Body Tracking SDK download
-description: Download links for the Body Tracking SDK
+description: Understand how to download each version of the Azure Kinect Sensor SDK on Windows or Linux.
 author: qm13
 ms.author: quentinm
 ms.prod: kinect-dk

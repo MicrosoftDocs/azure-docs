@@ -1,11 +1,8 @@
 ---
 title: Details of the policy definition structure
 description: Describes how resource policy definition is used by Azure Policy to establish conventions for resources in your organization by describing when the policy is enforced and what effect to take.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-policy
 ---
 # Azure Policy definition structure
 

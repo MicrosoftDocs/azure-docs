@@ -151,11 +151,9 @@ data_slice = dataset.time_recent(timedelta(weeks=1, days=1))
 Use the [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) method on the `FileDatasetFactory` class to load files in any format and to create an unregistered FileDataset:
 
 ```Python
-# create a FileDataset from multiple paths in datastore
+# create a FileDataset pointing to files in 'animals' folder and its subfolders recursively
 datastore_paths = [
-                  (datastore, 'animals/dog/1.jpg'),
-                  (datastore, 'animals/dog/2.jpg'),
-                  (datastore, 'animals/dog/*.jpg')
+                  (datastore, 'animals')
                  ]
 animal_ds = Dataset.File.from_files(path=datastore_paths)
 
