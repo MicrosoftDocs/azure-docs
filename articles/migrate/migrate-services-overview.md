@@ -40,16 +40,16 @@ In addition to native Azure tools, Azure Migrate integrates with a number of ISV
 
 **ISV**	| **Feature**
 --- | ---
-[Carbonite](https://www.carbonite.com/globalassets/files/datasheets/carb-migrate4azure-microsoft-ds.pdf) | Migrate
-[Cloudamize](https://www.cloudamize.com/platform) | Assess 
-[Corent Technology](https://www.corenttech.com/AzureMigrate/) | Assess and migrate
-[Device 42](https://docs.device42.com/) | Assess
-[Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Assess
-[RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | Migrate
-[Turbonomic](https://learn.turbonomic.com/azure-migrate-portal-free-trial) | Assess
-[UnifyCloud](https://www.cloudatlasinc.com/cloudrecon/) | Assess
+[Carbonite](https://www.carbonite.com/globalassets/files/datasheets/carb-migrate4azure-microsoft-ds.pdf) | Migrate servers
+[Cloudamize](https://www.cloudamize.com/platform) | Assess servers
+[Corent Technology](https://www.corenttech.com/AzureMigrate/) | Assess and migrate servers
+[Device 42](https://docs.device42.com/) | Assess servers
+[Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Assess VDI
+[RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | Migrate servers
+[Turbonomic](https://learn.turbonomic.com/azure-migrate-portal-free-trial) | Assess servers
+[UnifyCloud](https://www.cloudatlasinc.com/cloudrecon/) | Assess servers and databases
 
-## Tool integration
+## Azure tool integration
 
 The table summarizes other tools that are integrated in Azure Migrate.
 
@@ -108,7 +108,7 @@ Azure Migrate integrates with the Azure Database Migration Service (DMS), to mig
 ## Movere
 
  
-Movere is a SaaS platform that increases business intelligence by accurately presenting entire IT environments within a single day. As organizations grow, change, and digitally optimize, the solution provides enterprises with the confidence they need to have visibility and control of their environments regardless of platform, application or geography. Movere was [acquired](https:/azure.microsoft.com/blog/microsoft-acquires-movere-to-help-customers-unlock-cloud-innovation-with-seamless-migration-tools) by Microsoft and is no longer sold as a standalone offer.  Movere is available through the Microsoft Solution Assessment and Cloud Economics Programs. [Learn more](https://www.movere.io) about Movere. If you have questions, submit them to: movereq@microsoft.com or contact your Microsoft representative.
+Movere is a SaaS platform that increases business intelligence by accurately presenting entire IT environments within a single day. As organizations grow, change, and digitally optimize, the solution provides enterprises with the confidence they need to have visibility and control of their environments regardless of platform, application or geography. Movere was [acquired](https://azure.microsoft.com/blog/microsoft-acquires-movere-to-help-customers-unlock-cloud-innovation-with-seamless-migration-tools/) by Microsoft and is no longer sold as a standalone offer.  Movere is available through the Microsoft Solution Assessment and Cloud Economics Programs. [Learn more](https://www.movere.io) about Movere. If you have questions, submit them to: movereq@microsoft.com or contact your Microsoft representative.
 
 We encourage you to also look at Azure Migrate, our built-in migration service. Azure Migrate provides a central hub to simplify your migration to the cloud. The hub features comprehensive support for different workloads, including physical and virtual servers, databases, and applications. End-to-end visibility makes it easy to track progress throughout discovery, assessment, and migration. With both Azure and partner ISV tools built in, Azure Migrate also has an extensive range of features, including virtual and physical server discovery, performance-based right sizing, cost planning, import-based assessments, and agentless application dependency analysis. If you’re looking for expert help to get started, Microsoft has skilled [Azure Expert Managed Service Provider](https://azure.microsoft.com/partners) to guide you along the journey. Check out the [Azure Migrate website](https://azure.microsoft.com/services/azure-migrate/). 
  

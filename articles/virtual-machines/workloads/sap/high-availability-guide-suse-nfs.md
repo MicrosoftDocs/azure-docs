@@ -92,7 +92,7 @@ The NFS server uses a dedicated virtual hostname and virtual IP addresses for ev
 * Probe Port
   * Port 61000 for NW1
   * Port 61001 for NW2
-* Loadbalancing rules (if using basic load balancer)
+* Load balancing rules (if using basic load balancer)
   * 2049 TCP for NW1
   * 2049 UDP for NW1
   * 2049 TCP for NW2
@@ -113,7 +113,7 @@ Follow these steps to deploy the template:
    1. Resource Prefix  
       Enter the prefix you want to use. The value is used as a prefix for the resources that are deployed.
    2. SAP System Count  
-      Enter the number of SAP systems that will use this file server. This will deploy the required amount of frontend configurations, load balancing rules, probe ports, disks etc.
+      Enter the number of SAP systems that will use this file server. This will deploy the required amount of frontend configurations, load-balancing rules, probe ports, disks etc.
    3. Os Type  
       Select one of the Linux distributions. For this example, select SLES 12
    4. Admin Username and Admin Password  
@@ -166,8 +166,8 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
             1. Click OK
          1. Port 61001 for NW2
             * Repeat the steps above to create a health probe for NW2
-      1. Loadbalancing rules
-         1. Open the load balancer, select load balancing rules and click Add
+      1. Load balancing rules
+         1. Open the load balancer, select load-balancing rules and click Add
          1. Enter the name of the new load balancer rule (for example **nw1-lb**)
          1. Select the frontend IP address, backend pool, and health probe you created earlier (for example **nw1-frontend**. **nw1-backend** and **nw1-hp**)
          1. Select **HA Ports**.
@@ -202,7 +202,7 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
             1. Click OK
          1. Port 61001 for NW2
             * Repeat the steps above to create a health probe for NW2
-      1. Loadbalancing rules
+      1. Load balancing rules
          1. 2049 TCP for NW1
             1. Open the load balancer, select load balancing rules and click Add
             1. Enter the name of the new load balancer rule (for example **nw1-lb-2049**)
@@ -217,6 +217,9 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
             * Repeat the steps above for port 2049 and TCP for NW2
          1. 2049 UDP for NW2
             * Repeat the steps above for port 2049 and UDP for NW2
+
+> [!Note]
+> When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
 > [!IMPORTANT]
 > Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set parameter **net.ipv4.tcp_timestamps** to **0**. For details see [Load Balancer health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).

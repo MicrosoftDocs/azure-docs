@@ -5,6 +5,7 @@ author: ChJenk
 manager: evansma
 ms.author: v-chjen
 ms.service: marketplace 
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/14/2019
 ---
@@ -73,7 +74,7 @@ You can view trends based on the growth of your **Orders created** or **Customer
 The top 50 customers with the highest number of orders are displayed on a *leader board*, sorted by highest order count and order percentage. 
 
 - Select a customer to view their profile details, orders organized by offer, or orders organized by Azure license type and pricing channel. 
-- The **Offers by orders** donut chart presents the top four offers (by order count) and the remaining offers grouped in as ‘Rest All’.
+- The **Offers by orders** donut chart presents the top four offers (by order count) and the remaining offers grouped in as 'Rest All'.
 
 > [!NOTE]
 > Customer personal information will be presented only if the customer has provided consent. You can view this information if you have logged in with an **Owner** role permissions-level. Users with the **Contributor** role will not be able to view this information. [Learn more about user roles and permissions](./manage-account.md#define-user-roles-and-permissions).
@@ -118,7 +119,7 @@ The **Orders by geography** heatmap displays a count of your orders on a world m
 
 The **Active orders by offers** donut graph organizes all of your active orders according to their offer names.
 
-- The top four offers are displayed in the graph and the rest of the offers are grouped as ‘Rest All’.
+- The top four offers are displayed in the graph and the rest of the offers are grouped as 'Rest All'.
 - You can select specific offers in the legend to display only those offers in the graph. 
 - Hovering over a slice in the graph will display the number of orders and percentage of that offer compared to your total number of orders across all offers.
 - **Orders by offers trend** displays month-by-month growth trends. The month column represents the number of orders by offer name. The line chart displays the growth percentage trend plotted on a z-axis.
@@ -234,23 +235,23 @@ You will receive a pop-up notification and email containing a link to the **Down
 | Azure License Type: Cloud Solution Provider | Customer, Order | The end customer procures Azure and your Marketplace offer through their Cloud Solution Provider, who acts as your reseller.|
 | Azure License Type: Enterprise | Customer, Order | The end customer procures Azure and your Marketplace offer through an Enterprise Agreement, signed directly with Microsoft.|
 | Azure License Type: Enterprise through Reseller  | Customer, Order | The end customer procures Azure and your Marketplace offer through a reseller who facilitates their Enterprise Agreement with Microsoft.|  |
-| Azure License Type: Pay as You Go| Customer, Order | The end customer procures Azure and your Marketplace offer through a “Pay as You Go” agreement, signed directly with Microsoft.||
+| Azure License Type: Pay as You Go| Customer, Order | The end customer procures Azure and your Marketplace offer through a "Pay as You Go" agreement, signed directly with Microsoft.||
 | Cloud Instance Name| Order| The Microsoft Cloud in which a VM deployment occurred.||
 | Cloud Instance Name: Azure Global| Order| The public global Microsoft cloud.|| |
 | Cloud Instance Name: Azure Government | Order| Government-specific Microsoft clouds for one of the following governments: China, Germany, or The United States of America.| |
-| Customer City| Customer| The city name provided by the customer. City could be different than the city in a customer’s Azure Subscription.||
+| Customer City| Customer| The city name provided by the customer. City could be different than the city in a customer's Azure Subscription.||
 | Customer Communication Language  | Customer| The language preferred by the customer for communication.||
-| Customer Company Name | Customer, Order | The company name provided by the customer. Name could be different than the city in a customer’s Azure Subscription.|  |
-| Customer Country | Customer, Order | The country name provided by the customer. Country could be different than the country in a customer’s Azure Subscription.|  |
-| Customer Email| Customer| The e-mail address provided by the end customer. Email could be different than the e-mail address in a customer’s Azure Subscription.||
-| Customer First Name| Customer| The name provided by the customer. Name could be different than the name provided in a customer’s Azure Subscription.| |
+| Customer Company Name | Customer, Order | The company name provided by the customer. Name could be different than the city in a customer's Azure Subscription.|  |
+| Customer Country | Customer, Order | The country name provided by the customer. Country could be different than the country in a customer's Azure Subscription.|  |
+| Customer Email| Customer| The e-mail address provided by the end customer. Email could be different than the e-mail address in a customer's Azure Subscription.||
+| Customer First Name| Customer| The name provided by the customer. Name could be different than the name provided in a customer's Azure Subscription.| |
 | Customer ID | Customer, Order | The unique identifier assigned to a customer. A customer may have zero or more Azure Marketplace Subscriptions.|  |
-| Customer Postal Code  | Customer| The postal code provided by the customer. Code could be different than the postal code provided in a customer’s Azure Subscription.| |
-| Customer State| Customer| The state (address) provided by the customer. State could be different than the state provided in a customer’s Azure Subscription.| |
+| Customer Postal Code  | Customer| The postal code provided by the customer. Code could be different than the postal code provided in a customer's Azure Subscription.| |
+| Customer State| Customer| The state (address) provided by the customer. State could be different than the state provided in a customer's Azure Subscription.| |
 | Date Acquired| Customer| The first date the customer purchased any offer published by you.| |
 | Date Lost| Customer| The last date the customer canceled the last of all offers previously purchased.||
-| Is New Customer  | Order| The value will identify a new customer acquiring one or more of your offers for the first time (or not). Value will be “Yes” if within the same calendar month for “Date Acquired”. Value will be “No” if the customer has purchased any of your offers prior to the calendar month reported. |
-| Is Preview SKU| Order| The value will let you know if you have tagged the SKU as "preview". Value will be “Yes” if the SKU has been tagged accordingly, and only Azure subscriptions authorized by you can deploy and use this image. Value will be “No” if the SKU has not been identified as “preview”.  |
+| Is New Customer  | Order| The value will identify a new customer acquiring one or more of your offers for the first time (or not). Value will be "Yes" if within the same calendar month for "Date Acquired". Value will be "No" if the customer has purchased any of your offers prior to the calendar month reported. |
+| Is Preview SKU| Order| The value will let you know if you have tagged the SKU as "preview". Value will be "Yes" if the SKU has been tagged accordingly, and only Azure subscriptions authorized by you can deploy and use this image. Value will be "No" if the SKU has not been identified as "preview".  |
 | Is Promotional Contact Opt In| Customer| The value will let you know if the customer proactively opted in for promotional contact from publishers. At this time, we are not presenting the option to customers, so we have indicated "No" across the board. Once this feature is deployed, we will start updating accordingly.|
 | Marketplace License Type| Order| The billing method of the Marketplace offer.||
 | Marketplace License Type: Billed Through Azure| Order| Microsoft is your agent for this Marketplace offer and bills customers on your behalf. (Either PAYG Credit Card or Enterprise Invoice)||
@@ -284,7 +285,7 @@ You will receive a pop-up notification and email containing a link to the **Down
 
 ## Ratings and reviews
 
-As customers browse, search, and purchase offers in both marketplaces, they can leave ratings and reviews for the offers they've acquired. They're able to submit new ratings or reviews, and update or delete ratings or reviews they've already submitted. Reviews are posted in Azure marketplace or AppSource on the Reviews tab of the offer’s product display page. Customers can include their names for ratings or reviews, or they can post anonymously.  
+As customers browse, search, and purchase offers in both marketplaces, they can leave ratings and reviews for the offers they've acquired. They're able to submit new ratings or reviews, and update or delete ratings or reviews they've already submitted. Reviews are posted in Azure marketplace or AppSource on the Reviews tab of the offer's product display page. Customers can include their names for ratings or reviews, or they can post anonymously.  
 
 > [!NOTE]
 > Customers can make changes only to the ratings and reviews they own.
@@ -328,8 +329,8 @@ This section provides answers to commonly asked questions about **No Analytics A
 Why you may be getting this message:
 
 - Your offers listed in the marketplace are not SaaS offers. Currently, Partner Center reports analytics for SaaS offers only. Dynamics 365 offers can be published in partner center, but analytics for these offers are not yet enabled in partner center.
-- No acquisitions currently exist for your published offers in marketplace. This can mean that your offers are live in marketplace and gaining views from customers in the product display pages, but customers haven’t yet taken action to purchase and deploy them.
-- The publishing of your offer might be in process and isn’t live yet. Only live offers can be acquired by customers. To check the status of your offers, see Overview in the [Analyze dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary). For more information, see [Summary dashboard](#summary-dashboard) in this article.
+- No acquisitions currently exist for your published offers in marketplace. This can mean that your offers are live in marketplace and gaining views from customers in the product display pages, but customers haven't yet taken action to purchase and deploy them.
+- The publishing of your offer might be in process and isn't live yet. Only live offers can be acquired by customers. To check the status of your offers, see Overview in the [Analyze dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary). For more information, see [Summary dashboard](#summary-dashboard) in this article.
 - Your offers may be listed as **Contact Me**, which are list-only offers and cannot be purchased by customers in the marketplace. Although these offers generate leads and are shared with you, orders aren't created for these offers as they cannot be purchased. To check your offer listing type, go to setup page.
 
 **I know I have analytics data, but the message below is appearing:**

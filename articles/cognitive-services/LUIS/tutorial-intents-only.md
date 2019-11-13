@@ -201,4 +201,4 @@ After LUIS returns the JSON response, LUIS is done with this request. LUIS doesn
 This tutorial created a LUIS app, created intents, added example utterances to each intent, added example utterances to the None intent, trained, published, and tested at the endpoint. These are the basic steps of building a LUIS model. 
 
 > [!div class="nextstepaction"]
-> [Add prebuilt intents and entities to this app](luis-tutorial-prebuilt-intents-entities.md)
+> [Add prebuilt intents and entities to this app](tutorial-machine-learned-entity.md)

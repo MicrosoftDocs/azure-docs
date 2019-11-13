@@ -5,7 +5,7 @@ ms.service: terraform
 author: tomarchermsft
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/26/2019
+ms.date: 11/07/2019
 ---
 
 # Tutorial: Create an Azure virtual machine scale set using Terraform
@@ -519,4 +519,4 @@ The destruction process can take several minutes to complete.
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Terraform on Azure](/azure/ansible/)
+> [Learn more about using Terraform in Azure](/azure/terraform)

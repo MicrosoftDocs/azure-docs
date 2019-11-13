@@ -128,8 +128,6 @@
         href: virtual-nodes-cli.md
       - name: Use the Azure portal
         href: virtual-nodes-portal.md
-    - name: Use Virtual Kubelet
-      href: virtual-kubelet.md
     - name: Use Cluster Autoscaler
       href: cluster-autoscaler.md
     - name: Use Availability Zones

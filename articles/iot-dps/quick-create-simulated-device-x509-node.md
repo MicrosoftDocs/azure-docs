@@ -1,9 +1,9 @@
 ﻿---
-title: Provision a simulated X.509 device to Azure IoT Hub using Node.js | Microsoft Docs
+title: "Quickstart: Provision a simulated X.509 device to Azure IoT Hub using Node.js"
 description: Create and provision a simulated X.509 device using Node.js device SDK for Azure IoT Hub Device Provisioning Service.This quickstart uses individual enrollments.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/09/2018
+ms.date: 11/08/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
@@ -12,7 +12,7 @@ ms.devlang: nodejs
 ms.custom: mvc
 ---
 
-# Create and provision an X.509 simulated device using Node.js device SDK for IoT Hub Device Provisioning Service
+# Quickstart: Create and provision an X.509 simulated device using Node.js device SDK for IoT Hub Device Provisioning Service
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
 These steps show how to create an enrollment entry in the Device Provisioning Service, simulate an X.509 device on your development machine, connect the simulated device with the Device Provisioning Service, and register the device on your IoT hub using the [Azure IoT Hub Node.js Device SDK](https://github.com/Azure/azure-iot-sdk-node).
