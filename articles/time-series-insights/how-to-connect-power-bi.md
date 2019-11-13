@@ -93,7 +93,7 @@ To get started:
 
     [![Review the loaded data in the table and select Load](media/how-to-connect-power-bi/review-the-loaded-data-table.png)](media/how-to-connect-power-bi/review-the-loaded-data-table.png#lightbox)  
 
-If you have completed these steps, skip ahead to the next section: [Create a report with visuals](#power-bi-desktop).
+If you have completed these steps, skip ahead to the next section.
 
 ## Create a report with visuals
 
