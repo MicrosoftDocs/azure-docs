@@ -14,26 +14,26 @@ ms.date: 11/04/2019
 
 Labeling a large amount of data is often a headache in machine learning projects. Projects that have a computer-vision component, such as image classification or object detection, generally require labels for thousands of images.
  
-Azure Machine Learning Studio gives you a central location to create, manage, and monitor labeling projects. Use it to coordinate data, labels, and team members to efficiently manage labeling tasks. Machine Learning Studio supports image classification, either multi-label or multi-class, and object identification by using bounded boxes.
+Azure Machine Learning Studio gives you a central place to create, manage, and monitor labeling projects. Use it to coordinate data, labels, and team members to efficiently manage labeling tasks. Machine Learning Studio supports image classification, either multi-label or multi-class, and object identification by using bounded boxes.
 
-Azure tracks progress and maintains the queue of incomplete labeling tasks. Labelers don't need an Azure account to participate. After they are authenticated with their Microsoft account or [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis), they can do as much labeling as their time allows.
+Machine Learning Studio tracks progress and maintains the queue of incomplete labeling tasks. Labelers don't need an Azure account to participate. After they are authenticated with their Microsoft account or [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis), they can do as much labeling as their time allows.
 
-In Machine Learning Studio, you start and stop the project, add and remove people and teams, and monitor progress. You can export labeled data in COCO format or as an Azure ML dataset.
+In Machine Learning Studio, you start and stop the project, add, and remove people and teams, and monitor progress. You can export labeled data in COCO format or as an Azure ML dataset.
 
 In this article, you'll learn how to:
 
 > [!div class="checklist"]
 > * Create a project.
 > * Specify the project's data and structure.
-> * Manage the teams and people working on the project.
+> * Manage the teams and people who work on the project.
 > * Run and monitor the project.
 > * Export the labels.
 
 ## Prerequisites
 
-* The data that you want to label, either in local files or already in Azure storage.
+* The data that you want to label, either in local files or in Azure storage.
 * The set of labels that you want to apply.
-* Instructions for labeling.
+* The instructions for labeling.
 * An [Azure subscription](https://aka.ms/AMLFree). If you don’t have an Azure subscription, create a free account before you begin.
 * An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
@@ -41,21 +41,21 @@ In this article, you'll learn how to:
 
 Labeling projects are administered from [Azure Machine Learning Studio](https://ml.azure.com/). Use the **Labeling projects** page to manage your projects and people. A project has one or more teams assigned to it, and a team has one or more people assigned to it.
 
-If your data is already in Azure blob storage, you should make it available as a datastore before you create your labeling project. For details, see [Create and register datastores](https://docs.microsoft.com/azure/machine-learning/service/how-to-access-data#create-and-register-datastores).
+If your data is already in Azure Blob storage, you should make it available as a datastore before you create the labeling project. For details, see [Create and register datastores](https://docs.microsoft.com/azure/machine-learning/service/how-to-access-data#create-and-register-datastores).
 
 To create a project, select **Add project**. Give the project an appropriate name and select **Labeling task type**.
 
 ![Labeling project creation wizard](media/how-to-create-labeling-projects/labeling-creation-wizard.png)
 
-* Choose **Image Classification Multi-label** for projects in which you want to apply *one _or more_* labels from a set of classes to an image. For instance, a photo of a dog might be labeled with both *dog* and *daytime*.
-* Choose **Image Classification Multi-class** for projects in which you want to apply only a *single class* from a set of classes to an image.
-* Choose **Object Identification (Bounding Box)** for projects in which you want to assign a class to an object within an image and specify a bounding box around the object.
+* Choose **Image Classification Multi-label** for projects when you want to apply *one or more* labels from a set of classes to images. For instance, a photo of a dog might be labeled with both *dog* and *daytime*.
+* Choose **Image Classification Multi-class** for projects when you want to apply only a *single class* from a set of classes to images.
+* Choose **Object Identification (Bounding Box)** for projects when you want to assign a class to objects within images and specify a bounding box around the object.
 
 Select **Next** when you're ready to continue.
 
 ## Specify the data to label
 
-If you already created a dataset that contains your data, select it from the **Select an existing dataset** drop-down list. Or, select **Create a dataset** to select an existing Azure datastore or to upload local files.
+If you already created a dataset that contains your data, select it from the **Select an existing dataset** drop-down list. Or, select **Create a dataset** to use an existing Azure datastore or to upload local files.
 
 ### Create a dataset from an Azure datastore
 
@@ -74,7 +74,7 @@ To create a dataset from data that you've already stored in Azure blob storage:
 1. Select **Next**.
 1. Confirm the details. Select **Back** to modify the settings or **Create** to create the dataset.
 
-### Create a dataset by uploading data
+### Create a dataset from uploaded data
 
 To directly upload your data:
 
@@ -91,13 +91,13 @@ The data gets uploaded to the default blob store ("workspaceblobstore") of your 
 
 ## Specify label classes
 
-On the **Label classes** page, you specify the set of classes that will be used to categorize your data. Do this carefully, because your labelers' accuracy and speed will be affected by their ability to choose among them. For instance, instead of spelling out the full genus and species for plants or animals, it might be better to use field codes or abbreviate the genera.
+On the **Label classes** page, specify the set of classes to categorize your data. Do this carefully, because your labelers' accuracy and speed will be affected by their ability to choose among them. For instance, instead of spelling out the full genus and species for plants or animals, use field codes or abbreviate the genera.
 
 Enter one label per row. Use the **+** button to add a new row. If you have more than 3 or 4 labels but fewer than 10, you may want to prefix the names with numbers ("1: ", "2: ") to help labelers who use the number keys to speed their work.
 
 ## Describe the labeling task
 
-It's important to clearly explain the labeling task. The **Labeling instructions** page allows you to link to an external site for instructions for the labelers. Keep the instructions task-oriented and appropriate to the audience. Consider these questions:
+It's important to clearly explain the labeling task. On the **Labeling instructions** page, you can add a link to an external site for labeling instructions. Keep the instructions task-oriented and appropriate to the audience. Consider these questions:
 
 * What are the labels they'll see, and how will they choose among them? Is there a reference text to refer to?
 * What should they do if no label seems appropriate?
@@ -109,31 +109,31 @@ It's important to clearly explain the labeling task. The **Labeling instructions
 
 With bounding boxes, other important questions include:
 
-* How is the bounding box defined for this task? Should it be entirely interior to the object. Should it be cropped as closely as possible, or is some amount of clearance acceptable? 
-* What level of care and consistency do you expect the labelers to apply to defining bounding boxes?
+* How is the bounding box defined for this task? Should it be entirely interior to the object, or should it be on the exterior? Should it be cropped as closely as possible, or is some amount of clearance acceptable? 
+* What level of care and consistency do you expect the labelers to apply in defining bounding boxes?
 
 >[!NOTE]
 > Be sure to note that the labelers will be able to select the first 9 labels by using number keys 1-9.
 
 ## Initialize the labeling project
 
-After the labeling project is initialized, some aspects of the  project are immutable. You can't change the task type or dataset. You can modify labels and change the URL for the task description. Carefully review the settings before you create the project. After you submit the project, you'll be taken back to the **Labeling** homepage, which will show the project as **Initializing**. This page doesn't automatically refresh.  So, after a delay,  manually refresh the page to see the project's status as **Created**.
+After the labeling project is initialized, some aspects of the  project are immutable. You can't change the task type or dataset. You can modify labels and change the URL for the task description. Carefully review the settings before you create the project. After you submit the project, you'll be returned to the **Labeling** homepage, which will show the project as **Initializing**. This page doesn't automatically refresh. So, after a pause,  manually refresh the page to see the project's status as **Created**.
 
 ## Manage teams and people
 
-By default, each labeling project gets a new team and adds you as a member. But teams can also be shared between projects. And projects can have more than one team. To create a team, select **Add team** on the **Teams** page.
+By default, each labeling project that you create gets a new team with you as a member. But teams can also be shared between projects. And projects can have more than one team. To create a team, select **Add team** on the **Teams** page.
 
-You manage people on the **People** page. You add and remove people by email address. Each labeler has to authenticate through their Microsoft account or Azure Active Directory, if you use it.  
+You manage people on the **People** page. Add and remove people by email address. Each labeler has to authenticate through their Microsoft account or Azure Active Directory, if you use it.  
 
 After you add a person, you can assign them to one or more teams: Go to the **Teams** page, select the team, and then select **Assign people** or **Remove people**.
 
-To send an email to the team, select the team to bring up the **Team details** page. On this page, select **Email team** to open an email draft with the addresses of everyone on the team plugged in.
+To send an email to the team, select the team to bring up the **Team details** page. On this page, select **Email team** to open an email draft with the addresses of everyone on the team.
 
 ## Run and monitor the project
 
 After you initial the project, Azure will begin running it. Select the project on the main **Labeling** page to go to **Project details**. The **Dashboard** tab shows the progress of the labeling task.
 
-On the **Data** tab, you can look at your dataset and review labeled data. If you see improperly labeled data, **Select** it and choose **Reject**, which will remove the labels and put the data back into the unlabeled queue.
+On the **Data** tab, you can see your dataset and review labeled data. If you see incorrectly labeled data, **Select** it and choose **Reject**, which will remove the labels and put the data back into the unlabeled queue.
 
 Use the **Team** tab to assign or unassign teams to the project.
 
