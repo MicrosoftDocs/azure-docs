@@ -1,6 +1,6 @@
 ---
-title: Use Azure Load Balancer health probes to scale and provide high availability for your service
-titlesuffix: Azure Load Balancer
+title: Health probes to scale and provide HA for your service
+titleSuffix: Azure Load Balancer
 description: Learn how to use health probes to monitor instances behind Load Balancer
 services: load-balancer
 documentationcenter: na
