@@ -22,11 +22,14 @@ A monitor measures the health of some aspect of a managed object. Monitors each 
 
 The overall health of a particular object is determined from the health of each of its monitors. This hierarchy is illustrated in the Health Hierarchy pane in Azure Monitor for containers. The policy for how health is rolled up is part of the configuration of the aggregate monitors.
 
-## Aggregate monitor
+## Types of monitors
 
-Aggregate monitors group multiple monitors to provide a single health aggregated health state. This provides an organization to all of the monitors targeted at a particular class and provides a consolidated health state for specific categories of operation.
+|Monitor | Description | 
+|--------|-------------|
+| Unit monitor |A unit monitor measures some aspect of the resource, application, or service. This might be checking a performance counter to determine the performance of the resource, or watch for a log record that indicates an error. |
+|Aggregate Monitor |Provides a combined health state for similar monitors. Unit monitors are typically configured under a particular aggregate monitor. |
 
-### Health rollup policy
+### Aggregate monitor health rollup policy
 
 Each aggregate monitor defines a health rollup policy which is the logic that is used to determine the health of the aggregate monitor based on the health of the monitors under it. The possible health rollup policies for an aggregate monitor are as follows:
 
@@ -38,15 +41,11 @@ The state of the aggregate monitor matches the state of the child monitor with t
 
 The state of the aggregate monitor matches the state of the child monitor with the best health state.
 
-## Unit monitor
-
-A unit monitor measures some aspect of the resource, application, or service. This might be checking a performance counter to determine the performance of the resource, or watch for a log record that indicates an error. 
-
 ## Understand the monitoring configuration
 
 Azure Monitor for containers includes a number of key monitoring scenarios that are configured as follows.
 
-|**Monitor name** | **Description** | **Parameter** | **Value** |
+|**Monitor name** | Monitor type | **Description** | **Parameter** | **Value** |
 |-------------|-------------|---------------|------|
 |Node Memory Utilization |This monitor evaluates the memory utilization of a node every minute, using the cadvisor reported data. | ConsecutiveSamplesForStateTransition<br> FailIfGreaterThanPercentage<br> WarnIfGreaterThanPercentage | 3<br> 90<br> 80  | |
 |Node CPU Utilization | This monitor checks the CPU utilization of the node every minute, using the cadvisor reported data. | ConsecutiveSamplesForStateTransition<br> FailIfGreaterThanPercentage<br> WarnIfGreaterThanPercentage | 3<br> 90<br> 80  | |
