@@ -33,11 +33,11 @@ The Azure AD roles section in PIM is being migrated to a new version between Jun
 
     If your user interface looks like the following, you have the **Current version** of PIM.
 
-    ![Azure AD roles current version](./media/common/pim-current-version.png)
+    ![Azure AD roles current version](./media/pim-how-to-add-role-to-user/pim-current-version.png)
 
     If your user interface looks like the following, you have the **New version** of PIM.
 
-    ![Azure AD roles new version](./media/common/pim-new-version.png)
+    ![Azure AD roles new version](./media/pim-how-to-add-role-to-user/pim-new-version.png)
 
 1. If you have the current version of PIM, click the following **Current version** tab. If you have the new version of PIM, click the following **New version** tab.
 
