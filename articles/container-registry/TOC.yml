@@ -156,7 +156,7 @@
     - name: About ACR Tasks
       href: container-registry-tasks-overview.md
   - name: Quickstarts
-    expanded: false
+    expanded: true
     items:
     - name: Build, push, and run image - CLI
       href: container-registry-quickstart-task-cli.md
