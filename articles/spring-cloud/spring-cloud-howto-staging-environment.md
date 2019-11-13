@@ -70,7 +70,7 @@ Go to your service instance in the Azure portal, and select **Deployment managem
  
  If you visit your public-facing app gateway at this point, you should see the old page without your new change.
     
-## Set the green as production deployment
+## Set the green deployment as the production environment
 
 1. After you've verified your change in your staging environment, you can push it to production. Return to **Deployment management**, and select the **gateway** application check box.
 
