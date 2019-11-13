@@ -81,7 +81,6 @@ class Program
   }
  }
  ```
----
 
 ## [MSAL for Android](#tab/android)
 
@@ -127,8 +126,6 @@ By default logging to logcat is disabled. To enable:
 Logger.getInstance().setEnableLogcatLog(true);
 ```
 
----
-
 ## [MSAL.js](#tab/javascript)
 ## Logging in MSAL.js
 
@@ -161,8 +158,6 @@ var msalConfig = {
 
 var UserAgentApplication = new Msal.UserAgentApplication(msalConfig);
 ```
-
----
 
 ## [MSAL for iOS and macOS](#tab/macos)
 
@@ -323,8 +318,6 @@ PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
         .logPii(true)
         .build();
 ```
-
----
 
 ## [MSAL for Python](#tab/python)
 
