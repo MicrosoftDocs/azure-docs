@@ -15,7 +15,7 @@ This article provides the properties and schema for events in [Azure Key Vault](
 
 ## Available event types
 
-An Azure Key Vault account emits the following event types:
+An Azure Key Vault account generates the following event types:
 
 | Event full name | Event display name | Description |
 | ---------- | ----------- |---|
@@ -58,7 +58,7 @@ The following example show schema for **Microsoft.KeyVault.SecretNewVersionCreat
 
 ## Event properties
 
-An event has the following top-level data:
+An event has the following top-level data.
 
 | Property | Type | Description |
 | ---------- | ----------- |---|
@@ -76,10 +76,9 @@ An event has the following top-level data:
 * For an introduction to Azure Event Grid, see [What is Event Grid?](overview.md)
 * For more information about how to create an Azure Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md).
 * To learn more about Key Vault / Event Grid integration, see [Monitoring Key Vault with Azure Event Grid (preview)](../key-vault/event-grid-overview.md).
-* For a tutorial on Key Vault / Event Grid integration, see [How to: Route Key Vault Events to Automation Runbook (preview)](../key-vault/event-grid-tutorial.md).
-- For additional Key Vault guidance:
-    - [Azure Key Vault overview](../key-vault/key-vault-overview.md)
-    - [Azure Event Grid overview](overview.md)
+* For a tutorial on Key Vault / Event Grid integration, see [Receive and respond to key vault notifications with Azure Event Grid (preview)](../key-vault/event-grid-tutorial.md).
+- Additional Key Vault and Automation guidance:
+    - [What is Azure Key Vault?](.../key-vault/key-vault-overview)
     - [Monitoring Key Vault with Azure Event Grid (preview)](../key-vault/event-grid-overview.md)
-    - [How to: Route Key Vault Events to Automation Runbook (preview)](../key-vault/event-grid-tutorial.md)
+    - [Receive and respond to key vault notifications with Azure Event Grid (preview)](../key-vault/event-grid-tutorial.md)
     - [Azure Automation overview](../automation/index.yml)
