@@ -1,5 +1,5 @@
 ---
-title: Handling maintenance notifications for Linux VMs in Azure | Microsoft Docs
+title: Handling maintenance notifications for Linux VMs in Azure 
 description: View maintenance notifications for Linux virtual machines running in Azure and start self-service maintenance.
 services: virtual-machines-linux
 documentationcenter: ''
