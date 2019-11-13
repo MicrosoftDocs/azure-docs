@@ -35,12 +35,18 @@
     items: 
     - name: Apache Hadoop components on HDInsight
       href: ./hdinsight-component-versioning.md
+    - name: High availability components
+      href: ./hdinsight-high-availability-components.md     
     - name: Machine learning in HDInsight
       href: ./hdinsight-machine-learning-overview.md
     - name: Streaming at scale in HDInsight
       href: ./hdinsight-streaming-at-scale-overview.md  
     - name: Apache Hadoop architecture in HDInsight
       href: ./hdinsight-hadoop-architecture.md
+    - name: HDInsight supported VM sizes
+      href: ./hdinsight-supported-node-configuration.md
+    - name: Select the right VM size
+      href: ./hdinsight-selecting-vm-size.md
     - name: Cluster capacity planning
       href: ./hdinsight-capacity-planning.md
     - name: Availability and reliability
@@ -136,7 +142,9 @@
       - name: Autoscale clusters
         href: ./hdinsight-autoscale-clusters.md
       - name: Use external metadata stores
-        href: ./hdinsight-use-external-metadata-stores.md     
+        href: ./hdinsight-use-external-metadata-stores.md
+      - name: Custom Ambari DB
+        href: ./hdinsight-custom-ambari-db.md          
       - name: Manage logs for an HDInsight cluster
         href: ./hdinsight-log-management.md
       - name: Add storage accounts

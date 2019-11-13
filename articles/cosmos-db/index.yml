@@ -326,8 +326,8 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Spark and Jupyter notebooks support 
-            url: spark-api-introduction.md
+          - text: Analytics use cases
+            url: analytics-usecases.md
           - text: Lambda architecture
             url: lambda-architecture.md
       - linkListType: how-to-guide

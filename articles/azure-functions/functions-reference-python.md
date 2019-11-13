@@ -394,22 +394,15 @@ pip install -r requirements.txt
 
 When you're ready to publish, make sure that all your dependencies are listed in the *requirements.txt* file, which is located at the root of your project directory. Azure Functions can [remotely build](functions-deployment-technologies.md#remote-build) these dependencies.
 
-Project files and folders that are excluded from publishing, including the virtual environment folder, are listed in the .funcignore file.  
+Project files and folders that are excluded from publishing, including the virtual environment folder, are listed in the .funcignore file. 
 
-To deploy to Azure and perform a remote build, use the following command:
+Both the [Azure Functions Core Tools](functions-run-local.md#v2) and the [Azure Functions Extension for VS Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) will perform a remote build by default. For example, use the following command:
 
 ```bash
-func azure functionapp publish <app name> --build remote
+func azure functionapp publish <app name>
 ```
 
-If you're not using remote build, and using a package that requires a compiler and does not support the installation of many Linux-compatible wheels from PyPI, publishing to Azure without building locally will fail with the following error:
-
-```
-There was an error restoring dependencies.ERROR: cannot install <package name - version> dependency: binary dependencies without wheels are not supported.  
-The terminal process terminated with exit code: 1
-```
-
-To build locally and configure the required binaries, [install Docker](https://docs.docker.com/install/) on your local machine and run the following command to publish using the [Azure Functions Core Tools](functions-run-local.md#v2) (func). Remember to replace `<app name>` with the name of your function app in Azure. 
+If you wish to build your app locally instead of in Azure, [install Docker](https://docs.docker.com/install/) on your local machine and run the following command to publish using the [Azure Functions Core Tools](functions-run-local.md#v2) (func). Remember to replace `<app name>` with the name of your function app in Azure. 
 
 ```bash
 func azure functionapp publish <app name> --build-native-deps
@@ -536,6 +529,27 @@ class TestFunction(unittest.TestCase):
             'msg body: test',
         )
 ```
+## Temporary files
+
+The `tempfile.gettempdir()` method returns a temporary folder, which on Linux is `/tmp`. Your application can use this directory to store temporary files generated and used by your functions during execution. 
+
+> [!IMPORTANT]
+> Files written to the temporary directory aren't guaranteed to persist across invocations. During scale out, temporary files aren't shared between instances. 
+
+The following example creates a named temporary file in the temporary directory (`/tmp`):
+
+```python
+import logging
+import azure.functions as func
+import tempfile
+from os import listdir
+
+#---
+   tempFilePath = tempfile.gettempdir()   
+   fp = tempfile.NamedTemporaryFile()     
+   fp.write(b'Hello world!')              
+   filesDirListInTemp = listdir(tempFilePath)     
+```   
 
 ## Known issues and FAQ
 

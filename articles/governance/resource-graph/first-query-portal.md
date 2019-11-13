@@ -1,11 +1,8 @@
 ---
 title: Run your first query using Azure Resource Graph Explorer
 description: This article walks you through the steps to run your first query from Azure portal using Azure Resource Graph Explorer.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 10/18/2019
+ms.date: 10/21/2019
 ms.topic: quickstart
-ms.service: resource-graph
 ---
 # Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer
 
@@ -61,12 +58,13 @@ limited to the top five results.
 The schema browser is located in the left pane of Resource Graph Explorer. This list of resources
 shows all the _resource types_ of Azure resources that are both supported by Azure Resource Graph
 and that exist in a tenant that you have access to. Expanding a resource type or subproperties show
-child properties that can be used to create a Resource Graph query. Selecting the resource type
-places `where type =="<resource type>"` into the query box. Selecting one of the child properties
-adds `where <propertyName> == "INSERT_VALUE_HERE"` into the query box. The schema browser is a great
-way to discover properties for use in queries. Be sure to replace _INSERT\_VALUE\_HERE_ with your
-own value, adjust the query with conditions, operators, and functions to achieve your intended
-results.
+child properties that can be used to create a Resource Graph query.
+
+Selecting the resource type places `where type =="<resource type>"` into the query box. Selecting
+one of the child properties adds `where <propertyName> == "INSERT_VALUE_HERE"` into the query box.
+The schema browser is a great way to discover properties for use in queries. Be sure to replace
+_INSERT\_VALUE\_HERE_ with your own value, adjust the query with conditions, operators, and
+functions to achieve your intended results.
 
 ## Create a chart from the Resource Graph query
 
@@ -155,9 +153,9 @@ can do so with the following steps:
 
 ## Next steps
 
-- Get more information about the [query language](./concepts/query-language.md)
-- Learn to [explore resources](./concepts/explore-resources.md)
-- Run your first query with [Azure CLI](first-query-azurecli.md)
-- See samples of [Starter queries](./samples/starter.md)
-- See samples of [Advanced queries](./samples/advanced.md)
-- Provide feedback on [UserVoice](https://feedback.azure.com/forums/915958-azure-governance)
+- Get more information about the [query language](./concepts/query-language.md).
+- Learn more about how to [explore resources](./concepts/explore-resources.md).
+- Run your first query with [Azure CLI](first-query-azurecli.md).
+- See samples of [Starter queries](./samples/starter.md).
+- See samples of [Advanced queries](./samples/advanced.md).
+- Provide feedback on [UserVoice](https://feedback.azure.com/forums/915958-azure-governance).

@@ -1,5 +1,5 @@
 ---
-title: EDIFACT messages for B2B enterprise integration - Azure Logic Apps | Microsoft Docs
+title: EDIFACT messages for B2B integration - Azure Logic Apps
 description: Exchange EDIFACT messages in EDI format for B2B enterprise integration in Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
@@ -8,7 +8,6 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: 2257d2c8-1929-4390-b22c-f96ca8b291bc
 ms.date: 07/26/2016
 ---
 

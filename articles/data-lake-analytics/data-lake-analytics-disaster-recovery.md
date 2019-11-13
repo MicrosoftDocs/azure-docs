@@ -17,7 +17,7 @@ Azure Data Lake Analytics is an on-demand analytics job service that simplifies 
 
 When using Azure Data Lake Analytics, it's critical for you to prepare your own disaster recovery plan. This article helps guide you to build a disaster recovery plan. There are additional resources that can help you create your own plan:
 - [Failure and disaster recovery for Azure applications](/azure/architecture/reliability/disaster-recovery)
-- [Azure resiliency technical guidance](/azure/architecture/reliability)
+- [Azure resiliency technical guidance](/azure/architecture/checklist/resiliency-per-service)
 
 ## Best practices and scenario guidance
 

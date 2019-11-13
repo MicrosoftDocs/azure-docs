@@ -1,5 +1,5 @@
 ---
-title: Configure multi-factor authentication - Azure SQL | Microsoft Docs
+title: Configure multi-factor authentication
 description: Learn how to use Multi-Factored Authentication with SSMS for SQL Database and SQL Data Warehouse.
 services: sql-database
 ms.service: sql-database

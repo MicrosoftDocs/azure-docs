@@ -105,7 +105,7 @@ Run the playbook using the `ansible-playbook` command:
 ansible-playbook 00-prerequisites.yml
 ```
 
-In the [Azure portal](https://portol.azure.com), check the resource group you specified in `vars.yml` to see the new virtual machine and various resources you created.
+In the [Azure portal](https://portal.azure.com), check the resource group you specified in `vars.yml` to see the new virtual machine and various resources you created.
 
 ## Generalize the VM and create a custom image
 

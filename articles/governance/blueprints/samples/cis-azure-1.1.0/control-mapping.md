@@ -1,11 +1,8 @@
 ---
 title: CIS Microsoft Azure Foundations Benchmark blueprint sample - Recommendation mapping
 description: Recommendation mapping of the CIS Microsoft Azure Foundations Benchmark blueprint sample to Azure Policy.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/01/2019
 ms.topic: sample
-ms.service: blueprints
 ---
 # Recommendation mapping of the CIS Microsoft Azure Foundations Benchmark blueprint sample
 
@@ -437,14 +434,14 @@ ensure web applications are accessible only over secure connections.
 ## Next steps
 
 Now that you've reviewed the control mapping of the CIS Microsoft Azure Foundations Benchmark
-blueprint, visit the following article to learn about the blueprint or visit Azure Policy in the
+blueprint, visit the following articles to learn about the blueprint or visit Azure Policy in the
 Azure portal to assign the initiative:
 
 > [!div class="nextstepaction"]
 > [CIS Microsoft Azure Foundations Benchmark blueprint - Overview](./index.md)
-> [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/Definitions)
+> [CIS Microsoft Azure Foundations Benchmark blueprint - Deploy steps](./deploy.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).

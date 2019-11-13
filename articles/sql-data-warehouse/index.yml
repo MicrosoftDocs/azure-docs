@@ -1,11 +1,10 @@
 ### YamlMime:Landing
 
-title: Azure SQL Data Warehouse  # < 60 chars
-summary: Learn how to use Azure SQL Data Warehouse, which combines SQL relational databases with massively parallel processing (MPP). Tutorials and other documentation shows you how to design, load, manage, and analyze data using a data warehouse.  # < 160 chars
-
+title: Azure Synapse Analytics (formerly Azure SQL Data Warehouse)  # < 60 chars
+summary: Azure Synapse is a limitless analytics service that brings together enterprise data warehousing and Big Data analytics. It gives you the freedom to query data on your terms, using either serverless on-demand or provisioned resources—at scale. # < 160 chars
 metadata:
-  title: Azure SQL Data Warehouse  # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: description # Required; article description that is displayed in search results. < 160 chars.
+  title: Azure Synapse Analytics # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Azure Synapse is a limitless analytics service that brings together enterprise data warehousing and Big Data analytics. It gives you the freedom to query data on your terms, using either serverless on-demand or provisioned resources—at scale. # Required; article description that is displayed in search results. < 160 chars.
   services: sql-data-warehouse
   ms.service: sql-data-warehouse #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: design
@@ -21,17 +20,17 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card (optional)
-  - title: About SQL Data Warehouse 
+  - title: About Azure Synapse Analytics 
     linkLists:
       - linkListType: overview
         links:
-          - text: What is SQL Data Warehouse?
+          - text: What is Azure Synapse?
             url: sql-data-warehouse-overview-what-is.md
       - linkListType: architecture
         links:
-          - text: SQL Data Warehouse - MPP architecture
+          - text: Azure Synapse architecture
             url: massively-parallel-processing-mpp-architecture.md
-          - text: Tips and best practices for your data warehouse 
+          - text: Tips and best practices
             url: cheat-sheet.md
 
   # Card
@@ -39,7 +38,7 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
-          - text: Create a SQL Data Warehouse
+          - text: Create a SQL pool (data warehouse)
             url: create-data-warehouse-portal.md
   #         # - text: linktext2
   #         #   url: file2.md
@@ -49,9 +48,9 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Design a PolyBase data loading strategy
+          - text: Design data loading strategy
             url: design-elt-data-loading.md
-          - text: Data loading best practices
+          - text: Best practices
             url: guidance-for-loading-data.md
       - linkListType: how-to-guide
         links:
@@ -59,7 +58,7 @@ landingContent:
             url: sql-data-warehouse-load-from-azure-data-lake-store.md
       - linkListType: tutorial
         links:
-          - text: Load data from Azure bob storage
+          - text: Load data from Azure Blob storage
             url: load-data-from-azure-blob-storage-using-polybase.md
 
   # Card
@@ -67,7 +66,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: SQL Data Warehouse best practices
+          - text: Best practices
             url: sql-data-warehouse-best-practices.md
           - text: Ordered clustered columnstore index tuning
             url: performance-tuning-ordered-cci.md
@@ -75,17 +74,17 @@ landingContent:
             url: performance-tuning-materialized-views.md
       - linkListType: how-to-guide
         links:
-          - text: Analyse your workload
+          - text: Analyze your workload
             url: analyze-your-workload.md
           # - text: linktext2
           #   url: file2.md
 
   # Card
-  - title: Manage and monitor your SQL Data Warehouse
+  - title: Manage and monitor
     linkLists:
       - linkListType: overview
         links:
-          - text: Learn to manage and monitor your SQL Data Warehouse
+          - text: Learn to manage and monitor your data warehouse
             url: sql-data-warehouse-overview-manageability-monitoring.md
       #     - text: linktext2
       #       url: file2.md
@@ -97,11 +96,11 @@ landingContent:
             url: sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md
 
   # Card
-  - title: Secure your SQL Data Warehouse
+  - title: Secure your data warehouse
     linkLists:
       - linkListType: overview
         links:
-          - text: Understand the basics of securing your SQL Data Warehouse
+          - text: Understand the basics of securing your data warehouse
             url: sql-data-warehouse-overview-manage-security.md
           # - text: linktext2
           #   url: file2.md
@@ -117,7 +116,7 @@ landingContent:
     linkLists:
       - linkListType: video
         links:
-          - text: Watch the latest Azure SQL Data Warehouse videos
+          - text: Watch the latest data warehouse videos
             url: sql-data-warehouse-videos.md
   #         # - text: linktext2
   #         #   url: file2.md

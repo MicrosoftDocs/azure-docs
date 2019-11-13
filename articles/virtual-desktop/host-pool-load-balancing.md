@@ -1,5 +1,5 @@
 ---
-title: Windows Virtual Desktop host pool load-balancing methods - Azure
+title: Windows Virtual Desktop host pool load-balancing - Azure
 description: Host pool load-balancing methods for a Windows Virtual Desktop environment.
 services: virtual-desktop
 author: Heidilohr

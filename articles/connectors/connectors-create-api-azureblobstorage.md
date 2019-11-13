@@ -1,6 +1,6 @@
 ---
-title: Connect to Azure blob storage - Azure Logic Apps
-description: Create and manage blobs in Azure storage with Azure Logic Apps
+title: Connect to Azure Blob Storage - Azure Logic Apps
+description: Create and manage blobs in Azure storage accounts by using Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,35 +9,23 @@ ms.author: estfan
 manager: carmonm
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
-ms.date: 06/20/2019
+ms.date: 10/28/2019
 tags: connectors
 ---
 
-# Create and manage blobs in Azure blob storage with Azure Logic Apps
+# Create and manage blobs in Azure Blob Storage by using Azure Logic Apps
 
 This article shows how you can access and manage files stored as blobs in your Azure storage account from inside a logic app with the Azure Blob Storage connector. That way, you can create logic apps that automate tasks and workflows for managing your files. For example, you can build logic apps that create, get, update, and delete files in your storage account.
 
 Suppose that you have a tool that gets updated on an Azure website. which acts as the trigger for your logic app. When this event happens, you can have your logic app update some file in your blob storage container, which is an action in your logic app.
 
-> [!IMPORTANT]
->
-> Logic apps can't directly access Azure storage accounts that have 
-> [firewall rules](../storage/common/storage-network-security.md) 
-> and exist in the same region. However, if you permit the 
-> [outbound IP addresses for managed connectors in your region](../logic-apps/logic-apps-limits-and-config.md#outbound), 
-> logic apps can access storage accounts in a different region except when you use the Azure Table Storage connector or 
-> Azure Queue Storage connector. To access your Table Storage or Queue Storage, you can still use the HTTP trigger and actions. 
-> Otherwise, you can use the more advanced options here:
-> 
-> * Create an [integration service environment](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
-> which can connect to resources in an Azure virtual network.
->
-> * If you use a dedicated tier for API Management, you can front the Storage API by using API Management and permitting the latter's IP 
-> addresses through the firewall. Basically, add the Azure virtual network that's used by API Management to the storage account's 
-> firewall setting. You can then use either the API Management action or the HTTP action to call the Azure Storage APIs. However, 
-> if you choose this option, you have to handle the authentication process yourself. For more info, see [Simple enterprise integration architecture](https://aka.ms/aisarch).
+If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). For connector-specific technical information, see the [Azure Blob Storage connector reference](https://docs.microsoft.com/connectors/azureblobconnector/).
 
-If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). For connector-specific technical information, see the [Azure Blob Storage connector reference](/connectors/azureblobconnector/).
+> [!IMPORTANT]
+> To enable access from Azure Logic Apps to storage accounts behind firewalls, see the 
+> [Access storage accounts behind firewalls](#storage-firewalls) section later in this topic.
+
+<a name="blob-storage-limits"></a>
 
 ## Limits
 
@@ -71,7 +59,7 @@ This example shows how you can start a logic app workflow with the **When a blob
 
    This example uses this trigger: **When a blob is added or modified (properties only)**
 
-   ![Select trigger](./media/connectors-create-api-azureblobstorage/azure-blob-trigger.png)
+   ![Select Azure Blob Storage trigger](./media/connectors-create-api-azureblobstorage/add-azure-blob-storage-trigger.png)
 
 3. If you're prompted for connection details, [create your blob storage connection now](#create-connection). Or, if your connection already exists, provide the necessary information for the trigger.
 
@@ -81,7 +69,7 @@ This example shows how you can start a logic app workflow with the **When a blob
 
    2. In the folder list, choose the right-angle bracket ( **>** ), and then browse until you find and select the folder you want.
 
-      ![Select folder](./media/connectors-create-api-azureblobstorage/trigger-select-folder.png)
+      ![Select storage folder to use with trigger](./media/connectors-create-api-azureblobstorage/trigger-select-folder.png)
 
    3. Select the interval and frequency for how often you want the trigger to check the folder for changes.
 
@@ -99,7 +87,7 @@ In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-
 
 2. In the Logic App Designer, under the trigger or action, choose **New step**.
 
-   ![Add an action](./media/connectors-create-api-azureblobstorage/add-action.png) 
+   ![Add new step to logic app workflow](./media/connectors-create-api-azureblobstorage/add-new-step-logic-app-workflow.png) 
 
    To add an action between existing steps, move your mouse over the connecting arrow. Choose the plus sign (**+**) that appears, and select **Add an action**.
 
@@ -107,7 +95,7 @@ In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-
 
    This example uses this action: **Get blob content**
 
-   ![Select action](./media/connectors-create-api-azureblobstorage/azure-blob-action.png)
+   ![Select Azure Blob Storage action](./media/connectors-create-api-azureblobstorage/add-azure-blob-storage-action.png)
 
 4. If you're prompted for connection details, [create your Azure Blob Storage connection now](#create-connection).
 Or, if your connection already exists, provide the necessary information for the action.
@@ -116,9 +104,9 @@ Or, if your connection already exists, provide the necessary information for the
 
    1. From the **Blob** box, select the folder icon.
   
-      ![Select folder](./media/connectors-create-api-azureblobstorage/action-select-folder.png)
+      ![Select storage folder to use with action](./media/connectors-create-api-azureblobstorage/action-select-folder.png)
 
-   2. Find and select the file you want based on the blob's **Id** number. You can find this **Id** number in the blob's metadata that is returned by the previously described blob storage trigger.
+   2. Find and select the file you want based on the blob's **ID** number. You can find this **ID** number in the blob's metadata that is returned by the previously described blob storage trigger.
 
 5. When you're done, on the designer toolbar, choose **Save**.
 To test your logic app, make sure that the selected folder contains a blob.
@@ -131,13 +119,88 @@ This example only gets the contents for a blob. To view the contents, add anothe
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-[!INCLUDE [Create a connection to Azure blob storage](../../includes/connectors-create-api-azureblobstorage.md)]
+1. When you're prompted to created the connection, provide this information:
+
+   | Property | Required | Value | Description |
+   |----------|----------|-------|-------------|
+   | **Connection Name** | Yes | <*connection-name*> | The name to create for your connection |
+   | **Storage Account** | Yes | <*storage-account*> | Select your storage account from the list. |
+   ||||
+
+   For example:
+
+   ![Create Azure Blob storage account connection](./media/connectors-create-api-azureblobstorage/create-storage-account-connection.png)  
+
+1. When you're ready, select **Create**
+
+1. After you create your connection, continue with [Add blob storage trigger](#add-trigger) or [Add blob storage action](#add-action).
 
 ## Connector reference
 
-For technical details, such as triggers, actions, and limits, 
-as described by the connector's Open API (formerly Swagger) file, 
-see the [connector's reference page](/connectors/azureblobconnector/).
+For technical details, such as triggers, actions, and limits, as described by the connector's Open API (formerly Swagger) file, see the [connector's reference page](https://docs.microsoft.com/connectors/azureblobconnector/).
+
+<a name="storage-firewalls"></a>
+
+## Access storage accounts behind firewalls
+
+You can add network security to an Azure storage account by restricting access with a [firewall and firewall rules](../storage/common/storage-network-security.md). However, this setup creates a challenge for Azure and other Microsoft services that need access to the storage account. Local communication in the datacenter abstracts the internal IP addresses, so you can't set up firewall rules with IP restrictions. For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md).
+
+Here are various options for accessing storage accounts behind firewalls from Azure Logic Apps by using either the Azure Blob Storage connector or other solutions:
+
+* Azure Storage Blob connector
+
+  * [Access storage accounts in other regions](#access-other-regions)
+  * [Access storage accounts through a trusted virtual network](#access-trusted-virtual-network)
+
+* Other solutions
+
+  * [Access storage accounts as a trusted service with managed identities](#access-trusted-service)
+  * [Access storage accounts through Azure API Management](#access-api-management)
+
+<a name="access-other-regions"></a>
+
+### Access to storage accounts in other regions
+
+Logic apps can't directly access storage accounts that have firewall rules and are in the same region. However, if you permit access for the [outbound IP addresses for managed connectors in your region](../logic-apps/logic-apps-limits-and-config.md#outbound), your logic apps can access storage accounts in a different region except when you use the Azure Table Storage connector or Azure Queue Storage connector. To access your Table Storage or Queue Storage, you can still use the built-in HTTP trigger and actions.
+
+<a name="access-trusted-virtual-network"></a>
+
+### Access storage accounts through a trusted virtual network
+
+You can put the storage account in an Azure virtual network that you manage, and then add that virtual network to the trusted virtual networks list. To have your logic app access the storage account through a [trusted virtual network](../virtual-network/virtual-networks-overview.md), you need to deploy that logic app to an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), which can connect to resources in a virtual network. You can then add the subnets in that ISE to the trusted list. Azure Storage connectors, such as the Blob Storage connector, can directly access the storage container. This setup is the same experience as using the service endpoints from an ISE.
+
+<a name="access-trusted-service"></a>
+
+### Access storage accounts as a trusted service with managed identities
+
+To give Microsoft trusted services access to a storage account through a firewall, you can set up an exception on that storage account for those services. This solution permits Azure services that support [managed identities for authentication](../active-directory/managed-identities-azure-resources/overview.md) to access storage accounts behind firewalls as trusted services. Specifically, for a logic app in global multi-tenant Azure to access these storage accounts, you first [enable managed identity support](../logic-apps/create-managed-service-identity.md) on the logic app. Then, you use the HTTP action or trigger in your logic app and [set their authentication type to use your logic app's managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). For this scenario, you can use *only* the HTTP action or trigger.
+
+To set up the exception and managed identity support, follow these general steps:
+
+1. On your storage account, under **Settings**, select **Firewalls and virtual networks**. Under **Allow access from**, select the **Selected networks** option so that the related settings appear.
+
+1. Under **Exceptions**, select **Allow trusted Microsoft services to access this storage account**, and then select **Save**.
+
+   ![Select exception that allows Microsoft trusted services](./media/connectors-create-api-azureblobstorage/allow-trusted-services-firewall.png)
+
+1. In your logic app's settings, [enable support for the managed identity](../logic-apps/create-managed-service-identity.md).
+
+1. In your logic app's workflow, add and set up the HTTP action or trigger to access the storage account or entity.
+
+   > [!IMPORTANT]
+   > For outgoing HTTP action or trigger calls to Azure Storage accounts, 
+   > make sure that the request header includes the `x-ms-version` property 
+   > and the API version for the operation that you want to run on the storage account. 
+   > For more information, see [Authenticate access with managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) and 
+   > [Versioning for Azure Storage services](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests).
+
+1. On that action, [select the managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) to use for authentication.
+
+<a name="access-api-management"></a>
+
+### Access storage accounts through Azure API Management
+
+If you use a dedicated tier for [API Management](../api-management/api-management-key-concepts.md), you can front the Storage API by using API Management and permitting the latter's IP addresses through the firewall. Basically, add the Azure virtual network that's used by API Management to the storage account's firewall setting. You can then use either the API Management action or the HTTP action to call the Azure Storage APIs. However, if you choose this option, you have to handle the authentication process yourself. For more info, see [Simple enterprise integration architecture](https://aka.ms/aisarch).
 
 ## Next steps
 

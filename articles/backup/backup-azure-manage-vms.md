@@ -1,5 +1,5 @@
 ﻿---
-title: Manage and monitor Azure VM backups by using the Azure Backup service
+title: Manage and monitor Azure VM backups with the Azure Backup service
 description: Learn how to manage and monitor Azure VM backups by using the Azure Backup service.
 ms.reviewer: sogup
 author: dcurwin
@@ -12,7 +12,6 @@ ms.author: dacurwin
 # Manage Azure VM backups with Azure Backup service
 
 This article describes how to manage Azure virtual machines (VMs) that are backed up by using the [Azure Backup service](backup-overview.md). The article also summarizes the backup information you can find on the vault dashboard.
-
 
 In the Azure portal, the Recovery Services vault dashboard provides access to vault information, including:
 
@@ -71,11 +70,12 @@ To manage a backup policy:
      ![Choose a backup policy](./media/backup-azure-manage-vms/backup-policy-create-new.png)
 
 ## Run an on-demand backup
+
 You can run an on-demand backup of a VM after you set up its protection. Keep these details in mind:
 
-- If the initial backup is pending, on-demand backup creates a full copy of the VM in the Recovery Services vault.
-- If the initial backup is complete, an on-demand backup will only send changes from the previous snapshot to the Recovery Services vault. That is, later backups are always incremental.
-- The retention range for an on-demand backup is the retention value that you specify when you trigger the backup.
+* If the initial backup is pending, on-demand backup creates a full copy of the VM in the Recovery Services vault.
+* If the initial backup is complete, an on-demand backup will only send changes from the previous snapshot to the Recovery Services vault. That is, later backups are always incremental.
+* The retention range for an on-demand backup is the retention value that you specify when you trigger the backup.
 
 To trigger an on-demand backup:
 
@@ -141,32 +141,32 @@ To resume protection for a VM:
 
 There are two ways to delete a VM's backup data:
 
-- From the vault item dashboard, select Stop backup and follow the instructions for [Stop protection and delete backup data](#stop-protection-and-delete-backup-data) option.
+* From the vault item dashboard, select Stop backup and follow the instructions for [Stop protection and delete backup data](#stop-protection-and-delete-backup-data) option.
 
   ![Select Stop backup](./media/backup-azure-manage-vms/stop-backup-buttom.png)
 
-- From the vault item dashboard, select Delete backup data. This option is enabled if you had chosen to [Stop protection and retain backup data](#stop-protection-and-retain-backup-data) option during stop VM protection
+* From the vault item dashboard, select Delete backup data. This option is enabled if you had chosen to [Stop protection and retain backup data](#stop-protection-and-retain-backup-data) option during stop VM protection
 
   ![Select Delete backup](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 
-  - On the [vault item dashboard](#view-vms-on-the-dashboard), select **Delete backup data**.
-  - Type the name of the backup item to confirm that you want to delete the recovery points.
+  * On the [vault item dashboard](#view-vms-on-the-dashboard), select **Delete backup data**.
+  * Type the name of the backup item to confirm that you want to delete the recovery points.
 
     ![Delete backup data](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
-  - To delete the backup data for the item, select **Delete**. A notification message lets you know that the backup data has been deleted.
+  * To delete the backup data for the item, select **Delete**. A notification message lets you know that the backup data has been deleted.
 
   > [!NOTE]
   > When you delete backup data you delete all associated recovery points. You can't choose specific recovery points to delete.
 
 ### Backup item where primary data source no longer exists
 
-- If Azure VMs configured for Azure backup are either deleted or moved without stopping protection, then both scheduled backup jobs and on demand (ad-hoc) backup jobs will fail with the error UserErrorVmNotFoundV2. The backup pre-check will appear as critical only for failed ad-hoc backup jobs (failed scheduled jobs are not displayed). 
-- These backup items remain active in the system adhering to the backup and retention policy set by the user. The backed-up data for these Azure VMs will be retained according to the retention policy. The expired recovery points (except the last recovery point) are cleaned according to the retention range set in the backup policy.
-- Users are recommended to delete the backup items where the primary data source no longer exists to avoid any additional cost, if the backup item/data for the delete resources is no longer required as the last recovery point is retained forever and the user is charged as per the backup pricing applicable.
-
+* If Azure VMs configured for Azure backup are either deleted or moved without stopping protection, then both scheduled backup jobs and on demand (ad-hoc) backup jobs will fail with the error UserErrorVmNotFoundV2. The backup pre-check will appear as critical only for failed ad-hoc backup jobs (failed scheduled jobs are not displayed).
+* These backup items remain active in the system adhering to the backup and retention policy set by the user. The backed-up data for these Azure VMs will be retained according to the retention policy. The expired recovery points (except the last recovery point) are cleaned according to the retention range set in the backup policy.
+* Users are recommended to delete the backup items where the primary data source no longer exists to avoid any additional cost, if the backup item/data for the delete resources is no longer required as the last recovery point is retained forever and the user is charged as per the backup pricing applicable.
 
 ## Next steps
-- Learn how to [back up Azure VMs from the VM's settings](backup-azure-vms-first-look-arm.md).
-- Learn how to [restore VMs](backup-azure-arm-restore-vms.md).
-- Learn how to [monitor Azure VM backups](backup-azure-monitor-vms.md).
+
+* Learn how to [back up Azure VMs from the VM's settings](backup-azure-vms-first-look-arm.md).
+* Learn how to [restore VMs](backup-azure-arm-restore-vms.md).
+* Learn how to [monitor Azure VM backups](backup-azure-monitor-vms.md).

@@ -1,11 +1,8 @@
 ---
 title: Create policy to audit resources with PowerShell
 description: Use Azure PowerShell to create an Azure Policy assignment to identify non-compliant resources.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 03/11/2019
 ms.topic: quickstart
-ms.service: azure-policy
 ---
 # Quickstart: Create a policy assignment to identify non-compliant resources using Azure PowerShell
 

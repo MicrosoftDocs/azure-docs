@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/22/2019
+ms.date: 10/25/2019
 ---
 
 # Azure Database for MySQL server firewall rules
@@ -38,6 +38,9 @@ To allow applications from Azure to connect to your Azure Database for MySQL ser
 
 ![Configure Allow access to Azure services in the portal](./media/concepts-firewall-rules/allow-azure-services.png)
 
+### Connecting from a VNet
+To connect securely to your Azure Database for MySQL server from a VNet, consider using [VNet service endpoints](./concepts-data-access-and-security-vnet.md). 
+
 ## Programmatically managing firewall rules
 In addition to the Azure portal, firewall rules can be managed programmatically by using the Azure CLI. See also [Create and manage Azure Database for MySQL firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md)
 
@@ -61,3 +64,4 @@ Connections to the Azure Database for MySQL server are routed through a publicly
 
 * [Create and manage Azure Database for MySQL firewall rules using the Azure portal](./howto-manage-firewall-using-portal.md)
 * [Create and manage Azure Database for MySQL firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md)
+- [VNet service endpoints in Azure Database for MySQL](./concepts-data-access-and-security-vnet.md)

@@ -28,8 +28,6 @@ You may also, if you wish, generate or import a key encryption key (KEK).
 
 The steps in this article can be completed with the [Azure CLI](/cli/azure/), the [Azure PowerShell Az module](/powershell/azure/overview), or the [Azure portal](https://portal.azure.com).
 
-While the portal is accessible through your browser, Azure CLI and Azure PowerShell require local installation.
-
 ### Connect to your Azure account
 
 Before using the Azure CLI or Azure PowerShell, you must first connect to your Azure subscription. You do so by [Signing in with Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest), [Signing in with Azure Powershell](/powershell/azure/authenticate-azureps?view=azps-2.5.0), or supplying your credentials to the Azure portal when prompted.
