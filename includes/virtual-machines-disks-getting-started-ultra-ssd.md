@@ -68,6 +68,11 @@ Once the VM is provisioned, you can partition and format the data disks and conf
 
 ## Deploy an ultra disk using the Azure Portal
 
+- Open the Azure Portal.
+- Select **Create a resource**.
+- Select **Compute** then select **Virtual machine**.
+- 
+
 ## Deploy an ultra disk using CLI
 
 First, determine the VM size to deploy. See the [GA scope and limitations](#ga-scope-and-limitations) section for a list of supported VM sizes.
