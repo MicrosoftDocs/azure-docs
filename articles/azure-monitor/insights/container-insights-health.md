@@ -34,7 +34,7 @@ Kubernetes cluster health is based on a number of monitoring scenarios organized
 
     ![Nodes health rollup view](./media/container-insights-health/health-view-nodes-01.png)
 
-All monitors are shown in a hierarchical layout, where an aggregate monitor representing the Kubernetes object or abstraction (that is, Kubernetes infrastructure or Nodes) are the top-most monitor reflecting the combined health of all dependent child monitors. The key monitoring scenarios used to derive health are:
+All monitors are shown in a hierarchical layout in the Health Hierarchy pane, where an aggregate monitor representing the Kubernetes object or abstraction (that is, Kubernetes infrastructure or Nodes) are the top-most monitor reflecting the combined health of all dependent child monitors. The key monitoring scenarios used to derive health are:
 
 * Evaluate CPU utilization from the node and container.
 * Evaluate memory utilization from the node and container.
@@ -51,7 +51,7 @@ The icons used to indicate state are as follows:
 
 ## Monitor configuration (put into its own article)
 
-To understand the behavior and configuration of each monitor supporting Azure Monitor for containers Health feature, see [article name].
+To understand the behavior and configuration of each monitor supporting Azure Monitor for containers Health feature, see [Health monitor configuration guide](container-insights-health-monitoring-cfg.md).
 
 ## Sign in to the Azure portal
 
@@ -69,7 +69,7 @@ In Azure Monitor for containers, from the **Cluster** page, select **Health**.
 
 ## Review cluster health
 
-When the Health page opens, by default **Kubernetes Infrastructure** is selected in the **Health Aspect** grid.  The grid summarizes current health rollup state of Kubernetes infrastructure and cluster nodes. Selecting either health aspect updates the results in the middle-pane and shows all child monitors in a hierarchical layout, displaying their current health state. To view more information about any dependent monitor, you can select one and a property pane automatically displays on the right side of the page. 
+When the Health page opens, by default **Kubernetes Infrastructure** is selected in the **Health Aspect** grid.  The grid summarizes current health rollup state of Kubernetes infrastructure and cluster nodes. Selecting either health aspect updates the results in the Health Hierarchy pane (that is, the middle-pane) and shows all child monitors in a hierarchical layout, displaying their current health state. To view more information about any dependent monitor, you can select one and a property pane automatically displays on the right side of the page. 
 
 ![Cluster health property pane](./media/container-insights-health/health-view-property-pane.png)
 
@@ -77,11 +77,11 @@ On the property pane, you learn the following:
 
 - On the **Overview** tab, it shows the current state of the monitor selected, when the monitor was last calculated, and when the last state change occurred. Additional information is shown depending on the type of monitor selected in the hierarchy.
 
-    If you select an aggregate monitor, the pane shows a rollup of the total number of aggregate monitors in the hierarchy, and how many aggregate monitors are in a critical, warning, and healthy state. 
+    If you select an aggregate monitor in the Health Hierarchy pane, under the **Overview** tab on the property pane it shows a rollup of the total number of aggregate monitors in the hierarchy, and how many aggregate monitors are in a critical, warning, and healthy state. 
 
     ![Health property pane Overview tab for aggregate monitor](./media/container-insights-health/health-overview-aggregate-monitor.png)
 
-    If you select a child monitor, it also shows under **Last state change** the previous samples calculated and reported by the containerized agent within the last four hours. This is based on the unit monitors calculation for comparing several consecutive values to determine its threshold. For example, if you selected one of the resource utilization unit monitors (that is CPU or memory utilization) of a Node or Pod, it shows the last three samples.
+    If you select a child monitor in the Health Hierarchy pane, it also shows under **Last state change** the previous samples calculated and reported by the containerized agent within the last four hours. This is based on the unit monitors calculation for comparing several consecutive values to determine its threshold. For example, if you selected one of the resource utilization unit monitors (that is CPU or memory utilization) of a Node or Pod, it shows the last three samples.
     
     ![Health property pane Overview tab](./media/container-insights-health/health-overview-unit-monitor.png)
 
