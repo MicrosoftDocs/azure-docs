@@ -243,7 +243,7 @@ When the creation process finishes, you train your model by using the cluster in
 
 ## Use Azure Databricks
 
-To use Azure Machine Learning with Azure Databricks, inside a virtual network, the following requirements must be met:
+To use Azure Azure Databricks in a virtual network with your workspace, the following requirements must be met:
 
 > [!div class="checklist"]
 > * The virtual network must be in the same subscription and region as the Azure Machine Learning workspace.
