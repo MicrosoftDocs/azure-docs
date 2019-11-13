@@ -5,7 +5,7 @@ ms.service: terraform
 author: tomarchermsft
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/26/2019
+ms.date: 11/12/2019
 ---
 
 # Tutorial: Create an Application Gateway ingress controller in Azure Kubernetes Service
@@ -307,7 +307,7 @@ Create Terraform configuration file that creates all the resources.
       name                         = "publicIp1"
       location                     = data.azurerm_resource_group.rg.location
       resource_group_name          = data.azurerm_resource_group.rg.name
-      public_ip_address_allocation = "static"
+      allocation_method            = "Static"
       sku                          = "Standard"
 
       tags = var.tags
@@ -465,7 +465,7 @@ Create Terraform configuration file that creates all the resources.
 
     ```
 
-1. Save the file and exit the editor.
+1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
 
 The code presented in this section sets the name of the cluster, location, and the resource_group_name. The `dns_prefix` value - that forms part of the fully qualified domain name (FQDN) used to access the cluster - is set.
 
@@ -529,15 +529,13 @@ With AKS, you pay only for the worker nodes. The `agent_pool_profile` record con
 
 Terraform tracks state locally via the `terraform.tfstate` file. This pattern works well in a single-person environment. However, in a more practical multi-person environment, you need to track state on the server using [Azure storage](/azure/storage/). In this section, you learn to retrieve the necessary storage account information and create a storage container. The Terraform state information is then stored in that container.
 
-1. In the Azure portal, select **All services** in the left menu.
+1. In the Azure portal, under **Azure services**, select **Storage accounts**. (You have to select **More services** if **Storage accounts** is not visible on the main page.)
 
-1. Select **Storage accounts**.
-
-1. On the **Storage accounts** tab, select the name of the storage account into which Terraform is to store state. For example, you can use the storage account created when you opened Cloud Shell the first time.  The storage account name created by Cloud Shell typically starts with `cs` followed by a random string of numbers and letters. 
+1. On the **Storage accounts** page, select the name of the storage account into which Terraform is to store state. For example, you can use the storage account created when you opened Cloud Shell the first time.  The storage account name created by Cloud Shell typically starts with `cs` followed by a random string of numbers and letters. 
 
     Take note of the storage account you select, as you need it later.
 
-1. On the storage account tab, select **Access keys**.
+1. On the storage account page, select **Access keys**.
 
     ![Storage account menu](./media/terraform-k8s-cluster-appgw-with-tf-aks/storage-account.png)
 
@@ -545,7 +543,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
     ![Storage account access keys](./media/terraform-k8s-cluster-appgw-with-tf-aks/storage-account-access-key.png)
 
-1. In Cloud Shell, create a container in your Azure storage account (replace the &lt;YourAzureStorageAccountName> and &lt;YourAzureStorageAccountAccessKey> placeholders with appropriate values for your Azure storage account).
+1. In Cloud Shell, create a container in your Azure storage account. Replace the placeholders with the appropriate values for your Azure storage account.
 
     ```azurecli
     az storage container create -n tfstate --account-name <YourAzureStorageAccountName> --account-key <YourAzureStorageAccountKey>
@@ -554,7 +552,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 ## Create the Kubernetes cluster
 In this section, you see how to use the `terraform init` command to create the resources defined the configuration files you created in the previous sections.
 
-1. In Cloud Shell, initialize Terraform (replace the &lt;YourAzureStorageAccountName> and &lt;YourAzureStorageAccountAccessKey> placeholders with  appropriate values for your Azure storage account).
+1. In Cloud Shell, initialize Terraform. Replace the placeholders with the appropriate values for your Azure storage account.
 
     ```bash
     terraform init -backend-config="storage_account_name=<YourAzureStorageAccountName>" -backend-config="container_name=tfstate" -backend-config="access_key=<YourStorageAccountAccessKey>" -backend-config="key=codelab.microsoft.tfstate" 
@@ -564,7 +562,7 @@ In this section, you see how to use the `terraform init` command to create the r
 
     ![Example of "terraform init" results](./media/terraform-k8s-cluster-appgw-with-tf-aks/terraform-init-complete.png)
 
-1. In Cloud Shell, create a file named `main.tf`:
+1. In Cloud Shell, create a file named `terraform.tfvars`:
 
     ```bash
     code terraform.tfvars
@@ -573,15 +571,15 @@ In this section, you see how to use the `terraform init` command to create the r
 1. Paste the following variables created earlier into the editor:
 
     ```hcl
-    resource_group_name = <Name of the Resource Group already created>
+    resource_group_name = "<Name of the Resource Group already created>"
 
-    location = <Location of the Resource Group>
+    location = "<Location of the Resource Group>"
       
-    aks_service_principal_app_id = <Service Principal AppId>
+    aks_service_principal_app_id = "<Service Principal AppId>"
       
-    aks_service_principal_client_secret = <Service Principal Client Secret>
+    aks_service_principal_client_secret = "<Service Principal Client Secret>"
       
-    aks_service_principal_object_id = <Service Principal Object Id>
+    aks_service_principal_object_id = "<Service Principal Object Id>"
         
     ```
 
