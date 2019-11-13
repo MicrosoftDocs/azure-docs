@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 
-ms.reviewer: trbye, jmartens, larryfr
-ms.author: tracych
-author: tracych
+ms.reviewer: trbye, jmartens, larryfr, vaidyas
+ms.author: vaidyas
+author: vaidya-s
 ms.date: 11/04/2019
 ms.custom: Ignite2019
 ---
@@ -180,7 +180,7 @@ model = Model.register(model_path="models/",
 ## Write your inference script
 
 >[!Warning]
->The following code is only a sample that the [sample notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring/notebooks/contrib/batch_inferencing/file-dataset-image-inference-mnist.ipynb) uses. You’ll need to create your own script for your scenario.
+>The following code is only a sample that the [sample notebook](https://aka.ms/batch-inference-notebooks) uses. You’ll need to create your own script for your scenario.
 
 The script *must contain* two functions:
 - `init()`: Use this function for any costly or common preparation for later inference. For example, use it to load the model into a global object.
@@ -191,7 +191,7 @@ The script *must contain* two functions:
 ```python
 # Snippets from a sample script.
 # Refer to the accompanying digit_identification.py
-# (https://github.com/Azure/MachineLearningNotebooks/blob/master/pipeline/digit_identification.py)
+# (https://aka.ms/batch-inference-notebooks)
 # for the implementation script.
 
 import os
@@ -343,7 +343,7 @@ pipeline_run.wait_for_completion(show_output=True)
 
 ## Next steps
 
-To see this process working end to end, try the [batch inference notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/). 
+To see this process working end to end, try the [batch inference notebook](https://aka.ms/batch-inference-notebooks). 
 
 For debugging and troubleshooting guidance for pipelines, see the [how-to guide](how-to-debug-pipelines.md).
 

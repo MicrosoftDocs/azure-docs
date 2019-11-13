@@ -1,5 +1,5 @@
 ---
-title: Set up security info (preview) to use your email address - Azure Active Directory | Microsoft Docs
+title: Set up security info (preview) to use email - Azure AD
 description: How to set up your security info to verify your identity using your email address.
 services: active-directory
 author: eross-msft

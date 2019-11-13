@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ---
 
-# Configure outbound network traffic for Azure HDInsight clusters using Firewall (Preview)
+# Configure outbound network traffic for Azure HDInsight clusters using Firewall
 
 This article provides the steps for you to secure outbound traffic from your HDInsight cluster using Azure Firewall. The steps below assume that you're configuring an Azure Firewall for an existing cluster. If you're deploying a new cluster and behind a firewall, create your HDInsight cluster and subnet first and then follow the steps in this guide.
 

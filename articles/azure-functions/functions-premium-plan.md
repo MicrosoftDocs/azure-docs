@@ -122,6 +122,7 @@ Below are the currently supported regions for each OS.
 |West Europe| ✔ | ✔ |
 |West India| ✔ |  |
 |West US| ✔ | ✔ |
+|West US 2| ✔ |  |
 
 <sup>1</sup>Maximum scale out limited to 20 instances.  
 <sup>2</sup>Maximum scale out limited to 60 instances.

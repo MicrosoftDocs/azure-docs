@@ -28,7 +28,7 @@ For more information, see [Security alerts in Security Center](security-center-a
 * [Linux](#validate-linux)
 * [Kubernetes](#validate-kubernetes)
 
-## Validate alerts on Windows VM <a name="validate-windows"></a>
+## Validate alerts on Windows VMs <a name="validate-windows"></a>
 
 After Security Center agent is installed on your computer, follow these steps from the computer where you want to be the attacked resource of the alert:
 
@@ -41,7 +41,7 @@ After Security Center agent is installed on your computer, follow these steps fr
 >
 >```reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"```
 
-## Validate alerts on Linux VM <a name="validate-linux"></a>
+## Validate alerts on Linux VMs <a name="validate-linux"></a>
 
 After Security Center agent is installed on your computer, follow these steps from the computer where you want to be the attacked resource of the alert:
 1. Copy an executable to a convenient location and rename it to **./asc_alerttest_662jfi039n**, for example:

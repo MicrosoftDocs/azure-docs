@@ -1,5 +1,5 @@
 ---
-title: "Designer example #3: regression to price and compare algorithms"
+title: 'Designer: Predict car prices (regression)'
 titleSuffix: Azure Machine Learning
 description: This article shows you how to build a complex machine learning pipeline without writing a single line of code using the designer (preview). Learn how to train and compare multiple regression models to predict a car's price based on technical features
 services: machine-learning

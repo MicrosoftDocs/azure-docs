@@ -1,7 +1,7 @@
 ---
 title: Call the Text Analytics API
 titleSuffix: Azure Cognitive Services
-description: Learn how to call the Text Analytics REST API.
+description: This article explains how you can call the Azure Cognitive Services Text Analytics REST API and Postman.
 services: cognitive-services
 author: aahill
 manager: nitinme
