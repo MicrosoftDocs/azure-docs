@@ -90,7 +90,7 @@ To deploy the template by using PowerShell:
 1. Install the latest PowershellGet.
 
    ```powershell
-   install-Module PowerShellGet –Repository PSGallery –Force
+   Install-Module PowerShellGet –Repository PSGallery –Force
    ```
 
 2. Close, and then reopen the Powershell console.
