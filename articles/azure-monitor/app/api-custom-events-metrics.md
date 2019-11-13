@@ -641,16 +641,16 @@ finally
 
 ```java
 boolean success = false;
-long startTime = System.currentTimeMillis();
+Instant startTime = Instant.now();
 try {
     success = dependency.call();
 }
 finally {
-    long endTime = System.currentTimeMillis();
-    long delta = endTime - startTime;
+    Instant endTime = Instant.now();
+    Duration delta = Duration.between(startTime, endTime);
     RemoteDependencyTelemetry dependencyTelemetry = new RemoteDependencyTelemetry("My Dependency", "myCall", delta, success);
-    telemetry.setTimeStamp(startTime);
-    telemetry.trackDependency(dependencyTelemetry);
+    RemoteDependencyTelemetry.setTimeStamp(startTime);
+    RemoteDependencyTelemetry.trackDependency(dependencyTelemetry);
 }
 ```
 
