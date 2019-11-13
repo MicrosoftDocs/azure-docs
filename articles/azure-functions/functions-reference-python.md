@@ -410,7 +410,7 @@ There are three build actions supported for publishing your Python project to Az
 
 + Remote build: Dependencies are obtained remotely based on the contents of the requirements.txt file. [Remote build](functions-deployment-technologies.md#remote-build) is the recommended build method. Remote is also the default build option of Azure tooling. 
 + Local build: Dependencies are obtained locally based on the contents of the requirements.txt file. 
-+ Custom dependencies: Your project has native OS dependencies or uses packages not publicly available. (Requires Docker.)
++ Custom dependencies: Your project uses packages not publicly available to our tools. (Requires Docker.)
 
 To build your dependencies and publish using a continuous delivery (CD) system, [use Azure Pipelines](functions-how-to-azure-devops.md).
 
@@ -428,13 +428,15 @@ The [Azure Functions Extension for Visual Studio Code](functions-create-first-fu
 
 ### Local build
 
-With the dependencies installed, you can use the following [func azure functionapp publish](functions-run-local.md#publish) command to publish with a local build. 
+You can prevent doing a remote build by using the following [func azure functionapp publish](functions-run-local.md#publish) command to publish with a local build. 
 
 ```command
 func azure functionapp publish <APP_NAME> --build local
 ```
 
-Project files and dependencies are deployed from your local computer to Azure. Remember to replace `<APP_NAME>` with the name of your function app in Azure. 
+Remember to replace `<APP_NAME>` with the name of your function app in Azure. 
+
+Using the `--build local` option, project dependencies are read from the requirements.txt file and those dependent packages are downloaded and installed locally. Project files and dependencies are deployed from your local computer to Azure. This results in a larger deployment package being uploaded to Azure. If for some reason, dependencies in your requirements.txt file can't be acquired by Core Tools, you must use the custom dependencies option for publishing. 
 
 ### Custom dependencies
 
