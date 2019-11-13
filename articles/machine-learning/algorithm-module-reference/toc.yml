@@ -1,6 +1,4 @@
-- name: Azure Machine Learning designer module reference
-  items:
-- name: Overview
+- name: Designer algorithm & module reference
   href: module-reference.md
 - name: Data input and output
   items:
