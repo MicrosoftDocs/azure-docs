@@ -110,13 +110,13 @@ Now you've finished configuring Azure Data Explorer as a data source for Grafana
 
 1. In Home Dashboard, select **Alerting** > **Notification channels** to create a new notification channel
 
-create channel
+    ![create notification channel](media/grafana/create-notification-channel.png)
 
 1. On the **Dashboard**, select **Edit** from the dropdown.
 
     ![select edit in dashboard](media/grafana/edit-panel-4-alert.png)
 
-1. Select the alert bell icon to open the **Alert** pane. Select **Create** to create a new alert notification.
+1. Select the alert bell icon to open the **Alert** pane. Select **Create Alert** to create a new alert notification.
 
     ![alert notification](media/grafana/alert-notifications.png)
 
