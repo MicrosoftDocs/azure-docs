@@ -65,7 +65,7 @@ In this section, you use the Azure Cloud Shell to create a provisioning service 
     The following example creates a provisioning service named *contoso-provisioning-service-1098* in the *westus* location. You must use a unique service name. Make up your own suffix in the service name in place of **1098**.
 
     ```azurecli-interactive 
-    az iot hub create --name contoso-provisioning-service-1098 --resource-group contoso-us-resource-group --location westus --sku S1
+    az iot dps create --name contoso-provisioning-service-1098 --resource-group contoso-us-resource-group --location westus
     ```
 
     This command may take a few minutes to complete.
@@ -88,89 +88,80 @@ In this section, you use the Azure Cloud Shell to create a provisioning service 
     az iot hub create --name contoso-heatpumps-hub-1098 --resource-group contoso-us-resource-group --location westus --sku S1
     ```
 
-    This command may also take a few minutes to complete.
+    This command may take a few minutes to complete.
 
-## Create the enrollment
+## Create the custom allocation function
 
-In this section, you'll create a new enrollment group that uses the custom allocation policy. For simplicity, this article uses [Symmetric key attestation](concepts-symmetric-key-attestation.md) with the enrollment. For a more secure solution, consider using [X.509 certificate attestation](concepts-security.md#x509-certificates) with a chain of trust.
+In this section, you create an Azure function that implements your custom allocation policy. This function decides which IoT hub a device should be registered to based on whether its registration ID contains the string `-toasters-` or `-heatpumps-`. It also sets the initial state of the device twin based on whether the device is a toaster or a heat pump.
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and open your Device Provisioning Service instance.
+1. Sign in to the [Azure portal](https://portal.azure.com). From your home page, select **+ Create a resource**.
 
-2. Select the **Manage enrollments** tab, and then click the **Add enrollment group** button at the top of the page.
+2. In the *Search the Marketplace* search box, type "Function App". From the drop-down list select **Function App**, and then select **Create**.
 
-3. On **Add Enrollment Group**, enter the following information, and click the **Save** button.
+3. On **Function App** create page, under the **Basics** tab, enter the following settings for your new function app and click **Review + create**:
 
-    **Group name**: Enter **contoso-custom-allocated-devices**.
+    **Resource Group**: Select **Use existing** and select the **contoso-us-resource-group** to keep all resources created in this article together.
 
-    **Attestation Type**: Select **Symmetric Key**.
+    **Function App name**: Enter a unique function app name. This example uses **contoso-function-app-1098**.
 
-    **Auto Generate Keys**: This checkbox should already be checked.
+    **Publish**: Verify that **Code** is selected.
 
-    **Select how you want to assign devices to hubs**: Select **Custom (Use Azure Function)**.
+    **Runtime Stack**: Select **.NET Core** from the drop-down.
 
-    ![Add custom allocation enrollment group for symmetric key attestation](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
+    **Region**: Select the same region as your resource group. This example uses **West US**.
 
-4. On **Add Enrollment Group**, click **Link a new IoT hub** to link both of your new divisional IoT hubs. 
+    > [!NOTE]
+    > By default, **Application Insights** is enabled. If you want to, you can disable it by selecting the **Monitoring** tab and selecting **No** for **Enable Application Insights**.
 
-    Execute this step for both of your divisional IoT hubs.
+4. On the **Summary** page, select **Create** to create the function app. Deployment may take several minutes. When it completes, select **Go to resource**.
 
-    **Subscription**: If you have multiple subscriptions, choose the subscription where you created the divisional IoT hubs.
+5. On the left-hand pane of the **Overview** page, select **+** next to **Functions** to add a new function.
 
-    **IoT hub**: Select one of the divisional hubs you created.
+6. On **Azure Functions for .NET - getting started**, for the **CHOOSE A DEPLOYMENT ENVIRONMENT** step, select the **In-portal** tile, then select **Continue**.
 
-    **Access Policy**: Choose **iothubowner**.
+7. On the next page, for the **CREATE A FUNCTION** step, select the **Webhook + API** tile, then select **Create**. A function named **HttpTrigger1** is created, and the portal displays the contents of the **run.csx** code file.
 
-    ![Link the divisional IoT hubs with the provisioning service](./media/how-to-use-custom-allocation-policies/link-divisional-hubs.png)
+8. Reference required Nuget packages. To create the initial device twin, the custom allocation function uses classes that are defined in two Nuget packages that must be loaded into the hosting environment. With Azure Functions, Nuget packages are referenced using a function.host file. In this step, you save and upload a function.host file.
 
-5. On **Add Enrollment Group**, once both divisional IoT hubs have been linked, you must select them as the IoT Hub group for the enrollment group as shown below:
+    1. Copy the following lines into your favorite editor and save the file on your computer as *function.host*.
 
-    ![Create the divisional hub group for the enrollment](./media/how-to-use-custom-allocation-policies/enrollment-divisional-hub-group.png)
+        ```xml
+        <Project Sdk="Microsoft.NET.Sdk">  
+            <PropertyGroup>  
+                <TargetFramework>netstandard2.0</TargetFramework>  
+            </PropertyGroup>  
+            <ItemGroup>  
+                <PackageReference Include="Microsoft.Azure.Devices.Provisioning.Service" Version="1.5.0" />  
+                <PackageReference Include="Microsoft.Azure.Devices.Shared" Version="1.16.0" />  
+            </ItemGroup>  
+        </Project>
+        ```
 
-6. On **Add Enrollment Group**, scroll down to the **Select Azure Function** section and click **Create a new function app**.
+    2. On the **HttpTrigger1** function, expand the **View Files** tab on the right side of the window. Select **Upload** and browse to the **function.proj** file you saved previously and select **Open** to upload the file.
 
-7. On **Function App** create page that opens, enter the following settings for your new function and click **Create**:
-
-    **App name**: Enter a unique function app name. **contoso-function-app-1098** is shown as an example.
-
-    **Resource Group**: Select **Use existing** and the **contoso-us-resource-group** to keep all resources created in this article together.
-
-    **Application Insights**: For this exercise, you can turn this off.
-
-    ![Create the function app](./media/how-to-use-custom-allocation-policies/function-app-create.png)
-
-8. Back on your **Add Enrollment Group** page, make sure your new function app is selected. You may have to reselect the subscription to refresh the function app list.
-
-    Once your new function app is selected, click **Create a new function**.
-
-    ![Create the function app](./media/how-to-use-custom-allocation-policies/click-create-new-function.png)
-
-    your new function app will be opened.
-
-9. On your function app, click **+** to create a new function
-
-    ![Create the function app](./media/how-to-use-custom-allocation-policies/new-function.png)
-
-    For the new function, use the default settings to create a new **Webhook + API** using the **CSharp** language. Click **Create this function**.
-
-    This creates a new C# function named **HttpTriggerCSharp1**.
-
-10. Replace the code for the new C# function with the following code and click **Save**:
+9. Replace the code for the **HttpTrigger1** function with the following code and click **Save**:
 
     ```csharp
     #r "Newtonsoft.Json"
+
     using System.Net;
-    using System.Text;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Primitives;
     using Newtonsoft.Json;
 
-    public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+    using Microsoft.Azure.Devices.Shared;               // For TwinCollection
+    using Microsoft.Azure.Devices.Provisioning.Service; // For TwinState
+
+    public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
     {
-        // Just some diagnostic logging
-        log.Info("C# HTTP trigger function processed a request.");
-        log.Info("Request.Content:...");
-        log.Info(req.Content.ReadAsStringAsync().Result);
+        log.LogInformation("C# HTTP trigger function processed a request.");
 
         // Get request body
-        dynamic data = await req.Content.ReadAsAsync<object>();
+        string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+        dynamic data = JsonConvert.DeserializeObject(requestBody);
+
+        log.LogInformation("Request.Body:...");
+        log.LogInformation(requestBody);
 
         // Get registration ID of the device
         string regId = data?.deviceRuntimeContext?.registrationId;
@@ -182,7 +173,7 @@ In this section, you'll create a new enrollment group that uses the custom alloc
         if (regId == null)
         {
             message = "Registration ID not provided for the device.";
-            log.Info("Registration ID : NULL");
+            log.LogInformation("Registration ID : NULL");
             fail = true;
         }
         else
@@ -193,7 +184,7 @@ In this section, you'll create a new enrollment group that uses the custom alloc
             if (hubs == null)
             {
                 message = "No hub group defined for the enrollment.";
-                log.Info("linkedHubs : NULL");
+                log.LogInformation("linkedHubs : NULL");
                 fail = true;
             }
             else
@@ -211,14 +202,29 @@ In this section, you'll create a new enrollment group that uses the custom alloc
                     if (obj.iotHubHostName == null)
                     {
                         message = "No toasters hub found for the enrollment.";
-                        log.Info(message);
+                        log.LogInformation(message);
                         fail = true;
+                    }
+                    else
+                    {
+                        // Specify the initial tags for the device.
+                        TwinCollection tags = new TwinCollection();
+                        tags["deviceType"] = "toaster";
+
+                        // Specify the initial desired properties for the device.
+                        TwinCollection properties = new TwinCollection();
+                        properties["state"] = "ready";
+                        properties["darknessSetting"] = "medium";
+
+                        // Add the initial twin state to the response.
+                        TwinState twinState = new TwinState(tags, properties);
+                        obj.initialTwin = twinState;
                     }
                 }
                 // This is a Contoso Heat pump Model 008
                 else if (regId.Contains("-contoso-hpsd-088"))
                 {
-                    //Find the "-heatpumps-" IoT hub configured on the enrollment
+                    //Find the "-heatpumps-" IoT hub configured on the enrollment 
                     foreach(string hubString in hubs)
                     {
                         if (hubString.Contains("-heatpumps-"))
@@ -228,8 +234,23 @@ In this section, you'll create a new enrollment group that uses the custom alloc
                     if (obj.iotHubHostName == null)
                     {
                         message = "No heat pumps hub found for the enrollment.";
-                        log.Info(message);
+                        log.LogInformation(message);
                         fail = true;
+                    }
+                    else
+                    {
+                        // Specify the initial tags for the device.
+                        TwinCollection tags = new TwinCollection();
+                        tags["deviceType"] = "heatpump";
+
+                        // Specify the initial desired properties for the device.
+                        TwinCollection properties = new TwinCollection();
+                        properties["state"] = "on";
+                        properties["temperatureSetting"] = "65";
+
+                        // Add the initial twin state to the response.
+                        TwinState twinState = new TwinState(tags, properties);
+                        obj.initialTwin = twinState;
                     }
                 }
                 // Unrecognized device.
@@ -237,41 +258,67 @@ In this section, you'll create a new enrollment group that uses the custom alloc
                 {
                     fail = true;
                     message = "Unrecognized device registration.";
-                    log.Info("Unknown device registration");
+                    log.LogInformation("Unknown device registration");
                 }
             }
         }
 
-        return (fail)
-            ? req.CreateResponse(HttpStatusCode.BadRequest, message)
-            : new HttpResponseMessage(HttpStatusCode.OK)
-            {
-                Content = new StringContent(JsonConvert.SerializeObject(obj, Formatting.Indented), Encoding.UTF8, "application/json")
-            };
-    }
+        log.LogInformation("\nResponse");
+        log.LogInformation((obj.iotHubHostName != null) ? JsonConvert.SerializeObject(obj) : message);
 
-    public class DeviceTwinObj
-    {
-        public string deviceId {get; set;}
+        return (fail)
+            ? new BadRequestObjectResult(message) 
+            : (ActionResult)new OkObjectResult(obj);
     }
 
     public class ResponseObj
     {
         public string iotHubHostName {get; set;}
-        public string IoTHub {get; set;}
-        public DeviceTwinObj initialTwin {get; set;}
-        public string[] linkedHubs {get; set;}
-        public string enrollment {get; set;}
+        public TwinState initialTwin {get; set;}
     }
     ```
 
-11. Return to your **Add Enrollment Group** page, and make sure the new function is selected. You may have to reselect the function app to refresh the functions list.
+## Create the enrollment
 
-    Once your new function is selected, click **Save** to save the enrollment group.
+In this section, you'll create a new enrollment group that uses the custom allocation policy. For simplicity, this article uses [Symmetric key attestation](concepts-symmetric-key-attestation.md) with the enrollment. For a more secure solution, consider using [X.509 certificate attestation](concepts-security.md#x509-certificates) with a chain of trust.
 
-    ![Finally save the enrollment group](./media/how-to-use-custom-allocation-policies/save-enrollment.png)
+1. Still on the [Azure portal](https://portal.azure.com), open your Device Provisioning Service instance.
 
-12. After saving the enrollment, reopen it and make a note of the **Primary Key**. You must save the enrollment first to have the keys generated. This key will be used to generate unique device keys for simulated devices later.
+2. Select the **Manage enrollments** tab, and then click the **Add enrollment group** button at the top of the page.
+
+3. On **Add Enrollment Group**, enter the following information, and click the **Save** button.
+
+    **Group name**: Enter **contoso-custom-allocated-devices**.
+
+    **Attestation Type**: Select **Symmetric Key**.
+
+    **Auto Generate Keys**: This checkbox should already be checked.
+
+    **Select how you want to assign devices to hubs**: Select **Custom (Use Azure Function)**.
+
+    ![Add custom allocation enrollment group for symmetric key attestation](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
+
+4. On **Add Enrollment Group**, click **Link a new IoT hub** to link both of your new divisional IoT hubs.
+
+    Execute this step for both of your divisional IoT hubs.
+
+    **Subscription**: If you have multiple subscriptions, choose the subscription where you created the divisional IoT hubs.
+
+    **IoT hub**: Select one of the divisional hubs you created.
+
+    **Access Policy**: Choose **iothubowner**.
+
+    ![Link the divisional IoT hubs with the provisioning service](./media/how-to-use-custom-allocation-policies/link-divisional-hubs.png)
+
+5. On **Add Enrollment Group**, once both divisional IoT hubs have been linked, you must select them as the IoT Hub group for the enrollment group as shown below:
+
+    ![Create the divisional hub group for the enrollment](./media/how-to-use-custom-allocation-policies/enrollment-divisional-hub-group.png)
+
+6. On **Add Enrollment Group**, scroll down to the **Select Azure Function** section, select the Function app you created in the previous section. Then select the function you created and select Save to save the enrollment group.
+
+    ![Select the function and save the enrollment group](./media/how-to-use-custom-allocation-policies/save-enrollment.png)
+
+7. After saving the enrollment, reopen it and make a note of the **Primary Key**. You must save the enrollment first to have the keys generated. This key will be used to generate unique device keys for simulated devices later.
 
 ## Derive unique device keys
 
