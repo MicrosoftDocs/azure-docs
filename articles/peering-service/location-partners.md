@@ -1,6 +1,6 @@
 ---
-title: Azure Peering Service location and partners
-description: Learn about Azure Peering Service location and partners
+title: Azure Peering Service locations and partners
+description: Learn about Azure Peering Service locations and partners
 services: peering-service
 author: ypitsch
 ms.service: peering-service
@@ -14,18 +14,18 @@ ms.author: v-meravi
 
 # Peering Service Preview partners
 
-Microsoft has partnered with Internet Service Providers (ISP), Internet Exchange Providers (IXP) and, Software Defined Cloud Interconnect (SDCI) providers, worldwide, to provide highly reliable, and performant public connectivity with optimal routing from the customer to the Microsoft network.
+Microsoft has partnered with internet service providers (ISPs), internet exchange providers (IXPs), and software-defined cloud interconnect (SDCI) providers worldwide to provide reliable and high-performing public connectivity with optimal routing from the customer to the Microsoft network.
 
-This article provides information on the connectivity providers that are partnered with Microsoft to offer Peering Service connection to the customers.
+This article provides information on the connectivity providers that are partnered with Microsoft to offer Azure Peering Service connection to customers.
 
 > [!IMPORTANT]
-> "Peering Service” is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Peering Service is currently in public preview.
+> This preview version is provided without a service level agreement. We don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Peering Service partners list
 
-The table in this article provides information on the Peering Service connectivity partners (Preview) and their associated market.
+The table in this article provides information on the Peering Service connectivity partners (Preview) and their associated markets.
 
 | **Partners** | **Market**|
 |-----------|---------|
@@ -41,20 +41,15 @@ The table in this article provides information on the Peering Service connectivi
 | [PCCW](https://www.pccwglobal.com/en/enterprise/products/network/ep-global-internet-access) |Asia |
 | [Singtel](https://www.singtel.com/business/campaign/singnet-cloud-connect-microsoft-direct) |Asia |
 
-> [!Note]
->For more information about enlisting to Peering Service Partner program, reach out to peeringservice@microsoft.com.
+> [!NOTE]
+>For more information about enlisting with the Peering Service Partner program, reach out to peeringservice@microsoft.com.
 >
 
 ## Next steps
 
-To learn about Peering Service, see [Peering Service Overview](about.md).
-
-To learn about Peering Service FAQs, see [Peering Service FAQ](faq.md).
-
-To learn about Partners onboarding and Peering configuration, see [Peering configuration](https://peering-docs.azurewebsites.net/azure/peering/peering-service-overview).
-
-To learn about Peering Service connection, see [Peering Service connection](connection.md).
-
-To learn about Peering Service connection telemetry, see [Peering Service connection telemetry](connection-telemetry.md).
-
-To learn about onboarding Peering Service connection, see [Onboarding Peering Service](onboarding-model.md).
+- To learn about Peering Service, see [Peering Service overview](about.md).
+- To learn about Peering Service FAQs, see [Peering Service FAQ](faq.md).
+- To learn about partners onboarding and Peering Service configuration, see [Peering Service configuration](https://peering-docs.azurewebsites.net/azure/peering/peering-service-overview).
+- To learn about Peering Service connection, see [Peering Service connection](connection.md).
+- To learn about Peering Service connection telemetry, see [Peering Service connection telemetry](connection-telemetry.md).
+- To learn about onboarding a Peering Service connection, see [Onboarding Peering Service](onboarding-model.md).

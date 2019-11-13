@@ -1,9 +1,9 @@
 ---
-title: This quickstart shows how to use a symmetric key to provision a simulated device to Azure IoT Hub using C | Microsoft Docs
+title: "Quickstart: How to use a symmetric key to provision a simulated device to Azure IoT Hub using C"
 description: In this quickstart you will use the C device SDK to create a simulated device that uses symmetric key with the Azure IoT Hub Device Provisioning Service
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/10/2019
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 

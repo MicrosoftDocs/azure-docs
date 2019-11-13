@@ -154,6 +154,8 @@
     - name: Deploy - REST API
       displayName: deployment
       href: resource-group-template-deploy-rest.md
+    - name: What-if deployment
+      href: template-deploy-what-if.md
     - name: Redeploy on error
       displayName: rollback
       href: rollback-on-error.md
