@@ -103,7 +103,7 @@ In this step, you need to select the Linux machine that will act as a proxy betw
     - Port = 514
     - Format = CEF
     - IP address - make sure to send the CEF messages to the IP address of the virtual machine you dedicated for this purpose.
- For more information, see the [Zscaler Azure Sentinel integration guide](https://aka.ms/ZscalerCEFInstructions).
+ For more information, see the [Zscaler and Azure Sentinel Deployment Guide](https://aka.ms/ZscalerCEFInstructions).
  
    > [!NOTE]
    > This solution supports Syslog RFC 3164 or RFC 5424.
