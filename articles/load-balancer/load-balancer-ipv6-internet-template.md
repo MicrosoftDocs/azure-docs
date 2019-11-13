@@ -1,6 +1,6 @@
 ---
 title: Deploy an Internet-facing load-balancer with IPv6 - Azure template
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: How to deploy IPv6 support for Azure Load Balancer and load-balanced VMs.
 services: load-balancer
 documentationcenter: na

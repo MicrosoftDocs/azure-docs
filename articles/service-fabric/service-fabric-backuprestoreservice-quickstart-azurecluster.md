@@ -1,6 +1,6 @@
 ---
 
-title: Periodic backup and restore in Azure Service Fabric  | Microsoft Docs
+title: Periodic backup and restore in Azure Service Fabric
 description: Use Service Fabric's periodic backup and restore feature for enabling periodic data backup of your application data.
 services: service-fabric
 documentationcenter: .net
@@ -207,6 +207,17 @@ $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Applications
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ``` 
 
+#### Using Service Fabric Explorer
+
+1. Select an application and go to action. Click Enable/Update Application Backup.
+
+    ![Enable Application Backup][3]
+
+2. Finally, select the desired policy and click Enable Backup.
+
+    ![Select Policy][4]
+
+
 ### Verify that periodic backups are working
 
 After enabling backup at the application level, all partitions belonging to Reliable Stateful services and Reliable Actors under the application will start getting backed-up periodically as per the associated backup policy. 
@@ -277,6 +288,12 @@ CreationTimeUtc         : 2018-04-06T21:25:36Z
 FailureError            : 
 ```
 
+#### Using Service Fabric Explorer
+
+To view backups in Service Fabric Explorer, navigate to a partition and select the Backups tab.
+
+![Enumerate Backups][5]
+
 ## Limitation/ caveats
 - Service Fabric PowerShell cmdlets are in preview mode.
 - No support for Service Fabric clusters on Linux.
@@ -285,6 +302,8 @@ FailureError            :
 - [Understanding periodic backup configuration](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [Backup restore REST API reference](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
-[0]: ./media/service-fabric-backuprestoreservice/PartitionBackedUpHealthEvent_Azure.png
+[0]: ./media/service-fabric-backuprestoreservice/partition-backedup-health-event-azure.png
 [1]: ./media/service-fabric-backuprestoreservice/enable-backup-restore-service-with-portal.png
-
+[3]: ./media/service-fabric-backuprestoreservice/enable-app-backup.png
+[4]: ./media/service-fabric-backuprestoreservice/enable-application-backup.png
+[5]: ./media/service-fabric-backuprestoreservice/backup-enumeration.png

@@ -1,6 +1,6 @@
 ---
 title: 'Azure Backup: Create backup policies using REST API'
-description: Manage backup policies (schedule and retention) using REST API
+description: In this article, you will learn how to create and manage backup policies (schedule and retention) using REST API.
 ms.reviewer: pullabhk
 author: dcurwin
 manager: carmonm
