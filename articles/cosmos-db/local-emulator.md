@@ -414,7 +414,7 @@ To open the Data Explorer, navigate to the following URL in your browser. The em
 
 If you have a .NET client application running on a Linux docker container and if you are running Azure Cosmos emulator on a host machine, in this case you can’t connect to the Azure Cosmos account from the emulator. Because the app is not running on the host machine, the certificate registered on the Linux container that matches the emulator’s endpoint cannot be added. 
 
-As a workaround, you can disable the server’s SSL certificate validation from your client application by passing a `HttpClientHandler` instance as shown in the following .Net code sample. This workaround is only applicable if you are using the `Microsoft.Azure.DocumentDB` Nuget package, it isn't ssupported with the `Microsoft.Azure.Cosmos` Nuget package:
+As a workaround, you can disable the server’s SSL certificate validation from your client application by passing a `HttpClientHandler` instance as shown in the following .Net code sample. This workaround is only applicable if you are using the `Microsoft.Azure.DocumentDB` Nuget package, it isn't supported with the `Microsoft.Azure.Cosmos` Nuget package:
  
  ```csharp
 var httpHandler = new HttpClientHandler()
