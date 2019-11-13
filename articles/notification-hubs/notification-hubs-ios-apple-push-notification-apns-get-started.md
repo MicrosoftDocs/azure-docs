@@ -1,5 +1,5 @@
 ---
-title: Push notifications to iOS apps using Azure Notification Hubs | Microsoft Docs
+title: Send push notifications to iOS apps using Azure Notification Hubs | Microsoft Docs
 description: In this tutorial, you learn how to use Azure Notification Hubs to send push notifications to an iOS application.
 services: notification-hubs
 documentationcenter: ios
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/07/2019
+ms.date: 11/13/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 05/21/2019
 ---
 
-# Tutorial: Push notifications to iOS apps using Azure Notification Hubs
+# Tutorial: Send push notifications to iOS apps using Azure Notification Hubs
 
 > [!div class="op_single_selector"]
 > * [Objective-C](notification-hubs-ios-apple-push-notification-apns-get-started.md)
@@ -69,13 +69,13 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 
     ![Xcode - project options][11]
 
-3. Under Project Navigator, click your project name, click the **General** tab, and find **Signing**. Make sure you select the appropriate Team for your Apple Developer account. XCode should automatically pull down the Provisioning Profile you created previously based on your bundle identifier.
+3. Under Project Navigator, select your project name under **Targets**, then select the **Signing & Capabilities** tab. Make sure you select the appropriate **Team** for your Apple Developer account. XCode should automatically pull down the Provisioning Profile you created previously based on your bundle identifier.
 
     If you don't see the new provisioning profile that you created in Xcode, try refreshing the profiles for your signing identity. Click **Xcode** on the menu bar, click **Preferences**, click the **Account** tab, click the **View Details** button, click your signing identity, and then click the refresh button in the bottom-right corner.
 
     ![Xcode - provisioning profile][9]
 
-4. Select the **Capabilities** tab and make sure to enable Push Notifications
+4. In the **Signing & Capabilities** tab, select **+ Capability**.  Double-click **Push Notifications** to enable it.
 
     ![Xcode - push capabilities][12]
 
@@ -121,14 +121,14 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 
         ![Unzip Azure SDK][10]
 
-6. Add a new header file to your project named `HubInfo.h`. This file holds the constants for your notification hub. Add the following definitions and replace the string literal placeholders with your *hub name* and the *DefaultListenSharedAccessSignature* noted earlier.
+6. Add a new header file to your project named `HubInfo.h`. To do so, right-click the project name and select **New File...**. Then select **Header File**. This file holds the constants for your notification hub. Add the following definitions and replace the string literal placeholders with your *hub name* and the *DefaultListenSharedAccessSignature* noted earlier.
 
     ```objc
     #ifndef HubInfo_h
     #define HubInfo_h
 
     #define HUBNAME @"<Enter the name of your hub>"
-    #define HUBLISTENACCESS @"<Enter your DefaultListenSharedAccess connection string"
+    #define HUBLISTENACCESS @"<Enter your DefaultListenSharedAccess connection string>"
 
     #endif /* HubInfo_h */
     ```
@@ -153,7 +153,7 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 9. In the same file, add the following methods:
 
     ```objc
-    (void) application:(UIApplication *) application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *) deviceToken {
+    - (void) application:(UIApplication *) application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *) deviceToken {
      SBNotificationHub* hub = [[SBNotificationHub alloc] initWithConnectionString:HUBLISTENACCESS
                                  notificationHubPath:HUBNAME];
 
@@ -167,7 +167,7 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
      }];
      }
 
-    (void)MessageBox:(NSString *) title message:(NSString *)messageText
+    - (void)MessageBox:(NSString *) title message:(NSString *)messageText
     {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:messageText preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
@@ -181,7 +181,7 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 10. In the same file, add the following method to display a **UIAlert** if the notification is received while the app is active:
 
     ```objc
-    (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
+    - (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
       NSLog(@"%@", userInfo);
       [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]];
     }
