@@ -1,5 +1,5 @@
 ---
-title: Source transformation in mapping data flow - Azure Data Factory | Microsoft Docs
+title: Source transformation in mapping data flow - Azure Data Factory 
 description: Learn how to set up a source transformation in mapping data flow. 
 author: kromerm
 ms.author: makromer

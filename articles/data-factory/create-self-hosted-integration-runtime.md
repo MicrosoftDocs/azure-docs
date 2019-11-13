@@ -1,5 +1,5 @@
 ---
-title: Create a self-hosted integration runtime in Azure Data Factory | Microsoft Docs
+title: Create a self-hosted integration runtime in Azure Data Factory 
 description: Learn how to create a self-hosted integration runtime in Azure Data Factory, which allows data factories to access data stores in a private network.
 services: data-factory
 documentationcenter: ''

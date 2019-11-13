@@ -1,5 +1,5 @@
 ---
-title: Collation - Azure SQL Data Warehouse 
+title: Collation 
 description: Collation types supported in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: antvgski 
@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: anvang
 ms.reviewer: jrasnick
+ms.custom: seo-lt-2019
 ---
 
 # Database collation support for Azure SQL Data Warehouse

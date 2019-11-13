@@ -1,5 +1,5 @@
 ﻿---
-title: PowerShell example-active geo-replication-single Azure SQL Database | Microsoft Docs
+title: PowerShell example-active geo-replication-single Azure SQL Database 
 description: Azure PowerShell example script to set up active geo-replication for a single database in Azure SQL Database and fail it over.
 services: sql-database
 ms.service: sql-database

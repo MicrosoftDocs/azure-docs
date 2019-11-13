@@ -205,7 +205,7 @@ az network public-ip show \
 
 ## Test the application gateway
 
-Enter your domain name into the address bar of your browser. Such as, http://www.contoso.com.
+Enter your domain name into the address bar of your browser. Such as, `http://www.contoso.com`.
 
 ![Test contoso site in application gateway](./media/tutorial-internal-site-redirect-cli/application-gateway-nginxtest.png)
 

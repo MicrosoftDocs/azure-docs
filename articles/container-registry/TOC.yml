@@ -39,7 +39,7 @@
       href: container-registry-tutorial-deploy-update.md
 - name: Concepts
   items:
-  - name: Container registry SKUs
+  - name: Container registry SKUs and limits
     href: container-registry-skus.md
   - name: Registries, repositories, and images
     href: container-registry-concepts.md
@@ -75,8 +75,6 @@
         href: container-registry-retention-policy.md
       - name: Automatically purge tags and manifests (preview)
         href: container-registry-auto-purge.md
-    - name: Upgrade a Classic registry
-      href: container-registry-upgrade.md
     - name: Use ACR webhooks
       href: container-registry-webhook.md
     - name: Helm chart repositories (preview)

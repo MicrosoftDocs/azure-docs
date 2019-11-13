@@ -1,5 +1,5 @@
 ---
-title: Azure support for generation 2 VMs | Microsoft Docs
+title: Azure support for generation 2 VMs 
 description: Overview of Azure support for generation 2 VMs
 services: virtual-machines-linux
 documentationcenter: ''
@@ -56,7 +56,8 @@ Generation 2 VMs support the following Marketplace images:
 * Windows Server 2012 Datacenter
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
-* Ubuntu Server 16.04+
+* Ubuntu Server 16.04,18.04, 19.04, 19.10 
+* RHEL 8.0
 
 ## On-premises vs. Azure generation 2 VMs
 

@@ -1,5 +1,5 @@
 ---
-title: FAQ - Azure Disk Encryption for Windows VMs | Microsoft Docs
+title: FAQ - Azure Disk Encryption for Windows VMs 
 description: This article provides answers to frequently asked questions about Microsoft Azure Disk Encryption for Windows IaaS VMs.
 author: msmbaldwin
 ms.service: security

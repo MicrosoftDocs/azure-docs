@@ -1,5 +1,5 @@
 ---
-title: Resource classes for workload management in Azure SQL Data Warehouse 
+title: Resource classes for workload management 
 description: Guidance for using resource classes to manage concurrency and compute resources for queries in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
@@ -10,6 +10,7 @@ ms.subservice: workload-management
 ms.date: 11/04/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
+ms.custom: seo-lt-2019
 ---
 
 # Workload management with resource classes in Azure SQL Data Warehouse

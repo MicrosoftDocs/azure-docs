@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/01/2019
+ms.date: 11/05/2019
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -17,7 +17,7 @@ You can save money on storage costs for blob data with Azure Storage reserved ca
 
 Azure Storage reserved capacity can significantly reduce your capacity costs for block blobs and Azure Data Lake Storage Gen2 data. The cost savings achieved depend on the duration of your reservation, the total capacity you choose to reserve, and the access tier and type of redundancy that you've chosen for your storage account. Reserved capacity provides a billing discount and doesn't affect the state of your Azure Storage resources.
 
-For information about Azure Storage reservation pricing, see [Block blob pricing](/pricing/details/storage/blobs/) and [Azure Data Lake Storage Gen 2 pricing](/pricing/details/storage/data-lake/).
+For information about Azure Storage reservation pricing, see [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) and [Azure Data Lake Storage Gen 2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/).
 
 ## Reservation terms for Azure Storage
 
@@ -25,7 +25,7 @@ The following sections describe the terms of an Azure Storage reservation.
 
 ### Reservation capacity
 
-You can purchase Azure Storage reserved capacity in units of 100 TiB and 1 PiB per month for a one-year or three-year term.
+You can purchase Azure Storage reserved capacity in units of 100 TB and 1 PB per month for a one-year or three-year term.
 
 ### Reservation scope
 
@@ -56,7 +56,7 @@ To purchase reserved capacity:
 
 When you purchase an Azure Storage reservation, you must choose the region, access tier, and redundancy option for the reservation. Your reservation is valid only for data stored in that region, access tier, and redundancy level. For example, suppose you purchase a reservation for data in US West for the hot tier using zone-redundant storage (ZRS). You cannot use the same reservation for data in US East, data in the archive tier, or data in geo-redundant storage (GRS). However, you can purchase another reservation for your additional needs.  
 
-Reservations are available today for 100 TiB or 1 PiB blocks, with higher discounts for 1 PiB blocks. When you purchase a reservation in the Azure portal, Microsoft may provide you with recommendations based on your previous usage to help determine which reservation you should purchase.
+Reservations are available today for 100 TB or 1 PB blocks, with higher discounts for 1 PB blocks. When you purchase a reservation in the Azure portal, Microsoft may provide you with recommendations based on your previous usage to help determine which reservation you should purchase.
 
 ## Purchase Azure Storage reserved capacity
 

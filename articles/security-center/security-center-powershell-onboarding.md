@@ -1,5 +1,5 @@
 ---
-title: Use PowerShell to onboard Azure Security Center and protect your network | Microsoft Docs
+title: Onboard to Azure Security Center with PowerShell
 description: This document walks you through the process of onboarding Azure Security Center using PowerShell cmdlets.
 services: security-center
 documentationcenter: na

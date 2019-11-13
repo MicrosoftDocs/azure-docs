@@ -1,5 +1,5 @@
 ---
-title: Data Management Gateway for Data Factory | Microsoft Docs
+title: Data Management Gateway for Data Factory 
 description: Set up a data gateway to move data between on-premises and the cloud. Use Data Management Gateway in Azure Data Factory to move your data.
 services: data-factory
 documentationcenter: ''

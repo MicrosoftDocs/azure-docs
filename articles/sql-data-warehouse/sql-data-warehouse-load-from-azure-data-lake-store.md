@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial Load from Azure Data Lake Storage to Azure SQL Data Warehouse '
+title: 'Tutorial load data from Azure Data Lake Storage'
 description: Use PolyBase external tables to load data from Azure Data Lake Storage into Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,6 +10,7 @@ ms.subservice: load-data
 ms.date: 08/08/2019
 ms.author: kevin
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # Load data from Azure Data Lake Storage to SQL Data Warehouse

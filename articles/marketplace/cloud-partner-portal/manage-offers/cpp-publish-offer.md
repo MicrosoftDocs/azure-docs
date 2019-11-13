@@ -4,6 +4,7 @@ description: Publish offers on the Azure and AppSource Marketplaces using the Cl
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, 
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/12/2019
 ms.author: pabutler

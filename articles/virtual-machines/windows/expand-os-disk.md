@@ -1,5 +1,5 @@
 ---
-title: Expand the OS drive of a Windows VM in an Azure | Microsoft Docs
+title: Expand the OS drive of a Windows VM in an Azure 
 description: Expand the size of the OS drive of a virtual machine using Azure Powershell in the  Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -34,7 +34,7 @@ When you create a new virtual machine (VM) in a Resource Group by deploying an i
 > 
 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 
 ## Resize a managed disk
