@@ -15,7 +15,7 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/30/2019
+ms.date: 11/07/2019
 ms.author: radeltch
 
 ---
@@ -63,20 +63,20 @@ This article explains how to achieve high availability for SAP NetWeaver applica
 Read the following SAP Notes and papers first:
 
 * [Azure NetApp Files documentation][anf-azure-doc] 
-* SAP Note [1928533], which has:  
+* SAP Note [1928533][1928533], which has:  
   * List of Azure VM sizes that are supported for the deployment of SAP software
   * Important capacity information for Azure VM sizes
   * Supported SAP software, and operating system (OS) and database combinations
   * Required SAP kernel version for Windows and Linux on Microsoft Azure
-* SAP Note [2015553] lists prerequisites for SAP-supported SAP software deployments in Azure.
-* SAP Note [2205917] has recommended OS settings for SUSE Linux Enterprise Server for SAP Applications
-* SAP Note [1944799] has SAP HANA Guidelines for SUSE Linux Enterprise Server for SAP Applications
-* SAP Note [2178632] has detailed information about all monitoring metrics reported for SAP in Azure.
-* SAP Note [2191498] has the required SAP Host Agent version for Linux in Azure.
-* SAP Note [2243692] has information about SAP licensing on Linux in Azure.
-* SAP Note [1984787] has general information about SUSE Linux Enterprise Server 12.
-* SAP Note [1999351] has additional troubleshooting information for the Azure Enhanced Monitoring Extension for SAP.
-* [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) has all required SAP Notes for Linux.
+* SAP Note [2015553][2015553] lists prerequisites for SAP-supported SAP software deployments in Azure.
+* SAP Note [2205917][2205917] has recommended OS settings for SUSE Linux Enterprise Server for SAP Applications
+* SAP Note [1944799][1944799] has SAP HANA Guidelines for SUSE Linux Enterprise Server for SAP Applications
+* SAP Note [2178632][2178632] has detailed information about all monitoring metrics reported for SAP in Azure.
+* SAP Note [2191498][2191498] has the required SAP Host Agent version for Linux in Azure.
+* SAP Note [2243692][2243692] has information about SAP licensing on Linux in Azure.
+* SAP Note [1984787][1984787] has general information about SUSE Linux Enterprise Server 12.
+* SAP Note [1999351][1999351] has additional troubleshooting information for the Azure Enhanced Monitoring Extension for SAP.
+* SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) has all required SAP Notes for Linux.
 * [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide]
 * [Azure Virtual Machines deployment for SAP on Linux][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
@@ -95,7 +95,7 @@ Now it is possible to achieve SAP Netweaver HA by using shared storage, deployed
 
 ![SAP NetWeaver High Availability overview](./media/high-availability-guide-suse-anf/high-availability-guide-suse-anf.PNG)
 
-SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA database use virtual hostname and virtual IP addresses. On Azure, a [load balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) is required to use a virtual IP address. The following list shows the configuration of the (A)SCS and ERS load balancer.
+SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA database use virtual hostname and virtual IP addresses. On Azure, a [load balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) is required to use a virtual IP address. We recommend using [Standard load balancer](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal). The following list shows the configuration of the (A)SCS and ERS load balancer.
 
 > [!IMPORTANT]
 > Multi-SID clustering of SAP ASCS/ERS with SUSE Linux as guest operating system in Azure VMs is **NOT supported**. Multi-SID clustering describes the installation of multiple SAP ASCS/ERS instances with different SIDs in one Pacemaker cluster
@@ -110,13 +110,15 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA datab
 * Probe Port
   * Port 620<strong>&lt;nr&gt;</strong>
 * Load-balancing rules
-  * 32<strong>&lt;nr&gt;</strong> TCP
-  * 36<strong>&lt;nr&gt;</strong> TCP
-  * 39<strong>&lt;nr&gt;</strong> TCP
-  * 81<strong>&lt;nr&gt;</strong> TCP
-  * 5<strong>&lt;nr&gt;</strong>13 TCP
-  * 5<strong>&lt;nr&gt;</strong>14 TCP
-  * 5<strong>&lt;nr&gt;</strong>16 TCP
+  * If using Standard Load Balancer, select **HA ports**
+  * If using Basic Load Balancer, create Load balancing rules for the following ports
+    * 32<strong>&lt;nr&gt;</strong> TCP
+    * 36<strong>&lt;nr&gt;</strong> TCP
+    * 39<strong>&lt;nr&gt;</strong> TCP
+    * 81<strong>&lt;nr&gt;</strong> TCP
+    * 5<strong>&lt;nr&gt;</strong>13 TCP
+    * 5<strong>&lt;nr&gt;</strong>14 TCP
+    * 5<strong>&lt;nr&gt;</strong>16 TCP
 
 ### ERS
 
@@ -127,11 +129,13 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and the SAP HANA datab
 * Probe Port
   * Port 621<strong>&lt;nr&gt;</strong>
 * Load-balancing rules
-  * 32<strong>&lt;nr&gt;</strong> TCP
-  * 33<strong>&lt;nr&gt;</strong> TCP
-  * 5<strong>&lt;nr&gt;</strong>13 TCP
-  * 5<strong>&lt;nr&gt;</strong>14 TCP
-  * 5<strong>&lt;nr&gt;</strong>16 TCP
+  * If using Standard Load Balancer, select **HA ports**
+  * If using Basic Load Balancer, create Load balancing rules for the following ports
+    * 32<strong>&lt;nr&gt;</strong> TCP
+    * 33<strong>&lt;nr&gt;</strong> TCP
+    * 5<strong>&lt;nr&gt;</strong>13 TCP
+    * 5<strong>&lt;nr&gt;</strong>14 TCP
+    * 5<strong>&lt;nr&gt;</strong>16 TCP
 
 ## Setting up the Azure NetApp Files infrastructure 
 
@@ -207,7 +211,42 @@ In this example, the resources were deployed manually via the [Azure portal](htt
 
 First you need to create the Azure NetApp Files volumes. Deploy the VMs. Afterwards, you create a load balancer and use the virtual machines in the backend pools.
 
-1. Create a Load Balancer (internal)  
+1. Create load balancer (internal, standard):  
+   1. Create the frontend IP addresses
+      1. IP address 10.1.1.20 for the ASCS
+         1. Open the load balancer, select frontend IP pool, and click Add
+         1. Enter the name of the new frontend IP pool (for example **frontend.QAS.ASCS**)
+         1. Set the Assignment to Static and enter the IP address (for example **10.1.1.20**)
+         1. Click OK
+      1. IP address 10.1.1.21 for the ASCS ERS
+         * Repeat the steps above under "a" to create an IP address for the ERS (for example **10.1.1.21** and **frontend.QAS.ERS**)
+   1. Create the backend pools
+      1. Create a backend pool for the ASCS
+         1. Open the load balancer, select backend pools, and click Add
+         1. Enter the name of the new backend pool (for example **backend.QAS**)
+         1. Click Add a virtual machine.
+         1. Select Virtual machine
+         1. Select the virtual machines of the (A)SCS cluster and their IP addresses.
+         1. Click Add
+   1. Create the health probes
+      1. Port 620**00** for ASCS
+         1. Open the load balancer, select health probes, and click Add
+         1. Enter the name of the new health probe (for example **health.QAS.ASCS**)
+         1. Select TCP as protocol, port 620**00**, keep Interval 5 and Unhealthy threshold 2
+         1. Click OK
+      1. Port 621**01** for ASCS ERS
+            * Repeat the steps above under "c" to create a health probe for the ERS (for example 621**01** and **health.QAS.ERS**)
+   1. Load-balancing rules
+      1. Create a backend pool for the ASCS
+         1. Open the load balancer, select Load-balancing rules and click Add
+         1. Enter the name of the new load balancer rule (for example **lb.QAS.ASCS**)
+         1. Select the frontend IP address for ASCS, backend pool, and health probe you created earlier (for example **frontend.QAS.ASCS**, **backend.QAS** and **health.QAS.ASCS**)
+         1. Select **HA ports**
+         1. Increase idle timeout to 30 minutes
+         1. **Make sure to enable Floating IP**
+         1. Click OK
+         * Repeat the steps above to create load balancing rules for ERS (for example **lb.QAS.ERS**)
+1. Alternatively, if your scenario requires basic load balancer (internal), follow these steps:  
    1. Create the frontend IP addresses
       1. IP address 10.1.1.20 for the ASCS
          1. Open the load balancer, select frontend IP pool, and click Add
@@ -245,6 +284,9 @@ First you need to create the Azure NetApp Files volumes. Deploy the VMs. Afterwa
          * Repeat the steps above under "d" for ports 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 and TCP for the ASCS
       1. Additional ports for the ASCS ERS
          * Repeat the steps above under "d" for ports 33**01**, 5**01**13, 5**01**14, 5**01**16 and TCP for the ASCS ERS
+
+> [!Note]
+> When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
 > [!IMPORTANT]
 > Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set parameter **net.ipv4.tcp_timestamps** to **0**. For details see [Load Balancer health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
@@ -393,6 +435,10 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[1]** Create a virtual IP resource and health-probe for the ASCS instance
 
+   > [!IMPORTANT]
+   > Recent testing revealed situations, where netcat stops responding to requests due to backlog and its limitation of handling only one connection. The netcat resource stops listening to the Azure Load balancer requests and the floating IP becomes unavailable.  
+   > For existing Pacemaker clusters, we recommend replacing netcat with socat, following the instructions in [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128). Note that the change will require brief downtime.  
+
    <pre><code>sudo crm node standby <b>anftstsapcl2</b>
    
    sudo crm configure primitive fs_<b>QAS</b>_ASCS Filesystem device='<b>10.1.0.4</b>:/usrsap<b>qas</b>' directory='/usr/sap/<b>QAS</b>/ASCS<b>00</b>' fstype='nfs' \
@@ -405,7 +451,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      op monitor interval=10 timeout=20
    
    sudo crm configure primitive nc_<b>QAS</b>_ASCS anything \
-     params binfile="/usr/bin/nc" cmdline_options="-l -k 620<b>00</b>" \
+     params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:620<b>00</b>,backlog=10,fork,reuseaddr /dev/null" \
      op monitor timeout=20s interval=10 depth=0
    
    sudo crm configure group g-<b>QAS</b>_ASCS fs_<b>QAS</b>_ASCS nc_<b>QAS</b>_ASCS vip_<b>QAS</b>_ASCS \
@@ -460,10 +506,10 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      op monitor interval=10 timeout=20
    
    sudo crm configure primitive nc_<b>QAS</b>_ERS anything \
-    params binfile="/usr/bin/nc" cmdline_options="-l -k 621<b>01</b>" \
+    params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:621<b>01</b>,backlog=10,fork,reuseaddr /dev/null" \
     op monitor timeout=20s interval=10 depth=0
    
-   # WARNING: Resources nc_QAS_ASCS,nc_QAS_ERS violate uniqueness for parameter "binfile": "/usr/bin/nc"
+   # WARNING: Resources nc_QAS_ASCS,nc_QAS_ERS violate uniqueness for parameter "binfile": "/usr/bin/socat"
    # Do you still want to commit (y/n)? y
    
    sudo crm configure group g-<b>QAS</b>_ERS fs_<b>QAS</b>_ERS nc_<b>QAS</b>_ERS vip_<b>QAS</b>_ERS

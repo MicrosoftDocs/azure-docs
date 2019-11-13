@@ -1,6 +1,6 @@
 ---
 title: Understanding a world without passwords with Azure Active Directory | Microsoft Docs
-description: This guide helps CEOs, CIOs, CISOs, Chief Identity Architects, Enterprise Architects, and Security and IT decision makers responsible for choosing a passwordless authentication method for their Azure Active Directory implementation. 
+description: This guide helps CEOs, CIOs, CISOs, Chief Identity Architects, Enterprise Architects, and Security and IT decision makers responsible for choosing a passwordless authentication method for their Azure Active Directory implementation.
 keywords: passwordless, azuread
 author: martincoetzer
 ms.author: martinco
@@ -18,7 +18,7 @@ Three types of attacks commonly used to compromise user accounts are password sp
 
 This article is the beginning of your journey to help you understand and implement Microsoft's passwordless solutions and help you choose between one or more of the following options:
 
-* **Windows Hello for Business**. In Windows 10, Windows Hello for Business replaces passwords with strong two-factor authentication on PCs and mobile devices. This authentication consists of a new type of user credential that is tied to a device and uses a biometric or PIN.
+* **Windows Hello for Business**. In Windows 10, Windows Hello for Business replaces passwords with strong two-factor authentication on PCs and mobile devices. This authentication consists of a new type of user credential that is tied to a device and uses a biometric recognition or PIN.
 
 * **Passwordless sign-in with Microsoft Authenticator**. The Microsoft Authenticator app can be used to sign in to an Azure AD account without using a password. Similar to the technology of Windows Hello for Business, the Microsoft Authenticator uses key-based authentication to enable a user credential that is tied to a device and uses a biometric or PIN.
 
@@ -101,7 +101,7 @@ For a deeper look at the authentication process in other scenarios involving Win
 
 #### User manages their Windows Hello for Business credentials
 
-The [Microsoft PIN reset services](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-features#pin-reset) is a feature in Azure AD that enables users to reset their PIN if needed. Using group policy, Microsoft Intune or a compatible MDM, an administrator can configure Windows 10 devices to securely use the Microsoft PIN reset service that enables users to reset their forgotten PIN through settings or above the lock screen without requiring re-enrollment.
+The [Microsoft PIN reset services](/windows/security/identity-protection/hello-for-business/hello-feature-pin-reset) is a feature in Azure AD that enables users to reset their PIN if needed. Using group policy, Microsoft Intune or a compatible MDM, an administrator can configure Windows 10 devices to securely use the Microsoft PIN reset service that enables users to reset their forgotten PIN through settings or above the lock screen without requiring re-enrollment.
 
 Sometimes users have to fall back to using passwords. [Self-service password reset](../../active-directory/authentication/howto-sspr-deployment.md) (SSPR) is another Azure AD feature that enables users to reset their passwords without needing to contact IT staff. Users must register for or be registered for self-service password reset before using the service. During registration, the user chooses one or more authentication methods enabled by their organization. SSPR enables users to quickly get unblocked and continue working no matter where they are or the time of day. By allowing users to unblock themselves, your organization can reduce the non-productive time and high support costs for most common password-related issues.
 

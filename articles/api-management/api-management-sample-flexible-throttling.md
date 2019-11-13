@@ -25,7 +25,7 @@ To date, the rate throttling capabilities have been limited to being scoped to a
 
 ## Custom key based throttling
 
-> NOTE:
+> [!NOTE]
 > The `rate-limit-by-key` and `quota-by-key` policies are not available when in the Consumption tier of Azure API Management. 
 
 The new [rate-limit-by-key](/azure/api-management/api-management-access-restriction-policies#LimitCallRateByKey) and [quota-by-key](/azure/api-management/api-management-access-restriction-policies#SetUsageQuotaByKey) policies provide a more flexible solution to traffic control. These new policies allow you to define expressions to identify the keys that are used to track traffic usage. The way this works is easiest illustrated with an example. 
@@ -75,5 +75,5 @@ This enables the developer's client application to choose how they want to creat
 Azure API Management provides rate and quote throttling to both protect and add value to your API service. The new throttling policies with custom scoping rules allow you finer grained control over those policies to enable your customers to build even better applications. The examples in this article demonstrate the use of these new policies by manufacturing rate limiting keys with client IP addresses, user identity, and client generated values. However, there are many other parts of the message that could be used such as user agent, URL path fragments, message size.
 
 ## Next steps
-Please give us your feedback in the Disqus thread for this topic. It would be great to hear about other potential key values that have been a logical choice in your scenarios.
+Please give us your feedback as a GitHub issue for this topic. It would be great to hear about other potential key values that have been a logical choice in your scenarios.
 

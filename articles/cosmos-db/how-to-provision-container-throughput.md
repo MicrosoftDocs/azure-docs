@@ -1,11 +1,11 @@
 ---
 title: Provision container throughput in Azure Cosmos DB
 description: Learn how to provision throughput at the container level in Azure Cosmos DB
-author: rimman
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/03/2019
-ms.author: rimman
+ms.date: 09/28/2019
+ms.author: mjbrown
 ---
 
 # Provision throughput on an Azure Cosmos container
@@ -26,48 +26,17 @@ This article explains how to provision throughput on a container (collection, gr
    * Enter a throughput that you want to provision (for example, 1000 RUs).
    * Select **OK**.
 
-![Screenshot of Data Explorer, with New Collection highlighted](./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png)
+    ![Screenshot of Data Explorer, with New Collection highlighted](./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png)
 
-## Provision throughput using Azure CLI
+## Provision throughput using Azure CLI or PowerShell
 
-```azurecli-interactive
-# Create a container with a partition key and provision throughput of 400 RU/s
-az cosmosdb collection create \
-    --resource-group $resourceGroupName \
-    --collection-name $containerName \
-    --name $accountName \
-    --db-name $databaseName \
-    --partition-key-path /myPartitionKey \
-    --throughput 400
-```
+To create a container with dedicated throughput see,
 
-## Provision throughput using PowerShell
+* [Create a container using Azure CLI](manage-with-cli.md#create-a-container)
+* [Create a container using Powershell](manage-with-powershell.md#create-container)
 
-```azurepowershell-interactive
-# Create a container with a partition key and provision throughput of 400 RU/s
-$resourceGroupName = "myResourceGroup"
-$accountName = "mycosmosaccount"
-$databaseName = "database1"
-$containerName = "container1"
-$resourceName = $accountName + "/sql/" + $databaseName + "/" + $containerName
-
-$ContainerProperties = @{
-    "resource"=@{
-        "id"=$containerName;
-        "partitionKey"=@{
-            "paths"=@("/myPartitionKey");
-            "kind"="Hash"
-        }
-    };
-    "options"=@{ "Throughput"= 400 }
-}
-
-New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $resourceName -PropertyObject $ContainerProperties
-```
-
-If you are provisioning throughput on a container in an Azure Cosmos account configured with the Azure Cosmos DB API for MongoDB, use `/myShardKey` for the partition key path. If you are provisioning throughput on a container in an Azure Cosmos account configured with Cassandra API, use `/myPrimaryKey` for the partition key path.
+> [!Note]
+> If you are provisioning throughput on a container in an Azure Cosmos account configured with the Azure Cosmos DB API for MongoDB, use `/myShardKey` for the partition key path. If you are provisioning throughput on a container in an Azure Cosmos account configured with Cassandra API, use `/myPrimaryKey` for the partition key path.
 
 ## Provision throughput by using .NET SDK
 
@@ -93,14 +62,23 @@ await client.CreateDocumentCollectionAsync(
 [!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/ContainerDocsSampleCode.cs?name=ContainerCreateWithThroughput)]
 
 ### <a id="dotnet-cassandra"></a>Cassandra API
+Similar commands can be issued through any CQL-compliant driver.
 
 ```csharp
 // Create a Cassandra table with a partition (primary) key and provision throughput of 400 RU/s
-session.Execute(CREATE TABLE myKeySpace.myTable(
+session.Execute("CREATE TABLE myKeySpace.myTable(
     user_id int PRIMARY KEY,
     firstName text,
-    lastName text) WITH cosmosdb_provisioned_throughput=400);
+    lastName text) WITH cosmosdb_provisioned_throughput=400");
+
 ```
+### Alter or change throughput for Cassandra table
+
+```csharp
+// Altering the throughput too can be done through code by issuing following command
+session.Execute("ALTER TABLE myKeySpace.myTable WITH cosmosdb_provisioned_throughput=5000");
+```
+
 
 ## Next steps
 

@@ -51,13 +51,13 @@ Data transfer between endpoints requires creation of several flows in addition t
 
 ## Flow Limits and Recommendations
 
-Today, the Azure networking stack supports 250K total network flows with good performance for VMs with greater than 8 CPU cores and 100k total flows with good performance for VMs with fewer than 8 CPU cores. Past this limit network performance degrades gracefully for additional flows up to a hard limit of 1M total flows, 500K inbound and 500K outbound, after which additional flows are dropped.
+Today, the Azure networking stack supports 250K total network flows with good performance for VMs with greater than 8 CPU cores and 100k total flows with good performance for VMs with fewer than 8 CPU cores. Past this limit network performance degrades gracefully for additional flows up to a hard limit of 500K total flows, 250K inbound and 250K outbound, after which additional flows are dropped.
 
 ||VMs with <8 CPU Cores|VMs with 8+ CPU Cores|
 |---|---|---|
 |<b>Good Performance</b>|100K Flows |250K Flows|
 |<b>Degraded Performance</b>|Above 100k Flows|Above 250K Flows|
-|<b>Flow Limit</b>|1M Flows|1M Flows|
+|<b>Flow Limit</b>|500K Flows|500K Flows|
 
 Metrics are available in [Azure Monitor](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) to track the number of network flows and the flow creation rate on your VM or VMSS instances.
 

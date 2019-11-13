@@ -4,13 +4,11 @@ description: How to create an run a Jupyter notebook in Azure Notebooks that dem
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
-
+manager: barbkess
 ms.assetid: 65bbb5fe-9939-4e8e-8f5b-c197d4be142a
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: kraigb
@@ -427,4 +425,4 @@ How-to articles:
 - [Present a slide show](present-jupyter-notebooks-slideshow.md)
 - [Work with data files](work-with-project-data-files.md)
 - [Access data resources](access-data-resources-jupyter-notebooks.md)
-- [Use Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)
+- [Use Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)

@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Automate container image builds on base image update - Azure Container Registry Tasks
+title: Tutorial - Trigger image build on base image update - Azure Container Registry
 description: In this tutorial, you learn how to configure an Azure Container Registry Task to automatically trigger container image builds in the cloud when a base image is updated.
 services: container-registry
 author: dlepow
@@ -124,7 +124,6 @@ az acr task create \
     --arg REGISTRY_NAME=$ACR_NAME.azurecr.io \
     --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
     --file Dockerfile-app \
-    --branch master \
     --git-access-token $GIT_PAT
 ```
 

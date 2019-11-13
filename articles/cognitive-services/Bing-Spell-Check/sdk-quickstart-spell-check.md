@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 09/13/2019
 ms.author: aahi
 ---
 
@@ -76,7 +76,7 @@ To add the Bing Spell Check SDK to your project, select **Manage NuGet Packages*
     }
     ```
 
-3. Get the first suggested correction, if there is one.Print the suggestion score, and the suggested word. 
+3. Get the first suggested correction, if there is one. Print the suggestion score, and the suggested word. 
 
     ```csharp
             var suggestions = firstspellCheckResult.Suggestions;

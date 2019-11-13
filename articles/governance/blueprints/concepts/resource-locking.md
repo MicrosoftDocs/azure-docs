@@ -1,12 +1,8 @@
 ---
 title: Understand resource locking
 description: Learn about the locking options to protect resources when assigning a blueprint.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 04/24/2019
 ms.topic: conceptual
-ms.service: blueprints
-manager: carmonm
 ---
 # Understand resource locking in Azure Blueprints
 

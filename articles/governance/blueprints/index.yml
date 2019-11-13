@@ -71,6 +71,8 @@ landingContent:
             url: ./how-to/update-existing-assignments.md
           - text: Manage assignments with PowerShell
             url: ./how-to/manage-assignments-ps.md
+          - text: Import and export with PowerShell
+            url: ./how-to/import-export-ps.md
           - text: Implement Blueprint Operators
             url: ./how-to/configure-for-blueprint-operator.md
           - text: Manage Blueprints as Code

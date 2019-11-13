@@ -27,7 +27,7 @@ Add a [package reference](https://docs.microsoft.com/nuget/consume-packages/pack
 </ItemGroup>
 ```
 
-Create a [NuGet.Config](https://docs.microsoft.com/nuget/reference/nuget-config-file) file in the project folder and set the `packageSources` and `packageSourceCredentials` sections for your NuGet feed. The `packageSources` section contains your feed url, which must be publicly accessible. The `packageSourceCredentials` are the credentials for accessing the feed. For example:
+Create a [NuGet.Config](https://docs.microsoft.com/nuget/reference/nuget-config-file) file in the project folder and set the `packageSources` and `packageSourceCredentials` sections for your NuGet feed. The `packageSources` section contains your feed url, which must be accessible from your AKS cluster. The `packageSourceCredentials` are the credentials for accessing the feed. For example:
 
 ```xml
 <packageSources>
@@ -58,7 +58,7 @@ If you are using Git, you should not have the credentials for your NuGet feed in
 build:
 useGitIgnore: true
 ignore:
-- “!NuGet.Config”
+- "!NuGet.Config"
 ```
 
 If you are not using Git, you can skip this step.

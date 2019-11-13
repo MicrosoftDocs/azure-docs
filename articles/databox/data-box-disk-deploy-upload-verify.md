@@ -8,7 +8,7 @@ ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
 ms.localizationpriority: high 
-ms.date: 09/03/2019
+ms.date: 09/04/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -70,7 +70,7 @@ Verify that your data is in the storage account(s) before you delete it from the
 
 ::: zone target="chromeless"
 
-# Verify data upload to Azure
+## Verify data upload to Azure
 
 After the data is uploaded to Azure, verify that your data is in the storage account(s) before you delete it from the source. Your data can be in:
 

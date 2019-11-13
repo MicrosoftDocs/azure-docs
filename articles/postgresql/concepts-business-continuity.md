@@ -1,6 +1,6 @@
 ---
 title: Overview of business continuity with Azure Database for PostgreSQL - Single Server
-description: Overview of business continuity with Azure Database for PostgreSQL.
+description: This article describes business continuity (point in time restore, data center outage, geo-restore) when using Azure Database for PostgreSQL.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql

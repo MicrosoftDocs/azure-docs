@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 10/28/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -112,6 +112,8 @@ Configure email addresses here for users who will receive fraud alert emails.
 >[!NOTE]
 >When Multi-Factor Authentication calls are placed through the public telephone network, sometimes they are routed through a carrier that doesn't support caller ID. Because of this, caller ID is not guaranteed, even though the Multi-Factor Authentication system always sends it.
 
+In the United States, if you haven't configured MFA Caller ID, voice calls from Microsoft come from the following numbers: +1 (866) 539 4191, +1 (855) 330 8653, and +1 (877) 668 6536. If using spam filters, make sure to exclude these numbers.
+
 ### Custom voice messages
 
 You can use your own recordings or greetings for two-step verification with the _custom voice messages_ feature. These messages can be used in addition to or to replace the Microsoft recordings.
@@ -212,6 +214,8 @@ Settings for app passwords, trusted IPs, verification options, and remember mult
 
 ![Azure Multi-Factor Authentication service settings](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-service-settings.png)
 
+The trusted IP address ranges can be private or public.
+
 ## App passwords
 
 Some applications, like Office 2010 or earlier and Apple Mail before iOS 11, don't support two-step verification. The apps aren't configured to accept a second verification. To use these applications, take advantage of the _app passwords_ feature. You can use an app password in place of your traditional password to allow an app to bypass two-step verification and continue working.
@@ -271,7 +275,7 @@ Azure AD supports federation, or single sign-on (SSO), with on-premises Windows 
 By default, users can't create app passwords. The app passwords feature must be enabled. To give users the ability to create app passwords, use the following procedure:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, select **Azure Active Directory** > **Users and groups** > **All users**.
+2. On the left, select **Azure Active Directory** > **Users**.
 3. Select **Multi-Factor Authentication**.
 4. Under Multi-Factor Authentication, select **service settings**.
 5. On the **Service Settings** page, select the **Allow users to create app passwords to sign in to non-browser apps** option.
@@ -293,7 +297,7 @@ If your organization deploys the NPS extension to provide MFA to on-premises app
 
 | Azure AD tenant type | Trusted IPs feature options |
 |:--- |:--- |
-| Managed |**Specific range of IP addresses**: Administrators specify a range of IP addresses that can bypass two-step verification for users who sign in from the company intranet.|
+| Managed |**Specific range of IP addresses**: Administrators specify a range of IP addresses that can bypass two-step verification for users who sign in from the company intranet. A maximum of 50 Trusted IP ranges can be configured.|
 | Federated |**All Federated Users**: All federated users who sign in from inside of the organization can bypass two-step verification. The users bypass verification by using a claim that is issued by Active Directory Federation Services (AD FS).<br/>**Specific range of IP addresses**: Administrators specify a range of IP addresses that can bypass two-step verification for users who sign in from the company intranet. |
 
 The Trusted IPs bypass works only from inside of the company intranet. If you select the **All Federated Users** option and a user signs in from outside the company intranet, the user has to authenticate by using two-step verification. The process is the same even if the user presents an AD FS claim. 
@@ -311,7 +315,7 @@ Regardless of whether the Trusted IPs feature is enabled, two-step verification 
 ### Enable named locations by using Conditional Access
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, select **Azure Active Directory** > **Conditional Access** > **Named locations**.
+2. On the left, select **Azure Active Directory** > **Security** > **Conditional Access** > **Named locations**.
 3. Select **New location**.
 4. Enter a name for the location.
 5. Select **Mark as trusted location**.
@@ -321,7 +325,7 @@ Regardless of whether the Trusted IPs feature is enabled, two-step verification 
 ### Enable the Trusted IPs feature by using Conditional Access
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, select **Azure Active Directory** > **Conditional Access** > **Named locations**.
+2. On the left, select **Azure Active Directory** > **Security** >  **Conditional Access** > **Named locations**.
 3. Select **Configure MFA trusted IPs**.
 4. On the **Service Settings** page, under **Trusted IPs**, choose from any of the following two options:
 
@@ -365,13 +369,13 @@ When your users enroll their accounts for Azure Multi-Factor Authentication, the
 |:--- |:--- |
 | Call to phone |Places an automated voice call. The user answers the call and presses # in the phone keypad to authenticate. The phone number is not synchronized to on-premises Active Directory. |
 | Text message to phone |Sends a text message that contains a verification code. The user is prompted to enter the verification code into the sign-in interface. This process is called one-way SMS. Two-way SMS means that the user must text back a particular code. Two-way SMS is deprecated and not supported after November 14, 2018. Users who are configured for two-way SMS are automatically switched to _call to phone_ verification at that time.|
-| Notification through mobile app |Sends a push notification to your phone or registered device. The user views the notification and selects **Verify** to complete verification. The Microsoft Authenticator app is available for [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071), [Android](https://go.microsoft.com/fwlink/?Linkid=825072), and [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
-| Verification code from mobile app or hardware token |The Microsoft Authenticator app generates a new OATH verification code every 30 seconds. The user enters the verification code into the sign-in interface. The Microsoft Authenticator app is available for [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071), [Android](https://go.microsoft.com/fwlink/?Linkid=825072), and [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
+| Notification through mobile app |Sends a push notification to your phone or registered device. The user views the notification and selects **Verify** to complete verification. The Microsoft Authenticator app is available for [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6), [Android](https://go.microsoft.com/fwlink/?Linkid=825072), and [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
+| Verification code from mobile app or hardware token |The Microsoft Authenticator app generates a new OATH verification code every 30 seconds. The user enters the verification code into the sign-in interface. The Microsoft Authenticator app is available for [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6), [Android](https://go.microsoft.com/fwlink/?Linkid=825072), and [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### Enable and disable verification methods
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, select **Azure Active Directory** > **Users and groups** > **All users**.
+2. On the left, select **Azure Active Directory** > **Users**.
 3. Select **Multi-Factor Authentication**.
 4. Under Multi-Factor Authentication, select **service settings**.
 5. On the **Service Settings** page, under **verification options**, select/unselect the methods to provide to your users.
@@ -384,7 +388,7 @@ Additional details about the use of authentication methods can be found in the a
 The _remember Multi-Factor Authentication_ feature for devices and browsers that are trusted by the user is a free feature for all Multi-Factor Authentication users. Users can bypass subsequent verifications for a specified number of days, after they've successfully signed-in to a device by using Multi-Factor Authentication. The feature enhances usability by minimizing the number of times a user has to perform two-step verification on the same device.
 
 >[!IMPORTANT]
->If an account or device is compromised, remembering Multi-Factor Authentication for trusted devices can affect security. If a corporate account becomes compromised or a trusted device is lost or stolen, you should [restore Multi-Factor Authentication on all devices](howto-mfa-userdevicesettings.md#restore-mfa-on-all-remembered-devices-for-a-user).
+>If an account or device is compromised, remembering Multi-Factor Authentication for trusted devices can affect security. If a corporate account becomes compromised or a trusted device is lost or stolen, you should [Revoke MFA Sessions](howto-mfa-userdevicesettings.md).
 >
 >The restore action revokes the trusted status from all devices, and the user is required to perform two-step verification again. You can also instruct your users to restore Multi-Factor Authentication on their own devices with the instructions in [Manage your settings for two-step verification](../user-help/multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device).
 
@@ -401,11 +405,13 @@ The feature reduces the number of authentications on web apps, which normally pr
 >
 >If your users select **keep me signed in** on AD FS and also mark their device as trusted for Multi-Factor Authentication, the user isn't automatically verified after the **remember multi-factor authentication** number of days expires. Azure AD requests a fresh two-step verification, but AD FS returns a token with the original Multi-Factor Authentication claim and date, rather than performing two-step verification again. **This reaction sets off a verification loop between Azure AD and AD FS.**
 >
+>The **remember Multi-Factor Authentication** feature is not compatible with B2B users and will not be visible for B2B users when signing into the invited tenants.
+>
 
 ### Enable remember Multi-Factor Authentication
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, select **Azure Active Directory** > **Users and groups** > **All users**.
+2. On the left, select **Azure Active Directory** > **Users**.
 3. Select **Multi-Factor Authentication**.
 4. Under Multi-Factor Authentication, select **service settings**.
 5. On the **Service Settings** page, **manage remember multi-factor authentication**, select the **Allow users to remember multi-factor authentication on devices they trust** option.

@@ -167,7 +167,7 @@ The outbound synchronization rule permits the attribute value to flow from the m
     | sourceObjectType | EQUAL | User |
     | cloudMastered | NOTEQUAL | True |
 
-    Scoping filter determines which Azure AD objects this outbound synchronization rule is applied to. In this example, we use the same scoping filter from “Out to AD – User Identity” OOB (out-of-box) synchronization rule. It prevents the synchronization rule from being applied to **User** objects that are not synchronized from on-premises Active Directory. You might need to tweak the scoping filter according to your Azure AD Connect deployment.
+    Scoping filter determines which Azure AD objects this outbound synchronization rule is applied to. In this example, we use the same scoping filter from “Out to Azure AD – User Identity” OOB (out-of-box) synchronization rule. It prevents the synchronization rule from being applied to **User** objects that are not synchronized from on-premises Active Directory. You might need to tweak the scoping filter according to your Azure AD Connect deployment.
 
 6. Go to the **Transformation** tab, and implement the following transformation rule:
 

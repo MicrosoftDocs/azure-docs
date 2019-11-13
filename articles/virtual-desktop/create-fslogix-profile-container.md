@@ -1,5 +1,5 @@
 ---
-title: Create an FSLogix profile container for a host pool using Azure NetApp Files in Windows Virtual Desktop - Azure
+title: FSLogix profile containers NetApp Windows Virtual Desktop - Azure
 description: How to create an FSLogix profile container using Azure NetApp Files in Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
@@ -23,6 +23,9 @@ The instructions in this guide are specifically for Windows Virtual Desktop user
 
 >[!NOTE]
 >This article doesn't cover best practices for securing access to the Azure NetApp Files share.
+
+>[!NOTE]
+>If you're looking for comparison material about the different FSLogix Profile Container storage options on Azure, see [Storage options for FSLogix profile containers](store-fslogix-profile.md).
 
 ## Prerequisites
 
@@ -190,11 +193,11 @@ This section is based on [Create a profile container for a host pool using a fil
 4. Run the following cmdlets to assign a user to a Remote Desktop group:
 
    ```powershell
-   $tenant = "<your-wvd-tenant>"
-   $pool1 = "<wvd-pool>"
-   $appgroup = "Desktop Application Group"
-   $user1 = "<user-principal>"
-   Add-RdsAppGroupUser $tenant $pool1 $appgroup $user1
+   $wvdTenant = "<your-wvd-tenant>"
+   $hostPool = "<wvd-pool>"
+   $appGroup = "Desktop Application Group"
+   $user = "<user-principal>"
+   Add-RdsAppGroupUser $wvdTenant $hostPool $appGroup $user
    ```
 
 ## Make sure users can access the Azure NetApp File share

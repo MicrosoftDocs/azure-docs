@@ -46,7 +46,7 @@ The following table compares features of the Live Event types. The types are set
 | Maximum frame rate of input video|60 frames/second|Standard or Premium1080p - 30 frames/second|
 | Input protocols|RTMP, fragmented-MP4 (Smooth Streaming)|RTMP, fragmented-MP4 (Smooth Streaming)|
 | Price|See the [pricing page](https://azure.microsoft.com/pricing/details/media-services/) and click on "Live Video" tab|See the [pricing page](https://azure.microsoft.com/pricing/details/media-services/) and click on "Live Video" tab|
-| Maximum run time| 24 hrs x 365 days, live linear | Up to 24 hours|
+| Maximum run time| 24 hrs x 365 days, live linear | 24 hrs x 365 days, live linear (preview)|
 | Ability to pass through embedded CEA 608/708 captions data|Yes|Yes|
 | Support for inserting slates|No|No|
 | Support for ad signaling via API| No|No|

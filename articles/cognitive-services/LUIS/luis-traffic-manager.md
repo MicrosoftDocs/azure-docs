@@ -44,7 +44,7 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "West US"
 
     ![Screenshot of Azure portal with two LUIS keys in luis-traffic-manager resource group](./media/traffic-manager/luis-keys.png)
 
-2. In the [LUIS][LUIS] website, in the **Manage** section, on the **Keys and endpoints** page, assign keys to the app, and republish the app by selecting the **Publish** button in the top right menu. 
+2. In the [LUIS][LUIS] website, in the **Manage** section, on the **Azure Resources** page, assign keys to the app, and republish the app by selecting the **Publish** button in the top right menu. 
 
     The example URL in the **endpoint** column uses a GET request with the endpoint key as a query parameter. Copy the two new keys' endpoint URLs. They are used as part of the Traffic Manager configuration later in this article.
 

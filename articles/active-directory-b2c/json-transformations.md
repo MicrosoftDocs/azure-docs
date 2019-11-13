@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-This article provides examples for using the JSON claims transformations of the Identity Experience Framework  schema in Azure Active Directory (Azure AD) B2C. For more information, see [ClaimsTransformations](claimstransformations.md).
+This article provides examples for using the JSON claims transformations of the Identity Experience Framework  schema in Azure Active Directory B2C (Azure AD B2C). For more information, see [ClaimsTransformations](claimstransformations.md).
 
 ## GetClaimFromJson
 
@@ -51,7 +51,7 @@ In the following example, the claims transformation extracted the `emailAddress`
   - **inputJson**: {"emailAddress": "someone@example.com", "displayName": "Someone"}
 - Input parameter:
     - **claimToExtract**: emailAddress
-- Output claims: 
+- Output claims:
   - **extractedClaim**: someone@example.com
 
 
@@ -93,7 +93,7 @@ In the following example, the claims transformation extracts the following claim
     <OutputClaim ClaimTypeReferenceId="birthdate" />
   </OutputClaims>
 </ClaimsTransformation>
-```    
+```
 
 - Input claims:
   - **jsonSourceClaim**: [{"key":"email","value":"someone@example.com"}, {"key":"displayName","value":"Someone"}, {"key":"membershipNum","value":6353399}, {"key":"active","value": true}, {"key":"birthdate","value":"1980-09-23T00:00:00Z"}]
@@ -123,8 +123,8 @@ In the following example, the claims transformation extracts the `id` element fr
 
 ```JSON
 {
-    "emailAddress": "someone@example.com", 
-    "displayName": "Someone", 
+    "emailAddress": "someone@example.com",
+    "displayName": "Someone",
     "id" : 6353399
 }
 ```
@@ -149,7 +149,7 @@ In the following example, the claims transformation extracts the `id` element fr
   - **inputJson**: {"emailAddress": "someone@example.com", "displayName": "Someone", "id" : 6353399}
 - Input parameters
     - **claimToExtract**:  id
-- Output claims: 
+- Output claims:
     - **extractedClaim**: 6353399
 
 ## GetSingleValueFromJsonArray
@@ -178,7 +178,7 @@ In the following example, the claims transformation extracts the first element (
 
 - Input claims:
   - **inputJsonClaim**: ["someone@example.com", "Someone", 6353399]
-- Output claims: 
+- Output claims:
   - **extractedClaim**: someone@example.com
 
 ## XmlStringToJsonString

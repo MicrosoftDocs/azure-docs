@@ -1,5 +1,6 @@
 ---
-title: Protected Web API - overview | Azure
+title: Protected Web API - overview 
+titleSuffix: Microsoft identity platform
 description: Learn how to build a protected web API (overview).
 services: active-directory
 documentationcenter: dev-center-name

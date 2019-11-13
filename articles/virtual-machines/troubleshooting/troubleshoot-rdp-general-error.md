@@ -4,7 +4,7 @@ description: Learn how to troubleshoot an RDP general error to a Windows VM in A
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 
 ms.service: virtual-machines-windows

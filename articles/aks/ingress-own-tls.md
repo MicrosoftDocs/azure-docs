@@ -129,7 +129,7 @@ Both applications are now running on your Kubernetes cluster, however they're co
 In the following example, traffic to the address `https://demo.azure.com/` is routed to the service named `aks-helloworld`. Traffic to the address `https://demo.azure.com/hello-world-two` is routed to the `ingress-demo` service. For this article, you don't need to change those demo host names. For production use, provide the names specified as part of the certificate request and generation process.
 
 > [!TIP]
-> If the host name specified during the certificate request process, the CN name, doesn't match the host defined in your ingress route, you ingress controller displays a *Kubernetes Ingress Controller Fake Certificate*. Make sure your certificate and ingress route host names match.
+> If the host name specified during the certificate request process, the CN name, doesn't match the host defined in your ingress route, you ingress controller displays a *Kubernetes Ingress Controller Fake Certificate* warning. Make sure your certificate and ingress route host names match.
 
 The *tls* section tells the ingress route to use the Secret named *aks-ingress-tls* for the host *demo.azure.com*. Again, for production use, specify your own host address.
 

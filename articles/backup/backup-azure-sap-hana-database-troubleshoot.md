@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot errors while backing up SAP HANA databases by using Azure Backup | Microsoft Docs
+title: Troubleshoot SAP HANA databases backup errors - Azure Backup
 description: Describes how to troubleshoot common errors that might occur when you use Azure Backup to back up SAP HANA databases.
 ms.reviewer: pullabhk
 author: dcurwin
@@ -27,13 +27,13 @@ What the preregistration script does:
     - CATALOG READ: to read the backup catalog.
     - SAP_INTERNAL_HANA_SUPPORT: to access a few private tables.
 2. Adds a key to Hdbuserstore for the HANA plug-in to handle all operations (database queries, restore operations, configuring and running backup).
-   
+
    To confirm the key creation, run the HDBSQL command on the HANA machine with SIDADM credentials:
 
     ``` hdbsql
     hdbuserstore list
     ```
-    
+
     The command output should display the {SID}{DBNAME} key, with the user shown as AZUREWLBACKUPHANAUSER.
 
 > [!NOTE]
@@ -62,11 +62,12 @@ Assume an SDC HANA instance "H21" is backed up. The backup items page will show 
 
 ![SDC restore inputs](media/backup-azure-sap-hana-database/hana-sdc-restore.png)
 
-Note the following
+Note the following points:
+
 - By default, the restored db name will be populated with the backup item name i.e., h21(sdc)
 - Selecting the target as H11 will NOT change the restored db name automatically. **It should be edited to h11(sdc)**. In case of SDC, the restored db name will be the target instance ID with lowercase letters and 'sdc' appended in brackets.
 - Since SDC can have only single database, you also need to click the checkbox to allow override of the existing database data with the recovery point data.
-- Linux is case-sensitive and hence make sure to preserve the case.
+- Linux is case-sensitive and therefore make sure to preserve the case.
 
 ### Multiple Container Database (MDC) restore
 

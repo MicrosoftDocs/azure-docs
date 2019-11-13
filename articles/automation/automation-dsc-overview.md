@@ -15,7 +15,7 @@ manager: carmonm
 
 Azure Automation State Configuration is an Azure service that allows you to write, manage, and
 compile PowerShell Desired State Configuration (DSC)
-[configurations](/powershell/dsc/configurations), import [DSC Resources](/powershell/dsc/resources),
+[configurations](/powershell/scripting/dsc/configurations/configurations), import [DSC Resources](/powershell/scripting/dsc/resources/resources),
 and assign configurations to target nodes, all in the cloud.
 
 ## Why use Azure Automation State Configuration
@@ -25,7 +25,7 @@ Azure Automation State Configuration provides several advantages over using DSC 
 ### Built-in pull server
 
 Azure Automation State Configuration provides a DSC pull server similar to the
-[Windows Feature DSC-Service](/powershell/dsc/pullserver) so that target nodes automatically receive
+[Windows Feature DSC-Service](/powershell/scripting/dsc/pull-server/pullserver) so that target nodes automatically receive
 configurations, conform to the desired state, and report back on their compliance. The built-in pull
 server in Azure Automation eliminates the need to set up and maintain your own pull server. Azure
 Automation can target virtual or physical Windows or Linux machines, in the cloud or on-premises.
@@ -33,7 +33,7 @@ Automation can target virtual or physical Windows or Linux machines, in the clou
 ### Management of all your DSC artifacts
 
 Azure Automation State Configuration brings the same management layer to
-[PowerShell Desired State Configuration](/powershell/dsc/overview) as Azure Automation offers for PowerShell scripting.
+[PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) as Azure Automation offers for PowerShell scripting.
 
 From the Azure portal, or from PowerShell, you can manage all your DSC configurations, resources,
 and target nodes.

@@ -40,6 +40,6 @@ The results are:
 
 ## Next steps
 
-- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [SELECT clause](sql-query-select.md)
 - [FROM clause](sql-query-from.md)

@@ -167,7 +167,7 @@ Assigning connector permissions to users after discovery occurs doesn't assign p
 
 ## Take additional steps
 
-- [Set up management groups](../governance/management-groups/index.md#initial-setup-of-management-groups), if you haven't already.
+- [Set up management groups](../governance/management-groups/overview.md#initial-setup-of-management-groups), if you haven't already.
 - Check that new scopes are added to your scope picker. Select **Refresh** to view the latest data.
 - On the **Cloud connectors** page, select your connector and select **Go to billing account** to assign the linked account to management groups.
 
@@ -184,7 +184,7 @@ When you select a connector on the **Cloud connectors** page, you can:
 
 ## Set up Azure management groups
 
-Place your Azure subscriptions and AWS linked accounts in the same management group to create a single location where you can  see cross-cloud provider information. If you haven't already configured your Azure environment with management groups, see [Initial setup of management groups](../governance/management-groups/index.md#initial-setup-of-management-groups).
+Place your Azure subscriptions and AWS linked accounts in the same management group to create a single location where you can  see cross-cloud provider information. If you haven't already configured your Azure environment with management groups, see [Initial setup of management groups](../governance/management-groups/overview.md#initial-setup-of-management-groups).
 
 If you want to separate costs, you can create a management group that holds just AWS linked accounts.
 

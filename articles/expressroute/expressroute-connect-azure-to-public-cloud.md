@@ -32,7 +32,7 @@ When connecting through Layer3 provider, Microsoft will advertise customer VNET 
 
 ![](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l3.png)
 
-Provider may be landing each cloud provider in a separate VRF. If traffic from all the cloud providers will reach at customer router. If customer is running BGP with service provider, then these routes will be re-advertised to other cloud providers by default. 
+Provider may be landing each cloud provider in a separate VRF, if traffic from all the cloud providers will reach at customer router. If customer is running BGP with service provider, then these routes will be re-advertised to other cloud providers by default. 
 
 If service provider is landing all the cloud providers in the same VRF, then routes will be advertised to other cloud providers from the service provider directly. This is assuming standard BGP operation where eBGP routes are advertised to other eBGP neighbors by default.
 
@@ -61,7 +61,7 @@ See [Set up direct connection between Azure and Oracle Cloud][ER-OCI] for connec
 
 <!--Link References-->
 [ER-FAQ]: https://docs.microsoft.com/azure/expressroute/expressroute-faqs
-[ER-OCI]: https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/oracle/configure-azure-oci-networking
+[ER-OCI]: https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-azure-oci-networking
 
 
 

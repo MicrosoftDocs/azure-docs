@@ -86,7 +86,7 @@ The project template creates a project in your chosen language and installs requ
     >[!IMPORTANT]
     >Because the local.settings.json file can contain secrets, you need to exclude it from your project source control.
 
-At this point, you can add input and output bindings to your function by [modifying the function.json file](#javascript-2) or by [adding a parameter to a C# class library function](#c-class-library-2).
+At this point, you can add input and output bindings to your function by [modifying the function.json file](#add-a-function-to-your-project) or by [adding a parameter to a C# class library function](#add-a-function-to-your-project).
 
 You can also [add a new function to your project](#add-a-function-to-your-project).
 
@@ -94,11 +94,11 @@ You can also [add a new function to your project](#add-a-function-to-your-projec
 
 Except for HTTP and timer triggers, bindings are implemented in extension packages. You must install the extension packages for the triggers and bindings that need them. The process for installing binding extensions depends on your project's language.
 
-### JavaScript
+# [JavaScript](#tab/nodejs)
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
-### C\# class library
+# [C\#](#tab/csharp)
 
 Run the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in the Terminal window to install the extension packages that you need in your project. The following command installs the Azure Storage extension, which implements bindings for Blob, Queue, and Table storage.
 
@@ -106,19 +106,23 @@ Run the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in t
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 ```
 
+---
+
 ## Add a function to your project
 
 You can add a new function to an existing project by using one of the predefined Functions trigger templates. To add a new function trigger, select F1 to open the command palette, and then search for and run the command **Azure Functions: Create Function**. Follow the prompts to choose your trigger type and define the required attributes of the trigger. If your trigger requires an access key or connection string to connect to a service, get it ready before you create the function trigger.
 
 The results of this action depend on your project's language:
 
-### JavaScript
+# [JavaScript](#tab/nodejs)
 
 A new folder is created in the project. The folder contains a new function.json file and the new JavaScript code file.
 
-### C\# class library
+# [C\#](#tab/csharp)
 
 A new C# class library (.cs) file is added to your project.
+
+---
 
 ## Add input and output bindings
 
@@ -126,7 +130,7 @@ You can expand your function by adding input and output bindings. The process fo
 
 The following examples connect to a storage queue named `outqueue`, where the connection string for the storage account is set in the `MyStorageConnection` application setting in local.settings.json.
 
-### JavaScript
+# [JavaScript](#tab/nodejs)
 
 Visual Studio Code lets you add bindings to your function.json file by following a convenient set of prompts. To create a binding, right-click (Ctrl+click on macOS) the **function.json** file in your function folder and select **Add binding**:
 
@@ -164,7 +168,7 @@ context.bindings.msg = "Name passed to the function: " req.query.name;
 
 To learn more, see the [Queue storage output binding](functions-bindings-storage-queue.md#output---javascript-example) reference.
 
-### C\# class library
+# [C\#](#tab/csharp)
 
 Update the function method to add the following parameter to the `Run` method definition:
 
@@ -177,6 +181,8 @@ This code requires you to add the following `using` statement:
 ```cs
 using Microsoft.Azure.WebJobs.Extensions.Storage;
 ```
+
+---
 
 The `msg` parameter is an `ICollector<T>` type, which represents a collection of messages that are written to an output binding when the function completes. You add one or more messages to the collection. These messages are sent to the queue when the function completes.
 

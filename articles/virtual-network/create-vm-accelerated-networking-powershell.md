@@ -40,6 +40,7 @@ The benefits of accelerated networking only apply to the VM that it is enabled o
 The following distributions are supported out of the box from the Azure Gallery:
 * **Windows Server 2016 Datacenter** 
 * **Windows Server 2012 R2 Datacenter**
+* **Windows Server 2019 Datacenter**
 
 ### Supported VM instances
 Accelerated Networking is supported on most general purpose and compute-optimized instance sizes with 2 or more vCPUs.  These supported series are: D/DSv2 and F/Fs

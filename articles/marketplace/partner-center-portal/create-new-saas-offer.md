@@ -5,8 +5,9 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace 
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/14/2019
+ms.date: 10/04/2019
 ---
 
 # Create a new SaaS offer
@@ -14,6 +15,9 @@ ms.date: 08/14/2019
 To begin creating Software as a Service (SaaS) offers, ensure that you first [Create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** tab selected.
 
 ![Commercial Marketplace dashboard on Partner Center](./media/new-offer-overview.png)
+
+>[!Note]
+> Once an offer has been published, edits to the offer made in Partner Center will only be updated in the system and store fronts after re-publishing. Please ensure that you submit the offer for publication after you make changes.
 
 Select the + **New offer…** button, then select the **Software as a Service** menu item. 
 
@@ -28,7 +32,7 @@ The **New offer** dialog box is displayed.
 
 ## Offer ID and alias
 
-- **Offer ID**: Unique identifier for each offer in your account. This ID will be visible to customers in the URL address for the marketplace offer and Azure Resource Manager templates (if applicable). Offer ID must be lowercase, alphanumeric (including hyphens and underscores, but no whitespace). This is limited to 50 characters and can’t be changed after you select *Create*.  
+- **Offer ID**: Unique identifier for each offer in your account. This ID will be visible to customers in the URL address for the marketplace offer and Azure Resource Manager templates (if applicable). Offer ID must be lowercase, alphanumeric (including hyphens and underscores, but no whitespace). This is limited to 50 characters and can't be changed after you select *Create*.  
 Example: test-offer-1 
 <br>Resulting in the URL: `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`
 
@@ -49,10 +53,10 @@ The **Offer overview** page includes:
 - The **Publishing status** displays a visual representation of the steps required to publish this offer and how long each step will take to complete. Incomplete publishing step icons will be greyed out. 
 
 - The **Offer overview** menu contains a list of links for performing operations on this offer. This list of operations will change based on the selection you make for your offer.  
-    - If the offer is a draft – Delete draft 
-    - If the offer is live – Stop sell offer 
-    - If the offer is in preview – Go-live 
-    - If you haven’t completed publisher sign out – Cancel publish
+    - If the offer is a draft - Delete draft 
+    - If the offer is live - Stop sell offer 
+    - If the offer is in preview - Go-live 
+    - If you haven't completed publisher sign out - Cancel publish
 
 ## Offer setup
 
@@ -64,7 +68,7 @@ The **Offer setup** tab asks for the following information. Select **Save** afte
 
 ### Sell through Microsoft
 
-Selling through Microsoft provides better customer discovery and acquisition, allows Microsoft to host marketplace transactions on your behalf, and takes advantage of Microsoft’s globally available commerce capabilities.
+Selling through Microsoft provides better customer discovery and acquisition, allows Microsoft to host marketplace transactions on your behalf, and takes advantage of Microsoft's globally available commerce capabilities.
 
 #### SaaS Offer Requirements
 
@@ -122,7 +126,7 @@ List your offer to customers with a link to a free trial by providing a valid UR
 > The tokens your application will receive through your trial link can only be used to obtain user information through Azure AD to automate account creation in your app. Microsoft Accounts (MSA) are not supported for authentication using this token.
 
 ##### Contact me
-Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you’ve configured. For more information about configuring your CRM, see [Connect lead management](#connect-lead-management). 
+Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you've configured. For more information about configuring your CRM, see [Connect lead management](#connect-lead-management). 
 
 ## Example marketplace offer listing
 
@@ -152,18 +156,7 @@ By enabling test drive, you will be asked to configure a demonstration environme
 
 ## Connect lead management
 
-Connect with customers directly by listing your offer in the marketplaces and hooking up your Customer Relationship Management (CRM) system so that you can receive customer contact information immediately after a customer expresses interest or deploys your product.
-
-- **Choose a lead destination** (drop-down menu): Provide connection details to the CRM system where you would like us to send customer leads. 
-
-Partner Center supports the following CRM systems for lead management. Select the link for setup instructions.
-
-- Azure Blob– Provide contact email, container name, and storage account connection string. 
-- [Azure Table](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) – Provide contact email and storage account connection string. 
-- [Dynamics CRM Online](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) – Provide contact email, URL, and authentication mode (Office 365 or Azure Active Directory).
-- [Https Endpoint](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) – Provide contact email and HTTPS endpoint URL. 
-- [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo) – Provide contact email, form ID, Munchkin account ID, and server ID.
-- [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) -  Provide contact email and organization ID. 
+[!INCLUDE [Connect lead management](./includes/connect-lead-management-a.md)]
 
 #### Additional lead management resources
 - [Lead management FAQs](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
@@ -181,7 +174,8 @@ Select **Save** after completing these fields.
 Select a minimum of one (1) and a maximum of three (3) categories used for grouping your offer into the appropriate marketplace search areas. Please call out how your offer supports these categories in the offer description. 
 
 ### Industry
-Select up to two (2) industries used for grouping your offer into the appropriate marketplace search areas. If your offer is not specific to an industry, do not select one. Please call out how your offer supports the selected industries in the offer description. 
+
+[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
 ### App version
 This is an optional field used in the AppSource marketplace to identify the version number of your offer. 
@@ -198,7 +192,7 @@ The Standard Contract can be found here: https://go.microsoft.com/fwlink/?linkid
 
 #### Terms of use
 
-If your license terms are different from the Standard Contract, you can elect to enter your own legal terms of use here. You can also enter up to 10,000 characters of text in this field. If your terms of use require a longer description, enter a single URL link into this field where your additional license terms can be found. It will display to customers as an active link.
+If your license terms are different from the Standard Contract, you can elect to enter your own legal terms of use here. These can be entered as plain text or as a single URL linking to your license terms.
 
 Customers are required to accept these terms before they can try your app. 
 
@@ -209,13 +203,13 @@ Remember to **Save** before moving on to the next section!
 The Offer listing tab displays the languages (and markets) where your offer is available, currently English (United States) is the only location available. Additionally, this page displays the status of the language-specific listing and the date/time that it was added. You will need to define the marketplace details (offer name, description, search terms, etc.) for each language / market.
 
 > [!NOTE]
-> Offer listing content (such as offer description, documents, screenshots, terms of use and privacy policy) is not required to be in English as long as the offer description begins with the phrase, "This application is available only in [non-English language].” It is also acceptable to provide a *Useful Link URL* to offer content in a language other than the one used in the Offer listing content.
+> Offer listing content (such as offer description, documents, screenshots, terms of use and privacy policy) is not required to be in English as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Useful Link URL* to offer content in a language other than the one used in the Offer listing content.
 
 ### Offer listings
 
 Provide details to be displayed in the marketplace, including descriptions of your offer and marketing assets.
 
-- **Name** (required): The name defined here will appear as the title of your offer listing on the marketplace(s) you have chosen. The name is prepopulated based on your previous **New offer** entry.  This may be trademarked.  This must not contain whitespace, emojis (unless they are the trademark and copyright symbols) and must be limited to 50 characters.
+- **Name** (required): The name defined here will appear as the title of your offer listing on the marketplace(s) you have chosen. The name is prepopulated based on your previous **New offer** entry.  This may be trademarked.  This must not contain emojis (unless they are the trademark and copyright symbols) and must be limited to 50 characters.
 - **Summary** (required): Provide a short description of your offer to be used in marketplace listing(s) search results. Up to 100 characters of text can be entered in this field.
 - **Description** (required): Provide a description of your offer to be displayed in the marketplace listing(s) overview. Consider including a value proposition, key benefits, any category or industry associations, in-app purchase opportunities, any required disclosures, and a link to learn more.
 Up to 3,000 characters of text can be entered in this field. For additional tips, see the article [Write a great app description](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
@@ -369,8 +363,8 @@ Once created, you will see your plan names, IDs, pricing models, availability (P
 
 **Actions** available in the **Plan overview** vary depending on the current status of your plan and may include:
 
-- If the plan status is **Draft** – Delete draft
-- If the plan status is **Live** – Stop sell plan or Sync private audience
+- If the plan status is **Draft** - Delete draft
+- If the plan status is **Live** - Stop sell plan or Sync private audience
 
 **Create new plan** (minimum of one plan for those who select to sell through Microsoft)
 
@@ -405,6 +399,9 @@ The ability to configure a free trial is available for each plan in your offer. 
 
 ![One month free trial checkbox](./media/free-trial-enable.png)
 
+>[!Note]
+>Once your transactable offer has been published with a free trial it cannot be disabled for that plan. Make sure this setting is correct for the first publish to avoid having to re-create the plan.
+
 To obtain information on customer subscriptions currently participating in a free trial, use the new API property `isFreeTrial`, which will be marked as true or false. See the [SaaS Get Subscription API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription) for more information.
 
 >[!Note]
@@ -436,7 +433,7 @@ Select the frequency that customers must pay the price listed. At least one Mont
 - **Price**: USD per month or USD per year
 
 Prices set in local currency (USD = United States Dollar) are converted into the local currency of all selected markets using the current exchange rates available during setup. Validate these prices before publishing by exporting the pricing spreadsheet and reviewing the price in each market. If you would like to set custom prices in an individual market, modify and import the pricing spreadsheet. You are responsible for validating this pricing and own these settings.
-**You must first save your pricing changes to enable export of pricing data.*
+*\*You must first save your pricing changes to enable export of pricing data.*
 
 Review your prices carefully before publishing, as there are some restrictions on what can change after a plan is published:
 
@@ -482,9 +479,9 @@ Once you have completed all the required sections of the offer, select **publish
 If this is your first time publishing this offer, you can:
 
 - See the completion status for each section of the offer.
-    - *Not started* – means the section has not been touched and needs to be completed.
-    - *Incomplete* – means the section has errors that need to be fixed or requires more information to be provided. Please go back to the section(s) and update it.
-    - *Complete* – means the section is complete, all required data has been provided and there are no errors. All sections of the offer must be in a complete state before you can submit the offer.
+    - *Not started* - means the section has not been touched and needs to be completed.
+    - *Incomplete* - means the section has errors that need to be fixed or requires more information to be provided. Please go back to the section(s) and update it.
+    - *Complete* - means the section is complete, all required data has been provided and there are no errors. All sections of the offer must be in a complete state before you can submit the offer.
 - Provide testing instructions to the certification team to ensure that your app is tested correctly, in addition to any supplementary notes helpful for understanding your app.
 - Submit the offer for publishing by selecting **Submit**. We will send you an email to let you know when a preview version of the offer is available for you to review and approve. You must return to Partner Center and select **Go-live** for the offer to publish your offer to the public (or if a private offer, to the private audience).
 

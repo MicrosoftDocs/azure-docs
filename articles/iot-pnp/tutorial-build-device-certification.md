@@ -28,7 +28,7 @@ The certification tests check that:
 To complete this tutorial, you need:
 
 - [Visual Studio Code](https://code.visualstudio.com/download)
-- [Azure IoT Workbench extension for VS Code](https://github.com/Azure/Azure-IoT-PnP-Preview/blob/master/VSCode/README.md#installation)
+- [Azure IoT Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extension pack
 
 You also need the IoT Plug and Play device that you create in the [Quickstart: Use a device capability model to create a device](quickstart-create-pnp-device.md).
 
@@ -80,6 +80,18 @@ To view the **Device Information** interface in VS Code:
 
 1. To create a local copy of the **Device Information** interface, select it in the filtered list, and then select **Download**. VS Code displays the interface file.
 
+To view the **Device Information** interface using the Azure CLI:
+
+1. [Install the Azure IoT CLI extension](howto-install-pnp-cli.md).
+
+1. Use the following Azure CLI command to show an interface with the Device Information interface ID:
+
+    ```cmd/sh
+    az iot pnp interface show --interface urn:azureiot:DeviceManagement:DeviceInformation:1
+    ```
+
+For more information, see [Install and use the Azure IoT extension for Azure CLI](howto-install-pnp-cli.md).
+
 ## Update device code
 
 ### Enable device provisioning through the Azure IoT Device Provisioning Service (DPS)
@@ -94,26 +106,17 @@ To certify the device, it must enable provisioning through the [Azure IoT Device
 
 1. Choose **ANSI C** as the language.
 
-1. Choose **CMake Project** as your project type.
-
 1. Choose **Via DPS (Device Provisioning Service) symmetric key** as connection method.
+
+1. Choose **CMake Project on Windows** or **CMake Project on Linux** as project template depending on your device OS.
 
 1. VS Code opens a new window with generated device code stub files.
 
-1. Open `main.c`, fill the **dpsIdScope**, **sasKey**, and **registrationId** that you prepared. You can get this information from the certification portal. For more information, see [Connect and test your IoT Plug and Play device](tutorial-certification-test.md#connect-and-discover-interfaces).
+1. After building the code, enter the DPS credentials (**DPS ID Scope**, **DPS Symmetric Key**, **Device Id**) as parameters for the application. To get the credentials from certification portal, see [Connect and test your IoT Plug and Play device](tutorial-certification-test.md#connect-and-discover-interfaces).
 
-    ```c
-    // TODO: Specify DPS scope ID if you intend on using DPS / IoT Central.
-    static const char *dpsIdScope = "[DPS Id Scope]";
-    
-    // TODO: Specify symmetric keys if you intend on using DPS / IoT Central and symmetric key based auth.
-    static const char *sasKey = "[DPS symmetric key]";
-    
-    // TODO: specify your device registration ID
-    static const char *registrationId = "[device registration Id]";
+    ```cmd/sh
+    .\your_pnp_app.exe [DPS ID Scope] [DPS symmetric key] [device ID]
     ```
-
-1. Save the file.
 
 ### Implement standard interfaces
 

@@ -3,18 +3,16 @@ title: Use Azure Security Center recommendations to enhance security | Microsoft
 description: " Learn how to use security policies and recommendations in Azure Security Center to help mitigate a security attack. "
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid:
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/22/2019
-ms.author: v-mohabe
+ms.date: 08/22/2019
+ms.author: memildin
 
 ---
 # Use Azure Security Center recommendations to enhance security

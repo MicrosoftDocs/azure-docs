@@ -215,7 +215,7 @@ This section shows how to use the Maps [Search API](https://docs.microsoft.com/r
 4. You can see the raw data that the map is rendering by entering the following HTTPRequest in your browser. Replace \<Your Azure Maps Key\> with your primary key.
 
    ```http
-   https://atlas.microsoft.com/search/poi/json?api-version=2&query=gasoline%20station&subscription-key=<subscription-key>&lat=47.6292&lon=-122.2337&radius=100000
+   https://atlas.microsoft.com/search/poi/json?api-version=1.0&query=gasoline%20station&subscription-key=<subscription-key>&lat=47.6292&lon=-122.2337&radius=100000
    ```
 
 At this point, the MapSearch page can display the locations of points of interest that are returned from a fuzzy search query. Let's add some interactive capabilities and more information about the locations.
@@ -246,13 +246,16 @@ The map that we've made so far only looks at the longitude/latitude data for the
         var position = e.shapes[0].getCoordinates();
 
         //Create HTML from properties of the selected result.
-        var html = ['<div style="padding:5px"><div><b>', p.poi.name,
-            '</b></div><div>', p.address.freeformAddress,
-            '</div><div>', position[1], ', ', position[0], '</div></div>'];
+        var html = `
+          <div style="padding:5px">
+            <div><b>${p.poi.name}</b></div>
+            <div>${p.address.freeformAddress}</div>
+            <div>${position[1]}, ${position[0]}</div>
+          </div>`;
 
         //Update the content and position of the popup.
         popup.setPopupOptions({
-            content: html.join(''),
+            content: html,
             position: position
         });
 

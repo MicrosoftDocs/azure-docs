@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 9/24/2018
+ms.date: 09/20/2019
 ms.author: victorh
 ---
 
@@ -18,7 +18,6 @@ The following services are included in the built-in rule collection:
 - Compute access to storage Platform Image Repository (PIR)
 - Managed disks status storage access
 - Azure Diagnostics and Logging (MDS)
-- Azure Active Directory
 
 ## Overriding 
 

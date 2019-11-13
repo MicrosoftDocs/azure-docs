@@ -22,7 +22,7 @@ ms.author: allensu
 >[!NOTE] 
 >Azure Load Balancer supports two different types: Basic and Standard. This article discusses Basic Load Balancer. For more information about Standard Load Balancer, see [Standard Load Balancer overview](load-balancer-standard-overview.md).
 
-Internet-facing load balancers can be deployed with an IPv6 address. In addition to IPv4 connectivity, this enables the following capabilities:
+Basic SKU Internet-facing load balancers can be deployed with an IPv6 address. In addition to IPv4 connectivity, this enables the following capabilities:
 
 * Native end-to-end IPv6 connectivity between public Internet clients and Azure Virtual Machines (VMs) through the load balancer.
 * Native end-to-end IPv6 outbound connectivity between VMs and public Internet IPv6-enabled clients.
@@ -74,6 +74,7 @@ Limitations
 * Changing the loadDistributionMethod parameter for IPv6 is **currently not supported**.
 * Reserved IPv6 IPs (where IPAllocationMethod = static) are **currently not supported**.
 * NAT64 (translation of IPv6 to IPv4) is not supported.
+* Standard SKU Load Balancers do not currently support IPv6 addresses.
 
 ## Next steps
 

@@ -15,7 +15,7 @@ tags: connectors
 # Connect to SAP systems from Azure Logic Apps
 
 > [!IMPORTANT]
-> The earlier SAP Application Server and SAP Message Server connectors are scheduled for deprecation. 
+> The earlier SAP Application Server and SAP Message Server connectors are scheduled for deprecation on November 30, 2019. 
 > The current SAP connector consolidates these previous SAP connectors so that you don't have to change 
 > the connection type, is fully compatible with previous connectors, provides many additional capabilities, 
 > and continues to use the SAP .Net connector library (SAP NCo).

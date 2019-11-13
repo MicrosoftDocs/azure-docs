@@ -11,17 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
 
 ---
 
 # Connect Azure Stack virtual machines to Azure Sentinel
 
-> [!IMPORTANT]
-> Azure Sentinel is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 
 With Azure Sentinel, you can monitor your VMs running on Azure and Azure Stack in one place. To on-board your Azure Stack machines to Azure Sentinel, you first need to add the virtual machine extension to your existing Azure Stack virtual machines. 
@@ -69,5 +66,5 @@ To remove the extension:
 
 To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).
+- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
 - Stream data from [Common Error Format appliances](connect-common-event-format.md) into Azure Sentinel.

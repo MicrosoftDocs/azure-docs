@@ -49,7 +49,7 @@ Pool size limits are set by the Batch service. Unlike [resource quotas](#resourc
 | **Compute nodes in [inter-node communication enabled pool](batch-mpi.md)**  ||
 | Batch service pool allocation mode | 100 |
 | Batch subscription pool allocation mode | 80 |
-| **Compute nodes in [pool created with custom VM image](batch-custom-images.md)**<sup>1</sup> ||
+| **Compute nodes in [pool created with a managed image resource](batch-custom-images.md)**<sup>1</sup> ||
 | Dedicated nodes | 2000 |
 | Low-priority nodes | 1000 |
 

@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-You can add interaction with a RESTful API to your [custom policies](active-directory-b2c-overview-custom.md) in Azure Active Directory (Azure AD) B2C. This article shows you how to create an Azure AD B2C user journey that interacts with RESTful services.
+You can add interaction with a RESTful API to your [custom policies](active-directory-b2c-overview-custom.md) in Azure Active Directory B2C (Azure AD B2C). This article shows you how to create an Azure AD B2C user journey that interacts with RESTful services.
 
 The interaction includes a claims exchange of information between the REST API claims and Azure AD B2C. Claims exchanges have the following characteristics:
 

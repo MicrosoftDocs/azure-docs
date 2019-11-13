@@ -1,11 +1,10 @@
 ---
-title: Azure Security Center Quickstart - Onboard your Linux computers to Security Center | Microsoft Docs
+title: Onboard Linux computers to Azure Security Center | Microsoft Docs
 description: This quickstart shows you how to onboard your Linux computers to Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
@@ -15,7 +14,7 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
-ms.author: rkarlin
+ms.author: memildin
 
 ---
 # Quickstart: Onboard Linux computers to Azure Security Center
@@ -80,7 +79,7 @@ To remove the agent:
     `sudo sh ./omsagent-<version>.universal.x64.sh --purge`
 
 ## Next steps
-In this quick start, you provisioned the agent on a Linux computer. To learn more about how to use Security Center, continue to the tutorial for configuring a security policy and assessing the security of your resources.
+In this quickstart, you provisioned the agent on a Linux computer. To learn more about how to use Security Center, continue to the tutorial for configuring a security policy and assessing the security of your resources.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Define and assess security policies](tutorial-security-policy.md)

@@ -32,22 +32,17 @@ In this tutorial, you learn how to:
 To work with the device capability model in this tutorial, you need:
 
 * [Visual Studio Code](https://code.visualstudio.com/download): VS Code is available for multiple platforms
-* Azure IoT Device Workbench extension in VS Code. Use the following steps to install the Azure IoT Device Workbench extension in VS Code:
+* [Azure IoT Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) extension pack. Use the following steps to install the extension pack in VS Code:
 
     1. In VS Code, select the **Extensions** tab.
-    1. Search for **Azure IoT Device Workbench**.
+    1. Search for **Azure IoT Tools**.
     1. Select **Install**.
 
 To build the generated C code on Windows in this tutorial, you need:
 
-* [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/) - make sure that you include the **NuGet package manager** component and the **Desktop Development with C++** workload when you install Visual Studio.
+* [Build Tools for Visual Studio](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16) with **C++ build tools** and **NuGet package manager component** workloads. Or if you already have [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/) 2019, 2017 or 2015 with same workloads installed.
 * [Git](https://git-scm.com/download)
 * [CMake](https://cmake.org/download/)
-* A local copy of the Azure IoT C SDK:
-
-    ```cmd
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
-    ```
 
 To test your device code in this tutorial, you need:
 
@@ -58,7 +53,7 @@ To test your device code in this tutorial, you need:
 
 ## Model your device
 
-You use the _digital twin definition language_ to create a device capability model. A model typically consists of multiple _interface_ definition files and a single model file. The **Azure IoT Device Workbench extension for VS Code** includes tools to help you create and edit these JSON files.
+You use the _digital twin definition language_ to create a device capability model. A model typically consists of multiple _interface_ definition files and a single model file. The **Azure IoT Tools for VS Code** includes tools to help you create and edit these JSON files.
 
 ### Create the interface file
 
@@ -173,7 +168,7 @@ To create an interface file that defines the capabilities of your IoT device in 
           "commandType": "synchronous"
         }
       ],
-      "@context": "http://azureiot.com/v1/contexts/Interface.json"
+      "@context": "http://azureiot.com/v1/contexts/IoTModel.json"
     }
     ```
 
@@ -295,7 +290,7 @@ Your files are now stored in your company repository.
 
 ## Generate code
 
-You can use the **Azure IoT Device Workbench extension for VS Code** to generate skeleton C code from your model. To generate the skeleton code in VS Code:
+You can use the **Azure IoT Tools for VS Code** to generate skeleton C code from your model. To generate the skeleton code in VS Code:
 
 1. Use **Ctrl+Shift+P** to open the command palette.
 
@@ -307,9 +302,11 @@ You can use the **Azure IoT Device Workbench extension for VS Code** to generate
 
 1. Choose **ANSI C** as the language.
 
-1. Choose **CMake Project** as the target.
-
 1. Choose **Via IoT Hub device connection string** as the way to connect.
+
+1. Choose **CMake Project on Windows** as project template.
+
+1. Choose **Via Vcpkg** as way to include the device SDK.
 
 VS Code generates the skeleton C code and saves the files in the **sensorbox_app** folder in the **modelcode** folder. VS Code opens a new window that contains the generated code files.
 

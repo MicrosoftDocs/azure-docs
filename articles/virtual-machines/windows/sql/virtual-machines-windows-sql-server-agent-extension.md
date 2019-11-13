@@ -1,5 +1,5 @@
 ---
-title: Automate management tasks on Azure virtual machines by using the SQL Server IaaS Agent Extension | Microsoft Docs
+title: Automate management tasks with the IaaS Agent Extension
 description: This article describes how to manage the SQL Server IaaS Agent Extension, which automates specific SQL Server administration tasks. These include automated backup, automated patching, and Azure Key Vault integration.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -16,6 +16,7 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
+ms.custom: "seo-lt-2019"
 ---
 # Automate management tasks on Azure virtual machines by using the SQL Server IaaS Agent Extension
 > [!div class="op_single_selector"]
@@ -74,7 +75,10 @@ Here are the requirements to use the SQL Server IaaS Agent Extension on your VM:
 The SQL Server IaaS extension is installed when you register your SQL Server VM with the [SQL VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md). If necessary, you can install the SQL Server IaaS agent manually using the below PowerShell command: 
 
   ```powershell-interactive
-    Set-AzVMExtension -ResourceGroupName "<ResourceGroupName>" -Location "<VMLocation>" -VMName "<VMName>" -Name "SqlIaasExtension" -Publisher "Microsoft.SqlServer.Management" -ExtensionType "SqlIaaSAgent" -TypeHandlerVersion "2.0";  
+    Set-AzVMExtension -ResourceGroupName "<ResourceGroupName>" `
+    -Location "<VMLocation>" -VMName "<VMName>" `
+    -Name "SqlIaasExtension" -Publisher "Microsoft.SqlServer.Management" `
+    -ExtensionType "SqlIaaSAgent" -TypeHandlerVersion "2.0";  
   ```
 
 > [!NOTE]

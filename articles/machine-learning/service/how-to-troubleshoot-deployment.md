@@ -1,7 +1,7 @@
 ---
 title: Deployment troubleshooting guide
-titleSuffix: Azure Machine Learning service
-description: Learn how to work around, solve, and troubleshoot the common Docker deployment errors with Azure Kubernetes Service and Azure Container Instances using  Azure Machine Learning service.
+titleSuffix: Azure Machine Learning
+description: Learn how to work around, solve, and troubleshoot the common Docker deployment errors with Azure Kubernetes Service and Azure Container Instances using  Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,15 +9,15 @@ ms.topic: conceptual
 author: chris-lauren
 ms.author:  clauren
 ms.reviewer: jmartens
-ms.date: 07/09/2019
+ms.date: 10/25/2019
 ms.custom: seodec18
 ---
 
-# Troubleshooting Azure Machine Learning service Azure Kubernetes Service and Azure Container Instances deployment
+# Troubleshooting Azure Machine Learning Azure Kubernetes Service and Azure Container Instances deployment
 
-Learn how to work around or solve common Docker deployment errors with Azure Container Instances (ACI) and Azure Kubernetes Service (AKS) using Azure Machine Learning service.
+Learn how to work around or solve common Docker deployment errors with Azure Container Instances (ACI) and Azure Kubernetes Service (AKS) using Azure Machine Learning.
 
-When deploying a model in Azure Machine Learning service, the system performs a number of tasks. The deployment tasks are:
+When deploying a model in Azure Machine Learning, the system performs a number of tasks. The deployment tasks are:
 
 1. Register the model in the workspace model registry.
 
@@ -36,6 +36,16 @@ When deploying a model in Azure Machine Learning service, the system performs a 
 4. Start up a new container (or containers) in ACI or AKS. 
 
 Learn more about this process in the [Model Management](concept-model-management-and-deployment.md) introduction.
+
+## Prerequisites
+
+* An **Azure subscription**. If you do not have one, try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+* The [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+* The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* The [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
+* To debug locally, you must have a working Docker installation on your local system.
+
+    To verify your Docker installation, use the command `docker run hello-world` from a terminal or command prompt. For information on installing Docker, or troubleshooting Docker errors, see the [Docker Documentation](https://docs.docker.com/).
 
 ## Before you begin
 
@@ -149,15 +159,12 @@ To avoid this problem, we recommend one of the following approaches:
 
 ## Debug locally
 
-If you encounter problems deploying a model to ACI or AKS, try deploying it as a local web service. Using a local web service makes it easier to troubleshoot problems. The Docker image containing the model is downloaded and started on your local system.
-
-> [!IMPORTANT]
-> Local web service deployments require a working Docker installation on your local system. Docker must be running before you deploy a local web service. For information on installing and using Docker, see [https://www.docker.com/](https://www.docker.com/).
+If you encounter problems deploying a model to ACI or AKS, try deploying it as a local . Using a local  makes it easier to troubleshoot problems. The Docker image containing the model is downloaded and started on your local system.
 
 > [!WARNING]
-> Local web service deployments are not supported for production scenarios.
+> Local  deployments are not supported for production scenarios.
 
-To deploy locally, modify your code to use `LocalWebservice.deploy_configuration()` to create a deployment configuration. Then use `Model.deploy()` to deploy the service. The following example deploys a model (contained in the `model` variable) as a local web service:
+To deploy locally, modify your code to use `LocalWebservice.deploy_configuration()` to create a deployment configuration. Then use `Model.deploy()` to deploy the service. The following example deploys a model (contained in the `model` variable) as a local :
 
 ```python
 from azureml.core.model import InferenceConfig, Model
@@ -168,14 +175,14 @@ inference_config = InferenceConfig(runtime="python",
                                    entry_script="score.py",
                                    conda_file="myenv.yml")
 
-# Create a local deployment, using port 8890 for the web service endpoint
+# Create a local deployment, using port 8890 for the  endpoint
 deployment_config = LocalWebservice.deploy_configuration(port=8890)
 # Deploy the service
 service = Model.deploy(
     ws, "mymodel", [model], inference_config, deployment_config)
 # Wait for the deployment to complete
 service.wait_for_deployment(True)
-# Display the port that the web service is available on
+# Display the port that the  is available on
 print(service.port)
 ```
 
@@ -285,7 +292,7 @@ There are two things that can help prevent 503 status codes:
     > [!IMPORTANT]
     > This change does not cause replicas to be created *faster*. Instead, they are created at a lower utilization threshold. Instead of waiting until the service is 70% utilized, changing the value to 30% causes replicas to be created when 30% utilization occurs.
     
-    If the web service is already using the current max replicas and you are still seeing 503 status codes, increase the `autoscale_max_replicas` value to increase the maximum number of replicas.
+    If the  is already using the current max replicas and you are still seeing 503 status codes, increase the `autoscale_max_replicas` value to increase the maximum number of replicas.
 
 * Change the minimum number of replicas. Increasing the minimum replicas provides a larger pool to handle the incoming spikes.
 
@@ -320,8 +327,8 @@ In some cases, you may need to interactively debug the Python code contained in 
 
 > [!IMPORTANT]
 > This method of debugging does not work when using `Model.deploy()` and `LocalWebservice.deploy_configuration` to deploy a model locally. Instead, you must create an image using the [ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) class. 
->
-> Local web service deployments require a working Docker installation on your local system. Docker must be running before you deploy a local web service. For information on installing and using Docker, see [https://www.docker.com/](https://www.docker.com/).
+
+Local deployments require a working Docker installation on your local system. For more information on using Docker, see the [Docker Documentation](https://docs.docker.com/).
 
 ### Configure development environment
 
@@ -341,7 +348,7 @@ In some cases, you may need to interactively debug the Python code contained in 
 
         ```json
         {
-            "name": "Azure Machine Learning service: Docker Debug",
+            "name": "Azure Machine Learning: Docker Debug",
             "type": "python",
             "request": "attach",
             "port": 5678,
@@ -474,7 +481,7 @@ In this text example, the registry name is `myregistry` and the image is named `
     docker run --rm --name debug -p 8000:5001 -p 5678:5678 debug:1
     ```
 
-1. To attach VS Code to PTVSD inside the container, open VS Code and use the F5 key or select __Debug__. When prompted, select the __Azure Machine Learning service: Docker Debug__ configuration. You can also select the debug icon from the side bar, the __Azure Machine Learning service: Docker Debug__ entry from the Debug dropdown menu, and then use the green arrow to attach the debugger.
+1. To attach VS Code to PTVSD inside the container, open VS Code and use the F5 key or select __Debug__. When prompted, select the __Azure Machine Learning: Docker Debug__ configuration. You can also select the debug icon from the side bar, the __Azure Machine Learning: Docker Debug__ entry from the Debug dropdown menu, and then use the green arrow to attach the debugger.
 
     ![The debug icon, start debugging button, and configuration selector](media/how-to-troubleshoot-deployment/start-debugging.png)
 

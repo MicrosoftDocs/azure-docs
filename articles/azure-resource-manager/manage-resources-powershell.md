@@ -1,6 +1,6 @@
 ---
 title: Manage Azure resources by using Azure PowerShell | Microsoft Docs
-description: Use Azure PowerShell and Azure Resource Manage to manage your resources. 
+description: Use Azure PowerShell and Azure Resource Manager to manage your resources. Shows how to deploy and delete resources. 
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -58,7 +58,7 @@ For more information, see [Deploy resources with Resource Manager templates and 
 
 ## Deploy a resource group and resources
 
-You can create a resource group and deploy resources to the group. For more information, see [Create resource group and deploy resources](./deploy-to-subscription.md#create-resource-group-and-deploy-resources).
+You can create a resource group and deploy resources to the group. For more information, see [Create resource group and deploy resources](./deploy-to-subscription.md#resource-group-and-resources).
 
 ## Deploy resources to multiple subscriptions or resource groups
 

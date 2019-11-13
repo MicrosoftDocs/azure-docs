@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell Script Sample - WordPress | Microsoft Docs
+title: Azure PowerShell Script Sample - WordPress 
 description: Azure PowerShell Script Sample - WordPress
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -27,7 +27,7 @@ This script creates a virtual machine and uses the Azure Virtual Machine custom 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## Sample script
 

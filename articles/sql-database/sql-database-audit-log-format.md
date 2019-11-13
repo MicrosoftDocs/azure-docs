@@ -1,5 +1,5 @@
 ---
-title: SQL Database Audit Log Format | Microsoft Docs
+title: Audit Log Format
 description: Understand how SQL Database audit logs are structured.
 services: sql-database
 ms.service: sql-database
@@ -7,8 +7,8 @@ ms.subservice: security
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: vainolo
-ms.author: arib
+author: barmichal
+ms.author: mibar
 ms.reviewer: vanto
 ms.date: 01/03/2019
 ---

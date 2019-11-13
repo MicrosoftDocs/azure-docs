@@ -22,7 +22,7 @@ ms.author: rogirdh
 
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This guide details how to use the Azure CLI to deploy an Oracle 12c database from the Azure Marketplace gallery image. 
 
-This document shows you step-by-step how to create, install, and configure Oracle Golden Gate on an Azure VM.
+This document shows you step-by-step how to create, install, and configure Oracle Golden Gate on an Azure VM. In this tutorial, two virtual machines are setup in an availability set in a single region. The same tutorial can be used to setup OracleGolden Gate for VMs in different Availability Zones in a single Azure region or for VMs setup in two different regions.
 
 Before you start, make sure that the Azure CLI has been installed. For more information, see [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli).
 

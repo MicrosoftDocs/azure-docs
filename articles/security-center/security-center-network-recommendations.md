@@ -3,10 +3,8 @@ title: Protecting your network resources in Azure Security Center  | Microsoft D
 description: This document addresses recommendations in Azure Security Center that help you protect your Azure network resources and stay in compliance with security policies.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: 96c55a02-afd6-478b-9c1f-039528f3dea0
 ms.service: security-center
 ms.devlang: na
@@ -14,7 +12,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
-ms.author: v-mohabe
+ms.author: memildin
 
 ---
 # Protect your network resources in Azure Security Center
@@ -124,9 +122,9 @@ The **Networking topology** section has a hierarchical view of the resources.
 
 This table is sorted (virtual machines and subnets) by severity.
 
-In this topology view, the first level displays Vnets. The second displays has subnets, and the third level displays the virtual machines that belong to those subnets. The right column shows the current status of the network security group recommendations for those resources.
+In this topology view, the first level displays Vnets. The second displays subnets, and the third level displays the virtual machines that belong to those subnets. The right column shows the current status of the network security group recommendations for those resources.
 
-The third level displays virtual machines, which is similar to what is described previously. You can click any resource to learn more or apply the needed security control or configuration.
+The third level displays virtual machines, which is similar to what is described previously. You can click any resource to learn more or apply the required security control or configuration.
 
 ## Network recommendations
 
@@ -139,7 +137,7 @@ The third level displays virtual machines, which is similar to what is described
 |Access to App Services should be restricted|Restrict access to your App Services by changing the networking configuration, to deny inbound traffic from ranges that are too broad.|High|10|App service|
 |Management ports should be closed on your virtual machines|Harden the network security group of your virtual machines to restrict access to management ports.|High|10|Virtual machine|
 DDoS Protection Standard should be enabled|Protect virtual networks containing applications with public IPs by enabling DDoS protection service standard. DDoS protection enables mitigation of network volumetric and protocol attacks.|High|10|Virtual network|
-|IP forwarding on your virtual machine should be disabled|Disable IP forwarding. When  IP forwarding is enabled on a virtual machine's NIC, the machine can receive traffic addressed to other destinations. IP forwarding is rarely required (e.g., when using the VM as a network virtual appliance), and therefore, this should be reviewed by the network security team.|Medium|10|Virtual machine|
+|IP forwarding on your virtual machine should be disabled|Disable IP forwarding. When IP forwarding is enabled on a virtual machine's NIC, the machine can receive traffic addressed to other destinations. IP forwarding is rarely required (for example, when using the VM as a network virtual appliance), and therefore, this should be reviewed by the network security team.|Medium|10|Virtual machine|
 |Web Application should only be accessible over HTTPS|Enable "HTTPS only" access for web applications. Use of HTTPS ensures server/service authentication and protects data in transit from network layer eavesdropping attacks.|Medium|20|Web application|
 |Just-in-time network access control should be applied on virtual machines|Apply just-in-time (JIT ) virtual machine (VM) access control to permanently lock down access to selected ports, and enable authorized users to open them, via JIT, for a limited amount of time only.|High|20|Virtual machine|
 |Function Apps should only be accessible over HTTPS|Enable "HTTPS only" access for function apps. Use of HTTPS ensures server/service authentication and protects data in transit from network layer eavesdropping attacks.|Medium|20|Function app|

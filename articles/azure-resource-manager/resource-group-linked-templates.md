@@ -4,14 +4,14 @@ description: Describes how to use linked templates in an Azure Resource Manager 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 10/02/2019
 ms.author: tomfitz
 ---
 # Using linked and nested templates when deploying Azure resources
 
-To deploy your solution, you can use either a single template or a main template with many related templates. The related template can be either a separate file that is linked to from the main template, or a template that is nested within the main template.
+To deploy your solution, you can use either a single template or a main template with many related templates. The related templates can either be separate files that are linked to from the main template, or templates that are nested within the main template.
 
-For small to medium solutions, a single template is easier to understand and maintain. You can see all the resources and values in a single file. For advanced scenarios, linked templates enable you to break down the solution into targeted components, and reuse templates.
+For small to medium solutions, a single template is easier to understand and maintain. You can see all the resources and values in a single file. For advanced scenarios, linked templates enable you to break down the solution into targeted components. You can easily reuse these templates for other scenarios.
 
 When using linked templates, you create a main template that receives the parameter values during deployment. The main template contains all the linked templates and passes values to those templates as needed.
 
@@ -21,7 +21,7 @@ For a tutorial, see [Tutorial: create linked Azure Resource Manager templates](.
 > For linked or nested templates, you can only use [Incremental](deployment-modes.md) deployment mode.
 >
 
-## Link or nest a template
+## Deployments resource
 
 To link to another template, add a **deployments** resource to your main template.
 
@@ -41,7 +41,7 @@ To link to another template, add a **deployments** resource to your main templat
 
 The properties you provide for the deployment resource vary based on whether you're linking to an external template or nesting an inline template in the main template.
 
-### Nested template
+## Nested template
 
 To nest the template within the main template, use the **template** property and specify the template syntax.
 
@@ -88,9 +88,17 @@ To nest the template within the main template, use the **template** property and
 
 The nested template requires the [same properties](resource-group-authoring-templates.md) as a standard template.
 
-### External template and external parameters
+## External template
 
-To link to an external template and parameter file, use **templateLink** and **parametersLink**. When linking to a template, the Resource Manager service must be able to access it. You can't specify a local file or a file that is only available on your local network. You can only provide a URI value that includes either **http** or **https**. One option is to place your linked template in a storage account, and use the URI for that item.
+To link to an external template, use the **templateLink** property. You can't specify a local file or a file that is only available on your local network. You can only provide a URI value that includes either **http** or **https**. Resource Manager must be able to access the template.
+
+One option is to place your linked template in a storage account, and use the URI for that item.
+
+You can provide the parameters for your external template either in an external file or inline.
+
+### External parameters
+
+When providing an external parameter file, use the **parametersLink** property:
 
 ```json
 "resources": [
@@ -99,15 +107,15 @@ To link to an external template and parameter file, use **templateLink** and **p
     "apiVersion": "2018-05-01",
     "name": "linkedTemplate",
     "properties": {
-    "mode": "Incremental",
-    "templateLink": {
+      "mode": "Incremental",
+      "templateLink": {
         "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
         "contentVersion":"1.0.0.0"
-    },
-    "parametersLink": {
+      },
+      "parametersLink": {
         "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json",
         "contentVersion":"1.0.0.0"
-    }
+      }
     }
   }
 ]
@@ -115,11 +123,11 @@ To link to an external template and parameter file, use **templateLink** and **p
 
 You don't have to provide the `contentVersion` property for the template or parameters. If you don't provide a content version value, the current version of the template is deployed. If you provide a value for content version, it must match the version in the linked template; otherwise, the deployment fails with an error.
 
-### External template and inline parameters
+### Inline parameters
 
 Or, you can provide the parameter inline. You can't use both inline parameters and a link to a parameter file. The deployment fails with an error when both `parametersLink` and `parameters` are specified.
 
-To pass a value from the main template to the linked template, use **parameters**.
+To pass a value from the main template to the linked template, use the **parameters** property.
 
 ```json
 "resources": [
@@ -263,7 +271,7 @@ The main template deploys the linked template and gets the returned value. Notic
 }
 ```
 
-Like other resource types, you can set dependencies between the linked template and other resources. Therefore, when other resources require an output value from the linked template, make sure the linked template is deployed before them. Or, when the linked template relies on other resources, make sure other resources are deployed before the linked template.
+Like other resource types, you can set dependencies between the linked template and other resources. When other resources require an output value from the linked template, make sure the linked template is deployed before them. Or, when the linked template relies on other resources, make sure other resources are deployed before the linked template.
 
 The following example shows a template that deploys a public IP address and returns the resource ID:
 

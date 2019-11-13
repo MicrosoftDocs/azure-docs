@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Language Understanding (LUIS) authoring client library for .NET"
 titleSuffix: Azure Cognitive Services 
-description: Get started with the Language Understanding (LUIS) client library for .NET. Follow these steps to install the package and try out the example code for basic tasks.  Language Understanding (LUIS) enables you to apply custom machine-learning intelligence to a user's conversational, natural language text to predict overall meaning, and pull out relevant, detailed information. 
+description: Get started with the LUIS client library for .NET. Follow these steps to install the package and try out the example code for basic tasks. 
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -31,9 +31,9 @@ Use the Language Understanding (LUIS) authoring client library for .NET to:
 
 ## Setting up
 
-### Get your Language Understanding (LUIS) authoring key
+### Get your Language Understanding (LUIS) starter key
 
-Get your [authoring key](luis-how-to-account-settings.md), and [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `COGNITIVESERVICE_AUTHORING_KEY`.
+Get your [starter key](luis-how-to-azure-subscription.md#starter-key), and [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `COGNITIVESERVICE_AUTHORING_KEY`.
 
 ### Create a new C# application
 

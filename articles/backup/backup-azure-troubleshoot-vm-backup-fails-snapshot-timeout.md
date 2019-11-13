@@ -1,5 +1,5 @@
 ---
-title: 'Troubleshoot Azure Backup failure: Guest Agent Status Unavailable'
+title: 'Troubleshoot Azure Backup failure: Agent and extension issues'
 description: 'Symptoms, causes, and resolutions of Azure Backup failures related to agent, extension, and disks.'
 ms.reviewer: saurse
 author: dcurwin
@@ -24,7 +24,7 @@ This article provides troubleshooting steps that can help you resolve Azure Back
 
 The Azure VM agent might be stopped, outdated, in an inconsistent state, or not installed and prevent Azure Backup service to trigger snapshots.  
 
-- If the VM agent is stopped or is in an inconsistent state, **Restart the Agent** and retry the backup operation (try an ad-hoc backup). For steps to restart the agent, see [Windows VMs](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) or [Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent).
+- If the VM agent is stopped or is in an inconsistent state, **Restart the Agent** and retry the backup operation (try an on-demand backup). For steps to restart the agent, see [Windows VMs](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) or [Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent).
 - If the VM agent is not installed or is outdated, install/update the VM agent and retry the backup operation. For steps to install/update the agent, see [Windows VMs](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) or [Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent).  
 
 ## GuestAgentSnapshotTaskStatusError - Could not communicate with the VM agent for snapshot status
@@ -100,12 +100,12 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 **Cause 5: Backup service doesn't have permission to delete the old restore points because of a resource group lock** <br>
 **Cause 6: [The VM doesn't have internet access](#the-vm-has-no-internet-access)**
 
-## UserErrorUnsupportedDiskSize - Currently Azure Backup does not support disk sizes greater than 4095 GB
+## UserErrorUnsupportedDiskSize - The configured disk size(s) is currently not supported by Azure Backup.
 
 **Error code**: UserErrorUnsupportedDiskSize <br>
-**Error message**: Currently Azure Backup does not support disk sizes greater than 4095 GB <br>
+**Error message**: The configured disk size(s) is currently not supported by Azure Backup. <br>
 
-Your backup operation could fail when backing up a VM with a disk size greater than 4095 GB. To sign up for a limited public preview of Azure Backup large disk support for disks greater than 4 TB and up to 30 TB in size, refer to this [article](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
+Your backup operation could fail when backing up a VM with a disk size greater than 32 TB. Also, backup of encrypted disks greater than 4 TB in size is not supported today. Ensure that the disk size(s) is less than or equal to the supported limit by splitting the disk(s).
 
 ## UserErrorBackupOperationInProgress - Unable to initiate backup as another backup operation is currently in progress
 
@@ -117,12 +117,10 @@ Your recent backup job failed because there is an existing backup job in progres
 1. Sign in to the Azure portal, click **All services**. Type Recovery Services and click **Recovery Services vaults**. The list of recovery services vaults appears.
 2. From the list of recovery services vaults, select a vault in which the backup is configured.
 3. On the vault dashboard menu, click **Backup Jobs** it displays all the backup jobs.
-
-- If a backup job is in progress, wait for it to complete or cancel the backup job.
-  - To cancel the backup job, right-click on the backup job and click **Cancel** or use [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
-- If you have reconfigured the backup in a different vault, then ensure there are no backup jobs running in the old vault. If it exists, then cancel the backup job.
-  - To cancel the backup job, right-click on the backup job and click **Cancel** or use [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)
-
+   - If a backup job is in progress, wait for it to complete or cancel the backup job.
+     - To cancel the backup job, right-click on the backup job and click **Cancel** or use [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
+   - If you have reconfigured the backup in a different vault, then ensure there are no backup jobs running in the old vault. If it exists, then cancel the backup job.
+     - To cancel the backup job, right-click on the backup job and click **Cancel** or use [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)
 4. Retry backup operation.
 
 If the scheduled backup operation is taking longer, conflicting with the next backup configuration, then review the [Best Practices](backup-azure-vms-introduction.md#best-practices), [Backup Performance](backup-azure-vms-introduction.md#backup-performance), and [Restore consideration](backup-azure-vms-introduction.md#backup-and-restore-considerations).
@@ -151,8 +149,7 @@ The VM agent might have been corrupted, or the service might have been stopped. 
 4. Download and install the [latest version of the agent MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You must have Administrator rights to complete the installation.
 5. Verify that the Windows Azure Guest Agent services appear in services.
 6. Run an on-demand backup:
-
-- In the portal, select **Backup Now**.
+   - In the portal, select **Backup Now**.
 
 Also, verify that [Microsoft .NET 4.5 is installed](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) in the VM. .NET 4.5 is required for the VM agent to communicate with the service.
 
@@ -231,17 +228,21 @@ Completing these steps causes the extension to be reinstalled during the next ba
 
 ### <a name="clean_up_restore_point_collection"></a> Clean up restore point collection
 
-After removing the lock, the restore points have to be cleaned up. To clean up the restore points, follow any of the methods:<br>
+After removing the lock, the restore points have to be cleaned up.
 
-- [Clean up restore point collection by running ad hoc backup](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
+If you delete the Resource Group of the VM, or the VM itself, the instant restore snapshots of managed disks remain active and expire according to the retention set. In order to delete the instant restore snapshots (if you don't need them anymore) that are stored in the Restore Point Collection, clean up the restore point collection according to the steps given below.
+
+To clean up the restore points, follow any of the methods:<br>
+
+- [Clean up restore point collection by running on-demand backup](#clean-up-restore-point-collection-by-running-on-demand-backup)<br>
 - [Clean up restore point collection from Azure portal](#clean-up-restore-point-collection-from-azure-portal)<br>
 
-#### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Clean up restore point collection by running ad hoc backup
+#### <a name="clean-up-restore-point-collection-by-running-on-demand-backup"></a>Clean up restore point collection by running on-demand backup
 
-After removing the lock, trigger an ad hoc/manual backup. This will ensure the restore points are automatically cleaned up. Expect this ad hoc/manual operation to fail the first time; however, it will ensure automatic cleanup instead of manual deletion of restore points. After cleanup your next scheduled backup should succeed.
+After removing the lock, trigger an on-demand backup. This will ensure the restore points are automatically cleaned up. Expect this on-demand operation to fail the first time; however, it will ensure automatic cleanup instead of manual deletion of restore points. After cleanup your next scheduled backup should succeed.
 
 > [!NOTE]
-> Automatic cleanup will happen after few hours of triggering the ad hoc/manual backup. If your scheduled backup still fails, then try manually deleting the restore point collection using the steps listed [here](#clean-up-restore-point-collection-from-azure-portal).
+> Automatic cleanup will happen after few hours of triggering the on-demand backup. If your scheduled backup still fails, then try manually deleting the restore point collection using the steps listed [here](#clean-up-restore-point-collection-from-azure-portal).
 
 #### <a name="clean-up-restore-point-collection-from-azure-portal"></a>Clean up restore point collection from Azure portal <br>
 

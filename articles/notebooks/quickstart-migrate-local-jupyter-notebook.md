@@ -4,13 +4,11 @@ description: Quickly transfer a Jupyter notebook to Azure Notebooks from your lo
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
-
+manager: barbkess
 ms.assetid: 2e935425-3923-4a33-89b2-0f2100b0c0c4
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.author: kraigb

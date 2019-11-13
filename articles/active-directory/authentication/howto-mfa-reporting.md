@@ -21,16 +21,16 @@ Azure Multi-Factor Authentication provides several reports that can be used by y
 
 | Report | Location | Description |
 |:--- |:--- |:--- |
-| Blocked User History | Azure AD > MFA Server > Block/unblock users | Shows the history of requests to block or unblock users. |
+| Blocked User History | Azure AD > Security > MFA > Block/unblock users | Shows the history of requests to block or unblock users. |
 | Usage and fraud alerts | Azure AD > Sign-ins | Provides information on overall usage, user summary, and user details; as well as a history of fraud alerts submitted during the date range specified. |
-| Usage for on-premises components | Azure AD > MFA Server > Activity Report | Provides information on overall usage for MFA through the NPS extension, ADFS, and MFA server. |
-| Bypassed User History | Azure AD > MFA Server > One-time bypass | Provides a history of requests to bypass Multi-Factor Authentication for a user. |
-| Server status | Azure AD > MFA Server > Server status | Displays the status of Multi-Factor Authentication Servers associated with your account. |
+| Usage for on-premises components | Azure AD > Security > MFA > Activity Report | Provides information on overall usage for MFA through the NPS extension, ADFS, and MFA server. |
+| Bypassed User History | Azure AD > Security > MFA > One-time bypass | Provides a history of requests to bypass Multi-Factor Authentication for a user. |
+| Server status | Azure AD > Security > MFA > Server status | Displays the status of Multi-Factor Authentication Servers associated with your account. |
 
 ## View MFA reports
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, select **Azure Active Directory** > **MFA Server**.
+2. On the left, select **Azure Active Directory** > **Security** > **MFA**.
 3. Select the report that you wish to view.
 
    ![MFA Server server status report in the Azure portal](./media/howto-mfa-reporting/report.png)

@@ -13,7 +13,7 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
-ms.date: 02/24/2019
+ms.date: 10/11/2019
 ms.author: yegu
 
 #Customer intent: As an ASP.NET Core developer, I want to manage all my app settings in one place.
@@ -50,13 +50,15 @@ You use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/
 
 2. In the new folder, run the following command to create a new ASP.NET Core MVC web app project:
 
-        dotnet new mvc
+    ```CLI
+        dotnet new mvc --no-https
+    ```
 
 ## Add Secret Manager
 
-Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/app-secrets) to your project. The Secret Manager tool stores sensitive data for development work outside of your project tree. This approach helps prevent the accidental sharing of app secrets within source code.
+To use Secret Manager, add a `UserSecretsId` element to your *.csproj* file.
 
-- Open the *.csproj* file. Add a `UserSecretsId` element as shown here, and replace its value with your own, which typically is a GUID. Save the file.
+- Open the *.csproj* file. Add a `UserSecretsId` element as shown here. You can use the same GUID, or you can replace this value with your own. Save the file.
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -74,23 +76,32 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
     </Project>
     ```
 
+The Secret Manager tool stores sensitive data for development work outside of your project tree. This approach helps prevent the accidental sharing of app secrets within source code. For more information on Secret Manager, please see [Safe storage of app secrets in development in ASP.NET Core](https://docs.microsoft.com/aspnet/core/security/app-secrets)
+
 ## Connect to an app configuration store
 
 1. Add a reference to the `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet package by running the following command:
 
-        dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009200001-7
-
+    ```CLI
+        dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-010060003-1250
+    ```
 2. Run the following command to restore packages for your project:
 
+    ```CLI
         dotnet restore
-
+    ```
 3. Add a secret named *ConnectionStrings:AppConfig* to Secret Manager.
 
     This secret contains the connection string to access your app configuration store. Replace the value in the following command with the connection string for your app configuration store.
 
     This command must be executed in the same directory as the *.csproj* file.
 
+    ```CLI
         dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
+    ```
+
+    > [!IMPORTANT]
+    > Some shells will truncate the connection string unless it is enclosed in quotes. Ensure that the output of the `dotnet user-secrets` command shows the entire connection string. If it doesn't, rerun the command, enclosing the connection string in quotes.
 
     Secret Manager is used only to test the web app locally. When the app is deployed to [Azure App Service](https://azure.microsoft.com/services/app-service/web), for example, you use an application setting **Connection Strings** in App Service instead of with Secret Manager to store the connection string.
 
@@ -103,6 +114,11 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
     ```
 
 5. Update the `CreateWebHostBuilder` method to use App Configuration by calling the `config.AddAzureAppConfiguration()` method.
+    
+    > [!IMPORTANT]
+    > `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.0.  Select the correct syntax based on your environment.
+
+    ### Update `CreateWebHostBuilder` for .NET Core 2.x
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -115,9 +131,23 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
             .UseStartup<Startup>();
     ```
 
+    ### Update `CreateHostBuilder` for .NET Core 3.x
+
+    ```csharp
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(webBuilder =>
+        webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+        {
+            var settings = config.Build();
+            config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"]);
+        })
+        .UseStartup<Startup>());
+    ```
+
 6. Open *Index.cshtml* in the Views > Home directory, and replace its content with the following code:
 
-    ```html
+    ```HTML
     @using Microsoft.Extensions.Configuration
     @inject IConfiguration Configuration
 
@@ -136,7 +166,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
 
 7. Open *_Layout.cshtml* in the Views > Shared directory, and replace its content with the following code:
 
-    ```html
+    ```HTML
     <!DOCTYPE html>
     <html>
     <head>
@@ -165,11 +195,15 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
 
 1. To build the app by using the .NET Core CLI, run the following command in the command shell:
 
-        dotnet build
+    ```CLI
+       dotnet build
+    ```
 
 2. After the build successfully completes, run the following command to run the web app locally:
 
+    ```CLI
         dotnet run
+    ```
 
 3. Open a browser window, and go to `http://localhost:5000`, which is the default URL for the web app hosted locally.
 
@@ -179,7 +213,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
 
 ## Next steps
 
-In this quickstart, you created a new app configuration store and used it with an ASP.NET Core web app via the [App Configuration provider](https://go.microsoft.com/fwlink/?linkid=2074664). To learn more about how to use App Configuration, continue to the next tutorial that demonstrates authentication.
+In this quickstart, you created a new app configuration store and used it with an ASP.NET Core web app via the [App Configuration provider](https://go.microsoft.com/fwlink/?linkid=2074664). To learn more about how to use App Configuration, continue to the next tutorial that demonstrates how to configure your web app to dynamically refresh configuration settings.
 
 > [!div class="nextstepaction"]
-> [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)
+> [Use dynamic configuration in an ASP.NET Core app](./enable-dynamic-configuration-aspnet-core.md)

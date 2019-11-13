@@ -31,6 +31,9 @@ At the end of this tutorial you run the Python console app:
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
+> [!NOTE]
+> This guide uses the deprecated V1 Python SDK, as the File Upload feature has not yet been implemented in the new V2 SDK.
+
 ## Prerequisites
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]

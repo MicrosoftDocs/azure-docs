@@ -142,7 +142,7 @@ To manage Azure resources, the script has to authenticate using the credentials 
 ## Add code to create Python Compute client and start the VM
 
 To work with Azure VMs, create an instance of the
-[Azure Compute client for Python](https://docs.microsoft.com/python/api/azure.mgmt.compute.computemanagementclient?view=azure-python).
+[Azure Compute client for Python](https://docs.microsoft.com/python/api/azure-mgmt-compute/azure.mgmt.compute.computemanagementclient).
 
 Use the Compute client to start the VM. Add the following code to the runbook:
 
@@ -204,6 +204,30 @@ and the name of the VM to start as the value of the second parameter.
 ![Enter parameter values](media/automation-first-runbook-textual-python/runbook-python-params.png)
 
 Click **OK** to start the runbook. The runbook runs and starts the VM that you specified.
+
+## Error Handling in Python
+
+You can also use the following conventions to retrieve various streams from your Python runbooks, including **WARNING**, **ERROR**, and **DEBUG** streams.
+
+```python
+print("Hello World output") 
+print("ERROR: - Hello world error")
+print("WARNING: - Hello world warning")
+print("DEBUG: - Hello world debug")
+print("VERBOSE: - Hello world verbose")
+```
+
+The following example shows this convention used in a `try...except` block.
+
+```python
+try:
+    raise Exception('one', 'two')
+except Exception as detail:
+    print 'ERROR: Handling run-time error:', detail
+```
+
+> [!NOTE]
+> **sys.stderr** is not supported in Azure Automation.
 
 ## Next steps
 
