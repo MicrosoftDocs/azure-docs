@@ -229,7 +229,7 @@ When you register a model, you provide a model name that's used for managing the
 When you register a model, you give it a name. The name corresponds to where the model is placed, either locally or during service deployment.
 
 > [!IMPORTANT]
-> If you used automated machine learning to train a model, a `model_id` value is used as the model name. For an example of registering and deploying a model trained with automated machine learning, see [Azure/MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-with-deployment) on GitHub.
+> If you used automated machine learning to train a model, a `model_id` value is used as the model name. For an example of registering and deploying a model trained with automated machine learning, see [Azure/MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features) on GitHub.
 
 The following example will return a path to a single file called `sklearn_mnist_model.pkl` (which was registered with the name `sklearn_mnist`):
 
@@ -371,8 +371,8 @@ def run(data):
 
 For more examples, see the following scripts:
 
-* [PyTorch](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch)
-* [TensorFlow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow)
+* [PyTorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch)
+* [TensorFlow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/tensorflow)
 * [Keras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras)
 * [ONNX](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/)
 
@@ -568,7 +568,7 @@ For information on using profiling from the CLI, see [az ml model profile](https
 For more information, see these documents:
 
 * [ModelProfile](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py)
-* [profile()](/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-)
+* [profile()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-)
 * [Inference configuration file schema](reference-azure-machine-learning-cli.md#inference-configuration-schema)
 
 ## Deploy to target
@@ -580,7 +580,7 @@ Deployment uses the inference configuration deployment configuration to deploy t
 To deploy a model locally, you need to have Docker installed on your local machine.
 
 #### Using the SDK
-
+zzs
 ```python
 from azureml.core.webservice import LocalWebservice, Webservice
 
