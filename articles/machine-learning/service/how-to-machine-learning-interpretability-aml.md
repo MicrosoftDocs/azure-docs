@@ -28,7 +28,9 @@ For more information, see [Model interpretability in Azure Machine Learning serv
 
 ## Local interpretability
 
-The following example shows how to use the interpretability package locally without contacting Azure services. Run `pip install azureml-interpret` to get the interpretability package.
+The following example shows how to use the interpretability package locally without contacting Azure services.
+
+1. If needed, use `pip install azureml-interpret` to get the interpretability package.
 
 1. Train a sample model in a local Jupyter notebook.
 
@@ -105,9 +107,9 @@ The following example shows how to use the interpretability package locally with
                              classes=classes)
     ```
 
-### Overall (global) feature importance values
+### Overall, global feature importance values
 
-To get the global feature importance values, use the following code.
+Refer to the following example to help you get the global feature importance values.
 
 ```python
 
@@ -126,9 +128,9 @@ dict(zip(sorted_global_importance_names, sorted_global_importance_values))
 global_explanation.get_feature_importance_dict()
 ```
 
-### Instance-level (local) feature importance values
+### Instance-level, local feature importance values
 
-To get the local feature importance values, use the following code. These functions call the explanations for an individual instance or a group of instances.
+Get the local feature importance values by calling explanations for an individual instance or a group of instances.
 > [!NOTE]
 > `PFIExplainer` does not support local explanations.
 
@@ -143,9 +145,14 @@ sorted_local_importance_values = local_explanation.get_ranked_local_values()
 
 ## Interpretability for remote runs
 
-This example shows how to use the `ExplanationClient` class for enabling model interpretability for remote runs. The concept is similar to the previous section,but you use the `ExplanationClient` in the remote run to upload the interpretability context, and then you can download the context later in a local environment. Use `pip install azureml-contrib-interpret` to get the necessary package.
+The following example shows how you can use the `ExplanationClient` class to enable model interpretability for remote runs. It's conceptually similar to the local process, except you:
 
-1. Create a training script in a local Jupyter notebook (for example, train_explain.py).
+* Use the `ExplanationClient` in the remote run to upload the interpretability context.
+* Download the context later in a local environment.
+
+1. If needed, use `pip install azureml-contrib-interpret` to get the necessary package.
+
+1. Create a training script in a local Jupyter notebook. For example, `train_explain.py`.
 
     ```python
     from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
@@ -176,7 +183,7 @@ This example shows how to use the `ExplanationClient` class for enabling model i
     #client.upload_model_explanation(global_explanation, top_k=2, comment='global explanation: Only top 2 features')
     ```
 
-1. Follow the instructions for [setting up compute targets for model training](how-to-set-up-training-targets.md#amlcompute) to learn how to set up an Azure Machine Learning compute as your compute target and submit your training run. You can also see the [example notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation).
+1. Set up an Azure Machine Learning Compute as your compute target and submit your training run. See [setting up compute targets for model training](how-to-set-up-training-targets.md#amlcompute) for instructions. You might also find the [example notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation) helpful.
 
 1. Download the explanation in your local Jupyter notebook.
 
@@ -198,9 +205,10 @@ This example shows how to use the `ExplanationClient` class for enabling model i
 
 ## Raw feature transformations
 
-Optionally, you can pass your feature transformation pipeline to the explainer (in train_explain.py) to receive explanations in terms of the raw features before the transformation (rather than engineered features). If you skip this, the explainer provides explanations in terms of engineered features.
+You can opt to get explanations in terms of raw, untransformed features rather than engineered features. For this option, you pass your feature transformation pipeline to the explainer in `train_explain.py`. Otherwise, the explainer provides explanations in terms of engineered features.
 
-The format of supported transformations is same as the one described in [sklearn-pandas](https://github.com/scikit-learn-contrib/sklearn-pandas). In general, any transformations are supported as long as they operate on a single column and are therefore clearly one to many. 
+\***
+The format of supported transformations is same as the one described in [sklearn-pandas](https://github.com/scikit-learn-contrib/sklearn-pandas). In general, any transformations are supported as long as they operate on a single column and are therefore clearly one to many.
 
 Explain raw features by either using a `sklearn.compose.ColumnTransformer` or a list of fitted transformer tuples. The code below uses `sklearn.compose.ColumnTransformer`. 
 
