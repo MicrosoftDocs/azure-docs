@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/04/2019
+ms.date: 11/13/2019
 ms.subservice: app-mgmt
 ms.author: mimart
 
 ms.collection: M365-identity-device-management
 ---
-# Application Management best practices
+# Application management best practices
 This article contains recommendations and best practices for managing applications in Azure Active Directory (Azure AD), using automatic provisioning, and publishing on-premises apps with Application Proxy.
 
 ## Cloud app and single sign-on recommendations
@@ -29,7 +29,7 @@ This article contains recommendations and best practices for managing applicatio
 | Use federated SAML-based SSO  | When an application supports it, use Federated, SAML-based SSO with Azure AD instead of password-based SSO and ADFS.  | 
 | Use SHA-256 for certificate signing  | Azure AD uses the SHA-256 algorithm by default to sign the SAML response. Use SHA-256 unless the application requires SHA-1 (see [Certificate signing options](https://docs.microsoft.com/azure/active-directory/manage-apps/certificate-signing-options) and [Application sign-in problem](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-application-error).)  | 
 | Require user assignment  | By default, users can access to your enterprise applications without being assigned to them. However, if the application exposes roles, or if you want the application to appear on a user’s access panel, require user assignment. (See [Developer guidance for integrating applications](https://docs.microsoft.com/azure/active-directory/manage-apps/developer-guidance-for-integrating-applications).)  | 
-| Deploy the My Apps access panel to your users | The [access panel](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/end-user-experiences) at `https://myapps.microsoft.com` is a web-based portal that provides users with a single point of entry for their assigned cloud-based applications. As additional capabilities like group management and self-service password reset are added, users can find them in the access panel. See [Plan an access panel deployment](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-deployment-plan).
+| Deploy the My Apps access panel to your users | The [access panel](https://docs.microsoft.com/azure/active-directory/manage-apps/end-user-experiences) at `https://myapps.microsoft.com` is a web-based portal that provides users with a single point of entry for their assigned cloud-based applications. As additional capabilities like group management and self-service password reset are added, users can find them in the access panel. See [Plan an access panel deployment](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-deployment-plan).
 | Use group assignment  | If included in your subscription, assign groups to an application so you can delegate ongoing access management to the group owner. (See [Developer guidance for integrating applications](https://docs.microsoft.com/azure/active-directory/manage-apps/developer-guidance-for-integrating-applications).)   | 
 | Establish a process for managing certificates | The maximum lifetime of a signing certificate is three years. To prevent or minimize outage due to a certificate expiring, use roles and email distribution lists to ensure that certificate-related change notifications are closely monitored. |
 
