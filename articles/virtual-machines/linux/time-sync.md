@@ -1,5 +1,5 @@
 ---
-title: Time sync for Linux VMs in Azure | Microsoft Docs
+title: Time sync for Linux VMs in Azure 
 description: Time sync for Linux virtual machines.
 services: virtual-machines-linux
 documentationcenter: ''
