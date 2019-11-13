@@ -13,7 +13,7 @@ ms.author: dacurwin
 
 Learn how to run an unattended installation of Azure Backup Server.
 
-These steps do not apply if you are installing Azure Backup Server V1.
+These steps don't apply if you're installing Azure Backup Server V1.
 
 ## Install Backup Server
 
@@ -55,6 +55,7 @@ You can use these flags for the installation:</br>
 **/x**: Uninstall path</br>
 
 ## Next steps
+
 After you install Backup Server, learn how to prepare your server, or begin protecting a workload.
 
 - [Prepare Backup Server workloads](backup-azure-microsoft-azure-backup.md)

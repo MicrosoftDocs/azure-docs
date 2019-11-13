@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 11/11/2019
+ms.date: 11/12/2019
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: "it-pro, seodec18"
@@ -40,7 +40,7 @@ You can create a new user using the Azure Active Directory portal.
 
    - **User name (required)**: The user name of the new user. For example, chris@contoso.com.
 
-     The domain part of the user name must use either the initial default domain name, <_yourdomainname_>.onmicrosoft.com, or a custom domain name in your Azure AD organization such as contoso.com. For more information about how to create a custom domain name, see [How to add a custom domain name to Azure Active Directory](add-custom-domain.md).
+     The domain part of the user name must use either the initial default domain name, <_yourdomainname_>.onmicrosoft.com, or a custom domain name in your Azure AD organization such as contoso.com. You can select from the list of available domains. You can also filter the list by typing a portion of the domain name. For more information about how to create a custom domain name, see [How to add a custom domain name to Azure Active Directory](add-custom-domain.md).
 
    - **Groups**: You can add the user to one or more existing groups, or you can do it later. For more information about adding users to groups, see [How to create a basic group and add members](active-directory-groups-create-azure-portal.md).
 
@@ -48,11 +48,19 @@ You can create a new user using the Azure Active Directory portal.
 
    - **Job info**: You can add more information about the user here, or do it later. For more information about adding user info, see [How to add or change user profile information](active-directory-users-profile-azure-portal.md).
 
-4. Copy the auto-generated password provided in the **Password** box. You'll need to give this password to the user for the initial sign-in process.
+4. Copy the auto-generated password provided in the **Password** box. You can choose to use the auto-generated password provided in the Password box or create a custom password. You'll need to give this password to the user for the initial sign-in process.
 
 5. Select **Create**.
 
 The user is created and added to your Azure AD organization.
+
+## Add a new guest user
+
+You can also invite new guest user to collaborate with your organization by selecting **Invite user** from the **New user** page. If your organization's external collaboration settings are configured such that you're allowed to invite guests, the user will be emailed an invitation they must accept in order to begin collaborating. For more information about inviting B2B collaboration users, see [Invite B2B users to Azure Active Directory](../b2b/add-users-administrator.md)
+
+## Add a consumer user
+
+There might be scenarios in which you want to manually create consumer accounts in your Azure Active Directory B2C (Azure AD B2C) directory. For more information about creating consumer accounts, see [Create and delete consumer users in Azure AD B2C](../../active-directory-b2c/manage-users-portal.md).
 
 ## Add a new user within a hybrid environment
 
