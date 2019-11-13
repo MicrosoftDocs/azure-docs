@@ -7,7 +7,7 @@ keywords:
 author: curtand
 manager: daveba
 ms.author: curtand
-ms.date: 11/12/2019
+ms.date: 11/13/2019
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
