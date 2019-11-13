@@ -83,7 +83,7 @@ kubectl describe node [NODE_NAME]
 To maintain node performance and functionality, resources are reserved on each node by AKS. As a node grows larger in resources, the resource reservation grows due to a higher amount of user deployed pods needing management.
 
 >[!NOTE]
-> Using add-ons such as OMS will consume additional node resources.
+> Using AKS add-ons such as Container Insights (OMS) will consume additional node resources.
 
 - **CPU** - reserved CPU is dependent on node type and cluster configuration which may cause less allocatable CPU due to running additional features
 
@@ -91,16 +91,24 @@ To maintain node performance and functionality, resources are reserved on each n
 |---|---|---|---|---|---|---|---|
 |Kube-reserved (millicores)|60|100|140|180|260|420|740|
 
-- **Memory** - reservation of memory follows a progressive rate
-  - 25% of the first 4 GB of memory
-  - 20% of the next 4 GB of memory (up to 8 GB)
-  - 10% of the next 8 GB of memory (up to 16 GB)
-  - 6% of the next 112 GB of memory (up to 128 GB)
-  - 2% of any memory above 128 GB
+- **Memory** - reserved memory includes the sum of two values
 
-These reservations mean that the amount of available CPU and memory for your applications may appear less than the node itself contains. If there are resource constraints due to the number of applications that you run, these reservations ensure CPU and memory remains available for the core Kubernetes components. The resource reservations can't be changed.
+1. The first value is a flat tax of 750Mi reserved for the "--eviction-hard" setting of the Kubelet. In the event of insufficient memory on a given node, the Kubelet will evict pods without time for a graceful shutdown to avoid the node getting out-of-memory (OOM) killed by the operating system which would otherwise immediately kill everything on the node.
 
-The underlying node OS also requires some amount of CPU and memory resources to complete its own core functions.
+2. The second value is the sum of a progressive rate
+    - 25% of the first 4 GB of memory
+    - 20% of the next 4 GB of memory (up to 8 GB)
+    - 10% of the next 8 GB of memory (up to 16 GB)
+    - 6% of the next 112 GB of memory (up to 128 GB)
+    - 2% of any memory above 128 GB
+
+As a result of these reservations to keep Kubernetes and nodes healthy, the amount of allocatable CPU and memory will appear less than the node itself offers. The resource reservations defined above cannot be changed.
+
+For example, in a given node with 7 GB of memory the reserved memory for Kubernetes would be:
+
+`750Mi + (0.25*4) + (0.20*3) = 0.786GB + 1 GB + 0.6GB = 2.386GB / 7GB = 34% reserved`
+
+In addition to reservations for Kubernetes, the underlying node OS also reserves an amount of CPU and memory resources to maintain OS functions.
 
 For associated best practices, see [Best practices for basic scheduler features in AKS][operator-best-practices-scheduler].
 
