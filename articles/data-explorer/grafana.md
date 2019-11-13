@@ -120,11 +120,7 @@ Now you've finished configuring Azure Data Explorer as a data source for Grafana
 
     ![select edit in dashboard](media/grafana/edit-panel-4-alert.png)
 
-1. Select the alert bell icon to open the **Alert** pane. Select **Create Alert** to create a new alert notification.
-
-    ![alert notification](media/grafana/alert-notifications.png)
-
-1. Complete the following properties in the **Alert** pane.
+1. Select the alert bell icon to open the **Alert** pane. Select **Create Alert**. Complete the following properties in the **Alert** pane.
 
     ![alert properties](media/grafana/alert-properties.png)
 
