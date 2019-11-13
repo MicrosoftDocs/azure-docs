@@ -21,15 +21,17 @@ This section of the [Azure AD operations reference guide](active-directory-ops-g
 
 ### Assign owners to key tasks
 
-Managing Azure Active Directory requires the continuous execution of key operational tasks and processes that may not be part of a rollout project. It is still important you set up these tasks to optimize your environment. The key tasks and their recommended owners include:
+Managing Azure Active Directory requires the continuous execution of key operational tasks and processes that may not be part of a rollout project. It is still important you set up these tasks to maintain your environment. The key tasks and their recommended owners include:
 
-- Define the process how to create Azure subscriptions - Varies by organization
-- Decide who gets Enterprise Mobility + Security licenses - IAM Operations Team
-- Decide who gets Office 365 licenses - Productivity Team
-- Decide who gets other licenses, for example, Dynamics, VSO - Application Owner
-- Assign licenses - IAM Operations Team
-- Troubleshoot and remediate license assignment errors - IAM Operations Team
-- Provision identities to applications in Azure AD - IAM Operations Team
+| Task | Owner |
+| :- | :- |
+| Define the process how to create Azure subscriptions | Varies by organization |
+| Decide who gets Enterprise Mobility + Security licenses | IAM Operations Team |
+| Decide who gets Office 365 licenses | Productivity Team |
+| Decide who gets other licenses, for example, Dynamics, VSO | Application Owner |
+| Assign licenses | IAM Operations Team |
+| Troubleshoot and remediate license assignment errors | IAM Operations Team |
+| Provision identities to applications in Azure AD | IAM Operations Team |
 
 As you review your list, you may find you need to either assign an owner for tasks that are missing an owner or adjust ownership for tasks with owners that aren’t aligned with the recommendations above.
 
@@ -38,7 +40,7 @@ As you review your list, you may find you need to either assign an owner for tas
 - [Assigning administrator roles in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal)
 - [Governance in Azure](https://docs.microsoft.com/azure/security/governance-in-azure)
 
-## On-premises Identity provisioning
+## On-premises Identity synchronization
 
 ### Identify and resolve synchronization issues
 
@@ -52,7 +54,7 @@ If you don’t synchronize the forest users log into, then you should immediatel
 
 #### Synchronization scope and object filtering
 
-Removing know buckets of objects that aren't required to be synchronized has the following operational benefits:
+Removing known buckets of objects that aren't required to be synchronized has the following operational benefits:
 
 - Fewer sources of sync errors
 - Faster sync cycles
@@ -126,9 +128,9 @@ The [Azure AD Connect Configuration Documenter](https://github.com/Microsoft/AAD
 
 ## Assignment to apps and resources
 
-### Group-based licensing for Microsoft Cloud Services
+### Group-based licensing for Microsoft cloud services
 
-Azure Active Directory streamlines the management of licenses through [group-based licensing](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-licensing-whatis-azure-portal). This way, IAM provides the group infrastructure and delegated management of those groups to the proper teams in the organizations. There are multiple ways to set up the membership of groups in Azure AD, including:
+Azure Active Directory streamlines the management of licenses through [group-based licensing](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-licensing-whatis-azure-portal) for Microsoft cloud services. This way, IAM provides the group infrastructure and delegated management of those groups to the proper teams in the organizations. There are multiple ways to set up the membership of groups in Azure AD, including:
 
 - **Synchronized from on-premises** - Groups can come from on-premises directories, which could be a good fit for organizations that have established group management processes that can be extended to assign licenses in office 365.
 
@@ -153,14 +155,14 @@ Use the following guidelines to define service plans to users:
 
 #### Lifecycle management
 
-If you are currently using a tool, such as [Microsoft Identity Manager](https://docs.microsoft.com/microsoft-identity-manager/) or third-party system, that relies on an on-premises infrastructure, we recommend you offload assignment from the existing tool, implement group-based licensing and define a group lifecycle management based on [dynamic groups](https://docs.microsoft.com/azure/active-directory/users-groups-roles/licensing-group-advanced#use-group-based-licensing-with-dynamic-groups). Likewise, if your existing process doesn’t account for new employees or employees that leave the organization, you should deploy group-based licensing based on dynamic groups and define a group membership lifecycle. Finally, if group-based licensing is deployed against on-premises groups that lack lifecycle management, consider using cloud groups to enable capabilities such as delegated ownership or attribute-based dynamic membership.
+If you are currently using a tool, such as [Microsoft Identity Manager](https://docs.microsoft.com/microsoft-identity-manager/) or third-party system, that relies on an on-premises infrastructure, we recommend you offload assignment from the existing tool, implement group-based licensing and define a group lifecycle management based on [groups](https://docs.microsoft.com/azure/active-directory/users-groups-roles/licensing-group-advanced#use-group-based-licensing-with-dynamic-groups). Likewise, if your existing process doesn’t account for new employees or employees that leave the organization, you should deploy group-based licensing based on dynamic groups and define a group membership lifecycle. Finally, if group-based licensing is deployed against on-premises groups that lack lifecycle management, consider using cloud groups to enable capabilities such as delegated ownership or attribute-based dynamic membership.
 
 ### Assignment of apps with "All users" group
 
 Resource owners may believe that the **All users** group contains only **Enterprise Employees** when they may actually contain both **Enterprise Employees** and **Guests**. As a result, you should take special care when using the **All users** group for application assignment and granting access to resources such as SharePoint content or applications.
 
 > [!IMPORTANT]
-> If the **All users** group is enabled and apps or resources assigned to it include guests you want to exclude, you should [secure the group](https://docs.microsoft.com/azure/active-directory/b2b/use-dynamic-groups#hardening-the-all-users-dynamic-group) by using a rule to remove guest users. Furthermore, you should fix your licensing assignments by creating and assigning to groups that contain **Enterprise Employees** only. On the other hand, if you find that the **All users** group is enabled but not being used to grant access to resources, make sure your organization’s operational guidance is to intentionally use that group (which includes both **Enterprise Employees** and **Guests**).
+> If the **All users** group is enabled and used for conditional access policies, app or resource assignment, make sure to [secure the group](https://docs.microsoft.com/azure/active-directory/b2b/use-dynamic-groups#hardening-the-all-users-dynamic-group) if you don't want it to include guest users. Furthermore, you should fix your licensing assignments by creating and assigning to groups that contain **Enterprise Employees** only. On the other hand, if you find that the **All users** group is enabled but not being used to grant access to resources, make sure your organization’s operational guidance is to intentionally use that group (which includes both **Enterprise Employees** and **Guests**).
 
 ### Automated user provisioning to apps
 
