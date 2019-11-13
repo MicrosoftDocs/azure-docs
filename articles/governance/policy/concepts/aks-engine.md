@@ -1,11 +1,8 @@
 ---
 title: Learn Azure Policy for AKS Engine
 description: Learn how Azure Policy uses CustomResourceDefinitions and Open Policy Agent from Gatekeeper v3 to manage clusters with AKS Engine. 
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-policy
 ---
 # Understand Azure Policy for AKS Engine
 
