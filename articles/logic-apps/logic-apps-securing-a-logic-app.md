@@ -163,7 +163,7 @@ If you [automate deployment for logic apps by using Resource Manager templates](
 
 ### Add Azure Active Directory OAuth or other security
 
-To add more authorization protocols to your logic app, consider using the [Azure API Management](../api-management/api-management-key-concepts.md) service. This service helps you expose your logic app as an API and offers rich monitoring, security, policy, and documentation for any endpoint. API Management can expose a public or private endpoint for your logic app. You can then use Azure Active Directory OAuth, client certificate, or other security standards for authorizing access to that endpoint. When API Management receives a request, the service sends the request to your logic app, also making any necessary transformations or restrictions along the way. To let only API Management trigger your logic app, you can use your logic app's inbound IP range settings.
+To add more authorization protocols to your logic app, consider using the [Azure API Management](../api-management/api-management-key-concepts.md) service. This service helps you expose your logic app as an API and offers rich monitoring, security, policy, and documentation for any endpoint. API Management can expose a public or private endpoint for your logic app. To authorize access to this endpoint, you can use [Azure Active Directory OAuth](#azure-active-directory-oauth-authentication), [client certificate](#client-certificate-authentication), or other security standards for authorizing access to that endpoint. When API Management receives a request, the service sends the request to your logic app, also making any necessary transformations or restrictions along the way. To let only API Management trigger your logic app, you can use your logic app's inbound IP range settings.
 
 <a name="secure-operations"></a>
 
@@ -577,8 +577,11 @@ Here are some ways that you can secure endpoints that receive calls or requests 
   When you work with an HTTP-based trigger or action that makes outbound calls, such as HTTP, HTTP + Swagger, or Webhook, you can add authentication to the request that's sent by your logic app. For example, you can use these authentication types:
 
   * [Basic authentication](#basic-authentication)
+
   * [Client certificate authentication](#client-certificate-authentication)
+
   * [Active Directory OAuth authentication](#azure-active-directory-oauth-authentication)
+
   * [Managed identity authentication](#managed-identity-authentication)
   
   For more information, see [Add authentication to outbound calls](#add-authentication-outbound) later in this topic.
@@ -661,7 +664,7 @@ If the [Client Certificate](../active-directory/authentication/active-directory-
 |---------------------|-----------------|----------|-------|-------------|
 | **Authentication** | `type` | Yes | **Client Certificate** <br>or <br>`ClientCertificate` | The authentication type to use for Secure Sockets Layer (SSL) client certificates. While self-signed certificates are supported, self-signed certificates for SSL aren't supported. |
 | **Pfx** | `pfx` | Yes | <*encoded-pfx-file-content*> | The base64-encoded content from a Personal Information Exchange (PFX) file |
-| **Password** | `password`| - No (code) <br>- Yes (designer) | <*password-for-pfx-file*> | The password for accessing the PFX file |
+| **Password** | `password`| See description | <*password-for-pfx-file*> | The password for accessing the PFX file. <p><p>**Note**: This property value is required when you work in the Logic App Designer and is *not* required when you work in code view. |
 |||||
 
 When you use [secured parameters](#secure-action-parameters) to handle and protect sensitive information, for example, in an [Azure Resource Manager template for automating deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), you can use expressions to access these parameter values at runtime. This example HTTP action definition specifies the authentication `type` as `ClientCertificate` and uses the [parameters() function](../logic-apps/workflow-definition-language-functions-reference.md#parameters) to get the parameter values:
