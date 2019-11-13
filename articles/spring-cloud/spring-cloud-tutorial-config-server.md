@@ -91,7 +91,7 @@ All configurable properties used to set up private Git repository with basic aut
 | `password`      | No     | The password used to access the Git repository server, _required_ when the Git repository server supports `Http Basic Authentication`. |
 
 > [!NOTE]
-> Some Git repository servers, such as GitHub, support a "personal-token" or "access-token" as a password for HTTP Basic Authentication. You can use that kind of token as a password here too, and the "personal-token" or "access-token" will not expire. However, for Git repository servers such as Bitbucket and Azure DevOps, the token will expire in one or two hours, making that option not viable for use with Azure Spring Cloud.
+> Some Git repository servers, such as GitHub, support a *personal-token* or *access-token* as a password for HTTP Basic Authentication. You can use that kind of token as a password here too, and the *personal-token" or *access-token* will not expire. However, for Git repository servers such as Bitbucket and Azure DevOps, the token will expire in one or two hours, making that option not viable for use with Azure Spring Cloud.
 
 ### Git repositories with pattern
 
