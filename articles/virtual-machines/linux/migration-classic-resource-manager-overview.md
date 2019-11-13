@@ -1,5 +1,5 @@
 ---
-title: Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager  | Microsoft Docs 
+title: Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager   
 description: This article walks through the platform-supported migration of resources from classic to Azure Resource Manager
 services: virtual-machines-linux
 documentationcenter: ''
@@ -19,6 +19,7 @@ ms.author: kasing
 
 ---
 
+# Platform-supported migration of IaaS resources from classic to Azure Resource Manager
 [!INCLUDE [virtual-machines-common-migration-faq](../../../includes/virtual-machines-common-classic-resource-manager-migration-overview.md)]
 
 ## Next steps

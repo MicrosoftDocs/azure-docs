@@ -1,6 +1,6 @@
 ---
 title: Azure Backup for SQL Server workloads using Azure Backup Server
-description: An introduction to backing up SQL Server databases using Azure Backup Server
+description: In this article, learn the configuration steps for backup of SQL Server databases using Microsoft Azure Backup Server (MABS).
 ms.reviewer: kasinh
 author: dcurwin
 manager: carmonm

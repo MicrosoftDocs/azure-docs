@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 10/31/2019
 ms.author: iainfou
 
 ---
@@ -19,7 +19,9 @@ In Azure Active Directory Domain Services (Azure AD DS), a key component is DNS 
 
 As you run your own applications and services, you may need to create DNS records for machines that aren't joined to the domain, configure virtual IP addresses for load balancers, or set up external DNS forwarders. Users who belong to the *AAD DC Administrators* group are granted DNS administration privileges on the Azure AD DS managed domain and can create and edit custom DNS records.
 
-This article shows you how to install the DNS Server tools then use the DNS console to manage records.
+In a hybrid environment, DNS zones and records configured in an on-premises AD DS environment aren't synchronized to Azure AD DS. To define and use your own DNS entries, create records in the Azure AD DS DNS server or use conditional forwarders that point to existing DNS servers in your environment.
+
+This article shows you how to install the DNS Server tools then use the DNS console to manage records in Azure AD DS.
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
@@ -39,10 +41,10 @@ To complete this article, you need the following resources and privileges:
 
 ## Install DNS Server tools
 
-To create and modify DNS, you need to install the DNS Server tools. These tools can be installed as a feature in Windows Server. For more information on how to install the administrative tools on a Windows client, see install [Remote Server Administration Tools (RSAT)][install-rsat].
+To create and modify DNS records in Azure AD DS, you need to install the DNS Server tools. These tools can be installed as a feature in Windows Server. For more information on how to install the administrative tools on a Windows client, see install [Remote Server Administration Tools (RSAT)][install-rsat].
 
 1. Sign in to your management VM. For steps on how to connect using the Azure portal, see [Connect to a Windows Server VM][connect-windows-server-vm].
-1. **Server Manager** should open by default when you sign in to the VM. If not, on the **Start** menu, select **Server Manager**.
+1. If **Server Manager** doesn't open by default when you sign in to the VM, select the **Start** menu, then choose **Server Manager**.
 1. In the *Dashboard* pane of the **Server Manager** window, select **Add Roles and Features**.
 1. On the **Before You Begin** page of the *Add Roles and Features Wizard*, select **Next**.
 1. For the *Installation Type*, leave the **Role-based or feature-based installation** option checked and select **Next**.

@@ -10,15 +10,11 @@ ms.author: glenga
 ms.custom: include file
 ---
 
-1. Open the Azure portal from [https://portal.azure.com](https://portal.azure.com)
+1. From the Azure portal menu, select **Create a resource**.
 
-1. Select the **Create a resource** button
+    ![Add resource by using the Azure portal menu](./media/functions-create-function-app-portal/create-function-app-resource.png)
 
-    ![Create resource](./media/functions-create-function-app-portal/function-app-create-resource.png)
-
-1. Select **Compute** > **Function App**.
-
-    ![Create a function app in the Azure portal](./media/functions-create-function-app-portal/function-app-create-start.png)
+1. In the **New** page, select **Compute** > **Function App**.
 
 1. Use the function app settings as specified in the table below the image.
 

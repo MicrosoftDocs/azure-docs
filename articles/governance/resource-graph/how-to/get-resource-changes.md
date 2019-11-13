@@ -1,12 +1,8 @@
 ---
 title: Get resource changes
 description: Understand how to find when a resource was changed and get a list of the properties that changed.
-services: resource-graph
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/09/2019
 ms.topic: conceptual
-ms.service: resource-graph
 ---
 # Get resource changes
 
@@ -316,4 +312,4 @@ you compare the snapshots, the **timestamp** always shows as a difference despit
 
 - See the language in use in [Starter queries](../samples/starter.md).
 - See advanced uses in [Advanced queries](../samples/advanced.md).
-- Learn to [explore resources](../concepts/explore-resources.md).
+- Learn more about how to [explore resources](../concepts/explore-resources.md).

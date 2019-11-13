@@ -80,7 +80,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     
      Select **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 
-For more information on creating clusters, see [Create a Spark cluster in Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
+For more information on creating clusters, see [Create a Spark cluster in Azure Databricks](/azure/databricks/clusters/create).
 
 ## Run a Spark SQL job
 
@@ -159,7 +159,7 @@ If you do not manually terminate the cluster it will automatically stop, provide
 
 ## Next steps
 
-In this article, you created a Spark cluster in Azure Databricks and ran a Spark job using data from Azure Open Datasets. You can also look at [Spark data sources](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) to learn how to import data from other data sources into Azure Databricks. Advance to the next article to learn how to perform an ETL operation (extract, transform, and load data) using Azure Databricks.
+In this article, you created a Spark cluster in Azure Databricks and ran a Spark job using data from Azure Open Datasets. You can also look at [Spark data sources](/azure/databricks/data/data-sources/index.html) to learn how to import data from other data sources into Azure Databricks. Advance to the next article to learn how to perform an ETL operation (extract, transform, and load data) using Azure Databricks.
 
 > [!div class="nextstepaction"]
 >[Extract, transform, and load data using Azure Databricks](databricks-extract-load-sql-data-warehouse.md)

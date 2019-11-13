@@ -1,5 +1,5 @@
 ---
-title: Attach a data disk to a Linux VM | Microsoft Docs
+title: Attach a data disk to a Linux VM 
 description: Use the portal to attach new or existing data disk to a Linux VM.
 services: virtual-machines-linux
 documentationcenter: ''

@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 11/03/2019
 ms.author: diberry
 ---
 
@@ -20,6 +20,10 @@ You can add features to your LUIS app to improve its accuracy. Features help LUI
 A [phrase list](luis-concept-feature.md) includes a group of values (words or phrases) that belong to the same class and must be treated similarly (for example, names of cities or products). What LUIS learns about one of them is automatically applied to the others as well. This list is not the same thing as a [list entity](reference-entity-list.md) (exact text matches) of matched words.
 
 A phrase list adds to the vocabulary of the app domain as a second signal to LUIS about those words.
+
+Review [feature concepts](luis-concept-feature.md) to understand when and why to use a phrase list. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 ## Add phrase list
 

@@ -1,24 +1,25 @@
 ---
-title: Indexers for crawling data sources during indexing - Azure Search
-description: Crawl Azure SQL database, Azure Cosmos DB, or Azure storage to extract searchable data and populate an Azure Search index.
-author: HeidiSteen
+title: Indexers for crawling data sources during indexing
+titleSuffix: Azure Cognitive Search
+description: Crawl Azure SQL database, Azure Cosmos DB, or Azure storage to extract searchable data and populate an Azure Cognitive Search index.
+
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
+author: HeidiSteen
 ms.author: heidist
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
 
-# Indexers in Azure Search
+# Indexers in Azure Cognitive Search
 
-An *indexer* in Azure Search is a crawler that extracts searchable data and metadata from an external Azure data source and populates an index based on field-to-field mappings between the index and your data source. This approach is sometimes referred to as a 'pull model' because the service pulls data in without you having to write any code that adds data to an index.
+An *indexer* in Azure Cognitive Search is a crawler that extracts searchable data and metadata from an external Azure data source and populates an index based on field-to-field mappings between the index and your data source. This approach is sometimes referred to as a 'pull model' because the service pulls data in without you having to write any code that adds data to an index.
 
 Indexers are based on data source types or platforms, with individual indexers for SQL Server on Azure, Cosmos DB, Azure Table Storage and Blob Storage. Blob storage indexers have additional properties specific to blob content types.
 
 You can use an indexer as the sole means for data ingestion, or use a combination of techniques that include the use of an indexer for loading just some of the fields in your index.
 
-You can run indexers on demand or on a recurring data refresh schedule that runs as often as every five minutes. More frequent updates require a push model that simultaneously updates data in both Azure Search and your external data source.
+You can run indexers on demand or on a recurring data refresh schedule that runs as often as every five minutes. More frequent updates require a push model that simultaneously updates data in both Azure Cognitive Search and your external data source.
 
 ## Approaches for creating and managing indexers
 
@@ -56,13 +57,13 @@ An indexer obtains data source connection from a *data source* object. The data 
 Data sources are configured and managed independently of the indexers that use them, which means a data source can be used by multiple indexers to load more than one index at a time.
 
 ### Step 2: Create an index
-An indexer will automate some tasks related to data ingestion, but creating an index is generally not one of them. As a prerequisite, you must have a predefined index with fields that match those in your external data source. Fields need to match by name and data type. For more information about structuring an index, see [Create an Index (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/Create-Index) or [Index class](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index). For help with field associations, see [Field mappings in Azure Search indexers](search-indexer-field-mappings.md).
+An indexer will automate some tasks related to data ingestion, but creating an index is generally not one of them. As a prerequisite, you must have a predefined index with fields that match those in your external data source. Fields need to match by name and data type. For more information about structuring an index, see [Create an Index (Azure Cognitive Search REST API)](https://docs.microsoft.com/rest/api/searchservice/Create-Index) or [Index class](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index). For help with field associations, see [Field mappings in Azure Cognitive Search indexers](search-indexer-field-mappings.md).
 
 > [!Tip]
 > Although indexers cannot generate an index for you, the **Import data** wizard in the portal can help. In most cases, the wizard can infer an index schema from existing metadata in the source, presenting a preliminary index schema which you can edit in-line while the wizard is active. Once the index is created on the service, further edits in the portal are mostly limited to adding new fields. Consider the wizard for creating, but not revising, an index. For hands-on learning, step through the [portal walkthrough](search-get-started-portal.md).
 
 ### Step 3: Create and schedule the indexer
-The indexer definition is a construct that brings together all of the elements related to data ingestion. Required elements include a data source and index. Optional elements include a schedule and field mappings. Field mapping are only optional if source fields and index fields clearly correspond. An indexer can reference a data source from another service, as long as that data source is from the same subscription. For more information about structuring an indexer, see [Create Indexer (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
+The indexer definition is a construct that brings together all of the elements related to data ingestion. Required elements include a data source and index. Optional elements include a schedule and field mappings. Field mapping are only optional if source fields and index fields clearly correspond. An indexer can reference a data source from another service, as long as that data source is from the same subscription. For more information about structuring an indexer, see [Create Indexer (Azure Cognitive Search REST API)](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
 
 <a id="RunIndexer"></a>
 
@@ -125,5 +126,5 @@ Now that you have the basic idea, the next step is to review requirements and ta
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
-* [Indexing CSV blobs using the Azure Search Blob indexer](search-howto-index-csv-blobs.md)
-* [Indexing JSON blobs with Azure Search Blob indexer](search-howto-index-json-blobs.md)
+* [Indexing CSV blobs using the Azure Cognitive Search Blob indexer](search-howto-index-csv-blobs.md)
+* [Indexing JSON blobs with Azure Cognitive Search Blob indexer](search-howto-index-json-blobs.md)

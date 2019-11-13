@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 10/14/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand why and when to review endpoint utterances. 
 
@@ -25,6 +25,8 @@ This review process is another way for LUIS to learn your app domain. LUIS selec
 * Should be reviewed on a periodic basis. 
 
 By reviewing the endpoint utterances, you verify or correct the utterance's predicted intent. You also label custom entities that were not predicted or predicted incorrectly. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **In this tutorial, you learn how to:**
 

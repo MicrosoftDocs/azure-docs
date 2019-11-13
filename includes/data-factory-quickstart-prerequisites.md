@@ -37,8 +37,10 @@ You use a general-purpose Azure storage account (specifically Blob storage) as b
 You will need the name of your Azure storage account for this quickstart. The following procedure provides steps to get the name of your storage account: 
 
 1. In a web browser, go to the [Azure portal](https://portal.azure.com) and sign in using your Azure username and password.
-2. Select **All services** > **Storage** > **Storage accounts**.
+2. From the Azure portal menu, select **All services**, then select **Storage** > **Storage accounts**. You can also search for and select *Storage accounts* from any page.
 3. In the **Storage accounts** page, filter for your storage account (if needed), and then select your storage account. 
+
+You can also search for and select *Storage accounts* from any page.
 
 #### Create a blob container
 In this section, you create a blob container named **adftutorial** in Azure Blob storage.
@@ -59,7 +61,12 @@ Jane, Doe
 
 Save the file in the **C:\ADFv2QuickStartPSH** folder. (If the folder doesn't already exist, create it.) Then return to the Azure portal and follow these steps:
 
-1. In the *\<Account name>* - **Blobs** page where you left off, select **adftutorial** from the updated list of containers. (If you closed the window or went to another page, sign in to the [Azure portal](https://portal.azure.com) again, select **All services** > **Storage** > **Storage accounts**, select your storage account, and then select **Blobs** > **adftutorial**.)
+1. In the *\<Account name>* - **Blobs** page where you left off, select **adftutorial** from the updated list of containers.
+
+   1. If you closed the window or went to another page, sign in to the [Azure portal](https://portal.azure.com) again.
+   1. From the Azure portal menu, select **All services**, then select **Storage** > **Storage accounts**. You can also search for and select *Storage accounts* from any page.
+   1. Select your storage account, and then select **Blobs** > **adftutorial**.
+
 2. On the **adftutorial** container page's toolbar, select **Upload**.
 3. In the **Upload blob** page, select the **Files** box, and then browse to and select the **emp.txt** file.
 4. Expand the **Advanced** heading. The page now displays as shown:

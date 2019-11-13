@@ -1,10 +1,10 @@
 ---
-title: Deploy to Azure Analysis Services by using Visual Studio  | Microsoft Docs
+title: Deploy a model to Azure Analysis Services by using Visual Studio | Microsoft Docs
 description: Learn how to deploy a tabular model to an Azure Analysis Services server by using Visual Studio.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
 

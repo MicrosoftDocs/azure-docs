@@ -1,5 +1,5 @@
 ---
-title: Manage user data found in an Azure Security Center investigation | Microsoft Docs
+title: Manage user data found in an Azure Security Center investigation
 description: " Learn how to manage user data found in Azure Security Center's investigation feature. "
 services: operations-management-suite
 documentationcenter: na

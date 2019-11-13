@@ -1,6 +1,6 @@
 ---
-title: Connect IoT Plug and Play Preview sample device code to IoT Hub | Microsoft Docs
-description: Build and run IoT Plug and Play Preview sample device code that connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
+title: Connect IoT Plug and Play Preview sample device code to IoT Hub (Windows) | Microsoft Docs
+description: Build and run IoT Plug and Play Preview sample device code on Windows that connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
 author: ChrisGMsft
 ms.author: chrisgre
 ms.date: 08/02/2019
@@ -12,7 +12,7 @@ ms.custom: mvc
 # As a device developer, I want to see a working IoT Plug and Play device sample connecting to IoT Hub and sending properties, commands and telemetry. As a solution developer, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
 ---
 
-# Quickstart: Connect a sample IoT Plug and Play Preview device application to IoT Hub
+# Quickstart: Connect a sample IoT Plug and Play Preview device application running on Windows to IoT Hub
 
 This quickstart shows you how to build a sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written in C and is included in the Azure IoT device SDK for C. A solution developer can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
@@ -20,7 +20,7 @@ This quickstart shows you how to build a sample IoT Plug and Play device applica
 
 To complete this quickstart, you need to install the following software on your local machine:
 
-* [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/) - make sure that you include the **NuGet package manager** component and the **Desktop Development with C++** workload when you install Visual Studio.
+* [Build Tools for Visual Studio](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16) with **C++ build tools** and **NuGet package manager component** workloads. Or if you already have [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/) 2019, 2017 or 2015 with same workloads installed.
 * [Git](https://git-scm.com/download/).
 * [CMake](https://cmake.org/download/).
 

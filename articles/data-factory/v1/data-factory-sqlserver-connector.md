@@ -1,5 +1,5 @@
 ---
-title: Move data to and from SQL Server | Microsoft Docs
+title: Move data to and from SQL Server 
 description: Learn about how to move data to/from SQL Server database that is on-premises or in an Azure VM using Azure Data Factory.
 services: data-factory
 documentationcenter: ''

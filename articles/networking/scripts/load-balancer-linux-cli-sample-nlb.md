@@ -3,11 +3,8 @@ title: Azure CLI Script Sample - Load balance traffic to VMs for high availabili
 description: Azure CLI Script Sample - Load balance traffic to VMs for high availability
 services: load-balancer
 documentationcenter: load-balancer
-author: KumudD
-manager: timlt
-editor: tysonn
-tags: 
-
+author: asudbring
+manager: KumudD
 ms.assetid:
 ms.service: load-balancer
 ms.devlang: azurecli
@@ -15,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
 ms.date: 07/07/2017
-ms.author: kumud
+ms.author: allensu
 ---
 
 # Load balance traffic to VMs for high availability

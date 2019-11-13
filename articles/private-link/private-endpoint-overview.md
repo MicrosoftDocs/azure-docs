@@ -12,7 +12,7 @@ ms.author: kumud
 ---
 # What is Azure Private Endpoint?
 
-Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. Private Endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. The service could be an Azure service such as Azure Storage, SQL, etc. or your own [Private Link Service](private-link-service-overview.md).
+Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. Private Endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. The service could be an Azure service such as Azure Storage, Azure Cosmos DB, SQL, etc. or your own [Private Link Service](private-link-service-overview.md).
   
 ## Private Endpoint properties 
  A Private Endpoint specifies the following properties: 
@@ -53,7 +53,7 @@ A private link resource is the destination target of a given private endpoint. T
 |**Azure SQL Data Warehouse** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        |
 |**Azure Storage**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> Table (table, table_secondary)<BR> Queue (queue, queue_secondary)<BR> File (file, file_secondary)<BR> Web (web, web_secondary)        |
 |**Azure Data Lake Storage Gen2**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)       |
- 
+|**Azure Cosmos DB** | Microsoft.AzureCosmosDB/databaseAccounts	| Sql, MongoDB, Cassandra, Gremlin, Table|
  
 ## Network security of private endpoints 
 When using private endpoints for Azure services, traffic is secured to a specific private link resource. The platform performs an access control to validate network connections reaching only the specified private link resource. To access additional resources within the same Azure service, additional private endpoints are required. 
@@ -103,9 +103,12 @@ For Azure services, use the recommended zone names as described in the following
 |Storage Account (Microsoft.Storage/storageAccounts)   |    File (file, file_secondary)      |    privatelink.file.core.windows.net      |
 |Storage Account (Microsoft.Storage/storageAccounts)     |  Web (web, web_secondary)        |    privatelink.web.core.windows.net      |
 |Data Lake File System Gen2 (Microsoft.Storage/storageAccounts)  |  Data Lake File System Gen2 (dfs, dfs_secondary)        |     privatelink.dfs.core.windows.net     |
-||||
+|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|SQL	|privatelink.documents.azure.com|
+|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|MongoDB	|privatelink.mongo.cosmos.azure.com|
+|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|Cassandra|privatelink.cassandra.cosmos.azure.com|
+|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|Gremlin	|privatelink.gremlin.cosmos.azure.com|
+|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|Table|privatelink.table.cosmos.azure.com|
  
-
 Azure will create a canonical name DNS record (CNAME) on the public DNS to redirect the resolution to the suggested domain names. You'll be able to override the resolution with the private IP address of your private endpoints. 
  
 Your applications don't need to change the connection URL. When attempting to resolve using a public DNS, the DNS server will now resolve to your private endpoints. The process does not impact your applications. 
@@ -127,4 +130,5 @@ The following table includes a list of known limitations when using private endp
 - [Create a Private Endpoint for SQL Database Server using PowerShell ](create-private-endpoint-powershell.md)
 - [Create a Private Endpoint for SQL Database Server using CLI ](create-private-endpoint-cli.md)
 - [Create a Private Endpoint for Storage account using Portal ](create-private-endpoint-storage-portal.md)
+- [Create a Private Endpoint for Azure Cosmos account using Portal ](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Create your own Private Link service using Azure PowerShell](create-private-link-service-powershell.md)

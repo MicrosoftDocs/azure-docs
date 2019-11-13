@@ -1,5 +1,5 @@
 ---
-title: Security considerations in Azure Data Factory | Microsoft Docs
+title: Security considerations in Azure Data Factory 
 description: Describes basic security infrastructure that data movement services in Azure Data Factory use to help secure your data.  
 services: data-factory
 documentationcenter: ''
