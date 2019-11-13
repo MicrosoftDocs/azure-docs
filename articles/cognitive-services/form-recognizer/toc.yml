@@ -4,6 +4,8 @@
   items:
   - name: What is Form Recognizer?
     href: overview.md
+  - name: What's new
+    href: whats-new.md
 - name: Quickstarts
   expaned: true
   items:
@@ -57,8 +59,6 @@
       href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview
 - name: Resources
   items: 
-  - name: What's new
-    href: whats-new.md
   - name: Pricing and limits
     href: https://go.microsoft.com/fwlink/?linkid=2087258
   - name: UserVoice
