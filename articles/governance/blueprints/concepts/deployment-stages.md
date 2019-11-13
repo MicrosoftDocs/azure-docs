@@ -24,10 +24,10 @@ takes the following high-level steps:
 ## Blueprints granted owner rights
 
 The Azure Blueprints service principal is granted owner rights to the assigned subscription or
-subscriptions. The granted role allows Blueprints to create, and later revoke, the [system-assigned
-managed identity](../../../active-directory/managed-identities-azure-resources/overview.md). The
-Azure Blueprints service principal only requires owner rights when a **system-assigned** managed
-identity is used.
+subscriptions when a [system-assigned managed
+identity](../../../active-directory/managed-identities-azure-resources/overview.md) managed identity
+is used. The granted role allows Blueprints to create, and later revoke, the **system-assigned**.
+The Azure Blueprints service principal only requires owner rights.
 
 The rights are granted automatically if the assignment is done through the portal. However, if the
 assignment is done through the REST API, granting the rights needs to be done with a separate API
