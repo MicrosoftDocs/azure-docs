@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 11/13/2019
 ms.author: helohr
 ---
 # Windows Virtual Desktop partner integrations
