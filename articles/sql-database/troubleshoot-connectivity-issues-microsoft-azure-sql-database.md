@@ -29,13 +29,11 @@ For code examples of retry logic, see:
 
 ### Error 40613: Database < x > on server < y > is not currently available
 
-**Detailed error**
-
 ``40613: Database <DBname> on server < server name > is not currently available. Please retry the connection later. If the problem persists, contact customer support, and provide them the session tracing ID of '< Tracing ID >'.``
 
 To resolve this issue:
 
-1. Check the [Microsoft Azure Service Dashboard](https://status.azure.com/status) for any known outages. 
+1. Check the [Microsoft Azure Service Dashboard](https://status.azure.com/status) for any known outages.
 2. If there are no known outages, go to the [Microsoft Azure Support website](https://azure.microsoft.com/support/options) to open a support case.
 
 For more information, see [Troubleshoot the "Database on server is not currently available" error](sql-database-troubleshoot-common-connection-issues.md#troubleshoot-transient-errors).
@@ -50,19 +48,13 @@ To resolve this issue, try the steps (in the order presented) in the [Steps to f
 
 #### Error 26: Error Locating server specified
 
-**Detailed error**
-
 ``System.Data.SqlClient.SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.(provider: SQL Network Interfaces, error: 26 – Error Locating Server/Instance Specified)``
 
 #### Error 40: Could not open a connection to the server
 
-**Detailed error**
-
 ``A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)``
 
 #### Error 10053: A transport-level error has occurred when receiving results from the server
-
-**Detailed error**
 
 ``10053: A transport-level error has occurred when receiving results from the server. (Provider: TCP Provider, error: 0 - An established connection was aborted by the software in your host machine)``
 
@@ -89,7 +81,7 @@ The following errors are transient, and should be retried in application logic:
 | 49920 |16 |Cannot process request. Too many operations in progress for subscription "%ld".<br/><br/>The service is busy processing multiple requests for this subscription. Requests are currently blocked for resource optimization. Query [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) for operation status. Wait until pending requests are complete or delete one of your pending requests and retry your request later. For more information, see: <br/>&bull; &nbsp;[Database server resource limits](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[DTU-based limits for single databases](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp;[DTU-based limits for elastic pools](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[vCore-based limits for single databases](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp;[vCore-based limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Managed instance resource limits](sql-database-managed-instance-resource-limits.md). |
 | 4221 |16 |Login to read-secondary failed due to long wait on 'HADR_DATABASE_WAIT_FOR_TRANSITION_TO_VERSIONING'. The replica is not available for login because row versions are missing for transactions that were in-flight when the replica was recycled. The issue can be resolved by rolling back or committing the active transactions on the primary replica. Occurrences of this condition can be minimized by avoiding long write transactions on the primary. |
 
-## Cannot connect to <servername> due to firewall issues
+## Cannot connect to server due to firewall issues
 
 ### Error 40615: Cannot connect to < servername >
 
@@ -105,8 +97,6 @@ For more information, see [Configure the Windows Firewall to allow SQL Server ac
 
 ### Login failed for user '< User name >'
 
-**Detailed error**
-
 ``Login failed for user '<User name>'.This session has been assigned a tracing ID of '<Tracing ID>'. Provide this tracing ID to customer support when you need assistance. (Microsoft SQL Server, Error: 18456)``
 
 To resolve this issue, contact your service administrator to provide you with a valid SQL Server user name and password.
@@ -120,7 +110,7 @@ Typically, the service administrator can use the following steps to add the logi
    SELECT name, is_disabled FROM sys.sql_logins
    ```
 
-3. If the corresponding name is disabled, enable it by using the following statement: 
+3. If the corresponding name is disabled, enable it by using the following statement:
 
    ```sql
    Alter login <User name> enable
@@ -128,8 +118,8 @@ Typically, the service administrator can use the following steps to add the logi
 
 4. If the SQL login user name doesn't exist, create it by following these steps:
 
-   1. In SSMS, double-click **Security** to expand it. 
-   2. Right-click **Logins**, and then select **New login**. 
+   1. In SSMS, double-click **Security** to expand it.
+   2. Right-click **Logins**, and then select **New login**.
    3. In the generated script with placeholders, edit and run the following SQL query:
 
    ```sql
@@ -164,25 +154,17 @@ For more information, see [Managing databases and logins in Azure SQL Database](
 
 ### System.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired
 
-**Detailed error**
-
 ``System.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired. The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement. This could be because the pre-login handshake failed or the server was unable to respond back in time. The duration spent while attempting to connect to this server was - [Pre-Login] initialization=3; handshake=29995;``
 
 ### System.Data.SqlClient.SqlException (0x80131904): Timeout expired
-
-**Detailed error**
 
 ``System.Data.SqlClient.SqlException (0x80131904): Timeout expired. The timeout period elapsed prior to completion of the operation or the server is not responding.``
 
 ### System.Data.Entity.Core.EntityException: The underlying provider failed on Open
 
-**Detailed error**
-
 ``System.Data.Entity.Core.EntityException: The underlying provider failed on Open. -> System.Data.SqlClient.SqlException: Timeout expired. The timeout period elapsed prior to completion of the operation or the server is not responding. -> System.ComponentModel.Win32Exception: The wait operation timed out``
 
 ### Cannot connect to < server name >
-
-**Detailed error**
 
 ``Cannot connect to <server name>.ADDITIONAL INFORMATION:Connection Timeout Expired. The timeout period elapsed during the post-login phase. The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections. The duration spent while attempting to connect to this server was - [Pre-Login] initialization=231; handshake=983; [Login] initialization=0; authentication=0; [Post-Login] complete=13000; (Microsoft SQL Server, Error: -2) For help, click: http://go.microsoft.com/fwlink?ProdName=Microsoft%20SQL%20Server&EvtSrc=MSSQLServer&EvtID=-2&LinkId=20476 The wait operation timed out``
 
@@ -202,10 +184,7 @@ As a best practice, make sure that retry logic is in place. For more information
 
 ## Resource governance errors
 
-
 ### Error 10928: Resource ID: %d
-
-**Detailed error**
 
 ``10928: Resource ID: %d. The %s limit for the database is %d and has been reached. See http://go.microsoft.com/fwlink/?LinkId=267637 for assistance. The Resource ID value in error message indicates the resource for which limit has been reached. For sessions, Resource ID = 2.``
 
@@ -235,13 +214,9 @@ For more information about database limits, see  [SQL Database resource limits f
 
 ### Error 10929: Resource ID: 1
 
-**Detailed error**
-
 ``10929: Resource ID: 1. The %s minimum guarantee is %d, maximum limit is %d and the current usage for the database is %d. However, the server is currently too busy to support requests greater than %d for this database. See http://go.microsoft.com/fwlink/?LinkId=267637 for assistance. Otherwise, please try again later.``
 
 ### Error 40501: The service is currently busy
-
-**Detailed error**
 
 ``40501: The service is currently busy. Retry the request after 10 seconds. Incident ID: %ls. Code: %d.``
 
@@ -250,8 +225,6 @@ This is an engine throttling error, an indication that resource limits are being
 For more information about resource limits, see [Database server resource limits](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-database-server).
 
 ### Error 40544: The database has reached its size quota
-
-**Detailed error**
 
 ``40544: The database has reached its size quota. Partition or delete data, drop indexes, or consult the documentation for possible resolutions. Incident ID: <ID>. Code: <code>.``
 
@@ -274,20 +247,18 @@ The following steps can either help you work around the problem or provide you w
    ORDER BY [Table Size (MB)] DESC
    ```
 
-2. If the current size does not exceed the maximum size supported for your edition, you can use ALTER DATABASE to increase the MAXSIZE setting. 
+2. If the current size does not exceed the maximum size supported for your edition, you can use ALTER DATABASE to increase the MAXSIZE setting.
 3. If the database is already past the maximum supported size for your edition, try one or more of the following steps:
 
-   - Perform normal database cleanup activities. For example, clean up the unwanted data by using truncate/delete, or move data out by using SQL Server Integration Services (SSIS) or the bulk copy program (bcp) utility.
-   - Partition or delete data, drop indexes, or consult the documentation for possible resolutions.
-   - For database scaling, see [Scale single database resources](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-scale) and [Scale elastic pool resources](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool-scale).
+   * Perform normal database cleanup activities. For example, clean up the unwanted data by using truncate/delete, or move data out by using SQL Server Integration Services (SSIS) or the bulk copy program (bcp) utility.
+   * Partition or delete data, drop indexes, or consult the documentation for possible resolutions.
+   * For database scaling, see [Scale single database resources](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-scale) and [Scale elastic pool resources](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool-scale).
 
 ### Error 40549: Session is terminated because you have a long-running transaction
 
-**Detailed error**
-
 ``40549: Session is terminated because you have a long-running transaction. Try shortening your transaction.``
 
-If you repeatedly encounter this error, try to resolve the issue by following these steps: 
+If you repeatedly encounter this error, try to resolve the issue by following these steps:
 
 1. Check the sys.dm_exec_requests view to see any open sessions that have a high value for the total_elapsed_time column. Perform this check by running the following SQL script:
 
@@ -295,7 +266,7 @@ If you repeatedly encounter this error, try to resolve the issue by following th
    SELECT * FROM dm_exec_requests
    ```
 
-2. Determine the input buffer for the long-running query. 
+2. Determine the input buffer for the long-running query.
 3. Tune the query.
 
 Also consider batching your queries. For information on batching, see [How to use batching to improve SQL Database application performance](https://docs.microsoft.com/azure/sql-database/sql-database-use-batching-to-improve-performance).
@@ -304,25 +275,21 @@ For an in-depth troubleshooting procedure, see [Is my query running fine in the 
 
 ### Error 40551: The session has been terminated because of excessive TEMPDB usage
 
-**Detailed error**
-
 ``40551: The session has been terminated because of excessive TEMPDB usage. Try modifying your query to reduce the temporary table space usage.``
 
 To work around this issue, follow these steps:
 
-1. Change the queries to reduce temporary table space usage. 
-2. Drop temporary objects after they're no longer needed. 
+1. Change the queries to reduce temporary table space usage.
+2. Drop temporary objects after they're no longer needed.
 3. Truncate tables or remove unused tables.
 
 ### Error 40552: The session has been terminated because of excessive transaction log space usage
-
-**Detailed error**
 
 ``40552: The session has been terminated because of excessive transaction log space usage. Try modifying fewer rows in a single transaction.``
 
 To resolve this issue, try the following methods:
 
-* The issue can occur because of insert, update, or delete operations. 
+* The issue can occur because of insert, update, or delete operations.
 Try to reduce the number of rows that are operated on immediately by implementing batching or splitting into multiple smaller transactions.
 * The issue can occur because of index rebuild operations. To work around this issue, make sure the number of rows that are affected in the table * (average size of field that's updated in bytes + 80) < 2 gigabytes (GB).
 
@@ -330,8 +297,6 @@ Try to reduce the number of rows that are operated on immediately by implementin
   > For an index rebuild, the average size of the field that's updated should be substituted by the average index size.
 
 ### Error 40553: The session has been terminated because of excessive memory usage
-
-**Detailed error**
 
 ``40553 : The session has been terminated because of excessive memory usage. Try modifying your query to process fewer rows.``
 
@@ -379,14 +344,13 @@ The following errors are related to creating and using elastic pools:
 | 40891 | 16 |The DTU min per database (%d) cannot exceed the DTU max per database (%d). Attempting to set the DTU min per database higher than the DTU max per database. |Ensure the DTU min per databases does not exceed the DTU max per database. |
 | TBD | 16 |The storage size for an individual database in an elastic pool cannot exceed the max size allowed by '%.*ls' service tier elastic pool. The max size for the database exceeds the max size allowed by the elastic pool service tier. |Set the max size of the database within the limits of the max size allowed by the elastic pool service tier. |
 
-
-## Cannot open database "master" requested by the login. The login failed.
+## Cannot open database "master" requested by the login. The login failed
 
 This issue occurs because the account doesn't have permission to access the master database. But by default, SQL Server Management Studio (SSMS) tries to connect to the master database.
 
 To resolve this issue, follow these steps:
 
-1. On the login screen of SSMS, select **Options**, and then select **Connection Properties**. 
+1. On the login screen of SSMS, select **Options**, and then select **Connection Properties**.
 2. In the **Connect to database** field, enter the user’s default database name as the default login database, and then select **Connect**.
 
    ![Connection properties](media/troubleshoot-connectivity-issues-microsoft-azure-sql-database/cannot-open-database-master.png)
@@ -436,5 +400,5 @@ For more information about how to enable logging, see [Enable diagnostics loggin
 
 ## Next steps
 
-* [Azure SQL connectivity architecture](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture)<br>
+* [Azure SQL connectivity architecture](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture)
 * [Azure SQL Database and Data Warehouse network access controls](https://docs.microsoft.com/azure/sql-database/sql-database-networkaccess-overview)
