@@ -19,6 +19,7 @@ ms.author: kasing
 
 ---
 
+# Common errors during Classic to Azure Resource Manager migration
 [!INCLUDE [virtual-machines-common-migration-errors](../../../includes/virtual-machines-common-classic-resource-manager-migration-common-errors.md)]
 
 ## Next steps

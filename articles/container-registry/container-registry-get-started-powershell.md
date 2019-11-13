@@ -1,6 +1,6 @@
 ﻿---
-title: Quickstart - Create a private Docker registry in Azure - PowerShell
-description: Quickly learn to create a private Docker container registry in Azure with PowerShell.
+title: Quickstart - Create registry - Powershell - Azure Container Registry
+description: Quickly learn to create a private Docker registry in Azure Container Registry with PowerShell
 services: container-registry
 author: dlepow
 manager: gwallace

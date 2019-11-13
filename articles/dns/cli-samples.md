@@ -1,5 +1,5 @@
 ---
-title: Azure CLI samples for DNS
+title: Azure CLI samples for DNS - Azure DNS
 description: Azure CLI samples for DNS
 services: dns
 author: vhorne

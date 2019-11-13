@@ -19,6 +19,7 @@ ms.author: kasing
 
 ---
 
+# Platform-supported migration of IaaS resources from classic to Azure Resource Manager
 [!INCLUDE [virtual-machines-common-migration-faq](../../../includes/virtual-machines-common-classic-resource-manager-migration-overview.md)]
 
 ## Next steps

@@ -9,4 +9,5 @@ ms.author: rogarana
 ms.subservice: disks
 ---
 
+# Using Azure ultra disks
 [!INCLUDE [virtual-machines-disks-ultra-ssd](../../../includes/virtual-machines-disks-getting-started-ultra-ssd.md)]
