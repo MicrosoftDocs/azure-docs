@@ -30,7 +30,7 @@ To do a controlled validation of hybrid Azure AD join on Windows current devices
 1. Clear the Service Connection Point (SCP) entry from Active Directory (AD) if it exists
 1. Configure client-side registry setting for SCP on your domain-joined computers using a Group Policy Object (GPO)
 1. If you are using AD FS, you must also configure the client-side registry setting for SCP on your AD FS server using a GPO  
-1. You may also need to [customize synchronization options](../hybrid/how-to-connect-post-installation#additional-tasks-available-in-azure-ad-connect.md) in Azure AD Connect to enable device synchronization. 
+1. You may also need to [customize synchronization options](../hybrid/how-to-connect-post-installation.md#additional-tasks-available-in-azure-ad-connect) in Azure AD Connect to enable device synchronization. 
 
 
 ### Clear the SCP from AD
