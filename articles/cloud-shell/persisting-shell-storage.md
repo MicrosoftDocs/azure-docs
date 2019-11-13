@@ -30,7 +30,7 @@ When you use basic settings and select only a subscription, Cloud Shell creates 
 * Storage account: `cs<uniqueGuid>`
 * File share: `cs-<user>-<domain>-com-<uniqueGuid>`
 
-![The Subscription setting](/media/persisting-shell-storage/basic-storage.png)
+![The Subscription setting](media/persisting-shell-storage/basic-storage.png)
 
 The file share mounts as `clouddrive` in your `$Home` directory. This is a one-time action, and the file share mounts automatically in subsequent sessions. 
 
@@ -48,7 +48,7 @@ When the storage setup prompt appears, select **Show advanced settings** to view
 > [!NOTE]
 > Using GRS or ZRS storage accounts are recommended for additional resiliency for your backing file share. Which type of redundancy depends on your goals and price preference. [Learn more about replication options for Azure Storage accounts](https://docs.microsoft.com/azure/storage/common/storage-redundancy).
 
-![The Resource group setting](/media/persisting-shell-storage/advanced-storage.png)
+![The Resource group setting](media/persisting-shell-storage/advanced-storage.png)
 
 ### Supported storage regions
 Associated Azure storage accounts must reside in the same region as the Cloud Shell machine that you're mounting them to. To find your current region you may run `env` in Bash and locate the variable `ACC_LOCATION`. File shares receive a 5-GB image created for you to persist your `$Home` directory.
