@@ -34,8 +34,8 @@ A control that can be used to provide and confirm a password.
   "toolTip": "",
   "constraints": {
     "required": true,
-    "regex": "",
-    "validationMessage": ""
+    "regex": "^[a-zA-Z0-9]{8,}$",
+    "validationMessage": "Password must be at least 8 characters long, contain only numbers and letters"
   },
   "options": {
     "hideConfirmation": false
