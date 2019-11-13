@@ -191,6 +191,7 @@ productDirectory:
         - text: Using Python
           url: ../bing-local-business-search/quickstarts/local-search-python-quickstart.md
 
+
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
   title: Get started 2
@@ -198,18 +199,15 @@ conceptualContent:
   items:
     - title: Bing Web Search
       links:      
-        - url: overview.md
-          itemType: get-started
-          text: Overview
         - url: web-search-sdk-quickstart.md
           itemType: quickstart
-          text: Using C#
+          text: Use C#
         - url: web-sdk-java-quickstart.md
           itemType: quickstart
-          text: Using Java
+          text: Use Java
         - url: web-sdk-python-quickstart.md
           itemType: quickstart
-          text: Using Python
+          text: Use Python
         - url: tutorial-bing-web-search-single-page-app.md
           itemType: quickstart
           text: Create a single-page web-app
@@ -219,19 +217,16 @@ conceptualContent:
 
     - title: Bing Custom Search API
       links:
-        - text: Overview
-          itemType: get-started
-          url: ../bing-custom-search/overview.md
         - text: Create a custom search instance
           itemType: quickstart
           url: ../bing-custom-search/quick-start.md
-        - text: Using C#
+        - text: Use C#
           itemType: quickstart
           url: ../bing-custom-search/sdk-csharp-quick-start.md
-        - text: Using Java
+        - text: Use Java
           itemType: quickstart
           url: ../bing-custom-search/sdk-java-quickstart.md
-        - text: Using Python
+        - text: Use Python
           itemType: quickstart
           url: ../bing-custom-search/sdk-python-quickstart.md
         - text: Create a single page web-app
@@ -243,16 +238,13 @@ conceptualContent:
 
     - title: Bing Image Search
       links:      
-        - url: ../bing-image-search/overview.md
-          itemType: get-started
-          text: Overview
         - url: ../bing-image-search/image-search-sdk-quickstart.md
           itemType: quickstart
-          text: Using C#
+          text: Use C#
         - url: ../bing-image-search/image-sdk-java-quickstart.md
           itemType: quickstart
-          text: Using Java
-        - text: Using Node.js
+          text: Use Java
+        - text: Use Node.js
           itemType: quickstart
           url: ../bing-image-search/image-search-sdk-node-quickstart.md
         - text: Create a single page web-app
@@ -265,19 +257,16 @@ conceptualContent:
           
     - title: Bing Entity Search API
       links:
-        - text: Overview
-          itemType: get-started
-          url: ../bing-entities-search/overview.md
-        - text: Using C#
+        - text: Use C#
           itemType: quickstart
           url: ../bing-entities-search/quickstarts/entity-sdk-csharp-quickstart.md
-        - text: Using Java
+        - text: Use Java
           itemType: quickstart
           url: ../bing-entities-search/quickstarts/entity-sdk-java-quickstart.md
-        - text: Using Node.js
+        - text: Use Node.js
           itemType: quickstart
           url: ../bing-entities-search/quickstarts/entity-sdk-node-quickstart.md
-        - text: Using Python
+        - text: Use Python
           itemType: quickstart
           url: ../bing-entities-search/quickstarts/entity-sdk-python-quickstart.md
         - text: Create a single page web-app
@@ -289,19 +278,16 @@ conceptualContent:
 
     - title: Bing News Search API
       links:
-        - text: Overview
-          itemType: get-started
-          url: ../bing-news-search/search-the-web.md
-        - text: Using C#
+        - text: Use C#
           itemType: quickstart
           url: ../bing-news-search/news-search-sdk-quickstart.md
-        - text: Using Java
+        - text: Use Java
           itemType: quickstart
           url: ../bing-news-search/news-sdk-java-quickstart.md
-        - text: Using Node.js
+        - text: Use Node.js
           itemType: quickstart
           url: ../bing-news-search/news-search-sdk-node-quickstart.md
-        - text: Using Python
+        - text: Use Python
           itemType: quickstart
           url: ../bing-news-search/news-sdk-python-quickstart.md
         - text: Create a single page web-app
@@ -310,6 +296,106 @@ conceptualContent:
       footerLink:
         url: ../bing-news-search/search-the-web.md
         text: See more
+
+    - title: Bing Video Search API
+      links:
+        - text: Use C#
+          itemType: quickstart
+          url: ../Bing-Video-Search/quickstarts/sdk-csharp-quickstart.md
+        - text: Use Java
+          itemType: quickstart
+          url: ../Bing-Video-Search/quickstarts/sdk-java-quickstart.md
+        - text: Use Node.js
+          itemType: quickstart
+          url: ../Bing-Video-Search/quickstarts/sdk-node-quickstart.md
+        - text: Use Python
+          itemType: quickstart
+          url: ../Bing-Video-Search/quickstarts/sdk-python-quickstart.md
+        - text: Create a single page web-app
+          itemType: tutorial
+          url: ../Bing-Video-Search/tutorial-bing-video-search-single-page-app.md
+      footerLink:
+        url: ../Bing-Video-Search/overview.md
+        text: See more
+
+    - title: Bing Visual Search API
+      links:
+        - text: Use C#
+          itemType: quickstart
+          url: ../bing-visual-search/visual-search-sdk-c-sharp.md
+        - text: Use Java
+          itemType: quickstart
+          url: ../bing-visual-search/visual-search-sdk-java.md
+        - text: Use Node.js
+          itemType: quickstart
+          url: ../bing-visual-search/visual-search-sdk-node.md
+        - text: Use Python
+          itemType: quickstart
+          url: ../bing-visual-search/visual-search-sdk-python.md
+        - text: Crop and search an area of an image
+          itemType: tutorial
+          url: ../bing-visual-search/tutorial-visual-search-crop-area-results.md
+      footerLink:
+        url: ../bing-visual-search/overview.md
+        text: See more
+
+    - title: Bing Autosuggest API
+      links:
+        - text: Use C#
+          itemType: quickstart
+          url: ../Bing-Autosuggest/quickstarts/csharp.md
+        - text: Use Java
+          itemType: quickstart
+          url: ../Bing-Autosuggest/quickstarts/java.md
+        - text: Use Node.js
+          itemType: quickstart
+          url: ../Bing-Autosuggest/quickstarts/nodejs.md
+        - text: Use Python
+          itemType: quickstart
+          url: ../Bing-Autosuggest/quickstarts/python.md
+        - text: Create a single page web-app
+          itemType: quickstart
+          url: ../Bing-Autosuggest/tutorials/autosuggest.md
+      footerLink:
+        url: ../Bing-Autosuggest/get-suggested-search-terms.md
+        text: See more
+
+    - title: Bing Spell Check API
+      links:
+        - text: Use C#
+          itemType: quickstart
+          url: ../bing-spell-check/sdk-quickstart-spell-check.md
+        - text: Use Java
+          itemType: quickstart
+          url: ../bing-spell-check/quickstarts/java.md
+        - text: Use Node.js
+          itemType: quickstart
+          url: ../bing-spell-check/quickstarts/nodejs.md
+        - text: Use Python
+          itemType: quickstart
+          url: ../bing-spell-check/quickstarts/python.md
+        - text: Create a single page web-app
+          itemType: tutorial
+          url: ../bing-spell-check/tutorials/spellcheck.md
+      footerLink:
+        url: ../Bing-Autosuggest/get-suggested-search-terms.md
+        text: See more
+        
+    - title: Local Business Search API
+      links:
+        - text: Use C#
+          itemType: quickstart
+          url: ../bing-local-business-search/quickstarts/local-quickstart.md
+        - text: Use Java
+          itemType: quickstart
+          url: ../bing-local-business-search/quickstarts/local-search-java-quickstart.md
+        - text: Use Node.js
+          itemType: quickstart
+          url: ../bing-local-business-search/quickstarts/local-search-node-quickstart.md
+        - text: Use Python
+          itemType: quickstart
+          url: ../bing-local-business-search/quickstarts/local-search-python-quickstart.md
+
 
 additionalContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
