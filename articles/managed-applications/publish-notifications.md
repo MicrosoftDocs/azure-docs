@@ -11,7 +11,7 @@ ms.date: 11/01/2019
 ---
 # Azure Managed Application with Notifications
 
-Some managed application publishers may want to automatically perform actions based on lifecycle events of managed application instances. Publishers can specify custom notification webhook endpoints to receive event notifications about new and existing managed application instances. It allows the publisher to set up custom workflows at the time of application provisioning, updates, and deletion.
+Azure managed application notifications allow publisher to automate actions based on lifecycle events of the managed application instances. Publishers can specify custom notification webhook endpoints to receive event notifications about new and existing managed application instances. It allows the publisher to set up custom workflows at the time of application provisioning, updates, and deletion.
 
 ## Getting Started
 To start receiving managed applications, spin up a public HTTPS endpoint and specify it when publishing the Service Catalog application definition or the Marketplace offer.
@@ -26,6 +26,8 @@ Here are the recommended series of steps to get up and running quickly:
 
 ## Adding Service Catalog Application Definition Notifications
 #### Azure portal
+Please read [Publish a service catalog application through Azure portal](./publish-portal.md) to get started.
+
 ![Service catalog application definition notifications on Portal](./media/publish-notifications/service-catalog-notifications.png)
 #### REST API
 
@@ -55,6 +57,8 @@ Here are the recommended series of steps to get up and running quickly:
 
 ```
 ## Adding Marketplace Managed Application Notifications
+For more information please see [Create an Azure application offer](../marketplace/cloud-partner-portal/azure-applications/cpp-create-offer.md).
+
 ![Service catalog application definition notifications on Portal](./media/publish-notifications/marketplace-notifications.png)
 ## Event Triggers
 The following table describes all the possible combinations of EventType + ProvisioningState and their triggers:
