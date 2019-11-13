@@ -70,7 +70,7 @@ Under the actions list, select the Azure Container Instance connector action you
 1. Provide the necessary details for your selected action 
 and continue building your logic app's workflow.
 
-  For example, select **Create container group** and enter the properties for a container group and one or more container instances in the group, as shown in the following image:
+  For example, select **Create container group** and enter the properties for a container group and one or more container instances in the group, as shown in the following image (partial detail):
 
   ![Create container group](./media/connectors-create-api-container-instances/logic-apps-aci-connector.png)
 
