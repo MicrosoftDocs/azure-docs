@@ -90,6 +90,9 @@ You should poll the status of the Live Event until it goes into the â€œRunningâ€
 
 Review the [Dynamic packaging overview](dynamic-packaging-overview.md#to-prepare-your-source-files-for-delivery) article of how our service uses dynamic packaging to deliver video, audio, and now text in different protocols. When you publish your live stream using MPEG-DASH or HLS/CMAF, then along with video and audio, our service will deliver the transcribed text in IMSC1.1 compatible TTML, packaged into MPEG-4 Part 30 (ISO/IEC 14496-30) fragments. If using delivery via HLS/TS, then text is delivered as chunked VTT. You can use a web player such as the [Azure Media Player](use-azure-media-player.md) to play the stream.  
 
+> [!NOTE]
+>  If using Azure Media Player, use version 2.3.3 or later.
+
 ## Known issues 
 
 At preview, following are the known issues with Live Transcription 
