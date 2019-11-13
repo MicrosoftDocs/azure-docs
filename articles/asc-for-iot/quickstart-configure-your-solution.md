@@ -1,6 +1,6 @@
 ---
-title: Configure your Azure Security Center for IoT solution| Microsoft Docs
-description: Learn how to configure your end-to-end IoT solution using Azure Security Center for IoT.
+title: "Quickstart: Configure your Azure Security Center for IoT solution"
+description: In this quickstart, learn how to configure your end-to-end IoT solution using Azure Security Center for IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/25/2019
+ms.date: 11/08/2019
 ms.author: mlottner
 
 ---

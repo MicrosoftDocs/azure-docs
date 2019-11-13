@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell script examples for SQL Database | Microsoft Docs
+title: Azure PowerShell script examples
 description: Azure PowerShell script examples to help you create and manage Azure SQL Database servers, elastic pools, databases, and firewalls. 
 services: sql-database
 ms.service: sql-database

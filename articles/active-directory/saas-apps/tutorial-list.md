@@ -26,6 +26,8 @@ To help integrate your cloud-enabled [software as a service (SaaS)](https://azur
 
 For a list of all SaaS apps that have been pre-integrated into Azure AD, see the [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps).
 
+Use the [application network portal](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing) to request a [SCIM](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups) enabled application to be added to the gallery for automatic provisioning or a SAML / OIDC enabled application to be added to the gallery for SSO.
+
 ## Quick links
 
 | Logo | Application tutorial for single sign-on | Application tutorial for user provisioning |

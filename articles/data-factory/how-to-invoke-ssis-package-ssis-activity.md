@@ -1,5 +1,5 @@
 ---
-title: Run an SSIS package with the Execute SSIS Package activity - Azure | Microsoft Docs
+title: Run an SSIS package with the Execute SSIS Package activity - Azure 
 description: This article describes how to run a SQL Server Integration Services (SSIS) package in an Azure Data Factory pipeline by using the Execute SSIS Package activity.
 services: data-factory
 documentationcenter: ''

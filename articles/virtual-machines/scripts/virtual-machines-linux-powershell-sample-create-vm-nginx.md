@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell Script Sample - NGINX | Microsoft Docs
+title: Azure PowerShell Script Sample - NGINX 
 description: Azure PowerShell Script Sample - NGINX
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -27,7 +27,7 @@ This script creates an Azure Virtual Machine and then uses the Azure Virtual Mac
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## Sample script
 

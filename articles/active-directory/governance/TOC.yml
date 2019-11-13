@@ -84,6 +84,14 @@
         href: entitlement-management-request-access.md
   - name: Access reviews
     items:
+    - name: Access packages
+      items:
+        - name: Create an access review
+          href: entitlement-management-access-reviews-create.md
+        - name: Review access
+          href: entitlement-management-access-reviews-review-access.md 
+        - name: Review access for yourself 
+          href: entitlement-management-access-reviews-self-review.md 
     - name: Groups and apps
       items:
       - name: Create an access review

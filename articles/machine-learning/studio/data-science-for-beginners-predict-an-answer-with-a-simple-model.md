@@ -1,6 +1,6 @@
 ---
 title: Predict answers with regression models
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) - Azure
 description: How to create a simple regression model to predict a price in Data Science for Beginners video 4. Includes a linear regression with target data.
 services: machine-learning
 ms.service: machine-learning
