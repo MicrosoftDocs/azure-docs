@@ -68,10 +68,30 @@ Once the VM is provisioned, you can partition and format the data disks and conf
 
 ## Deploy an ultra disk using the Azure Portal
 
-- Open the Azure Portal.
-- Select **Create a resource**.
-- Select **Compute** then select **Virtual machine**.
-- 
+This section covers deploying a virtual machine equipped with an ultra disk as a data disk. It assumes you have familiarity with deploying a virtual machine, if you do not, please see our article on the subject:
+
+- Open the Azure Portal and navigate to deploy a virtual machine (VM).
+- Make sure to choose a [supported VM size and region](#ga-scope-and-limitations).
+- Select **Availability zone** in **Availability options**.
+- Fill in the remaining entries with selections of your choice.
+- Select **Disks**.
+
+![create-ultra-disk-enabled-vm.png](media/virtual-machines-disks-getting-started-ultra-ssd/create-ultra-disk-enabled-vm.png)
+
+- On the Disks blade, select **Yes** for **Enable Ultra Disk compatibility**.
+- Select **Create and attach a new disk** to attach an ultra disk now.
+
+![enable-and-attach-ultra-disk.png](media/virtual-machines-disks-getting-started-ultra-ssd/enable-and-attach-ultra-disk.png)
+
+- On the **Create a new disk** blade, enter a name, then select **Change size**.
+- Change the **Account type** to **Ultra Disk**.
+- Change the values of **Custom disk size (GiB)**, **Disk IOPS**, and **Disk throughput** to ones of your choice.
+- Select **OK** in both blades.
+- Continue with the VM deployment, it'll be the same as you would deploy any other VM.
+
+![create-ultra-disk.png](media/virtual-machines-disks-getting-started-ultra-ssd/create-ultra-disk.png)
+
+### Attach an ultra disk to an existing VM
 
 ## Deploy an ultra disk using CLI
 
