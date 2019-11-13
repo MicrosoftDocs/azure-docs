@@ -461,13 +461,15 @@ You can create a Pipeline Endpoint with multiple published pipelines behind it. 
 ```python
 from azureml.pipeline.core import PipelineEndpoint
 
+published_pipeline = PublishedPipeline.get(workspace="ws", name="My_Published_Pipeline")
 pipeline_endpoint = PipelineEndpoint.publish(workspace=ws, name="PipelineEndpointTest",
-                                            pipeline=pipeline, description="Test description Notebook")
+                                            pipeline=published_pipeline, description="Test description Notebook")
 ```
 
 ### Submit a job to a pipeline endpoint
 You can submit a job to the default version of a pipeline endpoint:
 ```python
+pipeline_endpoint_by_name = PipelineEndpoint.get(workspace=ws, name="PipelineEndpointTest")
 run_id = pipeline_endpoint_by_name.submit("PipelineEndpointExperiment")
 print(run_id)
 ```
