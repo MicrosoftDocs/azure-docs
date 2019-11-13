@@ -1,6 +1,6 @@
 ---
-title: Copy data to or from Azure Blob storage by using Data Factory 
-description: Learn how to copy data from supported source data stores to Azure Blob storage, or from Blob storage to supported sink data stores, by using Data Factory.
+title: Copy and transform data in Azure Blob storage by using Data Factory 
+description: Learn how to copy data to and from Blob storage, and transform data in Blob storage by using Data Factory.
 author: linda33wj
 manager: craigg
 ms.reviewer: craigg
@@ -8,16 +8,16 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 11/13/2019
 ms.author: jingwang
 
 ---
-# Copy data to or from Azure Blob storage by using Azure Data Factory
+# Copy and transform data in Azure Blob storage by using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-azure-blob-connector.md)
 > * [Current version](connector-azure-blob-storage.md)
 
-This article outlines how to copy data to and from Azure Blob storage. To learn about Azure Data Factory, read the [introductory article](introduction.md).
+This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure Blob storage, and use Data Flow to transform data in Azure Blob storage. To learn about Azure Data Factory, read the [introductory article](introduction.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -31,7 +31,7 @@ This Azure Blob connector is supported for the following activities:
 - [GetMetadata activity](control-flow-get-metadata-activity.md)
 - [Delete activity](delete-activity.md)
 
-Specifically, this Blob storage connector supports:
+For Copy activity, this Blob storage connector supports:
 
 - Copying blobs to and from general-purpose Azure storage accounts and hot/cool blob storage. 
 - Copying blobs by using account key, service shared access signature, service principal or managed identities for Azure resources authentications.

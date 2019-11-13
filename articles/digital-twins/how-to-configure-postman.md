@@ -1,6 +1,6 @@
 ---
-title: 'How to configure Postman for Azure Digital Twins | Microsoft Docs'
-description: How to configure Postman for Azure Digital Twins.
+title: How to configure Postman - Azure Digital Twins | Microsoft Docs
+description: Learn how to configure and use Postman to test Azure Digital Twins APIs.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -51,7 +51,7 @@ Configure your Azure Active Directory app to use the OAuth 2.0 implicit grant fl
 
 1. Depending on your organization's settings, you might need to take additional steps to grant admin access to this API. Contact your administrator for more information. Once the admin access is approved, the **ADMIN CONSENT REQUIRED** column in the **API permissions** pane will show similar to the following for your APIs:
 
-    [![Add API permissions](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png)](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png#lightbox)
+    [![Admin consent approval](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png)](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png#lightbox)
 
 
 1. Select **Manifest** to open the application manifest for your app. Set *oauth2AllowImplicitFlow* to `true`.

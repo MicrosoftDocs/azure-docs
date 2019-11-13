@@ -1,5 +1,5 @@
 ---
-title: Isolation for Linux VMs in Azure | Microsoft Docs
+title: Isolation for Linux VMs in Azure 
 description: Learn about VM isolation works in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
