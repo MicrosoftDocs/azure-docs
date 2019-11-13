@@ -14,6 +14,35 @@ manager: philmea
 
 This article introduces concepts that apply to the [Azure Maps Weather Services](https://aka.ms/AzureMapsWeatherService). We recommend going through this article before starting out with the weather APIs. 
 
+## Unit types
+
+Some of the Weather service APIs allow user to specify if the data is returned either in metric or in imperial units. The returned response for these APIs will also includes unitType, a numeric value that can be used for unit translations. Please see table below to interpret these values.
+
+|unitType|Description         |
+|--------|--------------------|
+|0       |feet                |
+|1       |inches              |
+|2       |miles               |
+|3       |millimeter          |
+|4       |centimeter          |
+|5       |meter               |
+|6       |kilometer           |
+|7       |kilometersPerHour   |
+|8       |knots               |
+|9       |milesPerHour        |
+|10      |metersPerSecond     |
+|11      |hectoPascals        |
+|12      |inchesOfMercury     |
+|13      |kiloPascals         |
+|14      |millibars           |
+|15      |millimetersOfMercury|
+|16      |poundsPerSquareInch |
+|17      |celsius             |
+|18      |fahrenheit          |
+|19      |kelvin              |
+|20      |percent             |
+|21      |float               |
+|22      |integer             |
 
 ## Radar and satellite imagery color scale
 
@@ -389,34 +418,3 @@ Detailed color palette for infrared satellite tiles is shown below.
 |307.57  |#02555555     |
 |308     |#00525252     |
 |308     |#00525252     |
-
-
-## Unit types
-
-Some of the Weather service APIs allow user to specify if the data is returned either in metric or in imperial units. The returned response for these APIs will also includes unitType, a numeric value that can be used for unit translations. Please see table below to interpret these values.
-
-| Type               | Numeric Id | 
-|--------------------|------------|
-|feet                |0  |
-|inches              |1  |
-|miles               |2  |
-|millimeter          |3  |
-|centimeter          |4  |
-|meter               |5  |
-|kilometer           |6  |
-|kilometersPerHour   |7  |
-|knots               |8  |
-|milesPerHour        |9  |
-|metersPerSecond     |10 |
-|hectoPascals        |11 |
-|inchesOfMercury     |12 |
-|kiloPascals         |13 |
-|millibars           |14 |
-|millimetersOfMercury|15 |
-|poundsPerSquareInch |16 |
-|celsius             |17 |
-|fahrenheit          |18 |
-|kelvin              |19 |
-|percent             |20 |
-|float               |21 |
-|integer             |22 |
