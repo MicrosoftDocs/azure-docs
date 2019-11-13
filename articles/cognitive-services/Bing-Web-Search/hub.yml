@@ -45,9 +45,9 @@ productDirectory:
         - text: Using Node.js
           url: web-search-sdk-node-quickstart.md
         - text: Using Java
-          url: web-search-sdk-java-quickstart.md
+          url: web-sdk-java-quickstart.md
         - text: Using Python
-          url: web-search-sdk-python-quickstart.md
+          url: web-sdk-python-quickstart.md
         - text: Create a single-page web-app
           url: tutorial-bing-web-search-single-page-app.md
 
@@ -65,7 +65,7 @@ productDirectory:
         - text: Using Python
           url: ../bing-custom-search/sdk-python-quickstart.md
         - text: Create a single page web-app
-          url: ../bing-custom-search/tutorials/custom-search-web-page
+          url: ../bing-custom-search/tutorials/custom-search-web-page.md
 
     - title: Bing Image Search API
       imageSrc: ./media/hub/image-search.svg
@@ -95,26 +95,10 @@ productDirectory:
         - text: Using Python
           url: ../bing-entities-search/quickstarts/entity-sdk-python-quickstart.md
         - text: Create a single page web-app
-          url: ../bing-entities-search/quickstarts/tutorial-bing-entities-search-single-page-app.md
+          url: ../bing-entities-search/tutorial-bing-entities-search-single-page-app.md
 
     - title: Bing News Search API
       imageSrc: ./media/hub/news-search.svg
-      links:
-        - text: Overview
-          url: https://docs.microsoft.com/azure/cognitive-services/
-        - text: Using C#
-          url: https://docs.microsoft.com/azure/cognitive-services/
-        - text: Using Java
-          url: https://docs.microsoft.com/azure/cognitive-services/
-        - text: Using Node.js
-          url: https://docs.microsoft.com/azure/cognitive-services/
-        - text: Using Python
-          url: https://docs.microsoft.com/azure/cognitive-services/
-        - text: Create a single page web-app
-          url: https://docs.microsoft.com/azure/cognitive-services/
-        
-    - title: Bing Video Search API
-      imageSrc: ./media/hub/video-search.svg
       links:
         - text: Overview
           url: ../bing-news-search/search-the-web.md
@@ -125,15 +109,31 @@ productDirectory:
         - text: Using Node.js
           url: ../bing-news-search/news-search-sdk-node-quickstart.md
         - text: Using Python
-          url: ../bing-news-search/news-search-sdk-python-quickstart.md
+          url: ../bing-news-search/news-sdk-python-quickstart.md
         - text: Create a single page web-app
           url: ../bing-news-search/tutorial-bing-news-search-single-page-app.md
+        
+    - title: Bing Video Search API
+      imageSrc: ./media/hub/video-search.svg
+      links:
+        - text: Overview
+          url: ../Bing-Video-Search/overview.md
+        - text: Using C#
+          url: ../Bing-Video-Search/quickstarts/sdk-csharp-quickstart.md
+        - text: Using Java
+          url: ../Bing-Video-Search/quickstarts/sdk-java-quickstart.md
+        - text: Using Node.js
+          url: ../Bing-Video-Search/quickstarts/sdk-node-quickstart.md
+        - text: Using Python
+          url: ../Bing-Video-Search/quickstarts/sdk-python-quickstart.md
+        - text: Create a single page web-app
+          url: ../Bing-Video-Search/tutorial-bing-video-search-single-page-app.md
 
     - title: Bing Visual Search API
       imageSrc: ./media/hub/visual-search.svg
       links:
         - text: Overview
-          url: ../bing-visual-search/overview
+          url: ../bing-visual-search/overview.md
         - text: Using C#
           url: ../bing-visual-search/visual-search-sdk-c-sharp.md
         - text: Using Java
