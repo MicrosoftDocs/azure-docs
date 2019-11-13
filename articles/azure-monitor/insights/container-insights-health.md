@@ -49,7 +49,7 @@ The icons used to indicate state are as follows:
 |![Red button with white X indicates critical state](./media/container-insights-health/criticalicon.png)|Critical (red)|  
 |![Grayed-out icon](./media/container-insights-health/grayicon.png)|Unknown (gray)|  
 
-## Monitor configuration (put into its own article)
+## Monitor configuration
 
 To understand the behavior and configuration of each monitor supporting Azure Monitor for containers Health feature, see [Health monitor configuration guide](container-insights-health-monitoring-cfg.md).
 
