@@ -156,11 +156,12 @@ The maximum number of instances that the function app can scale out to. Default 
 
 ## WEBSITE\_NODE\_DEFAULT_VERSION
 
-Default is "8.11.1".
+_Windows only._  
+Sets the version of Node.js to use when running your function app on Windows. You should use a tilde (~) to have the runtime use the latest available version of the targeted major version. For example, when set to `~10`, the latest version of Node.js 10 is used. When a major version is targeted with a tilde, you don't have to manually update the minor version. 
 
 |Key|Sample value|
 |---|------------|
-|WEBSITE\_NODE\_DEFAULT_VERSION|8.11.1|
+|WEBSITE\_NODE\_DEFAULT_VERSION|~10|
 
 ## WEBSITE\_RUN\_FROM\_PACKAGE
 

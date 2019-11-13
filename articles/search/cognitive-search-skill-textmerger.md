@@ -1,18 +1,17 @@
 ---
-title: Text Merge cognitive search skill - Azure Search
-description: Merge text from a collection of fields into one consolidated field. Use this cognitive skill in an Azure Search enrichment pipeline.
-services: search
+title: Text Merge cognitive skill
+titleSuffix: Azure Cognitive Search
+description: Merge text from a collection of fields into one consolidated field. Use this cognitive skill in an AI enrichment pipeline in Azure Cognitive Search.
+
 manager: nitinme
 author: luiscabrer
-
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
 
-#	 Text Merge cognitive skill
+#	Text Merge cognitive skill
 
 The **Text Merge** skill consolidates text from a collection of fields into a single field. 
 
@@ -139,6 +138,6 @@ The example above assumes that a normalized-images field exists. To get normaliz
 
 ## See also
 
-+ [Predefined skills](cognitive-search-predefined-skills.md)
++ [Built-in skills](cognitive-search-predefined-skills.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [Create Indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

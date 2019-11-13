@@ -5,7 +5,7 @@ services: openshift
 keywords:  red hat openshift setup set up
 author: jimzim
 ms.author: jzim
-ms.date: 05/10/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: container-service
 manager: jeconnoc
@@ -16,7 +16,6 @@ manager: jeconnoc
 
 To build and run Microsoft Azure Red Hat OpenShift applications, you'll need to:
 
-* Purchase Azure virtual machine reserved instances.
 * Install version 2.0.65 (or higher) of the Azure CLI (or use the Azure Cloud Shell).
 * Register for the `AROGA` feature and associated resource providers.
 * Create an Azure Active Directory (Azure AD) tenant.
@@ -24,16 +23,6 @@ To build and run Microsoft Azure Red Hat OpenShift applications, you'll need to:
 * Create an Azure AD user.
 
 The following instructions will walk you through all of these prerequisites.
-
-## Purchase Azure Red Hat OpenShift application nodes reserved instances
-
-Before you can use Azure Red Hat OpenShift, you'll need to purchase a minimum of 4 Azure Red Hat OpenShift reserved application nodes, after which you'll be able to provision clusters.
-
-If you are an Azure customer, [purchase Azure Red Hat OpenShift reserved instances](https://aka.ms/openshift/buy) through the Azure portal. After purchasing, your subscription will be activated within 24 hours.
-
-If you are not an Azure customer, [contact sales](https://aka.ms/openshift/contact-sales) and fill out the sales form at the bottom of the page to start the process.
-
-Refer to the [Azure Red Hat OpenShift pricing page](https://aka.ms/openshift/pricing) for more information.
 
 ## Install the Azure CLI
 

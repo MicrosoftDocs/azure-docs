@@ -7,7 +7,6 @@ author: KumudD
 manager: twooley
 editor: ''
 tags: azure-resource-manager
-
 ms.assetid:
 ms.service: virtual-network
 ms.devlang: NA
@@ -118,7 +117,6 @@ You can view the network interfaces currently attached to a VM to learn about ea
 - While network interfaces in the same VM can be connected to different subnets within a virtual network, the network interfaces must all be connected to the same virtual network.
 - You can add any IP address for any IP configuration of any primary or secondary network interface to an Azure Load Balancer back-end pool. In the past, only the primary IP address for the primary network interface could be added to a back-end pool. To learn more about IP addresses and configurations, see [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md).
 - Deleting a VM does not delete the network interfaces that are attached to it. When you delete a VM, the network interfaces are detached from the VM. You can add the network interfaces to different VMs or delete them.
-- If a network interface has a private IPv6 address assigned to it, you must add (attach) it to a VM when you create the VM. You cannot add a network interface with an assigned IPv6 address to a VM after you create the VM. If you add a network interface with an assigned private IPv6 address when you create a virtual machine, you can only add that network interface to the virtual machine, regardless of how many network interfaces the VM size supports. See [Manage network interface IP addresses](virtual-network-network-interface-addresses.md) to learn more about how to assign IP addresses to network interfaces.
 - As with IPv6, you cannot attach a network interface with accelerated networking enabled to a VM after you create it. Further, to take advantage of accelerated networking, you must also complete steps within the VM operating system. Learn more about accelerated networking, and other constraints when using it, for [Windows](create-vm-accelerated-networking-powershell.md) or [Linux](create-vm-accelerated-networking-cli.md) virtual machines.
 
 ## Next steps

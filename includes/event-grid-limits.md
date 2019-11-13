@@ -24,8 +24,9 @@ The following limits apply to event domains only.
 
 | Resource | Limit |
 | --- | --- |
-| Topics per event domain | 1,000 during public preview |
-| Event subscriptions per topic within a domain | 50 during public preview |
-| Domain scope event subscriptions | 50 during public preview |
-| Publish rate for an event domain (ingress) | 5,000 events per second during public preview |
+| Topics per event domain | 100,000 |
+| Event subscriptions per topic within a domain | 500 |
+| Domain scope event subscriptions | 50 |
+| Publish rate for an event domain (ingress) | 5,000 events per second |
 | Publish requests | 250 per second |
+| Event Domains per Azure Subscription | 100 |

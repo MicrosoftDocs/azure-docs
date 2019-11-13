@@ -426,7 +426,7 @@ New Azure Cache for Redis instances are configured with the following default Re
 For more information about databases, see [What are Redis databases?](cache-faq.md#what-are-redis-databases)
 
 > [!NOTE]
-> The `databases` setting can be configured only during cache creation and only using PowerShell, CLI, or other management clients. For an example of configuring `databases` during cache creation using PowerShell, see [New-AzRedisCache](cache-howto-manage-redis-cache-powershell.md#databases).
+> The `databases` setting can be configured only during cache creation and only using PowerShell, CLI, or other management clients. For an example of configuring `databases` during cache creation using PowerShell, see [New-AzRedisCache](cache-how-to-manage-redis-cache-powershell.md#databases).
 > 
 > 
 

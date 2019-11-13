@@ -18,4 +18,4 @@ To change this setting in the Azure portal, you can navigate to your Azure API f
 
 ***Note:** Higher value means higher Cosmos DB throughput and higher cost of the service.
 
-![](media/cosmosdb/cosmosdb-config.png)
+![Config Cosmos DB](media/cosmosdb/cosmosdb-config.png)

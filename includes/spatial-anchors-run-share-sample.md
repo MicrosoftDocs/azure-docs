@@ -5,7 +5,29 @@ ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
 ---
-## Set up your device in Unity
+
+## [Android](#tab/Android)
+
+The Java android sample supports sharing across devices.
+Open the file `SharedActivity.java` from the samples folder in Android Studio. Enter the url you obtained in the previous step (from your ASP.NET web app Azure deployment) as the value for `SharingAnchorsServiceUrl` in the `SharedActivity.java` file. Replace the `index.html` in the url with `api/anchors`. It should look like this: `https://<app_name>.azurewebsites.net/api/anchors`.
+
+[!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
+
+## [iOS](#tab/iOS)
+
+The Objective-C iOS sample supports sharing across devices.
+Open the file `SharedDemoViewController.m` in the samples folder. Enter the url you obtained in the previous step (from your ASP.NET web app Azure deployment) as the value for `SharingAnchorsServiceUrl` in the `SharedActivity.java` file. Replace the `index.html` in the url with `api/anchors`. It should look like this: `https://<app_name>.azurewebsites.net/api/anchors`.
+
+[!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
+
+## [Xamarin](#tab/Xamarin)
+
+Both Xamarin Android and iOS samples support sharing across devices.
+Open the file `AccountDetails.cs` in the samples folder. Enter the url you obtained in the previous step (from your ASP.NET web app Azure deployment) as the value for `AnchorSharingServiceUrl` in the `SharedActivity.java` file. Replace the `index.html` in the url with `api/anchors`. It should look like this: `https://<app_name>.azurewebsites.net/api/anchors`.
+
+[!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
+
+## [Unity](#tab/Unity)
 
 [!INCLUDE [Open Unity Project](spatial-anchors-open-unity-project.md)]
 
@@ -39,13 +61,7 @@ Under **Scenes In Build**, ensure all the scenes have a check mark next to them.
 
 Make sure **Export Project** doesn't have a check mark. Select **Build And Run**. You'll be prompted to save your `.apk` file. You can pick any name for it.
 
-Once the app starts, in the **Choose A Demo** dialog, use the left or right arrows to select the **LocalShare** option, and tap **Go!**. Follow the instructions in the app. You can select **Create & Share Anchor** or **Locate Shared Anchor**.
-
-The first scenario lets you create an anchor that can be located later on the same device or on a different one.
-The second scenario, if you've already run the app, either on the same device or on a different one, allows you
-to locate previously shared anchors. After you pick your scenario, the app will guide you with further
-instructions around what to do. For example, you'll be asked to move your device around to collect environment
-information. Later on, you'll place an anchor in the world, wait for it to save, and so on.
+[!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
 ### Deploy to an iOS device
 
@@ -55,12 +71,6 @@ Under **Scenes In Build**, ensure all the scenes have a check mark next to them.
 
 [!INCLUDE [Configure Xcode](spatial-anchors-unity-ios-xcode.md)]
 
-Once the app starts, in the **Choose A Demo** dialog, use the left or right arrows to select the **LocalShare** option, and tap **Go!**. Follow the instructions in the app. You can select **Create & Share Anchor** or **Locate Shared Anchor**.
-
-The first scenario lets you create an anchor that can be located later on the same device or on a different one.
-The second scenario, if you've already run the app, either on the same device or on a different one, allows you
-to locate previously shared anchors. After you pick your scenario, the app will guide you with further
-instructions around what to do. For example, you'll be asked to move your device around to collect environment
-information. Later on, you'll place an anchor in the world, wait for it to save, and so on.
+[!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
 In Xcode, stop the app by selecting **Stop**.

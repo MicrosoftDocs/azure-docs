@@ -173,12 +173,12 @@ To validate the migration, use one of the following two methods:
    1. Open **Azure AD B2C**, and then select **Users**.
    1. In the search box, type the user's display name, and then view the user's profile.
 
-- To retrieve a user by sign-in email address, use this sample application:
+- To retrieve a user by sign-in email address, use the sample application:
 
    1. Run the following command:
 
       ```Console
-          UserMigration.exe 3 {email address}
+          UserMigration.exe 3 {email address} > UserProfile.json
       ```
 
       > [!TIP]

@@ -53,8 +53,6 @@
     href: supported-languages.md
   - name: Supported map styles
     href: supported-map-styles.md
-  - name: Web SDK supported browsers
-    href: supported-browsers.md
   - name: Zoom levels and tile grid
     href: zoom-levels-and-tile-grid.md
   - name: Mobility Service data structure
@@ -147,6 +145,8 @@
         href: map-get-information-from-coordinate.md
       - name: Show directions from A to B
         href: map-route.md
+    - name: Web SDK supported browsers
+      href: supported-browsers.md
   - name: Develop with the Android SDK
     items:
     - name: Getting started with Android map control

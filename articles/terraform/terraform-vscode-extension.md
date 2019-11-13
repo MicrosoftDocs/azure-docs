@@ -1,25 +1,22 @@
 ---
-title: Install and use the Azure Terraform Visual Studio Code extension
+title: Tutorial - Configure the Azure Terraform Visual Studio Code extension
 description: Learn how to install and use the Azure Terraform extension in Visual Studio Code.
-services: terraform
-ms.service: azure
-keywords: terraform, azure, devops, visual studio code, extension
+ms.service: terraform
 author: tomarchermsft
-manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
+ms.date: 10/26/2019
 ---
 
-# Install and use the Azure Terraform Visual Studio Code extension
+# Tutorial: Configure the Azure Terraform Visual Studio Code extension
 
-The Microsoft Azure Terraform Visual Studio Code extension is designed to increase developer productivity while authoring, testing, and using Terraform with Azure. The extension provides Terraform command support, resource graph visualization, and CloudShell integration within Visual Studio Code.
+The Azure Terraform Visual Studio Code extension enables you to work with Terraform from the editor. With this extension, you can author, test, and run Terraform configurations. The extension also supports resource graph visualization.
 
 In this article, you learn how to:
 > [!div class="checklist"]
-> * use Terraform to automate and simplify the provisioning of Azure services.
-> * install and use the Microsoft Terraform Visual Studio Code extension for Azure services.
-> * use Visual Studio Code to write, plan, and execute Terraform plans.
+> * Automate the provisioning of Azure services using Terraform
+> * install and use the Terraform Visual Studio Code extension for Azure services.
+> * Use Visual Studio Code to write, plan, and execute Terraform plans.
 
 ## Prerequisites
 - **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
@@ -139,7 +136,7 @@ In this exercise, you create and execute a basic Terraform configuration file th
 
     ![Do you want to open Cloud Shell?](media/terraform-vscode-extension/tf-do-you-want-to-open-cloud-shell.png)
 
-1. The first time you launch Cloud Shell from a new folder, you will be asked to set up the web application. Select **Open**.
+1. The first time you launch Cloud Shell from a new folder, you're prompted to create a web application. Select **Open**.
 
     ![First launch of Cloud Shell](media/terraform-vscode-extension/tf-first-launch-of-cloud-shell.png)
 
@@ -282,7 +279,7 @@ After a few moments, you see a listing in the Terminal pane similar to this exam
 
 ![Lint test results](media/terraform-vscode-extension/tf-lint-test-results.png)
 
-### Module test: *end-to-end*
+### Test the module
 
 1. From the menu bar, select **View > Command Palette > Azure Terraform: Execute Test**.
 
@@ -299,7 +296,7 @@ After a few moments, you see a listing in the Terminal pane similar to this exam
 
 After a few moments, you see a listing in the Terminal pane similar to this example:
 
-![End-to-end test results](media/terraform-vscode-extension/tf-end-to-end-test-results.png)
+![Test results](media/terraform-vscode-extension/tf-end-to-end-test-results.png)
 
 ## Next steps
 > [!div class="nextstepaction"]

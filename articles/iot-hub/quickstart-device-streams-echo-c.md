@@ -51,9 +51,10 @@ You need the following prerequisites:
 
 The preview of device streams is currently supported only for IoT hubs that are created in the following regions:
 
-* Central US
-
-* Central US EUAP
+  * Central US
+  * Central US EUAP
+  * North Europe
+  * Southeast Asia
 
 ## Prepare the development environment
 

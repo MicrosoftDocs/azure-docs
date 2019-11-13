@@ -202,6 +202,7 @@ Standard file shares are available in all regions up to 5 TiB. In certain region
 |-------|---------|
 |Australia East |LRS     |
 |Australia Southeast|LRS |
+|Canada Central  |LRS     |
 |Central India  |LRS     |
 |East Asia      |LRS     |
 |East US*        |LRS     |
@@ -214,13 +215,13 @@ Standard file shares are available in all regions up to 5 TiB. In certain region
 |West US*        |LRS     |
 |West US 2      |LRS, ZRS|
 
-\* Supported for new accounts, not all existing accounts have completed the upgrade process.
+\* Supported for new accounts, not all existing accounts have completed the upgrade process. You can check if your existing storage accounts have completed the upgrade process by attempting to [Enable large file shares](storage-files-how-to-create-large-file-share.md).
 
 To help us prioritize new regions and features, please fill out this [survey](https://aka.ms/azurefilesatscalesurvey).
 
 ### Enable and create larger file shares
 
-To begin using larger file shares, see our article [Enable large file shares](storage-files-how-to-create-large-file-share.md).
+To begin using larger file shares, see our article [How to enable and create large file shares](storage-files-how-to-create-large-file-share.md).
 
 ## Data growth pattern
 

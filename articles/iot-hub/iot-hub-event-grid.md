@@ -20,7 +20,7 @@ Azure IoT Hub integrates with Azure Event Grid so that you can send event notifi
 
 ## Regional availability
 
-The Event Grid integration is available for IoT hubs located in the regions where Event Grid is supported. All device events except device telemetry events are generally available. Device telemetry event is in public preview and is available in all regions except East US, West US, West Europe, [Azure Government](/azure/azure-government/documentation-government-welcome), [Azure China 21Vianet](/azure/china), and [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/). For the latest list of regions, see [An introduction to Azure Event Grid](../event-grid/overview.md).
+The Event Grid integration is available for IoT hubs located in the regions where Event Grid is supported. For the latest list of regions, see [An introduction to Azure Event Grid](../event-grid/overview.md).
 
 ## Event types
 
@@ -199,4 +199,4 @@ Applications that handle IoT Hub events should follow these suggested practices:
 
 * [Compare the differences between routing IoT Hub events and messages](iot-hub-event-grid-routing-comparison.md)
 
-* [Learn how to use IoT telemetry events to implement IoT spatial analytics using Azure Maps (and IoT Hub message routing)](../azure-maps/tutorial-iot-hub-maps.md#filter-events-using-iot-hub-message-routing)
+* [Learn how to use IoT telemetry events to implement IoT spatial analytics using Azure Maps](../azure-maps/tutorial-iot-hub-maps.md#create-an-azure-function-and-add-an-event-grid-subscription)

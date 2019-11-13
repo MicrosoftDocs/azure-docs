@@ -35,7 +35,6 @@ The following table and graphic provide a high-level view of the components used
 ![Architecture](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
 
 
-
 ## Architectural components - Hyper-V with VMM
 
 The following table and graphic provide a high-level view of the components used for Hyper-V replication to Azure, when Hyper-V hosts are managed in VMM clouds.

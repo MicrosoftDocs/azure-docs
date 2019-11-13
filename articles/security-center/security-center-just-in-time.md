@@ -57,12 +57,12 @@ There are three ways to configure a JIT policy on a VM:
 - [Configure JIT access in an Azure VM blade](#jit-vm)
 - [Configure a JIT policy on a VM programmatically](#jit-program)
 
-## Configure JIT in ASC
+## Configure JIT in Security Center
 
-From ASC, you can configure a JIT policy and request access to a VM using a JIT policy
+From Security Center, you can configure a JIT policy and request access to a VM using a JIT policy
 
 
-### Configure JIT access on a VM in ASC <a name="jit-asc"></a>
+### Configure JIT access on a VM in Security Center <a name="jit-asc"></a>
 
 1. Open the **Security Center** dashboard.
 
@@ -110,9 +110,9 @@ From ASC, you can configure a JIT policy and request access to a VM using a JIT 
 >When JIT VM Access is enabled for a VM, Azure Security Center creates "deny all inbound traffic" rules for the selected ports in the network security groups associated and Azure Firewall with it. If other rules had been created for the selected ports, then the existing rules take priority over the new “deny all inbound traffic” rules. If there are no existing rules on the selected ports, then the new “deny all inbound traffic” rules take top priority in the Network Security Groups and Azure Firewall.
 
 
-## Request JIT access via ASC
+## Request JIT access via Security Center
 
-To request access to a VM via ASC:
+To request access to a VM via Security Center:
 
 1. Under **Just-in-time VM access**, select the **Configured** tab.
 
@@ -136,7 +136,7 @@ To request access to a VM via ASC:
 > [!NOTE]
 > If a user who is requesting access is behind a proxy, the option **My IP** may not work. You may need to define the full IP address range of the organization.
 
-## Edit a JIT access policy via ASC
+## Edit a JIT access policy via Security Center
 
 You can change a VM's existing just-in-time policy by adding and configuring a new port to protect for that VM, or by changing any other setting related to an already protected port.
 
@@ -147,7 +147,7 @@ To edit an existing just-in-time policy of a VM:
 1. Under **JIT VM access configuration**, you can either edit the existing settings of an already protected port or add a new custom port. 
   ![jit vm access](./media/security-center-just-in-time/edit-policy.png)
 
-## Audit JIT access activity in ASC
+## Audit JIT access activity in Security Center
 
 You can gain insights into VM activities using log search. To view logs:
 
@@ -164,11 +164,11 @@ Modify the filters and click **Apply** to create a search and log.
 
 
 
-## Configure JIT access in an Azure VM blade <a name="jit-vm"></a>
+## Configure JIT access from an Azure VM's page <a name="jit-vm"></a>
 
-For your convenience, you can connect to a VM using JIT directly from within the VM blade in Azure.
+For your convenience, you can connect to a VM using JIT directly from within the VM's page in Security Center.
 
-### Configure JIT access on a VM via the Azure VM blade
+### Configure JIT access on a VM via the Azure VM page
 
 To make it easy to roll out just-in-time access across your VMs, you can set a VM to allow only just-in-time access directly from within the VM.
 

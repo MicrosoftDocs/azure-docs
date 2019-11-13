@@ -1,15 +1,11 @@
 ---
 title: Set up a staging environment in Azure Spring Cloud | Microsoft Docs
 description: Learn how to use blue-green deployment with Azure Spring Cloud
-services: spring-cloud
-author: v-vasuke
-manager: gwallace
-editor: ''
-
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: quickstart
-ms.date: 10/07/2019
-ms.author: v-vasuke
+ms.topic: conceptual
+ms.date: 10/31/2019
+ms.author: jeconnoc
 
 ---
 
@@ -23,26 +19,18 @@ This article assumes that you have already deployed the PiggyMetrics application
 
 If you have a different application that you'd like to use for this example, you'll need to make a simple change in a public facing portion of the application.  This change differentiates your staging deployment from production.
 
->[!NOTE]
-> Before beginning this quickstart, ensure that your Azure subscription has access to Azure Spring Cloud.  As a preview service, we ask that you reach out to us so that we can add your subscription to our allow-list.  If you would like to explore the capabilities of Azure Spring Cloud, please reach out to us by email: azure-spring-cloud@service.microsoft.com.
-
 >[!TIP]
 > The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article.  It has common Azure tools preinstalled, including the latest versions of Git, JDK, Maven, and the Azure CLI. If you are logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com.  You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md)
 
 To complete this article:
 
-1. [Install Git](https://git-scm.com/)
-1. [Install JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
-1. [Install Maven 3.0 or above](https://maven.apache.org/download.cgi)
-1. [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-1. [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
 
 ## Install the Azure CLI extension
 
 Install the Azure Spring Cloud extension for the Azure CLI using the following command
 
 ```azurecli
-az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
+az extension add --name spring-cloud
 ```
 	
 ## View all deployments
