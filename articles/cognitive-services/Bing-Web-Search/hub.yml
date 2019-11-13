@@ -190,7 +190,79 @@ productDirectory:
           url: ../bing-local-business-search/quickstarts/local-search-node-quickstart.md
         - text: Using Python
           url: ../bing-local-business-search/quickstarts/local-search-python-quickstart.md
-        
+
+conceptualContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+  title: Get started 2
+  summary: Start getting search results from the web by choosing one of the available APIs below. 
+  items:
+    - title: Bing Web Search
+      links:      
+        - url: overview.md
+          itemType: get-started
+          text: Overview
+        - url: web-search-sdk-quickstart.md
+          itemType: quickstart
+          text: Using C#
+        - url: web-sdk-java-quickstart.md
+          itemType: quickstart
+          text: Using Java
+        - url: web-sdk-python-quickstart.md
+          itemType: quickstart
+          text: Using Python
+        - url: tutorial-bing-web-search-single-page-app.md
+          itemType: quickstart
+          text: Create a single-page web-app
+      footerLink:
+        url: overview.md
+        text: See more
+
+    - title: Bing Custom Search API
+      links:
+        - text: Overview
+          itemType: get-started
+          url: ../bing-custom-search/overview.md
+        - text: Create a custom search instance
+          itemType: quickstart
+          url: ../bing-custom-search/quick-start.md
+        - text: Using C#
+          itemType: quickstart
+          url: ../bing-custom-search/sdk-csharp-quick-start.md
+        - text: Using Java
+          itemType: quickstart
+          url: ../bing-custom-search/sdk-java-quickstart.md
+        - text: Using Python
+          itemType: quickstart
+          url: ../bing-custom-search/sdk-python-quickstart.md
+        - text: Create a single page web-app
+          itemType: quickstart
+          url: ../bing-custom-search/tutorials/custom-search-web-page.md
+      footerLink:
+        url: ../bing-custom-search/overview.md
+        text: See more
+
+    - title: Bing Image Search
+      links:      
+        - url: ../bing-image-search/overview.md
+          itemType: get-started
+          text: Overview
+        - url: ../bing-image-search/image-search-sdk-quickstart.md
+          itemType: quickstart
+          text: Using C#
+        - url: ../bing-image-search/image-sdk-java-quickstart.md
+          itemType: quickstart
+          text: Using Java
+        - text: Using Node.js
+          itemType: quickstart
+          url: ../bing-image-search/image-search-sdk-node-quickstart.md
+        - text: Create a single page web-app
+          itemType: quickstart
+          url: ../bing-image-search/tutorial-bing-image-search-single-page-app.md
+      footerLink:
+        url: ../bing-image-search/overview.md
+        text: See more
+
+
 additionalContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
   sections:
