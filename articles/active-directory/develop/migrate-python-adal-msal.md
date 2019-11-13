@@ -44,6 +44,10 @@ See [What's different about the Microsoft identity platform (v2.0) endpoint?](ht
 
 ADAL Python acquires tokens for resources, but MSAL Python acquires tokens for scopes. The API surface in MSAL Python does not have resource paramater anymore. You would need to provide scopes as a list of strings that declare the desired permissions and resources that are requested. Well known scopes are the [Microsoft Graph's scopes](https://docs.microsoft.com/en-us/graph/permissions-reference).
 
+### Error handling
+
+Azure Active Directory Authentication Library (ADAL) for Python uses the exception `AdalError` to indicate that there's been a problem. MSAL for  Python typically uses error codes, instead. For more information, see  [MSAL for Python error handling](msal-handling-exceptions.md#msal-for-python-error-handling).
+
 ### API changes
 
 The following table lists an API in ADAL for Python, and the one to use in its place in MSAL for Python:
