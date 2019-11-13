@@ -42,4 +42,16 @@ The state of the aggregate monitor matches the state of the child monitor with t
 
 ## Unit monitor
 
-Measures some aspect of the application. This might be checking a performance counter to determine the performance of the application, running a script to perform a synthetic transaction, or watch for an event that indicates an error. Classes will typically have multiple unit monitors targeted at them to test different features of the application and to monitor for different problems.
+A unit monitor measures some aspect of the resource, application, or service. This might be checking a performance counter to determine the performance of the resource, or watch for a log record that indicates an error. 
+
+## Understand the monitoring configuration
+
+Azure Monitor for containers includes a number of key monitoring scenarios that are configured as follows.
+
+|**Monitor name** | **Description** | **Parameter** | **Value** |
+|-------------|-------------|---------------|------|
+|Node Memory Utilization |This monitor evaluates the memory utilization of a node every minute, using the cadvisor reported data. | ConsecutiveSamplesForStateTransition<br> FailIfGreaterThanPercentage<br> WarnIfGreaterThanPercentage | 3<br> 90<br> 80  | |
+|Node CPU Utilization | This monitor checks the CPU utilization of the node every minute, using the cadvisor reported data. | ConsecutiveSamplesForStateTransition<br> FailIfGreaterThanPercentage<br> WarnIfGreaterThanPercentage | 3<br> 90<br> 80  | |
+|Node Status | This monitor checks node conditions reported by Kubernetes.<br> Currently the following node conditions are checked: Disk Pressure, Memory Pressure, PID Pressure, Out of Disk, Network unavailable, Ready status for the node.<br> Out of the above conditions, if either *Out of Disk* or *Network Unavailable* is **true**, the monitor changes to **Fail** state.<br> If any other conditions equal **true**, other than the **Ready** status, then the monitor changes to a **Warning** state. | NodeConditionTypeForFailedState | outofdisk,networkunavailable | |
+|Container memory utilization | This monitor reports combined health status of the Memory utilization(RSS) of the instances of the container.<br> It performs a simple comparison that compares each sample to a single threshold, and specified by the configuration parameter **ConsecutiveSamplesForStateTransition**. |
+
