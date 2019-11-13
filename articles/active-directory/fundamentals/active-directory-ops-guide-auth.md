@@ -272,9 +272,11 @@ If legacy authentication is widely used in your environment, you should plan to 
 
 1. Use [Sign-In Activity reports](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) to identify users who are still using legacy authentication and plan remediation:
 
-  1. Upgrade to modern authentication capable clients to affected users.
-  2. Plan a cutover timeframe to lock down per steps below.
-  3. Identify what legacy applications have a hard dependency on legacy authentication. See step 3 below.
+   a. Upgrade to modern authentication capable clients to affected users.
+   
+   b. Plan a cutover timeframe to lock down per steps below.
+   
+   c. Identify what legacy applications have a hard dependency on legacy authentication. See step 3 below.
 
 2. Disable legacy protocols at the source (for example Exchange Mailbox) for users who aren’t using legacy auth to avoid more exposure.
 3. For the remaining accounts (ideally non-human identities such as service accounts), use [conditional access to restrict legacy protocols](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Conditional-Access-support-for-blocking-legacy-auth-is/ba-p/245417) post-authentication.
