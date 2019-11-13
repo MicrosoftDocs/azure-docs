@@ -1,6 +1,6 @@
 ---
-title: Monitor AKS cluster health with Azure Monitor for containers | Microsoft Docs
-description: This article describes how you can view and analyze the health of your AKS clusters with Azure Monitor for containers.
+title: Monitor Kubernetes cluster health with Azure Monitor for containers | Microsoft Docs
+description: This article describes how you can view and analyze the health of your AKS and non-AKS clusters with Azure Monitor for containers.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -14,7 +14,7 @@ ms.date: 11/12/2019
 ms.author: magoedte
 ---
 
-# Understand AKS cluster health with Azure Monitor for containers
+# Understand Kubernetes cluster health with Azure Monitor for containers
 
 With Azure Monitor for containers, it monitors and reports health status of the managed infrastructure components, all nodes, and workloads running on a cluster deployed on Azure Kubernetes Service (AKS) and AKS Engine running on-premises and on Azure Stack. This experience extends beyond the cluster health status calculated and reported on the [multi-cluster view](container-insights-analyze.md#multi-cluster-view-from-azure-monitor), where now you can understand if one or more nodes in the cluster are resource constrained, or a node or pod are unavailable that could impact a running application in the cluster based on curated metrics. 
 
