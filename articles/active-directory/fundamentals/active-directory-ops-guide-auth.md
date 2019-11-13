@@ -26,13 +26,15 @@ This section of the [Azure AD operations reference guide](active-directory-ops-g
 
 Managing Azure Active Directory requires the continuous execution of key operational tasks and processes, which may not be part of a rollout project. It is still important you set up these tasks to optimize your environment. The key tasks and their recommended owners include:
 
-- Manage lifecycle of single sign-on (SSO) configuration in Azure AD - IAM Operations Team.
-- Design conditional access policies for Azure AD applications - InfoSec Architecture Team.
-- Archive sign-in activity in a SIEM system - InfoSec Operations Team.
-- Archive risk events in a SIEM system - InfoSec Operations Team.
-- Triage and investigate security reports - InfoSec Operations Team.
-- Triage and investigate risk events - InfoSec Operations Team.
-- Triage and investigate users flagged for risk and vulnerability reports from Azure AD Identity Protection - InfoSec Operations Team.
+| Task | Owner |
+| :- | :- |
+| Manage lifecycle of single sign-on (SSO) configuration in Azure AD | IAM Operations Team |
+| Design conditional access policies for Azure AD applications | InfoSec Architecture Team |
+| Archive sign-in activity in a SIEM system | InfoSec Operations Team |
+| Archive risk events in a SIEM system | InfoSec Operations Team |
+| Triage and investigate security reports | InfoSec Operations Team |
+| Triage and investigate risk events | InfoSec Operations Team |
+| Triage and investigate users flagged for risk and vulnerability reports from Azure AD Identity Protection | InfoSec Operations Team |
 
 > [!NOTE]
 > Azure AD Identity Protection requires an Azure AD Premium P2 license. To find the right license for your requirements, see [Comparing generally available features of the Azure AD Free and Azure AD Premium editions](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -54,12 +56,12 @@ Use the table below to find the recommended solution for mitigating the issue th
 
 | Issue | Recommendation |
 | :- | :- |
-| No mechanism to protect against weak passwords | Enable Azure AD [self-service password reset](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks) and [password protection](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises) |
+| No mechanism to protect against weak passwords | Enable Azure AD [self-service password reset (SSPR)](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks) and [password protection](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises) |
 | No mechanism to detect leaked passwords | Enable [password hash sync](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) (PHS) to gain insights |
 | Using AD FS and unable to move to managed authentication | Enable [AD FS Extranet Smart Lockout](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) and / or [Azure AD Smart Lockout](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout) |
 | Password policy uses complexity-based rules such as length, multiple character sets, or expiration | Reconsider in favor of [Microsoft Recommended Practices](https://aka.ms/passwordguidance) and switch your approach to password management and deploy [Azure AD password protection](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad). |
-| Users aren’t registered to use multi-factor authentication (MFA) | [Register all users for MFA](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-mfa-policy) so it can be used as a mechanism to verify the user’s identity along with their password |
-| There is no revocation of passwords based on user risk | Deploy Azure AD [Identity Protection user risk policies](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy) |
+| Users aren’t registered to use multi-factor authentication (MFA) | [Register all user's security information](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-mfa-policy) so it can be used as a mechanism to verify the user’s identity along with their password |
+| There is no revocation of passwords based on user risk | Deploy Azure AD [Identity Protection user risk policies](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy) to force password changes on leaked credentials using SSPR |
 | There is no smart lockout mechanism to protect malicious authentication from bad actors coming from identified IP addresses | Deploy cloud-managed authentication with either password hash sync or [pass-through authentication](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start) (PTA) |
 
 #### Password policies recommended reading
@@ -88,7 +90,7 @@ Passwords by themselves aren’t secure enough to prevent bad actors from gainin
 
 ### On-premises outage authentication resiliency
 
-In addition to the benefits of simplicity and enabling leaked credential detection, Azure AD Password Hash Sync (PHS) and Azure MFA allow users to access SaaS applications and Office 365 in spite of on-premises outages due to cyberattacks such as NotPetya. It is also possible to enable PHS while in conjunction with federation. Enabling PHS allows a fallback of authentication when federation services aren’t available.
+In addition to the benefits of simplicity and enabling leaked credential detection, Azure AD Password Hash Sync (PHS) and Azure MFA allow users to access SaaS applications and Office 365 in spite of on-premises outages due to cyberattacks such as [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/). It is also possible to enable PHS while in conjunction with federation. Enabling PHS allows a fallback of authentication when federation services aren’t available.
 
 If your on-premises organization is lacking an outage resiliency strategy or has one that isn’t integrated with Azure AD, you should deploy Azure AD PHS and define a disaster recovery plan that includes PHS. Enabling Azure AD PHS will allow users to authenticate against Azure AD should your on-premises Active Directory be unavailable.
 
@@ -115,12 +117,13 @@ Federated Authentication with Integrated Windows Authentication (IWA) or Seamles
 Like a user in your organization, a device is a core identity you want to protect. You can use a device's identity to protect your resources at any time and from any location. Authenticating the device and accounting for its trust type improves your security posture and usability by:
 
 - Avoiding friction, for example, with MFA, when the device is trusted
-- Blocking access from untrusted joined devices
+- Blocking access from untrusted devices
+- For Windows 10 devices, provide [single sign-on to on-premises resources seamlessly](https://docs.microsoft.com/azure/active-directory/devices/azuread-join-sso).
 
 You can carry out this goal by bringing device identities and managing them in Azure AD by using one of the following methods:
 
 - Organizations can use [Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune) to manage the device and enforce compliance policies, attest device health, and set conditional access policies based on whether the device is compliant. Microsoft Intune can manage iOS devices, Mac desktops (Via JAMF integration), Windows desktops (natively using Mobile Device Management for Windows 10, and co-management with System Center Configuration Manager) and Android mobile devices.
-- [Hybrid Azure AD join](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-managed-domains) provides management with Group Policies or System Center Configuration Manager in an environment with Active Directory domain-joined computers devices. Organizations can deploy a managed environment either through PHS or PTA with Seamless SSO. Bringing your devices to Azure AD maximizes user productivity through SSO across your cloud and on-premises resources while enabling you to secure access to your cloud and on-premises resources with [Conditional Access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) at the same time.
+- [Hybrid Azure AD join](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-managed-domains) provides management with Group Policies, System Center Configuration Manager, or Microsoft Endpoint Manager in an environment with Active Directory domain-joined computers devices. Organizations can deploy a managed environment either through PHS or PTA with Seamless SSO. Bringing your devices to Azure AD maximizes user productivity through SSO across your cloud and on-premises resources while enabling you to secure access to your cloud and on-premises resources with [Conditional Access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) at the same time.
 
 If you have domain-joined Windows devices that aren’t registered in the cloud, or domain-joined Windows devices that are registered in the cloud but without conditional access policies, then you should register the unregistered devices and, in either case, [use Hybrid Azure AD join as a control](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices) in your conditional access policies.
 
@@ -137,7 +140,7 @@ If you are managing devices with MDM or Microsoft Intune, but not using device c
 
 ### Windows Hello for Business
 
-In Windows 10, [Windows Hello for Business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification) replaces passwords with strong two-factor authentication on PCs and mobile devices. Windows Hello for Business enables a more streamlined MFA experience for users and reduces your dependency on passwords. If you haven’t begun rolling out Windows 10 devices, or have only partially deployed them, we recommend you upgrade to Windows 10 and [enable Windows Hello for Business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) on all devices.
+In Windows 10, [Windows Hello for Business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification) replaces passwords with strong two-factor authentication on PCs. Windows Hello for Business enables a more streamlined MFA experience for users and reduces your dependency on passwords. If you haven’t begun rolling out Windows 10 devices, or have only partially deployed them, we recommend you upgrade to Windows 10 and [enable Windows Hello for Business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) on all devices.
 
 If you would like to learn more about passwordless authentication, see [A world without passwords with Azure Active Directory](https://aka.ms/passwordlessdoc).
 
@@ -165,7 +168,7 @@ Finally, if you have an Azure AD app gallery and use applications that support S
 ![Azure AD as the primary identity provider](./media/active-directory-ops-guide/active-directory-ops-img9.png)
 
 > [!NOTE]
-> The [ADFS to Azure AD App Migration Tool](https://github.com/AzureAD/Deployment-Plans/tree/master/ADFS%20to%20AzureAD%20App%20Migration) can be used to collect configuration details about each application and then analyze and report which applications can be migrated to Azure AD and which ones can’t and why.
+> [Azure AD Connect Health for ADFS](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs) can be used to collect configuration details about each application that can potentially be migrated to Azure AD.
 
 ### Assign users to applications
 
@@ -228,27 +231,29 @@ If your employees install MAM-capable applications such as Office mobile apps to
 
 Should employees install MAM-capable applications against corporate resources and access is restricted on Intune Managed devices, then you should consider deploying application MAM policies to manage the application configuration for personal devices, and update Conditional Access policies to only allow access from MAM capable clients.
 
-### Conditional access implementation
+### Conditional Access implementation
 
-Conditional access is an essential tool for improving the security posture of your organization. Therefore, it is important you follow these best practices:
+Conditional Access is an essential tool for improving the security posture of your organization. Therefore, it is important you follow these best practices:
 
 - Ensure that all SaaS applications have at least one policy applied
 - Avoid combining the **All apps** filter with the **block** control to avoid lockout risk
 - Avoid using the **All users** as a filter and inadvertently adding **Guests**
 - **Migrate all "legacy" policies to the Azure portal**
 - Catch all criteria for users, devices, and applications
-- **Implement per-user MFA**
+- Use Conditional Access policies to [implement MFA](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access), rather than using a **per-user MFA**
 - Have a small set of core policies that can apply to multiple applications
 - Define empty exception groups and add them to the policies to have an exception strategy
 - Plan for [break glass](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-admin-roles-secure#break-glass-what-to-do-in-an-emergency) accounts without MFA controls
 - Ensure a consistent experience across Office 365 client applications, for example, Teams, OneDrive for Business, Outlook, etc.) by implementing the same set of controls for services such as Exchange Online and Sharepoint Online
 - Assignment to policies should be implemented through groups, not individuals
+- Do regular reviews of the exception groups used in policies to limit the time users are out of the security posture. If you own Azure AD P2, then you can use access reviews to automate the process
 
-#### Conditional access recommended reading
+#### Conditional Access recommended reading
 
 - [Best practices for Conditional Access in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/best-practices)
 - [Identity and device access configurations](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
 - [Azure Active Directory Conditional Access settings reference](https://docs.microsoft.com/azure/active-directory/conditional-access/technical-reference)
+- [Common Conditional Access policies](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policy-common)
 
 ## Access Surface Area
 
@@ -267,9 +272,9 @@ If legacy authentication is widely used in your environment, you should plan to 
 
 1. Use [Sign-In Activity reports](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) to identify users who are still using legacy authentication and plan remediation:
 
-  a. Upgrade to modern authentication capable clients to affected users.
-  b. Plan a cutover timeframe to lock down per steps below.
-  c. Identify what legacy applications have a hard dependency on legacy authentication. See step 3 below.
+  1. Upgrade to modern authentication capable clients to affected users.
+  2. Plan a cutover timeframe to lock down per steps below.
+  3. Identify what legacy applications have a hard dependency on legacy authentication. See step 3 below.
 
 2. Disable legacy protocols at the source (for example Exchange Mailbox) for users who aren’t using legacy auth to avoid more exposure.
 3. For the remaining accounts (ideally non-human identities such as service accounts), use [conditional access to restrict legacy protocols](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Conditional-Access-support-for-blocking-legacy-auth-is/ba-p/245417) post-authentication.
@@ -309,13 +314,14 @@ Below are the user and group settings that can be locked down if there isn’t a
 
 #### User settings
 
-- **External Users**. External collaboration can happen organically in the enterprise with services like Teams, Power BI, Sharepoint Online, and Azure Information Protection. If you have explicit constraints to block user-initiated external collaboration, it is recommended you enable external users by using [Azure AD Entitlement management](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) or a controlled operation such as through your help desk.
-- **App Registrations*.*** When App registrations are enabled, end users can self-service onboard applications and grant access to user’s data. A typical example of App registration is users enabling Outlook plug-ins, or voice assistants such as Alexa and Siri to read their email and calendar or send emails on their behalf. If the customer decides to turn off App registration, the InfoSec and IAM teams must be involved in the management of exceptions (app registrations that are needed based on business requirements), as they would need to register the applications with an admin account, and most likely require designing a process to operationalize the process.
-- **Administration Portal*.*** Organizations should lock down the Azure portal so that non-administrators can’t log in to the Azure AD management portal. Administrators can go to the user settings in the Azure AD management portal to restrict access.
+- **External Users** - external collaboration can happen organically in the enterprise with services like Teams, Power BI, Sharepoint Online, and Azure Information Protection. If you have explicit constraints to block user-initiated external collaboration, it is recommended you enable external users by using [Azure AD Entitlement management](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) or a controlled operation such as through your help desk.
+- **App Registrations** - when App registrations are enabled, end users can onboard applications themselves and grant access to their data. A typical example of App registration is users enabling Outlook plug-ins, or voice assistants such as Alexa and Siri to read their email and calendar or send emails on their behalf. If the customer decides to turn off App registration, the InfoSec and IAM teams must be involved in the management of exceptions (app registrations that are needed based on business requirements), as they would need to register the applications with an admin account, and most likely require designing a process to operationalize the process.
+- **Administration Portal** - organizations should lock down the Azure portal so that non-administrators can’t log in to the Azure AD management portal. Administrators can go to the user settings in the Azure AD management portal to restrict access.
 
 ![Administration portal restricted access](./media/active-directory-ops-guide/active-directory-ops-img13.png)
 
-**Note:** Non-admin can still access to the Azure AD management interfaces via command-line and other programmatic interfaces.
+> [!NOTE]
+> Non-admin can still access to the Azure AD management interfaces via command-line and other programmatic interfaces.
 
 #### Group settings
 
