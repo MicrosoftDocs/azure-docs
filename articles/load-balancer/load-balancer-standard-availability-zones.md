@@ -1,7 +1,7 @@
 ---
 title: Azure Standard Load Balancer and Availability Zones
-titlesuffix: Azure Load Balancer
-description: Standard Load Balancer and Availability Zones
+titleSuffix: Azure Load Balancer
+description: With this learning path, get started with Azure Standard Load Balancer and Availability Zones.
 services: load-balancer
 documentationcenter: na
 author: asudbring
