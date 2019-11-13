@@ -287,7 +287,7 @@ Yes. WAF supports all the features in the Standard SKU.
 
 ### Which CRS versions does Application Gateway support?
 
-Application Gateway supports CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) and CRS [3.0](application-gateway-crs-rulegroups-rules.md#owasp30).
+Application Gateway supports CRS [2.2.9](..\web-application-firewall\ag\application-gateway-crs-rulegroups-rules.md#owasp229) and CRS [3.0](..\web-application-firewall\ag\application-gateway-crs-rulegroups-rules.md#owasp30).
 
 ### How do I monitor WAF?
 
@@ -303,7 +303,7 @@ Yes. For more information, see [Customize WAF rule groups and rules](application
 
 ### What rules are currently available for WAF?
 
-WAF currently supports CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) and [3.0](application-gateway-crs-rulegroups-rules.md#owasp30). These rules provide baseline security against most of the top-10 vulnerabilities that Open Web Application Security Project (OWASP) identifies: 
+WAF currently supports CRS [2.2.9](..\web-application-firewall\ag\application-gateway-crs-rulegroups-rules.md#owasp229) and [3.0](..\web-application-firewall\ag\application-gateway-crs-rulegroups-rules.md#owasp30). These rules provide baseline security against most of the top-10 vulnerabilities that Open Web Application Security Project (OWASP) identifies: 
 
 * SQL injection protection
 * Cross-site scripting protection
