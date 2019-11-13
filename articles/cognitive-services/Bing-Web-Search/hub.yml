@@ -31,170 +31,10 @@ highlightedContent:
     - title: API pricing details
       itemType: reference
       url: https://azure.microsoft.com/pricing/details/cognitive-services/search-api/
-productDirectory:
-  title: Get started
-  summary: Start getting search results from the web by choosing one of the available APIs below. 
-  items:
-    - title: Bing Web Search API
-      imageSrc: ./media/hub/web-search.svg
-      links: 
-        - text: Overview
-          url: overview.md
-        - text: Using C#
-          url: web-search-sdk-quickstart.md
-        - text: Using Node.js
-          url: web-search-sdk-node-quickstart.md
-        - text: Using Java
-          url: web-sdk-java-quickstart.md
-        - text: Using Python
-          url: web-sdk-python-quickstart.md
-        - text: Create a single-page web-app
-          url: tutorial-bing-web-search-single-page-app.md
-
-    - title: Bing Custom Search API
-      imageSrc: ./media/hub/custom-search.svg
-      links:
-        - text: Overview
-          url: ../bing-custom-search/overview.md
-        - text: Create a custom search instance
-          url: ../bing-custom-search/quick-start.md
-        - text: Using C#
-          url: ../bing-custom-search/sdk-csharp-quick-start.md
-        - text: Using Java
-          url: ../bing-custom-search/sdk-java-quickstart.md
-        - text: Using Python
-          url: ../bing-custom-search/sdk-python-quickstart.md
-        - text: Create a single page web-app
-          url: ../bing-custom-search/tutorials/custom-search-web-page.md
-
-    - title: Bing Image Search API
-      imageSrc: ./media/hub/image-search.svg
-      links:
-        - text: Overview
-          url: ../bing-image-search/overview.md
-        - text: Using C#
-          url: ../bing-image-search/image-search-sdk-quickstart.md
-        - text: Using Java
-          url: ../bing-image-search/image-sdk-java-quickstart.md
-        - text: Using Node.js
-          url: ../bing-image-search/image-search-sdk-node-quickstart.md
-        - text: Create a single page web-app
-          url: ../bing-image-search/tutorial-bing-image-search-single-page-app.md
-        
-    - title: Bing Entity Search API
-      imageSrc: ./media/hub/entity-search.svg
-      links:
-        - text: Overview
-          url: ../bing-entities-search/overview.md
-        - text: Using C#
-          url: ../bing-entities-search/quickstarts/entity-sdk-csharp-quickstart.md
-        - text: Using Java
-          url: ../bing-entities-search/quickstarts/entity-sdk-java-quickstart.md
-        - text: Using Node.js
-          url: ../bing-entities-search/quickstarts/entity-sdk-node-quickstart.md
-        - text: Using Python
-          url: ../bing-entities-search/quickstarts/entity-sdk-python-quickstart.md
-        - text: Create a single page web-app
-          url: ../bing-entities-search/tutorial-bing-entities-search-single-page-app.md
-
-    - title: Bing News Search API
-      imageSrc: ./media/hub/news-search.svg
-      links:
-        - text: Overview
-          url: ../bing-news-search/search-the-web.md
-        - text: Using C#
-          url: ../bing-news-search/news-search-sdk-quickstart.md
-        - text: Using Java
-          url: ../bing-news-search/news-sdk-java-quickstart.md
-        - text: Using Node.js
-          url: ../bing-news-search/news-search-sdk-node-quickstart.md
-        - text: Using Python
-          url: ../bing-news-search/news-sdk-python-quickstart.md
-        - text: Create a single page web-app
-          url: ../bing-news-search/tutorial-bing-news-search-single-page-app.md
-        
-    - title: Bing Video Search API
-      imageSrc: ./media/hub/video-search.svg
-      links:
-        - text: Overview
-          url: ../Bing-Video-Search/overview.md
-        - text: Using C#
-          url: ../Bing-Video-Search/quickstarts/sdk-csharp-quickstart.md
-        - text: Using Java
-          url: ../Bing-Video-Search/quickstarts/sdk-java-quickstart.md
-        - text: Using Node.js
-          url: ../Bing-Video-Search/quickstarts/sdk-node-quickstart.md
-        - text: Using Python
-          url: ../Bing-Video-Search/quickstarts/sdk-python-quickstart.md
-        - text: Create a single page web-app
-          url: ../Bing-Video-Search/tutorial-bing-video-search-single-page-app.md
-
-    - title: Bing Visual Search API
-      imageSrc: ./media/hub/visual-search.svg
-      links:
-        - text: Overview
-          url: ../bing-visual-search/overview.md
-        - text: Using C#
-          url: ../bing-visual-search/visual-search-sdk-c-sharp.md
-        - text: Using Java
-          url: ../bing-visual-search/visual-search-sdk-java.md
-        - text: Using Node.js
-          url: ../bing-visual-search/visual-search-sdk-node.md
-        - text: Using Python
-          url: ../bing-visual-search/visual-search-sdk-python.md
-        - text: Crop and search an area of an image
-          url: ../bing-visual-search/tutorial-visual-search-crop-area-results.md
-
-    - title: Bing Autosuggest API
-      imageSrc: ./media/hub/autosuggest.svg
-      links:
-        - text: Overview
-          url: ../Bing-Autosuggest/get-suggested-search-terms.md
-        - text: Using C#
-          url: ../Bing-Autosuggest/quickstarts/csharp.md
-        - text: Using Java
-          url: ../Bing-Autosuggest/quickstarts/java.md
-        - text: Using Node.js
-          url: ../Bing-Autosuggest/quickstarts/nodejs.md
-        - text: Using Python
-          url: ../Bing-Autosuggest/quickstarts/python.md
-        - text: Create a single page web-app
-          url: ../Bing-Autosuggest/tutorials/autosuggest.md
-
-    - title: Bing Spell Check API
-      imageSrc: ./media/hub/spellcheck.svg
-      links:
-        - text: Overview
-          url: ../bing-spell-check/overview.md
-        - text: Using C#
-          url: ../bing-spell-check/sdk-quickstart-spell-check.md
-        - text: Using Java
-          url: ../bing-spell-check/quickstarts/java.md
-        - text: Using Node.js
-          url: ../bing-spell-check/quickstarts/nodejs.md
-        - text: Using Python
-          url: ../bing-spell-check/quickstarts/python.md
-        - text: Create a single page web-app
-          url: ../bing-spell-check/tutorials/spellcheck.md
-
-    - title: Local Business Search API
-      imageSrc: ./media/hub/local-business-search.svg
-      links:
-        - text: Overview
-          url: ../bing-local-business-search/overview.md
-        - text: Using C#
-          url: ../bing-local-business-search/quickstarts/local-quickstart.md
-        - text: Using Java
-          url: ../bing-local-business-search/quickstarts/local-search-java-quickstart.md
-        - text: Using Node.js
-          url: ../bing-local-business-search/quickstarts/local-search-node-quickstart.md
-        - text: Using Python
-          url: ../bing-local-business-search/quickstarts/local-search-python-quickstart.md
-
 
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
-  title: Get started 2
+  title: Get started
   summary: Start getting search results from the web by choosing one of the available APIs below. 
   items:
     - title: Bing Web Search
@@ -378,7 +218,7 @@ conceptualContent:
           itemType: tutorial
           url: ../bing-spell-check/tutorials/spellcheck.md
       footerLink:
-        url: ../Bing-Autosuggest/get-suggested-search-terms.md
+        url: ../bing-spell-check/overview.md
         text: See more
         
     - title: Local Business Search API
@@ -395,7 +235,9 @@ conceptualContent:
         - text: Use Python
           itemType: quickstart
           url: ../bing-local-business-search/quickstarts/local-search-python-quickstart.md
-
+      footerLink:
+        url: ../bing-local-business-search/overview.md
+        text: See more
 
 additionalContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
