@@ -1,6 +1,6 @@
 ---
-title: Automate image build, test, and patch with Azure Container Registry multi-step tasks
-description: An introduction to multi-step tasks, a feature of ACR Tasks in Azure Container Registry that provides task-based workflows for building, testing, and patching container images in the cloud.
+title: Multi-step task to build, test & patch image - Azure Container Registry
+description: Introduction to multi-step tasks, a feature of ACR Tasks in Azure Container Registry that provides task-based workflows for building, testing, and patching container images in the cloud.
 services: container-registry
 author: dlepow
 manager: gwallace

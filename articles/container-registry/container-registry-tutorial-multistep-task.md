@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Multi-step container tasks - Azure Container Registry Tasks
+title: Tutorial - Multi-step task workflow - Azure Container Registry Tasks
 description: In this tutorial, you learn how to configure an Azure Container Registry Task to automatically trigger a multi-step workflow to build, run, and push container images in the cloud when you commit source code to a Git repository.
 services: container-registry
 author: dlepow

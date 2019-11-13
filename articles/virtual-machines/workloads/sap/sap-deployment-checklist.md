@@ -14,7 +14,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/15/2019
+ms.date: 11/08/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -158,7 +158,7 @@ We recommend that you set up and validate a full HADR solution and security desi
    1.  Verify that [network security group and ASC](https://docs.microsoft.com/azure/virtual-network/security-overview) rules work as expected and shield the protected resources.
    1.  Make sure that all resources that need to be encrypted are encrypted. Define and implement processes to back up certificates, store and access those certificates, and restore the encrypted entities.
    1.  Use [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq) for OS disks where possible from an OS-support point of view.
-   1.  Be sure that you're not using too many layers of encryption. In some cases, it does make sense to use Azure Disk Encryption together with one of the DBMS Transparent Data Encryption methods.
+   1.  Be sure that you're not using too many layers of encryption. In some cases, it does make sense to use Azure Disk Encryption together with one of the DBMS Transparent Data Encryption methods to protect different disks or components on the same server.  For example on a SAP DBMS server, the Azure Disk Encryption (ADE) can be enabled on the operating system boot disk (if the OS supports ADE) and those data disk(s) not used by the DBMS data persistence files.  An example is to use ADE on the disk holding the DBMS TDE encryption keys.
 1. Performance testing. In SAP, based on SAP tracing and measurements, make these comparisons:
    - Where applicable, compare the top 10 online reports to your current implementation.
    - Where applicable, compare the top 10 batch jobs to your current implementation.
