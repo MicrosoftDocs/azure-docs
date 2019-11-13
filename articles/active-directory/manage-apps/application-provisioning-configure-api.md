@@ -20,6 +20,8 @@ ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ---
 
+# Configure provisioning using Microsoft Graph APIs
+
 Azure AD provides an interface for configuring provisioning. This can be easy to use for one or two applications, but in situations where you have to create 10, 20, 100+ instances of an application, it is often easier to automate application creation and configuration through APIs rather than the user interface. This document outlines how to automate configuring provisioning through APIs. This is most commonly used for applications such as [Amazon Web Services](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-single-sign-on) and [Azure Databricks]()
 
 1.	Create gallery app
@@ -213,7 +215,7 @@ HTTP/1.1 200 OK
 }
 ```
 
-## Step 4: Create job
+## Step 5: Create job
 Enabling provisioning requires that a job be created. Use the request below to create a provisioning job. You should use the templateId from the previous step to specify the template to be used for the job. 
 
 ##### Request
@@ -263,7 +265,7 @@ Content-type: application/json
     }
 }
 ```
-## Step 3: Retrieve the Provisioning Job ID of the application
+## Step 6: Retrieve the Provisioning Job ID of the application
 Now that the provisioning job is created, you will need to retrieve the job ID to complete your configuration. Use the command below to retrieve your job ID. 
 
 ##### Request
@@ -317,7 +319,7 @@ Content-length: 2577
 }
 ```
 
-## Step 4: Validate credentials
+## Step 7: Validate credentials
 
 Test the connection with the third party application. The example below is for an application that requires clientSecret and secretToken. Each application has its on requirements. Review the [API documentation](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&tabs=http) to see the available options. 
 
@@ -341,7 +343,7 @@ POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/job
 HTTP/1.1 204 No Content
 ```
 
-## Step 5: Save your credentials
+## Step 8: Save your credentials
 
 Configuring provisioning requires establishing a trust between Azure AD and the application. Authorize access to the third party application. The example below is for an application that requires clientSecret and secretToken. Each applicaiton has its on requirements. Review the [API documentation](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&tabs=http) to see the available options. 
 
@@ -367,49 +369,7 @@ PUT https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secr
 HTTP/1.1 204 No Content
 ```
 
-## Step 6: Set scope
-
-Amazon Web Service only supports role imports. Skip this step for AWS.  
-
-
-**schema? example?**
-
-```json
-https://graph.microsoft.com/beta/servicePrincipals/35b92148-dbe0-4b8e-9836-60512ec4643d/Credentials
-
-fieldValues.oauth2AccessTokenCreationTime
-{galleryApplicationId: "97e0a159-74ec-4db1-918a-c03a9c3b6b81", templateId: "DropboxSCIMOutDelta",…}
-fieldConfigurations: {,…}
-baseaddress: {defaultHelpText: null, defaultLabel: null, defaultValue: "https://www.dropbox.com/scim/v2",…}
-defaultHelpText: null
-defaultLabel: null
-defaultValue: "https://www.dropbox.com/scim/v2"
-extendedProperties: null
-hidden: true
-name: "baseaddress"
-optional: false
-readOnly: false
-secret: false
-validationRegEx: null
-fieldValues: {oauth2AccessToken: "*", oauth2AccessTokenCreationTime: "2019-10-14T18:30:41.0425992Z",…}
-baseaddress: "https://www.dropbox.com/scim/v2"
-oauth2AccessToken: "*"
-oauth2AccessTokenCreationTime: "2019-10-14T18:30:41.0425992Z"
-oauth2ClientId: "a3j5adzwuaf7gv9"
-oauth2ClientSecret: "*"
-oauth2RefreshToken: ""
-galleryApplicationId: "97e0a159-74ec-4db1-918a-c03a9c3b6b81"
-galleryApplicationKey: "dropbox"
-notificationEmail: null
-oAuth2AuthorizeUrl: "https://www.dropbox.com/1/oauth2/authorize?client_id=a3j5adzwuaf7gv9&response_type=code&redirect_uri=https%3a%2f%2fportal.azure.com%2fTokenAuthorize"
-oAuthEnabled: true
-sendNotificationEmails: false
-syncAll: false
-synchronizationLearnMoreIbizaFwLink: ""
-templateId: "DropboxSCIMOutDelta"
-```
-
-## Step 7: Start the provisioning job
+## Step 9: Start the provisioning job
 Now that the provisioning job is configured, use the following command to start the job. 
 
 
@@ -433,7 +393,7 @@ HTTP/1.1 204 No Content
 ```
 
 
-## Step 8: Monitor the provisioning job status
+## Step 10: Monitor the provisioning job status
 
 Now that the provisioning job is running, use the following command to track the progress of the current provisioning cycle as well as statistics to date such as the number of users and groups that have been created in the target system. 
 
@@ -489,7 +449,7 @@ Content-length: 2577
 ```
 
 
-## Step 9: Monitor provisioning events using the provisioning logs
+## Step 11: Monitor provisioning events using the provisioning logs
 In addition to monitoring the status of the provisioning job, you can use the provisioning logs to query for all the events that are occurring (e.g. query for a particular user and determine if they were successfully provisioned).
 
 **Request**
