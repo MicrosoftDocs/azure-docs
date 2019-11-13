@@ -25,10 +25,6 @@
         href: quickstarts/python-receipts.md
   - name: Using the .NET SDK
     href: quickstarts/dotnet-sdk.md
-- name: Concepts
-  items:
-  - name: Labeled data
-    href: labeled-data.md
 - name: Tutorials
   items:
   - name: Use Form Recognizer with Logic Apps

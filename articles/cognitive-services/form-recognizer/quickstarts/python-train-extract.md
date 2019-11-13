@@ -35,7 +35,7 @@ To complete this quickstart, you must have:
 First, you'll need a set of training data in an Azure Storage blob container. You should have a minimum of five filled-in forms (PDF documents and/or images) of the same type/structure as your main input data. Or, you can use a single empty form with two filled-in forms. The empty form's file name needs to include the word "empty." See [Build a training data set for a custom model](../build-training-data-set.md) for tips and options for putting together your training data.
 
 > [!NOTE]
-> You can use the labeled data feature to manually label some or all of your training data beforehand. This is a more complex process but results in a better trained model. See the [Labeled data](../labeled-data.md) conceptual doc to learn more.
+> You can use the labeled data feature to manually label some or all of your training data beforehand. This is a more complex process but results in a better trained model. See the [Train with labels](../overview.md#train-with-labels) section of the overview to learn more.
 
 To train a Form Recognizer model with the documents in your Azure blob container, call the **TrainC Custom Model** API by running the following python code. Before you run the code, make these changes:
 

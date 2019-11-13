@@ -24,14 +24,30 @@ Form Recognizer is made up of the following services:
 
 <!-- add diagram -->
 
+> [!CAUTION]
+> As this feature is still in development, API, inputs, and outputs are not final and might change. Preview features are available for testing and experimentation with the goal of gathering feedback. We strongly advise against using preview APIs in production applications.
+
 ## Custom models
 
 The Form Recognizer custom model trains to your own data, and you only need five sample input forms to start. When you submit your input data, the algorithm clusters the forms by type, discovers what keys and tables are present, and associates values to keys and entries to tables. It then outputs structured data that includes the relationships in the original file. After you train the model, you can test and retrain it and eventually use it to reliably extract data from more forms according to your needs.
 
-You have the following options when you train custom models: 
+You have the following options when you train custom models: training with labeled data and without labeled data.
 
-* **Train without labels** - The model uses unsupervised learning to understand the layout and relationships between fields and entries without manual data labeling or intensive coding and maintenance.
-* **Train with labels** - The model uses supervised learning to extract the values of interest, based on the labeled forms you provide.
+### Train without labels
+
+The model uses unsupervised learning to understand the layout and relationships between fields and entries without manual data labeling or intensive coding and maintenance.
+
+### Train with labels
+
+The model uses supervised learning to extract the values of interest, based on the labeled forms you provide.
+
+The Form Recognizer service normally does unsupervised learning to train a custom model for your forms, but you can also manually label some or all of your training data. This lets the service do supervised learning and results in better-performing models. It can also produce models that work on complex forms or forms containing values without keys.
+
+The Form Recognizer labelled data feature uses the new document Layout API to detect and extract printed and handwritten text from the forms.
+
+You use the following APIs to train and extract structured data from forms.
+
+Train a new model to analyze your forms by using 10 manually labeled forms of the same type. 
 
 ## Prebuilt receipt model
 

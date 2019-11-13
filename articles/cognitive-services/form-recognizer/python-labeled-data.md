@@ -15,7 +15,7 @@ ms.author: pafarley
 
 # Train a Form Recognizer model with labels using REST API and Python
 
-In this quickstart, you'll use the Form Recognizer REST API with Python to train a custom model with manually labeled data. See the [Labeled data conceptual guide](./labeled-data.md) for an overview of this feature.
+In this quickstart, you'll use the Form Recognizer REST API with Python to train a custom model with manually labeled data. See the [Train with labels](../overview.md#train-with-labels) section of the overview to learn more about this feature.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

@@ -65,7 +65,7 @@ landingContent:
       - linkListType: concept
         links:
             - text: Labeled data
-              url: labeled-data.md
+              url: overview.md#train-with-labels
       - linkListType: how-to-guide
         links:
             - text: Train with labels using the REST API and Python
