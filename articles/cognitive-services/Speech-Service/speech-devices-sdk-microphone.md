@@ -72,10 +72,9 @@ The performance of the microphone array when integrated into a device will diffe
 | THD%\*             | ≤ 1%, 200-8000 Hz, 94 dBSPL, 5th Order             |
 | Frequency Response | ± 6 dB, 200-8000 Hz Floating Mask\*\*              |
 
-_\*\* A low distortion speaker is required to measure THD (e.g. Neumann KH120)_
+\*\*_A low distortion speaker is required to measure THD (e.g. Neumann KH120)_
 
-_\*\* "Wider" frequency ranges may be necessary for high-quality
-communications (VoIP) applications_
+\*\*_"Wider" frequency ranges may be necessary for high-quality communications (VoIP) applications_
 
 ## Speaker integration recommendations
 
