@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Monitor Linux virtual machines in Azure | Microsoft Docs
+title: Tutorial - Monitor Linux virtual machines in Azure 
 description: In this tutorial, you learn how to monitor the performance and discovered application components running on your Linux virtual machines.
 services: virtual-machines-linux
 documentationcenter: virtual-machines

@@ -1,7 +1,7 @@
 ---
-title: 'Create an ExpressRoute circuit - Resource Manager template: Azure | Microsoft Docs'
+title: 'Azure ExpressRoute Template: Create an ExpressRoute circuit'
 description: Create, provision, delete, and deprovision an ExpressRoute circuit.
-services: expressroute;azure-resource-manager
+services: expressroute
 author: cherylmc
 
 ms.service: expressroute

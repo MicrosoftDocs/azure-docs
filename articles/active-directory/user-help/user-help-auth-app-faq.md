@@ -1,6 +1,6 @@
 ---
-title: Help with Microsoft Authenticator app - Azure Active Directory | Microsoft Docs
-description: Provides a list of frequently asked questions and answers related to the Microsoft Authentication app and Azure Multi-Factor Authentication.
+title: Questions & answers about Microsoft Authenticator app - Azure AD
+description: Provides a list of frequently asked questions and answers related to the Microsoft Authentication app and authentication.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -16,7 +16,7 @@ ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
 ---
 
-# Microsoft Authenticator app FAQ
+# Frequently asked questions about the Microsoft Authenticator app
 
 This article answers common questions about the Microsoft Authenticator app. If you don't see an answer to your question, go to the [Microsoft Authenticator app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp).
 
