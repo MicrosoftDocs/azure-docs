@@ -86,7 +86,7 @@ Azure SQL Database Edge has a native implementation of the stream analytics runt
 
 2. Create a new **Azure Stream Analytics on IoT Edge** job. Choose the hosting environment that targets **Edge**.
 
-3. Define an input and output for the Azure Stream Analytics job. Each SQL output, which you will set up here, is tied to a single table in the database. If you need to stream data to multiple tables, you'll need to create multiple SQL Database outputs. You can configure the SQL outputs to point to different databases.
+3. Define an input and output for the Azure Stream Analytics job. Each SQL output, which you'll set up here, is tied to a single table in the database. If you need to stream data to multiple tables, you'll need to create multiple SQL Database outputs. You can configure the SQL outputs to point to different databases.
 
     **Input**. Choose EdgeHub as the input for the edge job, and provide the resource info.
 
