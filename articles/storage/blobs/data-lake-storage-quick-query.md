@@ -5,7 +5,7 @@ author: normesta
 ms.topic: conceptual
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.date: 10/29/2018
+ms.date: 11/13/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ---
@@ -17,9 +17,7 @@ Azure Data Lake Storage is the storage service for creating enterprise Data Lake
 > [!NOTE]
 > The quick query feature is in public preview, and is available in the region1, region2, and region3 regions. To review limitations, see the [Known issues](data-lake-storage-known-issues) article. To enroll in the preview, see [this form](https://aka.ms/adlsquickquerypreview). 
 
-## Quick query optimizes data processing
-
-Data processing applications and analytics frameworks consume structured and semi-structured data in a variety of file formats (For example: CSV, Json, and Parquet). Often times, these applications apply filtering logic so that only the data that meets certain criteria is used to calculate a particular aggregated value. Typically, an application retrieves **all** of the data from a file, parses the data, applies filtering criteria, and calculates the aggregated value. This pattern, essentially designed to remove unneeded data, incurs a significant compute cost. 
+## Overview of the quick query feature
 
 Quick query accepts filtering *predicates* which enables your applications to filter rows and columns at the moment when data is read from disk. Only the data that meets the conditions of the predicate is transferred over the network to the application. This significantly reduces network latency and compute cost.  
 
@@ -31,31 +29,28 @@ The following diagram illustrates how applications use quick query to process da
 
 The quick query feature isn't limited to Data Lake Storage. It's completely compatible with the blobs in storage accounts that don't have a hierarchical namespace enabled on them. This means that you can gain achieve the same reduction in network latency and compute costs when you process data that you already have stored as blobs in storage accounts.
 
-## Improved performance and a reduced compute cost
+To learn how to use quick query in a .NET application, see [Filter data by using Azure Data Lake Storage quick query](https://aka.ms/adlsquickquerypreview).
 
-Analysis of the input/output patterns for analytics workloads reveal that applications typically require only 20% of the data that they read to perform any given calculation. This statistic is true even after applying techniques such as [partition pruning](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-optimize-hive-query#hive-partitioning). This means that 80% of that data is needlessly transferred across the network, parsed, and filtered by the application. This impacts the performance of your application. 
+## Quick query improves performance and reduces costs
 
-You'll reduce the cost of transferring data by filtering unwanted data at the source. Your application can provision a fewer number of smaller Virtual Machines (VM) to By not having to parse and filter unneeded data, your application can provision a fewer number of smaller Virtual Machines (VM) to do the work. The CPU load of parsing and filtering unwanted data results in application having to provision a greater number and larger VMs in order to do their work. By trading this compute load off to Quick Query, applications are able to realize significant cost savings.
+Data processing applications and analytics frameworks consume structured and semi-structured data in a variety of file formats (For example: CSV, Json, and Parquet). To calculate an aggregated value, an application typically, retrieves **all** of the data from files, parses the data, applies filtering criteria, and calculates the aggregated value.  
 
-## Feature costs
+In fact, an analysis of the input/output patterns for analytics workloads reveal that applications typically require only 20% of the data that they read to perform any given calculation. This statistic is true even after applying techniques such as [partition pruning](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-optimize-hive-query#hive-partitioning). This means that 80% of that data is needlessly transferred across the network, parsed, and filtered by the application. This impacts the performance of your application. 
 
-Due to the increased compute load within the ADLS service, Quick Query’s pricing model differs from the normal ADLS transaction model. Quick Query charges a cost for the amount of data scanned as well as a cost for the amount of data returned to the caller.
+This pattern, essentially designed to remove unneeded data, incurs a significant compute cost.  While Azure features an industry leading network, in terms of both throughput and latency, needlessly transferring data across that network negatively impacts application performance. Quick query significantly improves performance and reduces data transfer costs by filtering out unwanted data as part of the request. Having to parse and filter unneeded data can lead to applications provisioning a larger number of virtual machines to meet the CPU load requirements. By trading this compute load off to quick query, applications are able to realize significant cost savings.
 
-Despite the change to the billing model, Quick Query’s pricing is designed to lower the total cost of ownership for a workload, given the reduction in the much more expensive VM costs.
+## The cost to use quick query
+
+Due to the increased compute load within the Azure Data Lake Storage service, the pricing model for using quick query differs from the normal Azure Data Lake Storage transaction model. Quick query charges a cost for the amount of data scanned as well as a cost for the amount of data returned to the caller.
+
+Despite the change to the billing model, Quick query's pricing model is designed to lower the total cost of ownership for a workload, given the reduction in the much more expensive VM costs.
 
 ## Next steps
 
-The following articles describe some of the main concepts of ADLS Quick Query and how to integrate it into your applications:
+- [Quick query enrollment form](https://aka.ms/adlsquickquerypreview)	
+- [Filter data by using Azure Data Lake Storage quick query](https://aka.ms/adlsquickquerypreview)
+- Quick query SQL language reference
+- Quick query REST API reference
 
-- Sign up to participate in the ADLS Quick Query preview	
-- How to filter data with ADLS Quick Query in .NET
-- ADLS Quick Query SQL language reference
-- ADLS Quick Query REST API reference
 
-## Questions
-
-- "Quick Query" is the name of a feature (not a brand, product, or app), so we should not capitalize the name. What about something more descriptive of the capability in the title?
-- I thought that the form approach was going away. I thought that features can ship only when there is a Portal experience for enabling the feature.
-- We have a .NET client application example, but what about non-developers? How does a data analyst use this feature in a tool such as Data bricks, HD Insight, or Power BI?
-- I removed the promise of being available in all regions by GA as promises are a no go in content.
 
