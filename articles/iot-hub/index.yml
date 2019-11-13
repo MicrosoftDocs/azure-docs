@@ -39,8 +39,8 @@ sections:
           - title: Send telemetry
             values:
               - href: /azure/iot-hub/quickstart-send-telemetry-cli
-              - href: /azure/iot-hub/quickstart-send-telemetry-node
               - href: /azure/iot-hub/quickstart-send-telemetry-dotnet
+              - href: /azure/iot-hub/quickstart-send-telemetry-node
               - href: /azure/iot-hub/quickstart-send-telemetry-java
               - href: /azure/iot-hub/quickstart-send-telemetry-python
               - href: /azure/iot-hub/quickstart-send-telemetry-android
