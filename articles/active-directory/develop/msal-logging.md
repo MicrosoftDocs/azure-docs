@@ -39,6 +39,10 @@ MSAL provides several levels of logging detail:
 
 By default, the MSAL logger doesn't capture any highly sensitive personal or organizational data. The library provides the option to enable logging personal and organizational data if you decide to do so.
 
+For details about MSAL logging in a particular language, choose the tab matching your language:
+
+## [MSAL.NET](#tab/msalnet)
+
 ## Logging in MSAL.NET
 
  > [!NOTE]
@@ -77,6 +81,9 @@ class Program
   }
  }
  ```
+---
+
+## [MSAL for Android](#tab/android)
 
 ## Logging in MSAL for Android using Java
 
@@ -120,6 +127,9 @@ By default logging to logcat is disabled. To enable:
 Logger.getInstance().setEnableLogcatLog(true);
 ```
 
+---
+
+## [MSAL.js](#tab/javascript)
 ## Logging in MSAL.js
 
  Enable logging in MSAL.js (Javascript) by passing a logger object during the configuration for creating a `UserAgentApplication` instance. This logger object has the following properties:
@@ -151,6 +161,10 @@ var msalConfig = {
 
 var UserAgentApplication = new Msal.UserAgentApplication(msalConfig);
 ```
+
+---
+
+## [MSAL for iOS and macOS](#tab/ios_macos)
 
 ## MSAL for iOS and macOS logging
 
@@ -260,6 +274,8 @@ For example:
 
 Providing correlation IDs and timestamps are helpful for tracking down issues. Timestamp and correlation ID information is available in the log message. The only reliable place to retrieve them is from MSAL logging messages.
 
+## [MSAL for Java](#tab/java)
+
 ## MSAL for Java logging
 
 MSAL for Java (MSAL4J) allows you to use the logging library that you are already using with your app, as long as it is compatible with SLF4J. MSAL4j uses the [Simple Logging Facade for Java](http://www.slf4j.org/) (SLF4J) as a simple facade or abstraction for various logging frameworks, such as [java.util.logging](https://docs.oracle.com/javase/7/docs/api/java/util/logging/package-summary.html), [Logback](http://logback.qos.ch/) and [Log4j](https://logging.apache.org/log4j/2.x/). SLF4J allows the end-user to plug in the desired logging framework at deployment time.
@@ -308,6 +324,10 @@ PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
         .build();
 ```
 
+---
+
+## [MSAL for Python](#tab/python)
+
 ## MSAL for Python logging
 
 Logging in MSAL Python uses the standard Python logging mechanism, for example `logging.info("msg")` You can configure MSAL logging as follows (and see it in action in the [username_password_sample](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.0.0/sample/username_password_sample.py#L31L32)):
@@ -335,3 +355,5 @@ MSAL for Python does not log personal data or organizational data. There is no p
 You can use standard Python logging to log whatever you want, but you are responsible for safely handling sensitive data and following regulatory requirements.
 
 For more information about logging in Python, please refer to Python's  [Logging HOWTO](https://docs.python.org/3/howto/logging.html#logging-basic-tutorial).
+
+---
