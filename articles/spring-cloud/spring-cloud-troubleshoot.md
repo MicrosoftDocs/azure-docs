@@ -37,7 +37,7 @@ To fix this error, go to the `server parameters` of your MySQL instance, and cha
 
 When you're debugging application crashes, start by checking the running status and discovery status of the application. To do so, go to _App management_ in the Azure portal to ensure that the statuses of all the applications are _Running_ and _UP_.
 
-* If the status is _Running_ but the discovery status is not _UP_, go to the ["My application can't be registered"](#my-application-can't-be-registered) section.
+* If the status is _Running_ but the discovery status is not _UP_, go to the ["My application can't be registered"](#my-application-cant-be-registered) section.
 
 * If the discovery status is _UP_, go to Metrics to check the application's health. Inspect the following metrics:
 
