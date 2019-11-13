@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-# Regions for virtual machines in Azure
+
 It is important to understand how and where your virtual machines (VMs) operate in Azure, along with your options to maximize performance, availability, and redundancy. This article provides you with an overview of the availability and redundancy features of Azure.
 
 
