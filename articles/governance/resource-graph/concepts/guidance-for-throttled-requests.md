@@ -1,11 +1,8 @@
 ---
 title: Guidance for throttled requests
 description: Learn to create better queries to avoid requests to Azure Resource Graph from being throttled.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/18/2019
 ms.topic: conceptual
-ms.service: resource-graph
 ---
 # Guidance for throttled requests in Azure Resource Graph
 
@@ -237,11 +234,11 @@ clients handle pagination differently than others.
   single run of the query may consume up to five query quota:
 
   ```azurecli-interactive
-  az graph query -q 'Resources | project id, name, type' -top 5000
+  az graph query -q 'Resources | project id, name, type' --first 5000
   ```
 
   ```azurepowershell-interactive
-  Search-AzGraph -Query 'Resources | project id, name, type' -Top 5000
+  Search-AzGraph -Query 'Resources | project id, name, type' -First 5000
   ```
 
 ## Still get throttled?

@@ -16,4 +16,5 @@ ms.author: jaboes
 ms.subservice: disks
 
 ---
+# Using Managed Disks in Azure Resource Manager Templates
 [!INCLUDE [virtual-machines-using-managed-disks-template-deployments](../../../includes/virtual-machines-using-managed-disks-template-deployments.md)]

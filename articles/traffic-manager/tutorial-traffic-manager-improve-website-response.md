@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Route traffic to improve website response using Azure Traffic Manager
+title: Tutorial:Improve website response - Azure Traffic Manager
 description: This tutorial article describes how to create a Traffic Manager profile to build a highly responsive website.
 services: traffic-manager
 author: asudbring

@@ -167,9 +167,7 @@
     items:
     - name: Add an intent
       href: luis-how-to-add-intents.md
-    - name: Add entity to utterance 
-      href: luis-how-to-add-example-utterances.md
-    - name: Add entity without utterance
+    - name: Add an entity to extract data
       href: luis-how-to-add-entities.md
       displayName: roles, import
     - name: Use prebuilt models
@@ -307,6 +305,8 @@
     displayName: Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web
   - name: Custom entity reference
     items: 
+    - name: Machine-learned entity
+      href: reference-entity-machine-learned-entity.md
     - name: Composite entity
       href: reference-entity-composite.md
     - name: List entity
