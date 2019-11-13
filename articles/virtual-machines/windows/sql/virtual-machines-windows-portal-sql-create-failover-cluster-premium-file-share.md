@@ -46,7 +46,7 @@ You should also have a general understanding of these technologies:
 
 Premium file shares provide IOPS and throughout capacities that will meet the needs of many workloads. For IO-intensive workloads, consider [SQL Server Failover Cluster Instances with Storage Spaces Direct](virtual-machines-windows-portal-sql-create-failover-cluster.md), based on managed premium disks or ultra disks.  
 
-Check the IOPS activity of your environment and verify that premium file shares will provide the IOPS you need before you start a deployment or migration. Use Windows Performance Monitor disk counters to monitor the total IOPS (disk transfers/second) and throughput (disk bytes/second) required for SQL Server Data, Log, and Temp DB files.
+Check the IOPS activity of your environment and verify that premium file shares will provide the IOPS you need before you start a deployment or migration. Use Windows Performance Monitor disk counters to monitor the total IOPS (Disk Transfers/second) and throughput (Disk Bytes/second) required for SQL Server Data, Log, and Temp DB files.
 
 Many workloads have bursting IO, so it's a good idea to check during heavy usage periods and note both the maximum IOPS and the average IOPS. Premium file shares provide IOPS based on the size of the share. Premium file shares also provide complimentary bursting that allows you to burst your IO to triple the baseline amount for up to one hour.
 
@@ -54,7 +54,7 @@ For more information about premium file share performance, see [File share perfo
 
 ### Licensing and pricing
 
-On Azure virtual machines, you can license SQL Server by using pay-as-you-go or bring-your-own-license (BYOL) VM images. The type of image you choose affects how you're charged.
+On Azure virtual machines, you can license SQL Server by using pay-as-you-go (PAYG) or bring-your-own-license (BYOL) VM images. The type of image you choose affects how you're charged.
 
 With pay-as-you-go licensing, a failover cluster instance (FCI) of SQL Server on Azure virtual machines incurs charges for all nodes of the FCI, including the passive nodes. For more information, see [SQL Server Enterprise Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/).
 
@@ -74,7 +74,7 @@ Before you complete the steps in this article, you should already have:
 
 - A Microsoft Azure subscription.
 - A Windows domain on Azure virtual machines.
-- An account that has permission to create objects on the Azure virtual machines.
+- An account that has permissions to create objects on both Azure virtual machines and in Active Directory.
 - An Azure virtual network and subnet with enough IP address space for these components:
    - Two virtual machines.
    - The failover cluster IP address.
@@ -171,7 +171,7 @@ After you create and configure the virtual machines, you can configure the premi
 
 1. Use RDP to connect to the SQL Server VM with the account that your SQL Server FCI will use for the service account.
 1. Open an administrative PowerShell command console.
-1. Run the commands that you saved earlier in the portal.
+1. Run the commands that you saved earlier when you were working in the portal.
 1. Go to the share by using either File Explorer or the **Run** dialog box (Windows logo key + r). Use the network path `\\storageaccountname.file.core.windows.net\filesharename`. For example, `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
 
 1. Create at least one folder on the newly connected file share to place your SQL Data files into.
@@ -209,8 +209,6 @@ The next step is to configure the failover cluster. In this step, you'll complet
    Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
    ```
 
-For further reference about the next steps, see the instructions under Step 3 of [Hyper-converged solution using Storage Spaces Direct in Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct).
-
 ### Validate the cluster
 
 Validate the cluster in the UI or by using PowerShell.
@@ -219,7 +217,7 @@ To validate the cluster by using the UI, take the following steps on one of the 
 
 1. Under **Server Manager**, select **Tools**, and then select **Failover Cluster Manager**.
 1. Under **Failover Cluster Manager**, select **Action**, and then select **Validate Configuration**.
-1. Click **Select**.
+1. Select **Next**.
 1. Under **Select Servers or a Cluster**, enter the names of both virtual machines.
 1. Under **Testing options**, select **Run only tests I select**. Select **Next**.
 1. Under **Test Selection**, select all tests except for **Storage** and **Storage Spaces Direct**, as shown here:
@@ -288,11 +286,11 @@ After you've configured the failover cluster, you can create the SQL Server FCI.
 
 1. Connect to the first virtual machine by using RDP.
 
-1. In **Failover Cluster Manager**, make sure all the cluster's core resources are on the first virtual machine. If you need to, move all resources to this virtual machine.
+1. In **Failover Cluster Manager**, make sure all the Core Cluster Resources are on the first virtual machine. If you need to, move all resources to this virtual machine.
 
 1. Locate the installation media. If the virtual machine uses one of the Azure Marketplace images, the media is located at `C:\SQLServer_<version number>_Full`. Select **Setup**.
 
-1. In **SQL Server Installation Center**, select **Installation**.
+1. In the **SQL Server Installation Center**, select **Installation**.
 
 1. Select **New SQL Server failover cluster installation**. Follow the instructions in the wizard to install the SQL Server FCI.
 
@@ -327,7 +325,7 @@ To create the load balancer:
 
 1. Select **Create**.
 
-1. Set up the load balancer by using the following values.
+1. Set up the load balancer by using the following values:
 
    - **Subscription**: Your Azure subscription.
    - **Resource group**: The resource group that contains your virtual machines.

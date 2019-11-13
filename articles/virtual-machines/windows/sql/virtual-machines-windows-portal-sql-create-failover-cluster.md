@@ -21,7 +21,7 @@ ms.author: mikeray
 
 # Configure a SQL Server failover cluster instance on Azure virtual machines
 
-This article explains how to create a SQL Server failover cluster instance (FCI) on Azure virtual machines in the Azure Resource Manager model. This solution uses [Windows Server 2016 Datacenter edition Storage Spaces Direct](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) as a software-based virtual SAN that synchronizes the storage (data disks) between the nodes (Azure VMs) in a Windows cluster. Storage Spaces Direct was new in Windows Server 2016.
+This article explains how to create a SQL Server failover cluster instance (FCI) on Azure virtual machines in the Azure Resource Manager model. This solution uses [Windows Server 2016 Datacenter edition Storage Spaces Direct](windows-server/storage/storage-spaces/storage-spaces-direct-overview) as a software-based virtual SAN that synchronizes the storage (data disks) between the nodes (Azure VMs) in a Windows cluster. Storage Spaces Direct was new in Windows Server 2016.
 
 The following diagram shows the complete solution on Azure virtual machines:
 
@@ -46,7 +46,7 @@ Storage Spaces Direct supports two types of architectures: converged and hyper-c
 
 ## Licensing and pricing
 
-On Azure virtual machines, you can license SQL Server using pay-as-you-go or bring-your-own-license (BYOL) VM images. The type of image you choose affects how you're charged.
+On Azure virtual machines, you can license SQL Server using pay-as-you-go (PAYG) or bring-your-own-license (BYOL) VM images. The type of image you choose affects how you're charged.
 
 With pay-as-you-go licensing, a failover cluster instance (FCI) of SQL Server on Azure virtual machines incurs charges for all nodes of the FCI, including the passive nodes. For more information, see [SQL Server Enterprise Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/).
 
@@ -74,7 +74,7 @@ One thing to be aware of is that on an Azure IaaS VM guest failover cluster, we 
 
 You should also have a general understanding of these technologies:
 
-- [Hyper-converged solutions that use Storage Spaces Direct in Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
+- [Hyper-converged solutions that use Storage Spaces Direct in Windows Server 2016](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
 - [Azure resource groups](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
@@ -88,7 +88,7 @@ Before you complete the steps in this article, you should already have:
 
 - A Microsoft Azure subscription.
 - A Windows domain on Azure virtual machines.
-- An account that has permission to create objects on the Azure virtual machines.
+- An account that has permissions to create objects on both Azure virtual machines and in Active Directory.
 - An Azure virtual network and subnet with enough IP address space for these components:
    - Both virtual machines.
    - The failover cluster IP address.
@@ -329,7 +329,7 @@ After you've configured the failover cluster and all cluster components, includi
 
 1. Connect to the first virtual machine by using RDP.
 
-1. In **Failover Cluster Manager**, make sure all core cluster resources are on the first virtual machine. If necessary, move all resources to that virtual machine.
+1. In **Failover Cluster Manager**, make sure all Core Cluster Resources are on the first virtual machine. If necessary, move all resources to that virtual machine.
 
 1. Locate the installation media. If the virtual machine uses one of the Azure Marketplace images, the media is located at `C:\SQLServer_<version number>_Full`. Select **Setup**.
 
@@ -345,7 +345,7 @@ After you've configured the failover cluster and all cluster components, includi
 
 1. After Setup installs the FCI on the first node, connect to the second node by using RDP.
 
-1. Open **SQL Server Installation Center**. Select **Installation**.
+1. Open the **SQL Server Installation Center**. Select **Installation**.
 
 1. Select **Add node to a SQL Server failover cluster**. Follow the instructions in the wizard to install SQL Server and add the server to the FCI.
 
