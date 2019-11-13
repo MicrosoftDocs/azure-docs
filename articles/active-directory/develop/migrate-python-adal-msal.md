@@ -89,9 +89,9 @@ for old_rt, old_scope in get_preexisting_rt_and_their_scopes_from_elsewhere(...)
     scopes = old_scope.split()
         # If your old refresh token came from ADAL for Python, which uses a resource rather than a scope,
         # you need to convert your v1 resource into v2 scopes
-        # See https://docs.microsoft.com/en-us/azure/active-directory/develop/azure-ad-endpoint-comparison#scopes-not-resources
+        # See https://docs.microsoft.com/azure/active-directory/develop/azure-ad-endpoint-comparison#scopes-not-resources
         # You may be able to append "/.default" to your v1 resource to form a scope
-        # See https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#the-default-scope
+        # See https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#the-default-scope
 
     result = app.client.obtain_token_by_refresh_token(old_rt, scope=scopes)
     # When this call returns the new token(s), a new refresh token is issued by the Microsoft identity platform and MSAL for Python

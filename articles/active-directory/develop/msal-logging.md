@@ -164,7 +164,7 @@ var UserAgentApplication = new Msal.UserAgentApplication(msalConfig);
 
 ---
 
-## [MSAL for iOS and macOS](#tab/ios_macos)
+## [MSAL for iOS and macOS](#tab/macos)
 
 ## MSAL for iOS and macOS logging
 
