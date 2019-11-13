@@ -1,6 +1,6 @@
 ---
-title: Tutorial: Regulatory compliance checks - Azure Security Center
-description: "Tutorial: Learn how to Improve your regulatory compliance using Azure Security Center."
+title: 'Tutorial: Regulatory compliance checks - Azure Security Center'
+description: 'Tutorial: Learn how to Improve your regulatory compliance using Azure Security Center.'
 services: security-center
 documentationcenter: na
 author: memildin

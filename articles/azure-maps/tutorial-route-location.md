@@ -1,6 +1,6 @@
 ---
-title: Tutorial: Find route with Azure Maps
-description: Tutorial: Route to a point of interest using Azure Maps
+title: 'Tutorial: Find route with Azure Maps'
+description: 'Tutorial: Route to a point of interest using Azure Maps'
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019

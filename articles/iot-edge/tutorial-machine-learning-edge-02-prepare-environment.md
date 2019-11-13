@@ -1,6 +1,6 @@
 ---
-title: Tutorial: Set up environment - Machine Learning on Azure IoT Edge
-description: Tutorial: Prepare your environment for development and deployment of modules for machine learning at the edge.
+title: 'Tutorial: Set up environment - Machine Learning on Azure IoT Edge'
+description: 'Tutorial: Prepare your environment for development and deployment of modules for machine learning at the edge.'
 author: kgremban
 manager: philmea
 ms.author: kgremban

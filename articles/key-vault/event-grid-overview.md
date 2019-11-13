@@ -1,6 +1,6 @@
 ---
-title: Tutorial: Monitoring Key Vault with Azure Event Grid
-description: Tutorial: Use Azure Event Grid to subscribe to Key Vault events
+title: 'Tutorial: Monitoring Key Vault with Azure Event Grid'
+description: 'Tutorial: Use Azure Event Grid to subscribe to Key Vault events'
 services: media-services
 author: msmbaldwin
 manager: rkarlin

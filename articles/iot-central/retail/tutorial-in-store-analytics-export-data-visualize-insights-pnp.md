@@ -1,6 +1,6 @@
 ---
-title: Tutorial: Export data and visualize insights in Azure IoT Central
-description: In this tutorial, learn how to export data from IoT Central, and visualize insights in a Power BI dashboard.
+title: 'Tutorial: Export data and visualize insights in Azure IoT Central'
+description: 'In this tutorial, learn how to export data from IoT Central, and visualize insights in a Power BI dashboard.'
 services: iot-central
 ms.service: iot-central
 ms.subservice: iot-central-retail

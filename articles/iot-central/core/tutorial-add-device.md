@@ -1,6 +1,6 @@
 ---
-title: Tutorial: Add a real device to an Azure IoT Central application
-description:  Tutorial: Learn how to add and configure a real device in your Azure IoT Central application. You can also learn about the code in your real device.
+title: 'Tutorial: Add a real device to an Azure IoT Central application'
+description:  'Tutorial: Learn how to add and configure a real device in your Azure IoT Central application. You can also learn about the code in your real device.'
 author: sandeeppujar
 ms.author: sandeepu
 ms.date: 11/13/2019

@@ -1,6 +1,6 @@
 ---
-title: Tutorial: Use Azure IoT Hub Device Provisioning Service to provision devices across load balanced IoT hubs
-description: Tutorial: Device Provisioning Service automatic device provisioning across load balanced IoT hubs in Azure Portal
+title: 'Tutorial: Use Azure IoT Hub Device Provisioning Service to provision devices across load balanced IoT hubs'
+description: 'Tutorial: Device Provisioning Service automatic device provisioning across load balanced IoT hubs in Azure Portal'
 author: sethmanheim
 ms.author: sethm
 ms.date: 11/12/2019

@@ -1,6 +1,6 @@
 ---
-title: Tutorial: Create a geofence using Azure Maps
-description: Tutorial: Setup a geofence by using Azure Maps.
+title: 'Tutorial: Create a geofence using Azure Maps'
+description: 'Tutorial: Setup a geofence by using Azure Maps.'
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019

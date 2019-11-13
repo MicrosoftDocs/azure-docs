@@ -1,6 +1,6 @@
 ---
-title: Tutorial: Provision a device using Azure IoT Hub Device Provisioning Service (.NET)
-description: Tutorial: Provision your device to a single IoT hub using the Azure IoT Hub Device Provisioning Service (.NET)
+title: 'Tutorial: Provision a device using Azure IoT Hub Device Provisioning Service (.NET)'
+description: 'Tutorial: Provision your device to a single IoT hub using the Azure IoT Hub Device Provisioning Service (.NET)'
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/12/2019

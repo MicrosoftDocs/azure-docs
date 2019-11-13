@@ -1,6 +1,6 @@
 ---
-title: Tutorial: Set up device for the Azure IoT Hub Device Provisioning Service
-description: Tutorial: Set up device to provision via the IoT Hub Device Provisioning Service during the device manufacturing process
+title: 'Tutorial: Set up device for the Azure IoT Hub Device Provisioning Service'
+description: 'Tutorial: Set up device to provision via the IoT Hub Device Provisioning Service during the device manufacturing process'
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/12/2019

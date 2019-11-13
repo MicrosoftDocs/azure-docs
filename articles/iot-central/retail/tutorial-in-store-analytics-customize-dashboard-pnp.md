@@ -1,6 +1,6 @@
 ---
-title: Tutorial: Customize the operator dashboard in Azure IoT Central
-description: This tutorial shows how to customize the operator dashboard in an IoT Central application, and manage devices.
+title: 'Tutorial: Customize the operator dashboard in Azure IoT Central'
+description: 'This tutorial shows how to customize the operator dashboard in an IoT Central application, and manage devices.'
 services: iot-central
 ms.service: iot-central
 ms.subservice: iot-central-retail

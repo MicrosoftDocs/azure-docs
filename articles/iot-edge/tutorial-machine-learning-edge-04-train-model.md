@@ -1,6 +1,6 @@
 ---
-title: Tutorial: Train and deploy a model - Machine Learning on Azure IoT Edge
-description: Tutorial: Train a machine learning model using Azure Machine Learning and then package the model as a container image that can be deployed as an Azure IoT Edge Module.
+title: 'Tutorial: Train and deploy a model - Machine Learning on Azure IoT Edge'
+description: 'Tutorial: Train a machine learning model using Azure Machine Learning and then package the model as a container image that can be deployed as an Azure IoT Edge Module.'
 author: kgremban
 manager: philmea
 ms.author: kgremban
