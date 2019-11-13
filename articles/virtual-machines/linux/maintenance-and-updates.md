@@ -1,5 +1,5 @@
 ---
-title: Maintenance and updates for Linux VMs in Azure | Microsoft Docs
+title: Maintenance and updates for Linux VMs in Azure 
 description: Overview of maintenance and updates for Linux virtual machines running in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
