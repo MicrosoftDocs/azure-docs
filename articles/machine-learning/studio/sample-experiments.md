@@ -1,6 +1,6 @@
 ---
 title: Kickstart experiments from examples
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Learn how to use example machine learning experiments to create new experiments with Azure AI Gallery and Azure Machine Learning Studio (classic).
 services: machine-learning
 ms.service: machine-learning

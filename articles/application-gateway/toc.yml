@@ -264,7 +264,7 @@
     displayName: ARM
     href: https://azure.microsoft.com/documentation/templates
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/#Linux
+    href: https://azure.microsoft.com/pricing/details/application-gateway/
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow

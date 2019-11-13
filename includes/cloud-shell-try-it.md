@@ -8,9 +8,9 @@ ms.author: sttramer
 
 ## Use Azure Cloud Shell
 
-Azure hosts Azure Cloud Shell, an interactive shell environment that you can use through your browser. Cloud Shell lets you use either `bash` or `PowerShell` to work with Azure services. You can use the Cloud Shell pre-installed commands to run the code in this article without having to install anything on your local environment.
+Azure hosts Azure Cloud Shell, an interactive shell environment that you can use through your browser. You can use either bash or PowerShell with Cloud Shell to work with Azure services. You can use the Cloud Shell preinstalled commands to run the code in this article without having to install anything on your local environment.
 
-To launch Azure Cloud Shell:
+To start Azure Cloud Shell:
 
 | Option | Example/Link |
 |-----------------------------------------------|---|
@@ -20,10 +20,10 @@ To launch Azure Cloud Shell:
 
 To run the code in this article in Azure Cloud Shell:
 
-1. Launch Cloud Shell.
+1. Start Cloud Shell.
 
 1. Select the **Copy** button on a code block to copy the code.
 
-1. Paste the code into the Cloud Shell session with **Ctrl**+**Shift**+**V** on Windows and Linux, or **Cmd**+**Shift**+**V** on macOS.
+1. Paste the code into the Cloud Shell session by selecting **Ctrl**+**Shift**+**V** on Windows and Linux or by selecting **Cmd**+**Shift**+**V** on macOS.
 
-1. Press **Enter** to run the code.
+1. Select **Enter** to run the code.
