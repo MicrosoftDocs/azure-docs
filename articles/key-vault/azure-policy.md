@@ -59,7 +59,7 @@ If you use an internal certificate authority or a certificate authority not inte
 
 ### Manage allowed curve names for elliptic curve cryptography certificates (preview)
 If you use elliptic curve cryptography or ECC certificates, you can customize an allowed list of curve names from the list below. The default option allows all the following curve names. 
-- P-256,
+- P-256
 - P-256K
 - P-384
 - P-521
@@ -78,7 +78,7 @@ Your service can experience an outage if a certificate that is not being adequat
 You manage a key vault used by multiple teams that contains 100 certificates, and you want to make sure that none of the certificates in the key vault are valid for longer than 2 years.
 
 1. You assign the [Manage certificate validity period](#manage-certificate-validity-period-preview) policy, specify that the maximum validity period of a certificate is 24 months, and set the effect of the policy to "audit". 
-1. You view the [compliance report on the Azure Portal](../governance/policy/how-to/get-compliance-data.md), and discover that 20 certificates are non-compliant and valid for > 2 years, and the remaining certificates are compliant. 
+1. You view the [compliance report on the Azure Portal](#view-compliance-results), and discover that 20 certificates are non-compliant and valid for > 2 years, and the remaining certificates are compliant. 
 1. You contact the owners of these certificates and communicate the new security requirement that certificates cannot be valid for longer than 2 years. Some teams respond and 15 of the certificates were renewed with a maximum validity period of 2 years or less. Other teams do not respond, and you still have 5 non-compliant certificates in your key vault.
 1. You change the effect of the policy you assigned to "deny". The 5 non-compliant certificates are not revoked, and they continue to function. However, they cannot be renewed with a validity period that is greater than 2 years. 
 
@@ -86,24 +86,57 @@ You manage a key vault used by multiple teams that contains 100 certificates, an
 
 ### Select a Policy Definition
 
-1 Log in to the Azure Portal. 
+1. Log in to the Azure Portal. 
 1. Search "Policy" in the Search Bar and Select **Policy**.
+
+  ![Overview of how Azure Key Vault works][./media/policy-img1.png]
+
 1. In the Policy window, select **Definitions**.
+
+  ![Overview of how Azure Key Vault works][./media/policy-img2.png]
+
 1. In the Category Filter, Unselect **Select All** and select **Key Vault**. 
+
+  ![Overview of how Azure Key Vault works][./media/policy-img3.png]
+
 1. Now you should be able to see all the policies available for Public Preview, for Azure Key Vault. Make sure you have read and understood the policy guidance section above and select a policy you want to assign to a scope.  
+
+  ![Overview of how Azure Key Vault works][./media/policy-img4.png]
 
 ### Assign a Policy to a Scope 
 
 1. Select a policy you wish to apply, in this example, the **Manage Certificate Validity Period** policy is shown. Click the assign button in the top-left corner.
+
+  ![Overview of how Azure Key Vault works][./media/policy-img5.png]
+  
 1. Select the subscription where you want the policy to be applied. You can choose to restrict the scope to only a single resource group within a subscription. If you want to apply the policy to the entire subscription and exclude some resource groups, you can also configure an exclusion list. Set the policy enforcement selector to **Enabled** if you want the effect of the policy (audit or deny) to occur or **Disabled** to turn the effect (audit or deny) off. 
+
+  ![Overview of how Azure Key Vault works][./media/policy-img6.png]
+
 1. Click on the parameters tab at the top of the screen in order to specify the maximum validity period in months that you want. Select **audit** or **deny** for the effect of the policy following the guidance in the sections above. Then select the review + create button. 
+
+  ![Overview of how Azure Key Vault works][./media/policy-img7.png]
 
 ### View Compliance Results
 
 1. Go back to the Policy blade and select the compliance tab. Click on the policy assignment you wish to view compliance results for.
+
+  ![Overview of how Azure Key Vault works][./media/policy-img8.png]
+
 1. From this page you can filter results by compliant or non-compliant vaults. Here you can see a list of non-compliant key vaults within the scope of the policy assignment. A vault is considered non-compliant if any of the components (certificates) in the vault are non-compliant. You can select an individual vault to view the individual non-compliant components (certificates). 
+
+
+  ![Overview of how Azure Key Vault works][./media/policy-img9.png]
+
 1. View the name of the components within a vault that are non-compliant
+
+
+  ![Overview of how Azure Key Vault works][./media/policy-img10.png]
+
 1. If you need to check whether users are being denied the ability to create resources within key vault, you can click on the **Component Events (preview)** tab to view a summary of denied certificate operations with the requestor and timestamps of requests. 
+
+
+  ![Overview of how Azure Key Vault works][./media/policy-img11.png]
 
 ## Feature Limitations
 
