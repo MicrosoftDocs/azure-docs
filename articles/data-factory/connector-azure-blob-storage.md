@@ -17,7 +17,7 @@ ms.author: jingwang
 > * [Version 1](v1/data-factory-azure-blob-connector.md)
 > * [Current version](connector-azure-blob-storage.md)
 
-This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure Blob storage, and use Data Flow activity to transform data in Azure Blob storage. To learn about Azure Data Factory, read the [introductory article](introduction.md).
+This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure Blob storage, and use Data Flow to transform data in Azure Blob storage. To learn about Azure Data Factory, read the [introductory article](introduction.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
