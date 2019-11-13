@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Manager templates
-description: Describes how to use Azure Resource Manager templates for deployment of resources.
+title: Azure Resource Manager templates overview
+description: Describes the benefits using Azure Resource Manager templates for deployment of resources.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
@@ -8,7 +8,7 @@ ms.date: 09/25/2019
 ms.author: tomfitz
 
 ---
-# Azure Resource Manager templates
+# Azure Resource Manager templates overview
 
 With the move to the cloud, many teams have adopted agile development methods. These teams iterate quickly. They need to repeatedly deploy their solutions to the cloud, and know their infrastructure is in a reliable state. As infrastructure has become part of the iterative process, the division between operations and development has disappeared. Teams need to manage infrastructure and application code through a unified process.
 
@@ -120,5 +120,6 @@ For information about nested templates, see [Using linked templates with Azure R
 
 ## Next steps
 
+* For a step-by-step tutorial that guides you through the process of creating a template, see [Tutorial: Create and deploy your first Azure Resource Manager template](template-tutorial-create-first-template.md).
 * For information about the properties in template files, see [Understand the structure and syntax of Azure Resource Manager templates](resource-group-authoring-templates.md).
 * To learn about exporting templates, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](./resource-manager-quickstart-create-templates-use-the-portal.md).

@@ -13,7 +13,7 @@ ms.date: 09/24/2018
 ms.author: allensu
 ---
 
-# Direct traffic to specific endpoints based on user subnet using Traffic Manager
+# Tutorial: Direct traffic to specific endpoints based on user subnet using Traffic Manager
 
 This article describes how to configure the subnet traffic-routing method. The **Subnet** traffic-routing method allows you to map a set of IP address ranges to specific endpoints and when a request is received by Traffic Manager, it inspects the source IP of the request and returns the endpoint associated with it.
 

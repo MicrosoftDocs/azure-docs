@@ -18,7 +18,7 @@ This article contains answers to frequently asked questions about Language Under
 
 ## What's new
 
-[Learn more](whats-new.md) about what's new in Language Understanding.
+[Learn more](whats-new.md) about what's new in Language Understanding (LUIS).
 
 <a name="luis-authoring"></a>
 
