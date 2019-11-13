@@ -91,7 +91,7 @@ spec:
   - 180.148.105.1/24
 ```
 
-Information about this feature is available in the Kubernetes documentation [here][https://kubernetes.io/docs/tasks/access-application-cluster/configure-cloud-provider-firewall/#restrict-access-for-loadbalancer-service]
+Information about this feature is available in the [Kubernetes documentation][kubernetes-cloud-provider-firewall].
 
 ## Scale the number of managed public IPs
 
@@ -222,6 +222,7 @@ Learn more about Kubernetes services at the [Kubernetes services documentation][
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubernetes-services]: https://kubernetes.io/docs/concepts/services-networking/service/
 [aks-engine]: https://github.com/Azure/aks-engine
+[kubernetes-cloud-provider-firewall]: https://kubernetes.io/docs/tasks/access-application-cluster/configure-cloud-provider-firewall/#restrict-access-for-loadbalancer-service
 
 <!-- LINKS - Internal -->
 [advanced-networking]: configure-azure-cni.md
