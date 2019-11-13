@@ -25,20 +25,18 @@ ms.collection: M365-identity-device-management
 Azure AD provides an interface for configuring provisioning. This can be easy to use for one or two applications, but in situations where you have to create 10, 20, 100+ instances of an application, it is often easier to automate application creation and configuration through APIs rather than the user interface. This document outlines how to automate configuring provisioning through APIs. This is most commonly used for applications such as [Amazon Web Services](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-single-sign-on) and [Azure Databricks]()
 
 1.	Create gallery app
-	* Retrieve the gallery application template<br>
+	* Retrieve the gallery application template
 	* Create gallery application 
 2.	Create provisioning job based on template
 	* Retrieve the template for the provisioning connector
 	* Create the provisioning job
 	* Get Job Id
 3.	Authorize access
-     	* Test connection to the application
-        * Save credentials
-4.	Configure
-    	* What’s an example of setting scope?
-5.	Start provisioning job
+	* Test connection to the application
+	* Save credentials
+4.	Start provisioning job
   	* Start job
-6.	Monitor provisioning
+5.	Monitor provisioning
     	* Check the status of the provisioning job 
 	* Retrieve the provisioing logs 
     
@@ -290,7 +288,7 @@ Content-length: 2577
 
 {
     "id": "{jobId}",
-    "templateId": "Slack",
+    "templateId": "aws",
     "schedule": {
         "expiration": null,
         "interval": "P10675199DT2H48M5.4775807S",
@@ -419,7 +417,7 @@ Content-length: 2577
 
 {
     "id": "{jobId}",
-    "templateId": "BoxOutDelta",
+    "templateId": "aws",
     "schedule": {
         "expiration": null,
         "interval": "P10675199DT2H48M5.4775807S",
