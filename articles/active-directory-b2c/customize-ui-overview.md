@@ -163,9 +163,11 @@ Start by configuring company branding in Azure Active Directory within your Azur
 1. In the left menu, select **Azure Active Directory**. Or, select **All services** and search for and select **Azure Active Directory**.
 1. Follow the steps in [Add branding to your organization's Azure Active Directory sign-in page](../active-directory/fundamentals/customize-branding.md).
 
-    Company branding in Azure AD B2C currently supports adding a background image and banner logo, and specifying a background color. The other properties in the company branding pane, for example those in **Advanced settings**, are **not supported**.
+When you configure company branding, keep these things in mind:
 
-In your user flow pages, the background color is shown before the background image is loaded. We recommended that you choose a background color that closely matches the colors in your background image for a smoother loading experience.
+* Company branding in Azure AD B2C is currently limited to background image, banner logo, and background color customization. The other properties in the company branding pane, for example those in **Advanced settings**, are **not supported**.
+* In your user flow pages, the background color is shown before the background image is loaded. We recommended that you choose a background color that closely matches the colors in your background image for a smoother loading experience.
+* The banner logo appears in the verification emails sent to your users when they initiate a sign-up user flow.
 
 ### Enable branding in user flow pages
 
