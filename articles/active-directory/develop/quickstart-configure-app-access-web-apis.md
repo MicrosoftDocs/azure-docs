@@ -113,7 +113,7 @@ To add a credential to your web application:
 To add permission(s) to access resource APIs from your client:
 
 1. From the app's **Overview** page, select **API permissions**.
-1. Select the **Add a permission** button.
+1. Under the **Configured permissions** section, select the **Add a permission** button.
 1. By default, the view allows you to select from **Microsoft APIs**. Select the section of APIs that you're interested in:
     * **Microsoft APIs** - Lets you select permissions for Microsoft APIs such as Microsoft Graph.
     * **APIs my organization uses** - Lets you select permissions for APIs that have been exposed by your organization, or APIs that your organization has integrated with.
@@ -125,13 +125,13 @@ To add permission(s) to access resource APIs from your client:
 
 ### Configured permissions
 
-This section shows the permissions that have been explicitly configured on the application object (ie. they are part of the app's required resource access list). You may add or remove permissions from this table. As an admin, you can also grant/revoke admin consent for individual APIs or permissions in this section.
+This section shows the permissions that have been explicitly configured on the application object (\the permissions that are part of the app's required resource access list). You may add or remove permissions from this table. As an admin, you can also grant/revoke admin consent for a set of an API's permissions or individual permissions in this section.
 
 ### Other permissions granted
 
 If your application is registered in a tenant, you may see an additional section titled **Other permissions granted for Tenant**. This section shows permissions that have been granted for the tenant but have not been explicitly configured on the application object (e.g. permissions that were dynamically requested and consented). This section only appears if there is at least one permission that applies.
 
-You may add individual APIs or permissions that appear in this section to the **Configured permissions** section. As an admin, you can also revoke admin consent for individual APIs or permissions in this section.
+You may add a set of an API's permissions or individual permissions that appear in this section to the **Configured permissions** section. As an admin, you can also revoke admin consent for individual APIs or permissions in this section.
 
 ### Admin consent button
 
@@ -146,7 +146,7 @@ If you have permissions that have been granted but not configured, when clicking
 The consent prompt provides the option to **Accept** or **Cancel**. If you select **Accept**, admin consent is granted. If you select **Cancel**, admin consent is not granted, and you will see an error stating that consent has been declined.
 
 > [!NOTE]
-> There is a delay between granting admin consent (selecting Accept on the consent prompt) and the status of admin consent being reflected in the UI.
+> There is a delay between granting admin consent (selecting **Accept** on the consent prompt) and the status of admin consent being reflected in the UI.
 
 ## Next steps
 
