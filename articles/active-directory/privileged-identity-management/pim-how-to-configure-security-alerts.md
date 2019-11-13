@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 11/13/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -19,6 +19,30 @@ ms.collection: M365-identity-device-management
 # Configure security alerts for Azure AD roles in Privileged Identity Management
 
 Privileged Identity Management (PIM) generates alerts when there is suspicious or unsafe activity in your Azure Active Directory (Azure AD) organization. When an alert is triggered, it shows up on the Privileged Identity Management dashboard. Select the alert to see a report that lists the users or roles that triggered the alert.
+
+## Determine your version of PIM
+
+After November 2019, the way that Azure AD roles are assigned in Privileged Identity Management is being updated to a new version that matches the way Azure resource access roles are assigned. While the new version is being rolled out, procedures that you must follow in this article will depend on version of Privileged Identity Management you currently have. Follow the steps in this section to determine which version of Privileged Identity Management you have. After you know your version of Privileged Identity Management, you can select the procedures in this article that match that version.
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) with a user that is a member of the [Privileged Role Administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) role.
+
+1. Open **Azure AD Privileged Identity Management**.
+
+1. Select **Azure AD roles**.
+
+    If your user interface looks like the following, you have the **Current version** of Privileged Identity Management.
+
+    ![Azure AD roles current version](./media/pim-how-to-add-role-to-user/pim-current-version.png)
+
+    If your user interface looks like the following, you have the **New version** of Privileged Identity Management.
+
+    ![Azure AD roles new version](./media/pim-how-to-add-role-to-user/pim-new-version.png)
+
+1. If you have the current version of Privileged Identity Management, select the following **Current version** tab. If you have the new version of Privileged Identity Management, select the following **New version** tab.
+
+Follow the steps in this article to approve or deny requests for Azure AD roles.
+
+# [Current version](#tab/current)
 
 ![Azure AD roles - Alert pane listing alerts and the severity](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
 
@@ -122,6 +146,40 @@ You can customize some of the security alerts in Privileged Identity Management 
 1. Select an alert name to configure the setting for that alert.
 
     ![For the selected alert, security alert settings pane](./media/pim-how-to-configure-security-alerts/security-alert-settings.png)
+
+# [New version](#tab/new)
+
+## Review alerts
+
+Select an alert to see a report that lists the users or roles that triggered the alert, along with remediation guidance.
+
+![Alert report showing last scan time, description, mitigation steps, type, severity, security impact, and how to prevent next time](media/pim-resource-roles-configure-alerts/rbac-alert-info.png)
+
+## Alerts
+
+| Alert | Severity | Trigger | Recommendation |
+| --- | --- | --- | --- |
+| **Too many owners assigned to a resource** |Medium |Too many users have the owner role. |Review the users in the list and reassign some to less privileged roles. |
+| **Too many permanent owners assigned to a resource** |Medium |Too many users are permanently assigned to a role. |Review the users in the list and re-assign some to require activation for role use. |
+| **Duplicate role created** |Medium |Multiple roles have the same criteria. |Use only one of these roles. |
+
+### Severity
+
+- **High**: Requires immediate action because of a policy violation. 
+- **Medium**: Does not require immediate action but signals a potential policy violation.
+- **Low**: Does not require immediate action but suggests a preferred policy change.
+
+## Configure security alert settings
+
+From the Alerts page, go to **Settings**.
+
+![Alerts page with Settings highlighted](media/pim-resource-roles-configure-alerts/rbac-navigate-settings.png)
+
+Customize settings on the different alerts to work with your environment and security goals.
+
+![Setting page for an alert to enable and configure settings](media/pim-resource-roles-configure-alerts/rbac-alert-settings.png)
+
+---
 
 ## Next steps
 

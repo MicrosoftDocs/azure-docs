@@ -23,7 +23,7 @@ The Azure AD Privileged Identity Management (PIM) service also allows Privileged
 
 ## Determine your version of PIM
 
-After November 2019, the way that Azure AD roles are assigned in Privileged Identity Management is being updated to a new version that matches the way Azure resource access roles are assigned. While the new version is being rolled out, procedures that you must follow in this article will depend on version of Privileged Identity Management you currently have. Follow the steps in this section to determine which version of Privileged Identity Management you have. After you know your version of Privileged Identity Management, you can select the procedures in this article that match that version.
+After November 2019, the way that Azure AD roles are assigned in Privileged Identity Management is being updated to a new version that matches the way Azure resource access roles are assigned. While the new version is being rolled out, procedures that you must follow in this article will depend on version of Privileged Identity Management you currently have. After you know your version of Privileged Identity Management, you can select the procedures in this article that match that version. The following steps can help you determine which version of Privileged Identity Management you have.
 
 1. Sign in to [Azure portal](https://portal.azure.com/) with a user that is a member of the [Privileged Role Administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) role.
 
@@ -41,7 +41,7 @@ After November 2019, the way that Azure AD roles are assigned in Privileged Iden
 
 1. If you have the current version of Privileged Identity Management, select the following **Current version** tab. If you have the new version of Privileged Identity Management, select the following **New version** tab.
 
-# [Previous version](#tab/previous)
+# [Current version](#tab/current)
 
 ## Make a user eligible for a role
 
