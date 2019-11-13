@@ -1,6 +1,6 @@
 ---
 title: Visualize data from Azure Data Explorer using Grafana
-description: In this article, you learn how to set up Azure Data Explorer as a data source for Grafana, and then visualize data from a sample cluster.
+description: In this article, you learn to set up Azure Data Explorer as a data source for Grafana, and then visualize data from a sample cluster.
 author: orspod
 ms.author: orspodek
 ms.reviewer: gabil
@@ -11,9 +11,9 @@ ms.date: 11/13/2019
 
 # Visualize data from Azure Data Explorer in Grafana
 
-Grafana is an analytics platform that enables you to query and visualize data, then create and share dashboards based on your visualizations. Grafana provides an Azure Data Explorer *plugin*, which enables you to connect to and visualize data from Azure Data Explorer. In this article, you learn how to set up Azure Data Explorer as a data source for Grafana, and then visualize data from a sample cluster.
+Grafana is an analytics platform that enables you to query and visualize data, then create and share dashboards based on your visualizations. Grafana provides an Azure Data Explorer *plugin*, which enables you to connect to and visualize data from Azure Data Explorer. In this article, you learn to set up Azure Data Explorer as a data source for Grafana, and then visualize data from a sample cluster.
 
-Using the following video, you can learn to use Grafana's Azure Data Explorer plugin, set up Azure Data Explorer as a data source for Grafana, and then visualize data. 
+Use the following video, to learn how to use Grafana's Azure Data Explorer plugin, set up Azure Data Explorer as a data source for Grafana, and then visualize data. 
 
 > [!VIDEO https://www.youtube.com/embed/fSR_qCIFZSA]
 
@@ -21,7 +21,7 @@ Alternatively you can [configure the data source](#configure-the-data-source) an
 
 ## Prerequisites
 
-You need the following to complete this how to:
+You need the following to complete this article:
 
 * [Grafana version 5.3.0 or later](https://docs.grafana.org/installation/) for your operating system
 
@@ -61,7 +61,7 @@ With the service principal assigned to the *viewers* role, you now specify prope
 
 1. Select **Save & Test**.
 
-    If the test is successful, go to the next section. If you encounter any issues, check the values you specified in Grafana, and review previous steps.
+    If the test is successful, go to the next section. If you come across any issues, check the values you specified in Grafana, and review previous steps.
 
 ## Visualize data
 
