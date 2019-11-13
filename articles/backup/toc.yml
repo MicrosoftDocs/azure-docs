@@ -49,9 +49,7 @@
     - name: DPM/Azure Backup Server (MABS) support matrix
       href: backup-support-matrix-mabs-dpm.md
     - name: MARS agent support matrix
-      href: backup-support-matrix-mars-agent.md
-    - name: Supported VM SKUs for Azure Policy
-      href: backup-azure-policy-supported-skus.md
+      href: backup-support-matrix-mars-agent.md      
   - name: Security
     items:
     - name: Role-Based Access Control
@@ -168,10 +166,6 @@
         href: backup-azure-vms-encryption.md
       - name: Restore keys and secret for encrypted VMs
         href: backup-azure-restore-key-secret.md
-  - name: Auto-Enable Backup on VM Creation
-    items:
-    - name: Auto-Enable Backup on VM Creation using Azure Policy
-      href: backup-azure-auto-enable-backup.md
   - name: Diagnostics Events for Recovery Services Vaults
     items:
     - name: Using Diagnostics Settings for Recovery Services Vaults
