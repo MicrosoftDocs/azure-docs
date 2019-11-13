@@ -43,9 +43,7 @@ The following limitations apply when you create and manage AKS clusters that sup
 * Defining the load balancer SKU can only be done when you create an AKS cluster. You cannot change the load balancer SKU after an AKS cluster has been created.
 * You can only use one load balancer SKU in a single cluster.
 
-## Configure the load balancer to be internal
-
-You can also configure the load balancer to be internal and not expose a public IP. To configure the load balancer as internal, add `service.beta.kubernetes.io/azure-load-balancer-internal: "true"` as an annotation to the *LoadBalancer* service. You can see an example yaml manifest as well as more details about an internal load balancer [here][internal-lb-yaml].
+## Configure a standard load balancer
 
 The service *azure-vote-front* uses the *LoadBalancer* type to configure the load balancer on your AKS cluster to connect to the *azure-vote-front* deployment.
 
@@ -69,8 +67,9 @@ Navigate to the public IP in a browser and verify you see the sample application
 
 ![Image of browsing to Azure Vote](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
-> [!NOTE]
-> You can also configure the load balancer to be internal and not expose a public IP. To configure the load balancer as internal, add `service.beta.kubernetes.io/azure-load-balancer-internal: "true"` as an annotation to the *LoadBalancer* service. You can see an example yaml manifest as well as more details about an internal load balancer [here][internal-lb-yaml].
+## Configure the load balancer to be internal
+
+You can also configure the load balancer to be internal and not expose a public IP. To configure the load balancer as internal, add `service.beta.kubernetes.io/azure-load-balancer-internal: "true"` as an annotation to the *LoadBalancer* service. You can see an example yaml manifest as well as more details about an internal load balancer [here][internal-lb-yaml].
 
 ## Optional - Restrict access to specific IP ranges
 
