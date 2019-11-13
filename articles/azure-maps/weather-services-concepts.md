@@ -52,7 +52,7 @@ Detailed color palette for radar tiles with Hex color codes and dBZ values is sh
 | 3.75       (#92BE01) | 3.75       (#E69FC5) | 3.75       (#93C3EF)  | 3.75        (#BD8EE6) |
 | 5          (#92BA02) | 5          (#E69DC4) | 5          (#8DC1EE)  | 5           (#BB8BE6) |
 | 6.25       (#92B502) | 6.25       (#E69AC2) | 6.25       (#88BFEC)  | 6.25        (#BA87E6) |
-| 6.75       (#92B403  | 7.5        (#E697C1  | 7.5        (#82BDEB   | 7.5         (#B883E6) |
+| 6.75       (#92B403) | 7.5       (#E697C1)  | 7.5        (#82BDEB)   | 7.5         (#B883E6) |
 | 8          (#80AD02) | 8.75       (#E695C0) | 8.75       (#7DBAEA)  | 8.75        (#B680E6) |
 | 9.25       (#6FA602) | 10         (#E692BE) | 10         (#77B8E8)  | 10          (#B47CE6) |
 | 10.5       (#5EA002) | 11.25      (#E68FBD) | 11.25      (#72B6E7)  | 11.25       (#B378E6) |
@@ -60,7 +60,7 @@ Detailed color palette for radar tiles with Hex color codes and dBZ values is sh
 | 12.25      (#479702) | 13.75      (#E68ABA) | 13.75      (#67B2E5)  | 13.75       (#AF71E6) |
 | 13.5       (#3D9202) | 15         (#E687B9) | 15         (#61AEE4)  | 15          (#AE6EE6) |
 | 14.75      (#338D02) | 16.25      (#E685B8) | 16.25      (#5BABE3)  | 16.25       (#AB6AE4) |
-| 16         (#298802  | 17.5       (#E682B6) | 17.5       (#56A8E2)  | 17.5        (#A967E3) |
+| 16         (#298802)  | 17.5       (#E682B6) | 17.5       (#56A8E2)  | 17.5        (#A967E3) |
 | 17.25      (#1F8302) | 18.75      (#E67FB5) | 18.75      (#50A5E1)  | 18.75       (#A764E2) |
 | 17.75      (#1B8103) | 20         (#E67DB4) | 20         (#4BA2E0)  | 20          (#A560E1) |
 | 19         (#187102) | 21.25      (#E275B0) | 21.25       (#459EDF) | 21.25       (#A35DE0) |
@@ -114,20 +114,20 @@ Detailed color palette for radar tiles with Hex color codes and dBZ values is sh
 
 The table below provides guidance to interpret the infrared satellite images showing clouds by their temperature and how to create a map legend for these tiles. 
 
-| Hex color code | Color sample | Cloud Temprature |
+| Hex color code | Color sample | Cloud Temperature |
 |----------------|--------------|-------------------|
-| #b5b5b5        | ![](./media/weather-services-concepts/color-b5b5b5.png) | Temprature-Low | 
-| #d24fa0        | ![](./media/weather-services-concepts/color-d24fa0.png) | Clouds |
-| #8a32d7        | ![](./media/weather-services-concepts/color-8a32d7.png) | Clouds |
-| #144bed        | ![](./media/weather-services-concepts/color-144bed.png) | Clouds |
-| #479702        | ![](./media/weather-services-concepts/color-479702.png) | Clouds |
-| #72b403        | ![](./media/weather-services-concepts/color-72b403.png) | Clouds |
-| #93c701        | ![](./media/weather-services-concepts/color-93c701.png) | Clouds |
-| #ffd701        | ![](./media/weather-services-concepts/color-ffd701.png) | Clouds |
-| #f05514        | ![](./media/weather-services-concepts/color-f05514.png) | Clouds |
-| #dc250e        | ![](./media/weather-services-concepts/color-dc250e.png) | Clouds |
-| #ba0808        | ![](./media/weather-services-concepts/color-ba0808.png) | Clouds |
-| #1f1f1f        | ![](./media/weather-services-concepts/color-1f1f1f.png) | Temprature-High |
+| #b5b5b5        | ![](./media/weather-services-concepts/color-b5b5b5.png) | Temperature-Low | 
+| #d24fa0        | ![](./media/weather-services-concepts/color-d24fa0.png) |  |
+| #8a32d7        | ![](./media/weather-services-concepts/color-8a32d7.png) |  |
+| #144bed        | ![](./media/weather-services-concepts/color-144bed.png) |  |
+| #479702        | ![](./media/weather-services-concepts/color-479702.png) |  |
+| #72b403        | ![](./media/weather-services-concepts/color-72b403.png) |  |
+| #93c701        | ![](./media/weather-services-concepts/color-93c701.png) |  |
+| #ffd701        | ![](./media/weather-services-concepts/color-ffd701.png) |  |
+| #f05514        | ![](./media/weather-services-concepts/color-f05514.png) |  |
+| #dc250e        | ![](./media/weather-services-concepts/color-dc250e.png) |  |
+| #ba0808        | ![](./media/weather-services-concepts/color-ba0808.png) |  |
+| #1f1f1f        | ![](./media/weather-services-concepts/color-1f1f1f.png) | Temperature-High |
 
 
 Detailed color palette for infrared satellite tiles is shown below.

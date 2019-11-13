@@ -49,7 +49,7 @@
       href: routing-coverage.md
     - name: Mobility coverage
       href: mobility-coverage.md
-    - name: Weather Coverage
+    - name: Weather coverage
       href: weather-coverage.md  
   - name: Localization support
     href: supported-languages.md
