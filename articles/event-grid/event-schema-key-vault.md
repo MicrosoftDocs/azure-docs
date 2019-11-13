@@ -78,7 +78,7 @@ An event has the following top-level data.
 * To learn more about Key Vault / Event Grid integration, see [Monitoring Key Vault with Azure Event Grid (preview)](../key-vault/event-grid-overview.md).
 * For a tutorial on Key Vault / Event Grid integration, see [Receive and respond to key vault notifications with Azure Event Grid (preview)](../key-vault/event-grid-tutorial.md).
 - Additional Key Vault and Automation guidance:
-    - [What is Azure Key Vault?](.../key-vault/key-vault-overview)
+    - [What is Azure Key Vault?](.../key-vault/key-vault-overview.md)
     - [Monitoring Key Vault with Azure Event Grid (preview)](../key-vault/event-grid-overview.md)
     - [Receive and respond to key vault notifications with Azure Event Grid (preview)](../key-vault/event-grid-tutorial.md)
     - [Azure Automation overview](../automation/index.yml)
