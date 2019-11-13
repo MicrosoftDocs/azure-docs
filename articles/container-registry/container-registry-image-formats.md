@@ -25,7 +25,7 @@ The following Docker container image formats are supported:
 
 ## OCI images
 
-Azure Container Registry supports images that meet the [Open Container Initiative (OCI) Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md). Packaging formats include [Singularity Image Format (SIF)](https://www.sylabs.io/2018/03/sif-containing-your-containers/).
+Azure Container Registry supports images that meet the [Open Container Initiative (OCI) Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md). Packaging formats include [Singularity Image Format (SIF)](https://github.com/sylabs/sif).
 
 ## OCI artifacts
 
