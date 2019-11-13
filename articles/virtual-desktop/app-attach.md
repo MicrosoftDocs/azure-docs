@@ -89,13 +89,13 @@ Packages are in VHD or VHDX format to optimize performance. MSIX requires VHD or
 
 To generate a VHD or VHDX package for MSIX:
 
-1. Download the **msixmgr** tool from this link to a session host VM.
+1. [Download the msixmgr tool](https://github.com/microsoft/msix-packaging/releases/download/msixmgr-preview/msixmgr.zip) and save the .zip folder to a folder within a session host VM.
 
-2. Unzip to a folder on the session host VM.
+2. Unzip the msixmgr tool .zip folder.
 
-3. Put the source MSIX package into the same folder where **msixmgr** was unzipped.
+3. Put the source MSIX package into the same folder where you unzipped the msixmgr tool.
 
-4. Run the following cmdlet in Powershell to create a VHD:
+4. Run the following cmdlet in PowerShell to create a VHD:
 
     ```powershell
     New-VHD -SizeBytes <size>MB -Path c:\temp\<name>.vhd -Dynamic -Confirm:$false
@@ -134,7 +134,7 @@ To generate a VHD or VHDX package for MSIX:
 
 After that, you'll need to "expand" the MSIX image by unpacking it. To unpack the MSIX image:
 
-1. Open a **command prompt** as Administrator and navigate to the folder where **msixmgr** was downloaded and unzipped.
+1. Open a command prompt as Administrator and navigate to the folder where you downloaded and unzipped the msixmgr tool.
 
 2. Run the following cmdlet to unpack the MSIX into the VHD you created and mounted in the previous section.
 
@@ -155,7 +155,7 @@ After that, you'll need to "expand" the MSIX image by unpacking it. To unpack th
 
 ## Configure Windows Virtual Desktop infrastructure
 
-By design, a single MSIX expanded package (VHD created in previous step) can be shared between multiple session host VMs as the VHDs are attached in read-only mode.
+By design, a single MSIX expanded package (the VHD you created in the previous section) can be shared between multiple session host VMs as the VHDs are attached in read-only mode.
 
 Before you start, make sure your network share meets these requirements:
 
@@ -164,7 +164,7 @@ Before you start, make sure your network share meets these requirements:
 
 ### Set up an MSIX app attach share 
 
-In your Windows Virtual Desktop environment create a network share and place the package there.
+In your Windows Virtual Desktop environment, create a network share and move the package there.
 
 >[!NOTE]
 > Best practice for creating MSIX network shares is to set up the network share with NTFS read-only permissions.
@@ -184,9 +184,9 @@ Each phase creates a PowerShell script. Sample scripts for each phase are availa
 
 Before you update the PowerShell, make sure you have the volume GUID of the volume in the VHD. To get the volume GUID:
 
-1.  Open the network shere where the VHD is located inside the VM where you'll run the script.
+1.  Open the network share where the VHD is located inside the VM where you'll run the script.
 
-2.  Right-click on the VHD and select **Mount**. This will mount the VHD to a drive letter.
+2.  Right-click the VHD and select **Mount**. This will mount the VHD to a drive letter.
 
 3.  After you mount the VHD, the **File Explorer** window will open. Capture the parent folder and update the **\$parentFolder** variable
 
