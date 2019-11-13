@@ -23,9 +23,9 @@ This article shows how to create your Azure gateway resource for a previously [i
 
 For information about how to use the gateway with other services, see these articles:
 
+* [Microsoft Power Automate on-premises data gateway](/power-automate/gateway-reference)
 * [Microsoft Power BI on-premises data gateway](/power-bi/service-gateway-onprem)
 * [Microsoft Power Apps on-premises data gateway](/powerapps/maker/canvas-apps/gateway-reference)
-* [Microsoft Power Automate on-premises data gateway](/power-automate/gateway-reference)
 * [Azure Analysis Services on-premises data gateway](../analysis-services/analysis-services-gateway.md)
 
 <a name="supported-connections"></a>
