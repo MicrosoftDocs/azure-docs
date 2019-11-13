@@ -1110,82 +1110,6 @@ Here is an example of a request from Azure Active Directory to an SCIM service t
 
 ```
 PATCH ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
- Authorization: Bearer ...
- Content-type: application/scim+json
- {
-   "schemas": 
-   [
-     "urn:ietf:params:scim:api:messages:2.0:PatchOp"],
-   "Operations":
-   [
-     {
-       "op":"Add",
-       "path":"manager",
-       "value":
-         [
-           {
-             "$ref":"http://.../scim/Users/2819c223-7f76-453a-919d-413861904646",
-             "value":"2819c223-7f76-453a-919d-413861904646"}]}]}
-```
-
-The Microsoft CLI libraries for implementing SCIM services would translate the request into a call to the Update method of the service’s provider. Here is the signature of the Update method: 
-
-```csharp
-// System.Threading.Tasks.Tasks and 
- // System.Collections.Generic.IReadOnlyCollection<T>
- // are defined in mscorlib.dll.  
- // Microsoft.SystemForCrossDomainIdentityManagement.IPatch, 
- // Microsoft.SystemForCrossDomainIdentityManagement.PatchRequestBase, 
- // Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier, 
- // Microsoft.SystemForCrossDomainIdentityManagement.PatchOperation, 
- // Microsoft.SystemForCrossDomainIdentityManagement.OperationName, 
- // Microsoft.SystemForCrossDomainIdentityManagement.IPath and 
- // Microsoft.SystemForCrossDomainIdentityManagement.OperationValue 
- // are all defined in Microsoft.SystemForCrossDomainIdentityManagement.Protocol. 
-
- System.Threading.Tasks.Task Update(
-   Microsoft.SystemForCrossDomainIdentityManagement.IPatch patch, 
-   string correlationIdentifier);
-
- public interface Microsoft.SystemForCrossDomainIdentityManagement.IPatch
- {
- Microsoft.SystemForCrossDomainIdentityManagement.PatchRequestBase 
-   PatchRequest 
-     { get; set; }
- Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier 
-   ResourceIdentifier 
-     { get; set; }        
- }
-
- public class PatchRequest2: 
-   Microsoft.SystemForCrossDomainIdentityManagement.PatchRequestBase
- {
- public System.Collections.Generic.IReadOnlyCollection
-   <Microsoft.SystemForCrossDomainIdentityManagement.PatchOperation> 
-     Operations
-     { get;}
-```
-
-If the service was built using the Common Language Infrastructure libraries provided by Microsoft for implementing SCIM services, then the request is translated into a call to the Query method of the service’s provider. The value of the properties of the object provided as the value of the parameters argument are as follows: 
-  
-* parameters.AlternateFilters.Count: 2
-* parameters.AlternateFilters.ElementAt(x).AttributePath: "ID"
-* parameters.AlternateFilters.ElementAt(x).ComparisonOperator: ComparisonOperator.Equals
-* parameters.AlternateFilter.ElementAt(x).ComparisonValue:  "54D382A4-2050-4C03-94D1-E769F1D15682"
-* parameters.AlternateFilters.ElementAt(y).AttributePath: "manager"
-* parameters.AlternateFilters.ElementAt(y).ComparisonOperator: ComparisonOperator.Equals
-* parameters.AlternateFilter.ElementAt(y).ComparisonValue:  "2819c223-7f76-453a-919d-413861904646"
-* parameters.RequestedAttributePaths.ElementAt(0): "ID"
-* parameters.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
-
-Here, the value of the index x can be 0 and the value of the index y can be 1, or the value of x can be 1 and the value of y can be 0, depending on the order of the expressions of the filter query parameter.   
-
-***Example 6. Request from Azure AD to an SCIM service to update a user*** 
-
-Here is an example of a request from Azure Active Directory to an SCIM service to update a user: 
-
-```
-PATCH ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
   Authorization: Bearer ...
   Content-type: application/scim+json
   {
@@ -1298,7 +1222,7 @@ In the example of a request to update a user, the object provided as the value o
 * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Reference: http://.../scim/Users/2819c223-7f76-453a-919d-413861904646
 * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Value: 2819c223-7f76-453a-919d-413861904646
 
-***Example 7. Deprovision a user***
+***Example 6. Deprovision a user***
 
 To deprovision a user from an identity store fronted by an SCIM service, Azure AD sends a request such as:
 
@@ -1321,28 +1245,6 @@ If the service was built using the Common Language Infrastructure libraries prov
 
 The object provided as the value of the resourceIdentifier argument has these property values in the example of a request to deprovision a user: 
 
-***Example 8. Deprovision a user***
-
-To deprovision a user from an identity store fronted by an SCIM service, Azure AD sends a request such as:
-
-````
-DELETE ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
- Authorization: Bearer ...
-````
-If the service was built using the CLI libraries provided by Microsoft for implementing SCIM services, then the request is translated into a call to the Delete method of the service’s provider. That method has this signature: 
-
-````
-// System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
- // Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier, 
- // is defined in Microsoft.SystemForCrossDomainIdentityManagement.Protocol. 
- System.Threading.Tasks.Task Delete(
-   Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier  
-     resourceIdentifier, 
-   string correlationIdentifier);
-````
-
-The object provided as the value of the resourceIdentifier argument has these property values in the example of a request to deprovision a user: 
-  
 * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
 * ResourceIdentifier.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
