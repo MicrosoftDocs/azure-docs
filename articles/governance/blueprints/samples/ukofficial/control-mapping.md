@@ -1,12 +1,8 @@
 ---
 title: UK OFFICIAL & UK NHS blueprint samples - Control mapping
 description: Control mapping of the UK OFFICIAL and UK NHS blueprint samples. Each control is mapped to one or more Azure Policies that assist with assessment.
-services: blueprints
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
-ms.service: blueprints
 ---
 # Control mapping of the UK OFFICIAL and UK NHS blueprint samples
 
