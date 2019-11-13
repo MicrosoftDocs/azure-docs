@@ -38,7 +38,6 @@ You perform the following steps in this article:
 
 ## Prerequisites
 
-* Completion of the [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) quickstart.
 * [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 or later with the ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled.
 * Latest version of [Git](https://git-scm.com/download/) installed.
 
@@ -92,7 +91,7 @@ In this section, you use the Azure Cloud Shell to create a provisioning service 
 
 ## Create the custom allocation function
 
-In this section, you create an Azure function that implements your custom allocation policy. This function decides which IoT hub a device should be registered to based on whether its registration ID contains the string `-toasters-` or `-heatpumps-`. It also sets the initial state of the device twin based on whether the device is a toaster or a heat pump.
+In this section, you create an Azure function that implements your custom allocation policy. This function decides which divisional IoT hub a device should be registered to based on whether its registration ID contains the string **-contoso-tstrsd-007** or **-contoso-hpsd-088**. It also sets the initial state of the device twin based on whether the device is a toaster or a heat pump.
 
 1. Sign in to the [Azure portal](https://portal.azure.com). From your home page, select **+ Create a resource**.
 
@@ -100,7 +99,7 @@ In this section, you create an Azure function that implements your custom alloca
 
 3. On **Function App** create page, under the **Basics** tab, enter the following settings for your new function app and click **Review + create**:
 
-    **Resource Group**: Select **Use existing** and select the **contoso-us-resource-group** to keep all resources created in this article together.
+    **Resource Group**: Select the **contoso-us-resource-group** to keep all resources created in this article together.
 
     **Function App name**: Enter a unique function app name. This example uses **contoso-function-app-1098**.
 
@@ -111,23 +110,23 @@ In this section, you create an Azure function that implements your custom alloca
     **Region**: Select the same region as your resource group. This example uses **West US**.
 
     > [!NOTE]
-    > By default, **Application Insights** is enabled. If you want to, you can disable it by selecting the **Monitoring** tab and selecting **No** for **Enable Application Insights**.
+    > By default, **Application Insights** is enabled. Application Insights is not necessary for this article, but it might help you understand If you want to, you can disable it by selecting the **Monitoring** tab and selecting **No** for **Enable Application Insights**.
 
     ![Create an Azure Function App to host the custom allocation function](./media/how-to-use-custom-allocation-policies/create-function-app.png)
 
 4. On the **Summary** page, select **Create** to create the function app. Deployment may take several minutes. When it completes, select **Go to resource**.
 
-5. On the left-hand pane of the **Overview** page, select **+** next to **Functions** to add a new function.
+5. On the left pane of the function app **Overview** page, select **+** next to **Functions** to add a new function.
 
     ![Add a function to the Function App](./media/how-to-use-custom-allocation-policies/create-function.png)
 
-6. On **Azure Functions for .NET - getting started**, for the **CHOOSE A DEPLOYMENT ENVIRONMENT** step, select the **In-portal** tile, then select **Continue**.
+6. On the **Azure Functions for .NET - getting started** page, for the **CHOOSE A DEPLOYMENT ENVIRONMENT** step, select the **In-portal** tile, then select **Continue**.
 
     ![Select the portal development environment](./media/how-to-use-custom-allocation-policies/function-choose-environment.png)
 
 7. On the next page, for the **CREATE A FUNCTION** step, select the **Webhook + API** tile, then select **Create**. A function named **HttpTrigger1** is created, and the portal displays the contents of the **run.csx** code file.
 
-8. Reference required Nuget packages. To create the initial device twin, the custom allocation function uses classes that are defined in two Nuget packages that must be loaded into the hosting environment. With Azure Functions, Nuget packages are referenced using a function.host file. In this step, you save and upload a function.host file.
+8. Reference required Nuget packages. To create the initial device twin, the custom allocation function uses classes that are defined in two Nuget packages that must be loaded into the hosting environment. With Azure Functions, Nuget packages are referenced using a *function.host* file. In this step, you save and upload a *function.host* file.
 
     1. Copy the following lines into your favorite editor and save the file on your computer as *function.host*.
 
@@ -147,11 +146,11 @@ In this section, you create an Azure function that implements your custom alloca
 
         ![Open view files](./media/how-to-use-custom-allocation-policies/function-open-view-files.png)
 
-    3. Select **Upload** and browse to the **function.proj** file you saved previously and select **Open** to upload the file.
+    3. Select **Upload**, browse to the **function.proj** file, and select **Open** to upload the file.
 
         ![Select upload file](./media/how-to-use-custom-allocation-policies/function-choose-upload-file.png)
 
-9. Replace the code for the **HttpTrigger1** function with the following code and click **Save**:
+9. Replace the code for the **HttpTrigger1** function with the following code and select **Save**:
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -294,7 +293,7 @@ In this section, you create an Azure function that implements your custom alloca
 
 In this section, you'll create a new enrollment group that uses the custom allocation policy. For simplicity, this article uses [Symmetric key attestation](concepts-symmetric-key-attestation.md) with the enrollment. For a more secure solution, consider using [X.509 certificate attestation](concepts-security.md#x509-certificates) with a chain of trust.
 
-1. Still on the [Azure portal](https://portal.azure.com), open your Device Provisioning Service instance.
+1. Still on the [Azure portal](https://portal.azure.com), open your provisioning service.
 
 2. Select **Manage enrollments** on the left pane, and then click the **Add enrollment group** button at the top of the page.
 
@@ -504,7 +503,7 @@ This sample code simulates a device boot sequence that sends the provisioning re
     The following output is an example of the simulated toaster device successfully booting up and connecting to the provisioning service instance to be assigned to the toasters IoT hub by the custom allocation policy:
 
     ```cmd
-    Provisioning API Version: 1.2.9
+    Provisioning API Version: 1.3.6
 
     Registering Device
 
@@ -533,7 +532,7 @@ This sample code simulates a device boot sequence that sends the provisioning re
     The following output is an example of the simulated heat pump device successfully booting up and connecting to the provisioning service instance to be assigned to the Contoso heat pumps IoT hub by the custom allocation policy:
 
     ```cmd
-    Provisioning API Version: 1.2.9
+    Provisioning API Version: 1.3.6
 
     Registering Device
 
