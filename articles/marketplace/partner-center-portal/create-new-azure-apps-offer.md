@@ -518,7 +518,7 @@ If this is your first time publishing this offer, you can:
 
 ### Errors and review feedback
 
-The **Manual validation** step in the publishing process represents an extensive review of your offer and its associated technical assets (especially the Azure Resource Manager template), issues are typically presented as pull request (PR) links. An explanation of how to view and respond to these PRs, see [Handling review feedback](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-handling-review-feedback).
+The **Manual validation** step in the publishing process represents an extensive review of your offer and its associated technical assets (especially the Azure Resource Manager template), issues are typically presented as pull request (PR) links. An explanation of how to view and respond to these PRs, see [Handling review feedback](./azure-apps-review-feedback.md).
 
 If you encountered errors in one or more of the publishing steps, you must correct them and republish your offer.
 
