@@ -15,8 +15,8 @@ ms.date: 11/06/2019
 
 Before you can [connect to on-premises data sources from Azure Logic Apps](../logic-apps/logic-apps-gateway-connection.md), download and install the [on-premises data gateway](https://aka.ms/on-premises-data-gateway-installer) on a local computer. The gateway works as a bridge that provides quick data transfer and encryption between data sources on premises and your logic apps. You can use the same gateway installation with other cloud services, such as Power BI, Power Automate, Power Apps, and Azure Analysis Services. For information about how to use the gateway with these services, see these articles:
 
-* [Microsoft Power BI on-premises data gateway](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
-* [Microsoft Power Apps on-premises data gateway](https://powerapps.microsoft.com/tutorials/gateway-management/)
+* [Power BI on-premises data gateway](https://docs.microsoft.com/power-bi/service-gateway-onprem)
+* [Power Apps on-premises data gateway](https://docs.microsoft.com/powerapps/maker/canvas-apps/gateway-reference)
 * [Power Automate on-premises data gateway](/power-automate/gateway-reference)
 * [Azure Analysis Services on-premises data gateway](../analysis-services/analysis-services-gateway.md)
 
