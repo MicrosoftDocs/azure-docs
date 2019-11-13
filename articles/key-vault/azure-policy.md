@@ -30,7 +30,7 @@ Example Usage Scenarios:
 
 ## Available "Built-In" Policy Definitions
 
-Key Vault has created a set of policies, which you can assign for common scenarios to manage certificates. These policies are 'Built-In', which means they don't require you to write any custom JSON to enable them and they are available in the Azure Portal for you to assign. You can still customize certain parameters to fit your organization's needs. 
+Key Vault has created a set of policies, which you can assign for common scenarios to manage certificates. These policies are 'Built-In', which means they don't require you to write any custom JSON to enable them and they are available in the Azure portal for you to assign. You can still customize certain parameters to fit your organization's needs. 
 
 The eight preview policies are as follows.
 
@@ -78,15 +78,15 @@ Your service can experience an outage if a certificate that is not being adequat
 You manage a key vault used by multiple teams that contains 100 certificates, and you want to make sure that none of the certificates in the key vault are valid for longer than 2 years.
 
 1. You assign the [Manage certificate validity period](#manage-certificate-validity-period-preview) policy, specify that the maximum validity period of a certificate is 24 months, and set the effect of the policy to "audit". 
-1. You view the [compliance report on the Azure Portal](#view-compliance-results), and discover that 20 certificates are non-compliant and valid for > 2 years, and the remaining certificates are compliant. 
+1. You view the [compliance report on the Azure portal](#view-compliance-results), and discover that 20 certificates are non-compliant and valid for > 2 years, and the remaining certificates are compliant. 
 1. You contact the owners of these certificates and communicate the new security requirement that certificates cannot be valid for longer than 2 years. Some teams respond and 15 of the certificates were renewed with a maximum validity period of 2 years or less. Other teams do not respond, and you still have 5 non-compliant certificates in your key vault.
 1. You change the effect of the policy you assigned to "deny". The 5 non-compliant certificates are not revoked, and they continue to function. However, they cannot be renewed with a validity period that is greater than 2 years. 
 
-## Enabling and managing a Key Vault policy through the Azure Portal
+## Enabling and managing a Key Vault policy through the Azure portal
 
 ### Select a Policy Definition
 
-1. Log in to the Azure Portal. 
+1. Log in to the Azure portal. 
 1. Search "Policy" in the Search Bar and Select **Policy**.
 
     ![Overview of how Azure Key Vault works](./media/policy-img1.png)
