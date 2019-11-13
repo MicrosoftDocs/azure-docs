@@ -39,11 +39,11 @@ Go to **View detailed instructions**. These instructions are specific to your pr
 
 ## Common features of the labeling task
 
-In all image-labeling tasks, you choose an appropriate tag or tags from a set that's specified by the project administrator. You can select among the first nine tags by using the number keys on your keyboard.  
+In all image-labeling tasks, you choose an appropriate tag or tags from a set that's specified by the project administrator. You can select the first nine tags by using the number keys on your keyboard.  
 
-You can use image classification tasks to present multiple images simultaneously. Use the icons above the image area to select the layouts. To select all the displayed images simultaneously, use the **Select all** button. To select individual photos, use the circular selection button in the upper-right corner of the image. You must select at least one image to apply a tag. If you select multiple images, any tag that you select will be applied to all the selected photos.
+You can use image-classification tasks to present multiple images simultaneously. Use the icons above the image area to select the layouts. To select all the displayed images simultaneously, use the **Select all** button. To select individual images, use the circular selection button in the upper-right corner of the image. You must select at least one image to apply a tag. If you select multiple images, any tag that you select will be applied to all the selected images.
 
-Here, we've chosen a two-by-two layout and are about to apply the tag "Mammal" to the images of the bear and orca. The image of the shark was already tagged as "Cartilaginous fish", and the iguana hasn't yet been tagged.
+Here, we've chosen a two-by-two layout and are about to apply the tag "Mammal" to the images of the bear and orca. The image of the shark was already tagged as "Cartilaginous fish", and the iguana hasn't been tagged yet.
 
 ![Multiple image layouts and selection](media/how-to-label-images/layouts.png)
 
@@ -58,11 +58,11 @@ After you submit tags for the data at hand, Azure refreshes the page with a new 
 
 If your project is of type "Image Classification Multi-Class," you'll assign a single tag to the entire image. To review the directions at any time, go to the **Instructions** page and select **View detailed instructions**.
 
-If you realize you made a mistake after you assign a tag to an image, you can fix it. Select the "**X**" on the label that's displayed below the image to clear the tag. Or, select the image and choose another class, and the newly selected value will replace the previously applied tag.
+If you realize that you made a mistake after you assign a tag to an image, you can fix it. Select the "**X**" on the label that's displayed below the image to clear the tag. Or, select the image and choose another class, and the newly selected value will replace the previously applied tag.
 
 ## Tag images for multi-label classification
 
-If you're working on a project of type "Image Classification Multi-Label", you'll apply one *or more* tags to an image. To see the project-specific directions at any time, select **Instructions** and go to **View detailed instructions**.
+If you're working on a project of type "Image Classification Multi-Label," you'll apply one *or more* tags to an image. To see the project-specific directions, select **Instructions** and go to **View detailed instructions**.
 
 Select the image that you want to label and then select the tag. The tag is applied it to all the selected images, and then the images are deselected. To apply more tags, you must reselect the images. The following animation shows multi-label tagging:
 
@@ -80,11 +80,11 @@ Azure will only enable the **Submit** button after you've applied at least one t
 
 ## Use bounding boxes for object detection
 
-If your project is of type "Object Identification (Bounding Boxes)", you'll specify one or more bounding boxes in the image and apply a tag to each box. Images can have multiple bounding boxes, each with a single tag. Use **View detailed instructions** to determine if you should add multiple bounding boxes in your project.
+If your project is of type "Object Identification (Bounding Boxes)," you'll specify one or more bounding boxes in the image and apply a tag to each box. Images can have multiple bounding boxes, each with a single tag. Use **View detailed instructions** to determine if you should add multiple bounding boxes in your project.
 
 1. Select a tag for the bounding box that you plan to create.
-1. Select the **Rectangular box** tool ![Rectangular box tool](media/how-to-label-images/rectangular-box-tool.png) or select "R".
-3. Click and drag diagonally across your target to create a rough bounding box. To adjust the bounding box, click and drag the edges or corners.
+1. Select the **Rectangular box** tool ![Rectangular box tool](media/how-to-label-images/rectangular-box-tool.png) or select "R."
+3. Click and drag diagonally across your target to create a rough bounding box. To adjust the bounding box, drag the edges or corners.
 
 ![A screenshot shows basic bounding box creation.](media/how-to-label-images/bounding-box-sequence.png)
 
@@ -94,9 +94,9 @@ You can't change the tag of an existing bounding box. If you make a tag-assignme
 
 By default, you can edit existing bounding boxes. The **Lock/unlock regions** tool ![Lock/unlock regions tool](media/how-to-label-images/lock-bounding-boxes-tool.png) or "L" toggles that behavior. If regions are locked, you can only change the shape or location of a new bounding box.
 
-Use the **Regions manipulation** tool ![Regions manipulation tool](media/how-to-label-images/regions-tool.png) or "M" to adjust an existing bounding box. Click and drag on edges or corners to adjust the shape. Click in the interior to be able to drag the whole bounding box. If you can't edit a region, you've probably toggled the **Lock/unlock regions** tool.
+Use the **Regions manipulation** tool ![Regions manipulation tool](media/how-to-label-images/regions-tool.png) or "M" to adjust an existing bounding box. Drag the edges or corners to adjust the shape. Click in the interior to be able to drag the whole bounding box. If you can't edit a region, you've probably toggled the **Lock/unlock regions** tool.
 
-Use the **Template-based box** tool ![Template-box tool](media/how-to-label-images/template-box-tool.png) or "T" to create multiple bounding boxes of the same size. If the image has no bounding boxes and you activate template-based boxes, the tool will produce 50-x-50 pixel boxes. If you create a bounding box and then activate template-based boxes, new bounding boxes will be the size of the last one that you created. Template-based boxes can be resized after placement. Resizing a template-based box only resizes that particular box.
+Use the **Template-based box** tool ![Template-box tool](media/how-to-label-images/template-box-tool.png) or "T" to create multiple bounding boxes of the same size. If the image has no bounding boxes and you activate template-based boxes, the tool will produce 50-x-50 pixel boxes. If you create a bounding box and then activate template-based boxes, any new bounding boxes will be the size of the last one that you created. Template-based boxes can be resized after placement. Resizing a template-based box only resizes that particular box.
 
 To delete *all* the bounding boxes in the current image, select the **Delete all regions** tool ![Delete regions tool](media/how-to-label-images/delete-regions-tool.png).
 

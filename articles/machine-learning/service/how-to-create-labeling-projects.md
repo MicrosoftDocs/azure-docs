@@ -12,13 +12,13 @@ ms.date: 11/04/2019
 
 # Get labels for data
 
-Labeling a large amount of data is often a headache in machine learning projects. Projects that have a computer-vision component, such as image classification or object detection, generally require labels for thousands of images.
+Labeling voluminous data in machine learning projects is often a headache. Projects that have a computer-vision component, such as image classification or object detection, generally require labels for thousands of images.
  
-Azure Machine Learning Studio gives you a central place to create, manage, and monitor labeling projects. Use it to coordinate data, labels, and team members to efficiently manage labeling tasks. Machine Learning Studio supports image classification, either multi-label or multi-class, and object identification by using bounded boxes.
+Azure Machine Learning gives you a central place to create, manage, and monitor labeling projects. Use it to coordinate data, labels, and team members to efficiently manage labeling tasks. Machine Learning Studio supports image classification, either multi-label or multi-class, and object identification by using bounded boxes.
 
-Machine Learning Studio tracks progress and maintains the queue of incomplete labeling tasks. Labelers don't need an Azure account to participate. After they are authenticated with their Microsoft account or [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis), they can do as much labeling as their time allows.
+Machine tracks progress and maintains the queue of incomplete labeling tasks. Labelers don't need an Azure account to participate. After they are authenticated with their Microsoft account or [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis), they can do as much labeling as their time allows.
 
-In Machine Learning Studio, you start and stop the project, add, and remove people and teams, and monitor progress. You can export labeled data in COCO format or as an Azure ML dataset.
+In [Machine Learning studio](https://ml.azure.com/), you start and stop the project, add and remove people and teams, and monitor progress. You can export labeled data in COCO format or as an Azure ML dataset.
 
 In this article, you'll learn how to:
 
@@ -39,7 +39,7 @@ In this article, you'll learn how to:
 
 ## Create a labeling project
 
-Labeling projects are administered from [Azure Machine Learning Studio](https://ml.azure.com/). Use the **Labeling projects** page to manage your projects and people. A project has one or more teams assigned to it, and a team has one or more people assigned to it.
+In Azure Machine Learning Studio, you use the **Labeling projects** page to manage your projects and people. A project has one or more teams assigned to it, and a team has one or more people assigned to it.
 
 If your data is already in Azure Blob storage, you should make it available as a datastore before you create the labeling project. For details, see [Create and register datastores](https://docs.microsoft.com/azure/machine-learning/service/how-to-access-data#create-and-register-datastores).
 
@@ -49,7 +49,7 @@ To create a project, select **Add project**. Give the project an appropriate nam
 
 * Choose **Image Classification Multi-label** for projects when you want to apply *one or more* labels from a set of classes to images. For instance, a photo of a dog might be labeled with both *dog* and *daytime*.
 * Choose **Image Classification Multi-class** for projects when you want to apply only a *single class* from a set of classes to images.
-* Choose **Object Identification (Bounding Box)** for projects when you want to assign a class to objects within images and specify a bounding box around the object.
+* Choose **Object Identification (Bounding Box)** for projects when you want to assign a class to objects within images *and* specify a bounding box around the object.
 
 Select **Next** when you're ready to continue.
 
@@ -65,7 +65,7 @@ To create a dataset from data that you've already stored in Azure blob storage:
 
 1. Select **Create a dataset** > **From datastore**.
 1. Assign a **Name** to your dataset.
-1. Choose "File" as the **Dataset type**.  
+1. Choose **File** as the **Dataset type**.  
 1. Select the datastore.
 1. If your data is in a subfolder within your blob storage, choose **Browse** to select the path.
     * Append "/**" to the path to include all the files in subfolders of the selected path.
@@ -91,7 +91,7 @@ The data gets uploaded to the default blob store ("workspaceblobstore") of your 
 
 ## Specify label classes
 
-On the **Label classes** page, specify the set of classes to categorize your data. Do this carefully, because your labelers' accuracy and speed will be affected by their ability to choose among them. For instance, instead of spelling out the full genus and species for plants or animals, use field codes or abbreviate the genera.
+On the **Label classes** page, specify the set of classes to categorize your data. Do this carefully, because your labelers' accuracy and speed will be affected by their ability to choose among the classes. For instance, instead of spelling out the full genus and species for plants or animals, use field codes or abbreviate the genera.
 
 Enter one label per row. Use the **+** button to add a new row. If you have more than 3 or 4 labels but fewer than 10, you may want to prefix the names with numbers ("1: ", "2: ") to help labelers who use the number keys to speed their work.
 
@@ -107,9 +107,9 @@ It's important to clearly explain the labeling task. On the **Labeling instructi
 * What should they do if an object of interest is clipped by the edge of the image?
 * What should they do if they think they made a mistake?
 
-With bounding boxes, other important questions include:
+For bounding boxes, important questions include:
 
-* How is the bounding box defined for this task? Should it be entirely interior to the object, or should it be on the exterior? Should it be cropped as closely as possible, or is some amount of clearance acceptable? 
+* How is the bounding box defined for this task? Should it be entirely on interior of the object, or should it be on the exterior? Should it be cropped as closely as possible, or is some clearance acceptable?
 * What level of care and consistency do you expect the labelers to apply in defining bounding boxes?
 
 >[!NOTE]
@@ -117,7 +117,7 @@ With bounding boxes, other important questions include:
 
 ## Initialize the labeling project
 
-After the labeling project is initialized, some aspects of the  project are immutable. You can't change the task type or dataset. You can modify labels and change the URL for the task description. Carefully review the settings before you create the project. After you submit the project, you'll be returned to the **Labeling** homepage, which will show the project as **Initializing**. This page doesn't automatically refresh. So, after a pause,  manually refresh the page to see the project's status as **Created**.
+After the labeling project is initialized, some aspects of the  project are immutable. You can't change the task type or dataset. You *can* modify labels and the URL for the task description. Carefully review the settings before you create the project. After you submit the project, you're returned to the **Labeling** homepage, which will show the project as **Initializing**. This page doesn't automatically refresh. So, after a pause,  manually refresh the page to see the project's status as **Created**.
 
 ## Manage teams and people
 
@@ -152,4 +152,4 @@ The COCO file is created in the default blob store of the Azure ML workspace in 
 ## Next steps
 
 * Label images for [image classification or object detection](how-to-label-images.md)
-* Learn more about [Azure Machine Learning and studio](../compare-azure-ml-to-studio-classic.md)
+* Learn more about [Azure Machine Learning and ML Studio](../compare-azure-ml-to-studio-classic.md)
