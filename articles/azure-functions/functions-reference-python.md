@@ -438,19 +438,19 @@ Project files and dependencies are deployed from your local computer to Azure. R
 
 ### Custom dependencies
 
-If your project has native OS dependencies or uses packages not publicly available, you must build your Python project locally instead of in Azure. Before publishing, run the following command to install the dependencies locally to the \_\_app\_\_/.python_packages folder:
+If your project uses packages not publicly available to our tools, you can make them available to your app by putting them in the \_\_app\_\_/.python_packages directory. Before publishing, run the following command to install the dependencies locally:
 
 ```command
-pip install  --target="/.python_packages/lib/python3.6/site-packages"  -r requirements.txt
+pip install  --target="<PROJECT_DIR>/.python_packages/lib/site-packages"  -r requirements.txt
 ```
 
-When using custom dependencies, you should use `--build-native-deps` instead of `--build local`. When you specify `--build-native-deps`, Core Tools uses docker to run the [mcr.microsoft.com/azure-functions/python](https://hub.docker.com/r/microsoft/azure-functions/) image as a container on your local machine. Using this environment, it builds and installs the required modules from source distribution, before packaging them up for final deployment to Azure. 
+When using custom dependencies, you should use the `--no-build` publishing option, since you have already installed the dependencies.  
 
 ```command
-func azure functionapp publish <APP_NAME> --build-native-deps
+func azure functionapp publish <APP_NAME> --no-build
 ```
 
-You must [install Docker](https://docs.docker.com/install/) on your local machine when using `--build-native-deps`. Remember to replace `<APP_NAME>` with the name of your function app in Azure.
+Remember to replace `<APP_NAME>` with the name of your function app in Azure.
 
 ## Unit Testing
 
