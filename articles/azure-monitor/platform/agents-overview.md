@@ -2,7 +2,6 @@
 title: Overview of the Azure monitoring agents| Microsoft Docs
 description: This article provides a detailed overview of the Azure agents available which support monitoring virtual machines hosted in Azure or hybrid environment.
 services: azure-monitor
-documentationcenter: azure-monitor
 author: mgoedtel
 manager: carmonm
 editor: ''
@@ -16,6 +15,13 @@ ms.author: magoedte
 ---
 
 # Overview of the Azure monitoring agents 
+Compute resources such as virtual machines generate data to monitor their performance and availability just like other cloud resources. Compute resources though also have a guest operating system running workloads that need to be monitored. Collecting this monitoring data from inside the resource requires an agent. This article describes the agents used by Azure Monitor and helps you determine which you need for your particular requirements.
+
+## Summary of agents
+
+> [!NOTE]
+> The reason that Azure Monitor currently has multiple agents is because of 
+
 Microsoft Azure provides multiple ways to collect different types of data from virtual machines running Microsoft Windows and Linux hosted in Azure, your datacenter, or other cloud providers. The three types of agents available to monitor a VM are:
 
 * Azure Diagnostics extensions
