@@ -32,15 +32,16 @@ The Azure Time Series Insights Preview explorer consists of the following seven 
 
 [![Time Series Insights Preview explorer overview](media/v2-update-explorer/preview-explorer-overview.png)](media/v2-update-explorer/preview-explorer-overview.png#lightbox)
 
-1. [Environment panel](#environment-panel): Displays all your Azure Time Series Insights environments.
-1. [Navigation bar](#navigation-bar): Allows you to switch between the **Analyze** and **Model** pages.
-1. [Hierarchy tree and search panel](#hierarchy-tree-and-search-panel): Select and search for specific data elements to be charted.
+1. [Environment panel](#1.-environment-panel): Displays all your Azure Time Series Insights environments.
+1. [Navigation bar](#2.-navigation-bar): Allows you to switch between the **Analyze** and **Model** pages.
+1. [Hierarchy tree and search panel](#3.-hierarchy-tree-and-search-panel): Select and search for specific data elements to be charted.
 1. [Time series well](#time-series-well): Shows all your currently selected data elements.
 1. [Chart panel](#chart-panel): Your current working chart.
 1. [Timeline](#timeline): This allows you to modify your working time span.
 1. [App bar](#app-bar): This contains your user management options (such as current tenant), and allows you to change them and language settings.
 
-## Environment panel
+
+## 1. Environment panel
 
 The environment panel displays all the Time Series Insights environments you have access to. The list includes pay-as-you-go (Preview) environments as well as S1/S2 environments (General Availability). Simply click the Time Series Insights environment you want to use to immediately be taken there.
 
@@ -50,7 +51,7 @@ The environment panel displays all the Time Series Insights environments you hav
 
 1. Then, select the environment you want.
 
-## Navigation bar
+## 2. Navigation bar
 
   [![The navigation bar](media/v2-update-explorer/navigation-bar.png)](media/v2-update-explorer/navigation-bar.png#lightbox)
 
@@ -58,16 +59,6 @@ Use the navigation bar to select between two views:
 
 * **Analyze**: Use it to chart and perform rich analytics on your modeled or unmodeled time series data.
 * **Model**: Use it to push new Time Series Insights Preview types, hierarchies, and instances to your Time Series Insights model.
-
-## Hierarchy tree and search panel
-
-The hierarchy tree displays selected data elements that include models, specific devices, and sensors on your devices.
-
-### Model search panel
-
-You can use the model search panel to easily search and navigate your Time Series Model hierarchy to find the specific time series instances you want to display on your chart. After you select your instances, they're added to both the current chart and the data well.
-
-  [![The model search panel](media/v2-update-explorer/explorer-four.png)](media/v2-update-explorer/explorer-four.png#lightbox)
 
 ### Model authoring
 
@@ -79,27 +70,36 @@ The Azure Time Series Insights Preview supports full create, read, update, and d
 
 To learn more about the Time Series Model, see [Times Series Models](./time-series-insights-update-tsm.md).
 
-## Time series well
+## 3. Hierarchy tree and search panel
+
+The hierarchy tree and search panel allows you to easily search and navigate your [Time Series Model](./time-series-insights-update-tsm.md) hierarchy to find the specific time series instances you want to display on your chart. When you select your instances, they are not only added to the current chart but are also added to the data well. 
+ 
+### Model search panel
+
+You can use the model search panel to easily search and navigate your Time Series Model hierarchy to find the specific time series instances you want to display on your chart. After you select your instances, they're added to both the current chart and the data well.
+
+[![The model search panel](media/v2-update-explorer/model-search-panel.png)](media/v2-update-explorer/model-search-panel.png#lightbox)
+
+## 4. Time series well
 
 The well displays instance fields and other metadata associated with selected Time Series Insights instances. By selecting the check boxes on the right side, you can hide or display specific instances from the current chart. You can also remove specific data elements from your current data well by selecting the red **Delete** (trash can) control on the left side of the element.
 
-  [![The Preview well](media/v2-update-explorer/explorer-five.png)](media/v2-update-explorer/explorer-five.png#lightbox)
+  [![The Preview well](media/v2-update-explorer/preview-well.png)](media/v2-update-explorer/preview-well.png#lightbox)
 
 To reconfigure the layout of your **Analyze** chart page, select the ellipses icon in the upper-right corner:
 
-  [![Telemetry layout options](media/v2-update-explorer/explorer-six.png)](media/v2-update-explorer/explorer-six.png#lightbox)
+  [![Well layout options](media/v2-update-explorer/well-layout-options.png)](media/v2-update-explorer/well-layout-options.png#lightbox)
 
 > [!NOTE]
 > If you see the following message, the instance doesn't have any data during the time span selected. To resolve the issue, increase the time span or confirm that the instance is pushing data.
 >
-> ![No data notification](media/v2-update-explorer/explorer-seven.png)
+> ![No data notification](media/v2-update-explorer/no-data-warning.png)
 
-
-## Chart panel
+## 5. Chart panel
 
 With the chart, you can display Time Series Insights instances as lines. You can collapse the environment panel, data model, and time span control panel by selecting the web controls to make the chart larger.
 
-  [![Preview chart overview](media/v2-update-explorer/explorer-eight.png)](media/v2-update-explorer/explorer-eight.png#lightbox)
+  [![Preview chart overview](media/v2-update-explorer/chart-overview.png)](media/v2-update-explorer/chart-overview.png#lightbox)
 
 - **Selected date range**: Controls which data elements are available for visualization.
 
@@ -117,21 +117,25 @@ With the chart, you can display Time Series Insights instances as lines. You can
 
 To  drill further into a specific data slice, left-click a data point on the current graph, and then drag the selected area to the endpoint of your choice. Right-click the gray selected area, and select **Zoom**, as shown in this following image:
 
-  [![Preview chart zoom](media/v2-update-explorer/explorer-nine.png)](media/v2-update-explorer/explorer-nine.png#lightbox)
+  [![Preview chart zoom](media/v2-update-explorer/preview-chart-zoom.png)](media/v2-update-explorer/preview-chart-zoom.png#lightbox)
 
-After you perform the **Zoom** action, you see your selected data set. Select the y-axis format control to cycle through the three y-axis representations of your Time Series Insights data.
+After you perform the **Zoom** action, you see your selected data set. Select the format control to cycle through the three y-axis representations of your Time Series Insights data.
 
-  [![Preview chart y-axis](media/v2-update-explorer/explorer-ten.png)](media/v2-update-explorer/explorer-ten.png#lightbox)
+  [![Preview chart y-axis](media/v2-update-explorer/standard-chart.png)](media/v2-update-explorer/standard-chart.png#lightbox)
 
-Here, you can see an example of shared Y axes:
+Here, you can see an example of an **overlapping chart**:
 
-  [![Preview shared Y axes](media/v2-update-explorer/explorer-eleven.png)](media/v2-update-explorer/explorer-eleven.png#lightbox)
+  [![Overlapping chart option](media/v2-update-explorer/overlapping-chart.png)](media/v2-update-explorer/overlapping-chart.png#lightbox)
 
-## Timeline
+The **More Actions** button expands to display the **Download as CSV** and **Export to Power BI** options.
+
+  [![More Actions option](media/v2-update-explorer/more-actions-icon.png)](media/v2-update-explorer/more-actions-icon.png#lightbox)
+
+## 6. Timeline
 
 When you work with Time Series Insights Preview, you first select a time span. The selected time span controls the data set that's available for manipulation with the Time Series Insights Preview widgets. The following web controls are available in Time Series Insights Preview for selecting your working time span:
 
-  [![Time selection panel](media/v2-update-explorer/explorer-twelve.png)](media/v2-update-explorer/explorer-twelve.png#lightbox)
+  [![Time selection panel](media/v2-update-explorer/timeline-element.png)](media/v2-update-explorer/timeline-element.png#lightbox)
 
 1. **Inner date range slider tool**: Use the two endpoint controls by dragging them over the time span you want. This inner date range is constrained by the outer date range slider control.
 
@@ -147,9 +151,9 @@ When you work with Time Series Insights Preview, you first select a time span. T
 
 1. **Date range to-and-from web control**: With this web control, you can easily select the date and time ranges you want. You can also use the control to switch between different time zones. After you make the changes to apply to your current workspace, select **Save**.
 
-   [![To and from selection panel](media/v2-update-explorer/explorer-thirteen.png)](media/v2-update-explorer/explorer-thirteen.png#lightbox)
+   [![To and from selection panel](media/v2-update-explorer/to-and-from-element.png)](media/v2-update-explorer/to-and-from-element.png#lightbox)
 
-## App bar
+## 7. App bar
 
 The Time Series Insights Preview navigation panel appears at the top of your Time Series Insights app. It provides the following functionalities:
 
@@ -206,7 +210,7 @@ The Time Series Insights Preview terms editor panel takes the following paramete
 | `IN` | String, Bool, Double, DateTime, TimeSpan, NULL | All operands should be of the same type or be NULL constant. |
 | `HAS` | String | Only constant string literals are allowed on the right side. Empty string and NULL aren't allowed. |
 
-To learn more about supported query operations and data types, see [Time Series Expression (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/preview-tsx).
+To learn more about supported query operations and data types, see [Time Series Expression (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 
 ### Examples of where clauses
 
@@ -225,5 +229,7 @@ You can show and hide elements in the chart panel by selecting the visible icon,
 ## Next steps
 
 - Learn about [storage and ingress](./time-series-insights-update-storage-ingress.md) in the Azure Time Series Insights Preview.
+
 - Read the Time Series Insights Preview document on [data modeling](./time-series-insights-update-tsm.md).
+
 - Learn [how to diagnose and troubleshoot](./time-series-insights-update-how-to-troubleshoot.md) your Time Series Insights instance.
