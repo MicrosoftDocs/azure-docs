@@ -69,4 +69,4 @@ Now that you've learned how to build a training data set, follow a quickstart to
 
 * [Quickstart: Train a model and extract form data by using cURL](./quickstarts/curl-train-extract.md)
 * [Quickstart: Train a model and extract form data using the REST API with Python](./quickstarts/python-train-extract.md)
-* [Train with labels using the REST API and Python](./python-labeled-data.md)
+* [Train with labels using the REST API and Python](./quickstarts/python-labeled-data.md)

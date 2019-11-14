@@ -17,6 +17,10 @@
         href: quickstarts/curl-train-extract.md
       - name: Python
         href: quickstarts/python-train-extract.md
+    - name: Train custom model with labels
+      items:
+      - name: Train with labels using the REST API and Python
+        href: quickstarts/python-labeled-data.md
     - name: Use prebuilt receipt model
       items:
       - name: cURL
@@ -37,8 +41,6 @@
   items:
   - name: Build a training data set
     href: build-training-data-set.md
-  - name: Train with labels using the REST API and Python
-    href: python-labeled-data.md
   - name: Use containers
     items:
     - name: Install and run containers

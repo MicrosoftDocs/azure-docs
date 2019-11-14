@@ -275,7 +275,9 @@ When the training process is completed, you'll receive a `200 (Success)` respons
 }
 ```
 
-From here, you can copy the `"modelId"` value and use it in additional API calls to analyze form documents. Follow the same process as in the [Python train and extract quickstart](./quickstarts/python-train-extract.md).
+Copy the `"modelId"` value for use in the following steps.
+
+[!INCLUDE [analyze forms](../includes/python-custom-analyze.md)]
 
 ## Next steps
 

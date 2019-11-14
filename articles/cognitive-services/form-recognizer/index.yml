@@ -59,10 +59,10 @@ landingContent:
         links:
             - text: Labeled data
               url: overview.md#train-with-labels
-      - linkListType: how-to-guide
+      - linkListType: quickstart
         links:
             - text: Train with labels using the REST API and Python
-              url: python-labeled-data.md
+              url: quickstarts/python-labeled-data.md
 
   - title: Extract data from receipts
     linkLists:
