@@ -35,9 +35,9 @@ For an example of how to use quick query in a .NET application, see [Filter data
 
 Quick query optimizes performance by reducing the amount of data that gets transferred and processed by your application.
 
-To calculate an aggregated value, applications commonly retrieve **all** of the data from a file. Then, the application parses the data, applies filtering criteria, and calculates the aggregated value.  
+To calculate an aggregated value, applications commonly retrieve **all** of the data from a file, and then process and filter the data locally.
 
-An analysis of the input/output patterns for analytics workloads reveal that applications typically require only 20% of the data that they read to perform any given calculation. This statistic is true even after applying techniques such as [partition pruning](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-optimize-hive-query#hive-partitioning). This means that 80% of that data is needlessly transferred across the network, parsed, and filtered by applications. This pattern, essentially designed to remove unneeded data, incurs a significant compute cost.  
+An analysis of the input/output patterns for analytics workloads reveal that to perform any given calculation, applications typically require only 20% of the data that they read. This statistic is true even after applying techniques such as [partition pruning](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-optimize-hive-query#hive-partitioning). This means that 80% of that data is needlessly transferred across the network, parsed, and filtered by applications. This pattern, essentially designed to remove unneeded data, incurs a significant compute cost.  
 
 Even though Azure features an industry-leading network, in terms of both throughput and latency, needlessly transferring data across that network is still costly for application performance. By filtering out the unwanted data during the storage request, quick query eliminates this cost.
 
