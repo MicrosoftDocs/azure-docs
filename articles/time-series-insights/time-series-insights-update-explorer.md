@@ -37,7 +37,7 @@ The Azure Time Series Insights Preview explorer consists of the following seven 
 1. [Hierarchy tree and search panel](#3-hierarchy-tree-and-search-panel): Select and search for specific data elements to be charted.
 1. [Time series well](#4-time-series-well): Shows all your currently selected data elements.
 1. [Chart panel](#5-chart-panel): Your current working chart.
-1. [Timeline](#6-timeline): This allows you to modify your working time span.
+1. [Timeline](#6-time-editor-panel): This allows you to modify your working time span.
 1. [App bar](#7-app-bar): This contains your user management options (such as current tenant), and allows you to change them and language settings.
 
 
@@ -64,6 +64,8 @@ Use the navigation bar to select between two views:
 
 The Azure Time Series Insights Preview supports full create, read, update, and delete (CRUD) operations on your Time Series Model.
 
+[![The model search panel](media/v2-update-explorer/model-search-panel.png)](media/v2-update-explorer/model-search-panel.png#lightbox)
+
 * **Time Series Model type**: You can use Time Series Insights types to define variables or formulas for doing computations. They're associated with a given Time Series Insights instance. A type can have one or more variables.
 * **Time Series Model hierarchy**: Hierarchies are systematic organizations of your data. Hierarchies depict the relationships between different entities in your Time Series Insights data.
 * **Time Series Model instance**: Instances are the time series themselves. In most cases, they're the **DeviceID** or **AssetID**, which is the unique identifier of the asset in the environment.
@@ -73,20 +75,20 @@ To learn more about the Time Series Model, see [Times Series Models](./time-seri
 ## 3. Hierarchy tree and search panel
 
 The hierarchy tree and search panel allows you to easily search and navigate your [Time Series Model](./time-series-insights-update-tsm.md) hierarchy to find the specific time series instances you want to display on your chart. When you select your instances, they are not only added to the current chart but are also added to the data well. 
+
+[![Hierarchy tree and search panel](media/v2-update-explorer/hierarchy-search.png)](media/v2-update-explorer/hierarchy-search.png#lightbox)
+
+The search results pane also lets you view your results in a hierarchy view or a list view making it easy to find the instances you want to display.
  
-### Model search panel
-
-You can use the model search panel to easily search and navigate your Time Series Model hierarchy to find the specific time series instances you want to display on your chart. After you select your instances, they're added to both the current chart and the data well.
-
-[![The model search panel](media/v2-update-explorer/model-search-panel.png)](media/v2-update-explorer/model-search-panel.png#lightbox)
-
 ## 4. Time series well
 
-The well displays instance fields and other metadata associated with selected Time Series Insights instances. By selecting the check boxes on the right side, you can hide or display specific instances from the current chart. You can also remove specific data elements from your current data well by selecting the red **Delete** (trash can) control on the left side of the element.
+The well displays instance fields and other metadata associated with selected Time Series Insights instances. By selecting the check boxes on the right side, you can hide or display specific instances from the current chart. 
 
   [![The Preview well](media/v2-update-explorer/preview-well.png)](media/v2-update-explorer/preview-well.png#lightbox)
 
-To reconfigure the layout of your **Analyze** chart page, select the ellipses icon in the upper-right corner:
+You may remove specific data elements from your current data well by selecting the red **Delete** (trash can) control on the left side of the element. The well also lets you control how each element is displayed in the chart. You can choose to add min/max shadows, data points, shift the element in time and visualize the instance a stepped manner. 
+
+Additionally, The explorations control lets you create time shifts and scatter plots easily.  
 
   [![Well layout options](media/v2-update-explorer/well-layout-options.png)](media/v2-update-explorer/well-layout-options.png#lightbox)
 
@@ -97,25 +99,25 @@ To reconfigure the layout of your **Analyze** chart page, select the ellipses ic
 
 ## 5. Chart panel
 
-With the chart, you can display Time Series Insights instances as lines. You can collapse the environment panel, data model, and time span control panel by selecting the web controls to make the chart larger.
+The chart enables you to display time series instances as lines. You can collapse the environment panel, data model, and time span control panel by clicking the web controls to make the chart larger. 
 
   [![Preview chart overview](media/v2-update-explorer/chart-overview.png)](media/v2-update-explorer/chart-overview.png#lightbox)
 
-- **Selected date range**: Controls which data elements are available for visualization.
+1. **Chart type**: Controls which data elements are available for visualization.
 
-- **Inner date range slider tool**: Use the two endpoint controls by dragging them over the time span you want.
+1. **Interval size**: The Interval size slider tool enables you to zoom in and out of intervals over the same time span. This provides more precise control of movement between large slices of time that show smooth trends down to slices as small as the millisecond, allowing you to see granular, high-resolution cuts of your data. The slider’s default starting point is set as the most optimal view of the data from your selection; balancing resolution, query speed, and granularity. .
 
-- **Time span collapse control**: Collapses and expands the time span panel editor.
+1. **Zoom and pan**: Click this control to zoom & pan the chart.
 
-- **Y-axis format control**: Cycles through the available y-axis view options:
+1. **Y-axis control**: Cycles through the available y-axis view options:
 
-    * `Default`: Each line has an individual y-axis.
-    * `Stacked`: Use it to stack multiple lines on the same y-axis, with the y-axis data changing based on the line selected.
-    * `Shared`: All y-axis data displayed together.
+    * `Stacked`: Each line has an individual Y-axis.
+    * `Overlap`: Use it to stack multiple lines on the same Y-axis, with the Y-axis data changing based on the line selected.
+    * `Shared`: All Y-axis data displayed together.
 
-- **Current data element**: The currently selected data element and its associated details.
+1. **Marker element**: The currently selected data element and its associated details.
 
-To  drill further into a specific data slice, left-click a data point on the current graph, and then drag the selected area to the endpoint of your choice. Right-click the gray selected area, and select **Zoom**, as shown in this following image:
+You can further drill into a specific data slice by **left-clicking** a data point on the current graph while holding down the mouse and then dragging the selected area to the endpoint of your choice. **Right-click** the greyed, selected area and click **Zoom** as shown below. You can also view and download the telemetry events in the selected timespan.
 
   [![Preview chart zoom](media/v2-update-explorer/preview-chart-zoom.png)](media/v2-update-explorer/preview-chart-zoom.png#lightbox)
 
@@ -131,13 +133,20 @@ The **More Actions** button expands to display the **Download as CSV** and **Exp
 
   [![More Actions option](media/v2-update-explorer/more-actions-icon.png)](media/v2-update-explorer/more-actions-icon.png#lightbox)
 
-## 6. Timeline
+## 6. Time editor panel
 
-When you work with Time Series Insights Preview, you first select a time span. The selected time span controls the data set that's available for manipulation with the Time Series Insights Preview widgets. The following web controls are available in Time Series Insights Preview for selecting your working time span:
+When working with Time Series Insights you first will select a time span. The selected time span will control the data set that is available for manipulation with the Time Series Insights update widgets.
 
   [![Time selection panel](media/v2-update-explorer/timeline-element.png)](media/v2-update-explorer/timeline-element.png#lightbox)
 
-1. **Inner date range slider tool**: Use the two endpoint controls by dragging them over the time span you want. This inner date range is constrained by the outer date range slider control.
+> [!TIP]
+> A portion of the timeline is highlighted in an amber or orange color to indicate the span of data that is available in warm store.
+
+The following web controls are available in the Time Series Insights update for selecting your working time span. 
+
+  [![Exploration well control](media/v2-update-explorer/exploration-well-control.png)](media/v2-update-explorer/exploration-well-control.png#lightbox)
+
+1. **Inner date range slider control**: Use the two endpoint controls by dragging them over the time span you want. This inner date range is constrained by the outer date range slider control.
 
 1. **Increase and decrease date range buttons**: Increase or decrease your time span by selecting either button for the interval you want.
 
@@ -145,11 +154,7 @@ When you work with Time Series Insights Preview, you first select a time span. T
 
 1. **Outer date range slider control**: Use the endpoint controls to select the outer date range, which will be available for your inner date range control.
 
-1. **Quick Times date-range drop-down list**: Use it to quickly switch between preset time span selections, such as the last **30 minutes**, the **last 12 hours**, or a **custom range**. Changing this value also changes the available interval ranges discussed in the interval-size slider tool.
-
-1. **Interval-size slider tool**: Use it to zoom in and out of intervals over the same time span. This action provides more precise control of movement between large slices of time. It displays smooth trends down to slices as small as a millisecond. You can use it to see granular, high-resolution cuts of your data. The slider’s default starting point is set as the most optimal view of the data from your selection, which balances resolution, query speed, and granularity.
-
-1. **Date range to-and-from web control**: With this web control, you can easily select the date and time ranges you want. You can also use the control to switch between different time zones. After you make the changes to apply to your current workspace, select **Save**.
+1. **Time range slider control**: Use it to quickly switch between preset time span selections, such as the last **30 minutes**, the **last 12 hours**, or a **custom range**. Changing this value also changes the available interval ranges discussed in the interval-size slider tool.
 
    [![To and from selection panel](media/v2-update-explorer/to-and-from-element.png)](media/v2-update-explorer/to-and-from-element.png#lightbox)
 
