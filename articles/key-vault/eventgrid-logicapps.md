@@ -39,22 +39,22 @@ To create an Azure Event Grid subscription, follow these steps:
 1. On **Logic Apps Designer** validate the connection and click **Continue** 
  
     ![Logic App Designer - connection](./media/logicappdesigner1.png)
-1. On the **When a a resource event occurs** component, do the following steps:
+1. On the **When a a resource event occurs** screen, do the following:
+    - Leave **Subscription** and **Resource Name** as default.
     - Select **Microsoft.KeyVault.vaults** for the **Resource Type**.
     - Select **Microsoft.KeyVault.SecretNewVersionCreated** for **Event Type Item - 1**.
-    - **Subscription** and **Resource Name** can be left as default.
 
     ![Logic App Designer - event handler](./media/logicappdesigner2.png)
 
 1. Select **+ New Step** This will open a window to Choose an action.
 1. Search for **Email**. Based on your email provider, find and select the matching connector. This tutorial uses **Office 365 Outlook**. The steps for other email providers are similar.
-1. Select the **Send an email** action.
+1. Select the **Send an email (V2)** action.
    
    ![Logic App Designer - add email](./media/logicappdesigner3.png)
 
 1. Build your email template:
     - **To:** Enter the email address to receive the notification emails. For this tutorial, use an email account that you can access for testing.
-    - **Subject** and **Body**: Write the text for your email. Select JSON properties from the selector tool to include dynamic content based on event data. 
+    - **Subject** and **Body**: Write the text for your email. Select JSON properties from the selector tool to include dynamic content based on event data. You can retrieve the data of the event using `@{triggerBody()?['Data']}`.
 
 Your email template may look like this example:
     
