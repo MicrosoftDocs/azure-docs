@@ -59,21 +59,6 @@ Complete the following quickstart: [Create an Azure API Management instance](get
 > [!NOTE]
 > The API import limitations are documented in [another article](api-management-api-import-restrictions.md).
 
-## Test the new APIM API in the Azure portal
-
-Operations can be called directly from the Azure portal, which provides a convenient way to view and test the operations of an API.
-
-![Test API](./media/api-management-get-started/01-import-first-api-01.png)
-
-1. Select the API you created in the previous step.
-2. Press the **Test** tab.
-3. Click on **GetSpeakers**.
-
-    The page displays fields for query parameters but in this case we don't have any. The page also displays fields for the headers. One of the headers is "Ocp-Apim-Subscription-Key", for the subscription key of the product that is associated with this API. If you created the APIM instance, you are an administrator already, so the key is filled in automatically.
-4. Press **Send**.
-
-    Backend responds with **200 OK** and some data.
-
 ## Test the new API in the Azure portal
 
 ![Test API map](./media/api-management-get-started/01-import-first-api-01.png)
