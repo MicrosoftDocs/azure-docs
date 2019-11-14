@@ -36,9 +36,9 @@ First, you need to get the OS image you'll use for the MSIX app. To get the OS i
 >[!NOTE]
 >You must be member of the Windows Insider program to access the Windows Insider portal. To learn more about the Windows Insider program, check out our [Windows Insider documentation](https://docs.microsoft.com/windows-insider/at-home/).
 
-1. Scroll down to **Select edition** section and select **Windows 10 Insider Preview Enterprise (FAST) – Build XXXXX.**
+1. Scroll down to the **Select edition** section and select **Windows 10 Insider Preview Enterprise (FAST) – Build XXXXX.**
 
-2. Select **Confirm**, then select the language you wish to use, then select **Confirm**.
+2. Select **Confirm**, then select the language you wish to use, and then select **Confirm** again.
     
      >[!NOTE]
      >At the moment, English is the only language that has been tested with the feature. You can select other languages, but they may not display as intended.
@@ -70,11 +70,9 @@ reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\De
 sc config wuauserv start=disabled
 ```
 
-Next, prepare the VM VHD for Azure and upload the resulting VHD disk to Azure.
+Next, prepare the VM VHD for Azure and upload the resulting VHD disk to Azure. To learn more, see [Prepare and customize a master VHD image](set-up-customize-master-image.md).
 
-<!--can we get a tutorial for this?-->
-
-Once the VHD is uploaded in Azure, create a host pool that's based on this new image by following the instructions in the [Create a host pool by using the Azure Marketplace](create-host-pools-azure-marketplace.md) tutorial.
+Once you've uploaded the VHD to Azure, create a host pool that's based on this new image by following the instructions in the [Create a host pool by using the Azure Marketplace](create-host-pools-azure-marketplace.md) tutorial.
 
 ## Prepare the application for MSIX app attach 
 
@@ -136,7 +134,7 @@ After that, you'll need to "expand" the MSIX image by unpacking it. To unpack th
 2. Run the following cmdlet to unpack the MSIX into the VHD you created and mounted in the previous section.
 
     ```powershell
-    msixmgr.exe -Unpack -packagePath <package>.msix -destination "f:\<name of folder created earlier>" -applyacls
+    msixmgr.exe -Unpack -packagePath <package>.msix -destination "f:\<name of folder you created earlier>" -applyacls
     ```
 
     The following message should appear once unpacking is done:
@@ -164,7 +162,7 @@ Before you start, make sure your network share meets these requirements:
 In your Windows Virtual Desktop environment, create a network share and move the package there.
 
 >[!NOTE]
-> Best practice for creating MSIX network shares is to set up the network share with NTFS read-only permissions.
+> The best practice for creating MSIX network shares is to set up the network share with NTFS read-only permissions.
 
 ## Prepare PowerShell scripts for MSIX app attach
 
@@ -179,7 +177,7 @@ Each phase creates a PowerShell script. Sample scripts for each phase are availa
 
 ### Stage the PowerShell script
 
-Before you update the PowerShell, make sure you have the volume GUID of the volume in the VHD. To get the volume GUID:
+Before you update the PowerShell scripts, make sure you have the volume GUID of the volume in the VHD. To get the volume GUID:
 
 1.  Open the network share where the VHD is located inside the VM where you'll run the script.
 
