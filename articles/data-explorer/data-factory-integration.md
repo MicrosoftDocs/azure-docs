@@ -27,6 +27,7 @@ Azure Data Explorer is supported by Azure IR (Integration Runtime), used when da
  
 > [!TIP]
 > When using the copy activity and creating a **Linked Service** or a **Dataset**, select the data store **Azure Data Explorer (Kusto)** and not the old data store **Kusto**.  
+
 ### Lookup activity
  
 The Lookup activity is used for executing queries on Azure Data Explorer. The result of the query will be returned as the output of the Lookup activity, and can be used in the next activity in the pipeline as described in the [ADF Lookup documentation](/azure/data-factory/control-flow-lookup-activity#use-the-lookup-activity-result-in-a-subsequent-activity).  
@@ -60,7 +61,7 @@ See the following table for a comparison of the Copy activity and `.export` comm
 | **Flow description** | ADF executes a query on Kusto, processes the result, and sends it to the target data store. <br>(**ADX > ADF > sink data store**) | ADF sends an `.export` control command to Azure Data Explorer, which executes the command, and sends the data directly to the target data store. <br>(**ADX > sink data store**) |
 | **Supported target data stores** | A wide variety of [supported data stores](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats) | ADLSv2, Azure Blob, SQL Database |
 | **Performance** | Centralized | <ul><li>Distributed (default), exporting data from multiple nodes concurrently</li><li>Faster and COGS efficient.</li></ul> |
-| **Server limits** | Query limits can be extended/disabled. By default, ADF queries contain: <ul><li>Size limit of 500,000 records or 64 MB.</li><li>Time limit of 10 minutes.</li><li>`noTruncation` set to false.</li></ul> | By default, extends or disables the query limits: <ul><li>Size limits are disabled.</li><li>Server timeout is extended to 1 hour.</li><li>`MaxMemoryConsumptionPerIterator` and `MaxMemoryConsumptionPerQueryPerNode` are extended to max (5 GB, TotalPhysicalMemory/2).</li></ul>
+| **Server limits** | [Query limits](/azure/kusto/concepts/querylimits) can be extended/disabled. By default, ADF queries contain: <ul><li>Size limit of 500,000 records or 64 MB.</li><li>Time limit of 10 minutes.</li><li>`noTruncation` set to false.</li></ul> | By default, extends or disables the query limits: <ul><li>Size limits are disabled.</li><li>Server timeout is extended to 1 hour.</li><li>`MaxMemoryConsumptionPerIterator` and `MaxMemoryConsumptionPerQueryPerNode` are extended to max (5 GB, TotalPhysicalMemory/2).</li></ul>
 
 > [!TIP]
 > If your copy destination is one of the data stores supported by the `.export` command, and if none of the Copy activity features is crucial to your needs, select the `.export` command.
