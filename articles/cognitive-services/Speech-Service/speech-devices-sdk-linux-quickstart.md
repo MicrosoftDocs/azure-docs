@@ -81,19 +81,19 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
     At the end of the file, before the closing tag `</project>`, create `repositories` and `dependencies` elements, as shown here, and ensure the `version` matches your current version:
     ```xml    
     <repositories>
-            <repository>
-                    <id>maven-cognitiveservices-speech</id>
-                    <name>Microsoft Cognitive Services Speech Maven Repository</name>
-                    <url>https://csspeechstorage.blob.core.windows.net/maven/</url>
-            </repository>
+         <repository>
+             <id>maven-cognitiveservices-speech</id>
+             <name>Microsoft Cognitive Services Speech Maven Repository</name>
+             <url>https://csspeechstorage.blob.core.windows.net/maven/</url>
+         </repository>
     </repositories>
  
     <dependencies>
-            <dependency>
-                    <groupId>com.microsoft.cognitiveservices.speech</groupId>
-                    <artifactId>client-sdk</artifactId>
-                    <version>1.7.0</version>
-            </dependency>
+        <dependency>
+             <groupId>com.microsoft.cognitiveservices.speech</groupId>
+             <artifactId>client-sdk</artifactId>
+             <version>1.7.0</version>
+        </dependency>
     </dependencies>
    ```
 
@@ -146,7 +146,6 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
      ```java
      private static final String Keyword = "Machine";
      ```
-  ```
 
 ## Run the sample application from Eclipse
 
