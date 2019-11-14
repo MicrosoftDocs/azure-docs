@@ -1,11 +1,12 @@
 ---
-title: Set up disaster recovery for Azure VMs after migration to Azure with Azure Site Recovery 
+title: Set up disaster recovery after migration to Azure with Azure Site Recovery 
 description: This article describes how to prepare machines to set up disaster recovery between Azure regions after migration to Azure using Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
 ---
 

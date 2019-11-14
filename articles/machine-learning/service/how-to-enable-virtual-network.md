@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 10/25/2019
+ms.date: 11/13/2019
 ---
 
 # Secure Azure ML experimentation and inference jobs within an Azure Virtual Network
@@ -241,8 +241,18 @@ except ComputeTargetException:
 
 When the creation process finishes, you train your model by using the cluster in an experiment. For more information, see [Select and use a compute target for training](how-to-set-up-training-targets.md).
 
-<a id="vmorhdi"></a>
+## Use Azure Databricks
 
+To use Azure Azure Databricks in a virtual network with your workspace, the following requirements must be met:
+
+> [!div class="checklist"]
+> * The virtual network must be in the same subscription and region as the Azure Machine Learning workspace.
+> * If the Azure Storage Account(s) for the workspace are also secured in a virtual network, they must be in the same virtual network as the Azure Databricks cluster.
+> * In addition to the __databricks-private__ and __databricks-public__ subnets used by Azure Databricks, the __default__ subnet created for the virtual network is also required.
+
+For specific information on using Azure Databricks with a virtual network, see [Deploy Azure Databricks in your Azure Virtual Network](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html).
+
+<a id="vmorhdi"></a>
 
 ## Use a virtual machine or HDInsight cluster
 
