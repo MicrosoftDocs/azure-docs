@@ -74,25 +74,18 @@ Operations can be called directly from the Azure portal, which provides a conven
 
     Backend responds with **200 OK** and some data.
 
-## <a name="call-operation"> </a>Call an operation from the Developer portal
+## Test the new API in the Azure portal
 
-Operations can also be called **Developer portal** to test APIs.
+![Test API map](./media/api-management-get-started/01-import-first-api-01.png)
 
-1. Select the API you created in the "Import and publish a back-end API" step.
-2. Press **Developer portal**.
+Operations can be called directly from the Azure portal, which provides a convenient way to view and test the operations of an API.
 
-    ![Test in Developer portal](./media/api-management-get-started/developer-portal.png)
+1. Select the API you created in the previous step (from the **APIs** tab).
+2. Press the **Test** tab.
+3. Click on **GetSpeakers**. The page displays fields for query parameters, in this case none, and headers. One of the headers is "Ocp-Apim-Subscription-Key", for the subscription key of the product that is associated with this API. The key is filled in automatically.
+4. Press **Send**.
 
-    The "Developer portal" site opens up.
-3. Select **API**.
-4. Select **Demo Conference API**.
-5. Click **GetSpeakers**.
-
-    The page displays fields for query parameters but in this case we don't have any. The page also displays fields for the headers. One of the headers is "Ocp-Apim-Subscription-Key", for the subscription key of the product that is associated with this API. If you created the APIM instance, you are an administrator already, so the key is filled in automatically.
-6. Press **Try it**.
-7. Press **Send**.
-
-    After an operation is invoked, the developer portal displays the **Response status**, the **Response headers**, and any **Response content**.
+    Backend responds with **200 OK** and some data.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 

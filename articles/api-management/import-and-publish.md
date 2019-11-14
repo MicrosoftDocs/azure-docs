@@ -91,7 +91,6 @@ In this tutorial, you learned how to:
 > [!div class="checklist"]
 > * Import your first API
 > * Test the API in the Azure portal
-> * Test the API in the Developer portal
 
 Advance to the next tutorial:
 
