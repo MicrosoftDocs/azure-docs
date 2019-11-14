@@ -14,6 +14,9 @@ ms.date: 11/13/2019
 
 In this article, you'll learn the steps to move Log Analytics workspace to another resource group or subscription in the same region. Azure provides you the ability to move some resources to a new resource group or subscription. You can move resources through the Azure portal, PowerShell, the Azure CLI, or the REST API. To learn more about the process, see [Move resources to a new resource group or subscription](../../azure-resource-manager/resource-group-move-resources.md). A Log Analytics workspace in Azure Monitor is one of the resources that can be moved. 
 
+> [!IMPORTANT]
+> You can't move a workspace to a different region.
+
 ## Verify Active Directory tenant
 The workspace source and destination subscriptions must exist within the same Azure Active Directory tenant. Use Azure PowerShell to verify that both subscriptions have the same tenant ID.
 
@@ -23,7 +26,9 @@ The workspace source and destination subscriptions must exist within the same Az
 ```
 
 ## Remove solutions
-You must unlink any Automation account from the workspace before it can be moved. This requires removing the following solutions if they are installed in the workspace: 
+Managed solutions that are installed in the workspace will be moved with the Log Analytics workspace move operation. Since you must remove the link from the workspace to any automation account though, solutions that rely on that link must be removed.
+
+Solutions that must be removed include the following: 
 
 - Update Management
 - Change Tracking
@@ -79,7 +84,7 @@ Use the following procedure to move your workspace using the Azure portal:
 1. Open the **Log Analytics workspaces** menu and then select your workspace.
 2. In the **Overview** page, click **change** next to either **Resource group** or **Subscription**.
 3. A new page opens with a list of resources related to the workspace. Select the resources to move to the same destination subscription and resource group as the workspace. 
-4. Select a destination **Subscription** and **Resource group** if you are changing subscriptions or a destination **Resource group** if your changing resource group in the same subscription.
+4. Select a destination **Subscription** and **Resource group**. If you're moving the workspace to another resource group in the same subscription, you won't see the **Subscription** option.
 5. Click **OK** to move the workspace and selected resources.
 
     ![Portal](media/move-workspace/portal.png)
