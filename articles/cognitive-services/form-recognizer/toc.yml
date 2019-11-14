@@ -23,6 +23,10 @@
         href: quickstarts/curl-receipts.md
       - name: Python
         href: quickstarts/python-receipts.md
+    - name: Get text layout information
+      items:
+      - name: Python
+        href: quickstarts/python-layout.md
   - name: Using the .NET SDK
     href: quickstarts/dotnet-sdk.md
 - name: Tutorials

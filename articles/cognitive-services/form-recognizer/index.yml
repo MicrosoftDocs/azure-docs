@@ -53,13 +53,6 @@ landingContent:
           - text: Build a training data set
             url: build-training-data-set.md
 
-  - title: Extract data from receipts
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Using the .NET SDK
-            url: quickstarts/dotnet-sdk.md
-
   - title: Train using labels
     linkLists:
       - linkListType: concept
@@ -71,7 +64,21 @@ landingContent:
             - text: Train with labels using the REST API and Python
               url: python-labeled-data.md
 
+  - title: Extract data from receipts
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Using the REST API (Python)
+            url: quickstarts/python-receipts.md
+          - text: Using the REST API (cURL)
+            url: quickstarts/curl-receipts.md
 
+  - title: Get text layout information
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Using the REST API (Python)
+            url: quickstarts/python-layout.md
 
   - title: Use containers
     linkLists:
