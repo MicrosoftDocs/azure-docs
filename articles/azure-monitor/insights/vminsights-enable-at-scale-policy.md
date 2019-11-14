@@ -26,7 +26,7 @@ If you're interested in accomplishing these tasks with Azure PowerShell or an Az
 
 Originally, the experience with Azure Policy for managing and deploying the policy definitions for Azure Monitor for VMs was done exclusively from Azure Policy. The Manage Policy Coverage feature makes it simpler and easier to discover, manage, and enable at scale the **Enable Azure Monitor for VMs** initiative, which includes the policy definitions mentioned earlier. You can access this new feature from the **Get Started** tab in Azure Monitor for VMs. Select **Manage Policy Coverage** to open the **Azure Monitor for VMs Policy Coverage** page.
 
-![Azure Monitor from VMs Get Started tab](./media/vminsights-enable-at-scale-policy/get-started-page-01.png)
+![Azure Monitor from VMs Get Started tab](./media/vminsights-enable-at-scale-policy/get-started-page.png)
 
 From here, you can check and manage coverage for the initiative across your management groups and subscriptions. You can understand how many VMs exist in each of the management groups and subscriptions and their compliance status.
 
@@ -168,7 +168,7 @@ The following table maps each possible assignment status for the initiative.
 
 The following example is for an Azure VM, but it also applies to virtual machine scale sets. To learn how to review compliance results, see [Identify noncompliance results](../../governance/policy/assign-policy-portal.md#identify-non-compliant-resources). On the **Azure Monitor for VMs Policy Coverage** page, select either a management group or a subscription from the table. Select **View Compliance** by selecting the ellipsis (...).   
 
-![Policy compliance for Azure VMs](./media/vminsights-enable-at-scale-policy/policy-view-compliance-01.png)
+![Policy compliance for Azure VMs](./media/vminsights-enable-at-scale-policy/policy-view-compliance.png)
 
 Based on the results of the policies included with the initiative, VMs are reported as noncompliant in the following scenarios:
 
