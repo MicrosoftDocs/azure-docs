@@ -118,7 +118,7 @@ Make sure machines comply with requirements for migration to Azure.
 > [!NOTE]
 > Agent-based migration with Azure Migrate Server Migration is based on features of the Azure Site Recovery service. Some requirements might link to Site Recovery documentation.
 
-1. [Verify](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements) VMware server requirements.
+1. [Verify](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements) server requirements.
 2. [Verify](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) VM support requirements for migration.
 3. Verify VM settings. On-premises VMs you replicate to Azure must comply with [Azure VM requirements](migrate-support-matrix-vmware.md#azure-vm-requirements).
 
@@ -260,7 +260,7 @@ Now, select machines for migration.
 
     ![Replicate VMs](./media/tutorial-migrate-physical-virtual-machines/select-replicate.png)
 
-2. In **Replicate**, > **Source settings** > **Are your machines virtualized?**, select **Yes, with VMware vSphere**.
+2. In **Replicate**, > **Source settings** > **Are your machines virtualized?**, select **Not virtualized/Other**.
 3. In **On-premises appliance**, select the name of the Azure Migrate appliance that you set up.
 4. In **vCenter server**, specify the name of the vCenter server managing the VMs, or the vSphere server on which the VMs are hosted.
 5. In **Process Server**, select the name of the replication appliance.
