@@ -29,6 +29,8 @@ In this tutorial, you learn how to do the following tasks:
 
 - **Configure Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure)
 
+- **Azure resource group**: If you don't have an Azure resource group to use for the demo, [create an Azure resource group](/azure/azure-resource-manager/manage-resource-groups-portal#create-resource-groups). Take note of the resource group name and location as those values are used in the demo.
+
 - **Azure service principal**: Follow the directions in the section of the **Create the service principal** section in the article, [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Take note of the values for the appId, displayName, and password.
 
 - **Obtain the Service Principal Object ID**: Run the following command in Cloud Shell: `az ad sp list --display-name <displayName>`
@@ -97,7 +99,7 @@ Create the Terraform configuration file that lists all the variables required fo
     
     ```hcl
     variable "resource_group_name" {
-      description = "Name of the resource group already created."
+      description = "Name of the resource group."
     }
 
     variable "location" {
@@ -529,7 +531,7 @@ With AKS, you pay only for the worker nodes. The `agent_pool_profile` record con
 
 Terraform tracks state locally via the `terraform.tfstate` file. This pattern works well in a single-person environment. However, in a more practical multi-person environment, you need to track state on the server using [Azure storage](/azure/storage/). In this section, you learn to retrieve the necessary storage account information and create a storage container. The Terraform state information is then stored in that container.
 
-1. In the Azure portal, under **Azure services**, select **Storage accounts**. (You have to select **More services** if **Storage accounts** is not visible on the main page.)
+1. In the Azure portal, under **Azure services**, select **Storage accounts**. (If **Storage accounts** isn't visible on the main page, select **More services** and then locate and select it.)
 
 1. On the **Storage accounts** page, select the name of the storage account into which Terraform is to store state. For example, you can use the storage account created when you opened Cloud Shell the first time.  The storage account name created by Cloud Shell typically starts with `cs` followed by a random string of numbers and letters. 
 
