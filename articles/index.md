@@ -3908,7 +3908,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Security Information</h3>
-                                                    <p>Learn how Azure provides a secure infrastructure to build cloud solutions</p>
+                                                    <p>Learn how to secure your cloud solutions on Azure with our best practices and guidance</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5843,7 +5843,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Security Information</h3>
-                                                    <p>Learn how Azure provides a secure infrastructure to build cloud solutions</p>
+                                                    <p>Learn how to secure your cloud solutions on Azure with our best practices and guidance</p>
                                                 </div>
                                             </div>
                                         </div>
