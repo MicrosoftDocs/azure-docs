@@ -4,7 +4,7 @@ description: Customers can use the Service providers page in the Azure portal to
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 11/13/2019
+ms.date: 11/15/2019
 ms.topic: overview
 manager: carmonm
 ---
