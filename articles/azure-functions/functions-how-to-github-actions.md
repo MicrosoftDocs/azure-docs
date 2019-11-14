@@ -210,7 +210,7 @@ The following example uses version 1 of the `functions-action`:
 
 ## Next steps
 
-To view a complete workflow .yaml, see one of the files in the [Azure GitHub Actions workflow samples repo](https://github.com/Azure/actions-workflow-samples) that have `functionapp` in the name. You can use these samples a starting point for your workflow.
+To view a complete workflow .yaml, see one of the files in the [Azure GitHub Actions workflow samples repo](https://aka.ms/functions-actions-samples) that have `functionapp` in the name. You can use these samples a starting point for your workflow.
 
 > [!div class="nextstepaction"]
 > [Learn more about GitHub Actions](https://help.github.com/en/articles/about-github-actions)
