@@ -170,7 +170,7 @@ The following data fields are found in usage detail files and Cost Management AP
 | billingPeriodStartDate | Billing period start date, as shown on the invoice. | N/A |
 | billingPeriodEndDate | Billing period end date, as shown on the invoice. | N/A |
 | servicePeriodStartDate | Start date for the rating period when the service usage was rated for charges. The prices for Azure services are determined for the rating period. | ChargeStartDate in Partner Center. Billing cycle start date, except when presenting dates of previously uncharged latent usage data from a previous billing cycle. The time is always the beginning of the day, 0:00. |
-| servicePeriodEndDate | End date for the period when the service usage was rated for charges. The prices for Azure services are determined based on the rating period. |
+| servicePeriodEndDate | End date for the period when the service usage was rated for charges. The prices for Azure services are determined based on the rating period. | N/A |
 | date | For Azure consumption data, it shows date of usage as rated. For reserved instance, it shows the purchased date. For recurring charges and one-time charges such as Marketplace and support, it shows the purchase date. | N/A |
 | productID | Identifier for the product that has accrued charges by consumption or purchase. It is the concatenated key of productID and SKuID, as shown in the Partner Center. | The ID of the product. |
 | product | Name of the product that has accrued charges by consumption or purchase, as shown on the invoice. | The product name in the catalog. |
