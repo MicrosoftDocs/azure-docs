@@ -38,7 +38,7 @@ Cloud Shell passes required values for the `azurerm` provider through environmen
 
 Files and shell states persist in Azure Storage between Cloud Shell sessions. Use [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer) to copy and upload files to Cloud Shell from your local computer.
 
-The Azure CLI is available in Cloud Shell and is a great tool for testing configurations and checking your work after `terraform apply` or `terraform destroy` completes.
+The Azure CLI is available in Cloud Shell and is a great tool for testing configurations and checking your work after `terraform apply` or `terraform destroy` finishes.
 
 
 ## Next steps
