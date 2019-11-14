@@ -19,7 +19,7 @@ Azure Media Services Video Indexer is an Azure service designed to extract deep 
 
 A solution described in this article, allows customers to use Video Indexer in near real-time resolutions on live feeds. The delay in indexing can be as low as four minutes using this solution, depending on the chunks of data being indexed, the input resolution, the type of content and the compute powered used for this process.
 
-![The Video Indexer metadata on the live stream](./media/animated-characters-recognition/live-stream-analysis01.png)
+![The Video Indexer metadata on the live stream](./media/live-stream-analysis/live-stream-analysis01.png)
 
 *Figure 1 – Sample player displaying the Video Indexer metadata on the live stream*
 
@@ -29,10 +29,14 @@ In high level, it is comprised of two main steps. The first step runs every 60 s
 
 The sample player plays the live stream and gets the insights from Azure Cosmos DB, using a dedicated Azure Function. It displays the metadata and thumbnails in sync with the live video.
 
-![The two logic apps processing the live stream every minute in the cloud](./media/animated-characters-recognition/live-stream-analysis02.png)
+![The two logic apps processing the live stream every minute in the cloud](./media/live-stream-analysis/live-stream-analysis02.png)
 
 *Figure 2 – The two logic apps processing the live stream every minute in the cloud.*
 
+## Step-by-step guide 
+
+The full code and a step-by-step guide to deploy the results can be found in [GitHub project for Live media analytics with Video Indexer](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/blob/master/media-functions-for-logic-app/LiveStreamAnalysis.md). 
+
 ## Next steps
 
-The full code and a step-by-step guide to deploy the results can be found in this [GitHub project for Live media analytics with Video Indexer](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/blob/master/media-functions-for-logic-app/LiveStreamAnalysis.md). 
+[GitHub project for Live media analytics with Video Indexer](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/blob/master/media-functions-for-logic-app/LiveStreamAnalysis.md). 
