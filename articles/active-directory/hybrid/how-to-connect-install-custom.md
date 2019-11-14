@@ -10,7 +10,7 @@ ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/25/2019
+ms.date: 11/14/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
