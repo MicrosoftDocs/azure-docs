@@ -332,12 +332,13 @@ The virtual machine is created.
 > If you get an error about boot diagnostics, you can ignore it. A standard storage account is created for boot diagnostics because the specified storage account for the virtual machine's disk is a premium storage account.
 
 ## Install the SQL Iaas Agent
-SQL Server virtual machines support automated management features with the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md). To install the agent on the new VM, run the following command after it's created.
+SQL Server virtual machines support automated management features with the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md). To install the agent on the new VM, and register it with the resource provider, run the [New-AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm) command after the virtual machine is created. Specify the license type for your SQL Server VM, choosing between either pay-as-you-go or bring-your-own-license via the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). For more information about licensing, see [licensing model](virtual-machines-windows-sql-ahb.md). 
 
 
    ```powershell
-   Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
+   New-AzSqlVM -ResourceGroupName $ResourceGroupName -Name $VMName -Location $Location -LicenseType <PAYG/AHUB> 
    ```
+
 
 ## Stop or remove a VM
 
@@ -414,8 +415,8 @@ $VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine -PublisherName $Publis
 # Create the VM in Azure
 New-AzVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VirtualMachine
 
-# Add the SQL IaaS Extension
-Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
+# Add the SQL IaaS Extension, and choose the license type
+New-AzSqlVM -ResourceGroupName $ResourceGroupName -Name $VMName -Location $Location -LicenseType <PAYG/AHUB> 
 ```
 
 ## Next steps
