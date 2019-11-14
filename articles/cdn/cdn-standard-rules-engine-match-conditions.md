@@ -47,7 +47,7 @@ Operator | Supported values
 ---------|----------------
 Equals, Not equals | 2.0, 1.1, 1.0, 0.9, All
 
-## Request cookies
+### Request cookies
 
 Identifies requests based on cookie information in the incoming request.
 

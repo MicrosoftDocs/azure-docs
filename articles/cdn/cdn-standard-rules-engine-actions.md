@@ -21,11 +21,11 @@ The second part of a rule is an action. An action defines the behavior that's ap
 
 The following actions are available to use in the Standard rules engine for Azure CDN. 
 
-## Cache expiration
+### Cache expiration
 
 Use this action to overwrite the time to live (TTL) value of the endpoint for requests that the rules match conditions specify.
 
-### Required fields
+#### Required fields
 
 Cache behavior |  Description              
 ---------------|----------------
@@ -33,17 +33,17 @@ Bypass Cache | When this option is selected and the rule matches, the content is
 Override | When this option is selected and the rule matches, the TTL value returned from your origin is overwritten with the value specified in the action.
 Set if missing | When this option is selected and the rule matches, if no TTL value was returned from your origin, the rule sets the TTL to the value specified in the action.
 
-### Additional fields
+#### Additional fields
 
 Days | Hours | Minutes | Seconds
 -----|-------|---------|--------
 Int | Int | Int | Int 
 
-## Cache key query string
+### Cache key query string
 
 Use this action to modify the cache key based on query strings.
 
-### Required fields
+#### Required fields
 
 Behavior | Description
 ---------|------------
@@ -52,11 +52,11 @@ Cache every unique URL | When this option is selected and the rule matches, each
 Exclude | When this option is selected and the rule matches, query strings specified in the parameters are excluded when the cache key is generated.
 Ignore query strings | When this option is selected and the rule matches, query strings aren't considered when the cache key is generated. 
 
-## Modify request header
+### Modify request header
 
 Use this action to modify headers that are present in requests sent to your origin.
 
-### Required fields
+#### Required fields
 
 Action | HTTP header name | Value
 -------|------------------|------
@@ -64,11 +64,11 @@ Append | When this option is selected and the rule matches, the header specified
 Overwrite | When this option is selected and the rule matches, the header specified in **Header name** is added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. | String
 Delete | When this option is selected and the rule matches, and the header specified in the rule is present, the header is deleted from the request. | String
 
-## Modify response header
+### Modify response header
 
 Use this action to modify headers that are present in responses returned to your clients.
 
-### Required fields
+#### Required fields
 
 Action | HTTP Header name | Value
 -------|------------------|------
@@ -76,11 +76,11 @@ Append | When this option is selected and the rule matches, the header specified
 Overwrite | When this option is selected and the rule matches, the header specified in **Header name** is added to the response using the specified **Value**. If the header is already present, **Value** overwrites the existing value. | String
 Delete | When this option is selected and the rule matches, and the header specified in the rule is present, the header is deleted from the response. | String
 
-## URL redirect
+### URL redirect
 
 Use this action to redirect clients to a new URL. 
 
-### Required fields
+#### Required fields
 
 Field | Description 
 ------|------------
@@ -93,11 +93,11 @@ Fragment | Define the fragment to use in the redirect. Leave blank to preserve t
 
 We highly recommend that you use an absolute URL. Using a relative URL might redirect Azure CDN URLs to an invalid path. 
 
-## URL rewrite
+### URL rewrite
 
 Use this action to rewrite the path of a request that's en route to your origin.
 
-### Required fields
+#### Required fields
 
 Field | Description 
 ------|------------
