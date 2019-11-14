@@ -14,24 +14,37 @@ ms.date: 11/14/2018
 ms.author: magoedte
 ---
 
-# Overview of the Azure monitoring agents 
-Compute resources such as virtual machines generate data to monitor their performance and availability just like other cloud resources. Compute resources though also have a guest operating system running workloads that need to be monitored. Collecting this monitoring data from inside the resource requires an agent. This article describes the agents used by Azure Monitor and helps you determine which you need for your particular requirements.
+# Overview of the Azure Monitor agents 
+Compute resources such as virtual machines generate data to monitor their performance and availability just like other cloud resources. Compute resources though also have a guest operating system running workloads that need to be monitored. Collecting this monitoring data from inside the resource requires an agent. This article describes the agents used by Azure Monitor and helps you determine which you need to meet the requirements for your particular environment.
 
 ## Summary of agents
 
 > [!NOTE]
-> The reason that Azure Monitor currently has multiple agents is because of 
+> Azure Monitor currently has multiple agents is because of recent consolidation of services. Each agent has unique capabilities so you may use one or multiple depending on your requirements. We are working to simplify the configuration required to provide all monitoring capabilities.
 
-Microsoft Azure provides multiple ways to collect different types of data from virtual machines running Microsoft Windows and Linux hosted in Azure, your datacenter, or other cloud providers. The three types of agents available to monitor a VM are:
+Azure Monitor has three agents that each provide specific functionality. Depending on your requirements, you may install a single agent or multiple on your virtual machines and other compute resources.
 
-* Azure Diagnostics extensions
-* Log Analytics Agent for Linux and Windows
-* Dependency agent
+* [Azure Diagnostics extension](az#are-diagnostic-extension)
+* [Log Analytics agent](#log-analytics-agent)
+* [Dependency agent](#dependency-agent)
 
-This article describes the differences between them and their capabilities in order for you to determine which one will support your IT service management or general monitoring requirements.  
+The following table provides a quick comparison of the different agents. See the rest of this article for details on each.
+
+| | Azure Diagnostic Extension | Log Analytics agent | Dependency agent |
+|:---|:---|:---|:---|
+| Environments supported | Azure | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises |
+| Operating Systems | Windows<br>Linux | Windows<br>Linux | Windows<br>Linux
+| Agent dependencies  | None | None | Requires Log Analytics agent |
+| Data collected | Event Logs<br>ETW events<br>Syslog<br>Performance<br>IIS logs<br>.NET app tracing output logs<br>Crash dumps | Event Logs<br>Syslog<br>Performance<br>IIS logs<br>Custom logs | Process details and dependencies |
+| Data stored in | Azure Monitor Logs | Azure Monitor Metrics<br>Azure Storage | Azure Monitor Logs |
+
+
+
 
 ## Azure Diagnostic extension
-The [Azure Diagnostics extension](../../azure-monitor/platform/diagnostics-extension-overview.md) (commonly referred to as the Windows Azure Diagnostic (WAD) or Linux Azure Diagnostic (LAD) extension), which has been provided for Azure Cloud Services since it became generally available in 2010, is an agent that delivers simple collection of diagnostic data from an Azure compute resource like a VM, and persist it to Azure storage. Once in storage, you choose to view with one of several available tools, such as [Server Explorer in Visual Studio](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) and [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
+The [Azure Diagnostics extension](../../azure-monitor/platform/diagnostics-extension-overview.md) is often referred to as the Windows Azure Diagnostic (WAD) or Linux Azure Diagnostic (LAD) extension. This agent is available for Azure compute resources such as virtual machines and collects guest monitoring data into Azure Storage and Azure Monitor Metrics.
+
+ Once in storage, you choose to view with one of several available tools, such as [Server Explorer in Visual Studio](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) and [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 You can choose to collect:
 
@@ -54,8 +67,6 @@ The Azure Diagnostics agent should be used when you want to:
 
 ## Log Analytics agent
 For advanced monitoring where you need to do more than collect metrics and a subset of logs, the Log Analytics agent for Windows (also referred to as the Microsoft Monitoring Agent (MMA)) and Linux is required. The Log Analytics agent was developed for comprehensive management across on-premises physical and virtual machines, computers monitored by System Center Operations Manager, and VMs in hosted in other clouds. The Windows and Linux agents connect to a Log Analytics workspace in Azure Monitor to collect both monitoring solution-based data as well as custom data sources that you configure.
-
-[!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
 The Log Analytics agent should be used when you want to:
 
