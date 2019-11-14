@@ -21,7 +21,7 @@ To learn more about the change feed, see [Change feed in Azure Blob Storage (Pre
 
 ## Get the blob change feed processor library
 
-1. In Visual Studio, add the URL `https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-net/index.json` to your NuGet package sources. 
+1. In Visual Studio, add the URL `https://azuresdkartifacts.blob.core.windows.net/azuresdkpartnerdrops/index.json` to your NuGet package sources. 
 
    To learn how, see [package sources](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#package-sources).
 
