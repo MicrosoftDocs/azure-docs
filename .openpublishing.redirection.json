@@ -4777,6 +4777,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/application-gateway/tutorial-internal-site-redirect-cli.md",
+      "redirect_url": "/azure/application-gateway/redirect-internal-site-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/tutorial-internal-site-redirect-powershell.md",
+      "redirect_url": "/azure/application-gateway/redirect-internal-site-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/tutorial-http-redirect-cli.md",
+      "redirect_url": "/azure/application-gateway/redirect-http-to-https-cli",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/application-gateway/tutorial-http-redirect-powershell.md",
       "redirect_url": "/azure/application-gateway/redirect-http-to-https-powershell",
       "redirect_document_id": false

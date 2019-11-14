@@ -133,6 +133,8 @@ The **More Actions** button expands to display the **Download as CSV** and **Exp
 
   [![More Actions option](media/v2-update-explorer/more-actions-icon.png)](media/v2-update-explorer/more-actions-icon.png#lightbox)
 
+Read about the [Time Series Insights native Power BI connector](concepts-power-bi.md).
+
 ## 6. Time editor panel
 
 When working with Time Series Insights you first will select a time span. The selected time span will control the data set that is available for manipulation with the Time Series Insights update widgets.
