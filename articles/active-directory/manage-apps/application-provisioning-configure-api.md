@@ -30,7 +30,6 @@ Azure AD provides an interface for configuring provisioning. This can be easy to
 2.	Create provisioning job based on template
 	* Retrieve the template for the provisioning connector
 	* Create the provisioning job
-	* Get Job Id
 3.	Authorize access
 	* Test connection to the application
 	* Save credentials
@@ -266,61 +265,8 @@ Content-type: application/json
     }
 }
 ```
-## Step 6: Retrieve the Provisioning Job ID of the application
-Now that the provisioning job is created, you will need to [retrieve the job ID](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-get?view=graph-rest-beta&tabs=http) to complete your configuration. Use the command below to retrieve your job ID. 
 
-##### Request
-<!-- {
-  "blockType": "request",
-  "name": "get_synchronizationjob"
-}-->
-```msgraph-interactive
-GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/
-```
-
-##### Response
-<!-- {
-  "blockType": "response",
-  "truncated": true,
-  "@odata.type": "microsoft.graph.synchronizationJob"
-} -->
-```http
-HTTP/1.1 200 OK
-Content-type: application/json
-Content-length: 2577
-
-{
-    "id": "{jobId}",
-    "templateId": "aws",
-    "schedule": {
-        "expiration": null,
-        "interval": "P10675199DT2H48M5.4775807S",
-        "state": "Disabled"
-    },
-    "status": {
-        "countSuccessiveCompleteFailures": 0,
-        "escrowsPruned": false,
-        "synchronizedEntryCountByType": [],
-        "code": "Paused",
-        "lastExecution": null,
-        "lastSuccessfulExecution": null,
-        "progress": [],
-        "lastSuccessfulExecutionWithExports": null,
-        "steadyStateFirstAchievedTime": "0001-01-01T00:00:00Z",
-        "steadyStateLastAchievedTime": "0001-01-01T00:00:00Z",
-        "quarantine": null,
-        "troubleshootingUrl": null
-    },
-    "synchronizationJobSettings": [
-      {
-          "name": "QuarantineTooManyDeletesThreshold",
-          "value": "500"
-      }
-    ]
-}
-```
-
-## Step 7: Validate credentials
+## Step 6: Validate credentials
 
 Test the connection with the third party application. The example below is for an application that requires clientSecret and secretToken. Each application has its on requirements. Review the [API documentation](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&tabs=http) to see the available options. 
 
@@ -344,7 +290,7 @@ POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/job
 HTTP/1.1 204 No Content
 ```
 
-## Step 8: Save your credentials
+## Step 7: Save your credentials
 
 Configuring provisioning requires establishing a trust between Azure AD and the application. Authorize access to the third party application. The example below is for an application that requires clientSecret and secretToken. Each applicaiton has its on requirements. Review the [API documentation](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&tabs=http) to see the available options. 
 
@@ -370,7 +316,7 @@ PUT https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secr
 HTTP/1.1 204 No Content
 ```
 
-## Step 9: Set scope	
+## Step 8: Set scope	
 
 Set the scope for who will be provisioned to the application. Skip this step for Amazon Web Service as only role imports are supported. As a best practice, start by scoping to users assigned to the application and change that to all users and groups if needed.   
 
@@ -413,7 +359,7 @@ templateId: "DropboxSCIMOutDelta"
 
 
 
-## Step 10: Add a custom attribute to your attribute mappings (optional)
+## Step 9: Add a custom attribute to your attribute mappings (optional)
 The application template provides the default attributes required to setup provisioning to the application. If you need to add an additional attribute mapping to your configuration, use the steps below. This is not a required or recommended step. 
 
 #### Get the synchronization schema
@@ -604,8 +550,8 @@ HTTP/1.1 201 No Content
 ```
 
 
-## Step 11: Start the provisioning job
-Now that the provisioning job is configured, use the following command to start the job. 
+## Step 10: Start the provisioning job
+Now that the provisioning job is configured, use the following command to [start the job](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-start?view=graph-rest-beta&tabs=http). 
 
 
 ##### Request
@@ -628,7 +574,7 @@ HTTP/1.1 204 No Content
 ```
 
 
-## Step 12: Monitor the provisioning job status
+## Step 11: Monitor the provisioning job status
 
 Now that the provisioning job is running, use the following command to track the progress of the current provisioning cycle as well as statistics to date such as the number of users and groups that have been created in the target system. 
 
@@ -684,8 +630,8 @@ Content-length: 2577
 ```
 
 
-## Step 13: Monitor provisioning events using the provisioning logs
-In addition to monitoring the status of the provisioning job, you can use the provisioning logs to query for all the events that are occurring (e.g. query for a particular user and determine if they were successfully provisioned).
+## Step 12: Monitor provisioning events using the provisioning logs
+In addition to monitoring the status of the provisioning job, you can use the [provisioning logs](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http) to query for all the events that are occurring (e.g. query for a particular user and determine if they were successfully provisioned).
 
 **Request**
 ```msgraph-interactive
