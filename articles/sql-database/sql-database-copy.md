@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
-ms.date: 09/04/2019
+ms.date: 11/14/2019
 ---
 # Copy a transactionally consistent copy of an Azure SQL database
 
@@ -56,7 +56,7 @@ New-AzSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
 
 For a complete sample script, see [Copy a database to a new server](scripts/sql-database-copy-database-to-new-server-powershell.md).
 
-The database copy is a asynchronous operation but the target database is created immediately after the request is accepted. If you need to cancel the copy operation while still in progress, drop the the target database using the [Remove-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlet.  
+The database copy is an asynchronous operation but the target database is created immediately after the request is accepted. If you need to cancel the copy operation while still in progress, drop the target database using the [Remove-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlet.  
 
 ## RBAC roles to manage database copy
 
@@ -150,6 +150,26 @@ After the new database is online on the destination server, use the [ALTER USER]
 All users in the new database retain the permissions that they had in the source database. The user who initiated the database copy becomes the database owner of the new database and is assigned a new security identifier (SID). After the copying succeeds and before other users are remapped, only the login that initiated the copying, the database owner, can log in to the new database.
 
 To learn about managing users and logins when you copy a database to a different SQL Database server, see [How to manage Azure SQL database security after disaster recovery](sql-database-geo-replication-security-config.md).
+
+## Database copy errors
+
+The following errors can be encountered while copying a database in Azure SQL Database. For more information, see [Copy an Azure SQL Database](sql-database-copy.md).
+
+| Error code | Severity | Description |
+| ---:| ---:|:--- |
+| 40635 |16 |Client with IP address '%.&#x2a;ls' is temporarily disabled. |
+| 40637 |16 |Create database copy is currently disabled. |
+| 40561 |16 |Database copy failed. Either the source or target database does not exist. |
+| 40562 |16 |Database copy failed. The source database has been dropped. |
+| 40563 |16 |Database copy failed. The target database has been dropped. |
+| 40564 |16 |Database copy failed due to an internal error. Please drop target database and try again. |
+| 40565 |16 |Database copy failed. No more than 1 concurrent database copy from the same source is allowed. Please drop target database and try again later. |
+| 40566 |16 |Database copy failed due to an internal error. Please drop target database and try again. |
+| 40567 |16 |Database copy failed due to an internal error. Please drop target database and try again. |
+| 40568 |16 |Database copy failed. Source database has become unavailable. Please drop target database and try again. |
+| 40569 |16 |Database copy failed. Target database has become unavailable. Please drop target database and try again. |
+| 40570 |16 |Database copy failed due to an internal error. Please drop target database and try again later. |
+| 40571 |16 |Database copy failed due to an internal error. Please drop target database and try again later. |
 
 ## Next steps
 
