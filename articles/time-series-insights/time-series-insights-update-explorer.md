@@ -8,41 +8,41 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 11/13/2019
 ms.custom: seodec18
 ---
 
-# Visualize data in the explorer Preview
+# Azure Time Series Insights Preview explorer
 
-This document describes the user interface and user experience features and interface of the Azure Time Series Insights Preview [demo web app](https://insights.timeseries.azure.com/preview/demo). Specifically, it discusses the layout of the hosted sample, interface customization options, and navigation through the provided demo.
+This articles describes the various features and options available within the Azure Time Series Insights Preview [demo web application](https://insights.timeseries.azure.com/preview/demo).
 
 ## Prerequisites
 
 To get started with the Azure Time Series Insights Preview explorer, you must:
 
-* Have a Time Series Insights environment set up. To learn more about provisioning an instance, try the [Azure Time Series Insights Preview](./time-series-insights-update-create-environment.md) tutorial.
+* Have a Time Series Insights environment provisioned. Learn more about provisioning an instance by reading the [Azure Time Series Insights Preview](./time-series-insights-update-create-environment.md) tutorial.
 * [Provide data access](./time-series-insights-data-access.md) to the Time Series Insights environment that you created for the account. You can provide access to others as well as to yourself.
 * Add an event source to the Time Series Insights environment to push data to the environment:
-  * Learn [how to connect to an event hub](./time-series-insights-how-to-add-an-event-source-eventhub.md).
-  * Learn [how to connect to an IoT hub](./time-series-insights-how-to-add-an-event-source-iothub.md).
+  * Learn [how to connect to an event hub](./time-series-insights-how-to-add-an-event-source-eventhub.md) 
+  * Learn [how to connect to an IoT hub](./time-series-insights-how-to-add-an-event-source-iothub.md)
 
-## Learn about the Preview explorer
+## Explore the Time Series Insights Preview explorer
 
-The Azure Time Series Insights Preview explorer consists of the following elements:
+The Azure Time Series Insights Preview explorer consists of the following seven elements:
 
 [![The Explorer view](media/v2-update-explorer/explorer-one.png)](media/v2-update-explorer/explorer-one.png#lightbox)
 
-- <a href="#environment-drop-down-list">Environment panel</a>: Displays your Azure Time Series Insights environments.
-- <a href="#navigation-menu">Navigation menu</a>: Use it to switch between the **Analyze** and **Model** pages.
-- <a href="#hierarchy-tree">Hierarchy tree</a>: Use it to select specific model and data elements to be charted.
-- <a href="#preview-well">Time series well</a>: Displays your currently selected data elements in table format with color coding.
-- <a href="#preview-chart">Chart panel</a>: Displays your current working chart.
-- <a href="#time-editor-panel">Timeline</a>: Use it to modify your working time span.
-- <a href="#navigation-panel">App bar</a>: Contains your user management options, such as current tenant. You can use it to change theme and language settings.
+1. [Environment panel](#environment-panel): Displays all your Azure Time Series Insights environments.
+1. [Navigation bar](#navigation-bar): Allows you to switch between the **Analyze** and **Model** pages.
+1. [Hierarchy tree and search panel](#hierarchy-tree-and-search-panel): Select and search for specific data elements to be charted.
+1. [Time series well](#time-series-well): Shows all your currently selected data elements.
+1. [Chart panel](#chart-panel): Your current working chart.
+1. [Timeline](#timeline): This allows you to modify your working time span.
+1. [App bar](#app-bar): This contains your user management options (such as current tenant), and allows you to change them and language settings.
 
-## Environment drop-down list
+## Environment panel
 
-The environment drop-down list displays all the Time Series Insights environments you have access to. The list includes pay-as-you-go environments, such as the Time Series Insights Preview. The list also includes S1/S2 environments, which are generally available.
+The environment panel displays all the Time Series Insights environments you have access to. The list includes pay-as-you-go (Preview) environments as well as S1/S2 environments (General Availability). Simply click the Time Series Insights environment you want to use to immediately be taken there.
 
 1. Select the drop-down arrow next to your displayed environment.
 
@@ -50,7 +50,7 @@ The environment drop-down list displays all the Time Series Insights environment
 
 1. Then, select the environment you want.
 
-## Navigation menu
+## Navigation bar
 
   [![The navigation menu](media/v2-update-explorer/explorer-three.png)](media/v2-update-explorer/explorer-three.png#lightbox)
 
@@ -59,7 +59,7 @@ Use the navigation menu to select between two views:
 * **Analyze**: Use it to chart and perform rich analytics on your modeled or unmodeled time series data.
 * **Model**: Use it to push new Time Series Insights Preview types, hierarchies, and instances to your Time Series Insights model.
 
-## Hierarchy tree
+## Hierarchy tree and search panel
 
 The hierarchy tree displays selected data elements that include models, specific devices, and sensors on your devices.
 
@@ -79,7 +79,7 @@ The Azure Time Series Insights Preview supports full create, read, update, and d
 
 To learn more about the Time Series Model, see [Times Series Models](./time-series-insights-update-tsm.md).
 
-## Preview well
+## Time series well
 
 The well displays instance fields and other metadata associated with selected Time Series Insights instances. By selecting the check boxes on the right side, you can hide or display specific instances from the current chart. You can also remove specific data elements from your current data well by selecting the red **Delete** (trash can) control on the left side of the element.
 
@@ -94,7 +94,8 @@ To reconfigure the layout of your **Analyze** chart page, select the ellipses ic
 >
 > ![No data notification](media/v2-update-explorer/explorer-seven.png)
 
-## Preview chart
+
+## Chart panel
 
 With the chart, you can display Time Series Insights instances as lines. You can collapse the environment panel, data model, and time span control panel by selecting the web controls to make the chart larger.
 
@@ -126,7 +127,7 @@ Here, you can see an example of shared Y axes:
 
   [![Preview shared Y axes](media/v2-update-explorer/explorer-eleven.png)](media/v2-update-explorer/explorer-eleven.png#lightbox)
 
-## Time editor panel
+## Timeline
 
 When you work with Time Series Insights Preview, you first select a time span. The selected time span controls the data set that's available for manipulation with the Time Series Insights Preview widgets. The following web controls are available in Time Series Insights Preview for selecting your working time span:
 
@@ -148,7 +149,7 @@ When you work with Time Series Insights Preview, you first select a time span. T
 
    [![To and from selection panel](media/v2-update-explorer/explorer-thirteen.png)](media/v2-update-explorer/explorer-thirteen.png#lightbox)
 
-## Navigation panel
+## App bar
 
 The Time Series Insights Preview navigation panel appears at the top of your Time Series Insights app. It provides the following functionalities:
 
