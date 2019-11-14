@@ -42,7 +42,7 @@ For large KBs, use automated testing with the [generateAnswer API](../how-to/met
 ```
 
 ## Publish the knowledge base
-Once you are done testing the knowledge base, you can publish it. Publish pushes the latest version of the tested knowledge base  to a dedicated Azure Search index representing the **published** knowledge base. It also creates an endpoint that can be called in your application or chat bot.
+Once you are done testing the knowledge base, you can publish it. Publish pushes the latest version of the tested knowledge base  to a dedicated Azure Cognitive Search index representing the **published** knowledge base. It also creates an endpoint that can be called in your application or chat bot.
 
 This way, any changes being made to the test version of the knowledge base do not affect the published version that might be live in a production application.
 

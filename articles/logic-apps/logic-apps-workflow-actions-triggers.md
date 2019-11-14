@@ -746,7 +746,10 @@ see [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md#loo
 > You can't use **SplitOn** with a synchronous response pattern. 
 > Any workflow that uses **SplitOn** and includes a response action 
 > runs asynchronously and immediately sends a `202 ACCEPTED` response.
-
+>
+> When trigger concurrency is enabled, the [SplitOn limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) 
+> is significantly reduced. If the number of items exceeds this limit, the SplitOn capability is disabled.
+ 
 If your trigger's Swagger file describes a payload that is an array, 
 the **SplitOn** property is automatically added to your trigger. 
 Otherwise, add this property inside the response payload that has 
@@ -2677,7 +2680,9 @@ in trigger or action definition.
 
 By default, logic app instances run at the same time (concurrently or in parallel) up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). So, each trigger instance fires before the preceding workflow instance finishes running. This limit helps control the number of requests that backend systems receive. 
 
-To change the default limit, you can use either the code view editor or Logic Apps Designer because changing the concurrency setting through the designer adds or updates the `runtimeConfiguration.concurrency.runs` property in the underlying trigger definition and vice versa. This property controls the maximum number of workflow instances that can run in parallel. Here are some considerations when you use the concurrency control:
+To change the default limit, you can use either the code view editor or Logic Apps Designer because changing the concurrency setting through the designer adds or updates the `runtimeConfiguration.concurrency.runs` property in the underlying trigger definition and vice versa. This property controls the maximum number of workflow instances that can run in parallel. Here are some considerations for when you want to enable the concurrency control:
+
+* When concurrency is enabled, the [SplitOn limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) is signficantly reduced for [debatching arrays](#split-on-debatch). If the number of items exceeds this limit, the SplitOn capability is disabled.
 
 * While concurrency is enabled, a long-running logic app instance might cause new logic app instances to enter a waiting state. This state prevents Azure Logic Apps from creating new instances and happens even when the number of concurrent runs is less than the specified maximum number of concurrent runs.
 

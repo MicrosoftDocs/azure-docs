@@ -49,10 +49,10 @@
     href: tutorial-multi-container-app.md
   - name: Run container from ACR
     href: tutorial-custom-docker-image.md
-  - name: Map Custom Domain
+  - name: Map custom domain
     href: ../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-  - name: Bind SSL Certificate
-    href: ../app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+  - name: Create SSL binding for domain
+    href: ../configure-ssl-bindings.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Add CDN
     href: ../../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Authenticate users
@@ -131,8 +131,8 @@
       href: ../manage-custom-dns-migrate-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Secure app
     items:
-    - name: Buy SSL cert
-      href: ../web-sites-purchase-ssl-web-site.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Add SSL cert
+      href: ../configure-ssl-certificate.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Authenticate users
       items:
       - name: Authenticate with Azure AD

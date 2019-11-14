@@ -17,7 +17,7 @@ Use the Alter Row transformation to set insert, delete, update, and upsert polic
 ![Alter row settings](media/data-flow/alter-row1.png "Alter Row Settings")
 
 > [!NOTE]
-> Alter Row transformations will only operate on database sinks in your data flow. The actions that you assign to rows (insert, update, delete, upsert) will not occur during debug sessions. You must add an Execute Data Flow task to a pipeline and use pipeline debug or triggers to enact the alter row policies on your database tables.
+> Alter Row transformations will only operate on database or CosmosDB sinks in your data flow. The actions that you assign to rows (insert, update, delete, upsert) will not occur during debug sessions. You must add an Execute Data Flow task to a pipeline and use pipeline debug or triggers to enact the alter row policies on your database tables.
 
 ## Indicate a default row policy
 

@@ -15,6 +15,7 @@ ms.date: 08/27/2019
 ---
 
 # Deploy a machine learning model to Azure App Service (preview)
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Learn how to deploy a model from Azure Machine Learning as a web app in Azure App Service.
 
@@ -25,7 +26,7 @@ With Azure Machine Learning, you can create Docker images from trained machine l
 
 * Advanced [authentication](/azure/app-service/configure-authentication-provider-aad) for enhanced security. Authentication methods include both Azure Active Directory and multi-factor auth.
 * [Autoscale](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json) without having to redeploy.
-* [SSL support](/azure/app-service/app-service-web-ssl-cert-load) for secure communications between clients and the service.
+* [SSL support](/azure/app-service/configure-ssl-certificate-in-code) for secure communications between clients and the service.
 
 For more information on features provided by Azure App Service, see the [App Service overview](/azure/app-service/overview).
 
@@ -264,6 +265,6 @@ print(response.json())
 
 * Learn to configure your Web App in the [App Service on Linux](/azure/app-service/containers/) documentation.
 * Learn more about scaling in [Get started with Autoscale in Azure](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json).
-* [Use an SSL certificate in your Azure App Service](/azure/app-service/app-service-web-ssl-cert-load).
+* [Use an SSL certificate in your Azure App Service](/azure/app-service/configure-ssl-certificate-in-code).
 * [Configure your App Service app to use Azure Active Directory sign-in](/azure/app-service/configure-authentication-provider-aad).
 * [Consume a ML Model deployed as a web service](how-to-consume-web-service.md)

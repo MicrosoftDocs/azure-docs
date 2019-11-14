@@ -51,7 +51,8 @@ To see how to join a computer to an Azure AD DS managed domain, let's create a W
 
 If you already have a VM that you want to domain-join, skip to the section to [join the VM to the Azure AD DS managed domain](#join-the-vm-to-the-azure-ad-ds-managed-domain).
 
-1. In the top left-hand corner of the Azure portal, select **+ Create a resource**.
+1. From the Azure portal menu or from the **Home** page, select **Create a resource**.
+
 1. From **Get started**, choose **Windows Server 2016 Datacenter**.
 
     ![Choose to create a Windows Server 2016 Datacenter VM in the Azure portal](./media/join-windows-vm/select-vm-image.png)

@@ -285,10 +285,6 @@ No, use only alphanumeric characters in your .pfx file password.
 
 Yes. WAF supports all the features in the Standard SKU.
 
-### Which CRS versions does Application Gateway support?
-
-Application Gateway supports CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) and CRS [3.0](application-gateway-crs-rulegroups-rules.md#owasp30).
-
 ### How do I monitor WAF?
 
 Monitor WAF through diagnostic logging. For more information, see [Diagnostic logging and metrics for Application Gateway](application-gateway-diagnostics.md).
@@ -303,7 +299,7 @@ Yes. For more information, see [Customize WAF rule groups and rules](application
 
 ### What rules are currently available for WAF?
 
-WAF currently supports CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) and [3.0](application-gateway-crs-rulegroups-rules.md#owasp30). These rules provide baseline security against most of the top-10 vulnerabilities that Open Web Application Security Project (OWASP) identifies: 
+WAF currently supports CRS [2.2.9](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp229), [3.0](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp30), and [3.1](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp31). These rules provide baseline security against most of the top-10 vulnerabilities that Open Web Application Security Project (OWASP) identifies: 
 
 * SQL injection protection
 * Cross-site scripting protection
@@ -322,6 +318,19 @@ Yes. You can enable DDoS protection on the virtual network where the application
 ### Is there guidance available to migrate from the v1 SKU to the v2 SKU?
 
 Yes. For details see, [Migrate Azure Application Gateway and Web Application Firewall from v1 to v2](migrate-v1-v2.md).
+
+## Configuration - ingress controller for AKS
+
+### What is an Ingress Controller?
+
+Kubernetes allows creation of `deployment` and `service` resource to expose a group of pods internally in the cluster. To expose the same service externally, an [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) resource is defined which provides load balancing, SSL termination and name-based virtual hosting.
+To satisfy this `Ingress` resource, an Ingress Controller is required which listens for any changes to `Ingress` resources and configures the load balancer policies.
+
+The Application Gateway Ingress Controller allows [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) to be used as the ingress for an [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) also known as an AKS cluster.
+
+### Can a single ingress controller instance manage multiple Application Gateways?
+
+Currently, one instance of Ingress Controller can only be associated to one Application Gateway.
 
 ## Diagnostics and logging
 

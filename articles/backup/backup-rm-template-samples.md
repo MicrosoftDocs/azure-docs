@@ -1,7 +1,6 @@
 ---
 title: Azure Resource Manager templates for Azure Backup
 description: Azure Resource Manager templates for use with Recovery Services vaults and Azure Backup features
-
 author: dcurwin
 manager: carmonm
 ms.service: backup

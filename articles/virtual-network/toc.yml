@@ -39,6 +39,8 @@
     href: security-overview.md
   - name: Routing
     href: virtual-networks-udr-overview.md
+  - name: Service tags 
+    href: service-tags-overview.md
   - name: Service endpoints
     href: virtual-network-service-endpoints-overview.md
   - name: Service endpoint policies
@@ -65,6 +67,8 @@
     href: ipv6-public-ip-address-prefix.md
   - name: DDoS protection
     href: ddos-protection-overview.md
+  - name: Subnet extension 
+    href: subnet-extension.md
   - name: Backend Connectivity Interoperability
     items:
     - name: Preface and Test Setup
@@ -297,6 +301,8 @@
       href: diagnose-network-routing-problem.md
     - name: Throughput testing
       href: virtual-network-bandwidth-testing.md
+    - name: Test VM network latency
+      href: virtual-network-test-latency.md
     - name: Cannot delete virtual networks
       href: virtual-network-troubleshoot-cannot-delete-vnet.md
     - name: VM to VM connectivity problems

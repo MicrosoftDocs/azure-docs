@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/18/2019
+ms.date: 11/04/2019
 ms.author: aahi
 ---
 # Language and region support for the Text Analytics API
@@ -25,7 +25,7 @@ If you have content expressed in a less frequently used language, you can try La
 
 ## Sentiment Analysis, Key Phrase Extraction, and Named Entity Recognition
 
-For sentiment analysis, key phrase extraction, and entity recognition, the list of supported languages is more selective as the analyzers are refined to accommodate the linguistic rules of additional languages. Support for the full set of [entity types](how-tos/text-analytics-how-to-entity-linking.md#supported-types-for-named-entity-recognition) is currently limited to the following languages: 
+For sentiment analysis, key phrase extraction, and entity recognition, the list of supported languages is more selective as the analyzers are refined to accommodate the linguistic rules of additional languages. In Named Entity Recognition v2, support for the full set of [entity types](how-tos/text-analytics-how-to-entity-linking.md#supported-types-for-named-entity-recognition-v2) is currently limited to the following languages: 
 * English
 * Chinese-Simplified
 * French
@@ -38,37 +38,38 @@ Only the `Person`, `Location` and `Organization` named entities are returned for
 
 Language support is initially rolled out in preview, graduating to generally available (GA) status, independently of each other and of the Text Analytics service overall. It's possible for languages to remain in preview, even while Text Analytics API transitions to generally available.
 
-| Language    | Language code | Sentiment | Key phrases | Named Entity Recognition |   Notes  |
-|:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
-| Arabic      | `ar`          |           |             | ✔ \*                     | |
-| Czech       | `cs`          |           |             | ✔ \*                     | |
-| Chinese-Simplified | `zh-hans`| ✔ \***     |             | ✔         |    |
-| Chinese-Traditional | `zh-hant`| ✔ \***     |             |          |    |
-| Danish      | `da`          | ✔ \*     | ✔           | ✔ \*            |     |
-| Dutch       | `nl`          | ✔ \***     | ✔          |  ✔ \*           |     |
-| English     | `en`          | ✔ \***       | ✔           |  ✔ \*\*     |      |
-| Finnish     | `fi`          | ✔ \*     | ✔           |  ✔ \*           |     |
-| French      | `fr`          | ✔ \***       | ✔           |  ✔            |     |
-| German      | `de`          | ✔ \***     | ✔           |  ✔           |     |
-| Greek       | `el`          | ✔ \*     |             |            |     |
-| Hungarian   | `hu`          |           |             |  ✔ \*          |     | 
-| Italian     | `it`          | ✔ \***     | ✔           |  ✔ \*           |     |
-| Japanese    | `ja`          | ✔ \***         | ✔           |  ✔ \*          |     |
-| Korean      | `ko`          |          | ✔           |  ✔ \*          |     |
-| Norwegian  (Bokmål) | `no`  | ✔ \*     |  ✔          | ✔ \*            |     |
-| Polish      | `pl`          | ✔ \*     |  ✔          |  ✔ \*           |     |
-| Portuguese (Portugal) | `pt-PT`| ✔ \***        |  ✔          | ✔ \*      |`pt` also accepted|
-| Portuguese (Brazil)   | `pt-BR`|          |  ✔   |  ✔ \*       |     |
-| Russian     | `ru`          | ✔ \*     | ✔           |  ✔ \*           |     |
-| Spanish     | `es`          | ✔ \***       | ✔           |   ✔ \*\*      |     | 
-| Swedish     | `sv`          | ✔ \*     | ✔           |   ✔ \*          |     |
-| Turkish     | `tr`          | ✔ \*     |             |   ✔ \*          |  |
+> [!NOTE]
+> For detailed language support for the Named Entity Recognition(NER) v3 public preview, see [Named entity types](named-entity-types.md).
+
+| Language              | Language code | Sentiment | Key phrases | Named Entity Recognition | Entity linking |       Notes        |
+|:----------------------|:-------------:|:---------:|:-----------:|:------------------------:|:--------------:|:------------------:|
+| Arabic                |     `ar`      |           |             |           ✔ \*           |                |                    |
+| Czech                 |     `cs`      |           |             |           ✔ \*           |                |                    |
+| Chinese-Simplified    |   `zh-hans`   |  ✔ \*\*   |             |            ✔             |                |                    |
+| Chinese-Traditional   |   `zh-hant`   |  ✔ \*\*   |             |                          |                |                    |
+| Danish                |     `da`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
+| Dutch                 |     `nl`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
+| English               |     `en`      |   ✔ \**   |      ✔      |          ✔ \*\*          |     ✔ \**      |                    |
+| Finnish               |     `fi`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
+| French                |     `fr`      |   ✔ \**   |      ✔      |            ✔             |                |                    |
+| German                |     `de`      |   ✔ \**   |      ✔      |            ✔             |                |                    |
+| Greek                 |     `el`      |   ✔ \*    |             |                          |                |                    |
+| Hungarian             |     `hu`      |           |             |           ✔ \*           |                |                    |
+| Italian               |     `it`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
+| Japanese              |     `ja`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
+| Korean                |     `ko`      |           |      ✔      |           ✔ \*           |                |                    |
+| Norwegian  (Bokmål)   |     `no`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
+| Polish                |     `pl`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
+| Portuguese (Portugal) |    `pt-PT`    |   ✔\**    |      ✔      |           ✔ \*           |                | `pt` also accepted |
+| Portuguese (Brazil)   |    `pt-BR`    |           |      ✔      |           ✔ \*           |                |                    |
+| Russian               |     `ru`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
+| Spanish               |     `es`      |   ✔\**    |      ✔      |           ✔ \*           |     ✔ \**      |                    |
+| Swedish               |     `sv`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
+| Turkish               |     `tr`      |   ✔ \*    |             |           ✔ \*           |                |                    |
 
 \* Language support is in preview
 
-\*\* [Named Entity Recognition](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-ner) and [Entity linking](how-tos/text-analytics-how-to-entity-linking.md#entity-linking) are both available for this language.  
-
-\*** Available in [Sentiment Analysis V3 Public Preview](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-v3-public-preview)
+\** Also available in the [Sentiment Analysis v3](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-v3-public-preview) and/or [Named Entity Recognition v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-v3-public-preview) public previews.
 
 ## See also
 
