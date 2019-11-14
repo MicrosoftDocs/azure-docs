@@ -109,7 +109,7 @@
   - name: Content protection
     items:
     - name: Dynamic encryption and key delivery
-      displayName: content protection, streaming protocols, encryption types, content protection, PlayReady, Widevine, FairPlay     
+      displayName: content protection, streaming protocols, encryption types, PlayReady, Widevine, FairPlay, custom  
       href: content-protection-overview.md  
     - name: Design of multi-DRM system 
       displayName: drm, access control

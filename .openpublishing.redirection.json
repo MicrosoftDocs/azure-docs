@@ -2962,6 +2962,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sql-database/sql-database-develop-error-messages.md",
+      "redirect_url": "/azure/sql-database/troubleshoot-connectivity-issues-microsoft-azure-sql-database",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-database/sql-database-customer-implementations.md",
       "redirect_url": "http://customers.microsoft.com",
       "redirect_document_id": false
@@ -4769,6 +4774,11 @@
     {
       "source_path": "articles/app-service-mobile/app-service-mobile-xamarin-forms-blob-storage.md",
       "redirect_url": "/azure/app-service-mobile",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-crs-rulegroups-rules.md",
+      "redirect_url": "/azure/web-application-firewall/ag/application-gateway-crs-rulegroups-rules",
       "redirect_document_id": false
     },
     {
