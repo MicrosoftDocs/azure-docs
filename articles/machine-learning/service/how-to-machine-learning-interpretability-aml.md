@@ -207,11 +207,9 @@ The following example shows how you can use the `ExplanationClient` class to ena
 
 You can opt to get explanations in terms of raw, untransformed features rather than engineered features. For this option, you pass your feature transformation pipeline to the explainer in `train_explain.py`. Otherwise, the explainer provides explanations in terms of engineered features.
 
-\***
-The format of supported transformations is same as the one described in [sklearn-pandas](https://github.com/scikit-learn-contrib/sklearn-pandas). In general, any transformations are supported as long as they operate on a single column and are therefore clearly one to many.
+The format of supported transformations is the same as described in [sklearn-pandas](https://github.com/scikit-learn-contrib/sklearn-pandas). In general, any transformations are supported as long as they operate on a single column so that it's clear they're  one-to-many.
 
-Explain raw features by either using a `sklearn.compose.ColumnTransformer` or a list of fitted transformer tuples. The code below uses `sklearn.compose.ColumnTransformer`. 
-
+Get an explanation for raw features by using a `sklearn.compose.ColumnTransformer` or with a list of fitted transformer tuples. The following example  uses `sklearn.compose.ColumnTransformer`.
 
 ```python
 from sklearn.compose import ColumnTransformer
@@ -281,7 +279,7 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
 
 ## Visualizations
 
-Once you download the explanations in your local Jupyter notebook, you can use the visualization dashboard to understand and interpret your model.
+After you download the explanations in your local Jupyter notebook, you can use the visualization dashboard to understand and interpret your model.
 
 ### Global visualizations
 
@@ -289,22 +287,22 @@ The following plots provide a global view of the trained model along with its pr
 
 |Plot|Description|
 |----|-----------|
-|Data Exploration| An overview of the dataset along with prediction values.|
-|Global Importance|Shows the top K (configurable K) important features globally. This chart is useful for understanding the global behavior of the underlying model.|
-|Explanation Exploration|Demonstrates how a feature is responsible for making a change in model’s prediction values (or probability of prediction values). It also demonstrates how two features interact to impact the predictions.|
-|Summary Importance| Uses a signed local feature importance values across all data points to show the distribution of the impact each feature has on the prediction value.|
+|Data Exploration| Displays an overview of the dataset along with prediction values.|
+|Global Importance|Shows top K (configurable K) important features globally. Helps understanding of underlying model's global behavior.|
+|Explanation Exploration|Demonstrates how a feature affects a change in model’s prediction values, or the probability of prediction values. Shows impact of feature interaction.|
+|Summary Importance|Uses local, feature importance values across all data points to show the distribution of each feature's impact on the prediction value.|
 
 [![Visualization Dashboard Global](./media/machine-learning-interpretability-explainability/global-charts.png)](./media/machine-learning-interpretability-explainability/global-charts.png#lightbox)
 
 ### Local visualizations
 
-Click on any individual data point at any time in the preceding plots to load the local feature importance plot for the given data point.
+You can load the local, feature importance plot for any data point by selecting the individual data point in the plot.
 
 |Plot|Description|
 |----|-----------|
-|Local Importance|Shows the top K (configurable K) important features globally. This chart is useful for understanding the local behavior of the underlying model on a specific data point.|
-|Perturbation Exploration|Allows you to change feature values of the selected data point and observe how those changes will affect prediction value.|
-|Individual Conditional Expectation (ICE)| Allows you to change a feature value from a minimum value to a maximum value to see how the data point's prediction changes when a feature changes.|
+|Local Importance|Shows the top K (configurable K) important features globally. Helps illustrate the local behavior of the underlying model on a specific data point.|
+|Perturbation Exploration|Allows changes to feature values of the selected data point and observe resulting changes to prediction value.|
+|Individual Conditional Expectation (ICE)| Allows feature value changes from a minimum value to a maximum value. Helps illustrate how the data point's prediction changes when a feature changes.|
 
 [![Visualization Dashboard Local Feature Importance](./media/machine-learning-interpretability-explainability/local-charts.png)](./media/machine-learning-interpretability-explainability/local-charts.png#lightbox)
 
@@ -314,7 +312,8 @@ Click on any individual data point at any time in the preceding plots to load th
 
 [![Visualization Dashboard ICE Plots](./media/machine-learning-interpretability-explainability/ice-plot.png)](./media/machine-learning-interpretability-explainability/ice-plot.png#lightbox)
 
-Note you will need to have widget extensions of the visualization dashboard enabled prior to Jupyter kernel starting.
+> [!NOTE]
+> Before the Jupyter kernel starts, make sure you enable widget extensions for the visualization dashboard.
 
 * Jupyter notebooks
 
@@ -323,16 +322,14 @@ Note you will need to have widget extensions of the visualization dashboard enab
     jupyter nbextension enable --py --sys-prefix azureml.contrib.interpret.visualize
     ```
 
-
-
-* Jupyter Labs
+* JupyterLab
 
     ```shell
     jupyter labextension install @jupyter-widgets/jupyterlab-manager
     jupyter labextension install microsoft-mli-widget
     ```
 
-To load the visualization dashboard, use the following code.
+To load the visualization dashboard, use the following code:
 
 ```python
 from azureml.contrib.interpret.visualize import ExplanationDashboard
@@ -342,12 +339,14 @@ ExplanationDashboard(global_explanation, model, x_test)
 
 ### Visualization in Azure Machine Learning studio
 
-By completing the steps in the [remote interpretability](how-to-machine-learning-interpretability-aml.md#interpretability-for-remote-runs) section, you can check the visualization dashboard in [Azure Machine Learning studio](https://ml.azure.com). The dashboard shown in Azure Machine Learning studio, is a simpler version of the visualization dashboard explained above and only supports the following two tabs.
+If you complete the [remote interpretability](#interpretability-for-remote-runs) steps, you can view the visualization dashboard in [Azure Machine Learning studio](https://ml.azure.com). This dashboard is a simpler version of the visualization dashboard explained above and only supports two tabs.
 
 |Plot|Description|
 |----|-----------|
-|Global Importance|Shows the top K (configurable K) important features globally. This chart is useful for understanding the global behavior of the underlying model.|
-|Summary Importance| Uses a signed local feature importance values across all data points to show the distribution of the impact each feature has on the prediction value.|
+|Global Importance|Shows top K (configurable K) important features globally. Helps understanding of underlying model's global behavior.|
+|Summary Importance|Uses local, feature importance values across all data points to show the distribution of each feature's impact on the prediction value.|
+
+\***
 
 If both global and local explanations are available, both tabs will be populated with data. If only global explanation is available, the second tab will be disabled.
 
