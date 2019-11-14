@@ -11,9 +11,9 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ---
 
-# Common errors and warnings of the AI enrichment pipeline in Azure Cognitive Search
+# Troubleshooting indexer errors and warnings in Azure Cognitive Search
 
-This article provides information and solutions to common errors and warnings you might encounter during AI enrichment in Azure Cognitive Search.
+This article provides information and solutions to common errors and warnings you might encounter during indexing and AI enrichment in Azure Cognitive Search.
 
 ## Errors
 Indexing stops when the error count exceeds ['maxFailedItems'](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures). 
