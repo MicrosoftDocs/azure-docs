@@ -1,7 +1,7 @@
 ---
 title: "Sending search queries to the Bing Visual Search API"
 titleSuffix: Azure Cognitive Services
-description: Learn about the REST API parameters used in the Bing Visual Search API.
+description: This article describes the parameters and attributes of requests sent to the Bing Visual Search API, as well as the response object.
 services: cognitive-services
 author: aahill
 manager: nitinme

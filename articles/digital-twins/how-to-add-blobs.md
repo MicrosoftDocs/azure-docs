@@ -7,7 +7,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 11/13/2019
 ms.custom: seodec18
 ---
 
@@ -176,8 +176,6 @@ var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 
 Lastly, [cURL](https://curl.haxx.se/) users can make multipart form requests in the same manner:
 
-[![cURL example](media/how-to-add-blobs/curl-img.png)](media/how-to-add-blobs/curl-img.png#lightbox)
-
 ```bash
 curl -X POST "YOUR_MANAGEMENT_API_URL/spaces/blobs" \
  -H "Authorization: Bearer YOUR_TOKEN" \
@@ -193,7 +191,9 @@ curl -X POST "YOUR_MANAGEMENT_API_URL/spaces/blobs" \
 | YOUR_SPACE_ID | The ID of the space to associate the blob with |
 | PATH_TO_FILE | The path to your text file |
 
-A successful POST returns the ID of the new the blob (highlighted in red earlier).
+[![cURL example](media/how-to-add-blobs/curl-img.png)](media/how-to-add-blobs/curl-img.png#lightbox)
+
+A successful POST returns the ID of the new the blob.
 
 ## API endpoints
 
