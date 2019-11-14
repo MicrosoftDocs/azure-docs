@@ -37,6 +37,8 @@ Deploying a SQL Server VM Azure Marketplace image through the Azure portal autom
    $vms | Where-Object {$_.sqlServerLicenseType -eq "AHUB"}
    ```
 
+   ---
+
 - **Feature benefits**: Registering your SQL Server VM with the resource provider unlocks [automated patching](virtual-machines-windows-sql-automated-patching.md), [automated backup](virtual-machines-windows-sql-automated-backup-v2.md), and monitoring and manageability capabilities. It also unlocks [licensing](virtual-machines-windows-sql-ahb.md) and [edition](virtual-machines-windows-sql-change-edition.md) flexibility. Previously, these features were available only to SQL Server VM images from Azure Marketplace.
 
 - **Free management**:  Registering with the SQL VM resource provider and all manageability modes are completely free. There is no additional cost associated with the resource provider, or with changing management modes. 
