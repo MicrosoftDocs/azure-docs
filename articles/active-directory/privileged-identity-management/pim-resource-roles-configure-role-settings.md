@@ -47,7 +47,7 @@ Follow these steps to open the settings for an Azure resource role.
 
     ![Edit role settings page with Activation tab open](./media/pim-resource-roles-configure-role-settings/role-settings-activation-tab.png)
 
-1. Select the **Assignment** tab or the **Next: Assignment** button at the bottom of the page to open the assignment setting tab. These settings control role assignments made inside PIM’s interface.
+1. Select the **Assignment** tab or the **Next: Assignment** button at the bottom of the page to open the assignment setting tab. These settings control role assignments made inside the Privileged Identity Management interface.
 
     ![Role Assignment tab in role settings page](./media/pim-resource-roles-configure-role-settings/role-settings-assignment-tab.png)
 
