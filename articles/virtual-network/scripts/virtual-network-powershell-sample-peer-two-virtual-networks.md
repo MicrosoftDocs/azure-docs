@@ -1,14 +1,10 @@
 ﻿---
-title: Azure PowerShell script sample - Peer two virtual networks | Microsoft Docs
+title: Azure PowerShell script sample - Peer two virtual networks
 description: Azure PowerShell script sample - Peer two virtual networks
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
-editor: ''
-tags:
-
-ms.assetid:
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: powershell
 ms.topic: sample
