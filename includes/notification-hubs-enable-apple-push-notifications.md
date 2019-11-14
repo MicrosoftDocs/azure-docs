@@ -51,7 +51,7 @@ To send push notifications to an iOS app, register your application with Apple, 
 
    * **Bundle ID**: Enter a Bundle ID of the form `<Organization Identifier>.<Product Name>` as mentioned in the [App Distribution Guide](https://help.apple.com/xcode/mac/current/#/dev91fe7130a). The *Organization Identifier* and *Product Name* values must match the organization identifier and product name you use when you create your Xcode project. In the following screenshot, the *NotificationHubs* value is used as an organization identifier and the *GetStarted* value is used as the product name. Make sure the **Bundle Identifier** value matches the value in your Xcode project, so that Xcode uses the correct publishing profile.
 
-   ![iOS Provisioning Portal register app ID page](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-bundle.png)
+      ![iOS Provisioning Portal register app ID page](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-bundle.png)
 
    * **Push Notifications**: Check the **Push Notifications** option in the **Capabilities** section.
 
