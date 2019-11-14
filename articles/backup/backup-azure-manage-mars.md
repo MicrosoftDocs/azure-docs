@@ -205,4 +205,4 @@ If you stopped protection while retaining data and decided to resume protection,
 ## Next steps
 
 - For information about supported scenarios and limitations, refer to the [Support Matrix for MARS](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent).
-- Learn more about [Ad hoc backup policy retention behavior](backup-configure-vault.md#ad-hoc-backup-policy-retention-behavior).
+- Learn more about [On demand backup policy retention behavior](backup-configure-vault.md#on-demand-backup-policy-retention-behavior).
