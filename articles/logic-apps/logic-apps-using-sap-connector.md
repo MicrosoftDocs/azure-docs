@@ -367,19 +367,23 @@ On the designer toolbar, select **Save**.
 
    ![Select SAP send action from Enterprise tab](media/logic-apps-using-sap-connector/select-sap-schema-generator-ent-tab.png)
 
-1. If you're prompted for connection details, create your SAP connection now. If your connection already exists, continue with the next step so you can set up your SAP action.
+1. If your connection already exists, continue with the next step so you can set up your SAP action. However, if you're prompted for connection details, provide the information so that you can create a connection to your on-premises SAP server now.
 
-   **Create an on-premises SAP connection**
+   1. Provide a name for the connection.
 
-   1. Provide the connection information for your SAP server. For the **Data Gateway** property, select the data gateway you created in the Azure portal for your gateway installation.
+   1. In the **Data Gateway** section, under **Subscription**, first select the Azure subscription for the gateway resource that you created in the Azure portal for your gateway installation. 
+   
+   1. Under **Connection Gateway**, select your gateway resource.
 
-      * If the **Logon Type** property is set to **Application Server**, these properties, which usually appear optional, are required:
+   1. Continue providing information about the connection. For the **Logon Type** property, follow the step based on whether the property is set to **Application Server** or **Group**:
+   
+      * For **Application Server**, these properties, which usually appear optional, are required:
 
         ![Create SAP application server connection](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
 
-      * If the **Logon Type** property is set to **Group**, these properties, which usually appear optional, are required:
+      * For **Group**, these properties, which usually appear optional, are required:
 
-        ![Create SAP message server connection](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
+        ![Create SAP message server connection](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)  
 
       By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. The **Safe Typing** option is available for backward compatibility and only checks the string length. Learn more about the [Safe Typing option](#safe-typing).
 
