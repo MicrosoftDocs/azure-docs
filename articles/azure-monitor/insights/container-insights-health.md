@@ -81,7 +81,7 @@ On the property pane, you learn the following:
 
     ![Health property pane Overview tab for aggregate monitor](./media/container-insights-health/health-overview-aggregate-monitor.png)
 
-    If you select a unit monitor in the Health Hierarchy pane, it also shows under **Last state change** the previous samples calculated and reported by the containerized agent within the last four hours. This is based on the unit monitors calculation for comparing several consecutive values to determine its state. For example, if you selected the *Pod ready state* unit monitor, it shows the last two samples.
+    If you select a unit monitor in the Health Hierarchy pane, it also shows under **Last state change** the previous samples calculated and reported by the containerized agent within the last four hours. This is based on the unit monitors calculation for comparing several consecutive values to determine its state. For example, if you selected the *Pod ready state* unit monitor, it shows the last two samples controlled by the parameter *ConsecutiveSamplesForStateTransition*. For more information, see the detailed description of [unit monitors](container-insights-health-monitoring-cfg.md#unit-monitors).
     
     ![Health property pane Overview tab](./media/container-insights-health/health-overview-unit-monitor.png)
 
