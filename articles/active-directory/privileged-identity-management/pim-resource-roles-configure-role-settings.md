@@ -49,6 +49,20 @@ Follow these steps to open the settings for an Azure resource role.
 
     On the Role setting pane for each role, there are several settings you can configure.
 
+1. Select **Edit** to open the **Role settings** pane. The first tab allows you to update the configuration for role activation in Privileged Identity Management.
+
+    ![Edit role settings page with Activation tab open](./media/pim-resource-roles-configure-role-settings/role-settings-activation-tab.png)
+
+1. Select the **Aasignment** tab or the **Next: Assignment** button at the bottom of the page to open the assignment setting tab. These settings control role assignments made inside PIM’s interface.
+
+    ![Role Assignment tab in role settinss page](./media/pim-resource-roles-configure-role-settings/role-settings-assignment-tab.png)
+
+1. Use the **Notification** tab or the **Next: Activation** button at the bottom of the page to get to the notification setting tab for this role. These settings control all the email notifications related to this role.
+
+    ![Role Notifications tab in role settinss page](./media/pim-resource-roles-configure-role-settings/role-settings-notification-tab.png)
+
+1. Select the **Update** button at any time to update the role settings.
+
 ## Assignment duration
 
 You can choose from two assignment duration options for each assignment type (eligible and active) when you configure settings for a role. These options become the default maximum duration when a user is assigned to the role in Privileged Identity Management.
