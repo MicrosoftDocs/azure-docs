@@ -39,6 +39,7 @@ Complete the following quickstart: [Create an Azure API Management instance](get
 
 1. Select **APIs** from under **API MANAGEMENT**.
 2. Select **OpenAPI specification** from the **Add a new API** list.
+
     ![OpenAPI specification](./media/import-api-from-oas/oas-api.png)
 3. Enter appropriate settings. You can set all the API values during creation. Alternately, you can set some of them later by going to the **Settings** tab. <br/> If you press **tab** some (or all) of the fields get filled up with the info from the specified back-end service.
 
