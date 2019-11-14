@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell Samples | Microsoft Docs
+title: Azure PowerShell Samples - Networking
 description: Azure PowerShell Samples
 services: virtual-network
 documentationcenter: virtual-network
