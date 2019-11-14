@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 11/04/2019
+ ms.date: 11/14/2019
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -20,7 +20,7 @@ Azure ultra disks offer high throughput, high IOPS, and consistent low latency d
 
 ## Determine VM size and region availability
 
-To leverage ultra disks, you need to determine which availability zone you are in. Not every region supports every VM sizes with ultra disks. To determine if your region, zone, and VM size supports ultra disks, run either of the following commands, make sure to replace the **region**, **vmSize**, and **subscription** values first:
+To leverage ultra disks, you need to determine which availability zone you are in. Not every region supports every VM size with ultra disks. To determine if your region, zone, and VM size support ultra disks, run either of the following commands, make sure to replace the **region**, **vmSize**, and **subscription** values first:
 
 CLI:
 
@@ -66,11 +66,11 @@ Set the disk sku to **UltraSSD_LRS**, then set the disk capacity, IOPS, availabi
 Once the VM is provisioned, you can partition and format the data disks and configure them for your workloads.
 
 
-## Deploy an ultra disk using the Azure Portal
+## Deploy an ultra disk using the Azure portal
 
 This section covers deploying a virtual machine equipped with an ultra disk as a data disk. It assumes you have familiarity with deploying a virtual machine, if you do not, please see our article on the subject:
 
-- Open the Azure Portal and navigate to deploy a virtual machine (VM).
+- Sign in to the [Azure portal](https://portal.azure.com/) and navigate to deploy a virtual machine (VM).
 - Make sure to choose a [supported VM size and region](#ga-scope-and-limitations).
 - Select **Availability zone** in **Availability options**.
 - Fill in the remaining entries with selections of your choice.
@@ -87,11 +87,13 @@ This section covers deploying a virtual machine equipped with an ultra disk as a
 - Change the **Account type** to **Ultra Disk**.
 - Change the values of **Custom disk size (GiB)**, **Disk IOPS**, and **Disk throughput** to ones of your choice.
 - Select **OK** in both blades.
-- Continue with the VM deployment, it'll be the same as you would deploy any other VM.
+- Continue with the VM deployment, it will be the same as you would deploy any other VM.
 
 ![create-ultra-disk.png](media/virtual-machines-disks-getting-started-ultra-ssd/create-ultra-disk.png)
 
-## Attach an ultra disk using the Azure Portal
+## Attach an ultra disk using the Azure portal
+
+Alternatively, if your existing VM is in a region/availability zone that is capable of using ultra disks, you can make use of ultra disks without having to create a new VM. By enabling ultra disks on your existing VM, then attaching them as data disks.
 
 - Navigate to your VM and select **Disks**.
 - Select **Edit**.
@@ -118,7 +120,9 @@ This section covers deploying a virtual machine equipped with an ultra disk as a
 
 ![saving-and-attaching-new-ultra-disk.png](media/virtual-machines-disks-getting-started-ultra-ssd/saving-and-attaching-new-ultra-disk.png)
 
-### Adjust the performance of an ultra disk using the Azure Portal
+### Adjust the performance of an ultra disk using the Azure portal
+
+Ultra disks offer a unique capability that allows you to adjust their performance. You can make these adjustments from the Azure portal, on the disks themselves.
 
 - Navigate to your VM and select **Disks**.
 - Select the ultra disk you'd like to modify the performance of.
