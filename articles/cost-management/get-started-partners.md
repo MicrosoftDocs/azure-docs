@@ -150,7 +150,7 @@ You can use filter and group by features in cost analysis to analyze costs by mu
 
 The following data fields are found in usage detail files and Cost Management APIs. Where available, Partner Center equivalent information is shown. For the following bold fields, partners can use filter and group by features in cost analysis to analyze costs by multiple fields. Bold fields apply only to Microsoft Customer Agreements supported by partners.
 
-| **Field name** | **Description** | ** Partner Center equivalent** |
+| **Field name** | **Description** | **Partner Center equivalent** |
 | --- | --- | --- |
 | invoiceId | Invoice ID shown on the invoice for the specific transaction. | Invoice number where the transaction is shown. |
 | previousInvoiceID | Reference to an original invoice there is a refund (negative cost). Populated only when there is a refund. | N/A |
