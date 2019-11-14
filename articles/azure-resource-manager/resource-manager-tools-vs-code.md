@@ -118,5 +118,5 @@ The warnings include:
 
 ## Next steps
 
-- To learn more about Resource Manager and Resource Manager templates, see [Azure Resource Manager overview](./resource-group-overview.md).
+- To learn about creating Azure Resource Manager templates, see [Tutorial: Create and deploy your first Azure Resource Manager template](template-tutorial-create-first-template.md).
 - To go through a quickstart by using Visual Studio Code, see [Quickstart: Create Azure Resource Manager templates by using Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)
