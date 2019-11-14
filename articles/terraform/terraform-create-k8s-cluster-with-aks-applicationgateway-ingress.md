@@ -570,7 +570,7 @@ In this section, you see how to use the `terraform init` command to create the r
     code terraform.tfvars
     ```
 
-1. Paste the following variables created earlier into the editor:
+1. Paste the following variables created earlier into the editor. To get the location value for your environment, use `az account list-locations`.
 
     ```hcl
     resource_group_name = "<Name of the Resource Group already created>"
@@ -666,15 +666,15 @@ Azure Active Directory Pod Identity provides token-based access to [Azure Resour
 
 If RBAC is **enabled**, run the following command to install Azure AD Pod Identity to your cluster:
 
-    ```bash
-    kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment-rbac.yaml
-    ```
+```bash
+kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment-rbac.yaml
+```
 
 If RBAC is **disabled**, run the following command to install Azure AD Pod Identity to your cluster:
 
-    ```bash
-    kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment.yaml
-    ```
+```bash
+kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment.yaml
+```
 
 ## Install Helm
 
