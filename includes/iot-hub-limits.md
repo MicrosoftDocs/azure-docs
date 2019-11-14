@@ -34,7 +34,7 @@ The following table lists the limits that apply to IoT Hub resources.
 | Maximum delivery count for cloud-to-device <br/> messages |100 |
 | Maximum delivery count for feedback messages <br/> in response to a cloud-to-device message |100 |
 | Maximum TTL for feedback messages in <br/> response to a cloud-to-device message |2 days |
-| [Maximum size of device twin](../articles/iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) | 8 KB for tags, and 32 KB for desired and reported properties sections each |
+| [Maximum size of device twin](../articles/iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) | 8 KB for tags section, and 32 KB for desired and reported properties sections each |
 | Maximum length of device twin string key | 1 KB |
 | Maximum length of device twin string value | 4 KB |
 | [Maximum depth of object in device twin](../articles/iot-hub/iot-hub-devguide-device-twins.md#tags-and-properties-format) | 10 |
