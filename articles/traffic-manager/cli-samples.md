@@ -1,11 +1,11 @@
 ---
-title: Azure CLI Samples for Traffic Manager
+title: Azure CLI Samples for Traffic Manager | Microsoft Docs
 description: Azure CLI Samples
-services: traffic-manager
+services: virtual-network
 documentationcenter: virtual-network
 author: asudbring
 manager: twooley
-ms.service: traffic-manager
+ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm:
