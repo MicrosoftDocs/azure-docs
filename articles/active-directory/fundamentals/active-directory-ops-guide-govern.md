@@ -26,16 +26,18 @@ This section of the [Azure AD operations reference guide](active-directory-ops-g
 
 Managing Azure Active Directory requires the continuous execution of key operational tasks and processes, which may not be part of a rollout project. It is still important you set up these tasks to optimize your environment. The key tasks and their recommended owners include:
 
-- Archive Azure AD audit logs in SIEM system - InfoSec Operations Team
-- Discover applications that are managed out of compliance - IAM Operations Team
-- Regularly review access to applications - InfoSec Architecture Team
-- Regularly review access to external identities - InfoSec Architecture Team
-- Regularly review who has privileged roles - InfoSec Architecture Team
-- Define security gates to activate privileged roles - InfoSec Architecture Team
-- Regularly review consent grants - InfoSec Architecture Team
-- Design Catalogs and Access Packages for applications and resources based for employees in the organization - App Owners
-- Define Security Policies to assign users to access packages - InfoSec team + App Owners
-- If policies include approval workflows, regularly review workflow approvals - App Owners
+| Task | Owner |
+| :- | :- |
+| Archive Azure AD audit logs in SIEM system | InfoSec Operations Team |
+| Discover applications that are managed out of compliance | IAM Operations Team |
+| Regularly review access to applications | InfoSec Architecture Team |
+| Regularly review access to external identities | InfoSec Architecture Team |
+| Regularly review who has privileged roles | InfoSec Architecture Team |
+| Define security gates to activate privileged roles | InfoSec Architecture Team |
+| Regularly review consent grants | InfoSec Architecture Team |
+| Design Catalogs and Access Packages for applications and resources based for employees in the organization | App Owners |
+| Define Security Policies to assign users to access packages | InfoSec team + App Owners |
+| If policies include approval workflows, regularly review workflow approvals | App Owners |
 
 As you review your list, you may find you need to either assign an owner for tasks that are missing an owner or adjust ownership for tasks with owners that aren’t aligned with the recommendations above.
 
