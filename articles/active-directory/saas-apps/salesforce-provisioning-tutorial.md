@@ -115,6 +115,9 @@ This starts the initial synchronization of any users and/or groups assigned to S
 
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
 
+## Common issues
+* The default attribute mapping for provisioning to Salesforce includes the SingleAppRoleAssignments expression to provision user roles into Salesforce. Ensure that the users do not have multiple roles assigned to them on the application as the attribute mapping only supports provisioning one role. 
+
 ## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](tutorial-list.md)

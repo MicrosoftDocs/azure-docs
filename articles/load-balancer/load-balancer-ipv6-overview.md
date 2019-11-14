@@ -1,7 +1,6 @@
 ---
-title: Overview of IPv6 for Azure Load Balancer
-titlesuffix: Azure Load Balancer
-description: Understanding IPv6 support for Azure Load Balancer and load-balanced VMs.
+title: Overview of IPv6 - Azure Load Balancer
+description: With this learning path, get started with IPv6 support for Azure Load Balancer and load-balanced VMs.
 services: load-balancer
 documentationcenter: na
 author: asudbring
