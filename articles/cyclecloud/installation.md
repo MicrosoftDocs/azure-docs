@@ -59,7 +59,7 @@ $ sudo apt -y install cyclecloud
 ```
 
 > [!NOTE]
-> Although the apt repository is published for the `bionic` release of Ubuntu, CycleCloud is officially supported on all Ubuntu LTS releases under support by Canonical.
+> Although the Apt repository is published for the `bionic` release of Ubuntu, CycleCloud is officially supported on all Ubuntu LTS releases under support by Canonical.
 
 ### Installing on Enterprise Linux (RHEL) clones
 
