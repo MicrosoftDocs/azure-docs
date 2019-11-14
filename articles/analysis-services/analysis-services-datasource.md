@@ -4,7 +4,7 @@ description: Describes data sources and connectors supported for tabular 1200 an
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 11/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -38,14 +38,14 @@ In-memory and DirectQuery models connecting to Azure data sources use .NET Frame
 
 ## Other data sources
 
-Connecting to on-premises data sources from and Azure AS server require an On-premises gateway. When using a gateway, 64-bit providers are required.
+Connecting to on-premises data sources from an Azure Analysis Services server require an On-premises gateway. When using a gateway, 64-bit providers are required.
 
 ### In-memory and DirectQuery
 
 |Data source | In-memory provider | DirectQuery provider |
 |  --- | --- | --- |
-| SQL Server |SQL Server Native Client 11.0, Microsoft OLE DB Provider for SQL Server, .NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
-| SQL Server Data Warehouse |SQL Server Native Client 11.0, Microsoft OLE DB Provider for SQL Server, .NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
+| SQL Server |Microsoft OLE DB Driver for SQL Server MSOLEDBSQL (recommended), SQL Server Native Client 11.0, .NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
+| SQL Server Data Warehouse |Microsoft OLE DB Driver for SQL Server MSOLEDBSQL (recommended), SQL Server Native Client 11.0, .NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
 | Oracle | OLE DB Provider for Oracle, Oracle Data Provider for .NET |Oracle Data Provider for .NET |
 | Teradata |OLE DB Provider for Teradata, Teradata Data Provider for .NET |Teradata Data Provider for .NET |
 | | | |
