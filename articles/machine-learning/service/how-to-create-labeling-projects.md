@@ -14,11 +14,11 @@ ms.date: 11/04/2019
 
 Labeling voluminous data in machine learning projects is often a headache. Projects that have a computer-vision component, such as image classification or object detection, generally require labels for thousands of images.
  
-Azure Machine Learning gives you a central place to create, manage, and monitor labeling projects. Use it to coordinate data, labels, and team members to efficiently manage labeling tasks. Machine Learning Studio supports image classification, either multi-label or multi-class, and object identification by using bounded boxes.
+Azure Machine Learning Studio gives you a central place to create, manage, and monitor labeling projects. Use it to coordinate data, labels, and team members to efficiently manage labeling tasks. Machine Learning Studio supports image classification, either multi-label or multi-class, and object identification by using bounded boxes.
 
-Machine tracks progress and maintains the queue of incomplete labeling tasks. Labelers don't need an Azure account to participate. After they are authenticated with their Microsoft account or [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis), they can do as much labeling as their time allows.
+Machine Learning Studio tracks progress and maintains the queue of incomplete labeling tasks. Labelers don't need an Azure account to participate. After they are authenticated with their Microsoft account or [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis), they can do as much labeling as their time allows.
 
-In [Machine Learning studio](https://ml.azure.com/), you start and stop the project, add and remove people and teams, and monitor progress. You can export labeled data in COCO format or as an Azure ML dataset.
+In [Machine Learning Studio](https://ml.azure.com/), you start and stop the project, add and remove people and teams, and monitor progress. You can export labeled data in COCO format or as an Azure ML dataset.
 
 In this article, you'll learn how to:
 
@@ -39,7 +39,7 @@ In this article, you'll learn how to:
 
 ## Create a labeling project
 
-In Azure Machine Learning Studio, you use the **Labeling projects** page to manage your projects and people. A project has one or more teams assigned to it, and a team has one or more people assigned to it.
+Labeling projects are administered from Azure Machine Learning. You use the **Labeling projects** page to manage your projects and people. A project has one or more teams assigned to it, and a team has one or more people assigned to it.
 
 If your data is already in Azure Blob storage, you should make it available as a datastore before you create the labeling project. For details, see [Create and register datastores](https://docs.microsoft.com/azure/machine-learning/service/how-to-access-data#create-and-register-datastores).
 
@@ -145,7 +145,7 @@ You can label data directly from the **Project details** page by selecting **Lab
 
 You can export the label data for machine learning experimentation at any time. Image labels can be exported in [COCO format](http://cocodataset.org/#format-data) or as an Azure ML dataset. Use the **Export** button on the **Project details** page of your labeling project.
 
-The COCO file is created in the default blob store of the Azure ML workspace in a folder within *export/coco*. You can access the exported Azure ML dataset in the **Datasets** section of Machine Learning Studio. The dataset details page also provides sample code to access your labels from Python.
+The COCO file is created in the default blob store of the Azure ML workspace in a folder within *export/coco*. You can access the exported Azure ML dataset in the **Datasets** section of Machine Learning. The dataset details page also provides sample code to access your labels from Python.
 
 ![Exported dataset](media/how-to-create-labeling-projects/exported-dataset.png)
 
