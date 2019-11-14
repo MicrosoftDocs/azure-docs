@@ -204,7 +204,7 @@ To register your SQL Server 2008 or 2008 R2 instance on Windows Server 2008 inst
 
 ## Upgrade to full management mode 
 
-SQL Server VMs that have the *lightweight* IaaS extension installed can upgrade the mode to _full_ using the Azure portal, the Az CLI, or PowerShell. SQL Server VMs in _NoAgent_ mode can upgrade to _full_ after the OS is upgraded to Windows 2008 R2 and above. It is not possible to downgrade - to do so, you will need to [unregister](#unregister-vm-from-resource-provider) the SQL Server VM from the SQL VM resource provider. Doing so will remove the **SQL virtual machine** _resource_, but will not delete the actual virtual machine. 
+SQL Server VMs that have the *lightweight* IaaS extension installed can upgrade the mode to _full_ using the Azure portal, the Az CLI, or PowerShell. SQL Server VMs in _NoAgent_ mode can upgrade to _full_ after the OS is upgraded to Windows 2008 R2 and above. It is not possible to downgrade - to do so, you will need to [unregister](#unregister-vm-from-RP) the SQL Server VM from the SQL VM resource provider. Doing so will remove the **SQL virtual machine** _resource_, but will not delete the actual virtual machine. 
 
 You can view the current mode of your SQL Server IaaS agent by using PowerShell: 
 
@@ -407,7 +407,7 @@ Yes. Upgrading the manageability mode from lightweight to full is supported via 
 
 No. Downgrading the SQL Server IaaS extension manageability mode is not supported. The manageability mode can't be downgraded from full mode to lightweight or no-agent mode, and it can't be downgraded from lightweight mode to no-agent mode. 
 
-To change the manageability mode from full manageability, [unregister](#unregister-vm-from-resource-provider) the SQL Server virtual machine from the SQL Server resource provider by dropping the SQL Server *resource* and re-register the SQL Server VM with the SQL VM resource provider again in a different management mode.
+To change the manageability mode from full manageability, [unregister](#unregister-vm-from-RP) the SQL Server virtual machine from the SQL Server resource provider by dropping the SQL Server *resource* and re-register the SQL Server VM with the SQL VM resource provider again in a different management mode.
 
 **Can I register with the SQL VM resource provider from the Azure portal?**
 
