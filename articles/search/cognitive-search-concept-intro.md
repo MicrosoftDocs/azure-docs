@@ -10,9 +10,9 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/04/2019
 ---
-# Introduction to AI enrichment in Azure Cognitive Search
+# Introduction to AI in Azure Cognitive Search
 
-AI enrichment is a capability of Azure Cognitive Search indexing, used to extract text from images, blobs, and other unstructured data sources - enriching the content to make it more searchable in an index or knowledge store. Extraction and enrichment are implemented through *cognitive skills* attached to an indexing pipeline. Cognitive skills fall into these categories: 
+AI enrichment is a capability of Azure Cognitive Search indexing, used to extract text from images, blobs, and other unstructured data sources - enriching the content to make it more searchable in an index or knowledge store. Extraction and enrichment are implemented through *cognitive skills* attached to an indexing pipeline. Cognitive skills built into the service fall into these categories: 
 
 + **Natural language processing** skills include [entity recognition](cognitive-search-skill-entity-recognition.md), [language detection](cognitive-search-skill-language-detection.md), [key phrase extraction](cognitive-search-skill-keyphrases.md), text manipulation, and [sentiment detection](cognitive-search-skill-sentiment.md). With these skills, unstructured text can assume new forms, mapped as searchable and filterable fields in an index.
 
@@ -31,6 +31,12 @@ Natural language and image processing is applied during the data ingestion phase
 
 ## When to use cognitive skills
 
+You should consider using built-in cognitive skills if your raw content is unstructured text, image content, or content that needs language detection and translation. Applying AI through the built-in cognitive skills can unlock this content, increasing its value and utility in your search and data science apps. 
+
+Additionally, you might consider adding a custom skill if you have open-source, third-party, or first-party code that you'd like to integrate into the pipeline. Classification models that identify salient characteristics of various document types fall into this category, but any package that adds value to your content could also be used.
+
+### More about built-in skills
+
 A skillset that's assembled using built-in skills is well suited for the following application scenarios:
 
 + Scanned documents (JPEG) that you want to make full-text searchable. You can attach an optical character recognition (OCR) skill to identify, extract, and ingest text from JPEG files.
@@ -44,6 +50,8 @@ A skillset that's assembled using built-in skills is well suited for the followi
   Blobs in particular often contain a large body of content that is packed into a singled "field". By attaching image and natural language processing skills to an indexer, you can create new information that is extant in the raw content, but not otherwise surfaced as distinct fields. Some ready-to-use built-in cognitive skills that can help: key phrase extraction, sentiment analysis, and entity recognition (people, organizations, and locations).
 
   Additionally, built-in skills can also be used restructure content through text split, merge, and shape operations.
+
+### More about custom skills
 
 Custom skills can support more complex scenarios, such as recognizing forms, or custom entity detection using a model that you provide and wrap in the [custom skill web interface](cognitive-search-custom-skill-interface.md). Several examples of custom skills include [Forms Recognizer](/azure/cognitive-services/form-recognizer/overview), integration of the [Bing Entity Search API](https://docs.microsoft.com/azure/search/cognitive-search-create-custom-skill-example), and [custom entity recognition](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
 

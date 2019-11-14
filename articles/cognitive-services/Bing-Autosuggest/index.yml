@@ -1,6 +1,7 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Bing Autosuggest Documentation
+### YamlMime:Landing
+
+title: Bing Autosuggest Documentation 
+summary: The Bing Autosuggest API lets you send partial search queries to Bing, and get a list of suggestions based on user intent, and past searches. Call the API to populate search boxes and drop-down lists in your app with suggestions, as your users type.
 metadata:
   document_id: ce69fd12-adf8-11e7-abc4-cec278b6b50a
   title: Bing Autosuggest Documentation - Tutorials, quickstarts, API references
@@ -12,83 +13,53 @@ metadata:
   ms.service: cognitive-services
   ms.subservice: bing-autosuggest
   ms.topic: landing-page
-  ms.date: 07/25/2019
+  ms.date: 10/28/2019
   ms.author: aahi
-abstract:
-  description: Bing Autosuggest API lets you send a partial search query term to Bing and get back a list of suggested queries that other users have searched on.  For example, as users type each character of their search term, you can call this API to populate the search box's drop-down list with suggestions. Learn how to use Autosuggest API with our quickstarts, tutorials, and samples.
-sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
-    items:
-      - href: /azure/cognitive-services/bing-autosuggest/get-suggested-search-terms
-        html: <p>Learn about the Bing Autosuggest API</p>
-        image:
-          src: ../media/index/i_overview.svg
-        title: What is the Bing Autosuggest API?
-      - href: /azure/cognitive-services/bing-autosuggest/concepts/get-suggestions
-        html: <p>Learn how to get search suggestions in real-time</p>
-        image:
-          src: ../media/index/i_guidelines.svg
-        title: Getting suggestions from the Bing Autosuggest API
-      - href: /azure/cognitive-services/bing-autosuggest/language-support
-        html: <p>Find out which languages are supported by the API.</p>
-        image:
-          src: ../media/index/i_guidelines.svg
-        title: Supported Languages
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: 'Get started using the Bing Autosuggest API by making a query and viewing the JSON response:'
-  - type: list
-    style: icon48
-    items:
-      - image:
-          src: media/index/logo_csharp.svg
-        href: quickstarts/csharp
-        text: "C&#35;"
-      - image:
-          src: media/index/logo_java.svg
-        href: quickstarts/java
-        text: "Java"
-      - image:
-          src: media/index/logo_nodejs.svg
-        href: quickstarts/nodejs
-        text: "Node.js"
-      - image:
-          src: media/index/logo_php.svg
-        href: quickstarts/php
-        text: "PHP"
-      - image:
-          src: media/index/logo_python.svg
-        href: quickstarts/python
-        text: "Python"
-      - image:
-          src: media/index/logo_ruby.svg
-        href: quickstarts/ruby
-        text: "Ruby"  
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: 'Learn how to develop applications using the Bing Autosuggest API:'
-  - type: paragraph
-    text: <a href="tutorials/autosuggest.md">Single-page web app</a>
+
+landingContent:
+- title: About the Bing Autosuggest API
+  linkLists:
+    - linkListType: overview
+      links:
+        - text: What is the Bing Autosuggest API?
+          url: get-suggested-search-terms.md
+        - text: Compare the Bing Search APIs
+          url: ../bing-web-search/bing-api-comparison.md
+
+- title: Get suggested search terms
+  linkLists:
+    - linkListType: quickstart
+      links:
+        - text: Using C#
+          url: quickstarts/csharp.md
+        - text: Using Python
+          url: quickstarts/python.md
+        - text: Using Java
+          url: quickstarts/java.md
+        - text: Using Node.js
+          url: quickstarts/nodejs.md
+    - linkListType: tutorial
+      links:
+        - text: Build a single-page web app
+          url: tutorials/autosuggest.md
+    - linkListType: how-to-guide
+      links:
+        - text: Using suggested terms
+          url: concepts/get-suggestions.md
+        - text: Sending API requests
+          url: quickstarts/csharp.md
+
 - title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: APIs
-      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference">Bing Autosuggest API v7</a></p>
-            <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference">Bing Autosuggest API v5</p>
-    - title: SDKs
-      html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-dotnet">.NET</a></p>
-            <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest">Go</a></p>
-            <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-java-stable">Java</a></p>
-    - title: PowerShell
-      html: <p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
-    - title: CLI
-      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>
+  linkLists:
+    - linkListType: reference
+      links:
+        - text: Autosuggest REST API v7
+          url: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference
+        - text: Autosuggest REST API v5
+          url: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v5-reference
+        - text: .NET SDK
+          url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-dotnet
+        - text: Java SDK
+          url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-java-stable
+        - text: Go SDK
+          url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest

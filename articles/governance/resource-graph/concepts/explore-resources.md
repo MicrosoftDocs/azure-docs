@@ -335,6 +335,6 @@ sample.
 
 ## Next steps
 
-- Learn more about the [query language](query-language.md)
-- See the language in use in [Starter queries](../samples/starter.md)
-- See advanced uses in [Advanced queries](../samples/advanced.md)
+- Learn more about the [query language](query-language.md).
+- See the language in use in [Starter queries](../samples/starter.md).
+- See advanced uses in [Advanced queries](../samples/advanced.md).

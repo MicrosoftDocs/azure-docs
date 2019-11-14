@@ -15,9 +15,9 @@ ms.custom: seodec18
 
 In this article, you'll learn how to use the **Azure Machine Learning for Visual Studio Code** extension to train and deploy machine learning models.
 
-The [Azure Machine Learning service](overview-what-is-azure-ml.md) streamlines the building, training, and deployment of machine learning models.
+The [Azure Machine Learning](overview-what-is-azure-ml.md) streamlines the building, training, and deployment of machine learning models.
 + For training, it provides support for running experiments locally or remotely. For every experiment, you can log custom metrics of multiple runs to fine-tune hyperparameters
-+ You can also use the Azure Machine Learning service to easily deploy machine learning models for your testing and production needs.
++ You can also use the Azure Machine Learning to easily deploy machine learning models for your testing and production needs.
 
 ## Prerequisites
 
@@ -52,7 +52,7 @@ To install the Azure Machine Learning extension:
 > You can also download the extension installer directly from [Azure Machine Learning for Visual Studio Code extension (preview)](https://aka.ms/vscodetoolsforai).
 
 ## Quickstart with Azure Machine Learning
-There are multiple ways of running your training scripts using the Azure Machine Learning service. If you're just getting started, let's first walk through how to quickly submit a training script to run in Azure.
+There are multiple ways of running your training scripts using Azure Machine Learning. If you're just getting started, let's first walk through how to quickly submit a training script to run in Azure.
 
 If you're already somewhat familiar with the Azure Machine Learning concepts and would like more details as to how to manage and use them with the extension, see [Azure Machine Learning in-depth with VS Code](./how-to-vscode-tools.md#azure-machine-learning-in-depth-with-vs-code) below.
 
@@ -149,9 +149,9 @@ After clicking the Run Experiment button, answer the prompts as follows:
 
     [![Train in cloud](./media/vscode-tools-for-ai/run-golden-path.gif)](./media/vscode-tools-for-ai/run-golden-path.gif#lightbox)
 
-In a few seconds, you'll be notified that the experiment has been submitted to Azure at which time you can view its progress either in the Azure portal by clicking the **View Experiment Run** link in the VS Code notification, or inside VS Code by hitting the refresh button in the Azure tab.
+In a few seconds, you'll be notified that the experiment has been submitted to Azure at which time you can view its progress either in the Azure Machine Learning studio by clicking the **View Experiment Run** link in the VS Code notification, or inside VS Code by hitting the refresh button in the Azure tab.
 
-At the moment, viewing run metrics is only supported in the Azure portal. The **View Experiment Run** link mentioned above will take you to the run where you'll see the metrics you logged.
+At the moment, viewing run metrics is only supported in the studio. The **View Experiment Run** link mentioned above will take you to the run where you'll see the metrics you logged.
 [![Experiment run in portal](./media/vscode-tools-for-ai/experiment-run-on-portal.PNG)](./media/vscode-tools-for-ai/experiment-run-on-portal.PNG#lightbox)
 
 ## Azure Machine Learning in-depth with VS Code

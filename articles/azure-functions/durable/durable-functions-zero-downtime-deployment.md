@@ -12,9 +12,13 @@ ms.author: azfuncdf
 --- 
 
 # Zero downtime deployment for Durable Functions
+
 The [reliable execution model](durable-functions-checkpointing-and-replay.md) of Durable Functions requires that orchestrations be deterministic, which creates an additional challenge to consider when deploying updates. When a deployment contains changes to activity function signatures or orchestrator logic, in-flight orchestration instances fail. This situation is especially a problem for instances of long-running orchestrations, which may represent hours or days of work.
 
 To prevent these failures from happening, you must either delay your deployment until all running orchestration instances have completed, or make sure that any running orchestration instances use the existing versions of your functions. For more information about versioning, see [Versioning in Durable Functions](durable-functions-versioning.md).
+
+> [!NOTE]
+> This article provides guidance for functions apps targeting Durable Functions 1.x. It has not yet been updated to account for changes introduced in Durable Functions 2.x. For more information about the differences between extension versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 The following chart compares the three main strategies to achieve a zero downtime deployment for Durable Functions: 
 
@@ -25,6 +29,7 @@ The following chart compares the three main strategies to achieve a zero downtim
 | **[Application routing](#application-routing)** | A system that doesn't have periods of time when orchestrations aren't running, such as those with orchestrations lasting more than 24-hours or with frequently overlapping orchestrations. | Handles new versions of systems with continually running orchestrations that have breaking changes. | Requires an intelligent application router.<br/>Could max-out the number of function apps allowed by your subscription (default 100). |
 
 ## Versioning
+
 Define new versions of your functions and leave the old versions in your function app. As you can see on the diagram, a function's version becomes part of its name. Because previous versions of functions are preserved, in-flight orchestration instances can continue to reference them. Meanwhile, requests for new orchestration instances call for the latest version, which your orchestration client function can reference from an app setting.
 
 ![Versioning Strategy](media/durable-functions-zero-downtime-deployment/versioning-strategy.png)
@@ -58,7 +63,7 @@ The diagram below shows illustrates the described configuration of deployment sl
 
 The following JSON fragments are examples of the connection string setting in the host.json file.
 
-#### Functions 2.x
+#### Functions 2.0
 
 ```json
 {

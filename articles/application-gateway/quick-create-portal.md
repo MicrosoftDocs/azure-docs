@@ -25,7 +25,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 ## Create an application gateway
 
-1. Select **Create a resource** on the left menu of the Azure portal. The **New** window appears.
+1. On the Azure portal menu or from the **Home** page, select **Create a resource**. The **New** window appears.
 
 2. Select **Networking** and then select **Application Gateway** in the **Featured** list.
 
@@ -38,7 +38,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
      ![Create new application gateway: Basics](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
 
-2.  For Azure to communicate between the resources that you create, it needs a virtual network. You can either create a new virtual network or use an existing one. In this example, you'll create a new virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: one for the application gateway, and another for the backend servers.
+2. For Azure to communicate between the resources that you create, it needs a virtual network. You can either create a new virtual network or use an existing one. In this example, you'll create a new virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: one for the application gateway, and another for the backend servers.
 
     Under **Configure virtual network**, create a new virtual network by selecting **Create new**. In the **Create virtual network** window that opens, enter the following values to create the virtual network and two subnets:
 
@@ -130,7 +130,7 @@ To do this, you'll:
 
 ### Create a virtual machine
 
-1. On the Azure portal, select **Create a resource**. The **New** window appears.
+1. On the Azure portal menu or from the **Home** page, select **Create a resource**. The **New** window appears.
 2. Select **Compute** and then select **Windows Server 2016 Datacenter** in the **Popular** list. The **Create a virtual machine** page appears.<br>Application Gateway can route traffic to any type of virtual machine used in its backend pool. In this example, you use a Windows Server 2016 Datacenter.
 3. Enter these values in the **Basics** tab for the following virtual machine settings:
 
@@ -171,7 +171,7 @@ In this example, you install IIS on the virtual machines only to verify Azure cr
 
 ### Add backend servers to backend pool
 
-1. Select **All resources**, and then select **myAppGateway**.
+1. On the Azure portal menu, select **All resources** or search for and select *All resources*. Then select **myAppGateway**.
 
 2. Select **Backend pools** from the left menu.
 
@@ -200,7 +200,8 @@ Although IIS isn't required to create the application gateway, you installed it 
 When you no longer need the resources that you created with the application gateway, remove the resource group. By removing the resource group, you also remove the application gateway and all its related resources. 
 
 To remove the resource group:
-1. On the left menu of the Azure portal, select **Resource groups**.
+
+1. On the Azure portal menu, select **Resource groups** or search for and select *Resource groups*.
 2. On the **Resource groups** page, search for **myResourceGroupAG** in the list, then select it.
 3. On the **Resource group page**, select **Delete resource group**.
 4. Enter *myResourceGroupAG* for **TYPE THE RESOURCE GROUP NAME** and then select **Delete**

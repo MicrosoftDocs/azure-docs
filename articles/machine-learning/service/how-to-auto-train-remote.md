@@ -3,18 +3,20 @@ title: Automated ML remote compute targets
 titleSuffix: Azure Machine Learning
 description: Learn how to build models using automated machine learning on an Azure Machine Learning remote compute target with Azure Machine Learning
 services: machine-learning
-author: nacharya1
-ms.author: nilesha
+author: cartacioS
+ms.author: sacartac
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 7/12/2019
+ms.date: 11/04/2019
 
 #Customer intent: As a professional data scientist, I can use automated machine learning (automated ML) functionality to build a model on an Azure Machine Learning remote compute target.
 ---
 # Train models with automated machine learning in the cloud
+
+[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In Azure Machine Learning, you train your model on different types of compute resources that you manage. The compute target could be a local computer or a resource in the cloud.
 
@@ -275,7 +277,7 @@ Printing the `best_run` explanation summary variables results in the following o
 
 ![Model explainability console output](./media/how-to-auto-train-remote/expl-print.png)
 
-You can also visualize feature importance through the widget UI, the web UI on Azure portal, or your [workspace landing page (preview)](https://ml.azure.com). 
+You can also visualize feature importance through the widget UI, or in your workspace in [Azure Machine Learning studio](https://ml.azure.com). 
 
 ![Model explainability UI](./media/how-to-auto-train-remote/model-exp.png)
 

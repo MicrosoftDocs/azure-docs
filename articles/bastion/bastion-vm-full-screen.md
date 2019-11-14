@@ -6,19 +6,15 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 10/15/2019
 ms.author: cherylmc
 # Customer intent: I want to manage my VM experience using Azure Bastion.
 
 ---
 
-# Change to full screen view for a vm session: Azure Bastion (Preview)
+# Change to full screen view for a vm session: Azure Bastion
 
 This article helps you change the virtual machine view to full screen and back in your browser. Before you work with a VM, make sure you have followed the steps to [Create a Bastion host](bastion-create-host-portal.md). Then, connect to the VM that you want to work with using either [RDP](bastion-connect-vm-rdp.md) or [SSH](bastion-connect-vm-ssh.md).
-
-> [!IMPORTANT]
-> This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
->
 
 ## Launch the clipboard tool
 

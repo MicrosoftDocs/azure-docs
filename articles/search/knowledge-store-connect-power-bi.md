@@ -14,15 +14,24 @@ ms.date: 11/04/2019
 # Connect a knowledge store with Power BI
 
 > [!Note]
-> Knowledge store is in preview and should not be used in production. The [Azure Cognitive Search REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.
+> Knowledge store is in preview and should not be used in production. The portal and [Search REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.
 >
-In this article, you'll learn how to connect and explore a knowledge store using Power Query in the Power BI Desktop app. To create the knowledge store sample used in this walkthrough, see [Create a knowledge store in Azure portal](knowledge-store-create-portal.md).
 
-## Prerequisites
+In this article, learn how to connect to and explore a knowledge store using Power Query in the Power BI Desktop app. You can get started faster with templates, or build a custom dashboard from scratch.
 
-+ Follow the steps in [Create a knowledge store in the Azure portal](knowledge-store-create-portal.md) to create the sample knowledge store used in this walkthrough. You will also need the name of the Azure storage account that you used to create the knowledge store, along with its access key from the Azure portal.
++ Follow the steps in [Create a knowledge store in the Azure portal](knowledge-store-create-portal.md) or [Create an Azure Cognitive Search knowledge store by using REST](knowledge-store-create-rest.md) to create the sample knowledge store used in this walkthrough. You will also need the name of the Azure storage account that you used to create the knowledge store, along with its access key from the Azure portal.
 
 + [Install Power BI Desktop](https://powerbi.microsoft.com/downloads/)
+
+## Sample Power BI template - Azure portal only
+
+If you [created your knowledge store using the Azure Portal](knowledge-store-create-portal.md), you can use the [Azure Cognitive Search Power BI template sample](https://github.com/Azure-Samples/cognitive-search-templates) to view and experiment with Power BI visualizations. This template is also available for download when you step through the **Import data** wizard.
+
+The sample template will automatically perform the setup steps outlined in the remainder of this article. However, if you used the REST API to create your knowledge store, skip the template and use the remaining sections in this article to connect your knowledge store to Power BI. Start with [Connect with Power BI](#connect-with-power-bi).
+
+The sample template includes several visualizations, such as WordCloud and Network Navigator. Note that some visualizations in the template, such as the Locations map and the Entity-Graph Viewer, will not show data for the sample knowledge store created in [Create a knowledge store in the Azure portal](knowledge-store-create-portal.md). This is because only a subset of the AI enrichments available in the **Import data** wizard were used.
+
+![Sample Azure Cognitive Search Power BI Template](media/knowledge-store-connect-power-bi/powerbi-sample-template-portal-only.png "Sample Power BI template")
 
 ## Connect with Power BI
 

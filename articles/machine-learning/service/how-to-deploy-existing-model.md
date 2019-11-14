@@ -9,10 +9,11 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 06/19/2019
+ms.date: 10/25/2019
 ---
 
 # Use an existing model with Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Learn how to use an existing machine learning model with Azure Machine Learning.
 

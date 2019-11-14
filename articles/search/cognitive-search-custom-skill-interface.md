@@ -150,8 +150,10 @@ When you create a Web API enricher, you can describe HTTP headers and parameters
 
 ## Next steps
 
-+ [Power Skills: a repository of custom skills](https://aka.ms/powerskills)
-+ [Example: Creating a custom skill for cognitive search](cognitive-search-create-custom-skill-example.md)
+This article covered the interface requirements necessary for integrating a custom skill into a skillset. Click the following links to learn more about custom skills and skillset composition.
+
++ [Power Skills: a repository of custom skills](https://github.com/Azure-Samples/azure-search-power-skills)
++ [Example: Creating a custom skill for AI enrichment](cognitive-search-create-custom-skill-example.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [Create Skillset (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [How to map enriched fields](cognitive-search-output-field-mapping.md)

@@ -1,6 +1,6 @@
 ---
-title: Access data sources on premises from Azure Logic Apps
-description: Connect to on-premises data sources from logic apps by creating an on-premises data gateway
+title: Access data sources on premises - Azure Logic Apps
+description: Connect to on-premises data sources from Azure Logic Apps by creating an Azure on-premises data gateway resource
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -24,8 +24,8 @@ This article shows how to create your Azure gateway resource for a previously [i
 For information about how to use the gateway with other services, see these articles:
 
 * [Microsoft Power BI on-premises data gateway](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
-* [Microsoft Flow on-premises data gateway](https://flow.microsoft.com/documentation/gateway-manage/)
-* [Microsoft PowerApps on-premises data gateway](https://powerapps.microsoft.com/tutorials/gateway-management/)
+* [Power Automate on-premises data gateway](https://flow.microsoft.com/documentation/gateway-manage/)
+* [Microsoft Power Apps on-premises data gateway](https://powerapps.microsoft.com/tutorials/gateway-management/)
 * [Azure Analysis Services on-premises data gateway](../analysis-services/analysis-services-gateway.md)
 
 <a name="supported-connections"></a>
@@ -73,7 +73,7 @@ After you install the gateway on a local computer, create the Azure resource for
 
 1. Under **On-premises Data Gateways**, select **Add**.
 
-   ![Add data gateway](./media/logic-apps-gateway-connection/add-gateway.png)
+   ![Add new Azure resource for data gateway](./media/logic-apps-gateway-connection/add-azure-data-gateway-resource.png)
 
 1. Under **Create connection gateway**, provide this information for your gateway resource. When you're done, select **Create**.
 
@@ -88,7 +88,7 @@ After you install the gateway on a local computer, create the Azure resource for
 
    Here is an example that shows a gateway installation that's in the same region as your gateway resource and is linked to the same Azure account:
 
-   ![Provide details to create data gateway resource](./media/logic-apps-gateway-connection/gateway-details.png)
+   ![Provide details to create data gateway resource](./media/logic-apps-gateway-connection/add-azure-data-gateway-information.png)
 
 <a name="connect-logic-app-gateway"></a>
 
@@ -153,7 +153,7 @@ To create a different gateway resource, link your gateway installation to a diff
 
    For example:
 
-   ![Delete gateway](./media/logic-apps-gateway-connection/gateway-delete.png)
+   ![Delete gateway resource in Azure](./media/logic-apps-gateway-connection/delete-on-premises-data-gateway-resource.png)
 
 <a name="faq"></a>
 

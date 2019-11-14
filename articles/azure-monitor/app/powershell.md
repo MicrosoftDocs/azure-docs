@@ -1,18 +1,15 @@
 ---
 title: Automate Azure Application Insights with PowerShell | Microsoft Docs
 description: Automate creating and managing resources, alerts, and availability tests in PowerShell using an Azure Resource Manager template.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 9f73b87f-be63-4847-88c8-368543acad8b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 10/17/2019
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 10/17/2019
+
 ---
+
 #  Manage Application Insights resources using PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -249,10 +246,10 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 To set the data retention to 365 days using the template above, run:
 
 ```PS
-        New-AzResourceGroupDeployment -ResourceGroupName "<resource group>" `
-               -TemplateFile .\template1.json `
-               -retentionInDays 365 `
-               -appName myApp
+New-AzResourceGroupDeployment -ResourceGroupName "<resource group>" `
+       -TemplateFile .\template1.json `
+       -retentionInDays 365 `
+       -appName myApp
 ```
 
 The following script can also be used to change retention. Copy this script to save as `Set-ApplicationInsightsRetention.ps1`.

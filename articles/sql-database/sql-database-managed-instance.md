@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
-ms.date: 08/05/2019
+ms.date: 11/04/2019
 ---
 # What is Azure SQL Database managed instance?
 
@@ -40,7 +40,7 @@ Managed instance combines the best features that are available both in Azure SQL
 | --- | --- |
 |No hardware purchasing and management <br>No management overhead for managing underlying infrastructure <br>Quick provisioning and service scaling <br>Automated patching and version upgrade <br>Integration with other PaaS data services |99.99% uptime SLA  <br>Built in [high-availability](sql-database-high-availability.md) <br>Data protected with [automated backups](sql-database-automated-backups.md) <br>Customer configurable backup retention period <br>User-initiated [backups](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[Point in time database restore](sql-database-recovery-using-backups.md#point-in-time-restore) capability |
 |**Security and compliance** | **Management**|
-|Isolated environment ([VNet integration](sql-database-managed-instance-connectivity-architecture.md), single tenant service, dedicated compute and storage) <br>[Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD authentication](sql-database-aad-authentication.md), single sign-on support <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD server principals (logins)</a> (**public preview**) <br>Adheres to compliance standards same as Azure SQL database <br>[SQL auditing](sql-database-managed-instance-auditing.md) <br>[Advanced Threat Protection](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager API for automating service provisioning and scaling <br>Azure portal functionality for manual service provisioning and scaling <br>Data Migration Service
+|Isolated environment ([VNet integration](sql-database-managed-instance-connectivity-architecture.md), single tenant service, dedicated compute and storage) <br>[Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD authentication](sql-database-aad-authentication.md), single sign-on support <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD server principals (logins)</a>  <br>Adheres to compliance standards same as Azure SQL database <br>[SQL auditing](sql-database-managed-instance-auditing.md) <br>[Advanced Threat Protection](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager API for automating service provisioning and scaling <br>Azure portal functionality for manual service provisioning and scaling <br>Data Migration Service
 
 > [!IMPORTANT]
 > Azure SQL Database (all deployment options), has been certified against a number of compliance standards. For more information, see the [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) where you can find the most current list of SQL Database compliance certifications.
@@ -125,7 +125,7 @@ Subsequent operations on deployed managed instances might also have effects on i
 All management operations can be categorized as follows:
 
 - Instance deployment (new instance creation). 
-- Instance update (changing instance properties, such as vCores, reserved storage, etc).
+- Instance update (changing instance properties, such as vCores or reserved storage.
 - Instance deletion.
 
 Typically, operations on virtual clusters take the longest. Duration of the operations on virtual clusters vary – below are the values that you can typically expect, based on existing service telemetry data:
@@ -215,7 +215,7 @@ Migration of an encrypted database to a managed instance is supported via the Az
 
 The managed instance deployment option supports traditional SQL server Database engine logins and logins integrated with Azure Active Directory (AAD). Azure AD server principals (logins) (**public preview**) are Azure cloud version of on-premises database logins that you are using in your on-premises environment. Azure AD server principals (logins) enable you to specify users and groups from your Azure Active Directory tenant as true instance-scoped principals, capable of performing any instance-level operation, including cross-database queries within the same managed instance.
 
-A new syntax is introduced to create Azure AD server principals (logins) (**public preview**), **FROM EXTERNAL PROVIDER**. For more information on the syntax, see <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>, and review the [Provision an Azure Active Directory administrator for your managed instance](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance) article.
+A new syntax is introduced to create Azure AD server principals (logins), **FROM EXTERNAL PROVIDER**. For more information on the syntax, see <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>, and review the [Provision an Azure Active Directory administrator for your managed instance](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance) article.
 
 ### Azure Active Directory integration and multi-factor authentication
 

@@ -1,5 +1,5 @@
 ---
-title: Back up and restore SQL Databases in Azure VMs with PowerShell - Azure Backup
+title: SQL DB in Azure VM backup & restore via PowerShell - Azure Backup
 description: Back up and restore SQL Databases in Azure VMs using Azure Backup and PowerShell.
 ms.reviewer: pullabhk
 author: dcurwin
@@ -12,7 +12,7 @@ ms.author: dacurwin
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
 ---
 
-# Back up and restore SQL Databases in Azure  VMs with PowerShell
+# Back up and restore SQL Databases in Azure VMs with PowerShell
 
 This article describes how to use Azure PowerShell to back up and recover a SQL DB within an Azure VM using [Azure Backup](backup-overview.md) Recovery Services vault.
 
@@ -466,7 +466,7 @@ If the output is lost or if you want to get the relevant Job ID, [get the list o
 
 ### Change policy for backup items
 
-User can either modify existing policy or change the policy of the backed-up item from Policy1 to Policy2. To switch policies for a backed-up item, simply fetch the relevant policy and back up item and use the [Enable-AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) command with backup item as the parameter.
+User can either modify existing policy or change the policy of the backed-up item from Policy1 to Policy2. To switch policies for a backed-up item, fetch the relevant policy and back up item and use the [Enable-AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) command with backup item as the parameter.
 
 ````powershell
 $TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName>

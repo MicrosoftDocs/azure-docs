@@ -37,7 +37,7 @@ Storm on HDInsight provides the following features:
 
 * **Create streaming pipelines using multiple Azure services**: Storm on HDInsight integrates with other Azure services such as Event Hubs, SQL Database, Azure Storage, and Azure Data Lake Storage.
 
-    For an example solution that integrates with Azure services, see [Process events from Event Hubs with Apache Storm on HDInsight](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/).
+    For an example solution that integrates with Azure services, see [Process events from Event Hubs with Apache Storm on HDInsight](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub).
 
 For a list of companies that are using Apache Storm for their real-time analytics solutions, see [Companies using Apache Storm](https://storm.apache.org/documentation/Powered-By.html).
 
@@ -89,7 +89,7 @@ You can create a new Storm cluster on HDInsight in minutes. For more information
 
 * __Event Hubs__: For an example of using Event Hubs with a Storm cluster, see the following examples:
 
-    * [Process events from Azure Event Hubs with Apache Storm on HDInsight (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/)
+    * [Process events from Azure Event Hubs with Apache Storm on HDInsight (Java)](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub)
 
     * [Process events from Azure Event Hubs with Apache Storm on HDInsight (C#)](apache-storm-develop-csharp-event-hub-topology.md)
 

@@ -8,7 +8,7 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/24/2019
 ms.author: jingwang
 
 ---
@@ -178,8 +178,13 @@ Copy activity can automatically detect and parse the following patterns of JSON 
     ]
     ```
 
+## Mapping data flow properties
+
+Learn details from [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flow.
+
 ## Next steps
 
 - [Copy activity overview](copy-activity-overview.md)
+- [Mapping data flow](concepts-data-flow-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)
 - [GetMetadata activity](control-flow-get-metadata-activity.md)

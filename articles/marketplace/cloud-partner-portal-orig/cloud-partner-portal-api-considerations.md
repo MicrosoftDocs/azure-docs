@@ -27,7 +27,7 @@ body.
 
 ``` json
     {
-        "error”: { 
+        "error": { 
             "code":"InvalidAPIVersion",
             "message":"Invalid api version. Allowed values are [2016-08-01-preview]"
         }

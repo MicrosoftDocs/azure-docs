@@ -17,8 +17,8 @@ AI enrichment is a capability of Azure Cognitive Search indexing that finds late
 The following articles are the complete documentation for AI enrichment.
 
 ## Getting started
-+ [Introduction to AI enrichment in Azure Cognitive Search](cognitive-search-concept-intro.md)
-+ [Quickstart: Try AI enrichment in the portal](cognitive-search-quickstart-blob.md)
++ [Introduction to AI in Azure Cognitive Search](cognitive-search-concept-intro.md)
++ [Quickstart: Create a cognitive skillset in the Azure portal](cognitive-search-quickstart-blob.md)
 + [Tutorial: Enriched indexing with AI](cognitive-search-tutorial-blob.md)
 + [Example: Creating a custom skill for AI enrichment](cognitive-search-create-custom-skill-example.md)
 
@@ -44,6 +44,7 @@ The following articles are the complete documentation for AI enrichment.
   + [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md)
   + [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md)
   + [Microsoft.Skills.Util.ConditionalSkill](cognitive-search-skill-conditional.md)
+  + [Microsoft.Skills.Util.DocumentExtractionSkill](cognitive-search-skill-document-extraction.md)
   + [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md)
 
 + Custom skills

@@ -7,7 +7,7 @@ ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 04/30/2019
+ms.date: 11/04/2019
 ---
 
 # Tutorial: Configure Azure Kubernetes Service (AKS) clusters in Azure using Ansible
@@ -49,7 +49,8 @@ Save the following playbook as `azure_create_aks.yml`:
     ssh_key: "your_ssh_key"
     client_id: "your_client_id"
     client_secret: "your_client_secret"
-  tasks:
+    aks_version: aks_version
+tasks:
   - name: Create resource group
     azure_rm_resourcegroup:
       name: "{{ resource_group }}"
@@ -60,6 +61,7 @@ Save the following playbook as `azure_create_aks.yml`:
       location: "{{ location }}"
       resource_group: "{{ resource_group }}"
       dns_prefix: "{{ aks_name }}"
+      kubernetes_version: "{{aks_version}}"
       linux_profile:
         admin_username: "{{ username }}"
         ssh_key: "{{ ssh_key }}"
@@ -79,6 +81,7 @@ Before running the playbook, see the following notes:
 - The first section within `tasks` defines a resource group named `myResourceGroup` within the `eastus` location.
 - The second section within `tasks` defines an AKS cluster named `myAKSCluster` within the `myResourceGroup` resource group.
 - For the `your_ssh_key` placeholder, enter your RSA public key in the single-line format - starting with "ssh-rsa" (without the quotes).
+- For the `aks_version` placeholder, use the [az aks get-versions](/cli/azure/aks?view=azure-cli-latest#az-aks-get-versions) command.
 
 Run the playbook using the `ansible-playbook` command:
 

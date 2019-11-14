@@ -4,7 +4,7 @@ description: AzCopy is a command-line utility that you can use to copy data to, 
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
 ---
@@ -53,6 +53,8 @@ To see a list of commands, type `azcopy -h` and then press the ENTER key.
 To learn about a specific command, just include the name of the command (For example: `azcopy list -h`).
 
 ![Inline help](media/storage-use-azcopy-v10/azcopy-inline-help.png)
+
+To find detailed reference documentation for each command and command parameter, see [azcopy](storage-ref-azcopy.md)
 
 > [!NOTE] 
 > As an owner of your Azure Storage account, you aren't automatically assigned permissions to access data. Before you can do anything meaningful with AzCopy, you need to decide how you'll provide authorization credentials to the storage service. 

@@ -6,6 +6,10 @@
     tocHref: /azure/iot-fundamentals/
     topicHref: /azure/iot-fundamentals/index
     items: 
-    - name: IoT Central (preview features) 
+    - name: IoT Central
       tocHref: /azure/iot-central/
-      topicHref: /azure/iot-central/index-pnp?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      topicHref: /azure/iot-central/
+      items:
+      - name: IoT Central core (preview features) 
+        tocHref: /azure/iot-central/
+        topicHref: /azure/iot-central/index?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json

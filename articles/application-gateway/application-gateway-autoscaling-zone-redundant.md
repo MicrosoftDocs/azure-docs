@@ -36,8 +36,8 @@ The Standard_v2 and WAF_v2 SKU is available in the following regions: North Cent
 
 With the v2 SKU, the pricing model is driven by consumption and is no longer attached to instance counts or sizes. The v2 SKU pricing has two components:
 
-- **Fixed price** - This is hourly (or partial hour) price to provision a Standard_v2 or WAF_v2 Gateway.
-- **Capacity Unit price** - This is consumption-based cost that is charged in addition to the fixed cost. Capacity unit charge is also computed hourly or partial hourly. There are three dimensions to capacity unit - compute unit, persistent connections, and throughput. Compute unit is a measure of processor capacity consumed. Factors affecting compute unit are TLS connections/sec, URL Rewrite computations, and WAF rule processing. Persistent connection is a measure of established TCP connections to the application gateway in a given billing interval. Throughput is average Megabits/sec processed by the system in a given billing interval.
+- **Fixed price** - This is hourly (or partial hour) price to provision a Standard_v2 or WAF_v2 Gateway. Please note that 0 additional minimum instances still ensures high availability of the service which is always included with fixed price.
+- **Capacity Unit price** - This is a consumption-based cost that is charged in addition to the fixed cost. Capacity unit charge is also computed hourly or partial hourly. There are three dimensions to capacity unit - compute unit, persistent connections, and throughput. Compute unit is a measure of processor capacity consumed. Factors affecting compute unit are TLS connections/sec, URL Rewrite computations, and WAF rule processing. Persistent connection is a measure of established TCP connections to the application gateway in a given billing interval. Throughput is average Megabits/sec processed by the system in a given billing interval.  The billing is done at a Capacity Unit level for anything above the reserved instance count.
 
 Each capacity unit is composed of at most: 1 compute unit, or 2500 persistent connections, or 2.22-Mbps throughput.
 
@@ -72,7 +72,7 @@ Total price = $148.8 + $297.6 = $446.4
 
 **Example 2**
 
-An Application Gateway standard_v2 is provisioned for a month and during this time it receives 25 new SSL connections/sec, average of 8.88-Mbps data transfer. Assuming connections are short lived, your price would be:
+An Application Gateway standard_v2 is provisioned for a month, with 0 minimum instances, and during this time it receives 25 new SSL connections/sec, average of 8.88-Mbps data transfer. Assuming connections are short lived, your price would be:
 
 Fixed price = 744(hours) * $0.20 = $148.8
 
@@ -80,10 +80,37 @@ Capacity unit price = 744(hours) * Max (25/50 compute unit for connections/sec, 
 
 Total price = $148.8+23.81 = $172.61
 
+As you can see, you are only billed for 4 Capacity Units, not for the entire instance. 
+
 > [!NOTE]
 > The Max function returns the largest value in a pair of values.
 
+
 **Example 3**
+
+An Application Gateway standard_v2 is provisioned for a month, with a minimum of 5 instances. Assuming that there is no traffic and connections are short lived, your price would be:
+
+Fixed price = 744(hours) * $0.20 = $148.8
+
+Capacity unit price = 744(hours) * Max (0/50 compute unit for connections/sec, 0/2.22 capacity unit for throughput) * $0.008 = 744 * 50 * 0.008 = $297.60
+
+Total price = $148.80+297.60 = $446.4
+
+In this case, you are billed for the entirety of the 5 instances even though there is no traffic.
+
+**Example 4**
+
+An Application Gateway standard_v2 is provisioned for a month, with a minimum of 5 instances, but this time there is an average of 125-mbps data transfer, and 25 SSL connections per second. Assuming that there is no traffic and connections are short lived, your price would be:
+
+Fixed price = 744(hours) * $0.20 = $148.8
+
+Capacity unit price = 744(hours) * Max (25/50 compute unit for connections/sec, 125/2.22 capacity unit for throughput) * $0.008 = 744 * 57 * 0.008 = $339.26
+
+Total price = $148.80+339.26 = $488.06
+
+In this case, you are billed for the full 5 instances, plus 7 Capacity Units (which is 7/10 of an instance).  
+
+**Example 5**
 
 An Application Gateway WAF_v2 is provisioned for a month. During this time, it receives 25 new SSL connections/sec, average of 8.88-Mbps data transfer and does 80 request per second. Assuming connections are short lived, and that compute unit calculation for the application supports 10 RPS per compute unit, your price would be:
 
@@ -100,7 +127,7 @@ Total price = $267.84 + $85.71 = $353.55
 
 Application Gateway and WAF can be configured to scale in two modes:
 
-- **Autoscaling** - With autoscaling enabled, the Application Gateway and WAF v2 SKUs scale up or  down based on application traffic requirements. This mode offers better elasticity to your application and eliminates the need to guess the application gateway size or instance count. This mode also allows you to save cost by not requiring the gateway to run at peak provisioned capacity for anticipated maximum traffic load. You must specify a minimum and optionally maximum instance count. Minimum capacity ensures that Application Gateway and WAF v2 don't fall below the minimum instance count specified, even in the absence of traffic. Each instance counts as 10 additional reserved Capacity Units. 0 signifies no reserved capacity and is purely autoscaling in nature. Please note that 0 additional minimum instances still ensures high availability of the service which is always included with fixed price. You can also optionally specify a maximum instance count, which ensures that the Application Gateway doesn't scale beyond the specified number of instances. You'll continue to be billed for the amount of traffic served by the Gateway. The instance counts can range from 0 to 125. The default value for maximum instance count is 20 if not specified. 
+- **Autoscaling** - With autoscaling enabled, the Application Gateway and WAF v2 SKUs scale up or  down based on application traffic requirements. This mode offers better elasticity to your application and eliminates the need to guess the application gateway size or instance count. This mode also allows you to save cost by not requiring the gateway to run at peak provisioned capacity for anticipated maximum traffic load. You must specify a minimum and optionally maximum instance count. Minimum capacity ensures that Application Gateway and WAF v2 don't fall below the minimum instance count specified, even in the absence of traffic. Each instance counts as 10 additional reserved Capacity Units. 0 signifies no reserved capacity and is purely autoscaling in nature. Please note that 0 additional minimum instances still ensures high availability of the service which is always included with fixed price. You can also optionally specify a maximum instance count, which ensures that the Application Gateway doesn't scale beyond the specified number of instances. You'll continue to be billed for the amount of traffic served by the Gateway. The instance counts can range from 0 to 125. The default value for maximum instance count is 20 if not specified.
 - **Manual** - You can alternatively choose Manual mode where the gateway won't autoscale. In this mode, if there is more traffic than what Application Gateway or WAF can handle, it could result in traffic loss. With manual mode, specifying instance count is mandatory. Instance count can vary from 1 to 125 instances.
 
 ## Feature comparison between v1 SKU and v2 SKU

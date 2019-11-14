@@ -2,12 +2,12 @@
 title: 'Best practices for shaping JSON in Azure Time Series Insights queries | Microsoft Docs'
 description: Learn how to improve your Azure Time Series Insights query efficiency.
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
+ms.author: dpalled
 manager: cshankar
 ms.service: time-series-insights
 ms.topic: article
 ms.date: 10/09/2019
-ms.author: dpalled
 ms.custom: seodec18
 
 # Customer intent: As a developer, I want to learn about best practices for shaping JSON so that I can create efficient Time Series Insights queries when I use APIs.
@@ -33,6 +33,9 @@ Think about how you send events to Time Series Insights. Namely, you always:
    - 600 properties (columns) for S1 environments.
    - 800 properties (columns) for S2 environments.
 
+> [!TIP]
+> Review [limits and planning](time-series-insights-update-plan.md) in Azure Time Series Insights Preview.
+
 The following guidance helps to ensure the best possible query performance:
 
 1. Don't use dynamic properties, such as a tag ID, as a property name. This use contributes to reaching the maximum properties limit.
@@ -55,7 +58,7 @@ The examples are based on a scenario where multiple devices send measurements or
 
 In the following example, there's a single Azure IoT Hub message where the outer array contains a shared section of common dimension values. The outer array uses reference data to increase the efficiency of the message. Reference data contains device metadata that doesn't change with every event, but it provides useful properties for data analysis. Batching common dimension values and employing reference data saves on bytes sent over the wire, which makes the message more efficient.
 
-Consider the following JSON payload sent to your Time Series Insights GA environment using an [IoT Device Message object](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.message?view=azure-dotnet) which is serialized into JSON when sent to Azure cloud:
+Consider the following JSON payload sent to your Time Series Insights GA environment using an [IoT Device Message object](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.message?view=azure-dotnet) that is serialized into JSON when sent to Azure cloud:
 
 
 ```JSON
@@ -192,7 +195,7 @@ For a property with a large number of possible values, it's best to send as dist
 
 ## Next steps
 
-- Read more about sending [IoT Hub device messages to the cloud](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+- Read more about sending [IoT Hub device messages to the cloud](../iot-hub/iot-hub-devguide-messages-construct.md).
 
 - Read [Azure Time Series Insights query syntax](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-syntax) to learn more about the query syntax for the Time Series Insights data access REST API.
 

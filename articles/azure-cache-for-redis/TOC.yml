@@ -89,6 +89,8 @@
       href: cache-administration.md#schedule-updates
     - name: Configure redis-cli.exe access
       href: cache-how-to-redis-cli-tool.md
+    - name: Remove TLS 1.0 and 1.1
+      href: cache-remove-tls-10-11.md
   - name: Monitor
     items:
     - name: Monitor in Azure portal

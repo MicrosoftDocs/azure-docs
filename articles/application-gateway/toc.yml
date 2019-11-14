@@ -69,14 +69,8 @@
       href: application-gateway-ssl-policy-overview.md
     - name: Using Key Vault
       href: key-vault-certs.md
-  - name: WAF
-    items:
-    - name: Web application firewall
-      href: waf-overview.md
-    - name: WAF configuration
-      href: application-gateway-waf-configuration.md
-    - name: Custom rules
-      href: custom-waf-rules-overview.md
+  - name: Ingress for AKS
+    href: ingress-controller-overview.md
   - name: Health monitoring
     items:
     - name: Health probe
@@ -139,20 +133,34 @@
       href: tutorial-restrict-web-traffic-powershell.md
     - name: Azure CLI
       href: tutorial-restrict-web-traffic-cli.md
-  - name: Configure WAF rule sets
-    items:
-    - name: Azure portal
-      href: application-gateway-customize-waf-rules-portal.md
-    - name: Azure PowerShell
-      href: application-gateway-customize-waf-rules-powershell.md
-    - name: Azure CLI
-      href: application-gateway-customize-waf-rules-cli.md
   - name:   WAF custom rules
     items:
     - name: Custom rule examples
       href: create-custom-waf-rules.md
     - name: Configure WAF with custom rules
       href: configure-waf-custom-rules.md
+  - name: Ingress for AKS 
+    items:
+    - name: Set up with existing Application Gateway 
+      href: ingress-controller-install-existing.md
+    - name: Set up with new Application Gateway 
+      href: ingress-controller-install-new.md
+    - name: Enable cookie affinity 
+      href: ingress-controller-cookie-affinity.md
+    - name: Enable multiple namespace support 
+      href: ingress-controller-multiple-namespace-support.md
+    - name: Use private IP for internal routing
+      href: ingress-controller-private-ip.md
+    - name: Add health probes to AKS pods
+      href: ingress-controller-add-health-probes.md
+    - name: Use Application Gateway to expose AKS service over HTTP/HTTPS 
+      href: ingress-controller-expose-service-over-http-https.md
+    - name: Upgrade ingress controller using Helm 
+      href: ingress-controller-update-ingress-controller.md
+    - name: Use LetsEncrypt.org with Application Gateway
+      href: ingress-controller-letsencrypt-certificate-application-gateway.md
+    - name: Expose WebSocket to Application Gateway 
+      href: ingress-controller-expose-websocket-server.md
   - name: Route by URL
     items:
     - name: Azure PowerShell
@@ -221,8 +229,8 @@
         href: how-to-troubleshoot-application-gateway-session-affinity-issues.md
       - name: Bad Gateway (502) errors
         href: application-gateway-troubleshooting-502.md
-      - name: Web Application Firewall (WAF)
-        href: web-application-firewall-troubleshoot.md
+      - name: Ingress for AKS 
+        href: ingress-controller-troubleshoot.md
       - name: Resource Health
         href: resource-health-overview.md
       - name: Use Log Analytics
@@ -235,6 +243,8 @@
   items:
   - name: CRS rules
     href: application-gateway-crs-rulegroups-rules.md
+  - name: Ingress for AKS annotations
+    href: ingress-controller-annotations.md
   - name: Azure CLI
     href: /cli/azure/network/application-gateway
   - name: Azure PowerShell

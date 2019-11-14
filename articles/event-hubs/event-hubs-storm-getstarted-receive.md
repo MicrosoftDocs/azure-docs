@@ -248,7 +248,7 @@ You can learn more about Event Hubs by visiting the following links:
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [HDInsight Storm]: ../hdinsight/storm/apache-storm-overview.md
-[HDInsight Storm with Event Hub example]: https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/
+[HDInsight Storm with Event Hub example]: https://github.com/Azure-Samples/hdinsight-java-storm-eventhub
 
 <!-- Images -->
 

@@ -1,5 +1,5 @@
 ---
-title: Use Managed Identity to authenticate your Azure Stream Analytics job to Azure Blob Storage output (Preview)
+title: Authenticate blob output with Managed Identity Azure Stream Analytics
 description: This article describes how to use managed identities to authenticate your Azure Stream Analytics job to Azure Blob storage output.
 author: cedarbaum
 ms.author: sacedarb

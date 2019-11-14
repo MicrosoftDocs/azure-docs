@@ -12,7 +12,9 @@ author: lostmygithubaccount
 ms.date: 10/11/2019
 ms.custom: seoapril2019
 ---
+
 # Monitor and collect data from ML web service endpoints
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you learn how to collect data from and monitor models deployed to web service endpoints in Azure Kubernetes Service (AKS) or Azure Container Instances (ACI) by enabling Azure Application Insights. In addition to collecting an endpoint's input data and response, you can monitor:
 * Request rates, response times, and failure rates.
@@ -105,11 +107,11 @@ To disable Azure Application Insights, use the following code:
 ## replace <service_name> with the name of the web service
 <service_name>.update(enable_app_insights=False)
 ```
-	
+
 ## Evaluate data
 Your service's data is stored in your Azure Application Insights account, within the same resource group as Azure Machine Learning.
 To view it:
-1. Go to your Machine Learning service workspace in the [Azure portal](https://portal.azure.com). Click on Azure Application Insights link.
+1. Go to your Machine Learning service workspace in [Azure Machine Learning studio](https://ml.azure.com) and click on Application Insights link.
 
     [![AppInsightsLoc](media/how-to-enable-app-insights/AppInsightsLoc.png)](./media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
 
@@ -132,7 +134,7 @@ To learn more about how to use Azure Application Insights, see [What is Applicat
 
 ## Export data for further processing and longer retention
 
-You can use Azure Application Insights' [continuous export](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) to send messages to a supported storage account, where a longer retention can be set. The `"model_data_collection"` messages are stored in JSON format and can be easily parsed to extract model data. Azure Data Factory, Azure ML Pipelines, or other data processing tools can be used to transform the data as needed. When you have transformed the data, you can then register it with the Azure Machine Learning service workspace as a dataset.
+You can use Azure Application Insights' [continuous export](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) to send messages to a supported storage account, where a longer retention can be set. The `"model_data_collection"` messages are stored in JSON format and can be easily parsed to extract model data. Azure Data Factory, Azure ML Pipelines, or other data processing tools can be used to transform the data as needed. When you have transformed the data, you can then register it with the Azure Machine Learning workspace as a dataset. To do so, see [How to create and register datasets](how-to-create-register-datasets.md).
 
    [![Continuous Export](media/how-to-enable-app-insights/continuous-export-setup.png)](./media/how-to-enable-app-insights/continuous-export-setup.png)
 

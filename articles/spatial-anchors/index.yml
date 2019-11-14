@@ -81,7 +81,7 @@ sections:
   - type: list
     style: unordered
     items:
-      - html: <a href="/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices">Sharing in Unity.</a>
-      - html: <a href="/azure/spatial-anchors/tutorials/tutorial-use-cosmos-db-to-store-anchors">Sharing in Unity with Azure Cosmos DB.</a>
+      - html: <a href="/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices">Sharing across sessions and devices.</a>
+      - html: <a href="/azure/spatial-anchors/tutorials/tutorial-use-cosmos-db-to-store-anchors">Persistent sharing with Azure Cosmos DB.</a>
       - html: <a href="/azure/spatial-anchors/tutorials/tutorial-new-unity-hololens-app">Starting a new Unity HoloLens app.</a>
       - html: <a href="/azure/spatial-anchors/tutorials/tutorial-new-android-app">Starting a new Android app.</a>

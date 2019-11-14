@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot timeouts | Microsoft Docs
+title: Troubleshoot Azure Cache for Redis timeouts | Microsoft Docs
 description: Learn how to resolve common timeout issues with Azure Cache for Redis
 services: cache
 documentationcenter: ''

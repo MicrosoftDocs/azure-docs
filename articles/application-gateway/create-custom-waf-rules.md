@@ -364,7 +364,7 @@ Here's the corresponding JSON code:
       {
         "name": "myrule4",
         "ruleType": "MatchRule",
-        “priority”: 100
+        "priority": 100,
         "action": "block",
         "matchConditions": [
           {

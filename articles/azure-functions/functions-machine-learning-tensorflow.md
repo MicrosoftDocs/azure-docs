@@ -175,7 +175,7 @@ Confirm that *classify* now contains a file named *predict.py*.
 The helper library has some dependencies that need to be installed. Open *start/requirements.txt* in your editor and add the following dependencies to the file.
 
 ```txt
-tensorflow==1.15
+tensorflow==1.14
 Pillow
 requests
 ```

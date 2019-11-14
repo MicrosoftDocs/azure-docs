@@ -31,10 +31,9 @@ definition defines under what condition a policy is enforced and what effect to 
 example, assign a built-in policy definition, called *Require SQL Server version 12.0*, to enforce
 the condition that all SQL Server databases must be v12.0 to be compliant.
 
-1. Launch the Azure Policy service in the Azure portal by clicking **All services**, then searching
-   for and selecting **Policy**.
+1. Go to the Azure portal to assign policies. Search for and select **Policy**.
 
-   ![Search for Policy in All Services](../media/create-and-manage/search-policy.png)
+   ![Search for Policy in the search bar](../media/create-and-manage/search-policy.png)
 
 1. Select **Assignments** on the left side of the Azure Policy page. An assignment is a policy that
    has been assigned to take place within a specific scope.
@@ -45,10 +44,10 @@ the condition that all SQL Server databases must be v12.0 to be compliant.
 
    ![Assign a policy definition from Assignments page](../media/create-and-manage/select-assign-policy.png)
 
-1. On the **Assign Policy** page, select the **Scope** by clicking the ellipsis and selecting either
-   a management group or subscription. Optionally, select a resource group. A scope determines what
-   resources or grouping of resources the policy assignment gets enforced on. Then click **Select**
-   at the bottom of the **Scope** page.
+1. On the **Assign Policy** page, select the **Scope** by selecting the ellipsis and selecting
+   either a management group or subscription. Optionally, select a resource group. A scope
+   determines what resources or grouping of resources the policy assignment gets enforced on. Then
+   select **Select** at the bottom of the **Scope** page.
 
    This example uses the **Contoso** subscription. Your subscription will differ.
 
@@ -59,7 +58,7 @@ the condition that all SQL Server databases must be v12.0 to be compliant.
    filter the policy definition **Type** to *Built-in* to view all and read their descriptions.
 
 1. Select **Require SQL Server version 12.0**. If you can't find it right away, type **require sql
-   server** into the search box and then press ENTER or click out of the search box. Click
+   server** into the search box and then press ENTER or select out of the search box. Select
    **Select** at the bottom of the **Available Definitions** page once you have found and selected
    the policy definition.
 
@@ -76,7 +75,7 @@ the condition that all SQL Server databases must be v12.0 to be compliant.
    effect. As the policy used for this tutorial doesn't, leave it blank. For more information, see [managed identities](../../../active-directory/managed-identities-azure-resources/overview.md)
    and [how remediation security works](../how-to/remediate-resources.md#how-remediation-security-works).
 
-1. Click **Assign**.
+1. Select **Assign**.
 
 ## Implement a new custom policy
 
@@ -388,8 +387,8 @@ overview](../overview.md).
 
 1. Browse through the list of **Available Definitions** (right half of **Initiative definition**
    page) and select the policy definition(s) you would like to add to this initiative. For the **Get
-   secure** initiative, add the following built-in policy definitions by clicking the **+** next to
-   the policy definition information or clicking a policy definition row and then the **+ Add**
+   secure** initiative, add the following built-in policy definitions by selecting the **+** next to
+   the policy definition information or selecting a policy definition row and then the **+ Add**
    option in the details page:
 
    - Require SQL Server version 12.0
@@ -415,25 +414,25 @@ overview](../overview.md).
 
    > [!NOTE]
    > In the case of some `strongType` parameters, the list of values cannot be automatically
-   > determined. In these cases, an ellipsis appears to the right of the parameter row. Clicking it
+   > determined. In these cases, an ellipsis appears to the right of the parameter row. Selecting it
    > opens the 'Parameter scope (&lt;parameter name&gt;)' page. On this page, select the
    > subscription to use for providing the value options. This parameter scope is only used during
    > creation of the initiative definition and has no impact on policy evaluation or the scope of
    > the initiative when assigned.
 
-1. Click **Save**.
+1. Select **Save**.
 
 ### Assign an initiative definition
 
 1. Select **Definitions** under **Authoring** in the left side of the Azure Policy page.
 
-1. Locate the **Get Secure** initiative definition you previously created and click it. Select
+1. Locate the **Get Secure** initiative definition you previously created and select it. Select
    **Assign** at the top of the page to open to the **Get Secure: Assign initiative** page.
 
    ![Assign a definition from Initiative definition page](../media/create-and-manage/assign-definition.png)
 
-   You can also right-click on the selected row or left-click on the ellipsis at the end of the row
-   for a contextual menu. Then select **Assign**.
+   You can also right-click on the selected row or select the ellipsis at the end of the row for a
+   contextual menu. Then select **Assign**.
 
    ![Alternative options for an initiative](../media/create-and-manage/select-right-click.png)
 
@@ -456,14 +455,14 @@ overview](../overview.md).
    effect. As the policy used for this tutorial doesn't, leave it blank. For more information, see [managed identities](../../../active-directory/managed-identities-azure-resources/overview.md)
    and [how remediation security works](../how-to/remediate-resources.md#how-remediation-security-works).
 
-1. Click **Assign**.
+1. Select **Assign**.
 
 ## Check initial compliance
 
 1. Select **Compliance** in the left side of the Azure Policy page.
 
 1. Locate the **Get Secure** initiative. It's likely still in _Compliance state_ of **Not started**.
-   Click on the initiative to get full details on the progress of the assignment.
+   Select the initiative to get full details on the progress of the assignment.
 
    ![Initiative compliance page - evaluations not started](../media/create-and-manage/compliance-status-not-started.png)
 
@@ -472,7 +471,7 @@ overview](../overview.md).
 
    ![Initiative compliance page- resources compliant](../media/create-and-manage/compliance-status-compliant.png)
 
-1. Clicking on any policy on the initiative compliance page opens the compliance details page for
+1. Selecting on any policy on the initiative compliance page opens the compliance details page for
    the policy. This page provides details at the resource level for compliance.
 
 ## Exempt a non-compliant or denied resource using Exclusion
@@ -488,15 +487,15 @@ resources.
 A deployment prevented by an assigned policy or initiative can be viewed in two locations:
 
 - On the resource group targeted by the deployment: Select **Deployments** in the left side of the
-  page, then and click on the **Deployment Name** of the failed deployment. The resource that was
-  denied is listed with a status of _Forbidden_. To determine the policy or initiative and
-  assignment that denied the resource, click **Failed. Click here for details ->** on the Deployment
-  Overview page. A window opens on the right side of the page with the error information. Under
-  **Error Details** are the GUIDs of the related policy objects.
+  page, then select the **Deployment Name** of the failed deployment. The resource that was denied
+  is listed with a status of _Forbidden_. To determine the policy or initiative and assignment that
+  denied the resource, select **Failed. Click here for details ->** on the Deployment Overview page.
+  A window opens on the right side of the page with the error information. Under **Error Details**
+  are the GUIDs of the related policy objects.
 
   ![Deployment denied by policy assignment](../media/create-and-manage/rg-deployment-denied.png)
 
-- On the Azure Policy page: Select **Compliance** in the left side of the page and click on the
+- On the Azure Policy page: Select **Compliance** in the left side of the page and select the
   **Require SQL Server version 12.0** policy. On the page that opens, you would see an increase in
   the **Deny** count. Under the **Events** tab, you would also see who tried the deployment that was
   denied by the policy.
@@ -514,7 +513,7 @@ grant it an exception to this policy assignment.
 
 1. Browse through all policy assignments and open the *Require SQL Server version 12.0* assignment.
 
-1. Set the **Exclusion** by clicking the ellipsis and selecting the resource group to exclude,
+1. Set the **Exclusion** by selecting the ellipsis and selecting the resource group to exclude,
    *SQLServers_Excluded* in this example.
 
    ![Add an excluded resource group to the policy assignment](../media/create-and-manage/request-exclusion.png)
@@ -525,7 +524,7 @@ grant it an exception to this policy assignment.
    > used in this tutorial, it would not make sense to set the exclusion on a specific resource that
    > already exists.
 
-1. Click **Select** and then click **Save**.
+1. Select **Select** and then select **Save**.
 
 In this section, you resolved the denied request by creating an exclusion on a single resource
 group.

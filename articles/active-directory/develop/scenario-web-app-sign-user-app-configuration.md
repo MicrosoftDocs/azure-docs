@@ -12,9 +12,9 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/17/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
-ms.custom: aaddev 
+ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a Web app that signs-in users using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
@@ -31,7 +31,7 @@ The libraries used to protect a Web App (and a Web API) are:
 | Platform | Library | Description |
 |----------|---------|-------------|
 | ![.NET](media/sample-v2-code/logo_net.png) | [Identity model extensions for .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Used directly by ASP.NET and ASP.NET Core, Microsoft Identity Extensions for .NET proposes a set of DLLs running both on .NET Framework and .NET Core. From an ASP.NET/ASP.NET Core Web app, you can control token validation using the **TokenValidationParameters** class (in particular in some ISV scenarios) |
-| ![Java](media/sample-v2-code/small_logo_java.png) | [msal4j](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | MSAL for Java - currently in public preview |
+| ![Java](media/sample-v2-code/small_logo_java.png) | [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | MSAL for Java - currently in public preview |
 | ![Python](media/sample-v2-code/small_logo_python.png) | [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | MSAL for Python - currently in public preview |
 
 Select the tab corresponding to the platform you're interested in:
@@ -50,7 +50,7 @@ You might want to refer to this sample for full implementation details.
 
 # [Java](#tab/java)
 
-Code snippets in this article and the following are extracted from the [Java web application calling Microsoft graph](https://github.com/Azure-Samples/ms-identity-java-webapp) msal4j web app sample
+Code snippets in this article and the following are extracted from the [Java web application calling Microsoft graph](https://github.com/Azure-Samples/ms-identity-java-webapp) MSAL Java web app sample
 
 You might want to refer to this sample for full implementation details.
 
@@ -134,7 +134,7 @@ In ASP.NET Core, there's another file [properties\launchSettings.json](https://g
 ```
 
 In the Azure portal, the reply URIs that you need to register in the **Authentication** page for your application needs to match these URLs; that is, for the two configuration files above, they would be `https://localhost:44321/signin-oidc` as the applicationUrl is `http://localhost:3110` but the `sslPort` is specified (44321), and the `CallbackPath` is `/signin-oidc` as defined in the `appsettings.json`.
-  
+
 In the same way, the sign-out URI would be set to `https://localhost:44321/signout-callback-oidc`.
 
 # [ASP.NET](#tab/aspnet)
@@ -172,10 +172,10 @@ aad.clientId=Enter_the_Application_Id_here
 aad.authority=https://login.microsoftonline.com/Enter_the_Tenant_Info_Here/
 aad.secretKey=Enter_the_Client_Secret_Here
 aad.redirectUriSignin=http://localhost:8080/msal4jsample/secure/aad
-aad.redirectUriGraphUsers=http://localhost:8080/msal4jsample/graph/users
+aad.redirectUriGraph=http://localhost:8080/msal4jsample/graph/me
 ```
 
-In the Azure portal, the reply URIs that you need to register in the **Authentication** page for your application needs to match the redirectUris defined by the application, that is `http://localhost:8080/msal4jsample/secure/aad` and `http://localhost:8080/msal4jsample/graph/users`
+In the Azure portal, the reply URIs that you need to register in the **Authentication** page for your application needs to match the redirectUris defined by the application, that is `http://localhost:8080/msal4jsample/secure/aad` and `http://localhost:8080/msal4jsample/graph/me`
 
 # [Python](#tab/python)
 
@@ -191,7 +191,7 @@ SESSION_TYPE = "filesystem"  # So token cache will be stored in server-side sess
 ```
 
 > [!NOTE]
-> This quickstart proposes to store the client secret in the configuration file for simplicity. 
+> This quickstart proposes to store the client secret in the configuration file for simplicity.
 > In your production app, you'd want to use other ways to store your secret,
 > such as KeyVault, or an environment variable as described in Flask's documentation:
 > https://flask.palletsprojects.com/en/1.1.x/config/#configuring-from-environment-variables
@@ -215,7 +215,7 @@ In ASP.NET Core Web Apps (and Web APIs), the application is protected because yo
   > [!NOTE]
   > If you start your project with default ASP.NET core web project within Visual studio or using `dotnet new mvc` the method `AddAzureAD` is available by default because the related packages are automatically loaded.
   > However if you build a project from scratch and are trying to use the below code we suggest you to add the NuGet Package **"Microsoft.AspNetCore.Authentication.AzureAD.UI"** to your project to make the `AddAzureAD` method available.
-  
+
 The following code is available from [Startup.cs#L33-L34](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/1-WebApp-OIDC/1-1-MyOrg/Startup.cs#L33-L34)
 
 ```CSharp
@@ -229,7 +229,7 @@ public class Startup
     ...
       // Sign-in users with the Microsoft identity platform
       services.AddMicrosoftIdentityPlatformAuthentication(Configuration);
-  
+
       services.AddMvc(options =>
       {
           var policy = new AuthorizationPolicyBuilder()
@@ -247,7 +247,7 @@ The `AddMicrosoftIdentityPlatformAuthentication` is an extension method defined 
 - configure options to read the config file
 - configures the OpenID connect options so that the used authority is the Microsoft identity platform (formerly Azure AD v2.0) endpoint
 - the issuer of the token is validated
-- the claims corresponding to name is mapped from the "preferred_username" claim in the ID Token 
+- the claims corresponding to name is mapped from the "preferred_username" claim in the ID Token
 
 In addition to the configuration, you can specify, when calling `AddMicrosoftIdentityPlatformAuthentication`:
 
@@ -347,7 +347,7 @@ The Java sample uses the Spring framework. The application is protected because 
 
 - verifies if the user is authenticated (`isAuthenticated()` method)
 - if the user isn't authenticated, it computes the url of the Azure AD authorize endpoints, and redirects the browser to this URI
-- when the response arrives, containing the auth code flow it lets's msal4j acquiring the token.
+- when the response arrives, containing the auth code it acquires the token using MSAL Java.
 - when it finally receives the token from the token endpoint (on the redirect URI), the user is signed in.
 
 For details see the `doFilter()` method in [AuthFilter.java](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java)

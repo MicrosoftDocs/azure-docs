@@ -16,7 +16,7 @@ ms.date: 04/26/2019
 
 Azure SQL Database lets you easily purchase a fully managed platform as a service (PaaS) database engine that fits your performance and cost needs. Depending on the deployment model you've chosen for Azure SQL Database, you can select the purchasing model that works for you:
 
-- [Virtual core (vCore)-based purchasing model](sql-database-service-tiers-vcore.md) (recommended). This purchasing model provides a choice between a provisioned compute tier and a serverless (preview) compute tier. With the provisioned compute tier, you choose the exact amount of compute resources that are always provisioned for your workload. With the serverless compute tier, you specify the autoscaling of the compute resources over a configurable compute range. With this compute tier, you can also automatically pause and resume the database based on workload activity. The vCore unit price per unit of time is lower in the provisioned compute tier than it is in the serverless compute tier.
+- [Virtual core (vCore)-based purchasing model](sql-database-service-tiers-vcore.md) (recommended). This purchasing model provides a choice between a provisioned compute tier and a serverless compute tier. With the provisioned compute tier, you choose the exact amount of compute resources that are always provisioned for your workload. With the serverless compute tier, you specify the autoscaling of the compute resources over a configurable compute range. With this compute tier, you can also automatically pause and resume the database based on workload activity. The vCore unit price per unit of time is lower in the provisioned compute tier than it is in the serverless compute tier.
 - [Database transaction unit (DTU)-based purchasing model](sql-database-service-tiers-dtu.md). This purchasing model provides bundled compute and storage packages balanced for common workloads.
 
 Different purchasing models are available for different Azure SQL Database deployment models:
@@ -47,7 +47,7 @@ The cost of backup storage is the same for the business critical service tier an
 
 ### Serverless compute costs
 
-For a description of how compute capacity is defined and costs are calculated for the serverless compute tier, see [SQL Database serverless (preview)](sql-database-serverless.md).
+For a description of how compute capacity is defined and costs are calculated for the serverless compute tier, see [SQL Database serverless](sql-database-serverless.md).
 
 ## Storage costs
 

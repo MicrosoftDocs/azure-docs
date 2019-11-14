@@ -143,7 +143,7 @@ If your organization doesn't have legacy clients, you should not allow your user
 
 Delivery of text messages and receipt of replies in two-way SMS are not guaranteed because there are uncontrollable factors that might affect the reliability of the service. These factors include the destination country/region, the mobile phone carrier, and the signal strength.
 
-If your users often have problems with reliably receiving text messages, tell them to use the mobile app or phone call method instead. The mobile app can receive notifications both over cellular and Wi-Fi connections. In addition, the mobile app can generate verification codes even when the device has no signal at all. The Microsoft Authenticator app is available for [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [IOS](https://go.microsoft.com/fwlink/?Linkid=825073), and [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071).
+If your users often have problems with reliably receiving text messages, tell them to use the mobile app or phone call method instead. The mobile app can receive notifications both over cellular and Wi-Fi connections. In addition, the mobile app can generate verification codes even when the device has no signal at all. The Microsoft Authenticator app is available for [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [IOS](https://go.microsoft.com/fwlink/?Linkid=825073), and [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6).
 
 If you must use text messages, we recommend using one-way SMS rather than two-way SMS when possible. One-way SMS is more reliable and it prevents users from incurring global SMS charges from replying to a text message that was sent from another country/region.
 
@@ -216,7 +216,7 @@ A workaround for this error is to have separate user accounts for admin-related 
 
 If your question isn't answered here, please leave it in the comments at the bottom of the page. Or, here are some additional options for getting help:
 
-* Search the [Microsoft Support Knowledge Base](https://www.microsoft.com/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport) for solutions to common technical issues.
+* Search the [Microsoft Support Knowledge Base](https://www.microsoft.com/en-us/search?form=mssupport&q=phonefactor&rtc=1) for solutions to common technical issues.
 * Search for and browse technical questions and answers from the community, or ask your own question in the [Azure Active Directory forums](https://social.msdn.microsoft.com/Forums/azure/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 * If you're a legacy PhoneFactor customer and you have questions or need help resetting a password, use the [password reset](mailto:phonefactorsupport@microsoft.com) link to open a support case.
 * Contact a support professional through [Azure Multi-Factor Authentication Server (PhoneFactor) support](https://support.microsoft.com/oas/default.aspx?prid=14947). When contacting us, it's helpful if you can include as much information about your issue as possible. Information you can supply includes the page where you saw the error, the specific error code, the specific session ID, and the ID of the user who saw the error.

@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 07/30/2019
+ms.date: 10/21/2019
 ms.author: aahi
 ---
 
@@ -25,15 +25,75 @@ The Text Analytics' `entities` endpoint supports both named entity recognition (
 Entity linking is the ability to identify and disambiguate the identity of an entity found in text (for example, determining whether the "Mars" is being used as the planet or as the Roman god of war). This process requires the presence of a knowledge base to which recognized entities are linked - Wikipedia is used as the knowledge base for the `entities` endpoint Text Analytics.
 
 ### Named Entity Recognition (NER)
-Named entity recognition (NER) is the ability to identify different entities in text and categorize them into pre-defined classes. The supported classes of entities are listed below.
+Named entity recognition (NER) is the ability to identify different entities in text and categorize them into pre-defined classes, or types. 
 
-In Text Analytics [Version 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634), both entity linking and named entity recognition (NER) are available for several languages. See the [language support](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) article for more information.
+## Named Entity Recognition v3 public preview
 
-### Language support
+The [next version of Named Entity Recognition](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/56f30ceeeda5650db055a3c7/console) is now available for public preview. It provides updates to both entity linking and Named Entity Recognition. 
 
-Using entity linking in various languages requires using a corresponding knowledge base in each language. For entity linking in Text Analytics, this means each language that is supported by the `entities` endpoint will link to the corresponding Wikipedia corpus in that language. Since the size of corpora varies between languages, it is expected that the entity linking functionality's recall will also vary.
+:::row:::
+    :::column span="":::
+        **Feature**
+    :::column-end:::
+    ::: column span="":::
+        **Description** 
+    :::column-end:::
+:::row-end:::
+<!-- expanded types and subtypes row-->
+:::row:::
+    :::column span="":::
+        Expanded entity types and subtypes
+    :::column-end:::
+    :::column span="":::
+     Expanded classification and detection for several named entity types.
+    :::column-end:::
+:::row-end:::
+<!-- separate endpoints row-->
+:::row:::
+    :::column span="":::
+        Separate request endpoints 
+    :::column-end:::
+    :::column span="":::
+        Separate endpoints for sending entity linking and NER requests.
+    :::column-end:::
+:::row-end:::
+<!-- model-version row -->
+:::row:::
+    :::column span="":::
+        `model-version` parameter
+    :::column-end:::
+    :::column span="":::
+        An optional parameter for choosing a version of the Text Analytics model. Currently only the default model is available for use.
+    :::column-end:::
+:::row-end:::
 
-## Supported Types for Named Entity Recognition
+### Entity types
+
+Named Entity Recognition v3 provides expanded detection across multiple types. Currently, NER v3 can recognize the following categories of entities. For a detailed list of supported entities and languages, see the [Named entity types](../named-entity-types.md) article.
+
+* General
+* Personal Information 
+
+### Request endpoints
+
+Named Entity Recognition v3 uses separate endpoints for NER and entity linking requests. Use a URL format below based on your request:
+
+NER
+* General entities - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/general`
+
+* Personal information entities - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/pii`
+
+Entity linking
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/linking`
+
+### Model versioning
+
+[!INCLUDE [v3-model-versioning](../includes/model-versioning.md)]
+
+## Supported Types for Named Entity Recognition v2
+
+> [!NOTE]
+> The following entities are supported by Named Entity Recognition(NER) version 2. [NER v3](#named-entity-recognition-v3-public-preview) is in public preview, and greatly expands the number and depth of the entities recognized in text.   
 
 | Type  | SubType | Example |
 |:-----------   |:------------- |:---------|
@@ -57,9 +117,11 @@ Using entity linking in various languages requires using a corresponding knowled
 | URL           | N/A\*         | "https:\//www.bing.com"    |
 | Email         | N/A\*         | "support@contoso.com" |
 
-\* Depending on the input and extracted entities, certain entities may omit the `SubType`.  All the supported entity types listed are available only for the English, Chinese-Simplified, French, German and Spanish languages.
+\* Depending on the input and extracted entities, certain entities may omit the `SubType`.  All the supported entity types listed are available only for the English, Chinese-Simplified, French, German, and Spanish languages.
 
+### Language support
 
+Using entity linking in various languages requires using a corresponding knowledge base in each language. For entity linking in Text Analytics, this means each language that is supported by the `entities` endpoint will link to the corresponding Wikipedia corpus in that language. Since the size of corpora varies between languages, it is expected that the entity linking functionality's recall will also vary. See the [language support](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition) article for more information.
 
 ## Preparation
 

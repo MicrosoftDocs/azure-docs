@@ -1,17 +1,13 @@
 ---
 title: Application Insights for Worker Service apps (non-HTTP apps) | Microsoft Docs
 description: Monitoring .NET Core/.NET Framework non-HTTP apps with Application Insights.
-services: application-insights
-documentationcenter: .net
-author: cijothomas
-manager: carmonm
-ms.assetid: 3b722e47-38bd-4667-9ba4-65b7006c074c
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 09/15/2019
+author: cijothomas
 ms.author: cithomas
+ms.date: 09/15/2019
+
 ---
 
 # Application Insights for Worker Service applications (non-HTTP applications)

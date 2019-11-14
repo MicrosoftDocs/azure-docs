@@ -81,7 +81,7 @@ If you want to change the password for your work or school account, you can sele
 If you forgot your password, never got one from your company support, or have been locked out of your account, you can reset your own password.
 
 >[!Important]
->Your administrator must turn on this feature and you must register to participate. For details about how to register and how to reset your password, see [Register for self-service password reset](active-directory-passwords-reset-register.md) and [Reset your work or school password](user-help-reset-password.md).
+>Your administrator must turn on this feature and you must register to participate. For details about how to register and how to reset your password, see [Register for self-service password reset](active-directory-passwords-reset-register.md) and [Reset your work or school password](active-directory-passwords-update-your-own-password.md).
 
 ## Change your security verification information
 

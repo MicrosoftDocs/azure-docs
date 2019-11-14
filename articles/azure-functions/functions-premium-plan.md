@@ -1,19 +1,16 @@
 ---
-title: Azure Functions Premium plan (preview) | Microsoft Docs
+title: Azure Functions Premium plan 
 description: Details and configuration options (VNet, no cold start, unlimited execution duration) for the Azure Functions Premium plan.
-services: functions
 author: jeffhollan
-manager: jeconnoc
-
-ms.assetid:
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 4/11/2019
+ms.date: 10/16/2019
 ms.author: jehollan
 
 ---
 
-# Azure Functions Premium plan (preview)
+# Azure Functions Premium plan
 
 The Azure Functions Premium plan is a hosting option for function apps. The Premium plan provides features like VNet connectivity, no cold start, and premium hardware.  Multiple function apps can be deployed to the same Premium plan, and the plan allows you to configure compute instance size, base plan size, and maximum plan size.  For a comparison of the Premium plan and other plan and hosting types, see [function scale and hosting options](functions-scale.md).
 
@@ -56,7 +53,7 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 Azure Functions deployed to a Premium plan takes advantage of [new VNet integration for web apps](../app-service/web-sites-integrate-with-vnet.md).  When configured, your app can communicate with resources within your VNet or secured via service endpoints.  IP restrictions are also available on the app to restrict incoming traffic.
 
-When assigning a subnet to your function app in a Premium plan, you need a subnet with enough IP addresses for each potential instance. Though the maximum number of instances may vary during the preview, we require an IP block with at least 100 available addresses.
+When assigning a subnet to your function app in a Premium plan, you need a subnet with enough IP addresses for each potential instance. We require an IP block with at least 100 available addresses.
 
 Fore more information, see [integrate your function app with a VNet](functions-create-vnet.md).
 
@@ -68,11 +65,9 @@ Additional compute instances are automatically added for your app using the same
 
 Azure Functions in a Consumption plan are limited to 10 minutes for a single execution.  In the Premium plan, the run duration defaults to 30 minutes to prevent runaway executions. However, you can [modify the host.json configuration](./functions-host-json.md#functiontimeout) to make this unbounded for Premium plan apps.
 
-In preview, your duration is not guaranteed past 12 minutes and will have the best chance of running beyond 30 minutes if your app is not scaled beyond its minimum worker count.
-
 ## Plan and SKU settings
 
-When you create the plan, you configure two settings: the minimum number of instances (or plan size) and the maximum burst limit.  The minimum instances for a Premium plan is 1, and the maximum burst during the preview is 20.  Minimum instances are reserved and always running.
+When you create the plan, you configure two settings: the minimum number of instances (or plan size) and the maximum burst limit.  Minimum instances are reserved and always running.
 
 > [!IMPORTANT]
 > You are charged for each instance allocated in the minimum instance count regardless if functions are executing or not.
@@ -99,15 +94,15 @@ When creating or scaling your plan, you can choose between three instance sizes.
 
 ## Regions
 
-Below are the currently supported regions for the public preview for each OS.
+Below are the currently supported regions for each OS.
 
 |Region| Windows | Linux |
 |--| -- | -- |
-|Australia Central| ✔* | |
-|Australia Central 2| ✔* | |
+|Australia Central| ✔<sup>1</sup> | |
+|Australia Central 2| ✔<sup>1</sup> | |
 |Australia East| ✔ | |
 |Australia Southeast | ✔ | ✔ |
-|Brazil South| ✔** |  |
+|Brazil South| ✔<sup>2</sup> |  |
 |Canada Central| ✔ |  |
 |Central US| ✔ |  |
 |East Asia| ✔ |  |
@@ -128,13 +123,9 @@ Below are the currently supported regions for the public preview for each OS.
 |West India| ✔ |  |
 |West US| ✔ | ✔ |
 
-\* Maximum scale out limited to 20 instances
+<sup>1</sup>Maximum scale out limited to 20 instances.  
+<sup>2</sup>Maximum scale out limited to 60 instances.
 
-\** Maximum scale out limited to 60 instances
-
-## Known Issues
-
-You can track the status of known issues of the [public preview on GitHub](https://github.com/Azure/Azure-Functions/wiki/Premium-plan-known-issues).
 
 ## Next steps
 

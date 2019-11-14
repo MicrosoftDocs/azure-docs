@@ -198,7 +198,7 @@ the following articles to learn about the architecture and control mapping:
 > [ISO 27001 Shared Services blueprint - Overview](./index.md)
 > [ISO 27001 Shared Services blueprint - Control mapping](./control-mapping.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).

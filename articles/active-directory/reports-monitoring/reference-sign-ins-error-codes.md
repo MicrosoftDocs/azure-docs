@@ -1,5 +1,5 @@
 ---
-title: Sign-in activity report error codes in the Azure Active Directory portal | Microsoft Docs
+title: Error codes in the Azure Active Directory portal | Microsoft Docs
 description: Reference of sign-in activity report error codes. 
 services: active-directory
 documentationcenter: ''

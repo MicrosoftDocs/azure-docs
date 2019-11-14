@@ -10,6 +10,7 @@ ms.date: 03/24/2017
 ms.author: dacurwin
 ---
 # Back up SQL Server to Azure With Azure Backup Server
+
 This article leads you through the configuration steps for backup of SQL Server databases using Microsoft Azure Backup Server (MABS).
 
 The management of SQL Server database backup to Azure and recovery from Azure involves three steps:
@@ -19,9 +20,11 @@ The management of SQL Server database backup to Azure and recovery from Azure in
 3. Recover the database from Azure.
 
 ## Before you start
+
 Before you begin, ensure that you have [installed and prepared the Azure Backup Server](backup-azure-microsoft-azure-backup.md).
 
 ## Create a backup policy to protect SQL Server databases to Azure
+
 1. On the Azure Backup Server UI, click the **Protection** workspace.
 2. On the tool ribbon, click **New** to create a new protection group.
 
@@ -105,6 +108,7 @@ Before you begin, ensure that you have [installed and prepared the Azure Backup 
     ![Creation of Protection Group In-Progress](./media/backup-azure-backup-sql/pg-summary.png)
 
 ## On-demand backup of a SQL Server database
+
 While the previous steps created a backup policy, a “recovery point” is created only when the first backup occurs. Rather than waiting for the scheduler to kick in, the steps below trigger the creation of a recovery point manually.
 
 1. Wait until the protection group status shows **OK** for the database before creating the recovery point.
@@ -121,6 +125,7 @@ While the previous steps created a backup policy, a “recovery point” is crea
     ![Monitoring console](./media/backup-azure-backup-sql/sqlbackup-monitoring.png)
 
 ## Recover a SQL Server database from Azure
+
 The following steps are required to recover a protected entity (SQL Server database) from Azure.
 
 1. Open the DPM server Management Console. Navigate to **Recovery** workspace where you can see the servers backed up by DPM. Browse the required database (in this case ReportServer$MSDPM2012). Select a **Recovery from** time that ends with **Online**.
@@ -143,5 +148,6 @@ The following steps are required to recover a protected entity (SQL Server datab
 
     Once the recovery is completed, the restored database is application consistent.
 
-### Next Steps:
+### Next Steps
+
 •    [Azure Backup FAQ](backup-azure-backup-faq.md)

@@ -11,7 +11,7 @@ ms.topic: quickstart
 author: Ninarn
 ms.author: ninarn
 ms.reviewer: carlrab
-ms.date: 06/28/2019
+ms.date: 10/24/2019
 ---
 # Quickstart: Use the Azure portal's SQL query editor to connect and query data
 
@@ -40,41 +40,47 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Connect using SQL authentication
 
-1. Select **SQL databases** from the left-hand menu and then select **mySampleDatabase**.
+1. Go to the Azure portal to connect to a SQL database. Search for and select **SQL databases**.
 
-2. In the left-hand menu, find and select **Query editor (preview)**. The **Login** page appears.
+    ![Navigate to SQL database list, Azure portal](./media/sql-database-connect-query-portal/search-for-sql-databases.png)
+
+2. Select your SQL database.
+
+    ![Select a SQL database, Azure portal](./media/sql-database-connect-query-portal/select-a-sql-database.png)
+
+3. In the **SQL database** menu, select **Query editor (preview)**.
 
     ![find query editor](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 
-3. From the **Authorization type** drop-down menu, select  **SQL Server authentication** and enter the user ID and password of the server admin account used to create the database.
+4. In the **Login** page, under the **SQL server authentication** label, enter the **Login** ID and **Password** of the server admin account used to create the database. Then select **OK**.
 
     ![sign in](./media/sql-database-connect-query-portal/login-menu.png)
 
-4. Select **OK**.
-
-
 ## Connect using Azure Active Directory
 
-Configuring an Active Directory (AD) administrator enables you to use a single identity to sign in to the Azure portal and your SQL database. Follow the steps below to configure an AD admin for your SQL server.
+Configuring an Azure Active Directory (Azure AD) administrator enables you to use a single identity to sign in to the Azure portal and your SQL database. Follow the steps below to configure an Azure AD admin for your SQL server.
 
 > [!NOTE]
-> * Email accounts (for example, outlook.com, gmail.com, yahoo.com, and so on) aren't yet supported as AD admins. Make sure to choose a user created either natively in the Azure AD, or federated into the Azure AD.
+> * Email accounts (for example, outlook.com, gmail.com, yahoo.com, and so on) aren't yet supported as Azure AD admins. Make sure to choose a user created either natively in the Azure AD, or federated into the Azure AD.
 > * Azure AD admin sign in doesn't work with accounts that have 2-factor authentication enabled.
 
-1. Select **All Resources** from the left-hand menu and then select your SQL server.
+1. On the Azure portal menu or from the **Home** page, select **All resources**.
 
-2. From your SQL server's **Settings** menu, select **Active Directory admin**.
+2. Select your SQL server.
 
-3. From the AD admin page toolbar, select  **Set admin** and choose the user or group as your AD admin.
+3. From the **SQL server** menu, under **Settings**, select **Active Directory admin**.
+
+4. From the SQL server **Active Directory admin** page toolbar, select **Set admin** and choose the user or group as your Azure AD admin.
 
     ![select active directory](./media/sql-database-connect-query-portal/select-active-directory.png)
 
-4. From the AD admin page toolbar, select **Save**.
+5. From the **Add admin** page, in the search box, enter a user or group to find, select it as an admin, and then choose the **Select** button.
 
-5. Navigate to the **mySampleDatabase** database and, from the left-hand menu, select **Query editor (preview)**. The **Login** page appears. If you're an AD admin, then, on the right-hand side, under **Active Directory single sign-on**, a message appears saying you have been signed in.
+6. Back in the SQL server **Active Directory admin** page toolbar, select **Save**.
 
-6. Select **OK**.
+7. In the **SQL server** menu, select **SQL databases**, and then select your SQL database.
 
+8. In the **SQL database** menu, select **Query editor (preview)**. In the **Login** page, under the **Active Directory authentication** label, a message appears saying you have been signed in if you're an Azure AD admin. Then select the **Continue as** *\<your user or group ID>* button.
 
 ## View data
 
@@ -89,7 +95,7 @@ Configuring an Active Directory (AD) administrator enables you to use a single i
 
 2. On the toolbar, select **Run** and then review the output in the **Results** pane.
 
-![query editor results](./media/sql-database-connect-query-portal/query-editor-results.png)
+   ![query editor results](./media/sql-database-connect-query-portal/query-editor-results.png)
 
 ## Insert data
 
@@ -97,24 +103,24 @@ Run the following [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Tra
 
 1. Replace the previous query with this one.
 
-   ```sql
-   INSERT INTO [SalesLT].[Product]
+    ```sql
+    INSERT INTO [SalesLT].[Product]
            ( [Name]
            , [ProductNumber]
            , [Color]
            , [ProductCategoryID]
-		   , [StandardCost]
-		   , [ListPrice]
-		   , [SellStartDate]
-		   )
-     VALUES
+           , [StandardCost]
+           , [ListPrice]
+           , [SellStartDate]
+           )
+    VALUES
            ('myNewProduct'
            ,123456789
            ,'NewColor'
            ,1
-		   ,100
-		   ,100
-		   ,GETDATE() );
+           ,100
+           ,100
+           ,GETDATE() );
    ```
 
 

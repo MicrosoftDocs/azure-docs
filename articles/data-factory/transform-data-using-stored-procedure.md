@@ -75,10 +75,10 @@ The data type you specify for the parameter is the Azure Data Factory type that 
 
 | Data Source          | Data Type Mapping |
 | ---------------------|-------------------|
-| Azure SQL Data Warehouse | https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-sql-data-warehouse#data-type-mapping-for-azure-sql-data-warehouse |
-| Azure SQL Database   | https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-sql-database#data-type-mapping-for-azure-sql-database | 
-| Oracle               | https://docs.microsoft.com/en-us/azure/data-factory/connector-oracle#data-type-mapping-for-oracle |
-| SQL Server           | https://docs.microsoft.com/en-us/azure/data-factory/connector-sql-server#data-type-mapping-for-sql-server |
+| Azure SQL Data Warehouse | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#data-type-mapping-for-azure-sql-data-warehouse |
+| Azure SQL Database   | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#data-type-mapping-for-azure-sql-database | 
+| Oracle               | https://docs.microsoft.com/azure/data-factory/connector-oracle#data-type-mapping-for-oracle |
+| SQL Server           | https://docs.microsoft.com/azure/data-factory/connector-sql-server#data-type-mapping-for-sql-server |
 
 
 ## Error info

@@ -53,7 +53,7 @@ In ASP.NET Core SignalR, `HubConnectionContext context` is the context from the 
 In Azure SignalR Service SDK, `HubConnectionContext context` is the context from logical client connection. The physical client connection is connected to the SignalR Service instance, so only a limited number of properties are provided.
 
 For now, only `HubConnectionContext.GetHttpContext()` and `HubConnectionContext.User` are available for access.
-You can check the source code [here](https://github.com/Azure/azure-signalr/blob/kevinzha/faq/src/Microsoft.Azure.SignalR/ServiceHubConnectionContext.cs).
+You can check the source code [here](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR/HubHost/ServiceHubConnectionContext.cs).
 
 ## Can I configure the transports available in SignalR Service as configuring it on server side with ASP.NET Core SignalR? For example, disable WebSocket transport?
 

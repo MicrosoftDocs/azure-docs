@@ -16,7 +16,9 @@ This article summarizes what's supported when you use the [Azure Site Recovery](
 > [!NOTE]
 > You can only replicate to a secondary site when your Hyper-V hosts are managed in VMM clouds.
 
-  
+> [!WARNING]
+> Please note that ASR support for using SCVMM configuration into account will soon be deprecated, and hence we recommend you to read the [deprecation](scvmm-site-recovery-deprecation.md) details before proceeding.
+
 
 ## Host servers
 

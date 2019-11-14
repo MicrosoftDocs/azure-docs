@@ -9,10 +9,11 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 07/08/2019
+ms.date: 10/25/2019
 ---
 
 # Deploy a model to an Azure Kubernetes Service cluster
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Learn how to use Azure Machine Learning to deploy a model as a web service on Azure Kubernetes Service (AKS). Azure Kubernetes Service is good for high-scale production deployments. Use Azure Kubernetes service if you need one or more of the following capabilities:
 
@@ -25,8 +26,8 @@ Learn how to use Azure Machine Learning to deploy a model as a web service on Az
 
 When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is __connected to your workspace__. There are two ways to connect an AKS cluster to your workspace:
 
-* Create the AKS cluster using the Azure Machine Learning SDK, the Machine Learning CLI, the [Azure portal](https://portal.azure.com) or [workspace landing page (preview)](https://ml.azure.com). This process automatically connects the cluster to the workspace.
-* Attach an existing AKS cluster to your Azure Machine Learning workspace. A cluster can be attached using the Azure Machine Learning SDK, Machine Learning CLI, or the Azure portal.
+* Create the AKS cluster using the Azure Machine Learning SDK, the Machine Learning CLI, or [Azure Machine Learning studio](https://ml.azure.com). This process automatically connects the cluster to the workspace.
+* Attach an existing AKS cluster to your Azure Machine Learning workspace. A cluster can be attached using the Azure Machine Learning SDK, Machine Learning CLI, or Azure Machine Learning studio.
 
 > [!IMPORTANT]
 > The creation or attachment process is a one time task. Once an AKS cluster is connected to the workspace, you can use it for deployments. You can detach or delete the AKS cluster if you no longer need it. Once detatched or deleted, you will no longer be able to deploy to the cluster.
@@ -88,7 +89,7 @@ aks_target.wait_for_completion(show_output = True)
 > [!IMPORTANT]
 > For [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), if you pick custom values for `agent_count` and `vm_size`, and `cluster_purpose` is not `DEV_TEST`, then you need to make sure `agent_count` multiplied by `vm_size` is greater than or equal to 12 virtual CPUs. For example, if you use a `vm_size` of "Standard_D3_v2", which has 4 virtual CPUs, then you should pick an `agent_count` of 3 or greater.
 >
-> The Azure Machine Learning SDK does not provide support scaling an AKS cluster. To scale the nodes in the cluster, use the UI for your AKS cluster in the Azure portal. You can only change the node count, not the VM size of the cluster.
+> The Azure Machine Learning SDK does not provide support scaling an AKS cluster. To scale the nodes in the cluster, use the UI for your AKS cluster in the Azure Machine Learning studio. You can only change the node count, not the VM size of the cluster.
 
 For more information on the classes, methods, and parameters used in this example, see the following reference documents:
 
@@ -221,6 +222,69 @@ For information on using VS Code, see [deploy to AKS via the VS Code extension](
 
 > [!IMPORTANT] 
 > Deploying through VS Code requires the AKS cluster to be created or attached to your workspace in advance.
+
+## Deploy models to AKS using controlled rollout (preview)
+Analyze and promote model versions in a controlled fashion using endpoints. Deploy up to 6 versions behind a single endpoint and configure the % of scoring traffic to each deployed version. You can enable app insights to view operational metrics of endpoints and deployed versions.
+
+### Create an endpoint
+Once you are ready to deploy your models, create a scoring endpoint and deploy your first version. The step below shows you how to deploy and create the endpoint using the SDK. The first deployment will be defined as the default version which means that unspecified traffic percentile across all versions will go to the default version.  
+
+```python
+import azureml.core,
+from azureml.core.webservice import AksEndpoint
+from azureml.core.compute import AksCompute
+from azureml.core.compute import ComputeTarget
+# select a created compute
+compute = ComputeTarget(ws, 'myaks')
+namespace_name= endpointnamespace 
+# define the endpoint and version name
+endpoint_name = "mynewendpoint",
+version_name= "versiona",
+# create the deployment config and define the scoring traffic percentile for the first deployment
+endpoint_deployment_config = AksEndpoint.deploy_configuration(cpu_cores = 0.1, memory_gb = 0.2,
+                                                              enable_app_insights = true, 
+                                                              tags = {'sckitlearn':'demo'},
+                                                              decription = testing versions,
+                                                              version_name = version_name,
+                                                              traffic_percentile = 20)
+ # deploy the model and endpoint
+ endpoint = Model.deploy(ws, endpoint_name, [model], inference_config, endpoint_deployment_config, compute)
+ ```
+
+### Update and add versions to an endpoint
+
+Add another version to your endpoint and configure the scoring traffic percentile going to the version. There are two types of versions, a control and a treatment version. There can be multiple treatment version to help compare against a single control version. 
+
+ ```python
+from azureml.core.webservice import AksEndpoint
+
+# add another model deployment to the same endpoint as above
+version_name_add = "versionb" 
+endpoint.create_version(version_name = version_name_add, 
+                        inference_config=inference_config,
+                        models=[model], 
+                        tags = {'modelVersion':'b'}, 
+                        description = "my second version", 
+                        traffic_percentile = 10)
+```
+
+Update existing versions or delete them in an endpoint. You can change the version's default type, control type, and the traffic percentile. 
+ 
+ ```python
+from azureml.core.webservice import AksEndpoint
+
+# update the version's scoring traffic percentage and if it is a default or control type 
+endpoint.update_version(version_name=endpoint.versions["versionb"].name, 
+                        description="my second version update", 
+                        traffic_percentile=40,
+                        is_default=True,
+                        is_control_version_type=True)
+
+# delete a version in an endpoint 
+endpoint.delete_version(version_name="versionb")
+
+```
+
 
 ## Web service authentication
 

@@ -47,7 +47,7 @@ SQL Database also provides several business continuity features, that you can us
 
 ## Recover a database within the same Azure region
 
-You can use automatic database backups to restore a database to a point in time in the past. This way you can recover from data corruptions caused by human errors. The poin-in-time restore allows you to create a new database in the same server that represents the state of data prior to the corrupting event. For most databases the restore operations takes less than 12 hours. It may take longer to recover a very large or very active database. For more information about recovery time, see [database recovery time](sql-database-recovery-using-backups.md#recovery-time). 
+You can use automatic database backups to restore a database to a point in time in the past. This way you can recover from data corruptions caused by human errors. The point-in-time restore allows you to create a new database in the same server that represents the state of data prior to the corrupting event. For most databases the restore operations takes less than 12 hours. It may take longer to recover a very large or very active database. For more information about recovery time, see [database recovery time](sql-database-recovery-using-backups.md#recovery-time). 
 
 If the maximum supported backup retention period for point-in-time restore (PITR) is not sufficient for your application, you can extend it by configuring a long-term retention (LTR) policy for the database(s). For more information, see [Long-term backup retention](sql-database-long-term-retention.md).
 

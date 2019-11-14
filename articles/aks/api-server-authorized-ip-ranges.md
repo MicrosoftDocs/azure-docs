@@ -12,60 +12,22 @@ ms.author: mlearned
 #Customer intent: As a cluster operator, I want to increase the security of my cluster by limiting access to the API server to only the IP addresses that I specify.
 ---
 
-# Preview - Secure access to the API server using authorized IP address ranges in Azure Kubernetes Service (AKS)
+# Secure access to the API server using authorized IP address ranges in Azure Kubernetes Service (AKS)
 
 In Kubernetes, the API server receives requests to perform actions in the cluster such as to create resources or scale the number of nodes. The API server is the central way to interact with and manage a cluster. To improve cluster security and minimize attacks, the API server should only be accessible from a limited set of IP address ranges.
 
-This article shows you how to use API server authorized IP address ranges to limit requests to control plane. This feature is currently in preview.
+This article shows you how to use API server authorized IP address ranges to limit which IP addresses and CIDRs can access control plane.
 
 > [!IMPORTANT]
-> AKS preview features are self-service opt-in. Previews are provided "as-is" and "as available" and are excluded from the service level agreements and limited warranty. AKS Previews are partially covered by customer support on best effort basis. As such, these features are not meant for production use. For additional infromation, please see the following support articles:
->
-> * [AKS Support Policies][aks-support-policies]
-> * [Azure Support FAQ][aks-faq]
+> On new clusters, API server authorized IP address ranges are only supported on the *Standard* SKU load balancer. Existing clusters with the *Basic* SKU load balancer and API server authorized IP address ranges configured will continue work as is. Those existing clusers can also be upgrade and they will continue to work.
 
 ## Before you begin
 
-This article assumess you are working with clusters that use [kubenet][kubenet].  With [Azure Container Networking Interface (CNI)][cni-networking] based clusters, you will not have the required route table needed to secure access.  You will need to create the route table manually.  See [managing route tables](https://docs.microsoft.com/azure/virtual-network/manage-route-table) for more information.
+This article assumes you are working with clusters that use [kubenet][kubenet].  With [Azure Container Networking Interface (CNI)][cni-networking] based clusters, you will not have the required route table needed to secure access.  You will need to create the route table manually.  See [managing route tables](https://docs.microsoft.com/azure/virtual-network/manage-route-table) for more information.
 
 API server authorized IP ranges only work for new AKS clusters that you create. This article shows you how to create an AKS cluster using the Azure CLI.
 
-You need the Azure CLI version 2.0.61 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
-
-### Install aks-preview CLI extension
-
-To configure API server authorized IP ranges, you need the *aks-preview* CLI extension version 0.4.1 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command:
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
-
-### Register feature flag for your subscription
-
-To use API server authorized IP ranges, first enable a feature flag on your subscription. To register the *APIServerSecurityPreview* feature flag, use the [az feature register][az-feature-register] command as shown in the following example:
-
-> [!CAUTION]
-> When you register a feature on a subscription, you can't currently un-register that feature. After you enable some preview features, defaults may be used for all AKS clusters then created in the subscription. Don't enable preview features on production subscriptions. Use a separate subscription to test preview features and gather feedback.
-
-```azurecli-interactive
-az feature register --name APIServerSecurityPreview --namespace Microsoft.ContainerService
-```
-
-It takes a few minutes for the status to show *Registered*. You can check on the registration status using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/APIServerSecurityPreview')].{Name:name,State:properties.state}"
-```
-
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+You need the Azure CLI version 2.0.76 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## Limitations
 
@@ -96,143 +58,33 @@ az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
     --node-count 1 \
+    --vm-set-type VirtualMachineScaleSets \
+    --load-balancer-sku standard \
     --generate-ssh-keys
 
 # Get credentials to access the cluster
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-## Create outbound gateway for firewall rules
+## Update cluster with authorized IP ranges
 
-To ensure that the nodes in a cluster can reliably communicate with the API server when you enable authorized IP ranges in the next section, create an Azure firewall for use as the outbound gateway. The IP address of the Azure firewall is then added to the list of authorized API server IP addresses in the next section.
-
-> [!WARNING]
-> The use of Azure Firewall can incur significant costs over a monthly billing cycle. The requirement to use Azure Firewall should only be necessary in this initial preview period. For more information and cost planning, see [Azure Firewall pricing][azure-firewall-costs].
->
-> Alternatively, if your cluster uses the [Standard SKU load balancer][standard-sku-lb], you do not need to configure the Azure Firewall as the outbound gateway. Use [az network public-ip list][az-network-public-ip-list] and specify the resource group of your AKS cluster, which usually starts with *MC_*. This displays the public IP for your cluster, which you can whitelist. For example:
->
-> ```azurecli-interactive
-> RG=$(az aks show --resource-group myResourceGroup --name myAKSClusterSLB --query nodeResourceGroup -o tsv)
-> SLB_PublicIP=$(az network public-ip list --resource-group $RG --query [].ipAddress -o tsv)
-> az aks update --api-server-authorized-ip-ranges $SLB_PublicIP --resource-group myResourceGroup --name myAKSClusterSLB
-> ```
-
-First, get the *MC_* resource group name for the AKS cluster and the virtual network. Then, create a subnet using the [az network vnet subnet create][az-network-vnet-subnet-create] command. The following example creates a subnet named *AzureFirewallSubnet* with the CIDR range of *10.200.0.0/16*:
+By default, your cluster uses the [Standard SKU load balancer][standard-sku-lb], which you can use to configure the outbound gateway. Use [az network public-ip list][az-network-public-ip-list] and specify the resource group of your AKS cluster, which usually starts with *MC_*. This displays the public IP for your cluster, which you can allow. Use the [az aks update][az-aks-update] command and specify the *--api-server-authorized-ip-ranges* parameter to allow the IP of the cluster. For example:
 
 ```azurecli-interactive
-# Get the name of the MC_ cluster resource group
-MC_RESOURCE_GROUP=$(az aks show \
-    --resource-group myResourceGroup \
-    --name myAKSCluster \
-    --query nodeResourceGroup -o tsv)
-
-# Get the name of the virtual network used by the cluster
-VNET_NAME=$(az network vnet list \
-    --resource-group $MC_RESOURCE_GROUP \
-    --query [0].name -o tsv)
-
-# Create a subnet in the virtual network for Azure Firewall
-az network vnet subnet create \
-    --resource-group $MC_RESOURCE_GROUP \
-    --vnet-name $VNET_NAME \
-    --name AzureFirewallSubnet \
-    --address-prefixes 10.200.0.0/16
+RG=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
+SLB_PublicIP=$(az network public-ip list --resource-group $RG --query [].ipAddress -o tsv)
+az aks update --api-server-authorized-ip-ranges $SLB_PublicIP --resource-group myResourceGroup --name myAKSCluster
 ```
 
-To create an Azure Firewall, install the *azure-firewall* CLI extension using the [az extension add][az-extension-add] command. Then, create a firewall using the [az network firewall create][az-network-firewall-create] command. The following example creates an Azure firewall named *myAzureFirewall*:
+To enable API server authorized IP ranges, use [az aks update][az-aks-update] command and specify the *--api-server-authorized-ip-ranges* parameter to provide a list of authorized IP address ranges. These IP address ranges are usually address ranges used by your on-premises networks or public IPs. When you specify a CIDR range, start with the first IP address in the range. For example, *137.117.106.90/29* is a valid range, but make sure you specify the first IP address in the range, such as *137.117.106.88/29*.
 
-```azurecli-interactive
-# Install the CLI extension for Azure Firewall
-az extension add --name azure-firewall
-
-# Create an Azure firewall
-az network firewall create \
-    --resource-group $MC_RESOURCE_GROUP\
-    --name myAzureFirewall
-```
-
-An Azure firewall is assigned a public IP address that egress traffic flows through. Create a public address using the [az network public-ip create][az-network-public-ip-create] command, then create an IP configuration on the firewall using the [az network firewall ip-config create][az-network-firewall-ip-config-create] that applies the public IP:
-
-```azurecli-interactive
-# Create a public IP address for the firewall
-FIREWALL_PUBLIC_IP=$(az network public-ip create \
-    --resource-group $MC_RESOURCE_GROUP \
-    --name myAzureFirewallPublicIP \
-    --sku Standard \
-    --query publicIp.ipAddress -o tsv)
-
-# Associated the firewall with virtual network
-az network firewall ip-config create \
-    --resource-group $MC_RESOURCE_GROUP \
-    --name myAzureFirewallIPConfig \
-    --vnet-name $VNET_NAME \
-    --firewall-name myAzureFirewall \
-    --public-ip-address myAzureFirewallPublicIP
-```
-
-Now create the Azure firewall network rule to *allow* all *TCP* traffic using the [az network firewall network-rule create][az-network-firewall-network-rule-create] command. The following example creates a network rule named *AllowTCPOutbound* for traffic with any source or destination address:
-
-```azurecli-interactive
-az network firewall network-rule create \
-    --resource-group $MC_RESOURCE_GROUP \
-    --firewall-name myAzureFirewall \
-    --name AllowTCPOutbound \
-    --collection-name myAzureFirewallCollection \
-    --priority 200 \
-    --action Allow \
-    --protocols TCP \
-    --source-addresses '*' \
-    --destination-addresses '*' \
-    --destination-ports '*'
-```
-
-To associate the Azure firewall with the network route, obtain the existing route table information, the internal IP address of the Azure firewall, and then the IP address of the API server. These IP addresses are specified in the next section to control how traffic should be routed for cluster communication.
-
-```azurecli-interactive
-# Get the AKS cluster route table
-ROUTE_TABLE=$(az network route-table list \
-    --resource-group $MC_RESOURCE_GROUP \
-    --query "[?contains(name,'agentpool')].name" -o tsv)
-
-# Get internal IP address of the firewall
-FIREWALL_INTERNAL_IP=$(az network firewall show \
-    --resource-group $MC_RESOURCE_GROUP \
-    --name myAzureFirewall \
-    --query ipConfigurations[0].privateIpAddress -o tsv)
-
-# Get the IP address of API server endpoint
-K8S_ENDPOINT_IP=$(kubectl get endpoints -o=jsonpath='{.items[?(@.metadata.name == "kubernetes")].subsets[].addresses[].ip}')
-```
-
-Finally, create a route in the existing AKS network route table using the [az network route-table route create][az-network-route-table-route-create] command that allows traffic to use the Azure firewall appliance for API server communication.
-
-```azurecli-interactive
-az network route-table route create \
-    --resource-group $MC_RESOURCE_GROUP \
-    --route-table-name $ROUTE_TABLE \
-    --name AzureFirewallAPIServer \
-    --address-prefix $K8S_ENDPOINT_IP/32 \
-    --next-hop-ip-address $FIREWALL_INTERNAL_IP \
-    --next-hop-type VirtualAppliance
-
-echo "Public IP address for the Azure Firewall instance that should be added to the list of API server authorized addresses is:" $FIREWALL_PUBLIC_IP
-```
-
-Make a note of the public IP address of your Azure Firewall appliance. This address is added to the list of API server authorized IP ranges in the next section.
-
-## Enable authorized IP ranges
-
-To enable API server authorized IP ranges, you provide a list of authorized IP address ranges. When you specify a CIDR range, start with the first IP address in the range. For example, *137.117.106.90/29* is a valid range, but make sure you specify the first IP address in the range, such as *137.117.106.88/29*.
-
-Use [az aks update][az-aks-update] command and specify the *--api-server-authorized-ip-ranges* to allow. These IP address ranges are usually address ranges used by your on-premises networks. Add the public IP address of your own Azure firewall obtained in the previous step, such as *20.42.25.196/32*.
-
-The following example enables API server authorized IP ranges on the cluster named *myAKSCluster* in the resource group named *myResourceGroup*. The IP address ranges to authorize are *20.42.25.196/32* (the Azure firewall public IP address), then *172.0.0.0/16* (Pod/Nodes Address Range) and *168.10.0.0/18* (ServiceCidr):
+The following example enables API server authorized IP ranges on the cluster named *myAKSCluster* in the resource group named *myResourceGroup*. The IP address ranges to authorize are *172.0.0.0/16* (Pod/Nodes Address Range) and *168.10.0.0/18* (ServiceCidr):
 
 ```azurecli-interactive
 az aks update \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --api-server-authorized-ip-ranges 20.42.25.196/32,172.0.0.0/16,168.10.0.0/18
+    --api-server-authorized-ip-ranges 172.0.0.0/16,168.10.0.0/18
 ```
 
 > [!NOTE]
@@ -242,9 +94,9 @@ az aks update \
 > - The address range for the subnets, with the nodes and pods
 > - Any range that represents networks that you'll administer the cluster from
 
-## Update or disable authorized IP ranges
+## Disable authorized IP ranges
 
-To update or disable authorized IP ranges, you again use [az aks update][az-aks-update] command. Specify the updated CIDR range you wish to allow, or specify an empty range to disable API server authorized IP ranges, as shown in the following example:
+To disable authorized IP ranges, use [az aks update][az-aks-update] and specify an empty range to disable API server authorized IP ranges. For example:
 
 ```azurecli-interactive
 az aks update \
@@ -260,34 +112,15 @@ In this article, you enabled API server authorized IP ranges. This approach is o
 For more information, see [Security concepts for applications and clusters in AKS][concepts-security] and [Best practices for cluster security and upgrades in AKS][operator-best-practices-cluster-security].
 
 <!-- LINKS - external -->
-[azure-firewall-costs]: https://azure.microsoft.com/pricing/details/azure-firewall/
-[kubenet]: https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#kubenet
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
+[kubenet]: https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#kubenet
 
 <!-- LINKS - internal -->
-[aks-quickstart-cli]: kubernetes-walkthrough.md
-[install-azure-cli]: /cli/azure/install-azure-cli
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
 [az-aks-update]: /cli/azure/ext/aks-preview/aks#ext-aks-preview-az-aks-update
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-network-public-ip-list]: /cli/azure/network/public-ip#az-network-public-ip-list
 [concepts-clusters-workloads]: concepts-clusters-workloads.md
 [concepts-security]: concepts-security.md
+[install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
-[create-aks-sp]: kubernetes-service-principal.md#manually-create-a-service-principal
-[az-aks-create]: /cli/azure/aks#az-aks-create
-[az-aks-show]: /cli/azure/aks#az-aks-show
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-network-vnet-subnet-create]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-create
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-network-firewall-create]: /cli/azure/ext/azure-firewall/network/firewall#ext-azure-firewall-az-network-firewall-create
-[az-network-public-ip-create]: /cli/azure/network/public-ip#az-network-public-ip-create
-[az-network-public-ip-list]: /cli/azure/network/public-ip#az-network-public-ip-list
-[az-network-firewall-ip-config-create]: /cli/azure/ext/azure-firewall/network/firewall/ip-config#ext-azure-firewall-az-network-firewall-ip-config-create
-[az-network-firewall-network-rule-create]: /cli/azure/ext/azure-firewall/network/firewall/network-rule#ext-azure-firewall-az-network-firewall-network-rule-create
-[az-network-route-table-route-create]: /cli/azure/network/route-table/route#az-network-route-table-route-create
-[aks-support-policies]: support-policies.md
-[aks-faq]: faq.md
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
 [standard-sku-lb]: load-balancer-standard.md

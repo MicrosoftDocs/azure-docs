@@ -53,7 +53,7 @@ The key reasons why you should choose Business Critical service tier instead of 
 
 ## Next steps
 
-- Find resource characteristics (number of cores, IO, memory) of Business Critical tier in [Managed Instance](sql-database-managed-instance-resource-limits.md#service-tier-characteristics), Single database in [vCore model](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute) or [DTU model](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier), or Elastic pool in [vCore model](sql-database-vcore-resource-limits-elastic-pools.md#business-critical-service-tier-storage-sizes-and-compute-sizes) and [DTU model](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits).
+- Find resource characteristics (number of cores, IO, memory) of Business Critical tier in [Managed Instance](sql-database-managed-instance-resource-limits.md#service-tier-characteristics), Single database in [vCore model](sql-database-vcore-resource-limits-single-databases.md#business-critical---provisioned-compute---gen4) or [DTU model](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier), or Elastic pool in [vCore model](sql-database-vcore-resource-limits-elastic-pools.md#business-critical---provisioned-compute---gen4) and [DTU model](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits).
 - Learn about [General Purpose](sql-database-service-tier-general-purpose.md) and [Hyperscale](sql-database-service-tier-hyperscale.md) tiers.
 - Learn about [Service Fabric](../service-fabric/service-fabric-overview.md).
 - For more options for high availability and disaster recovery, see [Business Continuity](sql-database-business-continuity.md).

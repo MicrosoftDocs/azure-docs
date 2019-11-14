@@ -5,12 +5,12 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 12/14/2018
+ ms.date: 11/04/2019
  ms.author: cherylmc
  ms.custom: include file
 ---
 ### Is Custom IPsec/IKE policy supported on all Azure VPN Gateway SKUs?
-Custom IPsec/IKE policy is supported on Azure **VpnGw1, VpnGw2, VpnGw3, Standard**, and **HighPerformance** VPN gateways. The **Basic** SKU is **not** supported.
+Custom IPsec/IKE policy is supported on **all Azure SKUs except the Basic SKU**.
 
 ### How many policies can I specify on a connection?
 You can only specify ***one*** policy combination for a given connection.

@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/15/2019
+ms.date: 10/26/2019
 ms.author: raynew
 
 ---
@@ -42,7 +42,7 @@ You can replicate and recover VMs between any two regions within the same geogra
 **Geographic cluster** | **Azure regions**
 -- | --
 America | Canada East, Canada Central, South Central US, West Central US, East US, East US 2, West US, West US 2, Central US, North Central US
-Europe | UK West, UK South, North Europe, West Europe, France Central, France South, South Africa West, South Africa North
+Europe | UK West, UK South, North Europe, West Europe, France Central, France South, South Africa West, South Africa North, Norway East, Norway West
 Asia | South India, Central India, West India, Southeast Asia, East Asia, Japan East, Japan West, Korea Central, Korea South, UAE Central, UAE North
 Australia	| Australia East, Australia Southeast, Australia Central, Australia Central 2
 Azure Government	| US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, US DOD East, US DOD Central 
@@ -97,16 +97,17 @@ Windows 7 (x64) with SP1 onwards | From version 9.30.x.x (expected release begin
 
 **Operating system** | **Details**
 --- | ---
-Red Hat Enterprise Linux | 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7 
-CentOS | 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7
+Red Hat Enterprise Linux | 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 8.0
+CentOS | 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 8.0
 Ubuntu 14.04 LTS Server | [Supported kernel versions](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 Ubuntu 16.04 LTS Server | [Supported kernel version](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Ubuntu servers using password-based authentication and sign in, and the cloud-init package to configure cloud VMs, might have password-based sign in disabled on failover (depending on the cloudinit configuration). Password-based sign in can be re-enabled on the virtual machine by resetting the password from the Support > Troubleshooting > Settings menu (of the failed over VM in the Azure portal.
+Ubuntu 18.04 LTS Server | [Supported kernel version](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 Debian 7 | [Supported kernel versions](#supported-debian-kernel-versions-for-azure-virtual-machines)
 Debian 8 | [Supported kernel versions](#supported-debian-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 12 | SP1, SP2, SP3, SP4. [(Supported kernel versions)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 11 | SP3<br/><br/> Upgrade of replicating machines from SP3 to SP4 isn't supported. If a replicated machine has been upgraded, you need to disable replication and re-enable replication after the upgrade.
 SUSE Linux Enterprise Server 11 | SP4
-Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6<br/><br/> Running the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3, 4 & 5 (UEK3, UEK4, UEK5) 
+Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7<br/><br/> Running the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3, 4 & 5 (UEK3, UEK4, UEK5) 
 
 
 #### Supported Ubuntu kernel versions for Azure virtual machines
@@ -122,6 +123,10 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5,
 16.04 LTS | 9.27 | 4.4.0-21-generic to 4.4.0-154-generic,<br/>4.8.0-34-generic to 4.8.0-58-generic,<br/>4.10.0-14-generic to 4.10.0-42-generic<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic to 4.13.0-45-generic,<br/>4.15.0-13-generic to 4.15.0-55-generic<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure to 4.13.0-1018-azure <br/>4.15.0-1012-azure to 4.15.0-1051-azure|
 16.04 LTS | 9.26 | 4.4.0-21-generic to 4.4.0-148-generic,<br/>4.8.0-34-generic to 4.8.0-58-generic,<br/>4.10.0-14-generic to 4.10.0-42-generic<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic to 4.13.0-45-generic,<br/>4.15.0-13-generic to 4.15.0-50-generic<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure to 4.13.0-1018-azure <br/>4.15.0-1012-azure to 4.15.0-1045-azure|
 16.04 LTS | 9.25 | 4.4.0-21-generic to 4.4.0-146-generic,<br/>4.8.0-34-generic to 4.8.0-58-generic,<br/>4.10.0-14-generic to 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic to 4.13.0-45-generic,<br/>4.15.0-13-generic to 4.15.0-48-generic<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure to 4.13.0-1018-azure <br/>4.15.0-1012-azure to 4.15.0-1042-azure|
+16.04 LTS | 9.24 | 4.4.0-21-generic to 4.4.0-143-generic,<br/>4.8.0-34-generic to 4.8.0-58-generic,<br/>4.10.0-14-generic to 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic to 4.13.0-45-generic,<br/>4.15.0-13-generic to 4.15.0-46-generic<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure to 4.13.0-1018-azure <br/>4.15.0-1012-azure to 4.15.0-1040-azure|
+|||
+18.04 LTS | [9.29](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery) | 4.15.0-20-generic to 4.15.0-64-generic </br> 4.18.0-13-generic to 4.18.0-25-generic </br> 5.0.0-15-generic to 5.0.0-29-generic </br> 4.15.0-1009-azure to 4.15.0-1037-azure </br> 4.18.0-1006-azure to 4.18.0-1025-azure </br> 5.0.0-1012-azure to 5.0.0-1020-azure
+
 
 #### Supported Debian kernel versions for Azure virtual machines
 
@@ -157,7 +162,7 @@ Size | Any Azure VM size with at least 2 CPU cores and 1-GB RAM | Verify [Azure 
 Availability sets | Supported | If you enable replication for an Azure VM with the default options, an availability set is created automatically, based on the source region settings. You can modify these settings.
 Availability zones | Supported |
 Hybrid Use Benefit (HUB) | Supported | If the source VM has a HUB license enabled, a test failover or failed over VM also uses the HUB license.
-VM scale sets | Not supported |
+Virtual machine scale sets | Not supported |
 Azure gallery images - Microsoft published | Supported | Supported if the VM runs on a supported operating system.
 Azure Gallery images - Third party published | Supported | Supported if the VM runs on a supported operating system.
 Custom images - Third party published | Supported | Supported if the VM runs on a supported operating system.

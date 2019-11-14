@@ -16,6 +16,10 @@ This article describes how to do a disaster recovery (DR) drill for Hyper-V VMs 
 
 You run a test failover to validate your replication strategy, and perform a DR drill without any data loss or downtime. A test failover doesn't have any impact on the ongoing replication, or on your production environment. 
 
+> [!WARNING]
+> Please note that ASR support for using SCVMM configuration into account will soon be deprecated, and hence we recommend you to read the [deprecation](scvmm-site-recovery-deprecation.md) details before proceeding.
+
+
 ## How do test failovers work?
 
 You run a test failover from the primary to the secondary site. If you simply want to check that a VM fails over, you can run a test failover without setting anything up on the secondary site. If you want to verify app failover works as expected, you will need to set up networking and infrastructure in the secondary location.

@@ -14,6 +14,7 @@ ms.custom: seodec18
 ---
 
 # Track metrics and deploy models with MLflow and Azure Machine Learning (preview)
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 This article demonstrates how to enable MLflow's tracking URI and logging API, collectively known as [MLflow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api), with Azure Machine Learning. Doing so enables you to:
 
@@ -27,6 +28,9 @@ The following diagram illustrates that with MLflow Tracking, you can take any ex
 
 ![mlflow with azure machine learning diagram](media/how-to-use-mlflow/mlflow-diagram-track.png)
 
+> [!TIP]
+> The information in this document is primarily for data scientists and developers who want to monitor the model training process. If you are an administrator interested in monitoring resource usage and events from Azure Machine learning, such as quotas, completed training runs, or completed model deployments, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
+
 ## Compare MLflow and Azure Machine Learning clients
 
  The below table summarizes the different clients that can use Azure Machine Learning, and their respective function capabilities.
@@ -34,7 +38,7 @@ The following diagram illustrates that with MLflow Tracking, you can take any ex
  MLflow Tracking offers metric logging and artifact storage functionalities that are only otherwise available via the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 
-| | MLflow Tracking & Deployment | Azure Machine Learning Python SDK |  Azure Machine Learning CLI | Azure portal or workspace landing page (preview)|
+| | MLflow Tracking & Deployment | Azure Machine Learning Python SDK |  Azure Machine Learning CLI | Azure Machine Learning studio|
 |---|---|---|---|---|
 | Manage workspace |   | ✓ | ✓ | ✓ |
 | Use data stores  |   | ✓ | ✓ | |
@@ -128,7 +132,7 @@ with mlflow.start_run():
     mlflow.log_metric('example', 1.23)
 ```
 
-With this compute and training run configuration, use the `Experiment.submit('train.py')` method to submit a run. This automatically sets the MLflow tracking URI and directs the logging from MLflow to your Workspace.
+With this compute and training run configuration, use the `Experiment.submit('train.py')` method to submit a run. This method automatically sets the MLflow tracking URI and directs the logging from MLflow to your Workspace.
 
 ```Python
 run = exp.submit(src)
@@ -157,7 +161,7 @@ In the **Package** field, type azureml-mlflow and then click install. Repeat thi
 
 Once your cluster is set up, import your experiment notebook, open it and attach your cluster to it.
 
-The following code should be in your experiment notebook. This gets the details of your Azure subscription to instantiate your workspace. This assumes you have an existing resource group and Azure Machine Learning workspace, otherwise you can [create them](how-to-manage-workspace.md). 
+The following code should be in your experiment notebook. This code gets the details of your Azure subscription to instantiate your workspace. This code assumes you have an existing resource group and Azure Machine Learning workspace, otherwise you can [create them](how-to-manage-workspace.md). 
 
 ```python
 import mlflow
@@ -188,7 +192,7 @@ On the [Azure portal](https://ms.portal.azure.com), you can link your Azure Data
 
 ### Link MLflow tracking to your workspace
 
-After you instantiate your workspace, set the MLflow tracking URI. By doing so, you link the MLflow tracking to Azure Machine Learning workspace. After this, all your experiments will land in the managed Azure Machine Learning tracking service.
+After you instantiate your workspace, set the MLflow tracking URI. By doing so, you link the MLflow tracking to Azure Machine Learning workspace. After linking, all your experiments will land in the managed Azure Machine Learning tracking service.
 
 #### Directly set MLflow Tracking in your notebook
 
@@ -212,7 +216,7 @@ When configured correctly, you are able to see your MLflow tracking data in Azur
 
 ## View metrics and artifacts in your workspace
 
-The metrics and artifacts from MLflow logging are kept in your workspace. To view them anytime, navigate to your workspace and find the experiment by name on the [Azure portal](https://portal.azure.com) or in your [workspace landing page (preview)](https://ml.azure.com).  Or run the below code. 
+The metrics and artifacts from MLflow logging are kept in your workspace. To view them anytime, navigate to your workspace and find the experiment by name in your workspace in [Azure Machine Learning studio](https://ml.azure.com).  Or run the below code. 
 
 ```python
 run.get_metrics()
@@ -243,7 +247,7 @@ mlflow.sklearn.log_model(regression_model, model_save_path)
 
 ### Retrieve model from previous run
 
-To retrieve the desired run you need the run ID and the path in run history of where the model was saved. 
+To retrieve the run, you need the run ID and the path in run history of where the model was saved. 
 
 ```python
 # gets the list of runs for your experiment as an array
@@ -306,7 +310,7 @@ webservice.wait_for_deployment(show_output=True)
 ```
 #### Deploy to AKS
 
-To deploy to AKS you need to create an AKS cluster and bring over the Docker image you want to deploy. For this example, bring over the previously created image from the ACI deployment.
+To deploy to AKS, first create an AKS cluster and bring over the Docker image you want to deploy. For this example, bring over the previously created image from the ACI deployment.
 
 To get the image from the previous ACI deployment use the [Image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image.image?view=azure-ml-py) class. 
 
@@ -317,7 +321,7 @@ from azureml.core.image import Image
 myimage = Image(workspace=ws, name='sklearn-image') 
 ```
 
-Create AKS compute it may take 20-25 minutes to create a new cluster
+Create an AKS cluster using the [ComputeTarget.create()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.computetarget?view=azure-ml-py#create-workspace--name--provisioning-configuration-) method. It may take 20-25 minutes to create a new cluster.
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget

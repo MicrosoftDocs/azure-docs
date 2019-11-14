@@ -176,13 +176,23 @@ appInsights.defaultClient.addTelemetryProcessor(envelope => {
 
 ### Java
 
+Starting with Application Insights Java SDK 2.5.0, you can specify the cloud role name
+by adding `<RoleName>` to your `ApplicationInsights.xml` file, e.g.
+
+```XML
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
+   <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
+   <RoleName>** Your role name **</RoleName>
+   ...
+</ApplicationInsights>
+```
+
 If you use Spring Boot with the Application Insights Spring Boot starter, the only required change is to set your custom name for the application in the application.properties file.
 
 `spring.application.name=<name-of-app>`
 
 The Spring Boot starter will automatically assign cloud role name to the value you enter for the spring.application.name property.
-
-For further information on Java correlation and how to configure cloud role name for non-SpringBoot applications checkout this [section](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) on correlation.
 
 ### Client/browser-side JavaScript
 

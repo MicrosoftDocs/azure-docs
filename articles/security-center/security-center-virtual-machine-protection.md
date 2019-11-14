@@ -25,7 +25,7 @@ You can monitor the security state of your resources on the **Security Center â€
 
 You can view a list of all issues by selecting **Recommendations**. For more information about how to apply recommendations, see [Implementing security recommendations in Azure Security Center](security-center-recommendations.md).
 
-For a complete list of Compute and App services recommendations, see [Recommendations](security-center-virtual-machine-protection.md#compute-and-app-recommendations).
+For a complete list of Compute and App services recommendations, see [Recommendations](security-center-virtual-machine-protection.md#compute-and-app-recs).
 
 To continue, select **Compute & apps** under **Resources** or the Security Center main menu.
 ![Security Center dashboard](./media/security-center-virtual-machine-recommendations/overview.png)
@@ -37,7 +37,7 @@ Under **Compute & apps**, there are the following tabs:
 - **VMs and computers**: list of your VMs, computers, and current security state of each.
 - **Cloud Services**: list of your web and worker roles monitored by Security Center.
 - **App services**: list of your App service environments and current security state of each.
-- **Containers (Preview)**: list of your containers hosted on IaaS Linux machines and security assessment of their Docker configurations.
+- **Containers**: list of your containers and security assessment of their configurations.
 - **Compute resources (Preview)**: list of recommendations for your compute resources, such as Service Fabric clusters and Event hubs.
 
 To continue, select **Compute & apps** under **Resource security hygiene**.
@@ -173,7 +173,7 @@ To set new scale sets to automatically install the Microsoft Monitoring Agent:
 If you want to set all existing scale sets to install the Microsoft Monitoring Agent, in Azure Policy, go to **Remediation** and apply the existing policy to existing scale sets.
 
 
-## Compute and app recommendations
+## Compute and app recommendations <a name="compute-and-app-recs"></a>
 |Resource type|Secure score|Recommendation|Description|
 |----|----|----|----|
 |App service|20|Web Application should only be accessible over HTTPS|Limit access of Web Applications over HTTPS only.|

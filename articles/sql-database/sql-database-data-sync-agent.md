@@ -109,7 +109,7 @@ The client agent doesn't work, even after you cancel its uninstallation.
 - **Resolution**. You can try these two solutions:
 
     -   Use services.msc to reenter the credentials for the client agent.
-    -   Uninstall this client agent and then install a new one. Download and install the latest client agent from [Download Center](https://go.microsoft.com/fwlink/?linkid=221479).
+    -   Uninstall this client agent and then install a new one. Download and install the latest client agent from [Download Center](https://www.microsoft.com/download/details.aspx?id=27693).
 
 ### <a name="agent-list"></a> My database isn't listed in the agent list
 

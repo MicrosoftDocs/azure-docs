@@ -72,6 +72,9 @@ To provide educators the permission to create labs for their classes, add them t
 
     ![Add lab creator](../media/tutorial-setup-lab-account/add-lab-creator.png)
 
+    > [!NOTE]
+    > If you are adding a non-Microsoft account user as a lab creator, see the [Add a non-Microsoft account user as a lab creator](#add-a-non-microsoft-account-user-as-a-lab-creator) section. 
+
 ## Specify Marketplace images available to lab creators
 As a lab account owner, you can specify the Marketplace images that lab creators can use to create labs in the lab account. 
 
@@ -95,7 +98,36 @@ As a lab account owner, you can specify the Marketplace images that lab creators
     1. Select **... (ellipsis)** in the last column, and select **Enable image**. 
     2. Select one or more images from the list by selecting the checkboxes before the image names in the list, and select **Enable selected images**. 
 
+## Add a non-Microsoft account user as a lab creator
+To add a user as a lab creator, you use their email accounts. The following types of email accounts might be used:
 
+- An email account that's provided by your university’s Office 365 Azure Active Directory (AAD). 
+- A Microsoft email account, such as `@outlook.com`, `@hotmail.com`, `@msn.com`, or `@live.com`.
+- A non-Microsoft email account, such as one provided by Yahoo or Google. However, these types of accounts must be linked with a Microsoft account.
+- A GitHub account. This account must be linked with a Microsoft account.
+
+### Using a non-Microsoft email account
+Lab creators/instructors can use non-Microsoft email accounts to register and sign in to a classroom lab.  However, the sign-in to the Lab Services portal requires that instructors first create a Microsoft account that's linked to their non-Microsoft email address.
+
+Many instructors might already have a Microsoft account linked to their non-Microsoft email addresses. For example, instructors already have a Microsoft account if they have used their email address with Microsoft’s other products or services, such as Office, Skype, OneDrive, or Windows.  
+
+When instructors sign in to the Lab Services portal, they are prompted for their email address and password. If the instructor attempts to sign in with a non-Microsoft account that does not have a Microsoft account linked, the instructor will receive the following error message: 
+
+![Error message](../media/how-to-configure-student-usage/cant-find-account.png)
+
+To sign up for a Microsoft account, instructors should go to [http://signup.live.com](http://signup.live.com).  
+
+
+### Using a GitHub Account
+Instructors can also use an existing GitHub account to register and sign in to a classroom lab. If the instructor already has a Microsoft account linked to their GitHub account, then they can sign in and provide their password as shown in the previous section. If they have not yet linked their GitHub account to a Microsoft account, they should select **Sign-in options**:
+
+![Sign-in options link](../media/how-to-configure-student-usage/signin-options.png)
+
+On the **Sign-in options** page, select **Sign in with GitHub**.
+
+![Sign in with GitHub link](../media/how-to-configure-student-usage/signin-github.png)
+
+Finally, they are prompted to create a Microsoft account that's linked to their GitHub account. It happens automatically when the instructor selects **Next**.  The instructor is then immediately signed in and connected to the classroom lab.
 
 
 ## Next steps

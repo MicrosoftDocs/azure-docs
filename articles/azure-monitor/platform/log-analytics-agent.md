@@ -1,18 +1,13 @@
 ---
 title: Collect log data with Azure Log Analytics agent | Microsoft Docs
 description: This topic helps you understand how to collect data and monitor computers hosted in Azure, on-premises, or other cloud environment with Log Analytics.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service:  azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 10/07/2019
+author: MGoedtel
 ms.author: magoedte
+ms.date: 10/07/2019
+
 ---
 
 # Collect log data with the Log Analytics agent

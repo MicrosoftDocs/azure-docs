@@ -84,7 +84,7 @@ The Backup operation failed due to an issue with Windows service **COM+ System**
 	* Stop the MSDTC service
 	* Open a command prompt (cmd)
 	* Run command “msdtc -uninstall”
-	* un command “msdtc -install”
+	* Run command “msdtc -install”
 	* Start the MSDTC service
 * Start the Windows service **COM+ System Application**. After the **COM+ System Application** starts, trigger a backup job from the Azure portal.</ol>
 

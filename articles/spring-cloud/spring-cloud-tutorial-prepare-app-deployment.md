@@ -1,15 +1,11 @@
 ---
 title: Prepare a Spring application for deployment in Azure Spring Cloud | Microsoft Docs
 description: In this quickstart, you prepare a Java Spring application for deployment.
-services: spring-cloud
-author: v-vasuke
-manager: jeconnoc
-editor: ''
-
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 10/06/2019
-ms.author: v-vasuke
+ms.author: jeconnoc
 
 ---
 # Tutorial: Prepare a Java Spring application for deployment in Azure Spring Cloud
@@ -89,27 +85,17 @@ The table below lists the correct versions for your Spring Boot/Spring Cloud app
 
 Spring Boot version | Spring Cloud version | Azure Spring Cloud version
 ---|---|---
-2.0.x | Finchley.RELEASE | 2.0.0-SNAPSHOT
-2.1.x | Greenwich.RELEASE | 2.1.0-SNAPSHOT
+2.0.x | Finchley.RELEASE | 2.0.x
+2.1.x | Greenwich.RELEASE | 2.1.x
 
 Include this snippet in  your `pom.xml` with the correct Azure Spring Cloud version in the 'dependency':
 
 ```xml
-    <repositories>
-        <repository>
-            <id>nexus-snapshots</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-    
-    <dependency>
+<dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-        <version>2.1.0-SNAPSHOT</version>
-    </dependency>
+        <version>2.1.0</version>
+</dependency>
 ```
 
 ## Other required dependencies

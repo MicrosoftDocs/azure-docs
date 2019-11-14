@@ -4,28 +4,39 @@ description: Provides an overview of the Azure Migrate service.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 06/10/2019
+ms.date: 10/22/2019
 ms.author: raynew
 ms.custom: mvc
 ---
 
 # What's new in Azure Migrate
 
-[Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate servers, apps, and data to the Microsoft Azure cloud. This article summarizes new features in Azure Migrate.
+[Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new features in Azure Migrate.
 
 
 
-## Azure Migrate new version
+## Update (November 2019)
 
-A new version of Azure Migrate was released in July 2019. 
+A number of new features were added to Azure Migrate:
 
-- **Current (new) version**: Use this version to create Azure Migrate projects, discover on-premises machines, and orchestrate assessments and migrations. 
-- **Previous version**: For customer using the previous version of Azure Migrate (only assessment of on-premises VMware VMs was supported), you should now use the current version. In the previous version, you can no longer create new Azure Migrate projects, or perform new discoveries. You can still access existing projects. To do this in the Azure portal > All services, search for Azure Migrate. In the Azure Migrate notifications, there's a link to access old Azure Migrate projects.
+- **Physical server assessment**. Assessment of on-premises physical servers is now supported, in addition to physical server migration that is already supported.
+- **Import-based assessment**. Assessment of machines using metadata and performance data provided in a CSV file is now supported.
+- **Application discovery**: Azure Migrate now supports application-level discovery of apps, roles, and features using the Azure Migrate appliance. This is currently supported for VMware VMs only, and is limited to discovery only (assessment isn't currently supported). [Learn more](how-to-discover-applications.md)
+- **Agentless dependency visualization**: You no longer need to explicitly install agents for dependency visualization. Both agentless and agent-based are now supported.
+- **Virtual Desktop**: Use ISV tools to assess and migrate on-premises virtual desktop infrastructure (VDI) to Windows Virtual Desktop in Azure.
+- **Web app**: The Azure App Service Migration Assistant, used for assessing and migration web apps, is now integrated into Azure Migrate.
+
+## Release version (July 2019)
+
+The current version of Azure Migrate was released in July 2019. 
+
+- **Current version**: Use this version to create Azure Migrate projects, discover on-premises machines, and orchestrate assessments and migrations. 
+- **Previous version**: For customer using the previous version of Azure Migrate (only assessment of on-premises VMware VMs was supported), you should now use the current version. In the previous version, you can no longer create new Azure Migrate projects, or perform new discoveries. You can still access existing projects. To do this in the Azure portal > **All services**, search for **Azure Migrate**. In the Azure Migrate notifications, there's a link to access old Azure Migrate projects.
 
 
-## Azure Migrate features
+### Azure Migrate features
 
-The new version of Azure Migrate provides a number of new features:
+The current version of Azure Migrate provides a number of new features:
 
 
 - **Unified migration platform**: Azure Migrate now provides a single portal to centralize, manage, and track your migration journey to Azure, with an improved deployment flow and portal experience.

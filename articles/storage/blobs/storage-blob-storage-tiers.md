@@ -75,7 +75,7 @@ Changing the account access tier applies to all _access tier inferred_ objects s
 
 Blob-level tiering allows you to change the tier of your data at the object level using a single operation called [Set Blob Tier](/rest/api/storageservices/set-blob-tier). You can easily change the access tier of a blob among the hot, cool, or archive tiers as usage patterns change, without having to move data between accounts. All tier changes happen immediately. However, rehydrating a blob from archive can take several hours.
 
-The time of the last blob tier change is exposed via the **Access Tier Change Time** blob property. If a blob is in the archive tier, it can't be overwritten, so uploading the same blob isn't permitted in this scenario. When overwrite a blob in a hot or cool tier, the new blob inherits the tier of the blob that was overwritten.
+The time of the last blob tier change is exposed via the **Access Tier Change Time** blob property. If a blob is in the archive tier, it can't be overwritten, so uploading the same blob isn't permitted in this scenario. When overwriting a blob in the hot or cool tier, the newly created blob inherits the tier of the blob that was overwritten unless the new blob access tier is explicitly set on creation.
 
 > [!NOTE]
 > Archive storage and blob-level tiering only support block blobs. You also cannot currently change the tier of a block blob that has snapshots.
@@ -188,7 +188,7 @@ Yes, you can change the default account tier by setting the **Access tier** attr
 
 **Can I set my default account access tier to archive?**
 
-No. Only hot and cool access tiers may be set as the default account access tier. Archive can only be set at the object level.
+No. Only hot and cool access tiers may be set as the default account access tier. Archive can only be set at the object level. On blob upload, You specify the access tier of your choice to be hot, cool, or archive regardless of the default account tier. This functionality allows you to write data directly into the archive tier to realize cost-savings from the moment you create data in blob storage.
 
 **In which regions are the hot, cool, and archive access tiers available in?**
 

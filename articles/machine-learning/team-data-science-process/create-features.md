@@ -31,8 +31,6 @@ To create features for data in specific environments, see the following articles
 * [Create features for data in SQL Server](create-features-sql-server.md)
 * [Create features for data in a Hadoop cluster using Hive queries](create-features-hive.md)
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 ## Create features from your data - feature engineering
 The training data consists of a matrix composed of examples (records or observations stored in rows), each of which has a set of features (variables or fields stored in columns). The features specified in the experimental design are expected to characterize the patterns in the data. Although many of the raw data fields can be directly included in the selected feature set used to train a model, it is often the case that additional (engineered) features need to be constructed from the features in the raw data to generate an enhanced training dataset.
 
@@ -44,7 +42,7 @@ When starting with Azure Machine Learning, it is easiest to grasp this process c
 * A text mining classification example using [Feature Hashing](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/)
 
 ## Example 1: Add temporal features for a regression model
-Let's use the experiment "Demand forecasting of bikes" in Azure Machine Learning Studio to demonstrate how to engineer features for a regression task. The objective of this experiment is to predict the demand for the bikes, that is, the number of bike rentals within a specific month/day/hour. The dataset "Bike Rental UCI dataset" is used as the raw input data. This dataset is based on real data from the Capital Bikeshare company that maintains a bike rental network in Washington DC in the United States. The dataset represents the number of bike rentals within a specific hour of a day in the years 2011 and year 2012 and contains 17379 rows and 17 columns. The raw feature set contains weather conditions (temperature/humidity/wind speed) and the type of the day (holiday/weekday). The field to predict is the "cnt" count, which represents the bike rentals within a specific hour and which ranges from 1 to 977.
+Let's use the experiment "Demand forecasting of bikes" in Azure Machine Learning Studio (classic) to demonstrate how to engineer features for a regression task. The objective of this experiment is to predict the demand for the bikes, that is, the number of bike rentals within a specific month/day/hour. The dataset "Bike Rental UCI dataset" is used as the raw input data. This dataset is based on real data from the Capital Bikeshare company that maintains a bike rental network in Washington DC in the United States. The dataset represents the number of bike rentals within a specific hour of a day in the years 2011 and year 2012 and contains 17379 rows and 17 columns. The raw feature set contains weather conditions (temperature/humidity/wind speed) and the type of the day (holiday/weekday). The field to predict is the "cnt" count, which represents the bike rentals within a specific hour and which ranges from 1 to 977.
 
 With the goal of constructing effective features in the training data, four regression models are built using the same algorithm but with four different training datasets. The four datasets represent the same raw input data, but with an increasing number of features set. These features are grouped into four categories:
 

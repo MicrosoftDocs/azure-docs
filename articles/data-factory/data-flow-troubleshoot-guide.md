@@ -63,6 +63,14 @@ This article explores common troubleshooting methods for data flows in Azure Dat
 
 - **Resolution**: Change the name of the table that you are trying to create
 
+### Error message: DF-SYS-01: com.microsoft.sqlserver.jdbc.SQLServerException: String or binary data would be truncated. 
+
+- **Symptoms**: When writing data to a SQL sink, your data flow fails on pipeline execution with possible truncation error.
+
+- **Cause**: A field from your data flow maps to a column in your SQL database is not wide enough to store the value, causing the SQL driver to throw this error
+
+- **Resolution**: You can reduce the length of the data for string columns using ```left()``` in a Derived Column or implement the ["error row" pattern.](how-to-data-flow-error-rows.md)
+
 ## General troubleshooting guidance
 
 1. Check the status of your dataset connections. In each Source and Sink transformation, visit the Linked Service for each dataset that you are using and test connections.
