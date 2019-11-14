@@ -224,7 +224,7 @@ Include your message content with your request. To the send the request, you can
 
 You've now created a logic app that can communicate with your SAP server. Now that you've set up an SAP connection for your logic app, you can explore other available SAP actions, such as BAPI and RFC.
 
-<a name="receive-from-sap"></>
+<a name="receive-from-sap"></a>
 
 ## Receive message from SAP
 
@@ -247,18 +247,18 @@ This example uses a logic app that triggers when the app receives a message from
    1. Provide a name for the connection.
 
    1. In the **Data Gateway** section, under **Subscription**, first select the Azure subscription for the gateway resource that you created in the Azure portal for your gateway installation. 
-   
+
    1. Under **Connection Gateway**, select your gateway resource.
 
    1. Continue providing information about the connection. For the **Logon Type** property, follow the step based on whether the property is set to **Application Server** or **Group**:
-   
+
       * For **Application Server**, these properties, which usually appear optional, are required:
 
         ![Create SAP application server connection](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
 
       * For **Group**, these properties, which usually appear optional, are required:
 
-        ![Create SAP message server connection](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)  
+        ![Create SAP message server connection](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
 
       By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. The **Safe Typing** option is available for backward compatibility and only checks the string length. Learn more about the [Safe Typing option](#safe-typing).
 
