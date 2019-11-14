@@ -159,15 +159,15 @@ The Time Series Insights Preview navigation panel appears at the top of your Tim
 
 ### Current session share link control
 
-  [![Share icon](media/v2-update-explorer/explorer-fifteen.png)](media/v2-update-explorer/explorer-fifteen.png#lightbox)
+  [![Share icon](media/v2-update-explorer/share-icon.png)](media/v2-update-explorer/share-icon.png#lightbox)
 
 Select the new **Share** icon to share a URL link with your team.
 
-  [![Share your instance URL](media/v2-update-explorer/url-share.png)](media/v2-update-explorer/url-share.png#lightbox)
+  [![Share your instance URL](media/v2-update-explorer/share-your-view.png)](media/v2-update-explorer/share-your-view.png#lightbox)
 
 ### Tenant section
 
-  [![Tenant selection](media/v2-update-explorer/explorer-sixteen.png)](media/v2-update-explorer/explorer-sixteen.png#lightbox)
+  [![Tenant selection](media/v2-update-explorer/tenant-selection.png)](media/v2-update-explorer/tenant-selection.png#lightbox)
 
 * Displays your current Time Series Insights sign-in account information.
 * Use it to switch between the available Time Series Insights themes.
@@ -187,7 +187,7 @@ Azure Time Series Insights Preview supports two themes:
 * **Light theme**: The default theme shown throughout this document.
 * **Dark theme**: Renders the explorer as shown here:
 
-  [![Selected dark theme](media/v2-update-explorer/explorer-seventeen.png)](media/v2-update-explorer/explorer-seventeen.png#lightbox)
+  [![Selected dark theme](media/v2-update-explorer/dark-theme-selected.png)](media/v2-update-explorer/dark-theme-selected.png#lightbox)
 
 ## S1/S2 environment controls
 
@@ -214,7 +214,7 @@ To learn more about supported query operations and data types, see [Time Series 
 
 ### Examples of where clauses
 
-  [![Where clause examples](media/v2-update-explorer/explorer-nineteen.png)](media/v2-update-explorer/explorer-nineteen.png#lightbox)
+  [![Where clause examples](media/v2-update-explorer/example-queries.png)](media/v2-update-explorer/example-queries.png#lightbox)
 
 **Measure**: A drop-down list that displays all the numeric columns (**Doubles**) you can use as elements for your current chart.
 
