@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ---
 
-# Troubleshooting indexer errors and warnings in Azure Cognitive Search
+# Troubleshooting common indexer errors and warnings in Azure Cognitive Search
 
 This article provides information and solutions to common errors and warnings you might encounter during indexing and AI enrichment in Azure Cognitive Search.
 
