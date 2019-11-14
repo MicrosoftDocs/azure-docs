@@ -24,7 +24,7 @@ Change feed support is well-suited for scenarios that process data based on obje
   
   - Extract business analytics insights and metrics, based on changes that occur to your objects, either in a streaming manner or batched mode.
   
-  - Store, audit and analyze changes to your objects, over any period of time, for security, compliance or intelligence for enterprise data management.
+  - Store, audit, and analyze changes to your objects, over any period of time, for security, compliance or intelligence for enterprise data management.
 
   - Build solutions to backup, mirror, or replicate object state in your account for disaster management or compliance.
 
