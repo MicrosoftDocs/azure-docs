@@ -712,7 +712,7 @@ The code in this section uses [Helm](/azure/aks/kubernetes-helm) - Kubernetes pa
 1. Edit the `helm-config.yaml` and enter appropriate values for `appgw` and `armAuth` sections.
 
     ```bash
-    nano helm-config.yaml
+    code helm-config.yaml
     ```
 
     The values are described as follows:
@@ -722,7 +722,7 @@ The code in this section uses [Helm](/azure/aks/kubernetes-helm) - Kubernetes pa
     - `appgw.resourceGroup`: Name of the Azure Resource Group in which App Gateway was created. 
     - `appgw.name`: Name of the Application Gateway. Example: `applicationgateway1`.
     - `appgw.shared`: This boolean flag should be defaulted to `false`. Set to `true` should you need a [Shared App Gateway](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway).
-    - `kubernetes.watchNamespace`: Specify the name space, which AGIC should watch. The namespace can be a single string value, or a comma-separated list of namespaces.
+    - `kubernetes.watchNamespace`: Specify the name space, which AGIC should watch. The namespace can be a single string value, or a comma-separated list of namespaces. Leaving this variable commented out, or setting it to blank or empty string results in Ingress Controller observing all acessible namespaces.
     - `armAuth.type`: A value of either `aadPodIdentity` or `servicePrincipal`.
     - `armAuth.identityResourceID`: Resource ID of the managed identity.
     - `armAuth.identityClientId`: The Client ID of the Identity.
@@ -754,7 +754,7 @@ Once you have the App Gateway, AKS, and AGIC installed, you can install a sample
 2. Apply the YAML file:
 
     ```bash
-    kubectl apply -f apsnetapp.yaml
+    kubectl apply -f aspnetapp.yaml
     ```
 
 ## Next steps
