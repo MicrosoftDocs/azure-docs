@@ -1,5 +1,5 @@
 ---
-title: 'Create and modify an ExpressRoute circuit - PowerShell: Azure | Microsoft Docs'
+title: 'Azure ExpressRoute: Modify a circuit: PowerShell'
 description: Create, provision, verify, update, delete, and deprovision an ExpressRoute circuit.
 services: expressroute
 author: cherylmc
@@ -9,7 +9,6 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: cherylmc
 ms.reviewer: ganesr
-ms.custom: seodec18
 
 ---
 # Create and modify an ExpressRoute circuit using PowerShell
