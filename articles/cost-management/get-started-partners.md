@@ -144,13 +144,13 @@ Amortized views and actual costs for reserved instances in the RBAC scopes show 
 
 Partners can explore and analyze costs in cost analysis across customers for a specific customer or for an invoice. In the [cost analysis](quick-acm-cost-analysis.md) view, you can also [save views](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) and export data to [CSV and PNG files](quick-acm-cost-analysis.md#automation-and-offline-analysis).
 
-The following fields are found in usage detail files and Cost Management APIs. You can use filter and group by features in cost analysis to analyze costs by multiple fields.
+You can use filter and group by features in cost analysis to analyze costs by multiple fields. Partner-specific fields are shown in the next section.
 
-## Cost Management data fields
+## Data fields
 
-The following data fields are found in usage detail files and Cost Management APIs. For the following bold fields, partners can use filter and group by features in cost analysis to analyze costs by multiple fields. Bold fields apply only to Microsoft Customer Agreements supported by partners.
+The following data fields are found in usage detail files and Cost Management APIs. Where available, Partner Center equivalent information is shown. For the following bold fields, partners can use filter and group by features in cost analysis to analyze costs by multiple fields. Bold fields apply only to Microsoft Customer Agreements supported by partners.
 
-| **Field name** | **Description** | **Equivalent data in Partner Center** |
+| **Field name** | **Description** | ** Partner Center equivalent** |
 | --- | --- | --- |
 | invoiceId | Invoice ID shown on the invoice for the specific transaction. | Invoice number where the transaction is shown. |
 | previousInvoiceID | Reference to an original invoice there is a refund (negative cost). Populated only when there is a refund. | N/A |
@@ -194,7 +194,7 @@ The following data fields are found in usage detail files and Cost Management AP
 | reservationOrderId | OrderID for the reserved instance. | N/A |
 | frequency | Payment frequency for a reserved instance. | N/A |
 | resourceGroup | Name of the Azure resource group used for lifecycle resource management. | Name of the resource group. |
-| instanceID (or) ResourceID | Identifier of the resource instance. | Shown as a ResourceURI that includes complete resource properties like /subscriptions/xxxx0029-6786-49xx-x8x4-x8xxx23x0xxx/resourceGroups/TestRGRg/providers/Microsoft.Storage/storageAccounts/example789. |
+| instanceID (or) ResourceID | Identifier of the resource instance. | Shown as a ResourceURI that includes complete resource properties. |
 | resourceLocation | Name of the resource location. | The location of the resource. |
 | Location | Normalized location of the resource. | N/A |
 | effectivePrice | The effective unit price of the service, in pricing currency. Unique for a product, service family, meter, and offer. Used with pricing in the price sheet for the billing account. When there is tiered pricing or an included quantity, it shows the blended price for consumption. | The unit price after adjustments are made. |
