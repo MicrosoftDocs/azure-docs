@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/14/2019
 ms.author: iainfou
 ---
 
