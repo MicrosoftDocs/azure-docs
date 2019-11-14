@@ -125,7 +125,7 @@ The size of the cache folder determines the amount of data that you are backing 
   Net start obengine
   ```
 
-6. Run an ad-hoc backup. After the backup finishes successfully using the new location, you can remove the original cache folder.
+6. Run an on-demand backup. After the backup finishes successfully using the new location, you can remove the original cache folder.
 
 ### Where should the cache folder be located?
 
