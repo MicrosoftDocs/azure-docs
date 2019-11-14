@@ -37,6 +37,8 @@ Each aggregate monitor defines a health rollup policy, which is the logic that i
 
 The state of the aggregate monitor matches the state of the child monitor with the worst health state. This is the most common policy used by aggregate monitors.
 
+![Example of aggregate monitor rollup worst state](./media/container-insights-health-monitoring-cfg/aggregate-monitor-rollup-worstof.png)
+
 #### Best state
 
 The state of the aggregate monitor matches the state of the child monitor with the best health state.
