@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory operations reference guide
-description: This operations reference guide describes the checks and actions you should take to secure identity and access management, authentication, governance, and operations
+description: This operations reference guide describes the checks and actions you should take to secure and maintain identity and access management, authentication, governance, and operations
 services: active-directory
 author: martincoetzer
 manager: daveba
@@ -15,7 +15,7 @@ ms.author: martinco
 
 # Azure Active Directory operations reference guide
 
-This operations reference guide describes the checks and actions you should take to secure the following areas:
+This operations reference guide describes the checks and actions you should take to secure and maintain the following areas:
 
 - **[Identity and access management](active-directory-ops-guide-iam.md)** - ability to manage the lifecycle of identities and their entitlements.
 - **[Authentication management](active-directory-ops-guide-auth.md)** - ability to manage credentials, define authentication experience, delegate assignment, measure usage, and define access policies based on enterprise security posture.
@@ -30,7 +30,7 @@ Some recommendations here might not be applicable to all customers’ environmen
 Each section in this reference guide recommends assigning stakeholders to plan and implement key tasks successfully. The following table outlines the list of all the stakeholders in this guide:
 
 | Stakeholder | Description |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| :- | :- |
 | IAM Operations Team | This team handles managing the day to day operations of the Identity and Access Management system |
 | Productivity Team | This team owns and manages the productivity applications such as email, file sharing and collaboration, instant messaging, and conferencing. |
 | Application Owner | This team owns the specific application from a business and usually a technical perspective in an organization. |
