@@ -26,7 +26,7 @@ If you want to evaluate the Speech service without Azure, there is a free of cha
 1. Go to [Try Cognitive Service](https://azure.microsoft.com/try/cognitive-services/).
 1. Select the **Speech APIs** tab, then **Get API Key**
 
-You'll be stepped through some choices and a user agreement you'll need to approve. Once those steps are complete you'll see the keys you can use to start coding your Speech app.
+You'll be presented with some choices and you'll have to approve a user agreement. Once those steps are complete you'll see the keys you can use to start coding your Speech app.
 
 ## Try the Speech service using Azure
 
