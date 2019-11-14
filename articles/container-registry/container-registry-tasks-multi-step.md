@@ -151,7 +151,7 @@ For more information about automated builds on Git commit or base image update, 
 You can find multi-step task reference and examples here:
 
 * [Task reference](container-registry-tasks-reference-yaml.md) - Task step types, their properties, and usage.
-* [Task examples][task-examples] - Example `task.yaml` files for several scenarios, simple to complex.
+* [Task examples](container-registry-tasks-samples.md) - Example `task.yaml` and Docker files for several scenarios, simple to complex.
 * [Cmd repo](https://github.com/AzureCR/cmd) - A collection of containers as commands for ACR tasks.
 
 <!-- IMAGES -->
