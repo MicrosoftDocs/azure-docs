@@ -17,6 +17,17 @@ ms.author: wellsi
 
 The following sections list changes in the most recent releases.
 
+## Speech Devices SDK 1.7.0:
+
+*	Linux ARM is now supported.
+*	Initial binaries for Roobov2 are provided (Linux ARM64).
+*	Windows users can use AudioConfig.fromDefaultMicrophoneInput() or AudioConfig.fromMicrophoneInput(deviceName) to specify the microphone to be used.
+*	The library size has been optimized.
+*	Support for multi-turn recognition using the same speech/intent recognizer object.
+*	Fix occasional hang that would occur while stopping recognition.
+*	Sample apps now contain a sample participants.properties file to demonstrate the format of the file.
+*	Updated the [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) component to version 1.7.0. For more information, see its [release notes](https://aka.ms/csspeech/whatsnew).
+
 ## Speech Devices SDK 1.6.0:
 
 - Support [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) on Windows and Linux with common [sample application](https://aka.ms/sdsdk-download)
