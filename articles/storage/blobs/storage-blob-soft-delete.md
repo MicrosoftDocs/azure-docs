@@ -290,9 +290,9 @@ blockBlob.StartCopy(copySource);
 
 ---
 
-## Are there any special considerations for using soft delete?
+## Special considerations
 
-If there is a chance that your data is accidentally modified or deleted by an application or another storage account user, turning on soft delete is recommended. Enabling soft delete for frequently overwritten data may result in increased storage capacity charges and increased latency when listing blobs. You can mitigate this additional cost by storing the frequently overwritten data in a separate storage account where soft delete is disabled. 
+If there is a chance that your data is accidentally modified or deleted by an application or another storage account user, turning on soft delete is recommended. Enabling soft delete for frequently overwritten data may result in increased storage capacity charges and increased latency when listing blobs. You can mitigate this additional cost and latency by storing the frequently overwritten data in a separate storage account where soft delete is disabled. 
 
 ## FAQ
 
