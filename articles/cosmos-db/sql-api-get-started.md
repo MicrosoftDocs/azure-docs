@@ -254,7 +254,7 @@ A database is the logical container of items partitioned across containers. Eith
 1. Select F5 to run your application.
 
    > [!NOTE]
-   > If you get a 503 service unavailable exception it's possible the required [ports](https://docs.microsoft.com/en-us/azure/cosmos-db/performance-tips#networking) for direct mode blocked by a firewall. To fix this issue either open the required [ports](https://docs.microsoft.com/en-us/azure/cosmos-db/performance-tips#networking) or try to  use gateway mode as shown below.
+   > If you get a "503 service unavailable exception," it's possible the required [ports](performance-tips.md#networking) for direct mode are blocked by a firewall. To fix this issue,  either open the required [ports](performance-tips.md#networking) or try to use gateway mode as shown below.
    ```csharp
      // Create a new instance of the Cosmos Client in Gateway mode
      this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey, new CosmosClientOptions()
