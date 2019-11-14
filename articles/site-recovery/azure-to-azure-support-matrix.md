@@ -204,8 +204,8 @@ Cool and hot storage | Not supported | VM disks aren't supported on cool and hot
 Storage Spaces | Supported |
 Encryption at rest (SSE) | Supported | SSE is the default setting on storage accounts.	 
 Encryption at rest (CMK) | Not Supported | 	 
-Azure Disk Encryption (ADE) for Windows OS | Supported for VMs with managed disks. VMs using unmanaged disks are not supported |
-Azure Disk Encryption (ADE) for Linux OS | Not supported |
+Azure Disk Encryption (ADE) for Windows OS | Supported for VMs with managed disks. VMs using unmanaged disks are not supported. HSM-protected keys are not supported. |
+Azure Disk Encryption (ADE) for Linux OS | Supported for VMs with managed disks. VMs using unmanaged disks are not supported. HSM-protected keys are not supported. |
 Hot add	| Supported | Enabling replication for a data disk that you add to a replicated Azure VM is supported for VMs that use managed disks.
 Hot remove disk	| Not supported | If you  remove data disk on the VM, you need to disable replication and enable replication again for the VM.
 Exclude disk | Support. You must use [Powershell](azure-to-azure-exclude-disks.md) to configure. |	Temporary disks are excluded by default.
