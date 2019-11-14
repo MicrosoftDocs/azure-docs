@@ -9,13 +9,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/10/2019
+ms.date: 11/13/2019
 ms.author: erhopf
 ---
 
 # Quickstart: Run the Speech Devices SDK sample app on Windows
 
-In this quickstart, you'll learn how to use the Speech Devices SDK for Windows to build a speech-enabled product or use it as a [Conversation Transcription](conversation-transcription-service.md) device. Currently only the [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) is supported.
+In this quickstart, you'll learn how to use the Speech Devices SDK for Windows to build a speech-enabled product or use it as a [Conversation Transcription](conversation-transcription-service.md) device. For Conversation Transcription only the [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) is supported. For other speech use linear mic arrays that provide a microphone array geometry are supported.
 
 The application is built with the Speech SDK package, and the Eclipse Java IDE (v4) on 64-bit Windows. It runs on a 64-bit Java 8 runtime environment (JRE).
 
@@ -28,7 +28,7 @@ The source code for the [sample application](https://aka.ms/sdsdk-download-JRE) 
 This quickstart requires:
 
 * Operating System: 64-bit Windows
-* [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)
+* A microphone array such as [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) or [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html) only.
 * [Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
@@ -61,6 +61,29 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
 
    ![Screenshot of Package explorer](media/speech-devices-sdk/eclipse-convert-to-maven.png)
 
+1. Open the pom.xml file and edit it.
+
+    At the end of the file, before the closing tag `</project>`, create `repositories` and `dependencies` elements, as shown here, and ensure the `version` matches your current version:
+    ```xml    
+    <repositories>
+         <repository>
+             <id>maven-cognitiveservices-speech</id>
+             <name>Microsoft Cognitive Services Speech Maven Repository</name>
+             <url>https://csspeechstorage.blob.core.windows.net/maven/</url>
+         </repository>
+    </repositories>
+ 
+    <dependencies>
+        <dependency>
+             <groupId>com.microsoft.cognitiveservices.speech</groupId>
+             <artifactId>client-sdk</artifactId>
+             <version>1.7.0</version>
+        </dependency>
+    </dependencies>
+   ```
+
+1. Copy the contents of **Windows-x64** to the Java Project location, eg **C:\SDSDK\JRE-Sample-Release**
+
 1. Copy `kws.table`, `participants.properties` and `Microsoft.CognitiveServices.Speech.extension.pma.dll` into the project folder **target\classes**
 
 ## Configure the sample application
@@ -90,15 +113,14 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
    > [!TIP]
    > You can also [create a custom keyword](speech-devices-sdk-create-kws.md).
 
-    To use a new keyword, update the following two lines in `FunctionsList.java`, and copy the keyword package to your app. For example, to use the keyword 'Machine' from the keyword package `kws-machine.zip`:
+    To use a new keyword, update the following line in `FunctionsList.java`, and copy the keyword to your app. For example, to use the keyword 'Machine' from the keyword package `machine.zip`:
 
-   * Copy the keyword package into the project folder **target/classes**.
+   * Copy the `kws.table` file from the zip package into the project folder **target/classes**.
 
-   * Update the `FunctionsList.java` with the keyword and the package name:
+   * Update the `FunctionsList.java` with the keyword name:
 
      ```java
      private static final String Keyword = "Machine";
-     private static final String KeywordModel = "kws-machine.zip" // set your own keyword package name.
      ```
 
 ## Run the sample application from Eclipse

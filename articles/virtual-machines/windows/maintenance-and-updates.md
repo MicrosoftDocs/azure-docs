@@ -1,5 +1,5 @@
 ---
-title: Maintenance and updates for Windows VMs in Azure | Microsoft Docs
+title: Maintenance and updates for Windows VMs in Azure 
 description: Overview of maintenance and updates for Windows virtual machines running in Azure.
 services: virtual-machines-windows
 documentationcenter: ''

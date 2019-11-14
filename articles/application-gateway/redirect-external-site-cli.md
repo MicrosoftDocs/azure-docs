@@ -1,20 +1,14 @@
 ---
-title: Create an application gateway with external traffic redirection - Azure CLI | Microsoft Docs
+title: External traffic redirection using CLI - Azure Application Gateway
 description: Learn how to create an application gateway that redirects internal web traffic to the appropriate pool using the Azure CLI.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
-
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/24/2018
+ms.date: 11/13/2019
 ms.author: victorh
-
 ---
+
 # Create an application gateway with external redirection using the Azure CLI
 
 You can use the Azure CLI to configure [web traffic redirection](multiple-site-overview.md) when you create an [application gateway](overview.md). In this tutorial, you configure a listener and rule that redirects web traffic that arrives at the application gateway to an external site.
