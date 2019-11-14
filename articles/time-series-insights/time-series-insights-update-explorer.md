@@ -30,7 +30,7 @@ To get started with the Azure Time Series Insights Preview explorer, you must:
 
 The Azure Time Series Insights Preview explorer consists of the following seven elements:
 
-[![The Explorer view](media/v2-update-explorer/explorer-one.png)](media/v2-update-explorer/explorer-one.png#lightbox)
+[![Time Series Insights Preview explorer overview](media/v2-update-explorer/preview-explorer-overview.png)](media/v2-update-explorer/preview-explorer-overview.png#lightbox)
 
 1. [Environment panel](#environment-panel): Displays all your Azure Time Series Insights environments.
 1. [Navigation bar](#navigation-bar): Allows you to switch between the **Analyze** and **Model** pages.
@@ -46,15 +46,15 @@ The environment panel displays all the Time Series Insights environments you hav
 
 1. Select the drop-down arrow next to your displayed environment.
 
-   [![The control panel](media/v2-update-explorer/explorer-two.png)](media/v2-update-explorer/explorer-two.png#lightbox)
+   [![Environment panel](media/v2-update-explorer/environment-panel.png)](media/v2-update-explorer/environment-panel.png#lightbox)
 
 1. Then, select the environment you want.
 
 ## Navigation bar
 
-  [![The navigation menu](media/v2-update-explorer/explorer-three.png)](media/v2-update-explorer/explorer-three.png#lightbox)
+  [![The navigation bar](media/v2-update-explorer/navigation-bar.png)](media/v2-update-explorer/navigation-bar.png#lightbox)
 
-Use the navigation menu to select between two views:
+Use the navigation bar to select between two views:
 
 * **Analyze**: Use it to chart and perform rich analytics on your modeled or unmodeled time series data.
 * **Model**: Use it to push new Time Series Insights Preview types, hierarchies, and instances to your Time Series Insights model.
