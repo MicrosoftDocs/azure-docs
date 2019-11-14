@@ -17,9 +17,9 @@ ms.author: ralphe
 
 With **multi-device conversation**, you can:
 
-- Connect multiple clients into the same conversation and manage the sending and receiving of messages between them
-- Easily transcribe audio from each client and send the transcription to the others, with optional translation
-- Easily send instant messages between clients, with optional translation
+- Connect multiple clients into the same conversation and manage the sending and receiving of messages between them.
+- Easily transcribe audio from each client and send the transcription to the others, with optional translation.
+- Easily send text messages between clients, with optional translation.
 
 You can build a feature or solution that works across an array of devices, including mobile (Android or iOS), PC, and Linux. Each device can independently send messages (either transcriptions of audio or instant messages) to all other devices.
 
