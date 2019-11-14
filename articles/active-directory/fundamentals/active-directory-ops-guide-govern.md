@@ -82,9 +82,9 @@ It is crucial to keep access to external identities constrained only to resource
 > [!NOTE]
 > Each user who interacts with access reviews must have a paid Azure AD Premium P2 license.
 
-## Privileged accounts management
+## Privileged account management
 
-### Privileged accounts usage
+### Privileged account usage
 
 Hackers often target admin accounts and other elements of privileged access to rapidly gain access to sensitive data and systems. Since users with privileged roles tend to accumulate over time, it is important to review and manage admin access on a regular basis and provide just-in-time privileged access to Azure AD and Azure resources.
 
@@ -92,7 +92,7 @@ If no process exists in your organization to manage privileged accounts, or you 
 
 Another aspect of privileged account management that should be implemented is in defining [access reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview) for those accounts, either manually or [automated through PIM](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-perform-security-review).
 
-#### Privileged accounts management recommended reading
+#### Privileged account management recommended reading
 
 - [Roles in Azure AD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-roles)
 
