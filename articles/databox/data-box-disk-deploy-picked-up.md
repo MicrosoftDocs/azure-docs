@@ -129,11 +129,11 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 
 ### [In Singapore](#tab/in-singapore)
 
-1. Print the shipping label and attach onto the box. If the label is damaged or lost:
+1. Print the shipping label and attach it to the box. If the label is damaged or lost:
     - Go to **Overview > Download shipping label** and get a return shipping label.
     - Affix the label on the device. Make sure that the label is visible.
 
-2. To request pickup email SingPost Customer Service using the following template with the tracking number (tracking number can be found on return label provided in the delivered package).
+2. To request pickup, email SingPost Customer Service by using the following template with the tracking number (the tracking number can be found on the return label provided in the delivered package).
 
     ```
     To: kadcustcare@singpost.com
@@ -144,11 +144,13 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
      c.	Requestor collection address
      d.	Preferred collection date
     ```
-NOTE: For booking requests received on a business day
- - Before 3pm, pick up will be the next business day between 9 to 1pm.
- - After 3pm, pick up will be the next business day between 2 to 6pm
 
-Should you encounter any issues, kindly reach out to Data Box Operations Asia adbo@microsoft.com providing Job name in subject header and the issue encountered.
+   > [!NOTE]
+   > For booking requests received on a business day:
+   > - Before 3 PM, pickup will be the next business day between 9 AM and 1 PM.
+   > - After 3 PM, pickup will be the next business day between 2 PM to 6 PM.
+
+   If you encounter any issues, kindly reach out to Data Box Operations Asia at adbo@microsoft.com. Provide the job name in the subject header and the issue encountered.
 
 3. Hand over to the courier. 
 
