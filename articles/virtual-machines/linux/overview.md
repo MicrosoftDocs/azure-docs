@@ -1,5 +1,5 @@
 ---
-title: Overview of Linux VMs in Azure | Microsoft Docs
+title: Overview of Linux VMs in Azure 
 description: Describes Azure Compute, Storage, and Networking services with Linux virtual machines.
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
