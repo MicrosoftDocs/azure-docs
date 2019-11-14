@@ -1,5 +1,5 @@
 ---
-title: Move an Azure Site Recovery configuration to another Azure region | Microsoft Docs
+title: Move a vault to another region for Azure Site Recovery
 description: Guidance for moving a Site Recovery configuration to another Azure region
 services: site-recovery
 author: rajani-janaki-ram
