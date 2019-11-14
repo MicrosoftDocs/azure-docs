@@ -94,8 +94,8 @@ To prepare for physical server assessment, you need to verify the physical serve
 
 ### Verify physical server settings
 
-1. Verify [physical server requirements](migrate-support-matrix-hyper-v.md#assessment-hyper-v-host-requirements) for server assessment.
-2. Make sure the [required ports](migrate-support-matrix-hyper-v.md#assessment-port-requirements) are open on physical servers.
+1. Verify [physical server requirements](migrate-support-matrix-physical.md#assessment-physical-server-requirements) for server assessment.
+2. Make sure the [required ports](migrate-support-matrix-physical.md#assessment-port-requirements) are open on physical servers.
 
 
 ### Verify appliance settings
