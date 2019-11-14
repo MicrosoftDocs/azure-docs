@@ -12,7 +12,7 @@ ms.subservice: data-lake-storage-gen2
 
 # Azure Data Lake Storage quick query (Preview)
 
-Quick query (Preview) is a new capability for Azure Data Lake Storage that enables your application as well as analytics frameworks to dramatically optimize data processing by retrieving only the data that it requires to perform a given operation. This reduces the time and processing power that is required to gain critical insights into the data in your storage account.
+Quick query (Preview) is a new capability for Azure Data Lake Storage that enables applications and analytics frameworks to dramatically optimize data processing by retrieving only the data that they require to perform a given operation. This reduces the time and processing power that is required to gain critical insights into stored data.
 
 > [!NOTE]
 > The quick query feature is in public preview, and is available in the region1, region2, and region3 regions. To review limitations, see the [Known issues](data-lake-storage-known-issues.md) article. To enroll in the preview, see [this form](https://aka.ms/adlsquickquerypreview). 

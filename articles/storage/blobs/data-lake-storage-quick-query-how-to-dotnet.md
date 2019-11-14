@@ -14,7 +14,7 @@ ms.reviewer: jamsbak
 
 This article shows you how to use .NET and quick query (Preview) to retrieve a targeted subset of data from your storage account. 
 
-Quick query (Preview) is a new capability for Azure Data Lake Storage that enables your application as well as analytics frameworks to dramatically optimize data processing by retrieving only the data that it requires to perform a given operation. To learn more, see [Azure Data Lake Storage Quick Query (Preview)](data-lake-storage-quick-query.md).
+Quick query (Preview) is a new capability for Azure Data Lake Storage that enables application and analytics frameworks to dramatically optimize data processing by retrieving only the data that they require to perform a given operation. To learn more, see [Azure Data Lake Storage Quick Query (Preview)](data-lake-storage-quick-query.md).
 
 > [!NOTE]
 > The quick query feature is in public preview, and is available in the region1, region2, and region3 regions. To review limitations, see the [Known issues](data-lake-storage-known-issues.md) article. To enroll in the preview, see [this form](https://aka.ms/adlsquickquerypreview). 
@@ -25,7 +25,7 @@ Quick query (Preview) is a new capability for Azure Data Lake Storage that enabl
 
 - A **general-purpose v2** storage account. 
 
-  To create a storage account see [Create a storage account](storage-quickstart-create-account.md).
+  To create a storage account see [Create a storage account](../common/storage-quickstart-create-account.md).
   
   To create a storage and enable hierarchical namespaces, see [Create an Azure Data Lake Storage Gen2 storage account](data-lake-storage-quickstart-create-account.md). 
 
@@ -104,7 +104,7 @@ private static async Task QueryPeople(CloudBlobClient serviceClient, Uri blobUri
 
 ## Retrieve specific columns
 
-You can scope your results to a small subset of columns. That way you only retrieve the columns needed to perform a given calculation. This improves application performance and reduces cost because less data is transferred over the network. 
+You can scope your results to a subset of columns. That way you only retrieve the columns needed to perform a given calculation. This improves application performance and reduces cost because less data is transferred over the network. 
 
 This code retrieves only the `BirthDate` column. To achieve this with the TinyCsvParser library, you'll need to define a new mapping class. 
 
