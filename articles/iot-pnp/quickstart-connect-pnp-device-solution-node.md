@@ -42,7 +42,7 @@ In this quickstart, you use a sample environmental sensor that's written in Node
     git clone https://github.com/azure-samples/azure-iot-samples-node
     ```
 
-1. In a terminal, go to the root folder of your cloned repository, navigate to the **/azure-iot-samples-node/digital-twins/Quickstarts/Device** folder, and then install all the dependencies by running the following command:
+1. Open a terminal window for running the device (this will be your _device_ terminal). Go to your cloned repository and navigate to the **/azure-iot-samples-node/digital-twins/Quickstarts/Device** folder. Install all the dependencies by running the following command:
 
     ```cmd/sh
     npm install
@@ -66,7 +66,7 @@ In this quickstart, you use a sample environmental sensor that's written in Node
 
 In this quickstart, you use a sample IoT solution in Node.js to interact with the sample device.
 
-1. Open another terminal. Go to the folder of your cloned repository, and navigate to the **/azure-iot-samples-node/digital-twins/Quickstarts/Service** folder. Install all the dependencies by running the following command:
+1. Open another terminal window (this will be your _service_ terminal). Go to the folder of your cloned repository, and navigate to the **/azure-iot-samples-node/digital-twins/Quickstarts/Service** folder. Install all the dependencies by running the following command:
 
     ```cmd/sh
     npm install
@@ -80,7 +80,7 @@ In this quickstart, you use a sample IoT solution in Node.js to interact with th
 
 ### Read a property
 
-1. When you connected the device in the terminal, you saw the following message:
+1. When you connected the _device_ in its terminal, you saw the following message:
 
     ```cmd/sh
     reported state property as online
@@ -88,7 +88,7 @@ In this quickstart, you use a sample IoT solution in Node.js to interact with th
 
 1. Open the file **get_digital_twin.js**. Replace the `<DEVICE_ID_GOES_HERE>` placeholder with your device ID and save the file.
 
-1. Go to the terminal you opened for running the service sample, and run the following command:
+1. Go to the _service_ terminal and use the following command to run the sample:
 
     ```cmd/sh
     node get_digital_twin.js
@@ -115,13 +115,13 @@ In this quickstart, you use a sample IoT solution in Node.js to interact with th
     const propertyValue = 42;
     ```
 
-1. Go to the terminal you opened for running the service sample, and use the following command to run the sample:
+1. Go to the _service_ terminal and use the following command to run the sample:
 
     ```cmd/sh
     node update_digital_twin_property.js
     ```
 
-1. In the terminal, you see the digital twin information associated with your device. Find the component _environmentalSensor_, you see the new brightness value is 42.
+1. In the _service_ terminal, you see the digital twin information associated with your device. Find the component _environmentalSensor_ to see the new brightness value of 42.
 
     ```json
     "environmentalSensor": {
@@ -160,12 +160,12 @@ In this quickstart, you use a sample IoT solution in Node.js to interact with th
     Received an update for brightness: 42
     updated the property
     ```
-2. Go back to your _service_ terminal, run below command again to confirm the property has been updated.
+2. Go back to your _service_ terminal and run the below command to get the device information again, to confirm the property has been updated.
     
     ```cmd/sh
     node get_digital_twin.js
     ```
-3. In the output, under the environmentalSensor component, you see the updated brightness value has been reported. Note: it might take a while for the device to finish the update. You can repeat this step until the device has actually processed the property update.
+3. In the output, under the _environmentalSensor_ component, you see the updated brightness value has been reported. Note: it might take a while for the device to finish the update. You can repeat this step until the device has actually processed the property update.
     
     ```json
       "brightness": {
@@ -186,13 +186,13 @@ In this quickstart, you use a sample IoT solution in Node.js to interact with th
     const commandName = 'blink';
     ```
 
-1. Go to the terminal you opened for running the service sample. Use the following command to run the sample:
+1. Go to the _service_ terminal. Use the following command to run the sample:
 
     ```cmd/sh
     node invoke_command.js
     ```
 
-1. In the terminal, success looks like the following output:
+1. In the _service_ terminal, success looks like the following output:
 
     ```cmd/sh
     invoking command blink on component environmentalSensor for device <device ID>...

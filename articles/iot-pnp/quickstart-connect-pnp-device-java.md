@@ -3,7 +3,7 @@ title: Connect IoT Plug and Play Preview sample device code to IoT Hub | Microso
 description: Using Java, build and run IoT Plug and Play Preview sample device code that connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
 author: baanders
 ms.author: baanders
-ms.date: 10/24/2019
+ms.date: 11/14/2019
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
@@ -26,27 +26,29 @@ ms.custom: mvc
 
 [!INCLUDE [iot-pnp-quickstarts-2-selector.md](../../includes/iot-pnp-quickstarts-2-selector.md)]
 
-This quickstart shows you how to build a sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written in Java and is included in the Azure IoT Hub device SDK for Java. A solution developer can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
+This quickstart shows you how to build a sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written in Java and is included in the Microsoft Azure IoT SDKs for Java. A solution developer can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Prerequisites
 
-To complete this quickstart, you need Java SE 8 on your development machine. You can download the Java SE Development Kit 8 for multiple platforms from [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/en-us/java/azure/jdk/?view=azure-java-stable). Make sure you select **Java 8** under **Long-term support** to get to downloads for JDK 8.
+To complete this quickstart, you need Java SE 7 on your development machine. You can download Java SE 7 from [Oracle's Java SE Downloads](https://www.oracle.com/technetwork/java/javase/downloads/index.html). Make sure your `PATH` and `JAVA_HOME` environment variables include the full path to the `jdk1.7.x` directory.
 
-You can verify the current version of Java on your development machine using the following command: 
+You can check that the environment variables are set correctly and verify the version of Java on your development machine by running the following command in a local terminal window: 
 
 ```cmd/sh
 java -version
 ```
 
-To build the samples, you need to install Maven 3. You can download Maven for multiple platforms from [Apache Maven](https://maven.apache.org/download.cgi).
+To build the samples, you also need to install Maven 3. You can download Maven for multiple platforms from [Apache Maven](https://maven.apache.org/download.cgi). Make sure your `PATH` environment variable includes the full path to the `apache-maven-3.x.x\bin` directory.
 
-You can verify the current version of Maven on your development machine using the following command:
+You can check that the environment variables are set correctly and verify the version of Maven on your development machine by running the following command in a local terminal window:
 
 ```cmd/sh
 mvn --version
 ```
+
+These setup steps are also included with the source code of this quickstart's sample device application, under [Java setup instructions](https://github.com/Azure/azure-iot-sdk-java-digital-twin/blob/master/digital-twin/doc/java-devbox-setup.md).
 
 ### Install the Azure IoT explorer
 
@@ -56,36 +58,38 @@ Download and install the latest release of **Azure IoT explorer** from the tool'
 
 ## Prepare the development environment
 
-In this quickstart, you prepare a development environment you can use to clone and build the Azure IoT Hub device SDK for Java.
+In this quickstart, you prepare a development environment you can use to clone and build the Microsoft Azure IoT SDKs for Java.
 
-Open a command prompt in the directory of your choice. Execute the following command to clone the [Microsoft Azure IoT SDKs for Java](https://github.com/Azure/azure-iot-sdk-java) GitHub repository into this location:
+Open a command prompt in the directory of your choice. Execute the following command to clone the [Microsoft Azure IoT SDKs for Java](https://github.com/Azure/azure-iot-sdk-java-digital-twin) GitHub repository into this location:
 
 ```cmd/sh
-git clone https://github.com/Azure/azure-iot-sdk-java --recursive -b preview-test
+git clone https://github.com/Azure/azure-iot-sdk-java-digital-twin --recursive 
 ```
 
-You should expect this operation to take several minutes to complete.
+This operation may take several minutes to complete.
 
 ## Build the code
 
 You use the device SDK to build the included sample code. The application you build simulates a device that connects to an IoT hub. The application sends telemetry and properties and receives commands.
 
-1. In a local terminal window, navigate to ...
-
-1. In the local terminal window, run the following command to install the required libraries and build the simulated device application:
+1. In a local terminal window, navigate to the **/azure-iot-sdk-java-digital-twin/digital-twin** folder. Then run the following command to install the required libraries and build the simulated device application:
 
     ```cmd/sh
-    mvn clean package
+    mvn clean install -DskipTests
+    ```
+
+1. Configure the _device connection string_:
+
+    ```cmd/sh
+    set DIGITAL_TWIN_DEVICE_CONNECTION_STRING=<your device connection string>
     ```
 
 ## Run the device sample
 
-Run a sample application in the SDK to simulate an IoT Plug and Play device that sends telemetry to your IoT hub. To run the sample application, use these commands and pass the _device connection string_ as a parameter.
+Run a sample application in the SDK to simulate an IoT Plug and Play device that sends telemetry to your IoT hub. To run the sample application, use the following command:
 
 ```cmd\sh
-cd digitaltwin_client\samples\digitaltwin_sample_device\Release
-copy ..\EnvironmentalSensor.interface.json .
-digitaltwin_sample_device.exe "<your device connection string>"
+java -jar device-samples\target\environmental-sensor-sample-with-deps.jar
 ```
 
 The simulated device starts sending telemetry data to IoT Hub, listening for commands, and listening for property updates.

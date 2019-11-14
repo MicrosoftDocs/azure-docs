@@ -3,7 +3,7 @@ title: Connect IoT Plug and Play Preview sample device code to IoT Hub | Microso
 description: Using C# (.NET), build and run IoT Plug and Play Preview sample device code that connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
 author: baanders
 ms.author: baanders
-ms.date: 10/24/2019
+ms.date: 11/14/2019
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
@@ -25,15 +25,15 @@ ms.custom: mvc
 
 [!INCLUDE [iot-pnp-quickstarts-2-selector.md](../../includes/iot-pnp-quickstarts-2-selector.md)]
 
-This quickstart shows you how to build a sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written in C# (with .NET), and is included in the Microsoft Azure IoT Hub device SDK for C#. A solution developer can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
+This quickstart shows you how to build a sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written in C# (with .NET), and is included in the Microsoft Azure IoT SDK for .NET. A solution developer can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Prerequisites
 
-To complete this quickstart, you need to install .NET Core on your development machine. You can download the latest recommended version of the .NET Core SDK for multiple platforms from [.NET](https://www.microsoft.com/net/download/all).
+To complete this quickstart, you need to install .NET Core 2.2 on your development machine. You can download this version of the .NET Core SDK for multiple platforms from [Download .NET Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2).
 
-You can verify the current version of .NET on your development machine using the following command: 
+You can verify the version of .NET that's on your development machine by running the following command in a local terminal window: 
 
 ```cmd/sh
 dotnet --version
@@ -47,46 +47,34 @@ Download and install the latest release of **Azure IoT explorer** from the tool'
 
 ## Prepare the development environment
 
-In this quickstart, you prepare a development environment you can use to clone and build the Microsoft Azure IoT Hub device SDK for C#.
+In this quickstart, you prepare a development environment you can use to clone and build the Microsoft Azure IoT SDK for .NET.
 
-Open a command prompt in the directory of your choice. Execute the following command to clone the [Microsoft Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp) GitHub repository into this location:
+Open a command prompt in the directory of your choice. Execute the following command to clone the [Microsoft Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp-digital-twin) GitHub repository into this location:
 
 ```cmd/sh
-git clone https://github.com/Azure/azure-iot-sdk-csharp --recursive -b preview
+git clone https://github.com/Azure/azure-iot-sdk-csharp-digital-twin --recursive
 ```
 
-You should expect this operation to take several minutes to complete.
+This operation may take several minutes to complete.
 
 ## Build the code
 
 You use the device SDK to build the included sample code. The application you build simulates a device that connects to an IoT hub. The application sends telemetry and properties and receives commands.
 
-1. Create a `cmake` subdirectory in the device SDK root folder, and navigate to that folder:
+1. In a local terminal window, navigate to the **/azure-iot-sdk-csharp-digital-twin/digitaltwin/device/sample/EnvironmentalSensorSample** folder. 
 
-    ```cmd\sh
-    cd <root folder>\azure-iot-sdk-c
-    mkdir cmake
-    cd cmake
+1. Configure the _device connection string_:
+
+    ```cmd/sh
+    set DIGITAL_TWIN_DEVICE_CONNECTION_STRING=<your device connection string>
     ```
-
-1. Run the following commands to build the device SDK and the generated code stub:
-
-    ```cmd\sh
-    cmake ..
-    cmake --build . -- /m /p:Configuration=Release
-    ```
-
-    > [!NOTE]
-    > If cmake can't find your C++ compiler, you get build errors when you run the previous command. If that happens, try running this command at the [Visual Studio command prompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs).
 
 ## Run the device sample
 
-Run a sample application in the SDK to simulate an IoT Plug and Play device that sends telemetry to your IoT hub. To run the sample application, use these commands and pass the _device connection string_ as a parameter.
+Run a sample application in the SDK to simulate an IoT Plug and Play device that sends telemetry to your IoT hub. To build the necessary packages and run the sample application, use the following command:
 
 ```cmd\sh
-cd digitaltwin_client\samples\digitaltwin_sample_device\Release
-copy ..\EnvironmentalSensor.interface.json .
-digitaltwin_sample_device.exe "<your device connection string>"
+    dotnet run
 ```
 
 The simulated device starts sending telemetry data to IoT Hub, listening for commands, and listening for property updates.

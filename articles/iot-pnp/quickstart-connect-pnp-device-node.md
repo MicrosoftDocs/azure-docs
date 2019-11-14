@@ -51,7 +51,7 @@ Open a command prompt in the directory of your choice. Execute the following com
 git clone https://github.com/Azure/azure-iot-sdk-node --recursive -b digitaltwins-preview
 ```
 
-You should expect this operation to take several minutes to complete.
+This operation may take several minutes to complete.
 
 ## Build the code
 

@@ -3,7 +3,7 @@ title: Interact with an IoT Plug and Play Preview device connected to your Azure
 description: Use C# (.NET) to connect to and interact with an IoT Plug and Play Preview device that's connected to your Azure IoT solution.
 author: baanders
 ms.author: baanders
-ms.date: 10/24/2019
+ms.date: 11/14/2019
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
@@ -31,9 +31,9 @@ IoT Plug and Play Preview simplifies IoT by enabling you to interact with a devi
 
 ## Prerequisites
 
-To complete this quickstart, you need to install .NET Core on your development machine. You can download the latest recommended version of the .NET Core SDK for multiple platforms from [.NET](https://www.microsoft.com/net/download/all).
+To complete this quickstart, you need to install .NET Core 2.2 on your development machine. You can download this version of the .NET Core SDK for multiple platforms from [Download .NET Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2).
 
-You can verify the current version of .NET on your development machine using the following command: 
+You can verify the version of .NET that's on your development machine by running the following command in a local terminal window: 
 
 ```cmd/sh
 dotnet --version
@@ -47,28 +47,24 @@ dotnet --version
 
 In this quickstart, you use a sample environmental sensor that's written in C# as the IoT Plug and Play device. The following instructions show you how to install and run the device:
 
-1. Clone the [Azure IoT Samples for C# (.NET)](https://github.com/azure-samples/azure-iot-samples-csharp) GitHub repository:
+1. Clone the [Microsoft Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp-digital-twin) GitHub repository:
 
     ```cmd/sh
-    git clone https://github.com/azure-samples/azure-iot-samples-csharp
+    git clone https://github.com/Azure/azure-iot-sdk-csharp-digital-twin
     ```
 
-1. In a terminal, go to the root folder of your cloned repository, navigate to the **/azure-iot-samples-node/digital-twins/Quickstarts/Device** folder, and then install all the dependencies by running the following command:
-
-    ```cmd/sh
-    npm install
-    ```
+1. Open a terminal window for running the device (this will be your _device_ terminal). Go to your cloned repository and navigate to the **/azure-iot-sdk-csharp-digital-twin/digitaltwin/device/sample/EnvironmentalSensorSample** folder.
 
 1. Configure the _device connection string_:
 
     ```cmd/sh
-    set DEVICE_CONNECTION_STRING=<your device connection string>
+    set DIGITAL_TWIN_DEVICE_CONNECTION_STRING=<your device connection string>
     ```
 
-1. Run the sample with the following command:
+1. Build the necessary packages and run the sample with the following command:
 
-    ```cmd/sh
-    node sample_device.js
+    ```cmd\sh
+        dotnet run
     ```
 
 1. You see messages saying that the device has sent telemetry and its properties. The device is now ready to receive commands and property updates. Don't close this terminal, you'll need it later to confirm the service samples also worked.
@@ -77,32 +73,29 @@ In this quickstart, you use a sample environmental sensor that's written in C# a
 
 In this quickstart, you use a sample IoT solution in C# to interact with the sample device.
 
-1. Open another terminal. Go to the folder of your cloned repository, and navigate to the **/azure-iot-samples-node/digital-twins/Quickstarts/Service** folder. Install all the dependencies by running the following command:
+1. Open another terminal window (this will be your _service_ terminal). Go to the folder of your cloned repository, and navigate to the **/azure-iot-sdk-csharp-digital-twin/digitaltwin/service/sample** folder.
 
-    ```cmd/sh
-    npm install
-    ```
-
-1. Configure the _IoT hub connection string_:
+1. Configure the _IoT hub connection string_ and _device ID_:
 
     ```cmd/sh
     set IOTHUB_CONNECTION_STRING=<your IoT hub connection string>
+    set DIGITAL_TWIN_ID=<your device ID>
     ```
 
 ### Read a property
 
-1. When you connected the device in the terminal, you saw the following message:
+1. When you connected the _device_ in its terminal, you saw the following message:
 
     ```cmd/sh
     reported state property as online
     ```
 
-1. Open the file **get_digital_twin.js**. Replace the `<DEVICE_ID_GOES_HERE>` placeholder with your device ID and save the file.
-
-1. Go to the terminal you opened for running the service sample, and run the following command:
+1. Go to the _service_ terminal and use the following commands to run the sample:
 
     ```cmd/sh
-    node get_digital_twin.js
+    cd GetDigitalTwin
+    dotnet run
+    cd ..
     ```
 
 1. In the output, under the _environmentalSensor_ component, you see the state has been reported as online:
@@ -116,23 +109,22 @@ In this quickstart, you use a sample IoT solution in C# to interact with the sam
 
 ### Update a writable property
 
-1. Open the file **update_digital_twin_property.js**.
-
-1. At the beginning of the file, there's a set of constants defined with uppercase placeholders. Replace the `<DEVICE_ID_GOES_HERE>` placeholder with your actual device ID, update the remaining constants with the following values, and save the file:
-
-    ```javascript
-    const interfaceInstanceName = 'environmentalSensor';
-    const propertyName = 'brightness';
-    const propertyValue = 42;
+1. Go to the _service_ terminal and set the following variables:
+    ```cmd/sh
+    set INTERFACE_INSTANCE_NAME=environmentalSensor
+    set PROPERTY_NAME=brightness
+    set PROPERTY_VALUE=42
     ```
 
-1. Go to the terminal you opened for running the service sample, and use the following command to run the sample:
+1. Use the following commands to run the sample:
 
     ```cmd/sh
-    node update_digital_twin_property.js
+    cd UpdateProperty
+    dotnet run
+    cd ..
     ```
 
-1. In the terminal, you see the digital twin information associated with your device. Find the component _environmentalSensor_, you see the new brightness value 60.
+1. In the _service_ terminal, you see the digital twin information associated with your device. Find the component _environmentalSensor_ to see the new brightness value of 42.
 
     ```json
     "environmentalSensor": {
@@ -171,12 +163,14 @@ In this quickstart, you use a sample IoT solution in C# to interact with the sam
     Received an update for brightness: 42
     updated the property
     ```
-2. Go back to your _service_ terminal, run below command again to confirm the property has been updated.
+2. Go back to your _service_ terminal and run the below commands to get the device information again, to confirm the property has been updated.
     
     ```cmd/sh
-    node get_digital_twin.js
+    cd GetDigitalTwin
+    dotnet run
+    cd ..
     ```
-3. In the output, under the environmentalSensor component, you see the updated brightness value has been reported. Note: it might take a while for the device to finish the update. You can repeat this step until the device has actually processed the property update.
+3. In the output, under the _environmentalSensor_ component, you see the updated brightness value has been reported. Note: it might take a while for the device to finish the update. You can repeat this step until the device has actually processed the property update.
     
     ```json
       "brightness": {
@@ -188,22 +182,21 @@ In this quickstart, you use a sample IoT solution in C# to interact with the sam
 
 ### Invoke a command
 
-1. Open the file **invoke_command.js**.
-
-1. At the beginning of the file, replace the `<DEVICE_ID_GOES_HERE>` placeholder with your actual device ID. Update the remaining constants with the following values, and then save the file:
-
-    ```javascript
-    const interfaceInstanceName = 'environmentalSensor';
-    const commandName = 'blink';
+1. Go to the _service_ terminal and set the following variables:
+    ```cmd/sh
+    set INTERFACE_INSTANCE_NAME=environmentalSensor
+    set COMMAND_NAME=blink
     ```
 
-1. Go to the terminal you opened for running the service sample. Use the following command to run the sample:
+1. Use the following commands to run the sample:
 
     ```cmd/sh
-    node invoke_command.js
+    cd InvokeCommand
+    dotnet run
+    cd ..
     ```
 
-1. In the terminal, success looks like the following output:
+1. In the _service_ terminal, success looks like the following output:
 
     ```cmd/sh
     invoking command blink on component environmentalSensor for device <device ID>...
