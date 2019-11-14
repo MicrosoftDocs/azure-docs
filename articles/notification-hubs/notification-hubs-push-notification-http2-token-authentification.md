@@ -59,10 +59,15 @@ The application name and identifier are also available in the **Certificates, Id
 
 ![](./media/notification-hubs-push-notification-http2-token-authentification/app-name.png)
 
+### Configure via the .NET SDK or the Azure portal
 
-### Configure via the .NET SDK
+You can configure your hub to use token-based authentication using our [latest client SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs), or in the Azure portal. To enable token-based authentication in the portal, sign in to the Azure portal and go to your notification hub's **Settings > Apple (APNS)** panel. Select **Token** from the **Authentication Mode** property to update your hub with all the relevant token properties.
 
-You can configure your hub to use token based authentication using our [latest client SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs), or [using the Azure portal](create-notification-hub-portal.md).
+![Configure token](./media/notification-hubs-push-notification-http2-token-authentification/azure-portal-apns-settings.png)
+
+* Enter the properties you retrieved from your Apple Developer account.
+* Choose the application mode (**Production** or **Sandbox**).
+* Click the **Save** button to update your APNS credentials
 
 Token-based credentials are composed of the following fields:
 
