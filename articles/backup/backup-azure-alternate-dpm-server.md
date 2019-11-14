@@ -75,7 +75,7 @@ To recover data from an Azure Backup Server:
 
     ![Clear External DPM](./media/backup-azure-alternate-dpm-server/clear-external-dpm.png)
 
-## Troubleshooting Error Messages
+## Troubleshooting error messages
 
 | No. | Error Message | Troubleshooting steps |
 |:---:|:--- |:--- |

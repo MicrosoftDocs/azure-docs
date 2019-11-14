@@ -27,7 +27,7 @@ Backup for Azure File shares is in Preview. Azure File Shares in both general-pu
 
 Backup for Azure File Shares in Storage Accounts with [zone redundant storage](../storage/common/storage-redundancy-zrs.md) (ZRS) replication is currently available only in Central US (CUS), East US (EUS), East US 2 (EUS2), North Europe (NE), SouthEast Asia (SEA), West Europe (WE) and West US 2 (WUS2).
 
-## Configuring Backup
+## Configuring backup
 
 The following table is for configuring the backup:
 
@@ -40,7 +40,7 @@ The following table is for configuring the backup:
 | Backup File share configuration (or the protection policy configuration) is failing. | <ul><li>Retry the operation to see if the issue persists. <li> Make sure the File share you want to protect has not been deleted. <li> If you are trying to protect multiple File shares at once, and some of the file shares are failing, retry configuring the backup for the failed File shares again. |
 | Unable to delete the Recovery Services vault after unprotecting a File share. | In the Azure portal, open your Vault > **Backup Infrastructure** > **Storage accounts** and click **Unregister** to remove the storage account from the Recovery Services vault.|
 
-## Error messages for Backup or Restore Job failures
+## Error messages for backup or restore job failures
 
 | Error messages | Workaround or Resolution tips |
 | -------------- | ----------------------------- |
@@ -58,7 +58,7 @@ The following table is for configuring the backup:
 | Restore operation failed as an error occurred while performing pre restore operations on File Sync Service resources associated with the target file share. | Please retry after sometime, if the issue persists please contact Microsoft support. |
 | One or more files could not be recovered successfully. For more information, check the failed file list in the path given above. | <ul> <li> Recovery failure reasons are listed in the file (path provided in the Job details), address the reasons and retry the restore operation for the failed files only. <li> Common reasons for file restore failures are: <br/> - Make sure the failed files aren't currently in use. <br/> - A directory with the same name as the failed files exists in the parent directory. |
 
-## Modify Policy
+## Modify policy
 
 | Error messages | Workaround or Resolution tips |
 | ------------------ | ----------------------------- |
