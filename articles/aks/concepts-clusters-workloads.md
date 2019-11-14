@@ -102,7 +102,7 @@ To maintain node performance and functionality, resources are reserved on each n
     - 6% of the next 112 GB of memory (up to 128 GB)
     - 2% of any memory above 128 GB
 
-As a result of these reservations to keep Kubernetes and nodes healthy, the amount of allocatable CPU and memory will appear less than the node itself offers. The resource reservations defined above cannot be changed.
+As a result of these two defined rules imposed to keep Kubernetes and agent nodes healthy, the amount of allocatable CPU and memory will appear less than the node itself could offer. The resource reservations defined above cannot be changed.
 
 For example, if a node offers 7 GB, it will report 34% of memory not allocatable:
 
