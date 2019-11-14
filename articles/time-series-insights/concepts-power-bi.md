@@ -16,7 +16,7 @@ Are you looking for a solution to help correlate your time-series data, create v
 
 Time Series Insights now seamlessly integrates with [Power BI](https://powerbi.microsoft.com/), providing you with more powerful visualization and dashboarding capabilities over your streaming data and allows you to share insights and results across your organization.
 
-   [![Heatmap in the Time Series Insights explorer](./media/concepts-connect-power-bi/power-bi-tsi-example.png)](./media/concepts-connect-power-bi/power-bi-tsi-example.png#lightbox)
+   [![Export option in Time Series Insights](./media/concepts-connect-power-bi/tsi-power-bi-export-example.png)](./media/concepts-connect-power-bi/tsi-power-bi-export-example.png#lightbox)
 
 By connecting your data to Power BI, you can now:
 
@@ -32,6 +32,8 @@ Connecting your data takes less than a minute. By quickly exporting your view fr
 Configuration options include choosing between **Raw** and **Aggregate-level** data and selecting a desired time range. 
 
 Once data has been connected, all of Power BI's rich visualization and charting tools are available to further enhance your information sharing capabilities. 
+
+   [![Charting examples in Power BI](./media/concepts-connect-power-bi/power-bi-tsi-example.png)](./media/concepts-connect-power-bi/power-bi-tsi-example.png#lightbox)
 
 Read [How to connect Time Series Insights to Power BI](./how-to-connect-power-bi.md) for step-by-step specifics.
 
