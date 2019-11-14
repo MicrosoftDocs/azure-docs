@@ -1,5 +1,5 @@
 ---
-title: "How to: Specify source language for speech to text - Speech Service"
+title: How to specify source language for speech to text
 titleSuffix: Azure Cognitive Services
 description: The Speech SDK allows you to specify the source language when converting speech to text. This article describes how to use the FromConfig and SourceLanguageConfig methods to let the Speech service know the source language and provide a custom model target.
 services: cognitive-services

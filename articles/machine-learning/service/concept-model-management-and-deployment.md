@@ -164,6 +164,6 @@ Learn more by reading and exploring the following resources:
 
 + Create clients that [consume a deployed model](how-to-consume-web-service.md)
 
-+ [Machine learning at scale](/architecture/data-guide/big-data/machine-learning-at-scale)
++ [Machine learning at scale](/azure/architecture/data-guide/big-data/machine-learning-at-scale)
 
 + [Azure AI reference architectures & best practices rep](https://github.com/microsoft/AI)
