@@ -1,7 +1,7 @@
 ﻿---
 title: Speech to Text frequently asked questions
 titleSuffix: Azure Cognitive Services
-description: Get answers to the most popular questions about the Speech to Text service.
+description: Get answers to frequently asked questions about the Speech to Text service.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -54,11 +54,11 @@ You can deploy baseline and customized models in the portal and then run accurac
 
 The old dataset and the new dataset must be combined in a single .zip file (for acoustic data) or in a .txt file (for language data). When adaptation is finished, the new, updated model needs to be redeployed to obtain a new endpoint
 
-**Q: When a new version of a baseline is available is my deployment automatically updated?**
+**Q: When a new version of a baseline is available, is my deployment automatically updated?**
 
 **A**: Deployments will NOT be automatically updated.
 
-If you have adapted and deployed a model with baseline V1.0, that deployment will remain as is. Customers can decommission the deployed model, re-adapt using the newer version of the baseline and re-deploy.
+If you have adapted and deployed a model with baseline V1.0, that deployment will remain as is. Customers can decommission the deployed model, readapt using the newer version of the baseline and redeploy.
 
 **Q: What if I need higher concurrency for my deployed model than what is offered in the portal?**
 
@@ -66,26 +66,31 @@ If you have adapted and deployed a model with baseline V1.0, that deployment wil
 
 Contact [Speech support](mailto:speechsupport@microsoft.com?subject=Request%20for%20higher%20concurrency%20for%20Speech-to-text) if you require a higher scale.
 
-To increase concurrency for a custom model, we need the following information:
+To increase concurrency for a ***custom model***, we need the following information:
 
-- The region where the model is deployed.
-- The endpoint ID of the deployed model.
+- The region where the model is deployed,
+- the endpoint ID of the deployed model:
+  - Got to the [Custom Speech Portal](https://aka.ms/customspeech),
+  - sign in (if necessary),
+  - select your project and deployment,
+  - select the endpoint you need the concurrency increase for,
+  - copy the `Endpoint ID`.
 
-To increase concurrency for a base models, we need the following information:
+To increase concurrency for a ***base model***, we need the following information:
 
 - The region of your service,
 
 and either
 
-- an access token for you subrscription (see [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token)),
+- an access token for your subscription (see [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token)),
 
 or
 
-- the Resource ID for you subscription:
-  - Go to https://portal.azure.com,
+- the Resource ID for your subscription:
+  - Go to the [Azure portal](https://portal.azure.com),
   - select `Cognitive Services` in the search box,
   - from the displayed services pick the speech service you want the concurrency increased for,
-  - display the properties for this service,
+  - display the `Properties` for this service,
   - copy the complete `Resource ID`.
 
 **Q: Can I download my model and run it locally?**
@@ -102,7 +107,7 @@ or
 
 **Q: How I am charged for dual channel audio?**
 
-**A**: If you submit each channel separately (each channel in its own file), you will be charged per the duration of the each file. If you submit a single file with each channel multiplexed together, then you will be charged for the duration of the single file.
+**A**: If you submit each channel separately (each channel in its own file), you will be charged per duration of file. If you submit a single file with each channel multiplexed together, then you will be charged for the duration of the single file.
 
 > [!IMPORTANT]
 > If you have further privacy concerns that prohibit you from using the custom Speech service, contact one of the support channels.

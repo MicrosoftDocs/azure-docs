@@ -1,7 +1,7 @@
 ---
 title: Speech Devices SDK microphone array recommendations
 titleSuffix: Azure Cognitive Services
-description: Speech Devices SDK microphone array recommendations. The following array geometries are recommended for use with the Microsoft Audio Stack. Location of sound sources and rejection of ambient noise is improved with greater number of microphones with dependencies on specific applications, user scenarios, and the device form factor.
+description: Speech Devices SDK microphone array recommendations. These array geometries are recommended for use with the Microsoft Audio Stack.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -21,11 +21,7 @@ The Speech Devices SDK works best with a microphone array that has been designed
 
 ## Microphone geometry
 
-The following array geometries are recommended for use with the
-Microsoft Audio Stack. Location of sound sources and rejection of
-ambient noise is improved with greater number of microphones
-with dependencies on specific applications, user scenarios, and the
-device form factor.
+The following array geometries are recommended for use with the Microsoft Audio Stack. Location of sound sources and rejection of ambient noise is improved with greater number of microphones with dependencies on specific applications, user scenarios, and the device form factor.
 
 |     | Circular Array |     | Linear Array |     |
 | --- | -------------- | --- | ------------ | --- |
@@ -110,19 +106,13 @@ microphones into a device:
 
 ## Electrical architecture considerations
 
-Where applicable, arrays may be connected to a USB host (such as an SoC that
-runs the Microsoft Audio Stack) and interfaces to speech services or
-other applications.
+Where applicable, arrays may be connected to a USB host (such as an SoC that runs the Microsoft Audio Stack) and interfaces to speech services or other applications.
 
-Hardware components such as PDM-to-TDM conversion should ensure that the
-dynamic range and SNR of the microphones is preserved within
-re-samplers.
+Hardware components such as PDM-to-TDM conversion should ensure that the dynamic range and SNR of the microphones is preserved within re-samplers.
 
-High-speed USB Audio Class 2.0 should be supported within any audio MCUs
-in order to provide the necessary bandwidth for up to seven channels at
-higher sample rates and bit depths.
+High-speed USB Audio Class 2.0 should be supported within any audio MCUs in order to provide the necessary bandwidth for up to seven channels at higher sample rates and bit depths.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about the Speech Devices SDK](speech-devices-sdk.md)
+> [Learn more about the Speech devices SDK](speech-devices-sdk.md)

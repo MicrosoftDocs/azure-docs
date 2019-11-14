@@ -1,7 +1,7 @@
 ---
 title: Text to Speech frequently asked questions
 titleSuffix: Azure Cognitive Services
-description: Get answers to the most popular questions about the Text to Speech service.
+description: Get answers to the frequently asked questions about the Text to Speech service.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
