@@ -19,46 +19,7 @@ Before you get started, make sure to:
 > [!div class="checklist"]
 > * [Create an Azure Speech Resource](../../../../get-started.md)
 > * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=windows)
-<!-- >> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=windows) -->
-
-
-## Create Empty Project
-
-1. Open Visual Studio 2019 to display the **Start** window.
-
-   ![Start window - Visual Studio](../../../../media/sdk/vs-start-window.png)
-
-1. Click on **Create a new project**.
-
-1. Find and select **Console App**. Make sure that you select the C++ version of this project type (as opposed to C# or Visual Basic).
-
-    ![Create a new project, C++ - Visual Studio](../../../../media/sdk/qs-cpp-windows-01-new-console-app.png)
-    
-1. Select **Next** to display the **Configure your new project** screen.
-
-   ![Configure your new project, C++ - Visual Studio](../../../../media/sdk/vs-enable-cpp-configure-your-new-project.png)
-
-1. In **Project name**, enter `helloworld`.
-
-1. In **Location**, navigate to and select or create the folder to save your project in.
-
-1. Right click on the **helloworld** project and click on **Open Folder in File Explorer**.
-
-1. Right click on **helloworld.vcxproj** and choose **Open with**, **Choose another app**.
-
-1. Click on **Notepad** in the list. If you don't see it, click on **More apps** and choose Notepad from the list.
-
-1. Scroll to the end of the file and add the following just after the ```<Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />``` line:
-
-    ```Xml
-    <Import Project="$(SolutionDir)\ext\Microsoft.CognitiveServices.Speech.targets" />
-    ```
-
-1. Navigate one directory up. You should see a **helloworld.sln** file.
-
-1. Create a new folder called **ext**.
-
-1. Download the [multi-device conversation preview DLLs](https://aka.ms/mdc-preview) and extract its contents to the **ext** folder you created in the previous step.
+> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=windows)
 
 ## Add sample code
 
@@ -67,6 +28,8 @@ Before you get started, make sure to:
 1. Replace all the code with the following snippet:
 
     ```C++
+    #include "pch.h"
+    
     #define WIN32_LEAN_AND_MEAN
     #include <Windows.h>
     
@@ -89,8 +52,8 @@ Before you get started, make sure to:
     void StartNewConversation()
     {
         // set these
-        std::string subscriptionKey("a3165ad6b5e04874a4e67415af503de5 ");
-        std::string region("westus");
+        std::string subscriptionKey("YourSubscriptionKey");
+        std::string region("YourServiceRegion");
         std::string speechLanguage("en-US");
     
         // Create the conversation object you'll need to manage the conversation
@@ -248,15 +211,18 @@ Before you get started, make sure to:
 
 1. Once you're done speaking, press `Ctrl + C` on your keyboard to stop audio capture.
 
+    > [!NOTE]
+    > You may see a message from Visual Studio about an exception similar to: `Exception thrown at 0x76EB90BF (KernelBase.dll) in helloworld.exe: 0x40010005: Control-C.` You can safely ignore this.
+    > <br/> <br/>
+    > Press **F5** to continue.
+
 ## Build and run the application to join an existing conversation
 
 1. Copy and paste the following function into your **helloworld.cpp** just before the `int main()` function:
 
     ```C++
-    void JoinExistingConversation()
+    void JoinExistingConversation(const std::string& conversationId)
     {
-        // set this to the conversation you want to join
-        std::string conversationId("");
         std::string speechLanguage("en-US");
     
         // You'll now need to create a ConversationTranslator to send audio, send IMs, and receive conversation events
@@ -264,9 +230,25 @@ Before you get started, make sure to:
         auto conversationTranslator = ConversationTranslator::FromConfig(audioConfig);
     
         // attach event handlers here. For example:
+        conversationTranslator->Transcribing += [](const ConversationTranslationEventArgs& args)
+        {
+            std::cout << "Received a partial transcription from " << args.Result->ParticipantId << ": " << args.Result->Text << std::endl;
+            for (const auto& entry : args.Result->Translations)
+            {
+                std::cout << "\t" << entry.first << ": " << entry.second << std::endl;
+            }
+        };
         conversationTranslator->Transcribed += [](const ConversationTranslationEventArgs& args)
         {
             std::cout << "Received a transcription from " << args.Result->ParticipantId << ": " << args.Result->Text << std::endl;
+            for (const auto& entry : args.Result->Translations)
+            {
+                std::cout << "\t" << entry.first << ": " << entry.second << std::endl;
+            }
+        };
+        conversationTranslator->TextMessageReceived += [](const ConversationTranslationEventArgs& args)
+        {
+            std::cout << "Received an instant message from " << args.Result->ParticipantId << ": " << args.Result->Text << std::endl;
             for (const auto& entry : args.Result->Translations)
             {
                 std::cout << "\t" << entry.first << ": " << entry.second << std::endl;
@@ -276,25 +258,31 @@ Before you get started, make sure to:
         // Join the conversation
         conversationTranslator->JoinConversationAsync(conversationId, "participant", speechLanguage).get();
     
-        // you can start audio, stop audio, and send IMs here
+        // Start sending audio
+        conversationTranslator->StartTranscribingAsync().get();
+        std::cout << "Started transcribing. Press Ctrl + C to stop" << std::endl;
+        future.get(); // wait for Ctrl - C to be pressed
+    
+        // Stop audio capture
+        conversationTranslator->StopTranscribingAsync().get();
     
         // Once you are done, leave the conversation
         conversationTranslator->LeaveConversationAsync().get();
     }
     ```
 
-[!INCLUDE [create-from-web](../create-from-web.md)]
-
-3. Replace `StartNewConversation();` in your `int main()` function with:
+1. Replace `StartNewConversation();` in your `int main()` function with:
 
     ```C++
     // set this to the conversation you want to join
     JoinExistingConversation("YourConversationId");
     ```
 
-1. Replace `YourConversationId` in step with the conversation ID from step 2.
+[!INCLUDE [create-from-web](../create-from-web.md)]
 
-1. From the menu bar, select **Build** > **Build Solution** to build the application. The code should compile without errors now.
+1. Go back to Visual Studio and replace `YourConversationId` in your `int main()` function with the conversation ID from the previous step.
+
+1. From the menu bar, select **Build** > **Build Solution** to build the application. The code should compile without errors.
 
 1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the **helloworld** application.
 
@@ -302,6 +290,11 @@ Before you get started, make sure to:
     - If you go back to your browser, you should see your transcriptions appear there as you speak as well.
 
 1.  Once you're done speaking, press Ctrl + c to stop audio capture, and end the conversation.
+
+    > [!NOTE]
+    > You may see a message from Visual Studio about an exception similar to: `Exception thrown at 0x76EB90BF (KernelBase.dll) in helloworld.exe: 0x40010005: Control-C.` You can safely ignore this.
+    > <br/> <br/>
+    > Press **F5** to continue.
 
 1. Go back to your browser and exit the conversation using the <img src="../../../../media/scenarios/conversation_translator_web_exit_button.png" width="20" /> button in the upper right corner.
 

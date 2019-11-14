@@ -19,7 +19,7 @@ Before you get started, make sure to:
 > [!div class="checklist"]
 > * [Create an Azure Speech Resource](../../../../get-started.md)
 > * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=dotnet)
-<!-- >> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=dotnet) -->
+> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=dotnet)
 
 ## Create helloworld project
 
@@ -234,8 +234,6 @@ Before you get started, make sure to:
 
 ## Build and run the application to create a new conversation
 
-1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the **helloworld** application.
-
 1. From the menu bar, select **Build** > **Build Solution** to build the application. The code should compile without errors now.
 
 1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the **helloworld** application.
@@ -273,8 +271,33 @@ Before you get started, make sure to:
         var audioConfig = AudioConfig.FromDefaultMicrophoneInput();
         using (var conversationTranslator = new ConversationTranslator(audioConfig))
         {
-            // register for any events you are interested here. See previous method for more details
-
+            // register for any events you are interested here. For now let's just register for
+            // transcription, and instant message events
+            conversationTranslator.TextMessageReceived += (s, e) =>
+            {
+                Console.WriteLine($"Received an instant message from '{e.Result.ParticipantId}': '{e.Result.Text}'");
+                foreach (var entry in e.Result.Translations)
+                {
+                    Console.WriteLine($"\tTranslated into '{entry.Key}': '{entry.Value}'");
+                }
+            };
+            conversationTranslator.Transcribed += (s, e) =>
+            {
+                Console.WriteLine($"Received a transcription from '{e.Result.ParticipantId}': '{e.Result.Text}'");
+                foreach (var entry in e.Result.Translations)
+                {
+                    Console.WriteLine($"\tTranslated into '{entry.Key}': '{entry.Value}'");
+                }
+            };
+            conversationTranslator.Transcribing += (s, e) =>
+            {
+                Console.WriteLine($"Received a partial transcription from '{e.Result.ParticipantId}': '{e.Result.Text}'");
+                foreach (var entry in e.Result.Translations)
+                {
+                    Console.WriteLine($"\tTranslated into '{entry.Key}': '{entry.Value}'");
+                }
+            };
+    
             // to start receiving events, you will need to join the conversation
             await conversationTranslator.JoinConversationAsync(conversationId, displayName, language).ConfigureAwait(false);
 
@@ -283,6 +306,7 @@ Before you get started, make sure to:
 
             // start capturing audio if you specified a speech to text language
             await conversationTranslator.StartTranscribingAsync().ConfigureAwait(false);
+            Console.WriteLine("Started transcribing. Press Ctrl-C to stop");
 
             // at this point, you should start receiving transcriptions for what you are saying using
             // the default microphone. Press Ctrl+c to stop audio capture
@@ -297,16 +321,18 @@ Before you get started, make sure to:
     }
     ```
 
-[!INCLUDE [create-from-web](../create-from-web.md)]
-
-3. Replace `CreateConversationAsync().Wait();` in your `public static void Main(string[] args)` function with:
+1. Replace `CreateConversationAsync().Wait();` in your `public static void Main(string[] args)` function with:
 
     ```C#
     // set this to the conversation you want to join
     JoinConversationAsync("YourConversationId").Wait();
     ```
 
-3. Set the ```YourConversationId``` string to match the conversation ID you just created.
+[!INCLUDE [create-from-web](../create-from-web.md)]
+
+1. Go back to Visual Studio and replace the string `YourConversationId` in your `public static void Main(string[] args)` function with the conversation ID you created in the previous step.
+
+1. From the menu bar, select **Build** > **Build Solution** to build the application. The code should compile without errors.
 
 1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the **helloworld** application.
 
