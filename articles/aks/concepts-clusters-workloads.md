@@ -93,9 +93,9 @@ To maintain node performance and functionality, resources are reserved on each n
 
 - **Memory** - reserved memory includes the sum of two values
 
-1. The first value is a flat tax of 750Mi reserved for the "--eviction-hard" setting of the Kubelet. In the event of insufficient memory on a given node, the Kubelet will evict pods without time for a graceful shutdown to avoid the node getting out-of-memory (OOM) killed by the operating system which would otherwise immediately kill everything on the node.
+1. The kubelet daemon is installed on all Kubernetes agent nodes to manage container creation and termination. By default on AKS, this daemon has the following eviction rule: memory.available<750Mi, which means a node must always have at least 750 Mi allocatable at all times.  When a host is below that threshold of available memory, the kubelet will terminate one of the running pods to free memory on the host machine and protect it.
 
-2. The second value is the sum of a progressive rate
+2. The second value is a progressive rate of memory reserved for the kubelet daemon to properly function (kube-reserved).
     - 25% of the first 4 GB of memory
     - 20% of the next 4 GB of memory (up to 8 GB)
     - 10% of the next 8 GB of memory (up to 16 GB)
@@ -104,7 +104,7 @@ To maintain node performance and functionality, resources are reserved on each n
 
 As a result of these reservations to keep Kubernetes and nodes healthy, the amount of allocatable CPU and memory will appear less than the node itself offers. The resource reservations defined above cannot be changed.
 
-For example, in a given node with 7 GB of memory the reserved memory for Kubernetes would be:
+For example, if a node offers 7 GB, it will report 34% of memory not allocatable:
 
 `750Mi + (0.25*4) + (0.20*3) = 0.786GB + 1 GB + 0.6GB = 2.386GB / 7GB = 34% reserved`
 
