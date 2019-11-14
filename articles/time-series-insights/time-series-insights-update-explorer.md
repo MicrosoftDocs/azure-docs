@@ -32,13 +32,13 @@ The Azure Time Series Insights Preview explorer consists of the following seven 
 
 [![Time Series Insights Preview explorer overview](media/v2-update-explorer/preview-explorer-overview.png)](media/v2-update-explorer/preview-explorer-overview.png#lightbox)
 
-1. [Environment panel](#1.-environment-panel): Displays all your Azure Time Series Insights environments.
-1. [Navigation bar](#2.-navigation-bar): Allows you to switch between the **Analyze** and **Model** pages.
-1. [Hierarchy tree and search panel](#3.-hierarchy-tree-and-search-panel): Select and search for specific data elements to be charted.
-1. [Time series well](#time-series-well): Shows all your currently selected data elements.
-1. [Chart panel](#chart-panel): Your current working chart.
-1. [Timeline](#timeline): This allows you to modify your working time span.
-1. [App bar](#app-bar): This contains your user management options (such as current tenant), and allows you to change them and language settings.
+1. [Environment panel](#1-environment-panel): Displays all your Azure Time Series Insights environments.
+1. [Navigation bar](#2-navigation-bar): Allows you to switch between the **Analyze** and **Model** pages.
+1. [Hierarchy tree and search panel](#3-hierarchy-tree-and-search-panel): Select and search for specific data elements to be charted.
+1. [Time series well](#4-time-series-well): Shows all your currently selected data elements.
+1. [Chart panel](#5-chart-panel): Your current working chart.
+1. [Timeline](#6-timeline): This allows you to modify your working time span.
+1. [App bar](#7-app-bar): This contains your user management options (such as current tenant), and allows you to change them and language settings.
 
 
 ## 1. Environment panel
@@ -197,7 +197,7 @@ This section applies only to existing S1/S2 environments that attempt to use the
 
 Instead of the hierarchy, you see the Time Series Insights terms panel, where you define queries in your environment. Use it to filter your data based on a predicate.
 
-  [![Where query panel](media/v2-update-explorer/explorer-eighteen.png)](media/v2-update-explorer/explorer-eighteen.png#lightbox)
+  [![Where query panel](media/v2-update-explorer/s1-s2-preview-query.png)](media/v2-update-explorer/s1-s2-preview-query.png#lightbox)
 
 The Time Series Insights Preview terms editor panel takes the following parameters:
 
@@ -214,7 +214,7 @@ To learn more about supported query operations and data types, see [Time Series 
 
 ### Examples of where clauses
 
-  [![Where clause examples](media/v2-update-explorer/s1-s2-preview-query.png)](media/v2-update-explorer/s1-s2-preview-query.png#lightbox)
+  [![Where clause examples](media/v2-update-explorer/example-queries.png)](media/v2-update-explorer/example-queries.png#lightbox)
 
 **Measure**: A drop-down list that displays all the numeric columns (**Doubles**) you can use as elements for your current chart.
 
