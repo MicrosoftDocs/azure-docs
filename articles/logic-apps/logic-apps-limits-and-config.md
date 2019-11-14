@@ -134,7 +134,7 @@ Azure Logic Apps supports write operations, including inserts and updates, throu
 
 ## HTTP limits
 
-Here are the limits for a single HTTP request or synchronous connector call:
+Here are the limits for a single outgoing or incoming HTTP call:
 
 #### Timeout
 
