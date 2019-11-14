@@ -1,7 +1,7 @@
 ﻿---
 title: Frequently asked questions about the Speech to Text service in Azure
 titleSuffix: Azure Cognitive Services
-description: Get answers to the most popular questions about the Speech to Text service.
+description: Get answers to frequently asked questions about the Speech to Text service.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -21,7 +21,7 @@ If you can't find answers to your questions in this FAQ, check out [other suppor
 
 **Q: What is the difference between a baseline model and a custom Speech to Text model?**
 
-**A**: A baseline model has been trained by using Microsoft-owned data and is already deployed in the cloud.  You can use a custom model to adapt a model to better fit a specific environment that has specific ambient noise or language. Factory floors, cars, or noisy streets would require an adapted acoustic model. Topics like biology, physics, radiology, product names, and custom acronyms would require an adapted language model.
+**A**: A baseline model has been trained by using Microsoft-owned data and is already deployed in the cloud. You can use a custom model to adapt a model to better fit a specific environment that has specific ambient noise or language. Factory floors, cars, or noisy streets would require an adapted acoustic model. Topics like biology, physics, radiology, product names, and custom acronyms would require an adapted language model.
 
 **Q: Where do I start if I want to use a baseline model?**
 
@@ -119,13 +119,13 @@ or
 
 **A**: The current limit for a dataset is 2 GB. The limit is due to the restriction on the size of a file for HTTP upload.
 
-**Q: Can I zip my text files so I can upload a larger text file?** 
+**Q: Can I zip my text files so I can upload a larger text file?**
 
 **A**: No. Currently, only uncompressed text files are allowed.
 
 **Q: The data report says there were failed utterances. What is the issue?**
 
-**A**: Failing to upload 100 percent of the utterances in a file is not a problem. If the vast majority of the utterances in an acoustic or language dataset (for example, more than 95 percent) are successfully imported, the dataset can be usable. However, we recommend that you try to understand why the utterances failed and fix the problems. Most common problems, such as formatting errors, are easy to fix. 
+**A**: Failing to upload 100 percent of the utterances in a file is not a problem. If the vast majority of the utterances in an acoustic or language dataset (for example, more than 95 percent) are successfully imported, the dataset can be usable. However, we recommend that you try to understand why the utterances failed and fix the problems. Most common problems, such as formatting errors, are easy to fix.
 
 ## Creating an acoustic model
 
@@ -135,11 +135,11 @@ or
 
 **Q: What data should I collect?**
 
-**A**: Collect data that's as close to the application scenario and use case as possible. The data collection should match the target application and users in terms of device or devices, environments, and types of speakers. In general, you should collect data from as broad a range of speakers as possible. 
+**A**: Collect data that's as close to the application scenario and use case as possible. The data collection should match the target application and users in terms of device or devices, environments, and types of speakers. In general, you should collect data from as broad a range of speakers as possible.
 
 **Q: How should I collect acoustic data?**
 
-**A**: You can create a standalone data collection application or use off-the-shelf audio recording software. You can also create a version of your application that logs the audio data and then uses the data. 
+**A**: You can create a standalone data collection application or use off-the-shelf audio recording software. You can also create a version of your application that logs the audio data and then uses the data.
 
 **Q: Do I need to transcribe adaptation data myself?**
 
@@ -164,7 +164,7 @@ which includes insertions, deletions, and substitutions, divided by the total nu
 
 **A**: The results show a comparison between the baseline model and the model you customized. You should aim to beat the baseline model to make customization worthwhile.
 
-**Q: How do I determine the WER of a base model so I can see if there was an improvement?** 
+**Q: How do I determine the WER of a base model so I can see if there was an improvement?**
 
 **A**: The offline test results show the baseline accuracy of the custom model and the improvement over baseline.
 
@@ -176,21 +176,21 @@ which includes insertions, deletions, and substitutions, divided by the total nu
 
 **Q: Can I just upload a list of words?**
 
-**A**: Uploading a list of words will add the words to the vocabulary, but it won't teach the system how the words are typically used. By providing full or partial utterances (sentences or phrases of things that users are likely to say), the language model can learn the new words and how they are used. The custom language model is good not only for adding new words to the system, but also for adjusting the likelihood of known words for your application. Providing full utterances helps the system learn better. 
+**A**: Uploading a list of words will add the words to the vocabulary, but it won't teach the system how the words are typically used. By providing full or partial utterances (sentences or phrases of things that users are likely to say), the language model can learn the new words and how they are used. The custom language model is good not only for adding new words to the system, but also for adjusting the likelihood of known words for your application. Providing full utterances helps the system learn better.
 
 ## Tenant Model (Custom Speech with Office 365 data)
 
 **Q: What information is included in the Tenant Model, and how is it created?**
 
-**A:** A Tenant Model is built using [public group](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) emails and documents that can be seen by anyone in your organization. 
- 
+**A:** A Tenant Model is built using [public group](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) emails and documents that can be seen by anyone in your organization.
+
 **Q: What speech experiences are improved by the Tenant Model?**
 
-**A:** When the Tenant Model is enabled, created, and published, it is used to improve recognition for any enterprise applications built using Speech Service; that also passes a user AAD token indicating membership to the enterprise.
+**A:** When the Tenant Model is enabled, created and published, it is used to improve recognition for any enterprise applications built using Speech Service; that also pass a user AAD token indicating membership to the enterprise.
 
 The speech experiences built into Office 365, such as Dictation and PowerPoint Captioning, aren't changed when you create a Tenant Model for your Speech Service applications.
 
 ## Next steps
 
-* [Troubleshooting](troubleshooting.md)
-* [Release notes](releasenotes.md)
+- [Troubleshooting](troubleshooting.md)
+- [Release notes](releasenotes.md)

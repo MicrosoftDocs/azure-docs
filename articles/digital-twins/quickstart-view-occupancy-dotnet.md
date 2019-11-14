@@ -9,7 +9,7 @@ services: digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc seodec18
-ms.date: 11/08/2019
+ms.date: 11/12/2019
 # As a developer new to Azure Digital Twins, I need to see how to send motion and carbon dioxide telemetry to a space in Azure Digital Twins and how to find available rooms with fresh air by using a back-end application. 
 ---
 
@@ -80,11 +80,11 @@ The spatial graph is provisioned by using the [provisionSample.yaml](https://git
 
 1. The provisioning step might take a few minutes. It also provisions an IoT Hub within your Digital Twins instance. It loops through until the IoT Hub shows Status=`Running`.
 
-    [![Provision sample](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample1.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample1.png#lightbox)
+    [![Provision the sample - Status=Running](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png#lightbox)
 
 1. At the end of the execution, copy the `ConnectionString` of the device for use in the device simulator sample. Copy only the string outlined in this image.
 
-    [![Copy the connection string](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png#lightbox)
+    [![Copy the connection string](media/quickstart-view-occupancy-dotnet/digital-twins-connection-string.png)](media/quickstart-view-occupancy-dotnet/digital-twins-connection-string.png#lightbox)
 
     >[!TIP]
     > You can view and modify your spatial graph using the [Azure Digital Twins Graph Viewer](https://github.com/Azure/azure-digital-twins-graph-viewer).
@@ -118,20 +118,20 @@ The sensor sample simulates random data values for two sensors. They're motion a
 1. Look at this command prompt and the sensor data command prompt side by side.
 
     The sensor data command prompt sends simulated motion and carbon dioxide data to Digital Twins every five seconds. The other command prompt reads the graph in real time to find out available rooms with fresh air based on random simulated data. It displays one of these conditions in near real time based on the sensor data that was sent last:
-   - Available rooms with fresh air.
-   - Occupied or poor air quality of the room.
+   - `Room is available and air is fresh`
+   - `Room is not available or air quality is poor`
 
      [![Get available spaces with fresh air](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png)](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png#lightbox)
 
 To understand what happened in this quickstart and what APIs were called, open [Visual Studio Code](https://code.visualstudio.com/Download) with the code workspace project found in `digital-twins-samples-csharp`. Use the following command:
 
-```plaintext
+```cmd
 <path>\occupancy-quickstart\src>code ..\..\digital-twins-samples.code-workspace
 ```
 
 The tutorials go deep into the code. They teach you how to modify configuration data and what APIs are called. For more information on Management APIs, go to your Digital Twins Swagger page:
 
-```plaintext
+```URL
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
