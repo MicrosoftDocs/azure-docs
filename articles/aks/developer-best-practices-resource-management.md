@@ -6,7 +6,7 @@ author: zr-msft
 
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 11/13/2019
 ms.author: zarhoads
 ---
 
