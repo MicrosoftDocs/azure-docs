@@ -31,7 +31,7 @@ The overall health of a particular object is determined from the health of each 
 
 ### Aggregate monitor health rollup policy
 
-Each aggregate monitor defines a health rollup policy which is the logic that is used to determine the health of the aggregate monitor based on the health of the monitors under it. The possible health rollup policies for an aggregate monitor are as follows:
+Each aggregate monitor defines a health rollup policy, which is the logic that is used to determine the health of the aggregate monitor based on the health of the monitors under it. The possible health rollup policies for an aggregate monitor are as follows:
 
 #### Worst state
 
@@ -63,7 +63,7 @@ Azure Monitor for containers includes a number of key monitoring scenarios that 
 |-----------------|-----------------|---------------|
 |Node |This monitor is an aggregate of the all the node monitors. It matches the state of the child monitor with the worst health state:<br> Node CPU utilization<br> Node memory utilization<br> Node Status | Worst of|
 |Node pool |This monitor reports combined health status of all nodes in the node pool *agentpool*. This is a three state monitor, whose state is based on the worst state of 80% of the nodes in the node pool, sorted in descending order of severity of node states (that is, Critical, Warning, Healthy).|Percentage |
-|Nodes (parent of Node pool) |This is an aggregate monitor of all the node pools. Its state is based on the the worst state of its child monitors (that is, the node pools present in the cluster). |Worst of |
+|Nodes (parent of Node pool) |This is an aggregate monitor of all the node pools. Its state is based on the worst state of its child monitors (that is, the node pools present in the cluster). |Worst of |
 |Cluster (parent of nodes/<br> Kubernetes infrastructure) |This is the parent monitor that matches the state of the child monitor with the worst health state, that is kubernetes infrastructure and nodes. |Worst of |
 |Kubernetes infrastructure |This monitor reports combined health status of the managed infrastructure components of the cluster. its status is calculated as the 'worst of' its child monitor states i.e. kube-system workloads and API Server status. |Worst of|
 |System workload |This monitor reports health status of a kube-system workload. This monitor matches the state of the child monitor with the worst health state, that is the **Pods in ready state** monitor and the containers in the workload). |Worst of |
