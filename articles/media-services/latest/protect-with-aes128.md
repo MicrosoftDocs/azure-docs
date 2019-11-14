@@ -1,6 +1,7 @@
 ---
-title: Use Azure Media Services to encrypt the video with AES-128 | Microsoft Docs
-description: Deliver your content encrypted with AES 128-bit encryption keys by using Microsoft Azure Media Services. Media Services also provides the key delivery service that delivers encryption keys to authorized users. This topic shows how to dynamically encrypt with AES-128 and use the key delivery service.
+title: Use Media Services to encrypt video with AES-128
+titleSuffix: Azure Media Services
+description: Learn how to encrypt video with AES 128-bit encryption and how to use the key delivery service in Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -16,33 +17,33 @@ ms.date: 04/21/2019
 ms.author: juliako
 
 ---
-# Tutorial: Use AES-128 dynamic encryption and the key delivery service
+# Tutorial: Encrypt video with AES-128 and use the key delivery service
 
 > [!NOTE]
 > Even though the tutorial uses the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) examples, the general steps are the same for [REST API](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest), or other supported [SDKs](media-services-apis-overview.md#sdks).
 
-You can use Media Services to deliver HTTP Live Streaming (HLS), MPEG-DASH, and Smooth Streaming encrypted with the AES by using 128-bit encryption keys. Media Services also provides the key delivery service that delivers encryption keys to authorized users. If you want for Media Services to dynamically encrypt your video, you associate the encryption key with Streaming Locator and also configure the content key policy. When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content with AES-128. To decrypt the stream, the player requests the key from the key delivery service. To determine whether the user is authorized to get the key, the service evaluates the content key policy that you specified for the key.
+You can use Media Services to deliver HTTP Live Streaming (HLS), MPEG-DASH, and Smooth Streaming encrypted with the AES by using 128-bit encryption keys. Media Services also provides the key delivery service that delivers encryption keys to authorized users. If you want for Media Services to dynamically encrypt your video, you associate the encryption key with a Streaming Locator and also configure the content key policy. When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content with AES-128. To decrypt the stream, the player requests the key from the key delivery service. To determine whether the user is authorized to get the key, the service evaluates the content key policy that you specified for the key.
 
 You can encrypt each asset with multiple encryption types (AES-128, PlayReady, Widevine, FairPlay). See [Streaming protocols and encryption types](content-protection-overview.md#streaming-protocols-and-encryption-types), to see what makes sense to combine. Also, see [How to protect with DRM](protect-with-drm.md).
 
 The output from the sample this article includes a URL to the Azure Media Player, manifest URL, and the AES token needed to play back the content. The sample sets the expiration of the JWT token to 1 hour. You can open a browser and paste the resulting URL to launch the Azure Media Player demo page with the URL and token filled out for you already in the following format: ```https://ampdemo.azureedge.net/?url= {dash Manifest URL} &aes=true&aestoken=Bearer%3D{ JWT Token here}```.
 
-This tutorial shows you how to:    
+This tutorial shows you how to:
 
 > [!div class="checklist"]
-> * Download the [EncryptWithAES](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES) sample described in the article
-> * Start using Media Services APIs with .NET SDK
-> * Create an output asset
-> * Create an encoding Transform
-> * Submit a Job
-> * Wait for the Job to complete
+> * Download the [EncryptWithAES](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES) sample described in the article.
+> * Start using Media Services APIs with .NET SDK.
+> * Create an output asset.
+> * Create an encoding Transform.
+> * Submit a Job.
+> * Wait for the Job to complete.
 > * Create a Content Key Policy
-> * Configure the policy to use JWT token restriction 
-> * Create a Streaming Locator
-> * Configure the Streaming Locator to encrypt the video with AES (ClearKey)
-> * Get a test token
-> * Build a streaming URL
-> * Clean up resources
+> * Configure the policy to use JWT token restriction.
+> * Create a Streaming Locator.
+> * Configure the Streaming Locator to encrypt the video with AES (ClearKey).
+> * Get a test token.
+> * Build a streaming URL.
+> * Clean up resources.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -50,10 +51,10 @@ This tutorial shows you how to:
 
 The following are required to complete the tutorial.
 
-* Review the [Content protection overview](content-protection-overview.md) article
-* Install Visual Studio Code or Visual Studio
-* [Create a Media Services account](create-account-cli-quickstart.md)
-* Get credentials needed to use Media Services APIs by following [Access APIs](access-api-cli-how-to.md)
+* Review the [Content protection overview](content-protection-overview.md) article.
+* Install Visual Studio Code or Visual Studio.
+* [Create a Media Services account](create-account-cli-quickstart.md).
+* Get credentials needed to use Media Services APIs by following [Access APIs](access-api-cli-how-to.md).
 
 ## Download code
 
@@ -62,11 +63,11 @@ Clone a GitHub repository that contains the full .NET sample discussed in this a
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
  ```
- 
+
 The "Encrypt with AES-128" sample is located in the [EncryptWithAES](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES) folder.
 
 > [!NOTE]
-> The sample creates unique resources every time you run the application. Typically, you will reuse existing resources like transforms and policies (if existing resource have required configurations). 
+> The sample creates unique resources every time you run the app. Typically, you'll reuse existing resources like transforms and policies (if existing resource have required configurations).
 
 ## Start using Media Services APIs with .NET SDK
 
