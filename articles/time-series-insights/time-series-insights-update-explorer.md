@@ -14,7 +14,7 @@ ms.custom: seodec18
 
 # Azure Time Series Insights Preview explorer
 
-This articles describes the various features and options available within the Azure Time Series Insights Preview [demo web application](https://insights.timeseries.azure.com/preview/demo).
+This article describes the various features and options available within the Azure Time Series Insights Preview [demo web application](https://insights.timeseries.azure.com/preview/demo).
 
 ## Prerequisites
 
@@ -33,12 +33,12 @@ The Azure Time Series Insights Preview explorer consists of the following seven 
 [![Time Series Insights Preview explorer overview](media/v2-update-explorer/preview-explorer-overview.png)](media/v2-update-explorer/preview-explorer-overview.png#lightbox)
 
 1. [Environment panel](#1-environment-panel): Displays all your Azure Time Series Insights environments.
-1. [Navigation bar](#2-navigation-bar): Allows you to switch between the **Analyze** and **Model** pages.
-1. [Hierarchy tree and search panel](#3-hierarchy-tree-and-search-panel): Select and search for specific data elements to be charted.
+1. [Navigation bar](#2-navigation-bar): Lets you switch between the **Analyze** and **Model** pages.
+1. [Hierarchy tree and search panel](#3-hierarchy-tree-and-search-panel): Lets you select and search for specific data elements to be charted.
 1. [Time series well](#4-time-series-well): Shows all your currently selected data elements.
-1. [Chart panel](#5-chart-panel): Your current working chart.
-1. [Timeline](#6-time-editor-panel): This allows you to modify your working time span.
-1. [App bar](#7-app-bar): This contains your user management options (such as current tenant), and allows you to change them and language settings.
+1. [Chart panel](#5-chart-panel): Displays your current working chart.
+1. [Timeline](#6-time-editor-panel): Lets you modify your working time span.
+1. [App bar](#7-app-bar): Contains your user management options (such as current tenant), and allows you to change them and language settings.
 
 
 ## 1. Environment panel
