@@ -1,6 +1,5 @@
 ---
-title: Tutorial - Access storage blobs using an Azure CDN custom domain over HTTPS | Microsoft Docs
-description: 
+title: Access storage blobs using an Azure CDN custom domain over HTTPS
 services: cdn
 documentationcenter: ''
 author: mdgattuso
