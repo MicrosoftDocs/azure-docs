@@ -40,7 +40,7 @@ Azure AD provides an interface for configuring provisioning. This can be easy to
   	* Start job
 6.	Monitor provisioning
 	* Check the status of the provisioning job 
-	* Retrieve the provisioing logs 
+	* Retrieve the provisioning logs 
     
 
 > [!NOTE]
@@ -178,7 +178,7 @@ Content-type: application/json
 ```
 
 ## Step 4: Get provisioning templateId
-Applications in the gallery that are enabled for provisoning have templates to streamline configuration. Use the request below to [retrieve the template for the provisioning configuration](https://docs.microsoft.com/graph/api/synchronization-synchronizationtemplate-list?view=graph-rest-beta&tabs=http). 
+Applications in the gallery that are enabled for provisioning have templates to streamline configuration. Use the request below to [retrieve the template for the provisioning configuration](https://docs.microsoft.com/graph/api/synchronization-synchronizationtemplate-list?view=graph-rest-beta&tabs=http). 
 
 ##### Request
 
@@ -216,7 +216,7 @@ HTTP/1.1 200 OK
 ```
 
 ## Step 5: Create job
-Enabling provisioning requires that a [job be created](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-post?view=graph-rest-beta&tabs=http). Use the request below to create a provisioning job. You should use the templateId from the previous step to specify the template to be used for the job. 
+Enabling provisioning requires that a [job be created](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-post?view=graph-rest-beta&tabs=http). Use the request below to create a provisioning job. Use the templateId from the previous step to specify the template to be used for the job. 
 
 ##### Request
 <!-- {
@@ -268,7 +268,7 @@ Content-type: application/json
 
 ## Step 6: Validate credentials
 
-Test the connection with the third party application. The example below is for an application that requires clientSecret and secretToken. Each application has its on requirements. Review the [API documentation](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&tabs=http) to see the available options. 
+Test the connection with the third-party application. The example below is for an application that requires clientSecret and secretToken. Each application has its on requirements. Review the [API documentation](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&tabs=http) to see the available options. 
 
 ##### Request
 ```http
@@ -292,7 +292,7 @@ HTTP/1.1 204 No Content
 
 ## Step 7: Save your credentials
 
-Configuring provisioning requires establishing a trust between Azure AD and the application. Authorize access to the third party application. The example below is for an application that requires clientSecret and secretToken. Each applicaiton has its on requirements. Review the [API documentation](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&tabs=http) to see the available options. 
+Configuring provisioning requires establishing a trust between Azure AD and the application. Authorize access to the third-party application. The example below is for an application that requires clientSecret and secretToken. Each application has its on requirements. Review the [API documentation](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&tabs=http) to see the available options. 
 
 ##### Request
 ```json
@@ -360,7 +360,7 @@ templateId: "DropboxSCIMOutDelta"
 
 
 ## Step 9: Add a custom attribute to your attribute mappings (optional)
-The application template provides the default attributes required to setup provisioning to the application. If you need to add an additional attribute mapping to your configuration, use the steps below. This is not a required or recommended step. 
+The application template provides the default attributes required to set up provisioning to the application. If you need to add an additional attribute mapping to your configuration, use the steps below. This is not a required or recommended step. 
 
 #### Get the synchronization schema
 The following example shows how to get the synchronization schema.
