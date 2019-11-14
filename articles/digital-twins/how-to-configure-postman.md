@@ -7,7 +7,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/30/2019
+ms.date: 11/13/2019
 ---
 
 # How to configure Postman for Azure Digital Twins
@@ -53,14 +53,9 @@ Configure your Azure Active Directory app to use the OAuth 2.0 implicit grant fl
 
     [![Admin consent approval](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png)](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png#lightbox)
 
+1. Configure a second **Redirect URI** to `https://www.getpostman.com/oauth2/callback`.
 
-1. Select **Manifest** to open the application manifest for your app. Set *oauth2AllowImplicitFlow* to `true`.
-
-    [![Azure Active Directory implicit flow](media/how-to-configure-postman/implicit-flow.png)](media/how-to-configure-postman/implicit-flow.png#lightbox)
-
-1. Configure a **Reply URL** to `https://www.getpostman.com/oauth2/callback`.
-
-    [![Azure Active Directory Reply URL](media/how-to-configure-postman/reply-url.png)](media/how-to-configure-postman/reply-url.png#lightbox)
+    [![Add a Postman Redirect URI](media/how-to-configure-postman/authentication-redirect-uri.png)](media/how-to-configure-postman/authentication-redirect-uri.png#lightbox)
 
 1. Copy and keep the **Application ID** of your Azure Active Directory app. It's used in the steps that follow.
 
@@ -101,10 +96,6 @@ Set up and configure Postman to obtain an Azure Active Directory token. Afterwar
     [![Postman client example](media/how-to-configure-postman/postman-oauth-token.png)](media/how-to-configure-postman/postman-oauth-token.png#lightbox)
 
 1. Select **Request Token**.
-
-    >[!TIP]
-    >If you receive the error message "OAuth 2 couldn’t be completed," try the following:
-    > * Close Postman, and reopen it and try again.
   
 1. Scroll down, and select **Use Token**.
 
@@ -112,13 +103,13 @@ Set up and configure Postman to obtain an Azure Active Directory token. Afterwar
 
 After completing the previous steps, configure Postman to make an authenticated HTTP multipart POST request:
 
-1. Under the **Header** tab, add an HTTP request header key **Content-Type** with value `multipart/mixed`.
+1. Under the **Headers** tab, add an HTTP request header key **Content-Type** with value `multipart/mixed`.
 
    [![Content type multipart/mixed](media/how-to-configure-postman/content-type.png)](media/how-to-configure-postman/content-type.png#lightbox)
 
 1. Serialize non-text data into files. JSON data would be saved as a JSON file.
 1. Under the **Body** tab, select `form-data`. 
-1. Add each file by assigning a **key** name, selecting `file`.
+1. Add each file by assigning a **key** name, selecting `File`.
 1. Then, select each file through the **Choose File** button.
 
    [![Postman client example](media/how-to-configure-postman/form-body.png)](media/how-to-configure-postman/form-body.png#lightbox)
@@ -128,7 +119,7 @@ After completing the previous steps, configure Postman to make an authenticated 
    > * You do not need to specify those headers for each part.
    > * You must select `multipart/mixed` or another appropriate  **Content-Type** for the entire request.
 
-1. Lastly, select **Send** to submit your multipart HTTP POST request.
+1. Lastly, select **Send** to submit your multipart HTTP POST request. A status code of `200` or `201` indicates a successful request. You will also see the appropriate response message.
 
 ## Next steps
 

@@ -89,7 +89,7 @@ Azure doesn't currently support some of the features that on-premises Hyper-V su
 | OS disk > 2 TB                    | :x:                | :heavy_check_mark: |
 | Custom disk/image/swap OS         | :heavy_check_mark: | :heavy_check_mark: |
 | Virtual machine scale set support | :heavy_check_mark: | :heavy_check_mark: |
-| Azure Site Recovery               | :heavy_check_mark: | :x:                |
+| Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
 | Backup/restore                    | :heavy_check_mark: | :heavy_check_mark: |
 | Shared image gallery              | :heavy_check_mark: | :heavy_check_mark: |
 | Azure disk encryption             | :heavy_check_mark: | :x:                |
