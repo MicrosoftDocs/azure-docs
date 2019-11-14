@@ -148,6 +148,6 @@ The following steps are required to recover a protected entity (SQL Server datab
 
     Once the recovery is completed, the restored database is application consistent.
 
-### Next Steps
+### Next steps
 
-•    [Azure Backup FAQ](backup-azure-backup-faq.md)
+* [Azure Backup FAQ](backup-azure-backup-faq.md)
