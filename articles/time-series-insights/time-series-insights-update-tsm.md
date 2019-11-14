@@ -98,7 +98,7 @@ Instances are defined by **timeSeriesId**, **typeId**, **name**, **description**
 | name | The **name** property is optional and case sensitive. If **name** isn't available, it defaults to **timeSeriesId**. If a name is provided, **timeSeriesId** is still available in the [well](time-series-insights-update-explorer.md#4-time-series-well). |
 | description | A text description of the instance. |
 | hierarchyIds | Defines which hierarchies the instance belongs to. |
-| instanceFields | **instanceFields** are properties of an instance and any static data that defines an instance. They define values of hierarchy or non-hierarchy properties while also supporting indexing to perform search operations. |
+| instanceFields | The properties of an instance and any static data that defines an instance. They define values of hierarchy or non-hierarchy properties while also supporting indexing to perform search operations. |
 
 > [!NOTE]
 > Hierarchies are built by using instance fields. Additional **instanceFields** can be added for further instance property definitions.
