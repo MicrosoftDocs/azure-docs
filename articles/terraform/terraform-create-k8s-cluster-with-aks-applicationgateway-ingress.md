@@ -5,7 +5,7 @@ ms.service: terraform
 author: tomarchermsft
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 11/12/2019
+ms.date: 11/13/2019
 ---
 
 # Tutorial: Create an Application Gateway ingress controller in Azure Kubernetes Service
@@ -756,6 +756,16 @@ Once you have the App Gateway, AKS, and AGIC installed, you can install a sample
     ```bash
     kubectl apply -f aspnetapp.yaml
     ```
+
+## Clean up resources
+
+When no longer needed, delete the resources created in this article.  
+
+Replace the placeholder with the appropriate value. All resources within the specified resource group will be deleted.
+
+```bash
+az group delete -n <resource-group>
+```
 
 ## Next steps
 
