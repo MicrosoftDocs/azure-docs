@@ -23,21 +23,21 @@ ms.author: ayshak
 [!INCLUDE [virtual-machines-common-isolation](../../../includes/virtual-machines-common-isolation-migration.md)]
 
 ## Retiring D15_v2/DS15_v2 isolation on February 15, 2020
-We recently announced the Preview of Azure Dedicated Host, which allows you to run your organization’s Linux and Windows virtual machines on single-tenant physical servers. We plan to fully replace isolated Azure VMs with Azure Dedicated Host. After <b>February 15, 2020</b>, the D15_v2/DS15_v2 Azure VMs may no longer be hardware isolated.
+We recently announced the Preview of Azure Dedicated Host, which allows you to run your organization’s Linux and Windows virtual machines on single-tenant physical servers. We plan to fully replace isolated Azure VMs with Azure Dedicated Host. After **February 15, 2020** the D15_v2/DS15_v2 Azure VMs may no longer be hardware isolated.
 
 ## How does this affect me?
 After February 15, 2020, we will no longer provide an isolation guarantee for your D15_v2/DS15_v2 Azure virtual machines. 
 
-## Next Steps
+## What actions should I take?
 If hardware isolation is not required for you, there is no action you need to take. 
 
 If isolation is required to you, before February 15, 2020, you would need to either:
 
-•	<a href="https://azure.microsoft.com/en-us/blog/introducing-azure-dedicated-host/">Migrate</a> your workload to Azure Dedicated Host Preview
+•	[Migrate](https://azure.microsoft.com/blog/introducing-azure-dedicated-host) your workload to Azure Dedicated Host Preview
 
-•	<a href="https://aka.ms/D15iRequestAccess">Request access</a> to a D15i_v2 and DS15i_v2 Azure VM, to get the same price performance. This option is only available for pay-as-you-go and one-year reserved instance scenarios.    
+•	[Request access](https://aka.ms/D15iRequestAccess) to a D15i_v2 and DS15i_v2 Azure VM, to get the same price performance. This option is only available for pay-as-you-go and one-year reserved instance scenarios.    
 
-•	<a href="https://azure.microsoft.com/en-us/blog/resize-virtual-machines/">Migrate</a> your workload to another Azure isolated virtual machine. 
+•	[Migrate](https://azure.microsoft.com/blog/resize-virtual-machines/) your workload to another Azure isolated virtual machine. 
 
 For details see below:
 
@@ -52,10 +52,10 @@ For details see below:
 
 ## FAQ
 ### Q: Why am I not seeing the new D/DS15i_v2 sizes in the portal?
-**A**: If you are a current D/DS15_v2 customer and want to use the new D/DS15i_v2 sizes, please fill this form: https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0FTPNXHdWpJlO27GE-bHitUMkZUWEFPNjFPNVgyMkhZS05FSzlPTzRIOS4u
+**A**: If you are a current D/DS15_v2 customer and want to use the new D/DS15i_v2 sizes, please fill this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0FTPNXHdWpJlO27GE-bHitUMkZUWEFPNjFPNVgyMkhZS05FSzlPTzRIOS4u)
 
 ### Q: Why I am not seeing any quota for the new D/DS15i_v2 sizes?
-**A**: If you are a current D/DS15_v2 customer and want to use the new D/DS15i_v2 sizes, please fill this form: https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0FTPNXHdWpJlO27GE-bHitUMkZUWEFPNjFPNVgyMkhZS05FSzlPTzRIOS4u
+**A**: If you are a current D/DS15_v2 customer and want to use the new D/DS15i_v2 sizes, please fill this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0FTPNXHdWpJlO27GE-bHitUMkZUWEFPNjFPNVgyMkhZS05FSzlPTzRIOS4u)
 
 ### Q: When are the other isolated sizes going to retire?
 **A**: We will provide reminders 12 months in advance of the official decommissioning of the sizes.
