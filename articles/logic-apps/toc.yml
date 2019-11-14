@@ -107,8 +107,8 @@
     items: 
       - name: Connect to virtual networks with integration service environments
         href: connect-virtual-network-vnet-isolated-environment.md
-      - name: Set up virtual network access for integration service environments
-        href: connect-virtual-network-vnet-set-up-access.md
+      - name: Set up single IP address for integration service environments
+        href: connect-virtual-network-vnet-set-up-single-ip-address.md
       - name: Add artifacts to integration service environments
         href: add-artifacts-integration-service-environment-ise.md
   - name: Access on-premises data
