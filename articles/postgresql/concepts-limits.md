@@ -16,7 +16,7 @@ The following sections describe capacity and functional limits in the database s
 The maximum number of connections per pricing tier and vCores are as follows: 
 
 |**Pricing Tier**| **vCore(s)**| **Max Connections** | **Max User Connections** |
-|---|---|---|
+|---|---|---|---|
 |Basic| 1| 55 | 50|
 |Basic| 2| 105 | 100|
 |General Purpose| 2| 150| 145|
