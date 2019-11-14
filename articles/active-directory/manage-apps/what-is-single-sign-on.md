@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 11/14/2019
 ms.author: mimart
 ms.reviewer: arvindh, japere
 
@@ -93,8 +93,11 @@ Password-based single sign-on is supported for any cloud-based application that 
    > Internet Explorer is on limited support and no longer receives new software updates. Microsoft Edge is the recommended browser.
 
 - Microsoft Edge on Windows 10 Anniversary Edition or later
+- Microsoft Edge for iOS and Android
+- Intune Managed Browser
 - Chrome on Windows 7 or later, and on MacOS X or later
 - Firefox 26.0 or later on Windows XP SP2 or later, and on Mac OS X 10.6 or later
+- Inune Managed Browser
 
 To configure an cloud application for password-based single sign-on, see [Configure password single sign-on](configure-password-single-sign-on-non-gallery-applications.md).
 
