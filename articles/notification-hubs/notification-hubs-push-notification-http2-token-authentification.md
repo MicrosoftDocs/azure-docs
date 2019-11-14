@@ -67,7 +67,7 @@ You can configure your hub to use token-based authentication using our [latest c
 
 * Enter the properties you retrieved from your Apple Developer account.
 * Choose the application mode (**Production** or **Sandbox**).
-* Click the **Save** button to update your APNS credentials
+* Click the **Save** button to update your APNS credentials.
 
 Token-based credentials are composed of the following fields:
 
