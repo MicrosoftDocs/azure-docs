@@ -414,7 +414,7 @@ resource "azurerm_virtual_machine" "jumpbox" {
 }
 ```
 
-Edit `outputs.tf` to add the following code that displays the hostname of the jumpbox when the deployment completes:
+Edit `outputs.tf` to add the following code that displays the hostname of the jumpbox when the deployment finishes:
 
 ```
 output "jumpbox_public_ip" {
