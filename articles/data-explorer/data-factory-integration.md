@@ -12,7 +12,7 @@ ms.date: 11/14/2019
 #Customer intent: I want to use Azure Data Factory to integrate with Azure Data Explorer.
 ---
 
-# Azure Data Explorer integration with Azure Data Factory
+# Integrate Azure Data Explorer with Azure Data Factory
 
 [Azure Data Factory](/azure/data-factory/) (ADF) is a cloud-based data integration service that allows you to integrate different data stores and perform activities on the data. ADF allows you to create data-driven workflows for orchestrating and automating data movement and data transformation. Azure Data Explorer is one of the [supported data stores](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats) in Azure Data Factory. 
 
@@ -42,7 +42,7 @@ For a detailed walk-through of the command activity, see [use Azure Data Factory
 
 The [Copy in bulk from a database to Azure Data Explorer by using the Azure Data Factory template](data-factory-template.md) is a predefined Azure Data Factory pipeline. The template is used to create many pipelines per database or per table for faster data copying. 
 
-## Select between Copy and Azure Data Explorer Command activities when copying data 
+## Select between Copy and Azure Data Explorer Command activities when copy data 
 
 This section will assist you in selecting the correct activity for your data copying needs.
 
@@ -50,7 +50,7 @@ When copying data from or to Azure Data Explorer, there are two available option
 * Copy activity.
 * Azure Data Explorer Command activity, which executes one of the control commands that transfer data in Azure Data Explorer. 
 
-### Copying data from Azure Data Explorer
+### Copy data from Azure Data Explorer
   
 You can copy data from Azure Data Explorer using the copy activity or the [`.export`](/azure/kusto/management/data-export/) command. The `.export` command executes a query, and then exports the results of the query. 
 
@@ -115,7 +115,7 @@ This section addresses the use of copy activity where Azure Data Explorer is the
 | **Data processing complexity** | Latency varies according to source file format, column mapping, and compression.|
 | **The VM running your integration runtime** | <ul><li>For Azure copy, ADF VMs and machine SKUs can't be changed.</li><li> For on-prem to Azure copy, determine that the VM hosting your self-hosted IR is strong enough.</li></ul>|
 
-## Monitoring activity progress
+## Monitor activity progress
 
 * When monitoring the activity progress, the *Data written* property may be much larger than the *Data read* property
 because *Data read* is calculated according to the binary file size, while *Data written* is calculated according to the in-memory size, after data is de-serialized and decompressed.
