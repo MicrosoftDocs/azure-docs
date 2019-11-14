@@ -25,10 +25,8 @@ You can build a feature or solution that works across an array of devices, inclu
 
 Whereas **Conversation Transcription** works on a single device with a multichannel microphone array, **Multi-device Conversation** is suited for scenarios with multiple devices, each with a single microphone.
 
-
 >[!IMPORTANT]
 > Multi-device conversation does not support sending audio files between clients: only the transcription and/or translation.
-
 
 ## Key features
 
@@ -39,8 +37,6 @@ Whereas **Conversation Transcription** works on a single device with a multichan
 - **Readable transcripts** – The transcription will have punctuation and sentence breaks for easier readability.
 - **Real-time translation** – Translate the transcription into more than 60 languages, so each person can participate in their own language.
 - **Multi-speaker diarization** – If every speaker uses a separate device, the service will attribute messages based on which device sent it.
-
-
 
 ## Use cases
 
@@ -87,11 +83,8 @@ The **host** is the user who starts a conversation, and who acts as the administ
 A **participant** is a user who joins a conversation.
 - Participants can leave and rejoin the same conversation at any time, without ending the conversation for other participants.
 
-
-
 > [!NOTE]
 > You can have up to 100 participants per conversation, of which 10 can be speaking at any given time.
-
 
 ## Language support
 
@@ -114,4 +107,5 @@ Below is a summary of the capabilities of the two types of languages: **speech-t
 
 ## Next steps
 
-> [Quickstart: Multi-device conversation](quickstarts/intro.md)
+> [!div class="nextstepaction"]
+> [Translate conversations in real-time](quickstarts/multi-device-conversation.md)
