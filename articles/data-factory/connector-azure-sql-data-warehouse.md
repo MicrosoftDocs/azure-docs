@@ -1,6 +1,6 @@
 ---
-title: Copy data to and from Azure SQL Data Warehouse by using Azure Data Factory 
-description: Learn how to copy data from supported source stores to Azure SQL Data Warehouse or from SQL Data Warehouse to supported sink stores by using Data Factory.
+title: Copy and transform data in Azure SQL Data Warehouse by using Azure Data Factory 
+description: Learn how to copy data to and from Azure SQL Data Warehouse, and transform data in Azure SQL Data Warehouse by using Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 11/13/2019
 ms.author: jingwang
 
 ---
-# Copy data to or from Azure SQL Data Warehouse by using Azure Data Factory 
+# Copy and transform data in Azure SQL Data Warehouse by using Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
 > * [Version1](v1/data-factory-azure-sql-data-warehouse-connector.md)
 > * [Current version](connector-azure-sql-data-warehouse.md)
 
-This article outlines how to copy data to and from Azure SQL Data Warehouse. To learn about Azure Data Factory, read the [introductory article](introduction.md).
+This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure SQL Data Warehouse, and use Data Flow to transform data in Azure Data Lake Storage Gen2. To learn about Azure Data Factory, read the [introductory article](introduction.md).
 
 ## Supported capabilities
 
@@ -32,7 +32,7 @@ This Azure SQL Data Warehouse connector is supported for the following activitie
 - [Lookup activity](control-flow-lookup-activity.md)
 - [GetMetadata activity](control-flow-get-metadata-activity.md)
 
-Specifically, this Azure SQL Data Warehouse connector supports these functions:
+For Copy activity, this Azure SQL Data Warehouse connector supports these functions:
 
 - Copy data by using SQL authentication and Azure Active Directory (Azure AD) Application token authentication with a service principal or managed identities for Azure resources.
 - As a source, retrieve data by using a SQL query or stored procedure.
@@ -224,9 +224,9 @@ To use managed identity authentication, follow these steps:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by the Azure SQL Data Warehouse dataset.
+For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. 
 
-To copy data from or to Azure SQL Data Warehouse, the following properties are supported:
+The following properties are supported for Azure SQL Data Warehouse dataset:
 
 | Property  | Description                                                  | Required                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |

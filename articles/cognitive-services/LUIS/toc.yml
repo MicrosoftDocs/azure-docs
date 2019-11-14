@@ -167,9 +167,7 @@
     items:
     - name: Add an intent
       href: luis-how-to-add-intents.md
-    - name: Add entity to utterance 
-      href: luis-how-to-add-example-utterances.md
-    - name: Add entity without utterance
+    - name: Add an entity to extract data
       href: luis-how-to-add-entities.md
       displayName: roles, import
     - name: Use prebuilt models
@@ -307,6 +305,8 @@
     displayName: Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web
   - name: Custom entity reference
     items: 
+    - name: Machine-learned entity
+      href: reference-entity-machine-learned-entity.md
     - name: Composite entity
       href: reference-entity-composite.md
     - name: List entity
@@ -317,6 +317,8 @@
       href: reference-entity-regular-expression.md
     - name: Simple entity
       href: reference-entity-simple.md
+  - name: Pattern syntax
+    href: reference-pattern-syntax.md
   - name: Sentiment 
     href: luis-reference-prebuilt-sentiment.md
   - name: Developer resources
@@ -335,8 +337,6 @@
     - name: V2 Authoring REST APIs
       href: https://go.microsoft.com/fwlink/?linkid=2092087
     - name: V2 Prediction REST APIs
-      href: https://go.microsoft.com/fwlink/?linkid=2092356
-    - name: Endpoint V3 REST API
       href: https://go.microsoft.com/fwlink/?linkid=2092356
     - name: HTTP codes
       displayName: 400, 401, 403, 409, 410, 414, 429

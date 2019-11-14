@@ -11,7 +11,7 @@ services: iot-central
 
 # What are application templates?
 
-Application templates in Azure IoT Central are a tool to help solution builders kickstart their IoT solution development. You can use app templates for everything from getting a feel for what is possible, to fully customizing and white labeling your application for resale to your customers.
+Application templates in Azure IoT Central are a tool to help solution builders kickstart their IoT solution development. You can use app templates for everything from getting a feel for what is possible, to fully customizing and your application for resale to your customers.
 
 Application templates consist of:
 
@@ -21,7 +21,32 @@ Application templates consist of:
 - Pre-configured rules and jobs
 - Rich documentation including tutorials and how-tos
 
-## Industry focused app templates
+## Preview templates
+
+Your choice of application template determines whether your application uses IoT Central preview features such as Plug and Play for devices.
+
+Currently, the application templates that use _generally available_ features are:
+
+- Custom app > Custom application
+- Custom app > Sample Contoso
+- Custom app > Sample Devkits
+
+Currently, the application templates that use _public preview_ features are:
+
+- Custom app > Preview application
+- Retail > Connected logistics
+- Retail > Digital distribution center
+- Retail > In-store analytics – condition monitoring
+- Retail > In-store analytics – checkout
+- Retail > Smart inventory management
+- Energy > Smart meter monitoring
+- Energy > Solar panel monitoring
+- Government > Connected waste management
+- Government > Water consumption monitoring
+- Government > Water quality monitoring
+- Healthcare > Continuous patient monitoring
+
+## Industry focused templates
 
 Azure IoT Central is an industry agnostic application platform. Application templates are industry focused examples available for these industries today, with more to come in the future:
 
@@ -43,4 +68,4 @@ Azure IoT Central is an industry agnostic application platform. Application temp
 
 ## Next steps
 
-Now that you know what IoT Central application templates are, get started by [creating an IoT Central Application](quick-deploy-iot-central-pnp.md).
+Now that you know what IoT Central application templates are, get started by [creating an IoT Central Application](quick-deploy-iot-central.md).
