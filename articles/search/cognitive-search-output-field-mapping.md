@@ -1,5 +1,5 @@
 ---
-title: Map AI-enriched input fields to output fields
+title: Map input and output fields
 titleSuffix: Azure Cognitive Search
 description: Extract and enrich source data fields, and map to output fields in an Azure Cognitive Search index.
 

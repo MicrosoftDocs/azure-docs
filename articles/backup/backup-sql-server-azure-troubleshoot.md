@@ -22,7 +22,7 @@ To configure protection for a SQL Server database on a virtual machine, you must
 
 ## Error messages
 
-### Backup Type Unsupported
+### Backup type unsupported
 
 | Severity | Description | Possible causes | Recommended action |
 |---|---|---|---|

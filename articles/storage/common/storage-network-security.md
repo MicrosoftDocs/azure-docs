@@ -379,15 +379,15 @@ When you enable the **Allow trusted Microsoft services...** setting, resources o
 | Azure Networking         | Microsoft.Network          | Store and analyze network traffic logs. [Learn more](/azure/network-watcher/network-watcher-packet-capture-overview). |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | Enable replication for disaster-recovery of Azure IaaS virtual machines when using firewall-enabled cache, source, or target storage accounts.  [Learn more](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
 
-The **Allow trusted Microsoft services...** setting also allows a particular instance of the below services to access the storage account, if you explicitly [assign an RBAC role](storage-auth-aad.md#assign-rbac-roles-for-access-rights) to the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for that resource instance.
+The **Allow trusted Microsoft services...** setting also allows a particular instance of the below services to access the storage account, if you explicitly [assign an RBAC role](storage-auth-aad.md#assign-rbac-roles-for-access-rights) to the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for that resource instance. In this case, the scope of access for the instance corresponds to the RBAC role assigned to the managed identity.
 
 | Service                        | Resource Provider Name          | Purpose                            |
 | :----------------------------- | :------------------------------ | :--------------------------------- |
 | Azure Data Factory             | Microsoft.DataFactory/factories | Allows access to storage accounts through the ADF runtime. |
-| Azure Logic Apps               | Microsoft.Logic/workflows       | Enables logic apps to access storage accounts. [Learn more](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity.md). |
+| Azure Logic Apps               | Microsoft.Logic/workflows       | Enables logic apps to access storage accounts. [Learn more](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity). |
 | Azure Machine Learning Service | Microsoft.MachineLearningServices | Authorized Azure Machine Learning workspaces write experiment output, models, and logs to Blob storage. [Learn more](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
 | Azure SQL Data Warehouse       | Microsoft.Sql                   | Allows import and export of data from specific SQL Database instances using PolyBase. [Learn more](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
-| Azure Stream Analytics         | Microsoft.StreamAnalytics       | Allows data from a streaming job to be written to Blob storage. This feature is currently in preview. [Learn more](/azure/stream-analytics/blob-output-managed-identity.md). |
+| Azure Stream Analytics         | Microsoft.StreamAnalytics       | Allows data from a streaming job to be written to Blob storage. This feature is currently in preview. [Learn more](/azure/stream-analytics/blob-output-managed-identity). |
 
 
 ### Storage analytics data access
