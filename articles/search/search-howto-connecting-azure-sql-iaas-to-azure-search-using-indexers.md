@@ -1,5 +1,5 @@
 ---
-title: Azure SQL virtual machine VM connection for search indexing
+title: Azure SQL VM connection for search indexing
 titleSuffix: Azure Cognitive Search
 description: Enable encrypted connections and configure the firewall to allow connections to SQL Server on an Azure virtual machine (VM) from an indexer on Azure Cognitive Search.
 
