@@ -16,19 +16,19 @@ The purpose of the change feed is to provide transaction logs of all the changes
 
 The change feed is stored as [blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) in a special container in your storage account at standard [blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) cost. You can control the retention period of these files based on your requirements (See the [conditions](#conditions) of the current release). Change events are appended to the change feed as records in the [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) format specification: a compact, fast, binary format that provides rich data structures with inline schema. This format is widely used in the Hadoop ecosystem, Stream Analytics, and Azure Data Factory.
 
-You can process these logs asynchronously, incrementally or in-full. Any number of client applications can independently read the change feed, in parallel, and at their own pace. Analytics applications such as [Apache Drill](https://drill.apache.org/docs/querying-avro-files/) or [Apache Spark](https://spark.apache.org/docs/latest/sql-data-sources-avro.html) can consume logs directly as Avro files which lets you process them at a low-cost, with high-bandwidth, and without having to write a custom application.
+You can process these logs asynchronously, incrementally or in-full. Any number of client applications can independently read the change feed, in parallel, and at their own pace. Analytics applications such as [Apache Drill](https://drill.apache.org/docs/querying-avro-files/) or [Apache Spark](https://spark.apache.org/docs/latest/sql-data-sources-avro.html) can consume logs directly as Avro files, which let you process them at a low-cost, with high-bandwidth, and without having to write a custom application.
 
 Change feed support is well-suited for scenarios that process data based on objects that have changed. For example, applications can:
 
-  - Update a secondary index, synchronize with a cache, search-engine or any other content-management scenarios.
+  - Update a secondary index, synchronize with a cache, search-engine, or any other content-management scenarios.
   
   - Extract business analytics insights and metrics, based on changes that occur to your objects, either in a streaming manner or batched mode.
   
   - Store, audit and analyze changes to your objects, over any period of time, for security, compliance or intelligence for enterprise data management.
 
-  - Build solutions to backup, mirror or replicate object state in your account for disaster management or compliance.
+  - Build solutions to backup, mirror, or replicate object state in your account for disaster management or compliance.
 
-  - Build connected application pipelines which react to change events or schedule executions based on created or changed object.
+  - Build connected application pipelines that react to change events or schedule executions based on created or changed object.
 
 > [!NOTE]
 > [Blob Storage Events](storage-blob-event-overview.md) provides real-time one-time events which enable your Azure Functions or applications to react to changes that occur to a blob. The change feed provides a durable, ordered log model of the changes. Changes in your change feed are made available in your change feed at within an order of a few minutes of the change. If your application has to react to events much quicker than this, consider using [Blob Storage events](storage-blob-event-overview.md) instead. Blob Storage events enable your Azure Functions or applications to react individual events in real-time.
@@ -239,11 +239,11 @@ See [Process change feed logs in Azure Blob Storage](storage-blob-change-feed-ho
 
 - Values in the `storageDiagnonstics` property bag are for internal use only and not designed for use by your application. Your applications shouldn't have a contractual dependency on that data. You can safely ignore those properties.
 
-- The time represented by the segment is **approximate** with bounds of 15 minutes. So to ensure consumption of all records within an specified time, consume the consecutive previous and next hour segment.
+- The time represented by the segment is **approximate** with bounds of 15 minutes. So to ensure consumption of all records within a specified time, consume the consecutive previous and next hour segment.
 
-- Each segment can have a different number of `chunkFilePaths`. This is due to internal partitioning of the log stream to manage publishing throughput. The log files in each `chunkFilePath` are guaranteed to contain mutually-exclusive blobs, and can be consumed and processed in parallel without violating the ordering of modifications per blob during the iteration.
+- Each segment can have a different number of `chunkFilePaths`. This is due to internal partitioning of the log stream to manage publishing throughput. The log files in each `chunkFilePath` are guaranteed to contain mutually exclusive blobs, and can be consumed and processed in parallel without violating the ordering of modifications per blob during the iteration.
 
-- The Segments start out in `Publishing` status. Once the appending of the records to the segment are complete, it will be `Finalized`. Log files in any segment that is dated after the date of the `LastConsumable` property in the `$blobchangefeed/meta/Segments.json` file, should not be consumed by your application. Here's an example of the `LastConsumable`property in a `$blobchangefeed/meta/Segments.json` file:
+- The Segments start out in `Publishing` status. Once the appending of the records to the segment is complete, it will be `Finalized`. Log files in any segment that is dated after the date of the `LastConsumable` property in the `$blobchangefeed/meta/Segments.json` file, should not be consumed by your application. Here's an example of the `LastConsumable`property in a `$blobchangefeed/meta/Segments.json` file:
 
 ```json
 {
