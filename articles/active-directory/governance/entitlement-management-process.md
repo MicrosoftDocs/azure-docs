@@ -57,7 +57,7 @@ The following diagram shows the experience of primary approvers and alternate ap
 ### Requestors
 The following diagram shows the experience of requestors and the email notifications they receive during the request process:
 
-![Requestor process flow](./media/entitlement-management-process/requestor-approval-and-expiration-request-flow.png)
+![Requestor process flow](./media/entitlement-management-process/requestor-approval-request-flow.png)
 
 ### Multistage approvals
 The following diagram shows the experience of stage-1 and stage-2 approvers and the email notifications they receive during the request process:
@@ -74,7 +74,7 @@ The following table provides more detail about each of these email notifications
 | 3 | Reminder: Approve or deny the request by *[date]* for *[requestor]* | This reminder email will be sent to Stage-1 Primary approvers, if escalation is disabled, to take action, only when they haven’t yet taken action. | Stage-1 Primary Approver |
 | 4 | Approve or deny the request by *[time]* on *[date]* | This email will be sent to Stage-1 Primary approvers (if escalation is enabled) to take action. | Stage-1 Primary Approver |
 | 5 | Action required reminder: Approve or deny the request by *[date]* for *[requestor]* | This reminder email will be sent to Stage-1 Primary approvers, if escalation is enabled, to take action, only when they haven’t yet taken action. | Stage-1 Primary Approver |
-| 6 | Request has expired for *[access_package]* | This email will be sent to Stage-1 primary approvers and/or Stage-1 alternate approvers, of a single-stage or multi-stage request, after the request has expired. | Stage-1 Primary Approver, Stage-1 Alternate Approver |
+| 6 | Request has expired for *[access_package]* | This email will be sent to Stage-1 primary approvers and/or Stage-1 alternate approvers after the request has expired. | Stage-1 Primary Approver, Stage-1 Alternate Approver |
 | 7 | Request approved for *[requestor]* to *[access_package]* | This email will be sent to the stage-1 primary approvers and/or stage-1 alternate approvers, upon completion of a request. | Stage-1 Primary Approver, Stage-1 Alternate Approver |
 | 8 | Request approved for *[requestor]* to *[access_package]* | This email will be sent to the stage-1 primary approvers and/or stage-1 alternate approvers, of a 2-stage request, only when stage-1 is approved. | Stage-1 Primary Approver, Stage-1 Alternate Approver |
 | 9 | Request denied to *[access_package]* | This email will be sent to the requestor only when his request is denied | Requestor |
@@ -145,6 +145,9 @@ When the request reaches its configured expiration date and expires, it can no l
  An email notification is also sent to the requestor, notifying them that their access request has expired, and that they need to resubmit the access request. Here is a sample email notification that is sent to a requestor when their access request has expired:
 
 ![Requestor expired access request email](./media/entitlement-management-process/requestor-email-request-expired.png)
+
+The following diagram shows the experience of the requestor and the email notifications they receive when they request to extend access:
+![Requestor extend access process flow](./media/entitlement-management-process/requestor-expiration-request-flow.png)
 
 ## Next steps
 
