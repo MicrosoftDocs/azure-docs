@@ -8,7 +8,7 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial 
-ms.date: 09/20/2019
+ms.date: 11/13/2019
 #Customer intent: As an Azure IoT developer, I want to walk through a sample application to monitor a space using Azure Digital Twins. 
 ---
 
