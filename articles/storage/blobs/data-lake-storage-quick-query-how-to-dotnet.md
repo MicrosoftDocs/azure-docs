@@ -1,45 +1,53 @@
 ---
 title: Filter data by using Azure Data Lake Storage quick query (.NET) | Microsoft Docs
-description: Filter data by using Azure Data Lake Storage quick query.
+description: Use .NET and quick query (Preview) to retrieve a targeted subset of data from your storage account.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/13/2019
+ms.date: 11/14/2019
 ms.author: normesta
 ms.reviewer: jamsbak
 ---
 
 # Filter data by using Azure Data Lake Storage quick query (.NET)
 
-Azure Data Lake Storage Quick Query (Preview) is a new capability for ADLS that allows applications and analytics frameworks to optimize both performance and cost by only retrieving a subset of data contained in a file.
+This article shows you how to use .NET and quick query (Preview) to retrieve a targeted subset of data from your storage account. 
 
-This article shows how to use the Azure Storage client library for .NET to leverage Quick Query in your application. Using Quick Query directly from your application makes significant performance enhancement possible because data that is not required by the application does not need to be transferred over the network and then filtered out by the application. Due to this reduced computation overhead requirement, it is possible to gain significant cost savings due to the ability to achieve the same data processing outcome with less or smaller VMs.
+Quick query (Preview) is a new capability for Azure Data Lake Storage that enables your application as well as analytics frameworks to dramatically optimize data processing by retrieving only the data that it requires to perform a given operation. To learn more, see [Azure Data Lake Storage Quick Query (Preview)](data-lake-storage-quick-query.md).
 
 > [!NOTE]
 > The quick query feature is in public preview, and is available in the region1, region2, and region3 regions. To review limitations, see the [Known issues](data-lake-storage-known-issues.md) article. To enroll in the preview, see [this form](https://aka.ms/adlsquickquerypreview). 
 
 ## Prerequisites
 
-•	Azure subscription: If you don't have an Azure subscription, create a free account before you begin.
+- To access Azure Storage, you'll need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-•	Azure Storage StorageV2 account: If you don't have a Storage account, create an account.
+- A **general-purpose v2** storage account. 
 
-## Download the Azure Storage client library for .NET with quick query support
+  To create a storage account see [Create a storage account](storage-quickstart-create-account.md).
+  
+  To create a storage and enable hierarchical namespaces, see [Create an Azure Data Lake Storage Gen2 storage account](data-lake-storage-quickstart-create-account.md). 
 
-Before integrating Quick Query into your application, you must first download a preview version of the Azure Storage client library for .NET to your computer. Once Quick Query reaches general availability, this functionality will be integrated into the main library, which is available from NuGet and therefore this still will not be required:
+## Set up your project
 
+To get started, install the [Azure.Storage.Blob](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/12.0.0-preview.6) NuGet package.  (Need preview package name and install location).
+
+For more information about how to install NuGet packages, see [Install and manage packages in Visual Studio using the NuGet Package Manager](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio).
+
+Then, add these using statements to the top of your code file.
+
+```csharp
+using statement 1;
+using statement 2;
+...
+...
 ```
-	wget <<TODO: Add download link>>
-```
+## Retrieve data by using a filter
 
-You can now add a reference to the downloaded library into your application project.
+Quick query can retrieve CSV, Json and Parquet formatted data. The example in this section shows how to query a CSV file. To parse CSV data, we'll use the [TinyCsvParser](https://www.nuget.org/packages/TinyCsvParser/) library that is available on NuGet. 
 
-## Retrieve data using a filter
-
-ADLS Quick Query uses a reduced SQL grammar to express the required row filtering predicates and column projections. The complete SQL reference supported by Quick Query is available here: Link goes here.
-
-The following snippet uses the TinyCsvParser library from NuGet to parse the resulting CSV data. This library requires that a class is defined to hold the data for each returned row and a mapping class so that each column in the CSV data is mapped into a member of the class. Here, we show how to query for all rows whose first column matches the value of ‘Mary Poppins’:
+To use this library, you have to define two classes. The first class holds the data for each returned row. The second class provides a way to map each column in the CSV file with a class member.  
 
 ```csharp
 class Person 
@@ -58,36 +66,47 @@ class CsvPersonMapping : CsvMapping<Person>
         MapProperty(2, x => x.BirthDate);
     }
 }
+```
 
-private static async Task Query<TRecord, TMapper>(CloudBlobClient serviceClient, Uri blobUri, string query) where TMapper : ICsvMapping<TRecord>, new()
+You can use SQL to specify the row filter predicates and column projections in a quick query request. The following code queries a CSV file in storage and returns all rows of data where the first column matches the value `Contoso`. 
+
+- In the SQL query, the keyword `BlobStorage` is used to denote the file that is being queried.
+
+- Column references are specified as `_N` where the first column is `_1`.
+
+- The async method `RunQueryAsync` sends the query to the quick query API, and then streams the results back to the application as a [Stream](https://docs.microsoft.com/dotnet/api/system.io.stream?view=netframework-4.8) object.
+
+
+```csharp
+
+private static async Task Query<TRecord, TMapper>
+    (CloudBlobClient serviceClient, Uri blobUri, string query) 
+        where TMapper : ICsvMapping<TRecord>, new()
 {
     var blob = (CloudBlob)serviceClient.GetBlobReferenceFromServer(blobUri);
     var parser = new CsvParser<TRecord>(new CsvParserOptions(false, ','), new TMapper());
+    
     using (Stream resultStream = await blob.RunQueryAsync(query, null))
     {
         parser.ReadFromStream(resultStream, Encoding.UTF8)
-            .ForAll(row => Console.WriteLine(row.IsValid ? row.Result.ToString() : row.Error.ToString()));
+            .ForAll(row => Console.WriteLine
+            (row.IsValid ? row.Result.ToString() : row.Error.ToString()));
     }
 }
 
 private static async Task QueryPeople(CloudBlobClient serviceClient, Uri blobUri)
 {
-    string query = @"SELECT * FROM BlobStorage WHERE _1 = 'Mary Poppins'";
+    string query = @"SELECT * FROM BlobStorage WHERE _1 = 'Contoso'";
     await Query<Person, CsvPersonMapping>(serviceClient, blobUri, query);
 }
 
 ```
-Note the features of the above snippet:
 
-1.	In the SQL query, the keyword BlobStorage is used to denote the file being queried
-2.	Column references are specified as _N where the first column is _1
-3.	The async method RunQueryAsync sends the query to the Quick Query API and streams the results back to the application as a Stream object
+## Retrieve specific columns
 
-## Retrieve a subset of column from a CSV file
+You can scope your results to a small subset of columns. That way you only retrieve the columns needed to perform a given calculation. This improves application performance and reduces cost because less data is transferred over the network. 
 
-It is very common that applications only require a small number of the columns contained in a CSV file in order to perform their required calculation. Retrieving only the number of columns actually required by the application again improves performance and reduces cost due to the reduced amount of data transferred to the application.
-
-Building on the above code snippet, here’s a sample that only retrieves the BirthDate column. To achieve this with TinyCsvParser, we also need to define a new mapping class:
+This code retrieves only the `BirthDate` column. To achieve this with the TinyCsvParser library, you'll need to define a new mapping class. 
 
 ```csharp
 class BirthDateMapping : CsvMapping<Person>
@@ -105,13 +124,19 @@ private static async Task QueryBirthDates(CloudBlobClient serviceClient, Uri blo
 }
 ```
 
-Note that both row filtering and column projections can be combined into the same query. For example:
+The following code combines row filtering and column projections into the same query. 
 
-"SELECT _3 FROM BlobStorage WHERE _1 = 'Mary Poppins'"
+```csharp
+private static async Task QueryBirthDates(CloudBlobClient serviceClient, Uri blobUri)
+{
+    string query = @"SELECT _3 FROM BlobStorage WHERE _1 = 'Contoso'";
+    await Query<Person, BirthDateMapping>(serviceClient, blobUri, query);
+}
+```
 
 ## Next steps
 
-- [Quick query enrollment form](data-lake-storage-quick-query.md)	
-- [Azure Data Lake Storage Quick Query (Preview)](https://aka.ms/adlsquickquerypreview)
+- [Quick query enrollment form](https://aka.ms/adlsquickquerypreview)	
+- [Azure Data Lake Storage quick query (Preview)](data-lake-storage-quick-query.md)
 - Quick query SQL language reference
 - Quick query REST API reference
