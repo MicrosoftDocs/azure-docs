@@ -1,6 +1,6 @@
 ---
-title: Configure automatic provisioning user MS Graph APIs | Microsoft Docs
-description: How to configure automatic provisioning user MS Graph APIs.
+title: Use MS Graph APIs to configure provisioning - Azure Active Directory | Microsoft Docs
+description: Need to set up provisioning for multiple instances of an application? Learn how to save time by using MS Graph APIs to automate the configuration of automatic provisioning.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -22,46 +22,36 @@ ms.collection: M365-identity-device-management
 
 # Configure provisioning using Microsoft Graph APIs
 
-Azure AD provides an interface for configuring provisioning. This can be easy to use for one or two applications, but in situations where you have to create 10, 20, 100+ instances of an application, it is often easier to automate application creation and configuration through APIs rather than the user interface. This document outlines how to automate configuring provisioning through APIs. This is most commonly used for applications such as [Amazon Web Services](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-single-sign-on) and [Azure Databricks]()
+The Azure portal is a convenient way to configure provisioning for individual apps one at a time. But if you're creating several—or even hundreds—of instances of an application, it can be easier to automate app creation and configuration with Microsoft Graph APIs. This article outlines how to automate provisioning configuration through APIs. This method is commonly used for applications like [Amazon Web Services](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-single-sign-on) and [Azure Databricks]().
 
-1.	Create gallery app
-	* Retrieve the gallery application template
-	* Create gallery application 
-2.	Create provisioning job based on template
-	* Retrieve the template for the provisioning connector
-	* Create the provisioning job
-3.	Authorize access
-	* Test connection to the application
-	* Save credentials
-4.	Configure provisioning 
-	* Set scope
-	* Add custom attribute mappings
-5. 	Start provisioning job
-  	* Start job
-6.	Monitor provisioning
-	* Check the status of the provisioning job 
-	* Retrieve the provisioning logs 
-    
+**Overview of steps for using Microsoft Graph APIs to automate provisioning configuration**
+|Step  |Details  |
+|---------|---------|
+|[Step 1. Create the gallery application](#step-1-create-the-gallery-application)     |Sign-in to the API client <br> Retrieve the gallery application template <br> Create the gallery application         |
+|[Step 2. Create provisioning job based on template](#step-2-create-the-provisioning-job-based-on-the-template)     |Retrieve the template for the provisioning connector <br> Create the provisioning job         |
+|[Step 3. Authorize access](#step-3-authorize-access)     |Test the connection to the application <br> Save the credentials         |
+|[Step 4. Configure provisioning](#step-4-configure-provisioning)     |Set the scope <br> Add custom attribute mappings         |
+|[Step 5. Start provisioning job](#step-5-start-the-provisioning-job)     |Start the job         |
+|[Step 6. Monitor provisioning](#step-6-monitor-provisioning)     |Check the status of the provisioning job <br> Retrieve the provisioning logs         |
 
 > [!NOTE]
-> The response objects shown here may be shortened for readability. All the properties will be returned from an actual call.
+> The response objects shown in this article may be shortened for readability. All the properties will be returned from an actual call.
 
+## Step 1: Create the gallery application
 
-## Step 1: Sign into Microsoft Graph Explorer (recommended), Postman, or any other API client you use
+### Sign in to Microsoft Graph Explorer (recommended), Postman, or any other API client you use
 
-1. Launch [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
-1. Click on the "Sign-In with Microsoft" button and sign-in using Azure AD Global Admin or App Admin credentials.
+1. Start [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
+1. Select the "Sign-In with Microsoft" button and sign in using Azure AD global admininstrator or App Admin credentials.
 
     ![Graph Sign-in](./media/export-import-provisioning-mappings/wd_export_02.png)
 
-1. Upon successful sign-in, you will see the user account details in the left-hand pane.
+1. Upon successful sign-in, you'll see the user account details in the left-hand pane.
 
+### Retrieve the gallery application template identifier
+Applications in the Azure AD application gallery each have an [application template](https://docs.microsoft.com/graph/api/applicationtemplate-list?view=graph-rest-beta&tabs=http) that describes the metadata for that application. Using this template, you can create an instance of the application and service principal in your tenant for management.
 
-
-## Step 2: Get the gallery application template identifier
-Applications in the Azure AD application gallery have an [application template](https://docs.microsoft.com/graph/api/applicationtemplate-list?view=graph-rest-beta&tabs=http) describing the metadata for that application. Using this template you can create an instance of the application and service principal in your tenant for management. 
-
-##### Request
+#### *Request*
 
 <!-- {
   "blockType": "request",
@@ -72,8 +62,7 @@ Applications in the Azure AD application gallery have an [application template](
 GET https://graph.microsoft.com/beta/applicationTemplates
 ```
 
-
-##### Response
+#### *Response*
 
 <!-- {
   "blockType": "response",
@@ -110,11 +99,11 @@ Content-type: application/json
 }
 ```
 
-## Step 3: Create a gallery application
+### Create the gallery application
 
-Use the template ID retrieved for your application in the last step to [create an instance](https://docs.microsoft.com/graph/api/applicationtemplate-instantiate?view=graph-rest-beta&tabs=http) of the application and service principal in your tenant. 
+Use the template ID retrieved for your application in the last step to [create an instance](https://docs.microsoft.com/graph/api/applicationtemplate-instantiate?view=graph-rest-beta&tabs=http) of the application and service principal in your tenant.
 
-### Request
+#### *Request*
 
 <!-- {
   "blockType": "request",
@@ -130,7 +119,7 @@ Content-type: application/json
 }
 ```
 
-### Response
+#### *Response*
 
 
 <!-- {
@@ -177,10 +166,13 @@ Content-type: application/json
 }
 ```
 
-## Step 4: Get provisioning templateId
-Applications in the gallery that are enabled for provisioning have templates to streamline configuration. Use the request below to [retrieve the template for the provisioning configuration](https://docs.microsoft.com/graph/api/synchronization-synchronizationtemplate-list?view=graph-rest-beta&tabs=http). 
+## Step 2: Create the provisioning job based on the template
 
-##### Request
+### Retrieve the template for the provisioning connector
+
+Applications in the gallery that are enabled for provisioning have templates to streamline configuration. Use the request below to [retrieve the template for the provisioning configuration](https://docs.microsoft.com/graph/api/synchronization-synchronizationtemplate-list?view=graph-rest-beta&tabs=http).
+
+#### *Request*
 
 <!-- {
   "blockType": "request",
@@ -191,7 +183,7 @@ GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/temp
 ```
 
 
-##### Response
+#### *Response*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -215,10 +207,10 @@ HTTP/1.1 200 OK
 }
 ```
 
-## Step 5: Create job
-Enabling provisioning requires that a [job be created](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-post?view=graph-rest-beta&tabs=http). Use the request below to create a provisioning job. Use the templateId from the previous step to specify the template to be used for the job. 
+### Create the provisioning job
+To enable provisioning, you'll first need to [create a job](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-post?view=graph-rest-beta&tabs=http). Use the request below to create a provisioning job. Use the templateId from the previous step when specifying the template to be used for the job.
 
-##### Request
+#### *Request*
 <!-- {
   "blockType": "request",
   "name": "create_synchronizationjob_from_synchronization"
@@ -232,7 +224,7 @@ Content-type: application/json
 }
 ```
 
-##### Response
+#### *Response*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -266,11 +258,13 @@ Content-type: application/json
 }
 ```
 
-## Step 6: Validate credentials
+## Step 3: Authorize access
+
+### Test the connection to the application
 
 Test the connection with the third-party application. The example below is for an application that requires clientSecret and secretToken. Each application has its on requirements. Review the [API documentation](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&tabs=http) to see the available options. 
 
-##### Request
+#### *Request*
 ```http
 POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{id}/validateCredentials
 { 
@@ -280,7 +274,7 @@ POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/job
     ]
 }
 ```
-##### Response
+#### *Response*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -290,11 +284,11 @@ POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/job
 HTTP/1.1 204 No Content
 ```
 
-## Step 7: Save your credentials
+### Save your credentials
 
 Configuring provisioning requires establishing a trust between Azure AD and the application. Authorize access to the third-party application. The example below is for an application that requires clientSecret and secretToken. Each application has its on requirements. Review the [API documentation](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&tabs=http) to see the available options. 
 
-##### Request
+#### *Request*
 ```json
 PUT https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secrets 
  
@@ -306,7 +300,7 @@ PUT https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secr
 }
 ```
 
-##### Response
+#### *Response*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -316,11 +310,13 @@ PUT https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secr
 HTTP/1.1 204 No Content
 ```
 
-## Step 8: Set scope	
+## Step 4: Configure provisioning
+
+### Set scope	
 
 Set the scope for who will be provisioned to the application. Skip this step for Amazon Web Service as only role imports are supported. As a best practice, start by scoping to users assigned to the application and change that to all users and groups if needed.   
 
-##### Request
+#### *Request*
 ```json	
 https://graph.microsoft.com/beta/servicePrincipals/35b92148-dbe0-4b8e-9836-60512ec4643d/Credentials	
 fieldValues.oauth2AccessTokenCreationTime	
@@ -355,23 +351,23 @@ synchronizationLearnMoreIbizaFwLink: ""
 templateId: "DropboxSCIMOutDelta"	
 ```
 
-##### Response
+#### *Response*
 
 
 
-## Step 9: Add a custom attribute to your attribute mappings (optional)
+### Add a custom attribute to your attribute mappings (optional)
 The application template provides the default attributes required to set up provisioning to the application. If you need to add an additional attribute mapping to your configuration, use the steps below. This is not a required or recommended step. 
 
 #### Get the synchronization schema
 The following example shows how to get the synchronization schema.
 
-##### Request
+#### *Request*
 ```msgraph-interactive
 GET https://graph.microsoft.com/beta/servicePrincipals/{servicePrincipalId}/synchronization/jobs/{jobId}/schema
 Authorization: Bearer {Token}
 ```
 
-##### Response
+#### *Response*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -535,7 +531,7 @@ Use a plain text editor of your choice (for example, [Notepad++](https://notepad
 
 When you save the updated synchronization schema, make sure that you include the entire schema, including the unmodified parts. This request will replace the existing schema with the one that you provide.
 
-##### Request
+#### *Request*
 ```http
 PUT https://graph.microsoft.com/beta/servicePrincipals/{servicePrincipalId}/synchronization/jobs/{jobId}/schema
 {
@@ -544,17 +540,17 @@ PUT https://graph.microsoft.com/beta/servicePrincipals/{servicePrincipalId}/sync
 }
 ```
 
-##### Response
+#### *Response*
 ```http
 HTTP/1.1 201 No Content
 ```
 
 
-## Step 10: Start the provisioning job
+## Step 5: Start the provisioning job
 Now that the provisioning job is configured, use the following command to [start the job](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-start?view=graph-rest-beta&tabs=http). 
 
 
-##### Request
+#### *Request*
 <!-- {
   "blockType": "request",
   "name": "synchronizationjob_start"
@@ -563,7 +559,7 @@ Now that the provisioning job is configured, use the following command to [start
 POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/start
 ```
 
-##### Response
+#### *Response*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -574,11 +570,13 @@ HTTP/1.1 204 No Content
 ```
 
 
-## Step 11: Monitor the provisioning job status
+## Step 6: Monitor provisioning
+
+### Monitor the provisioning job status
 
 Now that the provisioning job is running, use the following command to track the progress of the current provisioning cycle as well as statistics to date such as the number of users and groups that have been created in the target system. 
 
-##### Request
+#### *Request*
 <!-- {
   "blockType": "request",
   "name": "get_synchronizationjob"
@@ -587,7 +585,7 @@ Now that the provisioning job is running, use the following command to track the
 GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/
 ```
 
-##### Response
+#### *Response*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -630,14 +628,14 @@ Content-length: 2577
 ```
 
 
-## Step 12: Monitor provisioning events using the provisioning logs
+### Monitor provisioning events using the provisioning logs
 In addition to monitoring the status of the provisioning job, you can use the [provisioning logs](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http) to query for all the events that are occurring (e.g. query for a particular user and determine if they were successfully provisioned).
 
-**Request**
+#### *Request*
 ```msgraph-interactive
 GET https://graph.microsoft.com/beta/auditLogs/provisioning
 ```
-**Response**
+#### *Response*
 <!-- {
   "blockType": "response",
   "truncated": true,
