@@ -51,8 +51,6 @@
       href: cache-how-to-premium-persistence.md
     - name: Secure your cache with a virtual network
       href: cache-how-to-premium-vnet.md
-    - name: Enable zone redundancy
-      href: cache-how-to-zone-redundancy.md
     - name: Set up geo-replication
       href: cache-how-to-geo-replication.md
     - name: Migrate from Managed Cache Service
