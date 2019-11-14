@@ -61,9 +61,9 @@ Azure Monitor for containers includes a number of key monitoring scenarios that 
 
 |**Monitor name** | **Description** | **Algorithm** |
 |-----------------|-----------------|---------------|
-|Node |This monitor is an aggregate of the all the node monitors. It is a worst of monitor, and its state is based on the worst state of its child monitors<br> Node CPU utilization<br> Node memory utilization<br> Node Status | Worst of|
+|Node |This monitor is an aggregate of the all the node monitors. It is a worst of monitor, and its state is based on the worst state of its child monitors:<br> Node CPU utilization<br> Node memory utilization<br> Node Status | Worst of|
 |Node pool |This monitor reports combined health status of all nodes in the node pool *agentpool*. This is a three state monitor, whose state is based on the worst state of 80% of the nodes in the node pool, sorted in descending order of severity of node states (that is, Critical, Warning, Healthy).|Percentage |
-|Nodes (parent of Node pool) |The nodes is an aggregate monitor of all the node pools.It is a worst of monitor, and its state is the worst state of its child monitors i.e. the node pools present in the cluster. |Worst of |
+|Nodes (parent of Node pool) |The is an aggregate monitor of all the node pools. Its state is based on the the worst state of its child monitors (that is, the node pools present in the cluster). |Worst of |
 |Cluster (parent of nodes/<br> Kubernetes infrastructure) |This is the top level monitor and is calculated as the worst state of its child monitors, (that is, kubernetes infrastructure and nodes). |Worst of |
 |Kubernetes infrastructure |This monitor reports combined health status of the managed infrastructure components of the cluster. This monitor is an aggregate monitor and its status is calculated as the 'worst of' its child monitor states i.e. kube-system workloads and API Server status. |Worst of|
 |System workload |This monitor reports health status of a kube-system workload. This monitor is an aggregate monitor and its status is calculated as the worst of its child monitor states (that is, the Pods in ready state monitor and the containers in the workload). |Worst of |
