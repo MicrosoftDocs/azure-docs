@@ -1607,6 +1607,8 @@
         href: oracle-fusion-erp-provisioning-tutorial.md
       - name: Pingboard
         href: pingboard-provisioning-tutorial.md
+      - name: Promapp
+        href: promapp-provisioning-tutorial.md
       - name: Proxyclick
         href: Proxyclick-provisioning-tutorial.md
       - name: Peakon
