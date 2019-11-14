@@ -59,7 +59,7 @@ The following diagram shows the experience of requestors and the email notificat
 
 ![Requestor process flow](./media/entitlement-management-process/requestor-approval-request-flow.png)
 
-### Multistage approvals
+### Multistage approval
 The following diagram shows the experience of stage-1 and stage-2 approvers and the email notifications they receive during the request process:
 
 ![Multistage process flow](./media/entitlement-management-process/multistage-approvals-with-request-timeout-flow.png)
