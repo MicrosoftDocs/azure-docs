@@ -35,8 +35,8 @@ The sample player plays the live stream and gets the insights from Azure Cosmos 
 
 ## Step-by-step guide 
 
-The full code and a step-by-step guide to deploy the results can be found in [GitHub project for Live media analytics with Video Indexer](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/blob/master/media-functions-for-logic-app/LiveStreamAnalysis.md). 
+The full code and a step-by-step guide to deploy the results can be found in [GitHub project for Live media analytics with Video Indexer](https://aka.ms/livestreamanalysis). 
 
 ## Next steps
 
-[GitHub project for Live media analytics with Video Indexer](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/blob/master/media-functions-for-logic-app/LiveStreamAnalysis.md). 
+[Video Indexer overview](video-indexer-overview.md). 
