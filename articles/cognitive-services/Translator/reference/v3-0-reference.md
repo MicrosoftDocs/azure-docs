@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 11/13/2019
+ms.date: 11/14/2019
 ms.author: swmachan
 ---
 
@@ -163,7 +163,7 @@ The error code is a 6-digit number combining the 3-digit HTTP status code follow
 ## Metrics 
 Metrics allow you to view the translator usage and availablity information in Azure portal, under metrics section as shown in the below screenshot. For more information, see [Data and platform metrics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
 
-![Translator Metrics](../media/TranslatorMetrics.png)
+![Translator Metrics](../media/translatormetrics.png)
 
 This table lists available metrics with description of how they are used to monitor translation API calls.
 
