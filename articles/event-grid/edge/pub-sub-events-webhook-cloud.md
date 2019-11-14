@@ -5,7 +5,7 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/06/2019
+ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
@@ -193,6 +193,7 @@ You can view the event delivered in the Azure portal under the **Monitor** optio
 
 In this tutorial, you created an event grid topic, subscription, and published events. Now that you know the basic steps, see the following articles:
 
+* To troubleshoot issues with using Azure Event Grid on IoT Edge, see [Troubleshooting guide](troubleshoot.md).
 * Create/update subscription with [filters](advanced-filtering.md).
 * Set up persistence of Event Grid module on [linux](persist-state-linux.md) or [Windows](persist-state-windows.md)
 * Follow [documentation](configure-client-auth.md) to configure client authentication

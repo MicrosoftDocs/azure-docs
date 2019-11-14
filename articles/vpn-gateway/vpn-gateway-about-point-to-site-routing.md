@@ -205,7 +205,7 @@ All clients can access VNet1 only.
 
 ### Routes added
 
-* Routes added clients: 10.1.0.0/16, 192.168.0.0/24
+* Routes added to Windows clients: 10.1.0.0/16, 192.168.0.0/24
 
 * Routes added to Non-Windows clients: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
@@ -235,7 +235,7 @@ Clients using Windows can access VNets and sites that are connected using a Site
 
 ### Routes added
 
-* Routes added clients: 10.1.0.0/16, 192.168.0.0/24
+* Routes added to Windows clients: 10.1.0.0/16, 192.168.0.0/24
 
 * Routes added to Non-Windows clients: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 

@@ -21,6 +21,9 @@ Azure Backup uses the MARS agent to back up data from on-premises machines and A
 - Run on Windows VMs so that they can back up directly to a vault.
 - Run on Microsoft Azure Backup Server (MABS) or a System Center Data Protection Manager (DPM) server. In this scenario, machines and workloads back up to MABS or to the DPM server. The MARS agent then backs up this server to a vault in Azure.
 
+> [!NOTE]
+>Azure Backup doesn't support automatic adjustment of clock for daylight savings time (DST). Modify the policy to ensure daylight savings is taken into account to prevent discrepancy between the actual time and scheduled backup time.
+
 Your backup options depend on where the agent is installed. For more information, see [Azure Backup architecture using the MARS agent](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders). For information about MABS and DPM backup architecture, see [Back up to DPM or MABS](backup-architecture.md#architecture-back-up-to-dpmmabs). Also see [requirements](backup-support-matrix-mabs-dpm.md) for the backup architecture.
 
 **Installation** | **Details**
@@ -50,7 +53,7 @@ Location changes | You can change the cache location by stopping the backup engi
 
 The MARS agent needs access to these URLs:
 
-- http://www.msftncsi.com/ncsi.txt
+- <http://www.msftncsi.com/ncsi.txt>
 - *.Microsoft.com
 - *.WindowsAzure.com
 - *.MicrosoftOnline.com
@@ -65,6 +68,9 @@ Network throttling | Not available for backed-up machines that run Windows Serve
 
 ## Support for direct backups
 
+>[!NOTE]
+> The MARS agent does not support Windows Server Core SKUs.
+
 You can use the MARS agent to back up directly to Azure on some operating systems that run on on-premises machines and Azure VMs. The operating systems must be 64 bit and should be running the latest services packs and updates. The following table summarizes these operating systems:
 
 **Operating system** | **Files/folders** | **System state** | **Software/Module requirements**
@@ -74,7 +80,7 @@ Windows 8.1 (Enterprise, Pro)| Yes |No | Check the corresponding server version 
 Windows 8 (Enterprise, Pro) | Yes | No | Check the corresponding server version for software/module requirements
 Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | Yes | No | Check the corresponding server version for software/module requirements
 Windows Server 2016 (Standard, Datacenter, Essentials) | Yes | Yes | - .NET 4.5 <br> - Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
-Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Yes | Yes | - .NET 4.5 <br> -	Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
+Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Yes | Yes | - .NET 4.5 <br> - Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
 Windows Server 2012 (Standard, Datacenter, Foundation) | Yes | Yes |- .NET 4.5 <br> -Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0 <br> - Deployment Image Servicing and Management (DISM.exe)
 Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | Yes | Yes | - .NET 3.5 , .Net 4.5 <br> -Windows PowerShell <br> - Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0 <br> - Deployment Image Servicing and Management (DISM.exe)
 Windows Server 2008 SP2 (Standard, Datacenter, Foundation) | Yes | No | - .NET 3.5 , .Net 4.5 <br> - Windows PowerShell <br> - Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0 <br> - Deployment Image Servicing and Management (DISM.exe) <br> - Virtual Server 2005 base +  KB KB948515

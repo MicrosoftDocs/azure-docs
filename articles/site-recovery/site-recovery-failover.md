@@ -1,12 +1,12 @@
 ---
-title: Failover during disaster recovery with Azure Site Recovery | Microsoft Docs
+title: Failover during disaster recovery with Azure Site Recovery 
 description: Learn about failing over VMs and physical servers during disaster recovery with the Azure Site Recovery service.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 06/30/2019
+ms.date: 10/29/2019
 ms.author: raynew
 
 ---

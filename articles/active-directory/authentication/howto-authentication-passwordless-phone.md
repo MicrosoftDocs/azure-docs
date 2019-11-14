@@ -43,7 +43,7 @@ Registration features for passwordless authentication methods rely on the combin
 ### Enable passwordless phone sign-in authentication methods
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
-1. Browse to **Azure Active Directory** > **Authentication methods** > **Authentication method policy (Preview)**
+1. Browse to **Azure AD Security** > **Authentication methods** > **Authentication method policy (Preview)**
 1. Under **Passwordless phone sign-in**, choose the following options
    1. **Enable** - Yes or No
    1. **Target** - All users or Select users
