@@ -8,7 +8,6 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: cherylmc
-ms.reviewer: ganesr
 
 ---
 # Create and modify an ExpressRoute circuit using PowerShell
