@@ -306,7 +306,7 @@ Azure also provides several easy-to-use features to help secure both inbound and
 
 - [Setup Azure Active Directory authentication for your app](https://azure.microsoft.com/blog/azure-websites-authentication-authorization/)
 
-- [Secure traffic to your app by enabling Transport Layer Security (TLS/SSL) - HTTPS](../../app-service/app-service-web-tutorial-custom-ssl.md)
+- [Secure traffic to your app by enabling Transport Layer Security (TLS/SSL) - HTTPS](../../app-service/configure-ssl-bindings.md)
 
   - [Force all incoming traffic over HTTPS connection](http://microsoftazurewebsitescheatsheet.info/)
 

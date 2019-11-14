@@ -94,7 +94,7 @@ While the container definition is enhanced with a partition key property, the do
 
 ## Access documents that don't have a partition key
 
-Applications can access the existing documents that don’t have a partition key by using the special system property called "CosmosContainerSettings.NonePartitionKeyValue", this is the value of the non-migrated documents. You can use this property in all the CRUD and query operations. The following example shows a sample to read a single Document from the NonePartitionKey. 
+Applications can access the existing documents that don’t have a partition key by using the special system property called "PartitionKey.None", this is the value of the non-migrated documents. You can use this property in all the CRUD and query operations. The following example shows a sample to read a single Document from the NonePartitionKey. 
 
 ```csharp
 CosmosItemResponse<DeviceInformationItem> readResponse = 

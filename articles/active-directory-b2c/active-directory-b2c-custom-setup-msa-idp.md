@@ -40,7 +40,7 @@ To enable sign-in for users with a Microsoft account, you need to register an ap
 1. Select **Certificates & secrets**
 1. Click **New client secret**
 1. Enter a **Description** for the secret, for example *MSA Application Client Secret*, and then click **Add**.
-1. Record the application password shown in the **VALUE** column. You use this value in the next section.
+1. Record the application password shown in the **Value** column. You use this value in the next section.
 
 ## Create a policy key
 
@@ -160,6 +160,8 @@ Now that you have a button in place, you need to link it to an action. The actio
 1. Save the *TrustFrameworkExtensions.xml* file and upload it again for verification.
 
 ## Create an Azure AD B2C application
+
+Communication with Azure AD B2C occurs through an application that you register in your B2C tenant. This section lists optional steps you can complete to create a test application if you haven't already done so.
 
 [!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 

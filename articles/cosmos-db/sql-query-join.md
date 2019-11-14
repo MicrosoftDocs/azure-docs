@@ -98,7 +98,7 @@ Let's look at the following FROM clause: `<from_source1> JOIN <from_source2> JOI
   
 ## Examples
 
-The following examples show how the JOIN clause works. In the following example, the result is empty, since the cross product of each item from source and an empty set is empty:
+The following examples show how the JOIN clause works. Before you run these examples, upload the sample [family data](sql-query-getting-started.md#upload-sample-data). In the following example, the result is empty, since the cross product of each item from source and an empty set is empty:
 
 ```sql
     SELECT f.id

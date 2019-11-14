@@ -27,6 +27,10 @@ This guide explains the tasks to set up Active Directory domain and domain contr
 
 Before [adding an identity source](#add-an-identity-source-on-vcenter), temporarily [escalate your vCenter privileges](escalate-private-cloud-privileges.md).
 
+> [!CAUTION]
+> New users must be added only to *Cloud-Owner-Group*, *Cloud-Global-Cluster-Admin-Group*, *Cloud-Global-Storage-Admin-Group*, *Cloud-Global-Network-Admin-Group* or, *Cloud-Global-VM-Admin-Group*.  Users added to *Administrators* group will be removed automatically.  Only service accounts must be added to *Administrators* group.	
+
+
 ## Identity source options
 
 * [Add on-premises Active Directory as a single sign-on identity source](#add-on-premises-active-directory-as-a-single-sign-on-identity-source)

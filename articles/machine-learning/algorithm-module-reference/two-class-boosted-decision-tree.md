@@ -1,7 +1,7 @@
 ---
 title:  "Two-Class Boosted Decision Tree: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Two-Class Boosted Decision Tree module in Azure Machine Learning service to create a machine learning model that is based on the boosted decision trees algorithm. 
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Two-Class Boosted Decision Tree module in Azure Machine Learning to create a machine learning model that is based on the boosted decision trees algorithm. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,11 +9,11 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
+ms.date: 10/22/2019
 ---
 # Two-Class Boosted Decision Tree module
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to create a machine learning model that is based on the boosted decision trees algorithm. 
 
@@ -27,7 +27,7 @@ This module creates an untrained classification model. Because classification is
 
 You can train this type of model using [Train Model](././train-model.md). 
 
-1.  In Azure Machine Learning, add the **Boosted Decision Tree** module to your experiment.
+1.  In Azure Machine Learning, add the **Boosted Decision Tree** module to your pipeline.
   
 2.  Specify how you want the model to be trained, by setting the **Create trainer mode** option.
   
@@ -70,4 +70,4 @@ After model training is complete, right-click the output of [Train Model](./trai
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

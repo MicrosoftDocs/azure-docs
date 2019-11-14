@@ -4,6 +4,7 @@ description: Prerequisites for managing Azure Marketplace accounts on the Cloud 
 services: Azure, Marketplace, Cloud Partner Portal, 
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pabutler
@@ -23,8 +24,7 @@ Choose your account name carefully.  It represents your organization, so it shou
 
 ## Registration steps
 
-The following table lists the steps necessary to fully register as a Microsoft cloud publisher.  For full instructions, see [Become a Cloud Marketplace Publisher](https://docs.microsoft.com/azure/marketplace/become-publisher
-). 
+The following table lists the steps necessary to fully register as a Microsoft cloud publisher.  For full instructions, see [Become a Cloud Marketplace Publisher](https://docs.microsoft.com/azure/marketplace/become-publisher). 
 
 
 |                   Step                   |  Resulting registration or resource                     |

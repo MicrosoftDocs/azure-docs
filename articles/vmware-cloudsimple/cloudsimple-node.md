@@ -14,29 +14,30 @@ manager: dikamath
 Nodes are the building blocks of a Private Cloud. A node is:
 
 * A dedicated bare metal compute host where a VMware ESXi hypervisor is installed  
-* A unit of computing you can purchase or reserve to create Private Clouds
-* Available to purchase or reserve in a region where the CloudSimple service is available
+* A unit of computing you can provision or reserve to create Private Clouds
+* Available to provision or reserve in a region where the CloudSimple service is available
 
-You create a Private Cloud from the purchased nodes. To create a Private Cloud, you need a minimum of three nodes of the same SKU. To expand a Private Cloud, add additional nodes.  You can add nodes to an existing cluster or create a new cluster by purchasing nodes in the Azure portal and associating them with the CloudSimple service.  All purchased nodes are visible under the CloudSimple service.  
+You create a Private Cloud from the provisioned nodes. To create a Private Cloud, you need a minimum of three nodes of the same SKU. To expand a Private Cloud, add additional nodes.  You can add nodes to an existing cluster or create a new cluster by provisioning nodes in the Azure portal and associating them with the CloudSimple service.  All provisioned nodes are visible under the CloudSimple service.  
 
-## Purchased nodes
+## Provisioned nodes
 
-Purchased nodes provide pay-as-you-go capacity. Purchasing nodes helps you quickly scale your VMware cluster on demand. You can add nodes as needed or delete a purchased node to scale down your VMware cluster. Purchased nodes are billed on a monthly basis and charged to the subscription where they're purchased.
+Provisioned nodes provide pay-as-you-go capacity. Provisioning nodes helps you quickly scale your VMware cluster on demand. You can add nodes as needed or delete a provisioned node to scale down your VMware cluster. Provisioned nodes are billed on a monthly basis and charged to the subscription where they're provisioned.
 
 * If you pay for your Azure subscription by credit card, the card is billed immediately.
 * If you're billed by invoice, the charges appear on your next invoice.
 
 ## VMware Solution by CloudSimple nodes SKU
 
-The following types of nodes are available for purchase or reservation.
+The following types of nodes are available for provisioning or reservation.
 
-| SKU | CS28 - Node | CS36 - Node |
-|-----|-------------|-------------|
-| CPU | 2x2.2 GHz, 28 Cores (56 HT) | 2x2.3 GHz, 36 Cores (72 HT) |
-| RAM | 256 GB | 512 GB |
-| Cache Disk |  1.6-TB NVMe | 3.2-TB NVMe |
-| Capacity Disk | 5.625 TB Raw | 11.25 TB Raw |
-| Storage Type | All Flash | All Flash |
+| SKU           | CS28 - Node                 | CS36 - Node                 | CS36m - Node                |
+|---------------|-----------------------------|-----------------------------|-----------------------------|
+| Region        | East US, West US            | East US, West US            | West Europe                 |
+| CPU           | 2x2.2 GHz, 28 Cores (56 HT) | 2x2.3 GHz, 36 Cores (72 HT) | 2x2.3 GHz, 36 Cores (72 HT) |
+| RAM           | 256 GB                      | 512 GB                      | 576 GB                      |
+| Cache Disk    | 1.6-TB NVMe                 | 3.2-TB NVMe                 | 3.2-TB NVMe                 |
+| Capacity Disk | 5.625 TB Raw                | 11.25 TB Raw                | 15.36 TB Raw                |
+| Storage Type  | All Flash                   | All Flash                   | All Flash                   |
 
 ## Limits
 
@@ -51,5 +52,5 @@ The following node limits apply to Private Clouds.
 
 ## Next steps
 
-* Learn how to [purchase nodes](create-nodes.md)
+* Learn how to [provision nodes](create-nodes.md)
 * Learn about [Private Clouds](cloudsimple-private-cloud.md)

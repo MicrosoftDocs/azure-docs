@@ -4,6 +4,8 @@
   items:
   - name: What is Azure DB for MariaDB?
     href: overview.md
+  - name: Which MariaDB option should I choose?
+    href: select-right-deployment-type.md
 - name: Quickstarts
   expanded: true
   items:
@@ -41,6 +43,8 @@
     items:
     - name: Pricing tiers
       href: concepts-pricing-tiers.md
+    - name: Prepay for reserved capacity
+      href: concept-reserved-pricing.md  
     - name: Limits
       href: concepts-limits.md
   - name: Data access & security
@@ -57,7 +61,8 @@
       href: concepts-connectivity-architecture.md
   - name: Business continuity
     items:
-    - name: Overview
+    - name: Business continuity intro
+      displayName: backup, restore, backups, restores, georestore, geo-restore, outage
       href: concepts-business-continuity.md
     - name: Backup and restore
       href: concepts-backup.md
@@ -183,7 +188,7 @@
     href: /rest/api/mariadb
   - name: Resource Manager template
     href: /azure/templates/microsoft.dbformariadb/allversions
-  - name: Azure stored procedures
+  - name: Management stored procedures
     href: reference-stored-procedures.md
 - name: Resources
   items:

@@ -1,12 +1,12 @@
 ---
 title: Azure Cosmos DB Gremlin compatibility with TinkerPop features
 description: Reference documentation Graph engine compatibility issues
-author: olignat
+author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: reference
 ms.date: 09/10/2019
-ms.author: olignat
+ms.author: sngun
 ---
 
 # Azure Cosmos DB Gremlin compatibility

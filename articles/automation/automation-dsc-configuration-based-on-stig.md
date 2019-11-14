@@ -44,7 +44,7 @@ in one large file.
 
 Once the configurations have been generated,
 you can use the
-[DSC Configuration scripts](/powershell/dsc/configurations)
+[DSC Configuration scripts](/powershell/scripting/dsc/configurations/configurations)
 to generate MOF files
 and
 [upload the MOF files to Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).

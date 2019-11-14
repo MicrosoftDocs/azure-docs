@@ -49,6 +49,10 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 Shrink of the Private Cloud starts.  You can monitor the progress in tasks.  The shrink process can take a few hours depending on the data, which needs to be resynced on vSAN.
 
+> [!NOTE]
+> If you shrink a private cloud by deleting the last or the only cluster in the datacenter, the datacenter will not be deleted.  
+
+
 ## Next steps
 
 * [Consume VMware VMs on Azure](quickstart-create-vmware-virtual-machine.md)

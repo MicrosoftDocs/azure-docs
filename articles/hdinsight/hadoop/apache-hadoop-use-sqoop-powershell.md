@@ -17,6 +17,8 @@ Learn how to use Azure PowerShell to run Apache Sqoop jobs in Azure HDInsight to
 
 ## Prerequisites
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Before you begin this article, you must have the following items:
 
 * A workstation with Azure PowerShell [AZ Module](https://docs.microsoft.com/powershell/azure/overview) installed.

@@ -1,6 +1,6 @@
 ---
 title: Azure InfoBox UI element | Microsoft Docs
-description: Describes the Microsoft.Common.TextBlock UI element for Azure portal.
+description: Describes the Microsoft.Common.InfoBox UI element for Azure portal. Use to add text or warnings when deploying managed application.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac

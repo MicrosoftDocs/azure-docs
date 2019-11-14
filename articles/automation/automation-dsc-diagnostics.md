@@ -79,7 +79,7 @@ After you set up integration with Azure Monitor logs for your Automation State C
 
 The **Log Search** blade opens, and you see a **DscNodeStatusData** operation for each State
 Configuration node, and a **DscResourceStatusData** operation for each [DSC
-resource](/powershell/dsc/resources) called in the Node configuration applied to that node.
+resource](/powershell/scripting/dsc/resources/resources) called in the Node configuration applied to that node.
 
 The **DscResourceStatusData** operation contains error information for any DSC resources that failed.
 

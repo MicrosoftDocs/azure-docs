@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2019
+ms.date: 10/07/2019
 ms.author: mlottner
 
 ---
@@ -29,7 +29,7 @@ A baseline establishes standard behavior for each device and makes it easier to 
 
 ## Baseline custom checks
 
-Baseline custom checks establish a custom list of checks for each device baseline using the Module identity twin of the device. 
+Baseline custom checks establish a custom list of checks for each device baseline using the **Module identity twin** of the device. 
 
 ## Setting baseline properties
 
@@ -52,7 +52,7 @@ To configure baseline custom checks:
         "baselineCustomChecksFilePath": {
           "value" : "/home/user/full_path.xml"
         },
-        "baselineCustomChecksFilePath": {
+        "baselineCustomChecksFileHash": {
           "value" : "#hashexample!"
         }
       }
@@ -64,8 +64,8 @@ To configure baseline custom checks:
 | Name| Status | Valid values| Default values| Description |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
 |baselineCustomChecksEnabled|Required: true |Valid values: **Boolean** |Default value: **false** |Max time interval before high priority messages is sent.|
-|baselineCustomChecksFilePath |Required: true|Valid values: **String**, **null** |Default value: **PT5H** |Full path of the baseline xml configuration|
-|baselineCustomChecksFileHash |Required: true|Valid values: **String**, **null** |Default value: **PT5H** |`sha256sum` of the xml configuration file. Use the [sha256sum reference](https://linux.die.net/man/1/sha256sum) for additional information. |
+|baselineCustomChecksFilePath |Required: true|Valid values: **String**, **null** |Default value: **null** |Full path of the baseline xml configuration|
+|baselineCustomChecksFileHash |Required: true|Valid values: **String**, **null** |Default value: **null** |`sha256sum` of the xml configuration file. Use the [sha256sum reference](https://linux.die.net/man/1/sha256sum) for additional information. |
 
 To review additional baseline examples, see [custom baseline example -1](https://ascforiot.blob.core.windows.net/public/custom_baseline_example_hyperv_ubuntu1804.xml) and [custom baseline example -2](https://ascforiot.blob.core.windows.net/public/oms_audits.xml).
 

@@ -1,18 +1,18 @@
 ---
 title: 'Understand role-based access control - Azure Digital Twins | Microsoft Docs'
 description: Learn about role-based access control and managing permissions in Azure Digital Twins.
-author: lyrana
-manager: alinast
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/17/2019
-ms.author: lyhughes
+ms.date: 09/30/2019
 ---
 
 # Role-based access control in Azure Digital Twins
 
-Azure Digital Twins enables precise access control to specific data, resources, and actions in your spatial graph. It does so through granular role and permission management called role-based access control (RBAC). RBAC consists of _roles_ and _role assignments_. Roles identify the level of permissions. Role assignments associate a role with a user or device.
+Azure Digital Twins enables precise access control over specific data, resources, and actions in your spatial graph. It does so through granular role and permission management called [role-based access control](https://docs.microsoft.com/azure/role-based-access-control/) (RBAC). RBAC consists of _roles_ and _role assignments_. Roles identify the level of permissions. Role assignments associate a role with a user or device.
 
 Using RBAC, permission can be granted to:
 
@@ -79,3 +79,5 @@ To grant permissions to a recipient, create a role assignment. To revoke permiss
 ## Next steps
 
 - To learn more about creating and managing Azure Digital Twins role assignments, read [Create and manage role assignments](./security-create-manage-role-assignments.md).
+
+- Read more about [RBAC for Azure](https://docs.microsoft.com/azure/role-based-access-control/).

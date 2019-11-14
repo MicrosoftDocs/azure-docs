@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/11/2018
-ms.author: subramar
+ms.author: atsenthi
 
 ---
 # Create your first Azure Service Fabric application

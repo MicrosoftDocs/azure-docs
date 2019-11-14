@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 ---
 # Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory
 
-Azure Active Directory (Azure AD) lets you automate the creation, maintenance, and removal of user identities in cloud ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) applications such as Dropbox, Salesforce, ServiceNow, and more. This is known as automated user provisioning for SaaS apps.
+Azure Active Directory (Azure AD) lets you automate the creation, maintenance, and removal of user identities in cloud SaaS applications such as [Dropbox](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial), [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial), and more. This is known as automated user provisioning for SaaS apps.
 
 > [!VIDEO https://www.youtube.com/embed/_ZjARPpI6NI]
 
@@ -62,7 +62,7 @@ The **Azure AD Provisioning Service** provisions users to SaaS apps and other sy
 
 ## What applications and systems can I use with Azure AD automatic user provisioning?
 
-Azure AD features pre-integrated support for many popular SaaS apps and human resources systems, and generic support for apps that implement specific parts of the SCIM 2.0 standard.
+Azure AD features pre-integrated support for many popular SaaS apps and human resources systems, and generic support for apps that implement specific parts of the [SCIM 2.0 standard](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010).
 
 ### Pre-integrated applications
 
@@ -85,11 +85,7 @@ Use the Azure Active Directory portal to configure the Azure AD provisioning ser
 
 1. Open the **[Azure Active Directory portal](https://aad.portal.azure.com)**.
 1. Select **Enterprise applications** from the left pane. A list of all configured apps is show.
-1. Choose **+ New application** to add an application. Add either of the following depending on your scenario:
-
-   - The **Add your own app** option supports custom-developed SCIM integrations.
-   - All applications in the **Add from the gallery** > **Featured applications** section support automatic provisioning. See the [list of application tutorials for user provisioning](../saas-apps/tutorial-list.md) for additional ones.
-
+1. Choose **+ New application** to add an application. 
 1. Provide any details and select **Add**. The new app is added to the list of enterprise applications and opens to its application management screen.
 1. Select **Provisioning** to manage user account provisioning settings for the app.
 
@@ -97,7 +93,7 @@ Use the Azure Active Directory portal to configure the Azure AD provisioning ser
 
 1. Select the Automatic option for the **Provisioning Mode** to specify settings for admin credentials, mappings, starting and stopping, and synchronization.
 
-   - Expand **Admin credentials** to enter the credentials required for Azure AD to connect to the application's user management API. This section also lets you enable email notifications if the credentials fail, or the provisioning job goes into [quarantine](#quarantine).
+   - Expand **Admin credentials** to enter the credentials required for Azure AD to connect to the application's user management API. This section also lets you enable email notifications if the credentials fail, or the provisioning job goes into [quarantine](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
    - Expand **Mappings** to view and edit the user attributes that flow between Azure AD and the target application when user accounts are provisioned or updated. If the target application supports it, this section lets you optionally configure provisioning of groups and user accounts. Select a mapping in the table to open the mapping editor to the right, where you can view and customize user attributes.
 
      **Scoping filters** tell the provisioning service which users and groups in the source system should be provisioned or deprovisioned to the target system. In the **Attribute mapping** pane, select **Source Object Scope** to filter on specific attribute values. For example, you can specify that only users with a "Department" attribute of "Sales" should be in scope for provisioning. For more information, see [Using scoping filters](define-conditional-rules-for-provisioning-user-accounts.md).
@@ -171,7 +167,7 @@ If most or all of the calls made against the target system consistently fail bec
 
 When in quarantine, the frequency of incremental cycles is gradually reduced to once per day.
 
-The provisioning job will be removed from quarantine after all of the offending errors are fixed and the next sync cycle starts. If the provisioning job stays in quarantine for more than four weeks, the provisioning job is disabled.
+The provisioning job will be removed from quarantine after all of the offending errors are fixed and the next sync cycle starts. If the provisioning job stays in quarantine for more than four weeks, the provisioning job is disabled. Learn more here about quarantine status [here](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
 ## How long will it take to provision users?
 
@@ -191,7 +187,7 @@ For scenario-based guidance on how to troubleshoot automatic user provisioning, 
 
 > [!VIDEO https://www.youtube.com/embed/MAy8s5WSe3A]
 
-For an example step-by-step deployment plan for outbound user provisioning to an application, see the [Identity Deployment Guide for User Provisioning](https://aka.ms/userprovisioningdeploymentplan).
+For an example step-by-step deployment plan for outbound user provisioning to an application, see the [Identity Deployment Guide for User Provisioning](https://aka.ms/deploymentplans/userprovisioning).
 
 ## Frequently asked questions
 

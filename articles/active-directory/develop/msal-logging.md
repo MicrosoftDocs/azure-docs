@@ -1,5 +1,6 @@
 ---
-title: Logging in MSAL applications | Microsoft identity platform
+title: Logging in Microsoft Authentication Library (MSAL) applications 
+titleSuffix: Microsoft identity platform
 description: Learn about logging in Microsoft Authentication Library (MSAL) applications.
 services: active-directory
 documentationcenter: dev-center-name
@@ -13,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2019
+ms.date: 10/31/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
@@ -41,14 +42,14 @@ By default, the MSAL logger doesn't capture any highly sensitive personal or org
 ## Logging in MSAL.NET
 
  > [!NOTE]
- > For more information about MSAL.NET, check out the [MSAL.NET wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki). Get samples of MSAL.NET logging and more.
- 
+ > See the [MSAL.NET wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki) for samples of MSAL.NET logging and more.
+
 In MSAL 3.x, logging is set per application at app creation using the `.WithLogging` builder modifier. This method takes optional parameters:
 
-- *Level* enables you to decide which level of logging you want. Setting it to Errors will only get errors
-- *PiiLoggingEnabled* enables you to log personal and organizational data if set to true. By default this is set to false, so that your application doesn't log personal data.
-- *LogCallback* is set to a delegate that does the logging. If *PiiLoggingEnabled* is true, this method will receive the messages twice: once with the *containsPii* parameter equals false and the message without personal data, and a second time with the *containsPii* parameter equals to true and the message might contain personal data. In some cases (when the message doesn't contain personal data), the message will be the same.
-- *DefaultLoggingEnabled* enables the default logging for the platform. By default it's false. If you set it to true it uses Event Tracing in Desktop/UWP applications, NSLog on iOS and logcat on Android.
+- `Level` enables you to decide which level of logging you want. Setting it to Errors will only get errors
+- `PiiLoggingEnabled` enables you to log personal and organizational data if set to true. By default this is set to false, so that your application does not log personal data.
+- `LogCallback` is set to a delegate that does the logging. If `PiiLoggingEnabled` is true, this method will receive the messages twice: once with the `containsPii` parameter equals false and the message without personal data, and a second time with the `containsPii` parameter equals to true and the message might contain personal data. In some cases (when the message does not contain personal data), the message will be the same.
+- `DefaultLoggingEnabled` enables the default logging for the platform. By default it's false. If you set it to true it uses Event Tracing in Desktop/UWP applications, NSLog on iOS and logcat on Android.
 
 ```csharp
 class Program
@@ -77,16 +78,55 @@ class Program
  }
  ```
 
- ## Logging in MSAL.js
+## Logging in MSAL for Android using Java
 
- You can enable logging in MSAL.js by passing a logger object during the configuration for creating a `UserAgentApplication` instance. This logger object has the following properties:
+Turn logging on at app creation by creating a logging callback. The callback takes these parameters:
+
+- `tag` is a string passed to the callback by the library. It is associated with the log entry and can be used to sort logging messages.
+- `logLevel` enables you to decide which level of logging you want. The supported log levels are: `Error`, `Warning`, `Info`, and `Verbose`.
+- `message` is the content of the log entry.
+- `containsPII` specifies whether messages containing personal data, or organizational data are logged. By default, this is set to false, so that your application doesn't log personal data. If `containsPII` is `true`, this method will receive the messages twice: once with the `containsPII` parameter set to `false` and the `message` without personal data, and a second time with the `containsPii` parameter set to `true` and the message might contain personal data. In some cases (when the message does not contain personal data), the message will be the same.
+
+```java
+private StringBuilder mLogs;
+
+mLogs = new StringBuilder();
+Logger.getInstance().setExternalLogger(new ILoggerCallback()
+{
+   @Override
+   public void log(String tag, Logger.LogLevel logLevel, String message, boolean containsPII)
+   {
+      mLogs.append(message).append('\n');
+   }
+});
+```
+
+By default, the MSAL logger will not capture any personal identifiable information or organizational identifiable information.
+To enable the logging of personal identifiable information or organizational identifiable information:
+
+```java
+Logger.getInstance().setEnablePII(true);
+```
+
+To disable logging personal data and organization data:
+
+```java
+Logger.getInstance().setEnablePII(false);
+```
+
+By default logging to logcat is disabled. To enable:
+
+```java
+Logger.getInstance().setEnableLogcatLog(true);
+```
+
+## Logging in MSAL.js
+
+ Enable logging in MSAL.js (Javascript) by passing a logger object during the configuration for creating a `UserAgentApplication` instance. This logger object has the following properties:
 
 - `localCallback`: a Callback instance that can be provided by the developer to consume and publish logs in a custom manner. Implement the localCallback method depending on how you want to redirect logs.
-
-- `level` (optional): the configurable log level. The supported log levels are: Error, Warning, Info, Verbose. Default value is Info.
-
-- `piiLoggingEnabled` (optional): enables you to log personal and organizational data if set to true. By default this is set to false so that your application doesn't log personal data. Personal data logs are never written to default outputs like Console, Logcat, or NSLog. Default is set to false.
-
+- `level` (optional): the configurable log level. The supported log levels are: `Error`, `Warning`, `Info`, and `Verbose`. The default is `Info`.
+- `piiLoggingEnabled` (optional): if set to true, logs personal and organizational data. By default this is false so that your application doesn't log personal data. Personal data logs are never written to default outputs like Console, Logcat, or NSLog.
 - `correlationId` (optional): a unique identifier, used to map the request with the response for debugging purposes. Defaults to RFC4122 version 4 guid (128 bits).
 
 ```javascript
@@ -96,7 +136,7 @@ function loggerCallback(logLevel, message, containsPii) {
 
 var msalConfig = {
     auth: {
-        clientId: “abcd-ef12-gh34-ikkl-ashdjhlhsdg”,
+        clientId: "<Enter your client id>",
     },
      system: {
     		 logger: new Msal.Logger(
@@ -160,9 +200,9 @@ MSALGlobalConfig.loggerConfig.setLogCallback { (level, message, containsPII) in
 }
 ```
 
-### Personal Identifiable Information (PII)
+### Personal data
 
-By default, MSAL doesn't capture or log any PII. The library allows app developers to turn this on through a property in the MSALLogger class. By turning on PII, the app takes responsibility for safely handling highly sensitive data and following regulatory requirements.
+By default, MSAL doesn't capture or log any personal data (PII). The library allows app developers to turn this on through a property in the MSALLogger class. By turning on `pii.Enabled`, the app takes responsibility for safely handling highly sensitive data and following regulatory requirements.
 
 Objective-C
 ```objc
@@ -196,7 +236,7 @@ To set the logging level when you log using MSAL for iOS and macOS, use one of t
 | `MSALLogLevelError` | Default level, prints out information only when errors occur |
 | `MSALLogLevelWarning` | Warnings |
 | `MSALLogLevelInfo` |  Library entry points, with parameters and various keychain operations |
-|`MSALLogLevelVerbose`     |  API tracing       |
+|`MSALLogLevelVerbose`     |  API tracing |
 
 For example:
 
@@ -219,3 +259,51 @@ For example:
 `TID = 551563 MSAL 0.2.0 iOS Sim 12.0 [2018-09-24 00:36:38 - 36764181-EF53-4E4E-B3E5-16FE362CFC44] acquireToken returning with error: (MSALErrorDomain, -42400) User cancelled the authorization session.`
 
 Providing correlation IDs and timestamps are helpful for tracking down issues. Timestamp and correlation ID information is available in the log message. The only reliable place to retrieve them is from MSAL logging messages.
+
+## Logging in MSAL for Java
+
+MSAL for Java (MSAL4J) allows you to use the logging library that you are already using with your app, as long as it is compatible with SLF4J. MSAL4j uses the [Simple Logging Facade for Java](http://www.slf4j.org/) (SLF4J) as a simple facade or abstraction for various logging frameworks, such as [java.util.logging](https://docs.oracle.com/javase/7/docs/api/java/util/logging/package-summary.html), [Logback](http://logback.qos.ch/) and [Log4j](https://logging.apache.org/log4j/2.x/). SLF4J allows the end-user to plug in the desired logging framework at deployment time.
+
+For example, to use Logback as the logging framework in your application, add the Logback dependency to the Maven pom file for your application:
+
+```xml
+<dependency>
+    <groupId>ch.qos.logback</groupId>
+    <artifactId>logback-classic</artifactId>
+    <version>1.2.3</version>
+</dependency>
+```
+
+Then add the Logback configuration file:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+
+</configuration>
+```
+
+SLF4J automatically binds to Logback at deployment time. MSAL logs will be written to the console.
+
+For instructions on how to bind to other logging frameworks, see the [SLF4J manual](http://www.slf4j.org/manual.html).
+
+### Personal and organization information
+
+By default, MSAL logging does not capture or log any personal or organizational data. In the following example, logging personal or organizational data is off by default:
+
+```java
+    PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
+            .authority(AUTHORITY)
+            .build();
+```
+
+Turn on personal and organizational data logging by setting `logPii()` on the client application builder. If you turn on personal or organizational data logging, your app must take responsibility for safely handling highly-sensitive data and complying with any regulatory requirements.
+
+In the following example, logging personal or organizational data is enabled:
+
+```java
+PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
+        .authority(AUTHORITY)
+        .logPii(true)
+        .build();
+```

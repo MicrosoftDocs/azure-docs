@@ -188,7 +188,7 @@ For information on malware protection, see [Microsoft Antimalware for Azure Clou
 
 ### How do I create a keytab for an HDInsight ESP cluster?
 
-Create a Kerberos keytab for your domain username. You can later use this keytab to authenticate to remote domain-joined clusters without entering a password. Note that the domain name is uppercase:
+Create a Kerberos keytab for your domain username. You can later use this keytab to authenticate to remote domain-joined clusters without entering a password. The domain name is uppercase:
 
 ```shell
 ktutil
@@ -233,6 +233,14 @@ In scenarios in which you must control the schedule, you can use the following s
    `/usr/local/bin/azsecd manual -s clamav`
 
 For more information about how to set up and run a cron job, see [How do I set up a Cron job](https://askubuntu.com/questions/2368/how-do-i-set-up-a-cron-job)?
+
+### Why is LLAP available on Spark ESP clusters?
+On ESP Spark clusters, LLAP is enabled for security reasons (i.e. Apache Ranger), not performance. You should use larger node VMs to accomodate for the resource usage of LLAP (e.g. minimum D13V2). 
+
+### How can I add addional AAD groups after creating an ESP cluster?
+There are two ways to achieve this:
+1- You can recreate the cluster and add the additional group at the time of cluster creation. If you are using scoped synchronization in AAD-DS, please make sure group B is included in the scoped synchronization.
+2- Add the group as a nested sub group of the previous group that was used to create the ESP cluster. For example, if you have created an ESP cluster with group `A`, you can later on add group `B` as a nested subgroup of `A` and after approximately one hour it will be synced and available in the cluster automatically. 
 
 ## Storage
 
@@ -348,6 +356,10 @@ If you call the command from outside the virtual network or from a non-peered vi
 
 For more information about pricing and FAQ related to billing, see the [Azure HDInsight Pricing](https://azure.microsoft.com/pricing/details/hdinsight/) page.
 
+### When does HDInsight billing start & stop?
+
+HDInsight cluster billing starts once a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute.
+
 ### How do I cancel my subscription?
 
 For information about how to cancel your subscription, see [Cancel your Azure subscription](https://docs.microsoft.com/azure/billing/billing-how-to-cancel-azure-subscription).
@@ -372,3 +384,7 @@ For information about the integration capabilities of stream processing in Azure
 ### Is there a way to dynamically terminate the head node of the cluster when the cluster is idle for a specific period?
 
 You can't do this with HDInsight clusters. You can use Azure Data Factory for these scenarios.
+
+### What compliance offerings does HDInsight offer?
+
+For compliance information, see the [Microsoft Trust Center](https://www.microsoft.com/trust-center) and the [Overview of Microsoft Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).

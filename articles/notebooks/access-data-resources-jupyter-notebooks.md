@@ -4,13 +4,11 @@ description: How to access files, REST APIs, databases, and different Azure Stor
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
-
+manager: barbkess
 ms.assetid: ee867303-a5e5-4686-b2da-8a0108247d18
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb

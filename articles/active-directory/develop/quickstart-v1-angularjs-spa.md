@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 10/25/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
@@ -25,6 +25,11 @@ ms.collection: M365-identity-device-management
 # Quickstart: Build an AngularJS single-page app for sign-in and sign out with Azure Active Directory
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
+
+> [!IMPORTANT]
+> [Microsoft identity platform](v2-overview.md) is an evolution of the Azure Active Directory (Azure AD) developer platform. It allows developers to build applications that sign in all Microsoft identities and get tokens to call Microsoft APIs such as Microsoft Graph or APIs that developers have built.
+> If you need to enable sign-in for personal accounts in addition to work and school accounts, you can use the *[Microsoft identity platform endpoint](azure-ad-endpoint-comparison.md)*.
+> This quickstart is for the older, Azure AD v1.0 endpoint. We recommend that you use the v2.0 endpoint for new projects. For more info, see [this JavaScript SPA tutorial](tutorial-v2-javascript-spa.md) as well as [this article](active-directory-v2-limitations.md) explaining the *Microsoft identity platform endpoint*.
 
 Azure Active Directory (Azure AD) makes it simple and straightforward for you to add sign-in, sign-out, and secure OAuth API calls to your single-page apps. It enables your apps to authenticate users with their Windows Server Active Directory accounts and consume any web API that Azure AD helps protect, such as the Office 365 APIs or the Azure API.
 
@@ -42,9 +47,6 @@ To build the complete, working application, you'll need to:
 1. Register your app with Azure AD.
 2. Install ADAL and configure the single-page app.
 3. Use ADAL to help secure pages in the single-page app.
-
-> [!NOTE]
-> If you need to enable sign-ins for personal accounts in addition to work and school accounts, you can use the *[Microsoft identity platform endpoint](azure-ad-endpoint-comparison.md)*. For more info, see [this JavaScript SPA tutorial](tutorial-v2-javascript-spa.md) as well as [this article](active-directory-v2-limitations.md) explaining the *Microsoft identity platform endpoint*. 
 
 ## Prerequisites
 

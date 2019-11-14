@@ -184,6 +184,8 @@ Open a browser and navigate to the URL. Make sure you type the correct URL and t
 
 ## Create an Azure AD B2C application
 
+Communication with Azure AD B2C occurs through an application that you register in your B2C tenant. This section lists optional steps you can complete to create a test application if you haven't already done so.
+
 [!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 
 ### Update and test the relying party file

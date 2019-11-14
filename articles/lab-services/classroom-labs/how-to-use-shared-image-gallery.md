@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2019
+ms.date: 10/31/2019
 ms.author: spelluru
 
 ---
@@ -27,18 +27,18 @@ This article shows how teachers/lab admin can save a template virtual machine im
 ## Save an image to the shared image gallery
 After a shared image gallery is attached, a lab account admin or a teacher can save an image to the shared image gallery so that it can be reused by other teachers. 
 
-1. On the home page for the lab, select **Save image** on the tile in the **Template** section.
+1. On the **Template** page for the lab, select **Export to Shared Image Gallery** on the toolbar.
 
-    ![Save image button](../media/how-to-use-shared-image-gallery/save-image-button.png)
-2.  In the **Save virtual machine image** window, enter a name for the image, and select **Save**. 
+    ![Save image button](../media/how-to-use-shared-image-gallery/export-to-shared-image-gallery-button.png)
+2. On the **Export to Shared Image Gallery** dialog, enter a **name for the image**, and then select **Export**. 
 
-    ![Save virtual machine image window](../media/how-to-use-shared-image-gallery/save-virtual-machine-image.png)
-3. Check the status on the lab tile. 
+    ![Export to Shared Image Gallery dialog](../media/how-to-use-shared-image-gallery/export-to-shared-image-gallery-dialog.png)
+3. You can see the progress of this operation on the **Template** page. This operation can take sometime. 
 
-    ![Status of the save image operation](../media/how-to-use-shared-image-gallery/save-image-status.png)
-4. Confirm that the operation is successful.
+    ![Export in progress](../media/how-to-use-shared-image-gallery/exporting-image-in-progress.png)
+4. When the export operation is successful, you see the following message:
 
-    ![Save image operation is successful](../media/how-to-use-shared-image-gallery/save-image-successful.png)
+    ![Export completed](../media/how-to-use-shared-image-gallery/exporting-image-completed.png)
 
 You can also upload an image to the shared image gallery outside the context of a lab. For more information, see [Shared image gallery overview](../../virtual-machines/windows/shared-images.md). 
 

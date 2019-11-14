@@ -1,7 +1,7 @@
 ---
 title: Install and run containers - FACE API
 titleSuffix: Azure Cognitive Services
-description: Download, install, and run containers for Face in this walkthrough tutorial.
+description: This article shows you how to download, install, and run containers for Face in this walkthrough tutorial.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme

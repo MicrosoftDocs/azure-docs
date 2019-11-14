@@ -23,7 +23,9 @@ This article compares the following Microsoft cloud services:
 * [Azure Functions](https://azure.microsoft.com/services/functions/)
 * [Azure App Service WebJobs](../app-service/webjobs-create.md)
 
-All of these services can solve integration problems and automate business processes. They can all define input, actions, conditions, and output. You can run each of them on a schedule or trigger. Each service has unique advantages, and this article explains the differences.
+All of these services can solve integration problems and automate business processes. They can all define input, actions, conditions, and output. You can run each of them on a schedule or trigger. Each service has unique advantages, and this article explains the differences. 
+
+If you're looking for a more general comparison between Azure Functions and other Azure compute options, see [Criteria for choosing an Azure compute service](/azure/architecture/guide/technology-choices/compute-comparison) and [Choosing an Azure compute option for microservices](/azure/architecture/microservices/design/compute-options).
 
 ## Compare Microsoft Flow and Azure Logic Apps
 
@@ -117,12 +119,12 @@ You can get more information on integration services by using the following link
 * [Leveraging Azure Functions & Azure App Service for integration scenarios by Christopher Anderson](https://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
 * [Integrations Made Simple by Charles Lamanna](https://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
 * [Logic Apps Live webcast](https://aka.ms/logicappslive)
-* [Microsoft Flow frequently asked questions](https://flow.microsoft.com/documentation/frequently-asked-questions/)
+* [Microsoft Flow frequently asked questions](/power-automate/frequently-asked-questions)
 
 ## Next steps
 
 Get started by creating your first flow, logic app, or function app. Select any of the following links:
 
-* [Get started with Microsoft Flow](https://flow.microsoft.com/en-us/documentation/getting-started/)
+* [Get started with Microsoft Flow](/power-automate/getting-started)
 * [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [Create your first Azure function](functions-create-first-azure-function.md)

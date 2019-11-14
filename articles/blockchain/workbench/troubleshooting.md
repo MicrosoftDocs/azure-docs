@@ -1,11 +1,11 @@
 ---
-title: Azure Blockchain Workbench Preview troubleshooting
+title: Azure Blockchain Workbench troubleshooting
 description: How to troubleshoot an Azure Blockchain Workbench Preview application.
 services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 09/05/2019
+ms.date: 10/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr

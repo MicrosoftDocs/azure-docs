@@ -55,9 +55,9 @@ At this time, Azure Dedicated HSM only provides HSMs with password-based authent
 
 Microsoft only offers the Gemalto SafeNet Luna Network HSM via the Dedicated HSM service and cannot host any customer-provided devices.
 
-### Q: Does Azure Dedicated HSM support payment (PIN/ETF) features?
+### Q: Does Azure Dedicated HSM support payment (PIN/EFT) features?
 
-The Azure Dedicated HSM service uses SafeNet Luna Network HSM 7 (model A790) devices. These devices do not support payment HSM specific functionality (such as PIN or ETF) or certifications. If you would like Azure Dedicated HSM service to support payment HSMs in future, please pass on the feedback to your Microsoft Account Representative.
+The Azure Dedicated HSM service uses SafeNet Luna Network HSM 7 (model A790) devices. These devices do not support payment HSM specific functionality (such as PIN or EFT) or certifications. If you would like Azure Dedicated HSM service to support payment HSMs in future, please pass on the feedback to your Microsoft Account Representative.
 
 ### Q: Which Azure regions is Dedicated HSM available in?
 
