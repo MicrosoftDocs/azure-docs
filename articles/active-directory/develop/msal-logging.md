@@ -41,7 +41,7 @@ By default, the MSAL logger doesn't capture any highly sensitive personal or org
 
 For details about MSAL logging in a particular language, choose the tab matching your language:
 
-## [MSAL.NET](#tab/msalnet)
+## [.NET](#tab/dotnet)
 
 ## Logging in MSAL.NET
 
@@ -82,7 +82,7 @@ class Program
  }
  ```
 
-## [MSAL for Android](#tab/android)
+## [Android](#tab/android)
 
 ## Logging in MSAL for Android using Java
 
@@ -126,10 +126,9 @@ By default logging to logcat is disabled. To enable:
 Logger.getInstance().setEnableLogcatLog(true);
 ```
 
-## [MSAL.js](#tab/javascript)
-## Logging in MSAL.js
+## [JavaScript](#tab/javascript)
 
- Enable logging in MSAL.js (Javascript) by passing a logger object during the configuration for creating a `UserAgentApplication` instance. This logger object has the following properties:
+ Enable logging in MSAL.js (JavaScript) by passing a logger object during the configuration for creating a `UserAgentApplication` instance. This logger object has the following properties:
 
 - `localCallback`: a Callback instance that can be provided by the developer to consume and publish logs in a custom manner. Implement the localCallback method depending on how you want to redirect logs.
 - `level` (optional): the configurable log level. The supported log levels are: `Error`, `Warning`, `Info`, and `Verbose`. The default is `Info`.
@@ -159,7 +158,7 @@ var msalConfig = {
 var UserAgentApplication = new Msal.UserAgentApplication(msalConfig);
 ```
 
-## [MSAL for iOS and macOS](#tab/macos)
+## [macOS](#tab/macOS)
 
 ## MSAL for iOS and macOS logging
 
@@ -269,7 +268,7 @@ For example:
 
 Providing correlation IDs and timestamps are helpful for tracking down issues. Timestamp and correlation ID information is available in the log message. The only reliable place to retrieve them is from MSAL logging messages.
 
-## [MSAL for Java](#tab/java)
+## [Java](#tab/java)
 
 ## MSAL for Java logging
 
@@ -319,7 +318,7 @@ PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
         .build();
 ```
 
-## [MSAL for Python](#tab/python)
+## [Python](#tab/python)
 
 ## MSAL for Python logging
 
