@@ -396,7 +396,7 @@ Now that you've enabled data collection, run the following log search example by
 ![Sample log search for the 10 most recent logs](./media/logging/log-analytics-query.png)
 
 <a id="#queries"></a>
-### CosmosDB Log Analytics queries in Azure Monitor
+### Azure Cosmos DB Log Analytics queries in Azure Monitor
 
 Here are some additional queries that you can enter into the **Log search** box to help you monitor your Azure Cosmos containers. These queries work with the [new language](../log-analytics/log-analytics-log-search-upgrade.md).  
 
@@ -440,6 +440,7 @@ To learn about the meaning of the data that's returned by each log search, see [
     | where Caller == "test@company.com" and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
     | summarize count() by Resource
     ```
+
     > [!NOTE]
     > This command is for an activity log, not a diagnostic log.
 
@@ -457,8 +458,6 @@ To learn about the meaning of the data that's returned by each log search, see [
     | order by requestCharge_s desc
     | limit 100
     ```
-    
-      
 
 * To query for which operations take longer than 3 milliseconds:
 
@@ -491,11 +490,8 @@ To learn about the meaning of the data that's returned by each log search, see [
     AzureDiagnostics 
     | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
     | project SubscriptionId, regionName_s, databaseName_s, collectionname_s, partitionkey_s, sizeKb_s, ResourceId 
-    
-   
     ```
     
-
 For more information about how to use the new Log Search language, see [Understand log searches in Azure Monitor logs](../log-analytics/log-analytics-log-search-new.md). 
 
 ## <a id="interpret"></a>Interpret your logs

@@ -28,7 +28,7 @@ landingContent:
             url: about.md
       - linkListType: concept
         links:
-          - text: Location and partners
+          - text: Locations and partners
             url: location-partners.md
           - text: Connections
             url: connection.md
