@@ -17,7 +17,7 @@ Azure SQL Database identifies potential problems in your database and recommends
 
 ## Performance tuning options
 
-Performance tunin options available Azure SQL Database are available on the database navigation menu under "Intelligent Performance":
+Performance tuning options available Azure SQL Database are available on the database navigation menu under "Intelligent Performance":
 
 | Performance tuning option | Single database and pooled database support | Instance database support |
 | :----------------------------- | ----- | ----- |
@@ -26,7 +26,7 @@ Performance tunin options available Azure SQL Database are available on the data
 | **[Query Performance Insight](#query-performance-insight)** - Shows performance of top consuming queries on the database. | Yes | No | 
 | **[Automatic tuning](#automatic-tuning)** - Use Azure SQL Database to automatically optimize your database performance. | Yes | No | 
 
-## Performance Overview
+## Performance overview
 
 This view provides a summary of your database performance, and helps you with performance tuning and troubleshooting. 
 
