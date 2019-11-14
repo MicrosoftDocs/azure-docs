@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
-ms.date: 11/06/2019
+ms.date: 11/13/2019
 ---
 
 # Connect to Azure virtual networks from Azure Logic Apps by using an integration service environment (ISE)
@@ -25,10 +25,10 @@ When you create an ISE, Azure *injects* that ISE into your Azure virtual network
 
 An ISE has increased limits on run duration, storage retention, throughput, HTTP request and response timeouts, message sizes, and custom connector requests. For more information, see [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md). To learn more about ISEs, see [Access to Azure Virtual Network resources from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
-This article shows how to complete these tasks:
+This article shows you how to complete these tasks:
 
+* Enable access for your ISE.
 * Create your ISE.
-
 * Add extra capacity to your ISE.
 
 > [!IMPORTANT]
