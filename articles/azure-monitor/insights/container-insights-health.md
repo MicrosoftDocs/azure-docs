@@ -10,13 +10,13 @@ ms.assetid:
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 11/13/2019
+ms.date: 11/14/2019
 ms.author: magoedte
 ---
 
 # Understand Kubernetes cluster health with Azure Monitor for containers
 
-With Azure Monitor for containers, it monitors and reports health status of the managed infrastructure components, all nodes, and workloads running on a cluster deployed on Azure Kubernetes Service (AKS) and AKS Engine running on-premises and on Azure Stack. This experience extends beyond the cluster health status calculated and reported on the [multi-cluster view](container-insights-analyze.md#multi-cluster-view-from-azure-monitor), where now you can understand if one or more nodes in the cluster are resource constrained, or a node or pod are unavailable that could impact a running application in the cluster based on curated metrics. 
+With Azure Monitor for containers, it monitors and reports health status of the managed infrastructure components and all nodes running on any Kubernetes cluster supported by Azure Monitor for containers. This experience extends beyond the cluster health status calculated and reported on the [multi-cluster view](container-insights-analyze.md#multi-cluster-view-from-azure-monitor), where now you can understand if one or more nodes in the cluster are resource constrained, or a node or pod is unavailable that could impact a running application in the cluster based on curated metrics. 
 
 For information about how to enable Azure Monitor for containers, see [Onboard Azure Monitor for containers](container-insights-onboard.md).
 
@@ -30,7 +30,7 @@ Kubernetes cluster health is based on a number of monitoring scenarios organized
 
     ![Kubernetes infrastructure health rollup view](./media/container-insights-health/health-view-kube-infra-01.png)
 
-- Nodes - provides a rollup of the Node pools and state of individual Nodes in each pool, by evaluating CPU and memory utilization, and a Nodes availability.
+- Nodes - provides a rollup of the Node pools and state of individual Nodes in each pool, by evaluating CPU and memory utilization, and a Node's status as reported by Kubernete.
 
     ![Nodes health rollup view](./media/container-insights-health/health-view-nodes-01.png)
 
@@ -77,11 +77,11 @@ On the property pane, you learn the following:
 
 - On the **Overview** tab, it shows the current state of the monitor selected, when the monitor was last calculated, and when the last state change occurred. Additional information is shown depending on the type of monitor selected in the hierarchy.
 
-    If you select an aggregate monitor in the Health Hierarchy pane, under the **Overview** tab on the property pane it shows a rollup of the total number of aggregate monitors in the hierarchy, and how many aggregate monitors are in a critical, warning, and healthy state. 
+    If you select an aggregate monitor in the Health Hierarchy pane, under the **Overview** tab on the property pane it shows a rollup of the total number of child monitors in the hierarchy, and how many aggregate monitors are in a critical, warning, and healthy state. 
 
     ![Health property pane Overview tab for aggregate monitor](./media/container-insights-health/health-overview-aggregate-monitor.png)
 
-    If you select a child monitor in the Health Hierarchy pane, it also shows under **Last state change** the previous samples calculated and reported by the containerized agent within the last four hours. This is based on the unit monitors calculation for comparing several consecutive values to determine its threshold. For example, if you selected the *Pod ready state* unit monitor, it shows the last two samples.
+    If you select a unit monitor in the Health Hierarchy pane, it also shows under **Last state change** the previous samples calculated and reported by the containerized agent within the last four hours. This is based on the unit monitors calculation for comparing several consecutive values to determine its state. For example, if you selected the *Pod ready state* unit monitor, it shows the last two samples.
     
     ![Health property pane Overview tab](./media/container-insights-health/health-overview-unit-monitor.png)
 
