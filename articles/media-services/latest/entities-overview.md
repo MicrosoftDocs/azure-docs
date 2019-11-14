@@ -40,7 +40,7 @@ Range operators:
 
 - `gt`: Test whether a field is *greater than* a constant value.
 - `lt`: Test whether a field is *less than* a constant value.
-- `ge`: Test whether a field is *greater than or equal to* a constant. value
+- `ge`: Test whether a field is *greater than or equal to* a constant value.
 - `le`: Test whether a field is *less than or equal to* a constant value.
 
 ## Filter
@@ -58,11 +58,11 @@ The following C# example filters on the asset's created date:
 ```csharp
 var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:08.387Z");
 var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName, odataQuery);
-```    
+```
 
 ## Order by
 
-Use `$orderby` to sort the returned objects by the specified parameter. For example:    
+Use `$orderby` to sort the returned objects by the specified parameter. For example:  
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01$orderby=properties/created%20gt%202018-05-11T17:39:08.387Z
@@ -76,7 +76,7 @@ If a query response contains many items, the service returns a `$skiptoken` (`@o
 
 In Media Services v3, you can't configure the page size. The page size varies by the type of entity. Read the individual sections that follow for details.
 
-If entities are created or deleted while you're paging through the collection, the changes are reflected in the returned results (if those changes are in the part of the collection that has not been downloaded). 
+If entities are created or deleted while you're paging through the collection, the changes are reflected in the returned results (if those changes are in the part of the collection that hasn't been downloaded).
 
 > [!TIP]
 > You should always use `nextLink` to enumerate the collection and not depend on a particular page size.
