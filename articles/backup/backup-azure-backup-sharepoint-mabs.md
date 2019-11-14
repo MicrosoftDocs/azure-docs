@@ -234,7 +234,7 @@ In the following example, the *Recovering SharePoint item* has been accidentally
     ![MABS SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. At this point, follow the recovery steps earlier in this article to recover a SharePoint content database from disk.
 
-## Next Steps
+## Next steps
 
 See the [Back up Exchange server](backup-azure-exchange-mabs.md) article.
 See the [Back up SQL Server](backup-azure-sql-mabs.md) article.
