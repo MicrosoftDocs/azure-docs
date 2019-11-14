@@ -39,4 +39,4 @@ The full code and a step-by-step guide to deploy the results can be found in [Gi
 
 ## Next steps
 
-[Video Indexer overview](video-indexer-overview.md). 
+[Video Indexer overview](video-indexer-overview.md)
