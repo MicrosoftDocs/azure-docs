@@ -70,7 +70,7 @@ The following sections contain links to articles that explain how to use a Recov
 
 - [Securing cloud backup data in Recovery Services vaults](backup-azure-security-feature.md)
 
-## Next Steps
+## Next steps
 
 Use the following articles to:</br>
 [Back up an IaaS VM](backup-azure-arm-vms-prepare.md)</br>
