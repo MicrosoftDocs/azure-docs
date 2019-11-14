@@ -145,8 +145,8 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
      d.	Preferred collection date
     ```
 NOTE: For booking requests received on a business day
-•	Before 3pm, pick up will be the next business day between 9 to 1pm
-•	After 3pm, pick up will be the next business day between 2 to 6pm
+ - Before 3pm, pick up will be the next business day between 9 to 1pm.
+ - After 3pm, pick up will be the next business day between 2 to 6pm
 
 Should you encounter any issues, kindly reach out to Data Box Operations Asia adbo@microsoft.com providing Job name in subject header and the issue encountered.
 
