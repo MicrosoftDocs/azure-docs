@@ -32,7 +32,7 @@ This quickstart shows you how to build a sample IoT Plug and Play device applica
 
 ## Prerequisites
 
-To complete this quickstart, you need Java SE 7 on your development machine. You can download Java SE 7 from [Oracle's Java SE Downloads](https://www.oracle.com/technetwork/java/javase/downloads/index.html). Make sure your `PATH` and `JAVA_HOME` environment variables include the full path to the `jdk1.7.x` directory.
+To complete this quickstart, you need Java SE 7 on your development machine. You can download Java SE 7 for multiple platforms from [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/en-us/java/azure/jdk/?view=azure-java-stable), by selecting **Java 7** under **Long-term support** to get downloads for Java 7. Make sure your `PATH` and `JAVA_HOME` environment variables include the full path to the `jdk1.7.x` directory.
 
 You can check that the environment variables are set correctly and verify the version of Java on your development machine by running the following command in a local terminal window: 
 
