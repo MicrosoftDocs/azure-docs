@@ -1,7 +1,7 @@
 ---
-title: 'MLOps: Manage, deploy, & monitor ML models'
+title: 'MLOps: ML model management'
 titleSuffix: Azure Machine Learning
-description: 'Learn how to use Azure Machine Learning for MLOps: deploy, manage, and monitor your models to continuously improve them. You can deploy the models you trained with Azure Machine Learning, on your local machine, or from other sources.'  
+description: 'Learn about model management with Azure Machine Learning (MLOps). Deploy, manage, and monitor your models to continuously improve them. '  
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,7 +13,7 @@ ms.date: 11/04/2019
 ms.custom: seodec18
 ---
 
-# MLOps: Manage, deploy, and monitor models with Azure Machine Learning
+# MLOps: model management, deployment and monitoring with Azure Machine Learning
 
 In this article, learn about how to use Azure Machine Learning to manage the lifecycle of your models. Azure Machine Learning uses a Machine Learning Operations (MLOps) approach, which improves the quality and consistency of your machine learning solutions. 
 
@@ -164,6 +164,6 @@ Learn more by reading and exploring the following resources:
 
 + Create clients that [consume a deployed model](how-to-consume-web-service.md)
 
-+ [Machine learning at scale](/azure/architecture/data-guide/big-data/machine-learning-at-scale)
++ [Machine learning at scale](/architecture/data-guide/big-data/machine-learning-at-scale)
 
 + [Azure AI reference architectures & best practices rep](https://github.com/microsoft/AI)
