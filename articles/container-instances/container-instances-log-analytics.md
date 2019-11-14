@@ -6,11 +6,11 @@ author: dlepow
 manager: gwallace
 
 ms.service: container-instances
-ms.topic: overview
+ms.topic: article
 ms.date: 09/02/2019
 ms.author: danlep
 ---
-# Container instance logging with Azure Monitor logs
+# Container group and instance logging with Azure Monitor logs
 
 Log Analytics workspaces provide a centralized location for storing and querying log data from not only Azure resources, but also on-premises resources and resources in other clouds. Azure Container Instances includes built-in support for sending logs and event data to Azure Monitor logs.
 
