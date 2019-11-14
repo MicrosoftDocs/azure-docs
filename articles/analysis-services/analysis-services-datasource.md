@@ -30,7 +30,7 @@ Data sources and connectors shown in Get Data or Import Wizard in Visual Studio 
 <a name="tab1400a">1</a> - Tabular 1400 and higher models only.   
 <a name="azsqlmanaged">2</a> - Azure SQL Database Managed Instance is supported. Because managed instance runs within Azure VNet with a private IP address, public endpoint must be enabled on the instance. If not enabled, an on-premises Data Gateway is required.    
 <a name="databricks">3</a> - Azure Databricks using the Spark connector is currently not supported.   
-<a name="gen2">4</a> - ADLS Gen2 is currently not supported.
+<a name="gen2">4</a> - ADLS Gen2 connector is currently not supported, however, Blob Storage connector can be used with an ADLS Gen2 data source.
 
 
 **Provider**   
