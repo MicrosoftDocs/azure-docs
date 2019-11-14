@@ -306,7 +306,7 @@ Use customizations to modify an interface, or to add IoT Central-specific featur
 
 You can't customize the capability name or capability type.
 
-When you are finished customizing, select **Save**.
+When you're finished customizing, select **Save**.
   
 ![Screenshot of Environment Sensor Template Customize page](./media/tutorial-define-edge-device-type/edgetemplatecustomize.png)
 
