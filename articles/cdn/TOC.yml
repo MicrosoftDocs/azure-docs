@@ -1,4 +1,4 @@
-- name: Azure Content Delivery Network documentation
+- name: Content Delivery Network documentation
   href: index.yml
 - name: Overview
   items:
@@ -12,7 +12,7 @@
     href: cdn-create-new-endpoint.md
   - name: Integrate a storage account
     href: cdn-create-a-storage-account-with-cdn.md    
-  - name: Create a profile by using a Resource Manager template
+  - name: Create a profile by using an Azure Resource Manager template
     href: create-profile-resource-manager-template.md
 - name: Tutorials
   items:
@@ -81,7 +81,7 @@
         href: cdn-purge-endpoint.md
       - name: Preload cached assets
         href: cdn-preload-endpoint.md
-    - name: Configure time-to-live (TTL)
+    - name: Configure time to live (TTL)
       items:
       - name: Azure web content
         href: cdn-manage-expiration-of-cloud-service-content.md
@@ -89,13 +89,13 @@
         href: cdn-manage-expiration-of-blob-content.md
     - name: Token authentication
       href: cdn-token-auth.md
-    - name: SAS storage support
+    - name: Shared access signature storage support
       href: cdn-sas-storage-support.md
     - name: Cross-origin resource sharing
       href: cdn-cors.md      
     - name: Monitor resources
       href: cdn-resource-health.md
-    - name: Override behavior with rules
+    - name: Use rules to override behavior
       href: cdn-verizon-premium-rules-engine.md
     - name: Use Traffic Manager
       href: cdn-traffic-manager.md      
@@ -136,7 +136,7 @@
       href: cdn-troubleshoot-allowed-ca.md      
 - name: Reference
   items:
-  - name: Microsoft Standard rules engine reference
+  - name: Standard rules engine reference
     href: cdn-standard-rules-engine-reference.md
     items:
     - name: Standard rules engine match conditions

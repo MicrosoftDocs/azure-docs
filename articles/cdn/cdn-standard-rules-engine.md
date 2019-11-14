@@ -1,6 +1,6 @@
 ---
-title: Use a rules engine to enforce HTTPS for Standard Azure Content Delivery Network | Microsoft Docs
-description: Use the rules engine for Microsoft Standard Azure Content Delivery Network (Azure CDN) to customize how Azure CDN handles HTTP requests from Microsoft, including blocking the delivery of certain types of content, defining a caching policy, and modifying HTTP headers. In this article, learn how to create a rule to redirect users to HTTPS.
+title: Use a rules engine to enforce HTTPS in Standard Azure CDN | Microsoft Docs
+description: Use the rules engine for Microsoft Standard Azure Content Delivery Network (Azure CDN) to customize how Azure CDN handles HTTP requests, including blocking the delivery of certain types of content, defining a caching policy, and modifying HTTP headers. In this article, learn how to create a rule to redirect users to HTTPS.
 services: cdn
 author: mdgattuso
 
@@ -11,14 +11,14 @@ ms.author: magattus
 
 ---
 
-# Set up the rules engine for Standard Azure Content Delivery Network
+# Set up the rules engine for Standard Azure CDN
 
 > [!NOTE]
 > The rules engine is available only for Standard Azure Content Delivery Network from Microsoft. 
 
-You can use a rules engine for Standard Azure Content Delivery Network (Azure CDN) to customize how HTTP requests are handled. For example, you can use the rules engine to enforce content delivery over specific protocols, define a caching policy, or modify an HTTP header. This tutorial demonstrates how to create a rule that automatically redirects users to HTTPS. 
+You can use the Standard rules engine for Azure Content Delivery Network (Azure CDN) to customize how HTTP requests are handled. For example, you can use the rules engine to enforce content delivery over specific protocols, define a caching policy, or modify an HTTP header. This article demonstrates how to create a rule that automatically redirects users to HTTPS. 
 
-## Tutorial
+## Redirect users to HTTPS
 
 1. In your Microsoft profiles, go to Azure Content Delivery Network.
 
@@ -26,12 +26,12 @@ You can use a rules engine for Standard Azure Content Delivery Network (Azure CD
   
 1. Select the **Rules Engine** tab.
    
-    The **Rules Engine** pane appears and displays the list of global rules. 
+    The **Rules Engine** pane appears and displays the list of available global rules. 
    
     [![Azure CDN new rules page](./media/cdn-standard-rules-engine/cdn-new-rule.png)](./media/cdn-standard-rules-engine/cdn-new-rule.png#lightbox)
    
    > [!IMPORTANT]
-   > The order in which multiple rules are listed affects how rules are handled. A subsequent rule might override the actions that are specified in a previous rule.
+   > The order in which multiple rules are listed affects how rules are handled. A subsequent rule might override the actions that are specified in an existing rule.
    >
 
 1. Select **Add rule** and enter a rule name. Rule names must start with a letter and can contain only numbers and letters.
@@ -64,9 +64,9 @@ You can use a rules engine for Standard Azure Content Delivery Network (Azure CD
    >
    
 
-## See also
+## Next steps
 
 - [Azure CDN overview](cdn-overview.md)
-- [Standard Rules engine reference](cdn-standard-rules-engine-reference.md)
-- [Standard Rules engine match conditions](cdn-standard-rules-engine-match-conditions.md)
-- [Standard Rules engine actions](cdn-standard-rules-engine-actions.md)
+- [Standard rules engine reference](cdn-standard-rules-engine-reference.md)
+- [Match conditions in the Standard rules engine](cdn-standard-rules-engine-match-conditions.md)
+- [Actions in the Standard rules engine](cdn-standard-rules-engine-actions.md)

@@ -1,5 +1,5 @@
 ---
-title: Actions in the Standard rules engine for Azure Content Delivery Network | Microsoft Docs
+title: Actions in the Standard rules engine for Azure CDN | Microsoft Docs
 description: Reference documentation for actions in the Standard rules engine for Azure Content Delivery Network (Azure CDN).
 services: cdn
 author: mdgattuso
@@ -11,29 +11,29 @@ ms.author: magattus
 
 ---
 
-# Actions in the Standard rules engine for Azure Content Delivery Network
+# Actions in the Standard rules engine for Azure CDN
 
-This article lists detailed descriptions of the actions you can use in the [Standard rules engine](cdn-standard-rules-engine.md) for Azure Content Delivery Network (Azure CDN) from Microsoft.
+In a rules engine, a rule consists of a set of match conditions and an action. This article provides detailed descriptions of the actions you can use in the [Standard rules engine](cdn-standard-rules-engine.md) for Azure Content Delivery Network (Azure CDN).
 
-The second part of a rule is an action. An action defines the behavior that's applied to the request type that a set of match conditions identify.
+The second part of a rule is an action. An action defines the behavior applied to the request type that a set of match conditions identifies.
 
 ## Actions
 
-The following actions are available to use. 
+The following actions are available to use in the Standard rules engine for Azure CDN. 
 
 ## Cache expiration
 
-Use this action to overwrite the time-to-live (TTL) value of the endpoint for requests that are specified by the rules match conditions.
+Use this action to overwrite the time to live (TTL) value of the endpoint for requests that the rules match conditions specify.
 
-**Required fields**
+### Required fields
 
 Cache behavior |  Description              
 ---------------|----------------
-Bypass Cache | When this option is selected and the rule matches, the content isn't cached.
-Override | When this option is selected and the rule matches, the TTL value returned from origin will be overwritten with the value specified in the action.
-Set if missing | When this option is selected and the rule matches, if there was no TTL value returned from origin, the rule seta the TTL to the value specified in the action.
+Bypass Cache | When this option is selected and the rule matches, the content is not cached.
+Override | When this option is selected and the rule matches, the TTL value returned from your origin is overwritten with the value specified in the action.
+Set if missing | When this option is selected and the rule matches, if no TTL value was returned from your origin, the rule sets the TTL to the value specified in the action.
 
-**Additional fields**
+### Additional fields
 
 Days | Hours | Minutes | Seconds
 -----|-------|---------|--------
@@ -43,7 +43,7 @@ Int | Int | Int | Int
 
 Use this action to modify the cache key based on query strings.
 
-**Required fields**
+### Required fields
 
 Behavior | Description
 ---------|------------
@@ -56,19 +56,19 @@ Ignore query strings | When this option is selected and the rule matches, query 
 
 Use this action to modify headers that are present in requests sent to your origin.
 
-**Required fields**
+### Required fields
 
-Action | HTTP Header name | Value
+Action | HTTP header name | Value
 -------|------------------|------
-Append | When this option is selected and the rule matches, the header specified in Header name is added to the request with the specified value. If the header is already present, the value is appended to the existing value. | String
-Overwrite | When this option is selected and the rule matches, the header specified in Header name is added to the request with the specified Value. If the header is already present, the Value will overwrite the existing value. | String
-Delete | When this option is selected and the rule matches, and the header specified in the rule is present, it will be deleted from the request. | String
+Append | When this option is selected and the rule matches, the header specified in **Header name** is added to the request with the specified value. If the header is already present, the value is appended to the existing value. | String
+Overwrite | When this option is selected and the rule matches, the header specified in **Header name** is added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. | String
+Delete | When this option is selected and the rule matches, and the header specified in the rule is present, the header is deleted from the request. | String
 
 ## Modify response header
 
-Use this action to modify headers that are present in responses returned to your end clients.
+Use this action to modify headers that are present in responses returned to your clients.
 
-**Required fields**
+### Required fields
 
 Action | HTTP Header name | Value
 -------|------------------|------
@@ -78,18 +78,18 @@ Delete | When this option is selected and the rule matches, and the header speci
 
 ## URL redirect
 
-Use this action to redirect end clients to a new URL. 
+Use this action to redirect clients to a new URL. 
 
-**Required fields**
+### Required fields
 
 Field | Description 
 ------|------------
-Type | Select the response type to return to the requestor. Options are: 302 Found, 301 Moved, 307 Temporary redirect, and 308 Permanent redirect.
+Type | Select the response type to return to the requestor. Options are: Found (302), Moved (301), Temporary redirect (307), and Permanent redirect (308).
 Protocol | Match Request, HTTP, or HTTPS.
-Hostname | Select the hostname you want the request to be redirected to. Leave empty to preserve the incoming host.
-Path | Define the path to use in the redirect. Leave empty to preserve the incoming path.  
-Query String | Define the query string used in the redirect. Leave empty to preserve the incoming query string. 
-Fragment | Define the fragment to use in the redirect. Leave empty to preserve the incoming fragment. 
+Hostname | Select the hostname you want the request to be redirected to. Leave blank to preserve the incoming host.
+Path | Define the path to use in the redirect. Leave blank to preserve the incoming path.  
+Query String | Define the query string used in the redirect. Leave blank to preserve the incoming query string. 
+Fragment | Define the fragment to use in the redirect. Leave blank to preserve the incoming fragment. 
 
 We highly recommend that you use an absolute URL. Using a relative URL might redirect Azure CDN URLs to an invalid path. 
 
@@ -97,7 +97,7 @@ We highly recommend that you use an absolute URL. Using a relative URL might red
 
 Use this action to rewrite the path of a request that's en route to your origin.
 
-**Required fields**
+### Required fields
 
 Field | Description 
 ------|------------
@@ -107,7 +107,7 @@ Preserve unmatched path | If **Yes**, the remaining path after the source patter
 
 ## Next steps
 
-- [Azure Content Delivery Network overview](cdn-overview.md)
-- [Rules engine reference](cdn-standard-rules-engine-reference.md)
-- [Rules engine match conditions](cdn-standard-rules-engine-match-conditions.md)
+- [Azure CDN overview](cdn-overview.md)
+- [Standard rules engine reference](cdn-standard-rules-engine-reference.md)
+- [Match conditions in the Standard rules engine](cdn-standard-rules-engine-match-conditions.md)
 - [Enforce HTTPS by using the Standard rules engine](cdn-standard-rules-engine.md)

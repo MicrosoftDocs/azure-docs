@@ -1,5 +1,5 @@
 ---
-title: Standard rules engine reference for Azure Content Delivery Network | Microsoft Docs
+title: Standard rules engine reference for Azure CDN | Microsoft Docs
 description: Reference documentation for match conditions and actions in the Standard rules engine for Azure Content Delivery Network (Azure CDN).
 services: cdn
 author: mdgattuso
@@ -11,9 +11,9 @@ ms.author: magattus
 
 ---
 
-# Standard rules engine reference for Azure Content Delivery Network
+# Standard rules engine reference for Azure CDN
 
-This article lists detailed descriptions of the available match conditions and features for the Azure Content Delivery Network (Azure CDN) [Standard rules engine](cdn-standard-rules-engine.md).
+This article provides detailed descriptions of the match conditions and features that are avaiable in the [Standard rules engine](cdn-standard-rules-engine.md) for Azure Content Delivery Network (Azure CDN).
 
 The rules engine is designed to be the final authority on how specific types of requests are processed by Standard Azure CDN.
 
@@ -25,7 +25,7 @@ The rules engine is designed to be the final authority on how specific types of 
 
 ## Terminology
 
-You define a rule by setting [**match conditions**](cdn-standard-rules-engine-match-conditions.md), and [**actions**](cdn-standard-rules-engine-actions.md). These elements are highlighted in the following illustration:
+You define a rule by setting [match conditions](cdn-standard-rules-engine-match-conditions.md) and [actions](cdn-standard-rules-engine-actions.md). These elements are highlighted in the following illustration:
 
  ![Azure CDN rules structure](./media/cdn-standard-rules-engine-reference/cdn-rules-structure.png)
 
@@ -37,19 +37,19 @@ Included in the current five-rule limit for an Azure CDN endpoint is a default *
 
 How special characters are treated varies based on how a match condition or action handles text values. A match condition or feature can interpret text in one of the following ways:
 
-- [**Literal values**](#literal-values)
-- [**Wildcard values**](#wildcard-values)
+- [Literal values](#literal-values)
+- [Wildcard values](#wildcard-values)
 
 
 ### Literal values
 
-Text that is interpreted as a literal value treats all special characters *except the % symbol* as part of the value that must be matched. For example, a literal match condition set to `\'*'\` is satisfied only when that exact value (`\'*'\`) is found.
+Text that's interpreted as a literal value treats all special characters *except the % symbol* as part of the value that must be matched. For example, a literal match condition set to `'*'` is satisfied only when that exact value (`'*'`) is found.
 
 A percent sign is used to indicate URL encoding (for example, `%20`).
 
 ### Wildcard values
 
-Text that is interpreted as a wildcard value assigns additional meaning to special characters. The following table describes how specific special characters are interpreted:
+Text that's interpreted as a wildcard value assigns additional meaning to special characters. The following table describes how specific special characters are interpreted:
 
 Character | Description
 ----------|------------
@@ -57,11 +57,11 @@ Character | Description
 % | A percent sign is used to indicate URL encoding (for example, `%20`).
 \* | An asterisk is a wildcard that represents one or more characters.
 space | A space character indicates that a match condition can be satisfied by either of the specified values or patterns.
-single quotation marks | A single quotation mark doesn't have special meaning. However, a set of single quotation marks indicates that a value should be treated as a literal value. Single quotation marks can be used in the following ways:<br><br/>- To allow a match condition to be satisfied whenever the specified value matches any portion of the comparison value.  For example, `'ma'` would match any of the following strings: <br/><br/>/business/**ma**rathon/asset.htm<br/>**ma**p.gif<br/>/business/template.**ma**p<br /><br />- To allow a special character to be specified as a literal character. For example, you can specify a literal space character by enclosing a space character within a set of single quotation marks (`' '` or `'sample value'`).<br/>- To allow a blank value to be specified. Specify a blank value by specifying a set of single quotation marks (**''**).<br /><br/>**Important:**<br/>- If the specified value doesn't contain a wildcard, the value is automatically considered a literal value, which means that it isn't necessary to specify a set of single quotation marks.<br/>- If a backslash does not escape another character in this table, the backslash is ignored when it's specified within a set of single quotation marks.<br/>- Another way to specify a special character as a literal character is to escape it by using a backslash (`\`).
+single quotation marks | A single quotation mark doesn't have special meaning. However, a set of single quotation marks indicates that a value should be treated as a literal value. Single quotation marks can be used in the following ways:<ul><li>To allow a match condition to be satisfied whenever the specified value matches any portion of the comparison value.  For example, `'ma'` would match any of the following strings: <ul><li>/business/**ma**rathon/asset.htm</li><li>**ma**p.gif</li><li>/business/template.**ma**p</li></ul><li>To allow a special character to be specified as a literal character. For example, you can specify a literal space character by enclosing a space character in a set of single quotation marks (`' '` or `'<sample value>'`).</li><li>To allow a blank value to be specified. Specify a blank value by specifying a set of single quotation marks (**''**).</li></ul>**Important**:<br /><ul><li>If the specified value doesn't contain a wildcard, the value is automatically considered a literal value, which means that you don't need to specify a set of single quotation marks.</li><li>If a backslash isn't used to escape another character in this table, the backslash is ignored when it's specified in a set of single quotation marks.</li><li>Another way to specify a special character as a literal character is to escape it by using a backslash (`\`).</li></ul>
 
 ## Next steps
 
-- [Standard rules engine match conditions](cdn-standard-rules-engine-match-conditions.md)
-- [Standard rules engine actions](cdn-standard-rules-engine-actions.md)
+- [Match conditions in the Standard rules engine](cdn-standard-rules-engine-match-conditions.md)
+- [Actions in the Standard rules engine](cdn-standard-rules-engine-actions.md)
 - [Enforce HTTPS by using the Standard rules engine](cdn-standard-rules-engine.md)
-- [Azure Content Delivery Network overview](cdn-overview.md)
+- [Azure CDN overview](cdn-overview.md)
