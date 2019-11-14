@@ -19,11 +19,11 @@ In this tutorial, you'll use Azure Data Factory to incrementally sync data to Az
 
 If you haven't already created a database or table in your Azure SQL Database Edge deployment, use one of these methods to create one:
 
-* Use [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms/) or [Azure Data Studio](/sql/azure-data-studio/download/) to connect to SQL Database Edge and run a SQL script to create the database and table.
+* Use [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms/) or [Azure Data Studio](/sql/azure-data-studio/download/) to connect to SQL Database Edge. Run a SQL script to create the database and table.
 * Create a SQL database and table by using [SQLCMD](/sql/tools/sqlcmd-utility/) by directly connecting to the SQL Database Edge module. For more information, see [Connect to the Database Engine by using sqlcmd](/sql/ssms/scripting/sqlcmd-connect-to-the-database-engine/).
 * Use SQLPackage.exe to deploy a DAC package file to the SQL Database Edge container. You can automate this process by specifying the SqlPackage file URI as part of the module's desired properties configuration. You can also directly use the SqlPackage.exe client tool to deploy a DAC package to SQL Database Edge.
 
-    For information about how to download SqlPackage.exe, see [Download and install sqlpackage](/sql/tools/sqlpackage-download/). Following are some sample commands for SqlPackage.exe. See the SqlPackage.exe documentation for more information.
+    For information about how to download SqlPackage.exe, see [Download and install sqlpackage](/sql/tools/sqlpackage-download/). Following are some sample commands for SqlPackage.exe. For more information, see the SqlPackage.exe documentation.
 
     **Create a DAC package**
 
@@ -124,7 +124,7 @@ Create a data factory by following the instructions in [this tutorial](../data-f
 
 14. Switch to the pipeline editor by selecting the pipeline tab at the top or by selecting the name of the pipeline in the tree view on the left. In the properties window for the Lookup activity, confirm that **SourceDataset** is selected in the **Source dataset** list.
 
-15. Select **Query** under **Use query**. Update the table name in the following query and then enter the query. You are selecting only the maximum value of `timestamp` from the table. Be sure to select **First row only**.
+15. Select **Query** under **Use query**. Update the table name in the following query and then enter the query. You're selecting only the maximum value of `timestamp` from the table. Be sure to select **First row only**.
 
     ```sql
     select MAX(timestamp) as NewWatermarkvalue from [TableName]
@@ -197,7 +197,7 @@ Create a data factory by following the instructions in [this tutorial](../data-f
 
 33. To validate the pipeline settings, select **Validate** on the toolbar. Confirm that there are no validation errors. To close the **Pipeline Validation Report** window, select **>>**.
 
-34. Publish the entities (linked services, datasets, and pipelines) to the Azure Data Factory service by selecting the **Publish All** button. Wait until you see a message confirming that the publishing has succeeded.
+34. Publish the entities (linked services, datasets, and pipelines) to the Azure Data Factory service by selecting the **Publish All** button. Wait until you see a message confirming that the publish operation has succeeded.
 
 ## Trigger a pipeline based on a schedule
 

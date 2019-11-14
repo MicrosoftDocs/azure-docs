@@ -1,5 +1,5 @@
 ---
-title: Using SQL Database DAC package and Stream Analytics jobs with Azure SQL Database Edge | Microsoft Docs
+title: Using SQL Database DAC packages and Stream Analytics jobs with Azure SQL Database Edge | Microsoft Docs
 description: Learn about using Stream Analytics jobs in SQL Database Edge
 keywords: sql database edge, stream analytics, sqlpackage
 services: sql-database-edge
@@ -11,7 +11,7 @@ ms.reviewer: sstein
 ms.date: 11/04/2019
 ---
 
-# Using SQL Database DAC package and Stream Analytics jobs with SQL Database Edge
+# Using SQL Database DAC packages and Stream Analytics jobs with SQL Database Edge
 
 Azure SQL Database Edge Preview is an optimized relational database engine geared for IoT and edge deployments. It's built on the latest versions of the Microsoft SQL Server Database Engine, which provides industry-leading performance, security, and query processing capabilities. Along with the industry-leading relational database management capabilities of SQL Server, Azure SQL Database Edge provides in-built streaming capability for real-time analytics and complex event-processing.
 
@@ -32,7 +32,7 @@ Azure SQL Database Edge exposes two optional parameters through the `module twin
 |Field | Description |
 |------|-------------|
 | SqlPackage | Azure Blob storage URI for the *.zip file that contains the SQL Database DAC package.
-| ASAJobInfo | Azure Blob storage URI for the ASA Edge job. For more information on publishing the ASA Edge job, see [Publishing an ASA Edge job for SQL Database Edge](/azure/sql-database-edge/stream-analytics#using-streaming-jobs-with-sql-database-edge).
+| ASAJobInfo | Azure Blob storage URI for the ASA Edge job. For more information, see [Publishing an ASA Edge job for SQL Database Edge](/azure/sql-database-edge/stream-analytics#using-streaming-jobs-with-sql-database-edge).
 
 ## Using SQL Database DAC packages with SQL Database Edge
 
@@ -40,11 +40,11 @@ To use a SQL Database DAC package (*.dacpac) with SQL Database Edge, take these 
 
 1. Create or extract a SQL Database DAC package. See [Extracting a DAC from a database](/sql/relational-databases/data-tier-applications/extract-a-dac-from-a-database/) for information on how to generate a DAC package for an existing SQL Server database.
 
-2. Zip the *.dacpac and upload to an Azure Blob storage account. For more information on uploading files to Azure Blob storage, see [Upload, download, and list blobs with the Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md).
+2. Zip the *.dacpac and upload it to an Azure Blob storage account. For more information on uploading files to Azure Blob storage, see [Upload, download, and list blobs with the Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md).
 
 3. Generate a shared access signature for the zip file by using the Azure portal. For more information, see [Delegate access with shared access signatures (SAS)](../storage/common/storage-sas-overview.md).
 
-4. Update the SQL Database Edge module configuration to include the shared access URI for the DAC package. To update the SQL Database Edge module, complete these steps:
+4. Update the SQL Database Edge module configuration to include the shared access URI for the DAC package. To update the SQL Database Edge module, take these steps:
 
     1. In the Azure portal, go to your IoT Hub deployment.
 
@@ -90,15 +90,15 @@ Azure SQL Database Edge has a native implementation of the stream analytics runt
 
     **Input**. Choose EdgeHub as the input for the edge job, and provide the resource info.
 
-    **Output**. Select SQL Database as output. Select **Provide SQL Database settings manually**. Provide the configuration details for the database and table.
+    **Output**. Select SQL Database the as output. Select **Provide SQL Database settings manually**. Provide the configuration details for the database and table.
 
     |Field      | Description |
     |---------------|-------------|
     |Output alias | Name of the output alias.|
     |Database | Name of the SQL database. It needs to be a valid name of a database that exists on the SQL Database Edge instance.|
     |Server name | Name (or IP address) and port number details for the SQL instance. For a SQL Database Edge deployment, you can use **tcp:.,1433** for the server name.|
-    |Username | SQL sign-in account that has data reader and data writer access to the database specified earlier.|
-    |Password | Password for the SQL sign-in account specified earlier.|
+    |Username | SQL sign-in account that has data reader and data writer access to the database that you specified earlier.|
+    |Password | Password for the SQL sign-in account that you specified earlier.|
     |Table | Name of the table that will be output for the streaming job.|
     |Inherit Partitioning| Enables inheriting the partitioning scheme of your previous query step or input. When this option is enabled, you can expect to see better throughput when you write to a disk-based table and have a fully parallel topology for your job.|
     |Batch Size| The maximum number of records that's sent with every bulk insert transaction.|
@@ -173,4 +173,4 @@ To deploy the streaming job to the SQL Database Edge module, update the SQL Data
 
 - For pricing and availability details, see [Azure SQL Database Edge](https://azure.microsoft.com/services/sql-database-edge/).
 - Request enabling Azure SQL Database Edge for your subscription.
-- To get started, see the [Deploy SQL Database Edge through Azure portal](deploy-portal.md).
+- To get started, see [Deploy SQL Database Edge through Azure portal](deploy-portal.md).
