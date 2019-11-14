@@ -1,17 +1,18 @@
 ---
-title: Monitor access logs, performance logs, back-end health, and metrics for Azure Application Gateway
+title: Back-end health and diagnostic logs
+titleSuffix: Azure Application Gateway
 description: Learn how to enable and manage access logs and performance logs for Azure Application Gateway
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/09/2019
+ms.date: 11/14/2019
 ms.author: victorh
-
 ---
+
 # Back-end health and diagnostic logs for Application Gateway
 
-By using Azure Application Gateway, you can monitor resources in the following ways:
+You can monitor Azure Application Gateway resources in the following ways:
 
 * [Back-end health](#back-end-health): Application Gateway provides the capability to monitor the health of the servers in the back-end pools through the Azure portal and through PowerShell. You can also find the health of the back-end pools through the performance diagnostic logs.
 
