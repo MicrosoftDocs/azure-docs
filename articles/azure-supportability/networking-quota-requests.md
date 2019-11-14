@@ -16,7 +16,8 @@ To view your current Networking usage and quota, you can visit the **Usages + Qu
 
 You can request an increase via **Help + Support** blade or the **Usages + Quota** blade in the portal.
 
->[!NOTE] To change the default size of for Public IP Prefix, select "Min Public IP InterNetwork Prefix Length" from the dropdown list.
+> [!Note]
+> To change the default size of for Public IP Prefix, select "Min Public IP InterNetwork Prefix Length" from the dropdown list.
 
 ## Request Networking quota increase at subscription level using the **Help + Support** blade
 
