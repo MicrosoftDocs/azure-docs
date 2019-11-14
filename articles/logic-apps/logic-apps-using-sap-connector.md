@@ -112,7 +112,7 @@ In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-
 
 1. In the Logic App Designer, under the trigger, select **New step**.
 
-   ![Add new step to logic app](./media/logic-apps-using-sap-connector/add-action.png)
+   ![Add new step to logic app](./media/logic-apps-using-sap-connector/add-sap-action-logic-app.png)
 
 1. In the search box, enter `sap` as your filter. From the **Actions** list, select **Send message to SAP**.
   
@@ -224,6 +224,8 @@ Include your message content with your request. To the send the request, you can
 
 You've now created a logic app that can communicate with your SAP server. Now that you've set up an SAP connection for your logic app, you can explore other available SAP actions, such as BAPI and RFC.
 
+<a name="receive-from-sap"></>
+
 ## Receive message from SAP
 
 This example uses a logic app that triggers when the app receives a message from an SAP system.
@@ -304,7 +306,7 @@ You can set up SAP to [send IDOCs in packets](https://help.sap.com/viewer/8f3819
 
 Here's an example that shows how to extract individual IDOCs from a packet by using the [`xpath()` function](./workflow-definition-language-functions-reference.md#xpath):
 
-1. Before you start, you need a logic app with an SAP trigger. If you don't already have this logic app, follow the previous steps in this topic to set up a [logic app with an SAP trigger](#receive-from-sap).
+1. Before you start, you need a logic app with an SAP trigger. If you don't already have this logic app, follow the previous steps in this topic to [set up a logic app with an SAP trigger](#receive-from-sap).
 
    For example:
 
