@@ -3,8 +3,8 @@ title: Azure PowerShell Samples - Networking
 description: Azure PowerShell Samples
 services: virtual-network
 documentationcenter: virtual-network
-author: georgewallace
-manager: timlt
+author: KumudD
+manager: mtillman
 editor: tysonn
 tags:
 ms.assetid:
