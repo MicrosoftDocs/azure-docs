@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 This article helps you to manage Multi-Factor Authentication settings in the Azure portal. It covers various topics that help you to get the most out of Azure Multi-Factor Authentication. Not all of the features are available in every version of Azure Multi-Factor Authentication.
 
-You can access settings related to Azure Multi-Factor Authentication from the Azure portal by browsing to **Azure Active Directory** > **MFA**.
+You can access settings related to Azure Multi-Factor Authentication from the Azure portal by browsing to **Azure Active Directory** > **Security** > **MFA**.
 
 ![Azure portal - Azure AD Multi-Factor Authentication settings](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-portal.png)
 
@@ -59,7 +59,7 @@ Use the _block and unblock users_ feature to prevent users from receiving authen
 ### Block a user
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Browse to **Azure Active Directory** > **MFA** > **Block/unblock users**.
+2. Browse to **Azure Active Directory** > **Security** > **MFA** > **Block/unblock users**.
 3. Select **Add** to block a user.
 4. Select the **Replication Group**. Enter the username for the blocked user as **username\@domain.com**. Enter a comment in the **Reason** field.
 5. Select **Add** to finish blocking the user.
@@ -67,7 +67,7 @@ Use the _block and unblock users_ feature to prevent users from receiving authen
 ### Unblock a user
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Browse to **Azure Active Directory** > **MFA** > **Block/unblock users**.
+2. Browse to **Azure Active Directory** > **Security** > **MFA** > **Block/unblock users**.
 3. Select **Unblock** in the **Action** column next to the user to unblock.
 4. Enter a comment in the **Reason for unblocking** field.
 5. Select **Unblock** to finish unblocking the user.
@@ -79,7 +79,7 @@ Configure the _fraud alert_ feature so that your users can report fraudulent att
 ### Turn on fraud alerts
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Browse to **Azure Active Directory** > **MFA** > **Fraud alert**.
+2. Browse to **Azure Active Directory** > **Security** > **MFA** > **Fraud alert**.
 3. Set the **Allow users to submit fraud alerts** setting to **On**.
 4. Select **Save**.
 
@@ -121,7 +121,7 @@ You can use your own recordings or greetings for two-step verification with the 
 Before you begin, be aware of the following restrictions:
 
 * The supported file formats are .wav and .mp3.
-* The file size limit is 5 MB.
+* The file size limit is 1 MB.
 * Authentication messages should be shorter than 20 seconds. Messages that are longer than 20 seconds can cause the verification to fail. The user might not respond before the message finishes and the verification times out.
 
 ### Custom message language behavior
@@ -142,7 +142,7 @@ For example, if there is only one custom message, with a language of German:
 ### Set up a custom message
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-1. Browse to **Azure Active Directory** > **MFA** > **Phone call settings**.
+1. Browse to **Azure Active Directory** > **Security** > **MFA** > **Phone call settings**.
 1. Select **Add greeting**.
 1. Choose the type of greeting.
 1. Choose the language.
@@ -181,7 +181,7 @@ The _one-time bypass_ feature allows a user to authenticate a single time withou
 ### Create a one-time bypass
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Browse to **Azure Active Directory** > **MFA** > **One-time bypass**.
+2. Browse to **Azure Active Directory** > **Security** > **MFA** > **One-time bypass**.
 3. Select **Add**.
 4. If necessary, select the replication group for the bypass.
 5. Enter the username as **username\@domain.com**. Enter the number of seconds that the bypass should last. Enter the reason for the bypass.
@@ -190,7 +190,7 @@ The _one-time bypass_ feature allows a user to authenticate a single time withou
 ### View the one-time bypass report
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Browse to **Azure Active Directory** > **MFA** > **One-time bypass**.
+2. Browse to **Azure Active Directory** > **Security** > **MFA** > **One-time bypass**.
 
 ## Caching rules
 
@@ -202,7 +202,7 @@ You can set a time period to allow authentication attempts after a user is authe
 ### Set up caching
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Browse to **Azure Active Directory** > **MFA** > **Caching rules**.
+2. Browse to **Azure Active Directory** > **Security** > **MFA** > **Caching rules**.
 3. Select **Add**.
 4. Select the **cache type** from the drop-down list. Enter the maximum number of **cache seconds**.
 5. If necessary, select an authentication type and specify an application.
@@ -210,9 +210,11 @@ You can set a time period to allow authentication attempts after a user is authe
 
 ## MFA service settings
 
-Settings for app passwords, trusted IPs, verification options, and remember multi-factor authentication for Azure Multi-Factor Authentication can be found in service settings. Service settings can be accessed from the Azure portal by browsing to **Azure Active Directory** > **MFA** > **Getting started** > **Configure** > **Additional cloud-based MFA settings**.
+Settings for app passwords, trusted IPs, verification options, and remember multi-factor authentication for Azure Multi-Factor Authentication can be found in service settings. Service settings can be accessed from the Azure portal by browsing to **Azure Active Directory** > **Security** > **MFA** > **Getting started** > **Configure** > **Additional cloud-based MFA settings**.
 
 ![Azure Multi-Factor Authentication service settings](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-service-settings.png)
+
+The trusted IP address ranges can be private or public.
 
 ## App passwords
 

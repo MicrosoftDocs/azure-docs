@@ -86,7 +86,7 @@ You can [examine the Storage queue message](#query-the-storage-queue) again to v
 
 ## Next steps
 
-You've updated your HTTP-triggered function to write data to a Storage queue. To learn more about developing Azure Functions with Python, see the [Azure Functions Python developer guide](functions-reference-python.md) and [Azure Functions triggers and bindings](functions-triggers-bindings.md). For examples of complete Function projects in Python, see the [Python Functions samples](/samples/browse/?products=azure-functions&languages=python). 
+You've updated your HTTP-triggered function to write data to a Storage queue. To learn more about developing Azure Functions with Python, see the [Azure Functions Python developer guide](functions-reference-python.md) and [Azure Functions triggers and bindings](functions-triggers-bindings.md). For examples of complete Function projects in Python, see the [Python Functions samples](/samples/browse/?products=azure-functions&languages=python). To learn more about pricing, see the [Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) and the [Estimating Consumption plan costs](functions-consumption-costs.md) article.
 
 Next, you should enable Application Insights monitoring for your function app:
 

@@ -1,10 +1,11 @@
 ---
 title: Scenario Availability - Speech Service
 titleSuffix: Azure Cognitive Services
-description: Reference for regions of the Speech Service.
+description: The Speech SDK features many scenarios across a wide variety of programming languages and environments. Not all scenarios are available in all programming languages or all environments yet. Listed below is the availability of each scenario.
 services: cognitive-services
 author: chrisbasoglu
 manager: xdh
+
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
@@ -14,7 +15,7 @@ ms.author: cbasoglu
 
 # Scenario Availability
 
-The Speech service SDK features many scenarios across a wide variety of programming languages and environments.  Not all scenarios are currently available in all programming languages or all environments yet.  Listed below is the availability of each scenario.
+The Speech SDK features many scenarios across a wide variety of programming languages and environments. Not all scenarios are available in all programming languages or all environments yet. Listed below is the availability of each scenario.
 
 - **Speech-Recognition (SR), Phrase List, Intent, Translation, and On-premises containers**
   - All programming languages/environments where there is an arrow link <img src="media/index/link.jpg" height="15" width="15"></img> in the quickstart table [here](https://aka.ms/csspeech).
