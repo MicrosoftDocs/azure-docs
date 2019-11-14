@@ -1,5 +1,5 @@
 ---
-title: Data import for data ingestion to a search index
+title: Import and data ingestion in search indexes
 titleSuffix: Azure Cognitive Search
 description: Populate and upload data to an index in Azure Cognitive Search from external data sources.
 

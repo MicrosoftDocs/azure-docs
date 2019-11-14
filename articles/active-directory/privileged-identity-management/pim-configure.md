@@ -1,5 +1,5 @@
 ---
-title: What is Privileged Identity Management? - Azure Active Directory | Microsoft Docs
+title: What is Privileged Identity Management? - Azure AD | Microsoft Docs
 description: Provides an overview of Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 04/09/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim 
 ms.collection: M365-identity-device-management

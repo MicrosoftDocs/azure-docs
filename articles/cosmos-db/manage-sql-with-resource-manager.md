@@ -1,16 +1,16 @@
 ---
 title: Create and manage Azure Cosmos DB using Azure Resource Manager templates
 description: Use Azure Resource Manager templates to create and configure Azure Cosmos DB for SQL (Core) API 
-author: markjbrown
+author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/31/2019
-ms.author: mjbrown
+ms.date: 11/12/2019
+ms.author: thvankra
 ---
 
-# Manage Azure Cosmos DB SQL (Core) API resources using Azure Resource Manager Templates
+# Manage Azure Cosmos DB SQL (Core) API resources using Azure Resource Manager templates
 
-This article describes how to perform different operations to automate management of your Azure Cosmos DB accounts, databases and containers using Azure Resource Manager templates. This article has examples for SQL API accounts only, to find examples for other API type accounts see: use Resource Manager templates with Azure Cosmos DB's API for  [Cassandra](manage-cassandra-with-resource-manager.md), [Gremlin](manage-gremlin-with-resource-manager.md), [MongoDB](manage-mongodb-with-resource-manager.md), [Table](manage-table-with-resource-manager.md) articles.
+This article describes how to perform different operations to automate management of your Azure Cosmos DB accounts, databases and containers using Azure Resource Manager templates. This article has examples for SQL API accounts only, to find examples for other API type accounts see: use Azure Resource Manager templates with Azure Cosmos DB's API for  [Cassandra](manage-cassandra-with-resource-manager.md), [Gremlin](manage-gremlin-with-resource-manager.md), [MongoDB](manage-mongodb-with-resource-manager.md), [Table](manage-table-with-resource-manager.md) articles.
 
 how to create and manage Cosmos DB accounts, databases and containers for MongoDB, Gremlin, Cassandra and Table API.
 
@@ -21,7 +21,7 @@ Create Azure Cosmos DB resources using an Azure Resource Manager template. This 
 > [!NOTE]
 >
 > - You cannot simultaneously add or remove locations to an Azure Cosmos account and modify other properties. These must be done as separate operations.
-> - Account names must be lower case and < 44 characters.
+> - Account names must be lowercase and 44 or fewer characters.
 > - To update RU/s, resubmit the template with updated throughput property values.
 
 [!code-json[create-cosmosdb-sql](~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json)]
@@ -31,7 +31,7 @@ Create Azure Cosmos DB resources using an Azure Resource Manager template. This 
 
 ### Deploy via PowerShell
 
-To deploy the Resource Manager template using PowerShell, **Copy** the script and select **Try it** to open the Azure Cloud shell. To paste the script, right-click the shell, and then select **Paste**:
+To deploy the Azure Resource Manager template using PowerShell, **Copy** the script and select **Try it** to open Azure Cloud Shell. To paste the script, right-click the shell, and then select **Paste**:
 
 ```azurepowershell-interactive
 
@@ -65,11 +65,11 @@ New-AzResourceGroupDeployment `
  (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2019-08-01" --ResourceGroupName $resourceGroupName).name
 ```
 
-If you choose to use a locally installed version of PowerShell instead of from the Azure Cloud shell, you have to [install](/powershell/azure/install-az-ps) the Azure PowerShell module. Run `Get-Module -ListAvailable Az` to find the version.
+If you choose to use a locally installed version of PowerShell instead of from Azure Cloud Shell, you have to [install](/powershell/azure/install-az-ps) the Azure PowerShell module. Run `Get-Module -ListAvailable Az` to find the version.
 
 ### Deploy via Azure CLI
 
-To deploy the Resource Manager template using Azure CLI, select **Try it** to open the Azure Cloud shell. To paste the script, right-click the shell, and then select **Paste**:
+To deploy the Azure Resource Manager template using Azure CLI, select **Try it** to open Azure Cloud Shell. To paste the script, right-click the shell, and then select **Paste**:
 
 ```azurecli-interactive
 read -p 'Enter the Resource Group name: ' resourceGroupName
@@ -110,7 +110,7 @@ Create an Azure Cosmos DB container with a stored procedure, trigger and user-de
 
 ### Deploy stored procedure template via PowerShell
 
-To deploy the Resource Manager template using PowerShell, **Copy** the script and select **Try it** to open the Azure Cloud shell. To paste the script, right-click the shell, and then select **Paste**:
+To deploy the Resource Manager template using PowerShell, **Copy** the script and select **Try it** to open Azure Cloud Shell. To paste the script, right-click the shell, and then select **Paste**:
 
 ```azurepowershell-interactive
 
@@ -136,11 +136,11 @@ New-AzResourceGroupDeployment `
  (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2019-08-01" --ResourceGroupName $resourceGroupName).name
 ```
 
-If you choose to use a locally installed version of PowerShell instead of from the Azure Cloud shell, you have to [install](/powershell/azure/install-az-ps) the Azure PowerShell module. Run `Get-Module -ListAvailable Az` to find the version.
+If you choose to use a locally installed version of PowerShell instead of from Azure Cloud Shell, you have to [install](/powershell/azure/install-az-ps) the Azure PowerShell module. Run `Get-Module -ListAvailable Az` to find the version.
 
 ### Deploy stored procedure template via Azure CLI
 
-To deploy the Resource Manager template using Azure CLI, select **Try it** to open the Azure Cloud shell. To paste the script, right-click the shell, and then select **Paste**:
+To deploy the Azure Resource Manager template using Azure CLI, select **Try it** to open Azure Cloud Shell. To paste the script, right-click the shell, and then select **Paste**:
 
 ```azurecli-interactive
 read -p 'Enter the Resource Group name: ' resourceGroupName
