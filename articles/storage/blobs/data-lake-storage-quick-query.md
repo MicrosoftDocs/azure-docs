@@ -33,11 +33,13 @@ To learn how to use quick query in a .NET application, see [Filter data by using
 
 ## Quick query improves performance and reduces costs
 
-Data processing applications and analytics frameworks consume structured and semi-structured data in a variety of file formats (For example: CSV, Json, and Parquet). To calculate an aggregated value, an application typically, retrieves **all** of the data from files, parses the data, applies filtering criteria, and calculates the aggregated value.  
+To calculate an aggregated value, data processing applications and analytics frameworks typically retrieve **all** of the data from a file (For example: a CSV, Json, or Parquet file). Then, the application parses the data, applies filtering criteria, and calculates the aggregated value.  
 
-In fact, an analysis of the input/output patterns for analytics workloads reveal that applications typically require only 20% of the data that they read to perform any given calculation. This statistic is true even after applying techniques such as [partition pruning](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-optimize-hive-query#hive-partitioning). This means that 80% of that data is needlessly transferred across the network, parsed, and filtered by the application. This impacts the performance of your application. 
+An analysis of the input/output patterns for analytics workloads reveal that applications typically require only 20% of the data that they read to perform any given calculation. This statistic is true even after applying techniques such as [partition pruning](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-optimize-hive-query#hive-partitioning). This means that 80% of that data is needlessly transferred across the network, parsed, and filtered by the application. This pattern, essentially designed to remove unneeded data, incurs a significant compute cost.  
 
-This pattern, essentially designed to remove unneeded data, incurs a significant compute cost.  While Azure features an industry leading network, in terms of both throughput and latency, needlessly transferring data across that network negatively impacts application performance. Quick query significantly improves performance and reduces data transfer costs by filtering out unwanted data as part of the request. Having to parse and filter unneeded data can lead to applications provisioning a larger number of virtual machines to meet the CPU load requirements. By trading this compute load off to quick query, applications are able to realize significant cost savings.
+Even though Azure features an industry-leading network, in terms of both throughput and latency, needlessly transferring data across that network is still costly for application performance. By filtering out the unwanted data during the storage request, quick query eliminates this cost.
+
+Additionally, the CPU load that is required to parse and filter unneeded data requires your application to provision a greater number and larger VMs in order to do it's work. By transferring this compute load to Quick Query, applications can realize significant cost savings.
 
 ## The cost to use quick query
 
