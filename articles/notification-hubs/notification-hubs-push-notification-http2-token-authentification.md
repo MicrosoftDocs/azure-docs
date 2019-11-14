@@ -47,7 +47,7 @@ To enable token-based authentication, you need the following properties from you
 
 ### Key identifier
 
-The key identifier can be obtained from the "Keys" page in your Apple developer account
+The key identifier can be obtained from the **Keys** page under **Certificates, Identifiers & Profiles**, in your Apple Developer account:
 
 ![](./media/notification-hubs-push-notification-http2-token-authentification/keys.png)
 
@@ -55,13 +55,10 @@ The key identifier can be obtained from the "Keys" page in your Apple developer 
 
 ### Application identifier and application name
 
-The application name and identifier are available in the **Certificates, Identifiers & Profiles** page in the developer account.
+The application name and identifier are also available in the **Certificates, Identifiers & Profiles** page in the developer account:
 
 ![](./media/notification-hubs-push-notification-http2-token-authentification/app-name.png)
 
-### Authentication token
-
-The authentication token can be downloaded after you generate a token for your application. For details on how to generate this token, refer to the [Apple developer documentation](https://help.apple.com/xcode/mac/current/#/devdfd3d04a1).
 
 ### Configure via the .NET SDK
 
