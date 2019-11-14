@@ -1,6 +1,6 @@
 ---
 title: Azure Container Instances container groups
-description: Understand how multi-container groups work in Azure Container Instances
+description: Learn about container groups in Azure Container Instances, a collection of instances that share a lifecycle and resources such as storage and network
 services: container-instances
 author: dlepow
 manager: gwallace

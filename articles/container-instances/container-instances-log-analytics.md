@@ -1,6 +1,6 @@
 ---
-title: Container instance logging with Azure Monitor logs
-description: Learn how to send logs from Azure container instances to Azure Monitor logs.
+title: Resource logs for container groups - Azure Container Instances
+description: Learn how to send resource logs and event data from container groups in Azure Container Instances to Azure Monitor logs
 services: container-instances
 author: dlepow
 manager: gwallace
