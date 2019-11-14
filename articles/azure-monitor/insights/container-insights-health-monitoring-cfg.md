@@ -26,22 +26,25 @@ The overall health of a particular object is determined from the health of each 
 
 |Monitor | Description | 
 |--------|-------------|
-| Unit monitor |A unit monitor measures some aspect of the resource, application, or service. This might be checking a performance counter to determine the performance of the resource, or watch for a log record that indicates an error. |
-|Aggregate Monitor |Provides a combined health state for similar monitors. Unit monitors are typically configured under a particular aggregate monitor. |
+| Unit monitor |A unit monitor measures some aspect of a resource or application. This might be checking a performance counter to determine the performance of the resource, or its availability. |
+|Aggregate Monitor | Aggregate monitors group multiple monitors to provide a single health aggregated health state. Unit monitors are typically configured under a particular aggregate monitor. For example, a Node aggregate monitor rolls up the status of the Node CPU utilization, memory utilization, and Node status.
+ |
 
 ### Aggregate monitor health rollup policy
 
 Each aggregate monitor defines a health rollup policy, which is the logic that is used to determine the health of the aggregate monitor based on the health of the monitors under it. The possible health rollup policies for an aggregate monitor are as follows:
 
-#### Worst state
+#### Worst state policy
 
 The state of the aggregate monitor matches the state of the child monitor with the worst health state. This is the most common policy used by aggregate monitors.
 
 ![Example of aggregate monitor rollup worst state](./media/container-insights-health-monitoring-cfg/aggregate-monitor-rollup-worstof.png)
 
-#### Best state
+### Percentage policy
 
-The state of the aggregate monitor matches the state of the child monitor with the best health state.
+The source object matches the worst state of a single member of a specified percentage of target objects in the best state. This policy is used when a certain percentage of target objects must be healthy for the target object to be considered healthy. Percentage policy sorts the monitors in descending order of severity of state, and the aggregate monitor's state is computed as the worst state of N% (N is dictated by the configuration parameter *StateThresholdPercentage*).
+
+For example, suppose there are five container instances of a container image, and their individual states are **Critical**, **Warning**, **Healthy**, **Healthy**, **Healthy**.  The status of the container CPU utilization monitor will be **Critical**, since the worst state of 90% of the containers is **Critical** when sorted in descending order of severity.
 
 ## Understand the monitoring configuration
 
