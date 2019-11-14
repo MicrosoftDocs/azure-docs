@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/09/2019
+ms.date: 11/14/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 02/13/2019
@@ -65,7 +65,7 @@ The authentication token can be downloaded after you generate a token for your a
 
 ### Configure via the .NET SDK
 
-You can configure your hub to use token based authentication using our [latest client SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs).
+You can configure your hub to use token based authentication using our [latest client SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs), or [using the Azure portal](create-notification-hub-portal.md).
 
 Token-based credentials are composed of the following fields:
 
@@ -79,7 +79,7 @@ Here's a code sample illustrating the correct usage:
 
 ```csharp
 NamespaceManager nm = NamespaceManager.CreateFromConnectionString(_endpoint);
-string token = "YOUR TOKEN HERE";
+string token = "YOUR PRIVATE KEY HERE";
 string keyId = "YOUR KEY ID HERE";
 string appName = "YOUR APP NAME HERE";
 string appId = "YOUR APP ID HERE";
@@ -88,3 +88,8 @@ desc.ApnsCredential = new ApnsCredential(token, keyId, appId, appName);
 desc.ApnsCredential.Endpoint = @"https://api.development.push.apple.com:443/3/device";
 nm.UpdateNotificationHubAsync(desc);
 ```
+
+## Next steps
+
+* [Create an Azure notification hub in the Azure portal](create-notification-hub-portal.md)
+* [Configure a notification hub in the Azure portal](create-notification-hub-portal.md)
