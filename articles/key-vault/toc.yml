@@ -113,7 +113,7 @@
   - name: Route key vault notifications with Event Grid
     href: event-grid-tutorial.md      
   - name: Receive notifications via Event Grid and Logic Apps
-    href: event-grid-logicapps.md    
+    href: eventgrid-logicapps.md    
   - name: Integrate with Azure Policy
     href: azure-policy.md
   - name: Azure Key Vault logging
