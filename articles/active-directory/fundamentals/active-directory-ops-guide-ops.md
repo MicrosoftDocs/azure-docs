@@ -26,17 +26,19 @@ This section of the [Azure AD operations reference guide](active-directory-ops-g
 
 Managing Azure Active Directory requires the continuous execution of key operational tasks and processes, which may not be part of a rollout project. It is still important you set up these tasks to optimize your environment. The key tasks and their recommended owners include:
 
-- Drive Improvements on Identity Secure Score - InfoSec Operations Team
-- Maintain Azure AD Connect Servers - IAM Operations Team
-- Regularly execute and triage IdFix Reports - IAM Operations Team
-- Triage Azure AD Connect Health Alerts for Sync and AD FS - IAM Operations Team
-- If not using Azure AD Connect, then customer has equivalent process and tools to monitor custom infrastructure - IAM Operations Team
-- If not using AD FS, then customer has equivalent process and tools to monitor custom infrastructure - IAM Operations Team
-- Monitor Hybrid Logs: Azure AD App Proxy Connectors - IAM Operations Team
-- Monitor Hybrid Logs: Passthrough Authentication Agents - IAM Operations Team
-- Monitor Hybrid Logs: Password Writeback Service - IAM Operations Team
-- Monitor Hybrid Logs: On-premises password protection gateway - IAM Operations Team
-- Monitor Hybrid Logs: Azure MFA NPS Extension (if applicable) - IAM Operations Team
+| Task | Owner |
+| :- | :- |
+| Drive Improvements on Identity Secure Score | InfoSec Operations Team |
+| Maintain Azure AD Connect Servers | IAM Operations Team |
+| Regularly execute and triage IdFix Reports | IAM Operations Team |
+| Triage Azure AD Connect Health Alerts for Sync and AD FS | IAM Operations Team |
+| If not using Azure AD Connect, then customer has equivalent process and tools to monitor custom infrastructure | IAM Operations Team |
+| If not using AD FS, then customer has equivalent process and tools to monitor custom infrastructure | IAM Operations Team |
+| Monitor Hybrid Logs: Azure AD App Proxy Connectors | IAM Operations Team |
+| Monitor Hybrid Logs: Passthrough Authentication Agents | IAM Operations Team |
+| Monitor Hybrid Logs: Password Writeback Service | IAM Operations Team |
+| Monitor Hybrid Logs: On-premises password protection gateway | IAM Operations Team |
+| Monitor Hybrid Logs: Azure MFA NPS Extension (if applicable) | IAM Operations Team |
 
 As you review your list, you may find you need to either assign an owner for tasks that are missing an owner or adjust ownership for tasks with owners that aren’t aligned with the recommendations above.
 
