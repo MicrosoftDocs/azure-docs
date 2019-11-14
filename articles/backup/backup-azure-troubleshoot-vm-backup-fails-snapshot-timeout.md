@@ -24,7 +24,7 @@ This article provides troubleshooting steps that can help you resolve Azure Back
 
 The Azure VM agent might be stopped, outdated, in an inconsistent state, or not installed and prevent Azure Backup service to trigger snapshots.  
 
-- If the VM agent is stopped or is in an inconsistent state, **Restart the Agent** and retry the backup operation (try an ad-hoc backup). For steps to restart the agent, see [Windows VMs](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) or [Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent).
+- If the VM agent is stopped or is in an inconsistent state, **Restart the Agent** and retry the backup operation (try an on-demand backup). For steps to restart the agent, see [Windows VMs](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) or [Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent).
 - If the VM agent is not installed or is outdated, install/update the VM agent and retry the backup operation. For steps to install/update the agent, see [Windows VMs](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) or [Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent).  
 
 ## GuestAgentSnapshotTaskStatusError - Could not communicate with the VM agent for snapshot status
@@ -234,15 +234,15 @@ If you delete the Resource Group of the VM, or the VM itself, the instant restor
 
 To clean up the restore points, follow any of the methods:<br>
 
-- [Clean up restore point collection by running ad hoc backup](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
+- [Clean up restore point collection by running on-demand backup](#clean-up-restore-point-collection-by-running-on-demand-backup)<br>
 - [Clean up restore point collection from Azure portal](#clean-up-restore-point-collection-from-azure-portal)<br>
 
-#### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Clean up restore point collection by running ad hoc backup
+#### <a name="clean-up-restore-point-collection-by-running-on-demand-backup"></a>Clean up restore point collection by running on-demand backup
 
-After removing the lock, trigger an ad hoc/manual backup. This will ensure the restore points are automatically cleaned up. Expect this ad hoc/manual operation to fail the first time; however, it will ensure automatic cleanup instead of manual deletion of restore points. After cleanup your next scheduled backup should succeed.
+After removing the lock, trigger an on-demand backup. This will ensure the restore points are automatically cleaned up. Expect this on-demand operation to fail the first time; however, it will ensure automatic cleanup instead of manual deletion of restore points. After cleanup your next scheduled backup should succeed.
 
 > [!NOTE]
-> Automatic cleanup will happen after few hours of triggering the ad hoc/manual backup. If your scheduled backup still fails, then try manually deleting the restore point collection using the steps listed [here](#clean-up-restore-point-collection-from-azure-portal).
+> Automatic cleanup will happen after few hours of triggering the on-demand backup. If your scheduled backup still fails, then try manually deleting the restore point collection using the steps listed [here](#clean-up-restore-point-collection-from-azure-portal).
 
 #### <a name="clean-up-restore-point-collection-from-azure-portal"></a>Clean up restore point collection from Azure portal <br>
 

@@ -139,8 +139,6 @@
         href: howto-authentication-passwordless-security-key.md
       - name: Passwordless Windows 10
         href: howto-authentication-passwordless-security-key-windows.md
-      - name: Passwordless on-premises
-        href: howto-authentication-passwordless-security-key-on-premises.md
       - name: Passwordless phone sign-in
         href: howto-authentication-passwordless-phone.md
       - name: Windows Hello for Business

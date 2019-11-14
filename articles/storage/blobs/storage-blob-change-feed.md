@@ -34,11 +34,21 @@ Change feed support is well-suited for scenarios that process data based on obje
   - Build connected application pipelines which react to change events or schedule executions based on created or changed object.
 
 > [!NOTE]
-> [Blob Storage Events](storage-blob-event-overview.md) provides real-time one-time events which enable your Azure Functions or applications to react to changes that occur to a blob. The change feed provides a durable, ordered log model of the changes. Changes in your change feed are made available in your change feed at within an order few minutes of the change. If your application has to react to events much quicker than this, consider using [Blob Storage events](storage-blob-event-overview.md) instead. Blob Storage events enable your Azure Functions or applications to react individual events in real-time.
+> [Blob Storage Events](storage-blob-event-overview.md) provides real-time one-time events which enable your Azure Functions or applications to react to changes that occur to a blob. The change feed provides a durable, ordered log model of the changes. Changes in your change feed are made available in your change feed at within an order of a few minutes of the change. If your application has to react to events much quicker than this, consider using [Blob Storage events](storage-blob-event-overview.md) instead. Blob Storage events enable your Azure Functions or applications to react individual events in real-time.
 
-## Enabling and disabling the change feed
+## Enable and disable the change feed
 
-You have to enable the change feed to begin capturing changes. Disable the change feed to stop capturing changes. You can enable and disable changes by using Azure Resource Manager templates on Portal or Powershell.
+You have to enable the change feed on your storage account to begin capturing changes. Disable the change feed to stop capturing changes. You can enable and disable changes by using Azure Resource Manager templates on Portal or Powershell.
+
+Here's a few things to keep in mind when you enable the change feed.
+
+- There's only one change feed for the blob service in each storage account stored in the **$blobchangefeed** container.
+
+- Changes are captured only at the blob service level.
+
+- The change feed captures *all* of the changes for all of the available events that occur on the account. Client applications can filter out event types as required. (See the [conditions](#conditions) of the current release).
+
+- Only GPv2 and Blob storage accounts can enable Change feed. GPv1 storage accounts, Premium BlockBlobStorage accounts, and hierarchical namespace enabled accounts are not currently supported.
 
 ### [Portal](#tab/azure-portal)
 
@@ -50,27 +60,28 @@ To deploy the template by using Azure portal:
 
 3. Choose **Template deployment**, choose **Create**, and then choose **Build your own template in the editor**.
 
-5. In the template editor, paste in the following json. Replace the `<accountName>` placeholder with the name of your storage account.
+4. In the template editor, paste in the following json. Replace the `<accountName>` placeholder with the name of your storage account.
 
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {},
-    "variables": {},
-    "resources": [{
-        "type": "Microsoft.Storage/storageAccounts/blobServices",
-        "apiVersion": "2019-04-01",
-        "name": "<accountName>/default",
-        "properties": {
-            "changeFeed": {
-            "enabled": true
-            }
-        } 
-     }]
-}
-```
-4. Choose the **Save** button, specify the resource group of the account, and then choose the **Purchase** button to enable the change feed.
+   ```json
+   {
+       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "contentVersion": "1.0.0.0",
+       "parameters": {},
+       "variables": {},
+       "resources": [{
+           "type": "Microsoft.Storage/storageAccounts/blobServices",
+           "apiVersion": "2019-04-01",
+           "name": "<accountName>/default",
+           "properties": {
+               "changeFeed": {
+                   "enabled": true
+               }
+           } 
+        }]
+   }
+   ```
+    
+5. Choose the **Save** button, specify the resource group of the account, and then choose the **Purchase** button to deploy the template and enable the change feed.
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -79,7 +90,7 @@ To deploy the template by using PowerShell:
 1. Install the latest PowershellGet.
 
    ```powershell
-   install-Module PowerShellGet –Repository PSGallery –Force
+   Install-Module PowerShellGet –Repository PSGallery –Force
    ```
 
 2. Close, and then reopen the Powershell console.
@@ -104,36 +115,15 @@ To deploy the template by using PowerShell:
 
 ---
 
-Here's a few things to keep in mind when you enable the change feed.
-
-- There's only one change feed for the blob service in each storage account. 
-
-- Changes are captured only at the blob service level.
-
-- The change feed captures *all* of the changes for all of the available events that occur on the account. Client applications can filter out event types as required. (See the  [conditions](#conditions) of the current release).
-
-- Accounts that have a hierarchical namespace are not supported.
-
-## Consuming the change feed
-
-The change feed produces several metadata and log files. These files are located in the **$blobchangefeed** container of the storage account. 
-
->[!NOTE]
-> In the current release, the **$blobchangefeed** container is not visible in Storage Explorer or the Azure portal. 
-
-Your client applications can consume the change feed by using the blob change feed processor library that is provided with the SDK. 
-
-See [Process change feed logs in Azure Blob Storage](storage-blob-change-feed-how-to.md).
-
-## Understanding change feed organization
+## Understand change feed organization
 
 <a id="segment-index"></a>
 
 ### Segments
 
-The change feed is a log of changes which is organized into **hourly** *segments* (See [Specifications](#specifications)). This enables your client application to consume changes that occur within specific ranges of time without having to search through the entire log.
+The change feed is a log of changes which are organized into **hourly** *segments* but appended to and updated every few minutes. These segments are created only when there are blob change events that occur in that hour. This enables your client application to consume changes that occur within specific ranges of time without having to search through the entire log. To learn more, see the [Specifications](#specifications).
 
-An available hourly segment of the change feed is described in a manifest file that specifies the paths to the change feed files for that segment. The listing of the `$blobchangefeed/idx/segments/` virtual directory shows these segments ordered by time. The path of the segment describes the start of the hourly time-range that the segment represents. (See the [Specifications](#specifications)). You can use that list to filter out the segments of logs that are interest to you.
+An available hourly segment of the change feed is described in a manifest file that specifies the paths to the change feed files for that segment. The listing of the `$blobchangefeed/idx/segments/` virtual directory shows these segments ordered by time. The path of the segment describes the start of the hourly time-range that the segment represents. You can use that list to filter out the segments of logs that are interest to you.
 
 ```text
 Name                                                                    Blob Type    Blob Tier      Length  Content Type    
@@ -145,7 +135,7 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 ```
 
 > [!NOTE]
-> The `$blobchangefeed/idx/segments/1601/01/01/0000/meta.json` is automatically created when you enable the change feed. You can safely ignore this file. It is always empty. 
+> The `$blobchangefeed/idx/segments/1601/01/01/0000/meta.json` is automatically created when you enable the change feed. You can safely ignore this file. It is an always empty initialization file. 
 
 The segment manifest file (`meta.json`) shows the path of the change feed files for that segment in the `chunkFilePaths` property. Here's an example of a segment manifest file.
 
@@ -215,12 +205,23 @@ Here's an example of change event record from change feed file converted to Json
          }
   }
 }
-
 ```
+
 For a description of each property, see [Azure Event Grid event schema for Blob Storage](https://docs.microsoft.com/azure/event-grid/event-schema-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties).
 
 > [!NOTE]
 > The change feed files for a segment don't immediately appear after a segment is created. The length of delay is within the normal interval of publishing latency of the change feed which is within a few minutes of the change.
+
+## Consume the change feed
+
+The change feed produces several metadata and log files. These files are located in the **$blobchangefeed** container of the storage account. 
+
+> [!NOTE]
+> In the current release, the **$blobchangefeed** container is not visible in Azure Storage Explorer or the Azure portal. You currently cannot see the $blobchangefeed container when you call ListContainers API but you are able to call the ListBlobs API directly on the container to see the blobs.
+
+Your client applications can consume the change feed by using the blob change feed processor library that is provided with the Change feed processor SDK. 
+
+See [Process change feed logs in Azure Blob Storage](storage-blob-change-feed-how-to.md).
 
 <a id="specifications"></a>
 
@@ -234,9 +235,9 @@ For a description of each property, see [Azure Event Grid event schema for Blob 
 
 - Change event records are serialized into the log file by using the [Apache Avro 1.8.2](https://avro.apache.org/docs/1.8.2/spec.html) format specification.
 
-- Change event records where the `eventType` has a value of `Control` are internal system records and don't reflect a change to objects in your account. You should ignore them.
+- Change event records where the `eventType` has a value of `Control` are internal system records and don't reflect a change to objects in your account. You can safely ignore those records.
 
-- Values in the `storageDiagnonstics` property bag are for internal use only and not designed for use by your application. Your applications shouldn't have a contractual dependency on that data.
+- Values in the `storageDiagnonstics` property bag are for internal use only and not designed for use by your application. Your applications shouldn't have a contractual dependency on that data. You can safely ignore those properties.
 
 - The time represented by the segment is **approximate** with bounds of 15 minutes. So to ensure consumption of all records within an specified time, consume the consecutive previous and next hour segment.
 
@@ -270,10 +271,11 @@ Because the change feed is only in public preview, you'll need to register your 
 
 In a PowerShell console, run these commands:
 
-   ```powershell
-   Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
-   Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-   ```
+```powershell
+Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
+Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
+```
+   
 ### Register by using Azure CLI
 
 In Azure Cloud Shell, run these commands:
@@ -288,8 +290,8 @@ az provider register --namespace 'Microsoft.Storage'
 ## Conditions and known issues (Preview)
 
 This section describes known issues and conditions in the current public preview of the change feed.
-
-- The change feed captures only create, update, delete, and copy operations.
+- For preview, you must first [register your subscription](#register) before you can enable change feed for your storage account in the westcentralus or westus2 regions. 
+- The change feed captures only create, update, delete, and copy operations. Metadata updates are not currently captured in preview.
 - Change event records for any single change might appear more than once in your change feed.
 - You can't yet manage the lifetime of change feed log files by setting time-based retention policy on them.
 - The `url` property of the log file is always empty.

@@ -229,8 +229,6 @@
     href: migrate-v1-v2.md
 - name: Reference
   items:
-  - name: CRS rules
-    href: application-gateway-crs-rulegroups-rules.md
   - name: Ingress for AKS annotations
     href: ingress-controller-annotations.md
   - name: Azure CLI

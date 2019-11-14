@@ -129,7 +129,7 @@ Azure VMs need internet access for control commands. If you're backing up worklo
     - The MARS agent uses only the Windows system write operation to capture the snapshot.
     - Because the agent doesn't use any application VSS writers, it doesn't capture app-consistent snapshots.
 1. After taking the snapshot with VSS, the MARS agent creates a virtual hard disk (VHD) in the cache folder you specified when you configured the backup. The agent also stores checksums for each data block.
-1. Incremental backups run according to the schedule you specify, unless you run an ad-hoc backup.
+1. Incremental backups run according to the schedule you specify, unless you run an on-demand backup.
 1. In incremental backups, changed files are identified and a new VHD is created. The VHD is compressed and encrypted, and then it's sent to the vault.
 1. After the incremental backup finishes, the new VHD is merged with the VHD created after the initial replication. This merged VHD provides the latest state to be used for comparison for ongoing backup.
 
@@ -143,7 +143,7 @@ Azure VMs need internet access for control commands. If you're backing up worklo
     - With DPM/MABS, you can protect backup volumes, shares, files, and folders. You can also protect a machine's system state (bare metal), and you can protect specific apps with app-aware backup settings.
 1. When you set up protection for a machine or app in DPM/MABS, you select to back up to the MABS/DPM local disk for short-term storage and to Azure for online protection. You also specify when the backup to local DPM/MABS storage should run and when the online backup to Azure should run.
 1. The disk of the protected workload is backed up to the local MABS/DPM disks, according to the schedule you specified.
-4. The DPM/MABS disks are backed up to the vault by the MARS agent that's running on the DPM/MABS server.
+1. The DPM/MABS disks are backed up to the vault by the MARS agent that's running on the DPM/MABS server.
 
 ![Backup of machines and workloads protected by DPM or MABS](./media/backup-architecture/architecture-dpm-mabs.png)
 

@@ -248,7 +248,7 @@ In the resource group dashboard, search for the (datahublogs….) storage accoun
 
 **Meaning**: The Azure AD app registration configuration didn’t happen properly.  
 
-**Corrective action**: ask the IT admin (having tenant read access) to use our [script](https://aka.ms/PPCreateAADappregistration) for generating creating the Azure AD app registration. This script will automatically take care of the configuration steps as well. as  
+**Corrective action**: ask the IT admin (having tenant read access) to use our [script](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect/tree/master/AppCreationScripts) for generating creating the Azure AD app registration. This script will automatically take care of the configuration steps as well.
 
 **Error**: Could not create new Active Directory Application “dummyname” in this tenant: Another object with the same value for property identifier URIs already exists
 
