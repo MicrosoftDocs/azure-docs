@@ -22,7 +22,7 @@ This article describes how to register your SQL Server virtual machine (VM) in A
 
 Deploying a SQL Server VM Azure Marketplace image through the Azure portal automatically registers the SQL Server VM with the resource provider. If you choose to self-install SQL Server on an Azure virtual machine instead of choosing an image from Azure Marketplace, or if you provision an Azure VM from a custom VHD with SQL Server, you should register your SQL Server VM with the resource provider for:
 
-- **Simplify license management**: According to the Microsoft Product Terms, customers must tell Microsoft when they're using the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). Registering with the SQL VM resource provider simplifies SQL Server license management, and allows you to quickly identify SQL Server VMs using the Azure Hybrid Benefit in the [portal](virtual-machines-windows-sql-manage-portal.md), PowerShell, or the Az CLI: 
+- **Simplify license management**: According to the Microsoft Product Terms, customers must tell Microsoft when they're using the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). Registering with the SQL VM resource provider simplifies SQL Server license management, and allows you to quickly identify SQL Server VMs with the the Azure Hybrid Benefit enabled using the [Azure portal](virtual-machines-windows-sql-manage-portal.md), PowerShell, or the Az CLI: 
 
    # [PowerShell](#tab/azure-powershell)
 
@@ -36,7 +36,6 @@ Deploying a SQL Server VM Azure Marketplace image through the Azure portal autom
    $vms = az sql vm list | ConvertFrom-Json
    $vms | Where-Object {$_.sqlServerLicenseType -eq "AHUB"}
    ```
-
    ---
 
 - **Feature benefits**: Registering your SQL Server VM with the resource provider unlocks [automated patching](virtual-machines-windows-sql-automated-patching.md), [automated backup](virtual-machines-windows-sql-automated-backup-v2.md), and monitoring and manageability capabilities. It also unlocks [licensing](virtual-machines-windows-sql-ahb.md) and [edition](virtual-machines-windows-sql-change-edition.md) flexibility. Previously, these features were available only to SQL Server VM images from Azure Marketplace.
@@ -76,14 +75,12 @@ Use the following code snippet to register with the SQL VM resource provider if 
 Register the SQL Server VM by using the following PowerShell code snippet:
 
   ```powershell-interactive
-     # Get the existing compute VM
-     $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
+  # Get the existing compute VM
+  $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
           
-     # Register SQL VM with 'Lightweight' SQL IaaS agent
-     New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
-        -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
-        -Properties @{virtualMachineResourceId=$vm.Id;SqlServerLicenseType='PAYG';sqlManagement='LightWeight'}  
-  
+  # Register SQL VM with 'Lightweight' SQL IaaS agent
+  New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
+    -LicenseType PAYG -SqlManagementType LightWeight  
   ```
 
 # [AZ CLI](#tab/bash)
@@ -91,12 +88,10 @@ Register the SQL Server VM by using the following PowerShell code snippet:
 For paid editions (Enterprise or Standard):
 
   ```azurecli-interactive
-     # Get the existing  compute VM 
+  # Get the existing  compute VM 
 
-
-     # Register Enterprise or Standard self-installed VM in Lightweight mode
-     az sql vm create --name <vm_name> --resource-group <resource_group_name> --location <vm_location> --license-type PAYG 
-
+  # Register Enterprise or Standard self-installed VM in Lightweight mode
+  az sql vm create --name <vm_name> --resource-group <resource_group_name> --location <vm_location> --license-type PAYG 
   ```
 
 For free editions (Developer, Web, or Express):
@@ -106,18 +101,18 @@ For free editions (Developer, Web, or Express):
 
   az sql vm create --name <vm_name> --resource-group <resource_group_name> --location <vm_location> --license-type PAYG 
   ```
+
 ---
 
 If the SQL IaaS Extension was installed to the VM manually, then you can register with SQL VM resource provider in Full mode by simply creating a metadata resource of type Microsoft.SqlVirtualMachine/SqlVirtualMachines. Below is the code snippet to register with SQL VM resource provider if the SQL IaaS Extension is already installed on the VM. You need to provide the type of SQL Server license desired as either 'PAYG 'or 'AHUB'. To register in  full management mode, use the following PowerShell command:
 
   ```powershell-interactive
   # Get the existing  Compute VM
-   $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
+  $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
         
-   # Register with SQL VM resource provider
-   New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
-      -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
-      -Properties @{virtualMachineResourceId=$vm.Id;SqlServerLicenseType='PAYG'}
+  # Register with SQL VM resource provider in full mode
+  New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
+    -LicenseType PAYG -SqlManagementType Full
   ```
 
 
@@ -138,13 +133,11 @@ To register your SQL Server 2008 or 2008 R2 instance on Windows Server 2008 inst
 
 # [PowerShell](#tab/powershell)
   ```powershell-interactive
-     # Get the existing compute VM
-     $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
+  # Get the existing compute VM
+  $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
           
-    New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
-      -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
-      -Properties @{virtualMachineResourceId=$vm.Id;SqlServerLicenseType='PAYG'; `
-       sqlManagement='NoAgent';sqlImageSku='Standard';sqlImageOffer='SQL2008R2-WS2008'}
+  New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
+    -LicenseType PAYG -SqlManagementType NoAgent -Sku Standard -Offer SQL2008R2-WS2008
   ```
 
 # [AZ CLI](#tab/bash)
@@ -180,7 +173,6 @@ Verify current SQL Server VM registration status using either Az CLI or PowerShe
   az sql vm show -n <vm_name> -g <resource_group>
  ```
 
-
 # [PowerShell](#tab/powershell)
 
   ```powershell-interactive
@@ -205,9 +197,9 @@ There are three free manageability modes for the SQL Server IaaS extension:
 You can view the current mode of your SQL Server IaaS agent by using PowerShell: 
 
   ```powershell-interactive
-     #Get the SqlVirtualMachine
-     $sqlvm = Get-AzResource -Name $vm.Name  -ResourceGroupName $vm.ResourceGroupName  -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines
-     $sqlvm.Properties.sqlManagement
+  # Get the SqlVirtualMachine
+  $sqlvm = Get-AzSqlVM -Name $vm.Name  -ResourceGroupName $vm.ResourceGroupName
+  $sqlvm.SqlManagementType
   ```
 
 SQL Server VMs that have the *lightweight* IaaS extension installed can upgrade the mode to _full_ using the Azure portal. SQL Server VMs in _No-Agent_ mode can upgrade to _full_ after the OS is upgraded to Windows 2008 R2 and above. It is not possible to downgrade - to do so, you will need to [unregister](#unregister-vm-from-resource-provider) the SQL Server VM from the SQL VM resource provider by deleting the SQL VM resource, and register with the SQL VM resource provider again. 
@@ -284,7 +276,7 @@ az provider register --namespace Microsoft.SqlVirtualMachine
 
 ```powershell-interactive
 # Register the new SQL VM resource provider to your subscription
-Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
+Update-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name> -SqlManagementType Full
 ```
 ---
 
@@ -316,19 +308,26 @@ To unregister your SQL Server VM with the resource provider using the Azure port
 
 1. Select **Delete** to confirm the deletion of the SQL virtual machine *resource*, and not the SQL Server virtual machine. 
 
+### Command line
 
-### Azure CLI 
-
+# [Azure CLI](#tab/azure-cli)
 To unregister your SQL Server virtual machine from the resource provider with Azure CLI, use the [az sql vm delete](/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-delete) command. This will remove the SQL Server virtual machine *resource* but will not delete the virtual machine. 
 
 
 ```azurecli-interactive
-   az sql vm delete 
-     --name <SQL VM resource name> |
-     --resource-group <Resource group name> |
-     --yes 
+az sql vm delete 
+  --name <SQL VM resource name> |
+  --resource-group <Resource group name> |
+  --yes 
 ```
 
+# [PowerShell](#tab/azure-powershell)
+To unregister your SQL Server virtual machine from the resource provider with Azure CLI, use the [New-AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm)command. This will remove the SQL Server virtual machine *resource* but will not delete the virtual machine. 
+
+```powershell-interactive
+Remove-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name>
+```
+---
 
 
 ## Remarks
