@@ -59,8 +59,8 @@ Azure AD provides an interface for configuring provisioning. This can be easy to
 
 
 
-## Step 2: Get the application template id
-Applications in the Azure AD application gallery have an application template describing the metadata for that application. Using this template you can create an instance of the application and service principal in your tenant for management. 
+## Step 2: Get the gallery application template identifier
+Applications in the Azure AD application gallery have an [application template](https://docs.microsoft.com/graph/api/applicationtemplate-list?view=graph-rest-beta&tabs=http) describing the metadata for that application. Using this template you can create an instance of the application and service principal in your tenant for management. 
 
 ##### Request
 
@@ -113,7 +113,7 @@ Content-type: application/json
 
 ## Step 3: Create a gallery application
 
-Use the template ID retrieved for your application in the last step to create an instance of the application and service principal in your tenant. 
+Use the template ID retrieved for your application in the last step to [create an instance](https://docs.microsoft.com/graph/api/applicationtemplate-instantiate?view=graph-rest-beta&tabs=http) of the application and service principal in your tenant. 
 
 ### Request
 
@@ -179,7 +179,7 @@ Content-type: application/json
 ```
 
 ## Step 4: Get provisioning templateId
-Applications in the gallery that are enabled for provisoning have templates to streamline configuration. Use the request below to retrieve the template for the provisioning configuration. 
+Applications in the gallery that are enabled for provisoning have templates to streamline configuration. Use the request below to [retrieve the template for the provisioning configuration](https://docs.microsoft.com/graph/api/synchronization-synchronizationtemplate-list?view=graph-rest-beta&tabs=http). 
 
 ##### Request
 
@@ -217,7 +217,7 @@ HTTP/1.1 200 OK
 ```
 
 ## Step 5: Create job
-Enabling provisioning requires that a job be created. Use the request below to create a provisioning job. You should use the templateId from the previous step to specify the template to be used for the job. 
+Enabling provisioning requires that a [job be created](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-post?view=graph-rest-beta&tabs=http). Use the request below to create a provisioning job. You should use the templateId from the previous step to specify the template to be used for the job. 
 
 ##### Request
 <!-- {
@@ -267,7 +267,7 @@ Content-type: application/json
 }
 ```
 ## Step 6: Retrieve the Provisioning Job ID of the application
-Now that the provisioning job is created, you will need to retrieve the job ID to complete your configuration. Use the command below to retrieve your job ID. 
+Now that the provisioning job is created, you will need to [retrieve the job ID](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-get?view=graph-rest-beta&tabs=http) to complete your configuration. Use the command below to retrieve your job ID. 
 
 ##### Request
 <!-- {
@@ -413,7 +413,8 @@ templateId: "DropboxSCIMOutDelta"
 
 
 
-## Step 10: Add a custom attribute to your attribute mappings
+## Step 10: Add a custom attribute to your attribute mappings (optional)
+The application template provides the default attributes required to setup provisioning to the application. If you need to add an additional attribute mapping to your configuration, use the steps below. This is not a required or recommended step. 
 
 #### Get the synchronization schema
 The following example shows how to get the synchronization schema.
