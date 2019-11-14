@@ -1,5 +1,5 @@
 ---
-title: Indexers for crawling data sources during indexing
+title: Indexers for crawling data during import
 titleSuffix: Azure Cognitive Search
 description: Crawl Azure SQL database, Azure Cosmos DB, or Azure storage to extract searchable data and populate an Azure Cognitive Search index.
 

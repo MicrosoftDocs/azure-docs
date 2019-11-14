@@ -1,5 +1,5 @@
 ﻿---
-title: 'Move circuits from classic to Resource Manager - ExpressRoute: PowerShell: Azure | Microsoft Docs'
+title: 'Azure ExpressRoute: Move classic circuits to Resource Manager'
 description: This page describes how to move a classic circuit to the Resource Manager deployment model using PowerShell.
 services: expressroute
 author: ganesr
@@ -8,7 +8,6 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: cherylmc
-ms.custom: seodec18
 
 ---
 # Move ExpressRoute circuits from classic to Resource Manager deployment model using PowerShell
