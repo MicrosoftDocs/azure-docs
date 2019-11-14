@@ -178,8 +178,8 @@
   - name: Samples
     expanded: false
     items:
-    - name: Samples repo
-      href: https://github.com/Azure-Samples/acr-tasks
+    - name: YAML and Dockerfiles
+      href: container-registry-tasks-samples.md
   - name: Concepts
     items:
       - name: Multi-step tasks

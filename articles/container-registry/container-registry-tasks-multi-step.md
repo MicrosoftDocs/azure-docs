@@ -80,7 +80,7 @@ steps:
   - cmd: {{.Run.Registry}}/functions/helm upgrade helloworld ./helm/helloworld/ --reuse-values --set helloworld.image={{.Run.Registry}}/helloworld:{{.Run.ID}}
 ```
 
-See [task examples][task-examples] for complete multi-step task YAML files and Dockerfiles for several scenarios.
+See [task examples](container-registry-tasks-samples.md) for multi-step task YAML files and Dockerfiles for several scenarios.
 
 ## Run a sample task
 
