@@ -412,6 +412,24 @@ To open the Data Explorer, navigate to the following URL in your browser. The em
 
     https://<emulator endpoint provided in response>/_explorer/index.html
 
+If you have a .NET client application running on a Linux docker container and if you are running Azure Cosmos emulator on a host machine, in this case you can’t connect to the Azure Cosmos account from the emulator. Because the app is not running on the host machine, the certificate registered on the Linux container that matches the emulator’s endpoint cannot be added. 
+
+As a workaround, you can disable the server’s SSL certificate validation from your client application by passing a `HttpClientHandler` instance as shown in the following .Net code sample. This workaround is only applicable if you are using the `Microsoft.Azure.DocumentDB` Nuget package, it isn't supported with the `Microsoft.Azure.Cosmos` Nuget package:
+ 
+ ```csharp
+var httpHandler = new HttpClientHandler()
+{
+    ServerCertificateCustomValidationCallback = (req,cert,chain,errors) => true
+};
+ 
+using (DocumentClient client = new DocumentClient(new Uri(strEndpoint), strKey, httpHandler))
+{
+    RunDatabaseDemo(client).GetAwaiter().GetResult();
+}
+```
+
+In addition to disabling the SSL certificate validation, it is important that you start the emulator with the `/allownetworkaccess` option and the emulator’s endpoint is accessible from the host IP address rather than `host.docker.internal` DNS.
+
 ## Running on Mac or Linux<a id="mac"></a>
 
 Currently the Cosmos emulator can only be run on Windows. Users running Mac or Linux can run the emulator in a Windows virtual machine hosted a hypervisor such as Parallels or VirtualBox. Below are the steps to enable this.
