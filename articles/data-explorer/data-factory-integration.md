@@ -105,14 +105,13 @@ The following table lists the required permissions for various steps in the inte
 If Azure Data Explorer is the source and you use the Lookup, copy, or command activity that contains a query where, refer to [query best practices](/azure/kusto/query/best-practices) for performance information and [ADF documentation for copy activity](/azure/data-factory/copy-activity-performance).
   
 This section addresses the use of copy activity where Azure Data Explorer is the sink. The estimated throughput for Azure Data Explorer sink is 11-13 MBps. The following table details the parameters influencing the performance of the Azure Data Explorer sink.
- 
+
 | Parameter | Notes |
 |---|---|
 | **Components geographical proximity** | Place all components in the same region:<ul><li>source and sink data stores.</li><li>ADF integration runtime.</li><li>Your ADX cluster.</li></ul>Make sure that at least your integration runtime is in the same region as your ADX cluster. |
 | **Number of DIUs** | 1 VM for every 4 DIUs used by ADF. <br>Increasing the DIUs will help only if your source is a file-based store with multiple files. Each VM will then process a different file in parallel. Therefore, copying a single large file will have a higher latency than copying multiple smaller files.|
 |**Amount and SKU of your ADX cluster** | High number of ADX nodes will boost ingestion processing time.|
-| Parallelism |	To copy a very large amount of data from a database, partition your data and then use a ForEach loop that copies each partition in parallel or use the [Bulk Copy from Database to Azure Data Explorer Template](data-factory-template.md).
-Note: **Settings** > **Degree of Parallelism** in the Copy activity isn't relevant to ADX.
+| **Parallelism** |	To copy a very large amount of data from a database, partition your data and then use a ForEach loop that copies each partition in parallel or use the [Bulk Copy from Database to Azure Data Explorer Template](data-factory-template.md). Note: **Settings** > **Degree of Parallelism** in the Copy activity isn't relevant to ADX. |
 | **Data processing complexity** | Latency varies according to source file format, column mapping, and compression.|
 | **The VM running your integration runtime** | <ul><li>For Azure copy, ADF VMs and machine SKUs can't be changed.</li><li> For on-prem to Azure copy, determine that the VM hosting your self-hosted IR is strong enough.</li></ul>|
 
