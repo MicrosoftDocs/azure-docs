@@ -26,7 +26,7 @@ Using private endpoints for your storage account enables you to:
 
 A Private Endpoint is a special network interface for an Azure service in your [Virtual Network](../../virtual-network/virtual-networks-overview.md) (VNet). When you create a private endpoint for your storage account, it provides secure connectivity between clients on your VNet and your storage. The private endpoint is assigned an IP address from the IP address range of your VNet. The connection between the private endpoint and the storage service uses a secure private link.
 
-Applications in the VNet can connect to the storage service over the private endpoint seamlessly, using the same connection strings and authorization mechanisms that they would use otherwise. Private endpoints can be used with all protocols supported by the storage account, including REST and SMB.
+Applications in the VNet can connect to the storage service over the private endpoint seamlessly, **using the same connection strings and authorization mechanisms that they would use otherwise**. Private endpoints can be used with all protocols supported by the storage account, including REST and SMB.
 
 When you create a private endpoint for a storage service in your VNet, a consent request is sent for approval to the storage account owner. If the user requesting the creation of the private endpoint is also an owner of the storage account, this consent request is automatically approved.
 
@@ -44,7 +44,7 @@ When creating the private endpoint, you must specify the storage account and the
 > [!TIP]
 > Create a separate private endpoint for the secondary instance of the storage service for better read performance on RA-GRS accounts.
 
-For read availability on a [read-access geo redundant storage account](storage-redundancy-grs.md#read-access-geo-redundant-storage), you need separate private endpoints for both the primary and secondary instances of the service. You don't need to create a private endpoint for the secondary instance for **failover**. The private endpoint will automatically connect to the new primary instance after failover.git 
+For read availability on a [read-access geo redundant storage account](storage-redundancy-grs.md#read-access-geo-redundant-storage), you need separate private endpoints for both the primary and secondary instances of the service. You don't need to create a private endpoint for the secondary instance for **failover**. The private endpoint will automatically connect to the new primary instance after failover.
 
 #### Resources
 
@@ -80,7 +80,10 @@ The DNS resource records for StorageAccountA, when resolved by a client in the V
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
 | ``StorageAccountA.privatelink.blob.core.windows.net`` | A     | 10.1.1.5                                              |
 
-This approach enables access to the storage account using the same connection string from the VNet hosting the private endpoints, as well as clients outside the VNet. You can use the storage firewall to deny access to all clients outside the VNet.
+This approach enables access to the storage account **using the same connection string** from the VNet hosting the private endpoints, as well as clients outside the VNet. You can use the storage firewall to deny access to all clients outside the VNet.
+
+> [!IMPORTANT]
+> Use the same connection string to connect to the storage account over private endpoints, as you'd use otherwise. Please don't connect to the storage account using its '*privatelink*' subdomain URL.
 
 > [!TIP]
 > If you're using a custom or on-premises DNS server, you should use the 'privatelink' subdomain of the storage service to configure DNS resource records for the private endpoints.
