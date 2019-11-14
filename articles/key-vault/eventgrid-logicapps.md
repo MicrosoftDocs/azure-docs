@@ -24,7 +24,6 @@ For an overview of Azure Key Vault / Azure Event Grid integration, see [Monitori
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - A key vault in your Azure Subscription. You can quickly create a new key vault by following the steps in [Set and retrieve a secret from Azure Key Vault using Azure CLI](quick-create-cli.md).
 
-
 ## Create a Logic App via Event Grid
 
 First, create Logic App with event grid handler and subscribe to Azure Key Vault "SecretNewVersionCreated" events.
@@ -36,9 +35,11 @@ To create an Azure Event Grid subscription, follow these steps:
 
     
     ![Key Vault - events page](./media/kvsubs.png)
+
 1. On **Logic Apps Designer** validate the connection and click **Continue** 
  
     ![Logic App Designer - connection](./media/logicappdesigner1.png)
+
 1. On the **When a a resource event occurs** screen, do the following:
     - Leave **Subscription** and **Resource Name** as default.
     - Select **Microsoft.KeyVault.vaults** for the **Resource Type**.
@@ -49,15 +50,15 @@ To create an Azure Event Grid subscription, follow these steps:
 1. Select **+ New Step** This will open a window to Choose an action.
 1. Search for **Email**. Based on your email provider, find and select the matching connector. This tutorial uses **Office 365 Outlook**. The steps for other email providers are similar.
 1. Select the **Send an email (V2)** action.
-   
+
    ![Logic App Designer - add email](./media/logicappdesigner3.png)
 
 1. Build your email template:
     - **To:** Enter the email address to receive the notification emails. For this tutorial, use an email account that you can access for testing.
     - **Subject** and **Body**: Write the text for your email. Select JSON properties from the selector tool to include dynamic content based on event data. You can retrieve the data of the event using `@{triggerBody()?['Data']}`.
 
-Your email template may look like this example:
-    
+    Your email template may look like this example.
+
     ![Logic App Designer - add email](./media/logicappdesigner4.png)
 
 8. Click **Save as**.
@@ -65,7 +66,8 @@ Your email template may look like this example:
     
     ![Logic App Designer - add email](./media/logicappdesigner5.png)
 
-### Testing and Verification
+## Test and Verify
+
 1.  Go to your key vault on the Azure portal and select **Events > Event Subscriptions**.
 1.  Notice new subscription created
     
@@ -73,13 +75,12 @@ Your email template may look like this example:
 
 1.  Create a new secret for testing purposes name the key and keep the remaining parameters in their default settings.
 
-An email will be received at the configured addresses. 
+An email will be received at the configured addresses.
 
 ## Next steps
 
 - Overview: [Monitoring Key Vault with Azure Event Grid (preview)](event-grid-overview.md)
-* How-To: [Route key vault notifications to Azure Automation](event-grid-tutorial.md).
+- How-To: [Route key vault notifications to Azure Automation](event-grid-tutorial.md).
 - [Azure Event Grid event schema for Azure Key Vault (preview)](../event-grid/event-schema-key-vault.md)
-* Learn more about [Azure Event Grid](../event-grid/index.yml).
-* Learn more about the [Logic Apps feature of Azure App Service](../logic-apps/index.yml).
-
+- Learn more about [Azure Event Grid](../event-grid/index.yml).
+- Learn more about the [Logic Apps feature of Azure App Service](../logic-apps/index.yml).
