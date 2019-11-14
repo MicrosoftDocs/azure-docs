@@ -16,7 +16,7 @@ ms.author: magattus
 > [!NOTE]
 > The rules engine is available only for Standard Azure Content Delivery Network from Microsoft. 
 
-You can use the Standard rules engine for Azure Content Delivery Network (Azure CDN) to customize how HTTP requests are handled. For example, you can use the rules engine to enforce content delivery over specific protocols, define a caching policy, or modify an HTTP header. This article demonstrates how to create a rule that automatically redirects users to HTTPS. 
+You can use the Standard rules engine for Azure Content Delivery Network (Azure CDN) to customize how HTTP requests are handled. For example, you can use the rules engine to enforce content delivery to use specific protocols, to define a caching policy, or to modify an HTTP header. This article demonstrates how to create a rule that automatically redirects users to HTTPS. 
 
 ## Redirect users to HTTPS
 

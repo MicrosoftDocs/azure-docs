@@ -13,9 +13,9 @@ ms.author: magattus
 
 # Match conditions in the Standard rules engine for Azure CDN
 
-In a rules engine, a rule consists of a set of match conditions and an action. This article provides detailed descriptions of the match conditions you can use in the [Standard rules engine](cdn-standard-rules-engine.md) for Azure Content Delivery Network (Azure CDN).
+In the [Standard rules engine](cdn-standard-rules-engine.md) for Azure Content Delivery Network (Azure CDN), a rule consists of a set of match conditions and an action. This article provides detailed descriptions of the match conditions you can use in the Standard rules engine for Azure CDN.
 
-The first part of a rule is a set of match conditions. In the Standard rules engine for Azure CDN, each rule can have up to four match conditions. A match condition identifies specific types of requests for which defined actions are performed. If you use multiple match conditions, the match conditions are grouped together by using AND logic.
+The first part of a rule is a match condition or set of match conditions. In the Standard rules engine for Azure CDN, each rule can have up to four match conditions. A match condition identifies specific types of requests for which defined actions are performed. If you use multiple match conditions, the match conditions are grouped together by using AND logic.
 
 For example, you can use a match condition to:
 
@@ -68,7 +68,7 @@ String | [Standard operator list](#standard-operator-list) | String, Int | No tr
 
 ### Post argument
 
-Arguments defined for the POST request method that's used in the request. 
+Identifies requests based on arguments defined for the POST request method that's used in the request. 
 
 #### Required fields
 
@@ -113,7 +113,7 @@ Not IP Match | IP address (space-separated)
 
 ### Request body
 
-Text that appears in the body of the request.
+Identifies requests based on specific text that appears in the body of the request.
 
 #### Required fields
 
@@ -123,7 +123,7 @@ Operator | Request body | Case transform
 
 ### Request header
 
-Identifies the header used in the request.
+Identifies requests that use a specific header in the request.
 
 #### Required fields
 
@@ -133,7 +133,7 @@ String | [Standard operator list](#standard-operator-list) | String, Int | No tr
 
 ### Request method
 
-Identifies the request method used in the request.
+Identifies requests based on the request method used in the request.
 
 #### Required fields
 
@@ -147,7 +147,7 @@ Equals, Not equals | GET, POST, PUT, DELETE, HEAD, OPTIONS, TRACE
 
 ### Request protocol
 
-Identifies the protocol used to send the request.
+Identifies requests based on the protocol used to send the request.
 
 #### Required fields
 
@@ -157,7 +157,7 @@ Equals, Not equals | HTTP, HTTPS
 
 ### Request URL
 
-Identifies the URL used to send the request.
+Identifies requests based on the URL used to send the request.
 
 #### Required fields
 
@@ -171,7 +171,7 @@ Operator | Request URL | Case transform
 
 ### URL file extension
 
-Identifies the file extension of the file name part of the requesting URL.
+Identifies requests based on the file extension of the file name part of the requesting URL.
 
 #### Required fields
 
@@ -185,7 +185,7 @@ Operator | Extension | Case transform
 
 ### URL file name
 
-Identifies the file name part of the requesting URL.
+Identifies requests based on the file name part of the requesting URL.
 
 #### Required fields
 
@@ -199,7 +199,7 @@ Operator | File name | Case transform
 
 ### URL path
 
-Identifies the path of the requesting URL.
+Identifies requests based on the path of the requesting URL.
 
 #### Required fields
 

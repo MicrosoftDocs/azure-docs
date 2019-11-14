@@ -13,11 +13,11 @@ ms.author: magattus
 
 # Standard rules engine reference for Azure CDN
 
-This article provides detailed descriptions of the match conditions and features that are avaiable in the [Standard rules engine](cdn-standard-rules-engine.md) for Azure Content Delivery Network (Azure CDN).
+In the [Standard rules engine](cdn-standard-rules-engine.md) in Azure Content Delivery Network (Azure CDN), a rule consists of a set of match conditions and an action. This article provides detailed descriptions of the match conditions and features that are avaiable in the Standard rules engine for Azure CDN.
 
 The rules engine is designed to be the final authority on how specific types of requests are processed by Standard Azure CDN.
 
-**Common uses**:
+**Common uses for the rules**:
 
 - Override or define a custom cache policy.
 - Redirect requests.
@@ -25,7 +25,7 @@ The rules engine is designed to be the final authority on how specific types of 
 
 ## Terminology
 
-You define a rule by setting [match conditions](cdn-standard-rules-engine-match-conditions.md) and [actions](cdn-standard-rules-engine-actions.md). These elements are highlighted in the following illustration:
+To define a rule, set [match conditions](cdn-standard-rules-engine-match-conditions.md) and [actions](cdn-standard-rules-engine-actions.md). Match conditions and actions are highlighted in the following illustration:
 
  ![Azure CDN rules structure](./media/cdn-standard-rules-engine-reference/cdn-rules-structure.png)
 
@@ -35,7 +35,7 @@ Included in the current five-rule limit for an Azure CDN endpoint is a default *
 
 ## Syntax
 
-How special characters are treated varies based on how a match condition or action handles text values. A match condition or feature can interpret text in one of the following ways:
+How special characters are treated in a rule varies based on how a match condition or action handles text values. A match condition or feature can interpret text in one of the following ways:
 
 - [Literal values](#literal-values)
 - [Wildcard values](#wildcard-values)
@@ -53,7 +53,7 @@ Text that's interpreted as a wildcard value assigns additional meaning to specia
 
 Character | Description
 ----------|------------
-\ | A backslash is used to escape any of the characters specified in this table. A backslash must be specified directly before the special character that should be escaped.<br/>For example, the following syntax escapes an asterisk: `\*`
+\ | A backslash is used to escape any of the characters specified in this table. A backslash must be specified directly before the special character that should be escaped.<br />For example, the following syntax escapes an asterisk: `\*`
 % | A percent sign is used to indicate URL encoding (for example, `%20`).
 \* | An asterisk is a wildcard that represents one or more characters.
 space | A space character indicates that a match condition can be satisfied by either of the specified values or patterns.
