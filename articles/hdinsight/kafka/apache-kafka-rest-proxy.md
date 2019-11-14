@@ -6,14 +6,13 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 11/14/2019
 ---
-
 # Interact with Apache Kafka clusters using a REST proxy
 
 The Kafka REST Proxy enables you to interact with your Kafka cluster via a REST API over HTTP. This means that your Kafka clients can be outside of the virtual network. Additionally, clients can make simple HTTP calls to send and receive messages to the Kafka cluster, instead of relying on Kafka libraries.  
 
-## Concepts
+## Background
 
 ### Architecture
 
@@ -23,9 +22,7 @@ Without a REST proxy, Kafka clients need to be in the same VNet as the Kafka clu
 
 ### Security
 
-Access to the Kafka REST proxy is managed with Azure Active Directory security groups. See [documentation on AAD groups](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups), for more information.
-
-![placeholder for security groups image](./media/apache-kafka-rest-proxy/XYZ.png)
+Access to the Kafka REST proxy is managed with Azure Active Directory security groups. See [Manage app and resource access using Azure Active Directory groups](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups), for more information.
 
 When creating the Kafka cluster with the REST proxy enabled, you will provide the AAD security group that should have access to the REST endpoint. The Kafka clients (applications) that need access to the REST proxy should be registered to this group by the group owner. The group owner can do this via the Portal or via Powershell.
 
@@ -33,15 +30,13 @@ Before making requests to the REST proxy endpoint, the client application should
 
 Once the client application has the OAuth token, they must pass that token in the HTTP request made to the REST proxy.
 
-## Setting up your REST proxy
+## Prerequisites
 
-### Registering an app with AAD
+1. Create a Azure AD security group. This security group will be used to control which applications are allowed to interact with the REST proxy. For more information on creating Azure AD groups, see [Create a basic group and add members using Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal).
+1. Register an application with Azure AD. The client applications that you write to interact with the Kafka REST proxy will use this application's ID and secret to authenticate to Azure.
+1. Add the application that you have registered with Azure AD to the security group associated with the REST-enabled Kafka cluster. For more information on adding members to an Azure AD group, see [Add or remove group members using Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-members-azure-portal).
 
-The Security group owner can add applications to the security group associated with the REST-enabled Kafka cluster.
-
-There are multiple ways to create groups. You can [create groups through the Azure portal](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal) or [create groups using PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0).
-
-### Deploy Kafka cluster with REST proxy
+## Create a Kafka cluster with REST proxy enabled
 
 1. During the Kafka cluster creation workflow, in the “Security + networking” tab, check the “Enable Kafka REST proxy” option.
      ![Enable Kafka REST proxy and select security group](./media/apache-kafka-rest-proxy/apache-kafka-rest-proxy-enable.png)
@@ -52,12 +47,64 @@ There are multiple ways to create groups. You can [create groups through the Azu
 5. Once the cluster is created, go to the cluster properties to record the Kafka REST proxy URL.
      ![view REST proxy URL](./media/apache-kafka-rest-proxy/apache-kafka-rest-proxy-view-proxy-url.png)
 
-### Get OAuth token for your app
+### Test the REST proxy with a client application
 
-[Link to AAD documentation] You can use any application framework to interact with the REST proxy. For the purposes of this tutorial, we will use the sample python application located [here link to sample with Anushree’s python file]. Download this in your developer environment that has python installed.
+You can use the python code below to interact with the REST proxy on your Kafka cluster. This code fetches an OAuth token from AAD, creates the topic specified, sends messages to that topic and consumes messages from that topic. For more information on getting OAuth tokens in python, see [Python AuthenticationContext class](https://docs.microsoft.com/python/api/adal/adal.authentication_context.authenticationcontext?view=azure-python).
 
-### Send messages from application to Kafka via REST proxy
+```python
+#Required python packages
+#pip3 install adal
+#pip install msrestazure
 
-Replace the placeholders in the code with information relevant for your application. Run the sample python code. You will see that it fetches the OAuth token from AAD, creates the topic specified, sends messages to that topic and consumes messages from that topic.
+import adal
+from msrestazure.azure_active_directory import AdalAuthentication
+from msrestazure.azure_cloud import AZURE_PUBLIC_CLOUD
+import requests
+
+#--------------------------Configure these properties-------------------------------#
+# Tenant ID for your Azure Subscription
+tenant_id = 'ABCDEFGH-1234-1234-1234-ABCDEFGHIJKL'
+# Your Client Application Id
+client_id = 'XYZABCDE-1234-1234-1234-ABCDEFGHIJKL'
+# Your Client Credentials
+client_secret = 'password'
+# kafka rest proxy -endpoint
+# Eg  https://<clustername>-kafkarest.azurehdinsight.net
+kafkarest_endpoint = "https://kafkasummit-demo-kafkarest.azurehdinsight.net"
+#--------------------------Configure these properties-------------------------------#
+
+#getting token
+login_endpoint = AZURE_PUBLIC_CLOUD.endpoints.active_directory
+resource = "https://hib.azurehdinsight.net"
+context = adal.AuthenticationContext(login_endpoint + '/' + tenant_id)
+
+token = context.acquire_token_with_client_credentials(
+    resource,
+    client_id,
+    client_secret)
+
+accessToken = 'Bearer ' + token['accessToken']
+
+print(accessToken)
+
+# relative url
+getstatus = "/v1/status"
+request_url = kafkarest_endpoint + getstatus
+
+# sending get request and saving the response as response object
+response = requests.get(request_url, headers={'Authorization': accessToken})
+print(response.content)
+```
+
+To use the code sample, follow these steps:
+
+1. Save the sample code on a machine with Python installed.
+1. Install required python dependencies by executing `pip3 install adal` and `pip install msrestazure`.
+1. Modify the code and update the following properties for your environment:
+    1.	*Tenant ID* – The Azure tenant where your subscription is.
+    1.	*Client ID* – The ID for the application that you registered in the security group.
+    1.	*Client Secret* – The secret for the application that you registered in the security group
+    1.	*Kafkarest_endpoint* – get this value from the “properties” tab in the cluster overview as described in the [deployment section](#deploy-kafka-rest-proxy). It should be in the following format – `https://<clustername>-kafkarest.azurehdinsight.net`
+3. From the command line, execute the python file by executing `python <filename.py>`
 
 ## Next steps
