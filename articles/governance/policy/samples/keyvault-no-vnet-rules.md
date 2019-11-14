@@ -1,15 +1,12 @@
 ---
 title: Sample - Key vaults with no vNet endpoints
 description: This sample policy definition audits Key Vault vaults to detect instances that have no virtual network service endpoints.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/26/2019
-ms.author: dacoulte
+ms.topic: sample
 ---
 # Sample - Key Vault vaults with no virtual network endpoints
 
-This policy audits for Key Vault vaults that have no virtual network endpoints. Use to enforce your
+This example of how to [Integrate Key Vault with Azure Policy](../../../key-vault/azure-policy.md) audits for key vaults that have no virtual network endpoints. Use to enforce your
 security requirements. For more information, see [virtual network service endpoints in Key
 Vault](../../../key-vault/key-vault-overview-vnet-service-endpoints.md)
 
@@ -186,4 +183,5 @@ There are several tools that can be used to interact with the Resource Manager R
 ## Next steps
 
 - Review additional [Azure Policy samples](index.md)
+- Learn how to [Integrate Azure Key Vault with Azure Policy](../../../key-vault/azure-policy.md).
 - Review [Azure Policy definition structure](../concepts/definition-structure.md)

@@ -1,7 +1,7 @@
 ---
-title: Configure Load Balancer TCP idle timeout in Azure
-titlesuffix: Azure Load Balancer
-description: Configure Load Balancer TCP idle timeout
+title: Configure load balancer TCP idle timeout in Azure
+titleSuffix: Azure Load Balancer
+description: In this article, learn how to configure Azure Load Balancer TCP idle timeout.
 services: load-balancer
 documentationcenter: na
 author: asudbring
