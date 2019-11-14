@@ -1,5 +1,5 @@
 ---
-title: Azure Data Lake Storage Quick Query (Preview)
+title: Azure Data Lake Storage quick query (Preview)
 description: Azure Data Lake Storage Quick Query (Preview)
 author: normesta
 ms.topic: conceptual
@@ -10,20 +10,20 @@ ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ---
 
-# Azure Data Lake Storage Quick Query (Preview)
+# Azure Data Lake Storage quick query (Preview)
 
-Azure Data Lake Storage is the storage service for creating enterprise Data Lakes in Azure. Quick query (Preview) is a new capability for Azure Data Lake Storage that enables applications and analytics frameworks to dramatically optimize data processing by retrieving only the subset of data that they require. This reduces the time and processing power that's required to gain critical insights into your data.
+Quick query (Preview) is a new capability for Azure Data Lake Storage that enables applications and analytics frameworks to dramatically optimize data processing by retrieving only the data that is required for a processing operation. This reduces the time and processing power that is required to gain critical insights into the data in your storage account.
 
 > [!NOTE]
 > The quick query feature is in public preview, and is available in the region1, region2, and region3 regions. To review limitations, see the [Known issues](data-lake-storage-known-issues.md) article. To enroll in the preview, see [this form](https://aka.ms/adlsquickquerypreview). 
 
-## Overview of the quick query feature
+## Overview
 
-Quick query accepts filtering *predicates* which enables your applications to filter rows and columns at the moment when data is read from disk. Only the data that meets the conditions of the predicate is transferred over the network to the application. This significantly reduces network latency and compute cost.  
+Quick query accepts filtering *predicates* which enable your applications to filter rows and columns when data is read from disk. Only the data that meets the conditions of a predicate are transferred over the network to the application. Filtering data at the source reduces network latency and compute cost.  
 
-Your applications can use a reduced SQL grammar to specify the row filter predicates and column projections of a quick query request. A request can process only one file. Therefore, advanced relational features of SQL, such as joins and group by aggregates, aren't supported. Quick query supports CSV, Json and Parquet formatted data as input to each request.
+Use SQL to specify the row filter predicates and column projections in a quick query request. A request processes only one file. Therefore, advanced relational features of SQL, such as joins and group by aggregates, aren't supported. Quick query supports CSV, Json and Parquet formatted data as input to each request.
 
-The following diagram illustrates how applications use quick query to process data
+The following diagram illustrates how a typical application uses quick query to process data.
 
 ![Quick query overview](./media/data-lake-storage-quick-query/quick-query.png)
 
@@ -31,17 +31,19 @@ The quick query feature isn't limited to Data Lake Storage. It's completely comp
 
 To learn how to use quick query in a .NET application, see [Filter data by using Azure Data Lake Storage quick query](https://aka.ms/adlsquickquerypreview).
 
-## Quick query improves performance and reduces costs
+## Better performance at a lower cost
 
-To calculate an aggregated value, data processing applications and analytics frameworks typically retrieve **all** of the data from a file (For example: a CSV, Json, or Parquet file). Then, the application parses the data, applies filtering criteria, and calculates the aggregated value.  
+Quick query optimizes performance by reducing the amount of data that gets transferred and processed by your application.
 
-An analysis of the input/output patterns for analytics workloads reveal that applications typically require only 20% of the data that they read to perform any given calculation. This statistic is true even after applying techniques such as [partition pruning](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-optimize-hive-query#hive-partitioning). This means that 80% of that data is needlessly transferred across the network, parsed, and filtered by the application. This pattern, essentially designed to remove unneeded data, incurs a significant compute cost.  
+To calculate an aggregated value, applications commonly retrieve **all** of the data from a file (For example: a CSV, Json, or Parquet file). Then, the application parses the data, applies filtering criteria, and calculates the aggregated value.  
+
+An analysis of the input/output patterns for analytics workloads reveal that applications typically require only 20% of the data that they read to perform any given calculation. This statistic is true even after applying techniques such as [partition pruning](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-optimize-hive-query#hive-partitioning). This means that 80% of that data is needlessly transferred across the network, parsed, and filtered by applications. This pattern, essentially designed to remove unneeded data, incurs a significant compute cost.  
 
 Even though Azure features an industry-leading network, in terms of both throughput and latency, needlessly transferring data across that network is still costly for application performance. By filtering out the unwanted data during the storage request, quick query eliminates this cost.
 
-Additionally, the CPU load that is required to parse and filter unneeded data requires your application to provision a greater number and larger VMs in order to do it's work. By transferring this compute load to Quick Query, applications can realize significant cost savings.
+Additionally, the CPU load that is required to parse and filter unneeded data requires your application to provision a greater number and larger VMs in order to do it's work. By transferring this compute load to quick query, applications can realize significant cost savings.
 
-## The cost to use quick query
+## Pricing
 
 Due to the increased compute load within the Azure Data Lake Storage service, the pricing model for using quick query differs from the normal Azure Data Lake Storage transaction model. Quick query charges a cost for the amount of data scanned as well as a cost for the amount of data returned to the caller.
 
