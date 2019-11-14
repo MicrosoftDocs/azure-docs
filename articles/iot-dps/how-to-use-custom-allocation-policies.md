@@ -3,7 +3,7 @@ title: How to use custom allocation policies with the Azure IoT Hub Device Provi
 description: How to use custom allocation policies with the Azure IoT Hub Device Provisioning Service
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/10/2019
+ms.date: 11/14/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
