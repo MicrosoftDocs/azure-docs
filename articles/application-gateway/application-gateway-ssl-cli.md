@@ -1,18 +1,14 @@
 ---
-title: Create an application gateway with SSL termination - Azure CLI | Microsoft Docs
+title: SSL termination using CLI - Azure Application Gateway
 description: Learn how to create an application gateway and add a certificate for SSL termination using the Azure CLI.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
-
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 11/14/2019
 ms.author: victorh
-
 ---
+
 # Create an application gateway with SSL termination using the Azure CLI
 
 You can use the Azure CLI to create an [application gateway](application-gateway-introduction.md) with a certificate for [SSL termination](application-gateway-backend-ssl.md) that uses a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) for backend servers. In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway.
