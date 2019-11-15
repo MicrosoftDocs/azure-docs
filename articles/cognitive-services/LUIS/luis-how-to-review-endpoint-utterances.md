@@ -34,7 +34,7 @@ Each utterance has a suggested intent displayed in the **Aligned intent** column
 
 If you agree with that intent, select the check mark. If you disagree with the suggestion, select the correct intent from the aligned intent drop-down list, then select on the check mark to the right of the aligned intent. After you select on the check mark, the utterance is moved to the intent and removed from the **Review Endpoint Utterances** list. 
 
-> ![TIP]
+> [!TIP]
 > It is important to go to the Intent details page to review and correct the entity predictions from all example utterances from the **Review Endpoint Utterances** list.
 
 ## Delete utterance
