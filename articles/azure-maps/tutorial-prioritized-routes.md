@@ -1,9 +1,9 @@
 ---
-title: Multiple routes with Azure Maps | Microsoft Docs
-description: Find routes for different modes of travel using Azure Maps
+title: 'Tutorial: Multiple routes with Azure Maps'
+description: 'Tutorial: Find routes for different modes of travel using Azure Maps'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 03/07/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -11,7 +11,7 @@ manager: timlt
 ms.custom: mvc
 ---
 
-# Find routes for different modes of travel using Azure Maps
+# Tutorial: Find routes for different modes of travel using Azure Maps
 
 This tutorial shows how to use your Azure Maps account and the route service to find the route to your point of interest, prioritized by your mode of travel. You display two different routes on your map, one for cars and one for trucks that may have route restrictions because of height, weight, or hazardous cargo. In this tutorial, you learn how to:
 
