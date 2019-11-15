@@ -51,14 +51,16 @@ az extension add --name spring-cloud
 
 1. In a web browser, open [this link to Azure Spring Cloud in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.AppPlatform).
 
-1. Select **Azure Spring Cloud** to go to the overview page. Select the **Create** button to get started.
-
-1. Fill out the form, considering the following guidelines:
+1. Fill out the form on the Azure Spring Cloud **Create** page.  Consider the following guidelines:
     - Service Name: Specify the name of your service instance.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
     - Subscription: Select the subscription you want to be billed for this resource.  Ensure that this subscription has been added to our allow-list for Azure Spring Cloud.
     - Resource group: Creating new resource groups for new resources is a best practice.
     - Location: Select the location for your service instance. Currently supported locations include East US, West US 2, West Europe, and Southeast Asia.
-    
+
+1. Click **Review and create**.
+
+1. Verify your specifications, and click **Create**.
+
 It takes about 5 minutes for the service to deploy.  Once it is deployed, the **Overview** page for the service instance will appear.
 
 ## Set up your configuration server
