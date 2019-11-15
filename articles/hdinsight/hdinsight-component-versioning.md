@@ -17,7 +17,7 @@ Learn about the [Apache Hadoop](https://hadoop.apache.org/) ecosystem components
 
 ## Apache Hadoop components available with different HDInsight versions
 
-Azure HDInsight supports multiple Hadoop cluster versions that can be deployed at any time. As of April 4, 2017, the default cluster version used by Azure HDInsight is 3.6
+Azure HDInsight supports multiple Hadoop cluster versions that can be deployed at any time. As of April 4, 2017, the default cluster version used by Azure HDInsight is 3.6.
 
 The component versions associated with HDInsight cluster versions are listed in the following table: 
 
@@ -65,7 +65,7 @@ The following tables list the versions of HDInsight. The support expiration and 
 
 The following table lists the versions of HDInsight that are available in the Azure portal as well as other deployment methods like PowerShell and .NET SDK.
 
-| HDInsight version | VM OS | Release date | Support expiration date | Retirement date | High availability |  Availability on the Azure portal | 
+| HDInsight version | VM OS | Release date | Support expiration date | Retirement date | High availability |  Availability in the Azure portal | 
 | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 4.0 |Ubuntu 16.0.4 LTS |September 24, 2018 | | |Yes |Yes |
 | HDInsight 3.6 |Ubuntu 16.0.4 LTS |April 4, 2017 | June 30, 2020 |December 31, 2020 |Yes |Yes |
