@@ -243,7 +243,7 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
                                      transformations=preprocessor)
 ```
 
-In case you want to run the example with the list of fitted transformer tuples, use the following code.
+In case you want to run the example with the list of fitted transformer tuples, use the following code:
 
 ```python
 from sklearn.pipeline import Pipeline
@@ -427,107 +427,107 @@ You can deploy the explainer along with the original model and use it at inferen
 
    1. Create a scoring file.
 
-           ```python
-           %%writefile score.py
-           import json
-           import numpy as np
-           import pandas as pd
-           import os
-           import pickle
-           from sklearn.externals import joblib
-           from sklearn.linear_model import LogisticRegression
-           from azureml.core.model import Model
+         ```python
+         %%writefile score.py
+         import json
+         import numpy as np
+         import pandas as pd
+         import os
+         import pickle
+         from sklearn.externals import joblib
+         from sklearn.linear_model import LogisticRegression
+         from azureml.core.model import Model
           
-           def init():
-           
-              global original_model
-              global scoring_model
-               
-              # retrieve the path to the model file using the model name
-              # assume original model is named original_prediction_model
-              original_model_path = Model.get_model_path('original_prediction_model')
-              scoring_explainer_path = Model.get_model_path('my_scoring_explainer')
+         def init():
+         
+            global original_model
+            global scoring_model
+             
+            # retrieve the path to the model file using the model name
+            # assume original model is named original_prediction_model
+            original_model_path = Model.get_model_path('original_prediction_model')
+            scoring_explainer_path = Model.get_model_path('my_scoring_explainer')
 
-              original_model = joblib.load(original_model_path)
-              scoring_explainer = joblib.load(scoring_explainer_path)
+            original_model = joblib.load(original_model_path)
+            scoring_explainer = joblib.load(scoring_explainer_path)
 
-           def run(raw_data):
-              # get predictions and explanations for each data point
-              data = pd.read_json(raw_data)
-              # make prediction
-              predictions = original_model.predict(data)
-              # retrieve model explanations
-              local_importance_values = scoring_explainer.explain(data)
-              # you can return any data type as long as it is JSON-serializable
-              return {'predictions': predictions.tolist(), 'local_importance_values': local_importance_values}
-           ```
+         def run(raw_data):
+            # get predictions and explanations for each data point
+            data = pd.read_json(raw_data)
+            # make prediction
+            predictions = original_model.predict(data)
+            # retrieve model explanations
+            local_importance_values = scoring_explainer.explain(data)
+            # you can return any data type as long as it is JSON-serializable
+            return {'predictions': predictions.tolist(), 'local_importance_values': local_importance_values}
+         ```
    1. Define the deployment configuration.
 
-           This configuration depends on the requirements of your model. The following example defines a configuration that uses one CPU core and one GB of memory.
+         This configuration depends on the requirements of your model. The following example defines a configuration that uses one CPU core and one GB of memory.
 
-           ```python
-           from azureml.core.webservice import AciWebservice
+         ```python
+         from azureml.core.webservice import AciWebservice
 
-            aciconfig = AciWebservice.deploy_configuration(cpu_cores=1,
-                                                      memory_gb=1,
-                                                      tags={"data": "NAME_OF_THE_DATASET",
-                                                            "method" : "local_explanation"},
-                                                      description='Get local explanations for NAME_OF_THE_PROBLEM')
-           ```
+          aciconfig = AciWebservice.deploy_configuration(cpu_cores=1,
+                                                    memory_gb=1,
+                                                    tags={"data": "NAME_OF_THE_DATASET",
+                                                          "method" : "local_explanation"},
+                                                    description='Get local explanations for NAME_OF_THE_PROBLEM')
+         ```
 
    1. Create a file with environment dependencies.
 
-           ```python
-           from azureml.core.conda_dependencies import CondaDependencies
+         ```python
+         from azureml.core.conda_dependencies import CondaDependencies
 
-           # WARNING: to install this, g++ needs to be available on the Docker image and is not by default (look at the next cell)
+         # WARNING: to install this, g++ needs to be available on the Docker image and is not by default (look at the next cell)
 
-           azureml_pip_packages = ['azureml-defaults', 'azureml-contrib-interpret', 'azureml-core', 'azureml-telemetry', 'azureml-interpret']
+         azureml_pip_packages = ['azureml-defaults', 'azureml-contrib-interpret', 'azureml-core', 'azureml-telemetry', 'azureml-interpret']
  
 
-           # specify CondaDependencies obj
-           myenv = CondaDependencies.create(conda_packages=['scikit-learn', 'pandas'],
-                                            pip_packages=['sklearn-pandas'] + azureml_pip_packages,
-                                            pin_sdk_version=False)
+         # specify CondaDependencies obj
+         myenv = CondaDependencies.create(conda_packages=['scikit-learn', 'pandas'],
+                                          pip_packages=['sklearn-pandas'] + azureml_pip_packages,
+                                          pin_sdk_version=False)
 
 
-           with open("myenv.yml","w") as f:
-              f.write(myenv.serialize_to_string())
+         with open("myenv.yml","w") as f:
+            f.write(myenv.serialize_to_string())
 
-           with open("myenv.yml","r") as f:
-              print(f.read())
-           ```
+         with open("myenv.yml","r") as f:
+            print(f.read())
+         ```
 
    1. Create a custom dockerfile with g++ installed.
 
-           ```python
-           %%writefile dockerfile
-           RUN apt-get update && apt-get install -y g++
-           ```
+         ```python
+         %%writefile dockerfile
+         RUN apt-get update && apt-get install -y g++
+         ```
 
    1. Deploy the created image.
    
-           This takes approximately five minutes.
+         This takes approximately five minutes.
 
-            ```python
-            from azureml.core.webservice import Webservice
-            from azureml.core.image import ContainerImage
+          ```python
+          from azureml.core.webservice import Webservice
+          from azureml.core.image import ContainerImage
 
-            # use the custom scoring, docker, and conda files we created above
-            image_config = ContainerImage.image_configuration(execution_script="score.py",
-                                                            docker_file="dockerfile",
-                                                            runtime="python",
-                                                            conda_file="myenv.yml")
+          # use the custom scoring, docker, and conda files we created above
+          image_config = ContainerImage.image_configuration(execution_script="score.py",
+                                                          docker_file="dockerfile",
+                                                          runtime="python",
+                                                          conda_file="myenv.yml")
 
-            # use configs and models generated above
-            service = Webservice.deploy_from_model(workspace=ws,
-                                                name='model-scoring-service',
-                                                deployment_config=aciconfig,
-                                                models=[scoring_explainer_model, original_model],
-                                                image_config=image_config)
+          # use configs and models generated above
+          service = Webservice.deploy_from_model(workspace=ws,
+                                              name='model-scoring-service',
+                                              deployment_config=aciconfig,
+                                              models=[scoring_explainer_model, original_model],
+                                              image_config=image_config)
 
-            service.wait_for_deployment(show_output=True)
-            ```
+          service.wait_for_deployment(show_output=True)
+          ```
 
 1. Test the deployment.
 

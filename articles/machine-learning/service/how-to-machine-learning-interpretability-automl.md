@@ -78,9 +78,9 @@ automl_explainer_setup_obj = automl_setup_model_explanations(fitted_model, X=X_t
 
 To generate an explanation for AutoML models, use the `MimicWrapper` class. You can initialize the MimicWrapper with these parameters:
 
-- the explainer setup object
-- your workspace
-- a LightGBM model, which acts as a surrogate to the `fitted_model` automated ML model
+- The explainer setup object
+- Your workspace
+- A LightGBM model, which acts as a surrogate to the `fitted_model` automated ML model
 
 The MimicWrapper also takes the `automl_run` object where the raw and engineered explanations will be uploaded.
 
