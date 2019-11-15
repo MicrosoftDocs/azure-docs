@@ -79,26 +79,25 @@ After gathering basic information, we next show you solutions to try on your own
 
 ### Details
 
-Next, we collect additional details about the problem. Providing thorough and accurate information in this step helps us route your support request to the right agent and lets them begin diagnosing the issue.
+Next, we collect additional details about the problem. Providing thorough and detailed information in this step helps us route your support request to the right agent and lets them begin diagnosing the issue.
 
 It's a good idea to let us know when the problem started and any steps to reproduce it. You may also choose to upload a file, such as a log file or output from diagnostics.
 
-Now that we have all the information about the problem you're having, you can choose how to get support. In the **Support method** section of the **Details** tab, select the severity of impact, your preferred contact method, a good time to contact you, and your support language.
+After we have all the information about the problem you're having, you can choose how to get support. In the **Support method** section of the **Details** tab, select the severity of impact. Provide your preferred contact method, a good time to contact you, and your support language.
 
 Next, complete the **Contact info** section so we know how to contact you.
 
 ### Review + create
 
-After you have completed all required information on each tab, select **Review + create**. Check the details that will be sent to Support. Go back to any tab to make a change if needed. When you're satisfied that the support request is complete, select **Create**.
+Complete all required information on each tab, then select **Review + create**. Check the details that you'll send to Support. Go back to any tab to make a change if needed. When you're satisfied the support request is complete, select **Create**.
 
 A support agent will contact you using the method you indicated. Consult [Support scope and responsiveness](https://azure.microsoft.com/support/plans/response/) for information about initial response time.
 
 ## All support requests
 
-After you create the support request, you can view the details and status by going to **Help + support** >  **All support requests**.
+You can view the details and status of support requests by going to **Help + support** >  **All support requests**.
 
-On this page, you can filter support requests by Subscription, created date (UTC), and status.
-Additionally, you can sort and search for support requests on this page.
+On this page, you can filter support requests by Subscription, created date (UTC), and status. Additionally, you can sort and search for support requests on this page.
 
 Select a support request to view details, including severity and the expected time it will take for a support agent to respond.
 
