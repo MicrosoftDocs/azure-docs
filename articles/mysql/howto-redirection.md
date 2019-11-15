@@ -22,7 +22,7 @@ Redirection is currently only supported when SSL is enabled. For details on how 
 > [!NOTE]
 > Support for redirection in [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) is currently in preview.
 
-### Pre-requisites 
+### Prerequisites 
 - PHP versions 7.2.15+ and 7.3.2+
 - PHP PEAR 
 - php-mysql
