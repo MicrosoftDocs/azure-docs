@@ -32,7 +32,7 @@ The objective of this tutorial is to demonstrate the steps to be performed in Of
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * An Azure AD tenant
-* [A OfficeSpace Software tenant](https://www.officespacesoftware.com/)
+* An [OfficeSpace Software tenant](https://www.officespacesoftware.com/)
 * A user account in OfficeSpace Software with Admin permissions.
 
 ## Assigning users to OfficeSpace Software
@@ -48,7 +48,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 * When assigning a user to OfficeSpace Software, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 
-## Setup OfficeSpace Software for provisioning
+## Set up OfficeSpace Software for provisioning
 
 1. Sign in to your [OfficeSpace Software Admin Console](https://support.officespacesoftware.com/hc). Navigate to **Settings > Connectors**.
 
@@ -89,7 +89,7 @@ Before configuring OfficeSpace Software for automatic user provisioning with Azu
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in OfficeSpace Software based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for OfficeSpace Software , following the instructions provided in the [OfficeSpace Software Single sign-on tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/officespace-tutorial). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
+> You may also choose to enable SAML-based single sign-on for OfficeSpace Software by following the instructions provided in the [OfficeSpace Software Single sign-on tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/officespace-tutorial). Single sign-on can be configured independently of automatic user provisioning, though these two features complement each other.
 
 ### To configure automatic user provisioning for OfficeSpace Software in Azure AD:
 
@@ -113,7 +113,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox - **Send an email notification when a failure occurs**.
+6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
 	![Notification Email](common/provisioning-notification-email.png)
 
