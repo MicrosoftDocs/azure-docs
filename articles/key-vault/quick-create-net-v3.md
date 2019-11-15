@@ -42,9 +42,7 @@ This quickstart assumes you are running `dotnet`, [Azure CLI](/cli/azure/install
 
 ### Create new .NET console app
 
-Create a new .NET Core application in your preferred editor or IDE.
-
-In a console window, use the `dotnet new` command to create a new console app with the name `akv-dotnet`.
+In a console window, use the `dotnet new` command to create a new .NET console app with the name `akv-dotnet`.
 
 
 ```console

@@ -1,6 +1,6 @@
 ---
 title: Quickstart -  Azure Key Vault client library for Python
-description: Learn how to create, retrieve, and delete secrets from an Azure key vault using the Python client library
+description: Provides format and content criteria for writing Quickstarts for Azure SDK client libraries.
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 10/20/2019
@@ -21,31 +21,82 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
 - Simplify and automate tasks for SSL/TLS certificates.
 - Use FIPS 140-2 Level 2 validated HSMs.
 
-[API reference documentation](/python/api/overview/azure/key-vault?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault) | [Package (Python Package Index)](https://pypi.org/project/azure-keyvault/)
+[Source code][https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets/src] | [API reference documentation][ https://azure.github.io/azure-sdk-for-java] | [Product documentation][/azure/key-vault/] | [Samples][https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets/src/samples/java/com/azure/security/keyvault/secrets]
 
 ## Prerequisites
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Python 2.7, 3.5.3, or later
+- [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable) version 8 or above
+- [Apache Maven](https://maven.apache.org)
 - [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure PowerShell](/powershell/azure/overview)
 
-This quickstart assumes you are running [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) in a Linux terminal window.
+This quickstart assumes you are running [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) and [Apache Maven](https://maven.apache.org) in a Linux terminal window.
 
 ## Setting up
 
+### Create new Java console app
+
+In a console window, use the `mvn` command to create a new Java console app with the name `akv-java.
+
+```console
+mvn archetype:generate -DgroupId=com.keyvault.quickstart
+                       -DartifactId=akv-java
+                       -DarchetypeArtifactId=maven-archetype-quickstart
+                       -DarchetypeVersion=1.4
+                       -DinteractiveMode=false
+```
+
+The output from generating the project will look something like this:
+
+```console
+[INFO] ----------------------------------------------------------------------------
+[INFO] Using following parameters for creating project from Archetype: maven-archetype-quickstart:1.4
+[INFO] ----------------------------------------------------------------------------
+[INFO] Parameter: groupId, Value: com.keyvault.quickstart
+[INFO] Parameter: artifactId, Value: akv-java
+[INFO] Parameter: version, Value: 1.0-SNAPSHOT
+[INFO] Parameter: package, Value: com.keyvault.quickstart
+[INFO] Parameter: packageInPathFormat, Value: com/keyvault/quickstart
+[INFO] Parameter: package, Value: com.keyvault.quickstart
+[INFO] Parameter: groupId, Value: com.keyvault.quickstart
+[INFO] Parameter: artifactId, Value: akv-java
+[INFO] Parameter: version, Value: 1.0-SNAPSHOT
+[INFO] Project created from Archetype in dir: /home/user/quickstarts/akv-java
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  38.124 s
+[INFO] Finished at: 2019-11-15T13:19:06-08:00
+[INFO] ------------------------------------------------------------------------
+```
+
+Change your directory to the newly created akv-java/ folder. Then create a new directoryt called `data`:
+
+```console
+cd akv-java
+mkdir data
+```
+
 ### Install the package
 
-From the console window, install the Azure Key Vault secrets library for Python.
+Open the *pom.xml* file in your text editor. Add the following dependency elements to the group of dependencies.
 
-```shell
-pip install azure-keyvault-secrets
+```xml
+    <dependency>
+      <groupId>com.azure</groupId>
+      <artifactId>azure-security-keyvault-secrets</artifactId>
+      <version>4.0.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.azure</groupId>
+      <artifactId>azure-identity</artifactId>
+      <version>1.0.0</version>
+    </dependency>
 ```
 
-For this quickstart, you will need to install the azure.identity package as well:
 
-```shell
-pip install azure.identity
-```
+1. 
 
 ### Create a resource group and key vault
 
@@ -62,7 +113,7 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 ### Create a service principal
 
-The simplest way to authenticate an cloud-based .NET application is with a managed identity; see [Use an App Service managed identity to access Azure Key Vault](managed-identity.md) for details. For the sake of simplicity however, this quickstarts creates a .NET console application. Authenticating a desktop application with Azure requires the use of a service principal and an access control policy.
+The simplest way to authenticate an cloud-based application is with a managed identity; see [Use an App Service managed identity to access Azure Key Vault](managed-identity.md) for details. For the sake of simplicity however, this quickstarts creates a desktop application, which requires the use of a service principal and an access control policy.
 
 Create a service principle using the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command:
 
@@ -72,7 +123,7 @@ az ad sp create-for-rbac -n "http://mySP" --sdk-auth
 
 This operation will return a series of key / value pairs. 
 
-```shell
+```console
 {
   "clientId": "7da18cae-779c-41fc-992e-0527854c6583",
   "clientSecret": "b421b443-1669-4cd7-b5b1-394d5c945002",
@@ -87,23 +138,23 @@ This operation will return a series of key / value pairs.
 }
 ```
 
-Take note of the clientId and clientSecret, as we will use them in the [Set environmental variable](#set-environmental-variables) step below.
+Take note of the clientId, clientSecret, and tenantId, as we will use them in the next two steps.
 
 #### Give the service principal access to your key vault
 
 Create an access policy for your key vault that grants permission to your service principal by passing the clientId to the [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command. Give the service principal get, list, and set permissions for both keys and secrets.
 
-```shell
+```azurecli
 az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
 ```
 
 #### Set environmental variables
 
-The DefaultAzureCredential method in our application relies on three environmental variables: `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, and `AZURE_TENANT_ID`. Set these variables to the clientId, clientSecret, and tenantId values you noted in the [Create a service principal](#create-a-service-principal) step using the `export VARNAME=VALUE` format. (This only sets the variables for your current shell and processes created from the shell; to permanently add these variables to your environment, edit your `/etc/environment ` file.) 
+The DefaultAzureCredential method in our application relies on three environmental variables: `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, and `AZURE_TENANT_ID`. use set these variables to the clientId, clientSecret, and tenantId values you noted in the [Create a service principal](#create-a-service-principal) step, above. Use the `export VARNAME=VALUE` format to set your environmental variables. (This only sets the variables for your current shell and processes created from the shell; to permanently add these variables to your environment, edit your `/etc/) 
 
 You will also need to save your key vault name as an environment variable called `KEY_VAULT_NAME`.
 
-```shell
+```console
 export AZURE_CLIENT_ID=<your-clientID>
 
 export AZURE_CLIENT_SECRET=<your-clientSecret>
@@ -117,6 +168,7 @@ export KEY_VAULT_NAME=<your-key-vault-name>
 
 The Azure Key Vault client library for Python allows you to manage keys and related assets such as certificates and secrets. The code samples below will show you how to create a client, set a secret, retrieve a secret, and delete a secret.
 
+The entire console app is available at https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/key-vault-console-app.
 
 ## Code examples
 
@@ -124,28 +176,35 @@ The Azure Key Vault client library for Python allows you to manage keys and rela
 
 Add the following directives to the top of your code:
 
-```python
-import os
-from azure.keyvault.secrets import SecretClient
-from azure.identity import DefaultAzureCredential
+```java
+import com.azure.identity.DefaultAzureCredentialBuilder;
+
+import com.azure.security.keyvault.secrets.SecretClient;
+import com.azure.security.keyvault.secrets.SecretClientBuilder;
+import com.azure.security.keyvault.secrets.models.DeletedSecret;
+import com.azure.security.keyvault.secrets.models.KeyVaultSecret;
 ```
 
 ### Authenticate and create a client
 
-Authenticating to your key vault and creating a key vault client depends on the environmental variables in the [Set environmental variables](#set-environmental-variables) step above. The name of your key vault is expanded to the key vault URI, in the format "https://<your-key-vault-name>.vault.azure.net".
+Authenticating to your key vault and creating a key vault client depends on the environmental variables in the [Set environmental variables](#set-environmental-variables) step above. The name of your key vault is expanded to the key vault URI, in the format "https://&lt;your-key-vault-name&gt;.vault.azure.net".
 
-```python
-credential = DefaultAzureCredential()
+```java
+String keyVaultName = System.getenv("KEY_VAULT_NAME");
+String kvUri = "https://" + keyVaultName + ".vault.azure.net";
 
-client = SecretClient(vault_endpoint=KVUri, credential=credential)
+SecretClient secretClient = new SecretClientBuilder()
+    .vaultUrl(kvUri)
+    .credential(new DefaultAzureCredentialBuilder().build())
+    .buildClient();
 ```
 
 ### Save a secret
 
 Now that your application is authenticated, you can put a secret into your keyvault using the [client.SetSecret method](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync) This requires a name for the secret -- we're using "mySecret" in this sample.  
 
-```python
-client.set_secret(secretName, secretValue);
+```java
+secretClient.setSecret(new KeyVaultSecret(secretName, secretValue));
 ```
 
 You can verify that the secret has been set with the [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) command:
@@ -158,18 +217,18 @@ az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 
 You can now retrieve the previously set value with the [client.GetSecret method](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.getsecretasync).
 
-```python
-retrieved_secret = client.get_secret(secretName)
+```java
+KeyVaultSecret retrievedSecret = secretClient.getSecret(secretName);
  ```
 
-Your secret is now saved as `retrieved_secret.value`.
+You can now access the value of the retrieved secret with `retrievedSecret.getValue()`.
 
 ### Delete a secret
 
 Finally, let's delete the secret from your key vault with the [client.DeleteSecret method](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.getsecretasync).
 
-```python
-client.delete_secret(secretName);
+```java
+secretClient.beginDeleteSecret(secretName);
 ```
 
 You can verify that the secret is gone with the [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) command:
@@ -188,48 +247,6 @@ az group delete -g "myResourceGroup" -l "EastUS"
 
 ```azurepowershell
 Remove-AzResourceGroup -Name "myResourceGroup"
-```
-
-## Sample code
-
-```python
-import os
-import cmd
-from azure.keyvault.secrets import SecretClient
-from azure.identity import DefaultAzureCredential
-
-secretName = "mySecret";
-
-keyVaultName = os.environ["KEY_VAULT_NAME"];
-KVUri = "https://" + keyVaultName + ".vault.azure.net";
-
-credential = DefaultAzureCredential()
-
-client = SecretClient(vault_endpoint=KVUri, credential=credential)
-
-print("Input the value of your secret > ");
-secretValue = raw_input();
-
-print("Creating a secret in " + keyVaultName + " called '" + secretName + "' with the value '" + secretValue + "` ...");
-
-client.set_secret(secretName, secretValue);
-
-print(" done.");
-
-print("Forgetting your secret.");
-secretValue = "";
-print("Your secret is '" + secretValue + "'.");
-
-print("Retrieving your secret from " + keyVaultName + ".");
-
-retrieved_secret = client.get_secret(secretName)
-
-print("Your secret is '" + retrieved_secret.value + "'.");
-print("Deleting your secret from " + keyVaultName + " ...");
-
-client.delete_secret(secretName);
-
-print(" done.");
 ```
 
 ## Next steps
