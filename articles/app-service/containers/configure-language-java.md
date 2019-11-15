@@ -358,9 +358,9 @@ Next, determine if the data source should be available to one application or to 
 
 #### Shared server-level resources
 
-Adding a shared, server-level data source will require you to edit Tomcat's server.xml. To do so, add a startup script and set the path to the script in **Configuration** > **Startup Command**. 
+Adding a shared, server-level data source will require you to edit Tomcat's server.xml. First, upload a [startup script](app-service-linux-faq.md#built-in-images) and set the path to the script in **Configuration** > **Startup Command**. You can upload the startup script using [FTP](deploy-ftp.md).
 
-Your startup script will make an [xsl transform]() to the server.xml file and output the resulting xml file to `/usr/local/tomcat/conf/server.xml`. The startup script should install libxslt via apk. Your xsl file and startup script can be uploaded via FTP.
+Your startup script will make an [xsl transform](https://www.w3schools.com/xml/xsl_intro.asp) to the server.xml file and output the resulting xml file to `/usr/local/tomcat/conf/server.xml`. The startup script should install libxslt via apk. Your xsl file and startup script can be uploaded via FTP.
 
 ```sh
 # Install libxslt. Also copy the transform file to /home/tomcat/conf/
@@ -370,7 +370,67 @@ apk add --update libxslt
 xsltproc --output /usr/local/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /home/tomcat/conf/server.xml
 ```
 
-An example xsl file is provided [here](). The example xsl file adds a new connector node to the Tomcat server.xml.
+An example xsl file is provided below. The example xsl file adds a new connector node to the Tomcat server.xml.
+
+```xml
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:output method="xml" indent="yes"/>
+
+  <xsl:template match="@* | node()" name="Copy">
+    <xsl:copy>
+      <xsl:apply-templates select="@* | node()"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <xsl:template match="@* | node()" mode="insertConnector">
+    <xsl:call-template name="Copy" />
+  </xsl:template>
+
+  <xsl:template match="comment()[not(../Connector[@scheme = 'https']) and
+                                 contains(., '&lt;Connector') and
+                                 (contains(., 'scheme=&quot;https&quot;') or
+                                  contains(., &quot;scheme='https'&quot;))]">
+    <xsl:value-of select="." disable-output-escaping="yes" />
+  </xsl:template>
+
+  <xsl:template match="Service[not(Connector[@scheme = 'https'] or
+                                   comment()[contains(., '&lt;Connector') and
+                                             (contains(., 'scheme=&quot;https&quot;') or
+                                              contains(., &quot;scheme='https'&quot;))]
+                                  )]
+                      ">
+    <xsl:copy>
+      <xsl:apply-templates select="@* | node()" mode="insertConnector" />
+    </xsl:copy>
+  </xsl:template>
+
+  <!-- Add the new connector after the last existing Connnector if there is one -->
+  <xsl:template match="Connector[last()]" mode="insertConnector">
+    <xsl:call-template name="Copy" />
+
+    <xsl:call-template name="AddConnector" />
+  </xsl:template>
+
+  <!-- ... or before the first Engine if there is no existing Connector -->
+  <xsl:template match="Engine[1][not(preceding-sibling::Connector)]"
+                mode="insertConnector">
+    <xsl:call-template name="AddConnector" />
+
+    <xsl:call-template name="Copy" />
+  </xsl:template>
+
+  <xsl:template name="AddConnector">
+    <!-- Add new line -->
+    <xsl:text>&#xa;</xsl:text>
+    <!-- This is the new connector -->
+    <Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true" 
+               maxThreads="150" scheme="https" secure="true" 
+               keystroreFile="${{user.home}}/.keystore" keystorePass="changeit"
+               clientAuth="false" sslProtocol="TLS" />
+  </xsl:template>
+  
+</xsl:stylesheet>
+```
 
 #### Finalize configuration
 
