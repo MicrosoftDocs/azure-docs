@@ -1617,6 +1617,8 @@
       items:
       - name: Netsuite
         href: netsuite-provisioning-tutorial.md
+      - name: OfficeSpace Software
+        href: officespace-software-provisioning-tutorial.md
       - name: Oracle Fusion ERP
         href: oracle-fusion-erp-provisioning-tutorial.md
       - name: Pingboard
