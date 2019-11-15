@@ -140,6 +140,8 @@
           href: learn/quick-create-workspace-posh.md
       - name: Delete and recover a workspace
         href: platform/delete-workspace.md
+      - name: Move a workspace
+        href: platform/move-workspace.md
       - name: Design for service providers
         href: platform/service-providers.md
       - name: Manage access

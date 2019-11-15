@@ -218,7 +218,7 @@ Connect from the appliance to Hyper-V hosts or clusters, and start VM discovery.
     - You can add a cluster, even if there are issues with specific hosts in the cluster.
 4. After validation, click **Save and start discovery** to start the discovery process.
 
-This starts discovery. It takes around 15 minutes for metadata of discovered VMs to appear in the Azure portal.
+This starts discovery. It takes around 1.5 minutes per host for metadata of discovered servers to appear in the Azure portal. 
 
 ### Verify VMs in the portal
 
