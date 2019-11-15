@@ -1,6 +1,6 @@
 ﻿---
 title: Azure PowerShell Script Sample - Back up an Azure VM
-description: Azure PowerShell Script Sample - Back up an Azure virtual machine
+description: In this article, learn how to use an Azure PowerShell Script sample to back up an Azure virtual machine.
 author: dcurwin
 manager: carmonm
 ms.service: backup

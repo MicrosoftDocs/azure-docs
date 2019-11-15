@@ -48,7 +48,7 @@ uname -r
     sudo dnf install cifs-utils
     ```
 
-    On older versions of **Red Hat Enterprise Linux** and **CentOS**, use the `dnf` package manager:
+    On older versions of **Red Hat Enterprise Linux** and **CentOS**, use the `yum` package manager:
 
     ```bash
     sudo yum install cifs-utils 

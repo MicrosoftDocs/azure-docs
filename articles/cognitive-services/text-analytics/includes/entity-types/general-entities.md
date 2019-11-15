@@ -58,6 +58,19 @@ Languages:
 |----------|----------------------------------------------|
 | N/A         | Phone numbers, for example `+1 123-123-123`. |
 
+### Email
+
+Email address. 
+
+Languages:
+
+
+* Public preview: `English`
+
+| Subtype name | Description                                  |
+|----------|----------------------------------------------|
+| N/A         | Email address, for example `support@contoso.com` |
+
 ### URL
 
 Internet URLs.

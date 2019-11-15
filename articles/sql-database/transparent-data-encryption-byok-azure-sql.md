@@ -1,10 +1,10 @@
 ---
-title: "Customer-managed transparent data encryption (TDE) - Azure SQL Database| Microsoft Docs"
+title: Customer-managed transparent data encryption (TDE)
 description: "Bring Your Own Key (BYOK) support for Transparent Data Encryption (TDE) with Azure Key Vault for SQL Database and Data Warehouse. TDE with BYOK overview, benefits, how it works, considerations, and recommendations."
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: 
+ms.custom: seo-lt-2019
 ms.devlang: 
 ms.topic: conceptual
 author: aliceku
