@@ -37,7 +37,7 @@ The APIs contain Swagger technical documentation. Review [Swagger](https://aka.m
 
 ## Authentication
 
-FarmBeats leverages Microsoft Azure’s [Active Directory]((https://docs.microsoft.com/azure/app-service/overview-authentication-authorization)). Authentication Azure App Service provides built-in authentication and authorization support. 
+FarmBeats leverages Microsoft Azure’s [Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization). Authentication Azure App Service provides built-in authentication and authorization support. 
 
 For more information about, see [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).   
 
