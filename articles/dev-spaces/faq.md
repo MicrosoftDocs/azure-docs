@@ -39,7 +39,7 @@ Yes, you can use Azure Dev Spaces on an AKS cluster that uses CNI for networking
 
 Currently, Azure Dev Spaces is intended to run on Linux pods and nodes only, but you can run Azure Dev Spaces on an AKS cluster with [existing Windows containers][windows-containers].
 
-### Can I use Azure Dev Spaces on AKS clusters with API server authorized IP address ranges enabled?
+## Can I use Azure Dev Spaces on AKS clusters with API server authorized IP address ranges enabled?
 
 Yes, you can use Azure Dev Spaces on AKS clusters with [API server authorized IP address ranges][aks-auth-range] enabled. When [creating][aks-auth-range-create] your cluster, you must [allow additional ranges based on your region][aks-auth-range-ranges]. You can also [update][aks-auth-range-update] and existing cluster to allow those additional ranges.
 

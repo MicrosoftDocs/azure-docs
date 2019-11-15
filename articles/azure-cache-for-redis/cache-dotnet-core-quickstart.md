@@ -1,16 +1,9 @@
 ---
-title: Quickstart to learn how to Use Azure Cache for Redis with .NET Core apps | Microsoft Docs
+title: Quickstart to learn how to Use Azure Cache for Redis with .NET Core apps
 description: In this quickstart, learn how to access Azure Cache for Redis in your .NET Core apps
-services: cache,app-service
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
 
-ms.assetid: 
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/18/2018
