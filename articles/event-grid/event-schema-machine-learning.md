@@ -210,4 +210,4 @@ The data object has the following properties for each event type:
 * For an introduction to Azure Event Grid, see [What is Event Grid?](overview.md)
 * For more information about creating an Azure Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md)
 * For an introduction to using Azure Event Grid with Azure Machine Learning, see [Consume Azure Machine Learning events](/azure/machine-learning/service/concept-event-grid-integration)
-* For an example of using Azure Event Grid with Azure Machine Learning, see [Create event driven machine learning workflows](/azure/machine-learning/service/event-schema-machine-learning)
+* For an example of using Azure Event Grid with Azure Machine Learning, see [Create event driven machine learning workflows](/azure/machine-learning/service/how-to-use-event-grid)

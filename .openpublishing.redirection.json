@@ -251,6 +251,12 @@
       "redirect_url": "/azure/site-recovery/site-to-site-deprecation",
       "redirect_document_id": false
     },
+
+    {
+      "source_path": "articles/site-recovery/site-to-site-deprecation.md",
+      "redirect_url": "/azure/site-recovery/hyper-v-azure-tutorial",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/machine-learning/service/quickstart-get-started.md",
       "redirect_url": "/azure/machine-learning/service/tutorial-1st-experiment-sdk-setup",
@@ -4774,6 +4780,21 @@
     {
       "source_path": "articles/app-service-mobile/app-service-mobile-xamarin-forms-blob-storage.md",
       "redirect_url": "/azure/app-service-mobile",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-backend-ssl.md",
+      "redirect_url": "/azure/application-gateway/ssl-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/tutorial-external-site-redirect-cli.md",
+      "redirect_url": "/azure/application-gateway/redirect-external-site-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-create-gateway-cli.md",
+      "redirect_url": "/azure/application-gateway/quick-create-cli",
       "redirect_document_id": false
     },
     {
@@ -43714,6 +43735,11 @@
     {
       "source_path": "articles/aks/virtual-kubelet.md",
       "redirect_url": "/azure/aks/concepts-scale#burst-to-azure-container-instances",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/configure-cosmos-db.md",
+      "redirect_url": "/azure/healthcare-apis/configure-database",
       "redirect_document_id": false
     }
   ]
