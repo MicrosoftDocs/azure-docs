@@ -395,7 +395,7 @@ Here's how to set up the licenses for offline use:
 2. Update the following variables in the script for step 3:
       1. `$contentID` is the ContentID value from the Unencoded license file (.xml). You can open the license file in a text editor of your choice.
       2. `$licenseBlob` is the entire string for the license blob in the Encoded license file (.bin). You can open the encoded license file in a text editor of your choice. 
-3. Run the following script from an Admin PowerShell prompt. A good place to perform license installation is at the end of the Stage script that also needs to be run from an Admin prompt.
+3. Run the following script from an Admin PowerShell prompt. A good place to perform license installation is at the end of the [staging script](#stage-the-powershell-script) that also needs to be run from an Admin prompt.
 
 ```powershell
 $namespaceName = "root\cimv2\mdm\dmmap"
