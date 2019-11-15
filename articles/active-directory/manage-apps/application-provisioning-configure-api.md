@@ -25,6 +25,8 @@ ms.collection: M365-identity-device-management
 The Azure portal is a convenient way to configure provisioning for individual apps one at a time. But if you're creating several—or even hundreds—of instances of an application, it can be easier to automate app creation and configuration with Microsoft Graph APIs. This article outlines how to automate provisioning configuration through APIs. This method is commonly used for applications like [Amazon Web Services](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-single-sign-on) and [Azure Databricks]().
 
 **Overview of steps for using Microsoft Graph APIs to automate provisioning configuration**
+
+
 |Step  |Details  |
 |---------|---------|
 |[Step 1. Create the gallery application](#step-1-create-the-gallery-application)     |Sign-in to the API client <br> Retrieve the gallery application template <br> Create the gallery application         |
