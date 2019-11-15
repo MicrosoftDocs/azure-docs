@@ -45,15 +45,13 @@ $ sudo apt update && sudo apt -y install wget
 Next, download the Microsoft signing key to Apt's trusted keyring
 
 ```CMD
-$ sudo wget -O /etc/apt/trusted.gpg.d/microsoft.asc https://packages.microsoft.com/keys/microsoft.
-asc
+$ sudo wget -O /etc/apt/trusted.gpg.d/microsoft.asc https://packages.microsoft.com/keys/microsoft.asc
 ```
 
 Finally, configure a `cyclecloud.list` file, update the Apt cache, and install cyclecloud.
 
 ```CMD
-$ sudo echo 'deb [signed-by=/etc/apt/trusted.gpg.d/microsoft.asc] https://packages.microsoft.com/r
-epos/cyclecloud bionic main' > /etc/apt/sources.list.d/cyclecloud.list
+$ sudo echo 'deb [signed-by=/etc/apt/trusted.gpg.d/microsoft.asc] https://packages.microsoft.com/repos/cyclecloud bionic main' > /etc/apt/sources.list.d/cyclecloud.list
 $ sudo apt update
 $ sudo apt -y install cyclecloud
 ```
