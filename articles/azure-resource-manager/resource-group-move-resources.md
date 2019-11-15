@@ -247,13 +247,9 @@ If a resource can't be moved within the 4-hour window, Resource Manager unlocks 
 
 The lock prevents you from deleting either resource group, creating a new resource in either resource group, or deleting any of the resources involved in the move.
 
-The following image shows an error message from the Azure portal when a user tries to delete a resource that is part of an ongoing move.
+The following image shows an error message from the Azure portal when a user tries to delete a resource group that is part of an ongoing move.
 
 ![Move error message attempting to delete](./media/resource-group-move-resources/move-error-delete.png)
-
-The next image shows the error message when a user tries to create a new resource in one of the resource groups while the move operation is ongoing.
-
-![Move error message attempting to add](./media/resource-group-move-resources/move-error-add.png)
 
 **Question: What does the error code "MissingMoveDependentResources" mean?**
 
