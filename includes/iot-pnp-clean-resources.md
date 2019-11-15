@@ -3,12 +3,12 @@ author: baanders
 ms.author: baanders
 ms.service: iot-pnp
 ms.topic: include
-ms.date: 10/24/2019
+ms.date: 11/15/2019
 ---
 
 ## Clean up resources
 
-If you plan to continue with additional Plug and Play articles, you can keep and reuse the resources you used in this quickstart. Otherwise, you can delete the resources you created in this quickstart to avoid additional charges.
+If you plan to continue with additional IoT Plug and Play articles, you can keep and reuse the resources you used in this quickstart. Otherwise, you can delete the resources you created in this quickstart to avoid additional charges.
 
 You can delete both the hub and registered device at once by deleting the entire resource group with the following command for Azure CLI. _Don't use this, however, if these resources are sharing a resource group with other resources you have for different purposes._
 

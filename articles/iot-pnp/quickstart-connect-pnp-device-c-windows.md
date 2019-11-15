@@ -80,7 +80,7 @@ copy ..\EnvironmentalSensor.interface.json .
 digitaltwin_sample_device.exe "<YourDeviceConnectionString>"
 ```
 
-The simulated device starts sending telemetry data to IoT Hub, listening for commands, and listening for property updates.
+The device is now ready to receive commands and property updates, and has begun sending telemetry data to the hub. Keep the sample running as you complete the next steps.
 
 ## Use the Azure IoT explorer to validate the code
 
@@ -88,7 +88,7 @@ The simulated device starts sending telemetry data to IoT Hub, listening for com
 
 4. To ensure the tool can read the interface model definitions from your device, select **Settings**. In the Settings menu, **On the connected device** may already appear in the Plug and Play configurations; if it does not, select **+ Add module definition source** and then **On the connected device** to add it.
 
-1. On the device overview page, find the device identity you created previously, and select it to view more details.
+1. Back on the **Devices** overview page, find the device identity you created previously. With the device application still running in the command prompt, check that the device's **Connection state** in Azure IoT explorer is reporting as _Connected_ (if not, hit **Refresh** until it is). Select the device to view more details.
 
 1. Expand the interface with ID **urn:YOUR_COMPANY_NAME_HERE:EnvironmentalSensor:1** to reveal the interface and IoT Plug and Play primitives—properties, commands, and telemetry.
 

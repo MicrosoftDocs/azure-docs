@@ -143,7 +143,7 @@ Run a sample application in the SDK to simulate an IoT Plug and Play device that
     ./digitaltwin_sample_device "<YourDeviceConnectionString>"
     ```
 
-The simulated device starts sending telemetry data to IoT Hub, listening for commands, and listening for property updates.
+The device is now ready to receive commands and property updates, and has begun sending telemetry data to the hub. Keep the sample running as you complete the next steps.
 
 ### Use the Azure IoT CLI to validate the code
 

@@ -10,4 +10,4 @@ ms.date: 10/24/2019
 
 1. Enter your _IoT Hub connection string_ and select **Connect**.
 
-1. After you connect, you see the device overview page.
+1. After you connect, you see the **Devices** overview page.

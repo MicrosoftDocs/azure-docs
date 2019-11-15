@@ -58,13 +58,13 @@ These setup steps are also included with the source code of this quickstart's sa
 
 In this quickstart, you use a sample environmental sensor that's written in Java as the IoT Plug and Play device. The following instructions show you how to install and run the device:
 
-1. Clone the [Microsoft Azure IoT SDKs for Java](https://github.com/Azure/azure-iot-sdk-java-digital-twin) GitHub repository:
+1. Open a terminal window in the directory of your choice. Execute the following command to clone the [Microsoft Azure IoT SDKs for Java](https://github.com/Azure/azure-iot-sdk-java-digital-twin) GitHub repository into this location:
 
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-java-digital-twin
     ```
 
-1. Open a terminal window for running the device (this will be your _device_ terminal). Go to your cloned repository and navigate to the **/azure-iot-sdk-java-digital-twin/digital-twin** folder. Install the required libraries and build the simulated device application by running the following command:
+1. This terminal window will now be used as your _device_ terminal. Go to your cloned repository and navigate to the **/azure-iot-sdk-java-digital-twin/digital-twin** folder. Install the required libraries and build the simulated device application by running the following command:
 
     ```cmd/sh
     mvn clean install -DskipTests
@@ -82,7 +82,7 @@ In this quickstart, you use a sample environmental sensor that's written in Java
     java -jar device-samples\target\environmental-sensor-sample-with-deps.jar
     ```
 
-1. You see messages saying that the device has sent telemetry and its properties. The device is now ready to receive commands and property updates. Don't close this terminal, you'll need it later to confirm the service samples also worked.
+1. The device is now ready to receive commands and property updates, and has begun sending telemetry data to the hub. Keep the sample running as you complete the next steps. Don't close this terminal, you'll need it later to confirm the service samples also worked.
 
 ## Build the solution
 
@@ -90,7 +90,7 @@ In this quickstart, you use a sample IoT solution in Java to interact with the s
 
 1. Open another terminal window (this will be your _service_ terminal). Go to the folder of your cloned repository, and navigate to the **/azure-iot-sdk-java-digital-twin/digital-twin** folder.
 
-1. Configure the _IoT hub connection string_ and _device ID_:
+1. Configure the _IoT hub connection string_ and _device ID_ to allow the service to connect to both of these:
 
     ```cmd/sh
     set IOTHUB_CONNECTION_STRING=<YourIoTHubConnectionString>
@@ -99,43 +99,42 @@ In this quickstart, you use a sample IoT solution in Java to interact with the s
 
 ### Read a property
 
-1. When you connected the _device_ in its terminal, you saw the following message:
+1. When you connected the _device_ in its terminal, you saw the following message indicating its online status:
 
     ```cmd/sh
     reported state property as online
     ```
 
-1. Go to the _service_ terminal and use the following command to run the sample:
+1. Go to the _service_ terminal and use the following command to run the sample for reading device information:
 
     ```cmd/sh
     java -jar service-samples/get-digital-twin/target/get-digital-twin-with-deps.jar
     ```
 
-1. In the output, under the _environmentalSensor_ component, you see the state has been reported as online:
-
+1. In the _service_ terminal output, scroll to the `environmentalSensor` component. You see that the `state` property, which is used to indicate whether or not the device is online, has been reported as _true_:
     ```JSON
     "state": {
       "reported": {
-        "value": "online"
+        "value": "true"
       }
     ```
 
 ### Update a writable property
 
-1. Go to the _service_ terminal and set the following variables:
+1. Go to the _service_ terminal and set the following variables to define which property to update:
     ```cmd/sh
     set INTERFACE_INSTANCE_NAME=environmentalSensor
     set PROPERTY_NAME=brightness
     set PROPERTY_VALUE=42
     ```
 
-1. Use the following command to run the sample:
+1. Use the following command to run the sample for updating the property:
 
     ```cmd/sh
     java -jar service-samples/update-digital-twin/target/update-digital-twin-with-deps.jar
     ```
 
-1. In the _service_ terminal, you see the digital twin information associated with your device. Find the component _environmentalSensor_ to see the new brightness value of 42.
+1. The _service_ terminal output shows the updated device information. Scroll to the `environmentalSensor` component to see the new brightness value of 42.
 
     ```json
     "environmentalSensor": {
@@ -179,7 +178,7 @@ In this quickstart, you use a sample IoT solution in Java to interact with the s
     ```cmd/sh
     java -jar service-samples/get-digital-twin/target/get-digital-twin-with-deps.jar
     ```
-3. In the output, under the _environmentalSensor_ component, you see the updated brightness value has been reported. Note: it might take a while for the device to finish the update. You can repeat this step until the device has actually processed the property update.
+3. In the _service_ terminal output, under the `environmentalSensor` component, you see the updated brightness value has been reported. Note: it might take a while for the device to finish the update. You can repeat this step until the device has actually processed the property update.
     
     ```json
       "brightness": {
@@ -191,19 +190,19 @@ In this quickstart, you use a sample IoT solution in Java to interact with the s
 
 ### Invoke a command
 
-1. Go to the _service_ terminal and set the following variables:
+1. Go to the _service_ terminal and set the following variables to define which command to invoke:
     ```cmd/sh
     set INTERFACE_INSTANCE_NAME=environmentalSensor
     set COMMAND_NAME=blink
     ```
 
-1. Use the following command to run the sample:
+1. Use the following command to run the sample for invoking the command:
 
     ```cmd/sh
     java -jar service-samples/invoke-digital-twin-command/target/invoke-digital-twin-command-with-deps.jar
     ```
 
-1. In the _service_ terminal, success looks like the following output:
+1. Output in the _service_ terminal should show the following confirmation:
 
     ```cmd/sh
     invoking command blink on component environmentalSensor for device <device ID>...
