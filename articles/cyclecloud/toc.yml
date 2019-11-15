@@ -44,8 +44,12 @@
       href: storage-blobs.md
   - name: Network Configuration
     items:
+    - name: Network Connectivity
+      href: network-connectivity.md
     - name: Network Security
       href: network-security.md
+    - name: Proxy Traffic
+      href: proxy-traffic.md
     - name: SSL Configuration
       href: ssl-configuration.md
   - name: Monitoring and Reporting
@@ -84,8 +88,8 @@
     href: container-distribution.md
   - name: Start a Cluster
     href: start-cluster.md
-  - name: Connect to the Master Node
-    href: connect-to-master-node.md
+  - name: Connect to a cluster mode
+    href: connect-to-node.md
   - name: Terminate a Cluster
     href: end-cluster.md
   - name: Work with Custom Images
@@ -169,6 +173,7 @@
   - name: Auto Scale
     href: autoscale-api.md
   - name: Scheduler
+    href: scheduler-integration.md
     items:
     - name: PBS Professional OSS
       href: pbspro.md
@@ -180,6 +185,8 @@
       href: htcondor.md
     - name: IBM Spectrum LSF
       href: lsf.md
+  - name: Error Messages
+    href: error_messages.md
 - name: Resources
   items:
   - name: Get Azure CycleCloud

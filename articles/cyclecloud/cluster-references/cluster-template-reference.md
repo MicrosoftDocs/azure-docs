@@ -60,6 +60,7 @@ Azure.ImageVersion | String | Image Version of Marketplace image
 ImageId | String | Resource ID of VM image
 InstallJetpack | Boolean | CycleCloud will install jetpack with OS extension
 AwaitInstallation | Boolean | Once a vm is started, wait for jetpack to report installation details.
+EphemeralOSDisk | Boolean | Use local ephemeral disk for operating system
 JetpackPlatform | String | Jetpack installer selection on Azure CycleCloud < 7.7.0: `centos-7`, `centos-6`, `ubuntu-14`, `ubuntu-16`, `windows`. Has no effect on clusters orchestrated by 7.7.0+
 IsReturnProxy | Boolean | Establish reverse channel proxy to this node. Only one node per cluster may have this setting as true.
 KeyPairLocation | Integer | Location of ssh keypair on the local filesystem

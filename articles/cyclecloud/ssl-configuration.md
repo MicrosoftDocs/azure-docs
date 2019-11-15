@@ -1,32 +1,36 @@
 ---
 title: Azure CycleCloud SSL Configuration | Microsoft Docs
 description: Enable SSL for secure transfers in Azure CycleCloud.
+services: azure cyclecloud
 author: KimliW
+ms.prod: cyclecloud
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 08/01/2018
-ms.author: adjohnso
+ms.author: a-kiwels
 ---
 
 # SSL Configuration
 
 ## Enable SSL
 
-SSL can easily be enabled by editing the _/opt/cycle_server/config/cycle_server.properties_ file found within the CycleCloud installation directory. Open the _cycle_server.properties_ file with a text editor and set the following values appropriately:
+SSL can easily be enabled by editing the `cycle_server.properties` file found within the CycleCloud installation directory. Open the `cycle_server.properties` file with a text editor and set the following values appropriately:
 
 ``` properties
 # True if SSL is enabled
 webServerEnableHttps=true
 ```
 
-Please note that when editing the _cycle_server.properties_ file, it is important that you first look for pre-existing keyvalue definitions in the file. If there is more than one definition, the **last** one is in effect.
+Please note that when editing the `cycle_server.properties` file, it is important that you first look for pre-existing keyvalue definitions in the file. If there is more than one definition, the **last** one is in effect.
 
 The default SSL port for CycleCloud is port 8443. If you'd like to run encrypted web communications on some other port, you can change the `webServerSslPort` property to the new port value. Please make sure the `webServerSslPort` and the `webServerPort` values **DO NOT CONFLICT**.
 
-After editing your _cycle_server.properties_ file, you will need to restart CycleCloud to activate the encrypted communication channel. You can restart by running `/opt/cycle_server/cycle_server restart`.
+After editing your `cycle_server.properties` file, you will need to restart CycleCloud for the encrypted communication channel to activate. On Windows, use `C:\Program Files\CycleServer\cycle_server.cmd restart` and in Linux, use `/opt/cycle_server/cycle_server restart`.
 
 Assuming you did not change the SSL port for CycleCloud when configuring it for encrypted communications, you can now go to `http://<my CycleCloud address>:8443/` to verify the SSL connection.
 
 > [!NOTE]
-> If the HTTPS URL does not work, check the _/opt/cycle_server/logs/tomcat.log_ and _/opt/cycle_server/logs/cycle_server.log_ for error messages that might indicate why the encrypted channel is not responding.
+> If the HTTPS URL does not work, check the`<CycleCloud Home>/logs/tomcat.log` and `<CycleCloud Home>/logs/cycle_server.log` for error messages that might indicate why the encrypted channel is not responding.
 
 ## Self-Generated Certificates
 
@@ -42,47 +46,36 @@ CycleCloud supports certificates from [Let's Encrypt](https://letsencrypt.org/).
 * enable SSL on port 443
 * ensure CycleCloud is publicly reachable over port 443 with an external domain name
 
-You can enable Let's Encrypt support with the **SSL** option on the settings page, or with `cycle_server keystore automatic DOMAIN_NAME` from the CycleCloud machine.
+You can enable Let's Encrypt support with the "SSL" option on the settings page, or with `cycle_server keystore automatic DOMAIN_NAME` from the CycleCloud machine.
 
-## Generating a Certificate Signing Request with CycleCloud
+
+## Working With CA-Generated Certificates
 
 Using a CA-generated certificate will allow web access to your CycleCloud installation without displaying the trusted certificate error. To start the process, first run:
 
-```bash
+``` CLI
 ./cycle_server keystore create_request <FQDN>
 ```
 
 You will be asked to provide a domain name, which is the "Common Name" field on the signed certificate. This will generate a new self-signed certificate for the specified domain and write a cycle_server.csr file. You must provide the CSR to a certificate authority, and they will provide the final signed certificate (which will be referred to as server.crt below). You will also need the root certificates and any intermediate ones used in the chain between your new certificate and the root certificate. The CA should provide these for you. If they have provided them bundled as a single certificate file, you can import them with the following command:
 
-```bash
-./cycle_server keystore update server.pem
+``` CLI
+./cycle_server keystore import server.crt
 ```
 
 If they provided multiple certificate files, you should import them all at once appending the names to that same command, separated by spaces:
 
-```bash
-./cycle_server keystore update server.pem ca_cert_chain.pem
+``` CLI
+./cycle_server keystore import server.crt ca_cert_chain.crt
 ```
 
-> [!NOTE]
-> `keystore update` sub-command works with PEM (Base64 ASCII armored) format files only.
+### Import Existing Certificates
 
-## Import Private Keys and Signed Certificates
+If you have previously created a CA or self-signed certificate, you can update CycleCloud to use it with the following command:
 
-If you have previously created a CA-signed certificate, you can import this into the CycleCloud keystore with the following command:
-
-```bash
-./cycle_server keystore import key.pem server.pem
+``` CLI
+./cycle_server keystore update
 ```
-
-If the CA provided separate files for a chain of trust, you could import them all at once by appending the names to that same command, separated by spaces:
-
-```bash
-./cycle_server keystore import key.pem server.pem ca_cert_chain.pem
-```
-
-> [!NOTE]
-> `keystore import` sub-command works with PEM (Base64 ASCII armored) format files only. A known bug is preventing unencrypted private key files from being imported. You can use `openssl rsa -in encrypted_key.pem -out key.pem` to remove the import password from the file, prior to importing the private key into the CycleCloud keystore.
 
 ## Configuring CycleCloud to use Native HTTPS
 
@@ -92,7 +85,7 @@ implementation. This default works well on all supported platforms.
 To improve performance when running on Linux platforms, CycleCloud may
 optionally be configured to use the Tomcat Native HTTPS implementation.
 
-To enable Native HTTPS on Linux, add the `webServerEnableHttps` and `webServerUseNativeHttps` attributes to your _cycle_server.properties_ file. Open the _cycle_server.properties_ file with a text editor and set the following values:
+To enable Native HTTPS on Linux, add the `webServerEnableHttps` and `webServerUseNativeHttps` attributes to your cycle_server.properties file. Open the cycle_server.properties file with a text editor and set the following values:
 
 ``` properties
 # Turn on HTTPS

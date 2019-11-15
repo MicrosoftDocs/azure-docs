@@ -54,7 +54,9 @@ Azure.SourceResourceId | String | Azure resource ID of source snapshot or manage
 ### Boot Volume
 
 For each node, the volume named `boot` exposes some available configuration
-of the OS boot volume.
+of the OS boot volume. 
+>[!Note] 
+>This section is ignored if EphemeralOSDisk is set
 
 ``` ini
   [[node scheduler]]
