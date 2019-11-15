@@ -74,14 +74,14 @@ Download the [latest version of latte.exe](https://gallery.technet.microsoft.com
 
 Consider putting latte.exe in separate folder, such as *c:\tools*.
 
-## Allow latte.exe through the Windows firewall
+## Allow latte.exe through Windows Defender Firewall
 
-On the *receiver*, create an Allow rule on the Windows Firewall to allow the latte.exe traffic to arrive. It's easiest to allow the entire latte.exe program by name rather than to allow specific TCP ports inbound.
+On the *receiver*, create an Allow rule on Windows Defender Firewall to allow the latte.exe traffic to arrive. It's easiest to allow the entire latte.exe program by name rather than to allow specific TCP ports inbound.
 
 Allow latte.exe through Windows Defender Firewall by running the following command:
 
 ```cmd
-netsh advfirewall firewall add rule program=\<path\>\latte.exe name="Latte" protocol=any dir=in action=allow enable=yes profile=ANY
+netsh advfirewall firewall add rule program=<path>\latte.exe name="Latte" protocol=any dir=in action=allow enable=yes profile=ANY
 ```
 
 For example, if you copied latte.exe to the *c:\tools* folder, this would be the command:
@@ -129,7 +129,7 @@ On the Linux VMs, both *sender* and *receiver*, run the following commands to pr
 Run the following commands:
 
 ```bash
-#CentOS/RHEL - Install Git and other helpful tools
+#RHEL/CentOS - Install Git and other helpful tools
     sudo yum install gcc -y -q
     sudo yum install git -y -q
     sudo yum install gcc-c++ -y
