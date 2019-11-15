@@ -135,32 +135,32 @@ Follow these steps to specify the approval settings for requests for the access 
 
     The justification is visible to other approvers and the requestor.
 
-### Multi-stage approval (in PREVIEW)
+### Multi-stage approvals (in PREVIEW)
 
-1. If your access package requires multi-stage approval, set the **How many stages** toggle to **2**.
+1. If your access package requires multiple stages of approvals, set the **How many stages** toggle to **2**.
 
     ![Access package - Requests - Multistage approval toggle](./media/active-directory-entitlement-management-request-policy/multistage-toggle.png)
 
 
-1. You will need to select at least two approvers, one for each stage. Under **First Approver**: 
+1. You will need to select at least two approvers, one for each stage. 
 
-    1. If the policy is set to govern access for **For users in your directory**, select **Manager as approver** or **Choose specific approvers**. 
+Under **First Approver**:
+    1. If the policy is set to govern access **For users in your directory**, select **Manager as approver** or **Choose specific approvers**. 
+    1. If the policy is set to govern access **For users not in your directory**, select **External sponsor**, **Internal sponsor**, or **Choose specific approvers**. 
 
-    1. If the policy is set to govern access for **For users not in your directory**, select **External sponsor**, **Internal sponsor**, or **Choose specific approvers**. 
+1. If you selected **Manager as approver**, **External sponsor**, or **Internal sponsor** as the first approver, click **Add fallback** to select one or more users or groups in your directory to be a fallback approver, in case the listed approver is not found in the directory. 
 
-1. If you selected **Manager as approver**, **External sponsor**, or **Internal sponsor** as the first approver, click **Add fallback** to select one or more users or groups in your directory to be a fallback approver in case the listed approver is not found in entitlement management. 
+1. If you selected **Choose specific approvers**, click **Add approvers** to select users or a group of users in your directory to be the first approver.
 
-1. If you selected **Choose specific approvers**, click **Add approvers** to select at least one user in your directory to be the first approver.
-
-1. Specify the number of days the first approver has to approve the request in the box under **Decision must be made in how many days?**. 
+1. Specify the number of days the first approver(s) have to approve the request in the box under **Decision must be made in how many days?**. 
 
 1. Set the **Require approver justification** toggle to **Yes** or **No**. 
 
 1. Under **Second Approver**:
-    1. If the users are in your directory, add a specific user as the second approver by clicking **Add approvers** under **Choose specific approvers**. 
-    1. If the users aren't in your directory, select **Internal sponsor** or **External sponsor** as the second approver. After selecting the approver, add the fallback approver(s). 
+    1. If this policy is **for users are in your directory**, add a specific users or a group of users as the second approver(s) by clicking **Add approvers** under **Choose specific approvers**. 
+    1. If this policy is **for users not in your directory**, select **Internal sponsor** or **External sponsor** or **specific approvers** as the second approver(s). If you selected the internal sponsor or external sponsor, add the fallback approver(s). 
 
-1. Specify the number of days the second approver has to approve the request in the box under **Decision must be made in how many days?**. 
+1. Specify the number of days the second approver(s) have to approve the request in the box under **Decision must be made in how many days?**. 
 
 1. Set the **Require approver justification** toggle to **Yes** or **No**.
 
