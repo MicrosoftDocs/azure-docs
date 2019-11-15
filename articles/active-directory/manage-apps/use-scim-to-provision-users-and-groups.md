@@ -1000,7 +1000,7 @@ In the following sample of a query for a user with a given value for the externa
 If the response to a query to the web service for a user with an externalId attribute value that matches the mailNickname attribute value of a user doesn't return any users, then Azure Active Directory requests that the service provision a user corresponding to the one in Azure Active Directory.  Here is an example of such a request: 
 
 ```
-POST https://.../scim/Users HTTP/1.1
+ POST https://.../scim/Users HTTP/1.1
  Authorization: Bearer ...
  Content-type: application/scim+json
  {
@@ -1033,7 +1033,7 @@ POST https://.../scim/Users HTTP/1.1
 The CLI libraries provided by Microsoft for implementing SCIM services would translate that request into a call to the Create method of the service’s provider.  The Create method has this signature:
 
 ```csharp
-// System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
+ // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
  // Microsoft.SystemForCrossDomainIdentityManagement.Resource is defined in 
  // Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
 
@@ -1049,14 +1049,14 @@ In a request to provision a user, the value of the resource argument is an insta
 To update a user known to exist in an identity store fronted by an SCIM, Azure Active Directory proceeds by requesting the current state of that user from the service with a request such as: 
 
 ```
-GET ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
+ GET ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
  Authorization: Bearer ...
 ```
 
 In a service built using the CLI libraries provided by Microsoft for implementing SCIM services, the request is translated into a call to the Retrieve method of the service’s provider.  Here is the signature of the Retrieve method:
 
 ```csharp
-// System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
+ // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
  // Microsoft.SystemForCrossDomainIdentityManagement.Resource and 
  // Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters 
  // are defined in Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
@@ -1111,7 +1111,7 @@ Here, the value of the index x can be 0 and the value of the index y can be 1, o
 Here is an example of a request from Azure Active Directory to an SCIM service to update a user: 
 
 ```
-PATCH ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
+  PATCH ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
   Authorization: Bearer ...
   Content-type: application/scim+json
   {
@@ -1133,7 +1133,7 @@ PATCH ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
 The Microsoft Common Language Infrastructure libraries for implementing SCIM services would translate the request into a call to the Update method of the service’s provider. Here is the signature of the Update method: 
 
 ```csharp
-// System.Threading.Tasks.Tasks and 
+  // System.Threading.Tasks.Tasks and 
   // System.Collections.Generic.IReadOnlyCollection<T>
   // are defined in mscorlib.dll.  
   // Microsoft.SystemForCrossDomainIdentityManagement.IPatch, 
@@ -1229,14 +1229,14 @@ In the example of a request to update a user, the object provided as the value o
 To deprovision a user from an identity store fronted by an SCIM service, Azure AD sends a request such as:
 
 ```
-DELETE ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
+  DELETE ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
   Authorization: Bearer ...
 ```
 
 If the service was built using the Common Language Infrastructure libraries provided by Microsoft for implementing SCIM services, then the request is translated into a call to the Delete method of the service’s provider.   That method has this signature: 
 
 ```csharp
-// System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
+  // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
   // Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier, 
   // is defined in Microsoft.SystemForCrossDomainIdentityManagement.Protocol. 
   System.Threading.Tasks.Task Delete(
