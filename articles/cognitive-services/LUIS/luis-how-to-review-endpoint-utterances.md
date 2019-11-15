@@ -23,7 +23,7 @@ If you have many people contributing to a LUIS app,
 
 ## Enable active learning
 
-To enable active learning, you must log user queries. This is accomplished by calling the [endpoint query](luis-get-started-create-app#query-the-v3-api-prediction-endpoint) with the `log=true` querystring parameter and value.
+To enable active learning, you must log user queries. This is accomplished by calling the [endpoint query](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) with the `log=true` querystring parameter and value.
 
 ## Correct intent predictions to align utterances
 
