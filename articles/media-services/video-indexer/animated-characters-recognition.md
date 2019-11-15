@@ -115,7 +115,7 @@ If you own a Video Indexer paid account, you need to connect a Custom Vision acc
         > [!NOTE]
         > In a trial account, you only have one model you can use. After you delete it, you can’t train other models.
 
-### Connect a Custom Vision account using API (paid accounts only)
+### Connect a Custom Vision account with API (paid accounts only)
 
 If you own a Video Indexer paid account, you need to connect a Custom Vision account first. If you don't have a Custom Vision account already, please create one. For more information, see [Custom Vision](../../cognitive-services/custom-vision-service/home.md).
 
