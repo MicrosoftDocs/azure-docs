@@ -29,7 +29,7 @@ If sending longer audio is a requirement for your application, consider using th
 
 These regions are supported for speech-to-text transcription using the REST API. Make sure that you select the endpoint that matches your subscription region.
 
-[!INCLUDE]
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)] 
 
 ## Query parameters
 
