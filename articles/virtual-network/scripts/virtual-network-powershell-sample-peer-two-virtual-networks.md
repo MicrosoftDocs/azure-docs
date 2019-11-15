@@ -1,5 +1,5 @@
 ﻿---
-title: Azure PowerShell script sample - Peer two virtual networks
+title: Peer two virtual networks - Azure PowerShell script sample
 description: Azure PowerShell script sample - Peer two virtual networks
 services: virtual-network
 documentationcenter: virtual-network

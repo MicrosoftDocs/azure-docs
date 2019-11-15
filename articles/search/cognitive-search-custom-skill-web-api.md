@@ -1,5 +1,5 @@
 ---
-title: Custom Web API skill in an enrichment pipeline
+title: Custom Web API skill in skillsets
 titleSuffix: Azure Cognitive Search
 description: Extend capabilities of Azure Cognitive Search skillsets by calling out to Web APIs. Use the Custom Web API skill to integrate your custom code.
 
