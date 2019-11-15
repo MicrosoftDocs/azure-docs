@@ -27,6 +27,8 @@ Use the Azure Blob storage client library v12 for .NET to:
 
 [API reference documentation](/dotnet/api/azure.storage.blobs) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs/12.0.0) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
 
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+
 ## Prerequisites
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
@@ -266,7 +268,7 @@ string downloadFilePath = localFilePath.Replace(".txt", "DOWNLOAD.txt");
 Console.WriteLine("\nDownloading blob to\n\t{0}\n", downloadFilePath);
 
 // Download the blob's contents and save it to a file
-BlobDownloadInfo download = await blob.DownloadAsync();
+BlobDownloadInfo download = await blobClient.DownloadAsync();
 
 using FileStream downloadFileStream = File.OpenWrite(downloadFilePath);
 await download.Content.CopyToAsync(downloadFileStream);

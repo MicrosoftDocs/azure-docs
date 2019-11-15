@@ -1,12 +1,8 @@
 ---
 title: Onboard a customer to Azure delegated resource management
-description: Learn how to onboard a customer to Azure delegated resource management, allowing their resources to be accessed and managed through your own tenant. 
-author: JnHs
-ms.author: jenhayes
-ms.service: lighthouse
-ms.date: 11/6/2019
+description: Learn how to onboard a customer to Azure delegated resource management, allowing their resources to be accessed and managed through your own tenant.
+ms.date: 11/7/2019
 ms.topic: overview
-manager: carmonm
 ---
 
 # Onboard a customer to Azure delegated resource management
@@ -286,7 +282,7 @@ The example below shows an assignment granting the **Managed Services Registrati
         { 
             "principalId": "cfa7496e-a619-4a14-a740-85c5ad2063bb", 
             "principalIdDisplayName": "MSP Operators", 
-            "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c" 
+            "roleDefinitionId": "91c1777a-f3dc-4fae-b103-61d183457e46" 
         } 
     ] 
 ```

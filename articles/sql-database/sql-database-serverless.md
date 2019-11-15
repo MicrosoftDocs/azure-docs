@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database serverless 
+title: Serverless
 description: This article describes the new serverless compute tier and compares it with the existing provisioned compute tier
 services: sql-database
 ms.service: sql-database

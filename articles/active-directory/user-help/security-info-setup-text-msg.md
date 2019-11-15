@@ -1,5 +1,5 @@
 ---
-title: Set up security info (preview) to use text messaging - Azure Active Directory | Microsoft Docs
+title: Set up security info (preview) for text messages - Azure AD
 description: How to set up your security info to verify your identity using text messaging and your mobile device.
 services: active-directory
 author: eross-msft

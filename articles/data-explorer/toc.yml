@@ -150,6 +150,8 @@
         href: check-cluster-health.md
     - name: Database
       items:
+      - name: Follower databases
+        href: follower.md  
       - name: Manage database permissions
         href: manage-database-permissions.md
       - name: Policies
@@ -178,6 +180,8 @@
     items:
     - name: Azure Data Factory
       items:
+      - name: Integration with Data Factory 
+        href: data-factory-integration.md 
       - name: Bulk copy data using Azure Data Factory template
         href: data-factory-template.md 
       - name: Run control commands using Azure Data Factory

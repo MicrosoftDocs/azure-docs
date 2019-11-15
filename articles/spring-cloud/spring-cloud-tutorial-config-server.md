@@ -91,7 +91,7 @@ All configurable properties used to set up private Git repository with basic aut
 | `password`      | No     | The password used to access the Git repository server, _required_ when the Git repository server supports `Http Basic Authentication`. |
 
 > [!NOTE]
-> Some Git repository servers, such as GitHub, support a *personal-token* or *access-token* as a password for HTTP Basic Authentication. You can use that kind of token as a password here too, and the *personal-token" or *access-token* will not expire. However, for Git repository servers such as Bitbucket and Azure DevOps, the token will expire in one or two hours, making that option not viable for use with Azure Spring Cloud.
+> Many `Git` repository servers support the use of tokens rather than passwords for HTTP Basic Authentication. Some repositories, such as GitHub, allow tokens to persist indefinitely. However, some Git repository servers, including Azure DevOps, force tokens to expire in a few hours. Repositories that cause tokens to expire should not use token-based authentication with Azure Spring Cloud.
 
 ### Git repositories with pattern
 
@@ -123,7 +123,9 @@ Now that your configuration files are saved in a repository, you need to connect
 
 1. Go to your Azure Spring Cloud **Overview** page.
 
-1. In the left pane, under **Settings**, select **Config Server**.
+1. Select the service to configure.
+
+1. In the left pane of the service page, under **Settings**, select the **Config Server** tab.
 
 ![The Config Server window](media/spring-cloud-tutorial-config-server/portal-config-server.png)
 

@@ -57,7 +57,7 @@ Create a policy as follows:
             - Backups taken on Saturday on the last week of the month at midnight and 6:00 PM are kept for 12 months.
             - Backups taken on a Saturday in the last week of March are kept for 10 years.
 
-           ![Retention example](./media/backup-configure-vault/retention-example.png)
+    ![Retention example](./media/backup-configure-vault/retention-example.png)
 
 11. In **Choose Initial Backup Type** decide if you want to take the initial backup over the network or use offline backup (for more information on offline backup refer, see this [article](backup-azure-backup-import-export.md)). To take the initial backup over the network, select **Automatically over the network** and click **Next**.
 
@@ -160,7 +160,7 @@ There are two ways to stop protecting Files and Folders backup:
     ![Modify or stop a scheduled backup.](./media/backup-azure-manage-mars/mars-actions.png)
 1. In **Select Policy Item** page, select **Modify a backup schedule for your files and folders** click **Next**.
     ![Modify or stop a scheduled backup.](./media/backup-azure-manage-mars/select-policy-item-retain-data.png)
-1. From the **Modify or Stop a Scheduled Backup** page, select **Stop using this backup schedule, but keep the stored backups till a schedule is activated again**. Then, select **Next**.  
+1. From the **Modify or Stop a Scheduled Backup** page, select **Stop using this backup schedule, but keep the stored backups until a schedule is activated again**. Then, select **Next**.  
     ![Modify or stop a scheduled backup.](./media/backup-azure-manage-mars/stop-schedule-backup.png)
 1. In **Pause Scheduled Backup** review the information click **Finish**
     ![Modify or stop a scheduled backup.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
@@ -205,4 +205,4 @@ If you stopped protection while retaining data and decided to resume protection,
 ## Next steps
 
 - For information about supported scenarios and limitations, refer to the [Support Matrix for MARS](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent).
-- Learn more about [Ad hoc backup policy retention behavior](https://docs.microsoft.com/azure/backup/backup-configure-vault#ad-hoc-backup-policy-retention-behavior.md).
+- Learn more about [On demand backup policy retention behavior](backup-configure-vault.md#on-demand-backup-policy-retention-behavior).

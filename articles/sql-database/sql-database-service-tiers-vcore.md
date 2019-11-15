@@ -1,5 +1,5 @@
 ---
-title: 'Azure SQL Database service - vCore model overview '
+title: vCore model overview
 description: The vCore purchasing model lets you independently scale compute and storage resources, match on-premises performance, and optimize price.
 services: sql-database
 ms.service: sql-database
