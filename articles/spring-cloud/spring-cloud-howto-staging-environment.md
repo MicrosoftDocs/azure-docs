@@ -76,7 +76,7 @@ Go to your service instance in the Azure portal, and select **Deployment managem
 
 2. Select **Set deployment**.
 3. In the **Production Deployment** list, select **Green**, and then select **Apply**.
-4. Go to your gateway application **Overview** page. If you've already assigned a domain for your gateway application, the URL will appear in the **Overview** pane. To view the modified PiggyMetrics page, select the URL, and go to the site .
+4. Go to your gateway application **Overview** page. If you've already assigned a domain for your gateway application, the URL will appear in the **Overview** pane. To view the modified PiggyMetrics page, select the URL, and go to the site.
 
 >[!NOTE]
 > After you've set the green deployment as the production environment, the previous deployment becomes the staging deployment.
