@@ -30,7 +30,7 @@ The following table provides a quick comparison of the different agents. See the
 | | Azure Diagnostic Extension | Log Analytics agent | Dependency agent |
 |:---|:---|:---|:---|
 | Environments supported | Azure | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises |
-| Operating Systems | Windows<br>Linux | Windows<br>Linux | Windows<br>Linux
+| Operating systems | Windows<br>Linux | Windows<br>Linux | Windows<br>Linux
 | Agent dependencies  | None | None | Requires Log Analytics agent |
 | Data collected | Event Logs<br>ETW events<br>Syslog<br>Performance<br>IIS logs<br>.NET app tracing output logs<br>Crash dumps | Event Logs<br>Syslog<br>Performance<br>IIS logs<br>Custom logs<br>Data from solutions | Process details and dependencies<br>Network connection metrics |
 | Data sent to | Azure Storage<br>Azure Monitor Metrics<br>Event Hub | Azure Monitor Logs | Azure Monitor Logs |
