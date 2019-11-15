@@ -4,6 +4,7 @@ description: An architecture of Digital Distribution Center application template
 author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
+ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
 ---

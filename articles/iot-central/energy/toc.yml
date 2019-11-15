@@ -14,11 +14,9 @@
 - name: Concepts
   items:
     - name: Smart meter app architecture
-      href: concept-iot-central-smart-meter-app.md 
+      href: concept-iot-central-smart-meter-app.md
     - name: Solar panel app architecture
-      href: concept-iot-central-solar-panel-app.md  
-    - name: Connectivity
-      href: ../core/overview-iot-central-get-connected-pnp.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+      href: concept-iot-central-solar-panel-app.md
     - name: What are application templates?
       href: ../core/concepts-app-templates.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
 - name: How-to guides
@@ -51,9 +49,9 @@
         - name: Configure continuous data export
           href: ../core/howto-export-data-pnp.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
         - name: Create custom rules
-          href: ../core/howto-create-custom-rules.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+          href: ../core/howto-create-custom-rules-pnp.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
         - name: Create custom analytics with Databricks
-          href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+          href: ../core/howto-create-custom-analytics-pnp.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
 
     - name: Administration
       items:

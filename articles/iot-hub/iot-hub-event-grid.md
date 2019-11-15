@@ -199,4 +199,4 @@ Applications that handle IoT Hub events should follow these suggested practices:
 
 * [Compare the differences between routing IoT Hub events and messages](iot-hub-event-grid-routing-comparison.md)
 
-* [Learn how to use IoT telemetry events to implement IoT spatial analytics using Azure Maps (and IoT Hub message routing)](../azure-maps/tutorial-iot-hub-maps.md#filter-events-using-iot-hub-message-routing)
+* [Learn how to use IoT telemetry events to implement IoT spatial analytics using Azure Maps](../azure-maps/tutorial-iot-hub-maps.md#create-an-azure-function-and-add-an-event-grid-subscription)

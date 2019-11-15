@@ -27,6 +27,11 @@ When you assign licenses directly to individual users, without using group-based
 
 When you're using group-based licensing, the same errors can occur, but they happen in the background while the Azure AD service is assigning licenses. For this reason, the errors can't be communicated to you immediately. Instead, they're recorded on the user object and then reported via the administrative portal. The original intent to license the user is never lost, but it's recorded in an error state for future investigation and resolution.
 
+## LicenseAssignmentAttributeConcurrencyException in audit logs
+
+**Problem:** User has LicenseAssignmentAttributeConcurrencyException for license assignment in audit logs.
+When group-based licensing tries to process concurrent license assignment of same license to a user, this exception is recorded on the user. This usually happens when a user is a member of more than one group with same assigned license. AZure AD will retry processing the user license and will resolve the issue. There is no action required from the customer to fix this issue.
+
 ## Find license assignment errors
 
 ### To find users in an error state in a group

@@ -8,7 +8,7 @@ manager: nitinme
 ms.custom: seodec18
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
 ms.service: cognitive-services
 ---
@@ -18,6 +18,8 @@ ms.service: cognitive-services
 Add [intents](luis-concept-intent.md) to your LUIS app to identify groups of questions or commands that have the same intention. 
 
 Intents are managed from top navigation bar's **Build** section, then from the left panel's **Intents**. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 ## Add intent
 

@@ -22,7 +22,7 @@ ms.author: cynthn
 
 A managed image resource can be created from a generalized virtual machine (VM) that is stored as either a managed disk or an unmanaged disk in a storage account. The image can then be used to create multiple VMs. For information on how managed images are billed, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## Generalize the Windows VM using Sysprep
 
@@ -53,6 +53,17 @@ To generalize your Windows VM, follow these steps:
 
 6. When Sysprep completes, it shuts down the VM. Do not restart the VM.
 
+> [!TIP]
+> **Optional** Use [DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-optimize-image-command-line-options) to optimize your image and reduce your VM's first boot time.
+>
+> To optimize your image, mount your VHD by double-clicking on it in Windows explorer, and then run DISM with the `/optimize-image` parameter.
+>
+> ```cmd
+> DISM /image:D:\ /optimize-image /boot
+> ```
+> Where D: is the mounted VHD's path.
+>
+> Running `DISM /optimize-image` should be the last modification you make to your VHD. If you make any changes to your VHD prior to deployment, you'll have to run `DISM /optimize-image` again.
 
 ## Create a managed image in the portal 
 
@@ -80,7 +91,7 @@ To generalize your Windows VM, follow these steps:
 
 ## Create an image of a VM using Powershell
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+ 
 
 Creating an image directly from the VM ensures that the image includes all of the disks associated with the VM, including the OS disk and any data disks. This example shows how to create a managed image from a VM that uses managed disks.
 

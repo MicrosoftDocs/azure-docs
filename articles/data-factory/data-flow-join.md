@@ -1,5 +1,5 @@
 ---
-title: Join transformation in Azure Data Factory mapping data flow | Microsoft Docs
+title: Join transformation in Azure Data Factory mapping data flow 
 description: Combine data from two data sources using the join transformation in Azure Data Factory mapping data flow
 author: kromerm
 ms.author: makromer
@@ -27,7 +27,7 @@ Left outer join returns all rows from the left stream and matched records from t
 
 ### Right Outer
 
-Left outer join returns all rows from the right stream and matched records from the left stream. If a row from the right stream has no match, the output columns from the right stream are set to NULL. The output will be the rows returned by an inner join plus the unmatched rows from the right stream.
+Right outer join returns all rows from the right stream and matched records from the left stream. If a row from the right stream has no match, the output columns from the left stream are set to NULL. The output will be the rows returned by an inner join plus the unmatched rows from the right stream.
 
 ### Full Outer
 

@@ -95,7 +95,7 @@ landingContent:
             url: concepts-exploration.md
           - text: Features, action, and context
             url: concepts-features.md
-          - text: Active learning
+          - text: Active and inactive events
             url: concept-active-learning.md
           - text: Rewards
             url: concept-rewards.md
@@ -105,7 +105,7 @@ landingContent:
         links:
           - text: Improve loop with offline evaluations
             url: concepts-offline-evaluation.md
-          - text: Active learning
+          - text: Active and inactive events
             url: concept-active-learning.md
           - text: Scalability and performance
             url: concepts-scalability-performance.md 

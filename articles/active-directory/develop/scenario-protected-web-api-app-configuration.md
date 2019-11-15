@@ -121,9 +121,11 @@ services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationSche
     // Instead of using the default validation (validating against a single tenant,
     // as we do in line-of-business apps),
     // we inject our own multitenant validation logic (which even accepts both v1 and v2 tokens).
-    options.TokenValidationParameters.IssuerValidator = AadIssuerValidator.ValidateAadIssuer;
+    options.TokenValidationParameters.IssuerValidator = AadIssuerValidator.GetIssuerValidator(options.Authority).Validate;;
 });
 ```
+
+This code snippet is extracted from the ASP.NET Core Web Api incremental tutorial in [Microsoft.Identity.Web/WebApiServiceCollectionExtensions.cs#L50-L63](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/154282843da2fc2958fad151e2a11e521e358d42/Microsoft.Identity.Web/WebApiServiceCollectionExtensions.cs#L50-L63). The `AddProtectedWebApi` method, which does a lot more, is called from the Startup.cs
 
 ## Token validation
 

@@ -1,20 +1,19 @@
 ---
-title: Language filters for multi-lingual content in a search index - Azure Search
-description: Filter criteria to support multi language search, scoping query execution to language-specific fields.
-author: HeidiSteen
+title: Language filters for multi-lingual content in a search index
+titleSuffix: Azure Cognitive Search
+description: Filter criteria to support multi-language search, scoping query execution to language-specific fields.
+
 manager: nitinme
-services: search
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 10/23/2017
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
 
-# How to filter by language in Azure Search 
+# How to filter by language in Azure Cognitive Search 
 
-A key requirement in a multilingual search application is the ability to search over and retrieve results in the user's own language. In Azure Search, one way to meet the language requirements of a multilingual app is to create a series of fields dedicated to storing strings in a specific language, and then constrain full text search to just those fields at query time.
+A key requirement in a multilingual search application is the ability to search over and retrieve results in the user's own language. In Azure Cognitive Search, one way to meet the language requirements of a multilingual app is to create a series of fields dedicated to storing strings in a specific language, and then constrain full text search to just those fields at query time.
 
 Query parameters on the request are used to both scope the search operation, and then trim the results of any fields that don't provide content compatible with the search experience you want to deliver.
 
@@ -23,11 +22,11 @@ Query parameters on the request are used to both scope the search operation, and
 | **searchFields** | Limits full text search to the list of named fields. |
 | **$select** | Trims the response to include only the fields you specify. By default, all retrievable fields are returned. The **$select** parameter lets you choose which ones to return. |
 
-The success of this technique hinges on the integrity of field contents. Azure Search does not translate strings or perform language detection. It is up to you to make sure that fields contain the strings you expect.
+The success of this technique hinges on the integrity of field contents. Azure Cognitive Search does not translate strings or perform language detection. It is up to you to make sure that fields contain the strings you expect.
 
 ## Define fields for content in different languages
 
-In Azure Search, queries target a single index. Developers who want to provide language-specific strings in a single search experience typically define dedicated fields to store the values: one field for English strings, one for French, and so on. 
+In Azure Cognitive Search, queries target a single index. Developers who want to provide language-specific strings in a single search experience typically define dedicated fields to store the values: one field for English strings, one for French, and so on. 
 
 In our samples, including the [real-estate sample](search-get-started-portal.md) shown below, you might have seen field definitions similar to the following screenshot. Notice how this example shows the language analyzer assignments for the fields in this index. Fields that contain strings perform better in full text search when paired with an analyzer engineered to handle the linguistic rules of the target language.
 
@@ -59,8 +58,8 @@ parameters =
 
 ## See also
 
-+ [Filters in Azure Search](search-filters.md)
++ [Filters in Azure Cognitive Search](search-filters.md)
 + [Language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support)
-+ [How full text search works in Azure Search](search-lucene-query-architecture.md)
++ [How full text search works in Azure Cognitive Search](search-lucene-query-architecture.md)
 + [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)
 

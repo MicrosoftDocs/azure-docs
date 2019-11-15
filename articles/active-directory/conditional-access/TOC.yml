@@ -31,6 +31,8 @@
     href: location-condition.md
   - name: Controls
     href: controls.md
+  - name: Report-only mode
+    href: concept-conditional-access-report-only.md
   - name: Service dependencies
     href: service-dependencies.md
   - name: What if tool
@@ -76,6 +78,8 @@
     href: untrusted-networks.md
   - name: Require terms of use
     href: terms-of-use.md
+  - name: Configure report-only mode
+    href: howto-conditional-access-report-only.md
   - name: Sign-in frequency and browser persistence controls
     href: howto-conditional-access-session-lifetime.md
   - name: Migrate classic policies

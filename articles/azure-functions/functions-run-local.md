@@ -151,8 +151,8 @@ In version 2.x, when you run the command you must choose a runtime for your proj
 Select a worker runtime:
 dotnet
 node
-python (preview)
-powershell (preview)
+python 
+powershell
 ```
 
 Use the up/down arrow keys to choose a language, then press Enter. If you plan to develop JavaScript or TypeScript functions, choose **node**, and then select the language. TypeScript has [some additional requirements](functions-reference-node.md#typescript). 
@@ -203,11 +203,13 @@ When no valid storage connection string is set for [`AzureWebJobsStorage`] and t
 
 Even when using the storage emulator for development, you may want to test with an actual storage connection. Assuming you have already [created a storage account](../storage/common/storage-create-storage-account.md), you can get a valid storage connection string in one of the following ways:
 
-+ From the [Azure portal]. Navigate to your storage account, select **Access keys** in **Settings**, then copy one of the **Connection string** values.
-
+- From the [Azure portal], search for and select **Storage accounts**. 
+  ![Select Storagea accounts from Azure portal](./media/functions-run-local/select-storage-accounts.png)
+  
+  Select your storage account, select **Access keys** in **Settings**, then copy one of the **Connection string** values.
   ![Copy connection string from Azure portal](./media/functions-run-local/copy-storage-connection-portal.png)
 
-+ Use [Azure Storage Explorer](https://storageexplorer.com/) to connect to your Azure account. In the **Explorer**, expand your subscription, select your storage account, and copy the primary or secondary connection string.
+- Use [Azure Storage Explorer](https://storageexplorer.com/) to connect to your Azure account. In the **Explorer**, expand your subscription, select your storage account, and copy the primary or secondary connection string.
 
   ![Copy connection string from Storage Explorer](./media/functions-run-local/storage-explorer.png)
 

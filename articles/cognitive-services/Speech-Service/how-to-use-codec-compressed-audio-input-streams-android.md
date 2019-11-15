@@ -155,4 +155,4 @@ String text = result.getText();
 ## Next steps
 
 - [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-- [See how to recognize speech in C#](quickstart-csharp-dotnet-windows.md)
+* [See how to recognize speech in Java](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java)

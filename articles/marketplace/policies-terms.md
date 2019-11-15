@@ -5,6 +5,7 @@ services: Azure, Marketplace, AppSource, commercial marketplace, Partner Center
 author: qianw211
 
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/09/2019
 ms.author: v-qiwe
@@ -15,7 +16,7 @@ ms.author: v-qiwe
 >[!Note]
 >"Microsoft commercial marketplace" means a Microsoft owned or operated platform, however named, through which offers may be presented to or acquired by customers. Unless otherwise specified, the commercial marketplace includes the Microsoft Azure Marketplace and Microsoft AppSource.
 
-Thank you for your interest in publishing offers on the commercial marketplace. We’re committed to partnering with you to build a rich source of cloud solutions and a line of business offers, that delight customers worldwide and help you build your business.
+Thank you for your interest in publishing offers on the commercial marketplace. We're committed to partnering with you to build a rich source of cloud solutions and a line of business offers, that delight customers worldwide and help you build your business.
 
 Offers on the marketplace must comply with our policies and terms. We update these policies and terms from time to time to help ensure a good customer experience and provide partners an opportunity to succeed. If you have feedback on our policies or terms, please let us know by commenting in the [Azure Marketplace and AppSource forum](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222).
 

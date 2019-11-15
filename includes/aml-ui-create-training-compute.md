@@ -20,7 +20,7 @@ A pipeline runs on a compute target which is a compute resource that is attached
     If you already have an available compute target, you can select it to run this pipeline.
 
     > [!NOTE]
-    > The visual interface can only run experiments on Machine Learning Compute targets. Other compute targets will not be shown.
+    > The designer can only run experiments on Machine Learning Compute targets. Other compute targets will not be shown.
 
 1. Provide a name for the compute resource.
 

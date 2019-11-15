@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 10/16/2019
 ms.author: diberry
 ---
 
@@ -42,15 +42,9 @@ LUIS understands utterances in the following languages:
 | Spanish (Mexico)|`es-MX` |-|  -   |✔|✔|
 | Turkish | `tr-TR` |✔|-|-|Sentiment only|
 
-
 Language support varies for [prebuilt entities](luis-reference-prebuilt-entities.md) and [prebuilt domains](luis-reference-prebuilt-domains.md).
 
-### *Chinese support notes
-
- - In the `zh-cn` culture, LUIS expects the simplified Chinese character set instead of the traditional character set.
- - The names of intents, entities, features, and regular expressions may be in Chinese or Roman characters.
- - See the [prebuilt domains reference](luis-reference-prebuilt-domains.md) for information on which prebuilt domains are supported in the `zh-cn` culture.
-<!--- When writing regular expressions in Chinese, do not insert whitespace between Chinese characters.-->
+[!INCLUDE [Chinese language support notes](includes/chinese-language-support-notes.md)]
 
 ### *Japanese support notes
 
@@ -58,8 +52,7 @@ Language support varies for [prebuilt entities](luis-reference-prebuilt-entities
      - でございます is not the same as です.
      - です is not the same as だ.
 
-### **Text analytics support notes
-Text analytics includes keyPhrase prebuilt entity and sentiment analysis. Only Portuguese is supported for subcultures: `pt-PT` and `pt-BR`. All other cultures are supported at the primary culture level. Learn more about Text Analytics [supported languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages).
+[!INCLUDE [Text Analytics support notes](includes/text-analytics-support-notes.md)]
 
 ### Speech API supported languages
 See Speech [Supported languages](https://docs.microsoft.com/azure/cognitive-services/Speech/api-reference-rest/supportedlanguages##interactive-and-dictation-mode) for Speech dictation mode languages.

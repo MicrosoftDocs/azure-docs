@@ -68,7 +68,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 | publisher | Microsoft.Azure.KeyVault.Edp | string |
 | type | KeyVaultForLinux | string |
 | typeHandlerVersion | 1.0 | int |
-| pollingIntervalInS | 3600 | int |
+| pollingIntervalInS | 3600 | string |
 | certificateStoreName | MY | string |
 | linkOnRenewal | false | boolean |
 | certificateStoreLocation  | LocalMachine | string |

@@ -1,5 +1,5 @@
 ---
-title: Compare Azure Data Factory with Data Factory version 1 | Microsoft Docs
+title: Compare Azure Data Factory with Data Factory version 1 
 description: This article compares Azure Data Factory with Azure Data Factory version 1.
 services: data-factory
 documentationcenter: ''

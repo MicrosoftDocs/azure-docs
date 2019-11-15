@@ -1,5 +1,5 @@
 ---
-title: Azure support for generation 2 VMs (preview) | Microsoft Docs
+title: Azure support for generation 2 VMs | Microsoft Docs
 description: Overview of Azure support for generation 2 VMs
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,26 +13,21 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 
 ms.topic: article
-ms.date: 10/29/2019
+ms.date: 11/04/2019
 ms.author: lahugh
 ---
 
-# Support for generation 2 VMs (preview) on Azure
+# Support for generation 2 VMs on Azure
 
-> [!IMPORTANT]
-> Azure support for generation 2 VMs is currently in preview.
-> This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Support for generation 2 virtual machines (VMs) is now available on Azure. You can't change a virtual machine's generation after you've created it, so review the considerations on this page before you choose a generation.
 
-Support for generation 2 virtual machines (VMs) is now available in preview in Azure. You can't change a virtual machine's generation after you've created it, so review the considerations on this page before you choose a generation.
-
-Generation 2 VMs support key features that aren't supported in generation 1 VMs. These features include increased memory, Intel Software Guard Extensions (Intel SGX), and virtualized persistent memory (vPMEM). Generation 2 VMs also have some features that aren't supported in Azure yet. For more information, see the [Features and capabilities](#features-and-capabilities) section.
+Generation 2 VMs support key features that aren't supported in generation 1 VMs. These features include increased memory, Intel Software Guard Extensions (Intel SGX), and virtualized persistent memory (vPMEM). Generation 2 VMs running on-premises, have some features that aren't supported in Azure yet. For more information, see the [Features and capabilities](#features-and-capabilities) section.
 
 Generation 2 VMs use the new UEFI-based boot architecture rather than the BIOS-based architecture used by generation 1 VMs. Compared to generation 1 VMs, generation 2 VMs might have improved boot and installation times. For an overview of generation 2 VMs and some of the differences between generation 1 and generation 2, see [Should I create a generation 1 or 2 virtual machine in Hyper-V?](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 
 ## Generation 2 VM sizes
 
-Generation 1 VMs are supported by all VM sizes in Azure. Azure now offers preview generation 2 support for the following selected VM series:
+Generation 1 VMs are supported by all VM sizes in Azure. Azure now offers generation 2 support for the following selected VM series:
 
 * [B-series](https://docs.microsoft.com/azure/virtual-machines/linux/b-series-burstable)
 * [DC-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dc-series)
@@ -47,7 +42,6 @@ Generation 1 VMs are supported by all VM sizes in Azure. Azure now offers previe
 * [NCv2-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#ncv2-series) and [NCv3-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#ncv3-series)
 * [ND-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nd-series)
 * [NVv3-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nvv3-series--1)
-
 
 > [!NOTE]
 > The usage of generation 2 VM images for Mv2-series VMs is generally available since the Mv2-series works with generation 2 VM images exclusively. Generation 1 VM images are not supported on Mv2-series VMs. 

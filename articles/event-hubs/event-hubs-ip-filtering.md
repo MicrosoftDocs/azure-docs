@@ -48,7 +48,6 @@ IP filter rules are applied in order, and the first rule that matches the IP add
 > - Integration with Azure Event Grid
 > - Azure IoT Hub Routes
 > - Azure IoT Device Explorer
-> - Azure Data Explorer
 >
 > The below Microsoft services are required to be on a virtual network
 > - Azure Web Apps

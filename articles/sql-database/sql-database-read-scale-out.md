@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database - read queries on replicas| Microsoft Docs
+title: Read queries on replicas
 description: The Azure SQL Database provides the ability to load-balance read-only workloads using the capacity of read-only replicas - called Read Scale-Out.
 services: sql-database
 ms.service: sql-database

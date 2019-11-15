@@ -41,6 +41,10 @@
       href: ./hdinsight-streaming-at-scale-overview.md  
     - name: Apache Hadoop architecture in HDInsight
       href: ./hdinsight-hadoop-architecture.md
+    - name: HDInsight supported VM sizes
+      href: ./hdinsight-supported-node-configuration.md
+    - name: Select the right VM size
+      href: ./hdinsight-selecting-vm-size.md
     - name: Cluster capacity planning
       href: ./hdinsight-capacity-planning.md
     - name: Availability and reliability

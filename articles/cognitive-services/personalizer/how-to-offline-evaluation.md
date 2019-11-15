@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 10/23/2019
 ms.author: diberry
 ---
 
@@ -16,7 +16,7 @@ ms.author: diberry
 
 Learn how to complete an offline evaluation and understand the results.
 
-Offline Evaluations allow you to measure how effective Personalizer is compared to your application's default behavior, learn what features are contributing most to personalization, and discover new machine learning settings automatically.
+Offline Evaluations allow you to measure how effective Personalizer is compared to your application's default behavior, learn what features are contributing most to personalization, and discover new machine learning values automatically.
 
 Read about [Offline Evaluations](concepts-offline-evaluation.md) to learn more.
 
@@ -31,10 +31,10 @@ Read about [Offline Evaluations](concepts-offline-evaluation.md) to learn more.
 1. In the [Azure portal](https://azure.microsoft.com/free/), locate your Personalization resource.
 1. In the Azure portal, go to the **Evaluations** section and select **Create Evaluation**.
     ![In the Azure portal, go to the **Evaluations** section and select **Create Evaluation**.](./media/offline-evaluation/create-new-offline-evaluation.png)
-1. Select the following settings:
+1. Configure the following values:
 
     * An evaluation name
-    * Start and end date - these are dates in the past, that specify the range of data to use in the evaluation. This data must be present in the logs, as specified in the [Data Retention](how-to-settings.md) setting.
+    * Start and end date - these are dates in the past, that specify the range of data to use in the evaluation. This data must be present in the logs, as specified in the [Data Retention](how-to-settings.md) value.
     * Optimization Discovery set to **yes**
 
     ![Choose offline evaluation settings](./media/offline-evaluation/create-an-evaluation-form.png)

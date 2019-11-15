@@ -1,5 +1,4 @@
 ---
-
 title: Azure Monitor workbooks for reports | Microsoft Docs
 description: Learn how to use Azure Monitor workbooks for Azure Active Directory reports.
 services: active-directory
@@ -13,11 +12,10 @@ ms.topic: conceptual
 ms.tgt_pltfrm:
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/29/2019
+ms.date: 10/30/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ---
-
 # How to use Azure Monitor workbooks for Azure Active Directory reports
 
 > [!IMPORTANT]
@@ -67,19 +65,18 @@ To use Monitor workbooks, you need:
 
 - [Access](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions) to the log analytics workspace
 - Following roles in Azure Active Directory (if you are accessing Log Analytics through Azure Active Directory portal)
-    - Security Admin
-    - Security Reader
-    - Report Reader
-    - Global Admin
+    - Security administrator
+    - Security reader
+    - Report reader
+    - Global administrator
 
 ## Roles
 You must be in one of the following roles as well as have [access to underlying Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) workspace to manage the workbooks:
-- 	Global Admin
-- 	Security Admin
-- 	Security Reader
-- 	Report Reader
-- 	Application Admin
-
+- 	Global administrator
+- 	Security administrator
+- 	Security reader
+- 	Report reader
+- 	Application administrator
 
 ## Workbook access 
 
@@ -87,16 +84,11 @@ To access workbooks:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. On the left navigation pane, select **Azure Active Directory**.
+1. Navigate to **Azure Active Directory** > **Monitoring** > **Workbooks**. 
 
-3. In the **Monitoring** section, select **Workbooks**. 
+1. Select a report or template, or on the toolbar select **Open**. 
 
-    ![Select Insights](./media/howto-use-azure-monitor-workbooks/41.png)
-
-4. Select a report or template, or on the toolbar select **Open**. 
-
-    ![Select Open](./media/howto-use-azure-monitor-workbooks/42.png)
-
+![Find the Azure Monitor workbooks in Azure AD](./media/howto-use-azure-monitor-workbooks/azure-monitor-workbooks-in-azure-ad.png)
 
 ## Sign-in analysis
 
@@ -190,7 +182,7 @@ For disabled sign-ins, you get a breakdown by the Conditional Access status.
 
 ### Overview
 
-Workbooks contain sign-in log queries that can help IT admins monitor the impact of Conditional Access policies in their tenant. You have the ability to report on how many users would have been granted or denied access. The workbook contains insights on how many users would have bypassed Conditional Access policies based on those users’ attributes at the time of sign-in. It contains details per condition so that the impact of a policy can be contextualized per condition, including device platform, device state, client app, sign-in risk, location, and application.
+Workbooks contain sign-in log queries that can help IT administrators monitor the impact of Conditional Access policies in their tenant. You have the ability to report on how many users would have been granted or denied access. The workbook contains insights on how many users would have bypassed Conditional Access policies based on those users’ attributes at the time of sign-in. It contains details per condition so that the impact of a policy can be contextualized per condition, including device platform, device state, client app, sign-in risk, location, and application.
 
 ### Instructions 
 To access the workbook for Conditional Access Insights, select the **Conditional Access Insights** workbook in the Conditional Access section. 

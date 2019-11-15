@@ -56,7 +56,7 @@ Events are sent by IoT objects (such as devices and sensors) for processing by A
 For more information about the Event Grid event schema:
 
 - Review the [Azure Event Grid event schema reference](../event-grid/event-schema.md).
-- Read the [Azure EventGrid Node.js SDK EventGridEvent reference](https://docs.microsoft.com/javascript/api/azure-eventgrid/eventgridevent?view=azure-node-latest).
+- Read the [Azure EventGrid Node.js SDK EventGridEvent reference](https://docs.microsoft.com/javascript/api/@azure/eventgrid/eventgridevent?view=azure-node-latest).
 
 ## Event types
 

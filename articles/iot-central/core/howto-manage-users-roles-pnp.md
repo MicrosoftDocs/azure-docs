@@ -36,6 +36,9 @@ For more information, see [Microsoft account help](https://support.microsoft.com
     > [!div class="mx-imgBorder"]
     >![Add user and select a role](media/howto-manage-users-roles-pnp/add-user-pnp.png)
 
+    > [!NOTE]
+    > A user who is in a custom role that grants them the permission to add other users, can only add users to a role with same or fewer permissions than their own role.
+
 ### Edit the roles that are assigned to users
 
 Roles can't be changed after they're assigned. To change the role that's assigned to a user, delete the user, and then add the user again with a different role.
@@ -191,6 +194,9 @@ When you define a custom role, you choose the set of permissions that a user is 
 | Delete | View <br/> Other dependencies:  View custom roles |
 | Full Control | View, Add, Delete <br/> Other dependencies:  View custom roles |
 
+> [!NOTE]
+> A user who is in a custom role that grants them the permission to add other users, can only add users to a role with same or fewer permissions than their own role.
+
 #### Customizing the app
 
 **Application dashboard permissions**
@@ -252,4 +258,4 @@ When you define a custom role, you choose the set of permissions that a user is 
 
 ## Next steps
 
-Now that you've learned about how to manage users and roles in your Azure IoT Central application, the suggested next step is to learn how to [Manage your bill](/howto-view-bill-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+Now that you've learned about how to manage users and roles in your Azure IoT Central application, the suggested next step is to learn how to [Manage your bill](howto-view-bill-pnp.md).

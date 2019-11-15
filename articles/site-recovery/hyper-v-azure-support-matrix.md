@@ -1,11 +1,11 @@
 ---
-title: Support matrix for disaster recovery of on-premises Hyper-V VMs to Azure 
+title: Support for disaster recovery of Hyper-V VMs to Azure with Azure Site Recovery
 description: Summarizes the supported components and requirements for Hyper-V VM disaster recovery to Azure with Azure Site Recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 11/05/2019
 ms.author: raynew
 ---
 

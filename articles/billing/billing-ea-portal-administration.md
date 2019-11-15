@@ -212,7 +212,7 @@ The Azure Sponsorship offer is a limited sponsored Microsoft Azure account. It i
 
 For more information, see:
 
-- Support request for Sponsorship Activation -  http://aka.ms/azrsponsorship
+- Support request for Sponsorship Activation -  https://aka.ms/azrsponsorship
 
 ## Next steps
 - Read about how [virtual machine reservations](billing-ea-portal-vm-reservations.md) can help save you money.

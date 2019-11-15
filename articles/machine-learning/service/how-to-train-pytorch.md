@@ -1,5 +1,5 @@
 ---
-title: Train deep learning neural network with PyTorch
+title: Train deep learning PyTorch models
 titleSuffix: Azure Machine Learning
 description: Learn how to run your PyTorch training scripts at enterprise scale using Azure Machine Learning's PyTorch estimator class.  The example scripts classify chicken and turkey images to build a deep learning neural network based on PyTorch's transfer learning tutorial. 
 services: machine-learning
@@ -16,6 +16,7 @@ ms.custom: seodec18
 ---
 
 # Train Pytorch deep learning models at scale with Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, learn how to run your [PyTorch](https://pytorch.org/) training scripts at enterprise scale using Azure Machine Learning's [PyTorch estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) class.  
 

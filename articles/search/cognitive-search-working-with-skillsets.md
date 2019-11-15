@@ -1,22 +1,24 @@
 ---
-title: Working with skillsets - Azure Search
-description: Skillsets are where you author an AI enrichment pipeline in cognitive search, understanding a few concepts and how skillsets work allows you to build simple or complex skillsets
-manager: eladz
+title: Working with skillsets
+titleSuffix: Azure Cognitive Search
+description: Skillsets are where you author an AI enrichment pipeline in Azure Cognitive Search. Learn important concepts and details about skillset composition.
+
+manager: nitinme
 author: vkurpad
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 09/05/2019
 ms.author: vikurpad
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
 
-# Working with skillsets
-This article is for developers who need a deeper understanding of how the enrichment pipeline works and assumes you have a conceptual understanding of the cognitive search process. If you are new to cognitive search, start with:
-+ [What is "cognitive search" in Azure Search?](cognitive-search-concept-intro.md)
-+ [What is knowledge store in Azure Search?](knowledge-store-concept-intro.md)
+# Working with skillsets in Azure Cognitive Search
+
+This article is for developers who need a deeper understanding of how the enrichment pipeline works and assumes you have a conceptual understanding of the AI enrichment process. If you are new this concept, start with:
++ [AI enrichment in Azure Cognitive Search](cognitive-search-concept-intro.md)
++ [Knowledge store (preview)](knowledge-store-concept-intro.md)
 
 ## Specify the Skillset
-A skillset is a reusable resource in Azure Search that specifies a collection of cognitive skills used for analyzing, transforming, and enriching text or image content during indexing. Creating a skillset lets you attach text and image enrichments in the data ingestion phase, extracting and creating new information and structures from raw content.
+A skillset is a reusable resource in Azure Cognitive Search that specifies a collection of cognitive skills used for analyzing, transforming, and enriching text or image content during indexing. Creating a skillset lets you attach text and image enrichments in the data ingestion phase, extracting and creating new information and structures from raw content.
 
 A skillset has three properties:
 
@@ -109,7 +111,7 @@ The colors of the connectors in the tree above indicate that the enrichments wer
 
 ## Save enrichments in a knowledge store 
 
-Skillsets also define a knowledge store where your enriched documents can be projected as tables or objects. To save your enriched data in the knowledge store, you define a set of projections of your enriched document. To learn more about the knowledge store see [What is knowledge store in Azure Search?](knowledge-store-concept-intro.md)
+Skillsets also define a knowledge store where your enriched documents can be projected as tables or objects. To save your enriched data in the knowledge store, you define a set of projections of your enriched document. To learn more about the knowledge store see [knowledge store overview](knowledge-store-concept-intro.md)
 
 ### Slicing projections
 

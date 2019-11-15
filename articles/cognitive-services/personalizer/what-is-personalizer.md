@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 09/19/2019
+ms.date: 10/23/2019
 ms.author: diberry
 #Customer intent: 
 ---
@@ -21,6 +21,8 @@ Azure Personalizer is a cloud-based API service that allows you to choose the be
 * No need to clean and label data before using Personalizer.
 * Provide feedback to Personalizer when it is convenient to you. 
 * View real-time analytics. 
+
+See a demonstration of [how Personalizer works](https://personalizercontentdemo.azurewebsites.net/)
 
 ## How does Personalizer work?
 

@@ -1,5 +1,5 @@
 ---
-title: Load data from SAP Business Warehouse by using Azure Data Factory | Microsoft Docs
+title: Load data from SAP Business Warehouse by using Azure Data Factory 
 description: 'Use Azure Data Factory to copy data from SAP Business Warehouse (BW)'
 services: data-factory
 documentationcenter: ''
