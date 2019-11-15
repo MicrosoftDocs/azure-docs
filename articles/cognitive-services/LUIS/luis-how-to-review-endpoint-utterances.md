@@ -30,7 +30,7 @@ To enable active learning, you must log user queries. This is accomplished by ca
 Each utterance has a suggested intent displayed in the **Aligned intent** column. 
 
 > [!div class="mx-imgBorder"]
-> ![Review endpoint utterances that LUIS is unsure of](./media/label-suggested-utterances/review-endpoint-utterances.png)
+> [![Review endpoint utterances that LUIS is unsure of](./media/label-suggested-utterances/review-endpoint-utterances.png)](./media/label-suggested-utterances/review-endpoint-utterances.png#lightbox)
 
 If you agree with that intent, select the check mark. If you disagree with the suggestion, select the correct intent from the aligned intent drop-down list, then select on the check mark to the right of the aligned intent. After you select on the check mark, the utterance is moved to the intent and removed from the **Review Endpoint Utterances** list. 
 
