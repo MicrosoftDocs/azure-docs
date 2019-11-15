@@ -145,7 +145,7 @@ Now that the [Streaming Locator](https://docs.microsoft.com/rest/api/media/strea
 
 ## Clean up resources in your Media Services account
 
-Generally, you should clean up everything except objects that you're planning to reuse (typically, you'll reuse Transforms, and you'll persist Streaming Locators, etc.). If you want for your account to be clean after experimenting, you should delete the resources that you don't plan to reuse. For example, the following code deletes Jobs.
+Generally, you should clean up everything except objects that you're planning to reuse (typically, you'll reuse Transforms, Streaming Locators, and so on). If you want for your account to be clean after experimenting, delete the resources that you don't plan to reuse. For example, the following code deletes Jobs:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CleanUp)]
 
