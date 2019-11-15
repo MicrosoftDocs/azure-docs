@@ -225,7 +225,7 @@ It is possible to override this behavior, enabling incremental progress and supp
 
 For more information, see [Incremental progress and custom queries](search-howto-index-cosmosdb.md#IncrementalProgress).
 
-## Some data was lost during projection. Row 'X' in table 'Y' has string property 'Z' which was too long.
+### Some data was lost during projection. Row 'X' in table 'Y' has string property 'Z' which was too long.
 The [Table Storage service](https://azure.microsoft.com/services/storage/tables) has limits on how large [entity properties](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model#property-types) can be. Strings can have 32,000 characters or less. If a row with a string property longer than 32,000 characters is being projected, only the first 32,000 characters are preserved. To work around this issue, avoid projecting rows with string properties longer than 32,000 characters.
 
 ### Truncated extracted text to X characters
