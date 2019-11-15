@@ -223,7 +223,7 @@ See the [package website](https://azure.github.io/azureml-sdk-for-r) for complet
     + Added psutil as a dependency of `automl` and included psutil as a conda dependency in amlcompute.
     + Fixed the issue with heuristic lags and rolling window sizes on the forecasting data sets some series of which can cause linear algebra errors
       + Added print out for the heuristically determined parameters in the forecasting runs.
-  + **[azureml-contrib-datadrift](https://docs.microsoft.com/python/api/azureml-contrib-datadrift)**
+  + **azureml-contrib-datadrift**
     + Added protection while creating output metrics if dataset level drift is not in the first section.
   + **azureml-contrib-interpret**
     + azureml-contrib-explain-model package has been renamed to azureml-contrib-interpret
@@ -282,9 +282,9 @@ See the [package website](https://azure.github.io/azureml-sdk-for-r) for complet
         all_first_experiments = Experiment.list(workspace, name="First Experiment", view_type="ALL")
         ```
     + Support using environment for model deploy, and service update.
-  + **[azureml-datadrift](https://docs.microsoft.com/python/api/azureml-contrib-datadrift)**
-    + The show attribute of [DataDriftDetector](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector.datadriftdetector) class won't support optional argument 'with_details' any more. The show attribute will only present data drift coefficient and data drift contribution of feature columns.
-    + DataDriftDetector function [get_output](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector.datadriftdetector#get-output-start-time--end-time--run-id-none--daily-latest-only-true-) behavior changes:
+  + **[azureml-datadrift](https://docs.microsoft.com/python/api/azureml-datadrift)**
+    + The show attribute of [DataDriftDetector](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector) class won't support optional argument 'with_details' any more. The show attribute will only present data drift coefficient and data drift contribution of feature columns.
+    + DataDriftDetector function [get_output]https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector#get-output-start-time-none--end-time-none--run-id-none-) behavior changes:
       + Input parameter start_time, end_time are optional instead of mandatory;
       + Input specific start_time and/or end_time with a specific run_id in the same invoking will result in value error exception because they are mutually exclusive; 
       + By input specific start_time and/or end_time, only results of scheduled runs will be returned; 
@@ -904,7 +904,7 @@ We reverted a change that improved performance, as it was causing issues for som
 + **Preview features**
     + Integration with [MLflow](https://mlflow.org) 1.0.0 tracking through azureml-mlflow package ([example notebooks](https://aka.ms/azureml-mlflow-examples)).
     + Submit Jupyter notebook as a run. [API Reference Documentation](https://docs.microsoft.com/python/api/azureml-contrib-notebook/azureml.contrib.notebook?view=azure-ml-py)
-    + Public Preview of [Data Drift Detector](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift?view=azure-ml-py) through azureml-contrib-datadrift package ([example notebooks](https://aka.ms/azureml-datadrift-example)). Data Drift is one of the top reasons where model accuracy degrades over time. It happens when data served to model in production is different from the data that the model was trained on. AML Data Drift detector helps customer to monitor data drift and sends alert whenever drift is detected. 
+    + Public Preview of [Data Drift Detector](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector(class)) through azureml-contrib-datadrift package ([example notebooks](https://aka.ms/azureml-datadrift-example)). Data Drift is one of the top reasons where model accuracy degrades over time. It happens when data served to model in production is different from the data that the model was trained on. AML Data Drift detector helps customer to monitor data drift and sends alert whenever drift is detected. 
 
 + **Breaking changes**
 
