@@ -17,19 +17,6 @@ ms.author: diberry
 
 Labeling an entity in an example utterance shows LUIS has an example of the entity is and where the entity can appear in the utterance. 
 
-## Plan entities, then create and label
-
-Machine-learned entities can be created from the example utterances or created from the **Entities** page. 
-
-In general, a best practice is to spend time planning the entities before creating a machine-learned entity in the portal. Then create the machine-learned entity from the example utterance with as much detail in the subcomponents and descriptors and constraints as you know at the time. The [decomposable entity tutorial](tutorial-machine-learned-entity.md) demonstrates how to use this method. 
-
-As part of planning the entities, you may know you need text-matching entities (such as prebuilt entities, regular expression entities, or list entities). You can create these from the **Entities** page before they are labeled in example utterances. 
-
-When labeling, you can either label individual entities then build up to a parent machine-learned entity. Or you can start with a parent machine-learned entity and decompose into child entities. 
-
-> [!TIP] 
->Label all words that may indicate an entity, even if the words are not used when extracted in the client application. 
-
 ## Labeling machine-learned entity
 
 Consider the phrase, `hi, please I want a cheese pizza in 20 minutes`. 
