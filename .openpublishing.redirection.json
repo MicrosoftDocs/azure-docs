@@ -43712,7 +43712,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/healthcare-apis/configure-cosmos-db",
+      "source_path": "articles/healthcare-apis/configure-cosmos-db.md",
       "redirect_url": "/azure/healthcare-apis/configure-database",
       "redirect_document_id": false
     }
