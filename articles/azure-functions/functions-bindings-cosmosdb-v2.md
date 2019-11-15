@@ -42,19 +42,7 @@ The Azure Cosmos DB bindings for Functions version 2.x are provided in the [Micr
 
 The Azure Cosmos DB Trigger uses the [Azure Cosmos DB Change Feed](../cosmos-db/change-feed.md) to listen for inserts and updates across partitions. The change feed publishes inserts and updates, not deletions.
 
-## Trigger - example
-
-See the language-specific example:
-
-* [C#](#trigger---c-example)
-* [C# script (.csx)](#trigger---c-script-example)
-* [Java](#trigger---java-example)
-* [JavaScript](#trigger---javascript-example)
-* [Python](#trigger---python-example)
-
-Skip trigger examples
-
-### Trigger - C# example
+# [C#](#tab/csharp)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that is invoked when there are inserts or updates in the specified database and collection.
 
@@ -88,9 +76,7 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-Skip trigger examples
-
-### Trigger - C# script example
+# [C# Script](#tab/csharp-script)
 
 The following example shows a Cosmos DB trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function writes log messages when Cosmos DB records are modified.
 
@@ -126,9 +112,7 @@ Here's the C# script code:
     }
 ```
 
-Skip trigger examples
-
-### Trigger - JavaScript example
+# [JavaScript](#tab/javascript)
 
 The following example shows a Cosmos DB trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function writes log messages when Cosmos DB records are modified.
 
@@ -157,7 +141,38 @@ Here's the JavaScript code:
     }
 ```
 
-### Trigger - Java example
+# [Python](#tab/python)
+
+The following example shows a Cosmos DB trigger binding in a *function.json* file and a [Python function](functions-reference-python.md) that uses the binding. The function writes log messages when Cosmos DB records are modified.
+
+Here's the binding data in the *function.json* file:
+
+```json
+{
+    "name": "documents",
+    "type": "cosmosDBTrigger",
+    "direction": "in",
+    "leaseCollectionName": "leases",
+    "connectionStringSetting": "<connection-app-setting>",
+    "databaseName": "Tasks",
+    "collectionName": "Items",
+    "createLeaseCollectionIfNotExists": true
+}
+```
+
+Here's the Python code:
+
+```python
+    import logging
+    import azure.functions as func
+
+
+    def main(documents: func.DocumentList) -> str:
+        if documents:
+            logging.info('First document Id modified: %s', documents[0]['id'])
+```
+
+# [Java](#tab/java)
 
 The following example shows a Cosmos DB trigger binding in *function.json* file and a [Java function](functions-reference-java.md) that uses the binding. The function is involved when there are inserts or updates in the specified database and collection.
 
@@ -191,43 +206,13 @@ Here's the Java code:
 ```
 
 
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBTrigger` annotation on parameters whose value would come from Cosmos DB.  This annotation can be used with native Java types, POJOs, or nullable values using Optional\<T>.
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBTrigger` annotation on parameters whose value would come from Cosmos DB.  This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
 
+---
 
-Skip trigger examples
+## Trigger - attributes and annotations
 
-### Trigger - Python example
-
-The following example shows a Cosmos DB trigger binding in a *function.json* file and a [Python function](functions-reference-python.md) that uses the binding. The function writes log messages when Cosmos DB records are modified.
-
-Here's the binding data in the *function.json* file:
-
-```json
-{
-    "name": "documents",
-    "type": "cosmosDBTrigger",
-    "direction": "in",
-    "leaseCollectionName": "leases",
-    "connectionStringSetting": "<connection-app-setting>",
-    "databaseName": "Tasks",
-    "collectionName": "Items",
-    "createLeaseCollectionIfNotExists": true
-}
-```
-
-Here's the Python code:
-
-```python
-    import logging
-    import azure.functions as func
-
-
-    def main(documents: func.DocumentList) -> str:
-        if documents:
-            logging.info('First document Id modified: %s', documents[0]['id'])
-```
-
-## Trigger - C# attributes
+# [C#](#tab/csharp)
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs) attribute.
 
@@ -244,8 +229,25 @@ The attribute's constructor takes the database name and collection name. For inf
     }
 ```
 
-For a complete example, see [Trigger - C# example](#trigger---c-example).
+For a complete example, see [Trigger](#trigger).
 
+# [C# Script](#tab/csharp-script)
+
+**TODO**
+
+# [JavaScript](#tab/javascript)
+
+**TODO**
+
+# [Python](#tab/python)
+
+**TODO**
+
+# [Java](#tab/java)
+
+**TODO**
+
+---
 
 ## Trigger - configuration
 
@@ -292,20 +294,7 @@ The Azure Cosmos DB input binding uses the SQL API to retrieve one or more Azure
 > If the collection is [partitioned](../cosmos-db/partition-data.md#logical-partitions), lookup operations need to also specify the partition key value.
 >
 
-## Input - examples
-
-See the language-specific examples that read a single document by specifying an ID value:
-
-* [C#](#input---c-examples)
-* [C# script (.csx)](#input---c-script-examples)
-* [F#](#input---f-examples)
-* [Java](#input---java-examples)
-* [JavaScript](#input---javascript-examples)
-* [Python](#input---python-examples)
-
-[Skip input examples](#input---attributes)
-
-### Input - C# examples
+# [C#](#tab/csharp)
 
 This section contains the following examples:
 
@@ -330,9 +319,9 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-[Skip input examples](#input---attributes)
+<a id="queue-trigger-look-up-id-from-json-c"></a>
 
-#### Queue trigger, look up ID from JSON (C#)
+### Queue trigger, look up ID from JSON 
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a single document. The function is triggered by a queue message that contains a JSON object. The queue trigger parses the JSON into an object named `ToDoItemLookup`, which contains the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
 
@@ -383,9 +372,9 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-[Skip input examples](#input---attributes)
+<a id="http-trigger-look-up-id-from-query-string-c"></a>
 
-#### HTTP trigger, look up ID from query string (C#)
+### HTTP trigger, look up ID from query string
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a single document. The function is triggered by an HTTP request that uses a query string to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
 
@@ -433,9 +422,9 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-[Skip input examples](#input---attributes)
+<a id="http-trigger-look-up-id-from-route-data-c"></a>
 
-#### HTTP trigger, look up ID from route data (C#)
+### HTTP trigger, look up ID from route data
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a single document. The function is triggered by an HTTP request that uses route data to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
 
@@ -479,9 +468,9 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-[Skip input examples](#input---attributes)
+<a id="http-trigger-look-up-id-from-route-data-using-sqlquery-c"></a>
 
-#### HTTP trigger, look up ID from route data, using SqlQuery (C#)
+### HTTP trigger, look up ID from route data, using SqlQuery
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a single document. The function is triggered by an HTTP request that uses route data to specify the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
 
@@ -526,9 +515,9 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-[Skip input examples](#input---attributes)
+<a id="http-trigger-get-multiple-docs-using-sqlquery-c"></a>
 
-#### HTTP trigger, get multiple docs, using SqlQuery (C#)
+### HTTP trigger, get multiple docs, using SqlQuery
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a list of documents. The function is triggered by an HTTP request. The query is specified in the `SqlQuery` attribute property.
 
@@ -569,9 +558,9 @@ namespace CosmosDBSamplesV2
 
 ```
 
-[Skip input examples](#input---attributes)
+<a id="http-trigger-get-multiple-docs-using-documentclient-c"></a>
 
-#### HTTP trigger, get multiple docs, using DocumentClient (C#)
+### HTTP trigger, get multiple docs, using DocumentClient
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a list of documents. The function is triggered by an HTTP request. The code uses a `DocumentClient` instance provided by the Azure Cosmos DB binding to read a list of documents. The `DocumentClient` instance could also be used for write operations.
 
@@ -634,9 +623,7 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-[Skip input examples](#input---attributes)
-
-### Input - C# script examples
+# [C# Script](#tab/csharp-script)
 
 This section contains the following examples:
 
@@ -660,9 +647,9 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-[Skip input examples](#input---attributes)
+<a id="queue-trigger-look-up-id-from-string-c-script"></a>
 
-#### Queue trigger, look up ID from string (C# script)
+### Queue trigger, look up ID from string
 
 The following example shows a Cosmos DB input binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function reads a single document and updates the document's text value.
 
@@ -694,9 +681,9 @@ Here's the C# script code:
     }
 ```
 
-[Skip input examples](#input---attributes)
+<a id="queue-trigger-get-multiple-docs-using-sqlquery-c-script"></a>
 
-#### Queue trigger, get multiple docs, using SqlQuery (C# script)
+### Queue trigger, get multiple docs, using SqlQuery
 
 The following example shows an Azure Cosmos DB input binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function retrieves multiple documents specified by a SQL query, using a queue trigger to customize the query parameters.
 
@@ -735,9 +722,9 @@ Here's the C# script code:
     }
 ```
 
-[Skip input examples](#input---attributes)
+<a id="http-trigger-look-up-id-from-query-string-c-script"></a>
 
-#### HTTP trigger, look up ID from query string (C# script)
+### HTTP trigger, look up ID from query string
 
 The following example shows a [C# script function](functions-reference-csharp.md) that retrieves a single document. The function is triggered by an HTTP request that uses a query string to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
 
@@ -798,9 +785,9 @@ public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem,
 }
 ```
 
-[Skip input examples](#input---attributes)
+<a id="http-trigger-look-up-id-from-route-data-c-script"></a>
 
-#### HTTP trigger, look up ID from route data (C# script)
+### HTTP trigger, look up ID from route data
 
 The following example shows a [C# script function](functions-reference-csharp.md) that retrieves a single document. The function is triggered by an HTTP request that uses route data to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
 
@@ -862,9 +849,9 @@ public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem,
 }
 ```
 
-[Skip input examples](#input---attributes)
+<a id="http-trigger-get-multiple-docs-using-sqlquery-c-script"></a>
 
-#### HTTP trigger, get multiple docs, using SqlQuery (C# script)
+### HTTP trigger, get multiple docs, using SqlQuery
 
 The following example shows a [C# script function](functions-reference-csharp.md) that retrieves a list of documents. The function is triggered by an HTTP request. The query is specified in the `SqlQuery` attribute property.
 
@@ -920,9 +907,9 @@ public static HttpResponseMessage Run(HttpRequestMessage req, IEnumerable<ToDoIt
 }
 ```
 
-[Skip input examples](#input---attributes)
+<a id="http-trigger-get-multiple-docs-using-documentclient-c-script"></a>
 
-#### HTTP trigger, get multiple docs, using DocumentClient (C# script)
+### HTTP trigger, get multiple docs, using DocumentClient
 
 The following example shows a [C# script function](functions-reference-csharp.md) that retrieves a list of documents. The function is triggered by an HTTP request. The code uses a `DocumentClient` instance provided by the Azure Cosmos DB binding to read a list of documents. The `DocumentClient` instance could also be used for write operations.
 
@@ -999,9 +986,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
 }
 ```
 
-[Skip input examples](#input---attributes)
-
-### Input - JavaScript examples
+# [JavaScript](#tab/javascript)
 
 This section contains the following examples that read a single document by specifying an ID value from various sources:
 
@@ -1010,9 +995,9 @@ This section contains the following examples that read a single document by spec
 * [HTTP trigger, look up ID from route data](#http-trigger-look-up-id-from-route-data-javascript)
 * [Queue trigger, get multiple docs, using SqlQuery](#queue-trigger-get-multiple-docs-using-sqlquery-javascript)
 
-[Skip input examples](#input---attributes)
+<a id="queue-trigger-look-up-id-from-json-javascript"></a>
 
-#### Queue trigger, look up ID from JSON (JavaScript)
+### Queue trigger, look up ID from JSON
 
 The following example shows a Cosmos DB input binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function reads a single document and updates the document's text value.
 
@@ -1040,6 +1025,7 @@ Here's the binding data in the *function.json* file:
     "direction": "out"
 }
 ```
+
 The [configuration](#input---configuration) section explains these properties.
 
 Here's the JavaScript code:
@@ -1053,9 +1039,9 @@ Here's the JavaScript code:
     };
 ```
 
-[Skip input examples](#input---attributes)
+<a id="http-trigger-look-up-id-from-query-string-javascript"></a>
 
-#### HTTP trigger, look up ID from query string (JavaScript)
+### HTTP trigger, look up ID from query string
 
 The following example shows a [JavaScript function](functions-reference-node.md) that retrieves a single document. The function is triggered by an HTTP request that uses a query string to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
 
@@ -1112,9 +1098,9 @@ module.exports = function (context, req, toDoItem) {
 };
 ```
 
-[Skip input examples](#input---attributes)
+<a id="http-trigger-look-up-id-from-route-data-javascript"></a>
 
-#### HTTP trigger, look up ID from route data (JavaScript)
+### HTTP trigger, look up ID from route data
 
 The following example shows a [JavaScript function](functions-reference-node.md) that retrieves a single document. The function is triggered by an HTTP request that uses a query string to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
 
@@ -1172,9 +1158,9 @@ module.exports = function (context, req, toDoItem) {
 };
 ```
 
-[Skip input examples](#input---attributes)
+<a id="queue-trigger-get-multiple-docs-using-sqlquery-javascript"></a>
 
-#### Queue trigger, get multiple docs, using SqlQuery (JavaScript)
+### Queue trigger, get multiple docs, using SqlQuery
 
 The following example shows an Azure Cosmos DB input binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function retrieves multiple documents specified by a SQL query, using a queue trigger to customize the query parameters.
 
@@ -1209,9 +1195,7 @@ Here's the JavaScript code:
     };
 ```
 
-[Skip input examples](#input---attributes)
-
-### Input - Python examples
+# [Python](#tab/python)
 
 This section contains the following examples that read a single document by specifying an ID value from various sources:
 
@@ -1220,9 +1204,9 @@ This section contains the following examples that read a single document by spec
 * [HTTP trigger, look up ID from route data](#http-trigger-look-up-id-from-route-data-python)
 * [Queue trigger, get multiple docs, using SqlQuery](#queue-trigger-get-multiple-docs-using-sqlquery-python)
 
-[Skip input examples](#input---attributes)
+<a id="queue-trigger-look-up-id-from-json-python"></a>
 
-#### Queue trigger, look up ID from JSON (Python)
+### Queue trigger, look up ID from JSON
 
 The following example shows a Cosmos DB input binding in a *function.json* file and a [Python function](functions-reference-python.md) that uses the binding. The function reads a single document and updates the document's text value.
 
@@ -1266,9 +1250,9 @@ def main(queuemsg: func.QueueMessage, documents: func.DocumentList) -> func.Docu
         return document
 ```
 
-[Skip input examples](#input---attributes)
+<a id="http-trigger-look-up-id-from-query-string-python"></a>
 
-#### HTTP trigger, look up ID from query string (Python)
+### HTTP trigger, look up ID from query string
 
 The following example shows a [Python function](functions-reference-python.md) that retrieves a single document. The function is triggered by an HTTP request that uses a query string to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
 
@@ -1325,9 +1309,9 @@ def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
     return 'OK'
 ```
 
-[Skip input examples](#input---attributes)
+<a id="http-trigger-look-up-id-from-route-data-python"></a>
 
-#### HTTP trigger, look up ID from route data (Python)
+### HTTP trigger, look up ID from route data
 
 The following example shows a [Python function](functions-reference-python.md) that retrieves a single document. The function is triggered by an HTTP request that uses a query string to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
 
@@ -1384,9 +1368,9 @@ def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
     return 'OK'
 ```
 
-[Skip input examples](#input---attributes)
+<a id="queue-trigger-get-multiple-docs-using-sqlquery-python"></a>
 
-#### Queue trigger, get multiple docs, using SqlQuery (Python)
+### Queue trigger, get multiple docs, using SqlQuery
 
 The following example shows an Azure Cosmos DB input binding in a *function.json* file and a [Python function](functions-reference-python.md) that uses the binding. The function retrieves multiple documents specified by a SQL query, using a queue trigger to customize the query parameters.
 
@@ -1418,59 +1402,7 @@ def main(queuemsg: func.QueueMessage, documents: func.DocumentList):
         # operate on each document
 ```
 
-
-[Skip input examples](#input---attributes)
-
-<a name="infsharp"></a>
-
-### Input - F# examples
-
-The following example shows a Cosmos DB input binding in a *function.json* file and a [F# function](functions-reference-fsharp.md) that uses the binding. The function reads a single document and updates the document's text value.
-
-Here's the binding data in the *function.json* file:
-
-```json
-{
-    "name": "inputDocument",
-    "type": "cosmosDB",
-    "databaseName": "MyDatabase",
-    "collectionName": "MyCollection",
-    "id" : "{queueTrigger}",
-    "connectionStringSetting": "MyAccount_COSMOSDB",
-    "direction": "in"
-}
-```
-
-The [configuration](#input---configuration) section explains these properties.
-
-Here's the F# code:
-
-```fsharp
-    (* Change input document contents using Azure Cosmos DB input binding *)
-    open FSharp.Interop.Dynamic
-    let Run(myQueueItem: string, inputDocument: obj) =
-    inputDocument?text <- "This has changed."
-```
-
-This example requires a `project.json` file that specifies the `FSharp.Interop.Dynamic` and `Dynamitey` NuGet
-dependencies:
-
-```json
-{
-    "frameworks": {
-        "net46": {
-            "dependencies": {
-                "Dynamitey": "1.0.2",
-                "FSharp.Interop.Dynamic": "3.0.0"
-            }
-        }
-    }
-}
-```
-
-To add a `project.json` file, see [F# package management](functions-reference-fsharp.md#package).
-
-### Input - Java examples
+# [Java](#tab/java)
 
 This section contains the following examples:
 
@@ -1503,7 +1435,9 @@ public class ToDoItem {
 }
 ```
 
-#### HTTP trigger, look up ID from query string - String parameter (Java)
+<a id="http-trigger-look-up-id-from-query-string---string-parameter-java"></a>
+
+### HTTP trigger, look up ID from query string - String parameter
 
 The following example shows a Java function that retrieves a single document. The function is triggered by a HTTP request that uses a query string to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a document from the specified database and collection, in String form.
 
@@ -1547,9 +1481,11 @@ public class DocByIdFromQueryString {
 }
  ```
 
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBInput` annotation on function parameters whose value would come from Cosmos DB.  This annotation can be used with native Java types, POJOs, or nullable values using Optional\<T>.
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBInput` annotation on function parameters whose value would come from Cosmos DB.  This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
 
-#### HTTP trigger, look up ID from query string - POJO parameter (Java)
+<a id="http-trigger-look-up-id-from-query-string---pojo-parameter-java"></a>
+
+### HTTP trigger, look up ID from query string - POJO parameter
 
 The following example shows a Java function that retrieves a single document. The function is triggered by a HTTP request that uses a query string to specify the ID and partition key value to look up. That ID and partition key value used to retrieve a document from the specified database and collection. The document is then converted to an instance of the ```ToDoItem``` POJO previously created, and passed as an argument to the function.
 
@@ -1591,7 +1527,9 @@ public class DocByIdFromQueryStringPojo {
 }
  ```
 
-#### HTTP trigger, look up ID from route data (Java)
+<a id="http-trigger-look-up-id-from-route-data-java"></a>
+
+### HTTP trigger, look up ID from route data
 
 The following example shows a Java function that retrieves a single document. The function is triggered by a HTTP request that uses a route parameter to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a document from the specified database and collection, returning it as an ```Optional<String>```.
 
@@ -1636,7 +1574,9 @@ public class DocByIdFromRoute {
 }
  ```
 
-#### HTTP trigger, look up ID from route data, using SqlQuery (Java)
+ <a id="http-trigger-look-up-id-from-route-data-using-sqlquery-java"></a>
+
+### HTTP trigger, look up ID from route data, using SqlQuery
 
 The following example shows a Java function that retrieves a single document. The function is triggered by a HTTP request that uses a route parameter to specify the ID to look up. That ID is used to retrieve a document from the specified database and collection, converting the result set to a ```ToDoItem[]```, since many documents may be returned, depending on the query criteria.
 
@@ -1682,7 +1622,9 @@ public class DocByIdFromRouteSqlQuery {
 }
  ```
 
-#### HTTP trigger, get multiple docs from route data, using SqlQuery (Java)
+ <a id="http-trigger-get-multiple-docs-from-route-data-using-sqlquery-java"></a>
+
+### HTTP trigger, get multiple docs from route data, using SqlQuery
 
 The following example shows a Java function that multiple documents. The function is triggered by a HTTP request that uses a route parameter ```desc``` to specify the string to search for in the ```description``` field. The search term is used to retrieve a collection of documents from the specified database and collection, converting the result set to a ```ToDoItem[]``` and passing it as an argument to the function.
 
@@ -1724,11 +1666,33 @@ public class DocsFromRouteSqlQuery {
 }
  ```
 
-## Input - attributes
+ ---
+
+## Input - attributes and annotations
+
+# [C#](#tab/csharp)
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) attribute.
 
 The attribute's constructor takes the database name and collection name. For information about those settings and other properties that you can configure, see [the following configuration section](#input---configuration).
+
+# [C# Script](#tab/csharp-script)
+
+**TODO**
+
+# [JavaScript](#tab/javascript)
+
+**TODO**
+
+# [Python](#tab/python)
+
+**TODO**
+
+# [Java](#tab/java)
+
+**TODO**
+
+---
 
 ## Input - configuration
 
@@ -1750,35 +1714,38 @@ The following table explains the binding configuration properties that you set i
 
 ## Input - usage
 
-In C# and F# functions, when the function exits successfully, any changes made to the input document via named input parameters are automatically persisted.
+# [C#](#tab/csharp)
 
-In JavaScript functions, updates are not made automatically upon function exit. Instead, use `context.bindings.<documentName>In` and `context.bindings.<documentName>Out` to make updates. See the JavaScript example.
+When the function exits successfully, any changes made to the input document via named input parameters are automatically persisted.
+
+# [C# Script](#tab/csharp-script)
+
+**TODO**
+
+# [JavaScript](#tab/javascript)
+
+Updates are not made automatically upon function exit. Instead, use `context.bindings.<documentName>In` and `context.bindings.<documentName>Out` to make updates. See the JavaScript example.
+
+# [Python](#tab/python)
+
+**TODO**
+
+# [Java](#tab/java)
+
+**TODO**
+
+---
 
 ## Output
 
 The Azure Cosmos DB output binding lets you write a new document to an Azure Cosmos DB database using the SQL API.
 
-## Output - examples
-
-See the language-specific examples:
-
-* [C#](#output---c-examples)
-* [C# script (.csx)](#output---c-script-examples)
-* [F#](#output---f-examples)
-* [Java](#output---java-examples)
-* [JavaScript](#output---javascript-examples)
-* [Python](#output---python-examples)
-
-See also the [input example](#input---c-examples) that uses `DocumentClient`.
-
-[Skip output examples](#output---attributes)
-
-### Output - C# examples
+# [C#](#tab/csharp)
 
 This section contains the following examples:
 
-* Queue trigger, write one doc
-* Queue trigger, write docs using IAsyncCollector
+* [Queue trigger, write one doc](#queue-trigger-write-one-doc-c)
+* [Queue trigger, write docs using IAsyncCollector](#queue-trigger-write-docs-using-iasynccollector-c)
 
 The examples refer to a simple `ToDoItem` type:
 
@@ -1793,9 +1760,9 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-[Skip output examples](#output---attributes)
+<a id="queue-trigger-write-one-doc-c"></a>
 
-#### Queue trigger, write one doc (C#)
+### Queue trigger, write one doc
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that adds a document to a database, using data provided in message from Queue storage.
 
@@ -1827,9 +1794,9 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-[Skip output examples](#output---attributes)
+<a id="queue-trigger-write-docs-using-iasynccollector-c"></a>
 
-#### Queue trigger, write docs using IAsyncCollector (C#)
+### Queue trigger, write docs using IAsyncCollector
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that adds a collection of documents to a database, using data provided in a queue message JSON.
 
@@ -1865,18 +1832,17 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-[Skip output examples](#output---attributes)
-
-### Output - C# script examples
+# [C# Script](#tab/csharp-script)
 
 This section contains the following examples:
 
-* Queue trigger, write one doc
-* Queue trigger, write docs using IAsyncCollector
+* [Queue trigger, write one doc](#queue-trigger-write-one-doc-c-script)
+* [Queue trigger, write docs using IAsyncCollector](#queue-trigger-write-docs-using-iasynccollector-c-script)
 
-[Skip output examples](#output---attributes)
 
-#### Queue trigger, write one doc (C# script)
+<a id="queue-trigger-write-one-doc-c-script"></a>
+
+### Queue trigger, write one doc
 
 The following example shows an Azure Cosmos DB output binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function uses a queue input binding for a queue that receives JSON in the following format:
 
@@ -1939,7 +1905,9 @@ Here's the C# script code:
     }
 ```
 
-#### Queue trigger, write docs using IAsyncCollector
+<a id="queue-trigger-write-docs-using-iasynccollector-c-script"></a>
+
+### Queue trigger, write docs using IAsyncCollector
 
 To create multiple documents, you can bind to `ICollector<T>` or `IAsyncCollector<T>` where `T` is one of the supported types.
 
@@ -1999,9 +1967,7 @@ public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> t
 }
 ```
 
-[Skip output examples](#output---attributes)
-
-### Output - JavaScript examples
+# [JavaScript](#tab/javascript)
 
 The following example shows an Azure Cosmos DB output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function uses a queue input binding for a queue that receives JSON in the following format:
 
@@ -2056,249 +2022,7 @@ Here's the JavaScript code:
     };
 ```
 
-[Skip output examples](#output---attributes)
-
-### Output - F# examples
-
-The following example shows an Azure Cosmos DB output binding in a *function.json* file and an [F# function](functions-reference-fsharp.md) that uses the binding. The function uses a queue input binding for a queue that receives JSON in the following format:
-
-```json
-{
-    "name": "John Henry",
-    "employeeId": "123456",
-    "address": "A town nearby"
-}
-```
-
-The function creates Azure Cosmos DB documents in the following format for each record:
-
-```json
-{
-    "id": "John Henry-123456",
-    "name": "John Henry",
-    "employeeId": "123456",
-    "address": "A town nearby"
-}
-```
-
-Here's the binding data in the *function.json* file:
-
-```json
-{
-    "name": "employeeDocument",
-    "type": "cosmosDB",
-    "databaseName": "MyDatabase",
-    "collectionName": "MyCollection",
-    "createIfNotExists": true,
-    "connectionStringSetting": "MyAccount_COSMOSDB",
-    "direction": "out"
-}
-```
-The [configuration](#output---configuration) section explains these properties.
-
-Here's the F# code:
-
-```fsharp
-    open FSharp.Interop.Dynamic
-    open Newtonsoft.Json
-    open Microsoft.Extensions.Logging
-
-    type Employee = {
-      id: string
-      name: string
-      employeeId: string
-      address: string
-    }
-
-    let Run(myQueueItem: string, employeeDocument: byref<obj>, log: ILogger) =
-      log.LogInformation(sprintf "F# Queue trigger function processed: %s" myQueueItem)
-      let employee = JObject.Parse(myQueueItem)
-      employeeDocument <-
-        { id = sprintf "%s-%s" employee?name employee?employeeId
-          name = employee?name
-          employeeId = employee?employeeId
-          address = employee?address }
-```
-
-This example requires a `project.json` file that specifies the `FSharp.Interop.Dynamic` and `Dynamitey` NuGet
-dependencies:
-
-```json
-{
-    "frameworks": {
-        "net46": {
-          "dependencies": {
-            "Dynamitey": "1.0.2",
-            "FSharp.Interop.Dynamic": "3.0.0"
-           }
-        }
-    }
-}
-```
-
-To add a `project.json` file, see [F# package management](functions-reference-fsharp.md#package).
-
-### Output - Java examples
-
-* [Queue trigger, save message to database via return value](#queue-trigger-save-message-to-database-via-return-value-java)
-* [HTTP trigger, save one document to database via return value](#http-trigger-save-one-document-to-database-via-return-value-java)
-* [HTTP trigger, save one document to database via OutputBinding](#http-trigger-save-one-document-to-database-via-outputbinding-java)
-* [HTTP trigger, save multiple documents to database via OutputBinding](#http-trigger-save-multiple-documents-to-database-via-outputbinding-java)
-
-
-#### Queue trigger, save message to database via return value (Java)
-
-The following example shows a Java function that adds a document to a database with data from a message in Queue storage.
-
-```java
-@FunctionName("getItem")
-@CosmosDBOutput(name = "database",
-  databaseName = "ToDoList",
-  collectionName = "Items",
-  connectionStringSetting = "AzureCosmosDBConnection")
-public String cosmosDbQueryById(
-    @QueueTrigger(name = "msg",
-      queueName = "myqueue-items",
-      connection = "AzureWebJobsStorage")
-    String message,
-    final ExecutionContext context)  {
-     return "{ id: \"" + System.currentTimeMillis() + "\", Description: " + message + " }";
-   }
-```
-
-#### HTTP trigger, save one document to database via return value (Java)
-
-The following example shows a Java function whose signature is annotated with ```@CosmosDBOutput``` and has return value of type ```String```. The JSON document returned by the function will be automatically written to the corresponding CosmosDB collection.
-
-```java
-    @FunctionName("WriteOneDoc")
-    @CosmosDBOutput(name = "database",
-      databaseName = "ToDoList",
-      collectionName = "Items",
-      connectionStringSetting = "Cosmos_DB_Connection_String")
-    public String run(
-            @HttpTrigger(name = "req",
-              methods = {HttpMethod.GET, HttpMethod.POST},
-              authLevel = AuthorizationLevel.ANONYMOUS)
-            HttpRequestMessage<Optional<String>> request,
-            final ExecutionContext context) {
-
-        // Item list
-        context.getLogger().info("Parameters are: " + request.getQueryParameters());
-
-        // Parse query parameter
-        String query = request.getQueryParameters().get("desc");
-        String name = request.getBody().orElse(query);
-
-        // Generate random ID
-        final int id = Math.abs(new Random().nextInt());
-
-        // Generate document
-        final String jsonDocument = "{\"id\":\"" + id + "\", " +
-                                    "\"description\": \"" + name + "\"}";
-
-        context.getLogger().info("Document to be saved: " + jsonDocument);
-
-        return jsonDocument;
-    }
-```
-
-#### HTTP trigger, save one document to database via OutputBinding (Java)
-
-The following example shows a Java function that writes a document to CosmosDB via an ```OutputBinding<T>``` output parameter. Note that, in this setup, it is the ```outputItem``` parameter that needs to be annotated with ```@CosmosDBOutput```, not the function signature. Using ```OutputBinding<T>``` lets your function take advantage of the binding to write the document to CosmosDB while also allowing returning a different value to the function caller, such as a JSON or XML document.
-
-```java
-    @FunctionName("WriteOneDocOutputBinding")
-    public HttpResponseMessage run(
-            @HttpTrigger(name = "req",
-              methods = {HttpMethod.GET, HttpMethod.POST},
-              authLevel = AuthorizationLevel.ANONYMOUS)
-            HttpRequestMessage<Optional<String>> request,
-            @CosmosDBOutput(name = "database",
-              databaseName = "ToDoList",
-              collectionName = "Items",
-              connectionStringSetting = "Cosmos_DB_Connection_String")
-            OutputBinding<String> outputItem,
-            final ExecutionContext context) {
-
-        // Parse query parameter
-        String query = request.getQueryParameters().get("desc");
-        String name = request.getBody().orElse(query);
-
-        // Item list
-        context.getLogger().info("Parameters are: " + request.getQueryParameters());
-
-        // Generate random ID
-        final int id = Math.abs(new Random().nextInt());
-
-        // Generate document
-        final String jsonDocument = "{\"id\":\"" + id + "\", " +
-                                    "\"description\": \"" + name + "\"}";
-
-        context.getLogger().info("Document to be saved: " + jsonDocument);
-
-        // Set outputItem's value to the JSON document to be saved
-        outputItem.setValue(jsonDocument);
-
-        // return a different document to the browser or calling client.
-        return request.createResponseBuilder(HttpStatus.OK)
-                      .body("Document created successfully.")
-                      .build();
-    }
-```
-
-#### HTTP trigger, save multiple documents to database via OutputBinding (Java)
-
-The following example shows a Java function that writes multiple documents to CosmosDB via an ```OutputBinding<T>``` output parameter. Note that, in this setup, it is the ```outputItem``` parameter that needs to be annotated with ```@CosmosDBOutput```, not the function signature. The output parameter, ```outputItem``` has a list of ```ToDoItem``` objects as its template parameter type. Using ```OutputBinding<T>``` lets your function take advantage of the binding to write the documents to CosmosDB while also allowing returning a different value to the function caller, such as a JSON or XML document.
-
-```java
-    @FunctionName("WriteMultipleDocsOutputBinding")
-    public HttpResponseMessage run(
-            @HttpTrigger(name = "req",
-              methods = {HttpMethod.GET, HttpMethod.POST},
-              authLevel = AuthorizationLevel.ANONYMOUS)
-            HttpRequestMessage<Optional<String>> request,
-            @CosmosDBOutput(name = "database",
-              databaseName = "ToDoList",
-              collectionName = "Items",
-              connectionStringSetting = "Cosmos_DB_Connection_String")
-            OutputBinding<List<ToDoItem>> outputItem,
-            final ExecutionContext context) {
-
-        // Parse query parameter
-        String query = request.getQueryParameters().get("desc");
-        String name = request.getBody().orElse(query);
-
-        // Item list
-        context.getLogger().info("Parameters are: " + request.getQueryParameters());
-
-        // Generate documents
-        List<ToDoItem> items = new ArrayList<>();
-
-        for (int i = 0; i < 5; i ++) {
-          // Generate random ID
-          final int id = Math.abs(new Random().nextInt());
-
-          // Create ToDoItem
-          ToDoItem item = new ToDoItem(String.valueOf(id), name);
-
-          items.add(item);
-        }
-
-        // Set outputItem's value to the list of POJOs to be saved
-        outputItem.setValue(items);
-        context.getLogger().info("Document to be saved: " + items);
-
-        // return a different document to the browser or calling client.
-        return request.createResponseBuilder(HttpStatus.OK)
-                      .body("Documents created successfully.")
-                      .build();
-    }
-```
-
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBOutput` annotation on parameters that will be written to Cosmos DB.  The annotation parameter type should be ```OutputBinding<T>```, where T is either a native Java type or a POJO.
-
-### Output - Python examples
+# [Python](#tab/python)
 
 The following example demonstrates how to write a document to an Azure CosmosDB database as the output of a function.
 
@@ -2350,7 +2074,178 @@ def main(req: func.HttpRequest, doc: func.Out[func.Document]) -> func.HttpRespon
     return 'OK'
 ```
 
-## Output - attributes
+# [Java](#tab/java)
+
+* [Queue trigger, save message to database via return value](#queue-trigger-save-message-to-database-via-return-value-java)
+* [HTTP trigger, save one document to database via return value](#http-trigger-save-one-document-to-database-via-return-value-java)
+* [HTTP trigger, save one document to database via OutputBinding](#http-trigger-save-one-document-to-database-via-outputbinding-java)
+* [HTTP trigger, save multiple documents to database via OutputBinding](#http-trigger-save-multiple-documents-to-database-via-outputbinding-java)
+
+
+<a id="queue-trigger-save-message-to-database-via-return-value-java"></a>
+
+### Queue trigger, save message to database via return value
+
+The following example shows a Java function that adds a document to a database with data from a message in Queue storage.
+
+```java
+@FunctionName("getItem")
+@CosmosDBOutput(name = "database",
+  databaseName = "ToDoList",
+  collectionName = "Items",
+  connectionStringSetting = "AzureCosmosDBConnection")
+public String cosmosDbQueryById(
+    @QueueTrigger(name = "msg",
+      queueName = "myqueue-items",
+      connection = "AzureWebJobsStorage")
+    String message,
+    final ExecutionContext context)  {
+     return "{ id: \"" + System.currentTimeMillis() + "\", Description: " + message + " }";
+   }
+```
+<a id="http-trigger-save-one-document-to-database-via-return-value-java"></a>
+
+#### HTTP trigger, save one document to database via return value
+
+The following example shows a Java function whose signature is annotated with ```@CosmosDBOutput``` and has return value of type ```String```. The JSON document returned by the function will be automatically written to the corresponding CosmosDB collection.
+
+```java
+    @FunctionName("WriteOneDoc")
+    @CosmosDBOutput(name = "database",
+      databaseName = "ToDoList",
+      collectionName = "Items",
+      connectionStringSetting = "Cosmos_DB_Connection_String")
+    public String run(
+            @HttpTrigger(name = "req",
+              methods = {HttpMethod.GET, HttpMethod.POST},
+              authLevel = AuthorizationLevel.ANONYMOUS)
+            HttpRequestMessage<Optional<String>> request,
+            final ExecutionContext context) {
+
+        // Item list
+        context.getLogger().info("Parameters are: " + request.getQueryParameters());
+
+        // Parse query parameter
+        String query = request.getQueryParameters().get("desc");
+        String name = request.getBody().orElse(query);
+
+        // Generate random ID
+        final int id = Math.abs(new Random().nextInt());
+
+        // Generate document
+        final String jsonDocument = "{\"id\":\"" + id + "\", " +
+                                    "\"description\": \"" + name + "\"}";
+
+        context.getLogger().info("Document to be saved: " + jsonDocument);
+
+        return jsonDocument;
+    }
+```
+
+<a id="http-trigger-save-one-document-to-database-via-outputbinding-java"></a>
+
+### HTTP trigger, save one document to database via OutputBinding
+
+The following example shows a Java function that writes a document to CosmosDB via an ```OutputBinding<T>``` output parameter. Note that, in this setup, it is the ```outputItem``` parameter that needs to be annotated with ```@CosmosDBOutput```, not the function signature. Using ```OutputBinding<T>``` lets your function take advantage of the binding to write the document to CosmosDB while also allowing returning a different value to the function caller, such as a JSON or XML document.
+
+```java
+    @FunctionName("WriteOneDocOutputBinding")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req",
+              methods = {HttpMethod.GET, HttpMethod.POST},
+              authLevel = AuthorizationLevel.ANONYMOUS)
+            HttpRequestMessage<Optional<String>> request,
+            @CosmosDBOutput(name = "database",
+              databaseName = "ToDoList",
+              collectionName = "Items",
+              connectionStringSetting = "Cosmos_DB_Connection_String")
+            OutputBinding<String> outputItem,
+            final ExecutionContext context) {
+
+        // Parse query parameter
+        String query = request.getQueryParameters().get("desc");
+        String name = request.getBody().orElse(query);
+
+        // Item list
+        context.getLogger().info("Parameters are: " + request.getQueryParameters());
+
+        // Generate random ID
+        final int id = Math.abs(new Random().nextInt());
+
+        // Generate document
+        final String jsonDocument = "{\"id\":\"" + id + "\", " +
+                                    "\"description\": \"" + name + "\"}";
+
+        context.getLogger().info("Document to be saved: " + jsonDocument);
+
+        // Set outputItem's value to the JSON document to be saved
+        outputItem.setValue(jsonDocument);
+
+        // return a different document to the browser or calling client.
+        return request.createResponseBuilder(HttpStatus.OK)
+                      .body("Document created successfully.")
+                      .build();
+    }
+```
+
+<a id="http-trigger-save-multiple-documents-to-database-via-outputbinding-java"></a>
+
+### HTTP trigger, save multiple documents to database via OutputBinding
+
+The following example shows a Java function that writes multiple documents to CosmosDB via an ```OutputBinding<T>``` output parameter. Note that, in this setup, it is the ```outputItem``` parameter that needs to be annotated with ```@CosmosDBOutput```, not the function signature. The output parameter, ```outputItem``` has a list of ```ToDoItem``` objects as its template parameter type. Using ```OutputBinding<T>``` lets your function take advantage of the binding to write the documents to CosmosDB while also allowing returning a different value to the function caller, such as a JSON or XML document.
+
+```java
+    @FunctionName("WriteMultipleDocsOutputBinding")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req",
+              methods = {HttpMethod.GET, HttpMethod.POST},
+              authLevel = AuthorizationLevel.ANONYMOUS)
+            HttpRequestMessage<Optional<String>> request,
+            @CosmosDBOutput(name = "database",
+              databaseName = "ToDoList",
+              collectionName = "Items",
+              connectionStringSetting = "Cosmos_DB_Connection_String")
+            OutputBinding<List<ToDoItem>> outputItem,
+            final ExecutionContext context) {
+
+        // Parse query parameter
+        String query = request.getQueryParameters().get("desc");
+        String name = request.getBody().orElse(query);
+
+        // Item list
+        context.getLogger().info("Parameters are: " + request.getQueryParameters());
+
+        // Generate documents
+        List<ToDoItem> items = new ArrayList<>();
+
+        for (int i = 0; i < 5; i ++) {
+          // Generate random ID
+          final int id = Math.abs(new Random().nextInt());
+
+          // Create ToDoItem
+          ToDoItem item = new ToDoItem(String.valueOf(id), name);
+
+          items.add(item);
+        }
+
+        // Set outputItem's value to the list of POJOs to be saved
+        outputItem.setValue(items);
+        context.getLogger().info("Document to be saved: " + items);
+
+        // return a different document to the browser or calling client.
+        return request.createResponseBuilder(HttpStatus.OK)
+                      .body("Documents created successfully.")
+                      .build();
+    }
+```
+
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBOutput` annotation on parameters that will be written to Cosmos DB.  The annotation parameter type should be ```OutputBinding<T>```, where T is either a native Java type or a POJO.
+
+---
+
+## Output - attributes and annotations
+
+# [C#](#tab/csharp)
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/master/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) attribute.
 
@@ -2366,7 +2261,23 @@ The attribute's constructor takes the database name and collection name. For inf
     }
 ```
 
-For a complete example, see Output - C# example.
+# [C# Script](#tab/csharp-script)
+
+**TODO**
+
+# [JavaScript](#tab/javascript)
+
+**TODO**
+
+# [Python](#tab/python)
+
+**TODO**
+
+# [Java](#tab/java)
+
+**TODO**
+
+---
 
 ## Output - configuration
 
