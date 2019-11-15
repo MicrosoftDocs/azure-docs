@@ -26,15 +26,31 @@
     - name: Develop with blobs
       items:
       - name: .NET
-        href: storage-quickstart-blobs-dotnet.md
+        items:
+          - name: .NET (v12 SDK)
+            href: storage-quickstart-blobs-dotnet.md
+          - name: .NET (v11 SDK)
+            href: storage-quickstart-blobs-dotnet-legacy.md
       - name: Java
-        href: storage-quickstart-blobs-java.md
+        items:
+          - name: Java (v12 SDK)
+            href: storage-quickstart-blobs-java.md
+          - name: Java (v8 SDK)
+            href: storage-quickstart-blobs-java-legacy.md
       - name: Python
-        href: storage-quickstart-blobs-python.md
-      - name: Javascript (Node.js)
-        href: storage-quickstart-blobs-nodejs-v10.md
-      - name: Javascript (browser)
-        href: storage-quickstart-blobs-javascript-client-libraries-v10.md
+        items:
+          - name: Python (v12 SDK)
+            href: storage-quickstart-blobs-python.md
+          - name: Python (v2.1 SDK)
+            href: storage-quickstart-blobs-python-legacy.md
+      - name: JavaScript
+        items:
+          - name: JavaScript (v12 SDK for Node.js)
+            href: storage-quickstart-blobs-nodejs.md
+          - name: JavaScript (v10 SDK for Node.js)
+            href: storage-quickstart-blobs-nodejs-v10.md
+          - name: JavaScript (v10 SDK for browser)
+            href: storage-quickstart-blobs-javascript-client-libraries-v10.md
       - name: Go
         href: storage-quickstart-blobs-go.md
       - name: PHP
@@ -120,6 +136,8 @@
         href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Built-in security controls
         href: ../common/storage-security-controls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Use Azure Private Endpoints
+        href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json  
     - name: Data redundancy
       href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       items:
@@ -145,7 +163,7 @@
         href: storage-blob-performance-tiers.md
       - name: Manage the Azure Blob storage lifecycle
         href: storage-lifecycle-management-concepts.md
-    - name: Performance and scaling
+    - name: Performance, scaling, and cost optimization
       items:
       - name: Scalability and performance targets
         href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -153,8 +171,16 @@
         href: storage-performance-checklist.md
       - name: Latency in Blob storage
         href: storage-blobs-latency.md
+      - name: Azure Storage reserved capacity
+        href: storage-blob-reserved-capacity.md  
     - name: Concurrency
       href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Search and understand blob data
+      items:
+      - name: Use AI to understand blob data
+        href: ../../search/search-blob-ai-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Full text search for blob data
+        href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json  
     - name: Data migration
       items:
       - name: Compare data transfer solutions
@@ -221,6 +247,8 @@
           href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Event handling
       href: storage-blob-event-overview.md
+    - name: Change feed
+      href: storage-blob-change-feed.md
     - name: Page blob features
       href: storage-blob-pageblob-overview.md
     - name: Static websites
@@ -248,6 +276,16 @@
         href: storage-blob-containers-list.md
       - name: Manage properties and metadata (.NET)
         href: storage-blob-container-properties-metadata.md
+    - name: Create and manage blobs
+      items:
+      - name: List blobs (.NET)
+        href: storage-blobs-list.md
+      - name: Manage blob properties and metadata (.NET)
+        href: storage-blob-properties-metadata.md
+      - name: Copy a blob (.NET)
+        href: storage-blob-copy.md
+      - name: Create and manage blob snapshots (.NET)
+        href: storage-blob-snapshots.md
     - name: Secure blob data
       items:
       - name: Authorize access to blob data
@@ -338,8 +376,8 @@
       href: storage-custom-domain-name.md
     - name: Route events to a custom endpoint
       href: storage-blob-event-quickstart.md
-    - name: Search Blob storage with Azure Search
-      href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Process change feed logs
+      href: storage-blob-change-feed-how-to.md
     - name: Transfer data
       items:
       - name: AzCopy
@@ -372,9 +410,9 @@
         href: storage-xamarin-blob-storage.md
       - name: Prior SDK versions
         items:
-        - name: Javascript (Node.js) (Storage SDK v2)
-          href: storage-quickstart-blobs-nodejs.md
-        - name: Javascript (browser) (Storage SDK v2)
+        - name: JavaScript (Node.js) (Storage SDK v2)
+          href: storage-quickstart-blobs-nodejs-legacy.md
+        - name: JavaScript (browser) (Storage SDK v2)
           href: storage-quickstart-blobs-javascript-client-libraries.md
     - name: Manage blobs
       items:
@@ -384,6 +422,10 @@
         href: ../common/storage-azure-cli-nodejs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Move across regions
       href: ../common/storage-account-move.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Troubleshoot
+      items:
+      - name: Latency issues
+        href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Reference
     items:
     - name: Azure PowerShell
@@ -392,24 +434,24 @@
       href: /cli/azure/storage
     - name: .NET
       items:
-      - name: Blobs, Queues, and Files
-        href: /dotnet/api/overview/azure/storage/client
+      - name: Blobs (version 12.x)
+        href: /dotnet/api/azure.storage.blobs
       - name: Data Movement
         href: /dotnet/api/microsoft.azure.storage.datamovement
       - name: Storage Resource Provider
         href: /dotnet/api/overview/azure/storage/management
     - name: Java
       items:
-      - name: Blobs, Queues, and Files (version 12.x - preview)
-        href: https://azure.github.io/azure-sdk-for-java/track2reports/index.html
-      - name: Blobs, Queues, and Files (version 8)
-        href: https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy
+      - name: Blobs (version 12.x)
+        href: https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/index.html
+      - name: Blobs (version 8.x)
+        href: /java/api/com.microsoft.azure.storage.blob
       - name: Storage Resource Provider
         href: /java/api/overview/azure/storage/management
-    - name: Node.js
-      href: /javascript/api/overview/azure/storage
-    - name: Python
-      href: /python/api/overview/azure/storage
+    - name: JavaScript (version 12.x)
+      href: /javascript/api/@azure/storage-blob/
+    - name: Python (version 12.x)
+      href: /python/api/azure-storage-blob/
     - name: REST
       items:
       - name: Blobs, Queues, Tables, and Files
@@ -431,33 +473,39 @@
     - name: AzCopy v10
       items:
       - name: azcopy
-        href: ../common/storage-ref-azcopy.md
+        href: ../common/storage-ref-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: azcopy bench
+        href: ../common/storage-ref-azcopy-bench.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy copy
-        href: ../common/storage-ref-azcopy-copy.md
+        href: ../common/storage-ref-azcopy-copy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy doc
-        href: ../common/storage-ref-azcopy-doc.md
+        href: ../common/storage-ref-azcopy-doc.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy env
-        href: ../common/storage-ref-azcopy-env.md
+        href: ../common/storage-ref-azcopy-env.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy jobs
-        href: ../common/storage-ref-azcopy-jobs.md
+        href: ../common/storage-ref-azcopy-jobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: azcopy jobs clean
+        href: ../common/storage-ref-azcopy-jobs-clean.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy jobs list
-        href: ../common/storage-ref-azcopy-jobs-list.md
+        href: ../common/storage-ref-azcopy-jobs-list.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: azcopy jobs remove
+        href: ../common/storage-ref-azcopy-jobs-remove.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy jobs resume
-        href: ../common/storage-ref-azcopy-jobs-resume.md
+        href: ../common/storage-ref-azcopy-jobs-resume.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy jobs show
-        href: ../common/storage-ref-azcopy-jobs-show.md
+        href: ../common/storage-ref-azcopy-jobs-show.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy list
-        href: ../common/storage-ref-azcopy-list.md
+        href: ../common/storage-ref-azcopy-list.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy login
-        href: ../common/storage-ref-azcopy-login.md
+        href: ../common/storage-ref-azcopy-login.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy logout
-        href: ../common/storage-ref-azcopy-logout.md
+        href: ../common/storage-ref-azcopy-logout.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy make
-        href: ../common/storage-ref-azcopy-make.md
+        href: ../common/storage-ref-azcopy-make.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy remove
-        href: ../common/storage-ref-azcopy-remove.md
+        href: ../common/storage-ref-azcopy-remove.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy sync
-        href: ../common/storage-ref-azcopy-sync.md
+        href: ../common/storage-ref-azcopy-sync.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Resource Manager template
       displayName: ARM
       href: /azure/templates/microsoft.storage/allversions
@@ -491,11 +539,11 @@
       items:
       - name: Microsoft.Azure.Storage.Common (version 11.x)
         href: https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/
-      - name: Azure.Storage.Common (version 12.x - preview)
+      - name: Azure.Storage.Common (version 12.x)
         href: https://www.nuget.org/packages/Azure.Storage.Common/
       - name: Microsoft.Azure.Storage.Blob (version 11.x)
         href: https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/
-      - name: Azure.Storage.Blob (version 12.x - preview)
+      - name: Azure.Storage.Blob (version 12.x)
         href: https://www.nuget.org/packages/Azure.Storage.Blobs/
       - name: Azure Configuration Manager
         href: https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/
@@ -509,7 +557,7 @@
         items:
         - name: Azure Storage client library
           items:
-          - name: Version 12.x (preview)
+          - name: Version 12.x
             href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage
           - name: Version 11.x and earlier
             href: https://github.com/Azure/azure-storage-net
@@ -519,19 +567,19 @@
           href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.Management.Storage
       - name: Java
         items:
-        - name: Azure Storage client library version 12.x (preview)
+        - name: Azure Storage client library version 12.x
           href: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage
         - name: Azure Storage client library version 8.x and earlier
           href: https://github.com/Azure/azure-storage-java
       - name: Node.js
         items:
-        - name: Azure Storage client library version 12.x (preview)
+        - name: Azure Storage client library version 12.x
           href: https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage
         - name: Azure Storage client library version 10.x
           href: https://github.com/Azure/azure-storage-node
       - name: Python
         items:
-        - name: Azure Storage client library version 12.x (preview)
+        - name: Azure Storage client library version 12.x
           href: https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage
         - name: Azure Storage client library version 2.1
           href: https://github.com/Azure/azure-storage-python
@@ -578,7 +626,7 @@
     - name: Processing big data
       href: ../blobs/data-lake-storage-data-scenarios.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Integrating with Azure services
-      href: ../blobs/data-lake-store-integrate-with-azure-services.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      href: ../blobs/data-lake-storage-integrate-with-azure-services.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Azure Blob File System driver for Hadoop
       href: ../blobs/data-lake-storage-abfs-driver.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Azure Blob File System URI
@@ -611,7 +659,7 @@
     items:
     - name: Create and manage storage accounts
       items:
-      - name: Create a general-purpose storage account
+      - name: Create a storage account for your Data Lake
         href: ../blobs/data-lake-storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Manage a storage account
         href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -655,8 +703,7 @@
           href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Set file and directory-level permissions
         href: ../blobs/data-lake-storage-how-to-set-permissions-storage-explorer.md
-    - name: Optimize performance
-      href: ../blobs/data-lake-storage-use-power-bi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Optimize performance  
       items:
       - name: Overview
         href: ../blobs/data-lake-storage-performance-tuning-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -683,6 +730,7 @@
     - name: Use with Hadoop File System CLI
       href: ../blobs/data-lake-storage-use-hdfs-data-lake-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Use with Power BI
+      href: ../blobs/data-lake-storage-use-power-bi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Reference
     items:
     - name: PowerShell
@@ -691,20 +739,24 @@
       href: /cli/azure/storage
     - name: .NET
       items:
-      - name: Blobs, Queues, Tables, and Files
-        href: /dotnet/api/overview/azure/storage/client
-      - name: Data movement
+      - name: Blobs (version 12.x)
+        href: /dotnet/api/azure.storage.blobs
+      - name: Data Movement
         href: /dotnet/api/microsoft.azure.storage.datamovement
-      - name: Resource Manager
+      - name: Storage Resource Provider
         href: /dotnet/api/overview/azure/storage/management
     - name: Java
       items:
-      - name: Blobs, Queues, and Files (version 12.x - preview)
-        href: https://azure.github.io/azure-sdk-for-java/track2reports/index.html
-      - name: Blobs, Queues, and Files (version 8)
-        href: https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy
+      - name: Blobs (version 12.x)
+        href: https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/index.html
+      - name: Blobs (version 8.x)
+        href: /java/api/com.microsoft.azure.storage.blob
       - name: Storage Resource Provider
         href: /java/api/overview/azure/storage/management
+    - name: JavaScript (version 12.x)
+      href: /javascript/api/@azure/storage-blob/
+    - name: Python (version 12.x)
+      href: /python/api/azure-storage-blob/
     - name: REST
       items:
       - name: Blobs, Queues, Tables, and Files

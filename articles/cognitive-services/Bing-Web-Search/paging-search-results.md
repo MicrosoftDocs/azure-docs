@@ -9,7 +9,7 @@ ms.assetid: 26CA595B-0866-43E8-93A2-F2B5E09D1F3B
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 10/31/2019
 ms.author: aahi
 ---
 
@@ -59,6 +59,8 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&offs
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 Host: api.cognitive.microsoft.com  
 ```
+
+When using the Bing Image and Video APIs, you can use the `nextOffset` value to avoid duplicate search results. Get the value from the `Images` or `Videos` response objects, and use it in your requests with the `offset` parameter.  
 
 > [!NOTE]
 > The Bing Web Search API returns search results that can include webpages, images, videos, and news. When you page through search results from the Bing Web Search API, you are paging only [WebPages](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webpage), and not other answer types such as images or news. Search results in `WebPage` objects may include results that appear in other answer types as well.

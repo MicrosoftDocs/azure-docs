@@ -6,7 +6,7 @@ keywords:
 author: PatAltimore
 ms.author: patricka
 ms.date: 10/14/2019
-ms.topic: tutorial
+ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: chrisseg
 manager: femila

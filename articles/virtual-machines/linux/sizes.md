@@ -1,5 +1,5 @@
 ---
-title: Linux VM sizes in Azure | Microsoft Docs
+title: Linux VM sizes in Azure 
 description: Lists the different sizes available for Linux virtual machines in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/08/2019
+ms.date: 11/06/2019
 ms.author: jonbeck
 ---
 

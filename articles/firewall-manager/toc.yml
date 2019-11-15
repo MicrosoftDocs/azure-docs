@@ -1,0 +1,57 @@
+- name: Azure Firewall Manager Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure Firewall Manager?
+    href: overview.md
+- name: Tutorials
+  expanded: true
+  items:
+  - name: Secure your cloud network - portal
+    href: secure-cloud-network.md
+- name: Concepts
+  items:
+  - name: What is a secured virtual hub?
+    href: secured-virtual-hub.md
+  - name: General deployment process
+    href: deployment-overview.md
+  - name: Trusted security partners
+    href: trusted-security-partners.md
+  - name: Rule processing logic
+    href: rule-processing.md
+- name: How-to guides
+  items:
+  - name: Deploy trusted security partners
+    href: deploy-trusted-security-partner.md
+  - name: Migrate to Firewall policy
+    href: migrate-to-policy.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/ext/azure-firewall/network/firewall
+  - name: Azure PowerShell
+    href: /powershell/module/az.network/new-azfirewall
+  - name: .NET
+    href: /dotnet/api
+  - name: Java
+    href: /java/api
+  - name: Node.js
+    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
+  - name: Python
+    href: https://azure.microsoft.com/develop/python/
+  - name: REST
+    href: /rest/api/firewall
+  - name: Azure Resource Manager
+    href: ../azure-resource-manager/resource-group-overview.md
+- name: Resources
+  items:
+  - name: Author templates
+    href: ../azure-resource-manager/resource-group-authoring-templates.md
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Community templates
+    href: https://azure.microsoft.com/documentation/templates
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/azure-firewall/
+  - name: Regional availability
+    href: https://azure.microsoft.com/regions/services/

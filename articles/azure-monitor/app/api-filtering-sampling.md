@@ -1,20 +1,15 @@
 ---
 title: Filtering and preprocessing in the Azure Application Insights SDK | Microsoft Docs
 description: Write Telemetry Processors and Telemetry Initializers for the SDK to filter or add properties to the data before the telemetry is sent to the Application Insights portal.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-
-ms.assetid: 38a9e454-43d5-4dba-a0f0-bd7cd75fb97b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 11/23/2016
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 11/23/2016
 
 ---
+
 # Filtering and preprocessing telemetry in the Application Insights SDK
 
 You can write and configure plug-ins for the Application Insights SDK to customize how telemetry can be enriched and processed before it's sent to the Application Insights service.
@@ -26,11 +21,11 @@ You can write and configure plug-ins for the Application Insights SDK to customi
 
 Before you start:
 
-* Install the appropriate SDK for your application: [ASP.NET](asp-net.md), [ASP.NET Core](asp-net-core.md), [Non HTTP/Worker for .NET/.NET Core](worker-service.md), or [Java](../../azure-monitor/app/java-get-started.md).
+* Install the appropriate SDK for your application: [ASP.NET](asp-net.md), [ASP.NET Core](asp-net-core.md), [Non HTTP/Worker for .NET/.NET Core](worker-service.md), [Java](../../azure-monitor/app/java-get-started.md) or [JavaScript](javascript.md)
 
 <a name="filtering"></a>
 
-## Filtering: ITelemetryProcessor
+## Filtering
 
 This technique gives you direct control over what is included or excluded from the telemetry stream. Filtering can be used to drop telemetry items from being sent to Application Insights. You can use it in conjunction with Sampling, or separately.
 
@@ -200,7 +195,30 @@ public void Process(ITelemetry item)
 
 <a name="add-properties"></a>
 
-## Add properties: ITelemetryInitializer
+### JavaScript Web applications
+
+**Filtering using ITelemetryInitializer**
+
+1. Create a telemetry initializer callback function. The callback function takes `ITelemetryItem` as a parameter, which is the event that is being processed. Returning `false` from this callback results in the telemetry item to be filtered out.  
+
+   ```JS
+   var filteringFunction = (envelope) => {
+     if (envelope.data.someField === 'tobefilteredout') {
+     	return false;
+     }
+  
+     return true;
+   };
+   ```
+
+2. Add your telemetry initializer callback:
+
+   ```JS
+   appInsights.addTelemetryInitializer(filteringFunction);
+   ```
+
+## Add/modify properties: ITelemetryInitializer
+
 
 Use telemetry initializers to enrich telemetry with additional information and/or to override telemetry properties set by the standard telemetry modules.
 

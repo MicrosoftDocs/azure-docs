@@ -1,18 +1,14 @@
 ---
 title: Azure Application Insights for Console Applications | Microsoft Docs
 description: Monitor web applications for availability, performance and usage.
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 3b722e47-38bd-4667-9ba4-65b7006c074c
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 01/30/2019
-ms.reviewer: lmolkova
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 01/30/2019
+
+ms.reviewer: lmolkova
 ---
 
 # Application Insights for .NET console applications

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 10/12/2019
 ms.author: diberry
 ---
 
@@ -78,6 +78,7 @@ An example JSON body looks like:
     "top": 6,
     "isTest": true,
     "scoreThreshold": 30,
+    "rankerType": "" // values: QuestionOnly
     "strictFilters": [
     {
         "name": "category",
@@ -86,6 +87,8 @@ An example JSON body looks like:
     "userId": "sd53lsY="
 }
 ```
+
+Learn more about [rankerType](../concepts/best-practices.md#choosing-ranker-type).
 
 The previous JSON requested only answers that are at 30% or above the threshold score. 
 
