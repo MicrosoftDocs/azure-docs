@@ -49,43 +49,43 @@ If you are an approver, you are sent email notifications when you need to approv
 
 The following diagrams shows when these email notifications are sent to either the approvers or the requestor. Reference the [email notifications table](entitlement-management-process.md#email-notifications-table) to find the corresponding number to the email notifications displayed in the diagrams.
 
-### Primary approvers and alternate approvers
-The following diagram shows the experience of primary approvers and alternate approvers, and the email notifications they receive during the request process:
+### First approvers and alternate approvers
+The following diagram shows the experience of first approvers and alternate approvers, and the email notifications they receive during the request process:
 
-![Primary and alternate approvers process flow](./media/entitlement-management-process/primary-approvers-and-alternate-with-escalation-flow.png)
+![First and alternate approvers process flow](./media/entitlement-management-process/first-approvers-and-alternate-with-escalation-flow.png)
 
 ### Requestors
 The following diagram shows the experience of requestors and the email notifications they receive during the request process:
 
 ![Requestor process flow](./media/entitlement-management-process/requestor-approval-request-flow.png)
 
-### Multistage approval
+### 2-stage approval
 The following diagram shows the experience of stage-1 and stage-2 approvers and the email notifications they receive during the request process:
 
-![Multistage process flow](./media/entitlement-management-process/multistage-approvals-with-request-timeout-flow.png)
+![2-stage approval process flow](./media/entitlement-management-process/2stage-approval-with-request-timeout-flow.png)
 
 ### Email notifications table
 The following table provides more detail about each of these email notifications. To manage these emails, you can use rules. For example, in Outlook, you can create rules to move the emails to a folder if the subject contains words from this table:
 
 | # | Email subject | When sent | Sent to |
 | --- | --- | --- | --- |
-| 1 | Action required: Approve or deny forwarded request by *[date]* | This email will be sent to Stage-1 Alternate approvers (after the request has been escalated) to take action. | Stage-1 Alternate Approver |
-| 2 | Action required: Approve or deny request by *[date]* | This email will be sent to Stage-1 Primary approvers, if escalation is disabled, to take action. | Stage-1 Primary Approver |
-| 3 | Reminder: Approve or deny the request by *[date]* for *[requestor]* | This reminder email will be sent to Stage-1 Primary approvers, if escalation is disabled, to take action, only when they haven’t yet taken action. | Stage-1 Primary Approver |
-| 4 | Approve or deny the request by *[time]* on *[date]* | This email will be sent to Stage-1 Primary approvers (if escalation is enabled) to take action. | Stage-1 Primary Approver |
-| 5 | Action required reminder: Approve or deny the request by *[date]* for *[requestor]* | This reminder email will be sent to Stage-1 Primary approvers, if escalation is enabled, to take action, only when they haven’t yet taken action. | Stage-1 Primary Approver |
-| 6 | Request has expired for *[access_package]* | This email will be sent to Stage-1 primary approvers and/or Stage-1 alternate approvers after the request has expired. | Stage-1 Primary Approver, Stage-1 Alternate Approver |
-| 7 | Request approved for *[requestor]* to *[access_package]* | This email will be sent to the stage-1 primary approvers and/or stage-1 alternate approvers, upon completion of a request. | Stage-1 Primary Approver, Stage-1 Alternate Approver |
-| 8 | Request approved for *[requestor]* to *[access_package]* | This email will be sent to the stage-1 primary approvers and/or stage-1 alternate approvers, of a 2-stage request, only when stage-1 is approved. | Stage-1 Primary Approver, Stage-1 Alternate Approver |
-| 9 | Request denied to *[access_package]* | This email will be sent to the requestor only when his request is denied | Requestor |
-| 10 | Your request has expired for *[access_package]* | This email will be sent to the requestor at the end of Stage-1, of a single-stage or multi-stage request, after the request has expired. | Requestor |
-| 11 | Action required: Approve or deny request by *[date]* | This email will be sent to Stage-2 Primary approvers, if escalation is disabled, to take action. | Stage-2 Primary Approver |
-| 12 | Action required reminder: Approve or deny the request by *[date]* | This reminder email will be sent to Stage-2 Primary approvers, if escalation is disabled, to take action. | Stage-2 Primary Approver |
-| 13 | Action required: Approve or deny the request by *[date]* for *[requestor]* | This email will be sent to Stage-2 Primary approvers, if escalation is enabled, to take action. | Stage-2 Primary Approver |
-| 14 | Action required reminder: Approve or deny the request by *[date]* for *[requestor]* | This reminder email will be sent to Stage-2 Primary approvers, if escalation is enabled, to take action. | Stage-2 Primary Approver |
-| 15 | Action required: Approve or deny forwarded request by *[date]* | This email will be sent to Stage-2 Alternate approvers, if escalation is enabled, to take action. | Stage-2 Alternate Approver |
-| 16 | Request approved for *[requestor]* to *[access_package]* | This email will be sent to the stage-2 primary approvers and/or stage-2 alternate approvers, upon completion of a request. | Stage-2 Primary Approver, Stage-2 Alternate Approver |
-| 17 | A request has expired for *[access_package]* | This email will be sent to stage-2 primary or alternate approvers, after the request expires. | Stage-2 Primary Approver, Stage-2 Alternate Approver |
+| 1 | Action required: Approve or deny forwarded request by *[date]* | This email will be sent to Stage-1 alternate approvers (after the request has been escalated) to take action. | Stage-1 alternate approvers |
+| 2 | Action required: Approve or deny request by *[date]* | This email will be sent to the First Approver(s) , if escalation is disabled, to take action. | First Approver |
+| 3 | Reminder: Approve or deny the request by *[date]* for *[requestor]* | This reminder email will be sent to the First Approver(s), if escalation is disabled, to take action if they have yet to take action. | First Approver |
+| 4 | Approve or deny the request by *[time]* on *[date]* | This email will be sent to the First Approver(s) (if escalation is enabled) to take action. | First Approver |
+| 5 | Action required reminder: Approve or deny the request by *[date]* for *[requestor]* | This reminder email will be sent to the First Approver(s), if escalation is enabled, to take action if they have yet to take action. | First Approver |
+| 6 | Request has expired for *[access_package]* | This email will be sent to the First Approver(s) and stage-1 alternate approvers after the request has expired. | First Approver, stage-1 alternate approvers |
+| 7 | Request approved for *[requestor]* to *[access_package]* | This email will be sent to the First Approver(s) and stage-1 alternate approvers upon the completion of a request. | First Approver, stage-1 alternate approvers |
+| 8 | Request approved for *[requestor]* to *[access_package]* | This email will be sent to the First Approver(s) and stage-1 alternate approvers of a 2-stage request when the stage-1 request is approved. | First Approver, stage-1 alternate approvers |
+| 9 | Request denied to *[access_package]* | This email will be sent to the requestor when their request is denied | Requestor |
+| 10 | Your request has expired for *[access_package]* | This email will be sent to the requestor at the end of a single-stage or 2-stage request, after the request has expired. | Requestor |
+| 11 | Action required: Approve or deny request by *[date]* | This email will be sent to the Second Approver(s), if escalation is disabled, to take action. | Second Approver |
+| 12 | Action required reminder: Approve or deny the request by *[date]* | This reminder email will be sent to Second Approver(s), if escalation is disabled, to take action if they have yet to take action. | Second Approver |
+| 13 | Action required: Approve or deny the request by *[date]* for *[requestor]* | This email will be sent to Second Approver(s), if escalation is enabled, to take action. | Second Approver |
+| 14 | Action required reminder: Approve or deny the request by *[date]* for *[requestor]* | This reminder email will be sent to the Second Approver(s), if escalation is enabled, to take action if they have yet to take action. | Second Approver |
+| 15 | Action required: Approve or deny forwarded request by *[date]* | This email will be sent to stage-2 alternate approvers, if escalation is enabled, to take action. | stage-2 alternate approvers |
+| 16 | Request approved for *[requestor]* to *[access_package]* | This email will be sent to the Second Approver(s) and stage-2 alternate approvers upon completion of a request. | Second Approver, Stage-2 alternate approvers |
+| 17 | A request has expired for *[access_package]* | This email will be sent to the Second Approver(s) or alternate approvers, after the request expires. | Second Approver, stage-2 alternate approvers |
 | 18 | You now have access to *[access_package]* | This email will be sent to the end-users to start using their access. | Requestor |
 | 19 | Extend access for *[access_package]* by *[date]* | This email will be sent to the end-users before their access expires. | Requestor |
 | 20 | Access has ended for *[access_package]* | This email will be sent to the end-users after their access expires. | Requestor |
@@ -98,21 +98,22 @@ The email includes a link approvers can click on to go to Myaccess to approve or
 
 ![Approve request to access package email](./media/entitlement-management-shared/approver-request-email.png)
 
-The primary approvers are also sent an email notification with a reminder to take action and make a decision for the request. Here is a sample email of the notification primary approvers receive to remind them to take action:
+The First Approver (and Second Approver if 2-stage approval is enabled) is also sent an email notification with a reminder to take action and make a decision for the request. Here is a sample email of the notification the First Approver(s) (and Second Approver(s)) receive to remind them to take action:
 
 ![Reminder access request email](./media/entitlement-management-process/approver-access-request-reminder-email.png)
 
-### Alternate approver request emails
+### Alternate approvers request emails
 
-If forwarding to alternate approvers is enabled, per the forwarding policy, if the request is still pending, the request will be forwarded. The alternate approver will receive a notification email to approve or deny the request. Here is a sample email of the notification the alternate approvers receive:
+If forwarding to alternate approvers is enabled and the request is still pending, the request will be forwarded. The alternate approvers will receive a notification email to approve or deny the request. You can enable alternate approvers in stage-1 and in stage-2. Here is a sample email of the notification the alternate approvers receive:
 
-![Alternate approver request email](./media/entitlement-management-process/alternate-approver-email-fwd-request.png)
+![Alternate approvers request email](./media/entitlement-management-process/alternate-approver-email-fwd-request.png)
 
-Both, the primary approvers and the alternate approvers can approve or deny the request.
+Both the First Approver(s) (and Second Approver(s) if 2-stage approval is enabled) and the alternate approvers can approve or deny the request.
 
 ### Approved or denied emails
 
- When an approver receives an access request submitted by a requestor, they can approve or deny the access request. The approver needs to add a business justification for their decision. Here is a sample email sent to primary or alternate approvers after a request is approved:
+ When an approver receives an access request submitted by a requestor, they can approve or deny the access request. The approver needs to add a business justification for their decision. Here is a sample email sent to the First Approver (Second Approver if 2-stage approval is enabled)
+ and alternate approvers after a request is approved:
 
 ![Approved request to access package email](./media/entitlement-management-process/approver-request-email-approved.png)
 
@@ -124,30 +125,31 @@ When an access request is denied, an email notification is sent to the requestor
 
 ![Requestor request denied email](./media/entitlement-management-process/requestor-email-denied.png)
 
-### Multistage access request emails
+### 2-stage approval access request emails
 
-If multistage approvals are enabled, at least two approvers must approve the request, one for each stage, before teh requestor can receive access. Primary and alternate approvers receive notifications during each stage of approval.
+If 2-stage approval is enabled, at least two approvers must approve the request, one from each stage, before the requestor can receive access.
 
-During stage one, the first primary approvers will receive the access request email and make a decision. If they approve the request, all stage-1 primary and alternate approvers (if escalation is enabled) will receive notification that the first stage is complete. Here is a sample email of the notification that is sent once stage-1 is complete:
+During stage-1, the First Approver(s) will receive the access request email and make a decision. If they approve the request, all First Approver(s) and alternate approvers in stage-1 (if escalation is enabled) will receive notification that stage-1 is complete. Here is a sample email of the notification that is sent when stage-1 is complete:
 
-![Multistage access request email](./media/entitlement-management-process/approver-request-email-multistage.png)
+![2-stage access request email](./media/entitlement-management-process/approver-request-email-2stage.png)
 
-After the stage-1 primary or alternate approvers approve the request, stage-2 is initiated. During stage-2, the stage-2 primary approvers will receive the access request notification email. After the stage-2 primary or alternate approvers (if escalation is enabled) make a decision to approve or deny the request, notification emails are sent to all stage-1 and stage-2 primary and alternate approvers, as well as the requestor.
+After the first or alternate approvers approve the request in stage-1, stage-2 begins. During stage-2, the Second Approver(s) will receive the access request notification email. After the Second Approver(s) or alternate approvers in stage-2 (if escalation is enabled) decide to approve or deny the request, notification emails are sent to the first and second approvers, and all alternate approvers in stage-1 and stage-2, as well as the requestor.
 
 ### Expired access request emails
 
 Access requests could expire if no approver has approved or denied the request. 
 
-When the request reaches its configured expiration date and expires, it can no longer be approved or denied by the approvers. Here is a sample email of the notification sent to all of the primary and alternate approvers:
+When the request reaches its configured expiration date and expires, it can no longer be approved or denied by the approvers. Here is a sample email of the notification sent to all of the first, second (if 2-stage approval is enabled), and alternate approvers:
 
- ![Approvers expired access request email](./media/entitlement-management-process/approver-request-email-expired.png)
+![Approvers expired access request email](./media/entitlement-management-process/approver-request-email-expired.png)
 
- An email notification is also sent to the requestor, notifying them that their access request has expired, and that they need to resubmit the access request. Here is a sample email notification that is sent to a requestor when their access request has expired:
+An email notification is also sent to the requestor, notifying them that their access request has expired, and that they need to resubmit the access request. The following diagram shows the experience of the requestor and the email notifications they receive when they request to extend access:
+
+![Requestor extend access process flow](./media/entitlement-management-process/requestor-expiration-request-flow.png) 
+
+Here is a sample email notification that is sent to a requestor when their access request has expired:
 
 ![Requestor expired access request email](./media/entitlement-management-process/requestor-email-request-expired.png)
-
-The following diagram shows the experience of the requestor and the email notifications they receive when they request to extend access:
-![Requestor extend access process flow](./media/entitlement-management-process/requestor-expiration-request-flow.png)
 
 ## Next steps
 
