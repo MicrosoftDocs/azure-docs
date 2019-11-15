@@ -1,5 +1,5 @@
 ---
-title:  Encryption-at-rest using customer-managed keys in Azure Key Vault (preview)
+title:  Encryption-at-rest using customer-managed keys (preview)
 titleSuffix: Azure Cognitive Search
 description: Supplement server-side encryption over indexes and synonym maps in Azure Cognitive Search through keys that you create and manage in Azure Key Vault. This feature is currently in public preview.
 
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ---
 
-# Content encryption of Azure Cognitive Search using customer-managed keys in Azure Key Vault
+# Encryption-at-rest of content in Azure Cognitive Search using customer-managed keys in Azure Key Vault
 
 > [!IMPORTANT] 
 > Support for encryption-at-rest is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
