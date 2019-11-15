@@ -172,6 +172,8 @@
       displayName: roles, import
     - name: Use prebuilt models
       href: howto-add-prebuilt-models.md
+    - name: Label entity in utterance
+      href: label-entity-example-utterance.md
     - name: With REST APIs
       items:
       - name: Build app programmatically using Node.js
@@ -189,8 +191,8 @@
     - name: Using the dashboard
       displayName: dashboard, analytics, charts, data, unclear predictions, incorrect predictions, imbalance, endpoint hits, status, evaluation, accuracy, active version, problematic intents, nearest rival, usage
       href: luis-how-to-use-dashboard.md
-    - name: Add Phrase list
-      displayName: synonym, interchange
+    - name: Add Descriptor
+      displayName: synonym, interchange, phrase list, descriptor
       href: luis-how-to-add-features.md
     - name: Review endpoint utterances
       displayName: active learning
