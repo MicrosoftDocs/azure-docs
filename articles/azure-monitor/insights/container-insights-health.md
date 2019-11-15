@@ -85,7 +85,7 @@ On the property pane, you learn the following:
     
     ![Health property pane Overview tab](./media/container-insights-health/health-overview-unit-monitor.png)
 
-    If the time reported by **Last state change** is a day or older, it is the result of no changes in state for the monitor. However, if the last sample received for a unit monitor is more than four hours old, this indicates the containerized agent has not been sending data. If the agent knows that a particular resource exists, for example a Node, but it hasn't received data from the Node, then the health state of the monitor is set to **Unknown**.  
+    If the time reported by **Last state change** is a day or older, it is the result of no changes in state for the monitor. However, if the last sample received for a unit monitor is more than four hours old, this likely indicates the containerized agent has not been sending data. If the agent knows that a particular resource exists, for example a Node, but it hasn't received data from the Node's CPU or memory utilization monitors (as an example), then the health state of the monitor is set to **Unknown**.  
 
 - On the**Config** tab, it shows the default configuration parameter settings (only for unit monitors, not aggregate monitors) and their values.
 - On the **Knowledge** tab, it contains information explaining the behavior of the monitor and how it evaluates for the unhealthy condition.
