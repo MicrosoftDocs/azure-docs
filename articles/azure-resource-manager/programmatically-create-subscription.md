@@ -6,7 +6,7 @@ author: amberb
 
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 04/10/2019
+ms.date: 11/14/2019
 ms.author: banders
 ---
 
@@ -48,22 +48,22 @@ The API response lists all enrollment accounts you have access to:
 ```json
 {
   "value": [
-    {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "type": "Microsoft.Billing/enrollmentAccounts",
-      "properties": {
-        "principalName": "SignUpEngineering@contoso.com"
-      }
-    },
-    {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "type": "Microsoft.Billing/enrollmentAccounts",
-      "properties": {
-        "principalName": "BillingPlatformTeam@contoso.com"
-      }
-    }
+	{
+	  "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+	  "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+	  "type": "Microsoft.Billing/enrollmentAccounts",
+	  "properties": {
+		"principalName": "SignUpEngineering@contoso.com"
+	  }
+	},
+	{
+	  "id": "/providers/Microsoft.Billing/enrollmentAccounts/4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+	  "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+	  "type": "Microsoft.Billing/enrollmentAccounts",
+	  "properties": {
+		"principalName": "BillingPlatformTeam@contoso.com"
+	  }
+	}
   ]
 }
 ```
@@ -102,16 +102,16 @@ Azure responds with a list of enrollment accounts you have access to:
 ```json
 [
   {
-    "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "principalName": "SignUpEngineering@contoso.com",
-    "type": "Microsoft.Billing/enrollmentAccounts",
+	"id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+	"name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+	"principalName": "SignUpEngineering@contoso.com",
+	"type": "Microsoft.Billing/enrollmentAccounts",
   },
   {
-    "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "principalName": "BillingPlatformTeam@contoso.com",
-    "type": "Microsoft.Billing/enrollmentAccounts",
+	"id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+	"name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+	"principalName": "BillingPlatformTeam@contoso.com",
+	"type": "Microsoft.Billing/enrollmentAccounts",
   }
 ]
 ```
@@ -135,12 +135,12 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
   "displayName": "Dev Team Subscription",
   "offerType": "MS-AZR-0017P",
   "owners": [
-    {
-      "objectId": "<userObjectId>"
-    },
-    {
-      "objectId": "<servicePrincipalObjectId>"
-    }
+	{
+	  "objectId": "<userObjectId>"
+	},
+	{
+	  "objectId": "<servicePrincipalObjectId>"
+	}
   ]
 }
 ```
@@ -225,34 +225,34 @@ The API response lists the billing accounts that you have access to.
 ```json
 {
   "value": [
-    {
-      "id": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
-      "name": "5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
-      "properties": {
-        "accountId": "5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-        "accountStatus": "Active",
-        "accountType": "Enterprise",
-        "agreementType": "MicrosoftCustomerAgreement",
-        "displayName": "Contoso",
-        "hasReadAccess": true,
-        "organizationId": "41b29574-xxxx-xxxx-xxxx-xxxxxxxxxxxxx_xxxx-xx-xx"
-      },
-      "type": "Microsoft.Billing/billingAccounts"
-    },
-    {
-      "id": "/providers/Microsoft.Billing/billingAccounts/4f89e155-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
-      "name": "4f89e155-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
-      "properties": {
-        "accountId": "4f89e155-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-        "accountStatus": "Active",
-        "accountType": "Enterprise",
-        "agreementType": "MicrosoftCustomerAgreement",
-        "displayName": "Fabrikam",
-        "hasReadAccess": true,
-        "organizationId": "41b29574-xxxx-xxxx-xxxx-xxxxxxxxxxxxx_xxxx-xx-xx"
-      },
-      "type": "Microsoft.Billing/billingAccounts"
-    }
+	{
+	  "id": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
+	  "name": "5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
+	  "properties": {
+		"accountId": "5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+		"accountStatus": "Active",
+		"accountType": "Enterprise",
+		"agreementType": "MicrosoftCustomerAgreement",
+		"displayName": "Contoso",
+		"hasReadAccess": true,
+		"organizationId": "41b29574-xxxx-xxxx-xxxx-xxxxxxxxxxxxx_xxxx-xx-xx"
+	  },
+	  "type": "Microsoft.Billing/billingAccounts"
+	},
+	{
+	  "id": "/providers/Microsoft.Billing/billingAccounts/4f89e155-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
+	  "name": "4f89e155-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
+	  "properties": {
+		"accountId": "4f89e155-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+		"accountStatus": "Active",
+		"accountType": "Enterprise",
+		"agreementType": "MicrosoftCustomerAgreement",
+		"displayName": "Fabrikam",
+		"hasReadAccess": true,
+		"organizationId": "41b29574-xxxx-xxxx-xxxx-xxxxxxxxxxxxx_xxxx-xx-xx"
+	  },
+	  "type": "Microsoft.Billing/billingAccounts"
+	}
   ]
 }
 
@@ -322,13 +322,13 @@ POST https://management.azure.com<invoiceSectionId>/providers/Microsoft.Subscrip
   "billingProfileId": "<billingProfileId>",
   "skuId": "<skuId>",
   "owners": [
-      {
-        "objectId": "<userObjectId>"
-      },
-      {
-        "objectId": "<servicePrincipalObjectId>"
-      }
-    ],
+	  {
+		"objectId": "<userObjectId>"
+	  },
+	  {
+		"objectId": "<servicePrincipalObjectId>"
+	  }
+	],
   "costCenter": "35683",
   "managementGroupId": "/providers/Microsoft.Management/managementGroups/xxxxxxx",",
 }'
@@ -366,34 +366,34 @@ The API response list the billing accounts.
 ```json
 {
   "value": [
-    {
-      "id": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
-      "name": "99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
-      "properties": {
-        "accountId": "5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-        "accountStatus": "Active",
-        "accountType": "Enterprise",
-        "agreementType": "MicrosoftPartnerAgreement",
-        "displayName": "Contoso",
-        "hasReadAccess": true,
-        "organizationId": "1d100e69-xxxx-xxxx-xxxx-xxxxxxxxxxxxx_xxxx-xx-xx"
-      },
-      "type": "Microsoft.Billing/billingAccounts"
-    },
-    {
-      "id": "/providers/Microsoft.Billing/billingAccounts/4f89e155-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
-      "name": "4f89e155-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
-      "properties": {
-        "accountId": "4f89e155-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-        "accountStatus": "Active",
-        "accountType": "Enterprise",
-        "agreementType": "MicrosoftCustomerAgreement",
-        "displayName": "Fabrikam",
-        "hasReadAccess": true,
-        "organizationId": "1d100e69-xxxx-xxxx-xxxx-xxxxxxxxxxxxx_xxxx-xx-xx"
-      },
-      "type": "Microsoft.Billing/billingAccounts"
-    }
+	{
+	  "id": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
+	  "name": "99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
+	  "properties": {
+		"accountId": "5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+		"accountStatus": "Active",
+		"accountType": "Enterprise",
+		"agreementType": "MicrosoftPartnerAgreement",
+		"displayName": "Contoso",
+		"hasReadAccess": true,
+		"organizationId": "1d100e69-xxxx-xxxx-xxxx-xxxxxxxxxxxxx_xxxx-xx-xx"
+	  },
+	  "type": "Microsoft.Billing/billingAccounts"
+	},
+	{
+	  "id": "/providers/Microsoft.Billing/billingAccounts/4f89e155-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
+	  "name": "4f89e155-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
+	  "properties": {
+		"accountId": "4f89e155-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+		"accountStatus": "Active",
+		"accountType": "Enterprise",
+		"agreementType": "MicrosoftCustomerAgreement",
+		"displayName": "Fabrikam",
+		"hasReadAccess": true,
+		"organizationId": "1d100e69-xxxx-xxxx-xxxx-xxxxxxxxxxxxx_xxxx-xx-xx"
+	  },
+	  "type": "Microsoft.Billing/billingAccounts"
+	}
   ]
 }
 
@@ -404,7 +404,7 @@ Use the `displayName` property to identify the billing account for which you wan
 
 Make the following request, replacing `<billingAccountName>` with the `name` copied from the first step (```5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx```) to list all customers in the billing account for whom you can create Azure subscriptions. 
 
-```json
+```http
 GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/<billingAccountName>/customers?api-version=2019-10-01-preview
 ```
 The API response lists the customers in the billing account with Azure plans. You can create subscriptions for these customers.
@@ -412,73 +412,74 @@ The API response lists the customers in the billing account with Azure plans. Yo
 ```json
 {
   "value": [
-    {
-      "id": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "name": "2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "properties": {
-        "billingProfileDisplayName": "Contoso USD",
-        "billingProfileId": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/JUT6-xxxx-xxxx-xxxx",
-        "displayName": "Fabrikam toys"
-      },
-      "type": "Microsoft.Billing/billingAccounts/customers"
-    },
-    {
-      "id": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/97c3fac4-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "name": "97c3fac4-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "properties": {
-        "billingProfileDisplayName": "Fabrikam sports",
-        "billingProfileId": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/JUT6-xxxx-xxxx-xxxx",
-        "displayName": "Fabrikam bakery"
-      },
-      "type": "Microsoft.Billing/billingAccounts/customers"
-    }]
+	{
+	  "id": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+	  "name": "2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+	  "properties": {
+		"billingProfileDisplayName": "Contoso USD",
+		"billingProfileId": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/JUT6-xxxx-xxxx-xxxx",
+		"displayName": "Fabrikam toys"
+	  },
+	  "type": "Microsoft.Billing/billingAccounts/customers"
+	},
+	{
+	  "id": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/97c3fac4-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+	  "name": "97c3fac4-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+	  "properties": {
+		"billingProfileDisplayName": "Fabrikam sports",
+		"billingProfileId": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/JUT6-xxxx-xxxx-xxxx",
+		"displayName": "Fabrikam bakery"
+	  },
+	  "type": "Microsoft.Billing/billingAccounts/customers"
+	}]
 }
-	
 ```
 
 Use the `displayName` property to identify the customer for which you want to create subscriptions. Copy the `id` for the customer. For example, if you want to create a subscription for `Fabrikam toys`, you'd copy `/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. Paste this value somewhere to use it in the subsequent steps.
 
-### Optional for Indirect providers: Get the resellers for a customer
+### Optional for indirect providers: Get the resellers for a customer
 
-If you're an Indirect provider in the CSP two-tier model, you can specify a reseller while creating subscriptions for customers. 
+If you're an indirect provider in the CSP two-tier model, you can specify a reseller while creating subscriptions for customers. 
 
 Make the following request, replacing `<customerId>` with the `id` copied from the second step (```/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx```) to list all resellers that are available for a customer.
 
-```json
-GET https://management.azure.com<customerId>?$expand=resellers&api-version=2019-10-01-preview
+```http
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx?api-version=2019-10-01-preview
 ```
 The API response lists the resellers for the customer:
 
 ```json
 {
-  "value": [{
-  "id": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2ed2c490-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "name": "2ed2c490-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "type": "Microsoft.Billing/billingAccounts/customers",
-  "properties": {
-    "displayName": "Fabrikam toys",
-    "resellers": [
-      {
-        "resellerId": "3xxxxx",
-        "description": "Wingtip"
+  "value": [
+    {
+      "id": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2ed2c490-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "2ed2c490-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "type": "Microsoft.Billing/billingAccounts/customers",
+      "properties": {
+        "displayName": "Fabrikam toys",
+        "resellers": [
+          {
+            "resellerId": "3xxxxx",
+            "description": "Wingtip"
+          }
+        ]
       }
-    ]
-  }
-},
-{
-  "id": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/4ed2c793-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "name": "4ed2c793-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "type": "Microsoft.Billing/billingAccounts/customers",
-  "properties": {
-    "displayName": "Fabrikam toys",
-    "resellers": [
-      {
-        "resellerId": "5xxxxx",
-        "description": "Tailspin"
+    },
+    {
+      "id": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/4ed2c793-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "4ed2c793-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "type": "Microsoft.Billing/billingAccounts/customers",
+      "properties": {
+        "displayName": "Fabrikam toys",
+        "resellers": [
+          {
+            "resellerId": "5xxxxx",
+            "description": "Tailspin"
+          }
+        ]
       }
-    ]
-  }
-}]
+    }
+  ]
 }
 ```
 Use the `description` property to identify the reseller who will be associated with the subscription. Copy the `resellerId` for the reseller. For example, if you want to associate `Wingtip`, you'd copy `3xxxxx`. Paste this value somewhere so that you can use it in the next step.
@@ -487,17 +488,18 @@ Use the `description` property to identify the reseller who will be associated w
 
 The following example creates a subscription named *Dev Team subscription*  for *Fabrikam toys* and associate *Wingtip* reseller to the subscription. T
 
-Make the following request, replacing `<customerId>` with the `id` copied from the first step (```/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Pass the optional *resellerId* copied from the second step in the request parameters of the API. 
+Make the following request (```/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Pass the optional *resellerId* copied from the second step in the request parameters of the API. 
 
-```json
-POST https://management.azure.com<customerId>/providers/Microsoft.Subscription/createSubscription?api-version=2018-11-01-preview
+```http
+POST https://management.azure.com/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Subscription/createSubscription?api-version=2018-11-01-
 ```
 
 ```json
-'{"displayName": "Dev Team subscription",
-  "skuId": "0001",
-  "resellerId": "<resellerId>",
-}'
+{
+	"displayName": "Dev Team subscription",
+	"skuId": "0001",
+	"resellerId": "<resellerId>"
+}
 ```
 
 | Element Name  | Required | Type   | Description                                                                                               |
