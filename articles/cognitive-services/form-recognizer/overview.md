@@ -64,14 +64,15 @@ Form Recognizer is available in a limited-access preview. To get access to the p
 When you're granted access to use Form Recognizer, you'll receive a Welcome email with several links and resources. Use the "Azure portal" link in that message to open the Azure portal and create a Form Recognizer resource.
 
 **Step 3:** Extract data from your forms:
+
 * Custom - train a model to your forms
-    * Train without labels
-           * [Quickstart: Train without labels a Form Recognizer model and extract form data by using the REST API with cURL](quickstarts/curl-train-extract.md)
-           * [Quickstart: Train without labels a Form Recognizer model and extract form data by using the REST API with Python](quickstarts/python-train-extract.md)
-    * Train with labels 
-           * [Quickstart: Train with labels a Form Recognizer model and extract form data by using the sample labeling tool](quickstarts/label.md)
-           * [Quickstart: Train with labels a Form Recognizer model and extract form data by using the REST API with Python](quickstarts/python-train-with-labels-extract.md)
-           * [Quickstart: Train with labels a Form Recognizer model and extract form data by using the REST API with cURL](quickstarts/curl-train-wiht-labels-extract.md)   
+  * Train without labels
+    * [Quickstart: Train without labels a Form Recognizer model and extract form data by using the REST API with cURL](quickstarts/curl-train-extract.md)
+    * [Quickstart: Train without labels a Form Recognizer model and extract form data by using the REST API with Python](quickstarts/python-train-extract.md)
+  * Train with labels 
+    * [Quickstart: Train with labels a Form Recognizer model and extract form data by using the sample labeling tool](quickstarts/label.md)
+    * [Quickstart: Train with labels a Form Recognizer model and extract form data by using the REST API with Python](quickstarts/python-train-with-labels-extract.md)
+    * [Quickstart: Train with labels a Form Recognizer model and extract form data by using the REST API with cURL](quickstarts/curl-train-wiht-labels-extract.md)   
 * Prebuilt receipts - extract data from US thermal receipts
   * [Quickstart: Extract receipt data using cURL](quickstarts/curl-receipts.md)
   * [Quickstart: Extract receipt data using Python](quickstarts/python-receipts.md)
