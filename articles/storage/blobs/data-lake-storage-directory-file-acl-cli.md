@@ -21,7 +21,14 @@ This article shows you how to use the [Azure Command-Line Interface (CLI)](https
 
 1. Open the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest), or if you've [installed](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) the Azure CLI locally, open a command console application such as Windows PowerShell.
 
-2. Install the `storage-preview` extension.
+2. Verify that the version of Azure CLI that have installed is `2.0.67` or higher by using the following command.
+
+  ```azurecli
+   az --version
+   ```
+   If your version of Azure CLI is lower than `2.0.67`, then install a later version. See [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+
+3. Install the `storage-preview` extension.
 
    ```azurecli
    az extension add -n storage-preview
@@ -228,7 +235,7 @@ The following image shows the output after setting the ACL of a file.
 
 In this example, the owning user and owning group have only read and write permissions. All other users have write and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
-### Update directory permissions
+### Update directory and file permissions
 
 Another way to set this permission is to use the `az storage blob directory access update` or `az storage blob access update` command. 
 
