@@ -507,7 +507,7 @@ You can deploy the explainer along with the original model and use it at inferen
 
    1. Deploy the created image.
    
-         This takes approximately five minutes.
+         This process takes approximately five minutes.
 
          ```python
          from azureml.core.webservice import Webservice
