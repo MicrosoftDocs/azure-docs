@@ -64,11 +64,11 @@ Clone a GitHub repository that contains the full .NET sample discussed in this a
 The "Encrypt with DRM" sample is located in the [EncryptWithDRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM) folder.
 
 > [!NOTE]
-> The sample creates unique resources every time you run the application. Typically, you will reuse existing resources like transforms and policies (if existing resource have required configurations). 
+> The sample creates unique resources every time you run the app. Typically, you'll reuse existing resources like transforms and policies (if existing resource have required configurations).
 
 ## Start using Media Services APIs with .NET SDK
 
-To start using Media Services APIs with .NET, you need to create an **AzureMediaServicesClient** object. To create the object, you need to supply credentials needed for the client to connect to Azure using Azure AD. In the code you cloned at the beginning of the article, the **GetCredentialsAsync** function creates the ServiceClientCredentials object based on the credentials supplied in the local configuration file. 
+To start using Media Services APIs with .NET, create an **AzureMediaServicesClient** object. To create the object, you need to supply credentials needed for the client to connect to Azure using Azure AD. In the code you cloned at the beginning of the article, the **GetCredentialsAsync** function creates the ServiceClientCredentials object based on the credentials supplied in the local configuration file.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#CreateMediaServicesClient)]
 
@@ -77,7 +77,7 @@ To start using Media Services APIs with .NET, you need to create an **AzureMedia
 The output [Asset](assets-concept.md) stores the result of your encoding job.  
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#CreateOutputAsset)]
- 
+
 ## Get or create an encoding Transform
 
 When creating a new [Transform](transforms-jobs-concept.md) instance, you need to specify what you want it to produce as an output. The required parameter is a `transformOutput` object, as shown in the code below. Each TransformOutput contains a **Preset**. Preset describes the step-by-step instructions of video and/or audio processing operations that are to be used to generate the desired TransformOutput. The sample described in this article uses a built-in Preset called **AdaptiveStreaming**. The Preset encodes the input video into an auto-generated bitrate ladder (bitrate-resolution pairs) based on the input resolution and bitrate, and produces ISO MP4 files with H.264 video and AAC audio corresponding to each bitrate-resolution pair. 
@@ -88,17 +88,17 @@ Before creating a new **Transform**, you should first check if one already exist
 
 ## Submit Job
 
-As mentioned above, the **Transform** object is the recipe and a [Job](transforms-jobs-concept.md) is the actual request to Media Services to apply that **Transform** to a given input video or audio content. The **Job** specifies information like the location of the input video, and the location for the output.
+As mentioned above, the **Transform** object is the recipe and a [Job](transforms-jobs-concept.md) is the actual request to Media Services to apply that **Transform** to a given input video or audio content. The **Job** specifies information like the location of the input video and the location for the output.
 
-In this tutorial, we create the job's input based on a file that is ingested directly from an [HTTPs source URL](job-input-from-http-how-to.md).
+In this tutorial, we create the job's input based on a file that's ingested directly from an [HTTPs source URL](job-input-from-http-how-to.md).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#SubmitJob)]
 
 ## Wait for the Job to complete
 
-The job takes some time to complete and when it does you want to be notified. The code sample below shows how to poll the service for the status of the **Job**. Polling is not a recommended best practice for production applications because of potential latency. Polling can be throttled if overused on an account. Developers should instead use Event Grid. See [Route events to a custom web endpoint](job-state-events-cli-how-to.md).
+The job takes some time to complete. When it does, you want to be notified. The code sample below shows how to poll the service for the status of the **Job**. Polling isn't a recommended best practice for production apps because of potential latency. Polling can be throttled if overused on an account. Developers should instead use Event Grid. See [Route events to a custom web endpoint](job-state-events-cli-how-to.md).
 
-The **Job** usually goes through the following states: **Scheduled**, **Queued**, **Processing**, **Finished** (the final state). If the job has encountered an error, you get the **Error** state. If the job is in the process of being canceled, you get **Canceling** and **Canceled** when it is done.
+The **Job** usually goes through the following states: **Scheduled**, **Queued**, **Processing**, **Finished** (the final state). If the job has come across an error, you get the **Error** state. If the job is in the process of being canceled, you get **Canceling** and **Canceled** when it's done.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#WaitForJobToFinish)]
 
@@ -108,7 +108,7 @@ A content key provides secure access to your Assets. You need to create a [Conte
 
 You need to set the requirements (restrictions) on the **Content Key Policy** that must be met to deliver keys with the specified configuration. In this example, we set the following configurations and requirements:
 
-* Configuration 
+* Configuration
 
     The [PlayReady](playready-license-template-overview.md) and [Widevine](widevine-license-template-overview.md) licenses are configured so they can be delivered by the Media Services license delivery service. Even though, this sample app does not configure the [FairPlay](fairplay-license-overview.md) license, it contains a method that you can use to configure FairPlay. You can  add FairPlay configuration as another option.
 
