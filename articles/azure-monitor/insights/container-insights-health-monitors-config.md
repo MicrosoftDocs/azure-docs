@@ -16,6 +16,8 @@ ms.author: magoedte
 
 # Azure Monitor for containers health monitor configuration guide
 
+Monitors are the primary element for measuring health and detecting errors in Azure Monitor for containers. This article helps you understand the concepts of how health is measured and the elements that comprise the health model to monitor and report on the health of your Kubernetes cluster with the [Health feature](container-insights-health.md).
+
 ## Monitors
 
 A monitor measures the health of some aspect of a managed object. Monitors each have either two or three health states. A monitor will be in one and only one of its potential states at any given time. When a monitor loaded by the containerized agent, it is initialized to a healthy state. The state changes only if the specified conditions for another state are detected.
@@ -73,3 +75,7 @@ Azure Monitor for containers includes a number of key monitoring scenarios that 
 |Kubernetes infrastructure |This monitor reports combined health status of the managed infrastructure components of the cluster. its status is calculated as the 'worst of' its child monitor states i.e. kube-system workloads and API Server status. |Worst of|
 |System workload |This monitor reports health status of a kube-system workload. This monitor matches the state of the child monitor with the worst health state, that is the **Pods in ready state** monitor and the containers in the workload). |Worst of |
 |Container |This monitor reports overall health status of a container in a given workload. This monitor matches the state of the child monitor with the worst health state, that is the **CPU utilization** and **Memory utilization** monitors. |Worst of |
+
+## Next steps
+
+View [monitor cluster health](container-insights-health.md) to learn about viewing the health status your Kubernetes cluster.
