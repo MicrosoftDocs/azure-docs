@@ -1,6 +1,7 @@
 ---
-title: Use DRM dynamic encryption and license delivery service with Azure Media Services| Microsoft Docs
-description: You can use Azure Media Services to deliver your streams encrypted with Microsoft PlayReady, Google Widevine, or Apple FairPlay licenses.
+title: Use DRM dynamic encryption and license delivery service
+titleSuffix: Azure Media Services
+description: Learn how to use Azure Media Services to deliver your streams encrypted with Microsoft PlayReady, Google Widevine, or Apple FairPlay licenses.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -20,37 +21,37 @@ ms.custom: seodec18
 # Tutorial: Use DRM dynamic encryption and license delivery service
 
 > [!NOTE]
-> Even though the tutorial uses the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) examples, the general steps are the same for [REST API](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest), or other supported [SDKs](media-services-apis-overview.md#sdks).
+> Even though this tutorial uses the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) examples, the general steps are the same for [REST API](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest), or other supported [SDKs](media-services-apis-overview.md#sdks).
 
 You can use Azure Media Services to deliver your streams encrypted with Microsoft PlayReady, Google Widevine, or Apple FairPlay licenses. For in-depth explanation, see [Content protection with dynamic encryption](content-protection-overview.md).
 
-Furthermore, Media Services provides a service for delivering PlayReady, Widevine, and FairPlay DRM licenses. When a user requests DRM-protected content, the player application requests a license from the Media Services license service. If the player application is authorized, the Media Services license service issues a license to the player. A license contains the decryption key that can be used by the client player to decrypt and stream the content.
+Media Services also provides a service for delivering PlayReady, Widevine, and FairPlay DRM licenses. When a user requests DRM-protected content, the player app requests a license from the Media Services license service. If the player app is authorized, the Media Services license service issues a license to the player. A license contains the decryption key that can be used by the client player to decrypt and stream the content.
 
-This article is based on the [Encrypting with DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM) sample. 
+This article is based on the [Encrypting with DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM) sample.
 
 The sample described in this article produces the following result:
 
-![AMS with DRM protected video](./media/protect-with-drm/ams_player.png)
+![AMS with DRM protected video in Azure Media Player](./media/protect-with-drm/ams_player.png)
 
-This tutorial shows you how to:    
+This tutorial shows you how to:
 
 > [!div class="checklist"]
-> * Create an encoding Transform
-> * Set the signing key used for verification of your token
-> * Set requirements on the content key policy
-> * Create a StreamingLocator with the specified streaming policy
-> * Create a URL used to  playback your file
+> * Create an encoding Transform.
+> * Set the signing key used for verification of your token.
+> * Set requirements on the content key policy.
+> * Create a StreamingLocator with the specified streaming policy.
+> * Create a URL used to playback your file.
 
 ## Prerequisites
 
-The following are required to complete the tutorial.
+The following items are required to complete the tutorial:
 
 * Review the [Content protection overview](content-protection-overview.md) article.
-* Review the [Design multi-DRM content protection system with access control](design-multi-drm-system-with-access-control.md)
-* Install Visual Studio Code or Visual Studio
+* Review the [Design multi-DRM content protection system with access control](design-multi-drm-system-with-access-control.md).
+* Install Visual Studio Code or Visual Studio.
 * Create a new Azure Media Services account, as described in [this quickstart](create-account-cli-quickstart.md).
 * Get credentials needed to use Media Services APIs by following [Access APIs](access-api-cli-how-to.md)
-* Set the appropriate values in the application configuration file (appsettings.json).
+* Set the appropriate values in the app configuration file (appsettings.json).
 
 ## Download code
 
