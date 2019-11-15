@@ -68,10 +68,15 @@ Use Logic Apps to automate business processes for responding to events.
 | [Tutorial: send email notifications about Azure IoT Hub events using Logic Apps](publish-iot-hub-events-to-logic-apps.md) | A logic app sends a notification email every time a device is added to your IoT hub. |
 | [Tutorial: Azure Service Bus to Azure Event Grid integration examples](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid sends messages from Service Bus topic to function app and logic app. |
 
-## Service Bus Queue 
+## Service Bus
+
+### Service Bus Queues
+
 You can route events in Event Grid directly to Service Bus queues for use in buffering or command & control scenarios in enterprise applications.
 
-### Using CLI to add a Service Bus handler
+In the Azure Portal, while creating an event subscription, select "Service Bus Queue" as endpoint type and then click "select and endpoint" in order to choose a Service Bus queue.
+
+#### Using CLI to add a Service Bus queue handler
 
 For Azure CLI, the following example subscribes and connects an event grid topic to a Service Bus queue:
 
@@ -85,6 +90,28 @@ az eventgrid event-subscription create \
     --source-resource-id /subscriptions/{SubID}/resourceGroups/{RG}/providers/Microsoft.EventGrid/topics/topic1 \
     --endpoint-type servicebusqueue \
     --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/queues/queue1
+```
+
+### Service Bus Topics
+
+You can route events in Event Grid directly to Service Bus topics in order to handle Azure system events with Service Bus topics, or for command & control messaging scenarios.
+
+In the Azure Portal, while creating an event subscription, select "Service Bus Topic" as endpoint type and then click "select and endpoint" in order to choose a Service Bus topic.
+
+#### Using CLI to add a Service Bus topic handler
+
+For Azure CLI, the following example subscribes and connects an event grid topic to a Service Bus queue:
+
+```azurecli-interactive
+# If you haven't already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
+az eventgrid event-subscription create \
+    --name <my-event-subscription> \
+    --source-resource-id /subscriptions/{SubID}/resourceGroups/{RG}/providers/Microsoft.EventGrid/topics/topic1 \
+    --endpoint-type servicebustopic \
+    --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/topics/topic1
 ```
 
 ## Queue Storage
