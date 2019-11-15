@@ -64,7 +64,7 @@ By clicking **Modify** in the preceding screen, customers have further flexibili
 
 ![Modify](./media/backup-azure-backup-cloud-as-tape/modify.png)
 
-## Next Steps
+## Next steps
 
 For more information about Azure Backup, see:
 
