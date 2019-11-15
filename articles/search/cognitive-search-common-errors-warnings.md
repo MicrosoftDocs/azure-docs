@@ -46,7 +46,7 @@ Indexer with a Blob data source was unable to extract the content from the docum
 | --- | --- | --- |
 | blob is over the size limit | Document is `'150441598'` bytes, which exceeds the maximum size `'134217728'` bytes for document extraction for your current service tier. | [blob indexing errors](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | blob has unsupported content type | Document has unsupported content type `'image/png'` | [blob indexing errors](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
-| blob is encrypted | Document could not be processed - it may be encrypted or password protected. | You can skip the blob by setting [blob settings].(search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed) |
+| blob is encrypted | Document could not be processed - it may be encrypted or password protected. | You can skip the blob with [blob settings].(search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed) |
 | transient issues | Error processing blob: The request was aborted: The request was canceled. | Occasionally there are unexpected connectivity issues. Try running the document through your indexer again later. |
 
 <a name="could-not-parse-document"/>
@@ -84,7 +84,7 @@ Skill execution failed because the call to the Web API failed. Typically, this c
 ## Error: Could not execute skill because Web API skill response is invalid
 Skill execution failed because the call to the Web API returned an invalid response. Typically, this class of failure occurs when custom skills are used, in which case you will need to debug your custom code to resolve the issue. If instead the failure is from a built-in skill, please file a [support ticket](https://ms.portal.azure.com/#create/Microsoft.Support) to get assistance.
 
-<a name="could-not-execute-skill-because-the-web-api-request-failed"/>
+<a name="skill-did-not-execute-within-the-time-limit"/>
 
 ## Error: Skill did not execute within the time limit
 There are two cases under which you may encounter this error message, each of which should be treated differently. Please follow the instructions below depending on what skill returned this error for you.
