@@ -26,6 +26,7 @@ Your [first Bing Spell Check API v7 key](https://azure.microsoft.com/try/cogniti
 ![Create free key](./media/luis-tutorial-bing-spellcheck/free-key.png)
 
 <a name"create-subscription-key"></a>
+
 ## Create Endpoint key
 If your free key expired, create an endpoint key.
 
