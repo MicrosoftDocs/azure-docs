@@ -5,19 +5,19 @@ author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 11/4/2019
+ms.date: 11/14/2019
 ms.author: robb
 ms.subservice: autoscale
 ---
 
 # Azure Monitor autoscale actions resource log schema
 
-Following are the general formats for autoscale resource logs with example data included. Not all events are properly formed JSON because they may include multiple values that could be valid for a given field. 
+Following are the general formats for autoscale resource logs with example data included. Not all examples below are properly formed JSON because they may include multiple values that could be valid for a given field. 
 
 Use events of this type to troubleshoot problems you may be having with autoscale. For more information, see [Troubleshooting autoscale problems](autoscale-troubleshoot.md).
 
 
-## profile Evaluation
+## Profile evaluation
 
 Recorded when autoscale first looks at an autoscale profile
 
