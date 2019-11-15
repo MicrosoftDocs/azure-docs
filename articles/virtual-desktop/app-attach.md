@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 11/14/2019
+ms.date: 11/15/2019
 ms.author: helohr
 ---
 # Set up MSIX app attach
@@ -83,7 +83,7 @@ Packages are in VHD or VHDX format to optimize performance. MSIX requires VHD or
 
 To generate a VHD or VHDX package for MSIX:
 
-1. [Download the msixmgr tool](https://github.com/microsoft/msix-packaging/releases/download/msixmgr-preview/msixmgr.zip) and save the .zip folder to a folder within a session host VM.
+1. [Download the msixmgr tool](https://aka.ms/msixmgr) and save the .zip folder to a folder within a session host VM.
 
 2. Unzip the msixmgr tool .zip folder.
 
@@ -141,7 +141,7 @@ After that, you'll need to "expand" the MSIX image by unpacking it. To unpack th
     `Successfully unpacked and applied ACLs for package: <package name>.msix`
 
     >[!NOTE]
-    > Store-signed apps require a license file to be included in your packages. To learn how to download a license file for your apps from the Microsoft Store for Business, see [Download an offline-licensed app](https://docs.microsoft.com/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app).
+    > If using packages from the Microsoft Store for Business (or Education) within your network, or on devices that are not connected to the internet, you will need to obtain the package licenses from the Store and install them to run the app successfully. See [Use packages from the Microsoft Store for Business and Education offline](#use-packages-from-the-microsoft-store-for-business-or-education-offline).
 
 3. Navigate to the mounted VHD and open the app folder and confirm package content is present.
 
@@ -212,7 +212,7 @@ Before you update the PowerShell scripts, make sure you have the volume GUID of 
 
 6.  Update the **\$volumeGuid** variable with the volume GUID you just copied.
 
-7. Update the following PowerShell script with the variables that apply to your environment.
+7. Opean an Admin PowerShell prompt and update the following PowerShell script with the variables that apply to your environment.
 
     ```powershell
     #MSIX app attach staging sample
@@ -382,6 +382,54 @@ Each of these automatic scripts runs one phase of the app attach scripts:
 - The logon script runs the register script.
 - The logoff script runs the deregister script.
 - The shutdown script runs the destage script.
+
+## Use packages from the Microsoft Store for Business or Education offline
+
+If you're using packages from the [Microsoft Store for Business](https://businessstore.microsoft.com/) or the [Microsoft Store for Education](https://educationstore.microsoft.com/) within your network or on devices that aren't connected to the internet, you need to get the package licenses from the Microsoft Store and install them on your device to successfully run the app. If your device is online and can connect to the Microsoft Store for Business, the required licenses should download automatically, but if you're offline, you'll need to set up the licenses manually. 
+
+To install the license files, you'll need to use a PowerShell script that calls the MDM_EnterpriseModernAppManagement_StoreLicenses02_01 class in the WMI Bridge Provider.  
+
+Here's how to set up the licenses for offline use: 
+
+1. Download the app package, licenses, and required frameworks from the Microsoft Store for Business. You need both the encoded and unencoded license files. Detailed download instructions can be found [here](https://docs.microsoft.com/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app).
+2. Update the following variables in the script for step 3:
+      1. `$contentID` is the ContentID value from the Unencoded license file (.xml). You can open the license file in a text editor of your choice.
+      2. `$licenseBlob` is the entire string for the license blob in the Encoded license file (.bin). You can open the encoded license file in a text editor of your choice. 
+3. Run the following script from an Admin PowerShell prompt. A good place to perform license installation is at the end of the Stage script that also needs to be run from an Admin prompt.
+
+```powershell
+$namespaceName = "root\cimv2\mdm\dmmap"
+$className = "MDM_EnterpriseModernAppManagement_StoreLicenses02_01"
+$methodName = "AddLicenseMethod"
+$parentID = "./Vendor/MSFT/EnterpriseModernAppManagement/AppLicenses/StoreLicenses"
+
+#TODO - Update $contentID with the ContentID value from the unencoded license file (.xml)
+$contentID = "{‘ContentID’_in_unencoded_license_file}"
+
+#TODO - Update $licenseBlob with the entire String in the encoded license file (.bin)
+$licenseBlob = "{Entire_String_in_encoded_license_file}"
+
+$session = New-CimSession 
+
+#The final string passed into the AddLicenseMethod should be of the form <License Content="encoded license blob" />
+$licenseString = '<License Content='+ '"' + $licenseBlob +'"' + ' />' 
+
+$params = New-Object Microsoft.Management.Infrastructure.CimMethodParametersCollection
+$param = [Microsoft.Management.Infrastructure.CimMethodParameter]::Create("param",$licenseString ,"String", "In")
+$params.Add($param) 
+
+
+try
+{
+   $instance = New-CimInstance -Namespace $namespaceName -ClassName $className -Property @{ParentID=$parentID;InstanceID=$contentID}
+   $session.InvokeMethod($namespaceName, $instance, $methodName, $params)
+
+}
+catch [Exception]
+{
+     write-host $_ | out-string
+}  
+```
 
 ## Next steps
 
