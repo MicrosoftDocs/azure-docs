@@ -447,7 +447,11 @@
         "articles/virtual-machines/windows/sql/**/*.md": "Azure SQL Server VM",
         "articles/virtual-machines/windows/sql/**/*.yml": "Azure SQL Server VM",
         "articles/sql-database/**/*.md" : "Azure SQL Database",
-        "articles/sql-database/**/*.yml" : "Azure SQL Database"
+        "articles/sql-database/**/*.yml" : "Azure SQL Database",
+        "articles/ansible/**/*.yml" : "Ansible",
+        "articles/chef/**/*.yml" : "Chef",
+        "articles/jenkins/**/*.yml" : "Jenkins",
+        "articles/terraform/**/*.yml" : "Terraform"
       },
       "featureFlags": {
         "articles/**/*.md": [
