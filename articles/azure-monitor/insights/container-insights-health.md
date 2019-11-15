@@ -30,9 +30,11 @@ Kubernetes cluster health is based on a number of monitoring scenarios organized
 
     ![Kubernetes infrastructure health rollup view](./media/container-insights-health/health-view-kube-infra-01.png)
 
-- Nodes - provides a rollup of the Node pools and state of individual Nodes in each pool, by evaluating CPU and memory utilization, and a Node's status as reported by Kubernete.
+- Nodes - provides a rollup of the Node pools and state of individual Nodes in each pool, by evaluating CPU and memory utilization, and a Node's status as reported by Kubernetes.
 
     ![Nodes health rollup view](./media/container-insights-health/health-view-nodes-01.png)
+
+Currently, only the status of a virtual kubelet is supported. The health state for CPU and memory utilization of virtual kublet nodes is reported as **Unknown**, since a signal is not received from them.
 
 All monitors are shown in a hierarchical layout in the Health Hierarchy pane, where an aggregate monitor representing the Kubernetes object or abstraction (that is, Kubernetes infrastructure or Nodes) are the top-most monitor reflecting the combined health of all dependent child monitors. The key monitoring scenarios used to derive health are:
 
@@ -51,7 +53,7 @@ The icons used to indicate state are as follows:
 
 ## Monitor configuration
 
-To understand the behavior and configuration of each monitor supporting Azure Monitor for containers Health feature, see [Health monitor configuration guide](container-insights-health-monitoring-cfg.md).
+To understand the behavior and configuration of each monitor supporting Azure Monitor for containers Health feature, see [Health monitor configuration guide](container-insights-health-monitors-config.md).
 
 ## Sign in to the Azure portal
 
@@ -81,7 +83,7 @@ On the property pane, you learn the following:
 
     ![Health property pane Overview tab for aggregate monitor](./media/container-insights-health/health-overview-aggregate-monitor.png)
 
-    If you select a unit monitor in the Health Hierarchy pane, it also shows under **Last state change** the previous samples calculated and reported by the containerized agent within the last four hours. This is based on the unit monitors calculation for comparing several consecutive values to determine its state. For example, if you selected the *Pod ready state* unit monitor, it shows the last two samples controlled by the parameter *ConsecutiveSamplesForStateTransition*. For more information, see the detailed description of [unit monitors](container-insights-health-monitoring-cfg.md#unit-monitors).
+    If you select a unit monitor in the Health Hierarchy pane, it also shows under **Last state change** the previous samples calculated and reported by the containerized agent within the last four hours. This is based on the unit monitors calculation for comparing several consecutive values to determine its state. For example, if you selected the *Pod ready state* unit monitor, it shows the last two samples controlled by the parameter *ConsecutiveSamplesForStateTransition*. For more information, see the detailed description of [unit monitors](container-insights-health-monitors-config.md#unit-monitors).
     
     ![Health property pane Overview tab](./media/container-insights-health/health-overview-unit-monitor.png)
 

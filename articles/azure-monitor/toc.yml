@@ -828,7 +828,7 @@
       - name: Update to enable metrics
         href: insights/container-insights-update-metrics.md
       - name: Health monitoring configuration
-        href: insights/container-insights-health-monitoring-cfg.md
+        href: insights/container-insights-health-monitors-config.md
       - name: Disable monitoring
         href: insights/container-insights-optout.md
       - name: Troubleshooting
