@@ -11,7 +11,10 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Connect to SQL Analytics with sqlcmd
+
+
+# Connect to SQL Analytics with Power BI Professional
+
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
@@ -20,9 +23,6 @@ ms.reviewer: jrasnick
 > * [SSMS](get-started-ssms.md)
 > 
 > 
-
-
-# Connect to SQL Analytics with Power BI Professional
 
 In this tutorial, we will go through steps how to connect Power BI desktop to SQL on-demand.
 
