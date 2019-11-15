@@ -509,25 +509,25 @@ You can deploy the explainer along with the original model and use it at inferen
    
          This takes approximately five minutes.
 
-          ```python
-          from azureml.core.webservice import Webservice
-          from azureml.core.image import ContainerImage
+         ```python
+         from azureml.core.webservice import Webservice
+         from azureml.core.image import ContainerImage
 
-          # use the custom scoring, docker, and conda files we created above
-          image_config = ContainerImage.image_configuration(execution_script="score.py",
-                                                          docker_file="dockerfile",
-                                                          runtime="python",
-                                                          conda_file="myenv.yml")
+         # use the custom scoring, docker, and conda files we created above
+         image_config = ContainerImage.image_configuration(execution_script="score.py",
+                                                         docker_file="dockerfile",
+                                                         runtime="python",
+                                                         conda_file="myenv.yml")
 
-          # use configs and models generated above
-          service = Webservice.deploy_from_model(workspace=ws,
-                                              name='model-scoring-service',
-                                              deployment_config=aciconfig,
-                                              models=[scoring_explainer_model, original_model],
-                                              image_config=image_config)
+         # use configs and models generated above
+         service = Webservice.deploy_from_model(workspace=ws,
+                                             name='model-scoring-service',
+                                             deployment_config=aciconfig,
+                                             models=[scoring_explainer_model, original_model],
+                                             image_config=image_config)
 
-          service.wait_for_deployment(show_output=True)
-          ```
+         service.wait_for_deployment(show_output=True)
+         ```
 
 1. Test the deployment.
 
