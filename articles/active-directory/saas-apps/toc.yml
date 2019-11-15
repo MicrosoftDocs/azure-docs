@@ -1601,6 +1601,8 @@
         href: lucidchart-provisioning-tutorial.md
       - name: Leapsome
         href: leapsome-provisioning-tutorial.md
+      - name: Looop
+        href: looop-provisioning-tutorial.md
       - name: Merchlogix
         href: merchlogix-provisioning-tutorial.md
       - name: Meta Networks Connector
@@ -1651,6 +1653,8 @@
         href: symantec-web-security-service.md
       - name: Smartfile
         href: smartfile-provisioning-tutorial.md
+      - name: SpaceIQ
+        href: spaceiq-provisioning-tutorial.md
       - name: StarLeaf
         href: starleaf-provisioning-tutorial.md
       - name: Storegate
