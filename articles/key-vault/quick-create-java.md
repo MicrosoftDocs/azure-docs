@@ -1,5 +1,5 @@
 ---
-title: Quickstart -  Azure Key Vault client library for Python
+title: Quickstart -  Azure Key Vault client library for Java
 description: Provides format and content criteria for writing Quickstarts for Azure SDK client libraries.
 author: msmbaldwin
 ms.author: mbaldwin
@@ -9,11 +9,11 @@ ms.topic: quickstart
 
 ---
 
-# Quickstart: Azure Key Vault client library for Python
+# Quickstart: Azure Key Vault client library for Java
 
-Get started with the Azure Key Vault client library for Python. Follow the steps below to install the package and try out example code for basic tasks.
+Get started with the Azure Key Vault client library for Java. Follow the steps below to install the package and try out example code for basic tasks.
 
-Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. Use the Key Vault client library for Python to:
+Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. Use the Key Vault client library for Java to:
 
 - Increase security and control over keys and passwords.
 - Create and import encryption keys in minutes.
