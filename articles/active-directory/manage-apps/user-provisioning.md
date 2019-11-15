@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/6/2019
+ms.date: 11/15/2019
 ms.author: mimart
 ms.reviewer: arvinh
 
@@ -25,17 +25,14 @@ In Azure Active Directory (Azure AD), the term **app provisioning** refers to au
 
 This feature lets you:
 
-- Automatically create new accounts in the right systems for new people when they join your team or organization.
-- Automatically deactivate accounts in the right systems when people leave the team or organization.
-- Ensure that the identities in your apps and systems are kept up-to-date based on changes in the directory, or your human resources system.
-- Provision non-user objects, such as groups, to applications that support them.
-
-Automated user provisioning also includes this functionality:
-
-- Ability to match existing identities between source and target systems.
-- Customizable attribute mappings that define what user data should flow from the source system to the target system.
-- Optional email alerts for provisioning errors.
-- Reporting and activity logs to help with monitoring and troubleshooting.
+- **Automate provisioning**: Automatically create new accounts in the right systems for new people when they join your team or organization.
+- **Automate deprovisioning:** Automatically deactivate accounts in the right systems when people leave the team or organization.
+- **Synchronize data between systems:** Ensure that the identities in your apps and systems are kept up to date based on changes in the directory or your human resources system.
+- **Provision groups:** Provision groups to applications that support them.
+- **Govern access:** Monitor and audit who has been provisioned into your applications.
+- **Seamlessly deploy in brown field scenarios:** Match existing identities between systems and allow for easy integration, even when users already exist in the target system.
+- **Use rich customization:** Take advantage of customizable attribute mappings that define what user data should flow from the source system to the target system.
+- **Get alerts for critical events:** The provisioning service provides alerts for critical events, and allows for Log Analytics integration where you can define custom alerts to suite your business needs.
 
 ## Benefits of automatic provisioning
 
