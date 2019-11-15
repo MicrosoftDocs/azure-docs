@@ -124,7 +124,7 @@ If you own a Video Indexer paid account, you need to connect a Custom Vision acc
 
 Follow these steps to connect you Custom Vision account to Video Indexer, or to change the Custom Vision account that is currently connected to Video Indexer:
 
-1. Browse to [https://www.customvision.ai](ttps://www.customvision.ai) and login.
+1. Browse to [www.customvision.ai](https://www.customvision.ai) and login.
 1. Copy the following keys: 
 
     * Training key (for the training resource)
