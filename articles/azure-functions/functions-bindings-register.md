@@ -40,27 +40,8 @@ Use extension bundles for all local development using Azure Functions Core Tools
 If you don't use extension bundles, you must install the .NET Core 2.x SDK on your local computer before you install any binding extensions. Bundles removes this requirement for local development. 
 
 To use extension bundles, update the *host.json* file to include the following entry for `extensionBundle`:
-
-```json
-{
-    "version": "2.0",
-    "extensionBundle": {
-        "id": "Microsoft.Azure.Functions.ExtensionBundle",
-        "version": "[1.*, 2.0.0)"
-    }
-}
-```
-
-The following properties are available in `extensionBundle`:
-
-| Property | Description |
-| -------- | ----------- |
-| **`id`** | The namespace for Microsoft Azure Functions extension bundles. |
-| **`version`** | The version of the bundle to install. The Functions runtime always picks the maximum permissible version defined by the version range or interval. The version value above allows all bundle versions from 1.0.0 up to but not including 2.0.0. For more information, see the [interval notation for specifying version ranges](https://docs.microsoft.com/nuget/reference/package-versioning#version-ranges-and-wildcards). |
-
-Bundle versions increment as packages in the bundle change. Major version changes occur when packages in the bundle increment by a major version, which usually coincides with a change in the major version of the Functions runtime.  
-
-The current set of extensions installed by the default bundle are enumerated in this [extensions.json file](https://github.com/Azure/azure-functions-extension-bundles/blob/master/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json).
+ 
+[!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
 <a name="local-csharp"></a>
 
