@@ -118,9 +118,9 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
 
 3. The new project will be added to your workspace. An ASA project consists of three folders: Input, Outputs and Functions. It also has the query script **(*.asaql)**, a **JobConfig.json** file, and an **asaproj.json** configuration file.
 
-   ![Stream Analytics project files in VS Code](./media/quick-create-vs-code/asa-project-files.png)
+    The **asaproj.json** configuration file contains the inputs, outputs, and job configuration file information needed for submitting the Stream Analytics job to Azure.
 
-4. The **asaproj.json** configuration file contains the inputs, outputs, and job configuration file information needed for submitting the Stream Analytics job to Azure.
+    ![Stream Analytics project files in VS Code](./media/quick-create-vs-code/asa-project-files.png)
 
 > [!Note]
 > When adding inputs and outputs from the command palette, the corresponding paths will be added into **asaproj.json** automatically. If you add or remove inputs or outputs on disk directly, you need to manually add or remove them from **asaproj.json**. You can choose to put the inputs and outputs in one place then reference them in different jobs by specifying the paths in each **asaproj.json**.
@@ -132,7 +132,7 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
 2. Add the following query:
 
    ```sql
-   SELECT * 
+   SELECT *
    INTO Output
    FROM Input
    HAVING Temperature > 27
@@ -140,12 +140,11 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
 
 ## Test the query locally with sample data
 
-Before running the query in the cloud, you can test your query locally with either a (TODO: add a link to the sample file on github) local sample data file to verify the query logic.
+Before running the query in the cloud, you can test your query locally with an existing local sample data file or data captured from live inputto verify the query logic.
 
 Follow the instructions in [Test query locally with sample data](vscode-local-run.md) for more details.
 
-[TODO: update the gif]
- ![Test with sample data in VS Code](./media/quick-create-vs-code/vscode-localrun.gif)
+ ![Test with sample data in VS Code](./media/vscode-local-run/localrun_localinput.gif)
 
 ## Define a live input
 
@@ -158,7 +157,7 @@ Then select **ASA: Add Input** from the context menu.
 
    ![Add Stream Analytics input in VS Code](./media/quick-create-vs-code/add-input.png)
 
-2. Choose **IoT Hub** for the input type. [TODO: update the picture]
+2. Choose **IoT Hub** for the input type.
 
    ![Select IoT Hub as input option](./media/quick-create-vs-code/iot-hub.png)
 
@@ -200,7 +199,7 @@ Click **Preview data** in **IoTHub1.json** from the top line. Some input data wi
 
 4. Enter the output file name as **BlobStorage**.
 
-5. Edit **BlobStorage** with the following values. Keep default values for fields not mentioned below. Use the CodeLens to help you select from a dropdown list or enter a string. 
+5. Edit **BlobStorage** with the following values. Keep default values for fields not mentioned below. Use the CodeLens to help you select from a dropdown list or enter a string.
 
    |Setting|Suggested value|Description|
    |-------|---------------|-----------|
@@ -209,7 +208,7 @@ Click **Preview data** in **IoTHub1.json** from the top line. Some input data wi
    |Container|container1|Select the existing container that you created in your storage account.|
    |Path Pattern|output|Enter the name of a file path to be created within the container.|
 
- ![Configure output in Visual Studio Code](./media/quick-create-vs-code/configure-output.png)
+   ![Configure output in Visual Studio Code](./media/quick-create-vs-code/configure-output.png)
 
 ## Compile the script
 
@@ -271,9 +270,12 @@ When no longer needed, delete the resource group, the streaming job, and all rel
 
 ## Next steps
 
-In this quickstart, you deployed a simple Stream Analytics job using Visual Studio Code. You can also deploy Stream Analytics jobs using the [Azure portal](stream-analytics-quick-create-portal.md), [PowerShell](stream-analytics-quick-create-powershell.md), and Visual Studio (stream-analytics-quick-create-vs.md). 
+In this quickstart, you deployed a simple Stream Analytics job using Visual Studio Code. You can also deploy Stream Analytics jobs using the [Azure portal](stream-analytics-quick-create-portal.md), [PowerShell](stream-analytics-quick-create-powershell.md), and Visual Studio (stream-analytics-quick-create-vs.md).
 
-To learn about Azure Stream Analytics tools for Visual Studio, continue to the following article:
+To learn about Azure Stream Analytics tools for Visual Studio Code, continue to the following article:
 
-> [!div class="nextstepaction"]
-> [Use Visual Studio to view Azure Stream Analytics jobs](stream-analytics-vs-tools.md)
+* [Test Azure Stream Analytics jobs locally with live input with Visual Studio Code](vscode-local-run-live-input.md)
+
+* [Use Visual Studio Code to view Azure Stream Analytics jobs](vscode-explore-jobs.md)
+
+* [Set up CI/CD pipelines using npm package](setup-cicd-vs-code.md)

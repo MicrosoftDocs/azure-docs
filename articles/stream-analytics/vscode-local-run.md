@@ -10,7 +10,7 @@ ms.topic: conceptual
 
 # Test Stream Analytics queries locally with sample data with Visual Studio Code
 
-You can use Azure Stream Analytics tools for Visual Studio Code to test your Stream Analytics jobs locally with sample data.
+You can use Azure Stream Analytics tools for Visual Studio Code to test your Stream Analytics jobs locally with sample data. The result will be ouput as JSON format to a local folder called **LocalRunOutputs** in your project.
 
 Use this [quickstart](quick-create-vs-code.md) to learn how to create a Stream Analytics job using Visual Studio Code.
 
@@ -27,9 +27,7 @@ You need to prepare sample input data files first. If you already have some samp
 
  ![Preview live input](./media/quick-create-vs-code/preview-live-input.png)
 
-## Run queries locally
-
-### Define a local input
+## Define a local input
 
 1. Click **input.json** under Inputs folder in your Stream Analytics project.
 Then select **Add local input** from the top line.
@@ -70,15 +68,17 @@ Then select **Add local input** from the top line.
 
     ![Preview local data in raw format](./media/vscode-local-run/local-file-preview-raw.png)
 
-7. Return to your query editor, and select **Run locally**. Then select **Use local input** from the dropdown list.
+## Run queries locally
 
-    ![Select run locally in the query editor](./media/vscode-local-run/run-locally.png)
+Return to your query editor, and select **Run locally**. Then select **Use local input** from the dropdown list.
 
-    ![Use local input](./media/vscode-local-run/run-locally-use-local-input.png)
+![Select run locally in the query editor](./media/vscode-local-run/run-locally.png)
 
-    The result will be shown in the right window. You can click **Run** to test again. You can also click **Open in folder** to see the result files in file explorer and further open them with other tools.
+![Use local input](./media/vscode-local-run/run-locally-use-local-input.png)
 
-    ![View local run result](./media/vscode-local-run/run-locally-result.png)
+The result will be shown in the right window. You can click **Run** to test again. You can also click **Open in folder** to see the result files in file explorer and further open them with other tools. Note that the result files will be only available in JSON format.
+
+![View local run result](./media/vscode-local-run/run-locally-result.png)
 
 ## Next steps
 

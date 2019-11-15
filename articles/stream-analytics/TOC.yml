@@ -174,9 +174,9 @@
     items:
     - name: Install tools
       href: stream-analytics-tools-for-visual-studio-install.md
-    - name: Test with sample data
+    - name: Test locally with sample data
       href: stream-analytics-vs-tools-local-run.md
-    - name: Test with live data
+    - name: Test locally with live data
       href: stream-analytics-live-data-local-testing.md
     - name: View jobs in Visual Studio
       href: stream-analytics-vs-tools.md
@@ -188,8 +188,10 @@
       href: stream-analytics-edge-csharp-udf-methods.md
   - name: Visual Studio Code
     items:
-    - name: Test with sample data
+    - name: Test locally with sample data
       href: vscode-local-run.md
+    - name: Test locally with live data
+      href: vscode-local-run-live-input.md
     - name: Set up CI/CD pipeline
       href: setup-cicd-vs-code.md
     - name: Explore jobs
