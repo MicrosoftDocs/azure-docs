@@ -9,7 +9,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: development
-ms.date: 11/13/2019
+ms.date: 11/06/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
@@ -30,19 +30,17 @@ See [Download Visual Studio 2019][] to download and install Visual Studio **16.3
 
 ## Unsupported features in SSDT
 
-There are times when feature releases for SQL Data Warehouse may not include support for SSDT. The following feature are currently unsupported:
+There are times when feature releases for SQL Data Warehouse may not include support for SSDT. The following features are currently unsupported:
 
 - [Materialized views](https://docs.microsoft.com/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest) (in progress)
 - [Ordered Clustered Columnstore Indexes](https://docs.microsoft.com/sql/t-sql/statements/create-columnstore-index-transact-sql?view=azure-sqldw-latest#examples--and-) (in progress)
 - [COPY statement](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (in progress)
 - [Workload management](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-management) - workload groups and classifiers (in progress)
-  - Submit a support ticket or vote here to get the feature supported.
 - [Row-level security](https://docs.microsoft.com/sql/relational-databases/security/row-level-security?view=sql-server-ver15)
   - Submit a support ticket or vote [here](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040057-ssdt-row-level-security) to get the feature supported.
 - [Dynamic data masking](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc.json&view=sql-server-2017#defining-a-dynamic-data-mask)
   - Submit a support ticket or vote [here](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040048-ssdt-support-dynamic-data-masking) to get the feature supported. 
 - [PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=sql-server-ver15&viewFallbackFrom=azure-sqldw-latest) function 
-  - Submit a support ticket or vote here.
 
 ## Next steps
 
