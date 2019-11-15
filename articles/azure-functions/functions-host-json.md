@@ -136,7 +136,7 @@ Property that returns an object that contains all of the binding-specific settin
 
 ## extensionBundle 
 
-Extension bundles is a local development technology for the version 2.x runtime that lets you add a compatible set of Functions binding extensions to your function app project. To learn more, see [Extension bundles for local development](functions-bindings-register.md#extension-bundles).
+Extension bundles lets you add a compatible set of Functions binding extensions to your function app. To learn more, see [Extension bundles for local development](functions-bindings-register.md#extension-bundles).
 
 [!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 

@@ -33,9 +33,11 @@ The following table indicates when and how you register bindings.
 
 ## <a name="extension-bundles"></a>Extension bundles for local development
 
-Extension bundles is a local development technology for the version 2.x runtime that lets you add a compatible set of Functions binding extensions to your function app project. These extension packages are then included in the deployment package when you deploy to Azure. Bundles makes all bindings published by Microsoft available through a setting in the *host.json* file. Extension packages defined in a bundle are compatible with each other, which helps you avoid conflicts between packages. When developing locally, make sure you are using the latest version of [Azure Functions Core Tools](functions-run-local.md#v2).
+Extension bundles is a deployment technology that lets you add a compatible set of Functions binding extensions to your function app. These extension packages are included in the deployment package when do you a [remote build](functions-deployment-technologies.md#remote-build). They are also included when when you build locally and deploy the local package to Azure. Bundles makes all bindings published by Microsoft available through a setting in the *host.json* file. Extension packages defined in a bundle are compatible with each other, which helps you avoid conflicts between packages. 
 
-Use extension bundles for all local development using Azure Functions Core Tools or Visual Studio Code.
+Extension bundles is supported for the version 2.x runtime, and later versions. runtime When developing locally, make sure you are using the latest version of [Azure Functions Core Tools](functions-run-local.md#v2).
+
+Use extension bundles for all local development using Azure Functions Core Tools or Visual Studio Code, and when you build remotely.
 
 If you don't use extension bundles, you must install the .NET Core 2.x SDK on your local computer before you install any binding extensions. Bundles removes this requirement for local development. 
 
