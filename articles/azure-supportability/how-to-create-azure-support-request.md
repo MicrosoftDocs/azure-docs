@@ -97,6 +97,8 @@ A support agent will contact you using the method you indicated. Consult [Suppor
 
 You can view the details and status of support requests by going to **Help + support** >  **All support requests**.
 
+![All support requests](./media/how-to-create-azure-support-request/allrequests.png)
+
 On this page, you can filter support requests by Subscription, created date (UTC), and status. Additionally, you can sort and search for support requests on this page.
 
 Select a support request to view details, including severity and the expected time it will take for a support agent to respond.
@@ -109,7 +111,8 @@ If you want to change the severity of the request, select  **Business impact**. 
 >
 To learn more about self-help support options in Azure, watch this video:
 
-[!VIDEO https://www.youtube.com/embed/gNhzR5FE9DY]
+> [!VIDEO https://www.youtube.com/embed/gNhzR5FE9DY]
+
 ## Next steps
 * [Send us your feedback and suggestions](https://feedback.azure.com/forums/266794-support-feedback)
 * Engage with us on [Twitter](https://twitter.com/azuresupport)
