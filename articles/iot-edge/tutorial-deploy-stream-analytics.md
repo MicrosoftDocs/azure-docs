@@ -1,9 +1,13 @@
 ---
-title: Stream Analytics at the edge - Azure IoT Edge | Microsoft Docs 
-description: In this tutorial, you deploy Azure Stream Analytics as a module to an IoT Edge device
+title: 'Tutorial: Stream Analytics at the edge - Azure IoT Edge'
+description: 'In this tutorial, you deploy Azure Stream Analytics as a module to an IoT Edge device'
 author: kgremban
 ms.author: kgremban
+<<<<<<< HEAD
 ms.date: 11/08/2019
+=======
+ms.date: 11/11/2019
+>>>>>>> 7378fb10dca51afaa929b36926af0b4a5c64623b
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: "mvc, seodec18"

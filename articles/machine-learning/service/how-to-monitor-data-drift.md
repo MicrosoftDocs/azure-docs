@@ -32,7 +32,7 @@ With Azure Machine Learning, you can monitor the inputs to a model deployed on A
 + Send alerts to data drift by email.
 
 > [!Note]
-> This service is in (preview) and limited in configuration options. Please see our [API Documentation](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/?view=azure-ml-py) and [Release Notes](azure-machine-learning-release-notes.md) for details and updates. 
+> This service is in (preview) and limited in configuration options. Please see our [API Documentation](https://docs.microsoft.com/python/api/azureml-datadrift/) and [Release Notes](azure-machine-learning-release-notes.md) for details and updates. 
 
 ### How data drift is monitored in Azure Machine Learning
 
@@ -93,7 +93,7 @@ print('Details of Datadrift Object:\n{}'.format(datadrift))
 
 ## Submit a DataDriftDetector run
 
-With the `DataDriftDetector` object configured, you can submit a [data drift run](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector%28class%29?view=azure-ml-py#run-target-date--services--compute-target-name-none--create-compute-target-false--feature-list-none--drift-threshold-none-) on a given date for the model. As part of the run, enable DataDriftDetector alerts by setting the `drift_threshold` parameter. If the [datadrift_coefficient](#metrics) is above the given `drift_threshold`, an email is sent.
+With the `DataDriftDetector` object configured, you can submit a [data drift run](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector#run-target-date--services-none--compute-target-none--create-compute-target-false--feature-list-none--drift-threshold-none-) on a given date for the model. As part of the run, enable DataDriftDetector alerts by setting the `drift_threshold` parameter. If the [datadrift_coefficient](#visualize-drift-metrics) is above the given `drift_threshold`, an email is sent.
 
 ```python
 # adhoc run today

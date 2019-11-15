@@ -196,6 +196,12 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 > [!NOTE]
 > Another viable option for automating user provisioning to G Suite is to use [Google Cloud Directory Sync](https://support.google.com/a/answer/106368?hl=en). This option provisions your on-premises Active Directory identities to G Suite.
 
+## Common issues
+* G Suite requires that all provisioned users are from verified domains. Ensure that any user that you would like to provision has a UPN from a verified domain in G Suite. If a user from an un verified domain is in scope for provisioning, you will see an error in the [provisioning logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) such as "GoogleAppsInvalidDomain". You can prevent these errors and ensure that users from unverified domains are out of scope by using a [scoping filter](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+	* Target attribute: userPrincipalName
+	* Operator: REGEX MATCH or NOT REGEX MATCH
+	* Value: .*@domain.com
+
 ## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
