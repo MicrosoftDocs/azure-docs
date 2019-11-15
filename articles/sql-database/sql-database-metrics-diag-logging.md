@@ -428,6 +428,7 @@ Refer to the following tables for details about Basic metrics by resource.
 ## Advanced metrics
 
 Refer to the following table for details about advanced metrics.
+
 |**Metric**|**Metric Display Name**|**Description**|
 |---|---|---|
 |tempdb_data_size| Tempdb Data File Size Kilobytes |Tempdb Data File Size Kilobytes. Not applicable to data warehouses. This metric will be available for databases using the vCore purchasing model or 100 DTU and higher for DTU-based purchasing models. |
