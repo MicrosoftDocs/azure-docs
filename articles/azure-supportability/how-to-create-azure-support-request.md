@@ -40,11 +40,11 @@ To start a support request from anywhere in the Azure portal:
 
 1. Select the **?** in the global header. Then select **Help + support**.
 
-   ![Help and Support](./media/how-to-create-azure-support-request/HelpandSupport.png)
+   ![Help and Support](./media/how-to-create-azure-support-request/HelpandSupportNew.png)
 
 2. Select **+ New support request**. Follow the prompts to provide us with information about your problem. We'll suggest some possible solutions, gather details about the issue, and help you submit and track the support request.
 
-   ![New Support Request](./media/how-to-create-azure-support-request/NewSupportRequest.png)
+   ![New Support Request](./media/how-to-create-azure-support-request/NewSupportRequest2.png)
 
 ### Go to Help + support from a resource menu
 
@@ -52,7 +52,7 @@ To start a support request in the context of the resource, you're currently work
 
 1. From the resource menu, in the **Support + Troubleshooting** section, select **New support request**.
 
-   ![In context](./media/how-to-create-azure-support-request/Incontext.png)
+   ![In context](./media/how-to-create-azure-support-request/Incontext2.png)
 
 2. Follow the prompts to provide us with information about the problem you're having. When you start the support request process from the resource, some options are pre-selected for you.
 
@@ -66,7 +66,7 @@ The first step of the support request process gathers basic information about yo
 
 On the **Basics** tab of **New support request**, use the selectors to start to tell us about the problem. First, you'll identify some general categories for the issue type and choose the related subscription. Selecting the service (for example, "Virtual Machine running Windows") and the resource (the name of your virtual machine) is the next step to get help. Briefly describe the problem in your own words, then **Select problem type** to get more specific.
 
-![Basics blade](./media/how-to-create-azure-support-request/Basics.png)
+![Basics blade](./media/how-to-create-azure-support-request/Basics2.png)
 
 > [!NOTE]
 > Azure provides unlimited support for subscription management (things like billing, quota adjustments, and account transfers). For technical support, you need a support plan. [Learn more about support plans](https://azure.microsoft.com/support/plans).
