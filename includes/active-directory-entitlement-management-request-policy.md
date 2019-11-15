@@ -96,16 +96,16 @@ Follow these steps if you want to bypass access requests and allow administrator
 In the Approval section, you specify whether an approval is required when users request this access package. The approval settings work in the following way:
 
 - Only one of the selected approvers or fallback approvers needs to approve a request for single-stage approval. 
-- Only one of the selected approvers from each stage needs to approve a request for multi-stage approval.
+- Only one of the selected approvers from each stage needs to approve a request for 2-stage approval.
 - The approver can be a Manager, Internal sponsor, or External sponsor depending on who the policy is governing access.
-- Approval from every selected approver isn't required for single or multi-stage approval.
+- Approval from every selected approver isn't required for single or 2-stage approval.
 - The approval decision is based on whichever approver reviews the request first.
 
 Follow these steps to specify the approval settings for requests for the access package:
 
 1. To require approval for requests from the selected users, set the **Require approval** toggle to **Yes**. Or, to have requests automatically approved, set the toggle to **No**.
 
-1. To require users to provide a justification to request the access package, set the **Require requestor justification** toggle to **Yes**. Or, if users won't be required to provide justification, set the toggle to **No**.
+1. To require users to provide a justification to request the access package, set the **Require requestor justification** toggle to **Yes**.
     
 1. Now determine if requests will require single or 2-stage approval. Set the **How many stages** toggle to **1** for single stage approval or set the toggle to **2** for 2-stage approval.
 
@@ -136,13 +136,13 @@ Use the following steps to add approvers after selecting how many stages you req
 
     If a request isn't approved within this time period, it will be automatically denied. The user will have to submit another request for the access package.
 
-1. To require approvers to provide a justification for their decision, set Require approver justification to **Yes**. Or, if approvers won't be required to provide justification, set the toggle to **No**.
+1. To require approvers to provide a justification for their decision, set Require approver justification to **Yes**.
 
     The justification is visible to other approvers and the requestor.
 
 ### 2-stage approval (Preview)
 
-You'll need to add a Second Approver because 2-stage approval requires at least two approvers, one for each stage. 
+If you selected a 2-stage approval, you'll need to add a second approver.
 
 1. Add the **Second Approver**: 
     
