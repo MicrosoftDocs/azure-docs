@@ -1250,7 +1250,7 @@ The object provided as the value of the resourceIdentifier argument has these pr
 
 ## Step 4: Integrate your SCIM endpoint with the Azure AD SCIM client
 
-Azure AD can be configured to automatically provision assigned users and groups to applications that implement a specific profile of the [SCIM 2.0 protocol](https://tools.ietf.org/html/rfc7644). The specifics of the profile are documented in [Understand the Azure AD SCIM implementation](#understand-the-azure-ad-scim-implementation).
+Azure AD can be configured to automatically provision assigned users and groups to applications that implement a specific profile of the [SCIM 2.0 protocol](https://tools.ietf.org/html/rfc7644). The specifics of the profile are documented in [Step 2: Understand the Azure AD SCIM implementation](#step-2-understand-the-azure-ad-scim-implementation).
 
 Check with your application provider, or your application provider's documentation for statements of compatibility with these requirements.
 
