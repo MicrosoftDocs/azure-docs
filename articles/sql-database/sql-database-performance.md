@@ -21,10 +21,10 @@ Performance tuning options available Azure SQL Database are available on the dat
 
 | Performance tuning option | Single database and pooled database support | Instance database support |
 | :----------------------------- | ----- | ----- |
-| **[Performance overview]** - Monitor all performance activities for your database. | Yes | No | 
-| **[Performance recommendations]** - Shows performance recommendations that can improve performance of your workload. | Yes | No | 
-| **[Query Performance Insight]** - Shows performance of top consuming queries on the database. | Yes | No | 
-| **[Automatic tuning]** - Use Azure SQL Database to automatically optimize your database performance. | Yes | No | 
+| **Performance overview** - Monitor all performance activities for your database. | Yes | No | 
+| **Performance recommendations** - Shows performance recommendations that can improve performance of your workload. | Yes | No | 
+| **Query Performance Insight** - Shows performance of top consuming queries on the database. | Yes | No | 
+| **Automatic tuning** - Use Azure SQL Database to automatically optimize your database performance. | Yes | No | 
 
 ## Performance overview
 
