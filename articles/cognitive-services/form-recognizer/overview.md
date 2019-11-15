@@ -19,7 +19,7 @@ Azure Form Recognizer is a cognitive service that uses machine learning technolo
 
 Form Recognizer is made up of the following services:
 * **Custom models** - Extract key/value pairs and table data from forms. These models are trained to your own data, so they're tailored to your forms.
-* **Prebuilt receipt model** - Extract data from [USA sales receipts](link to sales receipt image) using a prebuilt model.
+* **Prebuilt receipt model** - Extract data from USA sales receipts using a prebuilt model.
 * **Layout API** - Extract text and table structures, along with their bounding box coordinates, from form documents.
 
 <!-- add diagram -->
@@ -47,7 +47,7 @@ The Form Recognizer labelled data feature uses the document [Layout API](#layout
 
 Form Recognizer also includes a model for reading USA sales receipts. This model extracts key information such as the time and date of the transaction, merchant information, amounts of taxes, line items, totals, and more. In addition, the prebuilt receipt model is trained to recognize and return all of the text on a receipt.
 
-<!-- image of receipt -->
+![Contoso receipt](./media/contoso-receipt-small.png)
 
 ## Layout API
 

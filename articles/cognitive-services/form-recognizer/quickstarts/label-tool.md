@@ -22,7 +22,6 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To complete this quickstart, you must have:
 - Access to the Form Recognizer limited-access preview. To get access to the preview, fill out and submit the [Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form.
-- [Python](https://www.python.org/downloads/) installed (if you want to run the sample locally).
 - A set of at least 11 forms of the same type. You will use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Upload the training files to the root of a blob storage container in an Azure Storage account.
 
 ## Set up the sample labeling tool
@@ -65,7 +64,7 @@ Fill in the fields with the following values:
 * **Container Name** - The name of your Azure storage container where the source forms are located.
 * **SAS** - The shared access signature (SAS) URL of your Azure Blob Storage container. To retrieve the SAS URL, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Set the expiry time to some time after you'll have used the service. Make sure the **Read**, **Write**, **Delete**, and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
-![Connection settings of sample labeling tool](../media/label-tool/connection-settings.png)
+![Connection settings of sample labeling tool](../media/label-tool/connections.png)
 
 ## Create a new project
 
@@ -75,13 +74,13 @@ In the sample labeling tool, projects store your configurations and settings. Cr
 * **Security Token** - Some project settings can include sensitive values, such as API keys or other shared secrets. Each project will generate a security token that can be used to encrypt/decrypt sensitive project settings. Security tokens can be found in Application Settings by clicking the gear icon in the lower corner of the left hand navigation bar.
 * **Source Connection** - The Azure Blob Storage connection you created in the previous step which you would like to use for this project.
 * **Folder Path** - Optional - If your source forms are located in a folder on the blob container please specify the folder name here
-* **Form Recognizer Backend** - The Form Recognizer backend container IP and port - http://localhost:5005
-* **OCR Service Uri** - The Form Recognizer Read Layout OCR container IP and port and API path - http://localhost:7005/formrecognizer/v2.0-preview/readLayout/asyncAnalyze
+* **Form Recognizer Service Uri** - Your Form Recognizer endpoint URL.
+* **API Key** - Your Form Recognizer subscription key.
 * **Description** - Optional - Project description
-* **Tags** - Optional - The key label names for your project, these can also be created within the project.
+
+![New project page on sample labeling tool](../media/label-tool/new-project.png)
 
 ## Label your forms
-
 
 When you create or open a project, the main tag editor window opens. The tag editor consists of three parts:
 
