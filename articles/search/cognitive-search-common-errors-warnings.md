@@ -27,6 +27,7 @@ The error information in this article can help you resolve errors, allowing inde
 Warnings do not stop indexing, but they do indicate conditions that could result in unexpected outcomes. Whether you take action or not depends on the data and your scenario.
 
 <a name="could-not-read-document"/>
+
 ## Error: Could not read document
 
 Indexer was unable to read the document from the data source. This can happen due to:
@@ -46,7 +47,7 @@ Indexer with a Blob data source was unable to extract the content from the docum
 | --- | --- | --- |
 | blob is over the size limit | Document is `'150441598'` bytes, which exceeds the maximum size `'134217728'` bytes for document extraction for your current service tier. | [blob indexing errors](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | blob has unsupported content type | Document has unsupported content type `'image/png'` | [blob indexing errors](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
-| blob is encrypted | Document could not be processed - it may be encrypted or password protected. | You can skip the blob with [blob settings].(search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed) |
+| blob is encrypted | Document could not be processed - it may be encrypted or password protected. | You can skip the blob with [blob settings](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed). |
 | transient issues | Error processing blob: The request was aborted: The request was canceled. | Occasionally there are unexpected connectivity issues. Try running the document through your indexer again later. |
 
 <a name="could-not-parse-document"/>
