@@ -44,11 +44,11 @@ For details see below:
 ## Timeline
 | Date | Action | 
 | --- | --- |
-| Nov 15, 2019	| Availability of D/DS15i_v2 (PAYG, 1-year RI) |
+| Nov 18, 2019	| Availability of D/DS15i_v2 (PAYG, 1-year RI) |
 | Feb 14, 2020	| Last day to buy D/DS15i_v2 1-year RI | 
 | Feb 15, 2020	 | D/DS15_v2 isolation guarantee removed | 
-| May 15, 2021	| Retire D/DS15i_v2 (all customers except who bought 3-year RI of D/DS15_v2 before November 15, 2019)| 
-| Nov 14, 2022	 | Retire D/DS15i_v2 when 3-year RIs done (for customers who bought 3-year RI of D/DS15_v2 before November 15, 2019) | 
+| May 15, 2021	| Retire D/DS15i_v2 (all customers except who bought 3-year RI of D/DS15_v2 before November 18, 2019)| 
+| Nov 17, 2022	 | Retire D/DS15i_v2 when 3-year RIs done (for customers who bought 3-year RI of D/DS15_v2 before November 18, 2019) | 
 
 ## FAQ
 ### Q: Why am I not seeing the new D/DS15i_v2 sizes in the portal?
@@ -68,7 +68,7 @@ For details see below:
 
 ### Q: I already purchased 1- or 3-year Reserved Instance for D15_v2 or Ds15_v2. How will the discount be applied to my VM usage?
 **A**: 
-RIs purchased before November 15, 2019 will automatically extend coverage to the new isolated VM series. 
+RIs purchased before November 18, 2019 will automatically extend coverage to the new isolated VM series. 
 
 | RI |	Instance Size Flexibility |	Benefit eligibility |	
 | --- | --- | --- |
@@ -79,7 +79,7 @@ RIs purchased before November 15, 2019 will automatically extend coverage to the
 Likewise for Dsv2 series.
  
 ### Q: I want to purchase additional Reserved Instances for Dv2. Which one should I choose?
-**A**: All RIs purchased after Nov 15th, 2019, have the following behavior. 
+**A**: All RIs purchased after Nov 18, 2019, have the following behavior. 
 
 | RI |	Instance Size Flexibility |	Benefit eligibility |	
 | --- | --- | --- |
