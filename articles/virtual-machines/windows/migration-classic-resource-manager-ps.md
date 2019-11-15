@@ -41,9 +41,9 @@ Here are a few best practices that we recommend as you evaluate whether to migra
 * If you have automated scripts that deploy your infrastructure and applications today, try to create a similar test setup by using those scripts for migration. Alternatively, you can set up sample environments by using the Azure portal.
 
 > [!IMPORTANT]
-> Application gateways aren't currently supported for migration from classic to Resource Manager. To migrate a classic virtual network with an application gateway, remove the gateway before you run a Prepare operation to move the network. After you complete the migration, reconnect the gateway in Azure Resource Manager.
+> Application gateways aren't currently supported for migration from classic to Resource Manager. To migrate a virtual network with an application gateway, remove the gateway before you run a Prepare operation to move the network. After you complete the migration, reconnect the gateway in Azure Resource Manager.
 >
->Azure ExpressRoute gateways that connect to ExpressRoute circuits in another subscription can't be migrated automatically. In such cases, remove the ExpressRoute gateway, migrate the virtual network, and re-create the gateway. For more information, see [Migrate ExpressRoute circuits and associated virtual networks from the classic to the Resource Manager deployment model](../../expressroute/expressroute-migration-classic-resource-manager.md).
+> Azure ExpressRoute gateways that connect to ExpressRoute circuits in another subscription can't be migrated automatically. In such cases, remove the ExpressRoute gateway, migrate the virtual network, and re-create the gateway. For more information, see [Migrate ExpressRoute circuits and associated virtual networks from the classic to the Resource Manager deployment model](../../expressroute/expressroute-migration-classic-resource-manager.md).
 
 ## Step 2: Install the latest version of PowerShell
 There are two main options to install Azure PowerShell: [PowerShell Gallery](https://www.powershellgallery.com/profiles/azure-sdk/) or [Web Platform Installer (WebPI)](https://aka.ms/webpi-azps). WebPI receives monthly updates. PowerShell Gallery receives updates on a continuous basis. This article is based on Azure PowerShell version 2.1.0.
@@ -53,13 +53,13 @@ For installation instructions, see [How to install and configure Azure PowerShel
 <br>
 
 ## Step 3: Ensure that you're an administrator for the subscription
-To perform this migration, you must be added as a co-administrator for the subscription in the [Azure portal](https://portal.azure.com).
+To perform this migration, you must be added as a coadministrator for the subscription in the [Azure portal](https://portal.azure.com).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the **Hub** menu, select **Subscription**. If you don't see it, select **All services**.
-3. Find the appropriate subscription entry, and then look at the **MY ROLE** field. For a co-administrator, the value should be _Account admin_.
+3. Find the appropriate subscription entry, and then look at the **MY ROLE** field. For a coadministrator, the value should be _Account admin_.
 
-If you're not able to add a co-administrator, contact a service administrator or co-administrator for the subscription to get yourself added.   
+If you're not able to add a coadministrator, contact a service administrator or coadministrator for the subscription to get yourself added.
 
 ## Step 4: Set your subscription, and sign up for migration
 First, start a PowerShell prompt. For migration, set up your environment for both classic and Resource Manager.
@@ -140,7 +140,7 @@ Get-AzVMUsage -Location "West US"
 
 
 ### Step 6.1: Option 1 - Migrate virtual machines in a cloud service (not in a virtual network)
-Get the list of cloud services by using the following command, and then pick the cloud service that you want to migrate. If the VMs in the cloud service are in a virtual network or if they have web or worker roles, the command returns an error message.
+Get the list of cloud services by using the following command. Then pick the cloud service that you want to migrate. If the VMs in the cloud service are in a virtual network or if they have web or worker roles, the command returns an error message.
 
 ```powershell
     Get-AzureService | ft Servicename
@@ -245,7 +245,7 @@ First, validate that you can migrate the virtual network by using the following 
     Move-AzureVirtualNetwork -Validate -VirtualNetworkName $vnetName
 ```
 
-The following command displays any warnings and errors that block migration. If validation is successful,  you can proceed with the following Prepare step:
+The following command displays any warnings and errors that block migration. If validation is successful, you can proceed with the following Prepare step:
 
 ```powershell
     Move-AzureVirtualNetwork -Prepare -VirtualNetworkName $vnetName
@@ -263,25 +263,25 @@ If the prepared configuration looks good, you can move forward and commit the re
     Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
 ```
 
-### Step 6.2 - Migrate a storage account
+### Step 6.2: Migrate a storage account
 After you're done migrating the virtual machines, perform the following prerequisite checks before you migrate the storage accounts.
 
 > [!NOTE]
 > If your storage account has no associated disks or VM data, you can skip directly to the "Validate storage accounts and start migration" section.
 
 * Prerequisite checks if you migrated any VMs or your storage account has disk resources:
-    * Migrate classic virtual machines whose disks are stored in the storage account.
+    * Migrate virtual machines whose disks are stored in the storage account.
 
-        The following command returns RoleName and DiskName properties of all the classic VM disks in the storage account. RoleName is the name of the virtual machine to which a disk is attached. If this command returns disks, then ensure that virtual machines to which these disks are attached are migrated before you migrate the storage account.
+        The following command returns RoleName and DiskName properties of all the VM disks in the storage account. RoleName is the name of the virtual machine to which a disk is attached. If this command returns disks, then ensure that virtual machines to which these disks are attached are migrated before you migrate the storage account.
         ```powershell
          $storageAccountName = 'yourStorageAccountName'
           Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Select-Object -ExpandProperty AttachedTo -Property `
           DiskName | Format-List -Property RoleName, DiskName
 
         ```
-    * Delete unattached classic VM disks stored in the storage account.
+    * Delete unattached VM disks stored in the storage account.
 
-        Find unattached classic VM disks in the storage account by using the following command:
+        Find unattached VM disks in the storage account by using the following command:
 
         ```powershell
             $storageAccountName = 'yourStorageAccountName'

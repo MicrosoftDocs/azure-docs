@@ -22,9 +22,9 @@ ms.author: delhan
 
 When you troubleshoot issues on an Azure virtual machine (VM), you can connect to the VM by using the remote tools that are discussed in this article instead of using the Remote Desktop Protocol (RDP).
 
-## Serial Console
+## Serial console
 
-Use a [Virtual machine Serial Console](serial-console-windows.md) to run commands on the remote Azure VM.
+Use a [serial console for Azure Virtual Machines](serial-console-windows.md) to run commands on the remote Azure VM.
 
 ## Remote CMD
 
@@ -40,9 +40,9 @@ psexec \\<computer>-u user -s cmd
 >* The -s parameter makes sure that the command is invoked by using System Account (administrator permission).
 >* PsExec uses TCP ports 135 and 445. Therefore, the two ports have to be open on the firewall.
 
-## Run Command
+## Run command
 
-For more information about how to use the Run Command feature to run scripts on the VM, see [Run PowerShell scripts in your Windows VM with Run Command](../windows/run-command.md).
+For more information about how to use the run command feature to run scripts on the VM, see [Run PowerShell scripts in your Windows VM with run command](../windows/run-command.md).
 
 ## Custom Script Extension
 
@@ -121,7 +121,7 @@ Set-AzVMCustomScriptExtension -Name "CustomScriptExtension" -ResourceGroupName $
 >
 >For Azure Resource Manager VMs, you must open port 5986 on the network security group (NSG). For more information, see Security groups. 
 >
->For RDFE VMs, you must have an endpoint that has a private port (5986) and a public port. Then, you have to also open that public-facing port on the NSG.
+>For RDFE VMs, you must have an endpoint that has a private port (5986) and a public port. Then, you also have to open that public-facing port on the NSG.
 
 ### Set up the client computer
 
@@ -220,14 +220,14 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 
 5. Make any necessary registry changes.
 
-## Remote Services Console
+## Remote services console
 
 >[!NOTE]
 >TCP ports 135 or 445 must be open in order to use this option.
 >
 >For Azure Resource Manager VMs, you have to open port 5986 on the NSG. For more information, see Security groups. 
 >
->For RDFE VMs, you must have an endpoint that has a private port 5986 and a public port. Then, you also have to open that public-facing port on the NSG.
+>For RDFE VMs, you must have an endpoint that has a private port 5986 and a public port. You also have to open that public-facing port on the NSG.
 
 1. From another VM on the same virtual network, open an instance of **Services.msc**.
 
