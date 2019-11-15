@@ -1522,9 +1522,9 @@
     href: /azure/databricks/dev-tools/stack
     maintainContext: true
   - name: Azure Databricks REST API
-    href: /azure/databricks//rest/api/databricks
+    href: /rest/api/databricks
   - name: Resource Manager template
-    href: /azure/databricks//azure/templates/microsoft.databricks/workspaces  
+    href: /azure/templates/microsoft.databricks/workspaces  
 - name: Resources
   items:
   - name: Release notes
