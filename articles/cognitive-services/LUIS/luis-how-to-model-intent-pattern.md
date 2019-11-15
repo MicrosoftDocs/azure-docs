@@ -19,17 +19,18 @@ After a LUIS app receives endpoint utterances, use a [pattern](luis-concept-patt
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 ## Add template utterance to create pattern
+
 1. Open your app by selecting its name on **My Apps** page, and then select **Patterns** in the left panel, under **Improve app performance**.
 
-    ![Screenshot of Patterns List](./media/luis-how-to-model-intent-pattern/patterns-1.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of Patterns List](./media/luis-how-to-model-intent-pattern/patterns-1.png)
 
-2. Select the correct intent for the pattern. 
+1. Select the correct intent for the pattern. 
 
-    ![Select intent](./media/luis-how-to-model-intent-pattern/patterns-2.png)
+1. In the template textbox, type the template utterance and select Enter. When you want to enter the entity name, use the correct pattern entity syntax. Begin the entity syntax with `{`. The list of entities displays. Select the correct entity. 
 
-3. In the template textbox, type the template utterance and select Enter. When you want to enter the entity name, use the correct pattern entity syntax. Begin the entity syntax with `{`. The list of entities displays. Select the correct entity, and then select Enter. 
-
-    ![Screenshot of entity for pattern](./media/luis-how-to-model-intent-pattern/patterns-3.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of entity for pattern](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 
     If your entity includes a [role](luis-concept-roles.md), indicate the role with a single colon, `:`, after the entity name, such as `{Location:Origin}`. The list of roles for the entities displays in a list. Select the role, and then select Enter. 
 
