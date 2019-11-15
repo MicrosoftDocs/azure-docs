@@ -303,6 +303,14 @@
   - name: Enable Azure Monitor for VMs (preview)
     displayName: insights, log analytics, builtin
     href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/governance/policy/toc.json
+  - name: Azure Lighthouse integration
+    items:
+    - name: Deploy a policy at scale
+      displayName: lighthouse, scale, deploy
+      href: ../../lighthouse/how-to/policy-at-scale.md?toc=/azure/governance/policy/toc.json
+    - name: Deploy a policy that can be remediated
+      displayName: lighthouse, scale, remediate
+      href: ../../lighthouse/how-to/deploy-policy-remediation.md?toc=/azure/governance/policy/toc.json
 - name: Reference
   items:
   - name: Azure CLI
