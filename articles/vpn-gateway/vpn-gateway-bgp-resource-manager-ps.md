@@ -1,5 +1,5 @@
 ---
-title: 'Configure BGP on Azure VPN Gateways: Resource Manager: PowerShell | Microsoft Docs'
+title: 'Azure VPN Gateway: Configure BGP: PowerShell'
 description: This article walks you through configuring BGP with Azure VPN Gateways using Azure Resource Manager and PowerShell.
 services: vpn-gateway
 documentationcenter: na
