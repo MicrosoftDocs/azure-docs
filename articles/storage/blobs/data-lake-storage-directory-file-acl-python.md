@@ -211,7 +211,7 @@ def manage_file_permissions():
 
 ## Download from a directory 
 
-Open a local file for writing. Then, create a **DataLakeFileClient** instance that represents the file that you want to download. Call the **DataLakeFileClient.read_file** to read bytes from the file and then write those bytes to the local file. Make sure to complete the download by calling the **DataLakeFileClient.flush_data** method.
+Open a local file for writing. Then, create a **DataLakeFileClient** instance that represents the file that you want to download. Call the **DataLakeFileClient.read_file** to read bytes from the file and then write those bytes to the local file. 
 
 ```python
 def download_file_from_directory():
@@ -230,8 +230,6 @@ def download_file_from_directory():
 
         local_file.close()
 
-        file_client.flush_data(len(downloaded_bytes))
-
     except Exception as e:
      print(e)
 ```
@@ -239,7 +237,7 @@ def download_file_from_directory():
 
 List directory contents by calling the **FileSystemClient.get_paths** method, and then enumerating through the results.
 
-This example, prints the names of each file that is located in a directory named `my-directory`.
+This example, prints the path of each subdirectory and file that is located in a directory named `my-directory`.
 
 ```python
 def list_directory_contents():
