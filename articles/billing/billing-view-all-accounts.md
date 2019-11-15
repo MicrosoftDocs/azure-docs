@@ -31,6 +31,8 @@ Azure portal supports the following type of billing accounts:
 
 - **Microsoft Partner Agreement**: A billing account for a Microsoft Partner Agreement is created for Cloud Solution Provider (CSP) partners to manage their customers in the new commerce experience. Partners need to have at least one customer with an [Azure plan](https://docs.microsoft.com/partner-center/purchase-azure-plan) to see their billing account in the Azure portal. For more information, see [Get started with your billing account for Microsoft Partner Agreement](mpa-overview.md).
 
+To determine the tye of your billing account, see [Check the type of your billing account](#check-the-type-of-your-billing-account).
+
 ## Scopes for billing accounts
 A scope is a node within a billing account that users use to view and manage billing. It is where users manage billing data, payments, invoices, and conduct general account management. 
 
@@ -95,7 +97,7 @@ A scope is a node within a billing account that users use to view and manage bil
    ![Screenshot that shows billing scopes](./media/billing-view-all-accounts/List-of-scopes.png)
 
 
-## Check access to a Microsoft Customer Agreement
+## Check the type of your billing account
 [!INCLUDE [billing-check-mca](../../includes/billing-check-account-type.md)]
 
 
