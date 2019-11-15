@@ -1,18 +1,11 @@
 ---
-title: Azure CLI Azure Cache for Redis samples | Microsoft Docs
+title: Azure CLI Azure Cache for Redis samples
 description: Azure CLI samples for Azure Cache for Redis.
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
 
-ms.assetid: 8d2de145-50c0-4f76-bf8f-fdf679f03698
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/14/2017
 ms.author: yegu
 
