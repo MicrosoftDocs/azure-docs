@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Label forms, train a model, and analyze a form using the labeling tool - Form Recognizer"
+title: "Quickstart: Label forms, train a model, and analyze a form using the sample labeling tool - Form Recognizer"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll use the Form Recognizer labeling tool to manually label form documents. Then you'll train a custom model with the labeled documents and use the model to extract key/value pairs and tables.
+description: In this quickstart, you'll use the Form Recognizer sample labeling tool to manually label form documents. Then you'll train a custom model with the labeled documents and use the model to extract key/value pairs and tables.
 author: PatrickFarley
 manager: nitinme
 
@@ -12,9 +12,9 @@ ms.date: 11/14/2019
 ms.author: pafarley
 ---
 
-# Train a Form Recognizer model with labels using the labeling tool
+# Train a Form Recognizer model with labels using the sample labeling tool
 
-In this quickstart, you'll use the Form Recognizer REST API with the provided labeling tool to train a custom model with manually labeled data. See the [Train with labels](../overview.md#train-with-labels) section of the overview to learn more about this feature.
+In this quickstart, you'll use the Form Recognizer REST API with the sample labeling tool to train a custom model with manually labeled data. See the [Train with labels](../overview.md#train-with-labels) section of the overview to learn more about this feature.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -24,7 +24,10 @@ To complete this quickstart, you must have:
 - Access to the Form Recognizer limited-access preview. To get access to the preview, fill out and submit the [Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form.
 - [Python](https://www.python.org/downloads/) installed (if you want to run the sample locally).
 - A set of at least 11 forms of the same type. You will use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Upload the training files to the root of a blob storage container in an Azure Storage account.
-- Form Recognizer Feedback Loop container installed. Follow the instructions in [How to install and run the Feedback Loop container](../install-label-ux-container.md).
+
+## Set up the sample labeling tool
+
+tbd
 
 ## Set up input data
 
@@ -43,9 +46,9 @@ Enable CORS on your storage account. Select your storage account in the Azure po
 > [!div class="mx-imgBorder"]
 > ![CORS setup in the Azure portal](../media/label-tool/cors-setup.png)
 
-## Connect to the Feedback Loop tool
+## Connect to the sample labeling tool
 
-The Feedback Loop tool connects to a source (where your original forms are) and a target (the location where it exports the created labels and output data).
+The sample labeling tool connects to a source (where your original forms are) and a target (the location where it exports the created labels and output data).
 
 Connections can be set up and shared across projects. They use an extensible provider model, so you can easily add new source/target providers.
 
@@ -60,11 +63,11 @@ Fill in the fields with the following values:
 * **Container Name** - The name of your Azure storage container where the source forms are located.
 * **SAS** - The shared access signature (SAS) URL of your Azure Blob Storage container. To retrieve the SAS URL, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Set the expiry time to some time after you'll have used the service. Make sure the **Read**, **Write**, **Delete**, and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
-![Connection settings of Feedback Loop tool](../media/label-tool/connection-settings.png)
+![Connection settings of sample labeling tool](../media/label-tool/connection-settings.png)
 
 ## Create a new project
 
-In the Feedback Loop tool, projects store your configurations and settings. Create a new project and fill in the fields with the following values:
+In the sample labeling tool, projects store your configurations and settings. Create a new project and fill in the fields with the following values:
 
 * **Display Name** - the project display name
 * **Security Token** - Some project settings can include sensitive values, such as API keys or other shared secrets. Each project will generate a security token that can be used to encrypt/decrypt sensitive project settings. Security tokens can be found in Application Settings by clicking the gear icon in the lower corner of the left hand navigation bar.
@@ -117,4 +120,4 @@ Click on the Predict (rectangles) icon on the left to test your model. Select th
 
 ## Next steps
 
-In this quickstart, you learned how to use the Form Recognizer Feedback Loop tool to train a model with manually labeled data. Next, see the [API reference documentation](https://aka.ms/form-recognizer/api) to explore the Form Recognizer API in more depth.
+In this quickstart, you learned how to use the Form Recognizer sample labeling tool to train a model with manually labeled data. Next, see the [API reference documentation](https://aka.ms/form-recognizer/api) to explore the Form Recognizer API in more depth.

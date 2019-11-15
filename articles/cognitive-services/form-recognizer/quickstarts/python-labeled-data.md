@@ -48,7 +48,7 @@ All of these files should occupy the same sub-folder and be in the following for
 * input_file2.pdf.labels.json
 * ...
 
-<!-- When labeling using the Form Recognizer Feedback Loop Sample UX, the sample UX creates these label and OCR files in the relevant blob container folder. -->
+<!-- When labeling using the Form Recognizer sample labeling tool, the tool creates these label and OCR files in the relevant blob container folder. -->
 
 ### Create the OCR output files
 

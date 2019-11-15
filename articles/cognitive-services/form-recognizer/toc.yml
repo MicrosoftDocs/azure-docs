@@ -33,10 +33,10 @@
         href: quickstarts/python-layout.md
   - name: Using the .NET SDK
     href: quickstarts/dotnet-sdk.md
-  - name: Using the labeling UX
+  - name: Using the sample labeling tool
     items:
     - name: Train a custom model with labels
-      href: quickstarts/label-ux.md
+      href: quickstarts/label-tool.md
 - name: Tutorials
   items:
   - name: Use Form Recognizer with Logic Apps

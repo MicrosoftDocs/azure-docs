@@ -69,7 +69,7 @@ When you're granted access to use Form Recognizer, you'll receive a Welcome emai
            * [Quickstart: Train without labels a Form Recognizer model and extract form data by using the REST API with cURL](quickstarts/curl-train-extract.md)
            * [Quickstart: Train without labels a Form Recognizer model and extract form data by using the REST API with Python](quickstarts/python-train-extract.md)
     * Train with labels 
-           * [Quickstart: Train with labels a Form Recognizer model and extract form data by using the Labeling Tool](quickstarts/label.md)
+           * [Quickstart: Train with labels a Form Recognizer model and extract form data by using the sample labeling tool](quickstarts/label.md)
            * [Quickstart: Train with labels a Form Recognizer model and extract form data by using the REST API with Python](quickstarts/python-train-with-labels-extract.md)
            * [Quickstart: Train with labels a Form Recognizer model and extract form data by using the REST API with cURL](quickstarts/curl-train-wiht-labels-extract.md)   
 * Prebuilt receipts - extract data from US thermal receipts
