@@ -12,8 +12,8 @@ ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 11/10/2019
+ms.topic: How-to
+ms.date: 11/15/2019
 ms.author: mimart
 ms.reviewer: arvinh
 
@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 # Configure provisioning using Microsoft Graph APIs
 
-The Azure portal is a convenient way to configure provisioning for individual apps one at a time. But if you're creating several—or even hundreds—of instances of an application, it can be easier to automate app creation and configuration with Microsoft Graph APIs. This article outlines how to automate provisioning configuration through APIs. This method is commonly used for applications like [Amazon Web Services](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-single-sign-on) and [Azure Databricks]().
+The Azure portal is a convenient way to configure provisioning for individual apps one at a time. But if you're creating several—or even hundreds—of instances of an application, it can be easier to automate app creation and configuration with Microsoft Graph APIs. This article outlines how to automate provisioning configuration through APIs. This method is commonly used for applications like [Amazon Web Services](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-single-sign-on).
 
 **Overview of steps for using Microsoft Graph APIs to automate provisioning configuration**
 
@@ -32,9 +32,8 @@ The Azure portal is a convenient way to configure provisioning for individual ap
 |[Step 1. Create the gallery application](#step-1-create-the-gallery-application)     |Sign-in to the API client <br> Retrieve the gallery application template <br> Create the gallery application         |
 |[Step 2. Create provisioning job based on template](#step-2-create-the-provisioning-job-based-on-the-template)     |Retrieve the template for the provisioning connector <br> Create the provisioning job         |
 |[Step 3. Authorize access](#step-3-authorize-access)     |Test the connection to the application <br> Save the credentials         |
-|[Step 4. Configure provisioning](#step-4-configure-provisioning)     |Set the scope <br> Add custom attribute mappings         |
-|[Step 5. Start provisioning job](#step-5-start-the-provisioning-job)     |Start the job         |
-|[Step 6. Monitor provisioning](#step-6-monitor-provisioning)     |Check the status of the provisioning job <br> Retrieve the provisioning logs         |
+|[Step 4. Start provisioning job](#step-5-start-the-provisioning-job)     |Start the job         |
+|[Step 5. Monitor provisioning](#step-6-monitor-provisioning)     |Check the status of the provisioning job <br> Retrieve the provisioning logs         |
 
 > [!NOTE]
 > The response objects shown in this article may be shortened for readability. All the properties will be returned from an actual call.
@@ -312,243 +311,7 @@ PUT https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secr
 HTTP/1.1 204 No Content
 ```
 
-## Step 4: Configure provisioning
-
-### Set scope	
-
-Set the scope for who will be provisioned to the application. Skip this step for Amazon Web Service as only role imports are supported. As a best practice, start by scoping to users assigned to the application and change that to all users and groups if needed.   
-
-#### *Request*
-```json	
-https://graph.microsoft.com/beta/servicePrincipals/35b92148-dbe0-4b8e-9836-60512ec4643d/Credentials	
-fieldValues.oauth2AccessTokenCreationTime	
-{galleryApplicationId: "97e0a159-74ec-4db1-918a-c03a9c3b6b81", templateId: "DropboxSCIMOutDelta",…}	
-fieldConfigurations: {,…}	
-baseaddress: {defaultHelpText: null, defaultLabel: null, defaultValue: "https://www.dropbox.com/scim/v2",…}	
-defaultHelpText: null	
-defaultLabel: null	
-defaultValue: "https://www.dropbox.com/scim/v2"	
-extendedProperties: null	
-hidden: true	
-name: "baseaddress"	
-optional: false	
-readOnly: false	
-secret: false	
-validationRegEx: null	
-fieldValues: {oauth2AccessToken: "*", oauth2AccessTokenCreationTime: "2019-10-14T18:30:41.0425992Z",…}	
-baseaddress: "https://www.dropbox.com/scim/v2"	
-oauth2AccessToken: "*"	
-oauth2AccessTokenCreationTime: "2019-10-14T18:30:41.0425992Z"	
-oauth2ClientId: "a3j5adzwuaf7gv9"	
-oauth2ClientSecret: "*"	
-oauth2RefreshToken: ""	
-galleryApplicationId: "97e0a159-74ec-4db1-918a-c03a9c3b6b81"	
-galleryApplicationKey: "dropbox"	
-notificationEmail: null	
-oAuth2AuthorizeUrl: "https://www.dropbox.com/1/oauth2/authorize?client_id=a3j5adzwuaf7gv9&response_type=code&redirect_uri=https%3a%2f%2fportal.azure.com%2fTokenAuthorize"	
-oAuthEnabled: true	
-sendNotificationEmails: false	
-syncAll: false	
-synchronizationLearnMoreIbizaFwLink: ""	
-templateId: "DropboxSCIMOutDelta"	
-```
-
-#### *Response*
-
-
-
-### Add a custom attribute to your attribute mappings (optional)
-The application template provides the default attributes required to set up provisioning to the application. If you need to add an additional attribute mapping to your configuration, use the steps below. This is not a required or recommended step. 
-
-#### Get the synchronization schema
-The following example shows how to get the synchronization schema.
-
-#### *Request*
-```msgraph-interactive
-GET https://graph.microsoft.com/beta/servicePrincipals/{servicePrincipalId}/synchronization/jobs/{jobId}/schema
-Authorization: Bearer {Token}
-```
-
-#### *Response*
-<!-- {
-  "blockType": "response",
-  "truncated": true,
-  "@odata.type": "microsoft.graph.synchronizationSchema"
-} -->
-```http
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-{
-  "directories": [
-	    {
-		      "id": "66e4a8cc-1b7b-435e-95f8-f06cea133828",
-		      "name": "Azure Active Directory",
-		      "objects": [
-			    {
-		            "attributes": [
-			            {
-			              "anchor": true,
-			              "caseExact": false,
-			              "defaultValue": null,
-			              "metadata": [],
-			              "multivalued": false,
-			              "mutability": "ReadWrite",
-			              "name": "objectId",
-			              "required": false,
-			              "referencedObjects": [],
-			              "type": "String"
-			            },
-			            {
-			              "anchor": false,
-			              "caseExact": false,
-			              "defaultValue": null,
-			              "metadata": [],
-			              "multivalued": false,
-			              "mutability": "ReadWrite",
-			              "name": "streetAddress",
-			              "required": false,
-			              "referencedObjects": [],
-			              "type": "String"
-			            }
-					],
-					"name": "User"
-				}
-			 ]
-		},
-		{
-		      "id": "8ffa6169-f354-4751-9b77-9c00765be92d",
-		      "name": "salesforce.com",
-		      "objects": []
-		}
-  ],
- "synchronizationRules": [
-	    {
-	      "editable": true,
-	      "id": "4c5ecfa1-a072-4460-b1c3-4adde3479854",
-	      "name": "USER_OUTBOUND_USER",
-	      "objectMappings": [
-		        {
-			        "attributeMappings": [
-				            {
-				              "defaultValue": "True",
-				              "exportMissingReferences": false,
-				              "flowBehavior": "FlowWhenChanged",
-				              "flowType": "Always",
-				              "matchingPriority": 0,
-				              "source": {
-				                "expression": "Not([IsSoftDeleted])",
-				                "name": "Not",
-				                "parameters": [
-				                  {
-				                    "key": "source",
-				                    "value": {
-				                      "expression": "[IsSoftDeleted]",
-				                      "name": "IsSoftDeleted",
-				                      "parameters": [],
-				                      "type": "Attribute"
-				                    }
-				                  }
-				                ],
-				                "type": "Function"
-				              },
-				              "targetAttributeName": "IsActive"
-				            }
-			         ],
-			        "enabled": true,
-			        "flowTypes": "Add, Update, Delete",
-			        "name": "Synchronize Azure Active Directory Users to salesforce.com",
-			        "scope": null,
-			        "sourceObjectName": "User",
-			        "targetObjectName": "User"
-			}]
-		}]
-}
-```
-
-#### Add a definition for the officeCode attribute and a mapping between attributes
-
-Use a plain text editor of your choice (for example, [Notepad++](https://notepad-plus-plus.org/) or [JSON Editor Online](https://www.jsoneditoronline.org/)) to:
-
-1. Add an [attribute definition](synchronization-attributedefinition.md) for the `officeCode` attribute. 
-
-	- Under directories, find the directory with the name salesforce.com, and in the object's array, find the one named **User**.
-	- Add the new attribute to the list, specifying the name and type, as shown in the following example.
-
-2. Add an [attribute mapping](synchronization-attributemapping.md) between `officeCode` and `extensionAttribute10`.
-
-	- Under [synchronizationRules](synchronization-synchronizationrule.md), find the rule that specifies Azure AD as the source directory, and Salesforce.com as the target directory (`"sourceDirectoryName": "Azure Active Directory",   "targetDirectoryName": "salesforce.com"`).
-	- In the [objectMappings](synchronization-objectmapping.md) of the rule, find the mapping between users (`"sourceObjectName": "User",   "targetObjectName": "User"`).
-	- In the [attributeMappings](synchronization-attributemapping.md) array of the **objectMapping**, add a new entry, as shown in the following example.
-
-```json
-{  
-    "directories": [
-    {
-        "id": "8ffa6169-f354-4751-9b77-9c00765be92d",
-            "name": "salesforce.com",
-            "objects": [
-            {
-                "attributes": [
-                        {
-                            "name": "officeCode",
-                            "type": "String"
-                        }
-                ],
-                "name":"User"
-            }]
-    }
-    ],
-    "synchronizationRules": [
-        {
-        "editable": true,
-        "id": "4c5ecfa1-a072-4460-b1c3-4adde3479854",
-        "name": "USER_OUTBOUND_USER",
-        "objectMappings": [
-            {
-            "attributeMappings": [
-            	{
-                    "source": {
-							"name": "extensionAttribute10",
-							"type": "Attribute"
-                    	},
-                    "targetAttributeName": "officeCode"
-                }
-            ],
-            "name": "Synchronize Azure Active Directory Users to salesforce.com",
-            "scope": null,
-            "sourceObjectName": "User",
-            "targetObjectName": "User"
-            }
-        ],
-    "priority": 1,
-        "sourceDirectoryName": "Azure Active Directory",
-        "targetDirectoryName": "salesforce.com"
-    }
-	]
-}
-```
-
-#### Save the modified synchronization schema
-
-When you save the updated synchronization schema, make sure that you include the entire schema, including the unmodified parts. This request will replace the existing schema with the one that you provide.
-
-#### *Request*
-```http
-PUT https://graph.microsoft.com/beta/servicePrincipals/{servicePrincipalId}/synchronization/jobs/{jobId}/schema
-{
-    "directories": [..],
-    "synchronizationRules": [..]
-}
-```
-
-#### *Response*
-```http
-HTTP/1.1 201 No Content
-```
-
-
-## Step 5: Start the provisioning job
+## Step 4: Start the provisioning job
 Now that the provisioning job is configured, use the following command to [start the job](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-start?view=graph-rest-beta&tabs=http). 
 
 
@@ -572,7 +335,7 @@ HTTP/1.1 204 No Content
 ```
 
 
-## Step 6: Monitor provisioning
+## Step 5: Monitor provisioning
 
 ### Monitor the provisioning job status
 
