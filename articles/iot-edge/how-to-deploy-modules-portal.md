@@ -98,8 +98,10 @@ You can deploy an Iot Edge module from the marketplace in two ways:
 
   The module you select is automatically configured for your subscription, resource group, and device. It then appears in your list of IoT Edge modules. Some modules may require additional configuration.
 
-  > [!TIP]
+    > [!TIP]
   > The information about Iot Edge modules from the Azure IoT Hub is limited. You can first learn more about the [IoT Edge modules](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules) in the Azure Marketplace.
+
+  Select **Next: Routes** and continue with deployment as described by [Specify routes](#specify-routes) and [Review Deployment](#review-deployment) earlier in this article.
 
 ## Next steps
 
