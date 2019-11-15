@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
-ms.date: 08/27/2019
+ms.date: 11/14/2019
 ---
 # Use virtual network service endpoints and rules for database servers
 
@@ -200,8 +200,6 @@ Connection error 40914 relates to *virtual network rules*, as specified on the F
 
 *Error resolution:* Enter the client's IP address as an IP rule. Do this by using the Firewall pane in the Azure portal.
 
-A list of several SQL Database error messages is documented [here][sql-database-develop-error-messages-419g].
-
 <a name="anchor-how-to-by-using-firewall-portal-59j" />
 
 ## Portal can create a virtual network rule
@@ -292,7 +290,6 @@ The virtual network rule feature for Azure SQL Database became available in late
 [expressroute-indexmd-744v]: ../expressroute/index.yml
 [rbac-what-is-813s]:../role-based-access-control/overview.md
 [sql-db-firewall-rules-config-715d]: sql-database-firewall-configure.md
-[sql-database-develop-error-messages-419g]: sql-database-develop-error-messages.md
 [sql-db-vnet-service-endpoint-rule-powershell-md-52d]: sql-database-vnet-service-endpoint-rule-powershell.md
 [sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100]: sql-database-vnet-service-endpoint-rule-powershell.md#a-verify-subnet-is-endpoint-ps-100
 [vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md

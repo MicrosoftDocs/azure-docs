@@ -23,7 +23,7 @@ The table summarizes supported scenarios for physical servers.
 
 **Deployment** | **Details***
 --- | ---
-**Assess on-premises physical servers** | [Set up](tutorial-prepare-physical.md) your first assessment.
+**Assess on-premises physical servers** | [Set up](tutorial-prepare-physical.md) your first assessment.<br/><br/> [Run](tutorial-assess-physical.md) an assessment.
 **Migrate physical servers to Azure** | [Try out](tutorial-migrate-physical-virtual-machines.md) migration to Azure.
 
 
@@ -32,7 +32,7 @@ The table summarizes supported scenarios for physical servers.
 **Support** | **Details**
 --- | ---
 **Azure permissions** | You need Contributor or Owner permissions in the subscription to create an Azure Migrate project.
-**Physical servers** | Assess up to 250 physical servers in a single project. You can have multiple projects in an Azure subscription. A project can include physical servers, VMware VMs and Hyper-V VMs, up to the assessment limits.
+**Physical servers** | Assess up to 35,000 physical servers in a single project. You can have multiple projects in an Azure subscription. A project can include physical servers, VMware VMs and Hyper-V VMs, up to the assessment limits.
 **Geography** | You can create Azure Migrate projects in a number of geographies. Although you can create projects in specific geographies, you can assess or migrate machines for other target locations. The project geography is only used to store the discovered metadata.
 
   **Geography** | **Metadata storage location**
@@ -61,7 +61,7 @@ The table summarizes supported scenarios for physical servers.
 | :-------------------       | :------------------- |
 | **Physical server deployment**       | The physical server can be standalone or deployed in a cluster. |
 | **Permissions**           | **Windows:** Set up a local user account on all the Windows servers that you want to include in the discovery.The user account needs to be added to these groups-Remote Desktop Users, Performance Monitor Users and Performance Log users. <br/> **Linux:** You need a root account on the Linux servers that you want to discover. |
-| **Operating system** | All [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) and [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) operating systems that are supported by Azure. |
+| **Operating system** | All [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) and [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) operating systems are supported except the following:<br/> Windows Server 2003 <br/> SUSE Linux|
 
 
 ## Assessment-appliance requirements
@@ -70,9 +70,9 @@ For assessment, Azure Migrate runs a lightweight appliance to discover physical 
 
 | **Support**                | **Details**               
 | :-------------------       | :------------------- |
-| **Appliance deployment**   |  You deploy the appliance either on a physical server or VM.<br/>  The host machine must be running Windows Server 2012 R2 or later.<br/> The host needs sufficient space to allocate 16 GB RAM, 8 vCPUs, around 80 GB of storage space, and an external switch for the appliance VM.<br/> The appliance needs a static or dynamic IP address, and internet access.
+| **Appliance deployment**   |  You deploy the appliance either on a physical server or a virtual machine.<br/>  The host machine must be running Windows Server 2012 R2 or later.<br/> The host needs sufficient space to allocate 16 GB RAM, 8 vCPUs, around 80 GB of storage space, and an external switch for the appliance VM.<br/> The appliance needs a static or dynamic IP address, and internet access.
 | **Azure Migrate project**  |  An appliance can be associated with a single project.<br/> Any number of appliances can be associated with a single project.<br/> You can assess up to 35,000 machines in a project.
-| **Discovery**              | A single appliance can discover up to 200 servers.
+| **Discovery**              | A single appliance can discover up to 250 servers.
 | **Assessment group**       | You can add up to 35,000 machines in a single group.
 | **Assessment**             | You can assess up to 35,000 machines in a single assessment.
 
