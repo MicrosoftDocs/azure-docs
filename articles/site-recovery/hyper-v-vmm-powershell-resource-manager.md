@@ -1,5 +1,5 @@
 ---
-title: Set up disaster recovery of Hyper-V VMs in VMM clouds to a secondary site with Azure Site Recovery and PowerShell | Microsoft Docs
+title: Set up Hyper-V (with VMM) disaster recovery to a secondary site with Azure Site Recovery/PowerShell 
 description: Describes how to set up disaster recovery of Hyper-V VMs in VMM clouds to a secondary VMM site using Azure Site Recovery and PowerShell.
 services: site-recovery
 author: sujayt

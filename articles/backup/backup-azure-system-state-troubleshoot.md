@@ -125,7 +125,7 @@ To validate Windows Server Backup status, perform the steps below:
 
 If the job fails, it indicates a WSB issue that would result in MARS agent System State Backups failure.
 
-## Common Errors
+## Common errors
 
 ### VSS Writer timeout error
 
