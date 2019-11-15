@@ -65,7 +65,7 @@ You use the device SDK to build the included sample code. The application you bu
 1. Configure the _device connection string_:
 
     ```cmd/sh
-    set DEVICE_CONNECTION_STRING=<your device connection string>
+    set DEVICE_CONNECTION_STRING=<YourDeviceConnectionString>
     ```
 
 ## Run the device sample
@@ -86,7 +86,7 @@ Keep the application running while you complete the next steps.
 
 [!INCLUDE [iot-pnp-iot-explorer-1.md](../../includes/iot-pnp-iot-explorer-1.md)]
 
-4. To ensure the tool can read the interface model definitions from your device, select **Settings**. In the Settings menu, **On the connected device** may already appear in the list of locations to check; if it does not, select **+ Add module definition source** and then **On the connected device** to add it.
+4. To ensure the tool can read the interface model definitions from your device, select **Settings**. In the Settings menu, **On the connected device** may already appear in the in the Plug and Play configurations; if it does not, select **+ Add module definition source** and then **On the connected device** to add it.
 
 1. On the device overview page, find the device identity you created previously. With the device application still running in the command prompt, check that the device's **Connection State** in Azure IoT explorer is reporting as _Connected_ (if not, hit **Refresh** until it is). Select the device to view more details.
 

@@ -77,7 +77,7 @@ Run a sample application in the SDK to simulate an IoT Plug and Play device that
 ```cmd\sh
 cd digitaltwin_client\samples\digitaltwin_sample_device\Release
 copy ..\EnvironmentalSensor.interface.json .
-digitaltwin_sample_device.exe "<your device connection string>"
+digitaltwin_sample_device.exe "<YourDeviceConnectionString>"
 ```
 
 The simulated device starts sending telemetry data to IoT Hub, listening for commands, and listening for property updates.
@@ -86,7 +86,7 @@ The simulated device starts sending telemetry data to IoT Hub, listening for com
 
 [!INCLUDE [iot-pnp-iot-explorer-1.md](../../includes/iot-pnp-iot-explorer-1.md)]
 
-4. To ensure the tool can read the interface model definitions from your device, select **Settings**. In the Settings menu, **On the connected device** may already appear in the list of locations to check; if it does not, select **+ Add module definition source** and then **On the connected device** to add it.
+4. To ensure the tool can read the interface model definitions from your device, select **Settings**. In the Settings menu, **On the connected device** may already appear in the Plug and Play configurations; if it does not, select **+ Add module definition source** and then **On the connected device** to add it.
 
 1. On the device overview page, find the device identity you created previously, and select it to view more details.
 

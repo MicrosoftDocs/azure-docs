@@ -66,7 +66,7 @@ You use the device SDK to build the included sample code. The application you bu
 1. Configure the _device connection string_:
 
     ```cmd/sh
-    set DIGITAL_TWIN_DEVICE_CONNECTION_STRING=<your device connection string>
+    set DIGITAL_TWIN_DEVICE_CONNECTION_STRING=<YourDeviceConnectionString>
     ```
 
 ## Run the device sample
@@ -83,7 +83,7 @@ The simulated device starts sending telemetry data to IoT Hub, listening for com
 
 [!INCLUDE [iot-pnp-iot-explorer-1.md](../../includes/iot-pnp-iot-explorer-1.md)]
 
-4. To ensure the tool can read the interface model definitions from your device, select **Settings**. In the Settings menu, **On the connected device** may already appear in the list of locations to check; if it does not, select **+ Add module definition source** and then **On the connected device** to add it.
+4. To ensure the tool can read the interface model definitions from your device, select **Settings**. In the Settings menu, **On the connected device** may already appear in the Plug and Play configurations; if it does not, select **+ Add module definition source** and then **On the connected device** to add it.
 
 1. On the device overview page, find the device identity you created previously, and select it to view more details.
 

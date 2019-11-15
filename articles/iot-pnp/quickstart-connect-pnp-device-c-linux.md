@@ -64,16 +64,16 @@ az login
 
 If you're using Azure Cloud Shell, you're already automatically signed in.
 
-Run the following command to create the device identity in your IoT hub. Replace the **YourIoTHubName** and **YourDevice** placeholders with your actual names.
+Run the following command to create the device identity in your IoT hub. Replace the **YourIoTHubName** and **YourDeviceID** placeholders with your own unique _IoT Hub name_ and _device ID_.
 
 ```azurecli-interactive
-az iot hub device-identity create --hub-name [YourIoTHubName] --device-id [YourDevice]
+az iot hub device-identity create --hub-name <YourIoTHubName> --device-id <YourDeviceID>
 ```
 
 Run the following command to get the _device connection string_ for the device you just registered:
 
 ```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name [YourIoTHubName] --device-id [YourDevice] --output table
+az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDevice> --output table
 ```
 
 ## Prepare the development environment
@@ -125,7 +125,7 @@ Before you run the sample, add the device capability model and interface definit
 
 1. Select the file `EnvironmentalSensor.interface.json` in the `digitaltwin_client/samples/digitaltwin_sample_environmental_sensor` folder in the device SDK root folder. Select **Open** and then **Save** to upload the interface file to your repository.
 
-1. Select **Company repository** and then **Connection strings**. Make a note of the first company model repository connection string, you use it later in this quickstart.
+1. Select **Company repository** and then **Connection strings**. Make a note of the first _company model repository connection string_, as you use it later in this quickstart.
 
 ## Run the device sample
 
@@ -140,7 +140,7 @@ Run a sample application in the SDK to simulate an IoT Plug and Play device that
 1. Run the executable file:
 
     ```bash
-    ./digitaltwin_sample_device "<your device connection string>"
+    ./digitaltwin_sample_device "<YourDeviceConnectionString>"
     ```
 
 The simulated device starts sending telemetry data to IoT Hub, listening for commands, and listening for property updates.
@@ -152,13 +152,13 @@ After the device client sample starts, verify it's working with the Azure CLI.
 Use the following command to view the telemetry the sample device is sending. You may need to wait a minute or two before you see any telemetry in the output:
 
 ```azurecli-interactive
-az iot dt monitor-events --hub-name {your IoT hub} --device-id mydevice
+az iot dt monitor-events --hub-name <YourIoTHubName> --device-id <YourDeviceID>
 ```
 
 Use the following command to view the properties sent by the device:
 
 ```azurecli-interactive
-az iot dt list-properties --hub-name {your IoT hub} --device-id mydevice --interface sensor --source private --repo-login "{your company model repository connection string}"
+az iot dt list-properties --hub-name <YourIoTHubName> --device-id <YourDeviceID> --interface sensor --source private --repo-login "<YourCompanyModelRepositoryConnectionString>"
 ```
 
 ## Next steps

@@ -58,7 +58,7 @@ In this quickstart, you use a sample environmental sensor that's written in C# a
 1. Configure the _device connection string_:
 
     ```cmd/sh
-    set DIGITAL_TWIN_DEVICE_CONNECTION_STRING=<your device connection string>
+    set DIGITAL_TWIN_DEVICE_CONNECTION_STRING=<YourDeviceConnectionString>
     ```
 
 1. Build the necessary packages and run the sample with the following command:
@@ -78,8 +78,8 @@ In this quickstart, you use a sample IoT solution in C# to interact with the sam
 1. Configure the _IoT hub connection string_ and _device ID_:
 
     ```cmd/sh
-    set IOTHUB_CONNECTION_STRING=<your IoT hub connection string>
-    set DIGITAL_TWIN_ID=<your device ID>
+    set IOTHUB_CONNECTION_STRING=<YourIoTHubConnectionString>
+    set DEVICE_ID=<YourDeviceID>
     ```
 
 ### Read a property

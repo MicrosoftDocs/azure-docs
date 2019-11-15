@@ -51,7 +51,7 @@ In this quickstart, you use a sample environmental sensor that's written in Node
 1. Configure the _device connection string_:
 
     ```cmd/sh
-    set DEVICE_CONNECTION_STRING=<your device connection string>
+    set DEVICE_CONNECTION_STRING=<YourDeviceConnectionString>
     ```
 
 1. Run the sample with the following command:
@@ -75,7 +75,7 @@ In this quickstart, you use a sample IoT solution in Node.js to interact with th
 1. Configure the _IoT hub connection string_:
 
     ```cmd/sh
-    set IOTHUB_CONNECTION_STRING=<your IoT hub connection string>
+    set IOTHUB_CONNECTION_STRING=<YourIoTHubConnectionString>
     ```
 
 ### Read a property

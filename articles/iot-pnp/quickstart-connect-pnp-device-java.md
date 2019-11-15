@@ -32,7 +32,7 @@ This quickstart shows you how to build a sample IoT Plug and Play device applica
 
 ## Prerequisites
 
-To complete this quickstart, you need Java SE 7 on your development machine. You can download Java SE 7 for multiple platforms from [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/en-us/java/azure/jdk/?view=azure-java-stable), by selecting **Java 7** under **Long-term support** to get downloads for Java 7. Make sure your `PATH` and `JAVA_HOME` environment variables include the full path to the `jdk1.7.x` directory.
+To complete this quickstart, you need Java SE 7 on your development machine. You can download Java SE 7 for multiple platforms from [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/en-us/java/azure/jdk/?view=azure-java-stable), by selecting **Java 7** under **Long-term support** to get Azul Zulu downloads for Java 7. Make sure your `JAVA_HOME` environment variable includes the full path to the Java directory (if using the Zulu download, `\Zulu\zulu-7`), and your`PATH` environment variable includes the full path to the Java bin directory (`\Zulu\zulu-7\bin`).
 
 You can check that the environment variables are set correctly and verify the version of Java on your development machine by running the following command in a local terminal window: 
 
@@ -81,7 +81,7 @@ You use the device SDK to build the included sample code. The application you bu
 1. Configure the _device connection string_:
 
     ```cmd/sh
-    set DIGITAL_TWIN_DEVICE_CONNECTION_STRING=<your device connection string>
+    set DIGITAL_TWIN_DEVICE_CONNECTION_STRING=<YourDeviceConnectionString>
     ```
 
 ## Run the device sample
@@ -98,7 +98,7 @@ The simulated device starts sending telemetry data to IoT Hub, listening for com
 
 [!INCLUDE [iot-pnp-iot-explorer-1.md](../../includes/iot-pnp-iot-explorer-1.md)]
 
-4. To ensure the tool can read the interface model definitions from your device, select **Settings**. In the Settings menu, **On the connected device** may already appear in the list of locations to check; if it does not, select **+ Add module definition source** and then **On the connected device** to add it.
+4. To ensure the tool can read the interface model definitions from your device, select **Settings**. In the Settings menu, **On the connected device** may already appear in the Plug and Play configurations; if it does not, select **+ Add module definition source** and then **On the connected device** to add it.
 
 1. On the device overview page, find the device identity you created previously, and select it to view more details.
 

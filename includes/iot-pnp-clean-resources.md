@@ -13,11 +13,11 @@ If you plan to continue with later articles, you can keep the resources you used
 To delete the hub and registered device, complete the following steps using the Azure CLI:
 
 ```azurecli-interactive
-az group delete --name <Your group name>
+az group delete --name <YourResourceGroupName>
 ```
 
 To delete just the device you registered with your IoT Hub, complete the following steps using the Azure CLI:
 
 ```azurecli-interactive
-az iot hub device-identity delete --hub-name [YourIoTHubName] --device-id [YourDevice]
+az iot hub device-identity delete --hub-name <YourIoTHubName> --device-id <YourDeviceID>
 ```
