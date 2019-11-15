@@ -125,6 +125,31 @@ az acr token create --name MyToken --registry myregistry --scope-map MyScopeMap 
 
 The output shows details about the token, including generated passwords and the scope map you applied. It's recommended to save the passwords in a safe place to use later with `docker login`. The passwords can't be retrieved again but new ones can be generated.
 
+## List scope maps
+
+Use the [az acr scope-map list][az-acr-scope-map-list] command to list all the scope maps configured in a registry. For example:
+
+```azurecli
+az acr scope-map list --registry myregistry --output table
+```
+
+The output shows the scope maps you defined and several system-defined scope maps you can use to configure tokens:
+
+```
+NAME                 TYPE           CREATION DATE         DESCRIPTION
+-------------------  -------------  --------------------  ------------------------------------------------------------
+_repositories_admin  SystemDefined  2019-11-13T09:44:24Z  Can perform all read, write and delete operations on the ...
+_repositories_pull   SystemDefined  2019-11-13T09:44:24Z  Can pull any repository of the registry
+_repositories_push   SystemDefined  2019-11-13T09:44:24Z  Can push to any repository of the registry
+MyScopeMap           UserDefined    2019-11-15T21:17:34Z  Sample scope map
+```
+
+To view the details of a scope map, such as the associated actions, run the [az acr scope-map show][az-acr-scope-map-show] command. For example:
+
+```azurecli
+z acr scope-map show --nameMyScopeMap --registry myregistry
+```
+
 ## Generate passwords for token
 
 If passwords were created when you created the token, proceed to [Authenticate with registry](#authenticate-using-token).
@@ -141,7 +166,7 @@ TOKEN_PWD=$(az acr token credential generate \
 
 ## Authenticate using token
 
-Run `docker login` to authenticate with the registry using the token credentials. Enter the token name as the user name and provide one of its passwords. The following example is formatted for the bash shell, and provides the values using environment variables.
+For this example, run `docker login` to authenticate with the registry using the token credentials. Enter the token name as the user name and provide one of its passwords. The following example is formatted for the bash shell, and provides the values using environment variables.
 
 ```bash
 TOKEN_NAME=MyToken
@@ -184,7 +209,7 @@ az acr scope-map update --name MyScopeMap --registry myregistry \
   --remove samples/hello-world content/write
 ```
 
-If the scope map is associated with more than one token, the command updates the permission of all associated tokens.
+If the scope map is associated with more than one token, the command updates the permissions of all associated tokens.
 
 If you want to update a token with a different scope map, run [az acr token update][az-acr-token-update]. For example:
 
@@ -224,7 +249,7 @@ To configure repository-scoped permissions, you create an *access token* and an 
 
   A scope map helps you configure multiple users with identical access to a set of repositories. Azure Container Registry also provides system-defined scope maps that you can apply when creating access tokens.
 
-The following image summarizes the relationship between tokens and scope maps. 
+The following image provides an example of the relationship between tokens and scope maps. 
 
 ![Registry scope maps and tokens](media/container-registry-repository-scoped-permissions/token-scope-map-concepts.png)
 
@@ -253,7 +278,11 @@ Following authentication, the token permits the configured actions on the scoped
 
 If the token permits `metadata/read`, `metadata/write`, or `content/delete` actions on a repository, token credentials must be provided as parameters with the related [az acr repository][az-acr-repository] commands in the Azure CLI.
 
-For example, if `metadata/read` actions are permitted on a repository, pass the token credentials when running the [az acr repository show-tags][az-acr-repository-show-tags] command to list tags.
+For example, if `metadata/read` actions are permitted on a repository, pass the token credentials when running the [az acr repository show-tags][az-acr-repository-show-tags] command to list tags. For example:
+
+```azureci
+az acr repository show-tags --name myregistry --repository myrepository --username MyToken --password MyTokenPassword
+```
 
 ## Next steps
 
@@ -270,6 +299,8 @@ For example, if `metadata/read` actions are permitted on a repository, pass the 
 [az-acr-repository-show-tags]: /cli/azure/acr/repository/#az-acr-repository-show-tags
 [az-acr-scope-map]: /cli/azure/acr/scope-map/
 [az-acr-scope-map-create]: /cli/azure/acr/scope-map/#az-acr-scope-map-create
+[az-acr-scope-map-list]: /cli/azure/acr/scope-map/#az-acr-scope-map-show
+[az-acr-scope-map-show]: /cli/azure/acr/scope-map/#az-acr-scope-map-list
 [az-acr-scope-map-update]: /cli/azure/acr/scope-map/#az-acr-scope-map-update
 [az-acr-scope-map-list]: /cli/azure/acr/scope-map/#az-acr-scope-map-list
 [az-acr-token]: /cli/azure/acr/token/
