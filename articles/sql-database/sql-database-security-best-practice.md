@@ -13,7 +13,7 @@ ms.reviewer: ""
 # Azure SQL Database security best practices playbook
 
 ## Overview
-
+ 
 This document provides guidance on how to solve common security requirements for new or existing applications using Azure SQL Database. It is organized by high-level security areas. For addressing specific threats, refer to the [Common security threats and potential mitigations](#common-security-threats-and-potential-mitigations) section. Although some of the presented recommendations are applicable when migrating applications from on-premises to Azure, migration scenarios are not the focus of this document.
 
 ### Azure SQL Database deployment offers covered in this guide
