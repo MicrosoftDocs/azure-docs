@@ -35,9 +35,8 @@ Once the client application has the OAuth token, they must pass that token in th
 
 ## Prerequisites
 
-1. Create a Azure AD security group. This security group will be used to control which applications are allowed to interact with the REST proxy. For more information on creating Azure AD groups, see [Create a basic group and add members using Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal).
 1. Register an application with Azure AD. The client applications that you write to interact with the Kafka REST proxy will use this application's ID and secret to authenticate to Azure.
-1. Add the application that you have registered with Azure AD to the security group associated with the REST-enabled Kafka cluster. For more information on adding members to an Azure AD group, see [Add or remove group members using Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-members-azure-portal).
+1. Create an Azure AD security group and add the application that you have registered with Azure AD to the security group. This security group will be used to control which applications are allowed to interact with the REST proxy. For more information on creating Azure AD groups, see [Create a basic group and add members using Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal).
 
 ## Create a Kafka cluster with REST proxy enabled
 
@@ -71,8 +70,7 @@ client_id = 'XYZABCDE-1234-1234-1234-ABCDEFGHIJKL'
 # Your Client Credentials
 client_secret = 'password'
 # kafka rest proxy -endpoint
-# Eg  https://<clustername>-kafkarest.azurehdinsight.net
-kafkarest_endpoint = "https://kafkasummit-demo-kafkarest.azurehdinsight.net"
+kafkarest_endpoint = "https://<clustername>-kafkarest.azurehdinsight.net"
 #--------------------------Configure these properties-------------------------------#
 
 #getting token
@@ -90,7 +88,7 @@ accessToken = 'Bearer ' + token['accessToken']
 print(accessToken)
 
 # relative url
-getstatus = "/v1/status"
+getstatus = "/v1/metadata/topics"
 request_url = kafkarest_endpoint + getstatus
 
 # sending get request and saving the response as response object
