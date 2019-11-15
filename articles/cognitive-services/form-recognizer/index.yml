@@ -61,6 +61,8 @@ landingContent:
               url: overview.md#train-with-labels
       - linkListType: quickstart
         links:
+            - text: Train using the Feedback Loop tool
+              url: quickstarts/label-ux.md
             - text: Train with labels using the REST API and Python
               url: quickstarts/python-labeled-data.md
 
