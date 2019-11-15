@@ -176,7 +176,7 @@ The data object has the following properties for each event type:
 | -------- | ---- | ----------- |
 | ServiceName | string | The name of the deployed service. |
 | ServiceComputeType | string | The compute type (e.g. ACI, AKS) of the deployed service. |
-| ModelIds | string | A common separated list of model IDs. The IDs of the models deployed in the service. |
+  | ModelIds | string | A comma separated list of model IDs. The IDs of the models deployed in the service. |
 | ServiceTags | object | The tags of the deployed service. |
 | ServiceProperties | object | The properties of the deployed service. |
 

@@ -4777,6 +4777,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/application-gateway/application-gateway-ssl-cli.md",
+      "redirect_url": "/azure/application-gateway/tutorial-ssl-cli",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/application-gateway/application-gateway-ssl-arm.md",
       "redirect_url": "/azure/application-gateway/tutorial-ssl-powershell",
       "redirect_document_id": false
