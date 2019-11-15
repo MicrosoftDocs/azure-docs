@@ -231,6 +231,7 @@ Indexers limit how much text can be extracted from any one document. This limit 
 For more information, see [Indexer limits](search-limits-quotas-capacity.md#indexer-limits).
 
 ### Could not map output field 'X' to search index
-Output field mappings that reference non-existent/null data will produce warnings for each document and result in an empty index field. To workaround this issue, double-check your output field mapping source paths for possible typos, or set a default value using the [Conditional skill](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist).
+Output field mappings that reference non-existent/null data will produce warnings for each document and result in an empty index field. To workaround this issue, double-check your output field-mapping source paths for possible typos, or set a default value using the [Conditional skill](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist).
 
-Indexer was able to run a skill in the skillset, but the response from the Web API request indicated there were warnings during execution. Review the warnings to understand how your data is impacted and whether or not action is required.
+### The data change detection policy is configured to use key column 'X'
+[Data change detection policies](https://docs.microsoft.com/rest/api/searchservice/create-data-source#data-change-detection-policies) have specific requirements for the columns they use to detect change. One of these requirements is that this column is updated every time the source item is changed. Another requirement is that the new value for this column is greater than the previous value. Key columns don't fulfill this requirement because they don't change on every update. To work around this issue, select a different column for the change detection policy.
