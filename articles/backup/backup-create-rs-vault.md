@@ -1,6 +1,6 @@
 ---
 title: 'Azure Backup: Create Recovery Services vaults'
-description: creating Recovery Services vaults that stores the backups and recovery points
+description: In this article, learn how to create Recovery Services vaults that store the backups and recovery points.
 ms.reviewer: sogup
 author: dcurwin
 manager: carmonm
@@ -71,7 +71,7 @@ Azure Backup automatically handles storage for the vault. You need to specify ho
    - Learn more about [geo](../storage/common/storage-redundancy-grs.md) and [local](../storage/common/storage-redundancy-lrs.md) redundancy.
 
 > [!NOTE]
-> Changing **Storage Replication type** (Locally-redundant/ Geo-redundant) for a Recovery services vault has to be done before configuring backups in the vault. Once you configure backup, the option to modify is disabled and you cannot change the **Storage Replication type**. 
+> Changing **Storage Replication type** (Locally-redundant/ Geo-redundant) for a Recovery services vault has to be done before configuring backups in the vault. Once you configure backup, the option to modify is disabled and you cannot change the **Storage Replication type**.
 
 ## Next steps
 

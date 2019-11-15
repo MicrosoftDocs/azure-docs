@@ -86,7 +86,7 @@ The **Azure AD Provisioning Service** provisions users to SaaS apps and other sy
 
 ## How do I set up automatic provisioning to an application?
 
-For pre-integrated applications listed in the gallery, step-by-step guidance is available for setting up automatic provisioning. See the [list of tutorials for integrated gallery apps](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/). The following video demonstrates how to set up automatic user provisioning for SalesForce.
+For pre-integrated applications listed in the gallery, step-by-step guidance is available for setting up automatic provisioning. See the [list of tutorials for integrated gallery apps](https://docs.microsoft.com/azure/active-directory/saas-apps/). The following video demonstrates how to set up automatic user provisioning for SalesForce.
 
 > [!VIDEO https://www.youtube.com/embed/pKzyts6kfrw]
 

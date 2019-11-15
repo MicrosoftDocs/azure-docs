@@ -1,5 +1,5 @@
 ---
-title: 'Use Azure Virtual WAN to create a Site-to-Site connection to Azure | Microsoft Docs'
+title: 'Azure Virtual WAN: Create Site-to-Site connections'
 description: In this tutorial, learn how to use Azure Virtual WAN to create a Site-to-Site VPN connection to Azure.
 services: virtual-wan
 author: cherylmc

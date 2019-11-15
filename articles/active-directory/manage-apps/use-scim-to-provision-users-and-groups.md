@@ -701,7 +701,7 @@ To develop your own web service that conforms to the SCIM specification, first f
 Developers using the CLI libraries can host their services within any executable CLI assembly, or within Internet Information Services. Here is sample code for hosting a service within an executable assembly, at the address http://localhost:9000: 
 
 ```csharp
-private static void Main(string[] arguments)
+ private static void Main(string[] arguments)
  {
  // Microsoft.SystemForCrossDomainIdentityManagement.IMonitor, 
  // Microsoft.SystemForCrossDomainIdentityManagement.IProvider and 
@@ -794,7 +794,7 @@ Here, the value provided for the certhash argument is the thumbprint of the cert
 To host the service within Internet Information Services, a developer would build a CLI code library assembly with a class named Startup in the default namespace of the assembly.  Here is a sample of such a class: 
 
 ```csharp
-public class Startup
+ public class Startup
  {
  // Microsoft.SystemForCrossDomainIdentityManagement.IWebApplicationStarter, 
  // Microsoft.SystemForCrossDomainIdentityManagement.IMonitor and  
@@ -832,7 +832,7 @@ Developers using the CLI libraries provided by Microsoft for building a SCIM ser
 First, in a provider, implement the Microsoft.SystemForCrossDomainIdentityManagement.IProvider.StartupBehavior property by having it return a method to be called whenever the service is started: 
 
 ```csharp
-public override Action<Owin.IAppBuilder, System.Web.Http.HttpConfiguration.HttpConfiguration> StartupBehavior
+  public override Action<Owin.IAppBuilder, System.Web.Http.HttpConfiguration.HttpConfiguration> StartupBehavior
   {
     get
     {
@@ -850,7 +850,7 @@ public override Action<Owin.IAppBuilder, System.Web.Http.HttpConfiguration.HttpC
 Next, add the following code to that method to have any request to any of the service’s endpoints authenticated as bearing a token issued by Azure Active Directory for a specified tenant, for access to the Azure AD Graph web service: 
 
 ```csharp
-private void OnServiceStartup(
+  private void OnServiceStartup(
     Owin.IAppBuilder applicationBuilder IAppBuilder applicationBuilder, 
     System.Web.Http.HttpConfiguration HttpConfiguration configuration)
   {
@@ -897,7 +897,7 @@ GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
 If the service was built using the CLI libraries provided by Microsoft for implementing SCIM services, then the request is translated into a call to the Query method of the service’s provider.  Here is the signature of that method: 
 
 ```csharp
-// System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
+ // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
  // Microsoft.SystemForCrossDomainIdentityManagement.Resource is defined in 
  // Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
  // Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters is defined in 
@@ -911,7 +911,7 @@ If the service was built using the CLI libraries provided by Microsoft for imple
 Here is the definition of the Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters interface: 
 
 ```csharp
-public interface IQueryParameters: 
+ public interface IQueryParameters: 
    Microsoft.SystemForCrossDomainIdentityManagement.IRetrievalParameters
  {
      System.Collections.Generic.IReadOnlyCollection <Microsoft.SystemForCrossDomainIdentityManagement.IFilter> AlternateFilters 
@@ -937,7 +937,7 @@ public interface IQueryParameters:
 If the service was built using the Common Language Infrastructure libraries provided by Microsoft for implementing SCIM services, then the request is translated into a call to the Query method of the service’s provider.  Here is the signature of that method: 
 
 ```csharp
-// System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
+  // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
   // Microsoft.SystemForCrossDomainIdentityManagement.Resource is defined in 
   // Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
   // Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters is defined in 
@@ -951,7 +951,7 @@ If the service was built using the Common Language Infrastructure libraries prov
 Here is the definition of the Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters interface: 
 
 ```csharp
-public interface IQueryParameters: 
+  public interface IQueryParameters: 
     Microsoft.SystemForCrossDomainIdentityManagement.IRetrievalParameters
   {
       System.Collections.Generic.IReadOnlyCollection  <Microsoft.SystemForCrossDomainIdentityManagement.IFilter> AlternateFilters 
@@ -1250,7 +1250,7 @@ The object provided as the value of the resourceIdentifier argument has these pr
 
 ## Step 4: Integrate your SCIM endpoint with the Azure AD SCIM client
 
-Azure AD can be configured to automatically provision assigned users and groups to applications that implement a specific profile of the [SCIM 2.0 protocol](https://tools.ietf.org/html/rfc7644). The specifics of the profile are documented in [Understanding the Azure AD SCIM implementation](#understanding-the-azure-ad-scim-implementation).
+Azure AD can be configured to automatically provision assigned users and groups to applications that implement a specific profile of the [SCIM 2.0 protocol](https://tools.ietf.org/html/rfc7644). The specifics of the profile are documented in [Understand the Azure AD SCIM implementation](#understand-the-azure-ad-scim-implementation).
 
 Check with your application provider, or your application provider's documentation for statements of compatibility with these requirements.
 

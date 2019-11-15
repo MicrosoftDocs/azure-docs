@@ -1,6 +1,6 @@
 ---
 title: Overview of Azure IoT Hub message enrichments
-description: Overview of message enrichments for Azure IoT Hub messages
+description: This article shows message enrichments, which give the IoT Hub the ability to stamp messages with additional information before the messages are sent to the designated endpoint. 
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -10,7 +10,7 @@ ms.date: 05/10/2019
 ms.author: robinsh
 #Customer intent: As a developer, I want to be able to add information to messages sent from a device to my IoT Hub, based on the destination endpoint.   
 ---
-# Message enrichments for device-to-cloud IoT Hub messages (preview)
+# Message enrichments for device-to-cloud IoT Hub messages
 
 *Message enrichments* is the ability of the IoT Hub to *stamp* messages with additional information before the messages are sent to the designated endpoint. One reason to use message enrichments is to include data that can be used to simplify downstream processing. For example, enriching device telemetry messages with a device twin tag can reduce load on customers to make device twin API calls for this information.
 
@@ -76,10 +76,6 @@ To see how to try out message enrichments, see the [message enrichments tutorial
 ## Pricing
 
 Message enrichments are available for no additional charge. Currently, you are charged when you send a message to an IoT Hub. You are only charged once for that message, even if the message goes to multiple endpoints.
-
-## Availability
-
-This capability is available in preview, and is available in all regions except East US, West US, West Europe, [Azure Government](/azure/azure-government/documentation-government-welcome), [Azure China 21Vianet](/azure/china), and [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ## Next steps
 

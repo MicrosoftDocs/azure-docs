@@ -38,7 +38,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 - [Complete](tutorial-prepare-physical.md) the first tutorial in this series. If you don't, the instructions in this tutorial won't work.
 - Here's what you should have done in the first tutorial:
     - [Set up Azure permissions](tutorial-prepare-physical.md#prepare-azure) for Azure Migrate.
-    - [Prepare physical servers](tutorial-prepare-physical.md#prepare-azure) for assessment. Appliance requirements should be verified. You should also have an account set up for physical server discovery. Required ports should be available, and you should be aware of the URLs needed for access to Azure.
+    - [Prepare physical servers](tutorial-prepare-physical.md#prepare-for-physical-server-assessment) for assessment. Appliance requirements should be verified. You should also have an account set up for physical server discovery. Required ports should be available, and you should be aware of the URLs needed for access to Azure.
 
 
 ## Set up an Azure Migrate project
@@ -99,9 +99,10 @@ Download the zipped file for the appliance.
 Check that the zipped file is secure, before you deploy it.
 
 1. On the machine to which you downloaded the file, open an administrator command window.
-2. Run the following command to generate the hash for the VHD
+2. Run the following command to generate the hash for the zipped file
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+    - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller\AzureMigrateInstaller.ps1 SHA256```
+
 3.  For appliance version 1.19.05.10, the generated hash should match these settings.
 
   **Algorithm** | **Hash value**
@@ -109,7 +110,7 @@ Check that the zipped file is secure, before you deploy it.
   SHA256 | 598d2e286f9c972bb7f7382885e79e768eddedfe8a3d3460d6b8a775af7d7f79
 
 ### Run the Azure Migrate installer script
-=
+
 The installer script does the following:
 
 - Installs agents and a web application for physical server discovery and assessment.
@@ -117,20 +118,24 @@ The installer script does the following:
 - Download and installs an IIS rewritable module. [Learn more](https://www.microsoft.com/download/details.aspx?id=7435).
 - Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
 - Creates the following files under the path:
-    - **Config Files**: %Programdata%\Microsoft Azure\Config
-    - **Log Files**: %Programdata%\Microsoft Azure\Logs
+    - **Config Files**: %ProgramData%\Microsoft Azure\Config
+    - **Log Files**: %ProgramData%\Microsoft Azure\Logs
 
 Run the script as follows:
 
 1. Extract the zipped file to a folder on the server that will host the appliance.
 2. Launch PowerShell on the above server with administrative (elevated) privilege.
 3. Change the PowerShell directory to the folder where the contents have been extracted from the downloaded zipped file.
-4. Run the script by running the following command:
+4. Run the script named **AzureMigrateInstaller.ps1** by running the following command:
     ```
-    PS C:\Users\Administrators\Desktop> AzureMigrateInstaller-physical.ps1
+    PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1
     ```
-The script will launch the appliance web application when it finishes successfully.
+The script will launch the appliance web application when it finishes successfully. 
 
+In case of any issues, you can access the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log for troubleshooting.
+
+> [!NOTE]
+> Please do not execute the Azure Migrate installer script on an existing Azure Migrate appliance.
 
 ### Verify appliance access to Azure
 
@@ -178,7 +183,7 @@ You can add one set of credentials each for Windows and Linux servers.
     - To remove a server, select > **Delete**.
 4. After validation, click **Save and start discovery** to start the discovery process.
 
-This starts discovery. It takes around 15 minutes for metadata of discovered servers to appear in the Azure portal. 
+This starts discovery. It takes around 1.5 minutes per server for metadata of discovered server to appear in the Azure portal. 
 
 ### Verify servers in the portal
 
