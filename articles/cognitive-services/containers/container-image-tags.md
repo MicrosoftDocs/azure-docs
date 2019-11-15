@@ -121,7 +121,136 @@ This container image has the following tags available:
 
 | Image Tags | Notes |
 |------------|:------|
-| `latest` | |
+| `latest` | Container image with the `en-US` locale. |
+| `2.0.0-amd64-zh-tw-preview` | |
+| `2.0.0-amd64-zh-hk-preview` | |
+| `2.0.0-amd64-zh-cn-preview` | |
+| `2.0.0-amd64-tr-tr-preview` | |
+| `2.0.0-amd64-th-th-preview` | |
+| `2.0.0-amd64-sv-se-preview` | |
+| `2.0.0-amd64-ru-ru-preview` | |
+| `2.0.0-amd64-pt-pt-preview` | |
+| `2.0.0-amd64-pt-br-preview` | |
+| `2.0.0-amd64-pl-pl-preview` | |
+| `2.0.0-amd64-nl-nl-preview` | |
+| `2.0.0-amd64-nb-no-preview` | |
+| `2.0.0-amd64-ko-kr-preview` | |
+| `2.0.0-amd64-ja-jp-preview` | |
+| `2.0.0-amd64-it-it-preview` | |
+| `2.0.0-amd64-hi-in-preview` | |
+| `2.0.0-amd64-fr-fr-preview` | |
+| `2.0.0-amd64-fr-ca-preview` | |
+| `2.0.0-amd64-fi-fi-preview` | |
+| `2.0.0-amd64-es-mx-preview` | |
+| `2.0.0-amd64-es-es-preview` | |
+| `2.0.0-amd64-en-us-preview` | |
+| `2.0.0-amd64-en-nz-preview` | |
+| `2.0.0-amd64-en-in-preview` | |
+| `2.0.0-amd64-en-gb-preview` | |
+| `2.0.0-amd64-en-ca-preview` | |
+| `2.0.0-amd64-en-au-preview` | |
+| `2.0.0-amd64-de-de-preview` | |
+| `2.0.0-amd64-da-dk-preview` | |
+| `2.0.0-amd64-ca-es-preview` | |
+| `2.0.0-amd64-ar-eg-preview` | |
+| `1.2.0-amd64-zh-cn-preview` | |
+| `1.2.0-amd64-pt-br-preview` | |
+| `1.2.0-amd64-preview` | |
+| `1.2.0-amd64-ja-jp-preview` | |
+| `1.2.0-amd64-it-it-preview` | |
+| `1.2.0-amd64-fr-fr-preview` | |
+| `1.2.0-amd64-fr-ca-preview` | |
+| `1.2.0-amd64-es-mx-preview` | |
+| `1.2.0-amd64-es-es-preview` | |
+| `1.2.0-amd64-en-us-preview` | |
+| `1.2.0-amd64-en-in-preview` | |
+| `1.2.0-amd64-en-gb-preview` | |
+| `1.2.0-amd64-en-ca-preview` | |
+| `1.2.0-amd64-en-au-preview` | |
+| `1.2.0-amd64-de-de-preview` | |
+| `1.1.3-amd64-zh-cn-preview` | |
+| `1.1.3-amd64-pt-br-preview` | |
+| `1.1.3-amd64-preview` | |
+| `1.1.3-amd64-ja-jp-preview` | |
+| `1.1.3-amd64-it-it-preview` | |
+| `1.1.3-amd64-fr-fr-preview` | |
+| `1.1.3-amd64-fr-ca-preview` | |
+| `1.1.3-amd64-es-mx-preview` | |
+| `1.1.3-amd64-es-es-preview` | |
+| `1.1.3-amd64-en-us-preview` | |
+| `1.1.3-amd64-en-in-preview` | |
+| `1.1.3-amd64-en-gb-preview` | |
+| `1.1.3-amd64-en-ca-preview` | |
+| `1.1.3-amd64-en-au-preview` | |
+| `1.1.3-amd64-de-de-preview` | |
+| `1.1.2-amd64-zh-cn-preview` | |
+| `1.1.2-amd64-pt-br-preview` | |
+| `1.1.2-amd64-preview` | |
+| `1.1.2-amd64-ja-jp-preview` | |
+| `1.1.2-amd64-it-it-preview` | |
+| `1.1.2-amd64-fr-fr-preview` | |
+| `1.1.2-amd64-fr-ca-preview` | |
+| `1.1.2-amd64-es-mx-preview` | |
+| `1.1.2-amd64-es-es-preview` | |
+| `1.1.2-amd64-en-us-preview` | |
+| `1.1.2-amd64-en-in-preview` | |
+| `1.1.2-amd64-en-gb-preview` | |
+| `1.1.2-amd64-en-ca-preview` | |
+| `1.1.2-amd64-en-au-preview` | |
+| `1.1.2-amd64-de-de-preview` | |
+| `1.1.1-amd64-zh-cn-preview` | |
+| `1.1.1-amd64-pt-br-preview` | |
+| `1.1.1-amd64-ja-jp-preview` | |
+| `1.1.1-amd64-it-it-preview` | |
+| `1.1.1-amd64-fr-fr-preview` | |
+| `1.1.1-amd64-fr-ca-preview` | |
+| `1.1.1-amd64-es-mx-preview` | |
+| `1.1.1-amd64-es-es-preview` | |
+| `1.1.1-amd64-en-us-preview` | |
+| `1.1.1-amd64-en-in-preview` | |
+| `1.1.1-amd64-en-gb-preview` | |
+| `1.1.1-amd64-en-ca-preview` | |
+| `1.1.1-amd64-en-au-preview` | |
+| `1.1.1-amd64-de-de-preview` | |
+| `1.1.0-amd64-zh-cn-preview` | |
+| `1.1.0-amd64-pt-br-preview` | |
+| `1.1.0-amd64-ja-jp-preview` | |
+| `1.1.0-amd64-it-it-preview` | |
+| `1.1.0-amd64-fr-fr-preview` | |
+| `1.1.0-amd64-fr-ca-preview` | |
+| `1.1.0-amd64-es-mx-preview` | |
+| `1.1.0-amd64-es-es-preview` | |
+| `1.1.0-amd64-en-us-preview` | |
+| `1.1.0-amd64-en-in-preview` | |
+| `1.1.0-amd64-en-gb-preview` | |
+| `1.1.0-amd64-en-ca-preview` | |
+| `1.1.0-amd64-en-au-preview` | |
+| `1.1.0-amd64-de-de-preview` | |
+| `1.0.0-amd64-zh-cn-preview` | |
+| `1.0.0-amd64-pt-br-preview` | |
+| `1.0.0-amd64-ja-jp-preview` | |
+| `1.0.0-amd64-it-it-preview` | |
+| `1.0.0-amd64-fr-fr-preview` | |
+| `1.0.0-amd64-fr-ca-preview` | |
+| `1.0.0-amd64-es-mx-preview` | |
+| `1.0.0-amd64-es-es-preview` | |
+| `1.0.0-amd64-en-us-preview` | |
+| `1.0.0-amd64-en-in-preview` | |
+| `1.0.0-amd64-en-gb-preview` | |
+| `1.0.0-amd64-en-ca-preview` | |
+| `1.0.0-amd64-en-au-preview` | |
+| `1.0.0-amd64-de-de-preview` | |
+
+## Text-to-speech
+
+The [Text-to-speech][sp-tts] container image can be found on the `containerpreview.azurecr.io` container registry. It resides within the `microsoft` repository and is named `cognitive-services-text-to-speech`. The fully qualified container image name is, `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech`.
+
+This container image has the following tags available:
+
+| Image Tags | Notes |
+|------------|:------|
+
+| `latest` | Container image with the `en-US` locale and `JessaRUS` voice. |
 | `1.3.0-amd64-zh-tw-zhiwei-apollo-preview` | |
 | `1.3.0-amd64-zh-tw-yating-apollo-preview` | |
 | `1.3.0-amd64-zh-tw-hanhanrus-preview` | |
@@ -284,134 +413,6 @@ This container image has the following tags available:
 | `1.0.0-amd64-en-us-jessa24krus-preview` | |
 | `1.0.0-amd64-en-us-guy24krus-preview` | |
 | `1.0.0-amd64-en-us-benjaminrus-preview` | |
-
-## Text-to-speech
-
-The [Text-to-speech][sp-tts] container image can be found on the `containerpreview.azurecr.io` container registry. It resides within the `microsoft` repository and is named `cognitive-services-text-to-speech`. The fully qualified container image name is, `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech`.
-
-This container image has the following tags available:
-
-| Image Tags | Notes |
-|------------|:------|
-| `latest` | |
-| `2.0.0-amd64-zh-tw-preview` | |
-| `2.0.0-amd64-zh-hk-preview` | |
-| `2.0.0-amd64-zh-cn-preview` | |
-| `2.0.0-amd64-tr-tr-preview` | |
-| `2.0.0-amd64-th-th-preview` | |
-| `2.0.0-amd64-sv-se-preview` | |
-| `2.0.0-amd64-ru-ru-preview` | |
-| `2.0.0-amd64-pt-pt-preview` | |
-| `2.0.0-amd64-pt-br-preview` | |
-| `2.0.0-amd64-pl-pl-preview` | |
-| `2.0.0-amd64-nl-nl-preview` | |
-| `2.0.0-amd64-nb-no-preview` | |
-| `2.0.0-amd64-ko-kr-preview` | |
-| `2.0.0-amd64-ja-jp-preview` | |
-| `2.0.0-amd64-it-it-preview` | |
-| `2.0.0-amd64-hi-in-preview` | |
-| `2.0.0-amd64-fr-fr-preview` | |
-| `2.0.0-amd64-fr-ca-preview` | |
-| `2.0.0-amd64-fi-fi-preview` | |
-| `2.0.0-amd64-es-mx-preview` | |
-| `2.0.0-amd64-es-es-preview` | |
-| `2.0.0-amd64-en-us-preview` | |
-| `2.0.0-amd64-en-nz-preview` | |
-| `2.0.0-amd64-en-in-preview` | |
-| `2.0.0-amd64-en-gb-preview` | |
-| `2.0.0-amd64-en-ca-preview` | |
-| `2.0.0-amd64-en-au-preview` | |
-| `2.0.0-amd64-de-de-preview` | |
-| `2.0.0-amd64-da-dk-preview` | |
-| `2.0.0-amd64-ca-es-preview` | |
-| `2.0.0-amd64-ar-eg-preview` | |
-| `1.2.0-amd64-zh-cn-preview` | |
-| `1.2.0-amd64-pt-br-preview` | |
-| `1.2.0-amd64-preview` | |
-| `1.2.0-amd64-ja-jp-preview` | |
-| `1.2.0-amd64-it-it-preview` | |
-| `1.2.0-amd64-fr-fr-preview` | |
-| `1.2.0-amd64-fr-ca-preview` | |
-| `1.2.0-amd64-es-mx-preview` | |
-| `1.2.0-amd64-es-es-preview` | |
-| `1.2.0-amd64-en-us-preview` | |
-| `1.2.0-amd64-en-in-preview` | |
-| `1.2.0-amd64-en-gb-preview` | |
-| `1.2.0-amd64-en-ca-preview` | |
-| `1.2.0-amd64-en-au-preview` | |
-| `1.2.0-amd64-de-de-preview` | |
-| `1.1.3-amd64-zh-cn-preview` | |
-| `1.1.3-amd64-pt-br-preview` | |
-| `1.1.3-amd64-preview` | |
-| `1.1.3-amd64-ja-jp-preview` | |
-| `1.1.3-amd64-it-it-preview` | |
-| `1.1.3-amd64-fr-fr-preview` | |
-| `1.1.3-amd64-fr-ca-preview` | |
-| `1.1.3-amd64-es-mx-preview` | |
-| `1.1.3-amd64-es-es-preview` | |
-| `1.1.3-amd64-en-us-preview` | |
-| `1.1.3-amd64-en-in-preview` | |
-| `1.1.3-amd64-en-gb-preview` | |
-| `1.1.3-amd64-en-ca-preview` | |
-| `1.1.3-amd64-en-au-preview` | |
-| `1.1.3-amd64-de-de-preview` | |
-| `1.1.2-amd64-zh-cn-preview` | |
-| `1.1.2-amd64-pt-br-preview` | |
-| `1.1.2-amd64-preview` | |
-| `1.1.2-amd64-ja-jp-preview` | |
-| `1.1.2-amd64-it-it-preview` | |
-| `1.1.2-amd64-fr-fr-preview` | |
-| `1.1.2-amd64-fr-ca-preview` | |
-| `1.1.2-amd64-es-mx-preview` | |
-| `1.1.2-amd64-es-es-preview` | |
-| `1.1.2-amd64-en-us-preview` | |
-| `1.1.2-amd64-en-in-preview` | |
-| `1.1.2-amd64-en-gb-preview` | |
-| `1.1.2-amd64-en-ca-preview` | |
-| `1.1.2-amd64-en-au-preview` | |
-| `1.1.2-amd64-de-de-preview` | |
-| `1.1.1-amd64-zh-cn-preview` | |
-| `1.1.1-amd64-pt-br-preview` | |
-| `1.1.1-amd64-ja-jp-preview` | |
-| `1.1.1-amd64-it-it-preview` | |
-| `1.1.1-amd64-fr-fr-preview` | |
-| `1.1.1-amd64-fr-ca-preview` | |
-| `1.1.1-amd64-es-mx-preview` | |
-| `1.1.1-amd64-es-es-preview` | |
-| `1.1.1-amd64-en-us-preview` | |
-| `1.1.1-amd64-en-in-preview` | |
-| `1.1.1-amd64-en-gb-preview` | |
-| `1.1.1-amd64-en-ca-preview` | |
-| `1.1.1-amd64-en-au-preview` | |
-| `1.1.1-amd64-de-de-preview` | |
-| `1.1.0-amd64-zh-cn-preview` | |
-| `1.1.0-amd64-pt-br-preview` | |
-| `1.1.0-amd64-ja-jp-preview` | |
-| `1.1.0-amd64-it-it-preview` | |
-| `1.1.0-amd64-fr-fr-preview` | |
-| `1.1.0-amd64-fr-ca-preview` | |
-| `1.1.0-amd64-es-mx-preview` | |
-| `1.1.0-amd64-es-es-preview` | |
-| `1.1.0-amd64-en-us-preview` | |
-| `1.1.0-amd64-en-in-preview` | |
-| `1.1.0-amd64-en-gb-preview` | |
-| `1.1.0-amd64-en-ca-preview` | |
-| `1.1.0-amd64-en-au-preview` | |
-| `1.1.0-amd64-de-de-preview` | |
-| `1.0.0-amd64-zh-cn-preview` | |
-| `1.0.0-amd64-pt-br-preview` | |
-| `1.0.0-amd64-ja-jp-preview` | |
-| `1.0.0-amd64-it-it-preview` | |
-| `1.0.0-amd64-fr-fr-preview` | |
-| `1.0.0-amd64-fr-ca-preview` | |
-| `1.0.0-amd64-es-mx-preview` | |
-| `1.0.0-amd64-es-es-preview` | |
-| `1.0.0-amd64-en-us-preview` | |
-| `1.0.0-amd64-en-in-preview` | |
-| `1.0.0-amd64-en-gb-preview` | |
-| `1.0.0-amd64-en-ca-preview` | |
-| `1.0.0-amd64-en-au-preview` | |
-| `1.0.0-amd64-de-de-preview` | |
 
 ## Key Phrase Extraction
 
