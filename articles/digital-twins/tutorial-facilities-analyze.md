@@ -50,6 +50,8 @@ You can use the [Event Hubs](../event-hubs/event-hubs-about.md) service to creat
 
 1. Search for and select **Event Hubs**. Select **Create**.
 
+    [![Create an Event Hubs Namespace](./media/tutorial-facilities-analyze/create-event-hubs.png)](./media/tutorial-facilities-analyze/create-event-hubs.png#lightbox)
+
 1. Enter a **Name** for your Event Hubs namespace. Choose **Standard** for **Pricing tier**, your **Subscription**, the **Resource group** that you used for your Digital Twins instance, and the **Location**. Select **Create**.
 
 1. In the Event Hubs namespace deployment, select the **Overview** pane, then select **Go to resource**.
