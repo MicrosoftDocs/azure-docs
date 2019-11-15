@@ -58,8 +58,8 @@ It will take a few minutes for your VM to be deployed. When the deployment is fi
 
 1. Select **Review + create**.  
 1. After the key vault has passed validation, select **Create**. This will return you to the **Select key from Azure Key Vault** screen.
-1. Leave the **Key** field black, and choose **Select**.
-1. At the top of the encryption screen, click "Save". A popup will warn you that the VM will reboot. Click **Yes**.
+1. Leave the **Key** field blank and choose **Select**.
+1. At the top of the encryption screen, click **Save**. A popup will warn you that the VM will reboot. Click **Yes**.
 
 
 ## Clean up resources
