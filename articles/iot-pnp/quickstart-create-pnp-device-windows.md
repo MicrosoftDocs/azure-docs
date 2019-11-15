@@ -188,6 +188,8 @@ To validate the device code with **Azure IoT Explorer**, you need to publish the
 
 [!INCLUDE [iot-pnp-iot-explorer.md](../../includes/iot-pnp-iot-explorer-2.md)]
 
+[!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
+
 ## Next steps
 
 In this quickstart, you learned how to create an IoT Plug and Play device using a DCM.
