@@ -70,7 +70,7 @@
         - name: Configure email notifications
           href: notifications.md
         - name: Create a forest trust
-          href: create-forest.trust.md
+          href: create-forest-trust.md
         - name: Delete a managed domain
           href: delete-aadds.md
         - name: Migrate from a Classic deployment (preview)

@@ -61,7 +61,7 @@ To create the outbound trust for the Azure AD DS managed domain in the Azure por
 1. Provide at least two DNS servers for the on-premises AD DS domain, such as *10.0.2.4* and *10.0.2.5*
 1. When ready, **Save** the outbound forest trust
 
-    [Create outbound forest trust in the Azure portal](./media/tutorial-create-instance-advanced/portal-create-outbound-trust.png)
+    [Create outbound forest trust in the Azure portal](./media/create-forest-trust/portal-create-outbound-trust.png)
 
 ## Next steps
 
