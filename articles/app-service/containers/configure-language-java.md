@@ -358,9 +358,9 @@ Next, determine if the data source should be available to one application or to 
 
 #### Shared server-level resources
 
-Adding a shared, server-level data source will require you to edit Tomcat's server.xml. First, upload a [startup script](app-service-linux-faq.md#built-in-images) and set the path to the script in **Configuration** > **Startup Command**. You can upload the startup script using [FTP](deploy-ftp.md).
+Adding a shared, server-level data source will require you to edit Tomcat's server.xml. First, upload a [startup script](app-service-linux-faq.md#built-in-images) and set the path to the script in **Configuration** > **Startup Command**. You can upload the startup script using [FTP](../deploy-ftp.md).
 
-Your startup script will make an [xsl transform](https://www.w3schools.com/xml/xsl_intro.asp) to the server.xml file and output the resulting xml file to `/usr/local/tomcat/conf/server.xml`. The startup script should install libxslt via apk. Your xsl file and startup script can be uploaded via FTP.
+Your startup script will make an [xsl transform](https://www.w3schools.com/xml/xsl_intro.asp) to the server.xml file and output the resulting xml file to `/usr/local/tomcat/conf/server.xml`. The startup script should install libxslt via apk. Your xsl file and startup script can be uploaded via FTP. Below is an example startup script.
 
 ```sh
 # Install libxslt. Also copy the transform file to /home/tomcat/conf/
