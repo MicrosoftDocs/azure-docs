@@ -43715,6 +43715,11 @@
       "source_path": "articles/aks/virtual-kubelet.md",
       "redirect_url": "/azure/aks/concepts-scale#burst-to-azure-container-instances",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/configure-cosmos-db.md",
+      "redirect_url": "/azure/healthcare-apis/configure-database",
+      "redirect_document_id": false
     }
   ]
 }
