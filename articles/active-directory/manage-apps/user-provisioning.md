@@ -46,7 +46,7 @@ Some common motivations for using automatic provisioning include:
 - Easily importing a large number of users into a particular SaaS application or system.
 - Having a single set of policies to determine who is provisioned and who can sign in to an app.
 
-Azure AD user provisioning can help address these challenges. To learn more about how customers have been using Azure AD user provisioning, you can read the [ASOS case study](aka.ms/asoscasestudy). The video below provides an overview of user provisioning in Azure AD:
+Azure AD user provisioning can help address these challenges. To learn more about how customers have been using Azure AD user provisioning, you can read the [ASOS case study](https://aka.ms/asoscasestudy). The video below provides an overview of user provisioning in Azure AD:
 
 > [!VIDEO https://www.youtube.com/embed/_ZjARPpI6NI]
 
