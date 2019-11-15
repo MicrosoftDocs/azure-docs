@@ -86,48 +86,6 @@ Recorded when autoscale first starts evaluating a particular scale rule.
 }
 ```
 
-## Scale action evaluation
-
-Recorded when autoscale starts evaluation if a scale action should take place. 
-
-```json
-{
-  "time": "2018-09-10 18:12:00.6132593",
-  "resourceId": "/SUBSCRIPTIONS/BA13C41D-C957-4774-8A37-092D62ACFC85/RESOURCEGROUPS/AUTOSCALETRACKING12042017/PROVIDERS/MICROSOFT.INSIGHTS/AUTOSCALESETTINGS/DEFAULTSETTING",
-  "operationName": "ScaleActionOperationEvaluation",
-  "category": "AutoscaleEvaluations",
-  "correlationId": "e8f67045-f381-445d-bc2d-eeff81ec0d77",
-  "property": {
-    "targetResourceId": "/subscriptions/d45c994a-809b-4cb3-a952-e75f8c488d23/resourceGroups/RingAhoy/providers/Microsoft.Web/serverfarms/ringahoy",
-    "lastScaleActionOperationId": "378ejr-7yye-892d-17dd-92ndijfe1738",
-    "lastScaleActionOperationStatus": ["InProgress", "Timeout"]
-	"skipCurrentAutoscaleEvaluation": [true, false]
-  }
-}
-```
-
-
-## Instance count evaluation
-
-Recorded when autoscale evaluates the number of instances already running in preparation for deciding if it should start more, shut down some, or do nothing. 
-
-```json
-{
-  "time": "2018-09-10 18:12:00.6132593",
-  "resourceId": "/SUBSCRIPTIONS/BA13C41D-C957-4774-8A37-092D62ACFC85/RESOURCEGROUPS/AUTOSCALETRACKING12042017/PROVIDERS/MICROSOFT.INSIGHTS/AUTOSCALESETTINGS/DEFAULTSETTING",
-  "operationName": "InstanceCountEvaluation",
-  "category": "AutoscaleEvaluations",
-  "correlationId": "e8f67045-f381-445d-bc2d-eeff81ec0d77",
-  "property": {
-    "targetResourceId": "/subscriptions/d45c994a-809b-4cb3-a952-e75f8c488d23/resourceGroups/RingAhoy/providers/Microsoft.Web/serverfarms/ringahoy",
-    "currentInstanceCount": 20,
-    "minimumInstanceCount": 15,
-    "maximumInstanceCount": 30,
-    "defaultInstanceCount": 20
-  }
-}
-```
-
 ## Metric evaluation
 
 Recorded when autoscale evaluated the a metric being used to trigger a scale action. 
@@ -152,9 +110,50 @@ Recorded when autoscale evaluated the a metric being used to trigger a scale act
 }
 ```
 
+## Instance count evaluation
+
+Recorded when autoscale evaluates the number of instances already running in preparation for deciding if it should start more, shut down some, or do nothing. 
+
+```json
+{
+  "time": "2018-09-10 18:12:00.6132593",
+  "resourceId": "/SUBSCRIPTIONS/BA13C41D-C957-4774-8A37-092D62ACFC85/RESOURCEGROUPS/AUTOSCALETRACKING12042017/PROVIDERS/MICROSOFT.INSIGHTS/AUTOSCALESETTINGS/DEFAULTSETTING",
+  "operationName": "InstanceCountEvaluation",
+  "category": "AutoscaleEvaluations",
+  "correlationId": "e8f67045-f381-445d-bc2d-eeff81ec0d77",
+  "property": {
+    "targetResourceId": "/subscriptions/d45c994a-809b-4cb3-a952-e75f8c488d23/resourceGroups/RingAhoy/providers/Microsoft.Web/serverfarms/ringahoy",
+    "currentInstanceCount": 20,
+    "minimumInstanceCount": 15,
+    "maximumInstanceCount": 30,
+    "defaultInstanceCount": 20
+  }
+}
+```
+
+## Scale action evaluation
+
+Recorded when autoscale starts evaluation if a scale action should take place. 
+
+```json
+{
+  "time": "2018-09-10 18:12:00.6132593",
+  "resourceId": "/SUBSCRIPTIONS/BA13C41D-C957-4774-8A37-092D62ACFC85/RESOURCEGROUPS/AUTOSCALETRACKING12042017/PROVIDERS/MICROSOFT.INSIGHTS/AUTOSCALESETTINGS/DEFAULTSETTING",
+  "operationName": "ScaleActionOperationEvaluation",
+  "category": "AutoscaleEvaluations",
+  "correlationId": "e8f67045-f381-445d-bc2d-eeff81ec0d77",
+  "property": {
+    "targetResourceId": "/subscriptions/d45c994a-809b-4cb3-a952-e75f8c488d23/resourceGroups/RingAhoy/providers/Microsoft.Web/serverfarms/ringahoy",
+    "lastScaleActionOperationId": "378ejr-7yye-892d-17dd-92ndijfe1738",
+    "lastScaleActionOperationStatus": ["InProgress", "Timeout"]
+	"skipCurrentAutoscaleEvaluation": [true, false]
+  }
+}
+```
+
 ## Instance update evaluation
 
-Recorded when auto
+Recorded when autoscale updates the number of compute instances running, either up or down.
 
 ```json
 {
@@ -175,7 +174,7 @@ Recorded when auto
 
 ## Scale action
 
-
+Recorded when autoscale initiates a scale action, either up or down. 
 ```json
 {
   "time": "2018-09-10 18:12:00.6132593",
@@ -197,6 +196,8 @@ Recorded when auto
 ```
 
 ## Scale action tracking
+
+Recorded at different intervals of a instance scale action.
 
 ```json
 {
