@@ -66,7 +66,7 @@ To create an Azure Event Grid subscription, follow these steps:
     
     ![Logic App Designer - add email](./media/eventgrid-logicappdesigner5.png)
 
-## Test and Verify
+## Test and verify
 
 1.  Go to your key vault on the Azure portal and select **Events > Event Subscriptions**.  Verify that a new subscription created
     
