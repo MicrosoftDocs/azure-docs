@@ -1,7 +1,7 @@
 ---
 title: Use DRM dynamic encryption and license delivery service
 titleSuffix: Azure Media Services
-description: Learn how to use Azure Media Services to deliver your streams encrypted with Microsoft PlayReady, Google Widevine, or Apple FairPlay licenses.
+description: Learn how to use DRM dynamic encryption and license delivery service to deliver streams encrypted with Microsoft PlayReady, Google Widevine, or Apple FairPlay licenses.
 services: media-services
 documentationcenter: ''
 author: juliako
