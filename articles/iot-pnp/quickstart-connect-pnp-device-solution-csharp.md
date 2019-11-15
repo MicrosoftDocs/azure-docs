@@ -47,13 +47,13 @@ dotnet --version
 
 In this quickstart, you use a sample environmental sensor that's written in C# as the IoT Plug and Play device. The following instructions show you how to install and run the device:
 
-1. Clone the [Microsoft Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp-digital-twin) GitHub repository:
+1. Open a terminal window in the directory of your choice. Execute the following command to clone the [Microsoft Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp-digital-twin) GitHub repository into this location:
 
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-csharp-digital-twin
     ```
 
-1. Open a terminal window for running the device (this will be your _device_ terminal). Go to your cloned repository and navigate to the **/azure-iot-sdk-csharp-digital-twin/digitaltwin/device/sample/EnvironmentalSensorSample** folder.
+1. This terminal window will now be used as your _device_ terminal. Go to your cloned repository and navigate to the **/azure-iot-sdk-csharp-digital-twin/digitaltwin/device/sample/EnvironmentalSensorSample** folder.
 
 1. Configure the _device connection string_:
 
@@ -67,7 +67,7 @@ In this quickstart, you use a sample environmental sensor that's written in C# a
         dotnet run
     ```
 
-1. You see messages saying that the device has sent telemetry and its properties. The device is now ready to receive commands and property updates. Don't close this terminal, you'll need it later to confirm the service samples also worked.
+1. You see messages saying that the device has successfully registered and is waiting for updates from the cloud. This indicates that the device is now ready to receive commands and property updates, and has begun sending telemetry data to the hub. Don't close this terminal, you'll need it later to confirm the service samples also worked.
 
 ## Build the solution
 
@@ -75,7 +75,7 @@ In this quickstart, you use a sample IoT solution in C# to interact with the sam
 
 1. Open another terminal window (this will be your _service_ terminal). Go to the folder of your cloned repository, and navigate to the **/azure-iot-sdk-csharp-digital-twin/digitaltwin/service/sample** folder.
 
-1. Configure the _IoT hub connection string_ and _device ID_:
+1. Configure the _IoT hub connection string_ and _device ID_ to allow the service to connect to both of these:
 
     ```cmd/sh
     set IOTHUB_CONNECTION_STRING=<YourIoTHubConnectionString>
@@ -84,135 +84,145 @@ In this quickstart, you use a sample IoT solution in C# to interact with the sam
 
 ### Read a property
 
-1. When you connected the _device_ in its terminal, you saw the following message:
+1. When you connected the _device_ in its terminal, you saw the following message indicating its online status:
 
     ```cmd/sh
-    reported state property as online
+    Waiting to receive updates from cloud...
     ```
 
-1. Go to the _service_ terminal and use the following commands to run the sample:
+1. Go to the _service_ terminal and use the following commands to run the sample for reading device information:
 
     ```cmd/sh
     cd GetDigitalTwin
     dotnet run
-    cd ..
     ```
 
-1. In the output, under the _environmentalSensor_ component, you see the state has been reported as online:
+1. In the _service_ terminal output, scroll to the `environmentalSensor` component. You see that the `state` property, which is used to indicate whether or not the device is online, has been reported as _true_:
 
     ```JSON
-    "state": {
-      "reported": {
-        "value": "online"
+    "environmentalSensor": {
+      "name": "environmentalSensor",
+      "properties": {
+        "state": {
+          "reported": {
+            "value": true
+          }
+        }
       }
+    }
     ```
 
 ### Update a writable property
 
-1. Go to the _service_ terminal and set the following variables:
+1. Go to the _service_ terminal and set the following variables to define which property to update:
     ```cmd/sh
     set INTERFACE_INSTANCE_NAME=environmentalSensor
     set PROPERTY_NAME=brightness
     set PROPERTY_VALUE=42
     ```
 
-1. Use the following commands to run the sample:
+1. Use the following commands to run the sample for updating the property:
 
     ```cmd/sh
-    cd UpdateProperty
+    cd ..\UpdateProperty
     dotnet run
-    cd ..
     ```
 
-1. In the _service_ terminal, you see the digital twin information associated with your device. Find the component _environmentalSensor_ to see the new brightness value of 42.
+1. The _service_ terminal output shows the updated device information. Scroll to the `environmentalSensor` component to see the new brightness value of 42.
 
     ```json
-    "environmentalSensor": {
-        "name": "environmentalSensor",
-        "properties": {
-          "name": {
-            "reported": {
-              "value": "Name",
-              "desiredState": {
-                "code": 200,
-                "version": 12,
-                "description": "helpful descriptive text"
-              }
-            },
-            "desired": {
-              "value": "Name"
-            }
-          },
-          "brightness": {
-            "desired": {
-              "value": 42
-            }
-          },
-          "state": {
-            "reported": {
-              "value": "online"
-            }
+        "environmentalSensor": {
+      "name": "environmentalSensor",
+      "properties": {
+        "brightness": {
+          "desired": {
+            "value": "42"
+          }
+        },
+        "state": {
+          "reported": {
+            "value": true
           }
         }
       }
+    }
     ```
 
 1. Go to your _device_ terminal, you see the device has received the update:
 
     ```cmd/sh
-    Received an update for brightness: 42
-    updated the property
+    Received updates for property 'brightness'
+    Desired brightness = '"42"'.
+    Reported brightness = ''.
+    Version is '2'.
+    Sent pending status for brightness property.
+    Sent completed status for brightness property.
     ```
 2. Go back to your _service_ terminal and run the below commands to get the device information again, to confirm the property has been updated.
     
     ```cmd/sh
-    cd GetDigitalTwin
+    cd ..\GetDigitalTwin
     dotnet run
-    cd ..
     ```
-3. In the output, under the _environmentalSensor_ component, you see the updated brightness value has been reported. Note: it might take a while for the device to finish the update. You can repeat this step until the device has actually processed the property update.
+3. In the _service_ terminal output, under the `environmentalSensor` component, you see the updated brightness value has been reported. Note: it might take a while for the device to finish the update. You can repeat this step until the device has actually processed the property update.
     
     ```json
-      "brightness": {
-        "reported": {
-          "value": 42,
+    "environmentalSensor": {
+      "name": "environmentalSensor",
+      "properties": {
+        "brightness": {
+          "desired": {
+            "value": "42"
+          },
+          "reported": {
+            "value": "42",
+            "desiredState": {
+              "code": 200,
+              "description": "Request completed",
+              "version": 2
+            }
           }
-       }
+        },
+        "state": {
+          "reported": {
+            "value": true
+          }
+        }
+      }
+    },
     ```
 
 ### Invoke a command
 
-1. Go to the _service_ terminal and set the following variables:
+1. Go to the _service_ terminal and set the following variables to define which command to invoke:
     ```cmd/sh
     set INTERFACE_INSTANCE_NAME=environmentalSensor
     set COMMAND_NAME=blink
     ```
 
-1. Use the following commands to run the sample:
+1. Use the following commands to run the sample for invoking the command:
 
     ```cmd/sh
-    cd InvokeCommand
+    cd ..\InvokeCommand
     dotnet run
-    cd ..
     ```
 
-1. In the _service_ terminal, success looks like the following output:
+1. Output in the _service_ terminal should show the following confirmation:
 
     ```cmd/sh
-    invoking command blink on component environmentalSensor for device <device ID>...
-    {
-      "result": "helpful response text",
-      "statusCode": 200,
-      "requestId": "<some ID value>",
-      "_response": "helpful response text"
-    }
+    Invoking blink on device <YourDeviceID> with interface instance name environmentalSensor
+    Command blink invoked on the device successfully, the returned status was 200 and the request id was <some ID value>
+    The returned payload was
+    {"description": "abc"}
+    Enter any key to finish
     ```
 
 1. Go to the _device_ terminal, you see the command has been acknowledged:
 
     ```cmd/sh
-    received command: blink for component: environmentalSensor
-    acknowledgement succeeded.
+    Command - blink was invoked from the service
+    Data - null
+    Request Id - <some ID value>.
     ```
 
 [!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
