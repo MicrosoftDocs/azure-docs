@@ -37,7 +37,7 @@ Kafka Rest API Proxy provides one-click deployment of highly available REST prox
 
 ### Auto scale
 
-Autoscale for Azure HDInsight is now generally available across all regions for Apache Spark and Hadoop workloads. This feature makes it possible to operate the big data analytics workloads in a more cost-efficient and productive way, so customers can drive higher use of their HDInsight clusters and pay only for what they need.
+Autoscale for Azure HDInsight is now generally available across all regions for Apache Spark and Hadoop cluster types. This feature makes it possible to manage big data analytics workloads in a more cost-efficient and productive way. Now you can optimize use of your HDInsight clusters and only pay for what you need.
 
 Depending on the requirements, customers can choose between load-based and schedule-based autoscaling. Load-based Autoscale can scale the cluster size up and down based on the current resource needs while schedule-based Autoscale can change the cluster size based on the predefined schedule. 
 
