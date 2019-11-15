@@ -1,12 +1,8 @@
 ---
 title: Get resource changes
 description: Understand how to find when a resource was changed and get a list of the properties that changed.
-services: resource-graph
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/09/2019
 ms.topic: conceptual
-ms.service: resource-graph
 ---
 # Get resource changes
 
