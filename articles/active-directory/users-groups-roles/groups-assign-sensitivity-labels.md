@@ -17,9 +17,9 @@ ms.collection: M365-identity-device-management
 ---
 
 
-# Assign sensitivity labels to Office 365 groups in Azure Active Directory (Public Preview)
+# Assign sensitivity labels to Office 365 groups in Azure Active Directory (preview)
 
-When sensitivity labels are published in the [Microsoft 365 compliance center](https://sip.protection.office.com/homepage), you can now apply them to for Office 365 groups in Azure AD. When you apply a label to an Office 365 group the label automatically applies across workloads like Outlook, Microsoft Teams, and SharePoint.
+Azure Active Directory (Azure AD) is previewing support for applying sensitivity labels published by the [Microsoft 365 compliance center](https://sip.protection.office.com/homepage) to Office 365 groups. Sensitivity labels apply to group across services like Outlook, Microsoft Teams, and SharePoint.
 
 > [!IMPORTANT]
 > Using Azure AD sensitivity labels for Office 365 groups requires an Azure Active Directory Premium P1 license.
@@ -28,8 +28,8 @@ When sensitivity labels are published in the [Microsoft 365 compliance center](h
 
 There are two policies that can be associated with a label:
 
-- Privacy: Admins can associate a privacy setting with the label to control whether a group must be public or private.
-- Guest access: Admins can enforce the guest policy for all groups that have the label assigned. This specifies whether guests are allowed to be added as members or not. If the guest policy is configured for a label, the AllowToAddGuests setting for a specific group is not modifiable for any groups with that label assigned.
+- Privacy: Admins can associate a privacy setting with the label to control whether a group is public or private.
+- Guest access: Admins can enforce the guest policy for all groups that have the label assigned. This policy specifies whether guests can be added as members or not. If the guest policy is configured for a label, any groups that you assign the label to won't allow the AllowToAddGuests setting to be changed.
 
 ## Enable sensitivity label support in PowerShell
 
@@ -41,7 +41,7 @@ To apply published labels to groups, you must first enable the feature. These st
 
 1. Run the following commands to prepare to run the cmdlets.
 
-    In the **Sign in to your account** screen that opens, enter your admin account and password to connect you to your service, and select **Sign in**.
+    In the **Sign in to your account** page, enter your admin account and password to connect you to your service, and select **Sign in**.
 1. Fetch the current group settings for the Azure AD organization.
     ```$Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id```
     > [!NOTE]
@@ -57,7 +57,7 @@ That's it. You've enabled the feature and you can apply published labels to grou
 
 ## Assign a label to a new group in Azure portal
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with a Global or Group Administrator account or as group owner.
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with a Global admin or Groups admin account, or as a group owner.
 1. Select **Groups**, and then select **New group**.
 1. On the **New Group** page, fill out the required information for the new group and select a sensitivity label from the list.
 
@@ -69,7 +69,7 @@ Your group is created and the policies associated with the selected label are th
 
 ## Assign a label to an existing group in Azure portal
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with a Global or Group Administrator account or as group owner.
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with a Global admin or Groups admin account, or as a group owner.
 1. Select **Groups**.
 1. From the **All groups** page, select the group that you want to label.
 1. On the selected group's page, select **Properties** and select a sensitivity label from the list.
@@ -80,7 +80,7 @@ Your group is created and the policies associated with the selected label are th
 
 ## Remove a label to an existing group in Azure portal
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with a Global or Group Administrator account or as group owner.
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with a Global admin or Groups admin account, or as a group owner.
 1. Select **Groups**.
 1. From the **All groups** page, select the group that you want to label.
 1. On the **Group** page, select **Properties** and remove the sensitivity label.
