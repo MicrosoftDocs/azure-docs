@@ -1,6 +1,6 @@
 ---
 title: Filter data by using Azure Data Lake Storage quick query (.NET) | Microsoft Docs
-description: Use .NET and quick query (Preview) to retrieve a targeted subset of data from your storage account.
+description: Use .NET and quick query (Preview) to retrieve a subset of data from your storage account.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -12,7 +12,7 @@ ms.reviewer: jamsbak
 
 # Filter data by using Azure Data Lake Storage quick query (.NET)
 
-This article shows you how to use .NET and quick query (Preview) to retrieve a targeted subset of data from your storage account. 
+This article shows you how to use .NET and quick query (Preview) to retrieve a subset of data from your storage account. 
 
 Quick query (Preview) is a new capability for Azure Data Lake Storage that enables application and analytics frameworks to dramatically optimize data processing by retrieving only the data that they require to perform a given operation. To learn more, see [Azure Data Lake Storage Quick Query (Preview)](data-lake-storage-quick-query.md).
 
@@ -23,11 +23,7 @@ Quick query (Preview) is a new capability for Azure Data Lake Storage that enabl
 
 - To access Azure Storage, you'll need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- A **general-purpose v2** storage account. 
-
-  To create a storage account see [Create a storage account](../common/storage-quickstart-create-account.md).
-  
-  To create a storage and enable hierarchical namespaces, see [Create an Azure Data Lake Storage Gen2 storage account](data-lake-storage-quickstart-create-account.md). 
+- A **general-purpose v2** storage account. see [Create a storage account](../common/storage-quickstart-create-account.md).
 
 ## Set up your project
 
@@ -45,9 +41,7 @@ using statement 2;
 ```
 ## Retrieve data by using a filter
 
-Quick query can retrieve CSV, Json and Parquet formatted data. The example in this section shows how to query a CSV file. To parse CSV data, we'll use the [TinyCsvParser](https://www.nuget.org/packages/TinyCsvParser/) library that is available on NuGet. 
-
-To use this library, you have to define two classes. The first class holds the data for each returned row. The second class provides a way to map each column in the CSV file with a class member.  
+Quick query can retrieve CSV, Json and Parquet formatted data. In this section, we'll parse a CSV file by using the [TinyCsvParser](https://www.nuget.org/packages/TinyCsvParser/) library that is available on NuGet.  The following code defines a class that holds the data for each returned row, and a class that provides a way to map each column in the CSV file with a class member.  
 
 ```csharp
 class Person 
@@ -104,7 +98,7 @@ private static async Task QueryPeople(CloudBlobClient serviceClient, Uri blobUri
 
 ## Retrieve specific columns
 
-You can scope your results to a subset of columns. That way you only retrieve the columns needed to perform a given calculation. This improves application performance and reduces cost because less data is transferred over the network. 
+You can scope your results to a subset of columns. That way you retrieve only the columns needed to perform a given calculation. This improves application performance and reduces cost because less data is transferred over the network. 
 
 This code retrieves only the `BirthDate` column. To achieve this with the TinyCsvParser library, you'll need to define a new mapping class. 
 

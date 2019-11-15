@@ -19,9 +19,9 @@ Quick query (Preview) is a new capability for Azure Data Lake Storage that enabl
 
 ## Overview
 
-Quick query accepts filtering *predicates* which enable your applications to filter rows and columns at the time that data is read from disk. Only the data that meets the conditions of a predicate are transferred over the network to the application. This reduces network latency and compute cost.  
+Quick query accepts filtering *predicates* which enables applications to filter rows and columns at the time that data is read from disk. Only the data that meets the conditions of a predicate are transferred over the network to the application. This reduces network latency and compute cost.  
 
-Use SQL to specify the row filter predicates and column projections in a quick query request. A request processes only one file. Therefore, advanced relational features of SQL, such as joins and group by aggregates, aren't supported. Quick query supports CSV, Json and Parquet formatted data as input to each request.
+You can use SQL to specify the row filter predicates and column projections in a quick query request. A request processes only one file. Therefore, advanced relational features of SQL, such as joins and group by aggregates, aren't supported. Quick query supports CSV, Json and Parquet formatted data as input to each request.
 
 The following diagram illustrates how a typical application uses quick query to process data.
 
