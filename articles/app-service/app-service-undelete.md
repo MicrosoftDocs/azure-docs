@@ -12,8 +12,8 @@ ms.service: app-service
 
 If you happened to accidentally delete your app in Azure App Service, you can restore it using the commands from the [Az PowerShell module](https://docs.microsoft.com/powershell/azure/?view=azps-2.6.0&viewFallbackFrom=azps-2.2.0).
 
-## Re-register App Service Resource Provider
-Some customer's might hit an issue where retrieving the list of deleted apps fails. Please run the command below to resolve that issue
+## Re-register App Service resource provider
+Some customers might encounter an issue where retrieving the list of deleted apps fails. To resolve the issue, run the following command:
 
 ```powershell
  Register-AzResourceProvider -ProviderNamespace "Microsoft.Web"
