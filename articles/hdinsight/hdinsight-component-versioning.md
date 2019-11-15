@@ -24,27 +24,27 @@ The component versions associated with HDInsight cluster versions are listed in 
 > [!NOTE]  
 > The default version for the HDInsight service might change without notice. If you have a version dependency, specify the HDInsight version when you create your clusters with the .NET SDK with Azure PowerShell and Azure Classic CLI.
 
-| Component | HDInsight 4.0 | HDInsight 3.6 (Default) | HDInsight 3.5 | HDInsight 3.4 | HDInsight 3.3 | HDInsight 3.2 |
-|---------------------------|---------------|-----------------------------|---------------|---------------|---------------|----------------------|
-| Apache Hadoop and YARN | 3.1.1 | 2.7.3 | 2.7.3 | 2.7.1 | 2.7.1 | 2.6.0 |
-| Apache Tez | 0.9.1 | 0.7.0 | 0.7.0 | 0.7.0 | 0.7.0 | 0.5.2 |
-| Apache Pig | 0.16.0 | 0.16.0 | 0.16.0 | 0.15.0 | 0.15.0 | 0.14.0 |
-| Apache Hive | 3.1.0 | 2.1.0, 1.2.1 | - | - | - | - |
-| Apache Tez Hive2 | - | 0.8.4 | - | - | - | - |
-| Apache Ranger | 1.1.0 | 0.7.0 | 0.6.0 | - | - | - |
-| Apache HBase | 2.0.1 | 1.1.2 | 1.1.2 | 1.1.2 | 1.1.1 | 0.98.4 |
-| Apache Sqoop | 1.4.7 | 1.4.6 | 1.4.6 | 1.4.6 | 1.4.6 | 1.4.5 |
-| Apache Oozie | 4.3.1 | 4.2.0 | 4.2.0 | 4.2.0 | 4.2.0 | 4.1.0 |
-| Apache Zookeeper | 3.4.6 | 3.4.6 | 3.4.6 | 3.4.6 | 3.4.6 | 3.4.6 |
-| Apache Storm | - | 1.1.0 | 1.0.1 | 0.10.0 | 0.10.0 | 0.9.3 |
-| Apache Mahout | - | 0.9.0+ | 0.9.0+ | 0.9.0+ | 0.9.0+ | 0.9.0 |
-| Apache Phoenix | 5 | 4.7.0 | 4.7.0 | 4.4.0 | 4.4.0 | 4.2.0 |
-| Apache Spark | 2.3.1, 2.4 | 2.3.0, 2.2.0, 2.1.0 | 1.6.2, 2.0 | 1.6.0 | 1.5.2 | 1.3.1 (Windows only) |
-| Apache Livy | 0.5 | 0.4, 0.4, 0.3 | 0.3 | 0.3 | 0.2 | - |
-| Apache Kafka | 1.1.1, 2.1 | 1.1, 1.0 * (See Note below) | 0.10.0 | 0.9.0 | - | - |
-| Apache Ambari | 2.7.0 | 2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 | - |
-| Apache Zeppelin | 0.8.0 | 0.7.0 | - | - | - | - |
-| Mono | 4.2.1 | 4.2.1 | 4.2.1 | 3.2.8 | - | - |
+| Component              | HDInsight 4.0 | HDInsight 3.6 (Default)     |
+|------------------------|---------------|-----------------------------|
+| Apache Hadoop and YARN | 3.1.1         | 2.7.3                       |
+| Apache Tez             | 0.9.1         | 0.7.0                       |
+| Apache Pig             | 0.16.0        | 0.16.0                      |
+| Apache Hive            | 3.1.0         | 2.1.0, 1.2.1                |
+| Apache Tez Hive2       | -             | 0.8.4                       |
+| Apache Ranger          | 1.1.0         | 0.7.0                       |
+| Apache HBase           | 2.0.1         | 1.1.2                       |
+| Apache Sqoop           | 1.4.7         | 1.4.6                       |
+| Apache Oozie           | 4.3.1         | 4.2.0                       |
+| Apache Zookeeper       | 3.4.6         | 3.4.6                       |
+| Apache Storm           | -             | 1.1.0                       |
+| Apache Mahout          | -             | 0.9.0+                      |
+| Apache Phoenix         | 5             | 4.7.0                       |
+| Apache Spark           | 2.3.1, 2.4    | 2.3.0, 2.2.0, 2.1.0         |
+| Apache Livy            | 0.5           | 0.4, 0.4, 0.3               |
+| Apache Kafka           | 1.1.1, 2.1    | 1.1, 1.0 * (See Note below) |
+| Apache Ambari          | 2.7.0         | 2.6.0                       |
+| Apache Zeppelin        | 0.8.0         | 0.7.0                       |
+| Mono                   | 4.2.1         | 4.2.1                       |
 
 > [!NOTE]
 > Due to system performance considerations, support for Kafka version 0.10 was expired in March 2019.
