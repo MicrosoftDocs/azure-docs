@@ -1,5 +1,5 @@
 ---
-title: Speech Devices SDK microphone array recommendations - Speech Service
+title: Speech Devices SDK microphone array recommendations
 titleSuffix: Azure Cognitive Services
 description: Speech Devices SDK microphone array recommendations. These array geometries are recommended for use with the Microsoft Audio Stack.
 services: cognitive-services
@@ -37,20 +37,24 @@ Microphone components should be selected to accurately reproduce a signal free o
 
 The recommended properties when selecting microphones are:
 
-| Parameter                     | Recommended                                         |
-| ----------------------------- | --------------------------------------------------- |
-| SNR                           | \>= 65 dB (1 kHz signal 94 dBSPL, A-weighted noise) |
-| Amplitude Matching            | ± 1 dB @ 1 kHz                                      |
-| Phase Matching                | ± 2° @ 1 kHz                                        |
-| Acoustic Overload Point (AOP) | \>= 120 dBSPL (THD = 10%)                           |
-| Bit Rate                      | Minimum 24-bit                                      |
-| Sampling Rate                 | Minimum 16 kHz\*                                    |
-| Frequency Response            | ± 3 dB, 200-8000 Hz Floating Mask\*                 |
-| Reliability                   | Storage Temperature Range -40°C to 70°C<br />Operating Temperature Range -20°C to 55°C |
+| Parameter | Recommended |
+| --------- | ----------- |
+| SNR | \>= 65 dB (1 kHz signal 94 dBSPL, A-weighted noise) |
+| Amplitude Matching | ± 1 dB @ 1 kHz |
+| Phase Matching | ± 2° @ 1 kHz |
+| Acoustic Overload Point (AOP) | \>= 120 dBSPL (THD = 10%) |
+| Bit Rate | Minimum 24-bit |
+| Sampling Rate | Minimum 16 kHz\* |
+| Frequency Response | ± 3 dB, 200-8000 Hz Floating Mask\* |
+| Reliability | Storage Temperature Range -40°C to 70°C<br />Operating Temperature Range -20°C to 55°C |
 
-\*_Higher sampling rates or "wider" frequency ranges may be necessary for high-quality communications (VoIP) applications_
+\*_Higher sampling rates or "wider" frequency ranges may be necessary
+for high-quality communications (VoIP) applications_
 
-Good component selection must be paired with good electroacoustic integration in order to avoid impairing the performance of the components used. Unique use cases may also necessitate additional requirements (for example: operating temperature ranges).
+Good component selection must be paired with good
+electroacoustic integration in order to avoid impairing the performance
+of the components used. Unique use cases may also necessitate additional
+requirements (for example: operating temperature ranges).
 
 ## Microphone array integration
 
@@ -64,7 +68,7 @@ The performance of the microphone array when integrated into a device will diffe
 | THD%\*             | ≤ 1%, 200-8000 Hz, 94 dBSPL, 5th Order             |
 | Frequency Response | ± 6 dB, 200-8000 Hz Floating Mask\*\*              |
 
-\*_A low distortion speaker is required to measure THD (e.g. Neumann KH120)_
+\*\*_A low distortion speaker is required to measure THD (e.g. Neumann KH120)_
 
 \*\*_"Wider" frequency ranges may be necessary for high-quality communications (VoIP) applications_
 
