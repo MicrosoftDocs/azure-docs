@@ -43,7 +43,7 @@ The Azure portal is a convenient way to configure provisioning for individual ap
 ### Sign in to Microsoft Graph Explorer (recommended), Postman, or any other API client you use
 
 1. Start [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
-1. Select the "Sign-In with Microsoft" button and sign in using Azure AD global admininstrator or App Admin credentials.
+1. Select the "Sign-In with Microsoft" button and sign in using Azure AD global administrator or App Admin credentials.
 
     ![Graph Sign-in](./media/export-import-provisioning-mappings/wd_export_02.png)
 
