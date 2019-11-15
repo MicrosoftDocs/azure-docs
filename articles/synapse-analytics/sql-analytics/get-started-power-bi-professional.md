@@ -1,6 +1,6 @@
 ---
 title: Connect to Power BI Professional | Azure Synapse Analytics
-description: In this tutorial, we will go through steps how to connect SQL on-demand with Power BI desktop.
+description: In this tutorial, we will go through steps how to connect Power BI desktop to SQL on-demand.
 services: sql-data-warehouse
 author: azaricstefan
 ms.service: sql-data-warehouse
@@ -11,9 +11,9 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Tutorial: Power BI Professional 
+# Connect to SQL Analytics with Power BI Professional
 
-In this tutorial, we will go through steps how to connect SQL on-demand with Power BI desktop.
+In this tutorial, we will go through steps how to connect Power BI desktop to SQL on-demand.
 
 
 ## Prerequisites
