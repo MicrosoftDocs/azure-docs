@@ -149,7 +149,7 @@ In the vault dashboard, go to **Manage** > **Backup Policies** and choose the po
 
 Policy modification will impact all the associated Backup Items and trigger corresponding **configure protection** jobs.
 
-### Inconsistent Policy
+### Inconsistent policy
 
 Sometimes, a modify policy operation can lead to an **inconsistent** policy version for some backup items. This happens when the corresponding **configure protection** job fails for the backup item after a modify policy operation is triggered. It appears as follows in the backup item view:
 
