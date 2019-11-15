@@ -81,7 +81,7 @@ If you own a Video Indexer paid account, you need to connect a Custom Vision acc
 
 1. Tag and train the model.
 
-    1. Tag the detected character by editing its name. Once a character is trained into the model it will be recognized it the next video indexed with that model. 
+    1. Tag the detected character by editing its name. Once a character is trained into the model, it will be recognized it the next video indexed with that model. 
     1. To tag an animated character in your video, go to the **Insights** tab and click on the **Edit** button on the top-right corner of the window.
     1. In the **Insights** pane, click on any of the detected animated characters and change their names from "Unknown #X" (or the name that was previously assigned to the character).
     1. After typing in the new name, click on the check icon next to the new name. This saves the new name in the model in Video Indexer.
@@ -114,6 +114,42 @@ If you own a Video Indexer paid account, you need to connect a Custom Vision acc
     
         > [!NOTE]
         > In a trial account, you only have one model you can use. After you delete it, you can’t train other models.
+
+### Connect a Custom Vision account using API 
+
+If you own a Video Indexer paid account, you need to connect a Custom Vision account first. If you don't have a Custom Vision account already, please create one. For more information, see [Custom Vision](../../cognitive-services/custom-vision-service/home.md).
+
+> [!NOTE]
+> Both accounts need to be in the same region. The Custom Vision integration is currently not support in the Japan region.
+
+Follow these steps to connect you Custom Vision account to Video Indexer, or to change the Custom Vision account that is currently connected to Video Indexer:
+
+1. Browse to [https://www.customvision.ai](ttps://www.customvision.ai) and login.
+1. Copy the following keys: 
+
+    * Training key (for the training resource)
+    * Prediction key (for the prediction resource)
+    * Endpoint 
+    * Prediction resource Id 
+    
+    > [!NOTE]
+    > To provide all the keys you need to have two separate resources in Custom Vision, one for training and one for prediction.
+1. Browse and sign in to the [Video Indexer](https://vi.microsoft.com/).
+1. Click on the question mark on the top-right corner of the page and choose **API Reference**.
+1. Make sure you are subscribed to API Management by clicking **Products** tab. If you have an API connected you can continue to the next step, otherwise, subscribe. 
+1. On the developer portal, click the **Complete API Reference** and browse to **Operations**.  
+1. Select **Connect Custom Vision Account (PREVIEW)** and click **Try it**.
+1. Fill in the required fields as well as the access token and click **Send**. 
+
+    For more information about how to get the Video Indexer access token go to the [developer portal](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?), and see the [relevant documentation](video-indexer-use-apis#obtain-access-token-using-the-authorization-api.md).  
+1. Once the call return 200 OK response, your account is connected.
+1. To verify your connection by browse to the [Video Indexer](https://vi.microsoft.com/)) portal:
+1. Click on the **Content model customization** button in the top-right corner.
+1. Go to the **Animated characters** tab.
+1. Once you click on Manage models in Custom Vision”**, you will be transferred to the Custom Vision account you just connected.
+
+> [!NOTE]
+> Currently, only models that were created via Video Indexer are supported. Models that are created through Custom Vision will not be available. In addition, the best practice is to edit models that were created through Video Indexer only through the Video Indexer platform, since changes made through Custom Vision may cause unintended results.
 
 ## Use the animated character detection with API 
 
