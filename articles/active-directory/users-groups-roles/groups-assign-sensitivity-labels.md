@@ -37,7 +37,7 @@ To apply published labels to groups, you must first enable the feature. These st
 
 1. Open a Windows PowerShell window on your computer. You can open it without elevated privileges.
 
-   ![open a PowerShell window to assign a sensitivity label](./media/groups-assign-sensitivity-label/powershell-command.png)
+   ![open a PowerShell window to assign a sensitivity label](./media/groups-assign-sensitivity-labels/powershell-command.png)
 
 1. Run the following commands to prepare to run the cmdlets.
 
@@ -61,7 +61,7 @@ That's it. You've enabled the feature and you can apply published labels to grou
 1. Select **Groups**, and then select **New group**.
 1. On the **New Group** page, fill out the required information for the new group and select a sensitivity label from the list.
 
-   ![assign a sensitivity label in the New groups page](./media/groups-assign-sensitivity-label/new-groups-page.png)
+   ![assign a sensitivity label in the New groups page](./media/groups-assign-sensitivity-labels/new-groups-page.png)
 
 1. Save your changes and select **Create**.
 
@@ -74,7 +74,7 @@ Your group is created and the policies associated with the selected label are th
 1. From the **All groups** page, select the group that you want to label.
 1. On the selected group's page, select **Properties** and select a sensitivity label from the list.
 
-   ![assign a sensitivity label on the overview page for a group](./media/groups-assign-sensitivity-label/assign-to-existing.png)
+   ![assign a sensitivity label on the overview page for a group](./media/groups-assign-sensitivity-labels/assign-to-existing.png)
 
 1. Select **Save** to save your changes.
 
