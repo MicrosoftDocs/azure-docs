@@ -19,7 +19,7 @@
         href: quickstarts/python-train-extract.md
     - name: Train custom model with labels
       items:
-      - name: Train with labels using the REST API and Python
+      - name: Python
         href: quickstarts/python-labeled-data.md
     - name: Use prebuilt receipt model
       items:
@@ -35,7 +35,7 @@
     href: quickstarts/dotnet-sdk.md
   - name: Using the sample labeling tool
     items:
-    - name: Train a custom model with labels
+    - name: Train custom model with labels
       href: quickstarts/label-tool.md
 - name: Tutorials
   items:
