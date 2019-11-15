@@ -249,7 +249,6 @@ This container image has the following tags available:
 
 | Image Tags | Notes |
 |------------|:------|
-
 | `latest` | Container image with the `en-US` locale and `JessaRUS` voice. |
 | `1.3.0-amd64-zh-tw-zhiwei-apollo-preview` | |
 | `1.3.0-amd64-zh-tw-yating-apollo-preview` | |
