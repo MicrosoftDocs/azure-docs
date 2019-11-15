@@ -15,7 +15,6 @@ ms.date: 11/04/2019
 
 This article provides information and solutions to common errors and warnings you might encounter during indexing and AI enrichment in Azure Cognitive Search.
 
-## Errors
 Indexing stops when the error count exceeds ['maxFailedItems'](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures). 
 
 If you want indexers to ignore these errors (and skip over "failed documents"), consider updating the `maxFailedItems` and `maxFailedItemsPerBatch` as described [here](https://docs.microsoft.com/rest/api/searchservice/create-indexer#general-parameters-for-all-indexers).
@@ -23,41 +22,51 @@ If you want indexers to ignore these errors (and skip over "failed documents"), 
 > [!NOTE]
 > Each failed document along with its document key (when available) will show up as an error in the indexer execution status. You can utilize the [index api](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) to manually upload the documents at a later point if you have set the indexer to tolerate failures.
 
-The following sections can help you resolve errors, allowing indexing to continue.
+The error information in this article can help you resolve errors, allowing indexing to continue.
 
-### Could not read document
+Warnings do not stop indexing, but they do indicate conditions that could result in unexpected outcomes. Whether you take action or not depends on the data and your scenario.
+
+<a name="could-not-read-document"/>
+## Error: Could not read document
+
 Indexer was unable to read the document from the data source. This can happen due to:
 
-| Reason | Example | Action |
+| Reason | Details/Example | Resolution |
 | --- | --- | --- |
 | inconsistent field types across different documents | Type of value has a mismatch with column type. Couldn't store `'{47.6,-122.1}'` in authors column.  Expected type is JArray. | Ensure that the type of each field is the same across different documents. For example, if the first document `'startTime'` field is a DateTime, and in the second document it's a string, this error will be hit. |
 | errors from the data source's underlying service | (from Cosmos DB) `{"Errors":["Request rate is large"]}` | Check your storage instance to ensure it's healthy. You may need to adjust your scaling/partitioning. |
 | transient issues | A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - An existing connection was forcibly closed by the remote host | Occasionally there are unexpected connectivity issues. Try running the document through your indexer again later. |
 
-### Could not extract document content
+<a name="could-not-extract-document-content"/>
+
+## Error: Could not extract document content
 Indexer with a Blob data source was unable to extract the content from the document (for example, a PDF file). This can happen due to:
 
-| Reason | Example | Action |
+| Reason | Details/Example | Resolution |
 | --- | --- | --- |
 | blob is over the size limit | Document is `'150441598'` bytes, which exceeds the maximum size `'134217728'` bytes for document extraction for your current service tier. | [blob indexing errors](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | blob has unsupported content type | Document has unsupported content type `'image/png'` | [blob indexing errors](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | blob is encrypted | Document could not be processed - it may be encrypted or password protected. | [blob settings](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed) |
 | transient issues | Error processing blob: The request was aborted: The request was canceled. | Occasionally there are unexpected connectivity issues. Try running the document through your indexer again later. |
 
-### Could not parse document
+<a name="could-not-parse-document"/>
+
+## Error: Could not parse document
 Indexer read the document from the data source, but there was an issue converting the document content into the specified field mapping schema. This can happen due to:
 
-| Reason | Example | Action |
+| Reason | Details/Example | Resolution |
 | --- | --- | --- |
 | The document key is missing | Document key cannot be missing or empty | Ensure all documents have valid document keys |
 | The document key is invalid | Document key cannot be longer than 1024 characters | Modify the document key to meet the validation requirements. |
 | Could not apply field mapping to a field | Could not apply mapping function `'functionName'` to field `'fieldName'`. Array cannot be null. Parameter name: bytes | Double check the [field mappings](search-indexer-field-mappings.md) defined on the indexer, and compare with the data of the specified field of the failed document. It may be necessary to modify the field mappings or the document data. |
 | Could not read field value | Could not read the value of column `'fieldName'` at index `'fieldIndex'`. A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - An existing connection was forcibly closed by the remote host.) | These errors are typically due to unexpected connectivity issues with the data source's underlying service. Try running the document through your indexer again later. |
 
-### Could not execute skill
+<a name="could-not-read-document"/>
+
+## Error: Could not execute skill
 Indexer was not able to run a skill in the skillset.
 
-| Reason | Example | Action |
+| Reason | Details/Example | Resolution |
 | --- | --- | --- |
 | A field contains a term that is too large | A term in your document is larger than the [32 KB limit](search-limits-quotas-capacity.md#api-request-limits) | You can avoid this restriction by ensuring the field is not configured as filterable, facetable, or sortable.
 | Document is too large to be indexed | A document is larger than the [maximum api request size](search-limits-quotas-capacity.md#api-request-limits) | [How to index large data sets](search-howto-large-index.md)
@@ -108,7 +117,7 @@ The maximum value that you can set for the `timeout` parameter is 230 seconds.  
 
 The document was read and processed, but the indexer could not add it to the search index. This can happen due to:
 
-| Reason | Example | Action |
+| Reason | Details/Example | Resolution |
 | --- | --- | --- |
 | A term in your document is larger than the [32 KB limit](search-limits-quotas-capacity.md#api-request-limits) | A field contains a term that is too large | You can avoid this restriction by ensuring the field is not configured as filterable, facetable, or sortable.
 | A document is larger than the [maximum api request size](search-limits-quotas-capacity.md#api-request-limits) | Document is too large to be indexed | [How to index large data sets](search-howto-large-index.md)
@@ -122,7 +131,7 @@ The document was read and processed, but the indexer could not add it to the sea
 
 The document was read and processed, but due to a mismatch in the configuration of the index fields and the nature of the data extracted by the indexer, it could not be added to the search index. This can happen due to:
 
-| Reason | Example
+| Reason | Details/Example
 | --- | ---
 | Data type of the field(s) extracted by the indexer is incompatible with the data model of the corresponding target index field. | The data field '_data_' in the document with key '_data_' has an invalid value 'of type 'Edm.String''. The expected type was 'Collection(Edm.String)'. |
 | Failed to extract any JSON entity from a string value. | Could not parse value 'of type 'Edm.String'' of field '_data_' as a JSON object. Error:'After parsing a value an unexpected character was encountered: ''. Path '_path_', line 1, position 3162.' |
@@ -137,7 +146,7 @@ In all these cases, refer to [Supported Data types](https://docs.microsoft.com/r
 This error occurs when the indexer is unable to finish processing a single document from the data source within the allowed execution time. [Maximum running time](search-limits-quotas-capacity.md#indexer-limits) is shorter when skillsets are used. When this error occurs, if you have maxFailedItems set to a value other than 0, the indexer bypasses the document on future runs so that indexing can progress. If you cannot afford to skip any document, or if you are seeing this error consistently, consider breaking documents into smaller documents so that partial progress can be made within a single indexer execution.
 
 ##  Warnings
-Warnings do not stop indexing, but they do indicate conditions that could result in unexpected outcomes. Whether you take action or not depends on the data and your scenario.
+
 
 ### Could not execute skill because a skill input was invalid
 Indexer was not able to run a skill in the skillset because an input to the skill was missing, the wrong type, or otherwise invalid.
@@ -160,7 +169,7 @@ If you want to provide a default value in case of missing input, you can use the
 }
 ```
 
-| Reason | Example | Action |
+| Reason | Details/Example | Resolution |
 | --- | --- | --- |
 | Skill input is the wrong type | Required skill input `X` was not of the expected type `String`. Required skill input `X` was not in the expected format. | Certain skills expect inputs of particular types, for example [Sentiment skill](cognitive-search-skill-sentiment.md) expects `text` to be a string. If the input specifies a non-string value, then the skill doesn't execute and generates no outputs. Ensure your data set has input values uniform in type, or use a [Custom Web API skill](cognitive-search-custom-skill-web-api.md) to preprocess the input. If you're iterating the skill over an array, check the skill context and input have `*` in the correct positions. Usually both the context and input source should end with `*` for arrays. |
 | Skill input is missing | Required skill input `X` is missing. | If all your documents get this warning, most likely there is a typo in the input paths and you should double check property name casing, extra or missing `*` in the path, and documents from the data source define the required inputs. |
