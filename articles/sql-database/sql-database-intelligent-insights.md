@@ -68,7 +68,7 @@ Intelligent Insights options available in Azure SQL Database are:
 | :----------------------------- | ----- | ----- |
 | **Configure Intelligent Insights** - Configure Intelligent Insights analysis for your databases. | Yes | Yes | 
 | **Stream insights to Azure SQL Analytics** -- Stream insights to Azure SQL Analytics monitoring solution for Azure SQL Database. | Yes | Yes | 
-| **Stream insights to Event Hub** - Stream insights to Event Hubs for further custom integrations. | Yes | No | 
+| **Stream insights to Event Hub** - Stream insights to Event Hubs for further custom integrations. | Yes | Yes | 
 | **Stream insights to Azure Storage** - Stream insights to Azure Storage for further analysis and long term archival. | Yes | Yes |
 
 ## Configure Intelligent Insights
