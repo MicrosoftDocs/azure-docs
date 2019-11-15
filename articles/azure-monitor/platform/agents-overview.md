@@ -21,7 +21,7 @@ Compute resources such as virtual machines generate data to monitor their perfor
 
 Azure Monitor has three agents that each provide specific functionality. Depending on your requirements, you may install a single agent or multiple on your virtual machines and other compute resources.
 
-* [Azure Diagnostics extension](#are-diagnostic-extension)
+* [Azure Diagnostics extension](#azure-diagnostic-extension)
 * [Log Analytics agent](#log-analytics-agent)
 * [Dependency agent](#dependency-agent)
 
