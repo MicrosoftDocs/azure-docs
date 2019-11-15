@@ -22,11 +22,11 @@ ms.author: steveesp
 
 # Test VM network latency
 
-To achieve the most accurate results, measure your Azure virtual machine (VM) network latency with a tool that's designed for the task. Publicly available tools such as SockPerf (for Linux) and Latte (for Windows) can isolate and measure network latency while excluding other types of latency, such as application latency. These tools focus on the kind of network traffic that affects application performance (namely,  Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) traffic). 
+To achieve the most accurate results, measure your Azure virtual machine (VM) network latency with a tool that's designed for the task. Publicly available tools such as SockPerf (for Linux) and latte.exe (for Windows) can isolate and measure network latency while excluding other types of latency, such as application latency. These tools focus on the kind of network traffic that affects application performance (namely, Transmission Control Protocol [TCP] and User Datagram Protocol [UDP] traffic). 
 
 Other common connectivity tools, such as Ping, might measure latency, but their results might not represent the network traffic that's used in real workloads. That's because most of these tools employ the Internet Control Message Protocol (ICMP), which can be treated differently from application traffic and whose results might not apply to workloads that use TCP and UDP. 
 
-For accurate network latency testing of the protocols used by most applications, SockPerf (for Linux) and Latte (for Windows) produce the most relevant results. This article covers both of these tools.
+For accurate network latency testing of the protocols used by most applications, SockPerf (for Linux) and latte.exe (for Windows) produce the most relevant results. This article covers both of these tools.
 
 ## Overview
 
@@ -107,7 +107,7 @@ For example, if you copied latte.exe to the *c:\tools* folder, this would be the
 * On the *sender*, start latte.exe (run it from the CMD window, not from PowerShell):
 
     ```cmd
-    latte -c -a \<Receiver IP address\>:\<port\> -i \<iterations\>
+    latte -c -a <Receiver IP address>:<port> -i <iterations>
     ```
 
     The resulting command is the same as on the receiver, except with the addition of&nbsp;*-c* to indicate that this is the *client*, or *sender*:
@@ -122,14 +122,14 @@ To test VMs that are running Linux, use [SockPerf](https://github.com/mellanox/s
 
 ### Install SockPerf on the VMs
 
-​On the Linux VMs, both *sender* and *receiver*, run the following commands to prepare SockPerf on the VMs. Commands are provided for the major distros.
+On the Linux VMs, both *sender* and *receiver*, run the following commands to prepare SockPerf on the VMs. Commands are provided for the major distros.
 
 #### For Red Hat Enterprise Linux (RHEL)/CentOS
 
 Run the following commands:
 
 ```bash
-#CentOS / RHEL - Install Git and other helpful tools
+#CentOS/RHEL - Install Git and other helpful tools
     sudo yum install gcc -y -q
     sudo yum install git -y -q
     sudo yum install gcc-c++ -y
@@ -171,7 +171,7 @@ make
 sudo make install
 ```
 
-### Run SockPerf on the VMs​
+### Run SockPerf on the VMs
 
 After the SockPerf installation is complete, the VMs are ready to run the latency tests. 
 
