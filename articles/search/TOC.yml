@@ -223,8 +223,6 @@
       href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
     - name: Monitor indexers
       href: search-howto-monitor-indexers.md
-    - name: Troubleshoot common issues
-      href: search-indexer-troubleshooting.md
   - name: Enrich with AI
     items:
     - name: Attach a Cognitive Services resource
@@ -260,9 +258,7 @@
       - name: View with Storage Explorer
         href: knowledge-store-view-storage-explorer.md
       - name: Connect with Power BI
-        href: knowledge-store-connect-power-bi.md
-    - name: Troubleshoot enrichment issues
-      href: cognitive-search-common-errors-warnings.md    
+        href: knowledge-store-connect-power-bi.md    
   - name: Query documents
     items:
     - name: Query types and composition
@@ -307,6 +303,12 @@
       href: search-manage-powershell.md
     - name: Monitor activity and logging
       href: search-monitor-usage.md
+  - name: Troubleshoot
+    items:
+    - name: Indexer issues
+      href: search-indexer-troubleshooting.md
+    - name: Indexer errors and warnings
+      href: cognitive-search-common-errors-warnings.md
 - name: Reference
   items:
   - name: Azure CLI

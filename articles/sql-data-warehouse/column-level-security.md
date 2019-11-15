@@ -15,7 +15,7 @@ ms.custom: seo-lt-2019
 
 # Column-level Security
 Column-Level Security (CLS) enables customers to control access to database table columns based on the user's execution context or their group membership.
-Update to Video below - Since this video was posted [Row level Security](https://docs.microsoft.com/en-us/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc&view=sql-server-2017) is also available in SQL Data Warehouse. 
+Update to Video below - Since this video was posted [Row level Security](/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc&view=sql-server-2017) is also available in SQL Data Warehouse. 
 > [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
 
 CLS simplifies the design and coding of security in your application. CLS enables you to implement restrictions on column access to protect sensitive data. For example, ensuring that specific users can access only certain columns of a table pertinent to their department. The access restriction logic is located in the database tier rather than away from the data in another application tier. The database applies the access restrictions every time that data access is attempted from any tier. This restriction makes your security system more reliable and robust by reducing the surface area of your overall security system. In addition, CLS also eliminates the need for introducing views to filter out columns for imposing access restrictions on the users.
