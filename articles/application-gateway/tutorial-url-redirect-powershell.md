@@ -1,10 +1,10 @@
 ---
-title: Create an application gateway with URL path-based redirection - Azure PowerShell
+title: URL path-based redirection using PowerShell - Azure Application Gateway
 description: Learn how to create an application gateway with URL path-based redirected traffic using Azure PowerShell.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 4/3/2019
+ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: tutorial
 #Customer intent: As an IT administrator, I want to use Azure PowerShell to set up URL path redirection of web traffic to specific pools of servers so I can ensure my customers have access to the information they need.

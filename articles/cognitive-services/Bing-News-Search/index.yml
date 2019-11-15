@@ -4,7 +4,7 @@ title: Bing News Search API Documentation
 metadata:
   title: Bing News Search API Documentation - Tutorials, quickstarts, API references
   titleSuffix: Azure Cognitive Services 
-  description: Learn how to use the Bing News Search API to search the web for news. 
+  description: The Bing News Search API enables you to integrate Bing's news search capabilities in your applications.
   services: cognitive-services
   author: aahill
   manager: nitinme
