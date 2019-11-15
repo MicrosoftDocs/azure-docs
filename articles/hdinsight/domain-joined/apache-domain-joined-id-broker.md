@@ -11,7 +11,7 @@ ms.date: 11/12/2019
 
 # HDInsight Identity Broker (HIB) - Preview
 
-HDInsight Identity Broker (HIB) lets users sign in to Ambari using MFA and get the required Kerberos tickets without needing password hashes in Azure Active Directory Domain Services (AAD-DS). This article describes HIB, and explains how to enable and test HIB. 
+HDInsight Identity Broker (HIB) lets users sign in to Ambari using MFA and get the required Kerberos tickets without needing password hashes in Azure Active Directory Domain Services (AAD-DS). This article describes HIB, and explains how to enable and test HIB.
 
 ## Overview
 
@@ -25,18 +25,22 @@ The HDInsight ID Broker (HIB) simplifies complex authentication setups, and remo
 
 HIB consists of components running on a Windows Server VM (HIB Server), and cluster gateway nodes. After enabling HIB, the authentication flow for all users including federated users looks like the following diagram:
 
-![Authentication flow with HIB](./media/apache-domain-joined-id-broker/hib-flow-diagram.png)
+![Authentication flow with HIB](./media/apache-domain-joined-id-broker/hdinsight-id-broker-architecture.png)
 
-## Enable HDInsight ID Broker 
+## Enable HDInsight ID Broker
 
 During the cluster creation, after enabling ESP, you have the option to enable HIB as well. This will add one extra VM to the cluster which includes HIB server components. HIB server will also be domain joined to the AAD-DS domain.
 
+![Option to enable HIB](./media/apache-domain-joined-id-broker/hdinsight-id-broker-enable.png)
+
 ### Tools Integration
+
 HDInsight IntelliJ plugin is updated to support OAuth. End users can use this plugin to connect to the cluster.
 
 ## FAQs
 
 ### Can I SSH to the cluster if the password hash is not available in AAD-DS?
+
 - No, To SSH to a domain joiend VM (or to run `kinit` command), you need to provide password and therefore the hash should be availabble in the domain (i.e. AAD-DS). If you would like to use ssh for administrative scenarios, you have the option to create one cloud only account and use that to SSH and other users use Ambari or HDInsight tools (such as IntelliJ plugin) to access the cluster.
   
 
