@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor Dependency virtual machine extension for Windows | Microsoft Docs
+title: Azure Monitor Dependency virtual machine extension for Windows 
 description: Deploy the Azure Monitor Dependency agent on Windows virtual machine by using a virtual machine extension.
 services: virtual-machines-windows
 documentationcenter: ''

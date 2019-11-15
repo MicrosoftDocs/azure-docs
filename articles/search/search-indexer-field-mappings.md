@@ -1,5 +1,5 @@
 ---
-title: Field mappings for automated indexing using indexers
+title: Field mappings in indexers
 titleSuffix: Azure Cognitive Search
 description: Configure field mappings in an indexer to account for differences in field names and data representations.
 
