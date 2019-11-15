@@ -358,40 +358,19 @@ Next, determine if the data source should be available to one application or to 
 
 #### Shared server-level resources
 
-1. Copy the contents of */usr/local/tomcat/conf* into */home/tomcat/conf* on your App Service Linux instance using SSH if you don't have a configuration there already.
+Adding a shared, server-level data source will require you to edit Tomcat's server.xml. To do so, add a startup script and set the path to the script in **Configuration** > **Startup Command**. 
 
-    ```bash
-    mkdir -p /home/tomcat
-    cp -a /usr/local/tomcat/conf /home/tomcat/conf
-    ```
+Your startup script will make an [xsl transform]() to the server.xml file and output the resulting xml file to `/usr/local/tomcat/conf/server.xml`. The startup script should install libxslt via apk. Your xsl file and startup script can be uploaded via FTP.
 
-2. Add a Context element in your *server.xml* within the `<Server>` element.
+```sh
+# Install libxslt. Also copy the transform file to /home/tomcat/conf/
+apk add --update libxslt
 
-    ```xml
-    <Server>
-    ...
-    <Context>
-        <Resource
-            name="jdbc/dbconnection"
-            type="javax.sql.DataSource"
-            url="${dbuser}"
-            driverClassName="<insert your driver class name>"
-            username="${dbpassword}"
-            password="${connURL}"
-        />
-    </Context>
-    ...
-    </Server>
-    ```
+# Usage: xsltproc --output output.xml style.xsl input.xml
+xsltproc --output /usr/local/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /home/tomcat/conf/server.xml
+```
 
-3. Update your application's *web.xml* to use the data source in your application.
-
-    ```xml
-    <resource-env-ref>
-        <resource-env-ref-name>jdbc/dbconnection</resource-env-ref-name>
-        <resource-env-ref-type>javax.sql.DataSource</resource-env-ref-type>
-    </resource-env-ref>
-    ```
+An example xsl file is provided [here](). The example xsl file adds a new connector node to the Tomcat server.xml.
 
 #### Finalize configuration
 
