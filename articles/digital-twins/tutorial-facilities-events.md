@@ -174,7 +174,7 @@ You can use the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service
 
    a. Select **Add an action**, and select **Office 365 Outlook**.
 
-   b. From the **Actions** list, select **Send an email**. Select **Sign in** and use your email account credentials. Select **Allow access** if prompted.
+   b. From the **Actions** list, select **Send an email (V2)**. Select **Sign in** and use your email account credentials. Select **Allow access** if prompted.
 
    c. In the **To** box, enter your email ID to receive notifications. In **Subject**, enter the text **Digital Twins notification for poor air quality in space**. Then select **TopologyObjectId** from the **Dynamic content** list for **Parse JSON**.
 
