@@ -97,7 +97,7 @@ If the frequency was set to an hourly digest and an alert was raised and resolve
 > - If a destructive operation such as **stop protection with delete data** is performed, an alert is raised and an email is sent to subscription owners, admins, and co-admins even if notifications are NOT configured for the Recover Service vault.
 > - To configure notification for successful jobs use [Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
 
-## Inactivating Alerts
+## Inactivating alerts
 
 To inactivate/resolve an active alert, you can click on the list item corresponding to the alert you wish to inactivate. This opens up a screen that displays detailed information about the alert, with an 'Inactivate' button on the top. Clicking this button would change the status of the alert to 'Inactive'. You may also inactivate an alert by right-clicking on the list item corresponding to that alert and selecting 'Inactivate'.
 
