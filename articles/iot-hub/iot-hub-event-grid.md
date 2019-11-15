@@ -1,13 +1,13 @@
 ---
 title: Azure IoT Hub and Event Grid | Microsoft Docs
 description: Use Azure Event Grid to trigger processes based on actions that happen in IoT Hub.  
-author: kgremban
+author: robinsh
 manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
-ms.author: kgremban
+ms.author: robinsh
 ---
 
 # React to IoT Hub events by using Event Grid to trigger actions
@@ -177,7 +177,11 @@ For non-telemetry events like DeviceConnected, DeviceDisconnected, DeviceCreated
 
 To receive device connected and device disconnected events, you must open the D2C link or C2D link for your device. If your device is using MQTT protocol, IoT Hub will keep the C2D link open. For AMQP, you can open the C2D link by calling the [Receive Async API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet).
 
-The D2C link is open if you are sending telemetry. If the device connection is flickering, which means the device connects and disconnects frequently, we will not send every single connection state, but will publish the connection state of which a snapshot is taken every minute. In case of an IoT Hub outage, we will publish the device connection state as soon as the outage is over. If the device disconnects during that outage, the device disconnected event will be published within 10 minutes.
+The D2C link is open if you are sending telemetry. 
+
+If the device connection is flickering, which mean the device connects and disconnects frequently, we will not send every single connection state, but will publish the *last* connection state, which is eventually consistent. For example, $$$$$ if your device has been in the connected state initially, then connectivity flickers for a few seconds, and then it's back in connected state. No new device connection state events will be published since the initial connection state. 
+
+In case of an IoT Hub outage, we will publish the device connection state as soon as the outage is over. If the device disconnects during that outage, the device disconnected event will be published within 10 minutes.
 
 ## Tips for consuming events
 
