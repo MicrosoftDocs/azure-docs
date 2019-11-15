@@ -11,9 +11,11 @@ ms.date: 11/15/2019
 ms.author: dapine
 ---
 
+# Azure Cognitive Services container image tags
+
 Azure Cognitive Services offers many container images. The container registries and corresponding repositories vary between container images. Each container image name offers multiple tags. A container image tag is a mechanism of versioning the container image. This article is intended to be used as a comprehensive reference for listing all the Cognitive Services container images and their available tags.
 
-> [!CAUTION]
+> [!TIP]
 > When using [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/), pay close attention to the casing of the container registry, repository, container image name and corresponding tag - as they are **case sensitive**.
 
 ## Anomaly Detector
