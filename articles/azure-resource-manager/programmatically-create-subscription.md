@@ -451,34 +451,34 @@ The API response lists the resellers for the customer:
 ```json
 {
   "value": [
-    {
-      "id": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2ed2c490-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "name": "2ed2c490-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "type": "Microsoft.Billing/billingAccounts/customers",
-      "properties": {
-        "displayName": "Fabrikam toys",
-        "resellers": [
-          {
-            "resellerId": "3xxxxx",
-            "description": "Wingtip"
-          }
-        ]
-      }
-    },
-    {
-      "id": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/4ed2c793-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "name": "4ed2c793-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "type": "Microsoft.Billing/billingAccounts/customers",
-      "properties": {
-        "displayName": "Fabrikam toys",
-        "resellers": [
-          {
-            "resellerId": "5xxxxx",
-            "description": "Tailspin"
-          }
-        ]
-      }
-    }
+	{
+	  "id": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2ed2c490-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+	  "name": "2ed2c490-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+	  "type": "Microsoft.Billing/billingAccounts/customers",
+	  "properties": {
+		"displayName": "Fabrikam toys",
+		"resellers": [
+		  {
+			"resellerId": "3xxxxx",
+			"description": "Wingtip"
+		  }
+		]
+	  }
+	},
+	{
+	  "id": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/4ed2c793-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+	  "name": "4ed2c793-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+	  "type": "Microsoft.Billing/billingAccounts/customers",
+	  "properties": {
+		"displayName": "Fabrikam toys",
+		"resellers": [
+		  {
+			"resellerId": "5xxxxx",
+			"description": "Tailspin"
+		  }
+		]
+	  }
+	}
   ]
 }
 ```
