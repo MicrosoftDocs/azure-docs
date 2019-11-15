@@ -136,8 +136,6 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. If you want to setup Screencast-O-Matic manually, open a new web browser window and sign into your Screencast-O-Matic company site as an administrator and perform the following steps:
 
-1. In a different web browser window, sign in to Screencast-O-Matic as an Administrator.
-
 1. Click on **Subscription**.
 
 	![The Subscription](./media/screencast-tutorial/tutorial_screencast_sub.png)
