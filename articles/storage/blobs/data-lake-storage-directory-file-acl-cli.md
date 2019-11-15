@@ -15,7 +15,7 @@ ms.reviewer: prishet
 
 This article shows you how to use the [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). to create and manage directories, files, and permissions in storage accounts that have a hierarchical namespace. To create an account, see [Create an Azure Data Lake Storage Gen2 storage account](data-lake-storage-quickstart-create-account.md).
 
-[Reference documentation](/dotnet/api/azure.storage.blobs) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Sample](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
+[Source code](https://github.com/Azure/azure-cli-extensions/tree/master/src) | [Sample](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview)
 
 ## Install the storage CLI extension
 
@@ -265,6 +265,21 @@ This example changes the owner of a file.
 
 ```azurecli
 az storage blob access update --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -b my-directory/upload.txt -c my-file-system --account-name mystorageaccount
+```
+## Manage user-defined metadata
+
+You can add user-defined metadata to a file or directory by using the `az storage blob directory metadata update` command with one or more name-value pairs.
+
+This example adds user-defined metadata for a directory named `my-directory` directory.
+
+```azurecli
+az storage blob directory metadata update --metadata tag1=value1 tag2=value2 -c my-file-system -d my-directory --account-name mystorageaccount
+```
+
+This example shows all user-defined metadata for directory named `my-directory`.
+
+```azurecli
+az storage blob directory metadata show -c my-file-system -d my-directory --account-name mystorageaccount
 ```
 
 ## See also
