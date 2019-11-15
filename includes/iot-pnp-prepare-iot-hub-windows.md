@@ -25,13 +25,13 @@ Run the following command to create the device identity in your IoT hub. Replace
 az iot hub device-identity create --hub-name <YourIoTHubName> --device-id <YourDeviceID>
 ```
 
-Run the following command to get the _device connection string_ for the device you just registered:
+Run the following command to get the _device connection string_ for the device you just registered (note for use later):
 
 ```azurecli-interactive
 az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDevice> --output table
 ```
 
-Run the following command to get the _IoT hub connection string_ for your hub:
+Run the following command to get the _IoT hub connection string_ for your hub (note for use later):
 
 ```azurecli-interactive
 az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
