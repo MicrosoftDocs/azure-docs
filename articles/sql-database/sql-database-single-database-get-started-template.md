@@ -27,7 +27,9 @@ The following JSON file is the template that is used in this article. The templa
 
 [!code-json[create-azure-sql-database-server-and-database](~/resourcemanager-templates/SQLServerAndDatabase/azuredeploy.json)]
 
-1. Select **Try it** from the following PowerShell code block to open Azure Cloud Shell.
+Select **Try it** from the following PowerShell code block to open Azure Cloud Shell.
+
+# [PowerShell](#tab/azure-powershell)
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -37,28 +39,33 @@ The following JSON file is the template that is used in this article. The templa
 
     $resourceGroupName = "${projectName}rg"
 
-
     New-AzResourceGroup -Name $resourceGroupName -Location $location
     New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "D:\GitHub\azure-docs-json-samples\SQLServerAndDatabase\azuredeploy.json" -projectName $projectName -adminUser $adminUser -adminPassword $adminPassword
 
     Read-Host -Prompt "Press [ENTER] to continue ..."
     ```
 
-1. Select **Copy** to copy the PowerShell script into clipboard.
-1. Right-click the shell pane, and then select **Paste**.
+# [Azure CLI](#tab/azure-cli)
 
-<<<<<<< HEAD
-    It takes a few moments to create the database server and the database.
-=======
-    - **Subscription**: select an Azure subscription.
-    - **Resource group**: select **Create new**, enter a unique name for the resource group, and then click **OK**.
-    - **Location**: select a location.  For example, **Central US**.
-    - **Admin User**: specify a SQL database server administrator username.
-    - **Admin Password**: specify an administrator password.
-    - **I agree to the terms and conditions state above**: Select.
+    ```azurecli-interactive
+    $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
+    $location = Read-Host -Prompt "Enter an Azure location (i.e. centralus)"
+    $adminUser = Read-Host -Prompt "Enter the SQL server administrator username"
+    $adminPassword = Read-Host -Prompt "Enter the SQl server administrator password" -AsSecureString
 
-3. Select **Purchase**.
->>>>>>> powershell-update-pr1
+    $resourceGroupName = "${projectName}rg"
+
+    az group create --location $location --name $resourceGroupName
+
+    az group deployment create -g $resourceGroupName --template-uri "D:\GitHub\azure-docs-json-samples\SQLServerAndDatabase\azuredeploy.json" `
+        --parameters 'projectName=' + $projectName \
+                 'adminUser=' + $adminUser \
+                 'adminPassword=' + $adminPassword
+
+    Read-Host -Prompt "Press [ENTER] to continue ..."
+    ```
+
+* * *
 
 ## Query the database
 
@@ -68,7 +75,16 @@ To query the database, see [Query the database](./sql-database-single-database-g
 
 Keep this resource group, database server, and single database if you want to go to the [Next steps](#next-steps). The next steps show you how to connect and query your database using different methods.
 
-To delete the resource group by using Azure CLI or Azure Powershell:
+To delete the resource group:
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+```
+
+# [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -76,10 +92,7 @@ read resourceGroupName &&
 az group delete --name $resourceGroupName
 ```
 
-```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-Remove-AzResourceGroup -Name $resourceGroupName
-```
+* * *
 
 ## Next steps
 
