@@ -55,7 +55,7 @@ For other actions such as Pull, Pull, Install requires connectivity to Azure Sto
 
 Here are all the supported public configuration parameters:
 
-* `FileUri`: (optional, string) The uri of the MOF file, meta MOF file, or custom resource ZIP file.
+* `FileUri`: (optional, string) The uri of the MOF file, meta MOF file, or custom resource zip file.
 * `ResourceName`: (optional, string) The name of the custom resource module.
 * `ExtensionAction`: (optional, string) Specifies what an extension does. Valid values are Register, Push, Pull, Install, and Remove. If not specified, it's considered a Push Action by default.
 * `NodeConfigurationName`: (optional, string) The name of a node configuration to apply.
@@ -210,7 +210,7 @@ $publicConfig = '{
 }'
 ```
 
-### Install a custom resource module (a ZIP file in an Azure storage account) to the VM
+### Install a custom resource module (a zip file in an Azure storage account) to the VM
 protected.json
 ```json
 {
@@ -239,7 +239,7 @@ $publicConfig = '{
 }'
 ```
 
-### Install a custom resource module (a ZIP file in public storage) to the VM
+### Install a custom resource module (a zip file in public storage) to the VM
 public.json
 ```json
 {
@@ -424,7 +424,7 @@ In some cases, DSC Linux extension fails to install OMI when a higher version of
 
 ### Support
 
-If you need more help at any point in this article, contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/community/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/), and select **Get support**. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).
+If you need more help at any point in this article, contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/community/). Alternatively, you can file an Azure Support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/), and select **Get support**. For information about using Azure Support, read the [Microsoft Azure Support FAQ](https://azure.microsoft.com/support/faq/).
 
 ## Next steps
 For more information about extensions, see [Virtual machine extensions and features for Linux](features-linux.md).
