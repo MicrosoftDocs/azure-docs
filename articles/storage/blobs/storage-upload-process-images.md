@@ -378,7 +378,7 @@ router.post('/', uploadStrategy, async (req, res) => {
 
 ## Verify the image is shown in the storage account
 
-Sign in to the [Azure portal](https://portal.azure.com). From the left menu, select **Storage accounts**, then select the name of your storage account. Under **Blob Service**, select **Blobs**, then select the **images** container.
+Sign in to the [Azure portal](https://portal.azure.com). From the left menu, select **Storage accounts**, then select the name of your storage account. Select **Containers**, then select the **images** container.
 
 Verify the image is shown in the container.
 
