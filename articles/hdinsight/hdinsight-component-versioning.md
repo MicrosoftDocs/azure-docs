@@ -8,7 +8,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 06/07/2019
+ms.date: 11/13/2019
 ---
 
 # What are the Apache Hadoop components and versions available with HDInsight?
@@ -17,7 +17,7 @@ Learn about the [Apache Hadoop](https://hadoop.apache.org/) ecosystem components
 
 ## Apache Hadoop components available with different HDInsight versions
 
-Azure HDInsight supports multiple Hadoop cluster versions that can be deployed at any time. Each version choice creates a specific version of the HDP distribution and a set of components that are contained within that distribution. As of April 4, 2017, the default cluster version used by Azure HDInsight is 3.6 and is based on HDP 2.6.
+Azure HDInsight supports multiple Hadoop cluster versions that can be deployed at any time. As of April 4, 2017, the default cluster version used by Azure HDInsight is 3.6.
 
 The component versions associated with HDInsight cluster versions are listed in the following table: 
 
@@ -59,16 +59,16 @@ See [HDInsight release notes](hdinsight-release-notes.md) for additional release
 
 ## Supported HDInsight versions
 
-The following tables list the versions of HDInsight. The HDP versions that correspond to each HDInsight version are listed along with the product release dates. The support expiration and retirement dates are also provided, when they're known.
+The following tables list the versions of HDInsight. The support expiration and retirement dates are also provided, when they're known.
 
 ### Available versions
 
 The following table lists the versions of HDInsight that are available in the Azure portal as well as other deployment methods like PowerShell and .NET SDK.
 
-| HDInsight version | HDP version | VM OS | Release date | Support expiration date | Retirement date | High availability |  Availability on the Azure portal | 
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 4.0 |HDP 3.0 |Ubuntu 16.0.4 LTS |September 24, 2018 | | |Yes |Yes |
-| HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |April 4, 2017 | June 30, 2020 |December 31, 2020 |Yes |Yes |
+| HDInsight version | VM OS | Release date | Support expiration date | Retirement date | High availability |  Availability in the Azure portal | 
+| --- | --- | --- | --- | --- | --- | --- |
+| HDInsight 4.0 |Ubuntu 16.0.4 LTS |September 24, 2018 | | |Yes |Yes |
+| HDInsight 3.6 |Ubuntu 16.0.4 LTS |April 4, 2017 | June 30, 2020 |December 31, 2020 |Yes |Yes |
 
 
 > [!NOTE]  

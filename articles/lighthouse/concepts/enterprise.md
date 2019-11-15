@@ -11,7 +11,7 @@ manager: carmonm
 
 # Azure Lighthouse in enterprise scenarios
 
-The most common scenario for Azure Lighthouse is a service provider managing resources in its customers’ Azure  Active Directory (Azure AD) tenants. However, the capabilities of Azure Lighthouse can also be used to simplify cross-tenant management within an enterprise which uses multiple Azure AD tenants.
+The most common scenario for [Azure Lighthouse](../overview.md) is a service provider managing resources in its customers’ Azure  Active Directory (Azure AD) tenants. However, the capabilities of Azure Lighthouse can also be used to simplify cross-tenant management within an enterprise which uses multiple Azure AD tenants.
 
 ## Single vs. multiple tenants
 
