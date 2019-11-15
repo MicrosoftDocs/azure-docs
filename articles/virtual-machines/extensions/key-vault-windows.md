@@ -3,6 +3,7 @@ title: Azure Key Vault VM Extension for Windows
 description: Deploy an agent performing automatic refresh of Key Vault secrets on virtual machines using a virtual machine extension.
 services: virtual-machines-windows
 author: msmbaldwin
+tags: keyvault
 
 ms.service: virtual-machines-windows
 ms.topic: article
@@ -36,13 +37,13 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
           "[concat('Microsoft.Compute/virtualMachines/', <vmName>)]"
       ],
       "properties": {
-			"publisher": "Microsoft.Azure.KeyVault.Edp",
+			"publisher": "Microsoft.Azure.KeyVault",
 			"type": "KeyVaultForWindows",
 			"typeHandlerVersion": "1.0",
 			"autoUpgradeMinorVersion": true,
 			"settings": {
 				"secretsManagementSettings": {
-					"pollingIntervalInS": <polling interval in seconds>,
+					"pollingIntervalInS": <polling interval in seconds, e.g: "3600">,
 					"certificateStoreName": <certificate store name, e.g.: "MY">,
 					"linkOnRenewal": <Only Windows. This feature enables auto-rotation of SSL certificates, without necessitating a re-deployment or binding.  e.g.: false>,
 					"certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
@@ -64,7 +65,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 | Name | Value / Example | Data Type |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
-| publisher | Microsoft.Azure.KeyVault.Edp | string |
+| publisher | Microsoft.Azure.KeyVault | string |
 | type | KeyVaultForWindows | string |
 | typeHandlerVersion | 1.0 | int |
 | pollingIntervalInS | 3600 | string |
@@ -91,12 +92,12 @@ The JSON configuration for a virtual machine extension must be nested inside the
           "[concat('Microsoft.Compute/virtualMachines/', <vmName>)]"
       ],
       "properties": {
-			"publisher": "Microsoft.Azure.KeyVault.Edp",
+			"publisher": "Microsoft.Azure.KeyVault",
 			"type": "KeyVaultForWindows",
 			"typeHandlerVersion": "1.0",
 			"autoUpgradeMinorVersion": true,
 			"settings": {
-					"pollingIntervalInS": <polling interval in seconds>,
+					"pollingIntervalInS": <polling interval in seconds, e.g: "3600">,
 					"certificateStoreName": <certificate store name, e.g.: "MY">,
 					"certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
 					"observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
@@ -121,7 +122,7 @@ The Azure PowerShell can be used to deploy the Key Vault VM extension to an exis
     		'", "certificateStoreLocation": "' + <certStoreLoc> + 
     		'", "observedCertificates": ["' + <observedCerts> + '"] } }'
         $extName =  "KeyVaultForWindows"
-        $extPublisher = "Microsoft.Azure.KeyVault.Edp"
+        $extPublisher = "Microsoft.Azure.KeyVault"
         $extType = "KeyVaultForWindows"
        
     
@@ -141,7 +142,7 @@ The Azure PowerShell can be used to deploy the Key Vault VM extension to an exis
     		'", "certificateStoreLocation": "' + <certStoreLoc> + 
     		'", "observedCertificates": ["' + <observedCerts> + '"] } }'
         $extName = "KeyVaultForWindows"
-        $extPublisher = "Microsoft.Azure.KeyVault.Edp"
+        $extPublisher = "Microsoft.Azure.KeyVault"
         $extType = "KeyVaultForWindows"
         
         # Add Extension to VMSS
@@ -204,7 +205,7 @@ Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
 Extension execution output is logged to the following file:
 
 ```
-%windrive%\WindowsAzure\Logs\Plugins\Microsoft.Azure.KeyVault.Edp.KeyVaultForWindows\<version>\akvvm_service_<date>.log
+%windrive%\WindowsAzure\Logs\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows\<version>\akvvm_service_<date>.log
 ```
 
 
