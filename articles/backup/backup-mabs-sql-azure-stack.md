@@ -150,7 +150,7 @@ The following steps are required to recover a protected entity (SQL Server datab
 
     Once the recovery is completed, the restored database is application consistent.
 
-## Next Steps
+## Next steps
 
 See the [Backup files and application](backup-mabs-files-applications-azure-stack.md) article.
 See the [Backup SharePoint on Azure Stack](backup-mabs-sharepoint-azure-stack.md) article.
