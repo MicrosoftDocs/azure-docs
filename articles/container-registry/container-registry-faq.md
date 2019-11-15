@@ -425,8 +425,7 @@ Please contact your network administrator or check your network configuration an
 Here are some senarios where operations maybe disallowed:
 * Classic registries are no longer supported. Please upgrade to a supported [SKUs](https://aka.ms/acr/skus) using [az acr update](https://docs.microsoft.com/en-us/cli/azure/acr?view=azure-cli-latest#az-acr-update) or the azure portal.
 * The image or repository maybe locked so that it can't be deleted or updated. You can use the [az acr show repository](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-image-lock) command to view current attributes.
-* Some operations are disallowed if the image is in quarantine. Learn more about [quarantine].(https://github.com/Azure/acr/tree/master/docs/preview/quarantine)
-
+* Some operations are disallowed if the image is in quarantine. Learn more about [quarantine](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 
 ### How do I collect http traces on Windows?
 
