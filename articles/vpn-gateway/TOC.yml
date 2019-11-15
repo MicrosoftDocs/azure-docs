@@ -138,8 +138,8 @@
       items:
       - name: Configure a tenant
         href: openvpn-azure-ad-tenant.md
-      - name: Configure Mullti-Factor Authentication
-	      href: openvpn-azure-ad-mfa.md
+      - name: Configure Multi-Factor Authentication (MFA)
+        href: openvpn-azure-ad-mfa.md
       - name: Configure a VPN client
         href: openvpn-azure-ad-client.md
     - name: OpenVPN
