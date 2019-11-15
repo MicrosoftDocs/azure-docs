@@ -1,7 +1,7 @@
 ---
-title: How to implement faceted navigation in a category hierarchy
+title: Add a faceted navigation category hierarchy
 titleSuffix: Azure Cognitive Search
-description: Add facet navigation to applications that integrate with Azure Cognitive Search, a cloud hosted search service on Microsoft Azure.
+description: Add faceted navigation for self-directed filtering in search applications that integrate with Azure Cognitive Search.
 
 manager: nitinme
 author: HeidiSteen

@@ -273,10 +273,11 @@ Inspect the `B2CGraphClient.SendGraphPatchRequest()` method for details on how t
 
 ### Search users
 
-You can search for users in your B2C tenant in two ways:
+You can search for users in your B2C tenant in following ways:
 
 * Reference the user's **object ID**.
 * Reference their sign-in identifer, the `signInNames` property.
+* Reference any of the valid OData parameters, e.g. givenName, surname, displayName etc.
 
 Run one of the following commands to search for a user:
 
@@ -290,6 +291,9 @@ For example:
 ```cmd
 B2C Get-User 2bcf1067-90b6-4253-9991-7f16449c2d91
 B2C Get-User $filter=signInNames/any(x:x/value%20eq%20%27consumer@fabrikam.com%27)
+B2C get-user $filter=givenName%20eq%20%27John%27
+B2C get-user $filter=surname%20eq%20%27Doe%27
+B2C get-user $filter=displayName%20eq%20%27John%20Doe%27
 ```
 
 ### Delete users
