@@ -258,7 +258,7 @@ Image quarantine is currently a preview feature of ACR. You can enable the quara
 - [Authentication information is not given in the correct format on direct REST API calls](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
 - [Why does the Azure portal not list all my repositories or tags?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
 - [Why does the Azure portal fail to fetch repositories or tags?](#why-does-the-azure-portal-fail-to-fetch-repositories-or-tags)
-- [Why does my pull or pull request fail with disallowed operation?](#why-does-my-pull-or-pull-request-fail-with-disallowed-operation)
+- [Why does my pull or push request fail with disallowed operation?](#why-does-my-pull-or-push-request-fail-with-disallowed-operation)
 - [How do I collect http traces on Windows?](#how-do-i-collect-http-traces-on-windows)
 
 ### Check health with `az acr check-health`
@@ -420,7 +420,7 @@ The browser might not be able to send the request for fetching repositories or t
 
 Please contact your network administrator or check your network configuration and connectivity. Try running `az acr check-health -n yourRegistry` using your Azure CLI to check if your environment is able to connect to the Container Registry. In addition, you could also try an incognito or private session in your browser to avoid any stale browser cache or cookies.
 
-### Why does my pull or pull request fail with disallowed operation?
+### Why does my pull or push request fail with disallowed operation?
 
 Here are some senarios where operations maybe disallowed:
 * Classic registries are no longer supported. Please upgrade to a supported [SKUs](https://aka.ms/acr/skus) using [az acr update](https://docs.microsoft.com/en-us/cli/azure/acr?view=azure-cli-latest#az-acr-update) or the azure portal.
