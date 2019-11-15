@@ -77,7 +77,7 @@ Matching-text entities include prebuilt entities, regular expression entities, a
 Entity prediction errors show a caution indicator. This indicates the predicted entity doesn't match the labeled entity. 
 
 > [!div class="mx-imgBorder"]
-> ![Entity palette for machine-learned entity](media/label-utterances/example-utterance-indicates-a-prediction-error.png)
+> ![Entity palette for machine-learned entity](media/label-utterances/example-utterance-indicates-prediction-error.png)
 
 ## Next steps
 

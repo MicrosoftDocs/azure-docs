@@ -173,7 +173,7 @@
     - name: Use prebuilt models
       href: howto-add-prebuilt-models.md
     - name: Label entity in utterance
-      href: label-entity-for-example-utterance.md
+      href: label-entity-example-utterance.md
     - name: With REST APIs
       items:
       - name: Build app programmatically using Node.js
