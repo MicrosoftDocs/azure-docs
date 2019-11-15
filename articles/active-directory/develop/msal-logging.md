@@ -240,7 +240,7 @@ Providing correlation IDs and timestamps are helpful for tracking down issues. T
 
 ## MSAL for iOS and macOS logging-Swift
 
-Set a callback to capture MSAL logging and incorporate it in your own application's logging. The signature for the callback looks like this:
+Set a callback to capture MSAL logging and incorporate it in your own application's logging. The signature (represented in Objective-C) for the callback looks like this:
 
 ```objc
 /*!

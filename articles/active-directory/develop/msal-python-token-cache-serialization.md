@@ -1,5 +1,5 @@
 ---
-title: Custom token cache serialization in MSAL for Python
+title: Custom token cache serialization in MSAL for Python | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how to serializing the token cache for MSAL for Python
 services: active-directory
