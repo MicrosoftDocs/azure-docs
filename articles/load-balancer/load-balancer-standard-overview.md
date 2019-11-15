@@ -1,7 +1,7 @@
 ---
 title: What is Azure Standard Load Balancer?
 titlesuffix: Azure Load Balancer
-description: Overview of Azure Standard Load Balancer features
+description: With this learning path, get started with an overview of Azure Standard Load Balancer features.
 services: load-balancer
 documentationcenter: na
 author: asudbring
