@@ -25,15 +25,7 @@ If there are multiple output bindings, use the return value for only one of them
 
 In C# and C# script, alternative ways to send data to an output binding are `out` parameters and [collector objects](functions-reference-csharp.md#writing-multiple-output-values).
 
-See the language-specific example showing use of the return value:
-
-* [C#](#c-example)
-* [C# script (.csx)](#c-script-example)
-* [F#](#f-example)
-* [JavaScript](#javascript-example)
-* [Python](#python-example)
-
-## C# example
+# [C#](#tab/csharp)
 
 Here's C# code that uses the return value for an output binding, followed by an async example:
 
@@ -59,7 +51,7 @@ public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, ILogg
 }
 ```
 
-## C# script example
+# [C# Script](#tab/csharp-script)
 
 Here's the output binding in the *function.json* file:
 
@@ -92,7 +84,7 @@ public static Task<string> Run(WorkItem input, ILogger log)
 }
 ```
 
-## F# example
+# [F#](#tab/fsharp)
 
 Here's the output binding in the *function.json* file:
 
@@ -114,7 +106,7 @@ let Run(input: WorkItem, log: ILogger) =
     json
 ```
 
-## JavaScript example
+# [JavaScript](#tab/javascript)
 
 Here's the output binding in the *function.json* file:
 
@@ -137,7 +129,7 @@ module.exports = function (context, input) {
 }
 ```
 
-## Python example
+# [Python](#tab/python)
 
 Here's the output binding in the *function.json* file:
 
@@ -159,6 +151,8 @@ def main(input: azure.functions.InputStream) -> str:
         'content': input.read().decode('utf-8')
     })
 ```
+
+---
 
 ## Next steps
 

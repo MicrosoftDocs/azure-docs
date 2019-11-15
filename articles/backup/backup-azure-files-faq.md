@@ -104,7 +104,7 @@ Yes. If you chose **Retain Backup Data** when you stopped protection, then you c
 
 If an ongoing restore job is canceled, the restore process stops and all files restored before the cancellation, stay in configured destination (original or alternate location) without any rollbacks.
 
-## Manage Backup
+## Manage backup
 
 ### Can I use PowerShell to configure/manage/restore backups of Azure File shares?
 
@@ -114,7 +114,7 @@ Yes. Please refer to the detailed documentation [here](backup-azure-afs-automati
 
 All Snapshots taken by Azure Backup can be accessed by Viewing Snapshots in the portal, PowerShell, or CLI. To learn more about Azure Files share snapshots, see [Overview of share snapshots for Azure Files (preview)](../storage/files/storage-snapshots-files.md).
 
-### What is the maximum retention I can configure for Backups?
+### What is the maximum retention I can configure for backups?
 
 Backup for Azure file shares offers the ability to configure policies with retention up to 180 days. However, using the ["On-demand backup" option in PowerShell](backup-azure-afs-automation.md#trigger-an-on-demand-backup), you can retain a recovery point even for 10 years.
 
@@ -122,9 +122,9 @@ Backup for Azure file shares offers the ability to configure policies with reten
 
 When a new policy is applied on file share(s), schedule and retention of the new policy is followed. If retention is extended, existing recovery points are marked to keep them as per new policy. If retention is reduced, they're marked for pruning in the next cleanup job and deleted.
 
-## See also
+## Next steps
 
-This information is just about backing up Azure Files, to learn more about other areas of Azure Backup, see some of these other Backup FAQs:
+To learn more about other areas of Azure Backup, see some of these other Backup FAQs:
 
 - [Recovery Services vault FAQ](backup-azure-backup-faq.md)
 - [Azure VM backup FAQ](backup-azure-vm-backup-faq.md)
