@@ -29,7 +29,7 @@ This release applies both for HDInsight 3.6 and 4.0.
 
 ### HDInsight Identity Broker (HIB) (Preview)
 
-HDInsight Identity Broker (HIB) enables users to sign in to Apache Ambari using MFA and get the required Kerberos tickets without needing password hashes in Azure Active Directory Domain Services (AAD-DS). Currently HIB is only supported through ARM template.
+HDInsight Identity Broker (HIB) enables users to sign in to Apache Ambari using multi-factor authentication (MFA) and get the required Kerberos tickets without needing password hashes in Azure Active Directory Domain Services (AAD-DS). Currently HIB is only available for clusters deployed through ARM template.
 
 ### Kafka Rest API Proxy (Preview)
 
