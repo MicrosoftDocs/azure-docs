@@ -12,7 +12,7 @@ ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: How-to
+ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: mimart
 ms.reviewer: arvinh
@@ -32,8 +32,8 @@ The Azure portal is a convenient way to configure provisioning for individual ap
 |[Step 1. Create the gallery application](#step-1-create-the-gallery-application)     |Sign-in to the API client <br> Retrieve the gallery application template <br> Create the gallery application         |
 |[Step 2. Create provisioning job based on template](#step-2-create-the-provisioning-job-based-on-the-template)     |Retrieve the template for the provisioning connector <br> Create the provisioning job         |
 |[Step 3. Authorize access](#step-3-authorize-access)     |Test the connection to the application <br> Save the credentials         |
-|[Step 4. Start provisioning job](#step-5-start-the-provisioning-job)     |Start the job         |
-|[Step 5. Monitor provisioning](#step-6-monitor-provisioning)     |Check the status of the provisioning job <br> Retrieve the provisioning logs         |
+|[Step 4. Start provisioning job](#step-4-start-the-provisioning-job)     |Start the job         |
+|[Step 5. Monitor provisioning](#step-5-monitor-provisioning)     |Check the status of the provisioning job <br> Retrieve the provisioning logs         |
 
 > [!NOTE]
 > The response objects shown in this article may be shortened for readability. All the properties will be returned from an actual call.
