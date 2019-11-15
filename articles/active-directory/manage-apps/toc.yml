@@ -243,6 +243,8 @@
           href: check-status-user-account-provisioning.md
         - name: Exporting and importing your configuration
           href: export-import-provisioning-configuration.md  
+        - name: Automate configuration using MS Graph
+          href: application-provisioning-configure-api.md
       - name: Troubleshoot user provisioning
         items:
         - name: Troubleshoot user provisioning
