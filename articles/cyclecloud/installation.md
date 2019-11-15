@@ -39,7 +39,7 @@ The default SSH key used in CycleCloud is */opt/cycle_server/.ssh/cyclecloud.pem
 First, install `wget` if its not already installed. This will be used to fetch the Microsoft signing key.
 
 ```CMD
-$ sudo apt update && apt -y install wget
+$ sudo apt update && sudo apt -y install wget
 ```
 
 Next, download the Microsoft signing key to Apt's trusted keyring
