@@ -30,12 +30,12 @@ To complete this quickstart, you must have:
 
 First you'll need to set up the required input data. The labeled data feature has special input requirements beyond those needed to train a custom model. 
 
-First, make sure all the training documents are of the same format. If you have forms in multiple formats, organize them into sub-folders based on common format. When you train, you'll need to direct the API to a sub-folder.
+Make sure all the training documents are of the same format. If you have forms in multiple formats, organize them into sub-folders based on common format. When you train, you'll need to direct the API to a sub-folder.
 
 In order to train a model using labeled data, you'll need the following files as inputs in the sub-folder. You will learn how to create these file below.
 
 1.	**Source forms** – the forms to extract data from. Supported types are JPEG, PNG, BMP, PDF, or TIFF.
-1.	**OCR files** - JSON files that describe all of the readable text in each source form. in the Form Recognizer read Layout OCR format output format 
+1.	**OCR layout files** - JSON files that describe the sizes and positions of all readable text in each source form. You'll use the Form Recognizer Layout API to generate this data. 
 1.	**Label files** - JSON files that describe data labels which a user has entered manually.
 
 All of these files should occupy the same sub-folder and be in the following format:
@@ -48,7 +48,8 @@ All of these files should occupy the same sub-folder and be in the following for
 * input_file2.pdf.labels.json
 * ...
 
-<!-- When labeling using the Form Recognizer sample labeling tool, the tool creates these label and OCR files in the relevant blob container folder. -->
+> [!TIP]
+> When you label forms using the Form Recognizer [sample labeling tool](./label-tool.md), the tool creates these label and OCR layout files automatically.
 
 ### Create the OCR output files
 

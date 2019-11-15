@@ -19,7 +19,7 @@ Azure Form Recognizer is a cognitive service that uses machine learning technolo
 
 Form Recognizer is made up of the following services:
 * **Custom models** - Extract key/value pairs and table data from forms. These models are trained to your own data, so they're tailored to your forms.
-* **Prebuilt receipt model** - Extracting data from [sales receipts](link to sales receipt image) using a prebuilt model.
+* **Prebuilt receipt model** - Extract data from [USA sales receipts](link to sales receipt image) using a prebuilt model.
 * **Layout API** - Extract text and table structures, along with their bounding box coordinates, from form documents.
 
 <!-- add diagram -->
@@ -45,7 +45,7 @@ The Form Recognizer labelled data feature uses the document [Layout API](#layout
 
 ## Prebuilt receipt model
 
-Form Recognizer also includes a model for reading sales thermal receipts. This model extracts key information such as the time and date of the transaction, merchant information, amounts of taxes, line items, totals, and more. In addition, the prebuilt receipt model is trained to recognize and return all of the text on a receipt.
+Form Recognizer also includes a model for reading USA sales receipts. This model extracts key information such as the time and date of the transaction, merchant information, amounts of taxes, line items, totals, and more. In addition, the prebuilt receipt model is trained to recognize and return all of the text on a receipt.
 
 <!-- image of receipt -->
 
@@ -73,7 +73,7 @@ When you're granted access to use Form Recognizer, you'll receive a Welcome emai
     * [Quickstart: Train with labels a Form Recognizer model and extract form data by using the sample labeling tool](quickstarts/label.md)
     * [Quickstart: Train with labels a Form Recognizer model and extract form data by using the REST API with Python](quickstarts/python-train-with-labels-extract.md)
     * [Quickstart: Train with labels a Form Recognizer model and extract form data by using the REST API with cURL](quickstarts/curl-train-wiht-labels-extract.md)   
-* Prebuilt receipts - extract data from US thermal receipts
+* Prebuilt receipts - extract data from USA sales receipts
   * [Quickstart: Extract receipt data using cURL](quickstarts/curl-receipts.md)
   * [Quickstart: Extract receipt data using Python](quickstarts/python-receipts.md)
 * Layout - extract text and table structure from forms

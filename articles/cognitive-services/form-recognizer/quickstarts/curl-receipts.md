@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Extract receipt data using cURL - Form Recognizer"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll use the Form Recognizer REST API with cURL to extract data from images of sales receipts.
+description: In this quickstart, you'll use the Form Recognizer REST API with cURL to extract data from images of USA sales receipts.
 author: PatrickFarley
 manager: nitinme
 
@@ -15,7 +15,7 @@ ms.author: pafarley
 
 # Quickstart: Extract receipt data using the Form Recognizer REST API with cURL
 
-In this quickstart, you'll use the Azure Form Recognizer REST API with cURL to extract and identify relevant information in sales receipts.
+In this quickstart, you'll use the Azure Form Recognizer REST API with cURL to extract and identify relevant information in USA sales receipts.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

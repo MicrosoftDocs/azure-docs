@@ -27,7 +27,9 @@ To complete this quickstart, you must have:
 
 ## Set up the sample labeling tool
 
-tbd
+There are two ways to get access to the sample labeling tool. 
+* You can deploy an Azure web app and run it in your browser. Click the button below to deploy the sample labeling tool in your Azure subscription. (TBD)
+* You can run the labeling tool as a docker container. Use the following command to deploy the container to your device. (TBD)
 
 ## Set up input data
 
