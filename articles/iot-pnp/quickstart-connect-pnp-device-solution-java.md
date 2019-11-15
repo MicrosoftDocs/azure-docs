@@ -11,17 +11,8 @@ ms.custom: mvc
 
 # As a solution developer, I want to connect to and interact with an IoT Plug and Play device that's connected to my solution. For example, to collect telemetry from the device or to control the behavior of the device.
 
-# ################################INCOMPLETE###############################
-# ASSUMPTIONS/QUESTIONS:
-# 32                         -     Version of Java?
-# 40-46                      -     Do I need Maven? Version?
-# 56, 59                     -     Uses Azure IoT samples for Java (https://github.com/azure-samples/azure-iot-samples-java)
-#     59                           -    Branch needed?
-# 63, 87                     -     Project folder path?
-# 66, 90                     -     Is this how I build?
-# 78, 112, 136, 176, 202     -     How do I run?
-# 72, 96                     -     The terminal variables are the same in the Java project as they were in the Node.js one
-# 99-222                     -     The files, key names, and outputs are the same in the Java project as they were in the Node.js one
+######################### INCOMPLETE ###########################
+# 105-111    EnvironmentalSensor doesn't report any state information in sample. What should we check for?
 ---
 
 # Quickstart: Interact with an IoT Plug and Play Preview device that's connected to your solution (Java)
@@ -32,7 +23,7 @@ IoT Plug and Play Preview simplifies IoT by enabling you to interact with a devi
 
 ## Prerequisites
 
-To complete this quickstart, you need Java SE 7 on your development machine. You can download Java SE 7 for multiple platforms from [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/en-us/java/azure/jdk/?view=azure-java-stable), by selecting **Java 7** under **Long-term support** to get Azul Zulu downloads for Java 7. Make sure your `JAVA_HOME` environment variable includes the full path to the Java directory (if using the Zulu download, `\Zulu\zulu-7`), and your`PATH` environment variable includes the full path to the Java bin directory (`\Zulu\zulu-7\bin`).
+To complete this quickstart, you need Java SE 8 on your development machine. You can download Java SE 8 for multiple platforms from [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/en-us/java/azure/jdk/?view=azure-java-stable), by selecting **Java 8** under **Long-term support** to get Azul Zulu downloads for Java 8. Make sure your `JAVA_HOME` environment variable includes the full path to the Java directory (something like `C:\Program Files\Zulu\zulu-8`), and your`PATH` environment variable includes the full path to the Java bin directory (something like `C:\Program Files\Zulu\zulu-8\bin`).
 
 You can check that the environment variables are set correctly and verify the version of Java on your development machine by running the following command in a local terminal window: 
 
@@ -82,7 +73,7 @@ In this quickstart, you use a sample environmental sensor that's written in Java
     java -jar device-samples\target\environmental-sensor-sample-with-deps.jar
     ```
 
-1. The device is now ready to receive commands and property updates, and has begun sending telemetry data to the hub. Keep the sample running as you complete the next steps. Don't close this terminal, you'll need it later to confirm the service samples also worked.
+1. You see messages saying that the device is connected and waiting for service updates, followed by telemetry logs. This indicates that the device is now ready to receive commands and property updates, and has begun sending telemetry data to the hub. Keep the sample running as you complete the next steps. Don't close this terminal, you'll need it later to confirm the service samples also worked.
 
 ## Build the solution
 
@@ -102,7 +93,7 @@ In this quickstart, you use a sample IoT solution in Java to interact with the s
 1. When you connected the _device_ in its terminal, you saw the following message indicating its online status:
 
     ```cmd/sh
-    reported state property as online
+    Device client status changed to: CONNECTED, reason: CONNECTION_OK, cause: null
     ```
 
 1. Go to the _service_ terminal and use the following command to run the sample for reading device information:
@@ -140,38 +131,21 @@ In this quickstart, you use a sample IoT solution in Java to interact with the s
     "environmentalSensor": {
         "name": "environmentalSensor",
         "properties": {
-          "name": {
-            "reported": {
-              "value": "Name",
-              "desiredState": {
-                "code": 200,
-                "version": 12,
-                "description": "helpful descriptive text"
-              }
-            },
-            "desired": {
-              "value": "Name"
+            "brightness": {
+                "reported": null,
+                "desired": {
+                    "value": "42"
+                }
             }
-          },
-          "brightness": {
-            "desired": {
-              "value": 42
-            }
-          },
-          "state": {
-            "reported": {
-              "value": "online"
-            }
-          }
         }
-      }
+    }
     ```
 
 1. Go to your _device_ terminal, you see the device has received the update:
 
     ```cmd/sh
-    Received an update for brightness: 42
-    updated the property
+    OnPropertyUpdate called: propertyName=brightness, reportedValue=null, desiredVersion=2, desiredValue={"value":"42"}
+    Report property: propertyName=brightness, reportedValue={"value":"42"}, desiredVersion=2 was DIGITALTWIN_CLIENT_OK
     ```
 2. Go back to your _service_ terminal and run the below command to get the device information again, to confirm the property has been updated.
     
@@ -181,11 +155,26 @@ In this quickstart, you use a sample IoT solution in Java to interact with the s
 3. In the _service_ terminal output, under the `environmentalSensor` component, you see the updated brightness value has been reported. Note: it might take a while for the device to finish the update. You can repeat this step until the device has actually processed the property update.
     
     ```json
-      "brightness": {
-        "reported": {
-          "value": 42,
-          }
-       }
+     "environmentalSensor": {
+        "name": "environmentalSensor",
+        "properties": {
+            "brightness": {
+                "reported": {
+                    "value": {
+                        "value": "42"
+                    },
+                    "desiredState": {
+                        "code": 200,
+                        "version": 2,
+                        "description": "OK"
+                    }
+                },
+                "desired": {
+                    "value": "42"
+                }
+            }
+        }
+     }        
     ```
 
 ### Invoke a command
@@ -194,6 +183,7 @@ In this quickstart, you use a sample IoT solution in Java to interact with the s
     ```cmd/sh
     set INTERFACE_INSTANCE_NAME=environmentalSensor
     set COMMAND_NAME=blink
+    set PAYLOAD=10
     ```
 
 1. Use the following command to run the sample for invoking the command:
@@ -205,20 +195,16 @@ In this quickstart, you use a sample IoT solution in Java to interact with the s
 1. Output in the _service_ terminal should show the following confirmation:
 
     ```cmd/sh
-    invoking command blink on component environmentalSensor for device <device ID>...
-    {
-      "result": "helpful response text",
-      "statusCode": 200,
-      "requestId": "<some ID value>",
-      "_response": "helpful response text"
-    }
+    Invoking blink on device <YourDeviceID> with interface instance name environmentalSensor
+    Command invoked on the device successfully, the returned status was 500 and the request id was <some ID value>
+    The returned PAYLOAD was
     ```
 
 1. Go to the _device_ terminal, you see the command has been acknowledged:
 
     ```cmd/sh
-    received command: blink for component: environmentalSensor
-    acknowledgement succeeded.
+    OnCommandReceived called: commandName=blink, requestId=5372ccd9-0636-4a34-83e5-685286cf3728, commandPayload="10"
+    EnvironmentalSensor is blinking every 10 seconds.
     ```
 
 [!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]

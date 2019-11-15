@@ -32,7 +32,7 @@ This quickstart shows you how to build a sample IoT Plug and Play device applica
 
 ## Prerequisites
 
-To complete this quickstart, you need Java SE 7 on your development machine. You can download Java SE 7 for multiple platforms from [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/en-us/java/azure/jdk/?view=azure-java-stable), by selecting **Java 7** under **Long-term support** to get Azul Zulu downloads for Java 7. Make sure your `JAVA_HOME` environment variable includes the full path to the Java directory (if using the Zulu download, `\Zulu\zulu-7`), and your`PATH` environment variable includes the full path to the Java bin directory (`\Zulu\zulu-7\bin`).
+To complete this quickstart, you need Java SE 8 on your development machine. You can download Java SE 8 for multiple platforms from [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/en-us/java/azure/jdk/?view=azure-java-stable), by selecting **Java 8** under **Long-term support** to get Azul Zulu downloads for Java 8. Make sure your `JAVA_HOME` environment variable includes the full path to the Java directory (something like `C:\Program Files\Zulu\zulu-8`), and your`PATH` environment variable includes the full path to the Java bin directory (something like `C:\Program Files\Zulu\zulu-8\bin`).
 
 You can check that the environment variables are set correctly and verify the version of Java on your development machine by running the following command in a local terminal window: 
 
@@ -92,7 +92,11 @@ Run a sample application in the SDK to simulate an IoT Plug and Play device that
 java -jar device-samples\target\environmental-sensor-sample-with-deps.jar
 ```
 
-The device is now ready to receive commands and property updates, and has begun sending telemetry data to the hub. Keep the sample running as you complete the next steps.
+You see the following output, indicating the device is now ready to receive commands and property updates, and has begun sending telemetry data to the hub.
+
+   ![Device confirmation messages](media/quickstart-connect-pnp-device/device-confirmation-java.png)
+
+ Keep the sample running as you complete the next steps.
 
 ## Use the Azure IoT explorer to validate the code
 
@@ -102,7 +106,7 @@ The device is now ready to receive commands and property updates, and has begun 
 
 1. Back on the **Devices** overview page, find the device identity you created previously. With the device application still running in the command prompt, check that the device's **Connection state** in Azure IoT explorer is reporting as _Connected_ (if not, hit **Refresh** until it is). Select the device to view more details.
 
-1. Expand the interface with ID **urn:YOUR_COMPANY_NAME_HERE:EnvironmentalSensor:1** to reveal the interface and IoT Plug and Play primitives—properties, commands, and telemetry.
+1. Expand the interface with ID **urn:java_sdk_sample:EnvironmentalSensor:1** to reveal the interface and IoT Plug and Play primitives—properties, commands, and telemetry.
 
 [!INCLUDE [iot-pnp-iot-explorer-2.md](../../includes/iot-pnp-iot-explorer-2.md)]
 
