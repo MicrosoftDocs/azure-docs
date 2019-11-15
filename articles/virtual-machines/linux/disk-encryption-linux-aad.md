@@ -326,18 +326,18 @@ You can disable encryption by using Azure PowerShell, the Azure CLI, or a Resour
 >Disabling encryption with Azure Disk Encryption on Linux VMs is only supported for data volumes. It's not supported on data or OS volumes if the OS volume has been encrypted. 
 
 - **Disable disk encryption with Azure PowerShell:** To disable encryption, use the [Disable-Azure​RmVMDisk​Encryption](/powershell/module/az.compute/disable-azvmdiskencryption) cmdlet. 
-         ```azurepowershell-interactive
+     ```azurepowershell-interactive
          Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM' [--volume-type {ALL, DATA, OS}]
-         ```
+     ```
 
 - **Disable encryption with the Azure CLI:** To disable encryption, use the [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable) command. 
-         ```azurecli-interactive
+     ```azurecli-interactive
          az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type [ALL, DATA, OS]
-         ```
+     ```
 - **Disable encryption with a Resource Manager template:** To disable encryption, use the [Disable encryption on a running Linux VM](https://aka.ms/decrypt-linuxvm) template.
-         1. Select **Deploy to Azure**.
-         2. Select the subscription, resource group, location, VM, legal terms, and agreement.
-         3. Select **Purchase** to disable disk encryption on a running Windows VM. 
+     1. Select **Deploy to Azure**.
+     2. Select the subscription, resource group, location, VM, legal terms, and agreement.
+     3. Select **Purchase** to disable disk encryption on a running Windows VM. 
 
 
 ## Next steps
