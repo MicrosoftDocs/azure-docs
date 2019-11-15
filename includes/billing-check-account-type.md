@@ -5,9 +5,7 @@ ms.topic: include
 ms.date: 07/01/2019
 ms.author: amberb
 ---
- 
-Check the agreement type to determine the type of your billing account
- 
+  
 1. Sign in to the [Azure portal](https://portal.azure.com).
  
 2. Search on **Cost Management + Billing**.

@@ -88,7 +88,7 @@ A scope is a node within a billing account that users use to view and manage bil
 
    ![Screenshot that shows billing scopes](./media/billing-view-all-accounts/Overview-select-scopes.png)
 
-   > [!IMPORTANT]
+   > [!Note]
     >
     > You will not see Switch scope if you only have access to one scope.
 
