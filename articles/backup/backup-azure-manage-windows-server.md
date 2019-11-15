@@ -252,7 +252,7 @@ The Backup Storage tile in the dashboard shows the storage consumed in Azure. St
 * Cloud LRS storage usage associated with the vault
 * Cloud GRS storage usage associated with the vault
 
-## Troubleshooting Monitoring Issues
+## Troubleshooting monitoring issues
 
 **Issue:** Jobs and/or alerts from the Azure Backup agent do not appear in the portal.
 

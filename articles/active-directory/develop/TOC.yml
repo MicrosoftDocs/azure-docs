@@ -392,9 +392,9 @@
         href: active-directory-configurable-token-lifetimes.md
     - name: Application configuration
       items:
-      - name: Azure portal app registrations training guide (legacy)
+      - name: Transitioning from App registrations (Legacy) to the new App registrations experience in the Azure portal
         href: app-registrations-training-guide-for-app-registrations-legacy-users.md
-      - name: Application Registration Portal app registration guide
+      - name: Transitioning from Application Registration Portal to the new App registrations experience in the Azure portal
         href: app-registration-portal-training-guide.md
       - name: Convert a single-tenant app to a multi-tenant app
         href: howto-convert-app-to-be-multi-tenant.md

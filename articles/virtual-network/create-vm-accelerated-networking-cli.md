@@ -1,5 +1,5 @@
 ---
-title: Create an Azure virtual machine with Accelerated Networking | Microsoft Docs
+title: Create an Azure VM with Accelerated Networking using Azure CLI
 description: Learn how to create a Linux virtual machine with Accelerated Networking enabled.
 services: virtual-network
 documentationcenter: na
@@ -19,7 +19,7 @@ ms.author: gsilva
 ms.custom: 
 
 ---
-# Create a Linux virtual machine with Accelerated Networking
+# Create a Linux virtual machine with Accelerated Networking using Azure CLI
 
 In this tutorial, you learn how to create a Linux virtual machine (VM) with Accelerated Networking. To create a Windows VM with Accelerated Networking, see [Create a Windows VM with Accelerated Networking](create-vm-accelerated-networking-powershell.md). Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, greatly improving its networking performance. This high-performance path bypasses the host from the datapath, reducing latency, jitter, and CPU utilization, for use with the most demanding network workloads on supported VM types. The following picture shows communication between two VMs with and without accelerated networking:
 
