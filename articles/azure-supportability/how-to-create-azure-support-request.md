@@ -93,7 +93,7 @@ After you have completed all required information on each tab, select **Review +
 
 A support agent will contact you using the method you indicated. Consult [Support scope and responsiveness](https://azure.microsoft.com/support/plans/response/) for information about initial response time.
 
-## Monitor support requests
+## All support requests
 
 After you create the support request, you can view the details and status by going to **Help + support** >  **All support requests**.
 
