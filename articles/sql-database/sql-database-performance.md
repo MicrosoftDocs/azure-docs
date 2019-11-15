@@ -59,7 +59,7 @@ Learn how to find an apply performance recommendations in [Find and apply perfor
 * The top CPU consuming queries, which can potentially be tuned for improved performance. 
 * The ability to drill down into the details of a query. 
 
-  ![Query Performance Insights for Azure SQL Database](./media/sql-database-query-performance/query-performance-insights-annotated.png)
+  ![Query Performance Insights for Azure SQL Database](./media/sql-database-performance/query-performance-insights-annotated.png)
 
 Find more information about this page in the article **[How to use Query Performance Insight](sql-database-query-performance.md)**.
 
@@ -67,7 +67,7 @@ Find more information about this page in the article **[How to use Query Perform
 
 Azure SQL databases can automatically tune database performance by applying [performance recommendations](sql-database-advisor.md). To enable it, read [how to enable automatic tuning](sql-database-automatic-tuning-enable.md).
 
-  ![Automatic tuning for Azure SQL Database](./media/sql-database-query-performance/automatic-tuning-annotated.png)
+  ![Automatic tuning for Azure SQL Database](./media/sql-database-performance/automatic-tuning-annotated.png)
 
 To learn more, read [Automatic tuning article](sql-database-automatic-tuning.md).
 
