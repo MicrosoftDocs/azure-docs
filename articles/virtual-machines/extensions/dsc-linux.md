@@ -51,11 +51,11 @@ For other actions such as Pull, Pull, Install requires connectivity to Azure Sto
 
 ## Extension schema
 
-### 1.1 Public configuration
+### Public configuration
 
 Here are all the supported public configuration parameters:
 
-* `FileUri`: (optional, string) The uri of the MOF file/Meta MOF file/custom resource ZIP file.
+* `FileUri`: (optional, string) The uri of the MOF file, meta MOF file, or custom resource ZIP file.
 * `ResourceName`: (optional, string) The name of the custom resource module.
 * `ExtensionAction`: (optional, string) Specifies what an extension does. Valid values are Register, Push, Pull, Install, and Remove. If not specified, it's considered a Push Action by default.
 * `NodeConfigurationName`: (optional, string) The name of a node configuration to apply.
@@ -68,7 +68,7 @@ Here are all the supported public configuration parameters:
 > If you use a version earlier than 2.3, the mode parameter is the same as ExtensionAction. Mode seems to be an overloaded term. To avoid confusion, ExtensionAction is used from version 2.3 onward. For backward compatibility, the extension supports both mode and ExtensionAction. 
 >
 
-### 1.2 Protected configuration
+### Protected configuration
 
 Here are all the supported protected configuration parameters:
 
@@ -277,15 +277,15 @@ Azure VM extensions can be deployed with Azure Resource Manager templates. Templ
 
 The sample Resource Manager template is [201-dsc-linux-azure-storage-on-ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-azure-storage-on-ubuntu) and [201-dsc-linux-public-storage-on-ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-public-storage-on-ubuntu).
 
-For more information about the Azure Resource Manager template, visit [Authoring Azure Resource Manager templates](../../azure-resource-manager/resource-group-authoring-templates.md).
+For more information about the Azure Resource Manager template, see [Authoring Azure Resource Manager templates](../../azure-resource-manager/resource-group-authoring-templates.md).
 
 
 ## Azure CLI deployment
 
-### 2.1. Use [Azure CLI][azure-cli]
+### Use [Azure CLI][azure-cli]
 Before you deploy the DSCForLinux extension, configure your `public.json` and `protected.json` according to the different scenarios in section 3.
 
-#### 2.1.1. Classic
+#### Classic
 The classic deployment mode is also called Azure Service Management mode. You can switch to it by running:
 ```
 $ azure config mode asm
@@ -302,7 +302,7 @@ To learn the latest extension version available, run:
 $ azure vm extension list
 ```
 
-#### 2.1.2. Resource Manager
+#### Resource Manager
 You can switch to Azure Resource Manager mode by running:
 ```
 $ azure config mode arm
@@ -318,9 +318,9 @@ DSCForLinux Microsoft.OSTCExtensions <version> \
 > In Azure Resource Manager mode, `azure vm extension list` isn't available for now.
 >
 
-### 2.2. Use [Azure PowerShell][azure-powershell]
+### Use [Azure PowerShell][azure-powershell]
 
-#### 2.2.1 Classic
+#### Classic
 
 You can sign in to your Azure account in Azure Service Management mode by running:
 
@@ -359,7 +359,7 @@ Set-AzureVMExtension -ExtensionName $extensionName -VM $vm -Publisher $publisher
   -PublicConfiguration $publicConfig | Update-AzureVM
 ```
 
-#### 2.2.2.Resource Manager
+#### Resource Manager
 
 You can sign in to your Azure account in Azure Resource Manager mode by running:
 
