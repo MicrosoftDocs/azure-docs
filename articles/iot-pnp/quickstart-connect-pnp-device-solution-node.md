@@ -60,7 +60,7 @@ In this quickstart, you use a sample environmental sensor that's written in Node
     node sample_device.js
     ```
 
-1. The device is now ready to receive commands and property updates, and has begun sending telemetry data to the hub. Keep the sample running as you complete the next steps. Don't close this terminal, you'll need it later to confirm the service samples also worked.
+1. You see messages saying that the device has sent some information and reported itself online. This indicates that the device has begun sending telemetry data to the hub, and is now ready to receive commands and property updates. Don't close this terminal, you'll need it later to confirm the service samples also worked.
 
 ## Build the solution
 
@@ -86,7 +86,7 @@ In this quickstart, you use a sample IoT solution in Node.js to interact with th
     reported state property as online
     ```
 
-1. Open the file **get_digital_twin.js**. Replace the `<DEVICE_ID_GOES_HERE>` placeholder with your device ID and save the file.
+1. In the the **/azure-iot-samples-node/digital-twins/Quickstarts/Service** folder, open the file **get_digital_twin.js**. Replace the `<DEVICE_ID_GOES_HERE>` placeholder with your device ID and save the file.
 
 1. Go to the _service_ terminal and use the following command to run the sample for reading device information:
 
@@ -94,13 +94,19 @@ In this quickstart, you use a sample IoT solution in Node.js to interact with th
     node get_digital_twin.js
     ```
 
-1. In the _service_ terminal output, scroll to the `environmentalSensor` component. You see that the `state` property, which is used to indicate whether or not the device is online, has been reported as _true_:
+1. In the _service_ terminal output, scroll to the `environmentalSensor` component. You see that the `state` property has been reported as _online_:
 
     ```JSON
-    "state": {
-      "reported": {
-        "value": "true"
+    "environmentalSensor": {
+      "name": "environmentalSensor",
+      "properties": {
+        "state": {
+          "reported": {
+            "value": "online"
+          }
+        }
       }
+    }
     ```
 
 ### Update a writable property
@@ -125,33 +131,20 @@ In this quickstart, you use a sample IoT solution in Node.js to interact with th
 
     ```json
     "environmentalSensor": {
-        "name": "environmentalSensor",
-        "properties": {
-          "name": {
-            "reported": {
-              "value": "Name",
-              "desiredState": {
-                "code": 200,
-                "version": 12,
-                "description": "helpful descriptive text"
-              }
-            },
-            "desired": {
-              "value": "Name"
-            }
-          },
-          "brightness": {
-            "desired": {
-              "value": 42
-            }
-          },
-          "state": {
-            "reported": {
-              "value": "true"
-            }
+      "name": "environmentalSensor",
+      "properties": {
+        "brightness": {
+          "desired": {
+            "value": "42"
+          }
+        },
+        "state": {
+          "reported": {
+            "value": "online"
           }
         }
       }
+    }
     ```
 
 1. Go to your _device_ terminal, you see the device has received the update:
@@ -168,11 +161,29 @@ In this quickstart, you use a sample IoT solution in Node.js to interact with th
 3. In the _service_ terminal output, under the `environmentalSensor` component, you see the updated brightness value has been reported. Note: it might take a while for the device to finish the update. You can repeat this step until the device has actually processed the property update.
     
     ```json
-      "brightness": {
-        "reported": {
-          "value": 42,
+    "environmentalSensor": {
+      "name": "environmentalSensor",
+      "properties": {
+        "brightness": {
+          "reported": {
+            "value": "42",
+            "desiredState": {
+              "code": 200,
+              "version": 2,
+              "description": "helpful descriptive text"
+            }
+          },
+          "desired": {
+            "value": "42"
           }
-       }
+        },
+        "state": {
+          "reported": {
+            "value": "online"
+          }
+        }
+      }
+    }
     ```
 
 ### Invoke a command
@@ -184,6 +195,7 @@ In this quickstart, you use a sample IoT solution in Node.js to interact with th
     ```javascript
     const interfaceInstanceName = 'environmentalSensor';
     const commandName = 'blink';
+    const commandArgument = '<For the environmental sensor, this value does not matter. Any string will do.>'; 
     ```
 
 1. Go to the _service_ terminal. Use the following command to run the sample for invoking the command:
@@ -195,7 +207,7 @@ In this quickstart, you use a sample IoT solution in Node.js to interact with th
 1. Output in the _service_ terminal should show the following confirmation:
 
     ```cmd/sh
-    invoking command blink on component environmentalSensor for device <device ID>...
+    invoking command blink on interface instanceenvironmentalSensor for device <device ID>...
     {
       "result": "helpful response text",
       "statusCode": 200,
@@ -207,7 +219,7 @@ In this quickstart, you use a sample IoT solution in Node.js to interact with th
 1. Go to the _device_ terminal, you see the command has been acknowledged:
 
     ```cmd/sh
-    received command: blink for component: environmentalSensor
+    received command: blink for interfaceInstance: environmentalSensor
     acknowledgement succeeded.
     ```
 

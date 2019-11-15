@@ -10,11 +10,6 @@ services: iot-pnp
 ms.custom: mvc
 
 # As a device developer, I want to see a working IoT Plug and Play device sample connecting to IoT Hub and sending properties, commands and telemetry. As a solution developer, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
-
-# ################################INCOMPLETE###############################
-# ASSUMPTIONS/QUESTIONS:
-# 25                    -    Should I give a minimum version of Node.js?
-# 83                    -    Steps of this include have an issue
 ---
 
 # Quickstart: Connect a sample IoT Plug and Play Preview device application to IoT Hub (Node.js)
@@ -76,11 +71,11 @@ Run a sample application in the SDK to simulate an IoT Plug and Play device that
     node sample_device.js
 ```
 
-The simulated device starts sending telemetry data to IoT Hub, listening for commands, and listening for property updates.
+You see the following output, indicating the device has begun sending telemetry data to the hub, and is now ready to receive commands and property updates.
 
    ![Device confirmation messages](media/quickstart-connect-pnp-device/device-confirmation-node.png)
 
-The device is now ready to receive commands and property updates, and has begun sending telemetry data to the hub. Keep the sample running as you complete the next steps.
+ Keep the sample running as you complete the next steps.
 
 ## Use the Azure IoT explorer to validate the code
 
