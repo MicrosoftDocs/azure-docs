@@ -1,5 +1,5 @@
 ---
-title: Filters for scoping search results in an index
+title: Filters on search results
 titleSuffix: Azure Cognitive Search
 description: Filter by user security identity, language, geo-location, or numeric values to reduce search results on queries in Azure Cognitive Search, a hosted cloud search service on Microsoft Azure.
 

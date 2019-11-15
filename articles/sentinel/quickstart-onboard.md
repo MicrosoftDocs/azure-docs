@@ -28,6 +28,19 @@ To on-board Azure Sentinel, you first need to enable Azure Sentinel, and then co
 
 After you connect your data sources, choose from a gallery of expertly created workbooks that surface insights based on your data. These workbooks can be easily customized to your needs.
 
+>[!NOTE] 
+> [Azure Sentinel pricing](https://azure.microsoft.com/en-ca/pricing/details/azure-sentinel/) is based on the amount of data ingested in the associated Azure Monitor Log analytics workspace. Some of the following data connectors are not charged for ingestion however there would be some charge associated when you generate any kind of alert using the ingested data stored in Log Analytics workspace which will be charged as per [Azure Monitor Log analytics pricing](https://azure.microsoft.com/en-ca/pricing/details/monitor/). 
+  > - Azure Activity (Activity Logs for azure Operations)
+  > - Azure Active Directory Identity Protection (For tenants with AAD P2 licenses)
+  > - Azure Information Protection
+  > - Azure Advanced Threat Protection (Alerts )
+  > - Azure Security Center (Alerts)
+  > - Microsoft Cloud App Security (Alerts only)
+  > - Microsoft Defender Advanced Threat Protection (Monitoring agent alerts)
+  > - Office 365 (Exchange and Sharepoint Logs)
+>
+> Azure AD/Office365 audit logs are not free and offered as a premium tier hence the ingestion of this data is priced on a per-GB basis. 
+  
 
 ## Global prerequisites
 
