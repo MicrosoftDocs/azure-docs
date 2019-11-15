@@ -1,17 +1,17 @@
 ---
-title: Configure security alerts for Azure AD roles in PIM - Azure Active Directory | Microsoft Docs
-description: Learn how to configure security alerts for Azure AD roles in Azure AD Privileged Identity Management (PIM).
+title: Security alerts for Azure AD roles in PIM - Azure AD | Microsoft Docs
+description: Configure security alerts for Azure AD roles Privileged Identity Management in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/22/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -52,12 +52,12 @@ This section lists all the security alerts for Azure AD roles, along with how to
 | **Prevention** | [Require MFA](pim-how-to-change-default-settings.md) for every role.  |
 | **In-portal mitigation action** | Makes multi-factor authentication required for activation of the privileged role. |
 
-### The tenant doesn't have Azure AD Premium P2
+### The organization doesn't have Azure AD Premium P2
 
 | | |
 | --- | --- |
 | **Severity** | Low |
-| **Why do I get this alert?** | The current tenant does not have Azure AD Premium P2. |
+| **Why do I get this alert?** | The current Azure AD organization does not have Azure AD Premium P2. |
 | **How to fix?** | Review information about [Azure AD editions](../fundamentals/active-directory-whatis.md). Upgrade to Azure AD Premium P2. |
 
 ### Potential stale accounts in a privileged role
