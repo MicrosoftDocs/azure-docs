@@ -253,6 +253,16 @@ A database is the logical container of items partitioned across containers. Eith
 
 1. Select F5 to run your application.
 
+   > [!NOTE]
+   > If you get a "503 service unavailable exception," it's possible the required [ports](performance-tips.md#networking) for direct mode are blocked by a firewall. To fix this issue,  either open the required [ports](performance-tips.md#networking) or try to use gateway mode as shown below.
+   ```csharp
+     // Create a new instance of the Cosmos Client in Gateway mode
+     this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey, new CosmosClientOptions()
+            {
+                ConnectionMode = ConnectionMode.Gateway
+            });
+   ```
+
 Congratulations! You've successfully created an Azure Cosmos database.  
 
 ## <a id="CreateColl"></a>Step 5: Create a container
