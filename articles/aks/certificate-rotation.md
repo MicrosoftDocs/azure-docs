@@ -88,7 +88,7 @@ Verify the certificates have been updated by running a `kubectl` command, which 
 kubectl get no
 ```
 
-## Next Steps
+## Next steps
 
 This article showed you how to automatically rotate your cluster's certificates, CAs, and SAs. You can see [Best practices for cluster security and upgrades in Azure Kubernetes Service (AKS)][aks-best-practices-security-upgrades] for more information on AKS security best practices.
 
