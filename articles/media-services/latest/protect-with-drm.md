@@ -110,7 +110,7 @@ You need to set the requirements (restrictions) on the **Content Key Policy** th
 
 * Configuration
 
-    The [PlayReady](playready-license-template-overview.md) and [Widevine](widevine-license-template-overview.md) licenses are configured so they can be delivered by the Media Services license delivery service. Even though, this sample app does not configure the [FairPlay](fairplay-license-overview.md) license, it contains a method that you can use to configure FairPlay. You can  add FairPlay configuration as another option.
+    The [PlayReady](playready-license-template-overview.md) and [Widevine](widevine-license-template-overview.md) licenses are configured so they can be delivered by the Media Services license delivery service. Even though this sample app doesn't configure the [FairPlay](fairplay-license-overview.md) license, it contains a method you can use to configure FairPlay. You can add FairPlay configuration as another option.
 
 * Restriction
 
@@ -122,12 +122,12 @@ When a stream is requested by a player, Media Services uses the specified key to
 
 ## Create a Streaming Locator
 
-After the encoding is complete, and the content key policy is set, the next step is to make the video in the output Asset available to clients for playback. You accomplish this in two steps: 
+After the encoding is complete, and the content key policy is set, the next step is to make the video in the output Asset available to clients for playback. You make the video available in two steps:
 
-1. Create a [Streaming Locator](streaming-locators-concept.md)
-2. Build the streaming URLs that clients can use. 
+1. Create a [Streaming Locator](streaming-locators-concept.md).
+2. Build the streaming URLs that clients can use.
 
-The process of creating the **Streaming Locator** is called publishing. By default, the **Streaming Locator** is valid immediately after you make the API calls, and lasts until it is deleted, unless you configure the optional start and end times. 
+The process of creating the **Streaming Locator** is called publishing. By default, the **Streaming Locator** is valid immediately after you make the API calls. It lasts until it's deleted, unless you configure the optional start and end times.
 
 When creating a **Streaming Locator**, you need to specify the desired `StreamingPolicyName`. In this tutorial, we are using one of the predefined Streaming Policies, which tells Azure Media Services how to publish the content for streaming. In this example, we set StreamingLocator.StreamingPolicyName to the "Predefined_MultiDrmCencStreaming" policy. The PlayReady and Widevine encryptions are applied, the key is delivered to the playback client based on the configured DRM licenses. If you also want to encrypt your stream with CBCS (FairPlay), use "Predefined_MultiDrmStreaming". 
 
