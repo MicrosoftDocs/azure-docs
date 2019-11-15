@@ -34,7 +34,7 @@ ms.date: 11/14/2019
         * For apps hosted in a local development environment, select **Public client (mobile & desktop)**. Make sure to set the **Default client type** to yes.
         * For Single-Page apps hosted on Azure App Service, select **Web**.
 
-    1. Enable the implicit grant flow by checking **ID tokens**.
+    1. Enable the implicit grant flow by checking **Access tokens** or **ID tokens**.
 
    [![Create a new client secret](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
 
