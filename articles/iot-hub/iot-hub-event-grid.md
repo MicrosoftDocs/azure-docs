@@ -183,7 +183,7 @@ To receive device connected and device disconnected events, you must open the D2
 
 The D2C link is open if you are sending telemetry. 
 
-If the device connection is flickering, which mean the device connects and disconnects frequently, we will not send every single connection state, but will publish the *last* connection state, which is eventually consistent. For example, $$$$$ if your device has been in the connected state initially, then connectivity flickers for a few seconds, and then it's back in connected state. No new device connection state events will be published since the initial connection state. 
+If the device connection is flickering, which mean the device connects and disconnects frequently, we will not send every single connection state, but will publish the *last* connection state, which is eventually consistent. For example, if your device has been in the connected state initially, then connectivity flickers for a few seconds, and then it's back in connected state. No new device connection state events will be published since the initial connection state. 
 
 In case of an IoT Hub outage, we will publish the device connection state as soon as the outage is over. If the device disconnects during that outage, the device disconnected event will be published within 10 minutes.
 
