@@ -207,7 +207,7 @@ Category contains "Upload", "UploadRate", "none") 
 ### Query data change rate (churn) and upload rate for a VMware or physical machine
 
 > [!Note]
-> Ensure you set up the monitoring agent on the Process Server to fetch these logs. Refer [steps to configure monitoring agent](#Configure-Microsoft-monitoring-agent-on-the-Process-Server-to-send-churn-and-upload-rate-logs).
+> Ensure you set up the monitoring agent on the Process Server to fetch these logs. Refer [steps to configure monitoring agent](#configure-microsoft-monitoring-agent-on-the-process-server-to-send-churn-and-upload-rate-logs).
 
 This query plots a trend graph for a specific disk **disk0** of a replicated item **win-9r7sfh9qlru**, that represents the data change rate (Write Bytes per Second), and data upload rate. You can find the disk name on **Disks** blade of the replicated item in the recovery services vault. Instance name to be used in the query is DNS name of the machine followed by _ and disk name as in this example.
 
