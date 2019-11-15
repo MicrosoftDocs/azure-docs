@@ -1,7 +1,7 @@
 ---
 title: Custom token cache serialization in MSAL for Java
 titleSuffix: Microsoft identity platform
-description: Learn how to serializing the token cache for MSAL for Java
+description: Learn how to serialize the token cache for MSAL for Java
 services: active-directory
 documentationcenter: dev-center-name
 author: sangonzal

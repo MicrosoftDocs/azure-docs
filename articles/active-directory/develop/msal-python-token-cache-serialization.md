@@ -38,6 +38,6 @@ Public client applications run on a user's device and manage tokens for a single
 
 For Web Apps or Web APIs, you might use the session, or a Redis cache, or a database to store the token cache. There should be one token cache per user (per account) so ensure that you serialize the token cache per account.
 
-## Sample code
+## Next steps
 
 See [ms-identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/master/app.py#L64-L72) for an example of how to use the token cache for a Windows or Linux Web app or Web API. The example is for a web app that calls the Microsoft Graph API.

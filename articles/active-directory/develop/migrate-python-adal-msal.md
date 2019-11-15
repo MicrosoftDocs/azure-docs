@@ -97,3 +97,7 @@ for old_rt, old_scope in get_preexisting_rt_and_their_scopes_from_elsewhere(...)
     # When this call returns the new token(s), a new refresh token is issued by the Microsoft identity platform and MSAL for Python
     # stores it in the token cache.
 ```
+
+## Next steps
+
+For more information, refer to [v1.0 and v2.0 comparison](active-directory-v2-compare.md).
