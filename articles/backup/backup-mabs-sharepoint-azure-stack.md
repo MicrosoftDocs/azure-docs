@@ -238,7 +238,7 @@ A: Yes, the item can be recovered to the original SharePoint site.
 Q: Can I recover a SharePoint database to the original location if SharePoint is configured by using SQL AlwaysOn?<br>
 A: Because SharePoint databases are configured in SQL AlwaysOn, they cannot be modified unless the availability group is removed. As a result, MABS cannot restore a database to the original location. You can recover a SQL Server database to another SQL Server instance.
 
-## Next Steps
+## Next steps
 
 See the [Backup files and application](backup-mabs-files-applications-azure-stack.md) article.
 See the [Backup SQL Server on Azure Stack](backup-mabs-sql-azure-stack.md) article.

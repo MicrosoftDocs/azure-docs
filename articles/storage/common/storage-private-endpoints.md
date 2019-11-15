@@ -18,7 +18,7 @@ You can use [Private Endpoints](../../private-link/private-endpoint-overview.md)
 
 Using private endpoints for your storage account enables you to:
 - Secure your storage account by configuring the storage firewall to block all connections on the public endpoint for the storage service.
-- Increases security for the virtual network (VNet), by enabling you to block exfiltration of data from the VNet.
+- Increase security for the virtual network (VNet), by enabling you to block exfiltration of data from the VNet.
 - Securely connect to storage accounts from on-premises networks that connect to the VNet using [VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoutes](../../expressroute/expressroute-locations.md) with private-peering.
 
 ## Conceptual Overview
@@ -30,12 +30,12 @@ Applications in the VNet can connect to the storage service over the private end
 
 When you create a private endpoint for a storage service in your VNet, a consent request is sent for approval to the storage account owner. If the user requesting the creation of the private endpoint is also an owner of the storage account, this consent request is automatically approved.
 
-Storage account owners can manage consent requests and the private endpoints, through the 'Private Endpoints' tab for the storage account in the [Azure portal](https://portal.azure.com).
+Storage account owners can manage consent requests and the private endpoints, through the '*Private Endpoints*' tab for the storage account in the [Azure portal](https://portal.azure.com).
 
 > [!TIP]
 > If you want to restrict access to your storage account through the private endpoint only, configure the storage firewall to deny all access through the public endpoint.
 
-You can secure your storage account to only accept connections from your  VNet, by [configuring the storage firewall](storage-network-security.md#change-the-default-network-access-rule) to deny access through its public endpoint by default. You don't need a firewall rule to allow traffic from a VNet that has a private endpoint, since the storage firewall only controls access through the public endpoint. Private endpoints instead rely on the consent flow for granting subnets access to the storage service.
+You can secure your storage account to only accept connections from your VNet, by [configuring the storage firewall](storage-network-security.md#change-the-default-network-access-rule) to deny access through its public endpoint by default. You don't need a firewall rule to allow traffic from a VNet that has a private endpoint, since the storage firewall only controls access through the public endpoint. Private endpoints instead rely on the consent flow for granting subnets access to the storage service.
 
 ### Private Endpoints for Storage Service
 
@@ -57,7 +57,7 @@ For more detailed information on creating a private endpoint for your storage ac
 
 ### DNS changes for Private Endpoints
 
-Clients on a VNet can use the same connection string for the storage account even when using a private endpoint.
+Clients on a VNet should use the same connection string for the storage account even when using a private endpoint.
 
 When you create a private endpoint, we update the DNS CNAME resource record for that storage endpoint to an alias in a subdomain with the prefix '*privatelink*'. By default, we also create a [private DNS zone](../../dns/private-dns-overview.md) attached to the VNet. This private DNS zone corresponds to the subdomain with the prefix '*privatelink*', and contains the DNS A resource records for the private endpoints.
 
@@ -86,7 +86,7 @@ This approach enables access to the storage account **using the same connection 
 > Use the same connection string to connect to the storage account over private endpoints, as you'd use otherwise. Please don't connect to the storage account using its '*privatelink*' subdomain URL.
 
 > [!TIP]
-> If you're using a custom or on-premises DNS server, you should use the 'privatelink' subdomain of the storage service to configure DNS resource records for the private endpoints.
+> When using a custom or on-premises DNS server, you should configure DNS resource records for private endpoints in a DNS zone corresponding to the 'privatelink' subdomain of the storage service.
 
 The recommended DNS zone names for private endpoints for storage services are:
 
@@ -105,12 +105,12 @@ For pricing details, see [Azure Private Link pricing](https://azure.microsoft.co
 
 ## Known Issues
 
-### Copy Blob failures
+### Copy Blob support
 
-Currently, [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) commands issued to storage accounts accessed through private endpoints fail when the source storage account is protected by a firewall.
+During the preview, we don't support [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) commands issued to storage accounts accessed through private endpoints when the source storage account is protected by a firewall.
 
 ### Subnets with Service Endpoints
-During the preview, you can't create a private endpoint in a subnet that has service endpoints. You can create separate subnets in the same VNet for service endpoints and private endpoints.
+Currently, you can't create a private endpoint in a subnet that has service endpoints. As a workaround, you can create separate subnets in the same VNet for service endpoints and private endpoints.
 
 ### Storage access constraints for clients in VNets with Private Endpoints
 
