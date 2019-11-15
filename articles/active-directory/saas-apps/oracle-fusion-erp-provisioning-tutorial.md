@@ -32,7 +32,7 @@ The objective of this tutorial is to demonstrate the steps to be performed in Or
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * An Azure AD tenant
-* [A Oracle Fusion ERP tenant](https://www.oracle.com/applications/erp/).
+* An [Oracle Fusion ERP tenant](https://www.oracle.com/applications/erp/).
 * A user account in Oracle Fusion ERP with Admin permissions.
 
 ## Assign Users to Oracle Fusion ERP 
@@ -48,7 +48,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 * When assigning a user to Oracle Fusion ERP, you must select any valid application-specific role (if available) in the assignment dialog. Users with the Default Access role are excluded from provisioning.
 
-## Setup Oracle Fusion ERP for provisioning
+## Set up Oracle Fusion ERP for provisioning
 
 Before configuring Oracle Fusion ERP for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on Oracle Fusion ERP.
 
@@ -91,7 +91,7 @@ To configure Oracle Fusion ERP for automatic user provisioning with Azure AD, yo
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Oracle Fusion ERP based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Oracle Fusion ERP, following the instructions provided in the [Oracle Fusion ERP Single sign-on tutorial](oracle-fusion-erp-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
+> You may also choose to enable SAML-based single sign-on for Oracle Fusion ERP by following the instructions provided in the [Oracle Fusion ERP Single sign-on tutorial](oracle-fusion-erp-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features complement each other.
 
 > [!NOTE]
 > To learn more about Oracle Fusion ERP's SCIM endpoint, refer to [REST API for Common Features in Oracle Applications Cloud](https://docs.oracle.com/en/cloud/saas/applications-common/18b/farca/index.html).
