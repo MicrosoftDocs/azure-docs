@@ -147,7 +147,7 @@ MyScopeMap           UserDefined    2019-11-15T21:17:34Z  Sample scope map
 To view the details of a scope map, such as the associated actions, run the [az acr scope-map show][az-acr-scope-map-show] command. For example:
 
 ```azurecli
-z acr scope-map show --nameMyScopeMap --registry myregistry
+az acr scope-map show --nameMyScopeMap --registry myregistry
 ```
 
 ## Generate passwords for token
