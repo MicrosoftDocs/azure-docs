@@ -1653,6 +1653,8 @@
         href: symantec-web-security-service.md
       - name: Smartfile
         href: smartfile-provisioning-tutorial.md
+      - name: SpaceIQ
+        href: spaceiq-provisioning-tutorial.md
       - name: StarLeaf
         href: starleaf-provisioning-tutorial.md
       - name: Storegate
