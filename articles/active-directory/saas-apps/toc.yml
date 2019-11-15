@@ -179,12 +179,16 @@
         href: bis-tutorial.md
       - name: BitaBIZ
         href: bitabiz-tutorial.md
+      - name: Bitly
+        href: bitly-tutorial.md
       - name: Blackboard Learn
         href: blackboard-learn-tutorial.md
       - name: Blackboard Learn - Shibboleth
         href: blackboard-learn-shibboleth-tutorial.md
       - name: Blink
         href: blink-tutorial.md
+      - name: Blue Access for Members (BAM)
+        href: blue-access-for-members-tutorial.md
       - name: BlueJeans
         href: bluejeans-tutorial.md
       - name: Bomgar Remote Support
@@ -890,6 +894,8 @@
         href: n2f-expensereports-tutorial.md
       - name: Namely
         href: namely-tutorial.md
+      - name: NegometrixPortal Single Sign On (SSO)
+        href: negometrixportal-tutorial.md
       - name: NEOGOV
         href: neogov-tutorial.md
       - name: Neota Logic Studio
@@ -900,6 +906,8 @@
         href: netop-portal-tutorial.md
       - name: Netskope Cloud Security
         href: netskope-cloud-security-tutorial.md
+      - name: Netskope User Authentication
+        href: netskope-user-authentication-tutorial.md
       - name: Netsuite
         href: netsuite-tutorial.md
       - name: New Relic
@@ -1096,6 +1104,8 @@
         href: ringcentral-tutorial.md
       - name: Riskware
         href: riskware-tutorial.md
+      - name: Riva
+        href: riva-tutorial.md
       - name: Robin
         href: robin-tutorial.md
       - name: RStudio Connect

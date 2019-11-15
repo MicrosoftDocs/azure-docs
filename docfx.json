@@ -197,7 +197,11 @@
         "articles/governance/blueprints/**/*.md": "DCtheGeek",
         "articles/governance/policy/**/*.md": "DCtheGeek",
         "articles/governance/management-groups/**/*.md": "rthorn17",
-        "articles/governance/resource-graph/**/*.md": "DCtheGeek"
+        "articles/governance/resource-graph/**/*.md": "DCtheGeek",
+        "articles/ansible/*.*/*.md": "TomArcherMsft",
+        "articles/chef/*.*/*.md": "TomArcherMsft",
+        "articles/jenkins/*.*/*.md": "TomArcherMsft",
+        "articles/terraform/*.*/*.md": "TomArcherMsft"
       },
       "feedback_system": {
         "articles/virtual-machines/windows/classic/**/*": "None",
@@ -385,7 +389,11 @@
         "articles/governance/blueprints/**/*.md": "dacoulte",
         "articles/governance/policy/**/*.md": "dacoulte",
         "articles/governance/management-groups/**/*.md": "rithorn",
-        "articles/governance/resource-graph/**/*.md": "dacoulte"
+        "articles/governance/resource-graph/**/*.md": "dacoulte",
+        "articles/ansible/**/*.md": "tarcher",
+        "articles/chef/**/*.md": "tarcher",
+        "articles/jenkins/**/*.md": "tarcher",
+        "articles/terraform/**/*.md": "tarcher"
       },
       "ms.service": {
         "articles/governance/*.md": "governance",
@@ -393,7 +401,11 @@
         "articles/governance/policy/**/*.md": "azure-policy",
         "articles/governance/management-groups/**/*.md": "governance",
         "articles/governance/resource-graph/**/*.md": "resource-graph",
-        "articles/industry/**/*.md": "azure-industry"
+        "articles/industry/**/*.md": "azure-industry",
+        "articles/ansible/*.*/*.md": "ansible",
+        "articles/chef/*.*/*.md": "chef",
+        "articles/jenkins/*.*/*.md": "jenkins",
+        "articles/terraform/*.*/*.md": "terraform"
       },
       "ms.subservice": {
         "articles/industry/agriculture/**/*.md": "agriculture"
@@ -432,8 +444,14 @@
         "articles/sql-data-warehouse/**/*.yml": "Azure SQL Data Warehouse",
         "articles/data-factory/**/*.md": "Azure Data Factory",
         "articles/data-factory/**/*.yml": "Azure Data Factory",
+        "articles/virtual-machines/windows/sql/**/*.md": "Azure SQL Server VM",
+        "articles/virtual-machines/windows/sql/**/*.yml": "Azure SQL Server VM",
         "articles/sql-database/**/*.md" : "Azure SQL Database",
-        "articles/sql-database/**/*.yml" : "Azure SQL Database"
+        "articles/sql-database/**/*.yml" : "Azure SQL Database",
+        "articles/ansible/**/*.yml" : "Ansible",
+        "articles/chef/**/*.yml" : "Chef",
+        "articles/jenkins/**/*.yml" : "Jenkins",
+        "articles/terraform/**/*.yml" : "Terraform"
       },
       "featureFlags": {
         "articles/**/*.md": [
