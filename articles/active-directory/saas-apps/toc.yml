@@ -1625,6 +1625,8 @@
         href: oracle-fusion-erp-provisioning-tutorial.md
       - name: Pingboard
         href: pingboard-provisioning-tutorial.md
+      - name: Priority Matrix
+        href: priority-matrix-provisioning-tutorial.md
       - name: Proxyclick
         href: Proxyclick-provisioning-tutorial.md
       - name: Peakon
