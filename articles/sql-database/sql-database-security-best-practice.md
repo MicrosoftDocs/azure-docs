@@ -13,7 +13,7 @@ ms.reviewer: ""
 # Azure SQL Database security best practices playbook
 
 ## Overview
- 
+
 This document provides guidance on how to solve common security requirements for new or existing applications using Azure SQL Database. It is organized by high-level security areas. For addressing specific threats, refer to the [Common security threats and potential mitigations](#common-security-threats-and-potential-mitigations) section. Although some of the presented recommendations are applicable when migrating applications from on-premises to Azure, migration scenarios are not the focus of this document.
 
 ### Azure SQL Database deployment offers covered in this guide
@@ -399,7 +399,7 @@ Encryption at rest is the cryptographic protection of data when it is persisted 
 
 - Use customer-managed keys in Azure Key Vault (AKV) if you need increased transparency and granular control over the TDE protection. AKV allows the ability to revoke permissions at any time to render the database inaccessible. You can centrally manage TDE protectors along with other keys, or rotate the TDE protector at your own schedule using AKV.
 
-- If you're using customer-managed keys in Azure Key Vault, follow the articles, [Guidelines for configuring TDE with Azure Key Vault](transparent-data-encryption-byok-azure-sql.md#guidelines-for-configuring-azure-key-vault) and [How to configure Geo-DR with Azure Key Vault](transparent-data-encryption-byok-azure-sql.md#how-to-configure-geo-dr-with-azure-key-vault).
+- If you're using customer-managed keys in Azure Key Vault, follow the articles, [Guidelines for configuring TDE with Azure Key Vault](transparent-data-encryption-byok-azure-sql.md#recommendations-when-configuring-akv) and [How to configure Geo-DR with Azure Key Vault](transparent-data-encryption-byok-azure-sql.md#geo-dr-and-customer-managed-tde).
 
 ### Protect sensitive data in use from high-privileged, unauthorized users
 
