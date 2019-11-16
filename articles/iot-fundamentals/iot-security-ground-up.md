@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: robinsh
 ---
+# Security for Internet of Things (IoT) from the ground up
 
 [!INCLUDE [iot-security-ground-up](../../includes/iot-security-ground-up.md)]
 

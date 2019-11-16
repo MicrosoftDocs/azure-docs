@@ -1,6 +1,6 @@
 ---
-title: Integrate data and automate workflows - Azure Logic Apps
-description: Build solutions to integrate data and automate tasks, workflows, and processes across your enterprise or organization for system integration, enterprise application integration (EAI), and orchestration scenarios.
+title: Automate tasks for enterprise integration - Azure Logic Apps
+description: Learn about automating workflows that integrate apps, data, services, and systems with minimal code for enterprise integration by using Azure Logic Apps.
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration

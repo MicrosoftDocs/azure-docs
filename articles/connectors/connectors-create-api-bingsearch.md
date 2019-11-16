@@ -1,4 +1,4 @@
----
+﻿---
 title: Connect to Bing Search - Azure Logic Apps
 description: Find news with Bing Search REST APIs and Azure Logic Apps
 services: logic-apps
@@ -107,7 +107,7 @@ that returns news articles matching the specified criteria.
 open your logic app in Logic App Designer. 
 This example uses the Azure portal.
 
-2. Under the trigger or action, select **New step** > **Add an action**.
+2. Under the trigger or action, select **New step** > **Add an action**.
 
    This example uses this trigger:
 

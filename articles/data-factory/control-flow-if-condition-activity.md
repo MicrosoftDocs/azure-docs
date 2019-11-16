@@ -1,5 +1,5 @@
 ---
-title: If Condition activity in Azure Data Factory | Microsoft Docs
+title: If Condition activity in Azure Data Factory 
 description: The If Condition activity allows you to control the processing flow based on a condition.
 services: data-factory
 documentationcenter: ''

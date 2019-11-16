@@ -1,10 +1,10 @@
 ---
-title: Move Azure Virtual Machines to new subscription or resource group | Microsoft Docs
+title: Move Azure VMs to new subscription or resource group
 description: Use Azure Resource Manager to move virtual machines to a new resource group or subscription.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 10/10/2019
 ms.author: tomfitz
 ---
 
@@ -19,8 +19,9 @@ The following scenarios aren't yet supported:
 * Managed Disks in Availability Zones can't be moved to a different subscription.
 * Virtual Machine Scale Sets with Standard SKU Load Balancer or Standard SKU Public IP can't be moved.
 * Virtual machines created from Marketplace resources with plans attached can't be moved across resource groups or subscriptions. De-provision the virtual machine in the current subscription, and deploy again in the new subscription.
-* Virtual machines in an existing virtual network but you aren't moving all resources in the virtual network.
-* Low priority virtual machines and low priority virtual machine scale sets cannot be moved across resource groups or subscriptions.
+* Virtual machines in an existing virtual network can't be moved to a new subscription when you aren't moving all resources in the virtual network.
+* Low priority virtual machines and low priority virtual machine scale sets can't be moved across resource groups or subscriptions.
+* Virtual machines in an availability set can't be moved individually.
 
 ## Virtual machines with Azure Backup
 

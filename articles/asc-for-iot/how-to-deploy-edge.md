@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/23/2019
+ms.date: 10/08/2019
 ms.author: mlottner
 
 ---
@@ -67,7 +67,7 @@ There are three steps to create an IoT Edge deployment for Azure Security Center
 
 #### Step 1: Add modules
 
-1. From the **Add Modules** tab, **Deployment Modules** area, click  **AzureSecurityCenterforIoT**. 
+1. From the **Add Modules** tab, **Deployment Modules** area, click the **configure** option for **AzureSecurityCenterforIoT**. 
    
 1. Change the **name** to **azureiotsecurity**.
 1. Change the **Image URI** to **mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.0**.
@@ -92,28 +92,43 @@ There are three steps to create an IoT Edge deployment for Azure Security Center
 1. Verify that **Set module twin's desired properties** is selected, and change the configuration object to:
       
     ``` json
-    "desired": {
-        "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration": {
-          } 
-        }
+    { 
+       "properties.desired":{ 
+      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration":{ 
+
+          }
+       }
+    }
     ```
 
 1. Click **Save**.
 1. Scroll to the bottom of the tab and select **Configure advanced Edge Runtime settings**. 
    
-1. Change the **Image** under **Edge Hub** to **mcr.microsoft.com/azureiotedge-hub:1.0.9-rc2**.
+1. Change the **Image** under **Edge Hub** to **mcr.microsoft.com/azureiotedge-hub:1.0.8.3**.
 
 1. Verify **Create Options** is set to: 
          
     ``` json
     { 
-    "HostConfig":{
-                    "PortBindings":{
-                    "8883/tcp": [{"HostPort": "8883"}],
-                    "443/tcp": [{"HostPort": "443"}],
-                    "5671/tcp": [{"HostPort": "5671"}]
-                    }
-        }
+       "HostConfig":{ 
+          "PortBindings":{ 
+             "8883/tcp":[ 
+                { 
+                   "HostPort":"8883"
+                }
+             ],
+             "443/tcp":[ 
+                { 
+                   "HostPort":"443"
+                }
+             ],
+             "5671/tcp":[ 
+                { 
+                   "HostPort":"5671"
+                }
+             ]
+          }
+       }
     }
     ```
 1. Click **Save**.
@@ -122,16 +137,15 @@ There are three steps to create an IoT Edge deployment for Azure Security Center
 
 #### Step 2: Specify routes 
 
-1. In the **Specify Routes** tab, make sure you have a route (explicit or implicit) that will forward messages from the **azureiotsecurity** module to **$upstream**. 
-1. Click **Next**.
+1. In the **Specify Routes** tab, make sure you have a route (explicit or implicit) that will forward messages from the **azureiotsecurity** module to **$upstream** according to the following examples, only then click **Next**. 
 
-    ~~~Default implicit route
-    "route": "FROM /messages/* INTO $upstream" 
-    ~~~
+~~~Default implicit route
+"route": "FROM /messages/* INTO $upstream" 
+~~~
 
-    ~~~Explicit route
-    "ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
-    ~~~
+~~~Explicit route
+"ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
+~~~
 
 #### Step 3: Review deployment
 
@@ -151,9 +165,9 @@ If you encounter an issue, container logs are the best way to learn about the st
    
    | Name | IMAGE |
    | --- | --- |
-   | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.0 |
-   | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.9-rc2 |
-   | edgeAgent | mcr.microsoft.com/azureiotedge-agent:1.0 |
+   | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.1 |
+   | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.8.3 |
+   | edgeAgent | mcr.microsoft.com/azureiotedge-agent:1.0.1 |
    
    If the minimum required containers are not present, check if your IoT Edge deployment manifest is aligned with the recommended settings. For more information, see [Deploy IoT Edge module](#deployment-using-azure-portal).
 

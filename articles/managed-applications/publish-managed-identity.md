@@ -1,6 +1,6 @@
 ---
 title: Azure Managed Application with Managed Identity
-description: Learn how to configure a Managed Application with a Managed Identity. Managed Identity can be used to deploy Managed Applications linked to existing resources, grant Managed Applications to manage Azure resources outside the managed resource group, and provide an operational identity of Managed Applications for Activity Log and other services within Azure.
+description: Configure Managed Application with Managed Identity for linking to existing resources, managing Azure resources, and providing operational identity for Activity Log.
 services: managed-applications
 ms.service: managed-applications
 ms.topic: conceptual

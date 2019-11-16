@@ -3,14 +3,14 @@ title: "Check images against custom lists in C# - Content Moderator"
 titleSuffix: Azure Cognitive Services
 description: How to moderate images with custom image lists using the Content Moderator SDK for C#.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 07/03/2019
-ms.author: sajagtap
+ms.date: 10/24/2019
+ms.author: pafarley
 #As a C# developer of content-providing software, I want to check images against a custom list of inappropriate images so that I can handle them more efficiently.
 ---
 
@@ -61,8 +61,7 @@ Add the following `using` statements
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator.Models;
+using Microsoft.Azure.CognitiveServices.ContentModerator.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -72,11 +71,7 @@ using System.Threading;
 
 ### Create the Content Moderator client
 
-Add the following code to create a Content Moderator client for your subscription.
-
-> [!IMPORTANT]
-> Update the **AzureRegion** and **CMSubscriptionKey** fields with 
-> the values of your region identifier and subscription key.
+Add the following code to create a Content Moderator client for your subscription. Update the `AzureEndpoint` and `CMSubscriptionKey` fields with the values of your endpoint URL and subscription key. You can find these in the **Quick start** tab of your resource in the Azure portal.
 
 ```csharp
 /// <summary>
@@ -88,16 +83,9 @@ Add the following code to create a Content Moderator client for your subscriptio
 public static class Clients
 {
 	/// <summary>
-	/// The region/location for your Content Moderator account, 
-	/// for example, westus.
+	/// The base URL for Content Moderator calls.
 	/// </summary>
-	private static readonly string AzureRegion = "YOUR API REGION";
-
-	/// <summary>
-	/// The base URL fragment for Content Moderator calls.
-	/// </summary>
-	private static readonly string AzureBaseURL =
-		$"https://{AzureRegion}.api.cognitive.microsoft.com";
+	private static readonly string AzureEndpoint = "YOUR ENDPOINT URL";
 
 	/// <summary>
 	/// Your Content Moderator subscription key.
@@ -116,7 +104,7 @@ public static class Clients
 		// Create and initialize an instance of the Content Moderator API wrapper.
 		ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
 
-		client.Endpoint = AzureBaseURL;
+		client.Endpoint = AzureEndpoint;
 		return client;
 	}
 }

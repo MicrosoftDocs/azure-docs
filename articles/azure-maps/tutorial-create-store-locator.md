@@ -1,9 +1,9 @@
 ---
-title: Create a store locator using Azure Maps | Microsoft Docs
-description: Create a store locator by using Azure Maps.
+title: 'Tutorial: Create a store locator using Azure Maps'
+description: 'Tutorial: Create a store locator by using Azure Maps.'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/15/2018
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -11,7 +11,7 @@ manager: timlt
 ms.custom: mvc
 ---
 
-# Create a store locator by using Azure Maps
+# Tutorial: Create a store locator by using Azure Maps
 
 This tutorial guides you through the process of creating a simple store locator by using Azure Maps. Store locators are common. Many of the concepts that are used in this type of application are applicable to many other types of applications. Offering a store locator to customers is a must for most businesses that sell directly to consumers. In this tutorial, you learn how to:
     

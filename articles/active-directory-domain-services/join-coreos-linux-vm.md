@@ -1,5 +1,5 @@
 ---
-title: Join a CoreOS VM to Azure AD Domain Services | Microsoft Docs'
+title: Join a CoreOS VM to Azure AD Domain Services | Microsoft Docs
 description: Learn how to configure and join a CoreOS virtual machine to an Azure AD Domain Services managed domain.
 services: active-directory-ds
 author: iainfoulds

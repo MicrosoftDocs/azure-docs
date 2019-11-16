@@ -1,6 +1,6 @@
 ---
 title: Azure parent resource errors | Microsoft Docs
-description: Describes how to resolve errors when working with a parent resource.
+description: Describes how to resolve errors when working with a parent resource in an Azure Resource Manager template.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: troubleshooting

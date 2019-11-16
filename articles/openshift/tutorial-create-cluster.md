@@ -7,7 +7,7 @@ ms.author: jzim
 manager: jeconnoc
 ms.topic: tutorial
 ms.service: container-service
-ms.date: 05/14/2019
+ms.date: 11/04/2019
 #Customer intent: As a developer, I want learn how to create an Azure Red Hat OpenShift cluster, scale it, and then clean up resources so that I am not charged for what I'm not using.
 ---
 
@@ -30,8 +30,6 @@ In this tutorial series you learn how to:
 
 > [!IMPORTANT]
 > This tutorial requires version 2.0.65 of the Azure CLI.
->    
-> Before you can use Azure Red Hat OpenShift, you'll need to purchase a minimum of 4 Azure Red Hat OpenShift reserved application nodes as described in [Set up your Azure Red Hat OpenShift development environment](howto-setup-environment.md#purchase-azure-red-hat-openshift-application-nodes-reserved-instances).
 
 Before you begin this tutorial:
 
@@ -123,6 +121,9 @@ For example: `VNET_ID=$(az network vnet show -n MyVirtualNetwork -g MyResourceGr
 ### Create the cluster
 
 You're now ready to create a cluster. The following will create the cluster in the specified Azure AD tenant, specify the Azure AD app object and secret to use as a security principal, and the security group that contains the members that have admin access to the cluster.
+
+> [!IMPORTANT]
+> Make sure you have correctly added the appropriate permissions for the Azure AD app as [detailed here](howto-aad-app-configuration.md#add-api-permissions) before creating the cluster
 
 If you are **not** peering your cluster to a virtual network, use the following command:
 
