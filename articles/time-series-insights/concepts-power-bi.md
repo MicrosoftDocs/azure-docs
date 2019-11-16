@@ -25,7 +25,7 @@ By connecting your data to Power BI, you can now:
 * Unlock data interop scenarios in a simple, easy-to-use manner, and get to insights faster than ever.
 * Modify Time Series Insights data within Power BI using the powerful Advanced Editor.
 
-## Native Connector
+## Native connector
 
 Connecting your data takes less than a minute. By quickly exporting your view from Time Series Insight Explorer to Power BI, anyone in your organization can intuitively access and visually transform data.
 
@@ -37,7 +37,7 @@ Once data has been connected, all of Power BI's rich visualization and charting 
 
 Read [How to connect Time Series Insights to Power BI](./how-to-connect-power-bi.md) for step-by-step specifics.
 
-## Flexible Workflow
+## Flexible workflow
  
 Use the connector from anywhere in your workflow:
 
@@ -46,7 +46,7 @@ Use the connector from anywhere in your workflow:
 
 For advanced querying and editing functionality within Power BI, use Power BI’s Advanced Editor.
 
-## Next Steps
+## Next steps
 
 * Read [How to connect Time Series Insights to Power BI](./how-to-connect-power-bi.md).
 
