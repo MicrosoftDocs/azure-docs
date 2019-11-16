@@ -7,9 +7,9 @@ author: curtand
 manager: mtillman
 
 ms.assetid: 
-ms.service: role-based-access-control
+ms.service: active-directory
 ms.devlang: na
-ms.topic: overview
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/06/2019
@@ -30,7 +30,7 @@ Privileged Identity Management in Azure Active Directory (Azure AD) now supports
 
 ## Activate a role
 
-When you need to activate an Azure AD custom role, request activation by selecting the My roles navigation option in PIM.
+When you need to activate an Azure AD custom role, request activation by selecting the My roles navigation option in Privileged Identity Management.
 
 1. Sign in to [the Azure portal](https://portal.azure.com).
 1. Open Azure AD [Privileged Identity Management](https://portal.azure.com/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart).

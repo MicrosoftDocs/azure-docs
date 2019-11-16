@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Configure labs in Azure DevTest Labs using Ansible | Microsoft Docs
+title: Tutorial - Configure labs in Azure DevTest Labs using Ansible
 description: Learn how to configure a lab in Azure DevTest Labs using Ansible
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, devtest labs

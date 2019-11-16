@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric container application manifest examples | Microsoft Docs
+title: Azure Service Fabric application manifest examples
 description: Learn how to configure application and service manifest settings for a Service Fabric application.
 services: service-fabric
 documentationcenter: na

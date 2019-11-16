@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 ---
 # SCIM user provisioning with Azure Active Directory
 
-System for Cross-Domain Identity Management (SCIM) is standardized protocol and schema that aims to drive greater consistency in how identities are managed across systems. When an application supports a SCIM endpoint for user management, the Azure AD user provisioning service can send requests to create, modify, or delete assigned users and groups to this endpoint.
+System for Cross-Domain Identity Management ([SCIM](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/bg-p/IdentityStandards)) is standardized protocol and schema that aims to drive greater consistency in how identities are managed across systems. When an application supports a SCIM endpoint for user management, the Azure AD user provisioning service can send requests to create, modify, or delete assigned users and groups to this endpoint.
 
 Many of the applications for which Azure AD supports [pre-integrated automatic user provisioning](../saas-apps/tutorial-list.md) implement SCIM as the means to receive user change notifications.  In addition to these, customers can connect applications that support a specific profile of the [SCIM 2.0 protocol specification](https://tools.ietf.org/html/rfc7644) using the generic "non-gallery" integration option in the Azure portal.
 
@@ -258,7 +258,7 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 ###### <a name="request-1"></a>Request
 *GET /Users/5d48a0a8e9f04aa38008* 
 
-###### <a name="response-1"></a>Response
+###### <a name="response-1"></a>Response (User found)
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -282,6 +282,21 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 		"type": "work",
 		"primary": true
 	}]
+}
+```
+
+###### Request
+*GET /Users/5171a35d82074e068ce2* 
+
+###### Response (User not found. Note that the detail is not required, only status.)
+
+```json
+{
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:Error"
+    ],
+    "status": "404",
+    "detail": "Resource 23B51B0E5D7AE9110A49411D@7cca31655d49f3640a494224 not found"
 }
 ```
 
@@ -469,7 +484,6 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client 
 	"schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group", "http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/2.0/Group"],
 	"externalId": "8aa1a0c0-c4c3-4bc0-b4a5-2ef676900159",
 	"displayName": "displayName",
-	"members": [],
 	"meta": {
 		"resourceType": "Group"
 	}

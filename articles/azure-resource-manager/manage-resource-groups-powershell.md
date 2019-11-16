@@ -1,6 +1,6 @@
 ---
-title: Manage Azure Resource Manager groups by using Azure PowerShell | Microsoft Docs
-description: Use Azure PowerShell to manage your Azure Resource Manager groups.
+title: Manage resource groups - Azure PowerShell
+description: Use Azure PowerShell to manage your resource groups through Azure Resource Manager. Shows how to create, list, and delete resource groups.
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -77,7 +77,7 @@ To validate a resource group deployment, see [Test-AzResourceGroupDeployment](ht
 
 ## Deploy a resource group and resources
 
-You can create a resource group and deploy resources to the group by using a Resource Manager template. For more information, see [Create resource group and deploy resources](./deploy-to-subscription.md#create-resource-group-and-deploy-resources).
+You can create a resource group and deploy resources to the group by using a Resource Manager template. For more information, see [Create resource group and deploy resources](./deploy-to-subscription.md#resource-group-and-resources).
 
 ## Redeploy when deployment fails
 

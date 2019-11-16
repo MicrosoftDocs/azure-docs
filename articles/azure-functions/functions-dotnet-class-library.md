@@ -27,6 +27,10 @@ This article assumes that you've already read the following articles:
 * [Azure Functions developers guide](functions-reference.md)
 * [Azure Functions Visual Studio 2019 Tools](functions-develop-vs.md)
 
+## Supported versions
+
+The Azure Functions 2.x runtime uses .NET Core 2.2. Your function code can use .NET Core 2.2 APIs by updating the Visual Studio project settings. The Function templates do not default to .NET Core 2.2 to avoid adversely affecting customers that do not have .NET Core 2.2 installed.
+
 ## Functions class library project
 
 In Visual Studio, the **Azure Functions** project template creates a C# class library project that contains the following files:
@@ -50,6 +54,7 @@ This directory is what gets deployed to your function app in Azure. The binding 
 
 > [!IMPORTANT]
 > The build process creates a *function.json* file for each function. This *function.json* file is not meant to be edited directly. You can't change binding configuration or disable the function by editing this file. To learn how to disable a function, see [How to disable functions](disable-function.md#functions-2x---c-class-libraries).
+
 
 ## Methods recognized as functions
 

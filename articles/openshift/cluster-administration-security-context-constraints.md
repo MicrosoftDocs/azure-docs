@@ -12,7 +12,7 @@ ms.date: 09/25/2019
 ---
 # Manage security context constraints in Azure Red Hat OpenShift 
 
-Security context constraints (SCCs) allow cluster administrators to control permissions for pods. To learn more about this API type, see the [architecture documentation for SCCs](https://https://docs.openshift.com/container-platform/3.11/architecture/additional_concepts/authorization.html). You can manage SCCs in your instance as normal API objects by using the CLI.
+Security context constraints (SCCs) allow cluster administrators to control permissions for pods. To learn more about this API type, see the [architecture documentation for SCCs](https://docs.openshift.com/container-platform/3.11/architecture/additional_concepts/authorization.html). You can manage SCCs in your instance as normal API objects by using the CLI.
 
 ## List security context constraints
 

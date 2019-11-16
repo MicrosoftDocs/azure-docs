@@ -1,5 +1,5 @@
 ---
-title: Back up Azure VMs in a Recovery Services vault using Azure Backup
+title: Back up Azure VMs in a Recovery Services vault with Azure Backup
 description: Describes how to back up Azure VMs in a Recovery Services vault using the Azure Backup
 service: backup
 author: dcurwin
@@ -16,28 +16,26 @@ This article describes how to back up Azure VMs in a Recovery Services vault, us
 In this article, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Prepare Azure VMs.
 > * Create a vault.
 > * Discover VMs and configure a backup policy.
 > * Enable backup for Azure VMs.
 > * Run the initial backup.
 
-
 > [!NOTE]
 > This article describes how to set up a vault and select VMs to back up. It's useful if you want to back up multiple VMs. Alternatively, you can [back up a single Azure VM](backup-azure-vms-first-look-arm.md) directly from the VM settings.
 
 ## Before you start
 
-
-- [Review](backup-architecture.md#architecture-direct-backup-of-azure-vms) the Azure VM backup architecture.
-- [Learn about](backup-azure-vms-introduction.md) Azure VM backup, and the backup extension.
-- [Review the support matrix](backup-support-matrix-iaas.md) before you configure backup.
+* [Review](backup-architecture.md#architecture-direct-backup-of-azure-vms) the Azure VM backup architecture.
+* [Learn about](backup-azure-vms-introduction.md) Azure VM backup, and the backup extension.
+* [Review the support matrix](backup-support-matrix-iaas.md) before you configure backup.
 
 In addition, there are a couple of things that you might need to do in some circumstances:
 
-- **Install the VM agent on the VM**: Azure Backup backs up Azure VMs by installing an extension to the Azure VM agent running on the machine. If your VM was created from an Azure marketplace image, the agent is installed and running. If you create a custom VM, or you migrate an on-premises machine, you might need to [install the agent manually](#install-the-vm-agent).
-- **Explicitly allow outbound access**: Generally, you don't need to explicitly allow outbound network access for an Azure VM in order for it to communicate with Azure Backup. However, some VMs might experience connection issues, showing the **ExtensionSnapshotFailedNoNetwork** error when attempting to connect. If this happens, you should [explicitly allow outbound access](#explicitly-allow-outbound-access), so the Azure Backup extension can communicate with Azure public IP addresses for backup traffic.
-
+* **Install the VM agent on the VM**: Azure Backup backs up Azure VMs by installing an extension to the Azure VM agent running on the machine. If your VM was created from an Azure marketplace image, the agent is installed and running. If you create a custom VM, or you migrate an on-premises machine, you might need to [install the agent manually](#install-the-vm-agent).
+* **Explicitly allow outbound access**: Generally, you don't need to explicitly allow outbound network access for an Azure VM in order for it to communicate with Azure Backup. However, some VMs might experience connection issues, showing the **ExtensionSnapshotFailedNoNetwork** error when attempting to connect. If this happens, you should [explicitly allow outbound access](#explicitly-allow-outbound-access), so the Azure Backup extension can communicate with Azure public IP addresses for backup traffic.
 
 ## Create a vault
 
@@ -53,15 +51,14 @@ In addition, there are a couple of things that you might need to do in some circ
      ![Create Recovery Services Vault step 2](./media/backup-azure-arm-vms-prepare/rs-vault-menu.png)
 
 4. In **Recovery Services vault**, type in a friendly name to identify the vault.
-    - The name needs to be unique for the Azure subscription.
-    - It can contain 2 to 50 characters.
-    - It must start with a letter, and it can contain only letters, numbers, and hyphens.
+    * The name needs to be unique for the Azure subscription.
+    * It can contain 2 to 50 characters.
+    * It must start with a letter, and it can contain only letters, numbers, and hyphens.
 5. Select the Azure subscription, resource group, and geographic region in which the vault should be created. Then click **Create**.
-    - It can take a while for the vault to be created.
-    - Monitor the status notifications in the upper-right area of the portal.
+    * It can take a while for the vault to be created.
+    * Monitor the status notifications in the upper-right area of the portal.
 
-
- After the vault is created, it appears in the Recovery Services vaults list. If you don't see your vault, select **Refresh**.
+After the vault is created, it appears in the Recovery Services vaults list. If you don't see your vault, select **Refresh**.
 
 ![List of backup vaults](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
@@ -69,13 +66,12 @@ In addition, there are a couple of things that you might need to do in some circ
 > Azure Backup service creates a separate resource group (other than the VM resource group) to store snapshot, with the naming format **AzureBackupRG_geography_number** (example: AzureBackupRG_northeurope_1). The data in this resource group will be retained for the duration in days as specified in *Retain instant recovery snapshot* section of the Azure Virtual Machine Backup policy.  Applying a lock to this resource group can cause backup failures.<br>
 This resource group should also be excluded from any name/tag restrictions as a restriction policy would block creation of Resource Point collections in it again causing backup failures.
 
-
 ### Modify storage replication
 
 By default, vaults use [geo-redundant storage (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
 
-- If the vault is your primary backup mechanism, we recommend you use GRS.
-- You can use [locally-redundant storage (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) for a cheaper option.
+* If the vault is your primary backup mechanism, we recommend you use GRS.
+* You can use [locally-redundant storage (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) for a cheaper option.
 
 Modify storage replication type as follows:
 
@@ -84,6 +80,7 @@ Modify storage replication type as follows:
 3. Select the storage replication type, and click **Save**.
 
       ![Set the storage configuration for new vault](./media/backup-try-azure-backup-in-10-mins/full-blade.png)
+
 > [!NOTE]
    > You can't modify the storage replication type after the vault is set up and contains backup items. If you want to do this you need to recreate the vault.
 
@@ -95,22 +92,21 @@ Configure a backup policy for the vault.
 
    ![Backup button](./media/backup-azure-arm-vms-prepare/backup-button.png)
 
-
 2. In **Backup Goal** > **Where is your workload running?** select **Azure**. In **What do you want to back up?** select **Virtual machine** >  **OK**. This registers the VM extension in the vault.
 
    ![Backup and Backup Goal panes](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
 
 3. In **Backup policy**, select the policy that you want to associate with the vault.
-    - The default policy backs up the VM once a day. The daily backups are retained for 30 days. Instant recovery snapshots are retained for two days.
-    - If you don't want to use the default policy, select **Create New**, and create a custom policy as described in the next procedure.
+    * The default policy backs up the VM once a day. The daily backups are retained for 30 days. Instant recovery snapshots are retained for two days.
+    * If you don't want to use the default policy, select **Create New**, and create a custom policy as described in the next procedure.
 
       ![Default backup policy](./media/backup-azure-arm-vms-prepare/default-policy.png)
 
 4. In **Select virtual machines**, select the VMs you want to back up using the policy. Then click **OK**.
 
-   - The selected VMs are validated.
-   - You can only select VMs in the same region as the vault.
-   - VMs can only be backed up in a single vault.
+   * The selected VMs are validated.
+   * You can only select VMs in the same region as the vault.
+   * VMs can only be backed up in a single vault.
 
      !["Select virtual machines" pane](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
@@ -120,12 +116,11 @@ Configure a backup policy for the vault.
 
 After enabling backup:
 
-- The Backup service installs the backup extension whether or not the VM is running.
-- An initial backup will run in accordance with your backup schedule.
-- When backups run, note that:
-    - A VM that's running have the greatest chance for capturing an application-consistent recovery point.
-    - However, even if the VM is turned off it's backed up. Such a VM is known as an offline VM. In this case, the recovery point will be crash-consistent.
-
+* The Backup service installs the backup extension whether or not the VM is running.
+* An initial backup will run in accordance with your backup schedule.
+* When backups run, note that:
+  * A VM that's running have the greatest chance for capturing an application-consistent recovery point.
+  * However, even if the VM is turned off it's backed up. Such a VM is known as an offline VM. In this case, the recovery point will be crash-consistent.
 
 ### Create a custom policy
 
@@ -133,12 +128,12 @@ If you selected to create a new backup policy, fill in the policy settings.
 
 1. In **Policy name**, specify a meaningful name.
 2. In **Backup schedule**, specify when backups should be taken. You can take daily or weekly backups for Azure VMs.
-2. In **Instant Restore**, specify how long you want to retain snapshots locally for instant restore.
-    - When you restore, backed up VM disks are copied from storage, across the network to the recovery storage location. With instant restore, you can leverage locally-stored snapshots taken during a backup job, without waiting for backup data to be transferred to the vault.
-    - You can retain snapshots for instant restore for between one to five days. Two days is the default setting.
-3. In **Retention range**, specify how long you want to keep your daily or weekly backup points.
-4. In **Retention of monthly backup point**, specify whether you want to keep a monthly backup of your daily or weekly backups.
-5. Click **OK** to save the policy.
+3. In **Instant Restore**, specify how long you want to retain snapshots locally for instant restore.
+    * When you restore, backed up VM disks are copied from storage, across the network to the recovery storage location. With instant restore, you can leverage locally-stored snapshots taken during a backup job, without waiting for backup data to be transferred to the vault.
+    * You can retain snapshots for instant restore for between one to five days. Two days is the default setting.
+4. In **Retention range**, specify how long you want to keep your daily or weekly backup points.
+5. In **Retention of monthly backup point**, specify whether you want to keep a monthly backup of your daily or weekly backups.
+6. Click **OK** to save the policy.
 
     ![New backup policy](./media/backup-azure-arm-vms-prepare/new-policy.png)
 
@@ -150,7 +145,7 @@ If you selected to create a new backup policy, fill in the policy settings.
 The initial backup will run in accordance with the schedule, but you can run it immediately as follows:
 
 1. In the vault menu, click **Backup items**.
-2. In **Backup Items** click **Azure Virtual Machine**.
+2. In **Backup Items**, click **Azure Virtual Machine**.
 3. In the **Backup Items** list, click the ellipses (...).
 4. Click **Backup now**.
 5. In **Backup Now**, use the calendar control to select the last day that the recovery point should be retained. Then click **OK**.
@@ -179,12 +174,11 @@ Completed | Completed | Completed
 Completed | Failed | Completed with warning
 Failed | Failed | Failed
 
-
 Now with this capability, for the same VM, two backups can run in parallel, but in either phase (snapshot, transfer data to vault) only one sub task can be running. So in scenarios were a backup job in progress resulted in the next day’s backup to fail will be avoided with this decoupling functionality. Subsequent day’s backups can have snapshot completed while **Transfer data to vault** skipped if an earlier day’s backup job is in progress state.
 The incremental recovery point created in the vault will capture all the churn from the last recovery point created in the vault. There is no cost impact on the user.
 
-
 ## Optional steps (install agent/allow outbound)
+
 ### Install the VM agent
 
 Azure Backup backs up Azure VMs by installing an extension to the Azure VM agent running on the machine. If your VM was created from an Azure Marketplace image, the agent is installed and running. If you create a custom VM, or you migrate an on-premises machine, you might need to install the agent manually, as summarized in the table.
@@ -198,9 +192,8 @@ Azure Backup backs up Azure VMs by installing an extension to the Azure VM agent
 
 The backup extension running on the VM needs outbound access to Azure public IP addresses.
 
-- Generally you don't need to explicitly allow outbound network access for an Azure VM in order for it to communicate with Azure Backup.
-- If you do run into difficulties with VMs connecting, or if you see the error **ExtensionSnapshotFailedNoNetwork** when attempting to connect, you should explicitly allow access so the backup extension can communicate to Azure public IP addresses for backup traffic. Access methods are summarized in the following table.
-
+* Generally you don't need to explicitly allow outbound network access for an Azure VM in order for it to communicate with Azure Backup.
+* If you do run into difficulties with VMs connecting, or if you see the error **ExtensionSnapshotFailedNoNetwork** when attempting to connect, you should explicitly allow access so the backup extension can communicate to Azure public IP addresses for backup traffic. Access methods are summarized in the following table.
 
 **Option** | **Action** | **Details**
 --- | --- | ---
@@ -222,9 +215,9 @@ If an NSG manages the VM access, allow outbound access for the backup storage to
 4. In **Source port ranges**, enter an asterisk (*) to allow outbound access from any port.
 5. In **Destination**, select **Service Tag**. From the list, select **Storage.region**. The region is where the vault, and the VMs that you want to back up, are located.
 6. In **Destination port ranges**, select the port.
-    - VM using unmanaged disks with unencrypted storage account: 80
-    - VM using unmanaged disks with encrypted storage account: 443 (default setting)
-    - VM using managed disks: 8443.
+    * VM using unmanaged disks with unencrypted storage account: 80
+    * VM using unmanaged disks with encrypted storage account: 443 (default setting)
+    * VM using managed disks: 8443.
 7. In **Protocol**, select **TCP**.
 8. In **Priority**, specify a priority value less than any higher deny rules.
 
@@ -235,14 +228,13 @@ You can apply the NSG rule to multiple VMs to allow outbound access. This video 
 
 >[!VIDEO https://www.youtube.com/embed/1EjLQtbKm1M]
 
-
 ##### Route backup traffic through a proxy
 
 You can route backup traffic through a proxy, and then give the proxy access to the required Azure ranges. Configure the proxy VM to allow the following:
 
-- The Azure VM should route all HTTP traffic bound for the public internet through the proxy.
-- The proxy should allow incoming traffic from VMs in the applicable virtual network.
-- The NSG **NSF-lockdown** needs a rule that allows outbound internet traffic from the proxy VM.
+* The Azure VM should route all HTTP traffic bound for the public internet through the proxy.
+* The proxy should allow incoming traffic from VMs in the applicable virtual network.
+* The NSG **NSF-lockdown** needs a rule that allows outbound internet traffic from the proxy VM.
 
 ###### Set up the proxy
 
@@ -252,13 +244,14 @@ If you don't have a system account proxy, set one up as follows:
 2. Run **PsExec.exe -i -s cmd.exe** to run the command prompt under a system account.
 3. Run the browser in system context. For example, use **%PROGRAMFILES%\Internet Explorer\iexplore.exe** for Internet Explorer.  
 4. Define the proxy settings.
-   - On Linux machines:
-     - Add this line to the **/etc/environment** file:
-       - **http_proxy=http:\//proxy IP address:proxy port**
-     - Add these lines to the **/etc/waagent.conf** file:
-         - **HttpProxy.Host=proxy IP address**
-         - **HttpProxy.Port=proxy port**
-   - On Windows machines, in the browser settings, specify that a proxy should be used. If you're currently using a proxy on a user account, you can use this script to apply the setting at the system account level.
+   * On Linux machines:
+     * Add this line to the **/etc/environment** file:
+       * **http_proxy=http:\//proxy IP address:proxy port**
+     * Add these lines to the **/etc/waagent.conf** file:
+         * **HttpProxy.Host=proxy IP address**
+         * **HttpProxy.Port=proxy port**
+   * On Windows machines, in the browser settings, specify that a proxy should be used. If you're currently using a proxy on a user account, you can use this script to apply the setting at the system account level.
+
        ```powershell
       $obj = Get-ItemProperty -Path Registry::"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections"
       Set-ItemProperty -Path Registry::"HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name DefaultConnectionSettings -Value $obj.DefaultConnectionSettings
@@ -278,9 +271,9 @@ Allow incoming connections in the proxy settings.
 3. In **Rule Type**, select **Custom** > **Next**.
 4. In **Program**, select **All Programs** > **Next**.
 5. In **Protocols and Ports**:
-   - Set the type to **TCP**.
-   - Set **Local Ports** to **Specific Ports**.
-   - Set **Remote port** to **All Ports**.
+   * Set the type to **TCP**.
+   * Set **Local Ports** to **Specific Ports**.
+   * Set **Remote port** to **All Ports**.
 
 6. Finish the wizard and specify a name for the rule.
 
@@ -289,7 +282,7 @@ Allow incoming connections in the proxy settings.
 On the NSG **NSF-lockdown**, allow traffic from any port on 10.0.0.5 to any internet address on port 80 (HTTP) or 443 (HTTPS).
 
 The following PowerShell script provides an example for allowing traffic.
-Instead of allowing outbound to all public internet addresses, you can specify an IP address range (`-DestinationPortRange`), or use the storage.region service tag.   
+Instead of allowing outbound to all public internet addresses, you can specify an IP address range (`-DestinationPortRange`), or use the storage.region service tag.
 
 ```powershell
 Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
@@ -300,12 +293,10 @@ Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -T
 
 You can set up Azure Firewall to allow outbound access for network traffic to Azure Backup.
 
-- [Learn about](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) deploying Azure Firewall.
-- [Read about](https://docs.microsoft.com/azure/firewall/fqdn-tags) FQDN tags.
-
-
+* [Learn about](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) deploying Azure Firewall.
+* [Read about](https://docs.microsoft.com/azure/firewall/fqdn-tags) FQDN tags.
 
 ## Next steps
 
-- Troubleshoot any issues with [Azure VM agents](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) or [Azure VM backup](backup-azure-vms-troubleshoot.md).
-- [Restore](backup-azure-arm-restore-vms.md) Azure VMs.
+* Troubleshoot any issues with [Azure VM agents](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) or [Azure VM backup](backup-azure-vms-troubleshoot.md).
+* [Restore](backup-azure-arm-restore-vms.md) Azure VMs.

@@ -1,5 +1,5 @@
 ---
-title: Connect Excel to a single database in Azure SQL Database | Microsoft Docs
+title: Connect Excel to a single database
 description: Learn how to connect Microsoft Excel to a single database in Azure SQL database. Import data into Excel for reporting and data exploration.
 services: sql-database
 ms.service: sql-database

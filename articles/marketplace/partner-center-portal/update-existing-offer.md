@@ -5,6 +5,7 @@ author: ChJenk
 manager: evansma
 ms.author: v-chjen 
 ms.service: marketplace 
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/30/2019
 ---

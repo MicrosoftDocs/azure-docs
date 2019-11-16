@@ -5,7 +5,7 @@ author: bandersmsft
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/29/2019
-ms.author: rimman
+ms.author: banders
 ms.reviewer: sngun
 ---
 

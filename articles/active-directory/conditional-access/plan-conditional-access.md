@@ -21,7 +21,7 @@ Planning your Conditional Access deployment is critical to make sure you achieve
 
 ## What you should know
 
-Think of Conditional Access as a framework that allows you to control access to your organization’s apps and resources, instead of a stand-alone feature. Consequently, some Conditional Access settings require additional features to be configured. For example, you can configure a policy that responds to a specific [sign-in risk level](../identity-protection/howto-sign-in-risk-policy.md#what-is-the-sign-in-risk-policy). However, a policy that is based on a sign-in risk level requires [Azure Active Directory identity protection](../identity-protection/overview.md) to be enabled.
+Think of Conditional Access as a framework that allows you to control access to your organization’s apps and resources, instead of a stand-alone feature. Consequently, some Conditional Access settings require additional features to be configured. For example, you can configure a policy that responds to a specific [sign-in risk level](../identity-protection/howto-identity-protection-configure-risk-policies.md). However, a policy that is based on a sign-in risk level requires [Azure Active Directory identity protection](../identity-protection/overview-identity-protection.md) to be enabled.
 
 If additional features are required, you might also need to get related licenses. For example, while Conditional Access is Azure AD Premium P1 feature, identity protection requires an Azure AD Premium P2 license.
 

@@ -1,48 +1,29 @@
 ---
 
 title: Isolation in the Azure Public Cloud | Microsoft Docs
-description: Learn about cloud-based computing services that include a wide selection of compute instances & services that can scale up and down automatically to meet the needs of your application or enterprise.
+description: Learn how Azure provides isolation against both malicious and non-malicious users and offers various isolation choices to architects.
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: barbkess
+manager: rkarlin
 editor: TomSh
 
-ms.assetid: 
+ms.assetid:
 ms.service: security
 ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 10/28/2019
 ms.author: TomSh
 
 ---
 
 # Isolation in the Azure Public Cloud
-##  Introduction
-### Overview
-To assist current and prospective Azure customers understand and utilize the various security-related capabilities available in and surrounding the Azure platform, Microsoft has developed a series of White Papers, Security Overviews, Best Practices, and Checklists.
-The topics range in terms of breadth and depth and are updated periodically. This document is part of that series as summarized in the Abstract section following.
+Azure allows you to run applications and virtual machines (VMs) on shared physical infrastructure. One of the prime economic motivations to running applications in a cloud environment is the ability to distribute the cost of shared resources among multiple customers. This practice of multi-tenancy improves efficiency by multiplexing resources among disparate customers at low costs. Unfortunately, it also introduces the risk of sharing physical servers and other infrastructure resources to run your sensitive applications and VMs that may belong to an arbitrary and potentially malicious user.
 
-### Azure Platform
-Azure is an open and flexible cloud service platform that supports the broadest selection of operating systems, programming languages, frameworks, tools, databases, and devices. For example, you can:
-- Run Linux containers with Docker integration;
-- Build apps with JavaScript, Python, .NET, PHP, Java, and Node.js; and
-- Build back-ends for iOS, Android, and Windows devices.
-
-Microsoft Azure supports the same technologies millions of developers and IT professionals already rely on and trust.
-
-When you build on, or migrate IT assets to, a public cloud service provider, you are relying on that organization’s abilities to protect your applications and data with the services and the controls they provide to manage the security of your cloud-based assets.
-
-Azure’s infrastructure is designed from the facility to applications for hosting millions of customers simultaneously, and it provides a trustworthy foundation upon which businesses can meet their security needs. In addition, Azure provides you with a wide array of configurable security options and the ability to control them so that you can customize security to meet the unique requirements of your deployments. This document helps you meet these requirements.
-
-### Abstract
-
-Microsoft Azure allows you to run applications and virtual machines (VMs) on shared physical infrastructure. One of the prime economic motivations to running applications in a cloud environment is the ability to distribute the cost of shared resources among multiple customers. This practice of multi-tenancy improves efficiency by multiplexing resources among disparate customers at low costs. Unfortunately, it also introduces the risk of sharing physical servers and other infrastructure resources to run your sensitive applications and VMs that may belong to an arbitrary and potentially malicious user.
-
-This article outlines how Microsoft Azure provides isolation against both malicious and non-malicious users and serves as a guide for architecting cloud solutions by offering various isolation choices to architects. This white paper focuses on the technology of Azure platform and customer-facing security controls, and does not attempt to address SLAs, pricing models, and DevOps practice considerations.
+This article outlines how Azure provides isolation against both malicious and non-malicious users and serves as a guide for architecting cloud solutions by offering various isolation choices to architects.
 
 ## Tenant Level Isolation
 One of the primary benefits of cloud computing is concept of a shared, common infrastructure across numerous customers simultaneously, leading to economies of scale. This concept is called multi-tenancy. Microsoft works continuously to ensure that the multi-tenant architecture of Microsoft Cloud Azure supports security, confidentiality, privacy, integrity, and availability standards.
@@ -352,4 +333,3 @@ Microsoft Azure separates customer VM-based computation from storage. This
 separation enables computation and storage to scale independently, making it easier to provide multi-tenancy and
 isolation. Therefore, Azure Storage runs on separate hardware with no network connectivity to Azure Compute
 except logically. All requests run over HTTP or HTTPS based on customer’s choice.
-

@@ -62,8 +62,8 @@ An example SubscriptionValidationEvent is shown in the following example:
   "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "subject": "",
   "data": {
-    "validationCode": "0000000000-0000-0000-0000-00000000000000",
-    "validationUrl": "https://rp-eastus2.eventgrid.azure.net:553/eventsubscriptions/estest/validate?id=0000000000-0000-0000-0000-0000000000000&t=2018-04-26T20:30:54.4538837Z&apiVersion=2018-05-01-preview&token=1A1A1A1A"
+    "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6",
+    "validationUrl": "https://rp-eastus2.eventgrid.azure.net:553/eventsubscriptions/estest/validate?id=512d38b6-c7b8-40c8-89fe-f46f9e9622b6&t=2018-04-26T20:30:54.4538837Z&apiVersion=2018-05-01-preview&token=1A1A1A1A"
   },
   "eventType": "Microsoft.EventGrid.SubscriptionValidationEvent",
   "eventTime": "2018-01-25T22:12:19.4556811Z",
@@ -80,9 +80,9 @@ To prove endpoint ownership, echo back the validation code in the validationResp
 }
 ```
 
-You must return an HTTP 200 OK response status code. HTTP 202 Accepted is not recognized as a valid Event Grid subscription validation response.
+You must return an HTTP 200 OK response status code. HTTP 202 Accepted is not recognized as a valid Event Grid subscription validation response.The http request must complete within 30 seconds. If the operation doesn’t finish within 30 seconds then the operation will be canceled and it may be re-attempted after 5 seconds. If all the attempts fail then it will be treated as validation handshake error.
 
-Or, you can manually validate the subscription by sending a GET request to the validation URL. The event subscription stays in a pending state until validated.
+Or, you can manually validate the subscription by sending a GET request to the validation URL. The event subscription stays in a pending state until validated.The validation Url uses port 553. If your firewall rules block port 553 then rules may need to be updated for successful manual handshake.
 
 For an example of handling the subscription validation handshake, see a [C# sample](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs).
 
@@ -203,7 +203,7 @@ Event Grid provides two built-in roles for managing event subscriptions. They ar
 
 You can [assign these roles to a user or group](../role-based-access-control/quickstart-assign-role-user-portal.md).
 
-**EventGrid EventSubscription Contributor (Preview)**: manage Event Grid subscription operations
+**EventGrid EventSubscription Contributor**: manage Event Grid subscription operations
 
 ```json
 [
@@ -211,7 +211,7 @@ You can [assign these roles to a user or group](../role-based-access-control/qui
     "Description": "Lets you manage EventGrid event subscription operations.",
     "IsBuiltIn": true,
     "Id": "428e0ff05e574d9ca2212c70d0e0a443",
-    "Name": "EventGrid EventSubscription Contributor (Preview)",
+    "Name": "EventGrid EventSubscription Contributor",
     "IsServiceRole": false,
     "Permissions": [
       {
@@ -239,7 +239,7 @@ You can [assign these roles to a user or group](../role-based-access-control/qui
 ]
 ```
 
-**EventGrid EventSubscription Reader (Preview)**: read Event Grid subscriptions
+**EventGrid EventSubscription Reader**: read Event Grid subscriptions
 
 ```json
 [
@@ -247,7 +247,7 @@ You can [assign these roles to a user or group](../role-based-access-control/qui
     "Description": "Lets you read EventGrid event subscriptions.",
     "IsBuiltIn": true,
     "Id": "2414bbcf64974faf8c65045460748405",
-    "Name": "EventGrid EventSubscription Reader (Preview)",
+    "Name": "EventGrid EventSubscription Reader",
     "IsServiceRole": false,
     "Permissions": [
       {

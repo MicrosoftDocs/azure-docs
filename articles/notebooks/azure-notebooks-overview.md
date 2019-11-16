@@ -113,4 +113,4 @@ To discuss your questions about Azure Notebooks, file an issue on the [GitHub re
   - [Present a slide show](present-jupyter-notebooks-slideshow.md)
   - [Work with data files](work-with-project-data-files.md)
   - [Access data resources](access-data-resources-jupyter-notebooks.md)
-  - [Use Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)
+  - [Use Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)
