@@ -49,8 +49,6 @@ az extension add --name spring-cloud
 
 1. In a web browser, open [this link to Azure Spring Cloud in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.AppPlatform), and sign in to your account.
 
-1. Select **Create** on the **Overview** page to open the creation dialog.
-
 1. Provide the **Project Details** for the sample application as follows:
 
     1. Select the **Subscription** with which the application will be associated.
