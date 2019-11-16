@@ -36,22 +36,36 @@ There are two policies that can be associated with a label:
 To apply published labels to groups, you must first enable the feature. These steps enable the feature in Azure AD.
 
 1. Open a Windows PowerShell window on your computer. You can open it without elevated privileges.
+1. Run the following commands to prepare to run the cmdlets.
 
    ![open a PowerShell window to assign a sensitivity label](./media/groups-assign-sensitivity-labels/powershell-command-window.png)
 
-1. Run the following commands to prepare to run the cmdlets.
-
     In the **Sign in to your account** page, enter your admin account and password to connect you to your service, and select **Sign in**.
 1. Fetch the current group settings for the Azure AD organization.
-    ```$Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id```
+
+    ```PowerShell
+    $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
+    ```
+
     > [!NOTE]
     > If no group settings have been created for this Azure AD organization, you must first create the settings. Follow the steps in Azure Active Directory cmdlets for configuring group settings to create group settings for this Azure AD organization.
 1. Next, display the current group settings.
-    ```$Setting.Values```
+
+    ```PowerShell
+         $Setting.Values
+    ```
+
 1. Then enable the feature:
-    ```$Setting["EnableMIPLabels"] = "True"```
+
+    ```PowerShell
+    $Setting["EnableMIPLabels"] = "True"
+    ```
+
 1. Then save the changes and apply the settings:
-    ```Set-AzureADDirectorySetting -Id $Setting.I -DirectorySetting $Setting```
+
+    ```PowerShell
+    Set-AzureADDirectorySetting -Id $Setting.I -DirectorySetting $Setting
+    ```
 
 That's it. You've enabled the feature and you can apply published labels to groups.
 
