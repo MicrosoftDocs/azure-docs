@@ -88,7 +88,7 @@ Recorded when autoscale first starts evaluating a particular scale rule.
 
 ## Metric evaluation
 
-Recorded when autoscale evaluated the a metric being used to trigger a scale action. 
+Recorded when autoscale evaluated the metric being used to trigger a scale action. 
 
 ```json
 {
@@ -197,7 +197,7 @@ Recorded when autoscale initiates a scale action, either up or down.
 
 ## Scale action tracking
 
-Recorded at different intervals of a instance scale action.
+Recorded at different intervals of an instance scale action.
 
 ```json
 {
@@ -214,3 +214,6 @@ Recorded at different intervals of a instance scale action.
   }
 }
 ```
+
+# Next steps
+Learn about [autoscale](autoscale-overview.md)

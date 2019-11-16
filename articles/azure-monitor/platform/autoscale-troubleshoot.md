@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting Azure autoscale
-description: Tracking down problems with Azure autoscaling used in Service Fabric, Virtual Machines, Web Apps and cloud services.
+description: Tracking down problems with Azure autoscaling used in Service Fabric, Virtual Machines, Web Apps, and cloud services.
 author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
@@ -17,12 +17,12 @@ Azure Monitor autoscale helps you to have the right amount of resources running 
 
 The autoscale service provides you metrics and logs to understand what scale actions have occurred and the evaluation of the conditions that led to those actions. You can find answers to questions such as:
 
-- Why did my service scale out or in?
+- Why did my service scale-out or in?
 - Why did my service not scale?
 - Why did an autoscale action fail?
 - Why is an autoscale action taking time to scale?
   
-## Available Metrics
+## Autoscale metrics
 
 Autoscale provides you with [four metrics](metrics-supported.md#microsoftinsightsautoscalesettings) to understand its operation. 
 
@@ -40,7 +40,7 @@ You can use the [Metrics Explorer](metrics-getting-started.md) to chart the abov
 
 ## Example 1 - Analyzing a simple autoscale rule 
 
-We have a simple autoscale setting for a Virtual Machine scale set that:
+We have a simple autoscale setting for a virtual machine scale set that:
 
 - scales out when the average CPU percentage of a set is greater than 70% for 10 minutes 
 - scales in when the CPU percentage of the set is less than 5% for more than 10 minutes. 
@@ -113,9 +113,9 @@ As with any Azure Monitor supported service, you can use [Diagnostic Settings](d
 
 The previous picture shows the Azure portal autoscale diagnostic settings. There you can select the Diagnostic Logs tab and enable log collection and routing. You can also perform the same action using REST API, CLI, PowerShell, Resource Manager templates for Diagnostic Settings by choosing the resource type as *Microsoft.Insights/AutoscaleSettings*. 
 
-## Troubleshooting autoscale logs using Azure Monitor Logs (Log Analytics)
+## Troubleshooting using autoscale logs 
 
-For best troubleshooting experience, we recommend routing your logs to a Log Analytics workspace when you create the autoscale setting, as shown in the picture in the previous section. You can validate the evaluations and scale actions better using Log Analytics.
+For best troubleshooting experience, we recommend routing your logs to Azure Monitor Logs (Log Analytics) through a workspace when you create the autoscale setting. This process is shown in the picture in the previous section. You can validate the evaluations and scale actions better using Log Analytics.
 
 Once you have configured your autoscale logs to be sent to the Log Analytics workspace, you can execute the following queries to check the logs. 
 
@@ -173,11 +173,13 @@ AutoscaleEvaluationsLog
 | project OperationName, Profile, ProfileEvaluationTime, ProfileSelected, EvaluationResult
 ```
 
-## A scale action did not occur and there are no logs
+## A scale action did not occur
 
-I expected a scale action and it did not occur. There are no scale action events or logs.
+I expected a scale action and it did not occur. There may be no scale action events or logs.
 
-Review the autoscale metrics if you are using a metric-based scale rule. It's possible that the observed **TODO WHAT ARE THEY LOOKING IN METRICS FOR!** Review the autoscale evaluation logs during the time period you expected the scale action to occur. Review all the evaluations it did and why it decided to not trigger a scale action.
+Review the autoscale metrics if you are using a metric-based scale rule. It's possible that the **Observed metric value** or **Observed Capacity** are not what you expected them to be and therefore the scale rule did not fire. You would still see evaluations, but not a scale-out rule. It's also possible that the cool-down time kept a scale action from occurring. 
+
+ Review the autoscale evaluation logs during the time period you expected the scale action to occur. Review all the evaluations it did and why it decided to not trigger a scale action.
 
 
 ```Kusto
@@ -202,3 +204,6 @@ Create alert rules to get notified of autoscale actions or failures. You can als
 ## Schema of autoscale resource logs
 
 For more information, see [autoscale resource logs](autoscale-resource-log-schema.md)
+
+## Next steps
+Read information on [autoscale best practices](autoscale-best-practices.md). 
