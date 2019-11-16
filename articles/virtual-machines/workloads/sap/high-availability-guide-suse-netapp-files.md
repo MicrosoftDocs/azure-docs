@@ -172,7 +172,7 @@ In this example, we used Azure NetApp Files for all SAP Netweaver file systems t
 
 When considering Azure NetApp Files for the SAP Netweaver on SUSE High Availability architecture, be aware of the following important considerations:
 
-- The minimum capacity pool is 4 TiB. The capacity pool size must be in multiples of 1 TiB.
+- The minimum capacity pool is 4 TiB. The capacity pool size can be increased be in 1 TiB increments.
 - The minimum volume is 100 GiB
 - Azure NetApp Files and all virtual machines, where Azure NetApp Files volumes will be mounted, must be in the same Azure Virtual Network or in [peered virtual networks](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) in the same region. Azure NetApp Files access over VNET peering in the same region is supported now. Azure NetApp access over global peering is not yet supported.
 - The selected virtual network must have a subnet, delegated to Azure NetApp Files.
@@ -402,7 +402,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    </code></pre>
    
    > [!NOTE]
-   > Make sure to match the protocol for the NFS volume. In this example the Azure NetApp Files volumes were created as NFSv3 volumes.  
+   > Make sure to match the protocol for the NFS volumes, when mounting the volumes. In this example the Azure NetApp Files volumes were created as NFSv3 volumes.  
    
    Restart `autofs` to mount the new shares
     <pre><code>
