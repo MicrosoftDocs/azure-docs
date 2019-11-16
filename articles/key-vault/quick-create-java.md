@@ -21,7 +21,7 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
 - Simplify and automate tasks for SSL/TLS certificates.
 - Use FIPS 140-2 Level 2 validated HSMs.
 
-[Source code][https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets/src] | [API reference documentation][ https://azure.github.io/azure-sdk-for-java] | [Product documentation][/azure/key-vault/] | [Samples][https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets/src/samples/java/com/azure/security/keyvault/secrets]
+[Source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault) | [API reference documentation](https://azure.github.io/azure-sdk-for-java) | [Product documentation](index.yml) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets/src/samples/java/com/azure/security/keyvault/secrets)
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ This quickstart assumes you are running [Azure CLI](/cli/azure/install-azure-cli
 
 ### Create new Java console app
 
-In a console window, use the `mvn` command to create a new Java console app with the name `akv-java.
+In a console window, use the `mvn` command to create a new Java console app with the name `akv-java`.
 
 ```console
 mvn archetype:generate -DgroupId=com.keyvault.quickstart
@@ -70,11 +70,10 @@ The output from generating the project will look something like this:
 [INFO] ------------------------------------------------------------------------
 ```
 
-Change your directory to the newly created akv-java/ folder. Then create a new directoryt called `data`:
+Change your directory to the newly created akv-java/ folder.
 
 ```console
 cd akv-java
-mkdir data
 ```
 
 ### Install the package
@@ -94,9 +93,6 @@ Open the *pom.xml* file in your text editor. Add the following dependency elemen
       <version>1.0.0</version>
     </dependency>
 ```
-
-
-1. 
 
 ### Create a resource group and key vault
 
@@ -166,7 +162,7 @@ export KEY_VAULT_NAME=<your-key-vault-name>
 
 ## Object model
 
-The Azure Key Vault client library for Python allows you to manage keys and related assets such as certificates and secrets. The code samples below will show you how to create a client, set a secret, retrieve a secret, and delete a secret.
+The Azure Key Vault client library for Java allows you to manage keys and related assets such as certificates and secrets. The code samples below will show you how to create a client, set a secret, retrieve a secret, and delete a secret.
 
 The entire console app is available at https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/key-vault-console-app.
 
@@ -181,7 +177,6 @@ import com.azure.identity.DefaultAzureCredentialBuilder;
 
 import com.azure.security.keyvault.secrets.SecretClient;
 import com.azure.security.keyvault.secrets.SecretClientBuilder;
-import com.azure.security.keyvault.secrets.models.DeletedSecret;
 import com.azure.security.keyvault.secrets.models.KeyVaultSecret;
 ```
 
@@ -201,7 +196,7 @@ SecretClient secretClient = new SecretClientBuilder()
 
 ### Save a secret
 
-Now that your application is authenticated, you can put a secret into your keyvault using the [client.SetSecret method](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync) This requires a name for the secret -- we're using "mySecret" in this sample.  
+Now that your application is authenticated, you can put a secret into your keyvault using the `secretClient.setSecret` method This requires a name for the secret -- we've assigned the value "mySecret" to the `secretName` variable in this sample.  
 
 ```java
 secretClient.setSecret(new KeyVaultSecret(secretName, secretValue));
@@ -215,7 +210,7 @@ az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 
 ### Retrieve a secret
 
-You can now retrieve the previously set value with the [client.GetSecret method](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.getsecretasync).
+You can now retrieve the previously set value with the `secretClient.getSecret` method.
 
 ```java
 KeyVaultSecret retrievedSecret = secretClient.getSecret(secretName);
@@ -225,7 +220,7 @@ You can now access the value of the retrieved secret with `retrievedSecret.getVa
 
 ### Delete a secret
 
-Finally, let's delete the secret from your key vault with the [client.DeleteSecret method](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.getsecretasync).
+Finally, let's delete the secret from your key vault with the `secretClient.beginDeleteSecret` method.
 
 ```java
 secretClient.beginDeleteSecret(secretName);
@@ -247,6 +242,67 @@ az group delete -g "myResourceGroup" -l "EastUS"
 
 ```azurepowershell
 Remove-AzResourceGroup -Name "myResourceGroup"
+```
+
+## Sample code
+
+```java
+package com.keyvault.quickstart;
+
+import java.io.Console;   
+
+import com.azure.identity.DefaultAzureCredentialBuilder;
+
+import com.azure.security.keyvault.secrets.SecretClient;
+import com.azure.security.keyvault.secrets.SecretClientBuilder;
+import com.azure.security.keyvault.secrets.models.KeyVaultSecret;
+
+public class App {
+
+    public static void main(String[] args) throws InterruptedException, IllegalArgumentException {
+
+        String keyVaultName = System.getenv("KEY_VAULT_NAME");
+        String kvUri = "https://" + keyVaultName + ".vault.azure.net";
+
+        System.out.printf("key vault name = %s and kv uri = %s \n", keyVaultName, kvUri);
+
+        SecretClient secretClient = new SecretClientBuilder()
+            .vaultUrl(kvUri)
+            .credential(new DefaultAzureCredentialBuilder().build())
+            .buildClient();
+
+
+        Console con = System.console();  
+
+        String secretName = "mySecret";
+
+        System.out.println("Input the value of your secret > ");
+        String secretValue = con.readLine();
+
+        System.out.print("Creating a secret in " + keyVaultName + " called '" + secretName + "' with the value '" + secretValue + "` ... ");
+
+        secretClient.setSecret(new KeyVaultSecret(secretName, secretValue));
+
+        System.out.println("done.");
+
+        System.out.println("Forgetting your secret.");
+        secretValue = "";
+        System.out.println("Your secret is '" + secretValue + "'.");
+
+        System.out.println("Retrieving your secret from " + keyVaultName + ".");
+
+        KeyVaultSecret retrievedSecret = secretClient.getSecret(secretName);
+
+        System.out.println("Your secret is '" + retrievedSecret.getValue() + "'.");
+        System.out.print("Deleting your secret from " + keyVaultName + " ... ");
+
+        secretClient.beginDeleteSecret(secretName);
+
+        System.out.println("done.");
+
+
+    }
+}
 ```
 
 ## Next steps

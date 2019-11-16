@@ -142,7 +142,7 @@ client = SecretClient(vault_endpoint=KVUri, credential=credential)
 
 ### Save a secret
 
-Now that your application is authenticated, you can put a secret into your keyvault using the [client.SetSecret method](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync) This requires a name for the secret -- we're using "mySecret" in this sample.  
+Now that your application is authenticated, you can put a secret into your keyvault using the `client.set_secret` method.  This requires a name for the secret -- we've assigned the value "mySecret" to the `secretName` variable in this sample.
 
 ```python
 client.set_secret(secretName, secretValue);
@@ -156,7 +156,7 @@ az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 
 ### Retrieve a secret
 
-You can now retrieve the previously set value with the [client.GetSecret method](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.getsecretasync).
+You can now retrieve the previously set value with the `client.get_secret` method.
 
 ```python
 retrieved_secret = client.get_secret(secretName)
@@ -166,7 +166,7 @@ Your secret is now saved as `retrieved_secret.value`.
 
 ### Delete a secret
 
-Finally, let's delete the secret from your key vault with the [client.DeleteSecret method](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.getsecretasync).
+Finally, let's delete the secret from your key vault with the `client.delete_secret` method.
 
 ```python
 client.delete_secret(secretName);
