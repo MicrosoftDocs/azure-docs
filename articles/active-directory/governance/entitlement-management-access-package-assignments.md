@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want detailed information about how I can edit an access package so that requestors have the resources they need to perform their job.
 
 ---
-# View, add, and remove assignments for an access package in Azure AD entitlement management (Preview)
+# View, add, and remove assignments for an access package in Azure AD entitlement management
 
 In Azure AD entitlement management, you can see who has been assigned to access packages, their policy, and status. If an access package has an appropriate policy, you can also directly assign user to an access package. This article describes how to view, add, and remove assignments for an access packages.
 
@@ -77,25 +77,21 @@ In some cases, you might want to directly assign specific users to an access pac
 
 ## Remove an assignment
 
-**Prerequisite role:** Global administrator or Access package manager
+**Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 
-1. In Azure Active Directory, click the **Identity Governance** blade. 
- 
-1. Under **Entitlement management**, click **Access packages**.  
- 
-1. Find the access package from which you are removing an assignment in the left pane. Once you find the access package, select it. 
+1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
-    ![Assignments - Select access package](./media/entitlement-management-access-package-assignments/remove-assignment-select-access-package.png)
+1. In the left menu, click **Access packages** and then open the access package.
 
-1. Under **Manage**, click **Assignments**. In the left pane, a list of users with assignments in the access package will appear. 
+1. In the left menu, click **Assignments**.
  
 1. Click the check box next to the user whose assignment you want to remove from the access package. 
 
-1. Click the **X Remove button** near the top of the left pane. 
+1. Click the **Remove** button near the top of the left pane. 
  
     ![Assignments - Remove user from access package](./media/entitlement-management-access-package-assignments/remove-assignment-select-remove-assignment.png)
 
-1. A box will appear to the right of the screen informing you that the assignment has been removed. 
+    A notification will appear informing you that the assignment has been removed. 
 
 ## Next steps
 
