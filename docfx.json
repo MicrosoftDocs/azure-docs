@@ -202,7 +202,8 @@
         "articles/chef/*.*/*.md": "TomArcherMsft",
         "articles/jenkins/*.*/*.md": "TomArcherMsft",
         "articles/terraform/*.*/*.md": "TomArcherMsft",
-        "articles/lighthouse/**/*.md": "JnHs"
+        "articles/lighthouse/**/*.md": "JnHs",
+        "articles/azure-resource-manager/**/*.md": "tfitzmac"
       },
       "feedback_system": {
         "articles/virtual-machines/windows/classic/**/*": "None",
@@ -395,7 +396,8 @@
         "articles/chef/**/*.md": "tarcher",
         "articles/jenkins/**/*.md": "tarcher",
         "articles/terraform/**/*.md": "tarcher",
-        "articles/lighthouse/**/*.md": "jenhayes"
+        "articles/lighthouse/**/*.md": "jenhayes",
+        "articles/azure-resource-manager/**/*.md": "tomfitz"
       },
       "ms.service": {
         "articles/governance/*.md": "governance",
@@ -408,7 +410,8 @@
         "articles/chef/*.*/*.md": "chef",
         "articles/jenkins/*.*/*.md": "jenkins",
         "articles/terraform/*.*/*.md": "terraform",
-        "articles/lighthouse/**/*.md": "lighthouse"
+        "articles/lighthouse/**/*.md": "lighthouse",
+        "articles/azure-resource-manager/**/*.md": "azure-resource-manager"
       },
       "ms.subservice": {
         "articles/industry/agriculture/**/*.md": "agriculture"
@@ -456,7 +459,8 @@
         "articles/ansible/**/*.yml" : "Ansible",
         "articles/chef/**/*.yml" : "Chef",
         "articles/jenkins/**/*.yml" : "Jenkins",
-        "articles/terraform/**/*.yml" : "Terraform"
+        "articles/terraform/**/*.yml" : "Terraform",
+        "articles/azure-resource-manager/**/*.md": "Azure Resource Manager"
       },
       "featureFlags": {
         "articles/**/*.md": [
