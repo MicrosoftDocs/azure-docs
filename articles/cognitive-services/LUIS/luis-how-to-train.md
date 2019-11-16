@@ -33,7 +33,7 @@ To start the iterative process in the [LUIS portal](https://www.luis.ai), you fi
 
 ## Training date and time
 
-Training date and time is GMT + 2. 
+Training date and time are GMT + 2. 
 
 ## Train with all data
 
@@ -41,7 +41,7 @@ Training uses a small percentage of negative sampling. If you want to use all da
 
 ### Version settings API use of UseAllTrainingData
 
-use the [Version settings API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) with the `UseAllTrainingData` set to true to turn off this feature. 
+Use the [Version settings API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) with the `UseAllTrainingData` set to true to turn off this feature. 
 
 ## Unnecessary training
 
