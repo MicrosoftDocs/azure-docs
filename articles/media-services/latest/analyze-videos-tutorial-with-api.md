@@ -1,6 +1,7 @@
 ---
-title: Analyze videos with Azure Media Services | Microsoft Docs
-description: Follow the steps of this tutorial to analyze videos using Azure Media Services.
+title: Analyze videos with Media Services v3
+titleSuffix: Azure Media Services
+description: Learn how to analyze videos using Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -19,12 +20,12 @@ ms.custom: seodec18
 # Tutorial: Analyze videos with Media Services v3
 
 > [!NOTE]
-> Even though the tutorial uses the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) examples, the general steps are the same for [REST API](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest), or other supported [SDKs](media-services-apis-overview.md#sdks).
+> Even though this tutorial uses the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) examples, the general steps are the same for [REST API](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest), or other supported [SDKs](media-services-apis-overview.md#sdks).
 
 This tutorial shows you how to analyze videos with Azure Media Services. There are many scenarios in which you might want to gain deep insights into recorded videos or audio content. For example, to achieve higher customer satisfaction, organizations can run speech-to-text processing to convert customer support recordings into a searchable catalog, with indexes and dashboards. Then, they can obtain insights into their business such as a list of common complaints, sources of such complaints, and other useful information.
 
-This tutorial shows you how to:    
- 
+This tutorial shows you how to:
+
 > [!div class="checklist"]
 > * Download the sample app described in the topic
 > * Examine the code that analyzes the specified video
