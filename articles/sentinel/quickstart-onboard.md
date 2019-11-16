@@ -1,35 +1,26 @@
 ---
-title: Onboard in Azure Sentinel| Microsoft Docs
-description: Learn how to collect data in Azure Sentinel.
+title: 'Quickstart: Onboard in Azure Sentinel'
+description: Learn how to collect data in Azure Sentinel by following this Quickstart document.
 services: sentinel
-documentationcenter: na
 author: rkarlin
-manager: rkarlin
-editor: ''
-
+ms.author: rkarlin
 ms.assetid: d5750b3e-bfbd-4fa0-b888-ebfab7d9c9ae
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: quickstart
 ms.date: 09/23/2019
-ms.author: rkarlin
 #As a security operator, connect all my data sources in one place so I can monitor and protect my environment
 ---
-# On-board Azure Sentinel
+# Quickstart: On-board Azure Sentinel
 
-
-
-In this quickstart you will learn how to on-board Azure Sentinel. 
+In this quickstart, learn how to on-board Azure Sentinel. 
 
 To on-board Azure Sentinel, you first need to enable Azure Sentinel, and then connect your data sources. Azure Sentinel comes with a number of connectors for Microsoft solutions, available out of the box and providing real-time integration, including Microsoft Threat Protection solutions, Microsoft 365 sources, including Office 365, Azure AD, Azure ATP, and Microsoft Cloud App Security, and more. In addition, there are built-in connectors to the broader security ecosystem for non-Microsoft solutions. You can also use common event format, Syslog or REST-API to connect your data sources with Azure Sentinel.  
 
 After you connect your data sources, choose from a gallery of expertly created workbooks that surface insights based on your data. These workbooks can be easily customized to your needs.
 
 >[!NOTE] 
-> [Azure Sentinel pricing](https://azure.microsoft.com/en-ca/pricing/details/azure-sentinel/) is based on the amount of data ingested in the associated Azure Monitor Log analytics workspace. Some of the following data connectors are not charged for ingestion however there would be some charge associated when you generate any kind of alert using the ingested data stored in Log Analytics workspace which will be charged as per [Azure Monitor Log analytics pricing](https://azure.microsoft.com/en-ca/pricing/details/monitor/). 
+> [Azure Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel/) is based on the amount of data ingested in the associated Azure Monitor Log analytics workspace. Some of the following data connectors are not charged for ingestion however there would be some charge associated when you generate any kind of alert using the ingested data stored in Log Analytics workspace which will be charged as per [Azure Monitor Log analytics pricing](https://azure.microsoft.com/pricing/details/monitor/). 
   > - Azure Activity (Activity Logs for azure Operations)
   > - Azure Active Directory Identity Protection (For tenants with AAD P2 licenses)
   > - Azure Information Protection

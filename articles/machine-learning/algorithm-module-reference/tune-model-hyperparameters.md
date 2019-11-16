@@ -64,7 +64,7 @@ This section describes how to perform a basic parameter sweep, which trains a mo
 
 8.  For **Ranking**, choose a single metric to use for ranking the models.
 
-    When you run a parameter sweep, the module calculates all applicable metrics for the model type returns them in the **Sweep results** report. The module uses separate metrics for regression and classification models.
+    When you run a parameter sweep, the module calculates all applicable metrics for the model type and returns them in the **Sweep results** report. The module uses separate metrics for regression and classification models.
 
     However, the metric that you choose determines how the models are ranked. Only the top model, as ranked by the chosen metric, is output as a trained model to use for scoring.
 
