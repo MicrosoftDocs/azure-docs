@@ -2,27 +2,27 @@
 title: Azure CycleCloud Release Notes | Microsoft Docs
 description: Product release notes for current Azure CycleCloud major release
 author: adriankjohnson
-ms.date: 07/18/2019
+ms.date: 10/02/2019
 ms.author: adjohnso
 ---
 
-# Azure CycleCloud 7.8
+# Azure CycleCloud 7.9
 
-The current release is 7.8.0.
+The current release is 7.9.0.
 
-## Azure CycleCloud 7.8 Release Highlights
+## Azure CycleCloud 7.9 Release Highlights
 
 |  |  |
 | --- | --- |
-| [**Improved User Management**](user-management.md)<br/>The major milestone in this release is the addition of an oft-requested feature -- supporting multiple user accounts per cluster.<br/><br/>  - User accounts are now dynamically added or removed from cluster nodes based on cluster privileges. <br/><br/>  - These user accounts are created locally on every node, with the option of delegating admin privileges. <br/><br/>  - User authentication is SSH-key based using a public key assigned to the user profile. <br/><br/>  - This user management is enabled via a site-wide setting. | [ ![User-Management sample](./images/release-notes/access_small.png) ](./images/release-notes/access_large.png#lightbox)  |
-| [**Updated Slurm Integration**](https://github.com/Azure/cyclecloud-slurm)<br/>The integration between the Slurm scheduler and CycleCloud has been re-written to use the new autoscaling API. This brings the following autoscaling capabilities to Slurm clusters:<br/><br/>  - Slurm clusters can now autoscale across different VM families. <br/><br/>  - Autoscaling for MPI jobs in Slurm are now placement group aware. |![Slurm sample](./images/release-notes/slurm.png) |
-| [**Larger Clusters**]()<br/>Improvements in the provisioning and orchestration layer in this release increases the size of clusters CycleCloud is able to manage. Cluster sizes of up to 5000 nodes and over 150,000 cores are now possible. | [ ![Larger Cluster sample](./images/release-notes/10k-cluster_small.png) ](./images/release-notes/10k-cluster_large.png#lightbox)|
-| [**Availability Zones**](cluster-references/cluster-template-reference.md)<br/>CycleCloud now supports the use of [availability zones](https://docs.microsoft.com/en-us/azure/availability-zones/az-overview). This allows users to pin cluster nodes to specific AZs. By pinning cluster nodes to a single AZ, a user is able to specify that the VMs in the cluster nodes are started within the same zone to improve latency. | ![Availability Zone sample](./images/release-notes/availability-zone.png) |
+| [**IBM Spectrum LSF Support**](lsf.md)<br/>The official LSF resource connector plugin for CycleCloud is included in IBM LSF version 10.1 fp 9, and this release includes a LSF cluster template.  | ![LSF sample](./images/release-notes/lsf.png)  |
+| [**Node Management**](node-configuration-reference.md)<br/>The user interface now has explicit control over operating nodes.<br/><br/>  - It is now possible to add nodes to a cluster and specify the placement groups that the nodes should be in. This gives a user a measure of control over node proximity, which is invaluable for creating an MPI ring for building or debugging MPI code.<br/><br/>  - A keep-alive toggle on each node also gives users control over a node's lifespan independently from a scheduler's autoscaling policies. This feature is useful for users who need to access a node locally for troubleshooting applications or jobs.  | [ ![Node management sample](./images/release-notes/node_management_small.png) ](./images/release-notes/node_management_large.png#lightbox) |
+| [**Issue Reporting**](error_messages.md)<br/>A new issue reporting UI has been added that simplifies the diagnosis of issues that may occur in a running cluster.<br/><br/>  - Errors in nodes are now reported back into CycleCloud and displayed to a user without requiring remote access into the virtual machine, making trouble shooting easier.<br/><br/>  - The issues interface also provides links to documentation that improves self-supportability.| [ ![Issue Reporting sample](./images/release-notes/issue_reporting_small.png) ](./images/release-notes/issue_reporting_large.png#lightbox) |
+| [**Ephemeral OS disks**](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks)<br/>Ephemeral OS disks can now be used to improve virtual machine and scale sets  start-up performance and cost.  | |
 
 ## Release Notes
 
-Comprehensive release notes for the individual 7.8.x releases are listed below
+Comprehensive release notes for the individual 7.9.x releases are listed below
 
-* [**7.8.0 Release Notes**](release-notes/7-8-0.md) - released on 7/18/19
+* [**7.9.0 Release Notes**](release-notes/7-9-0.md) - released on 11/15/19
 
 Release notes from the [previous major releases](release-notes-previous.md) and [older versions](release-notes-archive.md) are also available.

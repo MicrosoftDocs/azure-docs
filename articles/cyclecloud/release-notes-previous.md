@@ -2,31 +2,27 @@
 title: Azure CycleCloud Release Notes | Microsoft Docs
 description: Product release notes for previous Azure CycleCloud major release
 author: adriankjohnson
-ms.date: 07/17/2019
+ms.date: 10/02/2019
 ms.author: adjohnso
 ---
 
-# Azure CycleCloud 7.7
+# Azure CycleCloud 7.8
 
-The latest release is 7.7.5.
+The current release is 7.8.0.
 
-## Azure CycleCloud 7.7 Release Highlights
+## Azure CycleCloud 7.8 Release Highlights
 
 |  |  |
 | --- | --- |
-| [**Revamped autoscale API**](autoscale-api.md)<br/>This release brings a significant change to the CycleCloud autoscaling API, pivoting from a core-centric API to one that is node-oriented. With these change:<br/><br/>  - Clusters can autoscale across different VM families<br/><br/>  - For MPI jobs where node proximity is crucial, schedulers will now be able to implement autoscaling strategies that ensure nodes in an MPI ring are in the same placement group.<br/><br/>  - With the node-oriented API, scheduler implementations can now autoscale by other resource requirements such as memory, GPU or swap space.<br/><br/>This new autoscaling API has been implemented for the default PBSPro and LSF clusters, with the other schedulers to follow in subsequent releases.|![Autoscale sample](./images/release-notes/autoscale-api.png) |
-| [**Specify custom images or marketplace images in the Cluster UI**](custom-images.md)<br/>Custom images are now easier to use in CycleCloud. Default cluster templates now allow a user to specify a resource URL for a custom image or marketplace image URN in the template. Gallery images can also be defined in custom templates. | [ ![Custom image sample](./images/release-notes/custom-image-inline.png) ](./images/release-notes/custom-image-expanded.png#lightbox) |
-| [**Use a Managed Identity in CycleCloud**](managed-identities.md)<br/>Managed Identities is a feature of the Azure Active Directory service for allocating privileges without having to pass secrets or credentials. This release allows a user to configure CycleCloud with the Managed Identity attached to the underlying VM. The privileges assigned to CycleCloud are determined by roles assigned to the Managed Identity. | ![Managed identity sample](./images/release-notes/managed-identity-smallfont.gif) |
+| [**Improved User Management**](user-management.md)<br/>The major milestone in this release is the addition of an oft-requested feature -- supporting multiple user accounts per cluster.<br/><br/>  - User accounts are now dynamically added or removed from cluster nodes based on cluster privileges. <br/><br/>  - These user accounts are created locally on every node, with the option of delegating admin privileges. <br/><br/>  - User authentication is SSH-key based using a public key assigned to the user profile. <br/><br/>  - This user management is enabled via a site-wide setting. | [ ![User-Management sample](./images/release-notes/access_small.png) ](./images/release-notes/access_large.png#lightbox)  |
+| [**Updated Slurm Integration**](https://github.com/Azure/cyclecloud-slurm)<br/>The integration between the Slurm scheduler and CycleCloud has been re-written to use the new autoscaling API. This brings the following autoscaling capabilities to Slurm clusters:<br/><br/>  - Slurm clusters can now autoscale across different VM families. <br/><br/>  - Autoscaling for MPI jobs in Slurm are now placement group aware. |![Slurm sample](./images/release-notes/slurm.png) |
+| [**Larger Clusters**](custom-images.md)<br/>Improvements in the provisioning and orchestration layer in this release increases the size of clusters CycleCloud is able to manage. Cluster sizes of up to 5000 nodes and over 150,000 cores are now possible. | [ ![Larger Cluster sample](./images/release-notes/10k-cluster_small.png) ](./images/release-notes/10k-cluster_large.png#lightbox)|
+| [**Availability Zones**](cluster-references/cluster-template-reference.md)<br/>CycleCloud now supports the use of [availability zones](https://docs.microsoft.com/en-us/azure/availability-zones/az-overview). This allows users to pin cluster nodes to specific AZs. By pinning cluster nodes to a single AZ, a user is able to specify that the VMs in the cluster nodes are started within the same zone to improve latency. | ![Availability Zone sample](./images/release-notes/availability-zone.png) |
 
 ## Release Notes
 
-Comprehensive release notes for the individual 7.7.x releases are listed below
+Comprehensive release notes for the individual 7.8.x releases are listed below
 
-* [**7.7.5 Release Notes**](release-notes/7-7-5.md) - released on 6/14/19
-* [**7.7.4 Release Notes**](release-notes/7-7-4.md) - released on 5/10/19
-* [**7.7.3 Release Notes**](release-notes/7-7-3.md) - released on 4/1/19
-* [**7.7.2 Release Notes**](release-notes/7-7-2.md) - released on 3/5/19
-* [**7.7.1 Release Notes**](release-notes/7-7-1.md) - released on 2/14/19
-* [**7.7.0 Release Notes**](release-notes/7-7-0.md) - released on 2/11/19
+* [**7.8.0 Release Notes**](release-notes/7-8-0.md) - released on 7/18/19
 
 Release notes from [older versions](release-notes-archive.md) are also available.

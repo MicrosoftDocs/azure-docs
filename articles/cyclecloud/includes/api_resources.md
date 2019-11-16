@@ -42,6 +42,7 @@ Status of the cluster
 |**maxCount**  <br>*required*|The maximum number of nodes that may be in this bucket, including global and nodearray limits  <br>**Example** : `0`|integer|
 |**maxPlacementGroupCoreSize**  <br>*required*|The maximum total number of cores that can be in a placement group in this bucket. Always a multiple of maxPlacementGroupSize.  <br>**Example** : `0`|integer|
 |**maxPlacementGroupSize**  <br>*required*|The maximum total number of instances that can be in a placement group in this bucket  <br>**Example** : `0`|integer|
+|**placementGroups**  <br>*required*|The placement groups in use for this nodearray, if any.  <br>**Example** : `[ "object" ]`|< [placementGroups](#clusterstatus-buckets-placementgroups) > array|
 |**quotaCoreCount**  <br>*required*|The number of total cores that can be started for this family. This might not be an integer multiple of quotaCount.  <br>**Example** : `0`|integer|
 |**quotaCount**  <br>*required*|The number of total instances that can be started (given quotaCoreCount)  <br>**Example** : `0`|integer|
 |**valid**  <br>*required*|If true, this bucket represents a currently valid bucket to use for new nodes. If false, this bucket represents existing nodes only.  <br>**Example** : `true`|boolean|
@@ -52,13 +53,23 @@ Status of the cluster
 
 |Name|Description|Schema|
 |---|---|---|
-|**machineType**  <br>*optional*|The VM size of the virtual machine  <br>**Example** : `"A2"`|string|
+|**machineType**  <br>*required*|The VM size of the virtual machine  <br>**Example** : `"A2"`|string|
+
+<a name="clusterstatus-buckets-placementgroups"></a>
+**placementGroups**
+
+|Name|Description|Schema|
+|---|---|---|
+|**activeCoreCount**  <br>*required*|How many cores are in this scaleset  <br>**Example** : `0`|integer|
+|**activeCount**  <br>*required*|How many nodes are in this scaleset  <br>**Example** : `0`|integer|
+|**name**  <br>*required*|The unique identifier of this placement group  <br>**Example** : `"string"`|string|
 
 <a name="clusterstatus-buckets-virtualmachine"></a>
 **virtualMachine**
 
 |Name|Description|Schema|
 |---|---|---|
+|**infiniband**  <br>*required*|If this virtual machine supports InfiniBand connectivity  <br>**Example** : `true`|boolean|
 |**memory**  <br>*required*|The RAM in this virtual machine, in GB  <br>**Example** : `7.5`|number|
 |**vcpuCount**  <br>*required*|The number of virtual CPUs this machine type has  <br>**Example** : `32`|integer|
 
@@ -149,7 +160,7 @@ Specifies how to perform actions on nodes in a cluster. There are multiple ways 
 
 |Name|Description|Schema|
 |---|---|---|
-|**nodes**  <br>*required*|An array of information about each node in the management request  <br>**Example** : `[ "object" ]`|< [nodes](#nodemanagementresult-nodes) > array|
+|**nodes**  <br>*required*|An array of information about each node that matched the filter in the management request. Each node's status indicates if it was affected by the request.  <br>**Example** : `[ "object" ]`|< [nodes](#nodemanagementresult-nodes) > array|
 |**operationId**  <br>*required*|The id of this operation  <br>**Example** : `"00000000-0000-0000-0000-000000000000"`|string|
 
 <a name="nodemanagementresult-nodes"></a>
@@ -157,9 +168,10 @@ Specifies how to perform actions on nodes in a cluster. There are multiple ways 
 
 |Name|Description|Schema|
 |---|---|---|
+|**error**  <br>*optional*|If the status is Error, this contains the error message  <br>**Example** : `"string"`|string|
 |**id**  <br>*required*|The id of the node  <br>**Example** : `"id1"`|string|
-|**message**  <br>*optional*|Indicates why the action on this node could not be carried out, if present  <br>**Example** : `"string"`|string|
 |**name**  <br>*required*|The name of the node  <br>**Example** : `"name1"`|string|
+|**status**  <br>*optional*|One of OK or Error  <br>**Example** : `"string"`|string|
 
 
 <a name="operationstatus"></a>

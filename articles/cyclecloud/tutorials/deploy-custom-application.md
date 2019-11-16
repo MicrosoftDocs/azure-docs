@@ -23,12 +23,12 @@ For this tutorial, you will need:
 
 1. An Azure account with an active subscription.
 2. Azure CycleCloud set up on your Azure account.
-3. [CycleCloud CLI](~/install-cyclecloud-cli.md) installed and configured.
+3. [CycleCloud CLI](../install-cyclecloud-cli.md) installed and configured.
 3. A Shell session in a terminal.
   * If you are using a Windows machine, use the [browser-based Bash shell](https://shell.azure.com).
   * For non-Windows machines, install and use Azure CLI v2.0.20 or later. Run `az --version` to find your current version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
-[!INCLUDE [cloud-shell-try-it.md](~/includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../includes/cloud-shell-try-it.md)]
 
 ## Customizing Cluster Nodes
 
@@ -194,7 +194,7 @@ ellen@Azure:~$
 
 In the above example, the storage account name is `cyclecloudcbekjhvzjrzswz` and the blob container name is `cyclecloud`.
 
-The `cyclecloud project upload` command packages up the contents of the project and uploads it into the locker. To do this, it needs to have credentials to access the blob container associated with the locker. You could [create an SAS key](https://docs.microsoft.com/en-us/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-generate-sas), or you can use a previously-created service principal. To do this,
+The `cyclecloud project upload` command packages up the contents of the project and uploads it into the locker. To do this, it needs to have credentials to access the blob container associated with the locker. You could [create an SAS key](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-generate-sas), or you can use a previously-created service principal. To do this,
 edit the cyclecloud configuration file:
 
 ```azurecli-interactive
@@ -239,7 +239,7 @@ Repeat this step for the Execute Cluster-Init. When finished, your Advanced Sett
 
 ![salmon specs selected](~/images/salmon-specs-selected.png)
 
-Save your cluster and start it up. When the master node turns green, [log into it](~/connect-to-master-node.md) and verify that `salmon` has been installed:
+Save your cluster and start it up. When the master node turns green, [log into it](../connect-to-node.md) and verify that `salmon` has been installed:
 
 ``` output
 ellen@Azure:~$ ssh ellen@40.117.78.137

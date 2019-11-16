@@ -42,18 +42,14 @@
       href: storage-nfs-mounts.md
     - name: Blobs
       href: storage-blobs.md
-  - name: Data Management
-    items:
-    - name: Overview
-      href: data-overview.md
-    - name: Endpoint Creation
-      href: endpoint-creation.md
-    - name: Data Encryption
-      href: data-encryption.md
   - name: Network Configuration
     items:
+    - name: Network Connectivity
+      href: network-connectivity.md
     - name: Network Security
       href: network-security.md
+    - name: Proxy Traffic
+      href: proxy-traffic.md
     - name: SSL Configuration
       href: ssl-configuration.md
   - name: Monitoring and Reporting
@@ -92,8 +88,8 @@
     href: container-distribution.md
   - name: Start a Cluster
     href: start-cluster.md
-  - name: Connect to the Master Node
-    href: connect-to-master-node.md
+  - name: Connect to a cluster mode
+    href: connect-to-node.md
   - name: Terminate a Cluster
     href: end-cluster.md
   - name: Work with Custom Images
@@ -102,16 +98,12 @@
     href: hb-hc-best-practices.md
   - name: Install Jetpack
     href: jetpack-install.md
-  - name: Transfer Data
-    href: transfer-data.md
   - name: Enable Return Proxy
     href: return-proxy.md
   - name: Use Tags
     href: tag-nodes.md
   - name: Use Images
     href: images.md
-  - name: Create Custom Roles
-    href: create-custom-roles.md
 - name: Reference
   items:
   - name: Cluster Reference
@@ -182,6 +174,19 @@
     href: autoscale-api.md
   - name: Scheduler
     href: scheduler-integration.md
+    items:
+    - name: PBS Professional OSS
+      href: pbspro.md
+    - name: Grid Engine
+      href: gridengine.md
+    - name: Slurm
+      href: slurm.md
+    - name: HT Condor
+      href: htcondor.md
+    - name: IBM Spectrum LSF
+      href: lsf.md
+  - name: Error Messages
+    href: error_messages.md
 - name: Resources
   items:
   - name: Get Azure CycleCloud
@@ -196,9 +201,9 @@
     href: https://feedback.azure.com/forums/914491--azure-cyclecloud
   - name: Release Notes
     items:
-    - name: Current Release - v7.8
+    - name: Current Release - v7.9
       href: release-notes.md
-    - name: Previous Release - v7.7
+    - name: Previous Release - v7.8
       href: release-notes-previous.md
     - name: Older Releases
       href: release-notes-archive.md
