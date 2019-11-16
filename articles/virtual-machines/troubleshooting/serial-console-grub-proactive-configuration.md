@@ -42,10 +42,9 @@ If you are new to Serial Console, refer to [this link](https://docs.microsoft.co
 > [!TIP]
 > Ensure you take backups of files before making changes
 
-Watch this video to see how you can quickly recover your Linux VM once you have access to GRUB
+Watch this video below to see how you can quickly recover your Linux VM once you have access to GRUB
 
-> [!VIDEO https://youtu.be/KevOc3d_SG4] 
-
+[Recover Linux VM Video](https://youtu.be/KevOc3d_SG4)
 
 There are a number of methods to help recovery of Linux VMs. In a Cloud environment, this process has been challenging.
 Progress is being made continually to tooling and features to ensure services are recovered quickly.
@@ -116,7 +115,9 @@ On older distros, it might be disabled completely.
 The SysRq feature is useful for rebooting a crashed or hung VM directly from the Azure Serial Console, also helpful in gaining access to the GRUB menu, alternatively restarting a VM from another portal window or ssh session might drop your current console connection thus expiring GRUB Timeouts to which are used to display the GRUB menu.
 The VM must be configured to accept a value of 1 for the kernel parameter, which enables all functions of sysrq or 128, which allows reboot/poweroff
 
-> [!VIDEO https://youtu.be/0doqFRrHz_M]
+
+[Enable sysrq video](https://youtu.be/0doqFRrHz_Mc)
+
 
 To configure the VM to accept a reboot via SysRq commands on the Azure portal, you will need to set a value of 1 for the kernel parameter kernel.sysrq
 
