@@ -477,7 +477,8 @@ web apps are using the latest TLS version.
 
 ## 9.4 Ensure the web app has 'Client Certificates (Incoming client certificates)' set to 'On'
 
-This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions that help you ensure only clients with valid certificates are able to reach a web app. 
+This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions that help you ensure
+only clients with valid certificates are able to reach a web app.
 
 - Ensure API app has 'Client Certificates (Incoming client certificates)' set to 'On'
 - Ensure Function app has 'Client Certificates (Incoming client certificates)' set to 'On'
@@ -485,7 +486,8 @@ This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions t
 
 ## 9.5 Ensure that Register with Azure Active Directory is enabled on App Service
 
-This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions that help you ensure that web apps are using a managed service identity.
+This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions that help you ensure
+that web apps are using a managed identity.
 
 - Ensure that Register with Azure Active Directory is enabled on API app
 - Ensure that Register with Azure Active Directory is enabled on Function App
