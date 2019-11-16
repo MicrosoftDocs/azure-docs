@@ -34,7 +34,7 @@ This tutorial assumes that you have [configured](tutorial-facilities-setup.md) a
 - An instance of Digital Twins running.
 - The [Digital Twins C# samples](https://github.com/Azure-Samples/digital-twins-samples-csharp) downloaded and extracted on your work machine.
 - [.NET Core SDK version 2.1.403 or later](https://www.microsoft.com/net/download) on your development machine to run the sample. Run `dotnet --version` to verify that the right version is installed.
-- An Office 365 account to send notification e-mails.
+- An [Office 365](https://products.office.com/home) account to send notification e-mails.
 
 > [!TIP]
 > Use a unique Digital Twins instance name if you're provisioning a new instance.
@@ -59,7 +59,7 @@ An [event grid topic](../event-grid/concepts.md#topics) provides an interface to
 
 1. Browse to the event grid topic from your resource group, select **Overview**, and copy the value for **Topic Endpoint** to a temporary file. You'll need this URL in the next section. 
 
-1. Select **Access keys**, and copy **YOUR_KEY_1** and **YOUR_KEY_2** to a temporary file. You'll need these values to create the endpoint in the next section.
+1. Select **Access keys**, and copy **Key 1** and **Key 2** to a temporary file. You'll need these values to create the endpoint in the next section.
 
     [![Event Grid keys](./media/tutorial-facilities-events/event-grid-keys.png)](./media/tutorial-facilities-events/event-grid-keys.png#lightbox)
 
@@ -81,9 +81,9 @@ An [event grid topic](../event-grid/concepts.md#topics) provides an interface to
       path: <Event Grid Topic Name without https:// and /api/events, e.g. eventgridname.region.eventgrid.azure.net>
     ```
 
-1. Replace the placeholder `<Primary connection string for your Event Grid>` with the value of **YOUR_KEY_1**.
+1. Replace the placeholder `<Primary connection string for your Event Grid>` with the value of **Key 1**.
 
-1. Replace the placeholder `<Secondary connection string for your Event Grid>` with the value of **YOUR_KEY_2**.
+1. Replace the placeholder `<Secondary connection string for your Event Grid>` with the value of **Key 2**.
 
 1. Replace the placeholder for **path** with the path of the event grid topic. Get this path by removing **https://** and the trailing resource paths from the **Topic Endpoint** URL. It should look similar to this format: *yourEventGridName.yourLocation.eventgrid.azure.net*.
 
@@ -174,7 +174,7 @@ You can use the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service
 
    a. Select **Add an action**, and select **Office 365 Outlook**.
 
-   b. From the **Actions** list, select **Send an email**. Select **Sign in** and use your email account credentials. Select **Allow access** if prompted.
+   b. From the **Actions** list, select **Send an email (V2)**. Select **Sign in** and use your email account credentials. Select **Allow access** if prompted.
 
    c. In the **To** box, enter your email ID to receive notifications. In **Subject**, enter the text **Digital Twins notification for poor air quality in space**. Then select **TopologyObjectId** from the **Dynamic content** list for **Parse JSON**.
 
