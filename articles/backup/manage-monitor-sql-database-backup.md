@@ -112,7 +112,7 @@ You can run different types of on-demand backups:
 - Differential backup
 - Log backup
 
-While you need to specify the retention duration for Copy-only full backup, the retention range for ad-hoc full backup will automatically be set to 45 days from current time.
+While you need to specify the retention duration for Copy-only full backup, the retention range for on-demand full backup will automatically be set to 45 days from current time.
 
 For more information, see [SQL Server backup types](backup-architecture.md#sql-server-backup-types).
 
@@ -149,7 +149,7 @@ In the vault dashboard, go to **Manage** > **Backup Policies** and choose the po
 
 Policy modification will impact all the associated Backup Items and trigger corresponding **configure protection** jobs.
 
-### Inconsistent Policy
+### Inconsistent policy
 
 Sometimes, a modify policy operation can lead to an **inconsistent** policy version for some backup items. This happens when the corresponding **configure protection** job fails for the backup item after a modify policy operation is triggered. It appears as follows in the backup item view:
 

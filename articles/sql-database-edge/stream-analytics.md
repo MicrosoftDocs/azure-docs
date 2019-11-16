@@ -32,7 +32,7 @@ Azure SQL Database Edge exposes two optional parameters through the *module twin
 |Field | Description |
 |------|-------------|
 | SQLPackage | Azure Blob Storage URI for the *.zip file containing the SQL Database DAC package.
-| ASAJobInfo | Azure Blob Storage URI for the ASA Edge job. For more information on publishing the ASA Edge job, refer [Publishing an ASA Edge job for SQL Database Edge]().
+| ASAJobInfo | Azure Blob Storage URI for the ASA Edge job. For more information on publishing the ASA Edge job, refer [Publishing an ASA Edge job for SQL Database Edge](/azure/sql-database-edge/stream-analytics#using-streaming-jobs-with-sql-database-edge).
 
 ## Using SQL Database DAC packages with SQL Database Edge
 
