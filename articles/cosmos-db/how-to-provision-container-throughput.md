@@ -61,7 +61,7 @@ await client.CreateDocumentCollectionAsync(
 ### .Net V3 SDK
 [!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/ContainerDocsSampleCode.cs?name=ContainerCreateWithThroughput)]
 
-## Provision throughput by using JavaScript SDK
+## Provision or update throughput by using JavaScript SDK
 
 ```javascript
 // Create a new Client
