@@ -1,14 +1,11 @@
 ---
-title: Lock Azure resources to prevent changes | Microsoft Docs
+title: Lock resources to prevent changes
 description: Prevent users from updating or deleting critical Azure resources by applying a lock for all users and roles.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/14/2019
-ms.author: tomfitz
 ---
 
-# Lock resources to prevent unexpected changes 
+# Lock resources to prevent unexpected changes
 
 As an administrator, you may need to lock a subscription, resource group, or resource to prevent other users in your organization from accidentally deleting or modifying critical resources. You can set the lock level to **CanNotDelete** or **ReadOnly**. In the portal, the locks are called **Delete** and **Read-only** respectively.
 
