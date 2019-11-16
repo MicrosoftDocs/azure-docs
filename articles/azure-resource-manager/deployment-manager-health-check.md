@@ -1,11 +1,7 @@
 ---
 title: Health integration rollout - Azure Deployment Manager
 description: Describes how to deploy a service over many regions with Azure Deployment Manager. It shows safe deployment practices to verify the stability of your deployment before rolling out to all regions.
-services: azure-resource-manager
-documentationcenter: na
 author: mumian
-
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: jgao
