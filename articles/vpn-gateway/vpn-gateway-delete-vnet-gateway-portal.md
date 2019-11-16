@@ -1,5 +1,5 @@
 ---
-title: 'Delete a virtual network gateway: Azure portal: Resource Manager | Microsoft Docs'
+title: 'VPN Gateway: Delete a gateway - Azure portal'
 description: Delete a virtual network gateway using the Azure portal in the Resource Manager deployment model. 
 services: vpn-gateway
 documentationcenter: na
