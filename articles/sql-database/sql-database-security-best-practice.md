@@ -459,10 +459,10 @@ Another technique for preventing unauthorized users from viewing data is to obfu
 
 **How to implement**:
 
-- Use [Dynamic Data Masking](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking) (DDM) to obfuscate table columns.
+- Use [Dynamic Data Masking](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking) to obfuscate table columns.
 
 > [!NOTE]
-> Always Encrypted does not work with Dynamic Data Masking. It is not possible to encrypt and mask the same column, which implies that you need to prioritize protecting data in use vs. masking the data for your app users (via DDM).
+> Always Encrypted does not work with Dynamic Data Masking. It is not possible to encrypt and mask the same column, which implies that you need to prioritize protecting data in use vs. masking the data for your app users via Dynamic Data Masking.
 
 **Best practices**:
 
