@@ -1610,6 +1610,12 @@
           - name: Supported runtime releases
             href: /azure/databricks/release-notes/runtime/supported
             maintainContext: true
+          - name: Databricks Runtime 6.2
+            href: /azure/databricks/release-notes/runtime/6.2
+            maintainContext: true
+          - name: Databricks Runtime 6.2 ML
+            href: /azure/databricks/release-notes/runtime/6.2ml
+            maintainContext: true
           - name: Databricks Runtime 6.1
             href: /azure/databricks/release-notes/runtime/6.1
             maintainContext: true
