@@ -1,5 +1,5 @@
 ---
-title: 'About point-to-site VPN client profiles: Azure VPN Gateway| Microsoft Docs'
+title: 'Azure VPN Gateway: About P2S VPN client profiles'
 description: This helps you work with the client profile file
 services: vpn-gateway
 author: cherylmc
