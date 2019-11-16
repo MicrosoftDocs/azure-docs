@@ -58,7 +58,7 @@ Circonus is a microservices monitoring and analytics platform built for on premi
 
 Unite and automate your cloud with a platform built to save time and money. CloudHealth provides visibility, intuitive optimization, and rock-solid governance practices for cloud management. The Cloudhealth platform enables enterprises and MSPs to maximize return on cloud investments. Make confident decisions around cost, usage, performance, and security.
 
-[Learn More.][cloudhealth-doc]
+[Learn more][cloudhealth-doc]
 
 ## CloudMonix
 
@@ -117,17 +117,25 @@ LogicMonitor® is the leading SaaS-based, performance monitoring platform for co
 
 [Go to the documentation.][logicmonitor-doc]
 
+## LogRhythm
+
+![LogRhythm Logo](./media/partners/logrhythm.png)
+
+LogRhythm, a leader in NextGen SIEM, empowers organizations on six continents to measurably reduce risk by rapidly detecting, responding to, and neutralizing cyberthreats. LogRhythm’s Threat Lifecycle Management (TLM) workflow is the foundation for security operations centers, helping customers secure their cloud, physical, and virtual infrastructures for IT and OT environments. If you’re a LogRhythm customer and are ready to start your Azure journey, you’ll need to install and configure the LogRhythm Open Collector and EventHub integration. More details, including documentation of both configuring Azure Monitor and the Open Collector, can be found [here](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
+
+
+
 ## Microfocus
 
-![Microfocus Logo](./media/partners/mf_logo_blue_160.png)     
+![Microfocus Logo](./media/partners/microfocus.png)     
 
 Microfocus **ArcSight** has a smart connector for Azure Monitor event hubs.
 
-[Learn More](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852 "ArcSight documentation.")
+[Learn more](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852 "ArcSight documentation.")
 
 Microfocus **Operations Bridge** automatically monitors all Hybrid IT resources – any device, operating system, database, application, or service, regardless of where it runs and applies AIOps to all data types – events, metrics, logs and dependencies. It provides a unique combination of quality of service monitoring, coupled with deep application health analytics, and includes comprehensive performance and availability monitoring of Microsoft Azure services. Operations Bridge enables customers to provide a single pane of glass, available on any device with a browser, in ways both business and IT stakeholders can understand.
 
-Learn More
+Learn more
 - [OB Suite overview](https://www.microfocus.com/products/operations-bridge-suite/overview)
 - [Download](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
 - [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) - SiteScope is a component in the Operations Bridge Suite.
