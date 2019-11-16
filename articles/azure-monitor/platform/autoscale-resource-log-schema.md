@@ -215,5 +215,5 @@ Recorded at different intervals of an instance scale action.
 }
 ```
 
-# Next steps
+## Next steps
 Learn about [autoscale](autoscale-overview.md)
