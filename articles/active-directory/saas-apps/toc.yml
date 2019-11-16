@@ -1585,6 +1585,8 @@
         href: github-provisioning-tutorial.md
       - name: GoToMeeting
         href: citrixgotomeeting-provisioning-tutorial.md
+      - name: Ideo
+        href: ideo-provisioning-tutorial.md
       - name: Insight4GRC
         href: insight4grc-provisioning-tutorial.md
       - name: iPass SmartConnect
@@ -1601,6 +1603,8 @@
         href: lucidchart-provisioning-tutorial.md
       - name: Leapsome
         href: leapsome-provisioning-tutorial.md
+      - name: Looop
+        href: looop-provisioning-tutorial.md
       - name: Merchlogix
         href: merchlogix-provisioning-tutorial.md
       - name: Meta Networks Connector
@@ -1615,10 +1619,14 @@
       items:
       - name: Netsuite
         href: netsuite-provisioning-tutorial.md
+      - name: OfficeSpace Software
+        href: officespace-software-provisioning-tutorial.md
       - name: Oracle Fusion ERP
         href: oracle-fusion-erp-provisioning-tutorial.md
       - name: Pingboard
         href: pingboard-provisioning-tutorial.md
+      - name: Priority Matrix
+        href: priority-matrix-provisioning-tutorial.md
       - name: Proxyclick
         href: Proxyclick-provisioning-tutorial.md
       - name: Peakon
@@ -1627,6 +1635,8 @@
         href: reward-gateway-provisioning-tutorial.md
       - name: RFPIO
         href: rfpio-provisioning-tutorial.md
+      - name: RingCentral
+        href: ringcentral-provisioning-tutorial.md
       - name: Robin
         href: robin-provisioning-tutorial.md
       - name: Rollbar
@@ -1647,10 +1657,14 @@
         href: snowflake-provisioning-tutorial.md
       - name: Smartsheet
         href: smartsheet-provisioning-tutorial.md
+      - name: Soloinsight-CloudGate SSO
+        href: soloinsight-cloudgate-sso-provisioning-tutorial.md
       - name: Symantec Web Security Service (WSS)
         href: symantec-web-security-service.md
       - name: Smartfile
         href: smartfile-provisioning-tutorial.md
+      - name: SpaceIQ
+        href: spaceiq-provisioning-tutorial.md
       - name: StarLeaf
         href: starleaf-provisioning-tutorial.md
       - name: Storegate
