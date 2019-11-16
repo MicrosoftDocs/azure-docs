@@ -13,7 +13,7 @@ ms.author: magattus
 
 # Actions in the Standard rules engine for Azure CDN
 
-In the [Standard rules engine](cdn-standard-rules-engine.md) for Azure Content Delivery Network (Azure CDN), a rule consists of a set of match conditions and an action. This article provides detailed descriptions of the actions you can use in the Standard rules engine for Azure CDN.
+In the [Standard rules engine](cdn-standard-rules-engine.md) for Azure Content Delivery Network (Azure CDN), a rule consists of one or more match conditions and an action. This article provides detailed descriptions of the actions you can use in the Standard rules engine for Azure CDN.
 
 The second part of a rule is an action. An action defines the behavior that's applied to the request type that a match condition or set of match conditions identifies.
 
@@ -29,7 +29,7 @@ Use this action to overwrite the time to live (TTL) value of the endpoint for re
 
 Cache behavior |  Description              
 ---------------|----------------
-Bypass Cache | When this option is selected and the rule matches, the content is not cached.
+Bypass cache | When this option is selected and the rule matches, the content is not cached.
 Override | When this option is selected and the rule matches, the TTL value returned from your origin is overwritten with the value specified in the action.
 Set if missing | When this option is selected and the rule matches, if no TTL value was returned from your origin, the rule sets the TTL to the value specified in the action.
 
@@ -62,7 +62,7 @@ Action | HTTP header name | Value
 -------|------------------|------
 Append | When this option is selected and the rule matches, the header specified in **Header name** is added to the request with the specified value. If the header is already present, the value is appended to the existing value. | String
 Overwrite | When this option is selected and the rule matches, the header specified in **Header name** is added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. | String
-Delete | When this option is selected and the rule matches, and the header specified in the rule is present, the header is deleted from the request. | String
+Delete | When this option is selected, the rule matches, and the header specified in the rule is present, the header is deleted from the request. | String
 
 ### Modify response header
 
@@ -72,9 +72,9 @@ Use this action to modify headers that are present in responses returned to your
 
 Action | HTTP Header name | Value
 -------|------------------|------
-Append | When this option is selected and the rule matches, the header specified in **Header name** is added to the response using the specified **Value**. If the header is already present, **Value** is appended to the existing value. | String
-Overwrite | When this option is selected and the rule matches, the header specified in **Header name** is added to the response using the specified **Value**. If the header is already present, **Value** overwrites the existing value. | String
-Delete | When this option is selected and the rule matches, and the header specified in the rule is present, the header is deleted from the response. | String
+Append | When this option is selected and the rule matches, the header specified in **Header name** is added to the response by using the specified **Value**. If the header is already present, **Value** is appended to the existing value. | String
+Overwrite | When this option is selected and the rule matches, the header specified in **Header name** is added to the response by using the specified **Value**. If the header is already present, **Value** overwrites the existing value. | String
+Delete | When this option is selected, the rule matches, and the header specified in the rule is present, the header is deleted from the response. | String
 
 ### URL redirect
 
@@ -84,11 +84,11 @@ Use this action to redirect clients to a new URL.
 
 Field | Description 
 ------|------------
-Type | Select the response type to return to the requestor. Options are: Found (302), Moved (301), Temporary redirect (307), and Permanent redirect (308).
-Protocol | Match Request, HTTP, or HTTPS.
-Hostname | Select the hostname you want the request to be redirected to. Leave blank to preserve the incoming host.
+Type | Select the response type to return to the requestor: Found (302), Moved (301), Temporary redirect (307), and Permanent redirect (308).
+Protocol | Match Request, HTTP, HTTPS.
+Hostname | Select the host name you want the request to be redirected to. Leave blank to preserve the incoming host.
 Path | Define the path to use in the redirect. Leave blank to preserve the incoming path.  
-Query String | Define the query string used in the redirect. Leave blank to preserve the incoming query string. 
+Query string | Define the query string used in the redirect. Leave blank to preserve the incoming query string. 
 Fragment | Define the fragment to use in the redirect. Leave blank to preserve the incoming fragment. 
 
 We highly recommend that you use an absolute URL. Using a relative URL might redirect Azure CDN URLs to an invalid path. 
@@ -101,9 +101,9 @@ Use this action to rewrite the path of a request that's en route to your origin.
 
 Field | Description 
 ------|------------
-Source Pattern | Define the source pattern in the URL path to replace. Currently, source pattern uses a prefix-based match. To match all URL paths, use “/” as the source pattern value.
+Source pattern | Define the source pattern in the URL path to replace. Currently, source pattern uses a prefix-based match. To match all URL paths, use a forward slash (**/**) as the source pattern value.
 Destination | Define the destination path to use in the rewrite. The destination path overwrites the source pattern.
-Preserve unmatched path | If **Yes**, the remaining path after the source pattern is appended to the new destination path. 
+Preserve unmatched path | If set to **Yes**, the remaining path after the source pattern is appended to the new destination path. 
 
 ## Next steps
 

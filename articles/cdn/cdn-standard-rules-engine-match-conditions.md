@@ -13,13 +13,13 @@ ms.author: magattus
 
 # Match conditions in the Standard rules engine for Azure CDN
 
-In the [Standard rules engine](cdn-standard-rules-engine.md) for Azure Content Delivery Network (Azure CDN), a rule consists of a set of match conditions and an action. This article provides detailed descriptions of the match conditions you can use in the Standard rules engine for Azure CDN.
+In the [Standard rules engine](cdn-standard-rules-engine.md) for Azure Content Delivery Network (Azure CDN), a rule consists of one or more match conditions and an action. This article provides detailed descriptions of the match conditions you can use in the Standard rules engine for Azure CDN.
 
 The first part of a rule is a match condition or set of match conditions. In the Standard rules engine for Azure CDN, each rule can have up to four match conditions. A match condition identifies specific types of requests for which defined actions are performed. If you use multiple match conditions, the match conditions are grouped together by using AND logic.
 
 For example, you can use a match condition to:
 
-- Filter requests that are generated from a specific IP address, country, or region.
+- Filter requests based on a specific IP address, country, or region.
 - Filter requests by header information.
 - Filter requests from mobile devices or desktop devices.
 
@@ -29,7 +29,7 @@ The following match conditions are available to use in the Standard rules engine
 
 ### Device type 
 
-Identifies requests made from a mobile device or desktop device based on the properties of the request.  
+Identifies requests made from a mobile device or desktop device.  
 
 #### Required fields
 
@@ -64,7 +64,7 @@ String | [Standard operator list](#standard-operator-list) | String, Int | No tr
 - Cookie name comparisons are case-insensitive.
 - To specify multiple cookie values, use a single space between each cookie value. 
 - Cookie values can take advantage of wildcard values.
-- If a wildcard value hasn't been specified, only an exact match will satisfy this match condition. For example, "Value" will match "Value" but not "Value1". 
+- If a wildcard value hasn't been specified, only an exact match satisfies this match condition. For example, "Value" will match "Value" but not "Value1". 
 
 ### Post argument
 
@@ -104,7 +104,7 @@ Not IP Match | IP address (space-separated)
 #### Key information
 
 - Use CIDR notation.
-- To specify multiple IP addresses and IP address blocks, use a single space between the values. For example:
+- To specify multiple IP addresses and IP address blocks, use a single space between the values:
   - **IPv4 example**: *1.2.3.4 10.20.30.40* matches any requests that arrive from either address 1.2.3.4 or 10.20.30.40.
   - **IPv6 example**: *1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:8*0 matches any requests that arrive from either address 1:2:3:4:5:6:7:8 or 10:20:30:40:50:60:70:80.
 - The syntax for an IP address block is the base IP address followed by a forward slash and the prefix size. For example:
@@ -133,11 +133,11 @@ String | [Standard operator list](#standard-operator-list) | String, Int | No tr
 
 ### Request method
 
-Identifies requests based on the request method used in the request.
+Identifies requests that use the specified request method.
 
 #### Required fields
 
-Operator | Supported value
+Operator | Supported values
 ---------|----------------
 Equals, Not equals | GET, POST, PUT, DELETE, HEAD, OPTIONS, TRACE
 
@@ -147,17 +147,17 @@ Equals, Not equals | GET, POST, PUT, DELETE, HEAD, OPTIONS, TRACE
 
 ### Request protocol
 
-Identifies requests based on the protocol used to send the request.
+Identifies requests that use the specified protocol used.
 
 #### Required fields
 
-Operator | Supported value
+Operator | Supported values
 ---------|----------------
 Equals, Not equals | HTTP, HTTPS
 
 ### Request URL
 
-Identifies requests based on the URL used to send the request.
+Identifies requests that match the specified URL.
 
 #### Required fields
 
@@ -171,7 +171,7 @@ Operator | Request URL | Case transform
 
 ### URL file extension
 
-Identifies requests based on the file extension of the file name part of the requesting URL.
+Identifies requests that include the specified file extension in the file name in the requesting URL.
 
 #### Required fields
 
@@ -185,7 +185,7 @@ Operator | Extension | Case transform
 
 ### URL file name
 
-Identifies requests based on the file name part of the requesting URL.
+Identifies requests that include the specified file name in the requesting URL.
 
 #### Required fields
 
@@ -199,7 +199,7 @@ Operator | File name | Case transform
 
 ### URL path
 
-Identifies requests based on the path of the requesting URL.
+Identifies requests that include the specified path in the requesting URL.
 
 #### Required fields
 
@@ -215,7 +215,7 @@ Operator | Value | Case Transform
 
 ### Standard operator list
 
-For rules that contain the standard operator list, the following operators are valid:
+For rules that accept values from the standard operator list, the following operators are valid:
 
 - Any
 - Equals 
