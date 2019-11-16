@@ -60,7 +60,7 @@ Let’s review the metrics from the autoscale service.
 In figure 1b, the **Metric Threshold** (light blue line) for the scale-out rule is 70.  The **Observed Capacity** (dark blue line) shows the number of active instances, which is currently 3. 
 
 > [!NOTE]
-> You will need to filter the **Metric Threshold** by the metric trigger rule dimension scale out (increase) rule to see the scale-out threshold and by the scale in rule (decrease). **TODO- what? Need to correct this**
+> You will need to filter the **Metric Threshold** by the metric trigger rule dimension scale out (increase) rule to see the scale-out threshold and by the scale in rule (decrease). 
 
 ## Example 2 - Advanced autoscaling for a virtual machine scale set
 
@@ -177,7 +177,7 @@ AutoscaleEvaluationsLog
 
 I expected a scale action and it did not occur. There are no scale action events or logs.
 
-Review the autoscale metrics if you are using a metric-based scale rule. **TODO WHAT ARE THEY LOOKING IN METRICS FOR!** Review the autoscale evaluation logs during the time period you expected the scale action to occur. Review all the evaluations it did and why it decided to not trigger a scale action.
+Review the autoscale metrics if you are using a metric-based scale rule. It's possible that the observed **TODO WHAT ARE THEY LOOKING IN METRICS FOR!** Review the autoscale evaluation logs during the time period you expected the scale action to occur. Review all the evaluations it did and why it decided to not trigger a scale action.
 
 
 ```Kusto
