@@ -437,7 +437,7 @@ Data in use is the data stored in memory of the database system during the execu
 
 ### Control access of application users to sensitive data through encryption
 
-Encryption can be used as a way to ensure that only application users who have access to cryptographic keys, can view, update, and protect the data.
+Encryption can be used as a way to ensure that only application users who have access to cryptographic keys and can view or update the data.
 
 **How to implement**:
 
@@ -451,10 +451,11 @@ Encryption can be used as a way to ensure that only application users who have a
 
 - Protect symmetric keys with asymmetric keys/certificates (not passwords) to avoid using 3DES. 
 
-- Be careful when migrating a database using CLE via export/import (bacpac files). 
+- Be careful when migrating a database using Cell-Level Encryption via export/import (bacpac files). 
   - See the article, [Recommendations for using Cell Level Encryption in Azure SQL Database](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/) on how to prevent loosing keys when migrating data, and for other best practice guidance.
 
 ### Protect data against unauthorized viewing by application users while preserving data format
+Another technique for preventing unauthorized users from viewing data is to obfuscate or mask the data while preserving data types and formats to ensure that user applications can continue handle and display the data.
 
 **How to implement**:
 
@@ -466,14 +467,14 @@ Encryption can be used as a way to ensure that only application users who have a
 **Best practices**:
 
 > [!NOTE]
-> DDM cannot be used to protect data from high-privilege users. Masking policies do not apply to users with administrative access like db_owner.
+> Dynamic Data Masking cannot be used to protect data from high-privilege users. Masking policies do not apply to users with administrative access like db_owner.
 
-- Don't permit app users to run ad-hoc queries (as they may be able to work around DDM).  
+- Don't permit app users to run ad-hoc queries (as they may be able to work around Dynamic Data Masking).  
   - See the article, [Bypassing masking using inference or brute-force techniques](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking#security-note-bypassing-masking-using-inference-or-brute-force-techniques) for details.  
 
 - Use a proper access control policy (via SQL permissions, roles, RLS) to limit user permissions to make updates in the masked columns. Creating a mask on a column doesn't prevent updates to that column. Therefore, although users receive masked data when querying the masked column, the same users can update the data if they have write-permissions.    
 
--  DDM doesn't preserve the statistical properties of the masked values, which may impact query results (for example, queries containing filtering predicates or joins on the masked data).
+-  Dynamic Data Masking doesn't preserve the statistical properties of the masked values, which may impact query results (for example, queries containing filtering predicates or joins on the masked data).
 
 ## Network security
 
