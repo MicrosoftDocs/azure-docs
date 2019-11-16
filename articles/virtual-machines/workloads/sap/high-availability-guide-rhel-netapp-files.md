@@ -371,7 +371,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    ```
 
    > [!NOTE]
-   > Make sure to match the NFS protocol version for the Azure NetApp Files volumes, when mounting the volumes. In this example the Azure NetApp Files volumes were created as NFSv3 volumes.  
+   > Make sure to match the NFS protocol version of the Azure NetApp Files volumes, when mounting the volumes. In this example the Azure NetApp Files volumes were created as NFSv3 volumes.  
 
    Mount the new shares
 
