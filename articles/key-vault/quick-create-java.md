@@ -196,7 +196,7 @@ SecretClient secretClient = new SecretClientBuilder()
 
 ### Save a secret
 
-Now that your application is authenticated, you can put a secret into your keyvault using the `secretClient.setSecret` method This requires a name for the secret -- we've assigned the value "mySecret" to the `secretName` variable in this sample.  
+Now that your application is authenticated, you can put a secret into your keyvault using the `secretClient.setSecret` method. This requires a name for the secret -- we've assigned the value "mySecret" to the `secretName` variable in this sample.  
 
 ```java
 secretClient.setSecret(new KeyVaultSecret(secretName, secretValue));
