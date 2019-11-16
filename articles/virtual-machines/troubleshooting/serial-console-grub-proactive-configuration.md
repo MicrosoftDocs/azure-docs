@@ -118,7 +118,8 @@ The VM must be configured to accept a value of 1 for the kernel parameter, which
 
 > [!VIDEO https://youtu.be/0doqFRrHz_M]
 
-To configure the VM to accept a reboot via SysRq commands on the Azure Portal, you will need to set a value of 1 for the kernel parameter kernel.sysrq .
+To configure the VM to accept a reboot via SysRq commands on the Azure portal, you will need to set a value of 1 for the kernel parameter kernel.sysrq
+
 For this configuration to persist a reboot, add an entry to the file **sysctl.conf**
 
 `echo kernel.sysrq = 1 >> /etc/sysctl.conf`
@@ -356,7 +357,7 @@ GRUB menu should appear on-screen for the configured timeout=15 without the need
 
 ## Force the kernel to a bash prompt
 Having access to GRUB allows you to interrupt the initialization process this interaction is useful for many recovery procedures.
-If you do not have root password and single user requires you to have a root password, you can boot the kernel replacing the init program with a bash prompt – this interrupt can be achieved by appending init=/bin/bash to the the kernel boot line
+If you do not have root password and single user requires you to have a root password, you can boot the kernel replacing the init program with a bash prompt – this interrupt can be achieved by appending init=/bin/bash to the kernel boot line
 
 ![bash1](./media/virtual-machines-serial-console/bash1.png)
 
@@ -412,7 +413,7 @@ Next run the command
 
 `telinit q`
 
-To enable GRUB the following changes should be made to /boot/grub/menu.lst 
+To enable GRUB, the following changes should be made to /boot/grub/menu.lst 
 
 ```
 timeout 5
@@ -439,8 +440,9 @@ You will gain access to a shell without having to enter a password. You can then
 
 Alternatively you might need to access the VM in single user or emergency mode. Select the kernel you wish to boot or interrupt using arrow keys.
 Enter the desired mode by appending the keyword **single** or **1** to the kernel boot line. 
-On RHEL systems you can also append **rd.break**.
-See [this doc](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode#general-single-user-mode-access) for more information about accessing single user mode.
+On RHEL systems, you can also append **rd.break**.
+
+For more information on how to access single user mode, see [this doc](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode#general-single-user-mode-access) 
 
 
 ![single_user_ubuntu](./media/virtual-machines-serial-console/single-user-ubuntu.png)
