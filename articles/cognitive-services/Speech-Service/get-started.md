@@ -5,6 +5,7 @@ description: Getting started with Speech service is easy and affordable. There a
 services: cognitive-services
 author: erhopf
 manager: nitinme
+
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
@@ -19,16 +20,24 @@ Using the Speech service is easy and affordable. There are two options available
 
 In this article, you'll use an Azure account to create a Speech resource. You can sign up for a free Microsoft Azure account—it comes with $200 in service credit that you can apply toward a paid Speech service subscription for up to 30 days. Speech service also offers a free, low-volume tier that's suitable for developing applications. You can keep this free subscription even after your free trial or service credit expires.
 
-## Try the Speech service without Azure
+## Try the Speech service without credit card info
 
-If you want to evaluate the Speech service without Azure, there is a free of charge option that allows you to try the Speech service without creating an Azure account or Speech resource (no credit card required, no data saved after trial period).
+Although we recommend trying the Speech service using the instructions in the next section, you may prefer this section's instructions if the following applies:
+
+- You already have an active Azure account.
+- You want to evaluate the Speech service without creating a new Azure account.
+- You prefer no credit card be required and no data saved after trial period.
+
+> [!NOTE]
+> Your trial period starts immediately once the following steps are complete.
 
 1. Go to [Try Cognitive Service](https://azure.microsoft.com/try/cognitive-services/).
-1. Select the **Speech APIs** tab, then **Get API Key**
+1. Select the **Speech APIs** tab.
+1. Choose **Get API Key**.
 
-You'll be presented with some choices and you'll have to approve a user agreement. Once those steps are complete you'll see the keys you can use to start coding your Speech app.
+You'll be presented with billing choices. Choose the free option and then read and approve the user agreement. You'll be presented with keys you can use to try the Speech service for a limited time.
 
-## Try the Speech service using Azure
+## Try the Speech service using a new Azure account
 
 You can use your existing Azure account and the free pricing tier (F0) to try most Speech service features. Alternatively, you can create a new Azure account free of charge.
 
@@ -38,7 +47,7 @@ To sign up for a new Azure account, you will need a Microsoft account. If you do
 
 Once you have a Microsoft account, go to the [Azure sign-up page](https://azure.microsoft.com/free/ai/), select **Start free**, and create a new Azure account using a Microsoft account. 
 
-## Create a Speech resource in Azure
+### Create a Speech resource in Azure
 
 > [!NOTE]
 > You can create an unlimited number of standard-tier subscriptions in one or multiple regions. However, you can create only one free-tier subscription. Model deployments on the free tier that remain unused for 7 days will be decommissioned automatically.
@@ -59,12 +68,12 @@ To add a Speech service resource (free or paid tier) to your Azure account:
 
 1. Select **Create**,  then:
 
-   * Give a unique name for your new resource. The name helps you distinguish among multiple subscriptions to the same service.
-   * Choose the Azure subscription that the new resource is associated with to determine how the fees are billed.
-   * Choose the [region](regions.md) where the resource will be used.
-   * Choose either a free (F0) or paid (S0) pricing tier. For complete information about pricing and usage quotas for each tier, select **View full pricing details**.
-   * Create a new resource group for this Speech subscription or assign the subscription to an existing resource group. Resource groups help you keep your various Azure subscriptions organized.
-   * Select **Create**. This will take you to the deployment overview and display deployment progress messages.
+   - Give a unique name for your new resource. The name helps you distinguish among multiple subscriptions to the same service.
+   - Choose the Azure subscription that the new resource is associated with to determine how the fees are billed.
+   - Choose the [region](regions.md) where the resource will be used.
+   - Choose either a free (F0) or paid (S0) pricing tier. For complete information about pricing and usage quotas for each tier, select **View full pricing details**.
+   - Create a new resource group for this Speech subscription or assign the subscription to an existing resource group. Resource groups help you keep your various Azure subscriptions organized.
+   - Select **Create**. This will take you to the deployment overview and display deployment progress messages.
 
 It takes a few moments to deploy your new Speech resource. Once deployment is complete, select **Go to resource** and in the left navigation pane select **Keys** to display your Speech service subscription keys. Each subscription has two keys; you can use either key in your application. To quickly copy/paste a key to your code editor or other location, select the copy button next to each key, switch windows to paste the clipboard contents to the desired location.
 
@@ -77,9 +86,9 @@ To switch from one subscription to another, for example when your free trial exp
 
 ## About regions
 
-* If your application uses a [Speech SDK](speech-sdk.md), you provide the region code, such as `westus`, when creating a speech configuration.
-* If your application uses one of the Speech service's [REST APIs](rest-apis.md), the region is part of the endpoint URI you use when making requests.
-* Keys created for a region are valid only in that region. Attempting to use them with other regions will result in authentication errors.
+- If your application uses a [Speech SDK](speech-sdk.md), you provide the region code, such as `westus`, when creating a speech configuration.
+- If your application uses one of the Speech service's [REST APIs](rest-apis.md), the region is part of the endpoint URI you use when making requests.
+- Keys created for a region are valid only in that region. Attempting to use them with other regions will result in authentication errors.
 
 ## Next steps
 
