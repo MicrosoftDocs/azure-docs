@@ -49,17 +49,28 @@ In this quickstart, you incorporate the Azure App Configuration service into an 
 1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search and add the following NuGet packages to your project. If you can't find them, select the **Include prerelease** check box.
 
     ```
-    Microsoft.Extensions.Configuration.AzureAppConfiguration 2.0.0-preview-009200001-1437 or later
+    Microsoft.Extensions.Configuration.AzureAppConfiguration 2.1.0-preview-010380001-1099 or later
     ```
 
-2. Open *Function1.cs*, and add a reference to the .NET Core general configuration provider and the .NET Core App Configuration provider.
+2. Open *Function1.cs*, and add the namespaces of the .NET Core configuration and the App Configuration configuration provider.
 
     ```csharp
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
+3. Add a `static` property `Configuration` to create a singleton instance of `IConfiguration`. Then add a `static` constructor to connect to App Configuration by calling `AddAzureAppConfiguration()`. This will load configuration once at the application startup. The same configuration instance will be used for all Function calls later.
 
-3. Update the `Run` method to use App Configuration by calling `builder.AddAzureAppConfiguration()`.
+    ```csharp
+    private static IConfiguration Configuration { set; get; }
+
+    static Function1()
+    {
+        var builder = new ConfigurationBuilder();
+        builder.AddAzureAppConfiguration(Environment.GetEnvironmentVariable("ConnectionString"));
+        Configuration = builder.Build();
+    }
+    ```
+4. Update the `Run` method to read values from the configuration.
 
     ```csharp
     public static async Task<IActionResult> Run(
@@ -67,19 +78,12 @@ In this quickstart, you incorporate the Azure App Configuration service into an 
     {
         log.LogInformation("C# HTTP trigger function processed a request.");
 
-        var builder = new ConfigurationBuilder();
-        builder.AddAzureAppConfiguration(Environment.GetEnvironmentVariable("ConnectionString"));
-        var config = builder.Build();
-        string message = config["TestApp:Settings:Message"];
-        message = message ?? req.Query["message"];
-
-        string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-        dynamic data = JsonConvert.DeserializeObject(requestBody);
-        message = message ?? data?.message;
-
+        string keyName = "TestApp:Settings:Message";
+        string message = Configuration[keyName];
+            
         return message != null
-            ? (ActionResult) new OkObjectResult(message)
-            : new BadRequestObjectResult("Please pass a message from a configuration store, on the query string or in the request body");
+            ? (ActionResult)new OkObjectResult(message)
+            : new BadRequestObjectResult($"Please create a key-value with the key '{keyName}' in App Configuration.");
     }
     ```
 
