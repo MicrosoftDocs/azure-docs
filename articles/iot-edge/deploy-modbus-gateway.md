@@ -41,7 +41,7 @@ This section walks through deploying Microsoft's sample Modbus module to your Io
 3. Select **Set modules**.
 4. In the **IoT Edge Modules** section, add the Modbus module:
 
-   1. Click **Add** dropdown and select **Marketplace Module**.
+   1. Click the **Add** dropdown and select **Marketplace Module**.
    2. Search for `Modbus` and select the **Modbus TCP Module** by Microsoft.
    3. The module is automatically configured for your IoT Hub and appears in the list of IoT Edge Modules. The Routes are also automatically configured. Select **Review + create**.
    4. Review the deployment manifest and select **Create**.
@@ -73,7 +73,7 @@ This section walks through deploying Microsoft's sample Modbus module to your Io
     ```
 
 8. Select **Save**.
-9. Return to the device details page and select **Refresh**. You should see the new `ModbusTCPModule` module running along with the IoT Edge runtime.
+9. Return to the device details page and select **Refresh**. You should see the new **ModbusTCPModule** module running along with the IoT Edge runtime.
 
 ## View data
 
