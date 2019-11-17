@@ -6,14 +6,14 @@ manager: philmea
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 11/18/2019
 ms.author: kgremban
 ms.custom: seodec18
 ---
 
 # Connect Modbus TCP devices through an IoT Edge device gateway
 
-If you want to connect IoT devices that use Modbus TCP or RTU protocols to an Azure IoT hub, use an IoT Edge device as a gateway. The gateway device reads data from your Modbus devices, then communicates that data to the cloud using a supported protocol.
+If you want to connect IoT devices that use Modbus TCP or RTU protocols to an Azure IoT hub, you can use an IoT Edge device as a gateway. The gateway device reads data from your Modbus devices, then communicates that data to the cloud using a supported protocol.
 
 ![Modbus devices connect to IoT Hub through IoT Edge gateway](./media/deploy-modbus-gateway/diagram.png)
 
@@ -37,67 +37,48 @@ If you want to create your own module and customize it for your environment, the
 This section walks through deploying Microsoft's sample Modbus module to your IoT Edge device.
 
 1. On the [Azure portal](https://portal.azure.com/), go to your IoT hub.
-
 2. Go to **IoT Edge** and click on your IoT Edge device.
-
 3. Select **Set modules**.
+4. In the **IoT Edge Modules** section, add the Modbus module:
 
-4. Add the Modbus module:
+   1. Click **Add** dropdown and select **Marketplace Module**.
+   2. Search for `Modbus` and select the **Modbus TCP Module** by Microsoft.
+   3. The module is automatically configured for your IoT Hub and appears in the list of IoT Edge Modules. The Routes are also automatically configured. Select **Review + create**.
+   4. Review the deployment manifest and select **Create**.
 
-   1. Click **Add** and select **IoT Edge module**.
+5. Returned to the details page of your IoT Edge device, select **ModbusTCPModule** in the list of modules.
+6. On the **IoT Edge Module Details** page, select **Module Identity Twin**.
+7. Copy the following JSON into the text box. Change the value of **SlaveConnection** to the IPv4 address of your Modbus device.
 
-   2. In the **Name** field, enter "modbus".
-
-   3. In the **Image** field, enter the image URI of the sample container: `mcr.microsoft.com/azureiotedge/modbus:1.0`.
-
-   4. Check the **Enable** box to update the module twin's desired properties.
-
-   5. Copy the following JSON into the text box. Change the value of **SlaveConnection** to the IPv4 address of your Modbus device.
-
-      ```JSON
-      {
-        "properties.desired":{
-          "PublishInterval":"2000",
-          "SlaveConfigs":{
-            "Slave01":{
-              "SlaveConnection":"<IPV4 address>","HwId":"PowerMeter-0a:01:01:01:01:01",
-              "Operations":{
-                "Op01":{
-                  "PollingInterval": "1000",
-                  "UnitId":"1",
-                  "StartAddress":"40001",
-                  "Count":"2",
-                  "DisplayName":"Voltage"
-                }
+    ```JSON
+    {
+      "properties.desired":{
+        "PublishInterval":"2000",
+        "SlaveConfigs":{
+          "Slave01":{
+            "SlaveConnection":"<IPV4 address>","HwId":"PowerMeter-0a:01:01:01:01:01",
+            "Operations":{
+              "Op01":{
+                "PollingInterval": "1000",
+                "UnitId":"1",
+                "StartAddress":"40001",
+                "Count":"2",
+                "DisplayName":"Voltage"
               }
             }
           }
         }
       }
-      ```
+    }
+    ```
 
-   6. Select **Save**.
-
-5. Back in the **Add Modules** step, select **Next**.
-
-7. In the **Specify Routes** step, copy the following JSON into the text box. This route sends all messages collected by the Modbus module to IoT Hub. In this route, **modbusOutput** is the endpoint that Modbus module uses to output data and **$upstream** is a special destination that tells IoT Edge hub to send messages to IoT Hub.
-
-   ```JSON
-   {
-     "routes": {
-       "modbusToIoTHub":"FROM /messages/modules/modbus/outputs/modbusOutput INTO $upstream"
-     }
-   }
-   ```
-
-8. Select **Next**.
-
-9. In the **Review Deployment** step, select **Submit**.
-
-10. Return to the device details page and select **Refresh**. You should see the new **modbus** module running along with the IoT Edge runtime.
+8. Select **Save**.
+9. Return to the device details page and select **Refresh**. You should see the new `ModbusTCPModule` module running along with the IoT Edge runtime.
 
 ## View data
+
 View the data coming through the modbus module:
+
 ```cmd/sh
 iotedge logs modbus
 ```
@@ -106,5 +87,5 @@ You can also view the telemetry the device is sending by using the [Azure IoT Hu
 
 ## Next steps
 
-- To learn more about how IoT Edge devices can act as gateways, see [Create an IoT Edge device that acts as a transparent gateway](./how-to-create-transparent-gateway.md).
-- For more information about how IoT Edge modules work, see [Understand Azure IoT Edge modules](iot-edge-modules.md).
+* To learn more about how IoT Edge devices can act as gateways, see [Create an IoT Edge device that acts as a transparent gateway](./how-to-create-transparent-gateway.md).
+*- For more information about how IoT Edge modules work, see [Understand Azure IoT Edge modules](iot-edge-modules.md).
