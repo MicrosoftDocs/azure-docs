@@ -54,7 +54,7 @@ App Configuration complements [Azure Key Vault](https://azure.microsoft.com/serv
 
 ## Use App Configuration
 
-The easiest way to add an app configuration store to your application is through a client library that Microsoft provides. Based on the programming language and framework, the following best methods are available to you.
+The easiest way to add an App Configuration store to your application is through a client library that Microsoft provides. Based on the programming language and framework, the following best methods are available to you.
 
 | Programming language and framework | How to connect |
 |---|---|

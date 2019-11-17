@@ -137,7 +137,7 @@ The `ConfigureRefresh` method is used to specify the settings used to update the
 
 ## Next steps
 
-In this tutorial, you added an Azure managed service identity to streamline access to App Configuration and improve credential management for your app. To learn more about how to use App Configuration, continue to the Azure CLI samples.
+In this tutorial, you enabled your .NET Core app to dynamically refresh configuration settings from App Configuration. To learn how to use an Azure managed identity to streamline access to App Configuration, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [CLI samples](./cli-samples.md)
+> [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)
