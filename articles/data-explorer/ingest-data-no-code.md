@@ -40,8 +40,8 @@ View and understand the data provided by the Azure Monitor diagnostic and activi
 
 Azure diagnostic metrics and logs are emitted by an Azure service and provide data about the operation of that service. 
 
-
-#### Diagnostic logs example
+# [Diagnostic metrics](#tab/diagnostic-metrics)
+#### Diagnostic metrics example
 
 Metrics are aggregated with a time grain of 1 minute. Following is an example of an Azure Data Explorer metric-event schema on query duration:
 
@@ -73,6 +73,9 @@ Metrics are aggregated with a time grain of 1 minute. Following is an example of
     ]
 }
 ```
+
+# [Diagnostic logs](#tab/diagnostic-logs)
+#### Diagnostic logs example
 
 Following is an example of an Azure Data Explorer [ingestion log](using-diagnostic-logs.md#ingestion-logs):
 
@@ -127,8 +130,8 @@ Following is an example of an Azure Data Explorer [ingestion log](using-diagnost
 	}
 }
 ```
-
-### Activity logs example
+# [Activity logs](#tab/activity-logs)
+#### Activity logs example
 
 Azure activity logs are subscription-level logs that provide insight into the operations performed on resources in your subscription. Following is an example of an activity-log event for checking access:
 
@@ -186,6 +189,7 @@ Azure activity logs are subscription-level logs that provide insight into the op
 	}]
 }
 ```
+---
 
 ## Set up an ingestion pipeline in Azure Data Explorer
 
