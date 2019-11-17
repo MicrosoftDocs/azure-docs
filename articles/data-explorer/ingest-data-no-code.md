@@ -21,7 +21,7 @@ In this tutorial, you'll learn how to:
 > * Create tables and ingestion mapping in an Azure Data Explorer database.
 > * Format the ingested data by using an update policy.
 > * Create an [event hub](/azure/event-hubs/event-hubs-about)  and connect it to Azure Data Explorer.
-> * Stream data to an event hub from Azure Monitor [diagnostic metrics and logs](/azure/azure-monitor/platform/diagnostic-settings) and [Azure Monitor activity logs](/azure/azure-monitor/platform/activity-logs-overview).
+> * Stream data to an event hub from Azure Monitor [diagnostic metrics and logs](/azure/azure-monitor/platform/diagnostic-settings) and [activity logs](/azure/azure-monitor/platform/activity-logs-overview).
 > * Query the ingested data by using Azure Data Explorer.
 
 > [!NOTE]
@@ -501,6 +501,7 @@ Now you need to create the data connections for your diagnostic metrics and logs
 # [Diagnostic metrics / Diagnostic logs](#tab/diagnostic-metrics+diagnostic-logs) 
 
 1. Use the following settings in the **Data Connection** window:
+
     Data source:
 
     **Setting** | **Suggested value** | **Field description**
