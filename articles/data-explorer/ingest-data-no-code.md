@@ -34,7 +34,7 @@ In this tutorial, you'll learn how to:
 
 ## Azure Monitor data provider: diagnostic metrics and logs and activity logs
 
-View and understand the data provided by the Azure Monitor diagnostic metrics and logs and activity logs below. We'll create an ingestion pipeline based on these data schemas. Note that each event in a log has an array of records. This array of records will be split later in the tutorial.
+View and understand the data provided by the Azure Monitor diagnostic metrics and logs and activity logs below. You'll create an ingestion pipeline based on these data schemas. Note that each event in a log has an array of records. This array of records will be split later in the tutorial.
 
 ### Examples of diagnostic metrics and logs and activity logs
 
@@ -333,7 +333,7 @@ To map the activity log data to the table, use the following query:
 # [Diagnostic logs](#tab/diagnostic-logs)
 #### Create data update policy for diagnostics logs
 
-1. Create a [function](/azure/kusto/management/functions) that expands the collection of diagnostic logs records so that each value in the collection receives a separate row. We will enable ingestion logs on an Azure Data Explorer cluster, and use [ingestion logs schema](/azure/data-explorer/using-diagnostic-logs#diagnostic-logs-schema). We will create one table for succeeded and for failed ingestion, while some of the fields will be empty for succeeded ingestion (ErrorCode for example). Use the [`mv-expand`](/azure/kusto/query/mvexpandoperator) operator:
+1. Create a [function](/azure/kusto/management/functions) that expands the collection of diagnostic logs records so that each value in the collection receives a separate row. You'll enable ingestion logs on an Azure Data Explorer cluster, and use [ingestion logs schema](/azure/data-explorer/using-diagnostic-logs#diagnostic-logs-schema). You'll create one table for succeeded and for failed ingestion, while some of the fields will be empty for succeeded ingestion (ErrorCode for example). Use the [`mv-expand`](/azure/kusto/query/mvexpandoperator) operator:
 
     ```kusto
     .create function DiagnosticLogsExpand() {
@@ -579,7 +579,7 @@ Query results:
 # [Diagnostic logs](#tab/diagnostic-logs)
 ### Query the diagnostic logs table
 
-This pipeline produces ingestions via an event hub. We'll review the results of these ingestions.
+This pipeline produces ingestions via an event hub. You'll review the results of these ingestions.
 The following query analyzes how many ingestions accrued in a minute, including a sample of `Database`, `Table` and `IngestionSourcePath` for each interval:
 
 ```kusto
