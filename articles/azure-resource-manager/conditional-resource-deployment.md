@@ -1,11 +1,8 @@
 ---
-title: Conditional deployment with Azure Resource Manager templates
+title: Conditional deployment with templates
 description: Describes how to conditionally deploy a resource in an Azure Resource Manager template.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/03/2019
-ms.author: tomfitz
 ---
 
 # Conditional deployment in Resource Manager templates

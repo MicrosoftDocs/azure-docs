@@ -1,11 +1,7 @@
 ---
-title: Tutorial - add template functions to Azure Resource Manager template
+title: Tutorial - add template functions
 description: Add template functions to your Azure Resource Manager template to construct values.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
