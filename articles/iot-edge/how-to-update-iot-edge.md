@@ -5,7 +5,7 @@ keywords:
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/27/2019
+ms.date: 11/18/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -14,7 +14,7 @@ ms.custom: seodec18
 
 # Update the IoT Edge security daemon and runtime
 
-As the IoT Edge service releases new versions, you'll want to update your IoT Edge devices for the latest features and security improvements. This article provides information about how to update your IoT Edge devices when a new version is available. 
+As the IoT Edge service releases new versions, you'll want to update your IoT Edge devices for the latest features and security improvements. This article provides information about how to update your IoT Edge devices when a new version is available.
 
 Two components of an IoT Edge device need to be updated if you want to move to a newer version. The first is the security daemon, which runs on the device and starts the runtime modules when the device starts. Currently, the security daemon can only be updated from the device itself. The second component is the runtime, made up of the IoT Edge hub and IoT Edge agent modules. Depending on how you structure your deployment, the runtime can be updated from the device or remotely. 
 
@@ -24,11 +24,11 @@ To find the latest version of Azure IoT Edge, see [Azure IoT Edge releases](http
 
 The IoT Edge security daemon is a native component that needs to be updated using the package manager on the IoT Edge device. 
 
-Check the version of the security daemon running on your device by using the command `iotedge version`. 
+Check the version of the security daemon running on your device by using the command `iotedge version`.
 
 ### Linux devices
 
-On Linux x64 devices, use apt-get or your appropriate package manager to update the security daemon. 
+On Linux x64 devices, use apt-get or your appropriate package manager to update the security daemon.
 
 ```bash
 apt-get update
@@ -83,7 +83,7 @@ The IoT Edge service will pull the latest versions of the runtime images and aut
 
 If you use specific tags in your deployment (for example, mcr.microsoft.com/azureiotedge-hub:**1.0.7**) then all you need to do is update the tag in your deployment manifest and apply the changes to your device. 
 
-In the Azure portal, the runtime deployment images are declared in the **Configure advanced Edge Runtime settings** section. 
+In the IoT Hub in the Azure portal, the runtime deployment images are declared in the **Configure advanced Edge Runtime settings** section. 
 
 ![Configure advanced edge runtime settings](./media/how-to-update-iot-edge/configure-runtime.png)
 
@@ -112,7 +112,7 @@ In a JSON deployment manifest, update the module images in the **systemModules**
 
 ## Update to a release candidate version
 
-Azure IoT Edge regularly releases new versions of the IoT Edge service. Before each stable release, there is one or more release candidate (RC) versions. RC versions include all the planned features for the release, but are still going through the testing and validation processes required for a stable release. If you want to test a new feature early, you can install the RC version and provide feedback through GitHub. 
+Azure IoT Edge regularly releases new versions of the IoT Edge service. Before each stable release, there is one or more release candidate (RC) versions. RC versions include all the planned features for the release, but are still going through the testing and validation processes required for a stable release. If you want to test a new feature early, you can install the RC version and provide feedback through GitHub.
 
 Release candidate versions follow the same numbering convention of releases, but have **-rc** plus an incremental number appended to the end. You can see the release candidates in the same list of [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases) as the stable versions. For example, find **1.0.7-rc1** and **1.0.7-rc2**, the two release candidates that came before **1.0.7**. You can also see that RC versions are marked with **pre-release** labels. 
 
@@ -125,4 +125,4 @@ As previews, release candidate versions aren't included as the latest version th
 
 View the latest [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases).
 
-Stay up-to-date with recent updates and announcement in the [Internet of Things blog](https://azure.microsoft.com/blog/topics/internet-of-things/) 
+Stay up-to-date with recent updates and announcement in the [Internet of Things blog](https://azure.microsoft.com/blog/topics/internet-of-things/)
