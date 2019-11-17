@@ -83,7 +83,7 @@ The IoT Edge service will pull the latest versions of the runtime images and aut
 
 If you use specific tags in your deployment (for example, mcr.microsoft.com/azureiotedge-hub:**1.0.7**) then all you need to do is update the tag in your deployment manifest and apply the changes to your device. 
 
-In the IoT Hub in the Azure portal, the runtime deployment images are declared in the **Configure advanced Edge Runtime settings** section. 
+In the IoT Hub in the Azure portal, the runtime deployment images are declared in **Runtime Settings**.
 
 ![Configure advanced edge runtime settings](./media/how-to-update-iot-edge/configure-runtime.png)
 
