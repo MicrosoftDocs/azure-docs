@@ -153,7 +153,7 @@ In this tutorial, you learn how to:
 
 ## Next steps
 
-In this tutorial, you added an Azure managed service identity to streamline access to App Configuration and improve credential management for your app. To learn how to add an Azure-managed service identity that streamlines access to App Configuration, continue to the next tutorial.
+In this tutorial, you enabled your .NET Framework app to dynamically refresh configuration settings from App Configuration. To learn how to use an Azure managed identity to streamline access to App Configuration, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)
