@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Ingest monitoring data in Azure Data Explorer without one line of code'
-description: In this tutorial, you learn how to ingest data to Azure Data Explorer without one line of code and query that data.
+description: In this tutorial, you learn how to ingest monitoring data to Azure Data Explorer without one line of code and query that data.
 author: orspod
 ms.author: orspodek
 ms.reviewer: kerend
@@ -11,7 +11,7 @@ ms.date: 11/17/2019
 # Customer intent: I want to ingest monitoring data to Azure Data Explorer without one line of code, so that I can explore and analyze my data by using queries.
 ---
 
-# Tutorial: Ingest monitoring data into Azure Data Explorer 
+# Tutorial: Ingest and query monitoring data in Azure Data Explorer 
 
 This tutorial will teach you how to ingest data from diagnostic and activity logs to an Azure Data Explorer cluster without writing code. With this simple ingestion method, you can quickly begin querying Azure Data Explorer for data analysis.
 
@@ -21,11 +21,11 @@ In this tutorial, you'll learn how to:
 > * Create tables and ingestion mapping in an Azure Data Explorer database.
 > * Format the ingested data by using an update policy.
 > * Create an [event hub](/azure/event-hubs/event-hubs-about)  and connect it to Azure Data Explorer.
-> * Stream data to an event hub from [Azure Monitor diagnostic logs](/azure/azure-monitor/platform/diagnostic-logs-overview) and [Azure Monitor activity logs](/azure/azure-monitor/platform/activity-logs-overview).
+> * Stream data to an event hub from Azure Monitor [diagnostic metrics and logs](/azure/azure-monitor/platform/diagnostic-settings) and [Azure Monitor activity logs](/azure/azure-monitor/platform/activity-logs-overview).
 > * Query the ingested data by using Azure Data Explorer.
 
 > [!NOTE]
-> Create all resources in the same Azure location or region. This is a requirement for Azure Monitor diagnostic logs.
+> Create all resources in the same Azure location or region. 
 
 ## Prerequisites
 
@@ -77,7 +77,7 @@ Diagnostic metrics are aggregated with a time grain of 1 minute. Following is an
 # [Diagnostic logs](#tab/diagnostic-logs)
 #### Example
 
-Following is an example of an Azure Data Explorer [ingestion log](using-diagnostic-logs.md#ingestion-logs):
+Following is an example of an Azure Data Explorer [diagnostic ingestion log](using-diagnostic-logs.md#ingestion-logs):
 
 ```json
 {
@@ -333,8 +333,9 @@ To map the activity log data to the table, use the following query:
 # [Diagnostic logs](#tab/diagnostic-logs)
 #### Create data update policy for diagnostics logs
 
-1. Create a [function](/azure/kusto/management/functions) that expands the collection of diagnostic logs records so that each value in the collection receives a separate row. We will enable ingestion logs on an ADX cluster, so we will use the schema we know <!--link to ingestion logs here-->. We will create one table for succeeded and for failed ingestion, while some of the fields will be empty for succeeded ingestion (ErrorCode for example). Use the [`mv-expand`](/azure/kusto/query/mvexpandoperator) operator:
-     ```kusto
+1. Create a [function](/azure/kusto/management/functions) that expands the collection of diagnostic logs records so that each value in the collection receives a separate row. We will enable ingestion logs on an Azure Data Explorer cluster, and use [ingestion logs schema](/azure/data-explorer/using-diagnostic-logs#diagnostic-logs-schema). We will create one table for succeeded and for failed ingestion, while some of the fields will be empty for succeeded ingestion (ErrorCode for example). Use the [`mv-expand`](/azure/kusto/query/mvexpandoperator) operator:
+
+    ```kusto
     .create function DiagnosticLogsExpand() {
         DiagnosticRawRecords
         | mv-expand events = Records
@@ -356,10 +357,10 @@ To map the activity log data to the table, use the following query:
     }
     ```
 
-2. Add the [update policy](/azure/kusto/concepts/updatepolicy) to the target table. This policy will automatically run the query on any newly ingested data in the *DiagnosticRawRecords* intermediate data table and ingest its results into the *DiagnosticMetrics* table:
+2. Add the [update policy](/azure/kusto/concepts/updatepolicy) to the target table. This policy will automatically run the query on any newly ingested data in the *DiagnosticRawRecords* intermediate data table and ingest its results into the *DiagnosticLogs* table:
 
     ```kusto
-    .alter table DiagnosticMetrics policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticLogsExpand()", "IsEnabled": "True"}]'
+    .alter table DiagnosticLogs policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticLogsExpand()", "IsEnabled": "True"}]'
     ```
 
 # [Activity logs](#tab/activity-logs)
@@ -422,7 +423,6 @@ Azure diagnostic settings enable exporting metrics and logs to a storage account
 Now you need to connect your diagnostic metrics and logs and your activity logs to the event hub.
 
 # [Diagnostic metrics / Diagnostic logs](#tab/diagnostic-metrics+diagnostic-logs) 
-
 ### Connect diagnostic metrics and logs to your event hub
 
 Select a resource from which to export metrics. Several resource types support exporting diagnostic data, including Event Hubs namespace, Azure Key Vault, Azure IoT Hub, and Azure Data Explorer clusters. In this tutorial, we'll use an Azure Data Explorer cluster as our resource, we'll review query performance metrics and ingestion results logs.
@@ -488,8 +488,7 @@ Select a resource from which to export metrics. Several resource types support e
 
 Now you need to create the data connections for your diagnostic metrics and logs and activity logs.
 
-# [Diagnostic metrics / Diagnostic logs](#tab/diagnostic-metrics+diagnostic-logs) 
-### Create the data connection for diagnostic metrics and logs
+### Create the data connection for diagnostic metrics and logs and activity logs
 
 1. In your Azure Data Explorer cluster named *kustodocs*, select **Databases** in the left menu.
 1. In the **Databases** window, select your *TestDatabase* database.
@@ -499,6 +498,9 @@ Now you need to create the data connections for your diagnostic metrics and logs
 
     ![Event hub data connection](media/ingest-data-no-code/event-hub-data-connection.png)
 
+# [Diagnostic metrics / Diagnostic logs](#tab/diagnostic-metrics+diagnostic-logs) 
+
+1. Use the following settings in the **Data Connection** window:
     Data source:
 
     **Setting** | **Suggested value** | **Field description**
@@ -523,9 +525,6 @@ Now you need to create the data connections for your diagnostic metrics and logs
 1. Select **Create**.  
 
 # [Activity logs](#tab/activity-logs)
-### Create the data connection for activity logs
-
-Repeat the steps in the Create the data connection for diagnostic logs section to create the data connection for your activity logs.
 
 1. Use the following settings in the **Data Connection** window:
 
@@ -558,7 +557,7 @@ Repeat the steps in the Create the data connection for diagnostic logs section t
 You now have a pipeline with data flowing. Ingestion via the cluster takes 5 minutes by default, so allow the data to flow for a few minutes before beginning to query.
 
 # [Diagnostic metrics](#tab/diagnostic-metrics)
-### An example of querying the diagnostic metrics table
+### Query the diagnostic metrics table
 
 The following query analyzes query duration data from diagnostic metric records in Azure Data Explorer:
 
@@ -577,10 +576,10 @@ Query results:
 | | |
 
 # [Diagnostic logs](#tab/diagnostic-logs)
-### An example of querying the diagnostic logs table
+### Query the diagnostic logs table
 
-This pipeline produces ingestions via an event hub, we'll review the results of these ingestions.
-The following query analyzes how many ingestions accrued in a minute, including a sample of Database, Table and IngestionSourcePath for each interval:
+This pipeline produces ingestions via an event hub. We'll review the results of these ingestions.
+The following query analyzes how many ingestions accrued in a minute, including a sample of `Database`, `Table` and `IngestionSourcePath` for each interval:
 
 ```kusto
 DiagnosticLogs
@@ -597,7 +596,7 @@ Query results:
 | | |
 
 # [Activity logs](#tab/activity-logs)
-### An example of querying the activity logs table
+### Query the activity logs table
 
 The following query analyzes data from activity log records in Azure Data Explorer:
 
@@ -619,4 +618,6 @@ Query results:
 
 ## Next steps
 
-Learn to write many more queries on the data you extracted from Azure Data Explorer by using [Write queries for Azure Data Explorer](write-queries.md).
+* Learn to write many more queries on the data you extracted from Azure Data Explorer by using [Write queries for Azure Data Explorer](write-queries.md).
+* [Monitor Azure Data Explorer ingestion operations using diagnostic logs](using-diagnostic-logs.md)
+* [Use metrics to monitor cluster health](using-metrics.md)
