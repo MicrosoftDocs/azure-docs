@@ -77,7 +77,7 @@ Diagnostic metrics are aggregated with a time grain of 1 minute. Following is an
 # [Diagnostic logs](#tab/diagnostic-logs)
 #### Example
 
-Following is an example of an Azure Data Explorer [diagnostic ingestion log](using-diagnostic-logs.md#ingestion-logs):
+Following is an example of an Azure Data Explorer [diagnostic ingestion log](using-diagnostic-logs.md#diagnostic-logs-schema):
 
 ```json
 {
