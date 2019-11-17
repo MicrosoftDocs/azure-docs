@@ -17,12 +17,15 @@ ms.author: tomfitz
 
 ---
 # Microsoft.Common.Section UI element
+
 A control that groups one or more elements under a heading.
 
 ## UI sample
+
 ![Microsoft.Common.Section](./media/managed-application-elements/microsoft.common.section.png)
 
 ## Schema
+
 ```json
 {
   "name": "section1",
@@ -45,6 +48,7 @@ A control that groups one or more elements under a heading.
 ```
 
 ## Remarks
+
 - `elements` must have at least one element, and can have all element types except `Microsoft.Common.Section`.
 - This element doesn't support the `toolTip` property.
 
@@ -58,5 +62,6 @@ steps('configuration').section1.text1
 Elements of type `Microsoft.Common.Section` have no output values themselves.
 
 ## Next steps
+
 * For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).
 * For a description of common properties in UI elements, see [CreateUiDefinition elements](create-uidefinition-elements.md).
