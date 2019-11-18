@@ -11,7 +11,7 @@ ms.date: 11/18/2019
 
 # Configure Azure RedHat OpenShift clusters with Azure Monitor for containers
 
-Azure Monitor for containers provides rich monitoring experience for the Azure Kubernetes Service (AKS) and AKS Engine clusters hosted in Azure. This article describes how to enable monitoring of Kubernetes clusters hosted on [Azure RedHat OpenShift](../../openshift/intro-openshift.md) to achieve a similar monitoring experience.
+Azure Monitor for containers provides rich monitoring experience for the Azure Kubernetes Service (AKS) and AKS Engine clusters. This article describes how to enable monitoring of Kubernetes clusters hosted on [Azure RedHat OpenShift](../../openshift/intro-openshift.md) to achieve a similar monitoring experience.
 
 Azure Monitor for containers can be enabled for new, or one or more existing deployments of Azure RedHat Openshift using the following supported methods:
 
