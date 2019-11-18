@@ -93,6 +93,9 @@ Each item in the deployment manifest contains specific information about a modul
    * `on-failure` - If the module crashes, the IoT Edge agent restarts it. If the module shuts down cleanly, the IoT Edge agent does not restart it.
    * `on-unhealthy` - If the module crashes or is considered unhealthy, the IoT Edge agent restarts it.
    * `always` - If the module crashes, is considered unhealthy, or shuts down in any way, the IoT Edge agent restarts it. 
+* **imagePullPolicy** - Whether the IoT Edge agent attempts to pull the latest image for a module automatically or not. If you don't specify a value, the default is *onCreate*. Possible values include: 
+   * `on-create` - When starting a module or updating a module based on a new deployment manifest, the IoT Edge agent will attempt to pull the module image from the container registry.
+   * `never` - The IoT Edge agent will never attempt to pull the module image from the container registry. The expectation is that the module image is cached on the device, and any module image updates are made manually or managed by a third-party solution. 
 
 The IoT Edge agent sends runtime response to IoT Hub. Here is a list of possible responses:
   * 200	- OK

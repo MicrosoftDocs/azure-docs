@@ -71,7 +71,7 @@ Here are a few basic Application Insights queries you can use to explore your lo
 Run this query to see the **100 most recent** logs:
 
 ```Application Insights
-MicrosoftHealthcareAPISAuditLogs
+MicrosoftHealthcareApisAuditLogs
 | limit 100
 ```
 
@@ -88,14 +88,6 @@ Run this query to get all the **failed results**
 MicrosoftHealthcareApisAuditLogs 
 | where ResultType == "Failed" 
 ```
-
-Run this query to find the **average time to perform an operation** by **FHIRResourceType** and **ResultType**:
-
-```Application Insights
-MicrosoftHealthcareApisAuditLogs 
-| summarize avg(OperationDuration) by FhirResourceType, ResultType
-```
-![Audit Log Example](media/diagnostic-logging/audit-logging.png) 
 
 ## Conclusion 
 Having access to diagnostic logs is essential for monitoring a service and providing compliance reports. Azure API for FHIR® allows you to do these actions through diagnostic logs. 

@@ -1,6 +1,6 @@
 ---
 title:  Azure Kinect body tracking joints
-description: Using body frame and joints
+description: Understand the body frame, joints, joint coordinates, and joint hierarchy in the Azure Kinect DK.
 author: qm13
 ms.author: quentinm
 ms.reviewer: cedmonds, abalan

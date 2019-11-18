@@ -177,4 +177,4 @@ When you are finished with this quickstart, delete the file from the file system
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Add utterances and train with Java](../luis-get-started-java-add-utterance.md)
+> [Add utterances and train with Java](../get-started-get-model-rest-apis.md)

@@ -1,7 +1,7 @@
 ---
 title: How to install and run container for Form Recognizer
 titleSuffix: Azure Cognitive Services
-description: Learn how to use the Form Recognizer container to parse form and table data.
+description: This article will explain how to use the Azure Cognitive Services Form Recognizer container to parse form and table data.
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
