@@ -44,7 +44,7 @@ The designer gives you an interactive, visual canvas to quickly build, test, and
 
 ## Pipeline
 
-Create an ML [pipeline](concept-azure-machine-learning-architecture.md#ml-pipelines) from scratch, or use an existing sample pipeline as a template. Each time you run a pipeline, artifacts are stored in your workspace. Pipeline runs are grouped into [experiments](concept-azure-machine-learning-architecture.md#experiments).
+Create an ML [pipeline](concept-azure-machine-learning-architecture.md#machine-learning-pipelines) from scratch, or use an existing sample pipeline as a template. Each time you run a pipeline, artifacts are stored in your workspace. Pipeline runs are grouped into [experiments](concept-azure-machine-learning-architecture.md#experiments).
 
 A pipeline consists of datasets and analytical modules, which you connect together to construct a model. Specifically, a valid pipeline has these characteristics:
 

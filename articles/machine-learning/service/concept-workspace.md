@@ -34,7 +34,7 @@ The diagram shows the following components of a workspace:
 + [Compute targets](concept-azure-machine-learning-architecture.md#compute-targets) are used to run your experiments.
 + When you create the workspace, [associated resources](#resources) are also created for you.
 + [Experiments](concept-azure-machine-learning-architecture.md#experiments) are training runs you use to build your models.  
-+ [Pipelines](concept-azure-machine-learning-architecture.md#ml-pipelines) are reusable workflows for training and retraining your model.
++ [Pipelines](concept-azure-machine-learning-architecture.md#machine-learning-pipelines) are reusable workflows for training and retraining your model.
 + [Datasets](concept-azure-machine-learning-architecture.md#datasets-and-datastores) aid in management of the data you use for model training and pipeline creation.
 + Once you have a model you want to deploy, you create a registered model.
 + Use the registered model and a scoring script to create a [deployment endpoint](concept-azure-machine-learning-architecture.md#endpoints).
