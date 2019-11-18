@@ -161,6 +161,9 @@ conceptualContent:
         - url: ./containers/docker-compose-recipe.md
           itemType: get-started
           text: Use Docker Compose to deploy multiple containers
+        - url: ./containers/container-image-tags.md
+          itemType: reference
+          text: Cognitive Services container image tags
         - url: ./containers/container-faq.md
           itemType: reference
           text: Cognitive Services containers FAQ

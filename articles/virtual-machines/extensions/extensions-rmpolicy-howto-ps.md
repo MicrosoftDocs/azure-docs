@@ -1,5 +1,5 @@
 ---
-title: Use Azure Policy to restrict VM extension installation | Microsoft Docs
+title: Use Azure Policy to restrict VM extension installation 
 description: Use Azure Policy to restrict extension deployments.
 services: virtual-machines-linux 
 documentationcenter: ''

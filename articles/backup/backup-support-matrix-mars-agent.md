@@ -49,15 +49,20 @@ Location changes | You can change the cache location by stopping the backup engi
 
 ## Networking and access support
 
-### URL access
+### URL and IP access
 
 The MARS agent needs access to these URLs:
 
-- http://www.msftncsi.com/ncsi.txt
+- <http://www.msftncsi.com/ncsi.txt>
 - *.Microsoft.com
 - *.WindowsAzure.com
 - *.MicrosoftOnline.com
 - *.Windows.net
+
+And to these IP addresses:
+
+- 20.190.128.0/18
+- 40.126.0.0/18
 
 ### Throttling support
 
@@ -68,7 +73,15 @@ Network throttling | Not available for backed-up machines that run Windows Serve
 
 ## Support for direct backups
 
-You can use the MARS agent to back up directly to Azure on some operating systems that run on on-premises machines and Azure VMs. The operating systems must be 64 bit and should be running the latest services packs and updates. The following table summarizes these operating systems:
+>[!NOTE]
+> The MARS agent does not support Windows Server Core SKUs.
+
+You can use the MARS agent to back up directly to Azure on the operating systems listed below that run on:
+
+1. On-premises Windows Servers
+2. Azure VMs running Windows
+
+The operating systems must be 64 bit and should be running the latest services packs and updates. The following table summarizes these operating systems:
 
 **Operating system** | **Files/folders** | **System state** | **Software/Module requirements**
 --- | --- | --- | ---
@@ -77,7 +90,7 @@ Windows 8.1 (Enterprise, Pro)| Yes |No | Check the corresponding server version 
 Windows 8 (Enterprise, Pro) | Yes | No | Check the corresponding server version for software/module requirements
 Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | Yes | No | Check the corresponding server version for software/module requirements
 Windows Server 2016 (Standard, Datacenter, Essentials) | Yes | Yes | - .NET 4.5 <br> - Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
-Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Yes | Yes | - .NET 4.5 <br> -	Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
+Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Yes | Yes | - .NET 4.5 <br> - Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
 Windows Server 2012 (Standard, Datacenter, Foundation) | Yes | Yes |- .NET 4.5 <br> -Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0 <br> - Deployment Image Servicing and Management (DISM.exe)
 Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | Yes | Yes | - .NET 3.5 , .Net 4.5 <br> -Windows PowerShell <br> - Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0 <br> - Deployment Image Servicing and Management (DISM.exe)
 Windows Server 2008 SP2 (Standard, Datacenter, Foundation) | Yes | No | - .NET 3.5 , .Net 4.5 <br> - Windows PowerShell <br> - Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0 <br> - Deployment Image Servicing and Management (DISM.exe) <br> - Virtual Server 2005 base +  KB KB948515
@@ -120,7 +133,7 @@ OneDrive (synced files are sparse streams)| Not supported.
 Read-only volumes| Not supported | Volume Copy Shadow Service (VSS) works only if the volume is writable.
 Offline volumes| Not supported |VSS works only if the volume is online.
 Network share| Not supported |The volume must be local on the server.
-BitLocker-protected volumes| Not supported |The volume must be unlocked before the backup starts.
+BitLocker-locked volumes| Not supported |The volume must be unlocked before the backup starts.
 File system identification| Not supported |Only NTFS is supported.
 Removable media| Not supported |All backup item sources must have a *fixed* status.
 Deduplicated drives | Supported | Azure Backup converts deduplicated data to normal data. It optimizes, encrypts, stores, and sends the data to the vault.

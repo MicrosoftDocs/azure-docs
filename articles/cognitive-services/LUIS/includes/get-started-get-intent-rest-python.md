@@ -133,4 +133,4 @@ When you are finished with this quickstart, delete the file from the file system
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Add utterances and train](../luis-get-started-python-add-utterance.md)
+> [Add utterances and train](../get-started-get-model-rest-apis.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Configure peering for a circuit - ExpressRoute: Azure | Microsoft Docs'
+title: 'Azure ExpressRoute: Configure peering'
 description: This article documents the steps for creating and provisioning ExpressRoute private and Microsoft peering. This article also demonstrates how to check the status, update, or delete peerings for a circuit.
 services: expressroute
 author: mialdrid
@@ -8,7 +8,7 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: mialdrid
-ms.custom: seodec18
+
 
 ---
 # Create and modify peering for an ExpressRoute circuit

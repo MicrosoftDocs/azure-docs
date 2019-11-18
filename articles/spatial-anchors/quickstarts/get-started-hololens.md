@@ -55,7 +55,7 @@ Locate the `SpatialAnchorsAccountId` field and replace `Set me` with the account
 
 Change the **Solution Configuration** to **Release**, change **Solution Platform** to **x86**, and select **Device** from the deployment target options.
 
-If using HoloLens 2, use **ARM** as the **Solution Platform**, instead of **x86**.
+If using HoloLens 2, use **ARM64** as the **Solution Platform**, instead of **x86**.
 
 ![Visual Studio Configuration](./media/get-started-hololens/visual-studio-configuration.png)
 
