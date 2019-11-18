@@ -84,12 +84,12 @@ When you have column names that include special characters or spaces, surround t
 
 ## Manual comments
 
-```/* This is my comment */```
+* ```/* This is my comment */```
 
-```/* This is a```
-   ```multi-line comment */```
+* ```/* This is a```
+*   ```multi-line comment */```
    
-```// This is a single line comment```
+* ```// This is a single line comment```
 
 If you put a comment at the top of your expression, it will appear in the transformation text box to document your transformation expressions:
 
