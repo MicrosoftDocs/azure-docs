@@ -94,7 +94,7 @@ When you have column names that include special characters or spaces, surround t
 
 If you put a comment at the top of your expression, it will appear in the transformation text box to document your transformation expressions:
 
-![Comments](media/comments2.png "Comments")
+![Comments](media/data-flow/comments2.png "Comments")
 
 ## Convert to dates or timestamps
 
