@@ -13,7 +13,11 @@ You also need an Azure IoT hub in your Azure subscription to complete this quick
 > [!IMPORTANT]
 > During public preview, IoT Plug and Play features are only available on IoT hubs created in the **Central US**, **North Europe**, and **Japan East** regions.
 
-Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance:
+If you're using the Azure CLI locally, first sign in to your Azure subscription using `az login`. If you're running these commands in the Azure Cloud Shell, you're signed in automatically.
+
+If you're using the Azure CLI locally, the `az` version should be **2.0.73** or later; the Azure Cloud Shell uses the latest version. Use the `az --version` command to check the version installed on your machine.
+
+Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your instance:
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
@@ -29,10 +33,4 @@ Run the following command to get the _device connection string_ for the device y
 
 ```azurecli-interactive
 az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDevice> --output table
-```
-
-Run the following command to get the _IoT hub connection string_ for your hub (note for use later):
-
-```azurecli-interactive
-az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 ```

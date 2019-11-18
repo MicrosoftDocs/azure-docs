@@ -43,7 +43,13 @@ These setup steps are also included with the source code of this quickstart's sa
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [iot-pnp-prepare-iot-hub-windows.md](../../includes/iot-pnp-prepare-iot-hub-windows.md)]
+[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
+
+Run the following command to get the _IoT hub connection string_ for your hub (note for use later):
+
+```azurecli-interactive
+az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
+```
 
 ## Connect your device
 

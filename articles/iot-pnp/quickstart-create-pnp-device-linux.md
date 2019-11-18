@@ -54,44 +54,7 @@ You can find your _company model repository connection string_ in the [Azure Cer
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## Prepare an IoT hub
-
-You also need an Azure IoT hub in your Azure subscription to complete this quickstart. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. If you don't already have an IoT hub to use, follow the rest of this section to create one.
-
-If you're using the Azure CLI locally, the `az` version should be **2.0.75** or later, the Azure Cloud Shell uses the latest version. Use the `az --version` command to check the version installed on your machine.
-
-Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance:
-
-```azurecli-interactive
-az extension add --name azure-cli-iot-ext
-```
-
-The steps in this quickstart require version **0.8.5** or later of the extension. Use the `az extension list` command to check the version you have installed, and the `az extension update` command to update if necessary.
-
-If don't have an IoT hub, create one using the following commands, replacing `<YourIoTHubName>` with a unique name of your choice. If you're running these commands locally, first sign in to your Azure subscription using `az login`. If you're running these commands in the Azure cloud shell, you're signed in automatically:
-
-  ```azurecli-interactive
-  az group create --name pnpquickstarts_rg --location centralus
-  az iot hub create --name <YourIoTHubName> \
-    --resource-group pnpquickstarts_rg --sku S1
-  ```
-
-The previous commands create a resource group called `pnpquickstarts_rg` and an IoT hub in the central US region.
-
-> [!IMPORTANT]
-> During public preview, IoT Plug and Play features are only available on IoT hubs created in the **Central US**, **North Europe**, and **Japan East** regions.
-
-Run the following command to create a device identity in your IoT hub. Replace the **YourIoTHubName** and **YourDeviceID** placeholders with your own _IoT Hub name_ and a _device ID_ of your choice.
-
-```azurecli-interactive
-az iot hub device-identity create --hub-name <YourIoTHubName> --device-id <YourDeviceID>
-```
-
-Run the following commands to get the _device connection string_ for the device you just registered (note for use later).
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDevice> --output table
-```
+[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
 
 ## Author your model
 

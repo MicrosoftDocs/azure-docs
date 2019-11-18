@@ -32,7 +32,13 @@ To complete this quickstart, you need to install the following software on your 
 
 Download and install the latest release of **Azure IoT explorer** from the tool's [repository](https://github.com/Azure/azure-iot-explorer/releases) page, by selecting the .msi file under "Assets" for the most recent update.
 
-[!INCLUDE [iot-pnp-prepare-iot-hub-windows.md](../../includes/iot-pnp-prepare-iot-hub-windows.md)]
+[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
+
+Run the following command to get the _IoT hub connection string_ for your hub (note for use later):
+
+```azurecli-interactive
+az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
+```
 
 ## Prepare the development environment
 

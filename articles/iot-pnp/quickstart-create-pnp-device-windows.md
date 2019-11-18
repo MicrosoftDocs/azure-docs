@@ -45,7 +45,13 @@ You can find your _company model repository connection string_ in the [Azure Cer
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [iot-pnp-prepare-iot-hub-windows.md](../../includes/iot-pnp-prepare-iot-hub-windows.md)]
+[!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
+
+Run the following command to get the _IoT hub connection string_ for your hub (note for use later):
+
+```azurecli-interactive
+az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
+```
 
 ## Prepare the development environment
 
@@ -178,7 +184,7 @@ To validate the device code with **Azure IoT Explorer**, you need to publish the
 
 ### Use the Azure IoT explorer to validate the code
 
-[!INCLUDE [iot-pnp-iot-explorer.md](../../includes/iot-pnp-iot-explorer-1.md)]
+[!INCLUDE [iot-pnp-iot-explorer-1.md](../../includes/iot-pnp-iot-explorer-1.md)]
 
 4. To add your company repository, select **Settings**, then **+ Add module definition source**, then **Company repository**. Add your company model repository connection string, and select **Save and Connect**.
 
@@ -186,7 +192,7 @@ To validate the device code with **Azure IoT Explorer**, you need to publish the
 
 1. Expand the interface with ID **urn:<YOUR_INTERFACE_NAME>:EnvironmentalSensor:1** to see the IoT Plug and Play primitives - properties, commands, and telemetry. The interface name that will appear is the name you put in when authoring your model.
 
-[!INCLUDE [iot-pnp-iot-explorer.md](../../includes/iot-pnp-iot-explorer-2.md)]
+[!INCLUDE [iot-pnp-iot-explorer-2.md](../../includes/iot-pnp-iot-explorer-2.md)]
 
 [!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
