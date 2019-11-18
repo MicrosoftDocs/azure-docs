@@ -113,6 +113,8 @@
     href: post-to-custom-topic.md
   - name: Receive events at HTTP endpoint
     href: receive-events.md
+  - name: Secure WebHook with AAD
+    href: secure-webhook-delivery.md
   - name: Dead letter and retry
     href: manage-event-delivery.md
   - name: Filter events
