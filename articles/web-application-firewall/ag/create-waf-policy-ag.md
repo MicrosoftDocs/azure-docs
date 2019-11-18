@@ -65,7 +65,7 @@ Azure-managed OWASP rules are enabled by default. To disable an individual rule 
 
 To create a custom rule, select **Add custom rule** under the **Custom rules** tab. This opens the custom rule configuration page. The following screenshot shows an example custom rule configured to block a request if the query string contains the text *blockme*.
 
-![Edit custom rule](../media/create-waf-policy-ag/edit-custom-rule.png)
+[ ![Edit custom rule](../media/create-waf-policy-ag/edit-custom-rule.png) ](../media/create-waf-policy-ag/edit-custom-rule-lrg.png#lightbox)
 
 ## <a name="migrate"></a>Migrate your WAF Config to a WAF Policy
 
@@ -77,7 +77,7 @@ If you have an existing WAF, you may have noticed some changes in the portal. Fi
 
 You can tell which state your WAF is in by looking at it in the portal. If the WAF settings are visible and can be changed from within the Application Gateway view, your WAF is in state 1.
 
-![WAF configuration](../media/create-waf-policy-ag/waf-configure.png)
+[ ![WAF configuration](../media/create-waf-policy-ag/waf-configure.png) ](../media/create-waf-policy-ag/waf-configure-lrg.png#lightbox)
 
 If you select **Web Application Firewall** and it shows you an associated policy, the WAF is in state 2 or state 3. After navigating to the policy, if it shows **only** custom rules, and Associated Application Gateways, then it's a Custom Rules only Policy.
 
