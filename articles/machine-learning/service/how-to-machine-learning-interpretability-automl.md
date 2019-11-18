@@ -56,7 +56,7 @@ When you compute model explanations and visualize them, you're not limited to an
 automl_run, fitted_model = local_run.get_output(metric='r2_score')
 ```
 
-### Setup the model explanations
+### Set up the model explanations
 
 Use `automl_setup_model_explanations` to get the engineered and raw feature explanations. The `fitted_model` can generate the following items:
 
