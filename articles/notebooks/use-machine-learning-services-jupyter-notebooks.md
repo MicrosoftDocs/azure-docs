@@ -33,7 +33,7 @@ Azure Notebooks comes pre-configured with the necessary environment to work with
 
 1. Select **00 - configuration.ipynb** to start the configuration section of the notebook, and follow its instructions to create an Azure Machine Learning Workspace.
 
-    - Because Azure Notebooks already contains the necessary Python packages, you can just run the code snippet in step 2 of the Prerequisites to verify the Azure ML SDK version.
+    - Because Azure Notebooks already contains the necessary Python packages, you can just run the code snippet in step 2 of the Prerequisites to verify the Azure Machine Learning SDK version.
 
 1. Once configuration is complete, select **01.getting-started** to open the folder containing thirteen different sample notebooks, each of which is self-explanatory.
 

@@ -78,7 +78,7 @@ To configure data drift for your experiment, import dependencies as seen in the 
 This example demonstrates configuring the [`DataDriftDetector`](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector.datadriftdetector?view=azure-ml-py) object:
 
 ```python
-# Import Azure ML packages
+# Import Azure Machine Learning packages
 from azureml.core import Experiment, Run, RunDetails
 from azureml.datadrift import DataDriftDetector, AlertConfiguration
 
@@ -185,7 +185,7 @@ To do so, proceed with the following steps.
 
 ## Next steps
 
-* For a full example of using data drift, see the [Azure ML data drift notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/monitor-models/data-drift/drift-on-aks.ipynb). This Jupyter Notebook demonstrates using an [Azure Open Dataset](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) to train a model to predict the weather, deploy it to AKS, and monitor for data drift. 
+* For a full example of using data drift, see the [Azure Machine Learning data drift notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/monitor-models/data-drift/drift-on-aks.ipynb). This Jupyter Notebook demonstrates using an [Azure Open Dataset](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) to train a model to predict the weather, deploy it to AKS, and monitor for data drift. 
 
 * Detect data drift with [dataset monitors](how-to-monitor-datasets.md).
 

@@ -78,9 +78,9 @@ os.makedirs(project_folder, exist_ok=True)
 
 ### Prepare training script
 
-In this tutorial, the training script **chainer_mnist.py** is already provided for you. In practice, you should be able to take any custom training script as is and run it with Azure ML without having to modify your code.
+In this tutorial, the training script **chainer_mnist.py** is already provided for you. In practice, you should be able to take any custom training script as is and run it with Azure Machine Learning without having to modify your code.
 
-To use Azure ML's tracking and metrics capabilities, add a small amount of Azure ML code inside your training script.  The training script **chainer_mnist.py** shows how to log some metrics to your Azure ML run using the `Run` object within the script.
+To use the Azure Machine Learning tracking and metrics capabilities, add a small amount of Azure Machine Learning code inside your training script.  The training script **chainer_mnist.py** shows how to log some metrics to your Azure Machine Learning run using the `Run` object within the script.
 
 The provided training script uses example data from the chainer `datasets.mnist.get_mnist` function.  For your own data, you may need to use steps such as [Upload dataset and scripts](how-to-train-keras.md#data-upload) to make data available during training.
 
@@ -106,7 +106,7 @@ experiment = Experiment(ws, name=experiment_name)
 
 ## Create or get a compute target
 
-You need a [compute target](concept-compute-target.md) for training your model. In this example, you use Azure ML managed compute (AmlCompute) for your remote training compute resource.
+You need a [compute target](concept-compute-target.md) for training your model. In this example, you use Azure Machine Learning managed compute (AmlCompute) for your remote training compute resource.
 
 **Creation of AmlCompute takes approximately 5 minutes**. If the AmlCompute with that name is already in your workspace, this code skips the creation process.  
 

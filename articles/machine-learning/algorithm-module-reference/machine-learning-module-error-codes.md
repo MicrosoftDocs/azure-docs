@@ -1237,7 +1237,7 @@ See the following articles for help with Hive queries for machine learning:
 **Resolution:**
  Revisit the module and inspect the SQL query for mistakes.  
   
- Verify that the query works correctly outside of Azure ML by logging in to the database server directly and running the query.  
+ Verify that the query works correctly outside of Azure Machine Learning by logging in to the database server directly and running the query.  
   
  If there is a SQL generated message reported by the module exception, take action based on the reported error. For example, the error messages sometimes include specific guidance on the likely error:
 + *No such column or missing database*, indicating that you might have typed a column name wrong. If you are sure the column name is correct, try using brackets or quotation marks to enclose the column identifier.
@@ -1794,7 +1794,7 @@ In general, a count-based transform can only be applied to datasets that have th
 ## Error 0121  
  Thrown when SQL writes fails because the table is unwriteable  
   
- This error in Azure Machine Learning is produced when you are using the [Export Data](export-data.md) module to save results to a table in a SQL database, and the table cannot be written to. Typically, you will see this error if the [Export Data](export-data.md) module successfully establishes a connection with the SQL Server instance, but is then unable to write the contents of the Azure ML dataset to the table.  
+ This error in Azure Machine Learning is produced when you are using the [Export Data](export-data.md) module to save results to a table in a SQL database, and the table cannot be written to. Typically, you will see this error if the [Export Data](export-data.md) module successfully establishes a connection with the SQL Server instance, but is then unable to write the contents of the Azure Machine Learning dataset to the table.  
   
 **Resolution:**
  - Open the Properties pane of the [Export Data](export-data.md) module and verify that the database and table names are entered correctly. 
@@ -1856,7 +1856,7 @@ In general, a count-based transform can only be applied to datasets that have th
 
 
 ## Error 0126  
- Exception occurs if the user specifies a SQL domain that is not supported in Azure ML.  
+ Exception occurs if the user specifies a SQL domain that is not supported in Azure Machine Learning.  
   
  This error is produced when the user specifies a SQL domain that is not supported in Azure Machine Learning. You will receive this error if you are attempting to connect to a database server in a domain that is not whitelisted. Currently, the allowed SQL domains are: ".database.windows.net", ".cloudapp.net", or ".database.secure.windows.net". That is, the server must be an Azure SQL server or a server in a virtual machine on Azure.  
   
@@ -1872,7 +1872,7 @@ In general, a count-based transform can only be applied to datasets that have th
 |Exception Messages|  
 |------------------------|  
 |Unsupported SQL domain.|  
-|The SQL domain {0} is not currently supported in Azure ML|  
+|The SQL domain {0} is not currently supported in Azure Machine Learning.|  
   
 
 ## Error 0127  

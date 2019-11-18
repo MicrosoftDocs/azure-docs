@@ -18,7 +18,7 @@ In this tutorial, we walk you through building and deploying a machine learning 
 The procedure follows the [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) workflow. We show how to setup a data science environment, how to load the data into SQL DW, and how use either SQL DW or an IPython Notebook to explore the data and engineer features to model. We then show how to build and deploy a model with Azure Machine Learning.
 
 ## <a name="dataset"></a>The NYC Taxi Trips dataset
-The NYC Taxi Trip data consists of about 20GB of compressed CSV files (~48GB uncompressed), recording more than 173 million individual trips and the fares paid for each trip. Each trip record includes the pickup and dropoff locations and times, anonymized hack (driver's) license number, and the medallion (taxi’s unique id) number. The data covers all trips in the year 2013 and is provided in the following two datasets for each month:
+The NYC Taxi Trip data consists of about 20GB of compressed CSV files (~48GB uncompressed), recording more than 173 million individual trips and the fares paid for each trip. Each trip record includes the pickup and dropoff locations and times, anonymized hack (driver's) license number, and the medallion (taxi’s unique ID) number. The data covers all trips in the year 2013 and is provided in the following two datasets for each month:
 
 1. The **trip_data.csv** file contains trip details, such as number of passengers, pickup and dropoff points, trip duration, and trip length. Here are a few sample records:
 
@@ -534,7 +534,7 @@ Here is an example to call this function to generate features in your SQL query:
 | 3 |40.761456 |-73.999886 |40.766544 |-73.988228 |0.7037227967 |
 
 ### Prepare data for model building
-The following query joins the **nyctaxi\_trip** and **nyctaxi\_fare** tables, generates a binary classification label **tipped**, a multi-class classification label **tip\_class**, and extracts a sample from the full joined dataset. The sampling is done by retrieving a subset of the trips based on pickup time.  This query can be copied then pasted directly in the [Azure Machine Learning Studio](https://studio.azureml.net) [Import Data][import-data] module for direct data ingestion from the SQL database instance in Azure. The query excludes records with incorrect (0, 0) coordinates.
+The following query joins the **nyctaxi\_trip** and **nyctaxi\_fare** tables, generates a binary classification label **tipped**, a multi-class classification label **tip\_class**, and extracts a sample from the full joined dataset. The sampling is done by retrieving a subset of the trips based on pickup time.  This query can be copied then pasted directly in the [Azure Machine Learning Studio (classic)](https://studio.azureml.net) [Import Data][import-data] module for direct data ingestion from the SQL database instance in Azure. The query excludes records with incorrect (0, 0) coordinates.
 
     SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
         CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -562,9 +562,9 @@ using both Python and SQL queries against the SQL DW created earlier. A sample I
 
 The needed Azure SQL DW information in the sample IPython Notebook and the Python script file downloaded to your local machine has been plugged in by the PowerShell script previously. They are executable without any modification.
 
-If you have already set up an AzureML workspace, you can directly upload the sample IPython Notebook to the AzureML IPython Notebook service and start running it. Here are the steps to upload to AzureML IPython Notebook service:
+If you have already set up an Azure Machine Learning workspace, you can directly upload the sample IPython Notebook to the Azure Machine Learning IPython Notebook service and start running it. Here are the steps to upload to the Azure Machine Learning IPython Notebook service:
 
-1. Log in to your AzureML workspace, click "Studio" at the top, and click "NOTEBOOKS" on the left side of the web page.
+1. Log in to your Azure Machine Learning workspace, click "Studio" at the top, and click "NOTEBOOKS" on the left side of the web page.
 
     ![Click Studio then NOTEBOOKS][22]
 2. Click "NEW" on the left bottom corner of the web page, and select "Python 2". Then, provide a name to the notebook and click the check mark to create the new blank IPython Notebook.
@@ -573,11 +573,11 @@ If you have already set up an AzureML workspace, you can directly upload the sam
 3. Click the "Jupyter" symbol on the left top corner of the new IPython Notebook.
 
     ![Click Jupyter symbol][24]
-4. Drag and drop the sample IPython Notebook to the **tree** page of your AzureML IPython Notebook service, and click **Upload**. Then, the sample IPython Notebook will be uploaded to the AzureML IPython Notebook service.
+4. Drag and drop the sample IPython Notebook to the **tree** page of your Azure Machine Learning IPython Notebook service, and click **Upload**. Then, the sample IPython Notebook will be uploaded to the Azure Machine Learning IPython Notebook service.
 
     ![Click Upload][25]
 
-In order to run the sample IPython Notebook or the Python script file, the following Python packages are needed. If you are using the AzureML IPython Notebook service, these packages have been pre-installed.
+In order to run the sample IPython Notebook or the Python script file, the following Python packages are needed. If you are using the Azure Machine Learning IPython Notebook service, these packages have been pre-installed.
 
 - pandas
 - numpy
@@ -585,7 +585,7 @@ In order to run the sample IPython Notebook or the Python script file, the follo
 - pyodbc
 - PyTables
 
-The recommended sequence when building advanced analytical solutions on AzureML with large data is the following:
+The recommended sequence when building advanced analytical solutions on Azure Machine Learning with large data is the following:
 
 * Read in a small sample of the data into an in-memory data frame.
 * Perform some visualizations and explorations using the sampled data.
@@ -808,8 +808,8 @@ We are now ready to proceed to model building and model deployment in [Azure Mac
 
 To begin the modeling exercise, log in to your **Azure Machine Learning (classic)** workspace. If you have not yet created a machine learning workspace, see [Create an Azure Machine Learning Studio (classic) workspace](../studio/create-workspace.md).
 
-1. To get started with Azure Machine Learning, see [What is Azure Machine Learning Studio?](../studio/what-is-ml-studio.md)
-2. Log in to [Azure Machine Learning Studio](https://studio.azureml.net).
+1. To get started with Azure Machine Learning, see [What is Azure Machine Learning Studio (classic)?](../studio/what-is-ml-studio.md)
+2. Log in to [Azure Machine Learning Studio (classic)](https://studio.azureml.net).
 3. The Studio Home page provides a wealth of information, videos, tutorials, links to the Modules Reference, and other resources. For more information about Azure Machine Learning, consult the [Azure Machine Learning Documentation Center](https://azure.microsoft.com/documentation/services/machine-learning/).
 
 A typical training experiment consists of the following steps:
@@ -829,7 +829,7 @@ In this exercise, we have already explored and engineered the data in SQL Data W
 
 1. Get the data into Azure Machine Learning Studio (classic) using the [Import Data][import-data] module, available in the **Data Input and Output** section. For more information, see the [Import Data][import-data] module reference page.
 
-    ![Azure ML Import Data][17]
+    ![Azure Machine Learning Import Data][17]
 2. Select **Azure SQL Database** as the **Data source** in the **Properties** panel.
 3. Enter the database DNS name in the **Database server name** field. Format: `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Enter the **Database name** in the corresponding field.
@@ -838,7 +838,7 @@ In this exercise, we have already explored and engineered the data in SQL Data W
 
 An example of a binary classification experiment reading data directly from the SQL Data Warehouse database is in the figure below (remember to replace the table names nyctaxi_trip and nyctaxi_fare by the schema name and the table names you used in your walkthrough). Similar experiments can be constructed for multiclass classification and regression problems.
 
-![Azure ML Train][10]
+![Azure Machine Learning Training][10]
 
 > [!IMPORTANT]
 > In the modeling data extraction and sampling query examples provided in previous sections, **all labels for the three modeling exercises are included in the query**. An important (required) step in each of the modeling exercises is to **exclude** the unnecessary labels for the other two problems, and any other **target leaks**. For example, when using binary classification, use the label **tipped** and exclude the fields **tip\_class**, **tip\_amount**, and **total\_amount**. The latter are target leaks since they imply the tip paid.
@@ -848,7 +848,7 @@ An example of a binary classification experiment reading data directly from the 
 >
 
 ## <a name="mldeploy"></a>Deploy models in Azure Machine Learning
-When your model is ready, you can easily deploy it as a web service directly from the experiment. For more information about deploying Azure ML web services, see [Deploy an Azure Machine Learning web service](../studio/deploy-a-machine-learning-web-service.md).
+When your model is ready, you can easily deploy it as a web service directly from the experiment. For more information about deploying Azure Machine Learning web services, see [Deploy an Azure Machine Learning web service](../studio/deploy-a-machine-learning-web-service.md).
 
 To deploy a new web service, you need to:
 
@@ -869,7 +869,7 @@ When the scoring experiment is created, review it and make adjust as needed. A t
 
 A sample scoring experiment is provided in the figure below. When ready to deploy, click the **PUBLISH WEB SERVICE** button in the lower action bar.
 
-![Azure ML Publish][11]
+![Azure Machine Learning Publish][11]
 
 ## Summary
 To recap what we have done in this walkthrough tutorial, you have created an Azure data science environment, worked with a large public dataset, taking it through the Team Data Science Process, all the way from data acquisition to model training, and then to the deployment of an Azure Machine Learning web service.

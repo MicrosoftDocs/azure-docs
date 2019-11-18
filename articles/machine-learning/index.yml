@@ -23,7 +23,7 @@ landingContent:
 # Start card title with a verb
            
   # GET STARTED
-  - title: Get started with Azure ML
+  - title: Get started with Azure Machine Learning
     linkLists:
       - linkListType: tutorial
         links:
@@ -33,11 +33,11 @@ landingContent:
             url: service/tutorial-1st-r-experiment.md
           - text: Experiment using drag & drop designer
             url: service/tutorial-designer-automobile-price-train-score.md
-          - text: Experiment with automated ML 
+          - text: Experiment with automated Machine Learning 
             url: service/tutorial-first-experiment-automated-ml.md
       - linkListType: overview
         links:
-          - text: What is Azure ML?
+          - text: What is Azure Machine Learning?
             url: service/overview-what-is-azure-ml.md
           - text: Architecture and concepts
             url: service/concept-azure-machine-learning-architecture.md
@@ -53,11 +53,11 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Create your first ML experiment
+          - text: Create your first Machine Learning experiment
             url: service/tutorial-1st-experiment-sdk-setup.md
           - text: Classify images 
             url: service/tutorial-train-models-with-aml.md                     
-          - text: Predict taxi fares with automated ML
+          - text: Predict taxi fares with automated Machine Learning
             url: service/tutorial-auto-train-models.md 
       - linkListType: how-to-guide
         links:
@@ -71,11 +71,11 @@ landingContent:
             url: service/how-to-train-keras.md
 
   # Pipelines
-  - title: 'Use ML Pipelines'
+  - title: 'Use Machine Learning Pipelines'
     linkLists:
     - linkListType: overview
       links:
-      - text: What are ML pipelines?
+      - text: What are Machine Learning pipelines?
         url: service/concept-ml-pipelines.md   
       - text: The 'drag-n-drop' designer
         url: service/concept-designer.md   
@@ -83,7 +83,7 @@ landingContent:
       links:
       - text: Linear regression to predict prices (designer)
         url: service/tutorial-designer-automobile-price-train-score.md
-      - text: Create ML pipelines (Python SDK)
+      - text: Create Machine Learning pipelines (Python SDK)
         url: service/tutorial-pipeline-batch-scoring-classification.md     
     - linkListType: how-to-guide
       links:

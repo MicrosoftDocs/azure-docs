@@ -38,7 +38,7 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 ## Prerequisites
 
-* Complete the [Tutorial: Get started creating your first ML experiment](tutorial-1st-experiment-sdk-setup.md) to:
+* Complete the [Tutorial: Get started creating your first Azure Machine Learning experiment](tutorial-1st-experiment-sdk-setup.md) to:
     * Create a workspace
     * Clone the tutorials notebook to your folder in the workspace.
     * Create a cloud-based Notebook VM.
@@ -76,7 +76,7 @@ import azureml.core
 from azureml.core import Workspace
 
 # check core SDK version number
-print("Azure ML SDK Version: ", azureml.core.VERSION)
+print("Azure Machine Learning SDK Version: ", azureml.core.VERSION)
 ```
 
 ### Connect to a workspace

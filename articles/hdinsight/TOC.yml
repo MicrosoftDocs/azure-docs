@@ -367,7 +367,7 @@
           href: ./spark/apache-spark-connect-to-sql-database.md
         - name: Implement a lambda architecture using Apache Spark and Cosmos DB
           href: ../cosmos-db/lambda-architecture.md
-        - name: Run Azure ML workloads with AutoML
+        - name: Run Azure Machine Learning workloads with AutoML
           href: ./spark/apache-spark-run-machine-learning-automl.md
     - name: Troubleshoot
       items:
@@ -629,7 +629,7 @@
       items:
       - name: Troubleshoot Apache HBase performance issues
         href: ./hbase/troubleshoot-hbase-performance-issues.md
-      - name: hbase hbck returns inconsistencies
+      - name: 'hbase hbck' returns inconsistencies
         href: ./hbase/hbase-troubleshoot-hbase-hbck-inconsistencies.md
       - name: Storage exception after connection reset
         href: ./hbase/hbase-troubleshoot-storage-exception-reset.md

@@ -34,23 +34,23 @@ ms.date: 01/22/2018
 This article complements the main Azure Data Factory - Azure Machine Learning integration article: [Create predictive pipelines using Azure Machine Learning and Azure Data Factory](data-factory-azure-ml-batch-execution-activity.md). If you haven't already done so, review the main article before reading through this article. 
 
 ## Overview
-Over time, the predictive models in the Azure ML scoring experiments need to be retrained using new input datasets. After you are done with retraining, you want to update the scoring web service with the retrained ML model. The typical steps to enable retraining and updating Azure ML models via web services are:
+Over time, the predictive models in the Azure Machine Learning scoring experiments need to be retrained using new input datasets. After you are done with retraining, you want to update the scoring web service with the retrained Machine Learning model. The typical steps to enable retraining and updating Azure Machine Learning models via web services are:
 
-1. Create an experiment in [Azure ML Studio](https://studio.azureml.net).
-2. When you are satisfied with the model, use Azure ML Studio to publish web services for both the **training experiment** and scoring/**predictive experiment**.
+1. Create an experiment in [Azure Machine Learning Studio (classic)](https://studio.azureml.net).
+2. When you are satisfied with the model, use Azure Machine Learning Studio (classic) to publish web services for both the **training experiment** and scoring/**predictive experiment**.
 
 The following table describes the web services used in this example.  See [Retrain Machine Learning models programmatically](../../machine-learning/machine-learning-retrain-models-programmatically.md) for details.
 
 - **Training web service** - Receives training data and produces trained models. The output of the retraining is an .ilearner file in an Azure Blob storage. The **default endpoint** is automatically created for you when you publish the training experiment as a web service. You can create more endpoints but the example uses only the default endpoint.
 - **Scoring web service** - Receives unlabeled data examples and makes predictions. The output of prediction could have various forms, such as a .csv file or rows in an Azure SQL database, depending on the configuration of the experiment. The default endpoint is automatically created for you when you publish the predictive experiment as a web service. 
 
-The following picture depicts the relationship between training and scoring endpoints in Azure ML.
+The following picture depicts the relationship between training and scoring endpoints in Azure Machine Learning.
 
 ![Web services](./media/data-factory-azure-ml-batch-execution-activity/web-services.png)
 
-You can invoke the **training web service** by using the **Azure ML Batch Execution Activity**. Invoking a training web service is same as invoking an Azure ML web service (scoring web service) for scoring data. The preceding sections cover how to invoke an Azure ML web service from an Azure Data Factory pipeline in detail. 
+You can invoke the **training web service** by using the **Azure Machine Learning Batch Execution Activity**. Invoking a training web service is same as invoking an Azure Machine Learning web service (scoring web service) for scoring data. The preceding sections cover how to invoke an Azure Machine Learning web service from an Azure Data Factory pipeline in detail. 
 
-You can invoke the **scoring web service** by using the **Azure ML Update Resource Activity** to update the web service with the newly trained model. The following examples provide linked service definitions: 
+You can invoke the **scoring web service** by using the **Azure Machine Learning Update Resource Activity** to update the web service with the newly trained model. The following examples provide linked service definitions: 
 
 ## Scoring web service is a classic web service
 If the scoring web service is a **classic web service**, create the second **non-default and updatable endpoint** by using the Azure portal. See [Create Endpoints](../../machine-learning/machine-learning-create-endpoint.md) article for steps. After you create the non-default updatable endpoint, do the following steps:
@@ -103,20 +103,20 @@ You can get values for place holders in the URL when querying the web service on
 }
 ```
 
-The following scenario provides more details. It has an example for retraining and updating Azure ML models from an Azure Data Factory pipeline.
+The following scenario provides more details. It has an example for retraining and updating Azure Machine Learning models from an Azure Data Factory pipeline.
 
-## Scenario: retraining and updating an Azure ML model
-This section provides a sample pipeline that uses the **Azure ML Batch Execution activity** to retrain a model. The pipeline also uses the **Azure ML Update Resource activity** to update the model in the scoring web service. The section also provides JSON snippets for all the linked services, datasets, and pipeline in the example.
+## Scenario: retraining and updating an Azure Machine Learning model
+This section provides a sample pipeline that uses the **Azure Machine Learning Batch Execution activity** to retrain a model. The pipeline also uses the **Azure Machine Learning Update Resource activity** to update the model in the scoring web service. The section also provides JSON snippets for all the linked services, datasets, and pipeline in the example.
 
-Here is the diagram view of the sample pipeline. As you can see, the Azure ML Batch Execution Activity takes the training input and produces a training output (iLearner file). The Azure ML Update Resource Activity takes this training output and updates the model in the scoring web service endpoint. The Update Resource Activity does not produce any output. The placeholderBlob is just a dummy output dataset that is required by the Azure Data Factory service to run the pipeline.
+Here is the diagram view of the sample pipeline. As you can see, the Azure Machine Learning Batch Execution Activity takes the training input and produces a training output (iLearner file). The Azure Machine Learning Update Resource Activity takes this training output and updates the model in the scoring web service endpoint. The Update Resource Activity does not produce any output. The placeholderBlob is just a dummy output dataset that is required by the Azure Data Factory service to run the pipeline.
 
 ![pipeline diagram](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
 
 ### Azure Blob storage linked service:
 The Azure Storage holds the following data:
 
-* training data. The input data for the Azure ML training web service.  
-* iLearner file. The output from the Azure ML training web service. This file is also the input to the Update Resource activity.  
+* training data. The input data for the Azure Machine Learning training web service.  
+* iLearner file. The output from the Azure Machine Learning training web service. This file is also the input to the Update Resource activity.  
 
 Here is the sample JSON definition of the linked service:
 
@@ -133,7 +133,7 @@ Here is the sample JSON definition of the linked service:
 ```
 
 ### Training input dataset:
-The following dataset represents the input training data for the Azure ML training web service. The Azure ML Batch Execution activity takes this dataset as an input.
+The following dataset represents the input training data for the Azure Machine Learning training web service. The Azure Machine Learning Batch Execution activity takes this dataset as an input.
 
 ```JSON
 {
@@ -164,7 +164,7 @@ The following dataset represents the input training data for the Azure ML traini
 ```
 
 ### Training output dataset:
-The following dataset represents the output iLearner file from the Azure ML training web service. The Azure ML Batch Execution Activity produces this dataset. This dataset is also the input to the Azure ML Update Resource activity.
+The following dataset represents the output iLearner file from the Azure Machine Learning training web service. The Azure Machine Learning Batch Execution Activity produces this dataset. This dataset is also the input to the Azure Machine Learning Update Resource activity.
 
 ```JSON
 {
@@ -187,7 +187,7 @@ The following dataset represents the output iLearner file from the Azure ML trai
 }
 ```
 
-### Linked service for Azure ML training endpoint
+### Linked service for Azure Machine Learning training endpoint
 The following JSON snippet defines an Azure Machine Learning linked service that points to the default endpoint of the training web service.
 
 ```JSON
@@ -203,15 +203,15 @@ The following JSON snippet defines an Azure Machine Learning linked service that
 }
 ```
 
-In **Azure ML Studio**, do the following to get values for **mlEndpoint** and **apiKey**:
+In **Azure Machine Learning Studio (classic)**, do the following to get values for **mlEndpoint** and **apiKey**:
 
 1. Click **WEB SERVICES** on the left menu.
 2. Click the **training web service** in the list of web services.
 3. Click copy next to **API key** text box. Paste the key in the clipboard into the Data Factory JSON editor.
-4. In the **Azure ML studio**, click **BATCH EXECUTION** link.
+4. In the **Azure Machine Learning studio**, click **BATCH EXECUTION** link.
 5. Copy the **Request URI** from the **Request** section and paste it into the Data Factory JSON editor.   
 
-### Linked Service for Azure ML updatable scoring endpoint:
+### Linked Service for Azure Machine Learning updatable scoring endpoint:
 The following JSON snippet defines an Azure Machine Learning linked service that points to the non-default updatable endpoint of the scoring web service.  
 
 ```JSON
@@ -232,7 +232,7 @@ The following JSON snippet defines an Azure Machine Learning linked service that
 ```
 
 ### Placeholder output dataset:
-The Azure ML Update Resource activity does not generate any output. However, Azure Data Factory requires an output dataset to drive the schedule of a pipeline. Therefore, we use a dummy/placeholder dataset in this example.  
+The Azure Machine Learning Update Resource activity does not generate any output. However, Azure Data Factory requires an output dataset to drive the schedule of a pipeline. Therefore, we use a dummy/placeholder dataset in this example.  
 
 ```JSON
 {
@@ -255,7 +255,7 @@ The Azure ML Update Resource activity does not generate any output. However, Azu
 ```
 
 ### Pipeline
-The pipeline has two activities: **AzureMLBatchExecution** and **AzureMLUpdateResource**. The Azure ML Batch Execution activity takes the training data as input and produces an iLearner file as an output. The activity invokes the training web service (training experiment exposed as a web service) with the input training data and receives the ilearner file from the webservice. The placeholderBlob is just a dummy output dataset that is required by the Azure Data Factory service to run the pipeline.
+The pipeline has two activities: **AzureMLBatchExecution** and **AzureMLUpdateResource**. The Azure Machine Learning Batch Execution activity takes the training data as input and produces an iLearner file as an output. The activity invokes the training web service (training experiment exposed as a web service) with the input training data and receives the ilearner file from the webservice. The placeholderBlob is just a dummy output dataset that is required by the Azure Data Factory service to run the pipeline.
 
 ![pipeline diagram](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
 

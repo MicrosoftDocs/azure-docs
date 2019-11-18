@@ -127,11 +127,11 @@ Azure IoT Edge ensures that your module is running, and it monitors the device t
 
 ### Environments
 
-Azure ML Environments are used to specify the configuration (Docker / Python / Spark / etc.) used to create a reproducible environment for data preparation, model training and model serving. They are managed and versioned entities within your Azure Machine Learning workspace that enable reproducible, auditable, and portable machine learning workflows across different compute targets.
+Azure Machine Learning Environments are used to specify the configuration (Docker / Python / Spark / etc.) used to create a reproducible environment for data preparation, model training and model serving. They are managed and versioned entities within your Azure Machine Learning workspace that enable reproducible, auditable, and portable machine learning workflows across different compute targets.
 
 You can use an environment object on your local compute to develop your training script, reuse that same environment on Azure Machine Learning Compute for model training at scale, and even deploy your model with that same environment. 
 
-Learn [how to create and manage a reusable ML environment](how-to-use-environments.md) for training and inference.
+Learn [how to create and manage a reusable Machine Learning environment](how-to-use-environments.md) for training and inference.
 
 ### Estimators
 
@@ -141,7 +141,7 @@ For PyTorch, TensorFlow, and Chainer tasks, Azure Machine Learning also provides
 
 For more information, see the following articles:
 
-* [Train ML Models with estimators](how-to-train-ml-models.md).
+* [Train Machine Learning Models with estimators](how-to-train-ml-models.md).
 * [Train Pytorch deep learning models at scale with Azure Machine Learning](how-to-train-pytorch.md).
 * [Train and register TensorFlow models at scale with Azure Machine Learning](how-to-train-tensorflow.md).
 * [Train and register Chainer models at scale with Azure Machine Learning](how-to-train-chainer.md).
@@ -155,7 +155,7 @@ For an example of using an experiment, see [Tutorial: Train your first model](tu
 
 ### GitHub tracking and integration
 
-When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. This works with runs submitted using an estimator, ML pipeline, or script run. It also works for runs submitted from the SDK or Machine Learning CLI.
+When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. This works with runs submitted using an estimator, Machine Learning pipeline, or script run. It also works for runs submitted from the SDK or Machine Learning CLI.
 
 For more information, see [Git integration for Azure Machine Learning](concept-train-model-git-integration.md).
 
@@ -163,7 +163,7 @@ For more information, see [Git integration for Azure Machine Learning](concept-t
 
 When you develop your solution, use the Azure Machine Learning Python SDK in your Python script to log arbitrary metrics. After the run, query the metrics to determine whether the run has produced the model you want to deploy.
 
-### ML Pipelines
+### Machine Learning pipelines
 
 You use machine learning pipelines to create and manage workflows that stitch together machine learning phases. For example, a pipeline might include data preparation, model training, model deployment, and inference/scoring phases. Each phase can encompass multiple steps, each of which can run unattended in various compute targets. 
 

@@ -28,7 +28,7 @@ Even if you do most of your work in Azure Machine Learning, there are times when
 + Save the CSV file to cloud storage and connect to it from Power BI to create visualizations.  
 + Use the CSV format to prepare data for use in R and Python. Just right-click the output of the module to generate the code needed to access the data directly from Python or a Jupyter notebook. 
 
-When you convert a dataset to CSV, the file is saved in your Azure ML workspace. You can use an Azure storage utility to open and use the file directly, or you can right-click the module output and download the CSV file to your computer, or use it in R or Python code.  
+When you convert a dataset to CSV, the file is saved in your Azure Machine Learning workspace. You can use an Azure storage utility to open and use the file directly, or you can right-click the module output and download the CSV file to your computer, or use it in R or Python code.  
 
 ## How to configure Convert to CSV
 
@@ -47,9 +47,9 @@ Double-click the output of [Convert to CSV](./convert-to-csv.md), and select one
  + **Result Dataset -> Download**: Immediately opens a copy of the data in CSV format that you can save to a local folder. If you do not specify a folder, a default file name is applied and the CSV file is saved in the local **Downloads** library.
 
 
- + **Result Dataset -> Save as Dataset**: Saves the CSV file back to the Azure ML workspace as a separate dataset.
+ + **Result Dataset -> Save as Dataset**: Saves the CSV file back to the Azure Machine Learning workspace as a separate dataset.
 
- + **Generate Data Access Code**: Azure ML generates two sets of code for you to access the data, either by using Python or by using R. To access the data, copy the code snippet into your application. (*Generate Data Access Code will come soon.*)
+ + **Generate Data Access Code**: Azure Machine Learning generates two sets of code for you to access the data, either by using Python or by using R. To access the data, copy the code snippet into your application. (*Generate Data Access Code will come soon.*)
 
 ## Next steps
 

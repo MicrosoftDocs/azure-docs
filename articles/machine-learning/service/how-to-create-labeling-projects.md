@@ -12,13 +12,13 @@ ms.date: 11/04/2019
 
 # Get labels for data
 
-Labeling large amounts of data has often been a headache in machine learning projects. ML projects with a computer vision component, such as image classification or object detection, generally require thousands of images and corresponding labels. 
+Labeling large amounts of data has often been a headache in machine learning projects. Machine Learning projects with a computer vision component, such as image classification or object detection, generally require thousands of images and corresponding labels. 
  
 Azure Machine Learning gives you a central location to create, manage, and monitor labeling projects. Labeling projects help coordinate the data, labels, and team members, allowing you to more efficiently manage the labeling tasks. Currently supported tasks are image classification, either multi-label or multi-class, and object identification using bounded boxes.
 
 Azure tracks progress and maintains the queue of incomplete labeling tasks. Labelers don't require an Azure account to participate. Once authenticated with their Microsoft Account (MSA) or [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis), they can do as much or as little labeling as their time allows. They can assign and change labels using keyboard shortcuts. 
 
-You can start and stop the project, add and remove people and teams, and monitor progress. You can export labeled data in either COCO format or as an Azure ML dataset. 
+You can start and stop the project, add and remove people and teams, and monitor progress. You can export labeled data in either COCO format or as an Azure Machine Learning dataset. 
 
 In this article, you'll learn how to:
 
@@ -87,7 +87,7 @@ If you wish to directly upload your data:
 1. Choose **Next** 
 1. Confirm the details. You may choose **Back** to modify the settings or choose **Create** to create the dataset
 
-The data get uploaded to the default blob store (`workspaceblobstore`) of your Azure ML workspace.
+The data get uploaded to the default blob store (`workspaceblobstore`) of your Azure Machine Learning workspace.
 
 ## Specify label classes
 
@@ -143,9 +143,9 @@ You can label data directly from the **Project details** page by selecting **Lab
 
 ## Export the labels
 
-At any time, you may export the label data for machine learning experimentation. Image labels can be exported in [COCO format](http://cocodataset.org/#format-data) or as an Azure ML dataset. You will find the **Export** button on the **Project details** page of your labeling project.
+At any time, you may export the label data for machine learning experimentation. Image labels can be exported in [COCO format](http://cocodataset.org/#format-data) or as an Azure Machine Learning dataset. You will find the **Export** button on the **Project details** page of your labeling project.
 
-The COCO file is created in the default blob store of the Azure ML workspace in a folder within **export/coco**. You can access the exported Azure ML dataset under the **Datasets** section of Azure Machine Learning. Dataset details page also provides sample code to access your labels from Python.
+The COCO file is created in the default blob store of the Azure Machine Learning workspace in a folder within **export/coco**. You can access the exported Azure Machine Learning dataset under the **Datasets** section of Azure Machine Learning. Dataset details page also provides sample code to access your labels from Python.
 
 ![Exported dataset](media/how-to-create-labeling-projects/exported-dataset.png)
 

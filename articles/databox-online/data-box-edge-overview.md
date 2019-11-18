@@ -21,10 +21,10 @@ Azure Stack Edge is a Hardware-as-a-service solution. Microsoft ships you a clou
 
 ## Use cases
 
-Here are the various scenarios where Azure Stack Edge can be used for rapid Machine Learning (ML) inferencing at the edge and preprocessing data before sending it to Azure.
+Here are the various scenarios where Azure Stack Edge can be used for rapid Machine Learning inferencing at the edge and preprocessing data before sending it to Azure.
 
-- **Inference with Azure Machine Learning** - With Azure Stack Edge, you can run ML models to get quick results that can be acted on before the data is sent to the cloud. The full data set can optionally be transferred to continue to retrain and improve your ML models. For more information on how to use the Azure ML hardware accelerated models on the Azure Stack Edge device, see 
-[Deploy Azure ML hardware accelerated models on Azure Stack Edge](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
+- **Inference with Azure Machine Learning** - With Azure Stack Edge, you can run Machine Learning models to get quick results that can be acted on before the data is sent to the cloud. The full data set can optionally be transferred to continue to retrain and improve your Machine Learning models. For more information on how to use the Azure Machine Learning hardware accelerated models on the Azure Stack Edge device, see 
+[Deploy Azure Machine Learning hardware accelerated models on Azure Stack Edge](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
 
 - **Preprocess data** - Transform data before sending it to Azure to create a more actionable dataset. Preprocessing can be used to: 
 

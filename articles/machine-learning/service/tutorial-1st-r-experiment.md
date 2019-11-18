@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Your first ML experiment with R"
+title: "Tutorial: Your first Machine Learning experiment with R"
 titleSuffix: Azure Machine Learning
 description: In this tutorial, you learn the foundational design patterns in Azure Machine Learning, and train a logistic regression model model using R packages azuremlsdk and caret to predict likelihood of a fatality in an automobile accident. 
 services: machine-learning
@@ -74,7 +74,7 @@ The setup for your development work in this tutorial includes the following acti
 * Create a remote compute target to use for training
 
 ### Install required packages
-This tutorial assumes you already have the Azure ML SDK installed. Go ahead and import the **azuremlsdk** package.
+This tutorial assumes you already have the Azure Machine Learning SDK installed. Go ahead and import the **azuremlsdk** package.
 
 ```R
 library(azuremlsdk)
@@ -96,7 +96,7 @@ ws <- load_workspace_from_config()
 ```
 
 ### Create an experiment
-An Azure ML experiment tracks a grouping of runs, typically from the same training script. Create an experiment to track the runs for training the caret model on the accidents data.
+An Azure Machine Learning experiment tracks a grouping of runs, typically from the same training script. Create an experiment to track the runs for training the caret model on the accidents data.
 
 ```R
 experiment_name <- "accident-logreg"
@@ -137,7 +137,7 @@ saveRDS(accidents, file="accidents.Rd")
 ```
 
 ### Upload data to the datastore
-Upload data to the cloud so that it can be access by your remote training environment. Each Azure ML workspace comes with a default datastore that stores the connection information to the Azure blob container that is provisioned in the storage account attached to the workspace. The following code will upload the accidents data you created above to that datastore.
+Upload data to the cloud so that it can be access by your remote training environment. Each Azure Machine Learning workspace comes with a default datastore that stores the connection information to the Azure blob container that is provisioned in the storage account attached to the workspace. The following code will upload the accidents data you created above to that datastore.
 
 ```R
 ds <- get_default_datastore(ws)
@@ -159,22 +159,22 @@ For this tutorial, fit a logistic regression model on your uploaded data using y
 * Submit the job
 
 ### Prepare the training script
-A training script called `accidents.R` has been provided for you in the same directory as this tutorial. Notice the following details **inside the training script** that have been done to leverage the Azure ML service for training:
+A training script called `accidents.R` has been provided for you in the same directory as this tutorial. Notice the following details **inside the training script** that have been done to leverage Azure Machine Learning for training:
 
-* The training script takes an argument `-d` to find the directory that contains the training data. When you define and submit your job later, you point to the datastore for this argument. Azure ML will mount the storage folder to the remote cluster for the training job.
-* The training script logs the final accuracy as a metric to the run record in Azure ML using `log_metric_to_run()`. The Azure ML SDK provides a set of logging APIs for logging various metrics during training runs. These metrics are recorded and persisted in the experiment run record. The metrics can then be accessed at any time or viewed in the run details page in [Azure Machine Learning studio](https://ml.azure.com). See the [reference](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation) for the full set of logging methods `log_*()`.
-* The training script saves your model into a directory named **outputs**. The `./outputs` folder receives special treatment by Azure ML. During training, files written to `./outputs` are automatically uploaded to your run record by Azure ML and persisted as artifacts. By saving the trained model to `./outputs`, you'll be able to access and retrieve your model file even after the run is over and you no longer have access to your remote training environment.
+* The training script takes an argument `-d` to find the directory that contains the training data. When you define and submit your job later, you point to the datastore for this argument. Azure Machine Learning will mount the storage folder to the remote cluster for the training job.
+* The training script logs the final accuracy as a metric to the run record in Azure Machine Learning using `log_metric_to_run()`. The Azure Machine Learning SDK provides a set of logging APIs for logging various metrics during training runs. These metrics are recorded and persisted in the experiment run record. The metrics can then be accessed at any time or viewed in the run details page in [Azure Machine Learning studio](https://ml.azure.com). See the [reference](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation) for the full set of logging methods `log_*()`.
+* The training script saves your model into a directory named **outputs**. The `./outputs` folder receives special treatment by Azure Machine Learning. During training, files written to `./outputs` are automatically uploaded to your run record by Azure Machine Learning and persisted as artifacts. By saving the trained model to `./outputs`, you'll be able to access and retrieve your model file even after the run is over and you no longer have access to your remote training environment.
 
 ### Create an estimator
 
-An Azure ML estimator encapsulates the run configuration information needed for executing a training script on the compute target. Azure ML runs are run as containerized jobs on the specified compute target. By default, the Docker image built for your training job will include R, the Azure ML SDK, and a set of commonly used R packages. See the full list of default packages included here.
+An Azure Machine Learning estimator encapsulates the run configuration information needed for executing a training script on the compute target. Azure Machine Learning runs are run as containerized jobs on the specified compute target. By default, the Docker image built for your training job will include R, the Azure Machine Learning SDK, and a set of commonly used R packages. See the full list of default packages included here.
 
 To create the estimator, define:
 
 * The directory that contains your scripts needed for training (`source_directory`). All the files in this directory are uploaded to the cluster node(s) for execution. The directory must contain your training script and any additional scripts required.
 * The training script that will be executed (`entry_script`).
 * The compute target (`compute_target`), in this case the AmlCompute cluster you created earlier.
-* The parameters required from the training script (`script_params`). Azure ML will run your training script as a command-line script with `Rscript`. In this tutorial you specify one argument to the script, the data directory mounting point, which you can access with `ds$path(target_path)`.
+* The parameters required from the training script (`script_params`). Azure Machine Learning will run your training script as a command-line script with `Rscript`. In this tutorial you specify one argument to the script, the data directory mounting point, which you can access with `ds$path(target_path)`.
 * Any environment dependencies required for training. The default Docker image built for training already contains the three packages (`caret`, `e1071`, and `optparse`) needed in the training script.  So you don't need to specify additional information. If you are using R packages that are not included by default, use the estimator's `cran_packages` parameter to add additional CRAN packages. See the [`estimator()`](https://azure.github.io/azureml-sdk-for-r/reference/estimator.html) reference for the full set of configurable options.
 
 ```R
@@ -205,7 +205,7 @@ Model training happens in the background. Wait until the model has finished trai
 wait_for_run_completion(run, show_output = TRUE)
 ```
 
-You -- and colleagues with access to the workspace -- can submit multiple experiments in parallel, and Azure ML will take of scheduling the tasks on the compute cluster. You can even configure the cluster to automatically scale up to multiple nodes, and scale back when there are no more compute tasks in the queue. This configuration is a cost-effective way for teams to share compute resources.
+You -- and colleagues with access to the workspace -- can submit multiple experiments in parallel, and Azure Machine Learning will take of scheduling the tasks on the compute cluster. You can even configure the cluster to automatically scale up to multiple nodes, and scale back when there are no more compute tasks in the queue. This configuration is a cost-effective way for teams to share compute resources.
 
 ## Retrieve training results
 Once your model has finished training, you can access the artifacts of your job that were persisted to the run record, including any metrics logged and the final trained model.
@@ -264,11 +264,11 @@ as.numeric(predict(accident_model,newdata, type="response")*100)
 
 ## Deploy as a web service
 
-With your model, you can predict the danger of death from a collision. Use Azure ML to deploy your model as a prediction service. In this tutorial, you will deploy the web service in [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI).
+With your model, you can predict the danger of death from a collision. Use Azure Machine Learning to deploy your model as a prediction service. In this tutorial, you will deploy the web service in [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI).
 
 ### Register the model
 
-First, register the model you downloaded to your workspace with [`register_model()`](https://azure.github.io/azureml-sdk-for-r/reference/register_model.html). A registered model can be any collection of files, but in this case the R model object is sufficient. Azure ML will use the registered model for deployment.
+First, register the model you downloaded to your workspace with [`register_model()`](https://azure.github.io/azureml-sdk-for-r/reference/register_model.html). A registered model can be any collection of files, but in this case the R model object is sufficient. Azure Machine Learning will use the registered model for deployment.
 
 ```R
 model <- register_model(ws, 
@@ -280,7 +280,7 @@ model <- register_model(ws,
 ### Define the inference dependencies
 To create a web service for your model, you first need to create a scoring script (`entry_script`), an R script that will take as input variable values (in JSON format) and output a prediction from your model. For this tutorial, use the provided scoring file `accident_predict.R`. The scoring script must contain an `init()` method that loads your model and returns a function that uses the model to make a prediction based on the input data. See the [documentation](https://azure.github.io/azureml-sdk-for-r/reference/inference_config.html#details) for more details.
 
-Next, define an Azure ML **environment** for your script's package dependencies. With an environment, you specify R packages (from CRAN or elsewhere) that are needed for your script to run. You can also provide the values of environment variables that your script can reference to modify its behavior. By default, Azure ML will build the same default Docker image used with the estimator for training. Since the tutorial has no special requirements, create an environment with no special attributes.
+Next, define an Azure Machine Learning **environment** for your script's package dependencies. With an environment, you specify R packages (from CRAN or elsewhere) that are needed for your script to run. You can also provide the values of environment variables that your script can reference to modify its behavior. By default, Azure Machine Learning will build the same default Docker image used with the estimator for training. Since the tutorial has no special requirements, create an environment with no special attributes.
 
 ```R
 r_env <- r_environment(name = "basic_env")

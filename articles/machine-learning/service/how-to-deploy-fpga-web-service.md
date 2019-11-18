@@ -66,7 +66,7 @@ FPGAs are available in these Azure regions:
 > [!IMPORTANT]
 > To optimize latency and throughput, your client sending data to the FPGA model should be in one of the regions above (the one you deployed the model to).
 
-The **PBS Family of Azure VMs** contains Intel Arria 10 FPGAs. It will show as "Standard PBS Family vCPUs" when you check your Azure quota allocation. The PB6 VM has six vCPUs and one FPGA, and it will automatically be provisioned by Azure ML as part of deploying a model to an FPGA. It is only used with Azure ML, and it cannot run arbitrary bitstreams. For example, you will not be able to flash the FPGA with bitstreams to do encryption, encoding, etc.
+The **PBS Family of Azure VMs** contains Intel Arria 10 FPGAs. It will show as "Standard PBS Family vCPUs" when you check your Azure quota allocation. The PB6 VM has six vCPUs and one FPGA, and it will automatically be provisioned by Azure Machine Learning as part of deploying a model to an FPGA. It is only used with Azure Machine Learning, and it cannot run arbitrary bitstreams. For example, you will not be able to flash the FPGA with bitstreams to do encryption, encoding, etc.
 
 ### Scenarios and applications
 
@@ -132,9 +132,9 @@ Follow the instructions to:
 
 Use the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) to create a service definition. A service definition is a file describing a pipeline of graphs (input, featurizer, and classifier) based on TensorFlow. The deployment command automatically compresses the definition and graphs into a ZIP file, and uploads the ZIP to Azure Blob storage. The DNN is already deployed to run on the FPGA.
 
-### Load Azure ML workspace
+### Load Azure Machine Learning workspace
 
-Load your Azure ML workspace.
+Load your Azure Machine Learning workspace.
 
 ```python
 import os
@@ -368,7 +368,7 @@ The Docker image supports gRPC and the TensorFlow Serving "predict" API.  Use th
 If you want to use TensorFlow Serving, you can [download a sample client](https://www.tensorflow.org/serving/setup).
 
 ```python
-# Using the grpc client in Azure ML Accelerated Models SDK package
+# Using the grpc client in Azure Machine Learning Accelerated Models SDK package
 from azureml.accel import PredictionClient
 
 address = aks_service.scoring_uri
@@ -376,7 +376,7 @@ ssl_enabled = address.startswith("https")
 address = address[address.find('/')+2:].strip('/')
 port = 443 if ssl_enabled else 80
 
-# Initialize AzureML Accelerated Models client
+# Initialize Azure Machine Learning Accelerated Models client
 client = PredictionClient(address=address,
                           port=port,
                           use_ssl=ssl_enabled,
@@ -430,7 +430,7 @@ Check out these notebooks, videos, and blogs:
 
 + Several [sample notebooks](https://aka.ms/aml-accel-models-notebooks).
 
-+ [Hyperscale hardware: ML at scale on top of Azure + FPGA : Build 2018 (video)](https://channel9.msdn.com/events/Build/2018/BRK3202)
++ [Hyperscale hardware: Machine Learning at scale on top of Azure + FPGA : Build 2018 (video)](https://channel9.msdn.com/events/Build/2018/BRK3202)
 
 + [Inside the Microsoft FPGA-based configurable cloud (video)](https://channel9.msdn.com/Events/Build/2017/B8063)
 

@@ -1,7 +1,7 @@
 ---
-title: MLflow Tracking for ML experiments
+title: MLflow Tracking for Machine Learning experiments
 titleSuffix: Azure Machine Learning
-description:  Set up MLflow with Azure Machine Learning to log metrics & artifacts, and deploy models from Databricks, your local environment, or VM environment. 
+description:  Set up MLflow with Azure Machine Learning to log metrics and artifacts, and deploy models from Databricks, your local environment, or VM environment. 
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -386,7 +386,7 @@ If you don't plan to use the logged metrics and artifacts in your workspace, the
 
 ## Example notebooks
 
-The [MLflow with Azure ML notebooks](https://aka.ms/azureml-mlflow-examples) demonstrate and expand upon concepts presented in this article.
+The [MLflow with Azure Machine Learning notebooks](https://aka.ms/azureml-mlflow-examples) demonstrate and expand upon concepts presented in this article.
 
 ## Next steps
 * [Manage your models](concept-model-management-and-deployment.md).

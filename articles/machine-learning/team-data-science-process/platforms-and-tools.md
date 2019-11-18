@@ -40,7 +40,7 @@ The data science virtual machine offered on both Windows and Linux by Microsoft,
 - Power BI desktop for Windows
 - SQL Server 2016 Developer Edition on Windows / Postgres on Linux
 
-It also includes **ML and AI tools** like xgboost, mxnet and Vowpal Wabbit.
+It also includes **Machine Learning and AI tools** like xgboost, mxnet and Vowpal Wabbit.
 
 Currently DSVM is available in **Windows** and **Linux CentOS** operating systems. Choose the size of your DSVM (number of CPU cores and the amount of memory) based on the needs of the data science projects that you are planning to execute on it. 
 
@@ -144,4 +144,4 @@ If you are using Linux (CentOS) machines to run the git commands, you need to ad
 
 Full end-to-end walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. They are listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) topic. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application. 
 
-For examples executing steps in the Team Data Science Process that use Azure Machine Learning Studio, see the [With Azure ML](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) learning path.
+For examples that show how to execute steps in the Team Data Science Process by using Azure Machine Learning Studio (classic), see the [With Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) learning path.

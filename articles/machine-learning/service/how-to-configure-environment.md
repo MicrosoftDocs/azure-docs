@@ -51,7 +51,7 @@ To install the SDK environment for your [local computer](#local), [Jupyter Noteb
 
 ## <a id="notebookvm"></a>Your own cloud-based Notebook VM
 
-The Azure Machine Learning Notebook VM is a secure, cloud-based Azure workstation that provides data scientists with a Jupyter notebook server, JupyterLab, and a fully prepared ML environment.
+The Azure Machine Learning Notebook VM is a secure, cloud-based Azure workstation that provides data scientists with a Jupyter notebook server, JupyterLab, and a fully prepared Machine Learning environment.
 
 The Notebook VM is:
 
@@ -153,7 +153,7 @@ When you're using a local computer (which might also be a remote virtual machine
 
     This example creates an environment using python 3.6.5, but any specific subversions can be chosen. SDK compatibility may not be guaranteed with certain major versions (3.5+ is recommended), and it's recommended to try a different version/subversion in your Anaconda environment if you run into errors. It will take several minutes to create the environment while components and packages are downloaded.
 
-1. Run the following commands in your new environment to enable environment-specific ipython kernels. This will ensure expected kernel and package import behavior when working with Jupyter Notebooks within Anaconda environments:
+1. Run the following commands in your new environment to enable environment-specific IPython kernels. This will ensure expected kernel and package import behavior when working with Jupyter Notebooks within Anaconda environments:
 
     ```shell
     conda install notebook ipykernel
@@ -274,7 +274,7 @@ Azure Databricks is an  Apache Spark-based environment in the Azure cloud. It pr
 
 How Azure Databricks works with Azure Machine Learning:
 + You can train a model using Spark MLlib and deploy the model to ACI/AKS from within Azure Databricks.
-+ You can also use [automated machine learning](concept-automated-ml.md) capabilities in a special Azure ML SDK with Azure Databricks.
++ You can also use [automated machine learning](concept-automated-ml.md) capabilities in a special Azure Machine Learning SDK with Azure Databricks.
 + You can use Azure Databricks as a compute target from an [Azure Machine Learning pipeline](concept-ml-pipelines.md).
 
 ### Set up your Databricks cluster
@@ -287,11 +287,11 @@ Use these settings:
 | Setting |Applies to| Value |
 |----|---|---|
 | Cluster name |always| yourclustername |
-| Databricks Runtime |always|Non-ML Runtime 6.0 (scala 2.11, spark 2.4.3) |
+| Databricks Runtime |always|Non-Machine Learning Runtime 6.0 (scala 2.11, spark 2.4.3) |
 | Python version |always| 3 |
 | Workers |always| 2 or higher |
-| Worker node VM types <br>(determines max # of concurrent iterations) |Automated ML<br>only| Memory optimized VM preferred |
-| Enable Autoscaling |Automated ML<br>only| Uncheck |
+| Worker node VM types <br>(determines max # of concurrent iterations) |Automated Machine Learning<br>only| Memory optimized VM preferred |
+| Enable Autoscaling |Automated Machine Learning<br>only| Uncheck |
 
 Wait until the cluster is running before proceeding further.
 
@@ -305,7 +305,7 @@ Once the cluster is running, [create a library](https://docs.databricks.com/user
    |SDK&nbsp;package&nbsp;extras|Source|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |For Databricks| Upload Python Egg or PyPI | azureml-sdk[databricks]|
-   |For Databricks -with-<br> automated ML capabilities| Upload Python Egg or PyPI | azureml-sdk[automl]|
+   |For Databricks -with-<br> automated Machine Learning capabilities| Upload Python Egg or PyPI | azureml-sdk[AutoML]|
 
    > [!Warning]
    > No other SDK extras can be installed. Choose only one of the preceding options [databricks] or [automl].
