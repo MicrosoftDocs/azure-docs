@@ -15,17 +15,14 @@ ms.author: pafarley
 
 # What is Form Recognizer?
 
-Azure Form Recognizer is a cognitive service that uses machine learning technology to identify and extract text, key/value pairs and table data from form documents. It then outputs structured data that includes the relationships in the original file. You can call Form Recognizer models by using a REST API to reduce complexity and integrate it into your workflow or application. You can train and run custom models in a local Docker container. You quickly get accurate results that are tailored to your specific content without heavy manual intervention or extensive data science expertise.
+Azure Form Recognizer is a cognitive service that uses machine learning technology to identify and extract text, key/value pairs and table data from form documents. It then outputs structured data that includes the relationships in the original file. You can call Form Recognizer models by using a REST API to reduce complexity and integrate it into your workflow or application. You quickly get accurate results that are tailored to your specific content without heavy manual intervention or extensive data science expertise.
 
 Form Recognizer is made up of the following services:
 * **Custom models** - Extract key/value pairs and table data from forms. These models are trained to your own data, so they're tailored to your forms.
 * **Prebuilt receipt model** - Extract data from USA sales receipts using a prebuilt model.
-* **Layout API** - Extract text and table structures, along with their bounding box coordinates, from form documents.
+* **Layout API** - Extract text and table structures, along with their bounding box coordinates, from documents.
 
 <!-- add diagram -->
-
-> [!CAUTION]
-> As this feature is still in development, API, inputs, and outputs are not final and might change. Preview features are available for testing and experimentation with the goal of gathering feedback. We strongly advise against using preview APIs in production applications.
 
 ## Custom models
 
@@ -41,17 +38,15 @@ By default, Form Recognizer uses unsupervised learning to understand the layout 
 
 When you train with labeled data, the model does supervised learning to extract values of interest, using the labeled forms you provide. This results in better-performing models and can produce models that work with complex forms or forms containing values without keys.
 
-The Form Recognizer labelled data feature uses the document [Layout API](#layout-api) to learn the expected sizes and positions of printed and handwritten text elements. Then it uses specially-formatted JSON documents that reflect the labels you have manually applied to different fields. We recommend that you use 10 manually labeled forms of the same type when training a new model.
+The Form Recognizer labelled data feature uses the document [Layout API](#layout-api) to learn the expected sizes and positions of printed and handwritten text elements. Then it uses specially-formatted JSON documents that reflect the labels you have manually applied to different fields. We recommend that you use 5 manually labeled forms of the same type to get started when training a new model and add more labled data as needed to improve the model accuracy.
 
 ## Prebuilt receipt model
 
-Form Recognizer also includes a model for reading USA sales receipts. This model extracts key information such as the time and date of the transaction, merchant information, amounts of taxes, line items, totals, and more. In addition, the prebuilt receipt model is trained to recognize and return all of the text on a receipt.
-
-![Contoso receipt](./media/contoso-receipt-small.png)
+Form Recognizer also includes a model for reading USA sales receipts [(sample receipt)](./media/contoso-receipt-small.png). This model extracts key information such as the time and date of the transaction, merchant information, amounts of taxes, line items, totals, and more. In addition, the prebuilt receipt model is trained to recognize and return all of the text on a receipt.
 
 ## Layout API
 
-Form Recognizer can also extract text using high-definition optical character recognition (OCR). It also extracts the structures of tables (row and column numbers).
+Form Recognizer can also extract text and table structure (row and column numbers) using high-definition optical character recognition (OCR). 
 
 ## Where do I start?
 
