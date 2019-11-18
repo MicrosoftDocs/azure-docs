@@ -18,17 +18,26 @@ Azure Monitor for containers can be enabled for new, or one or more existing dep
 - For an existing cluster rom the Azure portal or Azure CLI
 - For a new cluster using Azure CLI 
 
+## Supported and unsupported features
+
+Azure Monitor for containers supports monitoring Azure RedHat OpenShift as described in the [Overview](container-insights-overview.md) article, except for the following features:
+
+- Live data
+- Prometheus metrics scraping
+- Collecting metrics
+- Health feature
+
 ## Prerequisites
 
 - To enable and access the features in Azure Monitor for containers, at a minimum you need to be a member of the Azure *Contributor* role in the Azure subscription, and a member of the *Log Analytics Contributor* role of the Log Analytics workspace configured with Azure Monitor for containers.
 
 - To view the monitoring data, you are a member of the reader role permission with the Log Analytics workspace configured with Azure Monitor for containers.
 
-- Using the latest CLI (version 2.0.65 or above)
+- Using the latest CLI (version 2.0.65 or above).
 
 ## Enable for a new cluster
 
-Perform the following steps to deploy an Azure RedHat OpenShift cluster with monitoring enabled. 
+Perform the following steps to deploy an Azure RedHat OpenShift cluster with monitoring enabled. Before proceeding, review the tutorial [Create an Azure Red Hat OpenShift cluster](../../openshift/tutorial-create-cluster.md#prerequisites) to understand the dependencies that you need to configure so your environment is setup correctly.  
 
 1. Download the ARM template and parameter file to create a cluster with the monitoring add-on using the following commands:
 
@@ -41,20 +50,16 @@ Perform the following steps to deploy an Azure RedHat OpenShift cluster with mon
     ```azurecli
     az login    
     ```
-
-3. Specify the subscription of the Azure RedHat OpenShift cluster.
-
-    ```azurecli
-    az account set --subscription "Subscription Name"  
-    ```
+    
+    If you have access to multiple subscriptions, run `az account set -s {subscription ID}` replacing `{subscription ID}` with the subscription you want to use.
  
-4. Create a resource group for your cluster if you don't already have one. For a list of Azure regions that supports OpenShift on Azure, see [Supported Regions](../../openshift/supported-resources.md#azure-regions). 
+3. Create a resource group for your cluster if you don't already have one. For a list of Azure regions that supports OpenShift on Azure, see [Supported Regions](../../openshift/supported-resources.md#azure-regions). 
 
     ```azurecli
     az group create -g <clusterResourceGroup> -l <location> 
     ```
 
-5. Edit the JSON parameter file **newClusterWithMonitoringParam.json** and update the following values:
+4. Edit the JSON parameter file **newClusterWithMonitoringParam.json** and update the following values:
 
     - *location*
     - *clusterName*
@@ -67,7 +72,7 @@ Perform the following steps to deploy an Azure RedHat OpenShift cluster with mon
     - *computeNodeCount*
     - *infraNodeCount*
 
-6. The following step deploys the cluster with monitoring enabled by using the Azure CLI. 
+5. The following step deploys the cluster with monitoring enabled by using the Azure CLI. 
 
     ```azurecli
     az group deployment create --resource-group <ClusterResourceGroupName> --template-file ./newClusterWithMonitoring.json --parameters @./newClusterWithMonitoringParam.json 
@@ -79,23 +84,93 @@ Perform the following steps to deploy an Azure RedHat OpenShift cluster with mon
     provisioningState       : Succeeded
     ```
 
+## Enable for an existing cluster
 
+Perform the following steps to enable monitoring of an Azure RedHat OpenShift cluster deployed in Azure. You can accomplish this from the Azure portal or using a provided ARM template.
 
-To an Existing Cluster 
-
-Monitoring addon can bel enabled either using Ux or ARM template. 
-
+### From the Azure portal
  
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-UX 
+2. On the Azure portal menu or from the Home page, select **Azure Monitor**. Under the **Insights** section, select **Containers**. 
 
+3. On the **Monitor - containers** page, select **Non-monitored clusters**.
+
+4. From the list of non-monitored clusters, find the cluster in the list and click **Enable**.
+
+5. On the **Onboarding to Azure Monitor for containers** page, if you have an existing Log Analytics workspace in the same subscription as the cluster, select it from the drop-down list.  
+    The list preselects the default workspace and location that the cluster is deployed to in the subscription. 
+
+    ![Enable AKS Container insights monitoring](./media/container-insights-onboard/kubernetes-onboard-brownfield-01.png)
+
+    >[!NOTE]
+    >If you want to create a new Log Analytics workspace for storing the monitoring data from the cluster, follow the instructions in [Create a Log Analytics workspace](../../azure-monitor/learn/quick-create-workspace.md). Be sure to create the workspace in the same subscription that the AKS container is deployed to. 
  
+After you've enabled monitoring, it might take about 15 minutes before you can view health metrics for the cluster. 
 
-1. Navigate to https://aka.ms/azmon-containers-aro 
+### Enable using an Azure Resource Manager template
 
-2. Select the Non-Monitored Clusters tab 
-3. Select your ARO cluster from the list given 
-4. Selecting the Azure Log Analytics Workspace, you want to use for the Monitoring 
-5. Click on Enable button 
+This method includes two JSON templates. One template specifies the configuration to enable monitoring, and the other contains parameter values that you configure to specify the following:
 
- 
+- The Azure RedHat OpenShift cluster resource ID. 
+
+- The resource group the cluster is deployed in.
+
+- A Log Analytics workspace.
+
+If you are unfamiliar with the concept of deploying resources by using a template, see:
+
+- [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
+
+- [Deploy resources with Resource Manager templates and the Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+
+If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.65 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+
+The Log Analytics workspace has to be created before you enable monitoring using Azure PowerShell or CLI. To create the workspace, you can set it up through [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), through [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../../azure-monitor/learn/quick-create-workspace.md).
+
+1. Download the ARM template and parameter file to update your cluster with the monitoring add-on using the following commands:
+
+    `curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/aro/enable_monitoring_to_existing_cluster/existingClusterOnboarding.json`
+
+    `curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/aro/enable_monitoring_to_existing_cluster/existingClusterParam.json` 
+
+2. Sign in to Azure 
+
+    ```azurecli
+    az login    
+    ```
+
+3. Specify the subscription of the Azure RedHat OpenShift cluster.
+
+    ```azurecli
+    az account set --subscription "Subscription Name"  
+    ```
+
+4. Run the following command to identify the cluster location and resource ID:
+
+    ```azurecli
+    az openshift show -g <clusterResourceGroup> -n <clusterName> 
+    ```
+
+5. Edit the JSON parameter file **ExistingClusterParam.json** and update the following values:
+
+    - *aroResourceId*
+    - *aroResourceLocation*
+    - *workspaceResourceId*
+
+6. The following step updates your cluster to enable monitoring by using the Azure CLI. 
+
+    ```azurecli
+    az group deployment create --resource-group <ClusterResourceGroupName> --template-file ./ExistingClusterOnboarding.json --parameters @./existingClusterParam.json 
+    ```
+
+    The output resembles the following:
+
+    ```azurecli
+    provisioningState       : Succeeded
+    ```
+
+## Next steps
+
+With monitoring enabled to collect health and resource utilization of your RedHat OpenShift cluster and workloads running on them, learn [how to use](container-insights-analyze.md) Azure Monitor for containers.
+
