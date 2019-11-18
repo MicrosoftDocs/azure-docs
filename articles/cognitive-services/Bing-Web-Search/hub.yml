@@ -45,6 +45,9 @@ conceptualContent:
         - url: web-sdk-java-quickstart.md
           itemType: quickstart
           text: Use Java
+        - text: Use Node.js
+          itemType: quickstart
+          url: web-search-sdk-node-quickstart.md
         - url: web-sdk-python-quickstart.md
           itemType: quickstart
           text: Use Python
@@ -66,9 +69,6 @@ conceptualContent:
         - text: Use Java
           itemType: quickstart
           url: ../bing-custom-search/sdk-java-quickstart.md
-        - text: Use Node.js
-          itemType: quickstart
-          url: web-search-sdk-node-quickstart.md
         - text: Use Python
           itemType: quickstart
           url: ../bing-custom-search/sdk-python-quickstart.md
