@@ -49,7 +49,7 @@ conceptualContent:
           itemType: quickstart
           text: Use Python
         - url: tutorial-bing-web-search-single-page-app.md
-          itemType: quickstart
+          itemType: tutorial
           text: Create a single-page web-app
       footerLink:
         url: overview.md
