@@ -24,7 +24,7 @@ When you're delivering adaptive bitrate streaming content to devices, you someti
 
 Some delivery scenarios require that you make sure a customer can't access specific tracks. For example, maybe you don't want to publish a manifest that contains HD tracks to a specific subscriber tier. Or, maybe you want to remove specific adaptive bitrate (ABR) tracks to reduce cost of delivery to a specific device that wouldn't benefit from the additional tracks. In this case, you could associate a list of pre-created filters with your [Streaming Locator](streaming-locators-concept.md) on creation. Clients then can't manipulate how the content is streamed because it's defined by the **Streaming Locator**.
 
-You can combine filtering through specifying [filters on Streaming Locator](filters-concept.md#associating-filters-with-streaming-locator) + additional device-specific filters that your client specifies in the URL. This is useful to restrict additional tracks like metadata or event streams, audio languages, or descriptive audio tracks.
+You can combine filtering through specifying [filters on Streaming Locator](filters-concept.md#associating-filters-with-streaming-locator) + additional device-specific filters that your client specifies in the URL. This combination is useful to restrict additional tracks like metadata or event streams, audio languages, or descriptive audio tracks.
 
 This ability to specify different filters on your stream provides a powerful **Dynamic Manifest** manipulation solution to target multiple use-case scenarios for your target devices. This topic explains concepts related to **Dynamic Manifests** and gives examples of scenarios in which you can use this feature.
 

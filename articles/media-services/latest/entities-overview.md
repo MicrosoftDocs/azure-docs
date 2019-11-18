@@ -93,7 +93,7 @@ x-ms-client-request-id: dd57fe5d-f3be-4724-8553-4ceb1dbe5aab
 Content-Type: application/json; charset=utf-8
 ```
 
-You'll get back a response similar to this:
+You'll get back a response similar to this one:
 
 ```
 HTTP/1.1 200 OK
