@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: Build a Node.js app using JavaScript SDK to manage Azure Cosmos DB SQL API data'
-description: Presents a Node.js code sample you can use to connect to and query the Azure Cosmos DB SQL API
+title: 'Quickstart: Build a Node.js app to connect and manage data in Azure Cosmos DB SQL API account'
+description: Learn to build a Node.js app to connect, query, and manage data in Azure Cosmos DB SQL API account
 author: deborahc
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -10,7 +10,7 @@ ms.date: 05/21/2019
 ms.author: dech
 
 ---
-# Quickstart: Build a Node.js app using Azure Cosmos DB SQL API account
+# Quickstart: Build a Node.js app to connect to Azure Cosmos DB SQL API account and manage data
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
@@ -129,7 +129,7 @@ The following snippets are all taken from the **app.js** file.
 
 ## Update your connection string
 
-Now go back to the Azure portal to get your connection string information and copy it into the app.
+Now go back to the Azure portal to get your connection string information. Copy the connection string into the app so that it can connect to your Azure Cosmos account.
 
 1. In the [Azure portal](https://portal.azure.com/), in your Azure Cosmos account, in the left navigation click **Keys**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the `config.js` file in the next step.
 
