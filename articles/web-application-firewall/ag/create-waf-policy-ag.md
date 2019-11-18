@@ -59,7 +59,7 @@ When you create a WAF policy, by default it is in *Detection* mode. In Detection
 
 Azure-managed OWASP rules are enabled by default. To disable an individual rule within a rule group, expand the rules within that rule group, select the check box in front of the rule number, and select **Disable** on the tab above.
 
-![Managed rules](../media/create-waf-policy-ag/managed-rules.png)
+[ ![Managed rules](../media/create-waf-policy-ag/managed-rules.png) ](../media/create-waf-policy-ag/managed-rules.png#lightbox)
 
 ## Custom rules
 
