@@ -204,7 +204,8 @@
         "articles/jenkins/**/*.md": "TomArcherMsft",
         "articles/terraform/**/*.md": "TomArcherMsft",
         "articles/lighthouse/**/*.md": "JnHs",
-        "articles/azure-resource-manager/**/*.md": "tfitzmac"
+        "articles/azure-resource-manager/**/*.md": "tfitzmac",
+        "articles/dev-spaces/**/*.md": "zr-msft"
       },
       "feedback_system": {
         "articles/virtual-machines/windows/classic/**/*": "None",
@@ -400,7 +401,8 @@
         "articles/jenkins/**/*.md": "tarcher",
         "articles/terraform/**/*.md": "tarcher",
         "articles/lighthouse/**/*.md": "jenhayes",
-        "articles/azure-resource-manager/**/*.md": "tomfitz"
+        "articles/azure-resource-manager/**/*.md": "tomfitz",
+        "articles/dev-spaces/**/*.md": "zarhoads"
       },
       "ms.service": {
         "articles/governance/*.md": "governance",
@@ -415,7 +417,8 @@
         "articles/jenkins/**/*.md": "jenkins",
         "articles/terraform/**/*.md": "terraform",
         "articles/lighthouse/**/*.md": "lighthouse",
-        "articles/azure-resource-manager/**/*.md": "azure-resource-manager"
+        "articles/azure-resource-manager/**/*.md": "azure-resource-manager",
+        "articles/dev-spaces/**/*.md": "azure-dev-spaces"
       },
       "ms.subservice": {
         "articles/industry/agriculture/**/*.md": "agriculture"
