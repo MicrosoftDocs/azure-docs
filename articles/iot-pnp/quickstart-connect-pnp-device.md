@@ -46,7 +46,6 @@ In this quickstart, you prepare a development environment you can use to clone a
 
 Open a command prompt in the directory of your choice. Execute the following command to clone the [Azure IoT C SDKs and Libraries](https://github.com/Azure/azure-iot-sdk-c) GitHub repository into this location:
 
-
 ```cmd/sh
 git clone https://github.com/Azure/azure-iot-sdk-c --recursive -b public-preview
 ```
@@ -78,7 +77,6 @@ You use the device SDK to build the included sample code. The application you bu
 ## Run the device sample
 
 Run a sample application in the SDK to simulate an IoT Plug and Play device that sends telemetry to your IoT hub. To run the sample application, use these commands and pass the _device connection string_ as a parameter.
-
 
 ```cmd\sh
 cd digitaltwin_client\samples\digitaltwin_sample_device\Release

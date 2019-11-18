@@ -1,5 +1,5 @@
 ---
-title: Create a zoned Linux VM with the Azure CLI | Microsoft Docs
+title: Create a zoned Linux VM with the Azure CLI 
 description: Create a Linux VM in an availability zone with the Azure CLI
 services: virtual-machines-linux
 documentationcenter: virtual-machines

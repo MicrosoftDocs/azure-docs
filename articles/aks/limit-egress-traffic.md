@@ -56,6 +56,7 @@ The following outbound ports / network rules are required for an AKS cluster:
 * UDP port *53* for DNS is also required if you have pods directly accessing the API server.
 
 The following FQDN / application rules are required:
+- Azure Global
 
 | FQDN                       | Port      | Use      |
 |----------------------------|-----------|----------|
@@ -70,7 +71,34 @@ The following FQDN / application rules are required:
 | ntp.ubuntu.com             | UDP:123   | This address is required for NTP time synchronization on Linux nodes. |
 | packages.microsoft.com     | HTTPS:443 | This address is the Microsoft packages repository used for cached *apt-get* operations.  Example packages include Moby, PowerShell, and Azure CLI. |
 | acs-mirror.azureedge.net 	 | HTTPS:443 | This address is for the repository required to install required binaries like kubenet and Azure CNI. |
+- Azure China
 
+| FQDN                       | Port      | Use      |
+|----------------------------|-----------|----------|
+| *.hcp.\<location\>.cx.prod.service.azk8s.cn | HTTPS:443, TCP:22, TCP:9000 | This address is the API server endpoint. Replace *\<location\>* with the region where your AKS cluster is deployed. |
+| *.tun.\<location\>.cx.prod.service.azk8s.cn | HTTPS:443, TCP:22, TCP:9000 | This address is the API server endpoint. Replace *\<location\>* with the region where your AKS cluster is deployed. |
+| *.azk8s.cn        | HTTPS:443 | This address is required to download required binaries and images|
+| mcr.microsoft.com          | HTTPS:443 | This address is required to access images in Microsoft Container Registry (MCR). This registry contains first-party images/charts(for example, moby, etc.) required for the functioning of the cluster during upgrade and scale of the cluster |
+| *.cdn.mscr.io              | HTTPS:443 | This address is required for MCR storage backed by the Azure content delivery network (CDN). |
+| management.chinacloudapi.cn       | HTTPS:443 | This address is required for Kubernetes GET/PUT operations. |
+| login.chinacloudapi.cn  | HTTPS:443 | This address is required for Azure Active Directory authentication. |
+| ntp.ubuntu.com             | UDP:123   | This address is required for NTP time synchronization on Linux nodes. |
+| packages.microsoft.com     | HTTPS:443 | This address is the Microsoft packages repository used for cached *apt-get* operations.  Example packages include Moby, PowerShell, and Azure CLI. |
+- Azure Government
+
+| FQDN                       | Port      | Use      |
+|----------------------------|-----------|----------|
+| *.hcp.\<location\>.cx.aks.containerservice.azure.us | HTTPS:443, TCP:22, TCP:9000 | This address is the API server endpoint. Replace *\<location\>* with the region where your AKS cluster is deployed. |
+| *.tun.\<location\>.cx.aks.containerservice.azure.us | HTTPS:443, TCP:22, TCP:9000 | This address is the API server endpoint. Replace *\<location\>* with the region where your AKS cluster is deployed. |
+| aksrepos.azurecr.io        | HTTPS:443 | This address is required to access images in Azure Container Registry (ACR). This registry contains third-party images/charts (for example, metrics server, core dns, etc.) required for the functioning of the cluster during upgrade and scale of the cluster|
+| *.blob.core.windows.net    | HTTPS:443 | This address is the backend store for images stored in ACR. |
+| mcr.microsoft.com          | HTTPS:443 | This address is required to access images in Microsoft Container Registry (MCR). This registry contains first-party images/charts(for example, moby, etc.) required for the functioning of the cluster during upgrade and scale of the cluster |
+| *.cdn.mscr.io              | HTTPS:443 | This address is required for MCR storage backed by the Azure content delivery network (CDN). |
+| management.usgovcloudapi.net       | HTTPS:443 | This address is required for Kubernetes GET/PUT operations. |
+| login.microsoftonline.us  | HTTPS:443 | This address is required for Azure Active Directory authentication. |
+| ntp.ubuntu.com             | UDP:123   | This address is required for NTP time synchronization on Linux nodes. |
+| packages.microsoft.com     | HTTPS:443 | This address is the Microsoft packages repository used for cached *apt-get* operations.  Example packages include Moby, PowerShell, and Azure CLI. |
+| acs-mirror.azureedge.net 	 | HTTPS:443 | This address is for the repository required to install required binaries like kubenet and Azure CNI. |
 ## Optional recommended addresses and ports for AKS clusters
 
 The following outbound ports / network rules are optional for an AKS cluster:

@@ -162,7 +162,7 @@ A single IoT Edge device can be provisioned manually using a device connections 
 
 ### Option 1: Manual provisioning
 
-To manually provision a device, you need to provide it with a [device connection string](how-to-register-device-portal.md) that you can create by registering a new device in your IoT hub.
+To manually provision a device, you need to provide it with a [device connection string](how-to-register-device.md#register-in-the-azure-portal) that you can create by registering a new device in your IoT hub.
 
 Open the configuration file.
 

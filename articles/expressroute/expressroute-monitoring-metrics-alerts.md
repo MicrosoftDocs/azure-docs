@@ -1,5 +1,5 @@
 ---
-title: Monitoring, Metrics, and Alerts - Azure ExpressRoute | Microsoft Docs
+title: 'Azure ExpressRoute: Monitoring, Metrics, and Alerts'
 description: This page provides information about ExpressRoute monitoring
 services: expressroute
 author: mialdrid
@@ -8,7 +8,7 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: cherylmc
-ms.custom: seodec18
+
 
 ---
 # ExpressRoute monitoring, metrics, and alerts

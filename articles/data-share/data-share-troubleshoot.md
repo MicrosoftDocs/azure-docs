@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot Azure Data Share Preview
-description: Learn how to troubleshoot issues with invitations and errors when creating or receiving data shares with Azure Data Share Preview.
+title: Troubleshoot Azure Data Share 
+description: Learn how to troubleshoot issues with invitations and errors when creating or receiving data shares with Azure Data Share.
 services: data-share
 author: joannapea
 ms.author: joanpo
@@ -9,9 +9,9 @@ ms.topic: troubleshooting
 ms.date: 07/10/2019
 ---
 
-# Troubleshoot common issues in Azure Data Share Preview
+# Troubleshoot common issues in Azure Data Share 
 
-This article shows how to troubleshoot common issues for Azure Data Share Preview. 
+This article shows how to troubleshoot common issues for Azure Data Share. 
 
 ## Azure Data Share invitations 
 
@@ -50,6 +50,20 @@ If you receive any of the above errors when creating a new data share or receivi
 1. Select **Access control (IAM)**
 1. Click **Add**
 1. Add yourself in as owner.
+
+## Troubleshooting SQL-based sharing
+
+"Error: x datasets were not added because you do not have the required permissions to share."
+
+If you receive this error when adding a dataset from a SQL-based source, it may be because you did not create a user for the Azure Data Share MSI on your SQL Server.  To resolve this issue, run the following script:
+
+```sql
+    create user <share_acct_name> from external provider;     
+    exec sp_addrolemember db_owner, <share_acct_name>; 
+```      
+Note that the *<share_acc_name>* is the name of your Data Share Account. If you have not created a Data Share account as yet, you can come back to this pre-requisite later.         
+
+Ensure that you have followed all prerequisites listed in [Share your data](share-your-data.md) tutorial.
 
 ## Next steps
 

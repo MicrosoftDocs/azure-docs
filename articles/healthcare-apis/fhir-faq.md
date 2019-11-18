@@ -1,6 +1,6 @@
 ---
-title: Frequently asked questions (FAQ) about FHIR services in Azure - Azure API for FHIR
-description: This FAQ article answers frequently asked questions about Azure API for FHIR
+title: FAQs about FHIR services in Azure - Azure API for FHIR
+description: Get answers to frequently asked questions about Azure API for FHIR, such as the storage location of data behind FHIR APIs and version support.
 services: healthcare-apis
 author: hansenms
 ms.service: healthcare-apis
@@ -22,9 +22,7 @@ We currently support Microsoft Azure Active Directory as the identity provider.
 
 ## Supported FHIR version
 
-Azure API for FHIR (PaaS): We support version 3.0.1
-
-FHIR Server for Azure (OSS): We support version 4.0.0, the most recent version of the FHIR specification, in addition to version 3.0.1.
+We support versions 4.0.0 and 3.0.1 on both Azure API for FHIR (PaaS) and FHIR Server for Azure (OSS)
 
 See [Supported Features](fhir-features-supported.md) for details. Read about what has changed between versions in [HL7 FHIR's Version History](https://hl7.org/fhir/R4/history.html)
 

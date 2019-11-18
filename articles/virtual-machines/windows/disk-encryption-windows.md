@@ -23,15 +23,12 @@ You can only apply disk encryption to virtual machines of [supported VM sizes an
 - [Group Policy requirements](disk-encryption-overview.md#group-policy-requirements)
 - [Encryption key storage requirements](disk-encryption-overview.md#encryption-key-storage-requirements)
 
-
-
 >[!IMPORTANT]
 > - If you have previously used Azure Disk Encryption with Azure AD to encrypt a VM, you must continue use this option to encrypt your VM. See [Azure Disk Encryption with Azure AD (previous release)](disk-encryption-overview-aad.md) for details. 
 >
 > - You should [take a snapshot](snapshot-copy-managed-disk.md) and/or create a backup before disks are encrypted. Backups ensure that a recovery option is possible if an unexpected failure occurs during encryption. VMs with managed disks require a backup before encryption occurs. Once a backup is made, you can use the [Set-AzVMDiskEncryptionExtension cmdlet](/powershell/module/az.compute/set-azvmdiskencryptionextension) to encrypt managed disks by specifying the -skipVmBackup parameter. For more information about how to back up and restore encrypted VMs, see [Back up and restore encrypted Azure VM](../../backup/backup-azure-vms-encryption.md). 
 >
 > - Encrypting or disabling encryption may cause a VM to reboot.
-
 
 ## Install tools and connect to Azure
 
@@ -250,7 +247,8 @@ You can disable encryption using Azure PowerShell, the Azure CLI, or with a Reso
 Azure Disk Encryption does not work for the following scenarios, features, and technology:
 
 - Encrypting basic tier VM or VMs created through the classic VM creation method.
-- Encrypting Windows VMs configured with software-based RAID systems.
+- Encrypting VMs configured with software-based RAID systems.
+- Encrypting VMs configured with Storage Spaces Direct (S2D), or Windows Server versions before 2016 configured with Windows Storage Spaces.
 - Integration with an on-premises key management system.
 - Azure Files (shared file system).
 - Network File System (NFS).

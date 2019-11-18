@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Get news using Bing News Search REST API and Go"
 titleSuffix: Azure Cognitive Services
-description: Learn how to get news results from the Bing News Search API.
+description: This quickstart uses the Go language to call the Bing News Search API. The results include names and URLs of news sources identified by the query string.
 services: cognitive-services
 author: aahill
 manager: nitinme

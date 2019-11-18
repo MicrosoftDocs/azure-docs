@@ -164,6 +164,7 @@ In this quickstart, you use a sample IoT solution in Node.js to interact with th
     ```cmd/sh
     node get_digital_twin.js
     ```
+
 3. In the _service_ terminal output, under the `environmentalSensor` component, you see the updated brightness value has been reported. Note: it might take a while for the device to finish the update. You can repeat this step until the device has actually processed the property update.
     
     ```json

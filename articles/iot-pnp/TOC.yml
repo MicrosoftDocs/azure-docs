@@ -26,7 +26,7 @@
       - name: Java
         href: quickstart-connect-pnp-device-java.md
   - name: Connect a device to IoT Central
-    href: ../iot-central/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    href: ../iot-central/preview/quick-create-pnp-device.md
   - name: Connect to a device in your solution
     items:
       - name: C#

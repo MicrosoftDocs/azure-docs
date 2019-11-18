@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: C# SDK query prediction endpoint - LUIS"
 titleSuffix: Azure Cognitive Services 
-description: Use the C# SDK to send a user utterance to LUIS and receive a prediction. 
+description: This article will show you how to use the C# SDK to send a user utterance to the Azure Cognitive Services LUIS application and receive a prediction. 
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
@@ -72,7 +72,7 @@ using Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime.Models;
 
 ## Create a new method for the prediction
 
-Create a new method, `GetPrediction` to send the query to the query prediction endpoint. The method will create and configure all necessary objects then return a `Task` with the [`LuisResult`](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.models.luisresult?view=azure-dotnet) prediction results. 
+Create a new method, `GetPrediction` to send the query to the query prediction endpoint. The method will create and configure all necessary objects then return a `Task` with the [`LuisResult`](/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.models.luisresult) prediction results. 
 
 ```csharp
 static async  Task<LuisResult> GetPrediction() {

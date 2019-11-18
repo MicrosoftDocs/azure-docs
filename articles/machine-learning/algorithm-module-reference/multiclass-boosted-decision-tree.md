@@ -1,7 +1,7 @@
 ---
 title:  "Multiclass Boosted Decision Tree: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Multiclass Boosted Decision Tree module in Azure Machine Learning service to create a classifier using labeled data.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Multiclass Boosted Decision Tree module in Azure Machine Learning to create a classifier using labeled data.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -15,7 +15,7 @@ ROBOTS: NOINDEX
 
 # Multiclass Boosted Decision Tree
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to create a machine learning model that is based on the boosted decision trees algorithm.
 
@@ -57,4 +57,4 @@ You can train this type of model by using the [Train Model](././train-model.md).
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

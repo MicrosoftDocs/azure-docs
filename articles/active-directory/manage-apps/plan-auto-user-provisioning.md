@@ -59,7 +59,7 @@ This article uses the following terms:
 
 * Target system - The repository of users that the Azure AD provisions to. The Target system is typically a SaaS application such as ServiceNow, Zscaler, and Slack. The target system can also be an on-premises system such as AD.
 
-* [System for Cross-domain Identity Management (SCIM)](http://www.simplecloud.info/)) -  An open standard that allows for the automation of user provisioning. SCIM communicates user identity data between identity providers such as Microsoft, and service providers like Salesforce or other SaaS apps that require user identity information.
+* [System for Cross-domain Identity Management (SCIM)](https://aka.ms/scimoverview) -  An open standard that allows for the automation of user provisioning. SCIM communicates user identity data between identity providers such as Microsoft, and service providers like Salesforce or other SaaS apps that require user identity information.
 
 ### Training resources
 
@@ -277,6 +277,8 @@ After a successful [initial cycle](https://docs.microsoft.com/azure/active-direc
 * The provisioning process goes into quarantine due to a high error rate and stays in quarantine for more than four weeks when it will be automatically disabled.
 
 To review these events, and all other activities performed by the provisioning service, refer to Azure AD [provisioning logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context).
+
+To understand how long the provisioning cycles take and monitor the progress of the provisioning job, you can [check the status of user provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user).
 
 ### Gain insights from reports
 

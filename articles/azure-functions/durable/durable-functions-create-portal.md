@@ -46,7 +46,7 @@ If you are creating JavaScript Durable Functions, you will need to install the [
     ```json
     {
       "dependencies": {
-        "durable-functions": "^1.1.2"
+        "durable-functions": "^1.3.1"
       }
     }
     ```

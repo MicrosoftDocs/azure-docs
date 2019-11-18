@@ -1,12 +1,8 @@
 ---
 title: Safe deployment across regions - Azure Deployment Manager
 description: Describes how to deploy a service over many regions with Azure Deployment Manager. It shows safe deployment practices to verify the stability of your deployment before rolling out to all regions.
-author: tfitzmac
-
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.author: tomfitz
 ms.custom: seodec18
 ---
 # Enable safe deployment practices with Azure Deployment Manager (Public preview)

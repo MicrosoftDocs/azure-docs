@@ -1,19 +1,16 @@
 ---
 title: Telemetry channels in Azure Application Insights | Microsoft Docs
 description: How to customize telemetry channels in Azure Application Insights SDKs for .NET and .NET Core.
-services: application-insights
-documentationcenter: .net
-author: cijothomas
-manager: carmonm
-ms.assetid: 015ab744-d514-42c0-8553-8410eef00368
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 05/14/2019
-ms.reviewer: mbullwin
+author: cijothomas
 ms.author: cithomas
+ms.date: 05/14/2019
+
+ms.reviewer: mbullwin
 ---
+
 # Telemetry channels in Application Insights
 
 Telemetry channels are an integral part of the [Azure Application Insights SDKs](../../azure-monitor/app/app-insights-overview.md). They manage buffering and transmission of telemetry to the Application Insights service. The .NET and .NET Core versions of the SDKs have two built-in telemetry channels: `InMemoryChannel` and `ServerTelemetryChannel`. This article describes each channel in detail, including how to customize channel behavior.

@@ -135,7 +135,7 @@ You use the device SDK source code to build the generated device code stub. The 
 
     ```sh
     cd ~/pnp_app/sample_device/cmake
-    ./sample_device "<device connection string>"
+    ./sample_device "<YourDeviceConnectionString>"
     ```
 
 1. The device application starts sending data to IoT Hub.
@@ -175,8 +175,9 @@ az iot dt monitor-events --hub-name <YourIoTHubNme> --device-id <YourDevice>
 Use the following command to view all the properties sent by the device:
 
 ```azurecli-interactive
-az iot dt list-properties --device-id <YourDevice> --hub-name <YourIoTHubNme> --source private --repo-login "<Your company model repository connection string>"
+az iot dt list-properties --device-id <YourDevice> --hub-name <YourIoTHubNme> --source private --repo-login "<YourCompanyModelRepositoryConnectionString>"
 ```
+
 [!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
 ## Next steps
