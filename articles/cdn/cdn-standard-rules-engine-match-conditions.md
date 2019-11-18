@@ -121,6 +121,7 @@ Operator | Request Body | Case Transform
 ### Request Header
 
 **Required fields**
+
 Header Name | Operator | Header Value | Case Transform
 ------------|----------|--------------|---------------
 String | [Standard operator list](#standard-operator-list) | String, Int | No transform, to uppercase, to lowercase
