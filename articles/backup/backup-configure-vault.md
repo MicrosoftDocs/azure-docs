@@ -32,7 +32,7 @@ The MARS agent is used by Azure Backup to back up files, folders, and system sta
 What you can back up depends on where the agent is installed.
 
 > [!NOTE]
-> The primary method for backing up Azure VMs is by using an Azure Backup extension on the VM. This backs up the entire VM. You might want to install and use the MARS agent alongside the extension if you want to back up specific files and folders on the VM. [Learn more](backup-architecture.md#architecture-direct-backup-of-azure-vms).
+> The primary method for backing up Azure VMs is by using an Azure Backup extension on the VM. This backs up the entire VM. You might want to install and use the MARS agent alongside the extension if you want to back up specific files and folders on the VM. [Learn more](backup-architecture.md#architecture-built-in-azure-vm-backup).
 
 ![Backup process steps](./media/backup-configure-vault/initial-backup-process.png)
 
