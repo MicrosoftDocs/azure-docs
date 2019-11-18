@@ -199,6 +199,7 @@
         "articles/governance/management-groups/**/*.md": "rthorn17",
         "articles/governance/resource-graph/**/*.md": "DCtheGeek",
         "articles/ansible/**/*.md": "TomArcherMsft",
+        "articles/backup/**/*.md": "dacurwin",
         "articles/chef/**/*.md": "TomArcherMsft",
         "articles/jenkins/**/*.md": "TomArcherMsft",
         "articles/terraform/**/*.md": "TomArcherMsft",
@@ -384,7 +385,8 @@
         "articles/firewall/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=345022"
       },
       "manager": {
-        "articles/sql-database/**/*.md": "jroth"
+        "articles/sql-database/**/*.md": "jroth",
+        "articles/backup/**/*.md": "carmonm"
       },
       "ms.author": {
         "articles/governance/*.md": "dacoulte",
@@ -393,6 +395,7 @@
         "articles/governance/management-groups/**/*.md": "rithorn",
         "articles/governance/resource-graph/**/*.md": "dacoulte",
         "articles/ansible/**/*.md": "tarcher",
+        "articles/backup/**/*.md": "dacurwin",
         "articles/chef/**/*.md": "tarcher",
         "articles/jenkins/**/*.md": "tarcher",
         "articles/terraform/**/*.md": "tarcher",
@@ -407,6 +410,7 @@
         "articles/governance/resource-graph/**/*.md": "resource-graph",
         "articles/industry/**/*.md": "azure-industry",
         "articles/ansible/**/*.md": "ansible",
+        "articles/backup/**/*.md": "backup",
         "articles/chef/**/*.md": "chef",
         "articles/jenkins/**/*.md": "jenkins",
         "articles/terraform/**/*.md": "terraform",
@@ -447,6 +451,8 @@
         "articles/governance/policy/**/*.md": "Azure Policy",
         "articles/governance/resource-graph/**/*.md": "Azure Resource Graph",
         "articles/lighthouse/**/*.md": "Azure Lighthouse",
+        "articles/backup/**/*.md": "Azure Backup",
+        "articles/backup/**/*.yml": "Azure Backup",
         "articles/industry/agriculture/**/*.md": "Azure for Industry: Agriculture",
         "articles/sql-data-warehouse/**/*.md": "Azure SQL Data Warehouse",
         "articles/sql-data-warehouse/**/*.yml": "Azure SQL Data Warehouse",
