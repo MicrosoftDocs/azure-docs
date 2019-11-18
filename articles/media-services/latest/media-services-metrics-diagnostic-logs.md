@@ -68,7 +68,7 @@ The following Media Services [Streaming Endpoints](https://docs.microsoft.com/re
 Here are examples of how monitoring Media Services metrics can help you understand how your apps are performing. Some questions that can be addressed with Media Services metrics are:
 
 * How do I monitor my Standard Streaming Endpoint to know when I have exceeded the limits?
-* How do I know if I've enough Premium Streaming Endpoint scale units?
+* How do I know if I have enough Premium Streaming Endpoint scale units?
 * How can I set an alert to know when to scale up my Streaming Endpoints?
 * How do I set an alert to know when the max egress configured on the account was reached?
 * How can I see the breakdown of requests failing and what is causing the failure?
