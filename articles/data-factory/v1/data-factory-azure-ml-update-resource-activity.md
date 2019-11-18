@@ -60,7 +60,7 @@ If the scoring web service is a **classic web service**, create the second **non
 
 ![updatable endpoint](./media/data-factory-azure-ml-batch-execution-activity/updatable-endpoint.png)
 
-The following example provides a sample JSON definition for the AzureML linked service. The linked service uses the apiKey for authentication.  
+The following example provides a sample JSON definition for the Azure Machine Learning linked service. The linked service uses the apiKey for authentication.  
 
 ```json
 {
@@ -83,7 +83,7 @@ If the web service is the new type of web service that exposes an Azure Resource
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview. 
 ```
 
-You can get values for place holders in the URL when querying the web service on the [Azure Machine Learning Web Services Portal](https://services.azureml.net/). The new type of update resource endpoint requires an AAD (Azure Active Directory) token. Specify **servicePrincipalId** and **servicePrincipalKey**in AzureML linked service. See [how to create service principal and assign permissions to manage Azure resource](../../active-directory/develop/howto-create-service-principal-portal.md). Here is a sample AzureML linked service definition: 
+You can get values for place holders in the URL when querying the web service on the [Azure Machine Learning Web Services Portal](https://services.azureml.net/). The new type of update resource endpoint requires an AAD (Azure Active Directory) token. Specify **servicePrincipalId** and **servicePrincipalKey** in the Azure Machine Learning linked service. See [how to create service principal and assign permissions to manage Azure resource](../../active-directory/develop/howto-create-service-principal-portal.md). Here is a sample Azure Machine Learning linked service definition: 
 
 ```json
 {

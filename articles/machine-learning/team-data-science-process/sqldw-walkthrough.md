@@ -878,9 +878,9 @@ To recap what we have done in this walkthrough tutorial, you have created an Azu
 This sample walkthrough and its accompanying scripts and IPython notebook(s) are shared by Microsoft under the MIT license. Please check the LICENSE.txt file in the directory of the sample code on GitHub for more details.
 
 ## References
-•    [Andrés Monroy NYC Taxi Trips Download Page](https://www.andresmh.com/nyctaxitrips/)
-•    [FOILing NYC’s Taxi Trip Data by Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)
-•    [NYC Taxi and Limousine Commission Research and Statistics](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
+- [Andrés Monroy NYC Taxi Trips Download Page](https://www.andresmh.com/nyctaxitrips/)
+- [FOILing NYC’s Taxi Trip Data by Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)
+- [NYC Taxi and Limousine Commission Research and Statistics](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [1]: ./media/sqldw-walkthrough/sql-walkthrough_26_1.png
 [2]: ./media/sqldw-walkthrough/sql-walkthrough_28_1.png

@@ -256,7 +256,7 @@ Azure Machine Learning also provides framework specific estimators for Tensorflo
 Azure Machine Learning maintained docker images and their contents can be seen in [Azure Machine Learning Containers](https://github.com/Azure/AzureML-Containers).
 Framework specific dependencies  are listed in the respective framework documentation - [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
 
->[Note!]
+> [!Note]
 > If you think a particular package is common enough to be added in Azure Machine Learning maintained images and environments please raise a GitHub issue in [Azure Machine Learning Containers](https://github.com/Azure/AzureML-Containers). 
  
  ### NameError (Name not defined), AttributeError (Object has no attribute)

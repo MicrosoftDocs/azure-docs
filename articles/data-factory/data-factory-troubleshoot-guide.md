@@ -349,7 +349,7 @@ The following table applies to U-SQL.
 
 - **Message**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **Cause**: `Properties of the activity such as pipelineParamters are invalid for the Azure ML pipeline.`
+- **Cause**: Properties of the activity such as pipelineParameters are invalid for the Azure Machine Learning pipeline.
 
 - **Recommendation**:  Please check the value of activity properties to match expected payload of the published Azure Machine Learning pipeline specified in Linked Service.
 
@@ -1021,7 +1021,7 @@ To use Fiddler to create an HTTP session of the monitored web application:
 
 1. If your web application uses HTTPS, go to **Tools** > **Fiddler Options** > **HTTPS**. Select **Capture HTTPS CONNECTs** and **Decrypt HTTPS traffic**.
 
-![Fiddler options](media/data-factory-troubleshoot-guide/fiddler-options.png)
+   ![Fiddler options](media/data-factory-troubleshoot-guide/fiddler-options.png)
 
 1. If your application uses SSL certificates, add the Fiddler certificate to your device. Go to **Tools** > **Fiddler Options** > **HTTPS** > **Actions** > **Export Root Certificate to Desktop**.
 
@@ -1031,17 +1031,17 @@ To use Fiddler to create an HTTP session of the monitored web application:
 
 1. Create a request:
 
-a. Select the **Composer** tab.
+   1. Select the **Composer** tab.
 
-b. Set the HTTP method and URL.
+   1. Set the HTTP method and URL.
+   
+   1. Add headers and a request body if you need to.
 
-c. Add headers and a request body if you need to.
+   1. Select **Execute**.
 
-d. Select **Execute**.
+1. Turn on traffic capturing again, and complete the problematic transaction on your page.
 
-9. Turn on traffic capturing again, and complete the problematic transaction on your page.
-
-10. Go to **File** > **Save** > **All Sessions**.
+1. Go to **File** > **Save** > **All Sessions**.
 
 For more information, see [Getting started with Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler).
 
