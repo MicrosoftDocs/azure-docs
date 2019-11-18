@@ -44,8 +44,9 @@ The Azure portal has a wizard that walks you through creating the deployment man
    * **Azure Machine Learning Module** - only model images generated from an Azure Machine Learning workspace.
 
 1. Select the **IoT Edge Module**.
-1. For the **IoT Edge Module Name**, specify `SimulatedTemperatureSensor`.
-1. On the **Module Settings** tab, for the **Image URI** specify `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`.
+1. On the **Module Settings** tab, provide a name for the module, then specify the container image. For example:
+   * **IoT Edge Module Name** - SimulatedTemperatureSensor
+   * **Image URI** - mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0
 1. Fill out the optional fields if necessary. For more information about container create options, restart policy, and desired status see [EdgeAgent desired properties](module-edgeagent-edgehub.md#edgeagent-desired-properties). For more information about the module twin see [Define or update desired properties](module-composition.md#define-or-update-desired-properties).
 1. Select **Create**.
 1. If needed, repeat steps 6 through 12 to add additional modules to your deployment.
@@ -53,7 +54,7 @@ The Azure portal has a wizard that walks you through creating the deployment man
 
 ### Specify routes
 
-On the **Routes** tab, you define how messages are passed between modules and the IoT Hub. Messages are constructed using name/value pairs. By default a route called **route** and defined as **FROM /messages/* INTO $upstream**, which means that any messages output by any modules are sent to your IoT hub.  
+On the **Routes** tab, you define how messages are passed between modules and the IoT Hub. Messages are constructed using name/value pairs. By default a route is called **route** and defined as **FROM /messages/* INTO $upstream**, which means that any messages output by any modules are sent to your IoT hub.  
 
 Add or update the routes with information from [Declare routes](module-composition.md#declare-routes), then select **Next: Review + create** to continue to the next step of the wizard.
 
