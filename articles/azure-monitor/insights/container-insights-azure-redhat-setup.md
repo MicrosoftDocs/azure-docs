@@ -45,15 +45,15 @@ This method includes two JSON templates. One template specifies the configuratio
 
 - The resource group the cluster is deployed in.
 
-- [Azure Active Directory tenant ID](../../openshift/howto-create-tenant#create-a-new-azure-ad-tenant.md) noted after performing the steps to create one or for one you have already created.
+- [Azure Active Directory tenant ID](../../openshift/howto-create-tenant#create-a-new-azure-ad-tenant.md) noted after performing the steps to create one or one already created.
 
-- [Azure Active Directory client application ID](../../openshift/howto-aad-app-configuration#create-an-azure-ad-app-registration.md) noted after performing the steps to create one or for one you have already created.
+- [Azure Active Directory client application ID](../../openshift/howto-aad-app-configuration#create-an-azure-ad-app-registration.md) noted after performing the steps to create one or one already created.
 
-- [Azure Active Directory Client secret](../../openshift/howto-aad-app-configuration#create-a-client-secret.md) noted after performing the steps to create one or for one you have already created.
+- [Azure Active Directory Client secret](../../openshift/howto-aad-app-configuration#create-a-client-secret.md) noted after performing the steps to create one or one already created.
 
-- [Azure AD security group](../../openshift/howto-aad-app-configuration#create-an-azure-ad-security-group.md) noted after performing the steps to create one or for one you have already created.
+- [Azure AD security group](../../openshift/howto-aad-app-configuration#create-an-azure-ad-security-group.md) noted after performing the steps to create one or one already created.
 
-- An existing Log Analytics workspace.
+- Resource ID of an existing Log Analytics workspace.
 
 - The number of master nodes to create in the cluster.
 
