@@ -17,6 +17,7 @@ ms.author: tomfitz
 
 ---
 # Microsoft.Compute.CredentialsCombo UI element
+
 A group of controls with built-in validation for Windows and Linux passwords and SSH public keys.
 
 ## UI sample
@@ -34,6 +35,7 @@ For Linux with SSH public key selected, users see:
 ![Microsoft.Compute.CredentialsCombo Linux key](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-key.png)
 
 ## Schema
+
 For Windows, use the following schema:
 
 ```json
@@ -91,14 +93,8 @@ For **Linux**, use the following schema:
 }
 ```
 
-## Remarks
-- `osPlatform` must be specified, and can be either **Windows** or **Linux**.
-- If `constraints.required` is set to **true**, then the password or SSH public key text boxes must have values to validate successfully. The default value is **true**.
-- If `options.hideConfirmation` is set to **true**, then the second text box for confirming the user's password is hidden. The default value is **false**.
-- If `options.hidePassword` is set to **true**, then the option to use password authentication is hidden. It can be used only when `osPlatform` is **Linux**. The default value is **false**.
-- Additional constraints on the allowed passwords can be implemented by using the `customPasswordRegex` property. The string in `customValidationMessage` is displayed when a password fails custom validation. The default value for both properties is **null**.
-
 ## Sample output
+
 If `osPlatform` is **Windows**, or `osPlatform` is **Linux** and the user provided a password instead of an SSH public key, the control returns the following output:
 
 ```json
@@ -117,6 +113,15 @@ If `osPlatform` is **Linux** and the user provided an SSH public key, the contro
 }
 ```
 
+## Remarks
+
+- `osPlatform` must be specified, and can be either **Windows** or **Linux**.
+- If `constraints.required` is set to **true**, then the password or SSH public key text boxes must have values to validate successfully. The default value is **true**.
+- If `options.hideConfirmation` is set to **true**, then the second text box for confirming the user's password is hidden. The default value is **false**.
+- If `options.hidePassword` is set to **true**, then the option to use password authentication is hidden. It can be used only when `osPlatform` is **Linux**. The default value is **false**.
+- Additional constraints on the allowed passwords can be implemented by using the `customPasswordRegex` property. The string in `customValidationMessage` is displayed when a password fails custom validation. The default value for both properties is **null**.
+
 ## Next steps
+
 * For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).
 * For a description of common properties in UI elements, see [CreateUiDefinition elements](create-uidefinition-elements.md).
