@@ -32,6 +32,7 @@ When using Azure Functions as the handler, use the Event Grid trigger instead of
 
 |Title  |Description  |
 |---------|---------|
+| [Quickstart: Handle events with function](custom-event-to-function.md) | Sends a custom event to a function for processing. |
 | [Event Grid trigger for Azure Functions](../azure-functions/functions-bindings-event-grid.md) | Overview of using the Event Grid trigger in Functions. |
 | [Tutorial: automate resizing uploaded images using Event Grid](resize-images-on-storage-blob-upload-event.md) | Users upload images through web app to storage account. When a storage blob is created, Event Grid sends an event to the function app, which resizes the uploaded image. |
 | [Tutorial: stream big data into a data warehouse](event-grid-event-hubs-integration.md) | When Event Hubs creates a Capture file, Event Grid sends an event to a function app. The app retrieves the Capture file and migrates data to a data warehouse. |

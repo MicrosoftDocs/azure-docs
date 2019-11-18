@@ -16,7 +16,11 @@ This article describes how Azure Event Grid handles events when delivery isn't a
 
 Event Grid provides durable delivery. It delivers each message at least once for each subscription. Events are sent to the registered endpoint of each subscription immediately. If an endpoint doesn't acknowledge receipt of an event, Event Grid retries delivery of the event.
 
-Currently, Event Grid sends each event individually to subscribers. The subscriber receives an array with a single event.
+## Batched event delivery
+
+Event Grid defaults to sending each event individually to subscribers. The subscriber receives an array with a single event.
+
+
 
 ## Retry schedule and duration
 

@@ -27,6 +27,8 @@
       href: custom-event-quickstart-powershell.md
     - name: Portal
       href: custom-event-quickstart-portal.md
+  - name: Azure Functions as event handler
+    href: custom-event-to-function.md
   - name: Queue storage as event handler
     href: custom-event-to-queue-storage.md
   - name: Event Hubs as event handler
