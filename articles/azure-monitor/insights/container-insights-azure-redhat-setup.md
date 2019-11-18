@@ -160,7 +160,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
 
 The Log Analytics workspace has to be created before you enable monitoring using Azure PowerShell or CLI. To create the workspace, you can set it up through [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), through [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../../azure-monitor/learn/quick-create-workspace.md).
 
-1. Download the ARM template and parameter file to update your cluster with the monitoring add-on using the following commands:
+1. Download the template and parameter file to update your cluster with the monitoring add-on using the following commands:
 
     `curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/aro/enable_monitoring_to_existing_cluster/existingClusterOnboarding.json`
 
