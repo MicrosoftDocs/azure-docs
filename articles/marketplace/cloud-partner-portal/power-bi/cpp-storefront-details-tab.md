@@ -4,6 +4,7 @@ description: Configure Storefront Details fields for a Power BI App offer for th
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
@@ -59,7 +60,7 @@ To complete the fields in this section, use the following table. Required fields
 |   -----------                        |    -------------                                                  |
 | *Logos*                              |                                                                   |
 | **Offer logo (png format, 48x48)\***   | Upload a logo to display in the overview of the app or in app search results. AppSource supports only PNG format, with a resolution of 48 x 48 px.  |
-| **Offer logo (png format, 216x216)\*** | Upload a logo to display on your app’s detail page.  AppSource supports only PNG format, with a resolution of 216 x 216 px.  |
+| **Offer logo (png format, 216x216)\*** | Upload a logo to display on your app's detail page.  AppSource supports only PNG format, with a resolution of 216 x 216 px.  |
 | *Videos*                             |                                                                   |
 | **Name**                             | Enter your app's name or title.                                          |
 | **URL**                              | Enter the URL of a video hosted on YouTube or Vimeo.                              |

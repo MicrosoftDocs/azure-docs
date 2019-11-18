@@ -17,7 +17,7 @@ This article shows you how to enable static website hosting by using the Azure p
 
 <a id="portal" />
 
-## Use the Azure portal
+## [Portal](#tab/azure-portal)
 
 For a step-by-step tutorial, see [Tutorial: Host a static website on Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
 
@@ -33,7 +33,7 @@ In the pane that appears beside the account overview page of your storage accoun
 
 <a id="cli" />
 
-## Use the Azure CLI
+## [Azure CLI](#tab/azure-cli)
 
 You can enable static website hosting by using the [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
@@ -97,7 +97,7 @@ az storage account show -n <storage-account-name> -g <resource-group-name> --que
 
 <a id="powershell" />
 
-## Use PowerShell
+## [PowerShell](#tab/azure-powershell)
 
 You can enable static website hosting by using the Azure PowerShell module.
 
@@ -179,6 +179,8 @@ Write-Output $storageAccount.PrimaryEndpoints.Web
 * Replace the `<storage-account-name>` placeholder value with the name of your storage account.
 
 <a id="metrics" />
+
+---
 
 ## Enable metrics on static website pages
 

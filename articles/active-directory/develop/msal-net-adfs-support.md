@@ -1,5 +1,6 @@
 ---
-title: AD FS support in Microsoft Authentication Library for .NET | Azure
+title: AD FS support in Microsoft Authentication Library for .NET 
+titleSuffix: Microsoft identity platform
 description: Learn about Active Directory Federation Services (AD FS) support in Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
@@ -22,7 +23,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Active Directory Federation Services support in MSAL.NET
-Active Directory Federation Services (AD FS) in Windows Server enables you to add OpenID Connect and OAuth 2.0 based authentication and authorization to applications you are developing. Those applications can, then, authenticate users directly against AD FS. For more information, read [AD FS Scenarios for Developers](/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers).
+Active Directory Federation Services (AD FS) in Windows Server enables you to add OpenID Connect and OAuth 2.0 based authentication and authorization to applications you are developing. Those applications can, then, authenticate users directly against AD FS. For more information, read [AD FS Scenarios for Developers](/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios).
 
 Microsoft Authentication Library for .NET (MSAL.NET) supports two scenarios for authenticating against AD FS:
 

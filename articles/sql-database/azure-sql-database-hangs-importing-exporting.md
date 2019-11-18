@@ -1,6 +1,7 @@
 ---
-title: "Azure SQL Database Import/Export service takes a long time to import or export a database| Microsoft Docs"
+title: Import/Export service takes a long time
 description: "Azure SQL Database Import/Export service takes a long time to import or export a database"
+ms.custom: seo-lt-2019
 services: sql-database
 ms.service: sql-database
 ms.topic: troubleshooting

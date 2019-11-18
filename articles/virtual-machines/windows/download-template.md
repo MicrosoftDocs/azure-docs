@@ -1,5 +1,5 @@
 ---
-title: Download the template for an Azure VM | Microsoft Docs
+title: Download the template for an Azure VM 
 description: Download the templatefor a VM to help with automating deployments in the Resource Manager deployment model
 services: virtual-machines-windows
 documentationcenter: ''
@@ -29,10 +29,6 @@ When you create a VM in Azure using the portal or PowerShell, a Resource Manager
 5. Select **Download** from the menu at the top and save the .zip file to your local computer.
 6. Open the .zip file and extract the files to a folder. The .zip file contains:
    
-   * deploy.ps1
-   * deploy.sh 
-   * deployer.rb
-   * DeploymentHelper.cs
    * parameters.json
    * template.json
 

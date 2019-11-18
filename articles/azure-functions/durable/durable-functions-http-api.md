@@ -612,7 +612,7 @@ The responses for this API do not contain any content.
 Sends a one-way operation message to a [Durable Entity](durable-functions-types-features-overview.md#entity-functions). If the entity doesn't exist, it will be created automatically.
 
 > [!NOTE]
-> Durable Entities are available starting in Durable Functions 2.0.
+> Durable entities are available starting in Durable Functions 2.0.
 
 ### Request
 

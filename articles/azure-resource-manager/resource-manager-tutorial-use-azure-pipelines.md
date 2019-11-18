@@ -1,17 +1,8 @@
 ---
-title: Continuous integration with Azure Pipelines | Microsoft Docs
+title: Continuous integration with Azure Pipelines
 description: Learn how to continuously build, test, and deploy Azure Resource Manager templates.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: carmonm
-editor:
-
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.date: 10/15/2019
+ms.date: 10/29/2019
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -220,7 +211,7 @@ To create a pipeline with a step to deploy a template:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Open the resource group. The name is what you specified in the pipeline YAML file.  You shall see one storage account created.  The storage account name starts with **store**.
 1. Select the storage account name to open it.
-1. Select **Properties**. Notice the **SKU** is **Standard_LRS**.
+1. Select **Properties**. Notice the **Replication** is **Locally-redundant storage (LRS)**.
 
     ![Azure Resource Manager Azure DevOps Azure Pipelines portal verification](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-portal-verification.png)
 
@@ -247,7 +238,7 @@ When you update the template and push the changes to the remote repository, the 
 
     With the master branch of the remote repository updated, the pipeline is fired again.
 
-To verify the changes, you can check the SKU of the storage account.  See [Verify the deployment](#verify-the-deployment).
+To verify the changes, you can check the Replication property of the storage account.  See [Verify the deployment](#verify-the-deployment).
 
 ## Clean up resources
 

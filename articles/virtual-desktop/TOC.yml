@@ -68,6 +68,8 @@
     href: environment-setup.md
   - name: Bandwidth recommendations for remote sessions
     href: bandwidth-recommendations.md
+  - name: Determine user connection latency
+    href: connection-latency.md
   - name: Delegated access in Windows Virtual Desktop
     href: delegated-access-virtual-desktop.md
   - name: Host pool load-balancing methods
@@ -94,6 +96,8 @@
     href: troubleshoot-vm-configuration.md
   - name: Troubleshoot Windows 7 virtual machines in Windows Virtual Desktop
     href: troubleshoot-windows-7-vm.md
+  - name: Troubleshoot the Windows Virtual Desktop management tool
+    href: troubleshoot-management-tool.md
   - name: Remote Desktop client connections
     href: troubleshoot-client-connection.md
   - name: Windows Virtual Desktop PowerShell
@@ -116,3 +120,5 @@
     href: https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop
   - name: UserVoice forum
     href: https://windowsvirtualdesktop.uservoice.com/forums/921118-general
+  - name: Microsoft 365 roadmap
+    href: https://aka.ms/wvdroadmap

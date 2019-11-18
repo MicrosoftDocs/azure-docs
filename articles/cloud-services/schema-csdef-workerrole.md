@@ -59,10 +59,10 @@ The basic format of the service definition file containing a worker role is as f
       </Environment>
       <EntryPoint>
          <NetFxEntryPoint assemblyName="<name-of-assembly-containing-entrypoint>" targetFrameworkVersion="<.net-framework-version>"/>
-         <ProgramEntryPoint commandLine="<application>" setReadyOnProcessStart="[true|false]" "/>
+         <ProgramEntryPoint commandLine="<application>" setReadyOnProcessStart="[true|false]"/>
       </EntryPoint>
     </Runtime>
-    <Startup priority="<for-internal-use-only>”>
+    <Startup priority="<for-internal-use-only>">
       <Task commandLine="" executionContext="[limited|elevated]" taskType="[simple|foreground|background]">
         <Environment>
          <Variable name="<variable-name>" value="<variable-value>">

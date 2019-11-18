@@ -3,9 +3,10 @@ title: Build an Azure Container Registry image from an app
 description: Use the az acr pack build command to build a container image from an app and push to Azure Container Registry, without using a Dockerfile.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 10/24/2019
 ms.author: danlep
 ---
 
@@ -27,25 +28,23 @@ At a minimum, specify the following when you run `az acr pack build`:
 * An Azure container registry where you run the command
 * An image name and tag for the resulting image
 * One of the [supported context locations](container-registry-tasks-overview.md#context-locations) for ACR Tasks, such as a local directory, a GitHub repo, or a remote tarball
-* The name of a Buildpack builder image, such as `cloudfoundry/cnb:0.0.12-bionic`.  
+* The name of a Buildpack builder image suitable for your application. Azure Container Registry caches builder images such as `cloudfoundry/cnb:0.0.34-cflinuxfs3` for faster builds.  
 
 `az acr pack build` supports other features of ACR Tasks commands including [run variables](container-registry-tasks-reference-yaml.md#run-variables) and [task run logs](container-registry-tasks-overview.md#view-task-logs) that are streamed and also saved for later retrieval.
 
 ## Example: Build Node.js image with Cloud Foundry builder
 
-The following example builds a container image from the Node.js app in the [Azure-Samples/nodejs-docs-hello-world](https://github.com/Azure-Samples/nodejs-docs-hello-world) repo, using the `cloudfoundry/cnb:0.0.12-bionic` builder:
+The following example builds a container image from a Node.js app in the [Azure-Samples/nodejs-docs-hello-world](https://github.com/Azure-Samples/nodejs-docs-hello-world) repo, using the `cloudfoundry/cnb:0.0.34-cflinuxfs3` builder. This builder is cached by Azure Container Registry, so a `--pull` parameter isn't required:
 
 ```azurecli
 az acr pack build \
     --registry myregistry \
     --image {{.Run.Registry}}/node-app:1.0 \
-    --pull --builder cloudfoundry/cnb:0.0.12-bionic \
+    --builder cloudfoundry/cnb:0.0.34-cflinuxfs3 \
     https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 ```
 
-This example builds the `node-app` image with the `1.0` tag and pushes it to the *myregistry* container registry. Here, the target registry name is explicitly prepended to the image name. If not specified, the registry URL is automatically prepended to the image name.
-
-The `--pull` parameter specifies that the command pulls the latest builder image.
+This example builds the `node-app` image with the `1.0` tag and pushes it to the *myregistry* container registry. In this example, the target registry name is explicitly prepended to the image name. If not specified, the registry login server name is automatically prepended to the image name.
 
 Command output shows the progress of building and pushing the image. 
 
@@ -65,7 +64,7 @@ Browse to `localhost:1337` in your favorite browser to see the sample web app. P
 
 ## Example: Build Java image with Heroku builder
 
-The following example builds a container image from the Java app in the [buildpack/sample-java-app](https://github.com/buildpack/sample-java-app) repo, using the `heroku/buildpacks:18` builder:
+The following example builds a container image from the Java app in the [buildpack/sample-java-app](https://github.com/buildpack/sample-java-app) repo, using the `heroku/buildpacks:18` builder. The `--pull` parameter specifies that the command should pull the latest builder image. 
 
 ```azurecli
 az acr pack build \
@@ -76,8 +75,6 @@ az acr pack build \
 ```
 
 This example builds the `java-app` image tagged with the run ID of the command and pushes it to the *myregistry* container registry.
-
-The `--pull` parameter specifies that the command pulls the latest builder image.
 
 Command output shows the progress of building and pushing the image. 
 

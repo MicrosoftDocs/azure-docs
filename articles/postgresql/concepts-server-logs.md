@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 10/25/2019
 ---
 
 # Logs in Azure Database for PostgreSQL - Single Server
@@ -77,12 +77,13 @@ AzureDiagnostics
 | where TimeGenerated > ago(1d) 
 ```
 
-Search for all errors for all Postgres servers in this workspace over the last 6 hours
+Search for all non-localhost connection attempts
 ```
 AzureDiagnostics
-| where errorLevel_s == "error" and category == "PostgreSQLogs"
-| where TimeGenerated > ago(6h)
+| where Message contains "connection received" and Message !contains "host=127.0.0.1"
+| where Category == "PostgreSQLLogs" and TimeGenerated > ago(6h)
 ```
+The query above will show results over the last 6 hours for any Postgres server logging in this workspace.
 
 ### Log format
 

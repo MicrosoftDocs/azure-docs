@@ -1,22 +1,21 @@
 ---
-title: 'Azure Site Recovery: Frequently asked questions | Microsoft Docs'
-description: This article discusses popular questions about Azure Site Recovery.
-services: site-recovery
+title: General questions about the Azure Site Recovery service
+description: This article discusses popular general questions about Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 6/27/2019
+ms.date: 11/14/2019
 ms.author: raynew
 
 ---
-# Azure Site Recovery: frequently asked questions (FAQ)
-This article summarizes frequently asked questions about Azure Site Recovery.</br>
-For specific queries on different ASR scenarios please refer scenario specific FAQs.<br>
+# General questions about Azure Site Recovery
 
-- [Azure VM Disaster Recovery to Azure](azure-to-azure-common-questions.md)
-- [VMware VM Disaster Recovery to Azure](vmware-azure-common-questions.md)
-- [Hyper-V VM Disaster Recovery to Azure](hyper-v-azure-common-questions.md)
+This article summarizes frequently asked questions about Azure Site Recovery. For specific scenarios review these articles
+
+- [Questions about Azure VM disaster recovery to Azure](azure-to-azure-common-questions.md)
+- [Questions about VMware VM disaster recovery to Azure](vmware-azure-common-questions.md)
+- [Questions about Hyper-V VM disaster recovery to Azure](hyper-v-azure-common-questions.md)
  
 ## General
 
@@ -166,7 +165,7 @@ Yes, [ExpressRoute can be used](concepts-expressroute-with-site-recovery.md) to 
 You need an LRS or GRS storage. We recommend GRS so that data is resilient if a regional outage occurs, or if the primary region can't be recovered. The account must be in the same region as the Recovery Services vault. Premium storage is supported for VMware VM, Hyper-V VM, and physical server replication, when you deploy Site Recovery in the Azure portal. Managed disks only support LRS.
 
 ### How often can I replicate data?
-* **Hyper-V:** Hyper-V VMs can be replicated every five minutes, o 30 seconds (except for premium storage)
+* **Hyper-V:** Hyper-V VMs can be replicated every 30 seconds (except for premium storage), five minutes or 15 minutes.
 * **Azure VMs, VMware VMs, physical servers:** A replication frequency isn't relevant here. Replication is continuous.
 
 ### Can I extend replication from existing recovery site to another tertiary site?
