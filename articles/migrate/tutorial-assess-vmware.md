@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 10/11/2019
+ms.date: 11/18/2019
 ms.author: hamusa
 ---
 
@@ -103,8 +103,8 @@ Check that the OVA file is secure, before you deploy it.
 
   **Algorithm** | **Hash value**
   --- | ---
-  MD5 | 27230f3b012187860281b912ee661709
-  SHA256 | c0a5b5998b7f38ac6e57ea9a808ecc4295795e18f9ca99c367585068883f06e7
+  MD5 | c06ac2a2c0f870d3b274a0b7a73b78b1
+  SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 
 
 ### Create the appliance VM
