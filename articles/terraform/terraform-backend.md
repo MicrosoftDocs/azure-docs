@@ -1,9 +1,6 @@
 ---
 title: Tutorial - Store Terraform state in Azure Storage
 description: An introduction to storing Terraform state in Azure Storage.
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/07/2019
 ---

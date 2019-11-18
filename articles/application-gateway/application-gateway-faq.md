@@ -7,7 +7,6 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.custom: fasttrack-edit
 ---
 
 # Frequently asked questions about Application Gateway
