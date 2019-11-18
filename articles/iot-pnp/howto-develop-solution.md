@@ -17,7 +17,7 @@ manager: philmea
 
 This how-to guide shows you how to use the samples in the Node service SDK that show you how your IoT Solution can interact with IoT Plug and Play Preview devices.
 
-If you haven't completed the [Connect an IoT Plug and Play device to your solution](quickstart-connect-pnp-device-solution.md) quickstart, you should do so now. The quickstart shows you how to download and install the SDK and run some of the samples.
+If you haven't completed the [Connect an IoT Plug and Play device to your solution](quickstart-connect-pnp-device-solution-node.md) quickstart, you should do so now. The quickstart shows you how to download and install the SDK and run some of the samples.
 
 Before you run the service samples, open a new terminal, go to the root folder of your cloned repository, navigate to the **digitaltwins/quickstarts/service** folder, and then  run the following command to install the dependencies:
 

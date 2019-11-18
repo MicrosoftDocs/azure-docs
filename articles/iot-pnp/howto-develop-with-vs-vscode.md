@@ -147,7 +147,7 @@ To build the device code together with the device C SDK Vcpkg using CMake in a L
 
 ### Windows
 
-To build the device code together with the device C SDK on Windows using CMake and the Visual Studio C/C++ compilers at the command line, see the [IoT Plug and Play quickstart](./quickstart-create-pnp-device.md). The following steps show you how to build the device code together with the device C SDK Vcpkg as CMake project in Visual Studio.
+To build the device code together with the device C SDK on Windows using CMake and the Visual Studio C/C++ compilers at the command line, see the [IoT Plug and Play quickstart](./quickstart-create-pnp-device-windows.md). The following steps show you how to build the device code together with the device C SDK Vcpkg as CMake project in Visual Studio.
 
 1. Follow the steps in the [quickstart](https://docs.microsoft.com/azure/iot-pnp/quickstart-create-pnp-device#prepare-the-development-environment) to install the Azure IoT device SDK for C via Vcpkg.
 
