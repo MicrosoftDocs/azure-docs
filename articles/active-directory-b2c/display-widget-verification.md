@@ -19,11 +19,11 @@ A verification widget is used to verify a claim, such as email or phone number, 
 
 1. Asks the user for the address where to send the verification code to (such as email address or phone number). The user clicks on **Send code** button, which execute the **SendCode Action** of the verification display widget. The **SendCode Action** generates a code, construct the content to be sent, and send it to the user. Note: the value of the address can be pre-populate and serve as a second factor authentication.
 
-    ![Send code action](media/display-widget-verification-email-first-action.png)
+    ![Example page for send code action](media/display-widget-verification/display-widget-verification-email-action-01.png)
 
 1. After the code has been sent, user reads the message, types the verification code in the display widget, and clicks **Verify code**. By clicking on the Verify code, the **VerifyCode Action** is executed to verify the code associated with the address. If user clicks on the **Send New Code**, the first action is executed again.
 
-    ![Verify code action](media/display-widget-verification-email-second-action.png)
+    ![Example page for verify code action](media/display-widget-verification/display-widget-verification-email-action-02.png)
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
