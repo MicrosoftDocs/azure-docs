@@ -47,11 +47,11 @@ This method includes two JSON templates. One template specifies the configuratio
 
 - [Azure Active Directory tenant ID](../../openshift/howto-create-tenant#create-a-new-azure-ad-tenant.md) noted after performing the steps to create one or one already created.
 
-- [Azure Active Directory client application ID](../../openshift/howto-aad-app-configuration#create-an-azure-ad-app-registration.md) noted after performing the steps to create one or one already created.
+- [Azure Active Directory client application ID](../../openshift/howto-aad-app-configuration.md#create-an-azure-ad-app-registration) noted after performing the steps to create one or one already created.
 
-- [Azure Active Directory Client secret](../../openshift/howto-aad-app-configuration#create-a-client-secret.md) noted after performing the steps to create one or one already created.
+- [Azure Active Directory Client secret](../../openshift/howto-aad-app-configuration.md#create-a-client-secret) noted after performing the steps to create one or one already created.
 
-- [Azure AD security group](../../openshift/howto-aad-app-configuration#create-an-azure-ad-security-group.md) noted after performing the steps to create one or one already created.
+- [Azure AD security group](../../openshift/howto-aad-app-configuration.md#create-an-azure-ad-security-group) noted after performing the steps to create one or one already created.
 
 - Resource ID of an existing Log Analytics workspace.
 
