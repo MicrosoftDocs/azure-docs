@@ -156,7 +156,7 @@ The flow described above applies, with slight differences, to desktop and mobile
 
 Desktop and mobile applications can use an embedded Web control, or a system browser, for authentication. The following diagram shows how a Desktop or mobile app uses the Microsoft authentication library (MSAL) to acquire access tokens and call web APIs.
 
-![Desktop app how it appears to be](media/authentication-scenarios/web-app-how-it-appears-to-be.png)
+![Desktop app how it appears to be](media/authentication-scenarios/desktop-app-how-it-appears-to-be.png)
 
 MSAL uses a browser to get tokens, and as with web apps, delegates authentication to Azure AD.
 
