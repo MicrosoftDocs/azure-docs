@@ -98,7 +98,8 @@ Label files contain key-value associations that a user has entered manually. The
 
 When you create a label file, you can optionally specify regions&mdash;exact positions of values on the document. This will give the training even higher accuracy. Regions are formatted as a set of eight values corresponding to four X,Y coordinates: top-left, top-right, bottom-right, and bottom-left. Coordinate values are between zero and one, scaled to the dimensions of the page.
 
-For each source form, the corresponding label file should have the original file name appended with `.labels.json`. The label file should have the following format. See the [sample label file](Form_01.pdf.labels.json) for a full example.
+For each source form, the corresponding label file should have the original file name appended with `.labels.json`. The label file should have the following format. See the [sample label file](https://github.com/Azure/CSContainers/blob/master/Form-Recognizer/feedback-loop/Form_01.pdf.labels.json) for a full example.
+<!-- tbd move file and replace link -->
 
 ```json
 {
