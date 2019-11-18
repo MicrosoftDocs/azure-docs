@@ -1,5 +1,5 @@
 ---
-title: Train a deep learning neural network with TensorFlow
+title: Train a neural network with TensorFlow
 titleSuffix: Azure Machine Learning
 description: Learn how to run TensorFlow training scripts at scale using Azure Machine Learning.
 services: machine-learning
