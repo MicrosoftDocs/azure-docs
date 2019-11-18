@@ -40,7 +40,7 @@ Before you configure a forest trust in Azure AD DS, make sure your networking be
 * Create subnets with enough IP addresses to support your scenario.
 * Make sure Azure AD DS has its own subnet, don't share this virtual network subnet with application VMs and services.
 * Peered virtual networks are NOT transitive.
-    * Azure virtual network peerings must created between all virtual networks you want to use the Azure AD DS resource forest trust to the on-premises AD DS environment.
+    * Azure virtual network peerings must be created between all virtual networks you want to use the Azure AD DS resource forest trust to the on-premises AD DS environment.
 * Provide continuous network connectivity to your on-premises Active Directory forest. Don't use on-demand connections.
 * Make sure there's continuous name resolution (DNS) between your Azure AD DS resource forest name and your on-premises Active Directory forest name.
 
@@ -104,7 +104,7 @@ You should have Windows Server virtual machine joined to the Azure AD DS resourc
     > [!NOTE]
     > To securely connect to your VMs joined to Azure AD Domain Services, you can use the [Azure Bastion Host Service](https://docs.microsoft.com/azure/bastion/bastion-overview) in supported Azure regions.
 
-1. Open a Commannd prompt and use the `whoami` command to show the distinguished name of the currently authenticated user:
+1. Open a command prompt and use the `whoami` command to show the distinguished name of the currently authenticated user:
 
     ```console
     whoami /fqdn
@@ -121,47 +121,59 @@ You should have Windows Server virtual machine joined to the Azure AD DS resourc
 
 ### Access resources in the Azure AD DS resource forest using on-premises user
 
-Using the Windows Server VM joined to the Azure AD DS resource forest, you can test the scenario where users can access resources hosted in the resource forest when the authenticate from computers in the on-premises domain with users from the on-premises domain. The following examples show you how to create and test various common scenarios.
+Using the Windows Server VM joined to the Azure AD DS resource forest, you can test the scenario where users can access resources hosted in the resource forest when they authenticate from computers in the on-premises domain with users from the on-premises domain. The following examples show you how to create and test various common scenarios.
 
 #### Enable file and printer sharing
 
-1. Connect to the Windows Server virtual machine joined to the Azure AD DS resource forest using Remote Desktop and your Azure AD DS administrator credentials (If you get a Network Level Authentication (NLA) error, check the user account you used is not a domain user account.
+1. Connect to the Windows Server VM joined to the Azure AD DS resource forest using Remote Desktop and your Azure AD DS administrator credentials. If you get a Network Level Authentication (NLA) error, check the user account you used is not a domain user account.
 
     > [!NOTE]
-    > Microsoft encourages using the [Azure Bastion Host Service](https://docs.microsoft.com/azure/bastion/bastion-overview) to securely connect to your virtual machines joined to Azure AD Domain Services.
+    > To securely connect to your VMs joined to Azure AD Domain Services, you can use the [Azure Bastion Host Service](https://docs.microsoft.com/azure/bastion/bastion-overview) in supported Azure regions.
 
-2. Open **Windows Settings**. Search for **Network and Sharing Center**. Click the search result. Click **Change advanced sharing** settings. Under the **Domain Profile**, click **Turn on file and printer sharing** and then click **Save changes**. Close **Network and Sharing Center**.
+1. Open **Windows Settings**, then search for and select **Network and Sharing Center**.
+1. Choose the option for **Change advanced sharing** settings.
+1. Under the **Domain Profile**, select **Turn on file and printer sharing** and then **Save changes**.
+1. Close **Network and Sharing Center**.
 
 #### Create a security group and add members
 
-1. Open **Active Directory Users and Computers**. Right-click the domain name, select **New**, and click **Organizational Unit**. In the name box, type **LocalObjects**. Click **OK**.
-2. Select and right-click **LocalObjects** in the navigation pane. Select **New** and then click **Group**. Type **FileServerAccess** in the **Group name** box. In **Group Scope**, select **Domain local**. Click **OK**.
-3. In the content pane, double-click **FileServerAccess**. Click **Members**. Click **Add**. Click **Locations**. Select your on-premises Active Directory from the **Location** view. Click **OK**.
-4. Type **Domain Users** in the Enter the object names to select. Click **Check Names**. Provide credentials for the on-premises Active Directory. Click **OK**.
+1. Open **Active Directory Users and Computers**.
+1. Right-select the domain name, choose **New**, and then select **Organizational Unit**.
+1. In the name box, type *LocalObjects*, then select **OK**.
+1. Select and right-click **LocalObjects** in the navigation pane. Select **New** and then **Group**.
+1. Type *FileServerAccess* in the **Group name** box. For the **Group Scope**, select **Domain local**, then choose **OK**.
+1. In the content pane, double-click **FileServerAccess**. Select **Members**, choose to **Add**, then select **Locations**.
+1. Select your on-premises Active Directory from the **Location** view, then choose **OK**.
+1. Type *Domain Users* in the **Enter the object names to select** box. Select **Check Names**, provide credentials for the on-premises Active Directory, then select **OK**.
 
     > [!NOTE]
-    > You must provide credentials because the trust relationship is only one way. This means users from the Azure AD Domain Services cannot access resources or search for users or groups in the trusted (on-premises domain).
+    > You must provide credentials because the trust relationship is only one way. This means users from the Azure AD DS can't access resources or search for users or groups in the trusted (on-premises) domain.
 
-5. The **Domain Users** group from your on-premises Active Directory should be a member of the **FileServerAccess** group. Click **OK** to save the group and close the window.
+1. The **Domain Users** group from your on-premises Active Directory should be a member of the **FileServerAccess** group. Select **OK** to save the group and close the window.
 
 #### Create a file share for cross-forest access
 
-1. On the Windows Server virtual machine joined to the Azure AD DS resource forest, create a folder and provide it a name (example XForestShare).
-2. Right-click the folder and then click **Properties**. Click the **Security** tab and then click **Edit**.
-3. In the Permissions for \<Folder Name\> dialog box, click **Add**.
-4. Type **FileServerAccess** in **Enter the object names to select**. Click **OK**.
-5. Select **FileServerAccess** from the **Groups or user names** list. In the **Permissions for FileServerAccess** list. Select **Allow** for the **Modify** and **Write** permissions. Click **OK**.
-6. Click the **Sharing** tab. Click **Advanced Sharing…** Select **Share this folder**. Type a memorable name for the file share in **Share name**.
-7. Click **Permissions**. In the **Permissions for Everyone** list, select **Allow** for the **Change** permission. Click **OK** two times and then click **Close**.
+1. On the Windows Server VM joined to the Azure AD DS resource forest, create a folder and provide name such as *CrossForestShare*.
+1. Right-select the folder and choose **Properties**.
+1. Select the **Security** tab, then choose **Edit**.
+1. In the *Permissions for CrossForestShare* dialog box, select **Add**.
+1. Type *FileServerAccess* in **Enter the object names to select**, then select **OK**.
+1. Select *FileServerAccess* from the **Groups or user names** list. In the **Permissions for FileServerAccess** list, choose *Allow* for the **Modify** and **Write** permissions, then select **OK**.
+1. Select the **Sharing** tab, then choose **Advanced Sharing…**
+1. Choose **Share this folder**, then enter a memorable name for the file share in **Share name** such as *CrossForestShare*.
+1. Select **Permissions**. In the **Permissions for Everyone** list, choose **Allow** for the **Change** permission.
+1. Select **OK** two times and then **Close**.
 
 #### Validate cross-forest authentication to a resource
 
-1. Sign in a Windows computer **from your on-premises Active Directory** using a user account from your on-premises Active Directory.
-2. Using **Windows Explorer**, connect to the share you created using the fully qualified host name and the share (hostname.fqdn_of_aadds_domain_name\sharename example: \\fs1.aadds.contoso.com\xforestShare).
-3. Validate the write permission. Right-click in the folder, select **New** and click **Text Document**. Use the default name **New Text Document**.
-4. Validate the read permission. Open **New Text Document**.
-5. Validate the modify permission. Add text to the file and close **Notepad**. When prompted to save changes, click **Save**.
-6. Validate the delete permission. Right-click **New Text Document** and click **Delete**. Click **Yes** to confirm file deletion.
+1. Sign in a Windows computer joined to your on-premises Active Directory using a user account from your on-premises Active Directory.
+1. Using **Windows Explorer**, connect to the share you created using the fully qualified host name and the share such as `\\fs1.aadds.contoso.com\CrossforestShare`.
+1. To validate the write permission, right-select in the folder, choose **New**, then select **Text Document**. Use the default name **New Text Document**.
+
+    If the write permissions are set correctly, a new text document is created. The following steps will then open, edit, and delete the file as appropriate.
+1. To validate the read permission, open **New Text Document**.
+1. To validate the modify permission, add text to the file and close **Notepad**. When prompted to save changes, choose **Save**.
+1. To validate the delete permission, right-select **New Text Document** and choose **Delete**. Choose **Yes** to confirm file deletion.
 
 ## Next steps
 
