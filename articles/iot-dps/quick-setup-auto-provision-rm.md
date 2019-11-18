@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Set up Device Provisioning using an Azure Resource Manager template"
-description: Azure Quickstart - Set up the Azure IoT Hub Device Provisioning Service using a template
+description: Azure quickstart - Set up the Azure IoT Hub Device Provisioning Service using a template
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
@@ -13,13 +13,13 @@ ms.custom: mvc
 
 # Quickstart: Set up the IoT Hub Device Provisioning Service with an Azure Resource Manager template
 
-You can use [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) to programmatically set up the Azure cloud resources necessary for provisioning your devices. These steps show how to create an IoT hub, a new IoT Hub Device Provisioning Service, and link the two services together using an Azure Resource Manager template. This Quickstart uses [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) to perform the programmatic steps necessary to create a resource group and deploy the template, but you can easily use the [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), .NET, ruby, or other programming languages to perform these steps and deploy your template. 
+You can use [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) to programmatically set up the Azure cloud resources necessary for provisioning your devices. These steps show how to create an IoT hub and a new IoT Hub Device Provisioning Service, and link the two services together using an Azure Resource Manager template. This quickstart uses [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli) to perform the programmatic steps necessary to create a resource group and deploy the template, but you can easily use the [Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), .NET, Ruby, or other programming languages to perform these steps and deploy your template. 
 
 
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- This Quickstart requires that you run the Azure CLI locally. You must have the Azure CLI version 2.0 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+- This quickstart requires that you run the Azure CLI locally. You must have the Azure CLI version 2.0 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 
 ## Sign in to Azure and create a resource group
@@ -109,7 +109,7 @@ Use a JSON template to create a provisioning service and a linked IoT hub in you
 
    ```
 
-4. To create an IoT hub, add the following lines to the **resources** collection. The JSON specifies the minimum properties required to create an IoT Hub. The **name** and **location** properties are passed as parameters. To learn more about the properties you can specify for an IoT Hub in a template, see [Microsoft.Devices/IotHubs template reference](https://docs.microsoft.com/azure/templates/microsoft.devices/iothubs).
+4. To create an IoT hub, add the following lines to the **resources** collection. The JSON specifies the minimum properties required to create an IoT hub. The **name** and **location** properties are passed as parameters. To learn more about the properties you can specify for an IoT hub in a template, see [Microsoft.Devices/IotHubs template reference](https://docs.microsoft.com/azure/templates/microsoft.devices/iothubs).
 
    ```json
         {
@@ -230,7 +230,7 @@ Use a JSON template to create a provisioning service and a linked IoT hub in you
 
 ## Create a Resource Manager parameter file
 
-The template that you defined in the last step uses parameters to specify the name of the IoT Hub, the name of the provisioning service, and the location (Azure region) to create them. You pass these parameters in a separate file. Doing so enables you to reuse the same template for multiple deployments. To create the parameter file, follow these steps:
+The template that you defined in the last step uses parameters to specify the name of the IoT hub, the name of the provisioning service, and the location (Azure region) to create them. You pass these parameters in a separate file. Doing so enables you to reuse the same template for multiple deployments. To create the parameter file, follow these steps:
 
 1. Use a text editor to create an Azure Resource Manager parameter file called **parameters.json** with the following skeleton content: 
 
@@ -243,7 +243,7 @@ The template that you defined in the last step uses parameters to specify the na
    }
    ```
 
-2. Add the **iotHubName** value to the parameter section. If you change the name, make sure it follows proper naming conventions for an IoT hub. It should be 3-50 characters in length and can contain only upper or lower case alphanumeric characters or hyphens ('-'). 
+2. Add the **iotHubName** value to the parameter section.  An IoT hub name must be globally unique in Azure, so you may want to add a unique prefix or suffix to the example name, or choose a new name altogether. Make sure your name follows proper naming conventions for an IoT hub: it should be 3-50 characters in length, and can contain only upper or lower case alphanumeric characters or hyphens ('-'). 
 
    ```json
     "parameters": {
@@ -254,7 +254,7 @@ The template that you defined in the last step uses parameters to specify the na
    
    ```
 
-3. Add the **provisioningServiceName** value to the parameter section. If you change the name, make sure it follows proper naming conventions for an IoT Hub Device Provisioning Service. It should be 3-64 characters in length and can contain only upper or lower case alphanumeric characters or hyphens ('-').
+3. Add the **provisioningServiceName** value to the parameter section. You will also need to choose a globally unique name for your provisioning service. Make sure it follows proper naming conventions for an IoT Hub Device Provisioning Service: it should be 3-64 characters in length and can contain only upper or lower case alphanumeric characters or hyphens ('-').
 
    ```json
     "parameters": {
@@ -316,7 +316,7 @@ Use the following Azure CLI commands to deploy your templates and verify the dep
 
 ## Clean up resources
 
-Other Quickstarts in this collection build upon this Quickstart. If you plan to continue on to work with subsequent Quickstarts or with the tutorials, do not clean up the resources created in this Quickstart. If you do not plan to continue, you can use the Azure CLI to [delete an individual resource][lnk-az-resource-command], such as an IoT hub or a provisioning service, or to delete a resource group and all its resources.
+Other quickstarts in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts or with the tutorials, do not clean up the resources created in this quickstart. If you do not plan to continue, you can use the Azure CLI to [delete an individual resource][lnk-az-resource-command], such as an IoT hub or a provisioning service, or to delete a resource group and all of its resources.
 
 To delete the provisioning service, run the following command:
 
@@ -339,10 +339,10 @@ You can also delete resource groups and individual resources using the Azure por
 
 ## Next steps
 
-In this Quickstart, you’ve deployed an IoT hub and a Device Provisioning Service instance, and linked the two resources. To learn how to use this set up to provision a simulated device, continue to the Quickstart for creating simulated device.
+In this quickstart, you’ve deployed an IoT hub and a Device Provisioning Service instance, and linked the two resources. To learn how to use this setup to provision a simulated device, continue to the quickstart for creating a simulated device.
 
 > [!div class="nextstepaction"]
-> [Quickstart to create simulated device](./quick-create-simulated-device.md)
+> [Quickstart to create a simulated device](./quick-create-simulated-device.md)
 
 
 <!-- Links -->
