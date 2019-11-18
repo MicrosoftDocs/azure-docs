@@ -85,9 +85,9 @@ def create_directory():
      print(e) 
 ```
 
-## Rename a directory
+## Rename or move a directory
 
-Rename a directory by calling the **DataLakeDirectoryClient.rename_directory** method. Pass the path of the desired directory a parameter. 
+Rename or move a directory by calling the **DataLakeDirectoryClient.rename_directory** method. Pass the path of the desired directory a parameter. 
 
 This example renames a sub-directory to the name `my-subdirectory-renamed`.
 

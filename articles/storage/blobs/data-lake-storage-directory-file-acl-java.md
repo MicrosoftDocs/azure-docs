@@ -102,9 +102,9 @@ static public DataLakeDirectoryClient CreateDirectory
 }
 ```
 
-## Rename a directory
+## Rename or move a directory
 
-Rename a directory by calling the **DataLakeDirectoryClient.rename** method. Pass the path of the desired directory a parameter. 
+Rename or move a directory by calling the **DataLakeDirectoryClient.rename** method. Pass the path of the desired directory a parameter. 
 
 This example renames a sub-directory to the name `my-subdirectory-renamed`.
 
@@ -118,10 +118,6 @@ static public DataLakeDirectoryClient
     return directoryClient.rename("my-directory/my-subdirectory-renamed");
 }
 ```
-
-## Move a directory
-
-You can also use the **DataLakeDirectoryClient.rename** method to move a directory. Pass the path of the desired directory location as a parameter to this method. 
 
 This example moves a directory named `my-subdirectory-renamed` to a sub-directory of a directory named `my-directory-2`. 
 

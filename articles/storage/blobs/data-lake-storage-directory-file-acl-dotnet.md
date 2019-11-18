@@ -85,9 +85,9 @@ public async Task<DataLakeDirectoryClient> CreateDirectory
 }
 ```
 
-## Rename a directory
+## Rename or move a directory
 
-Rename a directory by calling the **DirectoryClient.RenameAsync** method. Pass the path of the desired directory a parameter. 
+Rename or move a directory by calling the **DirectoryClient.RenameAsync** method. Pass the path of the desired directory a parameter. 
 
 This example renames a sub-directory to the name `my-subdirectory-renamed`.
 
@@ -101,9 +101,6 @@ public async Task<DataLakeDirectoryClient>
     return await directoryClient.RenameAsync("my-directory/my-subdirectory-renamed");
 }
 ```
-## Move a directory
-
-You can also use the **DirectoryClient.RenameAsync** method to move a directory. Pass the path of the desired directory location as a parameter to this method. 
 
 This example moves a directory named `my-subdirectory-renamed` to a sub-directory of a directory named `my-directory-2`. 
 
@@ -227,7 +224,7 @@ public async Task DownloadFile(DataLakeFileSystemClient fileSystemClient)
     BinaryReader reader = new BinaryReader(downloadResponse.Value.Content);
 
     FileStream fileStream = 
-        File.OpenWrite("C:\\\my-image-downloaded.png");
+        File.OpenWrite("C:\\my-image-downloaded.png");
 
     int bufferSize = 4096;
 
