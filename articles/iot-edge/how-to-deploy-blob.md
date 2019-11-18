@@ -3,7 +3,7 @@ title: Deploy the Azure Blob Storage module to devices - Azure IoT Edge | Micros
 description: Deploy an Azure Blob Storage module to your IoT Edge device to store data at the edge.
 author: arduppal
 ms.author: arduppal
-ms.date: 08/07/2019
+ms.date: 11/18/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
@@ -35,17 +35,15 @@ The Azure portal guides you through creating a deployment manifest and pushing t
 
 ### Configure a deployment manifest
 
-A deployment manifest is a JSON document that describes which modules to deploy, how data flows between the modules, and desired properties of the module twins. The Azure portal has a wizard that walks you through creating a deployment manifest, instead of building the JSON document manually. It has three steps: **Add modules**, **Specify routes**, and **Review deployment**.
+A deployment manifest is a JSON document that describes which modules to deploy, how data flows between the modules, and desired properties of the module twins. The Azure portal has a wizard that walks you through creating a deployment manifest, instead of building the JSON document manually. It has three steps organized into tabs: **Modules**, **Routes**, and **Review + Create**.
 
 #### Add modules
 
-1. In the **Deployment modules** section of the page, select **Add**.
-
-1. From the types of modules in the drop-down list, select **IoT Edge Module**.
+1. In the **IoT Edge Modules** section of the page, click the **Add** dropdown and select **IoT Edge Module**.
 
 1. Provide a name for the module and then specify the container image:
 
-   - **Name** - azureblobstorageoniotedge
+   - **IoT Edge Module Name** - azureblobstorageoniotedge
    - **Image URI** - mcr.microsoft.com/azure-blob-storage:latest
 
    > [!IMPORTANT]
