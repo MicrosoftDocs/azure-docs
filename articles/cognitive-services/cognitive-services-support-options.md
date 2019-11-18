@@ -25,13 +25,13 @@ Are you just starting to explore the functionality of Azure Cognitive Services? 
 
 ## Stay informed
 
-![Stay informed](media/common/i_whats-new.svg)
+:::image type="icon" source="https://docs.microsoft.com/media/common/i_whats-new.svg":::
 
 News about Cognitive Services is shared in the [Azure blog](https://azure.microsoft.com/blog/topics/cognitive-services/).
 
 ## Release notes
 
-![Release notes](media/common/i_learn-about.svg)
+:::image type="icon" source="https://docs.microsoft.com/media/common/i_learn-about.svg":::
 
 The release notes are updated as new releases are made available. The notes contain information about new features, improvements, and bug fixes.
 
@@ -44,7 +44,7 @@ The release notes are updated as new releases are made available. The notes cont
 
 ## Search
 
-![Search](media/common/i_search.svg)
+:::image type="icon" source="https://docs.microsoft.com/media/common/i_search.svg":::
 
 You might find the answer you need in the documentation, the samples, or answers to [Stack Overflow](https://www.stackoverflow.com) questions or in the samples.
 
@@ -62,7 +62,7 @@ Where *{your search keywords}* is your search keywords.
 
 ## Create an Azure support request
 
-![Azure](media/logos/logo_azure.svg)
+:::image type="icon" source="https://docs.microsoft.com/media/logos/logo_azure.svg":::
 
 Azure customers can create and manage support requests in the Azure portal.
 
@@ -71,7 +71,7 @@ Azure customers can create and manage support requests in the Azure portal.
 
 ## Post a question on Stack Overflow
 
-![Stack Overflow](media/logos/logo_stackoverflow.svg)
+:::image type="icon" source="https://docs.microsoft.com/media/logos/logo_stackoverflow.svg":::
 
 Stack Overflow is the preferred channel for development-related questions. It's where members of the community and Microsoft team members are directly involved in helping you solve your problems.
 
@@ -87,7 +87,7 @@ If you can't find an answer to your problem via search, submit a new question to
 
 ## Create a GitHub issue
 
-![GitHub](media/logos/logo_octokitty.svg)
+:::image type="icon" source="https://docs.microsoft.com/media/logos/logo_octokitty.svg":::
 
 Samples are often posted as open source. For questions and issues, create an *issue* in the respective GitHub repository. You can submit a pull request, too. The following is the **Azure Samples** listing of Cognitive Services sample source code:
 
@@ -127,13 +127,13 @@ Detail the Cognitive Services offering that you're attempting to use, and provid
 
 ## Reddit
 
-![Reddit](media/logos/logo_reddit.svg)
+:::image type="icon" source="https://docs.microsoft.com/media/logos/logo_reddit.svg":::
 
 Reddit is community driven web content rating and discussion website, offering the latest details of [Azure Cognitive Services](https://www.reddit.com/r/AZURE/search/?q=Cognitive%20Services&restrict_sr=1). Registered members can submit content and others can vote on it - organically enabling the most relevant content to bubble up.
 
 ## UserVoice forum
 
-![GitHub](media/logos/logo-uservoice.svg)
+:::image type="icon" source="https://docs.microsoft.com/media/logos/logo-uservoice.svg":::
 
 Share your ideas for making Cognitive Services and the accompanying APIs work better for the applications you develop. Use our [growing Knowledge Base](https://cognitive.uservoice.com/knowledgebase) to find answers to common questions:
 
@@ -156,5 +156,7 @@ Share your ideas for making Cognitive Services and the accompanying APIs work be
 | Video Indexer     | https://cognitive.uservoice.com/forums/598144-video-indexer |
 
 ## Azure support plan
+
+:::image type="icon" source="https://docs.microsoft.com/media/common/i_support.svg":::
 
 Explore the range of [Azure support options and choose the plan](https://azure.microsoft.com/support/plans) that best fits, whether you're a developer just starting your cloud journey or a large organization deploying business-critical, strategic applications.
