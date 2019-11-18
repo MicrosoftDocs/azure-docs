@@ -25,7 +25,7 @@ Before you can back up (or protect) a virtual machine, you must complete the [pr
 ## Before you start
 
 * [Learn more](backup-azure-recovery-services-vault-overview.md) about Recovery Services vaults.
-* [Review](backup-architecture.md#architecture-direct-backup-of-azure-vms) the architecture for Azure VM backup, [learn about](backup-azure-vms-introduction.md) the backup process, and [review](backup-support-matrix-iaas.md) support, limitations, and prerequisites.
+* [Review](backup-architecture.md#architecture-built-in-azure-vm-backup) the architecture for Azure VM backup, [learn about](backup-azure-vms-introduction.md) the backup process, and [review](backup-support-matrix-iaas.md) support, limitations, and prerequisites.
 * Review the PowerShell object hierarchy for Recovery Services.
 
 ## Recovery Services object hierarchy

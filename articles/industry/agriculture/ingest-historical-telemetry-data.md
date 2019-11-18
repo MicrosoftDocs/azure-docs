@@ -69,7 +69,7 @@ Follow the below steps to generate these:
 - /**Sensor** - Sensor corresponds to a physical sensor that records values. A sensor is typically connected to a device with a device ID.  
 
 
-|        Device Mode   |  Suggestions   |
+|        Device Model   |  Suggestions   |
 | ------- | -------             |
 |     Type (Node, Gateway)        |          1 Star      |
 |          Manufacturer            |         2 Star     |

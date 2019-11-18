@@ -1,11 +1,7 @@
 ---
 title: Using the Azure Dev Spaces Plug-in for Jenkins with Azure Kubernetes Service
 description: Learn how to use the Azure Dev Spaces plug-in in a continuous integration pipeline.
-author: tomarchermsft
-ms.author: tarcher
-ms.service: jenkins
 ms.topic: tutorial
-ms.custom: mvc
 ms.date: 10/23/2019
 ---
 
