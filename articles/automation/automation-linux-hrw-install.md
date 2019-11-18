@@ -48,7 +48,7 @@ The minimum requirements for a Linux Hybrid Runbook Worker are:
 |Python-ctypes | Python 2.x is required |
 |PAM | Pluggable Authentication Modules|
 | **Optional package** | **Description** | **Minimum version**|
-| PowerShell Core | To run PowerShell runbooks, PowerShell needs to be installed, see [Installing PowerShell Core on Linux](/powershell/scripting/setup/installing-powershell-core-on-linux) to learn how to install it.  | 6.0.0 |
+| PowerShell Core | To run PowerShell runbooks, PowerShell needs to be installed, see [Installing PowerShell Core on Linux](/powershell/scripting/install/installing-powershell-core-on-linux) to learn how to install it.  | 6.0.0 |
 
 ### Installation
 
@@ -101,7 +101,7 @@ The following runbook types work on a Linux Hybrid Worker:
 * PowerShell
 
   > [!NOTE]
-  > PowerShell runbooks require PowerShell Core to be installed on the Linux machine. See [Installing PowerShell Core on Linux](/powershell/scripting/setup/installing-powershell-core-on-linux) to learn how to install it.
+  > PowerShell runbooks require PowerShell Core to be installed on the Linux machine. See [Installing PowerShell Core on Linux](/powershell/scripting/install/installing-powershell-core-on-linux) to learn how to install it.
 
 The following runbook types don't work on a Linux Hybrid Worker:
 

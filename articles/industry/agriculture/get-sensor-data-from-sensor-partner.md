@@ -82,7 +82,7 @@ Use the following section to view the devices and sensors in your farm.
 Currently FarmBeats supports the following devices:
 
 - **Node**: a device to which one or more sensors are attached to.
-- **Gateway**: a device to which one or more sensors are attached to.
+- **Gateway**: a device to which one or more nodes are attached to.
 
 Use the following steps:
 
