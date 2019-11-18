@@ -45,7 +45,7 @@ This method includes two JSON templates. One template specifies the configuratio
 
 - The resource group the cluster is deployed in.
 
-- [Azure Active Directory tenant ID](../../openshift/howto-create-tenant#create-a-new-azure-ad-tenant.md) noted after performing the steps to create one or one already created.
+- [Azure Active Directory tenant ID](../../openshift/howto-create-tenant.md#create-a-new-azure-ad-tenant) noted after performing the steps to create one or one already created.
 
 - [Azure Active Directory client application ID](../../openshift/howto-aad-app-configuration.md#create-an-azure-ad-app-registration) noted after performing the steps to create one or one already created.
 
