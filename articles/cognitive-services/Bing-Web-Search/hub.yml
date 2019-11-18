@@ -66,6 +66,9 @@ conceptualContent:
         - text: Use Java
           itemType: quickstart
           url: ../bing-custom-search/sdk-java-quickstart.md
+        - text: Use Node.js
+          itemType: quickstart
+          url: web-search-sdk-node-quickstart.md
         - text: Use Python
           itemType: quickstart
           url: ../bing-custom-search/sdk-python-quickstart.md
@@ -87,6 +90,9 @@ conceptualContent:
         - text: Use Node.js
           itemType: quickstart
           url: ../bing-image-search/image-search-sdk-node-quickstart.md
+        - text: Use Python
+          itemType: quickstart
+          url: ../bing-image-search/image-sdk-python-quickstart.md
         - text: Create a single page web-app
           itemType: tutorial
           url: ../bing-image-search/tutorial-bing-image-search-single-page-app.md
