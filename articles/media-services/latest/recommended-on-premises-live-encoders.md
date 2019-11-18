@@ -56,7 +56,7 @@ Media Services recommends using one of following live encoders that have RTMP as
 - VMIX
 - xStream
 - [Ffmpeg](https://www.ffmpeg.org)
-- GoPro Hero 7 and Hero 8
+- [GoPro](https://gopro.com/help/articles/block/getting-started-with-live-streaming) Hero 7 and Hero 8
 - [Restream.io](https://restream.io/)
 
 ## Live encoders that output fragmented MP4
