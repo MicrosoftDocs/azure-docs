@@ -233,4 +233,3 @@ omsagent   1         1         1            1            3h
 ## Next steps
 
 With monitoring enabled to collect health and resource utilization of your RedHat OpenShift cluster and workloads running on them, learn [how to use](container-insights-analyze.md) Azure Monitor for containers.
-
