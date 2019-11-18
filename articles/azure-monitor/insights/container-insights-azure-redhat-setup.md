@@ -152,13 +152,9 @@ The Log Analytics workspace has to be created before you enable monitoring using
     az openshift show -g <clusterResourceGroup> -n <clusterName> 
     ```
 
-5. Edit the JSON parameter file **ExistingClusterParam.json** and update the following values:
+5. Edit the JSON parameter file **ExistingClusterParam.json** and update the values *araResourceId* and *araResoruceLocation*. The value for **workspaceResourceId** is the full resource ID of your Log Analytics workspace, which includes the workspace name. 
 
-    - *aroResourceId*
-    - *aroResourceLocation*
-    - *workspaceResourceId*
-
-6. The following step updates your cluster to enable monitoring by using the Azure CLI. 
+6. To deploy with Azure CLI, run the following commands: 
 
     ```azurecli
     az group deployment create --resource-group <ClusterResourceGroupName> --template-file ./ExistingClusterOnboarding.json --parameters @./existingClusterParam.json 
