@@ -804,6 +804,8 @@
           href: insights/container-insights-enable-existing-clusters.md
         - name: Enable for hybrid cluster
           href: insights/container-insights-hybrid-setup.md
+        - name: Enable for Azure RedHat OpenShift
+          href: insights/container-insights-azure-redhat-setup.md
         - name: Region mappings
           href: insights/container-insights-region-mapping.md
       - name: Monitor performance
