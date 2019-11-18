@@ -19,6 +19,8 @@ Learn how to send custom verification emails to customers using your application
 
 Custom email verification requires the use of a third-party email service like [SendGrid](https://sendgrid.com) or [SparkPost](https://sparkpost.com), or a custom REST API. This article describes setting up a solution that uses SendGrid.
 
+[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
+
 ## Create a SendGrid account
 
 If you don't already have one, start by setting up a SendGrid account (Azure customers can unlock 25,000 free emails each month). For setup instructions, see the [Create a SendGrid Account](../sendgrid-dotnet-how-to-send-email.md#create-a-sendgrid-account) section of [How to send email using SendGrid with Azure](../sendgrid-dotnet-how-to-send-email.md).
@@ -180,7 +182,7 @@ This example display widget is configured to:
 
 ![Send verification code email action](media/custom-email-verification/display-widget-verification-email-action-01.png)
 
-Under the [ClaimsSchema](https://docs.microsoft.com/en-us/azure/active-directory-b2c/claimsschema), add following [DisplayWidget](display-widgets.md) type of [VerificationWidget](display-widget-verification.md) to your policy.
+Under the [ClaimsSchema](claimsschema.md), add following [DisplayWidget](display-widgets.md) type of [VerificationWidget](display-widget-verification.md) to your policy.
 
 ```XML
 <DisplayWidgets>

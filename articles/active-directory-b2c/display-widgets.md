@@ -1,10 +1,27 @@
+---
+title: Display widgets in Azure AD B2C
+description: Learn how to use Azure AD B2C display widgets to customize user journeys in your custom policies.
+services: active-directory-b2c
+author: mmacy
+manager: celestedg
+
+ms.service: active-directory
+ms.workload: identity
+ms.topic: reference
+ms.date: 11/22/2019
+ms.author: marsma
+ms.subservice: B2C
+---
+
 # Display Widgets
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 The **Display Widget** is a group of user interface elements that has special functionality and interacts with Azure Active Directory B2C backend service. It allows the user to perform certain actions on the page, which invokes certain [validation technical profiles](validation-technical-profile.md) at the backend. **Display Widgets** are displayed on the page and are referenced in [Self Asserted Technical Profile](self-asserted-technical-profile.md). Following example illustrates a self-asserted sign-up page with two display widget that validate the email address and the alternative (secondary) email address.
 
-![Display widget](media/display-widget-email.png)
+![Example rendered display widget](media/custom-email-verification/display-widget-email.png)
+
+[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## Prerequisites
 
@@ -19,12 +36,13 @@ The **Display Widget** is a group of user interface elements that has special fu
 ```
 
 ## Defining Display Widgets
+
 The **DisplayWidget** element contains the following attribute:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | Id | Yes | An identifier that's used for the display widget. It can be [referenced](#referencing-display-widgets). |
-| UserInterfaceWidgetType | Yes | The type of the display widget. Currently supported is [VerificationWidget](display-widget-verification) |
+| UserInterfaceWidgetType | Yes | The type of the display widget. Currently supported is [VerificationWidget](display-widget-verification.md) |
 
 The **DisplayWidget** element contains the following elements:
 
@@ -36,6 +54,7 @@ The **DisplayWidget** element contains the following elements:
 | Actions | 0:1 | The **Actions** are used to list the validation technical profiles to invoke for user actions happening at the front-end. |
 
 ### Input claims
+
 In a display widget, you can use **InputClaims** elements to prepopulate the value of claims to collect from the user on the page. Any **InputClaimsTransformations** can be defined in the self asserted technical profile which references this display widget.
 
 In the example below, you can prepopulate the email address to be verified with the one already present.
@@ -47,7 +66,9 @@ In the example below, you can prepopulate the email address to be verified with 
   </InputClaims>
   ...
 ```
+
 ### Display claims
+
 Similar to the **display claims** defined in [self-asserted technical profile](self-asserted-technical-profile.md#display-claims), the display claims are representing the claims to be collected from the user within this display widget. The **ClaimType** element referenced needs to set the **UserInputType** element to any user input type supported by Azure AD B2C, such as `TextBox` or `DropdownSingleSelect`. If a display claim value is required by an **Action**, set the **Required** attribute to `true` to force the user to provide a value for that specific display claim.
 
 Certain display claims are required for certain types of display widget. For example, **VerificationCode** is required for the display widget of type **VerificationWidget**. Use the attribute **ControlClaimType** to specify which DisplayClaim is designated for that required claim. For example:
@@ -66,7 +87,7 @@ To bubble up the output the claims to the next orchestration step, use the **Out
 
 The **Actions** of a display widget are procedures happening at the backend when a user performs certain action in the client side  (the browser). For example, what validations to perform when the user clicks a button on the page. Each type of **display widget** requires different set of display claims, output claims and actions to be performed.
 
-An action defines a list of **validation technical profiles**. They are used for validating some or all of the display claims of the display widget. The validation technical profile validates the user input and may return an error to the user. You can use **ContinueOnError**, **ContinueOnSuccess** and **Preconditions** in the display widget Action similarly to how they are used in the [validation technical profiles](validation-technical-profile.md) in the self asserted technical profile. 
+An action defines a list of **validation technical profiles**. They are used for validating some or all of the display claims of the display widget. The validation technical profile validates the user input and may return an error to the user. You can use **ContinueOnError**, **ContinueOnSuccess** and **Preconditions** in the display widget Action similarly to how they are used in the [validation technical profiles](validation-technical-profile.md) in the self asserted technical profile.
 
 In the example below, it will send a code in either email or SMS based on user selection on **mfaType** claim.
 

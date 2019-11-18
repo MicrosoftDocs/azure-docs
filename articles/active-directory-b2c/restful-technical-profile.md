@@ -65,7 +65,7 @@ To send a complex JSON payload:
 
 1. Build your JSON payload with the [GenerateJson](json-transformations.md) claims transformation
 1. In the REST API technical profile:
-  1. Add an input claims transformation with a reference to the [GenerateJson](json-transformations) claims transformation.
+  1. Add an input claims transformation with a reference to the `GenerateJson` claims transformation.
   1. Set the `SendClaimsIn` metadata to `body`
   1. Set the `ClaimUsedForRequestPayload` metadata to the name of the claim containing the JSON payload.
   1. In the input claim add a reference to the input claim containing the JSON payload
