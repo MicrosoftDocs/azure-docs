@@ -100,7 +100,7 @@ TripData, TripFare
 
 ### Cross join example
 
-The below example is a join transformation named `CartesianProduct` that takes left stream `TripData` and right stream `TripFare`. This transformation takes in two streams and returns a cartesian product of their rows. The join condition is `true()` because it outputs a full cartesian product. The `joinType` in `cross`. We're enabling broadcasting in only the left stream so `broadcast` has value `'left'`.
+The below example is a join transformation named `CartesianProduct` that takes left stream `TripData` and right stream `TripFare`. This transformation takes in two streams and returns a cartesian product of their rows. The join condition is `true()` because it outputs a full cartesian product. The `joinType` is `cross`. We're enabling broadcasting in only the left stream so `broadcast` has value `'left'`.
 
 In the Data Factory UX, this transformation looks like the below image:
 
