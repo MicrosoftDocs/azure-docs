@@ -203,7 +203,7 @@ Guest/server - exclude disk | Yes
 Guest/server multipath (MPIO) | No
 Guest/server GPT partitions | Five partitions are supported from [Update Rollup 37](https://support.microsoft.com/help/4508614/) (version 9.25 of the Mobility service) onwards. Previously four were supported.
 ReFS | Resilient File System is supported with Mobility service version 9.23 or higher
-Guest/server EFI/UEFI boot | - Supported for Windows Server 2012 or later, SLES 12 SP4 and RHEL 8.0 <br/> - Secure UEFI boot type is not supported. 
+Guest/server EFI/UEFI boot | - Supported for Windows Server 2012 or later, SLES 12 SP4 and RHEL 8.0 with mobility agent version 9.30 onwards<br/> - Secure UEFI boot type is not supported. 
 
 ## Replication channels
 

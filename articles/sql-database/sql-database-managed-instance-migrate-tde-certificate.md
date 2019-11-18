@@ -4,8 +4,8 @@ description: Migrate certificate protecting Database Encryption Key of a databas
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: 
-ms.devlang: 
+ms.custom:
+ms.devlang:
 ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
