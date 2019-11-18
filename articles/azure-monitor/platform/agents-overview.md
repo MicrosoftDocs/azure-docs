@@ -38,7 +38,7 @@ The following table provides a quick comparison of the different agents. See the
 
 
 ## Azure Diagnostic extension
-The [Azure Diagnostics extension](../../azure-monitor/platform/diagnostics-extension-overview.md) allows you to collect monitoring data from the guest operating system and workloads of Azure compute resources. It primarily collects data into Azure Storage. You can configure Azure Monitor to copy the data from storage to a Log Analytics workspace. You can also collect guest performance data into Azure Monitor Metrics.
+The [Azure Diagnostics extension](../../azure-monitor/platform/diagnostics-extension-overview.md) collects monitoring data from the guest operating system and workloads of Azure compute resources. It primarily collects data into Azure Storage. You can configure Azure Monitor to copy the data from storage to a Log Analytics workspace. You can also collect guest performance data into Azure Monitor Metrics.
 
 Azure Diagnostic Extension is often referred to as the Windows Azure Diagnostic (WAD) or Linux Azure Diagnostic (LAD) extension.
 
@@ -57,7 +57,7 @@ Scenarios supported by the Azure Diagnostics extension include the following:
 * Copy data from applications running in your VM [to Application Insights](diagnostics-extension-to-application-insights.md) to integrate with other application monitoring.
 
 ## Log Analytics agent
-The [Log Analytics agent](log-analytics-agent.md) allows you to collect monitoring data from the guest operating system and workloads of Azure compute resources. It collects data into a Log Analytics workspace.
+The [Log Analytics agent](log-analytics-agent.md) collects monitoring data from the guest operating system and workloads of virtual machines in Azure, other cloud providers, and on-premises. It collects data into a Log Analytics workspace.
 
 The Log Analytics agent is the same agent used by System Center Operations Manager, and you multihome agent computers to communicate with your management group and Azure Monitor simultaneously. This agent is also required by certain solutions in Azure Monitor.
 
