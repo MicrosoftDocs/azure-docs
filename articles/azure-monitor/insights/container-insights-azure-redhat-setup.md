@@ -15,7 +15,7 @@ Azure Monitor for containers provides rich monitoring experience for the Azure K
 
 Azure Monitor for containers can be enabled for new, or one or more existing deployments of Azure RedHat Openshift using the following supported methods:
 
-- For an existing cluster rom the Azure portal or Azure CLI
+- For an existing cluster from the Azure portal or Azure CLI
 - For a new cluster using Azure CLI 
 
 ## Supported and unsupported features
