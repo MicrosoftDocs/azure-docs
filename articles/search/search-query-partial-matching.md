@@ -24,6 +24,9 @@ To enable pattern matching over complex strings, you need to address the followi
 
 + Create queries that do the best job of setting up the matching criteria when the criteria in question contains characters or specific patterns. Wildcard queries are a common approach, but you could also incorporate regular expressions for advanced scenarios.
 
+> [!NOTE]
+> Exceptions to the conditions and approaches described in this aritcle include filters and specific query types. $filter expressions do not go against the inverted indexes, and thus tokenization is not applicable. RegEx queries, Wilcard (*) queries, and fuzzy matching queries are not analyzed.
+
 ## Set up analyzers
 
 Gaining control over tokenization starts with switching out the default Standard Lucene analyzer for a [custom analyzer](index-add-custom-analyzers.md) that delivers minimal processing (typical for this scenario).
@@ -32,7 +35,7 @@ Tokenized terms are the output of analyzers, and for the best experience in matc
 
 Analyzers are called during indexing and during query execution. It's common to use the same analyzer for both but you can configure custom analyzers for each workload. Analyzer overrides are specified in the [index definition](https://docs.microsoft.com/rest/api/searchservice/create-index) in an `analyzers` section, and then referenced on specific fields. 
 
-### Keyword tokenizer with additional token filters
+### Use the Keyword tokenizer with additional token filters
 
 To preserve whole terms in the token, we recommend using keyword tokenizer because it creates a single token for the entire contents of a field. The following example is an illustration of a custom analyzer that provides the keyword tokenizer. This custom analyzer is referenced on the 'featureCode' field definition, but defined further down in the index schema.
 
@@ -80,7 +83,7 @@ A token filter adds additional processing over existing tokens in your index. Th
     ],
 ```
 
-### Dedicated analyzers for indexing and query execution
+### Use dedicated analyzers for indexing and query execution
 
 If custom analysis is only required during indexing, you can apply the custom analyzer to just indexing and continue to use the standard Lucene analyzer (or another analyzer) for queries.
 
@@ -164,13 +167,14 @@ The following table includes examples that indicate a need for a RegEx search:
 | `Bravern-2` | Alphanumeric content, with some form of delimiter, is often found in addresses, SKUs, product or model identifiers, account numbers, student IDs, and so forth. Search strings that include delimiters are typically constructed using a RegEx query that includes the special character. |
 | `"ABCD.23PT1111/Dur/5min"` | Composite terms like this one often need to be matched using partial term queries built from combinations of each part (for example, `1111/Dur/5min`). This type of query is virtually impossible to do unless you are using un-analyzed text and a RegEx query. | -->
 
-## Test tokens
+## Test analyzer output
 
 The service provides an API that returns tokenized terms for search inputs. You can verify that your custom analyzer is producing expected output by passing individual input strings. 
 
-The following screenshot shows the request and response to [Test Analyzer REST API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer). The equivalent API in .NET is the [AnalyzerResult class](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.search.models.analyzeresult?view=azure-dotnet).
+The following screenshot shows the request and response to [Test Analyzer REST API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer). The equivalent API in .NET is the [AnalyzerResult class](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzeresult?view=azure-dotnet).
 
-![Postman session, input is "as-35-sd-f", output is 4 tokens](media/search-query-partial-matching/postman-test-analyzer-rest-api.png "Postman session, input is "as-35-sd-f", output is 4 tokens")
+
+   ![Postman session input is as-35-sd-f output is 4 tokens](./media/search-query-partial-matching/postman-test-analyzer-rest-api.png "Postman session input is as-35-sd-f output is 4 tokens")
 
 ## Define queries for pattern matching
 
