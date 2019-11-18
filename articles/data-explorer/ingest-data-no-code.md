@@ -54,7 +54,7 @@ Diagnostic metrics are aggregated with a time grain of 1 minute. Following is an
     	"minimum": 0,
     	"maximum": 0,
     	"average": 0,
-    	"resourceId": "/SUBSCRIPTIONS/F3101802-8C4F-4E6E-819C-A3B5794D33DD/RESOURCEGROUPS/KEDAMARI/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/KEREN",
+    	"resourceId": "/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/<cluster-name>",
     	"time": "2018-12-20T17:00:00.0000000Z",
     	"metricName": "QueryDuration",
     	"timeGrain": "PT1M"
@@ -65,7 +65,7 @@ Diagnostic metrics are aggregated with a time grain of 1 minute. Following is an
     	"minimum": 0,
     	"maximum": 0,
     	"average": 0,
-    	"resourceId": "/SUBSCRIPTIONS/F3101802-8C4F-4E6E-819C-A3B5794D33DD/RESOURCEGROUPS/KEDAMARI/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/KEREN",
+    	"resourceId": "/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/<cluster-name>",
     	"time": "2018-12-21T17:00:00.0000000Z",
     	"metricName": "QueryDuration",
     	"timeGrain": "PT1M"
@@ -82,7 +82,7 @@ Following is an example of an Azure Data Explorer [diagnostic ingestion log](usi
 ```json
 {
 	"time": "2019-08-26T13:22:36.8804326Z",
-	"resourceId": "/SUBSCRIPTIONS/12534EB3-8109-4D84-83AD-576C0D5E1D06/RESOURCEGROUPS/KEREN/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/KERENEUS",
+	"resourceId": "/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/<cluster-name>",
 	"operationName": "MICROSOFT.KUSTO/CLUSTERS/INGEST/ACTION",
 	"operationVersion": "1.0",
 	"category": "FailedIngestion",
@@ -91,7 +91,7 @@ Following is an example of an Azure Data Explorer [diagnostic ingestion log](usi
 	"properties": {
 		"OperationId": "00000000-0000-0000-0000-000000000000",
 		"Database": "Kusto",
-		"Table": "Table_13_20_kereneus_prod",
+		"Table": "Table_13_20_prod",
 		"FailedOn": "2019-08-26T13:22:36.8804326Z",
 		"IngestionSourceId": "d59882f1-ad64-4fc4-b2ef-d663b6cc1cc5",
 		"Details":
@@ -105,7 +105,7 @@ Following is an example of an Azure Data Explorer [diagnostic ingestion log](usi
 				"@context": 
 				{
 					"timestamp": "2019-08-26T13:22:36.7179157Z",
-					"serviceAlias": "KERENEUS",
+					"serviceAlias": "<cluster-name>",
 					"machineName": "KEngine000001",
 					"processName": "Kusto.WinSvc.Svc",
 					"processId": 5336,
@@ -139,8 +139,8 @@ Azure activity logs are subscription-level logs that provide insight into the op
 {
 	"records": [
 	{
-		"time": "2018-12-26T16:23:06.1090193Z",
-		"resourceId": "/SUBSCRIPTIONS/F80EB51C-C534-4F0B-80AB-AEBC290C1C19/RESOURCEGROUPS/CLEANUPSERVICE/PROVIDERS/MICROSOFT.WEB/SITES/CLNB5F73B70-DCA2-47C2-BB24-77B1A2CAAB4D/PROVIDERS/MICROSOFT.AUTHORIZATION",
+        "time": "2018-12-26T16:23:06.1090193Z",
+        "resourceId": "/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.WEB/SITES/CLNB5F73B70-DCA2-47C2-BB24-77B1A2CAAB4D/PROVIDERS/MICROSOFT.AUTHORIZATION",
 		"operationName": "MICROSOFT.AUTHORIZATION/CHECKACCESS/ACTION",
 		"category": "Action",
 		"resultType": "Start",
@@ -164,7 +164,7 @@ Azure activity logs are subscription-level logs that provide insight into the op
 	},
 	{
 		"time": "2018-12-26T16:23:06.3040244Z",
-		"resourceId": "/SUBSCRIPTIONS/F80EB51C-C534-4F0B-80AB-AEBC290C1C19/RESOURCEGROUPS/CLEANUPSERVICE/PROVIDERS/MICROSOFT.WEB/SITES/CLNB5F73B70-DCA2-47C2-BB24-77B1A2CAAB4D/PROVIDERS/MICROSOFT.AUTHORIZATION",
+		"resourceId": "/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.WEB/SITES/CLNB5F73B70-DCA2-47C2-BB24-77B1A2CAAB4D/PROVIDERS/MICROSOFT.AUTHORIZATION",
 		"operationName": "MICROSOFT.AUTHORIZATION/CHECKACCESS/ACTION",
 		"category": "Action",
 		"resultType": "Success",
