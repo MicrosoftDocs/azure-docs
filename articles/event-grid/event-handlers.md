@@ -71,11 +71,11 @@ Use Logic Apps to automate business processes for responding to events.
 
 ## Service Bus
 
-### Service Bus Queues
+### Service Bus queues
 
 You can route events in Event Grid directly to Service Bus queues for use in buffering or command & control scenarios in enterprise applications.
 
-In the Azure Portal, while creating an event subscription, select "Service Bus Queue" as endpoint type and then click "select and endpoint" in order to choose a Service Bus queue.
+In the Azure portal, while creating an event subscription, select "Service Bus Queue" as endpoint type and then click "select and endpoint" in order to choose a Service Bus queue.
 
 #### Using CLI to add a Service Bus queue handler
 
@@ -93,11 +93,11 @@ az eventgrid event-subscription create \
     --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/queues/queue1
 ```
 
-### Service Bus Topics
+### Service Bus topics
 
 You can route events in Event Grid directly to Service Bus topics in order to handle Azure system events with Service Bus topics, or for command & control messaging scenarios.
 
-In the Azure Portal, while creating an event subscription, select "Service Bus Topic" as endpoint type and then click "select and endpoint" in order to choose a Service Bus topic.
+In the Azure portal, while creating an event subscription, select "Service Bus Topic" as endpoint type and then click "select and endpoint" in order to choose a Service Bus topic.
 
 #### Using CLI to add a Service Bus topic handler
 

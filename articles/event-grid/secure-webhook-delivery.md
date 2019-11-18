@@ -1,5 +1,5 @@
 ---
-title: Secure WebHook delivery with AAD in Azure Event Grid
+title: Secure WebHook delivery with Azure AD in Azure Event Grid
 description: Describes how to deliver events to HTTPS endpoints protected by Azure Active Directory using Azure Event Grid
 services: event-grid
 author: banisadr
@@ -10,20 +10,20 @@ ms.date: 11/18/2019
 ms.author: babanisa
 ---
 
-# Publish events to AAD protected endpoints
+# Publish events to Azure Active Directory protected endpoints
 
 This article describes how to take advantage of Azure Active Directory to secure the connection between your Event Subscription and your webhook endpoint. For an overview of Azure AD Applications and service principals, see [Microsoft identity platform (v2.0) overview](https://docs.microsoft.com/azure/active-directory/develop/v2-overview).
 
-This article uses the Azure Portal for demonstration, however the feature can also be enabled using CLI, PowerShell, or the SDKs.
+This article uses the Azure portal for demonstration, however the feature can also be enabled using CLI, PowerShell, or the SDKs.
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
-## Create and Azure Active Directory Application
+## Create and Azure AD Application
 
 Begin by creating an Azure AD Application for your protected endpoint. See https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview.
     - Configure your protected API to be called by a daemon app.
     
-## Enable Event Grid to use your Azure AD Application.
+## Enable Event Grid to use your Azure AD Application
 
 Use the PowerShell script below in order to create a role and service principle in your Azure AD Application. You will need the Tenant ID and Object ID from your Azure AD Application:
 

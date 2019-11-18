@@ -17,7 +17,7 @@ Azure Event Grid is an eventing service for the cloud. Azure Functions is one of
 
 ## Create Azure Function
 
-Before subscribing to the custom topic, let's create a function to handle the events. In the Azure Portal, click 'Create a resource' and type 'function' then choose 'Function App' and click create. Select 'Create new' under resource group and give it a name. You'll use this for the rest of the tutorial. Give the Function App a name, leave the 'Publish' toggle on 'Code', select any runtime and region, then hit create.
+Before subscribing to the custom topic, let's create a function to handle the events. In the Azure portal, click 'Create a resource' and type 'function' then choose 'Function App' and click create. Select 'Create new' under resource group and give it a name. You'll use this for the rest of the tutorial. Give the Function App a name, leave the 'Publish' toggle on 'Code', select any runtime and region, then hit create.
 
 Once your Function App is ready, navigate to it and click '+ New Function'. Select 'In-portal' for development environment and hit continue. Under create a function, choose 'More templates' to view more templates and then search for 'Azure Event Grid Trigger' and select it. If this is your first time using this trigger, you may have to click 'Install' to install the extension.
 
