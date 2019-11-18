@@ -13,7 +13,7 @@ ms.author: ant
 
 This script makes it easy to transition from a WAF config or a custom rules-only WAF policy to a full WAF policy. You may see a warning in the portal that says *migrate to WAF policy*, or you may want the new public preview WAF features such as Geomatch custom rules, per-site and per-URI WAF policy, or the bot mitigation ruleset. To use any of these features, you need a full WAF policy associated to your application gateway. 
 
-For more information about creating a new WAF policy, see [How-to create a WAF policy](create-waf-policy-ag). For information about migrating, see [migrating to a WAF policy](create-waf-policy-ag#migrate-to-waf-policy).
+For more information about creating a new WAF policy, see [Create Web Application Firewall policies for Application Gateway](create-waf-policy-ag.md). For information about migrating, see [Migrate to WAF policy](create-waf-policy-ag.md#migrate-to-waf-policy).
 
 ## To migrate to WAF policy using the migration script
 
