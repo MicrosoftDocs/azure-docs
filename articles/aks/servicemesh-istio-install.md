@@ -356,7 +356,7 @@ istioctl dashboard envoy <pod-name>.<namespace>
 
 To remove Istio from your AKS cluster, use the `istioctl manifest generate` command with the `istio.aks.yaml` Istio control plane spec file. This will generate the deployed manifest, which we will pipe to `kubectl delete` in order to remove all the installed components and the `istio-system` namespace.
 
-```azurecli
+```console
 istioctl manifest generate -f istio.aks.yaml | kubectl delete -f -
 ```
 
