@@ -23,7 +23,7 @@ IoT Plug and Play Preview simplifies IoT by enabling you to interact with a devi
 
 ## Prerequisites
 
-To complete this quickstart, you need Java SE 8 on your development machine. You can download Java SE 8 for multiple platforms from [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/en-us/java/azure/jdk/?view=azure-java-stable), by selecting **Java 8** under **Long-term support** to get Azul Zulu downloads for Java 8. Make sure your `JAVA_HOME` environment variable includes the full path to the Java directory (something like `C:\Program Files\Zulu\zulu-8`), and your`PATH` environment variable includes the full path to the Java bin directory (something like `C:\Program Files\Zulu\zulu-8\bin`).
+To complete this quickstart, you need Java SE 8 on your development machine. You can download Java SE 8 for multiple platforms from [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable), by selecting **Java 8** under **Long-term support** to get Azul Zulu downloads for Java 8. Make sure your `JAVA_HOME` environment variable includes the full path to the Java directory (something like `C:\Program Files\Zulu\zulu-8`), and your`PATH` environment variable includes the full path to the Java bin directory (something like `C:\Program Files\Zulu\zulu-8\bin`).
 
 You can check that the environment variables are set correctly and verify the version of Java on your development machine by running the following command in a local terminal window: 
 
