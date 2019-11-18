@@ -27,7 +27,7 @@ Subscription Id of where the resources are present.
 .PARAMETER resourceGroupName
 Resource-group where the resources are present.
 .PARAMETER applicationGatewayName
-Applicatin-Gateway name
+Application-Gateway name
 .PARAMETER wafPolicyName
 Name of the web application firewall policy
 
