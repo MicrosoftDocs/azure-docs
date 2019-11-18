@@ -196,7 +196,7 @@ static public void UploadFile(DataLakeFileSystemClient fileSystemClient)
 
     DataLakeFileClient fileClient = directoryClient.createFile("uploaded-file.txt");
 
-    File file = new File("C:\\Users\\normesta\\Norms-Test-Projects\\mytestfile.txt");
+    File file = new File("C:\\mytestfile.txt");
 
     InputStream targetStream = new FileInputStream(file);
 
@@ -259,7 +259,7 @@ static public void DownloadFile(DataLakeFileSystemClient fileSystemClient)
     DataLakeFileClient fileClient = 
         directoryClient.getFileClient("uploaded-file.txt");
 
-    File file = new File("C:\\Users\\normesta\\Norms-Test-Projects\\downloadedFile.txt");
+    File file = new File("C:\\downloadedFile.txt");
 
     OutputStream targetStream = new FileOutputStream(file);
 
