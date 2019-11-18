@@ -27,6 +27,7 @@ The error information in this article can help you resolve errors, allowing inde
 Warnings do not stop indexing, but they do indicate conditions that could result in unexpected outcomes. Whether you take action or not depends on the data and your scenario.
 
 Beginning with API version `2019-05-06`, item-level Indexer errors and warnings are structured to provide increased clarity around causes and next steps. They contain the following properties:
+
 | Property | Description | Example |
 | --- | --- | --- |
 | key | The document id of the document impacted by the error or warning. | https://coromsearch.blob.core.windows.net/jfk-1k/docid-32112954.pdf |
