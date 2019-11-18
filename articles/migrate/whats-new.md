@@ -4,7 +4,7 @@ description: Provides an overview of the Azure Migrate service.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 10/22/2019
+ms.date: 11/06/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -17,7 +17,12 @@ ms.custom: mvc
 
 ## Update (November 2019)
 
+
+
 A number of new features were added to Azure Migrate:
+
+> [!NOTE]
+> If you don't yet see some of these features in the Azure Migrate portal, hang on. They will appear over the next week or so.
 
 - **Physical server assessment**. Assessment of on-premises physical servers is now supported, in addition to physical server migration that is already supported.
 - **Import-based assessment**. Assessment of machines using metadata and performance data provided in a CSV file is now supported.
@@ -25,6 +30,13 @@ A number of new features were added to Azure Migrate:
 - **Agentless dependency visualization**: You no longer need to explicitly install agents for dependency visualization. Both agentless and agent-based are now supported.
 - **Virtual Desktop**: Use ISV tools to assess and migrate on-premises virtual desktop infrastructure (VDI) to Windows Virtual Desktop in Azure.
 - **Web app**: The Azure App Service Migration Assistant, used for assessing and migration web apps, is now integrated into Azure Migrate.
+
+New assessment and migration tools were added to Azure Migrate:
+
+- **Rackware**: Offering cloud migration.
+- **Movere**: Offering assessment.
+
+[Learn more](migrate-services-overview.md) about using tools and ISV offerings for assessment and migration in Azure Migrate.
 
 ## Release version (July 2019)
 

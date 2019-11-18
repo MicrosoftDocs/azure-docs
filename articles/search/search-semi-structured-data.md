@@ -1,5 +1,5 @@
 ---
-title: 'REST Tutorial: Indexing semi-strutured data in JSON blobs'
+title: 'Tutorial: Index semi-strutured data in JSON blobs'
 titleSuffix: Azure Cognitive Search
 description: Learn how to index and search semi-structured Azure JSON blobs using Azure Cognitive Search REST APIs and Postman.
 

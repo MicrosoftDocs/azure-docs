@@ -14,19 +14,21 @@ ms.date: 11/04/2019
 
 When string composition includes upper and lowercase text with special characters, additional work is sometimes necessary before queries can return matching documents in your index. 
 
-Analyzers, which tokenize terms during indexing, modify strings en route. Common transformations include lower-casing any upper-case text, removing non-essential words, and breaking down composite terms into smaller parts when characters like dashes, periods, and slashes are encountered. 
+Analyzers, which tokenize terms during indexing, modify strings en route such that what gets stored is often quite different from the original value. Common transformations include lower-casing any upper-case text, removing non-essential words, and breaking down composite terms into smaller parts when characters like dashes, periods, and slashes are encountered. 
 
-Assuming the default standard Lucene analyzer, consider how the following fictitious feature code, `"MSFT/SQL.2019/Linux&Java-Ext"`, would be tokenized into smaller parts: `msft`, `sql`, `2019`, `linux`, `java`, `ext`. Given these transformations, you can imagine how searching on a partial term like `"MSFT/SQL"` becomes problematic when the index contains only segments of the term, and not the combinations you expect.
+For example, assuming the default standard Lucene analyzer, consider how the following fictitious feature code, `"MSFT/SQL.2019/Linux&Java-Ext"`, would be tokenized into smaller parts: `msft`, `sql`, `2019`, `linux`, `java`, `ext`. Given these transformations, you can imagine how searching on a partial term like `"MSFT/SQL"` becomes problematic when the index contains only segments of the term, and not the combinations you expect.
 
 To enable pattern matching over complex strings, you need to address the following challenges:
 
-+ Control the tokenization process to ensure your index actually contains the required information. Instead of segmented terms, you want *intact* terms so that partial and pattern matching can succeed. You can add token filters for additional modifications.
++ Control the tokenization process to ensure your index actually contains the required information. Instead of segmented terms, you want *intact* terms so that partial and pattern matching can succeed. You can override default analyzer with a specific analyzer as a control mechanism. You can also add token filters for additional modifications.
 
-+ Create queries that do the best job of setting up the matching criteria. Wildcard queries are a common approach, but you could also incorporate regular expressions for advanced scenarios.
++ Create queries that do the best job of setting up the matching criteria when the criteria in question contains characters or specific patterns. Wildcard queries are a common approach, but you could also incorporate regular expressions for advanced scenarios.
 
 ## Set up analyzers
 
-Tokenization is a product of analyzers. The default analyzer is standard Lucene, but you can override the default rules by providing [custom analyzers](index-add-custom-analyzers.md), which you can set field-by-field.
+Gaining control over tokenization means switching out the default Standard Lucene analyzer for a [custom analyzer](index-add-custom-analyzers.md) that delivers minimal processing (typical for this scenario).
+
+Tokenized terms are the ouptut of analyzers, and for the best experience in matching patterns, you need output consisting of whole terms. You can override the default rules by creating a custom analyzer, which you can set on a field-by-field basis.
 
 Analyzers are called during indexing and during query execution. It's common to use the same analyzer for both but you can configure custom analyzers for each workload. Analyzer overrides are specified in the [index definition](https://docs.microsoft.com/rest/api/searchservice/create-index) in an `analyzers` section, and then referenced on specific fields. 
 

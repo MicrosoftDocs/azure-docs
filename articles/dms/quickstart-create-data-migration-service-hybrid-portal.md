@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 11/06/2019
 ---
 
 # Quickstart: Create an instance of Azure Database Migration Service in hybrid mode using the Azure portal (Preview)
@@ -113,7 +113,7 @@ You need to create an Azure App registration ID that the on-premises hybrid work
 5. Generate a certificate that Azure Database Migration Service can use to authenticate the communication from the hybrid worker by using the following command.
 
     ```
-    <drive>:\<folder>\Install>DMSWorkerBootstrap.exe -a GenerateCert -IAcceptDMSLicenseTerms
+    <drive>:\<folder>\Install>DMSWorkerBootstrap.exe -a GenerateCert
     ```
 
     A certificate is generated in the Install folder.
@@ -139,7 +139,7 @@ You need to create an Azure App registration ID that the on-premises hybrid work
 Currently, uninstalling Azure Database Migration Service hybrid mode is supported only via the Azure Database Migration Service hybrid worker installer on your on-premises server, by using the following command:
 
 ```
-<drive>:\<folder>\Install>DMSWorkerBootstrap.exe -a uninstall -IAcceptDMSLicenseTerms
+<drive>:\<folder>\Install>DMSWorkerBootstrap.exe -a uninstall
 ```
 
 ## Next steps

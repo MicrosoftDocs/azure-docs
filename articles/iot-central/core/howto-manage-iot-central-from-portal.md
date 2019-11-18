@@ -1,6 +1,6 @@
 ---
 title: Manage IoT Central from the Azure portal | Microsoft Docs
-description: Manage IoT Central from the Azure portal.
+description: This article describes how to create and manage your IoT Central applications from the Azure portal.
 services: iot-central
 ms.service: iot-central
 author: dominicbetts

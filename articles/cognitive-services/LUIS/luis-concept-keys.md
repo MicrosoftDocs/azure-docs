@@ -1,5 +1,5 @@
 ---
-title: Authoring and runtime keys - LUIS
+title: How to use authoring and runtime keys with LUIS
 titleSuffix: Azure Cognitive Services
 description: LUIS uses two keys, the authoring key to create your model and the runtime key for querying the prediction endpoint with user utterances.
 services: cognitive-services

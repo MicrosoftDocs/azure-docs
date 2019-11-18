@@ -1,7 +1,7 @@
 ---
-title: Create a knowledge store in the Azure portal
+title: Create a knowledge store (preview) in the Azure portal
 titleSuffix: Azure Cognitive Search
-description: Use the Import data wizard to create a knowledge store used for persisting enriched content. Connect to a knowledge store for analysis from other apps, or send enriched content to downstream processes.
+description: Use the Import data wizard to create a knowledge store used for persisting enriched content. Connect to a knowledge store for analysis from other apps, or send enriched content to downstream processes. This feature is currently in public preview.
 
 author: lisaleib
 manager: nitinme
@@ -13,9 +13,8 @@ ms.date: 11/04/2019
 
 # Quickstart: Create an Azure Cognitive Search knowledge store in the Azure portal
 
-> [!Note]
-> Knowledge store is in preview and should not be used in production. Both the Azure portal and the [Search REST API version 2019-05-06-Preview](search-api-preview.md) provide this feature. There is no .NET SDK support at this time.
->
+> [!IMPORTANT] 
+> Knowledge store is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 Knowledge store is a feature of Azure Cognitive Search that persists output from a cognitive skills pipeline for subsequent analyses or downstream processing. 
 

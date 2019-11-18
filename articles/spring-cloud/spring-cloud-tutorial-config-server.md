@@ -90,7 +90,7 @@ All configurable properties used to set up private Git repository with basic aut
 | `password`      | `no`     | The password used to access the `Git` repository server, __required__ when the `Git` repository server supports `Http Basic Authentication`. |
 
 > [!NOTE]
-> Some `Git` repository servers, like GitHub, support a "personal-token" or "access-token" as a password for `HTTP Basic Authentication`. You can use that kind of token as a password here too, and the "personal-token" or "access-token" will not expire. However, for Git repository servers like BitBucket and Azure DevOps, the token will expire in one or two hours, making that option not viable for use with Azure Spring Cloud.
+> Many `Git` repository servers support the use of tokens rather than passwords for `HTTP Basic Authentication`. Some repositories, such as GitHub, allow tokens to persist indefinitely. However, some Git repository servers, including Azure DevOps, force tokens to expire in a few hours. Repositories that cause tokens to expire should not use token-based authentication with Azure Spring Cloud.
 
 ### Git repositories with pattern
 
@@ -122,7 +122,9 @@ Now that you have your configuration files saved in a repository, you need to co
 
 1. Navigate to your Azure Spring Cloud **Overview** page.
 
-1. Go to the **Config Server** tab under the **Settings** heading in the menu on the left side.
+1. Select the service to configure.
+
+1. On the service page select **Config Server** tab under the **Settings** heading in the menu on the left side.
 
 ![window screenshot](media/spring-cloud-tutorial-config-server/portal-config-server.png)
 
@@ -130,7 +132,7 @@ Now that you have your configuration files saved in a repository, you need to co
 
 #### Default repository
 
-* Public repository: In the **Default repository** section, paste the repository URI in the **Uri** section and ensure the **Authentication** setting is **Public**. Then click **Apply** to finish. 
+* Public repository: In the **Default repository** section, paste the repository URI in the **Uri** section.  Set the **Label** to `config`. Ensure the **Authentication** setting is **Public**, then select **Apply** to finish. 
 
 * Private repository: Azure Spring Cloud supports basic password/token based authentication and SSH.
 

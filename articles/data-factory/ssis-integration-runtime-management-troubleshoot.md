@@ -1,5 +1,5 @@
 ---
-title: "Troubleshoot SSIS Integration Runtime management in Azure Data Factory | Microsoft Docs"
+title: "Troubleshoot SSIS Integration Runtime management in Azure Data Factory "
 description: "This article provides troubleshooting guidance for management issues of SSIS Integration Runtime (SSIS IR)"
 services: data-factory
 documentationcenter: ""

@@ -1,5 +1,5 @@
 ---
-title: Data Warehouse Units (DWUs, cDWUs) in Azure Synapse Analytics (formerly SQL DW) | Microsoft Docs
+title: Data Warehouse Units (DWUs, cDWUs) in Azure Synapse Analytics (formerly SQL DW) 
 description: Recommendations on choosing the ideal number of data warehouse units (DWUs, cDWUs) to optimize price and performance, and how to change the number of units.
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,7 +10,7 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-mscustom: sqlfreshmay19 
+ms.custom: seo-lt-2019
 ---
 
 # Data Warehouse Units (DWUs) and compute Data Warehouse Units (cDWUs)
@@ -210,4 +210,4 @@ When you start a scale operation, the system first kills all open sessions, roll
 
 ## Next steps
 
-To learn more about managing performance, see [Resource classes for workload management](resource-classes-for-workload-management.md) and [Memory and concurrency limits](memory-and-concurrency-limits.md).
+To learn more about managing performance, see [Resource classes for workload management](resource-classes-for-workload-management.md) and [Memory and concurrency limits](memory-concurrency-limits.md).
