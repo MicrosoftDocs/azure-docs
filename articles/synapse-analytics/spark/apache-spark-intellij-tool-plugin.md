@@ -1,0 +1,449 @@
+---
+title: 'Tutorial - Azure Toolkit for IntelliJ: Spark application for Azure Synapse Analytics'
+description: Tutorial - Use the Azure Toolkit for IntelliJ to develop Spark applications written in Scala, and submit them to an Azure Synapse Analytics Spark pool.
+author: euangMS
+ms.author: euang
+ms.service: sql-data-warehouse
+ms.topic: tutorial
+ms.date: 09/10/2019
+---
+
+> [!IMPORTANT]
+> TODO Need to write this section
+
+# Tutorial: Use Azure Toolkit for IntelliJ to create Apache Spark applications for a Synapse Analytics Spark pool
+
+This tutorial demonstrates how to use the Azure Toolkit for IntelliJ plug-in to develop Apache Spark applications written in [Scala](https://www.scala-lang.org/), and then submit them to a Synapse Analytics Spark pool directly from the IntelliJ integrated development environment (IDE). You can use the plug-in in a few ways:
+
+* Develop and submit a Scala Spark application on a Synapse Analytics Spark pool.
+* Access your Azure Synapse Analytics Spark pool resources.
+* Develop and run a Scala Spark application locally.
+
+In this tutorial, you learn how to:
+> [!div class="checklist"]
+> * Use the Azure Toolkit for IntelliJ plug-in
+> * Develop Apache Spark applications
+> * Submit application to Azure Synapse Analytics Spark pool
+
+## Prerequisites
+
+* [Oracle Java Development kit](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).  This tutorial uses Java version 8.0.202.
+
+* IntelliJ IDEA. This article uses [IntelliJ IDEA Community ver.  2018.3.4](https://www.jetbrains.com/idea/download/).
+
+* Azure Toolkit for IntelliJ.  See [Installing the Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable).
+
+## Install Scala plugin for IntelliJ IDEA
+
+Perform the following steps to install the Scala plugin:
+
+1. Open IntelliJ IDEA.
+
+2. On the welcome screen, navigate to **Configure** > **Plugins** to open the **Plugins** window.
+
+    ![IntelliJ IDEA enable scala plugin](./media/apache-spark-intellij-tool-plugin/enable-scala-plugin1.png)
+
+3. Select **Install** for the Scala plugin that is featured in the new window.  
+
+    ![IntelliJ IDEA install scala plugin](./media/apache-spark-intellij-tool-plugin/install-scala-plugin.png)
+
+4. After the plugin installs successfully, you must restart the IDE.
+
+## Create a Spark Scala application for a Synapse Analytics Spark pool
+
+1. Start IntelliJ IDEA, and select **Create New Project** to open the **New Project** window.
+
+2. Select **Azure Spark/Synapse Analytics** from the left pane.
+
+3. Select **Spark Project (Scala)** from the main window.
+
+4. From the **Build tool** drop-down list, select one of the following:
+   * **Maven** for Scala project-creation wizard support.
+   * **SBT** for managing the dependencies and building for the Scala project.
+
+     ![IntelliJ IDEA New Project dialog box](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
+
+5. Select **Next**.
+
+6. In the **New Project** window, provide the following information:  
+
+    |  Property   | Description   |  
+    | ----- | ----- |  
+    |Project name| Enter a name.  This tutorial uses `myApp`.|  
+    |Project&nbsp;location| Enter the desired location to save your project.|
+    |Project SDK| This might be blank on your first use of IDEA.  Select **New...** and navigate to your JDK.|
+    |Spark Version|The creation wizard integrates the proper version for Spark SDK and Scala SDK. If the Spark pool version is earlier than 2.0, select **Spark 1.x**. Otherwise, select **Spark2.x**. This example uses **Spark 2.3.0 (Scala 2.11.8)**.|
+
+    ![Selecting the Apache Spark SDK](./media/apache-spark-intellij-tool-plugin/intellij-new-project.png)
+
+7. Select **Finish**.  It may take a few minutes before the project becomes available.
+
+8. The Spark project automatically creates an artifact for you. To view the artifact, do the following:
+
+   a. From the menu bar, navigate to **File** > **Project Structure...**.
+
+   b. From the **Project Structure** window, select **Artifacts**.  
+
+   c. Select **Cancel**  after viewing the artifact.
+
+      ![Artifact info in the dialog box](./media/apache-spark-intellij-tool-plugin/default-artifact-dialog.png)
+
+9. Add your application source code by doing the following:
+
+    a. From Project, navigate to **myApp** > **src** > **main** > **scala**.  
+
+    b. Right-click **scala**, and then navigate to **New** > **Scala Class**.
+
+   ![Commands for creating a Scala class from Project](./media/apache-spark-intellij-tool-plugin/hdi-spark-scala-code.png)
+
+   c. In the **Create New Scala Class** dialog box, provide a name, select **Object** in the **Kind** drop-down list, and then select **OK**.
+
+     ![Create New Scala Class dialog box](./media/apache-spark-intellij-tool-plugin/hdi-spark-scala-code-object.png)
+
+   d. The **myApp.scala** file then opens in the main view. Replace the default code with the code found below:  
+
+        import org.apache.spark.SparkConf
+        import org.apache.spark.SparkContext
+    
+        object myApp{
+            def main (arg: Array[String]): Unit = {
+            val conf = new SparkConf().setAppName("myApp")
+            val sc = new SparkContext(conf)
+    
+            val rdd = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+    
+            //find the rows that have only one digit in the seventh column in the CSV file
+            val rdd1 =  rdd.filter(s => s.split(",")(6).length() == 1)
+    
+            rdd1.saveAsTextFile("wasbs:///HVACOut")
+            }
+    
+        }
+
+    The code reads the data from HVAC.csv (available on all Synapse Analytics Spark pools), retrieves the rows that have only one digit in the seventh column in the CSV file, and writes the output to `/HVACOut` under the default storage container for the Spark pool.
+
+## Connect to your Synapse Analytics pool
+
+
+### Sign in to your Azure subscription
+
+1. From the menu bar, navigate to **View** > **Tool Windows** > **Azure Explorer**.
+
+   ![IntelliJ IDEA show azure explorer](./media/apache-spark-intellij-tool-plugin/show-azure-explorer1.png)
+
+2. From Azure Explorer, right-click the **Azure** node, and then select **Sign In**.
+
+   ![IntelliJ IDEA explorer right-click azure](./media/apache-spark-intellij-tool-plugin/explorer-rightclick-azure.png)
+
+3. In the **Azure Sign In** dialog box, choose **Device Login**, and then select **Sign in**.
+
+    ![IntelliJ IDEA azure sign in device login](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer2.png)
+
+4. In the **Azure Device Login** dialog box, click **Copy&Open**.
+
+   ![IntelliJ IDEA azure device login](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer5.png)
+
+5. In the browser interface, paste the code, and then click **Next**.
+
+   ![Microsoft enter code dialog for HDI](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer6.png)
+
+6. Enter your Azure credentials, and then close the browser.
+
+   ![Microsoft enter e-mail dialog for HDI](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer7.png)
+
+7. After you're signed in, the **Select Subscriptions** dialog box lists all the Azure subscriptions that are associated with the credentials. Select your subscription and then select the **Select** button.
+
+    ![The Select Subscriptions dialog box](./media/apache-spark-intellij-tool-plugin/Select-Subscriptions.png)
+
+8. From **Azure Explorer**, expand **Synapse Analytics** to view the Synapse Analytics Spark pools that are in your subscriptions.
+
+    ![IntelliJ IDEA Azure Explorer main view](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer3.png)
+
+9. To view the resources (for example, storage accounts) that are associated with the Spark pool, you can further expand a cluster-name node.
+
+    ![Azure Explorer storage accounts](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer4.png)
+
+### Link a Spark pool
+
+You can link an Synapse Analytics Spark pool by using the Apache Ambari managed username. Similarly, for a domain-joined Synapse Analytics Spark pool, you can link by using the domain and username, such as `user1@contoso.com`. Also you can link Livy Service pool.
+
+1. From the menu bar, navigate to **View** > **Tool Windows** > **Azure Explorer**.
+
+1. From Azure Explorer, right-click the **Synapse Analytics** node, and then select **Link A Spark pool**.
+
+   ![Azure Explorer link pool context menu](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
+
+1. The available options in the **Link A pool** window will vary depending on which value you select from the **Link Resource Type** drop-down list.  Enter your values and then select **OK**.
+
+    * **Synapse Analytics Spark pool**  
+  
+        |Property |Value |
+        |----|----|
+        |Link Resource Type|Select **Synapse Analytics Spark pool** from the drop-down list.|
+        |Spark Pool Name/URL| Enter pool name.|
+        |Authentication Type| Leave as **Basic Authentication**|
+        |User Name| Enter pool user name, default is admin.|
+        |Password| Enter password for user name.|
+
+        ![IntelliJ IDEA link a pool dialog](./media/apache-spark-intellij-tool-plugin/link-hdinsight-cluster-dialog.png)
+
+    * **Livy Service**  
+  
+        |Property |Value |
+        |----|----|
+        |Link Resource Type|Select **Livy Service** from the drop-down list.|
+        |Livy Endpoint| Enter Livy Endpoint|
+        |Pool Name| Enter pool name.|
+        |Yarn Endpoint|Optional.|
+        |Authentication Type| Leave as **Basic Authentication**|
+        |User Name| Enter pool user name, default is admin.|
+        |Password| Enter password for user name.|
+
+        ![IntelliJ IDEA link Livy pool dialog](./media/apache-spark-intellij-tool-plugin/link-livy-cluster-dialog.png)
+
+1. You can see your linked pool from the **Synapse Analytics** node.
+
+   ![Azure Explorer linked pool](./media/apache-spark-intellij-tool-plugin/hdinsight-linked-cluster.png)
+
+1. You also can unlink a pool from **Azure Explorer**.
+
+   ![Azure Explorer unlinked pool](./media/apache-spark-intellij-tool-plugin/hdi-unlinked-cluster.png)
+
+## Run a Spark Scala application on a Synapse Analytics Spark pool
+
+After creating a Scala application, you can submit it to the Spark pool.
+
+1. From Project, navigate to **myApp** > **src** > **main** > **scala** > **myApp**.  Right-click **myApp**, and select **Submit Spark Application** (It will likely be located at the bottom of the list).
+
+      ![The Submit Spark Application to Synapse Analytics command](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-1.png)
+
+2. In the **Submit Spark Application** dialog window, select **1. Spark on Synapse Analytics**.
+
+3. In the **Edit configuration** window, provide the following values and then select **OK**:
+
+    |Property |Value |
+    |----|----|
+    |Spark poolss (Linux only)|Select the Synapse Analytics Spark pools on which you want to run your application.|
+    |Select an Artifact to submit|Leave default setting.|
+    |Main class name|The default value is the main class from the selected file. You can change the class by selecting the ellipsis(**...**)  and choosing another class.|
+    |Job configurations|You can change the default keys and/or values. For more information, see [Apache Livy REST API](https://livy.incubator.apache.org./docs/latest/rest-api.html).|
+    |Command line arguments|You can enter arguments separated by space for the main class if needed.|
+    |Referenced Jars and Referenced Files|You can enter the paths for the referenced Jars and files if any. You can also browse files in the Azure virtual file system, which currently only supports ADLS Gen 2 pool. For more information: [Apache Spark Configuration](https://spark.apache.org/docs/latest/configuration.html#runtime-environment).  See also, [How to upload resources to pool](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer).|
+    |Job Upload Storage|Expand to reveal additional options.|
+    |Storage Type|Select **Use Azure Blob to upload** from the drop-down list.|
+    |Storage Account|Enter your storage account.|
+    |Storage Key|Enter your storage key.|
+    |Storage Container|Select your storage container from the drop-down list once **Storage Account** and **Storage Key** has been entered.|
+
+    ![The Spark Submission dialog box](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-02.png)
+
+4. Select **SparkJobRun** to submit your project to the selected pool. The **Remote Spark Job in pool** tab displays the job execution progress at the bottom. You can stop the application by clicking the red button. To learn how to access the job output, see the "Access and manage Synapse Analytics Spark pools by using Azure Toolkit for IntelliJ" section later in this article.  
+
+    ![Apache Spark Submission window](./media/apache-spark-intellij-tool-plugin/hdi-spark-app-result.png)
+
+## Debug Apache Spark applications locally or remotely on an Synapse Analytics Spark pool
+
+We also recommend another way of submitting the Spark application to the pool. You can do so by setting the parameters in the **Run/Debug configurations** IDE.
+
+## Access and manage Synapse Analytics Spark pools by using Azure Toolkit for IntelliJ
+
+You can perform various operations by using Azure Toolkit for IntelliJ.  Most of the operations are initiated from **Azure Explorer**.  From the menu bar, navigate to **View** > **Tool Windows** > **Azure Explorer**.
+
+### Access the job view
+
+1. From Azure Explorer, navigate to **Synapse Analytics** > \<Your pool> > **Jobs**.
+
+    ![IntelliJ Azure Explorer Job view node](./media/apache-spark-intellij-tool-plugin/intellij-job-view-node.png)
+
+2. In the right pane, the **Spark Job View** tab displays all the applications that were run on the pool. Select the name of the application for which you want to see more details.
+
+    ![Spark Job View Application details](./media/apache-spark-intellij-tool-plugin/intellij-view-job-logs.png)
+
+3. To display basic running job information, hover over the job graph. To view the stages graph and information that every job generates, select a node on the job graph.
+
+    ![Spark Job View Job stage details](./media/apache-spark-intellij-tool-plugin/Job-graph-stage-info.png)
+
+4. To view frequently used logs, such as *Driver Stderr*, *Driver Stdout*, and *Directory Info*, select the **Log** tab.
+
+    ![Spark Job View Log details](./media/apache-spark-intellij-tool-plugin/intellij-job-log-info.png)
+
+5. You can also view the Spark history UI and the YARN UI (at the application level) by selecting a link at the top of the window.
+
+### Access the Spark history server
+
+1. From Azure Explorer, expand **Synapse Analytics**, right-click your Spark pool name, and then select **Open Spark History UI**.  
+2. When you're prompted, enter the pool's admin credentials, which you specified when you set up the pool.
+
+3. On the Spark history server dashboard, you can use the application name to look for the application that you just finished running. In the preceding code, you set the application name by using `val conf = new SparkConf().setAppName("myApp")`. Therefore, your Spark application name is **myApp**.
+
+### Start the Ambari portal
+
+1. From Azure Explorer, expand **Synapse Analytics**, right-click your Spark pool name, and then select **Open pool Management Portal(Ambari)**.  
+
+2. When you're prompted, enter the admin credentials for the pool. You specified these credentials during the pool setup process.
+
+### Manage Azure subscriptions
+
+By default, Azure Toolkit for IntelliJ lists the Spark pools from all your Azure subscriptions. If necessary, you can specify the subscriptions that you want to access.  
+
+1. From Azure Explorer, right-click the **Azure** root node, and then select **Select Subscriptions**.  
+
+2. From the **Select Subscriptions** window, clear the check boxes next to the subscriptions that you don't want to access, and then select **Close**.
+
+## Spark Console
+
+You can run Spark Local Console(Scala) or run Spark Livy Interactive Session Console(Scala).
+
+### Spark Local Console(Scala)
+
+Ensure you have satisfied the WINUTILS.EXE prerequisite.
+
+1. From the menu bar, navigate to **Run** > **Edit Configurations...**.
+
+2. From the **Run/Debug Configurations** window, in the left pane, navigate to **Apache Spark on Synapse Analytics** > **[Spark on Synapse Analytics] myApp**.
+
+3. From the main window, select the **Locally Run** tab.
+
+4. Provide the following values, and then select **OK**:
+
+    |Property |Value |
+    |----|----|
+    |Job main class|The default value is the main class from the selected file. You can change the class by selecting the ellipsis(**...**)  and choosing another class.|
+    |Environment variables|Ensure the value for HADOOP_HOME is correct.|
+    |WINUTILS.exe location|Ensure the path is correct.|
+
+    ![Local Console Set Configuration](./media/apache-spark-intellij-tool-plugin/console-set-configuration.png)
+
+5. From Project, navigate to **myApp** > **src** > **main** > **scala** > **myApp**.  
+
+6. From the menu bar, navigate to **Tools** > **Spark Console** > **Run Spark Local Console(Scala)**.
+
+7. Then two dialogs may be displayed to ask you if you want to auto fix dependencies. If so, select **Auto Fix**.
+
+    ![IntelliJ IDEA Spark Auto Fix dialog1](./media/apache-spark-intellij-tool-plugin/intellij-console-autofix1.png)
+
+    ![IntelliJ IDEA Spark Auto Fix dialog2](./media/apache-spark-intellij-tool-plugin/intellij-console-autofix2.png)
+
+8. The console should look similar to the picture below. In the console window type `sc.appName`, and then press ctrl+Enter.  The result will be shown. You can terminate the local console by clicking red button.
+
+    ![IntelliJ IDEA local console result](./media/apache-spark-intellij-tool-plugin/local-console-result.png)
+
+### Spark Livy Interactive Session Console(Scala)
+
+It is only supported on IntelliJ 2018.2 and 2018.3.
+
+1. From the menu bar, navigate to **Run** > **Edit Configurations...**.
+
+2. From the **Run/Debug Configurations** window, in the left pane, navigate to **Apache Spark on Synapse Analytics** > **[Spark on Synapse Analytics] myApp**.
+
+3. From the main window, select the **Remotely Run in pool** tab.
+
+4. Provide the following values, and then select **OK**:
+
+    |Property |Value |
+    |----|----|
+    |Spark pools (Linux only)|Select the Synapse Analytics Spark pool on which you want to run your application.|
+    |Main class name|The default value is the main class from the selected file. You can change the class by selecting the ellipsis(**...**)  and choosing another class.|
+
+    ![Interactive Console Set Configuration](./media/apache-spark-intellij-tool-plugin/interactive-console-configuration.png)
+
+5. From Project, navigate to **myApp** > **src** > **main** > **scala** > **myApp**.  
+
+6. From the menu bar, navigate to **Tools** > **Spark Console** > **Run Spark Livy Interactive Session Console(Scala)**.
+
+7. The console should look similar to the picture below. In the console window type `sc.appName`, and then press ctrl+Enter.  The result will be shown. You can terminate the local console by clicking red button.
+
+    ![IntelliJ IDEA Interactive Console Result](./media/apache-spark-intellij-tool-plugin/interactive-console-result.png)
+
+### Send Selection to Spark Console
+
+It is convenient for you to foresee the script result by sending some code to the local console or Livy Interactive Session Console(Scala). You can highlight some code in the Scala file, then right-click **Send Selection To Spark Console**. The selected code will be sent to the console and be performed. The result will be displayed after the code in the console. The console will check the errors if existing.  
+
+   ![Send Selection to Spark Console](./media/apache-spark-intellij-tool-plugin/send-selection-to-console.png)
+
+## Reader-only role
+
+When users submit job to a pool with reader-only role permission, Ambari credentials is required.
+
+### Link pool from context menu
+
+1. Sign in with reader-only role account.
+
+2. From **Azure Explorer**, expand **Synapse Analytics** to view Synapse Analytics Spark pools that are in your subscription. The pools marked **"Role:Reader"** only have reader-only role permission.
+
+    ![IntelliJ Azure Explorer Role:Reader](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer15.png)
+
+3. Right-click the pool with reader-only role permission. Select **Link this pool** from context menu to link pool. Enter the Ambari username and Password.
+
+    ![IntelliJ Azure Explorer link this pool](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer11.png)
+
+4. If the pool is linked successfully, Synapse Analytics will be refreshed.
+   The stage of the pool will become linked.
+  
+    ![IntelliJ Azure Explorer linked dialog](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer8.png)
+
+### Link pool by expanding Jobs node
+
+1. Click **Jobs** node, **pool Job Access Denied** window pops up.
+
+2. Click **Link this pool** to link pool.
+
+    ![pool job access denied dialog](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer9.png)
+
+### Link pool from Run/Debug Configurations window
+
+1. Create an Synapse Analytics Configuration. Then select **Remotely Run in pool**.
+
+2. Select a pool, which has reader-only role permission for **Spark pools(Linux only)**. Warning message shows out. You can Click **Link this pool** to link pool.
+
+   ![IntelliJ IDEA run/debug configuration create](./media/apache-spark-intellij-tool-plugin/create-configuration.png)
+
+### View Storage Accounts
+
+* For pools with reader-only role permission, click **Storage Accounts** node, **Storage Access Denied** window pops up. You can click **Open Azure Storage Explorer** to open Storage Explorer.
+
+   ![IntelliJ IDEA Storage Access Denied](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer14.png)
+
+   ![IntelliJ IDEA Storage Access Denied button](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer10.png)
+
+* For linked pools, click **Storage Accounts** node, **Storage Access Denied** window pops up. You can click **Open Azure Storage** to open Storage Explorer.
+
+   ![IntelliJ IDEA Storage Access Denied2](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer13.png)
+
+   ![IntelliJ IDEA Storage Access Denied2 button](./media/apache-spark-intellij-tool-plugin/intellij-view-explorer12.png)
+
+## Convert existing IntelliJ IDEA applications to use Azure Toolkit for IntelliJ
+
+You can convert the existing Spark Scala applications that you created in IntelliJ IDEA to be compatible with Azure Toolkit for IntelliJ. You can then use the plug-in to submit the applications to a Synapse Analytics Spark pool.
+
+1. For an existing Spark Scala application that was created through IntelliJ IDEA, open the associated .iml file.
+
+2. At the root level is a **module** element like the following:
+
+        <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+
+   Edit the element to add `UniqueKey="HDInsightTool"` so that the **module** element looks like the following:
+
+        <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4" UniqueKey="HDInsightTool">
+
+3. Save the changes. Your application should now be compatible with Azure Toolkit for IntelliJ. You can test it by right-clicking the project name in Project. The pop-up menu now has the option **Submit Spark Application to Synapse Analytics**.
+
+## Clean up resources
+
+If you're not going to continue to use this application, delete the pool that you created with the following steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+1. In the **Search** box at the top, type **Synapse Analytics**.
+
+1. Select **Synapse Analytics Spark pools** under **Services**.
+
+1. In the list of Synapse Analytics Spark pools that appears, select the **...** next to the pool that you created for this tutorial.
+
+1. Select **Delete**. Select **Yes**.
+
+![Azure portal delete Synapse Analytics Spark pool](./media/apache-spark-intellij-tool-plugin/hdinsight-azure-portal-delete-cluster.png "Delete Synapse Analytics Spark pool")
+
+## Next steps
+
+In this tutorial, you learned how to use the Azure Toolkit for IntelliJ plug-in to develop Apache Spark applications written in [Scala](https://www.scala-lang.org/), and then submitted them to a Synapse Analytics Spark pool directly from the IntelliJ integrated development environment (IDE).
