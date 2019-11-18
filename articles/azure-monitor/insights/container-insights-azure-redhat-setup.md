@@ -29,9 +29,9 @@ Azure Monitor for containers supports monitoring Azure RedHat OpenShift as descr
 
 ## Prerequisites
 
-- To enable and access the features in Azure Monitor for containers, at a minimum you need to be a member of the Azure *Contributor* role in the Azure subscription, and a member of the *Log Analytics Contributor* role of the Log Analytics workspace configured with Azure Monitor for containers.
+- To enable and access the features in Azure Monitor for containers, at a minimum you need to be a member of the Azure *Contributor* role in the Azure subscription, and a member of the [*Log Analytics Contributor*](../platform/manage-access.md#manage-access-using-azure-permissions) role of the Log Analytics workspace configured with Azure Monitor for containers.
 
-- To view the monitoring data, you are a member of the reader role permission with the Log Analytics workspace configured with Azure Monitor for containers.
+- To view the monitoring data, you are a member of the [*Log Analytics reader*](../platform/manage-access.md#manage-access-using-azure-permissions) role permission with the Log Analytics workspace configured with Azure Monitor for containers.
 
 - Using the latest CLI (version 2.0.65 or above).
 
