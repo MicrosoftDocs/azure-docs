@@ -92,7 +92,7 @@ You can quickly deploy a module from the Azure Marketplace onto your device in y
 1. In the Azure portal, navigate to your IoT Hub.
 1. Select the IoT Edge device that is to receive the deployment.
 1. Select **Set Modules**.
-1. In the **IoT Edge Modules** section, click the **Add** dropdown and select **Marketplace Module**. Choose a module from the **IoT Edge Module Marketplace" page.
+1. In the **IoT Edge Modules** section, click the **Add** dropdown and select **Marketplace Module**. Choose a module from the **IoT Edge Module Marketplace** page.
 
 ![Add module in IoT Hub](./media/how-to-deploy-modules-portal/iothub-add-module.png)
 
