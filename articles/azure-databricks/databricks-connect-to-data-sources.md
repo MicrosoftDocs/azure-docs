@@ -38,7 +38,7 @@ The following list provides the data sources in Azure that you can use with Azur
 
     This link provides instructions on how to use the [Azure Cosmos DB Spark connector](https://github.com/Azure/azure-cosmosdb-spark) from Azure Databricks to access data in Azure Cosmos DB.
 
-- [Azure Event Hubs](/azure/databricks/data/data-sources/azure/eventhubs-connector)
+- [Azure Event Hubs](/azure/event-hubs/event-hubs-spark-connector)
 
     This link provides instructions on how to use the [Azure Event Hubs Spark connector](https://github.com/Azure/azure-event-hubs-spark) from Azure Databricks to access data in Azure Event Hubs.
 
