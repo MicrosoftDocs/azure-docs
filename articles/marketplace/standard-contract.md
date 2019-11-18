@@ -31,14 +31,14 @@ There are two kinds of amendments available for commercial marketplace publisher
 
 ![Universal Amendments](media/marketplace-publishers-guide/universal-amendaments.png)
 
-* Custom Amendments: These are special amendments to the Standard Contract that are targeted to specific customers only via Azure tenant IDs. Publishers can choose the tenant they want to target. Only customers from the tenant will be presented with the custom amendment terms in the offer’s purchase flow.  Customers must accept the terms of the Standard Contract and the amendment(s) before they can use your offer.
+* Custom Amendments: These amendments are special amendments to the Standard Contract that are targeted to specific customers only via Azure tenant IDs. Publishers can choose the tenant they want to target. Only customers from the tenant will be presented with the custom amendment terms in the offer’s purchase flow.  Customers must accept the terms of the Standard Contract and the amendment(s) before they can use your offer.
 
 ![Custom Amendments](media/marketplace-publishers-guide/custom-amendaments.png)
 
 >[!Note]
 >These two types of amendments stack on top of each other. Customers targeted with custom amendments will also get the universal amendment to the Standard Contract during purchase.
 
-You can leverage the Standard Contract for Microsoft’s commercial marketplace for the following offer types:  Azure Applications (Solution Templates and Managed Applications), Virtual Machines, Containers, Container Applications, IoT Edge Modules and SaaS.
+You can leverage the Standard Contract for Microsoft’s commercial marketplace for the following offer types:  Azure Applications (Solution Templates and Managed Applications), Virtual Machines, Containers, Container Applications, IoT Edge Modules, and SaaS.
 
 ### Customer Experience
 
@@ -46,7 +46,7 @@ During the discovery experience in Azure marketplace or AppSource, customers wil
 
 ![The Azure portal customer discovery experience.](media/marketplace-publishers-guide/azure-discovery-process.png)
 
-During the purchase process in the Azure portal, customers will be able to see the terms associated with the offer as the Standard Contract for Microsoft’s commercial marketplace and any universal and/or tenant specific amendments.
+During the purchase process in the Azure portal, customers will be able to see the terms associated with the offer as the Standard Contract for Microsoft’s commercial marketplace and any universal and/or tenant-specific amendments.
 
 ![The Azure portal customer purchase experience.](media/marketplace-publishers-guide/azure-purchase-process.png)
 
