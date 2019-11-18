@@ -118,7 +118,7 @@ The Log Analytics workspace has to be created before you enable monitoring using
 
 ## Enable for an existing cluster
 
-Perform the following steps to enable monitoring of an Azure RedHat OpenShift cluster deployed in Azure. You can accomplish this from the Azure portal or using a provided ARM template.
+Perform the following steps to enable monitoring of an Azure RedHat OpenShift cluster deployed in Azure. You can accomplish this from the Azure portal or using the provided templates.
 
 ### From the Azure portal
  
