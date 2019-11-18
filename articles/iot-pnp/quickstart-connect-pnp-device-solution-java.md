@@ -12,7 +12,7 @@ ms.custom: mvc
 # As a solution developer, I want to connect to and interact with an IoT Plug and Play device that's connected to my solution. For example, to collect telemetry from the device or to control the behavior of the device.
 
 ######################### INCOMPLETE ###########################
-# 105-111    EnvironmentalSensor doesn't report any state information in sample. What should we check for?
+# 102, 111-117    Need to confirm what the state info on EnvironmentalSensor looks like
 ---
 
 # Quickstart: Interact with an IoT Plug and Play Preview device that's connected to your solution (Java)
@@ -99,7 +99,7 @@ In this quickstart, you use a sample IoT solution in Java to interact with the s
 1. When you connected the _device_ in its terminal, you saw the following message indicating its online status:
 
     ```cmd/sh
-    Device client status changed to: CONNECTED, reason: CONNECTION_OK, cause: null
+    State of environmental sensor was set to true
     ```
 
 1. Go to the _service_ terminal and use the following command to run the sample for reading device information:
