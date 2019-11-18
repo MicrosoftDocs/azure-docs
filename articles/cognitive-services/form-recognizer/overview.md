@@ -38,7 +38,7 @@ By default, Form Recognizer uses unsupervised learning to understand the layout 
 
 When you train with labeled data, the model does supervised learning to extract values of interest, using the labeled forms you provide. This results in better-performing models and can produce models that work with complex forms or forms containing values without keys.
 
-The Form Recognizer labelled data feature uses the document [Layout API](#layout-api) to learn the expected sizes and positions of printed and handwritten text elements. Then it uses specially-formatted JSON documents that reflect the labels you have manually applied to different fields. We recommend that you use 5 manually labeled forms of the same type to get started when training a new model and add more labled data as needed to improve the model accuracy.
+The Form Recognizer labelled data feature uses the document [Layout API](#layout-api) to learn the expected sizes and positions of printed and handwritten text elements. Then it uses specially-formatted JSON documents that reflect the labels you have manually applied to different fields. We recommend that you use five manually labeled forms of the same type to get started when training a new model and add more labled data as needed to improve the model accuracy.
 
 ## Prebuilt receipt model
 
