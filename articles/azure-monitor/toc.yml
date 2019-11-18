@@ -806,10 +806,10 @@
           href: insights/container-insights-hybrid-setup.md
         - name: Region mappings
           href: insights/container-insights-region-mapping.md
-      - name: Analyze 
+      - name: Monitor performance
         href: insights/container-insights-analyze.md
-      - name: Disable monitoring
-        href: insights/container-insights-optout.md
+      - name: Monitor health
+        href: insights/container-insights-health.md
       - name: View live data
         items:
         - name: Live Data (preview) overview
@@ -832,6 +832,10 @@
         href: insights/container-insights-agent-config.md
       - name: Update to enable metrics
         href: insights/container-insights-update-metrics.md
+      - name: Health monitoring configuration
+        href: insights/container-insights-health-monitors-config.md
+      - name: Disable monitoring
+        href: insights/container-insights-optout.md
       - name: Troubleshooting
         href: insights/container-insights-troubleshoot.md
     - name: Docker and Windows Container monitoring
@@ -1167,7 +1171,7 @@
         href: platform/autoscale-overview.md
       - name: Walkthrough
         href: platform/autoscale-get-started.md
-      - name: Settings
+      - name: Configuration settings
         href: platform/autoscale-understanding-settings.md
       - name: Best practices
         href: platform/autoscale-best-practices.md
@@ -1183,6 +1187,10 @@
         href: platform/autoscale-virtual-machine-scale-sets.md
       - name: Use webhooks and email notifications
         href: platform/autoscale-webhook-email.md
+      - name: Troubleshooting
+        href: platform/autoscale-troubleshoot.md
+      - name: Resource Log schemas
+        href: platform/autoscale-resource-log-schema.md    
     - name: PowerShell
       items:  
       - name: Managing with PowerShell

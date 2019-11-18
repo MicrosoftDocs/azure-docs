@@ -141,7 +141,17 @@ Finally, query the **gateway** application for its public IP so you can verify t
 az spring-cloud app show --name gateway | grep url
 ```
 
-Navigate to the URL provided by the previous command to see the PiggyMetrics application running.
+Navigate to the URL provided by the previous command to run the PiggyMetrics application.
+    ![Screenshot of PiggyMetrics running](media/spring-cloud-quickstart-launch-app-cli/launch-app.png)
+
+You can also navigate the Azure portal to find the URL. 
+1. Navigate to the service
+1. Select **Apps**
+1. Select **gateway**
+
+    ![Screenshot of PiggyMetrics running](media/spring-cloud-quickstart-launch-app-cli/navigate-app1.png)
+1. Find the URL on the **gateway Overview** page
+    ![Screenshot of PiggyMetrics running](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
 
 ## Next Steps
 

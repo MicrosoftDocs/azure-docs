@@ -127,7 +127,7 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
                 var settings = config.Build();
                 config.AddAzureAppConfiguration(options => {
                     options.Connect(settings["ConnectionStrings:AppConfig"])
-                            .UseFeatureFlags();
+                        .UseFeatureFlags();
                 });
             })
             .UseStartup<Startup>();
@@ -143,10 +143,9 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
         {
             var settings = config.Build();
             config.AddAzureAppConfiguration(options => {
-                    options.Connect(settings["ConnectionStrings:AppConfig"])
-                            .UseFeatureFlags();
+                options.Connect(settings["ConnectionStrings:AppConfig"])
+                    .UseFeatureFlags();
             });
-
         })
         .UseStartup<Startup>());
     ```
