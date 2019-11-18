@@ -1,7 +1,7 @@
 ---
 title: Visualize Remote Monitoring data using Power BI - Azure | Microsoft Docs 
 description: This tutorial uses Power BI Desktop and Cosmos DB to integerate data from a Remote Monitoring solution into a customized visualization. This way users can build their own custom dashboards and share them out to users not on the solution. 
-author: dobett
+author: dominicbetts
 manager: hegate
 ms.author: dobett
 ms.service: iot-accelerators

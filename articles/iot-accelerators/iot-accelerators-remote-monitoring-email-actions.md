@@ -1,7 +1,7 @@
 ---
 title: Email action within Remote Monitoring - Azure | Microsoft Docs
 description: This how-to guide shows you how to add an email action to a new or existing rule.
-author: dobett
+author: dominicbetts
 manager: hegate
 ms.author: dobett
 ms.service: iot-accelerators
