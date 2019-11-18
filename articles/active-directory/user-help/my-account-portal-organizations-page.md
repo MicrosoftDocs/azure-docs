@@ -1,5 +1,5 @@
 ---
-title: Manage your organizations from the My Account portal - Azure Active Directory | Microsoft Docs
+title: Manage your organizations on the My Account portal - Azure AD
 description: How to view and leave your organizations from the Organizations page of the My Account portal.
 services: active-directory
 author: eross-msft

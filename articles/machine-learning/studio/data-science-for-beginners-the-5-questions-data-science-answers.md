@@ -1,6 +1,6 @@
 ---
 title: Data Science for Beginners
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) - Azure
 description: Data Science for Beginners is teaches basic concepts in 5 short videos, starting with The 5 Questions Data Science Answers. From Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning

@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database Hyperscale Overview | Microsoft Docs
+title: Hyperscale Overview
 description: This article describes the Hyperscale service tier in the vCore-based purchasing model in Azure SQL Database and explains how it is different from the General Purpose and Business Critical service tiers.
 services: sql-database
 ms.service: sql-database
@@ -7,8 +7,8 @@ ms.subservice: service
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: dimitri-furman
+ms.author: dfurman
 ms.reviewer: 
 ms.date: 10/01/2019
 ---
@@ -77,7 +77,7 @@ Unlike traditional database engines that have centralized all of the data manage
 
 The following diagram illustrates the different types of nodes in a Hyperscale database:
 
-![architecture](./media/sql-database-hyperscale/hyperscale-architecture.png)
+![architecture](./media/sql-database-hyperscale/hyperscale-architecture2.png)
 
 A Hyperscale database contains the following different types of components:
 
@@ -109,7 +109,7 @@ With the ability to rapidly spin up/down additional read-only compute nodes, the
 
 A HyperScale database can be created using the [Azure portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) or [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). HyperScale databases are available only using the [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
 
-The following T-SQL command creates a Hyperscale database. You must specify both the edition and service objective in the `CREATE DATABASE` statement. Refer to the [resource limits](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale-service-tier-for-provisioned-compute) for a list of valid service objectives.
+The following T-SQL command creates a Hyperscale database. You must specify both the edition and service objective in the `CREATE DATABASE` statement. Refer to the [resource limits](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale---provisioned-compute---gen5) for a list of valid service objectives.
 
 ```sql
 -- Create a HyperScale Database

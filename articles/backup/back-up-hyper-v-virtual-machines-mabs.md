@@ -1,13 +1,8 @@
 ---
-title: Back up Hyper-V virtual machines with Azure Backup Server
-description: This article contains the procedures for backing up and recovery of virtual machines using Microsoft Azure Backup Server.
-
-author: dcurwin
-manager: carmonm
-ms.service: backup
+title: Back up Hyper-V virtual machines with MABS
+description: This article contains the procedures for backing up and recovery of virtual machines using Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.author: dacurwin
 ---
 
 # Back up Hyper-V virtual machines with Azure Backup Server
@@ -15,26 +10,25 @@ ms.author: dacurwin
 This article explains how to back up Hyper-V virtual machines using Microsoft Azure Backup Server (MABS).
 
 ## Supported scenarios
+
 MABS can back up virtual machines running on Hyper-V host servers in the following scenarios:
 
--   **Virtual machines with local or direct storage** - Back up virtual machines hosted on Hyper-V host standalone servers that have local or directly attached storage. For example: a hard drive, a storage area network (SAN) device, or a network attached storage (NAS) device. The MABS protection agent must be installed on all hosts.
+- **Virtual machines with local or direct storage** - Back up virtual machines hosted on Hyper-V host standalone servers that have local or directly attached storage. For example: a hard drive, a storage area network (SAN) device, or a network attached storage (NAS) device. The MABS protection agent must be installed on all hosts.
 
--   **Virtual machines in a cluster with CSV storage** - Back up virtual machines hosted on a Hyper-V cluster with Cluster Shared Volume (CSV) storage. The MABS protection agent is installed on each cluster node.
-
-
+- **Virtual machines in a cluster with CSV storage** - Back up virtual machines hosted on a Hyper-V cluster with Cluster Shared Volume (CSV) storage. The MABS protection agent is installed on each cluster node.
 
 ## Host versus guest backup
+
 MABS can do a host or guest-level backup of Hyper-V VMs. At the host level, the MABS protection agent is installed on the Hyper-V host server or cluster and protects the entire VMs and data files running on that host.   At the guest level, the agent is installed on each virtual machine and protects the workload present on that machine.
 
 Both methods have pros and cons:
 
--   Host-level backups are flexible because they work regardless of the type of OS running on the guest machines and don't require the installation of the MABS protection agent on each VM. If you deploy host level backup, you can recover an entire virtual machine, or files and folders (item-level recovery).
+- Host-level backups are flexible because they work regardless of the type of OS running on the guest machines and don't require the installation of the MABS protection agent on each VM. If you deploy host level backup, you can recover an entire virtual machine, or files and folders (item-level recovery).
 
--   Guest-level backup is useful if you want to protect specific workloads running on a virtual machine. At host-level you can recover an entire VM or specific files, but it won't provide recovery in the context of a specific application. For example, to recover specific SharePoint items from a backed-up VM, you should do guest-level backup of that VM. Use guest-level backup if you want to protect data stored on passthrough disks. Passthrough allows the virtual machine to directly access the storage device and doesn't store virtual volume data in a VHD file.
-
-
+- Guest-level backup is useful if you want to protect specific workloads running on a virtual machine. At host-level you can recover an entire VM or specific files, but it won't provide recovery in the context of a specific application. For example, to recover specific SharePoint items from a backed-up VM, you should do guest-level backup of that VM. Use guest-level backup if you want to protect data stored on passthrough disks. Passthrough allows the virtual machine to directly access the storage device and doesn't store virtual volume data in a VHD file.
 
 ## How the backup process works
+
 MABS performs backup with VSS as follows. The steps in this description are numbered to help with clarity.
 
 1. The MABS block-based synchronization engine makes an initial copy of the protected virtual machine and ensures that the copy of the virtual machine is complete and consistent.
@@ -57,8 +51,8 @@ MABS performs backup with VSS as follows. The steps in this description are numb
 >
 >Starting in Windows Server 2016, Hyper-V virtual hard disks have built-in change tracking known as resilient change tracking (RCT). MABS uses RCT (the native change tracking in Hyper-V), which decreases the need for time-consuming consistency checks in scenarios such as VM crashes. RCT provides better resiliency than the change tracking provided by VSS snapshot-based backups. MABS V3 optimizes network and storage consumption further by transferring only the changed data during any consistency checks.
 
-
 ## Backup prerequisites
+
 These are the prerequisites for backing up Hyper-V virtual machines with MABS:
 
 |Prerequisite|Details|
@@ -83,16 +77,13 @@ These are the prerequisites for backing up Hyper-V virtual machines with MABS:
 
 4. On the **Select Group Members** page, select the VMs you want to protect from the Hyper-V host servers on which they're located. We recommend you put all VMs that will have the same protection policy into one protection group. To make efficient use of space, enable colocation. Colocation allows you to locate data from different protection groups on the same disk or tape storage, so that multiple data sources have a single replica and recovery point volume.
 
-5. On the **Select Data Protection Method** page, specify a protection group name. Select **I want short-term protection using Disk** and select **I want online protection** if you want to back up data to Azure using the Azure Backup service. 
-
+5. On the **Select Data Protection Method** page, specify a protection group name. Select **I want short-term protection using Disk** and select **I want online protection** if you want to back up data to Azure using the Azure Backup service.
 
 6. In **Specify Short-Term Goals** > **Retention range**, specify how long you want to retain disk data. In **Synchronization frequency**, specify how often incremental backups of the data should run. Alternatively, instead of selecting an interval for incremental backups you can enable **Just before a recovery point**. With this setting enabled, MABS will run an express full backup just before each scheduled recovery point.
 
     > [!NOTE]
     >
     >If you're protecting application workloads, recovery points are created in accordance with Synchronization frequency, provided the application supports incremental backups. If it doesn't, then MABS runs an express full backup, instead of an incremental backup, and creates recovery points in accordance with the express backup schedule.
-
-    
 
 7. In the **Review disk allocation** page, review the storage pool disk space allocated for the protection group.
 
@@ -105,9 +96,10 @@ These are the prerequisites for backing up Hyper-V virtual machines with MABS:
     After you create the protection group, initial replication of the data occurs in accordance with the method you selected. After initial replication, each backup takes place in line with the protection group settings. If you need to recover backed up data, note the following:
 
 ## Back up virtual machines configured for live migration
+
 When virtual machines are involved in live migration, MABS continues to protect the virtual machines as long as the MABS protection agent is installed on the Hyper-V host. The way in which MABS protects the virtual machines depends on the type of live migration involved.
 
-**Live migration within a cluster** - When a virtual machine is migrated within a cluster MABS detects the migration, and backs up the virtual machine from the new cluster node without any requirement for user intervention. Because the storage location hasn't changed, MABS continues with express full backups. 
+**Live migration within a cluster** - When a virtual machine is migrated within a cluster MABS detects the migration, and backs up the virtual machine from the new cluster node without any requirement for user intervention. Because the storage location hasn't changed, MABS continues with express full backups.
 
 **Live migration outside the cluster** - When a virtual machine is migrated between stand-alone servers, different clusters, or between a stand-alone server and a cluster, MABS detects the migration, and can back up the virtual machine without user intervention.
 
@@ -127,7 +119,6 @@ The following are requirements for maintaining protection during live migration:
 
 Note the following for backup during live migration:
 
-
 - If a live migration transfers storage, MABS performs a full consistency check of the virtual machine, and then continues with express full backups. When live migration of storage occurs, Hyper-V reorganizes the virtual hard disk (VHD) or VHDX, which causes a one-time spike in the size of the MABS backup data.
 
 - On the virtual machine host, turn on auto-mount to enable virtual protection, and disable TCP Chimney Offload.
@@ -136,7 +127,7 @@ Note the following for backup during live migration:
 
     1. Navigate to **HKLM\Software\Microsoft\Microsoft Data Protection Manager\Configuration**.
     2. Create a 32-bit DWORD value: DpmVmmHelperServicePort, and write the updated port number as part of the registry key.
-    3.  Open ```<Install directory>\Azure Backup Server\DPM\DPM\VmmHelperService\VmmHelperServiceHost.exe.config```, and change the port number from 6070 to the new port. For example: ```<add baseAddress="net.tcp://localhost:6080/VmmHelperService/" />```
+    3. Open ```<Install directory>\Azure Backup Server\DPM\DPM\VmmHelperService\VmmHelperServiceHost.exe.config```, and change the port number from 6070 to the new port. For example: ```<add baseAddress="net.tcp://localhost:6080/VmmHelperService/" />```
     4. Restart the DPM-VMM Helper service, and restart the DPM service.
 
 ### Set up protection for live migration
@@ -169,7 +160,6 @@ To set up protection for live migration:
 
    4. Open the .xml file that this query returns and validate that the *VMMIdentifier* field has a value.
 
-
 ### Run manual migration
 
 After you complete the steps in the previous sections, and the MABS Summary Manager job completes, migration is enabled. By default, this job starts at midnight and runs every morning. If you want to run a manual migration, to check everything is working as expected, do the following:
@@ -181,7 +171,6 @@ After you complete the steps in the previous sections, and the MABS Summary Mana
 3. In the SQL Server Management Studio, expand **SQL Server Agent**, and then expand **Jobs**. Right-click **ScheduleID** that you noted, and select **Start Job at Step**.
 
 Backup performance is affected when the job runs. The size and scale of your deployment determines how much time the job takes to finish.
-
 
 ## Back up replica virtual machines
 
@@ -219,12 +208,12 @@ When you can recover a backed up virtual machine, you use the Recovery wizard to
 
 4. On the **Select Recovery Type** screen, select where you want to restore the data and then click **Next**.
 
-    -   **Recover to original instance**: When you recover to the original instance, the original VHD is deleted. MABS recovers the VHD and other configuration files to the original location using Hyper-V VSS writer. At the end of the recovery process, virtual machines are still highly available.
+    - **Recover to original instance**: When you recover to the original instance, the original VHD is deleted. MABS recovers the VHD and other configuration files to the original location using Hyper-V VSS writer. At the end of the recovery process, virtual machines are still highly available.
         The resource group must be present for recovery. If it isn't available, recover to an alternate location and then make the virtual machine highly available.
 
-    -   **Recover as virtual machine to any host**: MABS supports alternate location recovery (ALR), which provides a seamless recovery of a protected Hyper-V virtual machine to a different Hyper-V host, independent of processor architecture. Hyper-V virtual machines that are recovered to a cluster node will not be highly available. If you choose this option, the Recovery Wizard presents you with an additional screen for identifying the destination and destination path.
+    - **Recover as virtual machine to any host**: MABS supports alternate location recovery (ALR), which provides a seamless recovery of a protected Hyper-V virtual machine to a different Hyper-V host, independent of processor architecture. Hyper-V virtual machines that are recovered to a cluster node will not be highly available. If you choose this option, the Recovery Wizard presents you with an additional screen for identifying the destination and destination path.
 
-    -   **Copy to a network folder**: MABS supports item-level recovery (ILR), which allows you to do item-level recovery of files, folders, volumes, and virtual hard disks (VHDs) from a host-level backup of Hyper-V virtual machines to a network share or a volume on a MABS protected server. The MABS protection agent doesn't have to be installed inside the guest to perform item-level recovery. If you choose this option, the Recovery Wizard presents you with an additional screen for identifying the destination and destination path.
+    - **Copy to a network folder**: MABS supports item-level recovery (ILR), which allows you to do item-level recovery of files, folders, volumes, and virtual hard disks (VHDs) from a host-level backup of Hyper-V virtual machines to a network share or a volume on a MABS protected server. The MABS protection agent doesn't have to be installed inside the guest to perform item-level recovery. If you choose this option, the Recovery Wizard presents you with an additional screen for identifying the destination and destination path.
 
 5. In **Specify Recovery Options** configure the recovery options and click **Next**:
 
@@ -236,6 +225,6 @@ When you can recover a backed up virtual machine, you use the Recovery wizard to
 
 7. The **Recovery Status** screen provides information about the recovery job.
 
-
 ## Next steps
+
 [Recover data from Azure Backup Server](https://docs.microsoft.com/azure/backup/backup-azure-alternate-dpm-server)

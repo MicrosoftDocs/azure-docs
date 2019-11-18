@@ -1,5 +1,5 @@
 ---
-title: "Designer example #3: Classification to predict credit risk"
+title: 'Designer: Classify, predict income'
 titleSuffix: Azure Machine Learning
 description: Learn how to build a machine learning classifier without writing a single line of code using the designer (preview).
 services: machine-learning

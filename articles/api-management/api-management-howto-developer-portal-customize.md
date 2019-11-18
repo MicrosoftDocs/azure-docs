@@ -34,7 +34,7 @@ You can find more details on the developer portal in the [Azure API Management d
 
 > [!WARNING]
 > The developer portal is currently being rolled out to API Management services.
-> If your service is newly created or is a Developer tier service, you should already have the latest version. Otherwise, you might experience problems (for example, with the publishing functionality). The feature rollout will complete on Monday November 11th, 2019. 
+> If your service is newly created or is a Developer tier service, you should already have the latest version. Otherwise, you might experience problems (for example, with the publishing functionality). The feature rollout is expected to complete by Friday November 22nd, 2019. 
 
 ## Prerequisites
 
@@ -121,7 +121,7 @@ To make your portal and its latest changes available to visitors, you need to pu
 
 ## Visit the published portal
 
-After you publish the portal, you can access it at the same URL as the administrative panel, for example `https://contoso-api.portal.azure-api.net`. Open it in a new browser tab to view it as an external visitor.
+After you publish the portal, you can access it at the same URL as the administrative panel, for example `https://contoso-api.developer.azure-api.net`. View it in a separate browser session (incognito / private browsing mode) as an external visitor.
 
 ## Next steps
 

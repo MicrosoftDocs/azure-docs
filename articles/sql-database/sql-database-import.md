@@ -1,5 +1,5 @@
 ---
-title: Import a BACPAC file to create an Azure SQL database | Microsoft Docs
+title: Import a BACPAC file to create a database
 description: Create a newAzure SQL database by importing a BACPAC file.
 services: sql-database
 ms.service: sql-database
@@ -22,6 +22,10 @@ You can import a SQL Server database into a database in Azure SQL Database using
 > After importing your database, you can choose to operate the database at its current compatibility level (level 100 for the AdventureWorks2008R2 database) or at a higher level. For more information on the implications and options for operating a database at a specific compatibility level, see [ALTER DATABASE Compatibility Level](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level). See also [ALTER DATABASE SCOPED CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) for information about additional database-level settings related to compatibility levels.
 
 ## Import from a BACPAC file in the Azure portal
+
+Watch this video to see how to import from a BACPAC file in the Azure portal or continue reading below:
+
+> [!VIDEO hhttps://channel9.msdn.com/Shows/Data-Exposed/Its-just-SQL-Restoring-a-database-to-Azure-SQL-DB-from-backup/player?WT.mc_id=dataexposed-c9-niner]
 
 The [Azure portal](https://portal.azure.com) *only* supports creating a single database in Azure SQL Database and *only* from a BACPAC file stored in Azure Blob storage.
 

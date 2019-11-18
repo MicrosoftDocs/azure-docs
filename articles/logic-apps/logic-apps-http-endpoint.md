@@ -139,7 +139,7 @@ By default, the Request trigger expects an HTTP POST request. However, you can s
 
 ## Accept parameters in endpoint URL
 
-When you want your endpoint URL to accept parameters, specify the relative path in your trigger. You must also explicitly [set the method](#set-method) that your HTTP request expects.
+When you want your endpoint URL to accept parameters, specify the relative path in your trigger. You also need to explicitly [set the method](#set-method) that your HTTP request expects.
 
 1. In the Request trigger, open the **Add new parameter** list, and select **Relative path**, which adds this property to the trigger.
 
@@ -174,7 +174,7 @@ When you want your endpoint URL to accept parameters, specify the relative path 
     Your HTTP endpoint URL now includes the relative path, for example:
 
     ```http
-    https://prod-25.westus.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/address/postalCode?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}
+    https://prod-25.westus.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/address/{postalCode}?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}
     ```
 
 1. To test your HTTP endpoint, copy and paste the updated URL into another browser window, but replace `{postalCode}` with `123456`, and press Enter.

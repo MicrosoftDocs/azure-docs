@@ -1,6 +1,6 @@
 ---
-title: 'Data storage and ingress in Azure Time Series Insights Preview | Microsoft Docs'
-description: Understanding data storage and ingress in Azure Time Series Insights Preview.
+title: 'Data storage and ingress in Preview - Azure Time Series Insights | Microsoft Docs'
+description: Learn about data storage and ingress in Azure Time Series Insights Preview.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
 ---
 
@@ -34,11 +34,11 @@ Azure Time Series Insights supports JSON submitted through Azure IoT Hub or Azur
 > [!WARNING] 
 > When attaching a new event source to your Time Series Insights Preview environment, depending on the number of events currently in your IoT Hub or Event Hub, you may experience high initial ingestion latency. As data is ingested, you should expect this high latency to subside, but if your experience indicates otherwise please contact us by submitting a support ticket through the Azure portal.
 
-## Ingress Best Practices
+## Ingress best practices
 
 We recommend that you employ the following best practices:
 
-* Configure TSI and IoT/Event Hub in the same region, this will reduce ingestion latency incurred due to the network.
+* Configure Time Series Insights and an IoT hub or event hub in the same region. This will reduce ingestion latency incurred due to the network.
 * Plan for your scale needs by calculating your anticipated ingestion rate and verifying that it falls within the supported rate listed below
 * Understand how to optimize and shape your JSON data, as well as the current limitations in preview, by reading [how to shape JSON for ingress and query](./time-series-insights-update-how-to-shape-events.md).
 
@@ -51,9 +51,9 @@ By default, Time Series Insights Preview supports an initial ingress scale of up
 
 Please refer to the following links for more information on throughput units and partitions:
 
-IoT Hub Scale: https://docs.microsoft.com/azure/iot-hub/iot-hub-scaling  
-Event Hub Scale:  https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#throughput-units  
-IoT Hub/Event Hub Partitions: https://docs.microsoft.com/azure/event-hubs/event-hubs-features#partitions
+* [IoT Hub Scale](https://docs.microsoft.com/azure/iot-hub/iot-hub-scaling)
+* [Event Hub Scale](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#throughput-units)
+* [Event Hub Partitions](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#partitions)
 
 ### Data storage
 
@@ -70,6 +70,7 @@ Time Series Insights Preview saves your cold store data to Azure Blob storage in
 > As the owner of the Azure Blob storage account where cold store data resides, you have full access to all data in the account. This access includes write and delete permissions. Don't edit or delete the data that Time Series Insights Preview writes, because that can cause data loss.
 
 ### Data availability
+
 Time Series Insights Preview partitions and indexes data for optimum query performance. Data becomes available to query after it’s indexed. The amount of data that's being ingested can affect this availability.
 
 > [!IMPORTANT]

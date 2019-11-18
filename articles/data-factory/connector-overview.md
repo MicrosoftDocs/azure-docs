@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory connector overview | Microsoft Docs
+title: Azure Data Factory connector overview 
 description: Learn the supported connectors in Data Factory.
 services: data-factory
 author: linda33wj

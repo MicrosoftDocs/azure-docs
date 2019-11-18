@@ -1,14 +1,8 @@
 ---
-title: 'Azure Backup: Monitor Azure Backup with Azure Monitor'
+title: Monitor Azure Backup with Azure Monitor
 description: Monitor Azure Backup workloads and create custom alerts by using Azure Monitor.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: Log Analytics; Azure Backup; Alerts; Diagnostic Settings; Action groups
-ms.service: backup
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: dacurwin
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
 ---
 
@@ -204,7 +198,7 @@ The default graphs give you Kusto queries for basic scenarios on which you can b
 The diagnostic data from the vault is pumped to the Log Analytics workspace with some lag. Every event arrives at the Log Analytics workspace *20 to 30 minutes* after it's pushed from the Recovery Services vault. Here are further details about the lag:
 
 - Across all solutions, the backup service's built-in alerts are pushed as soon as they're created. So they usually appear in the Log Analytics workspace after 20 to 30 minutes.
-- Across all solutions, ad hoc backup jobs and restore jobs are pushed as soon as they *finish*.
+- Across all solutions, on-demand backup jobs and restore jobs are pushed as soon as they *finish*.
 - For all solutions except SQL backup, scheduled backup jobs are pushed as soon as they *finish*.
 - For SQL backup, because log backups can occur every 15 minutes, information for all the completed scheduled backup jobs, including logs, is batched and pushed every 6 hours.
 - Across all solutions, other information such as the backup item, policy, recovery points, storage, and so on, is pushed at least *once per day.*

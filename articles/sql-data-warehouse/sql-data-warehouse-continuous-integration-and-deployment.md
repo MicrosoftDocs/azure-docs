@@ -1,5 +1,5 @@
 ---
-title: Continuous integration and deployment | Microsoft Docs
+title: Continuous integration and deployment 
 description: Enterprise-class Database DevOps experience for SQL Data Warehouse with built-in support for continuous integration and deployment using Azure Pipelines.
 services: sql-data-warehouse
 author: kevinvngo 

@@ -1,11 +1,7 @@
 ---
 title: Overview of Jenkins and Azure
 description: Host the Jenkins build and deploy automation server in Azure and use Azure compute and storage resources to extend your continuous integration and deployment (CI/CD) pipelines.
-ms.service: jenkins
 keywords: jenkins, azure, devops, overview
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.topic: overview
 ms.date: 10/23/2019
 ---

@@ -1,6 +1,6 @@
 ---
 title: How a model becomes a web service
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) - Azure
 description: An overview of the mechanics of how your Azure Machine Learning Studio (classic) model progresses from a development experiment to a Web service.
 services: machine-learning
 ms.service: machine-learning
@@ -62,7 +62,7 @@ In this conversion process, the training experiment is not discarded. When the p
 >
 >
 
-### The Web service
+### The web service
 Once you’re satisfied that your predictive experiment is ready, you can deploy your service as either a Classic Web service or a New Web service based on Azure Resource Manager. To operationalize your model by deploying it as a *Classic Machine Learning Web service*, click **Deploy Web Service** and select **Deploy Web Service [Classic]**. To deploy as *New Machine Learning Web service*, click **Deploy Web Service** and select **Deploy Web Service [New]**. Users can now send data to your model using the Web service REST API and receive back the results. For more information, see [How to consume an Azure Machine Learning Web service](consume-web-services.md).
 
 ## The non-typical case: creating a non-predictive Web service
@@ -77,7 +77,7 @@ After you’ve iterated on your experiment and are satisfied with it:
 
 Your Web service is now deployed, and you can access and manage it just like a predictive Web service.
 
-## Updating your Web service
+## Updating your web service
 Now that you’ve deployed your experiment as a Web service, what if you need to update it?
 
 That depends on what you need to update:
@@ -105,7 +105,7 @@ If you want to make changes to your original predictive experiment, such as sele
 For more details on the process of developing and experiment, see the following articles:
 
 * converting the experiment - [How to prepare your model for deployment in Azure Machine Learning Studio (classic)](convert-training-experiment-to-scoring-experiment.md)
-* deploying the Web service - [Deploy an Azure Machine Learning web service](publish-a-machine-learning-web-service.md)
+* deploying the Web service - [Deploy an Azure Machine Learning web service](deploy-a-machine-learning-web-service.md)
 * retraining the model - [Retrain Machine Learning models programmatically](/azure/machine-learning/studio/retrain-machine-learning-model)
 
 For examples of the whole process, see:

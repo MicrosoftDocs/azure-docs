@@ -1,11 +1,8 @@
 ---
 title: Tutorial - Create a Kubernetes cluster with Azure Kubernetes Service (AKS) using Terraform
 description: Tutorial illustrating how to create a Kubernetes Cluster with Azure Kubernetes Service and Terraform
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/26/2019
+ms.date: 11/07/2019
 ---
 
 # Tutorial: Create a Kubernetes cluster with Azure Kubernetes Service using Terraform
@@ -394,4 +391,4 @@ see [Monitor Azure Kubernetes Service health](/azure/azure-monitor/insights/cont
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Terraform on Azure](/azure/ansible/)
+> [Learn more about using Terraform in Azure](/azure/terraform)
