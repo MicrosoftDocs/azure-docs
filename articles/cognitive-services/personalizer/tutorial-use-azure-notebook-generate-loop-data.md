@@ -585,7 +585,7 @@ In order to find a better learning policy, based on your data to the Rank API, r
 1. Enter the required data of evaluation name, and date range for the loop evaluation. The date range should include only the days you are focusing on for your evaluation. 
     ![In the Azure portal, open the Personalizer resource's Evaluations page. Select Create Evaluation. Enter the evaluation name and date range.](./media/tutorial-azure-notebook/create-offline-evaluation.png)
 
-    The purpose of running this offline evaluation is to determine if there is a better learning policy for the features and actions used in this loop. To find that better learning policy, make sure **Optimization policy** is turned on.
+    The purpose of running this offline evaluation is to determine if there is a better learning policy for the features and actions used in this loop. To find that better learning policy, make sure **Optimization Discovery** is turned on.
 
 1. Select **OK** to begin the evaluation. 
 1. This **Evaluations** page lists the new evaluation and its current status. Depending on how much data you have, this evaluation can take some time. You can come back to this page after a few minutes to see the results. 

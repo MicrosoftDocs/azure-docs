@@ -1,16 +1,7 @@
 ﻿---
-title: Create multiple resource instances - Azure Resource Manager
+title: Create multiple resource instances
 description: Learn how to create an Azure Resource Manager template to create multiple Azure resource instances.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
-
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao

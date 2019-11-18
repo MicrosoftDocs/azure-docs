@@ -541,9 +541,9 @@ IsExclude : True
 IsRecursive : True
 ```
 
-### Performing an ad hoc backup
+### Performing an on-demand backup
 
-Once a backup policy has been set, the backups will occur per the schedule. Triggering an ad hoc backup is also possible using the [Start-OBBackup](https://technet.microsoft.com/library/hh770426) cmdlet:
+Once a backup policy has been set, the backups will occur per the schedule. Triggering an on-demand backup is also possible using the [Start-OBBackup](https://technet.microsoft.com/library/hh770426) cmdlet:
 
 ```powershell
 Get-OBPolicy | Start-OBBackup
