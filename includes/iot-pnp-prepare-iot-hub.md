@@ -32,5 +32,5 @@ az iot hub device-identity create --hub-name <YourIoTHubName> --device-id <YourD
 Run the following command to get the _device connection string_ for the device you just registered (note for use later):
 
 ```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDevice> --output table
+az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDeviceID> --output table
 ```

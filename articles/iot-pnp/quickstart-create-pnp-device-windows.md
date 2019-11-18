@@ -155,7 +155,7 @@ You use the device SDK source code to build the generated device code stub. The 
 1. After the build completes successfully, run your application, passing the IoT hub device connection string as a parameter.
 
     ```cmd\sh
-    .\Debug\sample_device.exe "<device connection string>"
+    .\Debug\sample_device.exe "<YourDeviceConnectionString>"
     ```
 
 1. The device application starts sending data to IoT Hub.

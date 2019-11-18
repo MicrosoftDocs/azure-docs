@@ -11,5 +11,5 @@
 ---
 
 > [!div class="op_single_selector"]
-> * [Linux](../articles/iot-pnp/quickstart-create-pnp-device-linux.md)
-> * [Windows](../articles/iot-pnp/quickstart-create-pnp-device-windows.md)
+> * [C Linux](../articles/iot-pnp/quickstart-create-pnp-device-linux.md)
+> * [C Windows](../articles/iot-pnp/quickstart-create-pnp-device-windows.md)
