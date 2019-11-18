@@ -1632,8 +1632,8 @@
         href: zscaler-beta-provisioning-tutorial.md
       - name: Zscaler One
         href: zscaler-one-provisioning-tutorial.md
-      - name: Zscaler Private Access (ZPA)
-        href: zscaler-private-access-(zpa)-provisioning-tutorial.md
+      - name: Zscaler Private Access
+        href: zscaler-private-access-provisioning-tutorial.md
       - name: Zscaler Two
         href: zscaler-two-provisioning-tutorial.md
       - name: Zscaler Three
