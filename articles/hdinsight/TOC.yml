@@ -629,7 +629,7 @@
       items:
       - name: Troubleshoot Apache HBase performance issues
         href: ./hbase/troubleshoot-hbase-performance-issues.md
-      - name: 'hbase hbck' returns inconsistencies
+      - name: hbase hbck returns inconsistencies
         href: ./hbase/hbase-troubleshoot-hbase-hbck-inconsistencies.md
       - name: Storage exception after connection reset
         href: ./hbase/hbase-troubleshoot-storage-exception-reset.md
