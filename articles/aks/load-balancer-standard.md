@@ -38,7 +38,7 @@ If you have an existing cluster with the Basic SKU Load Balancer, there are impo
 
 For example, making blue/green deployments to migrate clusters is a common practice given the `load-balancer-sku` type of a cluster can only be defined at cluster create time. However, *Basic SKU* Load Balancers use *Basic SKU* IP Addresses which are not compatible with *Standard SKU* Load Balancers as they require *Standard SKU* IP Addresses. When migrating clusters to upgrade Load Balancer SKUs, a new IP address with a compatible IP Address SKU will be required.
 
-For more considerations on how to migrate clusters, visit [aka.ms/aks/migrate](https://aka.ms/aks/migrate) to view a list of important topics to consider when migrating. The below limitations are also important behavioral differences to note when using Standard SKU Load Balancers in AKS.
+For more considerations on how to migrate clusters, visit [our documentation on migration considerations](acs-aks-migration.md) to view a list of important topics to consider when migrating. The below limitations are also important behavioral differences to note when using Standard SKU Load Balancers in AKS.
 
 ### Limitations
 
@@ -48,7 +48,7 @@ The following limitations apply when you create and manage AKS clusters that sup
     * Provide your own public IPs.
     * Provide your own public IP prefixes.
     * Specify a number up to 100 to allow the AKS cluster to create that many *Standard* SKU public IPs in the same resource group created as the AKS cluster, which is usually named with *MC_* at the beginning. AKS assigns the public IP to the *Standard* SKU load balancer. By default, one public IP will automatically be created in the same resource group as the AKS cluster, if no public IP, public IP prefix, or number of IPs is specified. You also must allow public addresses and avoid creating any Azure Policy that bans IP creation.
-* When using the *Standard* SKU for a load balancer, you must use Kubernetes version `1.13 or greater`.
+* When using the *Standard* SKU for a load balancer, you must use Kubernetes version *1.13 or greater*.
 * Defining the load balancer SKU can only be done when you create an AKS cluster. You cannot change the load balancer SKU after an AKS cluster has been created.
 * You can only use one type of load balancer SKU (Basic or Standard) in a single cluster.
 * *Standard* SKU Load Balancers only support *Standard* SKU IP Addresses.
