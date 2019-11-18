@@ -21,7 +21,7 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
 - Simplify and automate tasks for SSL/TLS certificates.
 - Use FIPS 140-2 Level 2 validated HSMs.
 
-[API reference documentation](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/)
+[API reference documentation](/dotnet/api/azure.security.keyvault.secrets?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/)
 
 ## Prerequisites
 
@@ -35,10 +35,7 @@ This quickstart assumes you are running `dotnet`, [Azure CLI](/cli/azure/install
 
 ### Create new .NET console app
 
-Create a new .NET Core application in your preferred editor or IDE.
-
-In a console window, use the `dotnet new` command to create a new console app with the name `akv-dotnet`.
-
+In a console window, use the `dotnet new` command to create a new .NET console app with the name `akv-dotnet`.
 
 ```console
 dotnet new console -n key-vault-console-app
@@ -87,7 +84,7 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 ### Create a service principal
 
-The simplest way to authenticate an cloud-based .NET application is with a managed identity; see [Use an App Service managed identity to access Azure Key Vault](managed-identity.md) for details. For the sake of simplicity however, this quickstarts creates a .NET console application. Authenticating a desktop application with Azure requires the use of a service principal and an access control policy.
+The simplest way to authenticate a cloud-based .NET application is with a managed identity; see [Use an App Service managed identity to access Azure Key Vault](managed-identity.md) for details. For the sake of simplicity however, this quickstart creates a .NET console application. Authenticating a desktop application with Azure requires the use of a service principal and an access control policy.
 
 Create a service principle using the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command:
 

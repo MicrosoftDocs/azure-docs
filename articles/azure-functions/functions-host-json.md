@@ -44,6 +44,10 @@ The following sample *host.json* files have all possible options specified.
         "sendGrid": {},
         "serviceBus": {}
     },
+    "extensionBundle": {
+        "id": "Microsoft.Azure.Functions.ExtensionBundle",
+        "version": "[1.*, 2.0.0)"
+    },
     "functions": [ "QueueProcessor", "GitHubWebHook" ],
     "functionTimeout": "00:05:00",
     "healthMonitor": {
@@ -129,6 +133,12 @@ Configuration settings can be found in [Event Hub triggers and bindings](functio
 ## extensions
 
 Property that returns an object that contains all of the binding-specific settings, such as [http](#http) and [eventHub](#eventhub).
+
+## extensionBundle 
+
+Extension bundles lets you add a compatible set of Functions binding extensions to your function app. To learn more, see [Extension bundles for local development](functions-bindings-register.md#extension-bundles).
+
+[!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
 ## functions
 

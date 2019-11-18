@@ -28,7 +28,7 @@ In this article, you learn how to:
 
 ## Before you start
 
-* [Review](backup-architecture.md#architecture-direct-backup-of-azure-vms) the Azure VM backup architecture.
+* [Review](backup-architecture.md#architecture-built-in-azure-vm-backup) the Azure VM backup architecture.
 * [Learn about](backup-azure-vms-introduction.md) Azure VM backup, and the backup extension.
 * [Review the support matrix](backup-support-matrix-iaas.md) before you configure backup.
 

@@ -15,7 +15,7 @@ ms.author: juliako
 
 # Live stream analysis with Video Indexer
 
-Azure Media Services Video Indexer is an Azure service designed to extract deep insights from video and audio files offline. This is to analyze a given media file already created in advance. However, for some use cases it's important to get the media insights from a live feed as quick as possible to unlock operational and other use cases pressed in time. For example, such rich metadata on a live stream could be used by content producers to automate TV production,. For example, the [Endemol Shine Group](https://customers.microsoft.com/story/esg-media-telecommunications-azure), where journalists of a newsroom searched the live feeds to build notification services based on the content.
+Azure Media Services Video Indexer is an Azure service designed to extract deep insights from video and audio files offline. This is to analyze a given media file already created in advance. However, for some use cases it's important to get the media insights from a live feed as quick as possible to unlock operational and other use cases pressed in time. For example, such rich metadata on a live stream could be used by content producers to automate TV production.
 
 A solution described in this article, allows customers to use Video Indexer in near real-time resolutions on live feeds. The delay in indexing can be as low as four minutes using this solution, depending on the chunks of data being indexed, the input resolution, the type of content and the compute powered used for this process.
 
