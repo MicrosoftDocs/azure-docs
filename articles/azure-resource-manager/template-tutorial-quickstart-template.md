@@ -1,11 +1,7 @@
 ---
-title: Tutorial - Use Azure Quickstart templates | Microsoft Docs
+title: Tutorial - Use quickstart templates
 description: Learn how to use Azure Quickstart templates to complete your template development.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
