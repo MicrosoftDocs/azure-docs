@@ -37,7 +37,7 @@ The following table lists the different ways that you can use metric data in Azu
 | Archive | [Archive](..//learn/tutorial-archive-data.md) the performance or health history of your resource for compliance, auditing, or offline reporting purposes. |
 
 ## How is data in Azure Monitor Metrics structured?
-Data collected by Azure Monitor Metrics is stored in a time-series database which is optimized for analyzing time-stamped data. Each set of metric values is a time series with the following properties:
+Data collected by Azure Monitor metrics is stored in a time-series database which is optimized for analyzing time-stamped data. Each set of metric values is a time series with the following properties:
 
 * The time the value was collected
 * The resource the value is associated with
