@@ -14,9 +14,9 @@ ms.date: 11/04/2019
 
 When string composition includes upper and lowercase text with special characters, additional work is sometimes necessary before queries can return matching documents in your index. 
 
-Analyzers, which tokenize terms during indexing, modify strings en route such that what gets stored is often quite different from the original value. Common transformations include lower-casing any upper-case text, removing non-essential words, and breaking down composite terms into smaller parts when characters like dashes, periods, and slashes are encountered. 
+Analyzers, which tokenize terms for full text search scenarios, produce output that is sometimes quite different from the original input value. Common transformations include lower-casing any upper-case text, removing non-essential words, and breaking down composite terms into smaller parts when characters like dashes, periods, and slashes are encountered. If you find that queries fail to return expected results, especially queries that are searching on patterns or special characters, it could be that the index doesn't contain the expected strings.
 
-For example, assuming the default standard Lucene analyzer, consider how the following fictitious feature code, `"MSFT/SQL.2019/Linux&Java-Ext"`, would be tokenized into smaller parts: `msft`, `sql`, `2019`, `linux`, `java`, `ext`. Given these transformations, you can imagine how searching on a partial term like `"MSFT/SQL"` becomes problematic when the index contains only segments of the term, and not the combinations you expect.
+For example, assume the default standard Lucene analyzer and the following fictitious feature code: `"MSFT/SQL.2019/Linux&Java-Ext"`. The analyzer would tokenize this  into smaller parts: `msft`, `sql`, `2019`, `linux`, `java`, `ext`. Given these transformations, you can imagine how searching on a pattern like `"MSFT*2019"` becomes problematic when the index contains only segments of the term, and not the extended pattern that you expect.
 
 To enable pattern matching over complex strings, you need to address the following challenges:
 
@@ -26,9 +26,9 @@ To enable pattern matching over complex strings, you need to address the followi
 
 ## Set up analyzers
 
-Gaining control over tokenization means switching out the default Standard Lucene analyzer for a [custom analyzer](index-add-custom-analyzers.md) that delivers minimal processing (typical for this scenario).
+Gaining control over tokenization starts with switching out the default Standard Lucene analyzer for a [custom analyzer](index-add-custom-analyzers.md) that delivers minimal processing (typical for this scenario).
 
-Tokenized terms are the ouptut of analyzers, and for the best experience in matching patterns, you need output consisting of whole terms. You can override the default rules by creating a custom analyzer, which you can set on a field-by-field basis.
+Tokenized terms are the output of analyzers, and for the best experience in matching patterns, you need output consisting of whole terms. You can override the default rules by creating a custom analyzer, which you can set on a field-by-field basis.
 
 Analyzers are called during indexing and during query execution. It's common to use the same analyzer for both but you can configure custom analyzers for each workload. Analyzer overrides are specified in the [index definition](https://docs.microsoft.com/rest/api/searchservice/create-index) in an `analyzers` section, and then referenced on specific fields. 
 
@@ -164,8 +164,17 @@ The following table includes examples that indicate a need for a RegEx search:
 | `Bravern-2` | Alphanumeric content, with some form of delimiter, is often found in addresses, SKUs, product or model identifiers, account numbers, student IDs, and so forth. Search strings that include delimiters are typically constructed using a RegEx query that includes the special character. |
 | `"ABCD.23PT1111/Dur/5min"` | Composite terms like this one often need to be matched using partial term queries built from combinations of each part (for example, `1111/Dur/5min`). This type of query is virtually impossible to do unless you are using un-analyzed text and a RegEx query. | -->
 
+## Test tokens
 
-## Query definitions
+The service provides an API that returns tokenized terms for search inputs. You can verify that your custom analyzer is producing expected output by passing individual input strings. 
+
+The following screenshot shows the request and response to [Test Analyzer REST API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer). The equivalent API in .NET is the [AnalyzerResult class](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.search.models.analyzeresult?view=azure-dotnet).
+
+![Postman session, input is "as-35-sd-f", output is 4 tokens](media/search-query-partial-matching/postman-test-analyzer-rest-api.png "Postman session, input is "as-35-sd-f", output is 4 tokens")
+
+## Define queries for pattern matching
+
+Once you have an index that articulates the terms that you expect, you can proceed with a query construct designed for pattern matching.
 
 [Wildcard](search-query-lucene-examples.md#example-7-wildcard-search) and [Regular expression (RegEx)](search-query-lucene-examples.md#example-6-regex) queries are often used to find patterns on content that is expressed as full tokens in an index. 
 
