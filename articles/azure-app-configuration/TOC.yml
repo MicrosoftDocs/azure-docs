@@ -27,6 +27,16 @@
           href: quickstart-feature-flag-aspnet-core.md
         - name: Java Spring
           href: quickstart-feature-flag-spring-boot.md
+    - name: SDKs
+      items:
+          - name: Azure SDK for Java
+            href: SDKs/azure-sdk-for-java.md
+          - name: Azure SDK for Javascript
+            href: SDKs/azure-sdk-for-js.md
+          - name: Azure SDK for .Net
+            href: SDKs/azure-sdk-for-net.md
+          - name: Azure SDK for Python
+            href: SDKs/azure-sdk-for-python.md
 - name: Tutorials
   items:
     - name: Enable dynamic configuration in ASP.NET Core
