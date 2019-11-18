@@ -51,14 +51,15 @@ Check that the zipped file is secure, before you deploy it.
 2. Run the following command to generate the hash for the VHD
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3.  For appliance version 1.19.05.10, the generated hash should match these settings.
+3.  For the latest appliance version, the generated hash should match these settings.
 
   **Algorithm** | **Hash value**
   --- | ---
-  SHA256 | 598d2e286f9c972bb7f7382885e79e768eddedfe8a3d3460d6b8a775af7d7f79
+  MD5 | 5b98cf68dad495696c789bdad8f0d91b
+  SHA256 | c2364887738875a31634eb0cf5defd0398f813d41069875976ca076297071e6f
 
 
-  
+
 ## Run the Azure Migrate installer script
 =
 The installer script does the following:
@@ -107,7 +108,7 @@ Set up the appliance for the first time.
 ### Register the appliance with Azure Migrate
 
 1. Click **Log In**. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
-2. On the new tab, sign in using your Azure credentials. 
+2. On the new tab, sign in using your Azure credentials.
     - Sign in with your username and password.
     - Sign-in with a PIN isn't supported.
 3. After successfully signing in, go back to the web app.
@@ -129,14 +130,14 @@ You can add one set of credentials each for Windows and Linux servers.
     - To remove a server, select > **Delete**.
 4. After validation, click **Save and start discovery** to start the discovery process.
 
-This starts discovery. It takes around 15 minutes for metadata of discovered VMs to appear in the Azure portal. 
+This starts discovery. It takes around 15 minutes for metadata of discovered VMs to appear in the Azure portal.
 
 ## Verify servers in the portal
 
 After discovery finishes, you can verify that the servers appear in the portal.
 
 1. Open the Azure Migrate dashboard.
-2. In **Azure Migrate - Servers** > **Azure Migrate: Server Assessment** page, click the icon that displays the count for **Discovered servers**. 
+2. In **Azure Migrate - Servers** > **Azure Migrate: Server Assessment** page, click the icon that displays the count for **Discovered servers**.
 
 
 ## Next steps

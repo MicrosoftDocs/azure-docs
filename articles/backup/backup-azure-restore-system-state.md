@@ -1,13 +1,9 @@
 ---
-title: 'Azure Backup: Restore System State to a Windows Server'
+title: Restore System State to a Windows Server
 description: Step by step explanation for restoring Windows Server System State from a backup in Azure.
 ms.reviewer: saurse
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/18/2017
-ms.author: dacurwin
 ---
 # Restore System State to Windows Server
 

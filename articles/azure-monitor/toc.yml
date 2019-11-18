@@ -1171,7 +1171,7 @@
         href: platform/autoscale-overview.md
       - name: Walkthrough
         href: platform/autoscale-get-started.md
-      - name: Settings
+      - name: Configuration settings
         href: platform/autoscale-understanding-settings.md
       - name: Best practices
         href: platform/autoscale-best-practices.md
@@ -1187,6 +1187,10 @@
         href: platform/autoscale-virtual-machine-scale-sets.md
       - name: Use webhooks and email notifications
         href: platform/autoscale-webhook-email.md
+      - name: Troubleshooting
+        href: platform/autoscale-troubleshoot.md
+      - name: Resource Log schemas
+        href: platform/autoscale-resource-log-schema.md    
     - name: PowerShell
       items:  
       - name: Managing with PowerShell
