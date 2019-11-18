@@ -1,12 +1,8 @@
 ---
-title: Azure invalid template errors | Microsoft Docs
-description: Describes how to resolve invalid template errors.
-author: tfitzmac
-ms.service: azure-resource-manager
+title: Invalid template errors
+description: Describes how to resolve invalid template errors when deploying Azure Resource Manager templates.
 ms.topic: troubleshooting
 ms.date: 03/08/2018
-ms.author: tomfitz
-
 ---
 # Resolve errors for invalid template
 

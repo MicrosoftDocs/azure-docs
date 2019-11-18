@@ -196,6 +196,17 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 You can track the progress of a restore with TrackRestoreProgress.
 
+### Using Service Fabric Explorer
+You can trigger a restore from Service Fabric Explorer. Make sure Advanced Mode has been enabled in Service Fabric Explorer settings.
+1. Select the desired partitions and click on Actions. 
+2. Select Trigger Partition Restore and fill in information for Azure:
+
+    ![Trigger Partition Restore][2]
+
+    or FileShare:
+
+    ![Trigger Partition Restore Fileshare][3]
+
 ### Data restore for _data corruption_/_data loss_
 
 For _data loss_ or _data corruption_, backed-up partitions for Reliable Stateful service and Reliable Actors partitions can be restored to any of the chosen backups.
@@ -321,3 +332,6 @@ You can configure Reliable Stateful service and Reliable Actors partitions in th
 ## Next steps
 - [Understanding periodic backup configuration](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [Backup restore REST API reference](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
+
+[2]: ./media/service-fabric-backuprestoreservice/restore-partition-backup.png
+[3]: ./media/service-fabric-backuprestoreservice/restore-partition-fileshare.png

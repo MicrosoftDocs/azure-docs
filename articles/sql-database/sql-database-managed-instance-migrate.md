@@ -1,31 +1,34 @@
 ---
-title: Migrate database from SQL Server instance to Azure SQL Database - Managed instance | Microsoft Docs
+title: Migrate from SQL Server to managed instance
 description: Learn how to migrate a database from SQL Server instance to Azure SQL Database - Managed instance. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: migration
-ms.custom: 
+ms.custom: seo-lt-2019
 ms.devlang: 
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
-manager: craigg
-ms.date: 02/11/2019
+ms.date: 07/11/2019
 ---
 # SQL Server instance migration to Azure SQL Database managed instance
 
 In this article, you learn about the methods for migrating a SQL Server 2005 or later version instance to [Azure SQL Database managed instance](sql-database-managed-instance.md). For information on migrating to a single database or elastic pool, see [Migrate to a single or pooled database](sql-database-cloud-migrate.md). For migration information about migrating from other platforms, see [Azure Database Migration Guide](https://datamigration.microsoft.com/).
 
+> [!NOTE]
+> If you want to quickly start and try Managed Instance, you might want to go to [Quick-start guide](sql-database-managed-instance-quickstart-guide.md) instead of this page. 
+
 At a high level, the database migration process looks like:
 
 ![migration process](./media/sql-database-managed-instance-migration/migration-process.png)
 
-- [Assess managed instance compatibility](#assess-managed-instance-compatibility)
-- [Choose app connectivity option](sql-database-managed-instance-connect-app.md)
-- [Deploy to an optimally sized managed instance](#deploy-to-an-optimally-sized-managed-instance)
-- [Select migration method and migrate](#select-migration-method-and-migrate)
-- [Monitor applications](#monitor-applications)
+- [Assess managed instance compatibility](#assess-managed-instance-compatibility) where you should ensure that there are no blocking issues that can prevent your migrations.
+  - This step also includes creation of [performance baseline](#create-performance-baseline) to determine resource usage on your source SQL Server instance. This step is needed if you want o deploy properly sized Managed Instance and verify that performances after migration are not affected.
+- [Choose app connectivity options](sql-database-managed-instance-connect-app.md)
+- [Deploy to an optimally sized managed instance](#deploy-to-an-optimally-sized-managed-instance) where you will choose technical characteristics (number of vCores, amount of memory) and performance tier (Business Critical, General Purpose) of your Managed Instance.
+- [Select migration method and migrate](#select-migration-method-and-migrate) where you migrate your databases using offline migration (native backup/restore, database importe/export) or online migration (Data Migration Service, Transactional Replication).
+- [Monitor applications](#monitor-applications) to ensure that you have expected performance.
 
 > [!NOTE]
 > To migrate an individual database into either a single database or elastic pool, see [Migrate a SQL Server database to Azure SQL Database](sql-database-single-database-migrate.md).
@@ -52,7 +55,11 @@ Managed Instance guarantee 99.99% availability even in the critical scenarios, s
 
 ### Create performance baseline
 
-If you need to compare the performance of your workload on Managed Instance with your original workload running on SQL Server, you would need to create a performance baseline that will be used for comparison. Some of the parameters that you would need to measure on your SQL Server instance are: 
+If you need to compare the performance of your workload on Managed Instance with your original workload running on SQL Server, you would need to create a performance baseline that will be used for comparison. 
+
+Performance baseline is a set of parameters such as average/max CPU usage, average/max disk IO latency, throughput, IOPS, average/max page life expectancy, average max size of tempdb. You would like to have similar or even better parameters after migration, so it is important to measure and record the baseline values for these parameters. In addition to system parameters, you would need to select a set of the representative queries or the most important queries in your workload and measure min/average/max duration, CPU usage for the selected queries. These values would enable you to compare performance of workload running on Managed Instance to the original values on your source SQL Server.
+
+Some of the parameters that you would need to measure on your SQL Server instance are: 
 - [Monitor CPU usage on your SQL Server instance](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) and record the average and peak CPU usage.
 - [Monitor memory usage on your SQL Server instance](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-memory-usage) and determine the amount of memory used by different components such as buffer pool, plan cache, column-store pool, [In-memory OLTP](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017), etc. In addition, you should find average and peak values of Page Life Expectancy memory performance counter.
 - Monitor disk IO usage on the source SQL Server instance using [sys.dm_io_virtual_file_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) view or [performance counters](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-disk-usage).
@@ -66,9 +73,10 @@ As an outcome of this activity you should have documented average and peak value
 ## Deploy to an optimally-sized managed instance
 
 Managed instance is tailored for on-premises workloads that are planning to move to the cloud. It introduces a [new purchasing model](sql-database-service-tiers-vcore.md) that provides greater flexibility in selecting the right level of resources for your workloads. In the on-premises world, you are probably accustomed to sizing these workloads by using physical cores and IO bandwidth. The purchasing model for managed instance is based upon virtual cores, or “vCores,” with additional storage and IO available separately. The vCore model is a simpler way to understand your compute requirements in the cloud versus what you use on-premises today. This new model enables you to right-size your destination environment in the cloud. Some general guidelines that might help you to choose the right service tier and characteristics are described here:
-- [Monitor CPU usage on your SQL Server instance](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) and check how much compute power you currently use (using Dynamic Management Views, SQL Server Management Studio, or other monitoring tools). You can provision a Managed Instance that matches the number of cores that you are using on SQL Server, having in mind that CPU characteristics might need to be scaled to match [VM characteristics where Managed Instance is installed](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#hardware-generation-characteristics).
-- Check the amount of available memory on your SQL Server instance, and choose [the service tier that has matching memory](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#hardware-generation-characteristics). It would be useful to measure page-life expectancy on your SQL Server instance to determine [do you need additional memory](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Do-you-need-more-memory-on-Azure-SQL-Managed-Instance/ba-p/563444).
-- Measure IO latency of the file subsystem to choose between General Purpose and Business Critical service tiers.
+- Based on the baseline CPU usage you can provision a Managed Instance that matches the number of cores that you are using on SQL Server, having in mind that CPU characteristics might need to be scaled to match [VM characteristics where Managed Instance is installed](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
+- Based on the baseline memory usage choose [the service tier that has matching memory](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics). The amount of memory cannot be directly chosen so you would need to select the Managed Instance with the amount of vCores that has matching memory (for example 5.1 GB/vCore in Gen5). 
+- Based on the baseline IO latency of the file subsystem choose between General Purpose (latency greater than 5ms) and Business Critical service tiers (latency less than 3 ms).
+- Based on baseline throughput pre-allocate the size of data or log files to get expected IO performance.
 
 You can choose compute and storage resources at deployment time and then change it afterwards without introducing downtime for your application using the [Azure portal](sql-database-scale-resources.md):
 
@@ -155,7 +163,7 @@ As a result, you should compare performance parameters with the baseline and ide
 The outcome of the performance comparison might be:
 - Workload performance on Managed Instance is aligned or better that the workload performance on SQL Server. In this case you have successfully confirmed that migration is successful.
 - Majority of the performance parameters and the queries in the workload work fine, with some exceptions with degraded performance. In this case, you would need to identify the differences and their importance. If there are some important queries with degraded performance, you should investigate are the underlying SQL plans changed or the queries are hitting some resource limits. Mitigation in this case could be to apply some hints on the critical queries (for example changed compatibility level, legacy cardinality estimator) either directly or using plan guides, rebuild or create statistics and indexes that might affect the plans. 
-- Most of the queries are slower on Managed Instance compared to your source SQL Server. In this case try to identify the root causes of the difference such as [reaching some resource limit]( sql-database-managed-instance-resource-limits.md#instance-level-resource-limits) like IO limits, memory limit, instance log rate limit, etc. If there are no resource limits that can cause the difference, try to change compatibility level of the database or change database settings like legacy cardinality estimation and re-start the test. Review the recommendations provided by Managed Instance or Query Store views to identify the queries that regressed performance.
+- Most of the queries are slower on Managed Instance compared to your source SQL Server. In this case try to identify the root causes of the difference such as [reaching some resource limit]( sql-database-managed-instance-resource-limits.md#service-tier-characteristics) like IO limits, memory limit, instance log rate limit, etc. If there are no resource limits that can cause the difference, try to change compatibility level of the database or change database settings like legacy cardinality estimation and re-start the test. Review the recommendations provided by Managed Instance or Query Store views to identify the queries that regressed performance.
 
 > [!IMPORTANT]
 > Managed Instance has built-in automatic plan correction feature that is enabled by default. This feature ensures that queries that worked fine in the paste would not degrade in the future. Make sure that this feature is enabled and that you have executed the workload long enough with the old settings before you change new settings in order to enable Managed Instance to learn about the baseline performance and plans.
@@ -163,6 +171,13 @@ The outcome of the performance comparison might be:
 Make the change of the parameters or upgrade service tiers to converge to the optimal configuration until you get the workload performance that fits your needs.
 
 ### Monitor performance
+
+Managed Instance provides a lot of advanced tools for monitoring and troubleshooting, and you should use them to monitor performance on your instance. Some of the parameters that your would need to monitor are:
+- CPU usage on the instance to determine does the number of vCores that you provisioned is the right match for your workload.
+- Page-life expectancy on your Managed Instance to determine [do you need additional memory](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Do-you-need-more-memory-on-Azure-SQL-Managed-Instance/ba-p/563444).
+- Wait statistics like `INSTANCE_LOG_GOVERNOR` or `PAGEIOLATCH` that will tell do you have storage IO issues, especially on General Purpose tier where you might need to pre-allocate files to get better IO performance.
+
+## Leverage advanced PaaS features
 
 Once you are on a fully managed platform and you have verified that workload performances are matching you SQL Server workload performance, take advantages that are provided automatically as part of the SQL Database service. 
 

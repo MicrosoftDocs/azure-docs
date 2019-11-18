@@ -1,11 +1,11 @@
 ---
-title: Quickstart - Install Ansible on Linux virtual machines in Azure | Microsoft Docs
+title: Quickstart - Install Ansible on Linux virtual machines in Azure 
 description: In this quickstart, learn how to install and configure Ansible for managing Azure resources on Ubuntu, CentOS, and SLES
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 ms.topic: quickstart
 ms.service: ansible
 author: tomarchermsft
-manager: jeconnoc
+manager: gwallace
 ms.author: tarcher
 ms.date: 04/30/2019
 ---

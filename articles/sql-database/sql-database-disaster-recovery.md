@@ -1,5 +1,5 @@
 ---
-title: SQL Database disaster recovery | Microsoft Docs
+title: Disaster recovery 
 description: Learn how to recover a database from a regional datacenter outage or failure with the Azure SQL Database active geo-replication, and geo-restore capabilities.
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 06/21/2019
 ---
 # Restore an Azure SQL Database or failover to a secondary

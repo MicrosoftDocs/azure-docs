@@ -1,16 +1,7 @@
 ﻿---
-title: Troubleshoot Resource Manager deployments | Microsoft Docs
-description: Learn how to monitor and troubleshoot Resource Manager deployments.
-services: azure-resource-manager
-documentationcenter: ''
+title: Troubleshoot deployments
+description: Learn how to monitor and troubleshoot Azure Resource Manager template deployments. Shows activity logs and deployment history.
 author: mumian
-manager: dougeby
-editor: tysonn
-
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao

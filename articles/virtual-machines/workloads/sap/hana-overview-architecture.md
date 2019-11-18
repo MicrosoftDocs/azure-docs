@@ -4,16 +4,16 @@ description: Overview of how to deploy SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
 documentationcenter: 
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.service: virtual-machines-linux
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/04/2018
-ms.author: saghorpa
+ms.date: 07/12/2019
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -31,6 +31,16 @@ The customer isolation within the infrastructure stamp is performed in tenants, 
 
 These bare-metal server units are supported to run SAP HANA only. The SAP application layer or workload middle-ware layer runs in virtual machines. The infrastructure stamps that run the SAP HANA on Azure (Large Instances) units are connected to the Azure network services backbones. In this way, low-latency connectivity between SAP HANA on Azure (Large Instances) units and virtual machines is provided.
 
+As of July 2019, we differentiate between two different revisions of HANA Large Instance stamps and location of deployments:
+
+- "Revision 3" (Rev 3): Are the stamps that were made available for customer to deploy before July 2019
+- "Revision 4" (Rev 4): New stamp design that is deployed in close proximity to Azure VM hosts and which so far are released in the Azure regions of:
+	-  West US2 
+	-  East US 
+	-  West Europe
+	-  North Europe
+
+
 This document is one of several documents that cover SAP HANA on Azure (Large Instances). This document introduces the basic architecture, responsibilities, and services provided by the solution. High-level capabilities of the solution are also discussed. For most other areas, such as networking and connectivity, four other documents cover details and drill-down information. The documentation of SAP HANA on Azure (Large Instances) doesn't cover aspects of the SAP NetWeaver installation or deployments of SAP NetWeaver in VMs. SAP NetWeaver on Azure is covered in separate documents found in the same Azure documentation container. 
 
 
@@ -42,7 +52,7 @@ The different documents of HANA Large Instance guidance cover the following area
 - [SAP HANA (Large Instances) high availability and disaster recovery on Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [SAP HANA (Large Instances) troubleshooting and monitoring on Azure](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [High availability set up in SUSE by using the STONITH](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/ha-setup-with-stonith)
-- [OS backup and restore for Type II SKUs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-backup-type-ii-skus)
+- [OS backup and restore for Type II SKUs of Revision 3 stamps](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-backup-type-ii-skus)
 
 **Next steps**
 - Refer [Know the terms](hana-know-terms.md)

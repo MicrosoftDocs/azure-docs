@@ -1,5 +1,5 @@
 ---
-title: Upgrade to the latest generation of Azure SQL Data Warehouse | Microsoft Docs
+title: Upgrade to the latest generation
 description: Upgrade Azure SQL Data Warehouse to latest generation of Azure hardware and storage architecture.
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,6 +10,7 @@ ms.subservice: manage
 ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
+ms.custom: seo-lt-2019
 ---
 
 # Optimize performance by upgrading SQL Data Warehouse
@@ -182,7 +183,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-2. Navigate to the SQL data warehouse that you want to create a restore point for.
+2. Navigate to the SQL Data Warehouse that you want to create a restore point for.
 
 3. At the top of the Overview section, select **+New Restore Point**.
 
@@ -195,7 +196,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 ## Restore an active or paused database using the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Navigate to the SQL data warehouse that you want to restore from.
+2. Navigate to the SQL Data Warehouse that you want to restore from.
 3. At the top of the Overview section, select **Restore**.
 
     ![ Restore Overview](./media/sql-data-warehouse-restore-database-portal/restoring_0.png)

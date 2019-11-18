@@ -11,7 +11,7 @@ ms.author: snehaa
 
 # Scale migration of VMs using Azure Site Recovery
 
-This article helps you understand the process of using scripts to migrate large number of VMs using Azure Site Recovery. These scripts are available for your download at [Azure PowerShell Samples](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery) repo on GitHub. The scripts can be used to migrate VMware, AWS, GCP VMs, and physical servers to Azure and support migration to managed disks. You can also use these scripts to migrate Hyper-V VMs if you migrate the VMs as physical servers. The scripts leverage Azure Site Recovery PowerShell documented [here](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell).
+This article helps you understand how to use scripts to migrate large number of VMs using Azure Site Recovery. These scripts are available for your download at [Azure PowerShell Samples](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery) repo on GitHub. The scripts can be used to migrate VMware, AWS, GCP VMs, and physical servers to managed disks in Azure. You can also use these scripts to migrate Hyper-V VMs if you migrate the VMs as physical servers. The scripts that leverage Azure Site Recovery PowerShell are documented [here](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell).
 
 ## Current Limitations:
 - Support specifying the static IP address only for the primary NIC of the target VM
@@ -56,7 +56,7 @@ Once the CSV is ready, you can execute the following steps to perform migration 
 6 | asr_cleanuptestmigration.ps1 | Once you manually validate the VMs that were test failed-over, you can use this script to clean up the test failover VMs
 7 | asr_migration.ps1 | Perform an unplanned failover for the VMs listed in the csv, the script creates a CSV output with the job details for each VM. The script does not shut down the on premises VMs before triggering the failover, for application consistency, it is recommended that you manually shut down the VMs before executing the script.
 8 | asr_completemigration.ps1 | Perform the commit operation on the VMs and delete the Azure Site Recovery entities
-9 | asr_postmigration.ps1 | If you plan to assign network security groups to the NICs post-failover, you can use this script to do that. It assigns a NSG to any one NIC in the target VM.
+9 | asr_postmigration.ps1 | If you plan to assign network security groups to the NICs post-failover, you can use this script to do that. It assigns an NSG to any one NIC in the target VM.
 
 ## How to migrate to managed disks?
 The script, by default, migrates the VMs to managed disks in Azure. If the target storage account provided is a premium storage account, premium-managed disks are created post migration. The cache storage account can still be a standard account. If the target storage account is a standard storage account, standard disks are created post migration. 

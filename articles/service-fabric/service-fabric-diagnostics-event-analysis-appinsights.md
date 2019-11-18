@@ -48,7 +48,7 @@ To further explore the capabilities of the Application Insights portal, head ove
 
 ### Configuring Application Insights with EventFlow
 
-If you are using EventFlow to aggregate events, make sure to import the `Microsoft.Diagnostics.EventFlow.Output.ApplicationInsights`NuGet package. The following code is required in the *outputs* section of the *eventFlowConfig.json*:
+If you are using EventFlow to aggregate events, make sure to import the `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights`NuGet package. The following code is required in the *outputs* section of the *eventFlowConfig.json*:
 
 ```json
 "outputs": [

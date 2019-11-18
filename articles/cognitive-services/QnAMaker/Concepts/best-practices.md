@@ -1,13 +1,13 @@
 ---
 title: Best practices - QnA Maker
-titlesuffix: Azure Cognitive Services 
+titleSuffix: Azure Cognitive Services 
 description: Use these best practices to improve your knowledge base and provide better results to your application/chat bot's end users.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: diberry
 ms.custom: seodec18

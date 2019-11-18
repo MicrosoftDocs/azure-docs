@@ -1,6 +1,6 @@
 ---
-title: API HTTP response codes
-titleSuffix: Azure
+title: API HTTP response codes - LUIS
+titleSuffix: Azure Cognitive Services
 description:  Understand what HTTP response codes are returned from the LUIS Authoring and Endpoint APIs
 services: cognitive-services
 author: diberry
@@ -8,7 +8,7 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: diberry
 ---

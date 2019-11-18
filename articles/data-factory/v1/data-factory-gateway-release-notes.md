@@ -1,5 +1,5 @@
 ---
-title: Release notes for Data Management Gateway | Microsoft Docs
+title: Release notes for Data Management Gateway 
 description: Data Management Gateway tory release notes
 services: data-factory
 author: nabhishek

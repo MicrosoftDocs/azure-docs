@@ -1,5 +1,5 @@
 ---
-title: Serverless scenario - Create customer insights dashboard with Azure services | Microsoft Docs
+title: Create customer insights dashboard - Azure Logic Apps
 description: Manage customer feedback, social media data, and more by building a customer dashboard with Azure Logic Apps and Azure Functions
 services: logic-apps
 ms.service: logic-apps
@@ -7,12 +7,11 @@ ms.suite: integration
 author: jeffhollan
 ms.author: jehollan
 ms.reviewer: estfan, LADocs
-ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
 ---
 
-# Create streaming customer insights dashboard with Azure Logic Apps and Azure Functions
+# Create a streaming customer insights dashboard with Azure Logic Apps and Azure Functions
 
 Azure offers [serverless](https://azure.microsoft.com/solutions/serverless/) tools that help you quickly build 
 and host apps in the cloud, without having to think about infrastructure. 
@@ -37,7 +36,7 @@ Office 365, Survey Monkey, Twitter, and an
 The workflow that you create monitors a hashtag on Twitter.
 
 You can [build the entire solution in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) 
-and [deploy the solution with Azure Resource Manager template](../logic-apps/logic-apps-create-deploy-template.md). 
+and [deploy the solution with Azure Resource Manager template](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md). 
 For a video walkthrough that shows how to create this solution, 
 [watch this Channel 9 video](https://aka.ms/logicappsdemo). 
 
@@ -170,7 +169,7 @@ On your logic app's menu, choose **Overview**.
 
 After you create a logic app solution, 
 you can capture and deploy your app as an 
-[Azure Resource Manager template](../azure-resource-manager/resource-group-overview.md#template-deployment) 
+[Azure Resource Manager template](../azure-resource-manager/template-deployment-overview.md) 
 to any Azure region in the world. 
 You can use this capability both to modify parameters 
 for creating different versions of your app and for 
@@ -178,7 +177,7 @@ integrating your solution into Azure Pipelines.
 You can also include Azure Functions in your deployment 
 template so that you can manage the entire solution 
 with all dependencies as a single template. Learn 
-[how to create logic app deployment templates](../logic-apps/logic-apps-create-deploy-template.md).
+how to [automate logic app deployment](logic-apps-azure-resource-manager-templates-overview.md).
 
 For an example deployment template with an Azure function, 
 check the [Azure quickstart template repository](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).

@@ -10,8 +10,8 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-
 ---
+
 # Use HDInsight Tools for IntelliJ with Hortonworks Sandbox
 
 Learn how to use HDInsight Tools for IntelliJ to develop Apache Scala applications, and then test the applications on [Hortonworks Sandbox](https://hortonworks.com/products/sandbox/) running on your computer. 
@@ -51,7 +51,7 @@ In this section, you create a sample Scala project by using IntelliJ IDEA. In th
       * **Maven**: For Scala project-creation wizard support.
       * **SBT**: For managing dependencies and building for the Scala project.
 
-   ![The New Project dialog box](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
+   ![Intellij create new scala project](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
 
 2. Select **Next**.
 3. In the next **New Project** dialog box, complete the following steps:

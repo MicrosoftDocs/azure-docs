@@ -3,12 +3,11 @@ title: Quickstart - Use the Azure portal to create a Service Bus queue | Microso
 description: In this quickstart, you learn how to create a Service Bus queue by using the Azure portal. Then, you use a sample client application to send messages to and receive messages from the queue.
 services: service-bus-messaging
 author: spelluru
-manager: timlt
 
 ms.service: service-bus-messaging
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/10/2019
+ms.date: 09/03/2019
 ms.author: spelluru
 # Customer intent: In a retail scenario, how do I update inventory assortment and send a set of messages from the back office to the stores?
 
@@ -32,6 +31,18 @@ To complete this tutorial, make sure you have installed:
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
 ## Send and receive messages
+
+> [!NOTE]
+> The sample used in this section to send and receive messages is a .NET sample. For samples to send/receive messages using other programming languages, see [Service Bus samples](service-bus-samples.md). 
+> 
+> For step-by-step instructions for sending/receiving messages using various programming languages, see the following quick starts:
+> - [.NET](service-bus-dotnet-get-started-with-queues.md)
+> - [Java](service-bus-java-how-to-use-queues.md)
+> - [Node.js using azure/service-bus package](service-bus-nodejs-how-to-use-queues-new-package.md)
+> - [Node.js using azure-sb package](service-bus-nodejs-how-to-use-queues.md)
+> - [PHP](service-bus-php-how-to-use-queues.md)
+> - [Python](service-bus-python-how-to-use-queues.md)
+> - [Ruby](service-bus-ruby-how-to-use-queues.md)
 
 After the namespace and queue are provisioned, and you have the necessary credentials, you are ready to send and receive messages. You can examine the code in [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters).
 

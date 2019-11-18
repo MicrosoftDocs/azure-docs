@@ -4,7 +4,7 @@ description: Learn how to create and deploy a network security group (classic) u
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-service-management
 

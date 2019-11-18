@@ -25,7 +25,7 @@ Secured, isolated workstations are critically important for the security of sens
 This document explains what you need for building a secure workstation, often known as a privileged access workstation (PAW). The article also contains detailed instructions to set up initial security controls. This guidance describes how cloud-based technology can manage the service. It relies on security capabilities that were introduced in Windows 10RS5, Microsoft Defender Advanced Threat Protection (ATP), Azure Active Directory, and Intune.
 
 > [!NOTE]
-> This article explains the concept of a secure workstation and its importance. If you are already familiar with the concept and would like to skip to deployment, visit [Deploy a Secure Workstation](https://docs.microsoft.com/azure/active-directory/devices/howto-azure-managed-workstation).
+> This article explains the concept of a secure workstation and its importance. If you are already familiar with the concept and would like to skip to deployment, visit [Deploy a Secure Workstation](howto-azure-managed-workstation.md).
 
 ## Why secure workstation access is important
 
@@ -48,7 +48,7 @@ This document describes a solution that can help protect your computing devices 
 
 * Intune for device management and a safe list of applications and URLs
 * Autopilot for device setup, deployment, and refresh
-* Azure AD for user management, conditional access, and multi-factor authentication
+* Azure AD for user management, Conditional Access, and multi-factor authentication
 * Windows 10 (current version) for device health attestation and user experience
 * Defender ATP for cloud-managed endpoint protection, detection, and response
 * Azure AD PIM for managing authorization and just-in-time (JIT) privileged access to resources
@@ -91,7 +91,7 @@ This guidance references several security profiles and roles that can help you c
 
 * **Enhanced Security** – This entry-level, protected solution is good for home users, small business users, and general developers.
 
-   The enhanced workstation is a policy-based way to increase the security of the low security profile. It provides a secure means to work with customer data while also using productivity tools like email and web browsing. You can use audit policies and Intune to monitor an enhanced workstation for user behavior and profile usage. You deploy the enhanced workstation profile with the Windows10 (1809) script, and it takes advantage of advanced malware protection using [Advanced Threat Protection (ATP)](https://docs.microsoft.com/office365/securitycompliance/office-365-atp).
+   The enhanced workstation is a policy-based way to increase the security of the low security profile. It provides a secure means to work with customer data while also using productivity tools like email and web browsing. You can use audit policies and Intune to monitor an enhanced workstation for user behavior and profile usage. You deploy the enhanced workstation profile with the Windows10 (1809) script, and it takes advantage of advanced malware protection using [Advanced Threat Protection (ATP)](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection).
 
 * **High Security** – The most effective means to reduce the attack surface of a workstation is to remove the ability to self-administer the workstation. Removing local administrative rights is a step that improves security, but it can impact productivity if implemented incorrectly. The high security profile builds on the enhanced security profile with one considerable change: the removal of the local admin. This profile is designed for high profile users: executives, payroll and sensitive data users, approvers for services and processes.
 

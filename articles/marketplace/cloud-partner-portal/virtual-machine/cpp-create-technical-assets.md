@@ -4,6 +4,7 @@ description: Explains how to create the technical assets for a virtual machine o
 services: Azure, Marketplace, Cloud Partner Portal, 
 author: pbutlerm
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: pabutler
@@ -29,7 +30,7 @@ You must configure the VM OS, the VM size, ports to open, and up to 15 attached 
 
 ## Fundamental technical knowledge
 
-Designing, building, and testing these assets take time and requires technical knowledge of both the Azure platform and the technologies used to build the offer. In addition to your solution domain, your engineering team should have knowledge on the following Microsoft technologies: 
+Designing, building, and testing these assets takes time and requires technical knowledge of both the Azure platform and the technologies used to build the offer. In addition to your solution domain, your engineering team should have knowledge of the following Microsoft technologies: 
 -	Basic understanding of [Azure Services](https://azure.microsoft.com/services/) 
 -	How to [design and architect Azure applications](https://azure.microsoft.com/solutions/architecture/)
 -	Working knowledge of [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage) and [Azure Networking](https://azure.microsoft.com/services/?filter=networking)

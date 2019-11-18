@@ -26,7 +26,7 @@ App Configuration is currently in public preview. It is free to use during the p
 
 Cloud-based applications often run on multiple virtual machines or containers in multiple regions and use multiple external services. Creating such a distributed application that's robust and scalable is a challenge.
 
-Various programming methodologies help developers deal with the increasing complexity of building applications. For example, the 12-factor app describes many well-tested architectural patterns and best practices for use with cloud applications. One key recommendation from this guide is to separate configuration from code. In this case, an application’s configuration settings should be kept external to its executable and read in from its runtime environment or an external source.
+Various programming methodologies help developers deal with the increasing complexity of building applications. For example, the [Twelve-Factor App](https://12factor.net/) describes many well-tested architectural patterns and best practices for use with cloud applications. One key recommendation from this guide is to separate configuration from code. In this case, an application’s configuration settings should be kept external to its executable and read in from its runtime environment or an external source.
 
 While any application can make use of App Configuration, the following examples are the types of application that benefit from the use of it:
 
@@ -71,3 +71,4 @@ The easiest way to add an app configuration store to your application is through
 * [Azure Function quickstart](./quickstart-azure-function-csharp.md)
 * [Java Spring quickstart](./quickstart-java-spring-app.md)
 * [ASP.NET Core feature flag quickstart](./quickstart-feature-flag-aspnet-core.md)
+* [Spring Boot feature flag quickstart](./quickstart-feature-flag-spring-boot.md)

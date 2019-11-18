@@ -1,21 +1,20 @@
 ---
-title: "Create an Azure SQL Database Elastic Job agent using PowerShell | Microsoft Docs"
+title: Create an Elastic Job agent using PowerShell
 description: Learn how to create an Elastic Job agent using PowerShell.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: 
+ms.custom: seo-lt-2019
 ms.devlang: 
 ms.topic: tutorial
 author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
-manager: craigg
 ms.date: 03/13/2019
 ---
 # Create an Elastic Job agent using PowerShell
 
-[Elastic jobs](sql-database-job-automation-overview.md#elastic-database-jobs) enable the running of one or more Transact-SQL (T-SQL) scripts in parallel across many databases.
+[Elastic jobs](sql-database-job-automation-overview.md#elastic-database-jobs-preview) enable the running of one or more Transact-SQL (T-SQL) scripts in parallel across many databases.
 
 In this tutorial, you learn the steps required to run a query across multiple databases:
 
@@ -67,7 +66,7 @@ Creating an Elastic Job agent requires a database (S0 or higher) for use as the 
 
 *The script below creates a new resource group, server, and database for use as the Job database. The script below also creates a second server with two blank databases to execute jobs against.*
 
-Elastic Jobs has no specific naming requirements so you can use whatever naming conventions you want, as long as they conform to any [Azure requirements](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
+Elastic Jobs has no specific naming requirements so you can use whatever naming conventions you want, as long as they conform to any [Azure requirements](/azure/architecture/best-practices/resource-naming).
 
 ```powershell
 # Sign in to your Azure account

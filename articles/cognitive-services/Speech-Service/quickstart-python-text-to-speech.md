@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Convert text-to-speech, Python - Speech Services"
+title: "Quickstart: Convert text-to-speech, Python - Speech Service"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to convert text-to-speech using Python and the Text-to-Speech REST API. The sample text included in this guide is structured as Speech Synthesis Markup Language (SSML). This allows you to choose the voice and language of the speech response.
 services: cognitive-services
@@ -8,9 +8,8 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 03/13/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
 ---
 
 # Quickstart: Convert text-to-speech using Python
@@ -97,7 +96,7 @@ Next, you need to add required headers for the request. Make sure that you updat
 Then construct the request body using Speech Synthesis Markup Language (SSML). This sample defines the structure, and uses the `tts` input you created earlier.
 
 >[!NOTE]
-> This sample uses the `ZiraRUS` voice font. For a complete list of Microsoft provided voices/languages, see [Language support](language-support.md).
+> This sample uses the `Guy24KRUS` voice font. For a complete list of Microsoft provided voices/languages, see [Language support](language-support.md).
 > If you're interested in creating a unique, recognizable voice for your brand, see [Creating custom voice fonts](how-to-customize-voice-font.md).
 
 Finally, you'll make a request to the service. If the request is successful, and a 200 status code is returned, the speech response is written to a timestamped file.
@@ -169,5 +168,6 @@ Make sure to remove any confidential information from your sample app's source c
 ## See also
 
 * [Text-to-speech API reference](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
+* [Using Python and Speech SDK to convert text-to-speech](quickstarts/speech-to-text-from-microphone.md)
 * [Creating custom voice fonts](how-to-customize-voice-font.md)
 * [Record voice samples to create a custom voice](record-custom-voice-samples.md)

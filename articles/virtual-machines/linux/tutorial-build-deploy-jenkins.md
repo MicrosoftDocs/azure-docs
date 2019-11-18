@@ -1,5 +1,5 @@
 ---
-title: Tutorial - CI/CD from Jenkins to Azure VMs with Azure DevOps Services | Microsoft Docs
+title: Tutorial - CI/CD from Jenkins to Azure VMs with Azure DevOps Services 
 description: In this tutorial, you learn how to set up continuous integration (CI) and continuous deployment (CD) of a Node.js app by using Jenkins to Azure VMs from Release Management in Visual Studio Team Services or Microsoft Team Foundation Server
 author: tomarchermsft
 manager: jpconnock
@@ -7,7 +7,6 @@ tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: jenkins
 ms.workload: infrastructure
@@ -54,7 +53,7 @@ to a [deployment group](https://docs.microsoft.com/azure/devops/pipelines/releas
 ## Get the sample app
 
 You need an app to deploy, stored in a Git repository.
-For this tutorial, we recommend that you use [this sample app available from GitHub](https://github.com/azooinmyluggage/fabrikam-node). This tutorial contains a sample script that's used for installing Node.js and an application. If you want to work with your own repository, you should configure a similar sample.
+For this tutorial, we recommend that you use [this sample app available from GitHub](https://github.com/azure-devops/fabrikam-node). This tutorial contains a sample script that's used for installing Node.js and an application. If you want to work with your own repository, you should configure a similar sample.
 
 Create a fork of this app and take note of the location (URL) for use in later steps of this tutorial. For more information, see [Fork a repo](https://help.github.com/articles/fork-a-repo/).    
 

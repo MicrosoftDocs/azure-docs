@@ -1,7 +1,7 @@
 ---
 title: Translator Text API Detect Method
-titlesuffix: Azure Cognitive Services
-description: Use the Translator Text API Detect method.
+titleSuffix: Azure Cognitive Services
+description: Identify the language of a piece of text with the Azure Cognitive Services Translator Text API Detect method.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -172,10 +172,6 @@ If an error occurs, the request will also return a JSON error response. The erro
 
 The following example shows how to retrieve languages supported for text translation.
 
-# [curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/detect?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'What language is this text written in?'}]"
 ```
-
----

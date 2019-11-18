@@ -52,6 +52,17 @@ Specify an encrypted [environment variable][environment-variables-link] in your 
 </CodePackage>
 ```
 
+The secrets should also be included in your Service Fabric application by specifying a certificate in the application manifest. Add a **SecretsCertificate** element to **ApplicationManifest.xml** and include the desired certificate's thumbprint.
+
+```xml
+<ApplicationManifest … >
+  ...
+  <Certificates>
+    <SecretsCertificate Name="MyCert" X509FindType="FindByThumbprint" X509FindValue="[YourCertThumbrint]"/>
+  </Certificates>
+</ApplicationManifest>
+```
+
 ### Inject application secrets into application instances
 Ideally, deployment to different environments should be as automated as possible. This can be accomplished by performing secret encryption in a build environment and providing the encrypted secrets as parameters when creating application instances.
 
@@ -132,10 +143,12 @@ string MyEnvVariable = Environment.GetEnvironmentVariable("MyEnvVariable");
 ```
 
 ## Next steps
-Learn more about [application and service security](service-fabric-application-and-service-security.md)
+* Service Fabric [Secrets Store](service-fabric-application-secret-store.md) 
+* Learn more about [application and service security](service-fabric-application-and-service-security.md)
 
 <!-- Links -->
 [parameters-link]:service-fabric-how-to-parameterize-configuration-files.md
 [environment-variables-link]: service-fabric-how-to-specify-environment-variables.md
 [secret-management-windows-specific-link]: service-fabric-application-secret-management-windows.md
 [secret-management-linux-specific-link]: service-fabric-application-secret-management-linux.md
+[service fabric secrets store]: service-fabric-application-secret-store.md

@@ -43,6 +43,8 @@ In the following list of limits, a new table reflects any differences in limits 
 * [Automation](#automation-limits)
 * [Azure Cache for Redis](#azure-cache-for-redis-limits)
 * [Azure Cloud Services](#azure-cloud-services-limits)
+* [Azure Cognitive Search](#azure-cognitive-search-limits)
+* [Azure Cognitive Services](#azure-cognitive-services-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
 * [Azure Database for MySQL](#azure-database-for-mysql)
 * [Azure Database for PostgreSQL](#azure-database-for-postgresql)
@@ -50,11 +52,10 @@ In the following list of limits, a new table reflects any differences in limits 
 * [Azure Firewall](#azure-firewall-limits)
 * [Azure Functions](#functions-limits)
 * [Azure Kubernetes Service](#azure-kubernetes-service-limits)
-* [Azure Machine Learning Service](#azure-machine-learning-service-limits)
+* [Azure Machine Learning](#azure-machine-learning-limits)
 * [Azure Maps](#azure-maps-limits)
 * [Azure Monitor](#azure-monitor-limits)
 * [Azure Policy](#azure-policy-limits)
-* [Azure Search](#azure-search-limits)
 * [Azure SignalR Service](#azure-signalr-service-limits)
 * [Backup](#backup-limits)
 * [Batch](#batch-limits)
@@ -78,15 +79,18 @@ In the following list of limits, a new table reflects any differences in limits 
 * [Multi-Factor Authentication](#multi-factor-authentication-limits)
 * [Networking](#networking-limits)
   * [Application Gateway](#application-gateway-limits)
+  * [Azure Bastion](#azure-bastion-limits)
   * [Azure DNS](#azure-dns-limits)
   * [Azure Front Door Service](#azure-front-door-service-limits)
   * [Azure Firewall](#azure-firewall-limits)
   * [ExpressRoute](#expressroute-limits)
   * [Load Balancer](#load-balancer)
-  * [Public IP address](#publicip-address)
   * [Network Watcher](#network-watcher-limits)
+  * [Public IP address](#publicip-address)
+  * [Private Link](#private-link-limits)
   * [Traffic Manager](#traffic-manager-limits)
   * [Virtual Network](#networking-limits)
+  * [Virtual WAN](#virtual-wan-limits)
 * [Notification Hubs](#notification-hubs-limits)
 * [Resource group](#resource-group-limits)
 * [Role-based access control](#role-based-access-control-limits)
@@ -121,7 +125,7 @@ For information about Resource Manager API read and write limits, see [Throttlin
 [!INCLUDE [azure-virtual-machines-limits](../includes/azure-virtual-machines-limits.md)]
 
 #### Virtual Machines limits - Azure Resource Manager
-The following limits apply when you use Azure Resource Manager and Azure resource groups. Limits that haven't changed with Azure Resource Manager aren't listed. See the previous table for those limits.
+The following limits apply when you use Azure Resource Manager and Azure resource groups.
 
 [!INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
 
@@ -146,7 +150,7 @@ The following table details the features and limits of the Basic, Standard, and 
 ### Azure Kubernetes Service limits
 [!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
 
-### Azure Machine Learning Service limits
+### Azure Machine Learning limits
 The latest values for Azure Machine Learning Compute quotas can be found in the [Azure Machine Learning quota page](../articles/machine-learning/service/how-to-manage-quotas.md)
 
 ### Networking limits
@@ -154,6 +158,9 @@ The latest values for Azure Machine Learning Compute quotas can be found in the 
 
 #### ExpressRoute limits
 [!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
+
+#### Virtual WAN limits
+[!INCLUDE [virtual-wan-limits](../includes/virtual-wan-limits.md)]
 
 #### Application Gateway limits
 
@@ -163,8 +170,14 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 #### Network Watcher limits
 [!INCLUDE [network-watcher-limits](../includes/network-watcher-limits.md)]
 
+#### Private Link limits
+[!INCLUDE [private-link-limits](../includes/private-link-limits.md)]
+
 #### Traffic Manager limits
 [!INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
+
+#### Azure Bastion limits
+[!INCLUDE [Azure Bastion limits](../includes/bastion-limits.md)]
 
 #### Azure DNS limits
 [!INCLUDE [dns-limits](../includes/dns-limits.md)]
@@ -181,7 +194,7 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 For more information on storage account limits, see [Azure Storage scalability and performance targets](storage/common/storage-scalability-targets.md).
 
-#### Storage resource provider limits 
+#### Storage resource provider limits
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
 
@@ -221,6 +234,9 @@ For more information, see [Virtual machine sizes](virtual-machines/linux/sizes.m
 ### Azure Cloud Services limits
 [!INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
 
+### Azure Cognitive Services limits
+[!INCLUDE [azure-cloud-services-limits](../includes/azure-cognitive-services-limits.md)]
+
 ### App Service limits
 The following App Service limits include limits for Web Apps, Mobile Apps, and API Apps.
 
@@ -249,7 +265,7 @@ For Azure Database for MySQL limits, see [Limitations in Azure Database for MySQ
 ### Azure Database for PostgreSQL
 For Azure Database for PostgreSQL limits, see [Limitations in Azure Database for PostgreSQL](postgresql/concepts-limits.md).
 
-### Azure Search limits
+### Azure Cognitive Search limits
 Pricing tiers determine the capacity and limits of your search service. Tiers include:
 
 * **Free** multitenant service, shared with other Azure subscribers, is intended for evaluation and small development projects.
@@ -264,7 +280,7 @@ Pricing tiers determine the capacity and limits of your search service. Tiers in
 
 [!INCLUDE [azure-search-limits-per-service](../includes/azure-search-limits-per-service.md)]
 
-To learn more about limits on a more granular level, such as document size, queries per second, keys, requests, and responses, see [Service limits in Azure Search](search/search-limits-quotas-capacity.md).
+To learn more about limits on a more granular level, such as document size, queries per second, keys, requests, and responses, see [Service limits in Azure Cognitive Search](search/search-limits-quotas-capacity.md).
 
 ### Media Services limits
 [!INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
@@ -284,6 +300,10 @@ To learn more about limits on a more granular level, such as document size, quer
 #### Action groups
 
 [!INCLUDE [monitoring-limits](../includes/azure-monitor-limits-action-groups.md)]
+
+#### Log queries and language
+
+[!INCLUDE [monitoring-limits](../includes/azure-monitor-limits-log-queries.md)]
 
 #### Log Analytics workspaces
 

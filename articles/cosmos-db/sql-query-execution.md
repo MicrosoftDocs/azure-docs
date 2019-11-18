@@ -12,7 +12,7 @@ ms.author: tisande
 
 Any language capable of making HTTP/HTTPS requests can call the Cosmos DB REST API. Cosmos DB also offers programming libraries for .NET, Node.js, JavaScript, and Python programming languages. The REST API and libraries all support querying through SQL, and the .NET SDK also supports [LINQ querying](sql-query-linq-to-sql.md).
 
-The following examples show how to create a query and submit it against a Cosmos DB database account.
+The following examples show how to create a query and submit it against a Cosmos database account.
 
 ## <a id="REST-API"></a>REST API
 
@@ -240,7 +240,7 @@ The .NET client automatically iterates through all the pages of query results in
 
 You can also explicitly control paging by creating `IDocumentQueryable` using the `IQueryable` object, then by reading the `ResponseContinuationToken` values and passing them back as `RequestContinuationToken` in `FeedOptions`. You can set `EnableScanInQuery` to enable scans when the query isn't supported by the configured indexing policy. For partitioned containers, you can use `PartitionKey` to run the query against a single partition, although Azure Cosmos DB can automatically extract this from the query text. You can use `EnableCrossPartitionQuery` to run queries against multiple partitions.
 
-For more .NET samples with queries, see the [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet) in GitHub.
+For more .NET samples with queries, see the [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmos-dotnet-v3) in GitHub.
 
 ## <a id="JavaScript-server-side-API"></a>JavaScript server-side API
 
@@ -283,5 +283,5 @@ The following example shows how to use `queryDocuments` in the JavaScript server
 ## Next steps
 
 - [Introduction to Azure Cosmos DB](introduction.md)
-- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Azure Cosmos DB consistency levels](consistency-levels.md)

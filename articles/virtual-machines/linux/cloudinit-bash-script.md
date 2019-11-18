@@ -1,10 +1,10 @@
 ---
-title: Use cloud-init to run a bash script in a Linux VM on Azure | Microsoft Docs
+title: Use cloud-init to run a bash script in a Linux VM on Azure 
 description: How to use cloud-init to run a bash script in a Linux VM during creation with the Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

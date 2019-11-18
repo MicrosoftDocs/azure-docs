@@ -1,5 +1,5 @@
 ---
-title: Performance benchmarks for Azure NetApp Files | Microsoft Docs
+title: Performance benchmark test results for Azure NetApp Files | Microsoft Docs
 description: Describes results of performance benchmark tests for Azure NetApp Files at the volume level.
 services: azure-netapp-files
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/22/2019
+ms.date: 08/07/2019
 ms.author: b-juche
 ---
-# Performance benchmarks for Azure NetApp Files
+# Performance benchmark test results for Azure NetApp Files
 
 This article describes results of performance benchmark tests for Azure NetApp Files at the volume level. 
 

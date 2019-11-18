@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/27/2017
+ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ---
@@ -53,8 +53,7 @@ To create an Azure VM with the system-assigned managed identity enabled,your acc
    - [Create a Windows virtual machine using PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
    - [Create a Linux virtual machine using PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
 
-> [!NOTE]
-> You may optionally provision the managed identities for Azure resources VM extension, but it will soon be deprecated. We recommend using the Azure Instance Metadata identity endpoint for authentication. For more information, see [Migrate from the VM extension to Azure IMDS endpoint for authentication](howto-migrate-vm-extension.md).
+
 
 ### Enable system-assigned managed identity on an existing Azure VM
 
@@ -73,8 +72,7 @@ To enable system-assigned managed identity on a VM that was originally provision
    Update-AzVM -ResourceGroupName myResourceGroup -VM $vm -AssignIdentity:$SystemAssigned
    ```
 
-> [!NOTE]
-> You may optionally provision the managed identities for Azure resources VM extension, but it will soon be deprecated. We recommend using the Azure Instance Metadata identity endpoint for authentication. For more information, see [Migrate from the VM extension to Azure IMDS endpoint for authentication](howto-migrate-vm-extension.md).
+
 
 ### Add VM system assigned identity to a group
 
@@ -130,8 +128,7 @@ $vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
 Update-AzVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
 ```
 
-> [!NOTE]
-> If you have provisioned the managed identity for Azure resources VM extension (to be deprecated), you need to remove it using the [Remove-AzVMExtension](/powershell/module/az.compute/remove-azvmextension). For more information, see [Migrate from VM extension to Azure IMDS for authentication](howto-migrate-vm-extension.md).
+
 
 ## User-assigned managed identity
 
@@ -152,8 +149,7 @@ To assign a user-assigned identity to a VM, your account needs the [Virtual Mach
     - [Create a Windows virtual machine using PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
     - [Create a Linux virtual machine using PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
 
-> [!NOTE]
-> You may optionally provision the managed identities for Azure resources VM extension, but it will soon be deprecated. We recommend using the Azure Instance Metadata identity endpoint for authentication. For more information, see [Migrate from the VM extension to Azure IMDS endpoint for authentication](howto-migrate-vm-extension.md).
+
 
 ### Assign a user-assigned managed identity to an existing Azure VM
 
@@ -183,8 +179,7 @@ To assign a user-assigned identity to a VM, your account needs the [Virtual Mach
    Update-AzVM -ResourceGroupName <RESOURCE GROUP> -VM $vm -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>"
    ```
 
-> [!NOTE]
-> You may optionally provision the managed identities for Azure resources VM extension, but it will soon be deprecated. We recommend using the Azure Instance Metadata identity endpoint for authentication. For more information, see [Migrate from the VM extension to Azure IMDS endpoint for authentication](howto-migrate-vm-extension.md).
+
 
 ### Remove a user-assigned managed identity from an Azure VM
 

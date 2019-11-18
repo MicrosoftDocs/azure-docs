@@ -11,9 +11,8 @@ ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/20/2018
+ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: mvc
 ms.custom: seodec18
@@ -115,9 +114,11 @@ Once deployment has completed, switch back to the browser window that opened in 
 
 ## Manage your new Azure app
 
-Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the web app you created.
+To manage the web app you created, in the [Azure portal](https://portal.azure.com), search for and select **App Services**. 
 
-From the left menu, click **App Services**, and then click the name of your Azure app.
+![Select App Services in the Azure portal](./media/app-service-web-get-started-html/portal0.png)
+
+On the **App Services** page, select the name of your Azure app.
 
 ![Portal navigation to Azure app](./media/app-service-web-get-started-html/portal1.png)
 

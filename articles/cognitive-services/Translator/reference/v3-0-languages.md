@@ -1,7 +1,7 @@
 ---
 title: Translator Text API Languages Method
-titlesuffix: Azure Cognitive Services
-description: Use the Translator Text API Languages method.
+titleSuffix: Azure Cognitive Services
+description: The Languages method gets the set of languages currently supported by other operations of the Translator Text API.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -277,10 +277,6 @@ If an error occurs, the request will also return a JSON error response. The erro
 
 The following example shows how to retrieve languages supported for text translation.
 
-# [curl](#tab/curl)
-
-```
+```curl
 curl "https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation"
 ```
-
----

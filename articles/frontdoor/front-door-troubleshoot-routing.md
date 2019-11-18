@@ -57,11 +57,11 @@ There are several possible causes for this symptom:
 
 
 3. Check the Routing Rule Settings
-     - Navigate to the routing rule that should route from the Frontend hostname in question to a backend pool. Ensure that the accepted protocols are correctly configured, or if not, ensure that the protocol Front Door will use when forwarding the request is correctly configured. The _accepted protocols_ determines which requests Front Door should accept and the _Forwarding protocol_ under the _Advanced_ tab determines what protocol Front Door should use to forward the request to the backend.
+     - Navigate to the routing rule that should route from the Frontend hostname in question to a backend pool. Ensure that the accepted protocols are correctly configured, or if not, ensure that the protocol Front Door will use when forwarding the request is correctly configured. The _accepted protocols_ determines which requests Front Door should accept and the _Forwarding protocol_ determines what protocol Front Door should use to forward the request to the backend.
           - As an example, if the backend only accepts HTTP requests the following configurations would be valid:
                - _Accepted protocols_ are HTTP and HTTPS. _Forwarding protocol_ is HTTP. Match request will not work, since HTTPS is an allowed protocol and if a request came in as HTTPS, Front Door would try to forward it using HTTPS.
 
                - _Accepted protocols_ are HTTP. _Forwarding protocol_ is either match request or HTTPS.
 
-   - Click on the _Advanced_ tab at the top of the routing rule configuration pane. _Url Rewrite_ is disabled by default and you should only use this field if you want to narrow the scope of backend-hosted resources that you want to make available. When disabled, Front Door will forward the same request path it receives. It is possible that this field is misconfigured and Front Door is requesting a resource from the backend that is not available, thus returning an HTTP 404 status code.
+   - _Url Rewrite_ is disabled by default and you should only use this field if you want to narrow the scope of backend-hosted resources that you want to make available. When disabled, Front Door will forward the same request path it receives. It is possible that this field is misconfigured and Front Door is requesting a resource from the backend that is not available, thus returning an HTTP 404 status code.
 

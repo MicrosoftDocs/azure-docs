@@ -6,10 +6,11 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
+ms.author: nitinme
+ROBOTS: NOINDEX
 ---
 
 # When to use ENUM entities and SET ENTITY actions

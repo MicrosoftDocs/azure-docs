@@ -1,14 +1,13 @@
 ---
-title: Monitor and manage Hadoop with Ambari REST API - Azure HDInsight 
+title: Monitor and manage Hadoop with Ambari REST API - Azure HDInsight
 description: Learn how to use Ambari to monitor and manage Hadoop clusters in Azure HDInsight. In this document, you will learn how to use the Ambari REST API included with HDInsight clusters.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
-
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/07/2019
-ms.author: hrasheed
 ---
 
 # Manage HDInsight clusters by using the Apache Ambari REST API
@@ -38,6 +37,8 @@ Learn how to use the Apache Ambari REST API to manage and monitor Apache Hadoop 
 ## Authentication
 
 Connecting to Ambari on HDInsight requires HTTPS. Use the admin account name (the default is **admin**) and password you provided during cluster creation.
+
+For Enterprise Security Package clusters, instead of `admin`, use a fully qualified username like `username@domain.onmicrosoft.com`.
 
 ## Examples
 
@@ -157,7 +158,7 @@ $respObj.host_components.HostRoles.host_name
 
 The IP addresses returned by the examples in this section are not directly accessible over the internet. They are only accessible within the Azure Virtual Network that contains the HDInsight cluster.
 
-For more information on working with HDInsight and virtual networks, see [Extend HDInsight capabilities by using a custom Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
+For more information on working with HDInsight and virtual networks, see [Plan a virtual network for HDInsight](hdinsight-plan-virtual-network-deployment.md).
 
 To find the IP address, you must know the internal fully qualified domain name (FQDN) of the cluster nodes. Once you have the FQDN, you can then get the IP address of the host. The following examples first query Ambari for the FQDN of all the host nodes, then query Ambari for the IP address of each host.
 
@@ -504,4 +505,4 @@ At this point, if you look at the Ambari web UI, the Spark service indicates tha
 
 ## Next steps
 
-For a complete reference of the REST API, see [Apache Ambari API Reference V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+For a complete reference of the REST API, see [Apache Ambari API Reference V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).  See also, [Authorize users for Apache Ambari Views](./hdinsight-authorize-users-to-ambari.md)

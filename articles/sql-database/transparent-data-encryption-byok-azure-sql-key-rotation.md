@@ -1,16 +1,15 @@
 ---
-title: 'PowerShell - Rotate TDE protector - Azure SQL Database| Microsoft Docs'
+title: Rotate TDE protector - PowerShell
 description: Learn how to rotate the Transparent Data Encryption (TDE) protector for an Azure SQL server.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: 
+ms.custom: seo-lt-2019
 ms.devlang: 
 ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
-manager: jhubbard
 ms.date: 03/12/2019
 ---
 # Rotate the Transparent Data Encryption (TDE) protector using PowerShell

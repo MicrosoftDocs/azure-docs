@@ -9,7 +9,6 @@ editor: ''
 
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
-ms.devlang: linux
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
@@ -171,8 +170,9 @@ Service Fabric provides scaffolding tools that help you to create a Service Fabr
     brew install gradle
     ```
 
-    >[!TIP]
-    > Be sure to verify you have the correct version of JDK installed. 
+    > [!IMPORTANT]
+    > Current versions of `brew cask install java` may install a more recent version of the JDK.
+    > Be sure to install JDK 8.
 
 ## Deploy your application on your Mac from the terminal
 

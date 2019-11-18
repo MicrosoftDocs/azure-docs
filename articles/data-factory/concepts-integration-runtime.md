@@ -1,5 +1,5 @@
 ---
-title: Integration runtime in Azure Data Factory | Microsoft Docs
+title: Integration runtime in Azure Data Factory 
 description: 'Learn about integration runtime in Azure Data Factory.'
 services: data-factory
 documentationcenter: ''
@@ -77,13 +77,16 @@ A self-hosted IR is capable of:
 > [!NOTE] 
 > Use self-hosted integration runtime to support data stores that requires bring-your-own driver such as SAP Hana, MySQL, etc.  For more information, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
 
+> [!NOTE] 
+> Java Runtime Environment (JRE) is a dependency of Self Hosted IR. Please make sure you have JRE installed on the same host.
+
 ### Self-hosted IR network environment
 If you want to perform data integration securely in a private network environment, which does not have a direct line-of-sight from the public cloud environment, you can install a self-hosted IR on premises environment behind your corporate firewall, or inside a virtual private network.  The self-hosted integration runtime only makes outbound HTTP-based connections to open internet.
 
 ### Self-hosted IR compute resource and scaling
 Self-hosted IR needs to be installed on an on-premises machine or a virtual machine inside a private network. Currently, we only support running the self-hosted IR on a Windows operating system.  
 
-For high availability and scalability, you can scale out the self-hosted IR by associating the logical instance with multiple on-premises machines in active-active mode.  For more information, see how to create and configure self-hosted IR article under how to guides for details.
+For high availability and scalability, you can scale out the self-hosted IR by associating the logical instance with multiple on-premises machines in active-active mode.  For more information, see how to [create and configure self-hosted IR](create-self-hosted-integration-runtime.md) article under how to guides for details.
 
 ## Azure-SSIS Integration Runtime
 To lift and shift existing SSIS workload, you can create an Azure-SSIS IR to natively execute SSIS packages.

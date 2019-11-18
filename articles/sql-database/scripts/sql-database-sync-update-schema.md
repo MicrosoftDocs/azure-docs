@@ -1,5 +1,5 @@
 ﻿---
-title: PowerShell example - Update SQL Data Sync sync schema | Microsoft Docs
+title: PowerShell example - Update SQL Data Sync sync schema 
 description: Azure PowerShell example script to update the sync schema for SQL Data Sync
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,6 @@ ms.topic: sample
 author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 03/12/2019
 ---
 # Use PowerShell to update the sync schema in an existing sync group

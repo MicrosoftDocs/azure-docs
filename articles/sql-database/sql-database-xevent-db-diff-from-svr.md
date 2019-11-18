@@ -1,5 +1,5 @@
 ---
-title: Extended events in SQL Database | Microsoft Docs
+title: Extended events
 description: Describes extended events (XEvents) in Azure SQL Database, and how event sessions differ slightly from event sessions in Microsoft SQL Server.
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
-manager: craigg
 ms.date: 12/19/2018
 ---
 # Extended events in SQL Database

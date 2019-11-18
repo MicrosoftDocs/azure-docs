@@ -1,10 +1,10 @@
 ---
 title: Load Balancer TCP Reset on Idle in Azure
-titlesuffix: Azure Load Balancer
-description: Load Balancer with bidirectional TCP RST packets on idle timeout
+titleSuffix: Azure Load Balancer
+description: With this article, learn about Azure Load Balancer with bidirectional TCP RST packets on idle timeout.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2019
-ms.author: kumud
+ms.author: allensu
 ---
 
 # Load Balancer with TCP Reset on Idle (Public Preview)

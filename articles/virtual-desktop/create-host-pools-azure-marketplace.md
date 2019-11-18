@@ -1,17 +1,17 @@
 ---
-title: Create a Windows Virtual Desktop Preview host pool by using the Azure Marketplace - Azure
-description: How to create a Windows Virtual Desktop Preview host pool by using the Azure Marketplace.
+title: Windows Virtual Desktop host pool Azure Marketplace - Azure
+description: How to create a Windows Virtual Desktop host pool by using the Azure Marketplace.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 04/05/2019
+ms.date: 08/30/2019
 ms.author: helohr
 ---
 # Tutorial: Create a host pool by using the Azure Marketplace
 
-Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop Preview tenant environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
+Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop tenant environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
 
 This tutorial describes how to create a host pool within a Windows Virtual Desktop tenant by using a Microsoft Azure Marketplace offering. The tasks include:
 
@@ -21,7 +21,11 @@ This tutorial describes how to create a host pool within a Windows Virtual Deskt
 > * Join the VMs to the Active Directory domain.
 > * Register the VMs with Windows Virtual Desktop.
 
-Before you begin, [download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already.
+Before you begin, [download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already. After that, run the following cmdlet to sign in to your account:
+
+```powershell
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+```
 
 ## Sign in to Azure
 
@@ -31,11 +35,11 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 To run the Azure Marketplace offering to provision a new host pool:
 
-1. Select **+** or **+ Create a resource**.
+1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
 2. Enter **Windows Virtual Desktop** in the Marketplace search window.
 3. Select **Windows Virtual Desktop - Provision a host pool**, and then select **Create**.
 
-Follow the guidance to enter the information for the appropriate blades.
+After that, follow the instructions in the next section to enter the information for the appropriate blades.
 
 ### Basics
 
@@ -47,6 +51,9 @@ Here's what you do for the **Basics** blade:
 4. Select **Create new** and provide a name for the new resource group.
 5. For **Location**, select the same location as the virtual network that has connectivity to the Active Directory server.
 6. Select **OK**.
+
+>[!IMPORTANT]
+>If you're using a pure Azure Active Directory Domain Services and Azure Active Directory solution, make sure to deploy your host pool in the same region as your Azure Active Directory Domain Services to avoid domain-join and credential errors.
 
 ### Configure virtual machines
 
@@ -61,14 +68,16 @@ For the **Configure virtual machines** blade:
 For the **Virtual machine settings** blade:
 
 >[!NOTE]
-> If you're joining your VMs to an Azure Active Directory Domain Services (Azure AD DS) environment, ensure that your domain join user is also a member of the [AAD DC Administrators group](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group).
+> If you're joining your VMs to an Azure Active Directory Domain Services (Azure AD DS) environment, ensure that your domain join user is a member of the [AAD DC Administrators group](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
+>
+> The account must also be part of the Azure AD DS managed domain or Azure AD tenant - accounts from external directories associated with your Azure AD tenant can't correctly authenticate during the domain-join process. 
 
 1. For **Image source**, select the source and enter the appropriate information for how to find it and how to store it. If you choose not to use managed disks, select the storage account that contains the .vhd file.
 2. Enter the user principal name and password for the domain account that will join the VMs to the Active Directory domain. This same username and password will be created on the virtual machines as a local account. You can reset these local accounts later.
 3. Select the virtual network that has connectivity to the Active Directory server, and then choose a subnet to host the virtual machines.
 4. Select **OK**.
 
-### Windows Virtual Desktop Preview tenant information
+### Windows Virtual Desktop tenant information
 
 For the **Windows Virtual Desktop tenant information** blade:
 

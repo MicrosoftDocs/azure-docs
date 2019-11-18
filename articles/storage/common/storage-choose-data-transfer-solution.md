@@ -78,4 +78,4 @@ You can also go to your Azure Storage account in Azure portal and select the **D
 - Use the REST APIs to transfer data
 
     - [In .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
-    - [In Java](https://docs.microsoft.com/java/api/overview/azure/storage/client)
+    - [In Java](https://docs.microsoft.com/java/api/overview/azure/storage)

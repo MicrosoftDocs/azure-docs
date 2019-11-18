@@ -1,5 +1,5 @@
 ---
-title: Regular-expression entity
+title: "Tutorial: Regular-expression entity - LUIS"
 titleSuffix: Azure Cognitive Services
 description: Extract consistently-formatted data from an utterance using the Regular Expression entity. 
 services: cognitive-services
@@ -9,13 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 06/03/2019
+ms.date: 10/14/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the regular expression entity. 
 ---
 
 # Tutorial: Get well-formatted data from the utterance
 In this tutorial, create an app to extract consistently-formatted data from an utterance using the **Regular Expression** entity.
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **In this tutorial, you learn how to:**
 

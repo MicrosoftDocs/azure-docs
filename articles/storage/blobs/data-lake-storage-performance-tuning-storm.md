@@ -1,9 +1,7 @@
 ---
 title: Azure Data Lake Storage Gen2 Storm performance tuning guidelines | Microsoft Docs
 description: Azure Data Lake Storage Gen2 Storm performance tuning guidelines
-services: storage
 author: normesta
-
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
@@ -107,7 +105,7 @@ If you hit the limits of bandwidth provided by Data Lake Storage Gen2, you might
 
 To check if you are getting throttled, enable the debug logging on the client side:
 
-1. In **Ambari** > **Storm** > **Config** > **Advanced storm-worker-log4j**, change **&lt;root level="info"&gt;** to **&lt;root level=”debug”&gt;**. Restart all the nodes/service for the configuration to take effect.
+1. In **Ambari** > **Storm** > **Config** > **Advanced storm-worker-log4j**, change **&lt;root level="info"&gt;** to **&lt;root level="debug"&gt;**. Restart all the nodes/service for the configuration to take effect.
 2. Monitor the Storm topology logs on worker nodes (under /var/log/storm/worker-artifacts/&lt;TopologyName&gt;/&lt;port&gt;/worker.log) for Data Lake Storage Gen2 throttling exceptions.
 
 ## Next steps

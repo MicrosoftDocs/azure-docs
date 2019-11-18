@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell Script Sample -  Copy (move) snapshot of a managed disk to same or different subscription | Microsoft Docs
+title: Azure PowerShell Script Sample -  Copy (move) snapshot of a managed disk to same or different subscription 
 description: Azure PowerShell Script Sample -  Copy (move) snapshot of a managed disk to same or different subscription
 services: virtual-machines-windows
 documentationcenter: storage
@@ -10,7 +10,7 @@ tags: azure-service-management
 
 ms.assetid:
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
@@ -30,7 +30,7 @@ This script copies a snapshot of a managed disk to same or different subscriptio
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## Sample script
 

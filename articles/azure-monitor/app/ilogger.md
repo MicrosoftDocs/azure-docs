@@ -1,14 +1,14 @@
 ---
 title: Explore .NET trace logs in Azure Application Insights with ILogger
 description: Samples of using the Azure Application Insights ILogger provider with ASP.NET Core and Console applications.
-services: application-insights
-author: cijothomas
-manager: carmonm
-ms.service: application-insights
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 02/19/2019
-ms.reviewer: mbullwin
+author: cijothomas
 ms.author: cithomas
+ms.date: 02/19/2019
+
+ms.reviewer: mbullwin
 ---
 
 # ApplicationInsightsLoggerProvider for .NET Core ILogger logs
@@ -216,6 +216,10 @@ You can still use the old provider. (It will be removed only in a major version 
 
 ## Console application
 
+> [!NOTE]
+> There is a new beta Application Insights SDK called [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) which can used to enable Application Insights (ILogger and other Application Insights telemetry) for any Console Applications. It is recommended to use this package and associated instructions from [here](../../azure-monitor/app/worker-service.md).
+The following example will be deprecated once stable version of this new package is released.
+
 The following code shows a sample console application that's configured to send ILogger traces to Application Insights.
 
 Packages installed:
@@ -283,7 +287,7 @@ Install this additional package:
 <PackageReference Include="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel" Version="2.9.1" />
 ```
 
-The following section shows how to override the default TelemetryConfiguration by using the **services.Configure<TelemetryConfiguration>()** method. This example sets up `ServerTelemetryChannel` and sampling. It adds a custom ITelemetryInitializer to the TelemetryConfiguration.
+The following section shows how to override the default TelemetryConfiguration by using the **services.Configure\<TelemetryConfiguration>()** method. This example sets up `ServerTelemetryChannel` and sampling. It adds a custom ITelemetryInitializer to the TelemetryConfiguration.
 
 ```csharp
     // Create the DI container.

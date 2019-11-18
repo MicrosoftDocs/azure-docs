@@ -1,15 +1,15 @@
 ﻿---
-title: MATLAB clusters on virtual machines | Microsoft Docs
+title: MATLAB clusters on virtual machines 
 description: Use Microsoft Azure virtual machines to create MATLAB Distributed Computing Server clusters to run your compute-intensive parallel MATLAB workloads
 services: virtual-machines-windows
 documentationcenter: ''
 author: mscurrell
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: e9980ce9-124a-41f1-b9ec-f444c8ea5c72
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: Windows
 ms.workload: infrastructure-services

@@ -17,9 +17,9 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-This article provides examples for using the integer claims transformations of the Identity Experience Framework schema in Azure Active Directory (Azure AD) B2C. For more information, see [ClaimsTransformations](claimstransformations.md).
+This article provides examples for using the integer claims transformations of the Identity Experience Framework schema in Azure Active Directory B2C (Azure AD B2C). For more information, see [ClaimsTransformations](claimstransformations.md).
 
-## ConvertNumberToStringClaim 
+## ConvertNumberToStringClaim
 
 Converts a long data type into a string data type.
 
@@ -45,6 +45,6 @@ In this example, the `numericUserId` claim with a value type of long is converte
 
 - Input claims:
     - **inputClaim**: 12334 (long)
-- Output claims: 
+- Output claims:
     - **outputClaim**: "12334" (string)
 

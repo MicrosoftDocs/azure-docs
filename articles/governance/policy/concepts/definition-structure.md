@@ -1,13 +1,8 @@
 ---
 title: Details of the policy definition structure
-description: Describes how resource policy definition is used by Azure Policy to establish conventions for resources in your organization by describing when the policy is enforced and what effect to take.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 03/13/2019
+description: Describes how policy definitions are used to establish conventions for Azure resources in your organization.
+ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-policy
-manager: carmonm
-ms.custom: seodec18
 ---
 # Azure Policy definition structure
 
@@ -18,7 +13,7 @@ you can specify that only certain types of virtual machines are allowed. Or, you
 all resources have a particular tag. Policies are inherited by all child resources. If a policy is
 applied to a resource group, it's applicable to all the resources in that resource group.
 
-The schema used by Azure Policy can be found here: [https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json](https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json)
+The policy definition schema is found here: [https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json)
 
 You use JSON to create a policy definition. The policy definition contains elements for:
 
@@ -66,11 +61,9 @@ For example, the following JSON shows a policy that limits where resources are d
 
 All Azure Policy samples are at [Azure Policy samples](../samples/index.md).
 
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
-
 ## Mode
 
-**Mode** is configured depending if the policy is targeting an Azure Resource Manager property or a
+**Mode** is configured depending on if the policy is targeting an Azure Resource Manager property or a
 Resource Provider property.
 
 ### Resource Manager modes
@@ -94,14 +87,22 @@ a resource group should set **mode** to `all` and specifically target the
 `Microsoft.Resources/subscriptions/resourceGroups` type. For an example, see [Enforce resource group
 tags](../samples/enforce-tag-rg.md). For a list of resources that support tags, see [Tag support for Azure resources](../../../azure-resource-manager/tag-support.md).
 
-### Resource Provider modes
+### <a name="resource-provider-modes" />Resource Provider modes (preview)
 
-The only Resource Provider mode supported currently is `Microsoft.ContainerService.Data` for
-managing admission controller rules on [Azure Kubernetes Service](../../../aks/intro-kubernetes.md).
+The following Resource Provider modes are currently supported during preview:
+
+- `Microsoft.ContainerService.Data` for managing admission controller rules on
+  [Azure Kubernetes Service](../../../aks/intro-kubernetes.md). Policies using this Resource
+  Provider mode **must** use the [EnforceRegoPolicy](./effects.md#enforceregopolicy) effect.
+- `Microsoft.Kubernetes.Data` for managing self-managed AKS Engine Kubernetes clusters on Azure.
+  Policies using this Resource Provider mode **must** use the
+  [EnforceOPAConstraint](./effects.md#enforceopaconstraint) effect.
+- `Microsoft.KeyVault.Data` for managing vaults and certificates in
+  [Azure Key Vault](../../../key-vault/key-vault-overview.md).
 
 > [!NOTE]
-> [Azure Policy for Kubernetes](rego-for-aks.md) is in Public Preview and only supports built-in
-> policy definitions.
+> Resource Provider modes only support built-in policy definitions and don't support initiatives
+> while in preview.
 
 ## Parameters
 
@@ -122,7 +123,7 @@ A parameter has the following properties that are used in the policy definition:
 
 - **name**: The name of your parameter. Used by the `parameters` deployment function within the
   policy rule. For more information, see [using a parameter value](#using-a-parameter-value).
-- `type`: Determines if the parameter is a **string** or an **array**.
+- `type`: Determines if the parameter is a **string**, **array**, **object**, **boolean**, **integer**, **float**, or **datetime**.
 - `metadata`: Defines subproperties primarily used by the Azure portal to display user-friendly
   information:
   - `description`: The explanation of what the parameter is used for. Can be used to provide
@@ -166,8 +167,7 @@ would be used by each assignment of the policy definition to limit the accepted 
 
 ### Using a parameter value
 
-In the policy rule, you reference parameters with the following `parameters` deployment value
-function syntax:
+In the policy rule, you reference parameters with the following `parameters` function syntax:
 
 ```json
 {
@@ -271,18 +271,18 @@ within an **allOf** operation.
 A condition evaluates whether a **field** or the **value** accessor meets certain criteria. The
 supported conditions are:
 
-- `"equals": "value"`
-- `"notEquals": "value"`
-- `"like": "value"`
-- `"notLike": "value"`
-- `"match": "value"`
-- `"matchInsensitively": "value"`
-- `"notMatch": "value"`
-- `"notMatchInsensitively": "value"`
-- `"contains": "value"`
-- `"notContains": "value"`
-- `"in": ["value1","value2"]`
-- `"notIn": ["value1","value2"]`
+- `"equals": "stringValue"`
+- `"notEquals": "stringValue"`
+- `"like": "stringValue"`
+- `"notLike": "stringValue"`
+- `"match": "stringValue"`
+- `"matchInsensitively": "stringValue"`
+- `"notMatch": "stringValue"`
+- `"notMatchInsensitively": "stringValue"`
+- `"contains": "stringValue"`
+- `"notContains": "stringValue"`
+- `"in": ["stringValue1","stringValue2"]`
+- `"notIn": ["stringValue1","stringValue2"]`
 - `"containsKey": "keyName"`
 - `"notContainsKey": "keyName"`
 - `"less": "value"`
@@ -326,7 +326,7 @@ The following fields are supported:
   - This bracket syntax supports tag names that have apostrophes in it by escaping with double
     apostrophes.
   - Where **'\<tagName\>'** is the name of the tag to validate the condition for.
-  - Example: `tags['''My.Apostrophe.Tag''']` where **'\<tagName\>'** is the name of the tag.
+  - Example: `tags['''My.Apostrophe.Tag''']` where **'My.Apostrophe.Tag'** is the name of the tag.
 - property aliases - for a list, see [Aliases](#aliases).
 
 > [!NOTE]
@@ -339,7 +339,7 @@ A parameter value can be passed to a tag field. Passing a parameter to a tag fie
 flexibility of the policy definition during policy assignment.
 
 In the following example, `concat` is used to create a tags field lookup for the tag named the
-value of the **tagName** parameter. If that tag doesn't exist, the **append** effect is used to add
+value of the **tagName** parameter. If that tag doesn't exist, the **modify** effect is used to add
 the tag using the value of the same named tag set on the audited resources parent resource group by
 using the `resourcegroup()` lookup function.
 
@@ -350,11 +350,17 @@ using the `resourcegroup()` lookup function.
         "exists": "false"
     },
     "then": {
-        "effect": "append",
-        "details": [{
-            "field": "[concat('tags[', parameters('tagName'), ']')]",
-            "value": "[resourcegroup().tags[parameters('tagName')]]"
-        }]
+        "effect": "modify",
+        "details": {
+            "operations": [{
+                "operation": "add",
+                "field": "[concat('tags[', parameters('tagName'), ']')]",
+                "value": "[resourcegroup().tags[parameters('tagName')]]"
+            }],
+            "roleDefinitionIds": [
+                "/providers/microsoft.authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+            ]
+        }
     }
 }
 ```
@@ -465,45 +471,18 @@ evaluation.
 
 Azure Policy supports the following types of effect:
 
-- **Deny**: generates an event in the activity log and fails the request
-- **Audit**: generates a warning event in activity log but doesn't fail the request
 - **Append**: adds the defined set of fields to the request
-- **AuditIfNotExists**: enables auditing if a resource doesn't exist
-- **DeployIfNotExists**: deploys a resource if it doesn't already exist
+- **Audit**: generates a warning event in activity log but doesn't fail the request
+- **AuditIfNotExists**: generates a warning event in activity log if a related resource doesn't
+  exist
+- **Deny**: generates an event in the activity log and fails the request
+- **DeployIfNotExists**: deploys a related resource if it doesn't already exist
 - **Disabled**: doesn't evaluate resources for compliance to the policy rule
-- **EnforceRegoPolicy**: configures the Open Policy Agent admissions controller in Azure Kubernetes
-  Service (preview)
-
-For **append**, you must provide the following details:
-
-```json
-"effect": "append",
-"details": [{
-    "field": "field name",
-    "value": "value of the field"
-}]
-```
-
-The value can be either a string or a JSON format object.
-
-**AuditIfNotExists** and **DeployIfNotExists** evaluate the existence of a related resource and
-apply a rule. If the resource doesn't match the rule, the effect is implemented. For example, you
-can require that a network watcher is deployed for all virtual networks. For more information, see
-the [Audit if extension doesn't exist](../samples/audit-ext-not-exist.md) example.
-
-The **DeployIfNotExists** effect requires the **roleDefinitionId** property in the **details**
-portion of the policy rule. For more information, see [Remediation - Configure policy
-definition](../how-to/remediate-resources.md#configure-policy-definition).
-
-```json
-"details": {
-    ...
-    "roleDefinitionIds": [
-        "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
-        "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
-    ]
-}
-```
+- **EnforceOPAConstraint** (preview): configures the Open Policy Agent admissions controller with
+  Gatekeeper v3 for self-managed Kubernetes clusters on Azure (preview)
+- **EnforceRegoPolicy** (preview): configures the Open Policy Agent admissions controller with
+  Gatekeeper v2 in Azure Kubernetes Service
+- **Modify**: adds, updates, or removes the defined tags from a resource
 
 For complete details on each effect, order of evaluation, properties, and examples, see
 [Understanding Azure Policy Effects](effects.md).
@@ -578,8 +557,8 @@ Policy, use one of the following methods:
   # Use Get-AzPolicyAlias to list available providers
   Get-AzPolicyAlias -ListAvailable
 
-  # Use Get-AzPolicyAlias to list aliases for a Namespace (such as Azure Automation -- Microsoft.Automation)
-  Get-AzPolicyAlias -NamespaceMatch 'automation'
+  # Use Get-AzPolicyAlias to list aliases for a Namespace (such as Azure Compute -- Microsoft.Compute)
+  (Get-AzPolicyAlias -NamespaceMatch 'compute').Aliases
   ```
 
 - Azure CLI
@@ -590,8 +569,8 @@ Policy, use one of the following methods:
   # List namespaces
   az provider list --query [*].namespace
 
-  # Get Azure Policy aliases for a specific Namespace (such as Azure Automation -- Microsoft.Automation)
-  az provider show --namespace Microsoft.Automation --expand "resourceTypes/aliases" --query "resourceTypes[].aliases[].name"
+  # Get Azure Policy aliases for a specific Namespace (such as Azure Compute -- Microsoft.Compute)
+  az provider show --namespace Microsoft.Compute --expand "resourceTypes/aliases" --query "resourceTypes[].aliases[].name"
   ```
 
 - REST API / ARMClient

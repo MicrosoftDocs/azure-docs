@@ -6,9 +6,10 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: disk
-ms.topic: quickstart
-ms.date: 02/26/2019
+ms.topic: quickstart 
+ms.date: 09/03/2019
 ms.author: alkohli
+ms.localizationpriority: high 
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
 ---
 ::: zone target="docs"
@@ -19,7 +20,7 @@ Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to
 
 ::: zone target="chromeless"
 
-# Get started with Azure Data Box Disk using Azure portal
+## Get started with Azure Data Box Disk 
 
 ::: zone-end
 
@@ -35,7 +36,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ::: zone target="chromeless"
 
-This quickstart describes how to deploy the Azure Data Box Disk using the Azure portal. The steps include review prerequisites, unlock the disks, connect and copy data to disks so that uploads to Azure.
+This guide walks you through the steps of using the Azure Data Box Disk in the Azure portal. This guide helps answer the following questions.
 
 ::: zone-end
 
@@ -55,16 +56,16 @@ Sign in to the Azure portal at [https://aka.ms/azuredataboxfromdiskdocs](https:/
 
 ::: zone target="chromeless"
 
-## Prerequisites
-
-- You have placed your order for Data Box Disk using the [Tutorial: Order Azure Data Box Disk](data-box-disk-deploy-ordered.md).
-- You have received your disks and the job status in the portal is updated to **Delivered**.
-- You have a client computer available from which you can copy the data. Your client computer must:
-
-    - Run a [supported operating system](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
-    - Have [other required software](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) installed if it is a Windows client.
+> [!div class="checklist"]
+>
+> - **Review prerequisites**: Check the number of disks and cables, operating system, and other software.
+> - **Connect and unlock**: Connect the device and unlock the disk to copy the data.
+> - **Copy data to the disk and validate**: Copy data to the disks into the precreated folders.
+> - **Return the disks**: Return the disks to Azure datacenter where data is uploaded into your storage account.
+> - **Verify the data in Azure**: Verify that your data has uploaded into your storage account before you delete it from source data server.
 
 ::: zone-end
+
 
 ::: zone target="docs"
 

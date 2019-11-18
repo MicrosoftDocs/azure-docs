@@ -1,16 +1,15 @@
 ---
-title: Tutorial - Back up Windows virtual machines in the Azure portal | Microsoft Docs
+title: Tutorial - Back up Windows virtual machines in the Azure portal 
 description: In this tutorial, you learn how to use the Azure portal to protect your Windows virtual machines with Azure Backup.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
