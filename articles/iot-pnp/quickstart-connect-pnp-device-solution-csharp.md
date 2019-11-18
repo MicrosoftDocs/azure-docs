@@ -10,17 +10,6 @@ services: iot-pnp
 ms.custom: mvc
 
 # As a solution developer, I want to connect to and interact with an IoT Plug and Play device that's connected to my solution. For example, to collect telemetry from the device or to control the behavior of the device.
-
-# ################################INCOMPLETE###############################
-# ASSUMPTIONS/QUESTIONS:
-# 31                         -     Should I give a minimum version of .NET?
-# 47, 50                     -     Uses Azure IoT samples for C# (https://github.com/azure-samples/azure-iot-samples-csharp)
-#    50                            -    Branch needed?
-# 54, 78                     -     Project folder path?
-# 57, 81                     -     How do I build?
-# 69, 103, 127, 167, 193     -     How do I run?
-# 63, 87                     -     The terminal variables are the same in the .NET project as they were in the Node.js one
-# 90-213                     -     The files, key names, and outputs are the same in the .NET project as they were in the Node.js one
 ---
 
 # Quickstart: Interact with an IoT Plug and Play Preview device that's connected to your solution (C#)

@@ -10,16 +10,6 @@ services: iot-pnp
 ms.custom: mvc
 
 # As a device developer, I want to see a working IoT Plug and Play device sample connecting to IoT Hub and sending properties, commands and telemetry. As a solution developer, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
-
-# ################################INCOMPLETE###############################
-# ASSUMPTIONS/QUESTIONS:
-# 27, 57, 59, 61, 64     -    Uses Microsoft Azure IoT device SDK for Java (Azure/azure-iot-sdk-java)
-#    93                      -    "preview-test" branch
-# 31                     -    Version of Java?
-# 39-45                  -    Do I need Maven? Version?
-# 69-79                  -    How do I build? This section needs to be filled in or replaced.
-# 81-89                  -    Where is the project that you run? How do you run it?
-#     83, 88                -    takes same parameter as C project
 ---
 
 # Quickstart: Connect a sample IoT Plug and Play Preview device application to IoT Hub (Java)

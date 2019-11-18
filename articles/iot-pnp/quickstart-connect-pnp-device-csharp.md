@@ -10,15 +10,6 @@ services: iot-pnp
 ms.custom: mvc
 
 # As a device developer, I want to see a working IoT Plug and Play device sample connecting to IoT Hub and sending properties, commands and telemetry. As a solution developer, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
-
-# ################################INCOMPLETE###############################
-# ASSUMPTIONS/QUESTIONS:
-# 26, 48, 50, 52, 55     -    Uses Microsoft Azure IoT device SDK for C# (Azure/azure-iot-sdk-csharp)
-#    55                      -    "preview" branch
-# 30                     -    Should I give a minimum version of .NET?
-# 60-80                  -    How do I build? This section needs to be replaced.
-# 86-90                  -    Where is the project that you run? How do you run it?
-#     84, 89                 -    takes same parameter as C project
 ---
 
 # Quickstart: Connect a sample IoT Plug and Play Preview device application to IoT Hub (C#)
