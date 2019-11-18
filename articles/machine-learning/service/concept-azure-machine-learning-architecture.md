@@ -63,7 +63,7 @@ Use these tools for Azure Machine Learning:
 + <a href="#github-tracking-and-integration">Git tracking</a>
 + <a href="#iot-module-endpoints">IoT modules</a>
 + <a href="#logging">Logging</a>
-+ <a href="#ml-pipelines">ML pipelines</a>
++ <a href="#machine-learning-pipelines">Machine Learning pipelines</a>
 + <a href="#models">Models</a>
 + <a href="#runs">Run</a>
 + <a href="#run-configurations">Run Configuration</a>
