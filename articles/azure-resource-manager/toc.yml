@@ -182,7 +182,7 @@
     - name: Moving across regions
       href: resource-group-move-region.md
     - name: Support for moving across regions
-      href: move-support-region.md
+      href: region-move-support.md
     - name: Moving services across regions
       items:
       - name: Azure VMs
