@@ -1,12 +1,8 @@
 ---
-title: Tag Azure resources for logical organization | Microsoft Docs
+title: Tag resources for logical organization
 description: Shows how to apply tags to organize Azure resources for billing and managing.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.author: tomfitz
-
 ---
 # Use tags to organize your Azure resources
 

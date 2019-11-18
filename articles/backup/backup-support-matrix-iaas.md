@@ -61,6 +61,8 @@ Back up with Azure VM agent extension | - Windows 10 Client (only 64 bit) <br/><
 Back up with MARS agent | [Supported](backup-support-matrix-mars-agent.md#support-for-direct-backups) operating systems.
 Back up with DPM/MABS | Supported operating systems for backup with [MABS](backup-mabs-protection-matrix.md) and [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807).
 
+Azure Backup doesn't support 32-bit operating systems.
+
 ## Support for Linux backup
 
 Here's what's supported if you want to back up Linux machines.
