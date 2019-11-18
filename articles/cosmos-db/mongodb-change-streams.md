@@ -13,7 +13,7 @@ ms.author: srchi
 
 [Change feed](change-feed.md) support in Azure Cosmos DB’s API for MongoDB is available by using the change streams API. By using the change streams API, your applications can get the changes made to the collection or to the items in a single shard. Later you can take further actions based on the results. Changes to the items in the collection are captured in the order of their modification time and the sort order is guaranteed per shard key.
 
-The following example shows how to get change streams on all the items in the collection. This example creates a cursor to watch items when they are inserted, updated, or replaced. The match and project operation type are required to get the change streams. Watching for delete operations using change streams is currently not supported. As a workaround, you can add a soft marker on the items that are being deleted. For example, you can add an attribute in the item called "deleted" and set it to "true" and set a TTL on the item, so that you can automatically delete it as well as track it.
+The following example shows how to get change streams on all the items in the collection. This example creates a cursor to watch items when they are inserted, updated, or replaced. The $match stage, $project stage, and fullDocument option are required to get the change streams. Watching for delete operations using change streams is currently not supported. As a workaround, you can add a soft marker on the items that are being deleted. For example, you can add an attribute in the item called "deleted" and set it to "true" and set a TTL on the item, so that you can automatically delete it as well as track it.
 
 ```javascript
 var cursor = db.coll.watch(
@@ -49,14 +49,6 @@ var cursor = db.coll.watch(
 
 ```
 
-## Error handling
-
-The following error codes and messages are supported when using change streams:
-
-* **HTTP error code 429** - When the change stream is throttled, it returns an empty page.
-
-* **OperationType Invalidate** - Because the `operationType` property is not projected in the output document. If you run change stream on the collection that does not exist or if the collection is dropped, then a `NamespaceNotFound` error is returned.
-
 ## Current limitations
 
 The following limitations are applicable when using change streams:
@@ -65,6 +57,14 @@ The following limitations are applicable when using change streams:
 * The `insert`, `update`, and `replace` operations types are currently supported. Delete operation or other events are not yet supported.
 
 Due to these limitations, the $match stage, $project stage, and fullDocument options are required as shown in the previous examples.
+
+## Error handling
+
+The following error codes and messages are supported when using change streams:
+
+* **HTTP error code 429** - When the change stream is throttled, it returns an empty page.
+
+* **NamespaceNotFound (OperationType Invalidate)** - If you run change stream on the collection that does not exist or if the collection is dropped, then a `NamespaceNotFound` error is returned. Because the `operationType` property can't be returned in the output document, instead of the `operationType Invalidate` error, the `NamespaceNotFound` error is returned.
 
 ## Next steps
 
