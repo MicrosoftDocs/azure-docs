@@ -177,13 +177,13 @@
       displayName: DevOps
   - name: Export template
     href: export-template-portal.md
-  - name: Move resources across regions
+  - name: Move across regions
     items:
-    - name: Moving across regions
+    - name: Move resources across regions
       href: resource-group-move-region.md
     - name: Support for moving across regions
       href: region-move-support.md
-    - name: Moving services across regions
+    - name: Move services across regions
       items:
       - name: Azure VMs
         href: ../site-recovery/azure-to-azure-tutorial-migrate.md?toc=/azure/azure-resource-manager/toc.json
