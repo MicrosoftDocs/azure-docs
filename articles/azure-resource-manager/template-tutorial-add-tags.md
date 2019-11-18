@@ -1,11 +1,7 @@
 ---
-title: Tutorial - add tags to resources in an Azure Resource Manager template
+title: Tutorial - add tags to resources in template
 description: Add tags to resources that you deploy in your Azure Resource Manager template. Tags let you logically organize resources.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao

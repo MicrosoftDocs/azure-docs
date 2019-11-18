@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 11/04/2019
+ms.date: 11/15/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: aparnag
@@ -14,7 +14,7 @@ ms.custom: secdec18
 
 # Get started with Azure Cost Management for partners
 
-Azure Cost Management is natively available for partners who have onboarded their customers to a Microsoft Customer Agreement and have purchased an Azure Plan. This article explains how partners use [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/) features. It also describes how partners enable Cost Management access for their customers. Customers can use Cost Management features when enabled by their CSP partner.
+Azure Cost Management is natively available for partners who have onboarded their customers to a Microsoft Customer Agreement and have [purchased an Azure Plan](/partner-center/purchase-azure-plan). This article explains how partners use [Azure Cost Management](index.yml) features to view costs for subscriptions in the Azure Plan. It also describes how partners enable Cost Management access for their customers. Customers can use Cost Management features when enabled by their CSP partner.
 
 CSP partners use Cost Management to:
 
