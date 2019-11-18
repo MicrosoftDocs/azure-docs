@@ -960,6 +960,8 @@
         href: sql-analytics/get-started-ssms.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Query with Visual Studio
         href: sql-analytics/get-started-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Connect to Power BI Desktop
+        href: sql-analytics/get-started-power-bi-professional.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     # - name: Spark pool
     #   href: article-template.md
 - name: Reference
