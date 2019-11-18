@@ -1,11 +1,11 @@
 ---
 title: Azure Firewall log analytics samples
-description: Azure Firewall log analytics samples
+description: Azure Monitor logs can be used to analyze your Azure Firewall. A sample file is built in View Designer in Azure Monitor.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 11/19/2019
 ms.author: victorh
 ---
 
