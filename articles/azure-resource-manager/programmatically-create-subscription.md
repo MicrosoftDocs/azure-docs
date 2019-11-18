@@ -1,10 +1,7 @@
 ---
-title: Programmatically create Azure subscriptions| Microsoft Docs
+title: Programmatically create Azure subscriptions
 description: Learn how to create additional Azure subscriptions programmatically.
-services: azure-resource-manager
 author: amberb
-
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 04/10/2019
 ms.author: banders
