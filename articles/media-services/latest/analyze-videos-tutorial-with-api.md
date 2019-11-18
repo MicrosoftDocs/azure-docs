@@ -22,7 +22,7 @@ ms.custom: seodec18
 > [!NOTE]
 > Even though this tutorial uses the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) examples, the general steps are the same for [REST API](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest), or other supported [SDKs](media-services-apis-overview.md#sdks).
 
-This tutorial shows you how to analyze videos with Azure Media Services. There are many scenarios in which you might want to gain deep insights into recorded videos or audio content. For example, to achieve higher customer satisfaction, organizations can run speech-to-text processing to convert customer support recordings into a searchable catalog, with indexes and dashboards. Then, they can obtain insights into their business, like a list of common complaints, sources of such complaints, and other useful information.
+This tutorial shows you how to analyze videos with Azure Media Services. There are many scenarios in which you might want to gain deep insights into recorded videos or audio content. For example, to achieve higher customer satisfaction, organizations can run speech-to-text processing to convert customer support recordings into a searchable catalog, with indexes and dashboards. Then, they can obtain insights into their business. These insights include a list of common complaints, sources of such complaints, and other useful information.
 
 This tutorial shows you how to:
 
@@ -57,14 +57,14 @@ Open [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotne
 
 This section examines functions defined in the [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/Program.cs) file of the *AnalyzeVideos* project.
 
-The sample performs the following actions:
+The sample completes the following actions:
 
 1. Creates a **Transform** and a **Job** that analyzes your video.
 2. Creates an input **Asset** and uploads the video into it. The asset is used as the job's input.
-3. Creates an output asset that stores the job's output. 
+3. Creates an output asset that stores the job's output.
 4. Submits the job.
 5. Checks the job's status.
-6. Downloads the files that resulted from running the job. 
+6. Downloads the files that resulted from running the job.
 
 > [!NOTE]
 > When using a Video or Audio Analyzer presets, use the Azure portal to set your account to have 10 S3 Media Reserved Units. For more information, see [Scale media processing](media-reserved-units-cli-how-to.md).
@@ -77,11 +77,11 @@ To start using Media Services APIs with .NET, you need to create an **AzureMedia
 
 ### Create an input asset and upload a local file into it 
 
-The **CreateInputAsset** function creates a new input [Asset](https://docs.microsoft.com/rest/api/media/assets) and uploads the specified local video file into it. This Asset is used as the input to your encoding Job. In Media Services v3, the input to a Job can either be an Asset, or it can be content that you make available to your Media Services account via HTTPS URLs. To learn how to encode from a HTTPS URL, see [this](job-input-from-http-how-to.md) article.  
+The **CreateInputAsset** function creates a new input [Asset](https://docs.microsoft.com/rest/api/media/assets) and uploads the specified local video file into it. This Asset is used as the input to your encoding Job. In Media Services v3, the input to a Job can either be an Asset, or it can be content that you make available to your Media Services account via HTTPS URLs. To learn how to encode from an HTTPS URL, see [this](job-input-from-http-how-to.md) article.  
 
 In Media Services v3, you use Azure Storage APIs to upload files. The following .NET snippet shows how.
 
-The following function performs these actions:
+The following function completes these actions:
 
 * Creates an Asset.
 * Gets a writable [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) to the Asset’s [container in storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container).
@@ -101,9 +101,9 @@ When encoding or processing content in Media Services, it's a common pattern to 
 
 #### Transform
 
-When creating a new [Transform](https://docs.microsoft.com/rest/api/media/transforms) instance, you need to specify what you want it to produce as an output, **TransformOutput**  is a required parameter. Each **TransformOutput** contains a **Preset**. **Preset** describes step-by-step instructions of video and/or audio processing operations that are to be used to generate the desired **TransformOutput**. In this example, the **VideoAnalyzerPreset** preset is used and the language ("en-US") is passed to its constructor (`new VideoAnalyzerPreset("en-US")`). This preset enables you to extract multiple audio and video insights from a video. You can use the **AudioAnalyzerPreset** preset if you need to extract multiple audio insights from a video.
+When creating a new [Transform](https://docs.microsoft.com/rest/api/media/transforms) instance, you need to specify what you want it to produce as an output. **TransformOutput**  is a required parameter. Each **TransformOutput** contains a **Preset**. **Preset** describes step-by-step instructions of video and/or audio processing operations that are to be used to generate the desired **TransformOutput**. In this example, the **VideoAnalyzerPreset** preset is used and the language ("en-US") is passed to its constructor (`new VideoAnalyzerPreset("en-US")`). This preset enables you to extract multiple audio and video insights from a video. You can use the **AudioAnalyzerPreset** preset if you need to extract multiple audio insights from a video.
 
-When creating a **Transform**, you should first check if one already exists using the **Get** method, as shown in the code that follows.  In Media Services v3, **Get** methods on entities return **null** if the entity doesn’t exist (a case-insensitive check on the name).
+When creating a **Transform**, check first if one already exists using the **Get** method, as shown in the code that follows. In Media Services v3, **Get** methods on entities return **null** if the entity doesn’t exist (a case-insensitive check on the name).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#EnsureTransformExists)]
 
