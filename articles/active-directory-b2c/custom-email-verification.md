@@ -146,7 +146,9 @@ In this section you create SendGrid [dynamic transactional template](https://sen
 
 ## Add Azure AD B2C claim types
 
-The following claims types are necessary to generate and verify the email address using a one-time password (OTP) code. In your policy, add the following claim types:
+The following claims types are necessary to generate and verify the email address using a one-time password (OTP) code.
+
+In your policy, add the following claim types:
 
 ```XML
 <ClaimType Id="Otp">
@@ -178,7 +180,7 @@ This example display widget is configured to:
 
 ![Send verification code email action](media/custom-email-verification/display-widget-verification-email-action-01.png)
 
-Under the [ClaimsSchema](https://docs.microsoft.com/en-us/azure/active-directory-b2c/claimsschema), add following [DisplayWidget](display-widgets) type of [VerificationWidget](display-widget-verification) to your policy.
+Under the [ClaimsSchema](https://docs.microsoft.com/en-us/azure/active-directory-b2c/claimsschema), add following [DisplayWidget](display-widgets.md) type of [VerificationWidget](display-widget-verification.md) to your policy.
 
 ```XML
 <DisplayWidgets>
@@ -285,9 +287,7 @@ This REST API technical profile generates the email content (using the SendGrid 
 
 ## Add the claims transformation
 
-Add following claims transformation. The following claims transformation outputs a JSON string claim that will be the body of the request sent to SendGrid.
-The JSON object's structure is defined by the IDs, in dot notation of the InputParameters and the TransformationClaimTypes of the InputClaims.
-Numbers in the dot notation imply arrays. The values come from the InputClaims' values and the InputParameters' "Value" properties.
+Add the following claims transformation to output a JSON string claim that will be the body of the request sent to SendGrid. The JSON object's structure is defined by the IDs in dot notation of the InputParameters and the TransformationClaimTypes of the InputClaims. Numbers in the dot notation imply arrays. The values come from the InputClaims' values and the InputParameters' "Value" properties.
 
 ```XML
 <ClaimsTransformation Id="GenerateSendGridRequestBody" TransformationMethod="GenerateJson">
@@ -309,7 +309,9 @@ Numbers in the dot notation imply arrays. The values come from the InputClaims' 
 
 ## Make a reference to the DisplayWidget
 
-In the final step, is to add a reference to the DisplayWidget you create. Replace your exiting `LocalAccountSignUpWithLogonEmail` self-asserted technical profile with following one. If you use earlier version of Azure AD B2C policy. This technical profile use `DisplayClaims` with a reference to the DisplayWidget. For more information, see [Self-asserted technical profile](restful-technical-profile) and [DisplayWidget](display-widgets)
+In the final step, add a reference to the DisplayWidget you created. Replace your existing `LocalAccountSignUpWithLogonEmail` self-asserted technical profile with the following if you used an earlier version of Azure AD B2C policy. This technical profile uses `DisplayClaims` with a reference to the DisplayWidget.
+
+For more information, see [Self-asserted technical profile](restful-technical-profile.md) and [DisplayWidget](display-widgets.md).
 
 ```XML
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
