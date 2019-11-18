@@ -752,7 +752,7 @@ The following steps describe the required configuration and code. These steps as
 
     The *commands.cli* file is a [Wildfly CLI](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface) script that is launched by the startup script. The commands in this file configure JMS and JNDI, making use of the *jndi.properties* file. These commands create a connection between your app and your Service Bus Queue or Topic.
 
-5. Use FTP to upload the .jar files, the module XML file, and the startup script to your App Service instance. Put *startup.sh* in your */home* directory and put the other files in the */home/site/deployments/tools* directory. For more info on FTP, see [Deploy your app to Azure App Service using FTP/S](https://docs.microsoft.com/azure/app-service/deploy-ftp).
+5. Use FTP to upload the .jar files, the *module.xml* file, and the *startup.sh* file to your App Service instance. Put *startup.sh* in your */home* directory and put the other files in the */home/site/deployments/tools* directory. Be sure to upload every .jar file listed in the *module.xml* file to achieve transitive closure of dependencies. For more info on FTP, see [Deploy your app to Azure App Service using FTP/S](https://docs.microsoft.com/azure/app-service/deploy-ftp).
 
 6. Update your MessageListener implementation to add the following `import` statements:
 
@@ -774,7 +774,7 @@ The following steps describe the required configuration and code. These steps as
     ```java
     @TransactionManagement(TransactionManagementType.BEAN)
     @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
-    @MessageDriven(name = "HelloWorldQTopicMDB", activationConfig = {
+    @MessageDriven(name = "MyQueueListener", activationConfig = {
             @ActivationConfigProperty(propertyName = "connectionFactory", propertyValue = "${property.connection.factory}"),
             @ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "${property.helloworldmdb.queue}"),
             @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue"),
@@ -805,7 +805,7 @@ The following steps describe the required configuration and code. These steps as
     ```java
     @TransactionManagement(TransactionManagementType.BEAN)
     @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
-    @MessageDriven(name = "HelloWorldQTopicMDB", activationConfig = {
+    @MessageDriven(name = "MyTopicListener", activationConfig = {
             @ActivationConfigProperty(propertyName = "connectionFactory", propertyValue = "${property.connection.factory}"),
             @ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "${property.helloworldmdb.topic}"),
             @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Topic"),
@@ -917,6 +917,8 @@ The following steps describe the required configuration and code. These steps as
     ```
 
 Your message-driven bean is now configured to use Service Bus as the messaging mechanism.
+
+The next time your App Service restarts, it will run the startup script and perform the necessary configuration steps. To test that this configuration occurs correctly, you can access your App Service using SSH and then run the startup script yourself from the Bash prompt. You can also examine the App Service logs. For more info about these options, see [Logging and debugging apps](#logging-and-debugging-apps).
 
 For a sample that you can use to test these instructions, see the [migrate-java-ee-app-to-azure-2](https://github.com/Azure-Samples/migrate-java-ee-app-to-azure-2) repo on GitHub, and look for the `helloworld-mdb-propertysubstitution` sample.
 
