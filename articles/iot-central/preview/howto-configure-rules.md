@@ -16,17 +16,17 @@ manager: philmea
 
 *This article applies to operators, builders, and administrators.*
 
-Rules in IoT Central serve as customizable response tools that trigger on actively monitored events from connected devices. Use rules in IoT Central to remotely monitor your connected devices. The following sections describe how rules are evaluated.
+Rules in IoT Central serve as a customizable response tool that trigger on actively monitored events from connected devices. The following sections describe how rules are evaluated.
 
 ## Select target devices
 
-Use the target devices section to filter down the set devices on which the rule acts. In the following screenshot, the filter only includes devices where the **Manufactured State** property equals **Washington**. A filter is a prerequisite for a rule to start evaluating, filters in themselves don't trigger an action.
+Use the target devices section to select on what kind of devices this rule will be applied. Filters allow you to further refine what devices should be included. The filters use properties on the device template to filter down the set of devices. Filters themselves don't trigger an action. In the following screenshot, the devices that are being targeted are of device template type **Refrigerator**. The filter states that the rule should only include **Refrigerators** where the **Manufactured State** property equals **Washington**.
 
 ![Conditions](media/howto-configure-rules/filters.png)
 
 ## Use multiple conditions
 
-Conditions are what rules trigger on. Currently, when you add multiple conditions to a rule, they are logically AND'd together. All conditions must be met for the rule to evaluate as true.  
+Conditions are what rules trigger on. Currently, when you add multiple conditions to a rule, they're logically AND'd together. In other words, all conditions must be met for the rule to evaluate as true.  
 
 In the following screenshot, the conditions check when the temperature is greater than 90 and the humidity is less than 10. When both of these statements are true, the rule evaluates to true and triggers an action.
 
@@ -34,13 +34,13 @@ In the following screenshot, the conditions check when the temperature is greate
 
 ## Use aggregate windowing
 
-Rules evaluate aggregating time windows as tumbling windows. In the following example, the time window is five minutes. Every five minutes, the rule evaluates on the last five minutes of data. The data is only evaluated once in the window to which it corresponds.
+Rules evaluate aggregate time windows as tumbling windows. In the screenshot below, the time window is five minutes. Every five minutes, the rule evaluates on the last five minutes of data. The data is only evaluated once in the window to which it corresponds.
 
 ![Tumbling Windows](media/howto-configure-rules/tumbling-window.png)
 
 ## Use rules with IoT Edge modules
 
-A restriction applies to rules that are applied to IoT Edge modules. Rules on telemetry from different modules are not evaluated as valid rules. For example, if the first condition of the rule is on a temperature telemetry from Module A and the second condition of the rule is on a humidity telemetry on Module B, you have an invalid set of conditions. The rule isn't valid and throws an error on trying to save the rule.
+A restriction applies to rules that are applied to IoT Edge modules. Rules on telemetry from different modules aren't evaluated as valid rules. Take the following as an example. The first condition of the rule is on a temperature telemetry from Module A. The second condition of the rule is on a humidity telemetry on Module B. Since the two conditions are from different modules, this is an invalid set of conditions. The rule isn't valid and will throw an error on trying to save the rule.
 
 ## Next steps
 
