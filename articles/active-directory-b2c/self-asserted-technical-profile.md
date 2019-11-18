@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 11/22/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -34,7 +34,7 @@ The following example shows a self-asserted technical profile for email sign-up:
 
 ## Input claims
 
-In a self-asserted technical profile, you can use the **InputClaims** and **InputClaimsTransformations** elements to prepopulate the value of the claims that appear on the self-asserted page (output claims). For example, in the edit profile policy, the user journey first reads the user profile from the Azure AD B2C directory service, then the self-asserted technical profile sets the input claims with the user data stored in the user profile. These claims are collected from the user profile and then presented to the user who can then edit the existing data.
+In a self-asserted technical profile, you can use the **InputClaims** and **InputClaimsTransformations** elements to prepopulate the value of the claims that appear on the self-asserted page (display claims). For example, in the edit profile policy, the user journey first reads the user profile from the Azure AD B2C directory service, then the self-asserted technical profile sets the input claims with the user data stored in the user profile. These claims are collected from the user profile and then presented to the user who can then edit the existing data.
 
 ```XML
 <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
@@ -47,31 +47,32 @@ In a self-asserted technical profile, you can use the **InputClaims** and **Inpu
   </InputClaims>
 ```
 
+## Display claims
+
+The **DisplayClaims** element contains a list of claims to be presented to collect data from the user. To prepopulate the output claims with some values, use the input claims that were previously described. The element may also contain a default value. The order of the claims in **DisplayClaims** controls the order that Azure AD B2C renders the claims on the screen. To force the user to provide a value for a specific output claim, set the **Required** attribute of the **DisplayClaims** element to `true`.
+
+The **ClaimType** element in the **DisplayClaims** collection needs to set the **UserInputType** element to any user input type supported by Azure AD B2C, such as `TextBox` or `DropdownSingleSelect`.
 
 ## Output claims
 
-The **OutputClaims** element contains a list of claims to be presented to collect data from the user. To prepopulate the output claims with some values, use the input claims that were previously described. The element may also contain a default value. The order of the claims in **OutputClaims** controls the order that Azure AD B2C renders the claims on the screen. The **DefaultValue** attribute takes effect only if the claim has never been set before. But, if it has been set before in a previous orchestration step, even if the user leaves the value empty, the default value does not take effect. To force the use of a default value, set the **AlwaysUseDefaultValue** attribute to `true`. To force the user to provide a value for a specific output claim, set the **Required** attribute of the **OutputClaims** element to `true`.
+The **OutputClaims** element contains a list of claims to be return to the next orchestration step. The **DefaultValue** attribute takes effect only if the claim has never been set before. But, if it has been set before in a previous orchestration step, even if the user leaves the value empty, the default value does not take effect. To force the use of a default value, set the **AlwaysUseDefaultValue** attribute to `true`.
 
-The **ClaimType** element in the **OutputClaims** collection needs to set the **UserInputType** element to any user input type supported by Azure AD B2C, such as `TextBox` or `DropdownSingleSelect`. Or the **OutputClaim** element must set a **DefaultValue**.
+> [!NOTE]
+> In previous versions of the Identity Experience Framework (IEF), output claims were used to collect data from the user. To collect data from the user, use a **DisplayClaims** collection instead.
+
 
 The **OutputClaimsTransformations** element may contain a collection of **OutputClaimsTransformation** elements that are used to modify the output claims or generate new ones.
 
-The following output claim is always set to `live.com`:
+### When you should use output claims
 
-```XML
-<OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="live.com" AlwaysUseDefaultValue="true" />
-```
+In a self-asserted technical profile, the output claims collection return the claims to the next orchestration step. There are four scenarios for output claims:
 
-### Use case
-
-There are four scenarios for output claims:
-
-- **Collecting the output claims from the user** - When you need to collect information from the user, such as date of birth, you should add the claim to the **OutputClaims** collection. The claims that are presented to the user must specify the **UserInputType**, such as `TextBox` or `DropdownSingleSelect`. If the self-asserted technical profile contains a validation technical profile that outputs the same claim, Azure AD B2C does not present the claim to the user. If there is no any output claim to present to the user, Azure AD B2C skips the technical profile.
+- **Output the claims via output claims transformation**
 - **Setting a default value in an output claim** - Without collecting data from the user or returning the data from the validation technical profile. The `LocalAccountSignUpWithLogonEmail` self-asserted technical profile sets the **executed-SelfAsserted-Input** claim to `true`.
 - **A validation technical profile returns the output claims** - Your technical profile may call a validation technical profile that returns some claims. You may want to bubble up the claims and return them to the next orchestration steps in the user journey. For example, when signing in with a local account, the self-asserted technical profile named `SelfAsserted-LocalAccountSignin-Email` calls the validation technical profile named `login-NonInteractive`. This technical profile validates the user credentials and also returns the user profile. Such as 'userPrincipalName', 'displayName', 'givenName' and 'surName'.
-- **Output the claims via output claims transformation**
+- **A display widget returns the output claims** - Your technical profile may have a reference to a [display widget](display-widgets.md). The display widget returns some claims, such as the verified email address. You may want to bubble up the claims and return them to the next orchestration steps in the user journey. 
 
-In the following example, the `LocalAccountSignUpWithLogonEmail` self-asserted technical profile demonstrates the use of output claims and sets **executed-SelfAsserted-Input** to `true`. The `objectId`, `authenticationSource`, `newUser` claims are output of the `AAD-UserWriteUsingLogonEmail` validation technical profile and are not shown to the user.
+The following example demonstrates the use of a self-asserted technical profile.
 
 ```XML
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
@@ -82,32 +83,30 @@ In the following example, the `LocalAccountSignUpWithLogonEmail` self-asserted t
     <Item Key="ContentDefinitionReferenceId">api.localaccountsignup</Item>
     <Item Key="language.button_continue">Create</Item>
   </Metadata>
-  <CryptographicKeys>
-    <Key Id="issuer_secret" StorageReferenceId="B2C_1A_TokenSigningKeyContainer" />
-  </CryptographicKeys>
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" />
   </InputClaims>
+  <DisplayClaims>
+    <DisplayClaim DisplayWidgetReferenceId="emailVerificationWidget" />
+    <DisplayClaim DisplayWidgetReferenceId="SecondaryEmailVerificationWidget" />
+    <DisplayClaim ClaimTypeReferenceId="displayName" Required="true" />
+    <DisplayClaim ClaimTypeReferenceId="givenName" Required="true" />
+    <DisplayClaim ClaimTypeReferenceId="surName" Required="true" />
+    <DisplayClaim ClaimTypeReferenceId="newPassword" Required="true" />
+    <DisplayClaim ClaimTypeReferenceId="reenterPassword" Required="true" />
+  </DisplayClaims>
   <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="email" Required="true" />
     <OutputClaim ClaimTypeReferenceId="objectId" />
-    <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
-    <OutputClaim ClaimTypeReferenceId="newPassword" Required="true" />
-    <OutputClaim ClaimTypeReferenceId="reenterPassword" Required="true" />
     <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
     <OutputClaim ClaimTypeReferenceId="authenticationSource" />
     <OutputClaim ClaimTypeReferenceId="newUser" />
-
-    <!-- Optional claims, to be collected from the user -->
-    <OutputClaim ClaimTypeReferenceId="displayName" />
-    <OutputClaim ClaimTypeReferenceId="givenName" />
-    <OutputClaim ClaimTypeReferenceId="surName" />
   </OutputClaims>
   <ValidationTechnicalProfiles>
     <ValidationTechnicalProfile ReferenceId="AAD-UserWriteUsingLogonEmail" />
   </ValidationTechnicalProfiles>
   <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
 </TechnicalProfile>
-
 ```
 
 ## Persist claims

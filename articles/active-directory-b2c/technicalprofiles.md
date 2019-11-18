@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 11/22/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -89,6 +89,7 @@ The **TechnicalProfile** contains the following elements:
 | InputClaimsTransformations | 0:1 | A list of previously defined references to claims transformations that should be executed before any claims are sent to the claims provider or the relying party. |
 | InputClaims | 0:1 | A list of the previously defined references to claim types that are taken as input in the technical profile. |
 | PersistedClaims | 0:1 | A list of the previously defined references to claim types that are persisted by the claims provider that relates to the technical profile. |
+| DisplayClaims | 0:1 | A list of the previously defined references to claim types that are presented by the claims provider that relates to the [self-asserted technical profile](self-asserted-technical-profile.md). |
 | OutputClaims | 0:1 | A list of the previously defined references to claim types that are taken as output in the technical profile. |
 | OutputClaimsTransformations | 0:1 | A list of previously defined references to claims transformations that should be executed after the claims are received from the claims provider. |
 | ValidationTechnicalProfiles | 0:n | A list of references to other technical profiles that the technical profile uses for validation purposes. For more information, see [validation technical profile](validation-technical-profile.md)|
@@ -173,6 +174,26 @@ The **InputClaim** element contains the following attributes:
 | ClaimTypeReferenceId | Yes | The identifier of a claim type already defined in the ClaimsSchema section in the policy file or parent policy file. |
 | DefaultValue | No | A default value to use to create a claim if the claim indicated by ClaimTypeReferenceId does not exist so that the resulting claim can be used as an InputClaim by the technical profile. |
 | PartnerClaimType | No | The identifier of the claim type of the external partner that the specified policy claim type maps to. If the PartnerClaimType attribute is not specified, then the specified policy claim type is mapped to the partner claim type of the same name. Use this property when your claim type name is different from the other party. For example, the first claim name is 'givenName', while the partner uses a claim named 'first_name'. |
+
+### DisplayClaims
+
+The **DisplayClaims** element contains the following element:
+
+| Element | Occurrences | Description |
+| ------- | ----------- | ----------- |
+| DisplayClaim | 1:n | An expected input claim type. |
+
+#### DisplayClaim
+
+The **DisplayClaim** element contains the following attributes:
+
+| Attribute | Required | Description |
+| --------- | -------- | ----------- |
+| ClaimTypeReferenceId | No | The identifier of a claim type already defined in the ClaimsSchema section in the policy file or parent policy file. |
+| DisplayWidgetReferenceId | No | The identifier of a [display widget](display-widgets.md) already defined in the ClaimsSchema section in the policy file or parent policy file. |
+| Required | No | Indicates whether the display claim is required. |
+
+The **DisplayClaim** requires that you specify either a `ClaimTypeReferenceId` or `DisplayWidgetReferenceId`.
 
 ### PersistedClaims
 
