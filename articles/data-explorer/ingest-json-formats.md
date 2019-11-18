@@ -46,7 +46,9 @@ The following example is a simple json, with a flat structure. The data has temp
 }
 ```
 
-We'll start by ingesting json records as raw data to a single column table. Later we'll use the mapping to ingest each property to its mapped column.
+We'll start by ingesting json records as raw data to a single column table. Later we'll use the mapping to ingest each property to its mapped column. 
+
+\\For KQL This article shows the control commands executed directly to the engine endpoint. In production scenarios,ingestion is executed to the Data Management service using the \\[Kusto Client Library](../api/netfx/about-kusto-data.md) NuGet package.\\
 
 ## Ingest json raw records 
 
@@ -78,11 +80,7 @@ In this example the data manipulation, using queries and update policy, is done 
 
     \\TODO: Remove the following note + ingest command, replace it with code sample (C# + Python + KQL with comment) - all places.\\ 
 
-    > [!NOTE]
-    > Ingestion is via DM and has ~5 minutes latency
 
-    > [!NOTE]
-    > This article shows the control commands executed directly to the engine endpoint. In production scenarios, ingestion is executed to the Data Management service using the \\[Kusto Client Library](../api/netfx/about-kusto-data.md) NuGet package.\\
 
     ```Kusto
     .ingest into table RawEvents h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=json, jsonMappingReference=RawEventMapping)
@@ -190,7 +188,6 @@ Ingestion of a json array is usually done by an [update policy](/azure/kusto/man
     Events
     ```
 
-
 ## Ingest json records containing dictionaries
 
 Referring key value pairs in a json record can be done by ingestion mapping. You can ingest data with the following structure:
@@ -231,8 +228,7 @@ Referring key value pairs in a json record can be done by ingestion mapping. You
 
     In this mapping, the `timestamp` entries will be ingested to the column `Time`, and will be ingested as `datetime` data type, as defined by the table schema.
 
-    Ingestion mapping is referring a key-value pair by the key. The json path in the mapping has a conditional statement.
-    
+    Ingestion mapping is referring a key-value pair by the key. The json path in the mapping has a conditional statement.  
 
 1. Add the update policy to the target table. This policy will automatically run the query on any newly ingested data in the *RawEvents* intermediate table and ingest its results into the Events table. We will defined a zero retention policy to avoid persisting the intermediate table.
 
