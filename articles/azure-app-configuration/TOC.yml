@@ -36,7 +36,9 @@
     - name: Enable dynamic configuration in a .NET Core app
       href: enable-dynamic-configuration-dotnet-core.md
     - name: Enable dynamic configuration in .NET Framework
-      href: enable-dynamic-configuration-dotnet.md      
+      href: enable-dynamic-configuration-dotnet.md
+    - name: Enable dynamic configuration in Azure Function
+      href: enable-dynamic-configuration-azure-function-csharp.md
     - name: Use feature flags in a .NET Core app
       href: use-feature-flags-dotnet-core.md
     - name: Use feature flags in a Spring Boot app
