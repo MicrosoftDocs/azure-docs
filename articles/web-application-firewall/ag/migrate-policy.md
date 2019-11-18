@@ -11,18 +11,18 @@ ms.author: ant
 
 # Migrate Web Application Firewall policies using Azure PowerShell
 
-This script makes it easy to transition from a WAF config or a custom rules-only WAF policy to a full WAF policy. You may see a warning in the portal that says "migrate to WAF policy," or you may want the new public preview WAF features such as Geomatch custom rules, per-site and per-URI WAF policy, or the bot mitigation ruleset. To use any of these features, you need a full WAF policy associated to your application gateway. 
+This script makes it easy to transition from a WAF config or a custom rules-only WAF policy to a full WAF policy. You may see a warning in the portal that says *migrate to WAF policy*, or you may want the new public preview WAF features such as Geomatch custom rules, per-site and per-URI WAF policy, or the bot mitigation ruleset. To use any of these features, you need a full WAF policy associated to your application gateway. 
 
-Please see [How-to create a WAF policy](create-waf-policy-ag) for more information on creating a WAF policy from scratch, and for information on [migrating to a WAF policy](create-waf-policy-ag#migrate-to-waf-policy). 
+For more information about creating a new WAF policy, see [How-to create a WAF policy](create-waf-policy-ag). For information about migrating, see [migrating to a WAF policy](create-waf-policy-ag#migrate-to-waf-policy).
 
-## How to migrate to WAF policy using the migration script
+## To migrate to WAF policy using the migration script
 
-Using the following script is simple. 
+Use the following steps to run the migration script: 
 
-1. Open a cloudshell window below, or from within the portal 
-2. Copy the script into the cloudshell window and run it
-3. The script will ask for Subscription ID, Resource Group name, the name of the Application Gateway that the WAF config is associated to, and the name of the new WAF policy that is being created. Once you enter these inputs, the script will run and create your new WAF policy
-4. Associate the new WAF policy with your application gateway by going to the WAF policy in the portal and selecting the "Associated Application Gateways" tab. Click "Associate an Application Gateway" and then select the Application Gateway to associate the WAF policy too.
+1. Open the following  cloud shell window, or open one from within the portal.
+2. Copy the script into the cloud shell window and run it.
+3. The script asks for Subscription ID, Resource Group name, the name of the Application Gateway that the WAF config is associated with, and the name of the new WAF policy that to create. Once you enter these inputs, the script  runs and creates your new WAF policy
+4. Associate the new WAF policy with your application gateway. Go to the WAF policy in the portal and select the **Associated Application Gateways** tab. Select **Associate an Application Gateway** and then select the Application Gateway to associate the WAF policy to.
 
 ```azurepowershell-interactive
 <#PSScriptInfo
