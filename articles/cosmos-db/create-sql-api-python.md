@@ -30,7 +30,7 @@ This quickstart uses version 4 of the [Python SDK](https://pypi.org/project/azur
 
 ## Prerequisites
 
-* [Python 3.6](https://www.python.org/downloads/), with the `python` executable available in your `PATH`.
+* [Python 3.6+](https://www.python.org/downloads/), with the `python` executable available in your `PATH`.
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Python extention for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview)
 
@@ -145,7 +145,7 @@ The following snippets are all taken from the `cosmos_get_started.py` file.
 5. Run the following command to install the azure-cosmos package. 
 
     ```python
-    pip3 install azure-cosmos==4.0.0b5
+    pip install --pre azure-cosmos
     ```
 
     If you get an error about access being denied when attempting to install azure-cosmos, you'll need to [run VS Code as an administrator](https://stackoverflow.com/questions/37700536/visual-studio-code-terminal-how-to-run-a-command-with-administrator-rights).

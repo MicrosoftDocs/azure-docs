@@ -75,6 +75,8 @@
       href: key-vault-access.md
     - name: Deploy with Managed Identity
       href: publish-managed-identity.md
+    - name: Deploy with Notifications
+      href: publish-notifications.md    
   - name: Consumers
     items:
     - name: Monitor managed application
@@ -124,6 +126,8 @@
         href: microsoft-common-passwordbox.md
       - name: Section
         href: microsoft-common-section.md
+      - name: TagsByResource
+        href: microsoft-common-tagsbyresource.md
       - name: TextBlock
         href: microsoft-common-textblock.md
       - name: TextBox

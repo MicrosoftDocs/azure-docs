@@ -11,7 +11,7 @@ ms.custom: include file
 
 ---
 
-# Platform-supported migration of IaaS resources from classic to Azure Resource Manager
+
 This article describes how to migrate infrastructure as a service (IaaS) resources from the Classic to Resource Manager deployment models and details how to connect resources from the two deployment models that coexist in your subscription by using virtual network site-to-site gateways. You can read more about [Azure Resource Manager features and benefits](../articles/azure-resource-manager/resource-group-overview.md). 
 
 ## Goal for migration

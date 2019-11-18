@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database servers 
+title: Servers
 description: Learn about Azure SQL Database servers and their management.
 services: sql-database
 ms.service: sql-database

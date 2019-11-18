@@ -42,7 +42,5 @@ If your build fails, it could be because you've implemented some of the SDK inte
 
 Once you've fixed any build errors, you can make changes to your application to take advantage of new functionality if you wish. New features in the SDK are detailed in [What's new in version 2](#WhatsNew).
 
-## Conclusion
-We welcome your feedback on the SDK. If you encounter problems, feel free to ask us for help on the [Azure Search MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch). If you find a bug, you can file an issue in the [Azure .NET SDK GitHub repository](https://github.com/Azure/azure-sdk-for-net/issues). Make sure to prefix your issue title with "[Azure Search]".
-
-Thank you for using Azure Search!
+## Next steps
+We welcome your feedback on the SDK. If you encounter problems, please post your questions to [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cognitive-search?tab=Newest). If you find a bug, you can file an issue in the [Azure .NET SDK GitHub repository](https://github.com/Azure/azure-sdk-for-net/issues). Make sure to label your issue title with "[search]".

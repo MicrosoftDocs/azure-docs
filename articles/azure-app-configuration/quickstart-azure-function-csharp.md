@@ -28,7 +28,7 @@ In this quickstart, you incorporate the Azure App Configuration service into an 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs) with the **Azure development** workload.
 - [Azure Functions tools](../azure-functions/functions-develop-vs.md#check-your-tools-version)
 
-## Create an app configuration store
+## Create an App Configuration store
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
@@ -44,22 +44,33 @@ In this quickstart, you incorporate the Azure App Configuration service into an 
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
-## Connect to an app configuration store
+## Connect to an App Configuration store
 
 1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search and add the following NuGet packages to your project. If you can't find them, select the **Include prerelease** check box.
 
     ```
-    Microsoft.Extensions.Configuration.AzureAppConfiguration 2.0.0-preview-009200001-1437 or later
+    Microsoft.Extensions.Configuration.AzureAppConfiguration 2.1.0-preview-010380001-1099 or later
     ```
 
-2. Open *Function1.cs*, and add a reference to the .NET Core general configuration provider and the .NET Core App Configuration provider.
+2. Open *Function1.cs*, and add the namespaces of the .NET Core configuration and the App Configuration configuration provider.
 
     ```csharp
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
+3. Add a `static` property `Configuration` to create a singleton instance of `IConfiguration`. Then add a `static` constructor to connect to App Configuration by calling `AddAzureAppConfiguration()`. This will load configuration once at the application startup. The same configuration instance will be used for all Function calls later.
 
-3. Update the `Run` method to use App Configuration by calling `builder.AddAzureAppConfiguration()`.
+    ```csharp
+    private static IConfiguration Configuration { set; get; }
+
+    static Function1()
+    {
+        var builder = new ConfigurationBuilder();
+        builder.AddAzureAppConfiguration(Environment.GetEnvironmentVariable("ConnectionString"));
+        Configuration = builder.Build();
+    }
+    ```
+4. Update the `Run` method to read values from the configuration.
 
     ```csharp
     public static async Task<IActionResult> Run(
@@ -67,25 +78,18 @@ In this quickstart, you incorporate the Azure App Configuration service into an 
     {
         log.LogInformation("C# HTTP trigger function processed a request.");
 
-        var builder = new ConfigurationBuilder();
-        builder.AddAzureAppConfiguration(Environment.GetEnvironmentVariable("ConnectionString"));
-        var config = builder.Build();
-        string message = config["TestApp:Settings:Message"];
-        message = message ?? req.Query["message"];
-
-        string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-        dynamic data = JsonConvert.DeserializeObject(requestBody);
-        message = message ?? data?.message;
-
+        string keyName = "TestApp:Settings:Message";
+        string message = Configuration[keyName];
+            
         return message != null
-            ? (ActionResult) new OkObjectResult(message)
-            : new BadRequestObjectResult("Please pass a message from a configuration store, on the query string or in the request body");
+            ? (ActionResult)new OkObjectResult(message)
+            : new BadRequestObjectResult($"Please create a key-value with the key '{keyName}' in App Configuration.");
     }
     ```
 
 ## Test the function locally
 
-1. Set an environment variable named **ConnectionString**, and set it to the access key to your app configuration store. If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
+1. Set an environment variable named **ConnectionString**, and set it to the access key to your App Configuration store. If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
@@ -113,7 +117,7 @@ In this quickstart, you incorporate the Azure App Configuration service into an 
 
 ## Next steps
 
-In this quickstart, you created a new app configuration store and used it with an Azure function. To learn more about how to use App Configuration, continue to the next tutorial that demonstrates authentication.
+In this quickstart, you created a new App Configuration store and used it with an Azure function. To learn more about how to use App Configuration, continue to the next tutorial that demonstrates authentication.
 
 > [!div class="nextstepaction"]
 > [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)

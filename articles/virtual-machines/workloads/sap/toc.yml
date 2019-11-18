@@ -166,6 +166,8 @@
         href: sap-high-availability-guide-wsfc-shared-disk.md
       - name: HA on Windows with SOFS File Share for (A)SCS Instance
         href: sap-high-availability-guide-wsfc-file-share.md
+      - name: HA for SAP NetWeaver on Windows with Azure NetApp Files (SMB)
+        href: high-availability-guide-windows-netapp-files-smb.md
       - name: HA on SUSE Linux for (A)SCS Instance
         href: high-availability-guide-suse.md
       - name: HA on SUSE Linux for (A)SCS Instance with Azure NetApp Files

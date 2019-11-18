@@ -88,7 +88,7 @@ Set-AzureVMCustomScriptExtension "CustomScriptExtension" -VM $vm -StorageAccount
 
 ### For V2 VMs
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ```powershell
 #Setup the basic variables

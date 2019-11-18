@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database managed instance T-SQL differences 
+title: Managed instance T-SQL differences
 description: This article discusses the T-SQL differences between a managed instance in Azure SQL Database and SQL Server
 services: sql-database
 ms.service: sql-database
@@ -561,16 +561,6 @@ Ongoing `RESTORE` statement, Data Migration Service migration process, and built
 Restore process will block these operations on the Managed instances and instance pools in the same subnet where restore process is running. The instances in instance pools are not affected. Create or change service tier operations will not fail or timeout - they will proceed once the restore process is completed or canceled.
 
 **Workaround**: Wait until the restore process finishes, or cancel the restore process if creation or update service-tier operation has higher priority.
-
-### Missing validations in restore process
-
-**Date:** Sep 2019
-
-`RESTORE` statement and built-in point-in time restore do not perform some nessecary checks on restored database:
-- **DBCC CHECKDB** - `RESTORE` statement don't perform `DBCC CHECKDB` on the restored database. If an original database is corrupted, or backup file is corrupted while it is copied to Azure blob Storage, automatic backups will not be taken and Azure support will contact the customer. 
-- Built-in Point-in-time restore process doesn't check does the automated backup from Business Critical instance contain the [In-memory OLTP objects](sql-database-in-memory.md#in-memory-oltp). 
-
-**Workaround**: Make sure that you are executing `DBCC CHECKDB` on the source database before taking a backup, and using `WITH CHECKSUM` option in backup to avoid potential corruptions that could be restored on Managed instance. Make sure that your source database doesn't contain [In-memory OLTP objects](sql-database-in-memory.md#in-memory-oltp) if you are restoring it on General Purpose tier.
 
 ### Resource Governor on Business Critical service tier might need to be reconfigured after failover
 

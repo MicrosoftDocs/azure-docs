@@ -1,5 +1,5 @@
 ---
-title: Use Azure's automated ML interface to train & deploy models
+title: Build & deploy automated ML models
 titleSuffix: Azure Machine Learning
 description: Create, manage, and deploy automated machine learning experiments in Azure Machine Learning studio.
 services: machine-learning
@@ -211,7 +211,7 @@ Automated ML helps you with deploying the model without writing code:
     >[!Important]
     > File names must be under 32 characters and must begin and end with alphanumerics. May include dashes, underscores, dots, and alphanumerics between. Spaces are not allowed.
 
-    The *Advanced* menu offers default deployment features such data collection and resource utilization settings. If you wish to override these defaults do so in this menu.
+    The *Advanced* menu offers default deployment features such as [data collection](how-to-enable-app-insights.md) and resource utilization settings. If you wish to override these defaults do so in this menu.
 
 1. Select **Deploy**. Deployment can take about 20 minutes to complete.
 
