@@ -615,6 +615,7 @@ Query results:
 |   |  avg(DurationMs) |
 |   | 768.333 |
 | | |
+
 ---
 
 ## Next steps
