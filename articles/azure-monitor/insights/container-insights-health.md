@@ -10,7 +10,7 @@ ms.assetid:
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 11/14/2019
+ms.date: 11/18/2019
 ms.author: magoedte
 ---
 
@@ -19,6 +19,12 @@ ms.author: magoedte
 With Azure Monitor for containers, it monitors and reports health status of the managed infrastructure components and all nodes running on any Kubernetes cluster supported by Azure Monitor for containers. This experience extends beyond the cluster health status calculated and reported on the [multi-cluster view](container-insights-analyze.md#multi-cluster-view-from-azure-monitor), where now you can understand if one or more nodes in the cluster are resource constrained, or a node or pod is unavailable that could impact a running application in the cluster based on curated metrics. 
 
 For information about how to enable Azure Monitor for containers, see [Onboard Azure Monitor for containers](container-insights-onboard.md).
+
+>[!NOTE]
+>To support AKS Engine clusters, verify it meets the following:
+>- It is using the latest version of the [HELM client](https://helm.sh/docs/using_helm/).
+>- The containerized agent version is *microsoft/oms:ciprod11012019*.
+>
 
 ## Overview
 
