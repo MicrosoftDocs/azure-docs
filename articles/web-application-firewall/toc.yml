@@ -63,7 +63,7 @@
        - name: Azure CLI
          href: ./ag/tutorial-restrict-web-traffic-cli.md
      - name: Migrate WAF policy
-       href: migrate-policy.md
+       href: ./ag/migrate-policy.md
      - name: Customize WAF rules
        items:
        - name: Azure portal
