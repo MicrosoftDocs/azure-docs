@@ -66,11 +66,9 @@ The following table lists the primary and secondary IPs of the Azure Database fo
 
 Azure Database for MySQL supports an additional connection policy, **redirection**, that helps to reduce network latency between client applications and MySQL servers. With this feature, after the initial TCP session is established to the Azure Database for MySQL server, the server returns the backend address of the node hosting the MySQL server to the client. Thereafter, all subsequent packets flow directly to the server, bypassing the gateway. As packets flow directly to the server, latency and throughput have improved performance.
 
-If the Azure Database for MySQL server performs a failover, the client driver will attempt to connect to the backend address of the server, determine that the address is no longer valid, and will reconnect to the gateway to obtain the new backend address.
+This feature is supported in Azure Database for MySQL servers with engine versions 5.6, 5.7, and 8.0.
 
-This feature is supported in Azure Database for MySQL servers with engine versions 5.6 and 5.7.
-
-Preview support for redirection is available in the [PHP mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) extension, developed by Microsoft. See the [configuring redirection](./howto-redirection.md) article for more information on how to use redirection in your applications. 
+Preview support for redirection is available in the [PHP mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) extension, developed by Microsoft, and is available on [PECL](https://pecl.php.net/package/mysqlnd_azure). See the [configuring redirection](./howto-redirection.md) article for more information on how to use redirection in your applications. 
 
 ## Next steps
 

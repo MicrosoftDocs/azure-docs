@@ -19,18 +19,18 @@ Redirection is currently only supported when SSL is enabled. For details on how 
 
 ## PHP
 
-> [!NOTE]
+> [!IMPORTANT]
 > Support for redirection in [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) is currently in preview.
-
-### Prerequisites 
-- PHP versions 7.2.15+ and 7.3.2+
-- PHP PEAR 
-- php-mysql
-- Azure Database for MySQL server (5.6 or 5.7) with SSL enabled
 
 ### Ubuntu Linux
 
-1. Install mysqlnd_azure with PECL
+#### Prerequisites 
+- PHP versions 7.2.15+ and 7.3.2+
+- PHP PEAR 
+- php-mysql
+- Azure Database for MySQL server with SSL enabled
+
+1. Install [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) with [PECL](https://pecl.php.net/package/mysqlnd_azure).
 
 ```bash
 sudo pecl install mysqlnd_azure
@@ -60,6 +60,39 @@ php -i | grep "dir for additional .ini files"
 extension=mysqlnd_azure
 mysqlnd_azure.enabled=on
 ```
+
+### Windows
+
+#### Prerequisites 
+- PHP versions 7.2.15+ and 7.3.2+
+- php-mysql
+- Azure Database for MySQL server with SSL enabled
+
+1. Download the [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) DLL from [PECL](https://pecl.php.net/package/mysqlnd_azure). The file is called `php_mysqlnd_azure.dll`.
+
+2. Locate the extension directory (`extension_dir`) by running the below:
+
+```cmd
+php -i | grep "extension_dir"
+```
+
+3. Copy the `php_mysqlnd_azure.dll` file into the directory from returned in step 2. 
+
+4. Locate the folder for .ini files by running the below: 
+
+```cmd
+php -i | grep "dir for additional .ini files"
+```
+
+5. Within the folder returned in step 4, modify the .ini file with the following extra lines to enable redirection. 
+
+```cmd
+extension=mysqlnd_azure
+[mysqlnd_azure]
+mysqlnd_azure.enabled=on
+```
+
+### Confirm redirection
 
 You can also confirm redirection is configured with the below sample PHP code. Create a PHP file called `mysqlConnect.php` and paste the below code. Update the server name, username, and password with your own. 
  
