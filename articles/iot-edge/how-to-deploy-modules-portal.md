@@ -41,7 +41,7 @@ The Azure portal has a wizard that walks you through creating the deployment man
 
    * **IoT Edge Module** - the default option.
    * **Marketplace Module** - only modules generated from the Azure Marketplace.
-   * **Azure Machine Learning Module** - only model images generated from an Azure Machine Learning workspace.
+   * **Azure Stream Analytics Module** - only modules generated from an Azure Stream Analytics workload.
 
 1. Select the **IoT Edge Module**.
 1. On the **Module Settings** tab, provide a name for the module, then specify the container image. For example:
