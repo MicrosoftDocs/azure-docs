@@ -1,5 +1,5 @@
 ---
-title: Tutorial -  Manage Linux virtual machine configuration in Azure | Microsoft Docs
+title: Tutorial -  Manage Linux virtual machine configuration in Azure 
 description: In this tutorial, you learn how to identify changes and manage package updates on a Linux virtual machine
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -8,7 +8,7 @@ manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
-ms.assetid: 
+ms.assetid:
 ms.service: virtual-machines-linux
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 
 ## Launch Azure Cloud Shell
 
-The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. 
+The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -112,10 +112,10 @@ To create a new update deployment, select **Schedule update deployment**. The **
 | --- | --- |
 | Name |Unique name to identify the update deployment. |
 |Operating System| Linux or Windows|
-| Groups to update |For Azure machines, define a query based on a combination of subscription, resource groups, locations, and tags to build a dynamic group of Azure VMs to include in your deployment. </br></br>For Non-Azure machines, select an existing saved search to select a group of Non-Azure machines to include in the deployment. </br></br>To learn more, see [Dynamic Groups](../../automation/automation-update-management.md#using-dynamic-groups)|
+| Groups to update |For Azure machines, define a query based on a combination of subscription, resource groups, locations, and tags to build a dynamic group of Azure VMs to include in your deployment. </br></br>For Non-Azure machines, select an existing saved search to select a group of Non-Azure machines to include in the deployment. </br></br>To learn more, see [Dynamic Groups](../../automation/automation-update-management-groups.md)|
 | Machines to update |Select a Saved search, Imported group, or pick Machine from the drop-down and select individual machines. If you choose **Machines**, the readiness of the machine is shown in the **UPDATE AGENT READINESS** column.</br> To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../../azure-monitor/platform/computer-groups.md) |
 |Update classifications|Select all the update classifications that you need|
-|Include/exclude updates|This opens the **Include/Exclude** page. Updates to be included or excluded are on separate tabs. For more information on how inclusion is handled, see [inclusion behavior](../../automation/automation-update-management.md#inclusion-behavior) |
+|Include/exclude updates|This opens the **Include/Exclude** page. Updates to be included or excluded are on separate tabs. For more information on how inclusion is handled, see [Schedule an Update Deployment](../../automation/automation-tutorial-update-management.md#schedule-an-update-deployment) |
 |Schedule settings|Select the time to start, and select either Once or recurring for the recurrence|
 | Pre-scripts + Post-scripts|Select the scripts to run before and after your deployment|
 | Maintenance window |Number of minutes set for updates. The value can't be less than 30 minutes and no more than 6 hours |

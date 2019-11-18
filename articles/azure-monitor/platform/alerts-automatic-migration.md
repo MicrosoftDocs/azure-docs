@@ -11,7 +11,7 @@ ms.subservice: alerts
 # Understand the automatic migration process for your classic alert rules
 
 As [previously announced](monitoring-classic-retirement.md), classic alerts in Azure Monitor are being retired in September 2019 (was originally July 2019). As part of the retirement process, [a migration tool](alerts-using-migration-tool.md) is available in the Azure portal for customers to trigger migration themselves. If you haven't used the migration tool by August 31, 2019, Azure Monitor will start the process of automatic migration of your classic alerts starting September 1, 2019.
-This article walks you through the the automatic migration process and help you resolve any issues you might run into.
+This article walks you through the automatic migration process and help you resolve any issues you might run into.
 
   > [!NOTE]
   > This article only applies to Azure public cloud. Retirement process for Azure Monitor classic alerts in Azure Government cloud and Azure China 21Vianet will be announced at future date.

@@ -95,6 +95,9 @@ It may take a few minutes to deallocate and generalize the VM.
 
 Now, create an image of the VM with [az image create](/cli//azure/image). The following example creates an image named *myImage* from your VM:
 
+> [NOTE]
+> If the Resource Group and Virtual Machine location are different, you can add the `--location` parameter to the below commands to specificy the location of source VM used to create the image. 
+
 ```azurecli-interactive
 az image create \
   --resource-group myResourceGroup \

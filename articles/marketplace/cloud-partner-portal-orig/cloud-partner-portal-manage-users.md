@@ -5,6 +5,7 @@ services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 manager: pbutlerm  
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
@@ -56,7 +57,7 @@ Step 4. Select the Publisher Name you want to add to the new user then click Add
 ----------------------------------------------------------------------------------------------------------------------------
 
 > [!NOTE]
-> The ‘publisher names’ for which your email is added as an owner or contributor will show up in the drop-down list of Publisher for selection.`
+> The 'publisher names' for which your email is added as an owner or contributor will show up in the drop-down list of Publisher for selection.`
 
 ![Assign Role - select publisher](./media/cloud-partner-portal-how-to-manage-users/assignselectpublisher.png)
 

@@ -1,14 +1,15 @@
 ---
 title: Azure Monitoring REST API walkthrough
 description: How to authenticate requests and use the Azure Monitor REST API to retrieve available metric definitions and metric values.
-author: rboucher
-services: azure-monitor
-ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 03/19/2018
-ms.author: robb
+ms.service:  azure-monitor
 ms.subservice: ""
+ms.topic: conceptual
+author: rboucher
+ms.author: robb
+ms.date: 03/19/2018
+
 ---
+
 # Azure Monitoring REST API walkthrough
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]

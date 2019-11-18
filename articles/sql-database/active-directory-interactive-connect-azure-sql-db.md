@@ -1,5 +1,5 @@
 ---
-title: ActiveDirectoryInteractive connects to SQL | Microsoft Docs
+title: ActiveDirectoryInteractive connects to SQL 
 description: "C# Code example, with explanations, for connecting to Azure SQL Database by using SqlAuthenticationMethod.ActiveDirectoryInteractive mode."
 services: sql-database
 ms.service: sql-database
@@ -9,8 +9,8 @@ ms.devlang:
 ms.topic: conceptual
 author: GithubMirek
 ms.author: MirekS
-ms.reviewer: GeneMi
-ms.date: 03/12/2019
+ms.reviewer: GeneMi, vanto
+ms.date: 10/11/2019
 ---
 # Connect to Azure SQL Database with Azure Multi-Factor Authentication
 
@@ -53,7 +53,7 @@ Completing an app registration generates and displays an **application ID**. You
 
 To register and set necessary permissions for your application:
 
-1. In the Azure portal, select **Azure Active Directory** > **App registrations** > **New application registration**.
+1. In the Azure portal, select **Azure Active Directory** > **App registrations** > **New registration**.
 
     ![App registration](media/active-directory-interactive-connect-azure-sql-db/image1.png)
 
@@ -61,15 +61,15 @@ To register and set necessary permissions for your application:
 
     ![App ID displayed](media/active-directory-interactive-connect-azure-sql-db/image2.png)
 
-2. Select **Registered app** > **Settings** > **Required permissions** > **Add**.
+2. Select **API permissions** > **Add a permission**.
 
     ![Permissions settings for registered app](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-c32.png)
 
-3. Select **Required permissions** > **Add** > **Select an API** > **Azure SQL Database**.
+3. Select **APIs my organization uses** > type **Azure SQL Database** into the search > and select **Azure SQL Database**.
 
     ![Add access to API for Azure SQL Database](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-Azure-sql-db-d11.png)
 
-4. Select **API access** > **Select permissions** > **Delegated permissions**.
+4. Select **Delegated permissions** > **user_impersonation** > **Add permissions**.
 
     ![Delegate permissions to API for Azure SQL Database](media/active-directory-interactive-connect-azure-sql-db/sshot-add-api-access-azure-sql-db-delegated-permissions-checkbox-e14.png)
 

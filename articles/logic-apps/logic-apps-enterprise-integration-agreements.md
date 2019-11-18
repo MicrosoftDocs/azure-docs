@@ -1,5 +1,5 @@
 ---
-title: Create and manage trading partner agreements - Azure Logic Apps
+title: Trading partner agreements - Azure Logic Apps
 description: Create and manage agreements between trading partners by using Azure Logic Apps and Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps

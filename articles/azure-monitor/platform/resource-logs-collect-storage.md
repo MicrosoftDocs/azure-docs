@@ -15,6 +15,11 @@ ms.subservice: logs
 ## Prerequisites
 You need to [create an Azure storage account](../../storage/common/storage-quickstart-create-account.md) if you don't already have one. The storage account does not have to be in the same subscription as the resource sending logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
 
+
+> [!IMPORTANT]
+> Azure Data Lake Storage Gen2 accounts are not currently supported as a destination for diagnostic settings even though they may be listed as a valid option in the Azure portal.
+
+
 You should not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to monitoring data. If you are also archiving the [Activity log](activity-logs-overview.md) to a storage account though, you may choose to use that same storage account to keep all monitoring data in a central location.
 
 ## Create a diagnostic setting

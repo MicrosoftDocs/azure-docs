@@ -12,9 +12,9 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/17/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
-ms.custom: aaddev 
+ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a web app that signs-in users using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
@@ -159,7 +159,7 @@ public class AuthPageController {
 
 # [Python](#tab/python)
 
-Unlike other platforms, MSAL.Python takes care of letting the user sign-in from the login page. See [app.py#L20-L28](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/app.py#L20-L28)
+Unlike other platforms, MSAL Python takes care of letting the user sign-in from the login page. See [app.py#L20-L28](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/app.py#L20-L28)
 
 ```Python
 @app.route("/login")
@@ -222,12 +222,12 @@ Register the webApp app](https://github.com/Azure-Samples/active-directory-aspne
 
 # [ASP.NET](#tab/aspnet)
 
-During the application registration, you'll have registered a **post logout URI**. In our tutorial, you registered `https://localhost:44308/Account/EndSession` in the **Logout URL** field of the **Advanced Settings** section in the **Authentication** page. For details see, 
+During the application registration, you'll have registered a **post logout URI**. In our tutorial, you registered `https://localhost:44308/Account/EndSession` in the **Logout URL** field of the **Advanced Settings** section in the **Authentication** page. For details see,
 [Register the webApp app](https://github.com/Azure-Samples/active-directory-dotnet-web-single-sign-out#register-the-service-app-webapp-distributedsignout-dotnet)
 
 # [Java](#tab/java)
 
-During the application registration, you'll register a **post logout URI**. In our tutorial, you registered `http://localhost:8080/msal4jsample/` in the **Logout URL** field of the **Advanced Settings** section in the **Authentication** page.
+During the application registration, you'll register a **post logout URI**. In our tutorial, you registered `http://localhost:8080/msal4jsample/sign_out` in the **Logout URL** field of the **Advanced Settings** section in the **Authentication** page.
 
 # [Python](#tab/python)
 
@@ -424,7 +424,7 @@ public class AccountController : Controller
 
 # [Java](#tab/java)
 
-In our Java quickstart, the post sign out redirect URI just displays the index.html page 
+In our Java quickstart, the post sign out redirect URI just displays the index.html page
 
 # [Python](#tab/python)
 

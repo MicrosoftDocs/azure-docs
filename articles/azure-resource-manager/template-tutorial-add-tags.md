@@ -1,11 +1,7 @@
 ---
-title: Tutorial - add tags to resources in an Azure Resource Manager template
+title: Tutorial - add tags to resources in template
 description: Add tags to resources that you deploy in your Azure Resource Manager template. Tags let you logically organize resources.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
@@ -31,15 +27,15 @@ After deploying these resources, you might need to track costs and find resource
 
 ## Add tags
 
-You tag resources to add values that help you identify their use. For example, you can add tags that mark the environment and the project. You could add tags that identify a cost center or the team that owns the resource. Add any values that make sense for your organization.
+You tag resources to add values that help you identify their use. For example, you can add tags that list the environment and the project. You could add tags that identify a cost center or the team that owns the resource. Add any values that make sense for your organization.
 
 The following example highlights the changes to the template. Copy the whole file and replace your template with its contents.
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json?range=1-118&highlight=46-52,64,78,100)]
 
-## Deploy template
+## Deploy the template
 
-It's time to deploy the template and look at the returned value.
+It's time to deploy the template and look at the results.
 
 If you haven't created the resource group, see [Create resource group](template-tutorial-create-first-template.md#create-resource-group). The example assumes you've set the **templateFile** variable to the path to the template file, as shown in the [first tutorial](template-tutorial-create-first-template.md#deploy-template).
 

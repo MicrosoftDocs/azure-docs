@@ -2,16 +2,8 @@
 title: SKU series unavailable | Microsoft Docs
 description: Some SKU series are unavailable for the selected subscription for this region.
 services: Azure Supportability
-documentationcenter: ''
 author: stevendotwang
-manager: "rajatk"
-editor: ''
-
-
 ms.service: azure-supportability
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: xingwan

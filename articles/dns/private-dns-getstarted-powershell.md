@@ -138,7 +138,7 @@ You can use the ping command to test name resolution. So, configure the firewall
 2. Run the following command:
 
    ```powershell
-   New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+   New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
    ```
 
 Repeat for myVM02.

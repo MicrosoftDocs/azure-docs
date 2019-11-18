@@ -56,7 +56,7 @@ This resource library contains additional links and references that are relevant
 * [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview)
 * [Azure Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
 * [Azure Backup Tutorials](https://docs.microsoft.com/azure/backup/#step-by-step-tutorials)
-* [Azure Site Recovery Tutorials](https://docs.microsoft.com/azure/site-recovery/#step-by-step-tutorials)
+* [Azure Site Recovery Tutorials](/azure/site-recovery/)
 
 ## Role-based Access Controls and Privileged Identity Management (PIM)
 

@@ -1,20 +1,8 @@
 ---
-title: Azure reserved resource name errors | Microsoft Docs
+title: Reserved resource name errors
 description: Describes how to resolve errors when providing a resource name that includes a reserved word.
-services: azure-resource-manager
-documentationcenter: ''
-author: tfitzmac
-manager: timlt
-editor: ''
-
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/08/2017
-ms.author: tomfitz
-
 ---
 # Resolve reserved resource name errors
 

@@ -18,6 +18,8 @@ ms.date: 09/26/2019
 ms.author: mlottner
 
 ---
+
+
 # Introducing Azure Security Center for IoT
 
 Unify security management and enable end-to-end threat detection and analysis across hybrid cloud workloads and your Azure IoT solution. 

@@ -1,6 +1,6 @@
 ---
 title: Threat detection for data services in Azure Security Center | Microsoft Docs
-description: This topic presents the data services alerts available in Azure Security Center.
+description: This article presents the data services alerts available in Azure Security Center.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,7 +14,7 @@ ms.author: memildin
 ---
 # Threat detection for data services in Azure Security Center
 
- Azure Security Center analyzes the logs of data storage services, and triggers alerts when it detects a threat to your data resources. This topic lists the alerts that Security Center generates for the following services:
+ Azure Security Center analyzes the logs of data storage services, and triggers alerts when it detects a threat to your data resources. This article lists the alerts that Security Center generates for the following services:
 
 * [Azure SQL Database and Azure SQL Data Warehouse](#data-sql)
 * [Azure Storage](#azure-storage)
@@ -22,7 +22,7 @@ ms.author: memildin
 
 ## SQL Database and SQL Data Warehouse <a name="data-sql"></a>
 
-SQL threat detection identifies anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. Security Center analyzes the SQL audit logs and runs natively in the SQL engine.
+SQL threat detection identifies anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. 
 
 |Alert|Description|
 |---|---|
@@ -35,7 +35,7 @@ SQL threat detection identifies anomalous activities indicating unusual and pote
 
 For more information about SQL threat detection alerts, see [Azure SQL Database threat detection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview). In particular, review the threat detection alerts section. Also see [How Azure Security Center helps reveal a cyberattack](https://azure.microsoft.com/blog/how-azure-security-center-helps-reveal-a-cyberattack/) to view an example of how Security Center used malicious SQL activity detection to discover an attack.
 
-## Storage <a name="azure-storage"></a>
+## Azure Storage <a name="azure-storage"></a>
 
 >[!NOTE]
 > Advanced Threat Protection for Storage is currently available for Blob storage only.
@@ -48,7 +48,7 @@ Security Center analyzes diagnostic logs of read, write, and delete requests to 
 
 |Alert|Description|
 |---|---|
-|**Unusual location access anomaly**|Sampled network traffic analysis detected anomalous outgoing Remote Desktop Protocol (RDP) communication, originating from a resource in your deployment. This activity is considered abnormal for this environment. It can indicate that your resource has been compromised, and is now used to brute force attack an external RDP endpoint. Note that this type of activity might cause your IP to be flagged as malicious by external entities.|
+|**Access from unusual location**|Indicates that there was a change in the access pattern to an Azure Storage account. Someone has accessed this account from an IP address considered unfamiliar when compared with recent activity. Either an attacker has gained access to the account, or a legitimate user has connected from a new or unusual geographic location. An example of the latter is remote maintenance from a new application or developer.|
 |**Application access anomaly**|Indicates that an unusual application has accessed this storage account. A potential cause is that an attacker has accessed your storage account by using a new application.|
 |**Anonymous access anomaly**|Indicates that there is a change in the access pattern to a storage account. For instance, the account has been accessed anonymously (without any authentication), which is unexpected compared to the recent access pattern on this account. A potential cause is that an attacker has exploited public read access to a container that holds blob storage.|
 |**Tor Anomaly**|Indicates that this account has been accessed successfully from an IP address that is known as an active exit node of Tor (an anonymizing proxy). The severity of this alert considers the authentication type used (if any), and whether this is the first case of such access. Potential causes can be an attacker who has accessed your storage account by using Tor, or a legitimate user who has accessed your storage account by using Tor.|
@@ -58,6 +58,7 @@ Security Center analyzes diagnostic logs of read, write, and delete requests to 
 |**Permission access anomaly**|Indicates that the access permissions of this storage container have been changed in an unusual way. A potential cause is that an attacker has changed container permissions to weaken its security posture or to gain persistence.|
 |**Inspection access anomaly**|Indicates that the access permissions of a storage account have been inspected in an unusual way, compared to recent activity on this account. A potential cause is that an attacker has performed reconnaissance for a future attack.|
 |**Data Exploration anomaly**|Indicates that blobs or containers in a storage account have been enumerated in an abnormal way, compared to recent activity on this account. A potential cause is that an attacker has performed reconnaissance for a future attack.|
+|**Potential Malware Upload**|Indicates that a blob containing potential malware has been uploaded to a storage account. Potential causes may include an intentional malware upload by an attacker or an unintentional upload, of a potentially malicious blob, by a legitimate user.|
 
 >[!NOTE]
 >Advanced Threat Protection for Storage is currently not available in Azure government and sovereign cloud regions.

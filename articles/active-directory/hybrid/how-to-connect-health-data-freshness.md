@@ -47,7 +47,7 @@ The following table maps service types to corresponding required data types:
 
 ## Troubleshooting steps 
 
-The steps required to diagnose the issue is given below. The first is a set of basic checks that are common to all Service Types. The table below that lists out specific steps for each Service Type and Data Type. 
+The steps required to diagnose the issue is given below. The first is a set of basic checks that are common to all Service Types. 
 
 > [!IMPORTANT] 
 > This alert follows Connect Health [data retention policy](reference-connect-health-user-privacy.md#data-retention-policy)

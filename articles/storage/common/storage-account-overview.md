@@ -40,7 +40,7 @@ General-purpose v2 storage accounts offer multiple access tiers for storing data
 
 ### General-purpose v1 accounts
 
-General-purpose v1 accounts provide access to all Azure Storage services, but may not have the latest features or the lowest per gigabyte pricing. General-purpose v1 storage accounts support these Azure Storage services:
+General-purpose v1 storage accounts provide access to all Azure Storage services, but may not have the latest features or the lowest per gigabyte pricing. General-purpose v1 storage accounts support these Azure Storage services:
 
 - Blobs (all types)
 - Files
@@ -56,17 +56,19 @@ While general-purpose v2 accounts are recommended in most cases, general-purpose
 
 * You use a version of the [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) that is earlier than 2014-02-14 or a client library with a version lower than 4.x, and cannot upgrade your application.
 
-### Block blob storage accounts
+### BlockBlobStorage accounts
 
-A block blob storage account is a specialized storage account for storing unstructured object data as block blobs. This storage account type supports block blobs and append blobs, but not page blobs, tables or queues.
+A BlockBlobStorage account is a specialized storage account used to store unstructured object data as block blobs and create premium block blobs. This storage account kind supports block blobs and append blobs, but not page blobs, tables, or queues.
 
-Compared with general-purpose v2 and blob storage accounts, block blob storage accounts provide low and consistent latency, and higher transaction rates.
+Compared with general-purpose v2 and BlobStorage accounts, BlockBlobStorage accounts provide low and consistent latency, and higher transaction rates.
 
-Block blob storage accounts do not currently support tiering to hot, cool, or archive access tiers.
+BlockBlobStorage accounts do not currently support tiering to hot, cool, or archive access tiers.
 
-### FileStorage storage accounts
+### FileStorage accounts
 
-A FileStorage storage account is a specialized storage account used to store and create premium file shares. FileStorage storage accounts offer unique performance dedicated characteristics such as IOPS bursting. For more information on these characteristics, see the [File share performance tiers](../files/storage-files-planning.md#file-share-performance-tiers) section of the Files planning guide.
+A FileStorage account is a specialized storage account used to store and create premium file shares. This storage account kind supports files but not block blobs, append blobs, page blobs, tables, or queues. 
+
+FileStorage accounts offer unique performance dedicated characteristics such as IOPS bursting. For more information on these characteristics, see the [File share performance tiers](../files/storage-files-planning.md#file-share-performance-tiers) section of the Files planning guide.
 
 ## Naming storage accounts
 
@@ -82,7 +84,7 @@ General-purpose storage accounts may be configured for either of the following p
 * A standard performance tier for storing blobs, files, tables, queues, and Azure virtual machine disks.
 * A premium performance tier for storing unmanaged virtual machine disks only.
 
-Block blob storage accounts provide a premium performance tier for storing block blobs and append blobs.
+BlockBlobStorage storage accounts provide a premium performance tier for storing block blobs and append blobs.
 
 FileStorage storage accounts provide a premium performance tier for Azure file shares.
 
@@ -182,5 +184,5 @@ The Import/Export service can also be used to transfer data from Azure Blob stor
 ## Next steps
 
 * To learn how to create a general-purpose Azure storage account, see [Create a storage account](storage-quickstart-create-account.md).
-* To learn how to create a block blob storage account, see [Create a block blob storage account](../blobs/storage-blob-create-account-block-blob.md).
+* To learn how to create a BlockBlobStorage account, see [Create a block blob storage account](../blobs/storage-blob-create-account-block-blob.md).
 * To manage or delete an existing storage account, see [Manage Azure storage accounts](storage-account-manage.md).

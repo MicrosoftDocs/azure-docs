@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 04/09/2019
+ms.date: 10/29/2019
 ms.author: mimart
 
 ms.collection: M365-identity-device-management
@@ -38,24 +38,26 @@ To test the steps in this tutorial, we recommend using a non-production environm
 To add a gallery application to your Azure AD tenant:
 
 1. In the [Azure portal](https://portal.azure.com), on the left navigation panel, select **Azure Active Directory**.
-1. In the **Azure Active Directory** pane, select **Enterprise applications**.
-1. The **All applications** pane opens to show a random sample of the applications in your Azure AD tenant. Select **New application** at the top of the **All applications** pane to add a gallery app to your tenant.
+
+2. In the **Azure Active Directory** pane, select **Enterprise applications**. The **All applications** pane opens and displays a random sample of the applications in your Azure AD tenant.
+
+3. To add a gallery app to your tenant, select **New application**. 
 
     ![Select New application to add a gallery app to your tenant](media/add-application-portal/new-application.png)
 
-1. In the **Categories** pane, you'll see icons under the **Featured applications** area that are a random sample of gallery applications. To see more applications, you could select **Show more** but we don't recommend searching this way because there are thousands of applications in the gallery.
+ 4. Switch to the new gallery preview experience: In the banner at the top of the **Add an application page**, select the link that says **Click here to try out the new and improved app gallery**.
 
-    ![Search for an app by name or category](media/add-application-portal/categories.png)
+5. The **Browse Azure AD Gallery (Preview)** pane opens and displays tiles for cloud platforms, on-premises applications, and featured applications. Note that the applications listed in the **Featured applications** section have icons indicating whether they support federated single sign-on (SSO) and provisioning.
 
-1. To search for an application, under **Add from the gallery**, enter the name of the application you want to add. Select the application from the results and select **Add**. The following example shows the **Add app** form that appears after searching for github.com.
+    ![Search for an app by name or category](media/add-application-portal/browse-gallery.png)
 
-    ![Shows how to add an application from the gallery](media/add-application-portal/add-an-application.png)
+6. You can browse the gallery for the application you want to add, or search for the application by entering its name in the search box. Then select the application from the results. In the form, you can edit the name of the application to match the needs of your organization. In this example we've changed the name to **GitHub-test**.
 
-1. In the application-specific form, you can change property information. For example, you can edit the name of the application to match the needs of your organization. This example uses the name **GitHub-test**.
-1. When you've finished making changes to the properties, select **Add**.
-1. A getting started page appears with the options for configuring the application for your organization.
+    ![Shows how to add an application from the gallery](media/add-application-portal/create-application.png)
 
-You've finished adding your application. Feel free to take a break. The next sections show you how to change the logo and edit other properties for your application.
+7. Select **Create**. A getting started page appears with the options for configuring the application for your organization.
+
+You've finished adding your application. The next sections show you how to change the logo and edit other properties for your application.
 
 ## Find your Azure AD tenant application
 
@@ -76,17 +78,17 @@ Now that you've found the application, you can open it and configure application
 To edit the application properties:
 
 1. Select the application to open it.
-1. Select **Properties** to open the properties pane for editing.
+2. Select **Properties** to open the properties pane for editing.
 
     ![Shows the Properties screen and editable app properties](media/add-application-portal/edit-properties.png)
 
-1. Take a moment to understand the sign-in options. The options determine how users who are assigned or unassigned to the application can sign into the application. And, the options also determine if a user can see the application in the access panel.
+3. Take a moment to understand the sign-in options. The options determine how users who are assigned or unassigned to the application can sign into the application. And, the options also determine if a user can see the application in the access panel.
 
-    - **Enabled for users to sign-in** determines whether users assigned to the application can sign in.
-    - **User assignment required** determines whether users who aren't assigned to the application can sign in.
-    - **Visible to user** determines whether users assigned to an app can see it in the access panel and O365 launcher.
+    - **Enabled for users to sign-in?** determines whether users assigned to the application can sign in.
+    - **User assignment required?** determines whether users who aren't assigned to the application can sign in.
+    - **Visible to users?** determines whether users assigned to an app can see it in the access panel and O365 launcher.
 
-1. Use the following tables to help you choose the best options for your needs.
+4. Use the following tables to help you choose the best options for your needs.
 
    - Behavior for **assigned** users:
 
@@ -126,9 +128,12 @@ To use a custom logo:
 1. Since you've already found your application, select the application.
 1. In the left pane, select **Properties**.
 1. Upload the logo.
-1. When you're finished, select **Save**.
+1. When you're finished, select **Save**. 
 
     ![Shows how to change the logo from the app's Properties page](media/add-application-portal/change-logo.png)
+
+   > [!NOTE]
+   > The thumbnail displayed on this **Properties** pane doesn't update right away. You can close and reopen the properties to see the updated icon.
 
 ## Next steps
 

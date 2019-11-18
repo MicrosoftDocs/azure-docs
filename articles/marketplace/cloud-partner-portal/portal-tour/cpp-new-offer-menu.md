@@ -4,6 +4,7 @@ description: Overview of the New offer menu in Cloud Partner Portal for Azure Ma
 services: Azure, Marketplace, Cloud Partner Portal, 
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: pabutler

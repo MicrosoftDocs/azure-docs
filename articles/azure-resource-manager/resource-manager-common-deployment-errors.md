@@ -1,14 +1,9 @@
 ---
-title: Troubleshoot common Azure deployment errors | Microsoft Docs
+title: Troubleshoot common deployment errors
 description: Describes how to resolve common errors when you deploy resources to Azure using Azure Resource Manager.
 tags: top-support-issue
-author: tfitzmac
-keywords: deployment error, azure deployment, deploy to azure
-ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 10/04/2019
-ms.author: tomfitz
-
 ---
 # Troubleshoot common Azure deployment errors with Azure Resource Manager
 
@@ -30,6 +25,7 @@ If you're looking for information about an error code and that information isn't
 | BadRequest | You sent deployment values that don't match what is expected by Resource Manager. Check the inner status message for help with troubleshooting. | [Template reference](/azure/templates/) and [Supported locations](resource-location.md) |
 | Conflict | You're requesting an operation that isn't allowed in the resource's current state. For example, disk resizing is allowed only when creating a VM or when the VM is deallocated. | |
 | DeploymentActiveAndUneditable | Wait for concurrent deployment to this resource group to complete. | |
+| DeploymentFailedCleanUp | When you deploy in complete mode, any resources that aren't in the template are deleted. You get this error when you don't have adequate permissions to delete all of the resources not in the template. To avoid the error, change the deployment mode to incremental. | [Azure Resource Manager deployment modes](deployment-modes.md) |
 | DeploymentNameInvalidCharacters | The deployment name can only contain letter, digit, '-', '.' or '_'. | |
 | DeploymentNameLengthLimitExceeded | The deployment names are limited to 64 characters.  | |
 | DeploymentFailed | The DeploymentFailed error is a general error that doesn't provide the details you need to solve the error. Look in the error details for an error code that provides more information. | [Find error code](#find-error-code) |
@@ -241,7 +237,7 @@ In some cases, the easiest way to troubleshoot your template is to test parts of
 }
 ```
 
-Or, suppose you are encountering deployment errors that you believe are related to incorrectly set dependencies. Test your template by breaking it into simplified templates. First, create a template that deploys only a single resource (like a SQL Server). When you are sure you have that resource correctly defined, add a resource that depends on it (like a SQL Database). When you have those two resources correctly defined, add other dependent resources (like auditing policies). In between each test deployment, delete the resource group to make sure you adequately testing the dependencies.
+Or, suppose you're getting deployment errors that you believe are related to incorrectly set dependencies. Test your template by breaking it into simplified templates. First, create a template that deploys only a single resource (like a SQL Server). When you're sure you have that resource correctly defined, add a resource that depends on it (like a SQL Database). When you have those two resources correctly defined, add other dependent resources (like auditing policies). In between each test deployment, delete the resource group to make sure you adequately testing the dependencies.
 
 
 ## Next steps
