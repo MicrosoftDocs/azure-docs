@@ -4,7 +4,7 @@ description: How to define storage targets so that your Azure HPC Cache can use 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 11/11/2019
+ms.date: 11/18/2019
 ms.author: rohogue
 ---
 
@@ -53,7 +53,7 @@ When finished, click **OK** to add the storage target.
 
 ### Add the access control roles to your account
 
-Azure HPC Cache uses [role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/index) to authorize the cache application to access your storage account for Azure Blob storage targets.
+Azure HPC Cache uses [role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/index) to authorize the cache service to access your storage account for Azure Blob storage targets.
 
 The storage account owner must explicitly add the roles [Storage Account Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) and [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) for the user "HPC Cache Resource Provider".
 
@@ -74,7 +74,7 @@ Steps to add the RBAC roles:
    > [!NOTE]
    > If a search for "hpc" doesn't work, try using the string "storagecache" instead. Users who joined the previews (before GA) might need to use the older name for the service principal.
 
-1. Click the **Save** button to add the role assignment to the storage account.
+1. Click the **Save** button at the bottom.
 
 1. Repeat this process to assign the role "Storage Blob Data Contributor".  
 
@@ -94,7 +94,7 @@ Provide this information for an NFS-backed storage target:
 
 * **Hostname** - Enter the IP address or fully qualified domain name for your NFS storage system. (Use a domain name only if your cache has access to a DNS server that can resolve the name.)
 
-* **Usage model** - Choose one of the data caching profiles based on your workflow, described in [Choose a usage model, below](#choose-a-usage-model).
+* **Usage model** - Choose one of the data caching profiles based on your workflow, described in [Choose a usage model](#choose-a-usage-model), below.
 
 ### NFS namespace paths
 
@@ -152,4 +152,4 @@ After creating storage targets, consider one of these tasks:
 * [Mount the Azure HPC Cache](hpc-cache-mount.md)
 * [Move data to Azure Blob storage](hpc-cache-ingest.md)
 
-You also can [edit a storage target](hpc-cache-edit-storage.md).
+If you need to update any settings, you can [edit a storage target](hpc-cache-edit-storage.md).

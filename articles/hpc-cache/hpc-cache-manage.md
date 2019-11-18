@@ -4,7 +4,7 @@ description: How to manage and update Azure HPC Cache using the Azure portal
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 11/18/2019
 ms.author: rohogue
 ---
 
@@ -14,7 +14,7 @@ The cache overview page in the Azure portal shows project details, cache status,
 
 To open the overview page, select your cache resource in the Azure portal. For example, load the **All resources** page and click the cache name.
 
-![screenshot of an Azure HPC Cache instance's Overview page](media/hpc-cache-overview.png) 
+![screenshot of an Azure HPC Cache instance's Overview page](media/hpc-cache-overview.png)
 
 The buttons at the top of the page can help you manage the cache:
 
@@ -36,7 +36,7 @@ The **Flush** button on the overview page tells the cache to immediately write a
 
 When you start the cache flush operation, the cache stops accepting client requests, and the cache status on the overview page changes to **Flushing**.
 
-Data in the cache is saved to the appropriate storage targets. The process can take a few minutes or it can take an hour or more, depending on how much data has been written to the cache recently.
+Data in the cache is saved to the appropriate storage targets. Depending on how much data needs to be flushed, the process can take a few minutes or over an hour.
 
 After all the data is saved to storage targets, the cache automatically starts taking client requests again. The cache status returns to **Healthy**.
 
