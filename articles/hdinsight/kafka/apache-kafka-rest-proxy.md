@@ -50,7 +50,14 @@ Once the client application has the OAuth token, they must pass that token in th
 
 ### Test the REST proxy with a client application
 
-You can use the python code below to interact with the REST proxy on your Kafka cluster. This code fetches an OAuth token from AAD, creates the topic specified, sends messages to that topic and consumes messages from that topic. For more information on getting OAuth tokens in python, see [Python AuthenticationContext class](https://docs.microsoft.com/python/api/adal/adal.authentication_context.authenticationcontext?view=azure-python).
+You can use the python code below to interact with the REST proxy on your Kafka cluster. This code does the following:
+
+1. Fetches an OAuth token from Azure AD
+1. Creates the topic specified
+1. Sends messages to that topic
+1. Consumes messages from that topic
+
+For more information on getting OAuth tokens in python, see [Python AuthenticationContext class](https://docs.microsoft.com/python/api/adal/adal.authentication_context.authenticationcontext?view=azure-python). You might see a delay while topics that are not created or deleted through the Kafka REST proxy are reflected there. This delay is due to cache refresh.
 
 ```python
 #Required python packages
