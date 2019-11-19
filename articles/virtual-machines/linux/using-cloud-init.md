@@ -1,5 +1,5 @@
 ---
-title: Overview of cloud-init support for Linux virtual machines in Azure | Microsoft Docs
+title: Overview of cloud-init support for Linux virtual machines in Azure 
 description: Overview of cloud-init capabilities in Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''

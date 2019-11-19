@@ -96,7 +96,7 @@ A function app can contain one or more Azure Functions. Open the *start* folder 
 
 - [*local.settings.json*](functions-run-local.md#local-settings-file): Contains application settings used for local development
 - [*host.json*](functions-host-json.md): Contains settings for the Azure Functions host and extensions
-- [*requirements.txt*](functions-reference-python.md#python-version-and-package-management): Contains Python packages required by this application
+- [*requirements.txt*](functions-reference-python.md#package-management): Contains Python packages required by this application
 
 ## Create an HTTP function
 
