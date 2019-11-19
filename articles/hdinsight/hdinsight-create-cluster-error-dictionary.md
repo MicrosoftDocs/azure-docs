@@ -2,7 +2,7 @@
 title: Create Cluster Error Dictionary
 description: Learn how to create a cluster error dictionary.
 ms.reviewer: hrasheed
-author: karkrish,locphan
+author: karkrish, locphan
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: troubleshooting
