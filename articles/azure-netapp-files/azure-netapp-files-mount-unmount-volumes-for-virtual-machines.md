@@ -27,11 +27,17 @@ You can mount or unmount a volume for Windows or Linux virtual machines as neces
 
     ![Mount instructions SMB](../media/azure-netapp-files/azure-netapp-files-mount-instructions-smb.png)
     
-If you are using NFSv4.1, use the following command to mount your file system:  
+    If you are using NFSv4.1, use the following command to mount your file system:  `sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT`  
 
-`sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT`  
+3. If you want to have an NFS volume automatically mounted when an Azure VM is started or rebooted, add an entry to the `/etc/fstab` file on the host. 
+
+    For example:  `$ANFIP:/$FILEPATH		/$MOUNTPOINT	nfs bg,rw,hard,noatime,nolock,rsize=65536,wsize=65536,vers=3,tcp,_netdev 0 0`
+
+    * `$ANFIP` is the IP address of the Azure NetApp Files volume found in the volume properties blade.
+    * `$FILEPATH` is the export path of the Azure NetApp Files volume.
+    * `$MOUNTPOINT` is the directory created on the Linux host used to mount the NFS export.
 
 ## Next steps
 
 * [Configure NFSv4.1 default domain for Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md)
-* See [NFS FAQs](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#nfs-faqs) about how to have an NFS volume automatically mounted when an Azure VM is started or rebooted.
+* [NFS FAQs](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#nfs-faqs)

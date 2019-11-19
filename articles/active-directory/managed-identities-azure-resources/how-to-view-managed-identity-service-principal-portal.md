@@ -1,5 +1,5 @@
 ---
-title: How to view the service principal of a managed identity in the Azure portal
+title: View service principal of a managed identity in the Azure portal - Azure AD
 description: Step-by-step instructions for viewing the service principal of a managed identity in the Azure portal.
 services: active-directory
 documentationcenter: ''
