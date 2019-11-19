@@ -37,7 +37,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Moved Machine learning and training code in AzureML-Train-AutoML to a submodule AzureML-Train-AutoML-Runtime.
       + Added a thin client, AzureML-Train-AutoML-Client for submitting remote jobs without installing any machine learning packages.
   + **azureml-contrib-dataset**
-    + ``` - When calling `to_pandas_dataframe` on a labeled dataset with the download option, you can now specify whether to overwrite existing files or not. - When calling `keep_columns` or `drop_columns` that results in a timeseries, label, or image column being dropped, the corresponding capabilities will be dropped for the dataset as well. ```
+    + ``` When calling `to_pandas_dataframe` on a labeled dataset with the download option, you can now specify whether to overwrite existing files or not. - When calling `keep_columns` or `drop_columns` that results in a timeseries, label, or image column being dropped, the corresponding capabilities will be dropped for the dataset as well. ```
     + Fixed an issue with pytorch loader for the object detection task.
   + **azureml-contrib-interpret**
     + Removed explanation dashboard widget from azureml-contrib-interpret, changed package to reference the new one in interpret_community
