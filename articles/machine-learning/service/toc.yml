@@ -299,8 +299,8 @@
       displayName: score scoring asynchronous consume pipeline parallelrunstep inference
       href: how-to-run-batch-predictions.md
     - name: Use the designer for batch predictions
-      displayName: score scoring asynchronous consume pipeline parallelrunstep inference
-      href: how-to-run-batch-predictions-ui.md
+      displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
+      href: how-to-run-batch-predictions-designer.md
   - name: Monitor models
     items:
     - name: Collect & evaluate model data
