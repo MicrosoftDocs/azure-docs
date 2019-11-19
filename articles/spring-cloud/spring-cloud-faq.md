@@ -28,8 +28,8 @@ Azure Spring Cloud offers one service plan during the preview period.  A Spring 
 Resource | Amount
 ------- | -------
 App instances per Spring application | 20
-Total app instances per Azure Spring Cloud service instance | 50*
-Azure Spring Cloud service instances per region per subscription | 2*
+Total app instances per Azure Spring Cloud service instance | 500
+Azure Spring Cloud service instances per region per subscription | 10
 Persistent volumes | 10 x 50 GBytes
 
 *_Open a [support ticket](https://azure.microsoft.com/support/faq/) to raise the limit._
