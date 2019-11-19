@@ -125,8 +125,6 @@
 
     - name: Network security
       items:
-      - name: Overview
-        href: sql-database-networkaccess-overview.md
       - name: Virtual network firewall rules
         items: 
         - name: Virtual network endpoints
@@ -153,6 +151,8 @@
 
     - name: Single database security
       items:
+      - name: Network access
+        href: sql-database-networkaccess-overview.md
       - name: Audit Log Format
         href: sql-database-audit-log-format.md
       - name: Conditional Access
