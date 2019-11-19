@@ -1,51 +1,46 @@
 ---
-title: Get Azure Cosmos DB metrics from Azure Monitor
-description: Learn how to view different categories of Azure Cosmos DB metrics from Azure Monitor using Azure portal.
-author: SnehaGunda
-ms.author: sngun
-ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 09/01/2019
+title: Azure Cosmos DB monitoring data reference | Microsoft Docs
+description: Log and metrics reference for monitoring data from Azure Cosmos DB.
+author: bwren
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: reference
+ms.date: 11/11/2019
+ms.author: bwren
+ms.subservice: logs
 ---
 
-# Monitor and debug Azure Cosmos DB metrics from Azure Monitor
-
-You can view Azure Cosmos DB metrics from Azure Monitor API. Azure Monitor provides several ways to interact with metrics, including the Azure portal, accessing them through the REST API, or querying them using PowerShell or CLI. Azure Cosmos DB metrics are low-latency numerical values, collected at one-minute frequency by default, you can also aggregate these metrics. These metrics are capable of supporting real-time scenarios.  
-
-This article describes different Azure Cosmos DB metrics you can view from Azure Monitor using Azure portal. If you are interested in common use cases and how Azure Cosmos DB metrics re used to analyze and debug these issues see [Monitor and debug with metrics in Azure Cosmos DB](use-metrics.md) article. You will use one of your existing Azure Cosmos accounts and view the different metrics at the database, container, region, request, or operation levels. So, make sure you have an Azure Cosmos account with sample data and perform CRUD operations on that data.
-
-## View metrics from Azure portal
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-1. Select **Monitor** from the left-hand navigation bar, and select **Metrics**.
-
-   ![Metrics pane in Azure Monitor](./media/cosmos-db-azure-monitor-metrics/monitor-metrics-blade.png)
-
-1. From the **Metrics** pane > **Select a resource** > choose the required **subscription**, and **resource group**. For the **Resource type**, select **Azure Cosmos DB accounts**, choose one of your existing Azure Cosmos accounts, and select **Apply**. 
-
-   ![Choose a Cosmos DB account to view metrics](./media/cosmos-db-azure-monitor-metrics/select-cosmosdb-account.png)
-
-1. Next you can select a metric from the list of available metrics. You can select metrics specific to request units, storage, latency, availability, Cassandra, and others. To learn in detail about all the available metrics in this list, see the [Metrics by category](#metrics-by-category) section of this article. In this example, let’s select **Request units** and **Avg** as the aggregation value. 
-
-   In addition to these details, you can also select the **Time range** and **Time granularity** of the metrics. At max, you can view metrics for the past 30 days.  After you apply the filter, a chart is displayed based on your filter. You can see the average number of request units consumed per minute for the selected period.  
-
-   ![Choose a metric from the Azure portal](./media/cosmos-db-azure-monitor-metrics/metric-types.png)
-
-## Add filters to metrics
-
-You can also filter metrics and the chart displayed by a specific **CollectionName**, **DatabaseName**, **OperationType**, **Region**, and **StatusCode**. To filter the metrics, select **Add filter** and choose the required property such as **OperationType** and select a value such as **Query**. The graph then displays the request units consumed for the query operation for the selected period. The operations executed via Stored procedure are not logged so they are not available under the OperationType metric.
-
-![Add a filter to select the metric granularity](./media/cosmos-db-azure-monitor-metrics/add-metrics-filter.png)
-
-You can group metrics by using the **Apply splitting** option. For example, you can group the request units per operation type and view the graph for all the operations at once as shown in the following image: 
-
-![Add apply splitting filter](./media/cosmos-db-azure-monitor-metrics/apply-metrics-splitting.png)
+# Azure Cosmos DB monitoring data reference
+This article provides a reference of log and metric data collected to analyze the performance and availability of Azure Cosmos DB. See [Monitoring Cosmos DB](monitor-cosmos-db.md) for details on collecting and analyzing monitoring data for Azure Cosmos DB.
 
 
-## <a id="metrics-by-category"></a>Metrics by category
+## Resource logs
+The following table lists the properties for Azure Cosmos DB resource logs when they're collected in Azure Monitor Logs or Azure Storage. In Azure Monitor Logs, they're collected in the **AzureDiagnostics** table with a **ResourceProvider** value of *MICROSOFT.DOCUMENTDB*.
 
-### Request metrics
+| Azure Storage field or property | Azure Monitor Logs property | Description |
+| --- | --- | --- |
+| **time** | **TimeGenerated** | The date and time (UTC) when the operation occurred. |
+| **resourceId** | **Resource** | The Azure Cosmos DB account for which logs are enabled.|
+| **category** | **Category** | For Azure Cosmos DB logs, **DataPlaneRequests** is the only available value. |
+| **operationName** | **OperationName** | Name of the operation. This value can be any of the following operations: Create, Update, Read, ReadFeed, Delete, Replace, Execute, SqlQuery, Query, JSQuery, Head, HeadFeed, or Upsert.   |
+| **properties** | n/a | The contents of this field are described in the rows that follow. |
+| **activityId** | **activityId_g** | The unique GUID for the logged operation. |
+| **userAgent** | **userAgent_s** | A string that specifies the client user agent that's performing the request. The format is {user agent name}/{version}.|
+| **requestResourceType** | **requestResourceType_s** | The type of the resource accessed. This value can be any of the following resource types: Database, Container, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction, or Offer. |
+| **statusCode** | **statusCode_s** | The response status of the operation. |
+| **requestResourceId** | **ResourceId** | The resourceId that pertains to the request. The value may point to databaseRid, collectionRid, or documentRid depending on the operation performed.|
+| **clientIpAddress** | **clientIpAddress_s** | The client's IP address. |
+| **requestCharge** | **requestCharge_s** | The number of RUs that are used by the operation |
+| **collectionRid** | **collectionId_s** | The unique ID for the collection.|
+| **duration** | **duration_s** | The duration of the operation, in milliseconds. |
+| **requestLength** | **requestLength_s** | The length of the request, in bytes. |
+| **responseLength** | **responseLength_s** | The length of the response, in bytes.|
+| **resourceTokenUserRid** | **resourceTokenUserRid_s** | This value is non-empty when [resource tokens](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) are used for authentication. The value points to the resource ID of the user. |
+
+## Metrics
+The following tables list the platform metrics collected for Azure CosmOS DB. All metrics are stored in the namespace **Cosmos DB standard metrics**.
+
+#### Request metrics
 			
 |Metric (Metric Display Name)|Unit (Aggregation Type) |Description|Dimensions| Time granularities| Legacy metric mapping | Usage |
 |---|---|---|---| ---| ---| ---|
@@ -53,7 +48,7 @@ You can group metrics by using the **Apply splitting** option. For example, you 
 | MetadataRequests (Metadata Requests) |Count (Count) | Count of metadata requests. Azure Cosmos DB maintains system metadata container for each account, that allows you to enumerate collections, databases, etc., and their configurations, free of charge. | DatabaseName, CollectionName, Region, StatusCode| All| |Used to monitor throttles due to metadata requests.|
 | MongoRequests (Mongo Requests) | Count (Count) | Number of Mongo Requests Made | DatabaseName, CollectionName, Region, CommandName, ErrorCode| All |Mongo Query Request Rate, Mongo Update Request Rate, Mongo Delete Request Rate, Mongo Insert Request Rate, Mongo Count Request Rate| Used to monitor Mongo request errors, usages per command type. |
 
-### Request Unit metrics
+#### Request Unit metrics
 
 |Metric (Metric Display Name)|Unit (Aggregation Type)|Description|Dimensions| Time granularities| Legacy metric mapping | Usage |
 |---|---|---|---| ---| ---| ---|
@@ -61,7 +56,7 @@ You can group metrics by using the **Apply splitting** option. For example, you 
 | TotalRequestUnits (Total Request Units)| Count (Total) | Request Units consumed| DatabaseName, CollectionName, Region, StatusCode |All| TotalRequestUnits| Used to monitor Total RU usage at a minute granularity. To get average RU consumed per second, use Total aggregation at minute and divide by 60.|
 | ProvisionedThroughput (Provisioned Throughput)| Count (Maximum) |Provisioned throughput at container granularity| DatabaseName, ContainerName| 5M| | Used to monitor provisioned throughput per container.|
 
-### Storage metrics
+#### Storage metrics
 
 |Metric (Metric Display Name)|Unit (Aggregation Type)|Description|Dimensions| Time granularities| Legacy metric mapping | Usage |
 |---|---|---|---| ---| ---| ---|
@@ -71,21 +66,21 @@ You can group metrics by using the **Apply splitting** option. For example, you 
 | DocumentQuota (Document Quota) | Bytes (Total) | Total storage quota reported at 5-minutes granularity per region.| DatabaseName, CollectionName, Region| 5M |Storage Capacity| Used to monitor total quota at container and region, minimum granularity should be 5 minutes.|
 | DocumentCount (Document Count) | Count (Total) |Total document count reported at 5-minutes granularity per region| DatabaseName, CollectionName, Region| 5M |Document Count|Used to monitor document count at container and region, minimum granularity should be 5 minutes.|
 
-### Latency metrics
+#### Latency metrics
 
 |Metric (Metric Display Name)|Unit (Aggregation Type)|Description|Dimensions| Time granularities| Usage |
 |---|---|---|---| ---| ---|
 | ReplicationLatency (Replication Latency)| MilliSeconds (Minimum, Maximum, Average) | P99 Replication Latency across source and target regions for geo-enabled account| SourceRegion, TargetRegion| All | Used to monitor P99 replication latency between any two regions for a geo-replicated account. |
 
 
-### Availability metrics
+#### Availability metrics
 
 |Metric (Metric Display Name) |Unit (Aggregation Type)|Description| Time granularities| Legacy metric mapping | Usage |
 |---|---|---|---| ---| ---|
 | ServiceAvailability (Service Availability)| Percent (Minimum, Maximum) | Account requests availability at one hour granularity| 1H | Service Availability | Represents the percent of total passed requests. A request is considered to be failed due to system error if the status code is 410, 500 or 503 Used to monitor availability of the account at hour granularity. |
 
 
-### Cassandra API metrics
+#### Cassandra API metrics
 
 |Metric (Metric Display Name)|Unit (Aggregation Type)|Description|Dimensions| Time granularities| Usage |
 |---|---|---|---| ---| ---|
@@ -93,8 +88,7 @@ You can group metrics by using the **Apply splitting** option. For example, you 
 | CassandraRequestCharges (Cassandra Request Charges) | Count (Sum, Min, Max, Avg) | Request Units consumed by Cassandra API requests| DatabaseName, CollectionName, Region, OperationType, ResourceType| All| Used to monitor RUs used per minute by a Cassandra API account.|
 | CassandraConnectionClosures (Cassandra Connection Closures) |Count (Count) |Number of Cassandra Connections closed| ClosureReason, Region| All | Used to monitor the connectivity between clients and the Azure Cosmos DB Cassandra API.|
 
-## Next steps
+## See Also
 
-* [View and monitor metrics from Azure Cosmos DB account metrics pane](use-metrics.md)
-
-* [Diagnostic logging in Azure Cosmos DB](logging.md)
+- See [Monitoring Azure Cosmos DB](monitor-cosmos-db.md) for a description of monitoring Azure Cosmos DB.
+- See [Monitoring Azure resources with Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md) for details on monitoring Azure resources.

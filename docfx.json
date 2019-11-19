@@ -198,13 +198,15 @@
         "articles/governance/policy/**/*.md": "DCtheGeek",
         "articles/governance/management-groups/**/*.md": "rthorn17",
         "articles/governance/resource-graph/**/*.md": "DCtheGeek",
+        "articles/azure-functions/**/*.md": "ggailey777",
         "articles/ansible/**/*.md": "TomArcherMsft",
-        "articles/backup/**/*.md": "dacurwin",
+        "articles/backup/**/*.md": "dcurwin",
         "articles/chef/**/*.md": "TomArcherMsft",
         "articles/jenkins/**/*.md": "TomArcherMsft",
         "articles/terraform/**/*.md": "TomArcherMsft",
         "articles/lighthouse/**/*.md": "JnHs",
-        "articles/azure-resource-manager/**/*.md": "tfitzmac"
+        "articles/azure-resource-manager/**/*.md": "tfitzmac",
+        "articles/dev-spaces/**/*.md": "zr-msft"
       },
       "feedback_system": {
         "articles/virtual-machines/windows/classic/**/*": "None",
@@ -386,6 +388,7 @@
       },
       "manager": {
         "articles/sql-database/**/*.md": "jroth",
+        "articles/azure-functions/**/*.md": "gwallace",
         "articles/backup/**/*.md": "carmonm"
       },
       "ms.author": {
@@ -394,13 +397,15 @@
         "articles/governance/policy/**/*.md": "dacoulte",
         "articles/governance/management-groups/**/*.md": "rithorn",
         "articles/governance/resource-graph/**/*.md": "dacoulte",
+        "articles/azure-functions/**/*.md": "glenga",
         "articles/ansible/**/*.md": "tarcher",
         "articles/backup/**/*.md": "dacurwin",
         "articles/chef/**/*.md": "tarcher",
         "articles/jenkins/**/*.md": "tarcher",
         "articles/terraform/**/*.md": "tarcher",
         "articles/lighthouse/**/*.md": "jenhayes",
-        "articles/azure-resource-manager/**/*.md": "tomfitz"
+        "articles/azure-resource-manager/**/*.md": "tomfitz",
+        "articles/dev-spaces/**/*.md": "zarhoads"
       },
       "ms.service": {
         "articles/governance/*.md": "governance",
@@ -408,6 +413,7 @@
         "articles/governance/policy/**/*.md": "azure-policy",
         "articles/governance/management-groups/**/*.md": "governance",
         "articles/governance/resource-graph/**/*.md": "resource-graph",
+        "articles/azure-functions/**/*.md": "azure-functions",
         "articles/industry/**/*.md": "azure-industry",
         "articles/ansible/**/*.md": "ansible",
         "articles/backup/**/*.md": "backup",
@@ -415,7 +421,8 @@
         "articles/jenkins/**/*.md": "jenkins",
         "articles/terraform/**/*.md": "terraform",
         "articles/lighthouse/**/*.md": "lighthouse",
-        "articles/azure-resource-manager/**/*.md": "azure-resource-manager"
+        "articles/azure-resource-manager/**/*.md": "azure-resource-manager",
+        "articles/dev-spaces/**/*.md": "azure-dev-spaces"
       },
       "ms.subservice": {
         "articles/industry/agriculture/**/*.md": "agriculture"
