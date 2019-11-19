@@ -21,7 +21,9 @@ ms.reviewer: bagovind
 
 ## Get the security principal identifier
 
-When working with templates, you need to provide the unique security principal identifier of the user, group, or service principal (identity used by an application) you want to assign the role to. The identifier has the format: `11111111-1111-1111-1111-111111111111`. This section describes how to get the identifier.
+When working with templates, you need to provide the unique security principal identifier of the user, group, or service principal you want to assign the role to. The identifier has the format: `11111111-1111-1111-1111-111111111111`. You can get the identifier using the Azure portal or you can use Azure PowerShell and Azure CLI commands.
+
+### User
 
 To get the identifier of a user, you can use the [Get-AzADUser](/powershell/module/az.resources/get-azaduser) or [az ad user show](/cli/azure/ad/user#az-ad-user-show) commands.
 
@@ -33,7 +35,9 @@ $prinid = (Get-AzADUser -DisplayName "{name}").id
 prinid=$(az ad user show --upn-or-object-id "{email}" --query objectId --output tsv)
 ```
 
-To get the identifier of a group, you can use the [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup) or [az ad group show](/cli/azure/ad/grup#az-ad-group-show) commands.
+### Group
+
+To get the identifier of a group, you can use the [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup) or [az ad group show](/cli/azure/ad/group#az-ad-group-show) commands.
 
 ```azurepowershell
 $prinid = (Get-AzADGroup -DisplayName "{name}").id
@@ -43,7 +47,9 @@ $prinid = (Get-AzADGroup -DisplayName "{name}").id
 prinid=$(az ad group show --group "{name}" --query objectId --output tsv)
 ```
 
-To get the identifier of a service principal, you can use the [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) or [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) commands. For a service principal, use the object ID and **not** the application ID.
+### Service principal
+
+To get the identifier of a service principal (identity used by an application), you can use the [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) or [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) commands. For a service principal, use the object ID and **not** the application ID.
 
 ```azurepowershell
 $prinid = (Get-AzADServicePrincipal -DisplayName "{name}").id
