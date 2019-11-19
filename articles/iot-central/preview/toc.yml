@@ -5,7 +5,7 @@
     - name: What is Azure IoT Central
       href: overview-iot-central.md
     - name: IoT Solution options
-      href: ../core/overview-iot-options.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+      href: overview-iot-options.md
     - name: Tour of the UI
       href: overview-iot-central-tour.md
     - name: Get connected
@@ -52,7 +52,7 @@
     - name: Architecture
       href: concepts-architecture.md
     - name: What are application templates?
-      href: ../core/concepts-app-templates.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+      href: concepts-app-templates.md
 - name: How-to guides
   items:
     - name: Get connected
@@ -74,11 +74,11 @@
         - name: Analyze your device data
           href: howto-create-analytics.md
         - name: Add tiles to your dashboard
-          href: ../core/howto-add-tiles-to-your-dashboard.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+          href: howto-add-tiles-to-your-dashboard.md
         - name: Create Azure IoT Central personal dashboards
-          href: ../core/howto-create-personal-dashboards.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+          href: howto-create-personal-dashboards.md
         - name: Run a job
-          href: ../core/howto-run-a-job.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+          href: howto-run-a-job.md
         - name: Version device template
           href: howto-version-device-template.md
     - name: Transform
@@ -110,19 +110,19 @@
         - name: Manage from other places
           items:
             - name: Manage from the Azure portal
-              href: ../core/howto-manage-iot-central-from-portal.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+              href: howto-manage-iot-central-from-portal.md
             - name: Manage from Azure CLI
-              href: ../core/howto-manage-iot-central-from-cli.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+              href: howto-manage-iot-central-from-cli.md
             - name: Manage from Azure PowerShell
-              href: ../core/howto-manage-iot-central-from-powershell.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+              href: howto-manage-iot-central-from-powershell.md
             - name: Manage from CSP portal
-              href: ../core/howto-create-and-manage-applications-csp.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+              href: howto-create-and-manage-applications-csp.md
         - name: Personalize application
           items:
             - name: Manage your personal preferences
-              href: ../core/howto-manage-preferences.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+              href: howto-manage-preferences.md
             - name: Toggle live chat
-              href: ../core/howto-show-hide-chat.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+              href: howto-show-hide-chat.md
 - name: Related
   items:
     - name: Platform services
@@ -150,6 +150,6 @@
     - name: REST API
       href: https://docs.microsoft.com/rest/api/iotcentral/
     - name: Customer data requests
-      href: ../core/iot-central-customer-data-requests.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+      href: iot-central-customer-data-requests.md
     - name: Supported browsers
-      href: ../core/iot-central-supported-browsers.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+      href: iot-central-supported-browsers.md
