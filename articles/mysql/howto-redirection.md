@@ -12,15 +12,15 @@ ms.date: 11/15/2019
 
 This topic explains how to connect an application your Azure Database for MySQL server with redirection mode. Redirection aims to reduce network latency between client applications and MySQL servers by allowing applications to connect directly to backend server nodes.
 
+> [!IMPORTANT]
+> Support for redirection in the PHP [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) is currently in preview.
+
 ## Before you begin
-Sign in to the [Azure portal](https://portal.azure.com). Create an Azure Database for MySQL server with engine version 5.6 or 5.7. For details, refer to [How to create Azure Database for MySQL server from Portal](quickstart-create-mysql-server-database-using-azure-portal.md) or [How to create Azure Database for MySQL server using CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
+Sign in to the [Azure portal](https://portal.azure.com). Create an Azure Database for MySQL server with engine version 5.6, 5.7, or 8.0. For details, refer to [How to create Azure Database for MySQL server from Portal](quickstart-create-mysql-server-database-using-azure-portal.md) or [How to create Azure Database for MySQL server using CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 Redirection is currently only supported when SSL is enabled. For details on how to configure SSL, see [Using SSL with Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/howto-configure-ssl#step-3-enforcing-ssl-connections-in-azure). 
 
 ## PHP
-
-> [!IMPORTANT]
-> Support for redirection in [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) is currently in preview.
 
 ### Ubuntu Linux
 
@@ -42,7 +42,7 @@ sudo pecl install mysqlnd_azure
 php -i | grep "extension_dir"
 ```
 
-3. Change directories to the returned folder and ensure the ensure `mysqlnd_azure.so` is located in this folder. 
+3. Change directories to the returned folder and ensure `mysqlnd_azure.so` is located in this folder. 
 
 4. Locate the folder for .ini files by running the below: 
 
@@ -68,26 +68,40 @@ mysqlnd_azure.enabled=on
 - php-mysql
 - Azure Database for MySQL server with SSL enabled
 
-1. Download the [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) DLL from [PECL](https://pecl.php.net/package/mysqlnd_azure). The file is called `php_mysqlnd_azure.dll`.
-
-2. Locate the extension directory (`extension_dir`) by running the below:
+1. Determine if you are running x64 or x86 version of PHP by running the following command
 
 ```cmd
-php -i | grep "extension_dir"
+php -i | findstr "Thread"
 ```
 
-3. Copy the `php_mysqlnd_azure.dll` file into the directory from returned in step 2. 
+2. Download the corresponding x64 or x86 version of the [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) DLL from [PECL](https://pecl.php.net/package/mysqlnd_azure) that matches your version of PHP. 
 
-4. Locate the folder for .ini files by running the below: 
+3. Extract the zip file and find the DLL named `php_mysqlnd_azure.dll`.
+
+4. Locate the extension directory (`extension_dir`) by running the below command:
 
 ```cmd
-php -i | grep "dir for additional .ini files"
+php -i | find "extension_dir"s
 ```
 
-5. Within the folder returned in step 4, modify the `php.ini` file with the following extra lines to enable redirection. 
+5. Copy the `php_mysqlnd_azure.dll` file into the directory from returned in step 4. 
 
+6. Locate the PHP folder containing the `php.ini` file using the following command
+
+```cmd
+php -i | find "Loaded Configuration File"
+```
+
+7. Modify the `php.ini` file and add the following extra lines to enable redirection. 
+
+Under the Dynamic Extensions section: 
 ```cmd
 extension=mysqlnd_azure
+```
+
+Under the Module Settings section: 
+
+```cmd 
 [mysqlnd_azure]
 mysqlnd_azure.enabled=on
 ```
