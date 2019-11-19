@@ -47,9 +47,14 @@ The following administrator roles are available:
 
 Users in this role can create and manage all aspects of enterprise applications, application registrations, and application proxy settings. Note that users assigned to this role are not added as owners when creating new application registrations or enterprise applications.
 
-> [!IMPORTANT]
-> This role grants the ability to manage application credentials. Users assigned this role can add credentials to an application, and use those credentials to impersonate the application’s identity. If the application’s identity has been granted access to Azure Active Directory, such as the ability to create or update User or other objects, then a user assigned to this role could perform those actions while impersonating the application. This ability to impersonate the application’s identity may be an elevation of privilege over what the user can do via their role assignments in Azure AD. It is important to understand that assigning a user to the Application Administrator role gives them the ability to impersonate an application’s identity.
+Application Administrators can manage application credentials that allows them to impersonate the application. So, users assigned to  this role can manage application credentials of only those applications that are either not assigned to any Azure AD roles or those assigned to following admin roles only:
+* Application Administrator
+* Application Developer
+* Cloud Application Administrator
+* Directory Readers
 
+If an application is assigned to any other role that are not mentioned above, then Application Administrator cannot manage credentials of that application. 
+ 
 This role also grants the ability to _consent_ to delegated permissions and application permissions, with the exception of permissions on the Microsoft Graph and Azure AD Graph.
 
 > [!IMPORTANT]
@@ -118,8 +123,12 @@ Makes purchases, manages subscriptions, manages support tickets, and monitors se
 
 Users in this role have the same permissions as the Application Administrator role, excluding the ability to manage application proxy. This role grants the ability to create and manage all aspects of enterprise applications and application registrations. This role also grants the ability to consent to delegated permissions, and application permissions excluding Microsoft Graph and Azure AD Graph. Users assigned to this role are not added as owners when creating new application registrations or enterprise applications.
 
-> [!IMPORTANT]
-> This role grants the ability to manage application credentials. Users assigned this role can add credentials to an application, and use those credentials to impersonate the application’s identity. If the application’s identity has been granted access to Azure Active Directory, such as the ability to create or update User or other objects, then a user assigned to this role could perform those actions while impersonating the application. This ability to impersonate the application’s identity may be an elevation of privilege over what the user can do via their role assignments in Azure AD. It is important to understand that assigning a user to the Cloud Application Administrator role gives them the ability to impersonate an application’s identity.
+Cloud Application Administrators can manage application credentials that allows them to impersonate the application. So, users assigned to  this role can manage application credentials of only those applications that are either not assigned to any Azure AD roles or those assigned to following admin roles only:
+* Application Developer
+* Cloud Application Administrator
+* Directory Readers
+
+If an application is assigned to any other role that are not mentioned above, then Cloud Application Administrator cannot manage credentials of that application.
 
 ### [Cloud Device Administrator](#cloud-device-administrator-permissions)
 
