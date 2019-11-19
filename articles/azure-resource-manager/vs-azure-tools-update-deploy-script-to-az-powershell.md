@@ -2,7 +2,6 @@
 title: Update Visual Studio's template deployment script to use Az Powershell
 description: Update the Visual Studio template deployment script from AzureRM to Az Powershell
 author: cweining
-ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.date: 09/27/2019
 ms.author: cweining

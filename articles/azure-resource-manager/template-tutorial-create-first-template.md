@@ -1,10 +1,7 @@
 ---
-title: Tutorial - Create & deploy Azure Resource Manager template
+title: Tutorial - Create & deploy template
 description: Create your first Azure Resource Manager template. In the tutorial, you learn about the template file syntax and how to deploy a storage account.
 author: mumian
-manager: carmonmills
-
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
