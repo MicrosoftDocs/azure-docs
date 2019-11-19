@@ -77,7 +77,7 @@ Azure Migrate needs to access the vCenter Server to discover VMs for assessment 
 
 - If you plan to discover applications or visualize dependency in an agentless manner, create a vCenter Server account with read-only access along with privileges enabled for **Virtual machines** > **Guest Operations**.
 
-  ![vCenter Server account privileges](./media/tutorial-prepare-vmware/vCenterServer_permissions.png)
+  ![vCenter Server account privileges](./media/tutorial-prepare-vmware/vcenter-server-permissions.png)
 
 - If you are not planning to do application discovery and agentless dependency visualization, set up a read-only account for the vCenter Server.
 
