@@ -1,14 +1,8 @@
 ---
-title: 'Azure Backup: Create backup policies using REST API'
+title: Create backup policies using REST API
 description: In this article, you will learn how to create and manage backup policies (schedule and retention) using REST API.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: REST API; Azure VM backup; Azure VM restore;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/21/2018
-ms.author: dacurwin
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
 ---
 # Create Azure Recovery Services backup policies using REST API

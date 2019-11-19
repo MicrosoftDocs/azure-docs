@@ -1,11 +1,7 @@
 ---
 title: Execute the Azure CLI with Jenkins
 description: Learn how to use Azure CLI to deploy a Java web app to Azure in Jenkins Pipeline
-ms.service: jenkins
 keywords: jenkins, azure, devops, app service, cli
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/23/2019
 ---

@@ -9,7 +9,7 @@ editor: ''
 tags: billing
 
 ms.assetid: 204b15b2-6667-4b6c-8ea4-f32c06f287fd
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
@@ -84,7 +84,7 @@ Web Direct and Enterprise customers can use all the following APIs, except where
 ### Billing
 -	[Billing Periods API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods): Determine a billing period to analyze, along with the invoice IDs for that period. You can use invoice IDs with the Invoices API.
 
--	[Invoices API](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices): Get the download URL for an invoice for a billing period in PDF form.
+-	[Invoices API](/rest/api/billing/2019-10-01-preview/invoices): Get the download URL for an invoice for a billing period in PDF form.
 
 ### Enterprise consumption
 The following APIs are for Enterprise only:
@@ -123,7 +123,7 @@ These APIs provide fundamentally different data:
 ### What's the difference between the Invoice API and the Usage Details API?
 These APIs provide a different view of the same data:
 
-- The [Invoice API](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices) is for Web Direct customers only. It provides a monthly rollup of your bill based on the aggregate charges for each meter type. 
+- The [Invoice API](/rest/api/billing/2019-10-01-preview/invoices) is for Web Direct customers only. It provides a monthly rollup of your bill based on the aggregate charges for each meter type. 
 
 - The [Usage Details API](https://docs.microsoft.com/rest/api/consumption/usagedetails) provides a granular view of the usage/cost records for each day. Both Enterprise and Web Direct customers can use it.
 
