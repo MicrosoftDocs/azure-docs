@@ -198,6 +198,7 @@
         "articles/governance/policy/**/*.md": "DCtheGeek",
         "articles/governance/management-groups/**/*.md": "rthorn17",
         "articles/governance/resource-graph/**/*.md": "DCtheGeek",
+        "articles/azure-functions/**/*.md": "ggailey777",
         "articles/ansible/**/*.md": "TomArcherMsft",
         "articles/backup/**/*.md": "dcurwin",
         "articles/chef/**/*.md": "TomArcherMsft",
@@ -389,6 +390,7 @@
       },
       "manager": {
         "articles/sql-database/**/*.md": "jroth",
+        "articles/azure-functions/**/*.md": "gwallace",
         "articles/backup/**/*.md": "carmonm",
         "articles/site-recovery/**/*.md": "carmonm",
         "articles/migrate/**/*.md": "carmonm"
@@ -399,6 +401,7 @@
         "articles/governance/policy/**/*.md": "dacoulte",
         "articles/governance/management-groups/**/*.md": "rithorn",
         "articles/governance/resource-graph/**/*.md": "dacoulte",
+        "articles/azure-functions/**/*.md": "glenga",
         "articles/ansible/**/*.md": "tarcher",
         "articles/backup/**/*.md": "dacurwin",
         "articles/chef/**/*.md": "tarcher",
@@ -416,6 +419,7 @@
         "articles/governance/policy/**/*.md": "azure-policy",
         "articles/governance/management-groups/**/*.md": "governance",
         "articles/governance/resource-graph/**/*.md": "resource-graph",
+        "articles/azure-functions/**/*.md": "azure-functions",
         "articles/industry/**/*.md": "azure-industry",
         "articles/ansible/**/*.md": "ansible",
         "articles/backup/**/*.md": "backup",
