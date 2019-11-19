@@ -42,7 +42,7 @@ Learn best practices for managing HDInsight clusters.
 |---|---|
 | No quota | There are quotas for the number of quotas that you can create on your subscription in each region. For more information, see [Capacity planning: quotas](./hdinsight-capacity-planning.md). |
 | No more IP addresses available | Each VNet has a limited number of IP addresses. When you create a HDInsight cluster, each node (including zookeeper and gateway nodes) uses some of these allotted IP addresses. When all of the IP addresses are in use, you will encounter this error.  |
-| NSG rules don't whitelist HDInsight Resource Provider | If you use network security groups (NSGs) or user defined routes (UDRs) to control inbound traffic to your HDInsight cluster, you must ensure that your cluster can communicate with critical Azure health and management services. For more information, see [HDInsight management IP addresses](./hdinsight-management-ip-addresses.md) |
+| Network security group (NSG) rules don't allow HDInsight Resource Provider | If you use NSGs or user-defined routes (UDRs) to control inbound traffic to your HDInsight cluster, you must ensure that your cluster can communicate with critical Azure health and management services. For more information, see [HDInsight management IP addresses](./hdinsight-management-ip-addresses.md) |
 | Reuse of cluster name | When you use a cluster name that you have used before, you need to wait X number of minutes before recreating the cluster. Otherwise you will see a message that the resource already exists. |
 
 ## How do I manage running HDInsight clusters?
