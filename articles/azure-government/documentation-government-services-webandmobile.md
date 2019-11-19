@@ -18,30 +18,28 @@ ms.author: gsacavdm
 ---
 # Azure Government Web + Mobile
 
-This article outlines the web and mobile services for the Azure Government environment, describing any feature variations that differ from the public version, as well as any environment-specific considerations.
+This article outlines the web and mobile services for the Azure Government environment, describing feature variations that differ from the public version, as well as any environment-specific considerations.
 
 ## Azure Cognitive Search
-[Azure Cognitive Search](https://docs.microsoft.com/azure/search/) is generally available in Azure Government.
 
-For a self-directed exploration of search functionality using public data, visit the [Content Search and Intelligence](http://documentsearch.azurewebsites.net/home/) web site, select the dataset "US Court of Appeals District 1", and then choose one of the demo options.
+[Azure Cognitive Search](https://docs.microsoft.com/azure/search/) is generally available in Azure Government.For a self-directed exploration of search functionality using public data, visit the [Content Search and Intelligence](http://documentsearch.azurewebsites.net/home/) web site, select the dataset "US Court of Appeals District 1", and then choose one of the demo options.
+
+Functionality that has proven popular in government search applications is using [cognitive skills](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) to extract structure and information from large undifferentiated text documents.
+
+Basic query syntax, formulating queries to search over large amounts of content, is also relevant to application developers. Azure Cognitive Search supports two syntaxes: [simple](https://docs.microsoft.com/azure/search/query-simple-syntax) and [full](https://docs.microsoft.com/azure/search/query-lucene-syntax). You can review [query expression examples](https://docs.microsoft.com/azure/search/search-query-simple-examples) for an orientation.
 
 ### Variations
-The endpoint and principle ID for search services created in Azure Government is as follows:
+The endpoint for search services created in Azure Government is as follows:
 
 | Service Type | Azure Public | Azure Government |
 | ------------ | ------------ | ---------------- |
 | Azure Cognitive Search Service |\*.search.windows.net |\*.search.windows.us|
-| Service Principal ID| abfa0a7c-a6b6-4736-8310-5855508787cd | 6a02c803-dafd-4136-b4c3-5a6f318b4714 |
 
 All generally available and most preview features are available in both public and government environments, with the following exceptions:
 
-+ TBD []()
++ **TBD** []()
 
-+ TBD []()
-
-Functionality that has been widely implemented by government search application developers include using the [AI enrichment pipelines](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) to extract structure and content from large undifferentiated text documents.
-
-Basic query syntax, formulating queries to search over large amounts of content, is also relevant to application developers. Azure Cognitive Search supports two syntaxes: [simple](https://docs.microsoft.com/azure/search/query-simple-syntax) and [full](https://docs.microsoft.com/azure/search/query-lucene-syntax). You can review [query expression examples](https://docs.microsoft.com/azure/search/search-query-simple-examples) for an orientation.
++ **TBD** []()
 
 ### Considerations
 The following information identifies the Azure Government boundary for Azure Cognitive Search:
