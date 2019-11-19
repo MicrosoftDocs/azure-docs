@@ -1,11 +1,11 @@
 ---
-title: Use Azure Blockchain Development Kit for Ethereum - Azure Blockchain Service
+title: Use Visual Studio Code to connect to Azure Blockchain Service
 description: Connect to an Azure Blockchain Service consortium network using the Azure Blockchain Development Kit for Ethereum extension in Visual Studio Code
 services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/14/2019
+ms.date: 11/19/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: chrisseg
@@ -68,7 +68,7 @@ The consortium and blockchain members are listed in the Visual Studio explorer s
 
 ## Next steps
 
-In this quickstart, you used Azure Blockchain Development Kit for Ethereum Visual Studio Code extension to attach to a consortium on Azure Blockchain Service. Try the next tutorial to use Azure Blockchain Development Kit for Ethereum and Truffle to create, build, deploy, and execute a smart contract function via a transaction.
+In this quickstart, you used Azure Blockchain Development Kit for Ethereum Visual Studio Code extension to attach to a consortium on Azure Blockchain Service. Try the next tutorial to use Azure Blockchain Development Kit for Ethereum to create, build, deploy, and execute a smart contract function via a transaction.
 
 > [!div class="nextstepaction"]
 > [Use Visual Studio Code to create, build, and deploy smart contracts](send-transaction.md)

@@ -47,7 +47,7 @@ az resource create \
                     --name myblockchainmember \
                     --resource-type Microsoft.Blockchain/blockchainMembers \
                     --is-full-object \
-                    --properties '{"location":"westus2", "properties":{"password":"strongMemberAccountPassword@1", "protocol":"Quorum", "consortium":"myConsortiumName", "consortiumManagementAccountPassword":"strongConsortiumManagementPassword@1"}, "sku":{"name":"S0"}}`
+                    --properties '{"location":"westus2", "properties":{"password":"strongMemberAccountPassword@1", "protocol":"Quorum", "consortium":"myConsortiumName", "consortiumManagementAccountPassword":"strongConsortiumManagementPassword@1"}, "sku":{"name":"S0"}}'
 ```
 
 | Parameter | Description |
@@ -76,7 +76,7 @@ az group delete \
 
 ## Next steps
 
-Now that you have created a blockchain member, try one of the connection quickstarts for [Geth](connect-geth.md), [MetaMask](connect-metamask.md), or [Truffle](connect-truffle.md).
+In this quickstart, you deployed an Azure Blockchain Service member and a new consortium. Try the next quickstart to use  Azure Blockchain Development Kit for Ethereum to attach to a consortium on Azure Blockchain Service.
 
 > [!div class="nextstepaction"]
-> [Use Truffle to connect to a an Azure Blockchain Service network](connect-truffle.md)
+> [Use Visual Studio Code to connect to an Azure Blockchain Service consortium network](connect-vscode.md)
