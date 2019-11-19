@@ -11,7 +11,7 @@ ms.reviewer: dineshm
 #Customer intent: As an data scientist, I want to connect my data in Azure Storage so that I can easily run analytics on it.
 ---
 
-# Tutorial: Azure Data Lake Storage Gen2, Azure Databricks & Spark | Microsoft Docs
+# Tutorial: Azure Data Lake Storage Gen2, Azure Databricks & Spark
 
 This tutorial shows you how to connect your Azure Databricks cluster to data stored in an Azure storage account that has Azure Data Lake Storage Gen2 enabled. This connection enables you to natively run queries and analytics from your cluster on your data.
 

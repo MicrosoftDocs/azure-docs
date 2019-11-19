@@ -9,7 +9,7 @@ ms.author: normesta
 ms.reviewer: dineshm
 ---
 
-# Tutorial: Use Azure CDN to enable a custom domain with SSL for a static website
+# Tutorial: Enable a custom domain with SSL for a static website
 
 This tutorial is part two of a series. In it, you learn to enable a custom domain endpoint with SSL for your static website. 
 
