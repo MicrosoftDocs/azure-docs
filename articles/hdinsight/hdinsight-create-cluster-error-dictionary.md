@@ -1,13 +1,13 @@
 ---
 title: Create Cluster Error Dictionary
-description: Learn how to create a cluster error dictionary..
-ms.reviewer: chadmath
-author: chadmath
+description: Learn how to create a cluster error dictionary.
+ms.reviewer: hrasheed
+author: karkrish,locphan
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: troubleshooting
 ms.date: 11/15/2019
-ms.author: tyfox
+ms.author: v-todmc
 ---
 
 
