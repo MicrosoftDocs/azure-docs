@@ -5,7 +5,7 @@ keywords: billing invoice,invoice download,azure invoice,azure usage
 author: bandersmsft
 manager: jureid
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -27,7 +27,7 @@ If you have a Microsoft Customer Agreement (MCA), you must have one of the follo
 - Reader
 - Invoice manager
 
-If you have a Microsoft Partner Agreement (MPA), you must be the Global Admin or Admin Agent in the partner organization to view and download Azure invoices. [Check your billing account type](#check-your-billing-account-type) to figure out what permissions you need. 
+If you have a Microsoft Partner Agreement (MPA), you must be the Global Admin or Admin Agent in the partner organization to view and download Azure invoices. [Check your billing account type](#check-your-billing-account-type) to figure out what permissions you need.
 
 <!-- For more information about billing roles for Microsoft Customer Agreements, see [Billing profile roles and tasks](billing-understand-mca-roles.md#billing-profile-roles-and-tasks). -->
 
@@ -41,7 +41,7 @@ There could be several reasons that you don't see an invoice:
 
 - You don't have permission to view invoices. If you have an MCA or MPA, you must be the billing profile Owner, Contributor, Reader, or Invoice manager. For other subscriptions, you might not see old invoices if you aren't the Account Administrator. To learn more about getting access to billing information, see [Manage access to Azure billing using roles](billing-manage-access.md).
 
-- If you have a Free Trial or a monthly credit amount with your subscription, you only get an invoice when you exceed the monthly credit amount. If you have a Microsoft Customer Agreement or Microsoft Partner Agreement, you always receive an invoice. 
+- If you have a Free Trial or a monthly credit amount with your subscription, you only get an invoice when you exceed the monthly credit amount. If you have a Microsoft Customer Agreement or Microsoft Partner Agreement, you always receive an invoice.
 
 ## Download invoices in the Azure portal
 

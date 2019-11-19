@@ -3,7 +3,7 @@ title: Get started with your Microsoft Customer Agreement billing account - Azur
 description: Understand your Microsoft Customer Agreement billing account
 author: bandersmsft
 manager: amberbhargava
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na

@@ -2,11 +2,9 @@
 title: Template deployment what-if (Preview)
 description: Determine what changes will happen to your resources before deploying an Azure Resource Manager template.
 author: mumian
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: jgao
-
 ---
 # Resource Manager template deployment what-if operation (Preview)
 
