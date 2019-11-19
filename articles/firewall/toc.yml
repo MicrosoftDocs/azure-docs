@@ -35,7 +35,7 @@
       href: rule-processing.md
     - name: Service tags
       href: service-tags.md
-    - name: IP groups
+    - name: IP Groups
       href: ip-groups.md
 - name: How-to guides
   items:
