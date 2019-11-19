@@ -22,7 +22,7 @@ You have two options for using service tags in your network security groups:
 
 1. Use multiple regional service tags - this option will open your virtual network to only the IP Addresses that HDInsight is using in that specific region. However, if you are using multiple regions, then you will need to add multiple service tags to your virtual network.
 
-## Usa a single global HDInsight service tag
+## Use a single global HDInsight service tag
 
 The easiest way to begin using service tags with your HDInsight cluster is to add the global tag `HDInsight` to a network security group rule. For instructions on how to add service tags to your network security group, see [Security groups: service tags](../virtual-network/security-overview.md#service-tags).
 
