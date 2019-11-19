@@ -16,7 +16,7 @@ ms.author: vaaga
 
 # Troubleshoot virtual machine deployment due to detached disks
 
-### Symptom
+## Symptom
 
 When you're trying to update a virtual machine whose previous data disk detach failed, you might come across this error code.
 
@@ -25,7 +25,7 @@ Code=\"AttachDiskWhileBeingDetached\"
 Message=\"Cannot attach data disk 'f94901ef-75ee-4477-9ad6-1c74da50e7ef' to virtual machine 'aks-systempool-23089071-vm_4' because the disk is currently being detached or the last detach  operation failed. Please wait until the disk is completely detached, and then try again or delete/detach the disk explicitly again\” 
 ```
 
-### Cause
+## Cause
 
 This error happens when you try reattaching a data disk whose last detach operation failed. The best way to get out of this state is to detach the failing disk.
 
