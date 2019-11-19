@@ -87,7 +87,7 @@ To configure inbound trust on the on-premises AD DS domain, complete the followi
 1. Step through the next few windows with default options, then choose the option for **No, do not confirm the outgoing trust**.
 1. Select **Finish**
 
-## Create outbound forest trust in the Azure AD DS managed domain
+## Create outbound forest trust in Azure AD DS
 
 With the on-premises AD DS domain configured to resolve the Azure AD DS managed domain and an inbound forest trust created, now created the outbound forest trust. This outbound forest trust completes the trust relationship between the on-premises AD DS domain and the Azure AD DS managed domain.
 

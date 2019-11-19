@@ -44,8 +44,8 @@ With domain trusts, the authentication mechanisms for each domain trust the auth
 
 How a trust passes authentication requests depends on how it's configured. Trusts can be configured in one of the following ways:
 
-* **One way** - provides access from the trusted domain to resources in the trusting domain.
-* **Two way** - provides access from each domain to resources in the other domain.
+* **One-way** - provides access from the trusted domain to resources in the trusting domain.
+* **Two-way** - provides access from each domain to resources in the other domain.
 
 Trusts are also be configured to handle additional trust relationships in one of the following ways:
 
@@ -75,7 +75,7 @@ Trusts use various services and features, such as DNS to locate domain controlle
 
 AD DS needs DNS for domain controller (DC) location and naming. The following support from DNS is provided for AD DS to work successfully:
 
-* A name resolution service that let network hosts and services to locate DCs.
+* A name resolution service that lets network hosts and services to locate DCs.
 * A naming structure that enables an enterprise to reflect its organizational structure in the names of its directory service domains.
 
 A DNS domain namespace is usually deployed that mirrors the AD DS domain namespace. If there's an existing DNS namespace before the AD DS deployment, the DNS namespace is typically partitioned for Active Directory, and a DNS subdomain and delegation for the Active Directory forest root is created. Additional DNS domain names are then added for each Active Directory child domain.
