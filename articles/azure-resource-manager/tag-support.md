@@ -2,7 +2,7 @@
 title: Tag support for resources
 description: Shows which Azure resource types support tags. Provides details for all Azure services.
 ms.topic: conceptual
-ms.date: 10/27/2019
+ms.date: 11/18/2019
 ---
 
 # Tag support for Azure resources
@@ -1359,14 +1359,12 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
-> | netAppAccounts | Yes | Yes |
-> | netAppAccounts/backupPolicies | Yes | Yes |
-> | netAppAccounts/capacityPools | Yes | Yes |
-> | netAppAccounts/capacityPools/volumes | Yes | Yes |
-> | netAppAccounts/capacityPools/volumes/backups | No | No |
-> | netAppAccounts/capacityPools/volumes/mountTargets | Yes | Yes |
-> | netAppAccounts/capacityPools/volumes/snapshots | Yes | Yes |
-> | netAppAccounts/vaults | No | No |
+> | netAppAccounts | Yes | No |
+> | netAppAccounts/capacityPools | Yes | No |
+> | netAppAccounts/capacityPools/volumes | Yes | No |
+> | netAppAccounts/capacityPools/volumes/mountTargets | Yes | No |
+> | netAppAccounts/capacityPools/volumes/snapshots | Yes | No |
+
 ## Microsoft.Network
 
 > [!div class="mx-tableFixed"]
