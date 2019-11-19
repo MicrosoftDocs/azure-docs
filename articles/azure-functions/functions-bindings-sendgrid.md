@@ -34,20 +34,11 @@ The SendGrid bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.Se
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
-## Example
-
-See the language-specific example:
-
-* [C#](#c-example)
-* [C# script (.csx)](#c-script-example)
-* [JavaScript](#javascript-example)
-* [Java](#java-example)
-
-### C# example
+# [C#](#tab/csharp)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that uses a Service Bus queue trigger and a SendGrid output binding.
 
-#### Synchronous C# example:
+### Synchronous
 
 ```cs
 [FunctionName("SendEmail")]
@@ -72,7 +63,8 @@ public class OutgoingEmail
     public string Body { get; set; }
 }
 ```
-#### Asynchronous C# example:
+
+### Asynchronous
 
 ```cs
 [FunctionName("SendEmail")]
@@ -102,7 +94,7 @@ public class OutgoingEmail
 
 You can omit setting the attribute's `ApiKey` property if you have your API key in an app setting named "AzureWebJobsSendGridApiKey".
 
-### C# script example
+# [C# Script](#tab/csharp-script)
 
 The following example shows a SendGrid output binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding.
 
@@ -161,34 +153,7 @@ public class Message
 }
 ```
 
-### Java example
-
-The following example uses the `@SendGridOutput` annotation from the [Java functions runtime library](/java/api/overview/azure/functions/runtime) to send an email using the SendGrid output binding.
-
-```java
-@FunctionName("SendEmail")
-    public HttpResponseMessage run(
-            @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.FUNCTION) HttpRequestMessage<Optional<String>> request,
-            @SendGridOutput(
-                name = "email", dataType = "String", apiKey = "SendGridConnection", to = "test@example.com", from = "test@example.com",
-                subject= "Sending with SendGrid", text = "Hello from Azure Functions"
-                ) OutputBinding<String> email
-            )
-    {
-        String name = request.getBody().orElse("World");
-
-        final String emailBody = "{\"personalizations\":" +
-                                    "[{\"to\":[{\"email\":\"test@example.com\"}]," +
-                                    "\"subject\":\"Sending with SendGrid\"}]," +
-                                    "\"from\":{\"email\":\"test@example.com\"}," +
-                                    "\"content\":[{\"type\":\"text/plain\",\"value\": \"Hello" + name + "\"}]}";
-
-        email.setValue(emailBody);
-        return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
-    }
-```
-
-### JavaScript example
+# [JavaScript](#tab/javascript)
 
 The following example shows a SendGrid output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding.
 
@@ -230,7 +195,42 @@ module.exports = function (context, input) {
 };
 ```
 
-## Attributes
+# [Python](#tab/python)
+
+**TODO**
+
+# [Java](#tab/java)
+
+The following example uses the `@SendGridOutput` annotation from the [Java functions runtime library](/java/api/overview/azure/functions/runtime) to send an email using the SendGrid output binding.
+
+```java
+@FunctionName("SendEmail")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.FUNCTION) HttpRequestMessage<Optional<String>> request,
+            @SendGridOutput(
+                name = "email", dataType = "String", apiKey = "SendGridConnection", to = "test@example.com", from = "test@example.com",
+                subject= "Sending with SendGrid", text = "Hello from Azure Functions"
+                ) OutputBinding<String> email
+            )
+    {
+        String name = request.getBody().orElse("World");
+
+        final String emailBody = "{\"personalizations\":" +
+                                    "[{\"to\":[{\"email\":\"test@example.com\"}]," +
+                                    "\"subject\":\"Sending with SendGrid\"}]," +
+                                    "\"from\":{\"email\":\"test@example.com\"}," +
+                                    "\"content\":[{\"type\":\"text/plain\",\"value\": \"Hello" + name + "\"}]}";
+
+        email.setValue(emailBody);
+        return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
+    }
+```
+
+---
+
+## Attributes and annotations
+
+# [C#](#tab/csharp)
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [SendGrid](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs) attribute.
 
@@ -247,6 +247,24 @@ public static void Run(
 ```
 
 For a complete example, see [C# example](#c-example).
+
+# [C# Script](#tab/csharp-script)
+
+**TODO**
+
+# [JavaScript](#tab/javascript)
+
+**TODO**
+
+# [Python](#tab/python)
+
+**TODO**
+
+# [Java](#tab/java)
+
+**TODO**
+
+---
 
 ## Configuration
 
