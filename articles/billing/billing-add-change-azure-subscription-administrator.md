@@ -4,7 +4,7 @@ description: Describes how to add or change an Azure subscription administrator 
 author: genlin
 manager: dcscontentpm
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na

@@ -1,10 +1,10 @@
 ---
 title: Common questions about Azure Migrate
-description: Addresses common and frequently asked questions about Azure Migrate
+description: Get answers to common questions about the Azure Migrate service.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 11/19/2019
 ms.author: snehaa
 ---
 

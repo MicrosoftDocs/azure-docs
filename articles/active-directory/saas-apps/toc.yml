@@ -62,7 +62,9 @@
       - name: Aha!
         href: aha-tutorial.md
       - name: Airstack
-        href: airstack-tutorial.md  
+        href: airstack-tutorial.md
+      - name: Airtable
+        href: airtable-tutorial.md  
       - name: AirWatch
         href: airwatch-tutorial.md
       - name: Alcumus Info Exchange
@@ -592,6 +594,8 @@
         href: hightail-tutorial.md
       - name: HireVue
         href: hirevue-tutorial.md
+      - name: Hootsuite
+        href: hootsuite-tutorial.md
       - name: Hornbill
         href: hornbill-tutorial.md
       - name: Hosted Graphite
@@ -1545,6 +1549,8 @@
         href: bonusly-provisioning-tutorial.md
       - name: Box
         href: box-userprovisioning-tutorial.md
+      - name: Brivo Onair Identity Connector
+        href: brivo-onair-identity-connector-provisioning-tutorial.md       
       - name: Cerner Central
         href: cernercentral-provisioning-tutorial.md
       - name: Cisco Webex
