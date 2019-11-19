@@ -1,10 +1,10 @@
 ---
-title: Prepare VMware VMs for assessment and migration to Azure with Azure Migrate | Microsoft Docs
-description: Describes how to prepare for assessment and migration of on-premises VMware VMs to Azure using Azure Migrate.
+title: Prepare VMware VMs for assessment/migration with Azure Migrate 
+description: Learn how to prepare for assessment/migration of VMware VMs with Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 10/23/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
 ---

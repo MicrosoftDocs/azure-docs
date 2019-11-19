@@ -51,4 +51,6 @@ landingContent:
             url: internet-analyzer-faq.md
           - text: Interpreting your scorecard
             url: internet-analyzer-scorecard.md
+          - text: Internet Analyzer CLI reference
+            url: https://docs.microsoft.com/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest
 
