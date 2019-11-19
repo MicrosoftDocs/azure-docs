@@ -1,12 +1,8 @@
 ---
 title: Add an Azure Storage queue binding to your Python function 
 description: Learn how to add an Azure Storage queue output binding to your Python function.
-author: ggailey777
-ms.author: glenga
 ms.date: 10/02/2019
 ms.topic: quickstart
-ms.service: azure-functions
-manager: gwallace
 ---
 
 # Add an Azure Storage queue binding to your Python function
