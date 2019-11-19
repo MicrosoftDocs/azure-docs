@@ -8,32 +8,31 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 11/20/2019
 ---
 # Match on patterns and special characters using whole or partial terms
 
-When string composition includes upper and lowercase text with special characters, additional work is sometimes necessary before queries can return matching documents in your index. 
+When string composition includes upper and lowercase text with special characters (`-, /, \, ?, *, =`), or when a pattern consists of partial strings, additional work is sometimes necessary before queries can return matching documents in your index. 
 
-Analyzers, which tokenize terms for full text search scenarios, produce output that is sometimes quite different from the original input value. Common transformations include lower-casing any upper-case text, removing non-essential words, and breaking down composite terms into smaller parts when characters like dashes, periods, and slashes are encountered. If you find that queries fail to return expected results, especially queries that are searching on patterns or special characters, it could be that the index doesn't contain the expected strings.
+Analyzers, which tokenize terms for full text search scenarios, produce output that is sometimes quite different from the original input value. Common transformations include lower-casing any upper-case text, removing non-essential words, and breaking down composite terms into smaller parts when characters like dashes, periods, and slashes are encountered. If you find that queries fail to return expected results, especially queries that are searching on patterns within a string or queries that include special characters, it could be that the index doesn't contain the expected strings, or that you're querying for those strings using an invalid construction.
 
-For example, assume the default standard Lucene analyzer and the following fictitious feature code: `"MSFT/SQL.2019/Linux&Java-Ext"`. The analyzer would tokenize this  into smaller parts: `msft`, `sql`, `2019`, `linux`, `java`, `ext`. Given these transformations, you can imagine how searching on a pattern like `"MSFT*2019"` becomes problematic when the index contains only segments of the term, and not the extended pattern that you expect.
+For example, assume the default standard Lucene analyzer and the following fictitious feature code: `"MSFT/SQL.2019/Linux&Java-Ext"`. The analyzer would tokenize this  into smaller parts: `msft`, `sql`, `2019`, `linux`, `java`, `ext`. Given these transformations, you can imagine how searching on a pattern like `"MSFT/S` becomes problematic when the index contains only segments of the term, and not the extended pattern that you expect.
 
-To enable pattern matching over complex strings, you need to address the following challenges:
 
-+ Control the tokenization process to ensure your index actually contains the required information. Instead of segmented terms, you want *intact* terms so that partial and pattern matching can succeed. You can override default analyzer with a specific analyzer as a control mechanism. You can also add token filters for additional modifications.
+To enable pattern matching over special characters or partial strings, you need to address the following challenges:
+
++ Control the tokenization process to ensure your index actually contains complete information. Instead of segmented terms, you want *intact* terms so that partial and pattern matching can succeed. You can override default analyzer with a specific analyzer as a control mechanism. You can also add token filters for additional modifications.
 
 + Create queries that do the best job of setting up the matching criteria when the criteria in question contains characters or specific patterns. Wildcard queries are a common approach, but you could also incorporate regular expressions for advanced scenarios.
 
 > [!NOTE]
-> Exceptions to the conditions and approaches described in this aritcle include filters and specific query types. $filter expressions do not go against the inverted indexes, and thus tokenization is not applicable. RegEx queries, Wilcard (*) queries, and fuzzy matching queries are not analyzed.
+> Exceptions to the conditions and approaches described in this article include filters and specific query types. $filter expressions do not go against the inverted indexes, and thus tokenization behaviors are not applicable. Similarly, RegEx queries, Wilcard (*) queries, and fuzzy matching queries are lower-cased, but not analyzed.
 
 ## Set up analyzers
 
 Gaining control over tokenization starts with switching out the default Standard Lucene analyzer for a [custom analyzer](index-add-custom-analyzers.md) that delivers minimal processing (typical for this scenario).
 
 Tokenized terms are the output of analyzers, and for the best experience in matching patterns, you need output consisting of whole terms. You can override the default rules by creating a custom analyzer, which you can set on a field-by-field basis.
-
-Analyzers are called during indexing and during query execution. It's common to use the same analyzer for both but you can configure custom analyzers for each workload. Analyzer overrides are specified in the [index definition](https://docs.microsoft.com/rest/api/searchservice/create-index) in an `analyzers` section, and then referenced on specific fields. 
 
 ### Use the Keyword tokenizer with additional token filters
 
@@ -69,9 +68,8 @@ A token filter adds additional processing over existing tokens in your index. Th
             ]
       }
     ],
-
-"charfilters": [],
-
+"tokenizers":[],
+"charFilters": [],
 "tokenFilters": [
       {
          "@odata.type":"#Microsoft.Azure.Search.EdgeNGramTokenFilterV2",
@@ -85,9 +83,11 @@ A token filter adds additional processing over existing tokens in your index. Th
 
 ### Use dedicated analyzers for indexing and query execution
 
-If custom analysis is only required during indexing, you can apply the custom analyzer to just indexing and continue to use the standard Lucene analyzer (or another analyzer) for queries.
+Analyzers are called during indexing and during query execution. It's common to use the same analyzer for both but you can configure custom analyzers for each workload. Analyzer overrides are specified in the [index definition](https://docs.microsoft.com/rest/api/searchservice/create-index) in an `analyzers` section, and then referenced on specific fields. 
 
-To specify role-specific analysis, you can set properties on the field for each one:
+When custom analysis is only required during indexing, you can apply the custom analyzer to just indexing and continue to use the standard Lucene analyzer (or another analyzer) for queries.
+
+To specify role-specific analysis, you can set properties on the field for each one, setting `indexAnalyzer` and `searchAnalyzer` instead of the default `analyzer` property.
 
 ```json
 "name": "featureCode",
@@ -176,18 +176,21 @@ The following screenshot shows the request and response to [Test Analyzer REST A
 
    ![Postman session input is as-35-sd-f output is 4 tokens](./media/search-query-partial-matching/postman-test-analyzer-rest-api.png "Postman session input is as-35-sd-f output is 4 tokens")
 
-## Define queries for pattern matching
+## Query for patterns
 
 Once you have an index that articulates the terms that you expect, you can proceed with a query construct designed for pattern matching.
 
 [Wildcard](search-query-lucene-examples.md#example-7-wildcard-search) and [Regular expression (RegEx)](search-query-lucene-examples.md#example-6-regex) queries are often used to find patterns on content that is expressed as full tokens in an index. 
 
-1. On the query expression, add `querytype=full` to specify the full Lucene query syntax used for wildcard and RegEx queries.
+1. On the query request, add `querytype=full` to specify the full Lucene query syntax used for wildcard and RegEx queries.
 
-2. Add `*` or `?` wildcard characters, or for RegEx queries, enclose your pattern or term with `/`, such as `fieldCode:/SQL*Java-Ext/`
+2. In the query string:
+
+   + For wildcard search, embed `*` or `?` wildcard characters
+   + For RegEx queries, enclose your pattern or term with `/`, such as `fieldCode:/SQL*Java-Ext/`
 
 > [!NOTE]
-> You might be inclined to also use `searchFields` as a field constraint, or set `searchMode=all` as an operator contraint, but in most cases you won't need either one. A regular expression query is typically sufficient for finding an exact match, assuming your index is also set up as described in this article.
+> You might be inclined to also use `searchFields` as a field constraint, or set `searchMode=all` as an operator contraint, but in most cases you won't need either one. A regular expression query is typically sufficient for finding an exact match.
 
 
 ## Next steps
