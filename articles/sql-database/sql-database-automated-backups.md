@@ -78,6 +78,13 @@ For more information, see [Long-term backup retention](sql-database-long-term-re
 ## Storage costs
 For single databases and managed instances, a minimum backup storage amount equal to 100% of database size is provided at no extra charge. For elastic pools, a minimum backup storage amount equal to 100% of the allocated data storage for the pool is provided at no extra charge. Additional consumption of backup storage will be charged in GB/month. This additional consumption will depend on the workload and size of the individual databases.
 
+You can use Azure subscription cost analysis to determine your current spending on backup storage.
+
+If you go to your subscription and open Cost Analysis blade, you can select meter subcategory **mi pitr backup storage** to see your current backup cost cost and charge forecast. You can also include other meter subcategories such as **managed instance general purpose - storage** or **managed instance general purpose - storage** to compare backup storage cost with other cost categories.
+
+> [!Note]
+> You can [change retention period to 7 days](#change-pitr-backup-retention-period-using-azure-portal) to reduce the backup storage cost.
+
 For more information about storage prices, see the [pricing](https://azure.microsoft.com/pricing/details/sql-database/single/) page. 
 
 ## Are backups encrypted
