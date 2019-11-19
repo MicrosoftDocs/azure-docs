@@ -199,7 +199,7 @@
         "articles/governance/management-groups/**/*.md": "rthorn17",
         "articles/governance/resource-graph/**/*.md": "DCtheGeek",
         "articles/ansible/**/*.md": "TomArcherMsft",
-        "articles/backup/**/*.md": "dacurwin",
+        "articles/backup/**/*.md": "dcurwin",
         "articles/chef/**/*.md": "TomArcherMsft",
         "articles/jenkins/**/*.md": "TomArcherMsft",
         "articles/terraform/**/*.md": "TomArcherMsft",
