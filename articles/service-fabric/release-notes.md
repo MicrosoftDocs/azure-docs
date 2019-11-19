@@ -25,25 +25,25 @@ This article provides more information on the latest releases and updates to the
 
 ### Service Fabric 7.0
 
-Azure Service Fabric 7.0 is now available! You will be able to update to 7.0 through the Azure Portal or via an Azure Resource Manager deployment. Due to customer feedback on releases around the holiday period we will not begin automatically updating clusters set to receive automatic upgrades until January.
+Azure Service Fabric 7.0 is now available! You will be able to update to 7.0 through the Azure portal or via an Azure Resource Manager deployment. Due to customer feedback on releases around the holiday period we will not begin automatically updating clusters set to receive automatic upgrades until January.
    In January, we will resume the standard roll-out procedure and clusters with automatic upgrades enabled will begin to receive the 7.0 update automatically. We will provide another announcement before the roll-out begins.
 We will also update our planned release dates to indicate that we take this policy into consideration. Look here for updates on our future [release schedules](https://github.com/Microsoft/service-fabric/#service-fabric-release-schedule)
  
 This is the latest release of Service Fabric and is loaded with key features and improvements.
 
 ### Key Announcements
- - [**KeyVaultReference support for application secrets (Preview)**](https://docs.microsoft.com/azure/service-fabric/service-fabric-keyvault-references): Service Fabric applications that have enabled [Managed Identities](https://docs.microsoft.com/en-us/azure/service-fabric/concepts-managed-identity) can now directly reference a Key Vault secret URL as an environment variable, application parameter, or container repository credential. Service Fabric will automatically resolve the secret using the application's managed identity. 
+ - [**KeyVaultReference support for application secrets (Preview)**](https://docs.microsoft.com/azure/service-fabric/service-fabric-keyvault-references): Service Fabric applications that have enabled [Managed Identities](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) can now directly reference a Key Vault secret URL as an environment variable, application parameter, or container repository credential. Service Fabric will automatically resolve the secret using the application's managed identity. 
      
 - **Improved upgrade safety for stateless services**: To guarantee availability during an application upgrade, we have introduced new 
-  configurations to define the [minimum number of instances for stateless services](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.description.statelessservicedescription?view=azure-dotnet) to be considered available. Previously this value 
+  configurations to define the [minimum number of instances for stateless services](https://docs.microsoft.com/dotnet/api/system.fabric.description.statelessservicedescription?view=azure-dotnet) to be considered available. Previously this value 
   was 1 for all services and was not changeable. With this new per-service safety check, you can ensure that your services retain a 
-  minimumnumber of up instances during application upgrades, cluster upgrades, and other maintenance that relies on Service Fabric’s 
+  minimum number of up instances during application upgrades, cluster upgrades, and other maintenance that relies on Service Fabric’s 
   health and safety checks.
   
 - [**Resource Limits for User Services**](https://docs.microsoft.com/azure/service-fabric/service-fabric-resource-governance#enforcing-the-resource-limits-for-user-services): Users can set up resource limits for the user services on a node to prevent scenarios such as 
   resource exhaustion of the Service Fabric system services. 
   
-- [**Very High service move cost**](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-resource-manager-movement-cost) for a replica type. Replicas with Very High move cost will be moved only if there is a constraint violation in the cluster that cannot be fixed in any other way. Please see the docs for additional information on when usage of a “Very High” move cost is reasonable and for additional considerations.
+- [**Very High service move cost**](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-movement-cost) for a replica type. Replicas with Very High move cost will be moved only if there is a constraint violation in the cluster that cannot be fixed in any other way. Please see the docs for additional information on when usage of a “Very High” move cost is reasonable and for additional considerations.
   
 -  **Additional cluster safety checks**: In this release we introduced a configurable seed node quorum safety check. This allows you to 
    customize how many seed nodes must be available during cluster life-cycle and management scenarios. Operations which would take the 
@@ -51,7 +51,7 @@ This is the latest release of Service Fabric and is loaded with key features and
    the minimum safe value 6, which would allow only one seed node to be down at a time.
    
 - Added support for [**managing the Backup and Restore service in Service Fabric Explorer**](https://docs.microsoft.com/azure/service-fabric/service-fabric-backuprestoreservice-quickstart-azurecluster). This makes the following activities possible directly from within 
- SFX: discovering the backup and restore service, creating backup policie, enabling automatic backups, taking adhoc backups, triggering restore operations and browsing existing backups.
+ SFX: discovering the backup and restore service, creating backup policy, enabling automatic backups, taking adhoc backups, triggering restore operations and browsing existing backups.
 
 - Announcing availability of the [**ReliableCollectionsMissingTypesTool**](https://github.com/hiadusum/ReliableCollectionsMissingTypesTool): 
 This tool helps validate that types used in reliable collections are forward and backward compatible during a rolling application upgrade. This helps prevent upgrade failures or data loss and data corruption due to missing or incompatible types.
