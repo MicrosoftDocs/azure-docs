@@ -12,9 +12,9 @@ ms.date: 11/18/2019
 ms.author: cynthn
 ---
 
-# Control updates with Maintenance Control and the Azure CLI
+# Preview: Control updates with Maintenance Control and the Azure CLI
 
-Manage platform updates, that don't require a reboot, using maintenance control. Azure frequently updates its infrastructure to improve reliability, performance, security or launch new features. Most updates are transparent to users. Some sensitive workloads, like gaming, media streaming, and financial transactions, can’t tolerate even few seconds of a VM freezing or disconnecting for maintenance. Maintenance control gives you the option to wait on platform updates and apply them within a 35-day rolling window.  
+Manage platform updates, that don't require a reboot, using maintenance control. Azure frequently updates its infrastructure to improve reliability, performance, security or launch new features. Most updates are transparent to users. Some sensitive workloads, like gaming, media streaming, and financial transactions, can’t tolerate even few seconds of a VM freezing or disconnecting for maintenance. Maintenance control gives you the option to wait on platform updates and apply them within a 35-day rolling window. 
 
 Maintenance control lets you decide when to apply updates to your isolated VMs.
 
@@ -23,6 +23,12 @@ With maintenance control, you can:
 - Wait up to 35 days to apply updates. 
 - Automate platform updates for your maintenance window using Azure Functions.
 - Maintenance configurations work across subscriptions and resource groups. 
+
+> [!IMPORTANT]
+> Maintenance Control is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> 
 
 ## Limitations
 

@@ -320,8 +320,8 @@
       items:
       - name: CLI
         href: ../maintenance-control-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-      - name: Scheduled events
-        href: scheduled-events.md
+    - name: Scheduled events
+      href: scheduled-events.md
   - name: Monitor VMs
     items:
     - name: Azure Monitor for VMs
