@@ -58,7 +58,7 @@ In the fabricSettings section in your Azure Resource Manager template (for Azure
 ```
 
 
-## Using Service Fabric Azure Files volume driver, deploy sample application
+## Deploy a sample application using Service Fabric Azure Files volume driver
 
 ### Using Azure Resource Manager via the provided Powershell script (recommended)
 
