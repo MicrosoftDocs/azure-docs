@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Azure IoT Hub Device Provisioning Service Documentation
 metadata:
-  title: Azure IoT Hub DPS Documentation - Tutorials, API Reference
+  title: Azure IoT Hub Device Provisioning Service Documentation
   description: Azure IoT Hub Device Provisioning Service - Tutorials, Quickstarts, HowTos, and API Reference
   author: nberdy
   ms.service: iot-dps

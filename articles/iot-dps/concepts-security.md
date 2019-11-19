@@ -7,7 +7,6 @@ ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: briz
 ---
 
 # IoT Hub Device Provisioning Service security concepts 

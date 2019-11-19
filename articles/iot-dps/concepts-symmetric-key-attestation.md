@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub DPS - Symmetric key attestation
+title: Azure IoT Hub Device Provisioning Service - Symmetric key attestation
 description: This article provides a conceptual overview of symmetric key attestation using IoT Device Provisioning Service.
 author: wesmc7777
 ms.author: wesmc
