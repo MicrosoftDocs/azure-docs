@@ -59,7 +59,7 @@ The easiest way to add an App Configuration store to your application is through
 | Programming language and framework | How to connect |
 |---|---|
 | .NET Core and ASP.NET Core | App Configuration provider for .NET Core |
-| .NET and ASP.NET | App Configuration builder for .NET |
+| .NET Framework and ASP.NET | App Configuration builder for .NET |
 | Java Spring | App Configuration client for Spring Cloud |
 | Others | App Configuration REST API |
 
@@ -68,7 +68,7 @@ The easiest way to add an App Configuration store to your application is through
 * [ASP.NET Core quickstart](./quickstart-aspnet-core-app.md)
 * [.NET Core quickstart](./quickstart-dotnet-core-app.md)
 * [.NET Framework quickstart](./quickstart-dotnet-app.md)
-* [Azure Function quickstart](./quickstart-azure-function-csharp.md)
+* [Azure Functions quickstart](./quickstart-azure-functions-csharp.md)
 * [Java Spring quickstart](./quickstart-java-spring-app.md)
 * [ASP.NET Core feature flag quickstart](./quickstart-feature-flag-aspnet-core.md)
 * [Spring Boot feature flag quickstart](./quickstart-feature-flag-spring-boot.md)
