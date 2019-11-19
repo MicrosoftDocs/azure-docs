@@ -443,3 +443,13 @@ kubectl -n my-namespace delete pod --all
 ```
 
 After your pods have restarted, you can begin using your existing namespace with Azure Dev Spaces.
+
+### Enable Azure Dev Spaces on AKS cluster with restricted egress traffic for cluster nodes
+
+To enable Azure Dev Spaces on an AKS cluster for which the egress traffic from cluster nodes is restricted, you will have to whitelist following FQDNs
+
+| FQDN                                    | Port      | Use      |
+|-----------------------------------------|-----------|----------|
+| cloudflare.docker.com | HTTPS:443 | To pull linux alpine and other Azure Dev Spaces images |
+| gcr.io | HTTP:443 | To pull helm/tiller images|
+| storage.googleapis.com | HTTP:443 | To pull helm/tiller images|
