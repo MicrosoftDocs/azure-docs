@@ -113,17 +113,10 @@ To mount the problem VM, the Rescue VM must meet the following prerequisites:
 
 1.  After you get the VM back online, shut down the VM in the Hyper-V manager.
 
-2.  Go to the [Azure portal](https://portal.azure.com) and select the Rescue VM > Disks,  copy the name of the disk. You will use the name in the next step. Detach the fixed disk from the Rescue VM.
-
-3.  Go to **All resources**, search for the disk name, and then select the disk.
-
-     ![the image about searches the disk](media/troubleshoot-vm-by-use-nested-virtualization/search-disk.png)     
-
-4. Click **Create VM**.
-
-     ![the image about creates vm from the disk](media/troubleshoot-vm-by-use-nested-virtualization/create-vm-from-vhd.png) 
-
-You can also use Azure PowerShell to create the VM from the disk. For more information, see [Create the new VM from an existing disk by using PowerShell](../windows/create-vm-specialized.md#create-the-new-vm). 
+2.  [Unmount and detach the repaired OS disk](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-original-virtual-hard-disk
+)
+3.  [Change the OS disk that is used by the VM to the repaired OS disk](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm
+).
 
 ## Next steps
 
