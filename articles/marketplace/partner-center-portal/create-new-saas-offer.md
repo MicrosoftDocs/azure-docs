@@ -31,8 +31,8 @@ The **New offer** dialog box is displayed.
 
 ## Offer ID and alias
 
-- **Offer ID**: Unique identifier for each offer in your account. This ID will be visible to customers in the URL address for the marketplace offer and Azure Resource Manager templates (if applicable). Offer ID must be lowercase, alphanumeric (including hyphens and underscores, but no whitespace). This is limited to 50 characters and can't be changed after you select *Create*.  
-Example: test-offer-1 
+- **Offer ID**: Unique identifier for each offer in your account. This ID will be visible to customers in the URL address for the marketplace offer and Azure Resource Manager templates (if applicable). Offer ID must be lowercase, alphanumeric (including hyphens and underscores, but no whitespace). The **Offer ID** is limited to 50 characters and can't be changed after you select *Create*.  
+Example: test-offer-1
 <br>Resulting in the URL: `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`
 
 - **Offer alias**: The name used to refer to the offer within the Partner Center portal. This name won't be used in the marketplace and is different than the *Offer Name* and other values that will be shown to customers. This value can't be changed after you select *Create*.
@@ -82,7 +82,7 @@ With SaaS solutions running in the publisher's Azure subscription, license fees 
 
 SaaS offers support monthly or annual billing based on a flat fee, per user, or consumption charges using the metered billing service. Microsoft's commercial marketplace operates on an agency model, whereby publishers set prices, Microsoft bills customers, and Microsoft pays revenue to the publisher while withholding an agency fee.
 
-The following table shows an example break down of costs and payouts to demonstrate the agency model.
+The following table shows an example breakdown of costs and payouts to demonstrate the agency model.
 
 |**Your license cost**|**$100 per month**|
 |:---|:---|
@@ -193,7 +193,7 @@ Standard Contract Amendments let publishers select the Standard Contract terms f
 There are two kinds of amendments available for commercial marketplace publishers:
 
 - Universal Amendments: These amendments are applied universally to the Standard Contract for all customers. Universal amendments are shown to every customer of the offer in the purchase flow. Customers must accept the terms of the Standard Contract and the amendment before they can use your offer.
-- Custom Amendments: These are special amendments to the Standard Contract that are targeted to specific customers only via Azure tenant IDs. Publishers can choose the tenant they want to target. Only customers from the tenant will be presented with the custom amendment terms in the offer’s purchase flow.  Customers must accept the terms of the Standard Contract and the amendment(s) before they can use your offer.
+- Custom Amendments: These amendments are special amendments to the Standard Contract that are targeted to specific customers only via Azure tenant IDs. Publishers can choose the tenant they want to target. Only customers from the tenant will be presented with the custom amendment terms in the offer’s purchase flow.  Customers must accept the terms of the Standard Contract and the amendment(s) before they can use your offer.
 
 >[!NOTE]
 > These two types of amendments stack on top of each other. Customers targeted with custom amendments will also get the universal amendment to the Standard Contract during purchase.
@@ -321,7 +321,7 @@ To make your offer description more engaging you can use HTML tags to format the
 
 #### Contact information
 
-- **Contacts**: For each customer contact, provide an employee  **Name** ,  **Phone number**, and  **Email**  address.  (These *will not* be displayed publicly). A **Support URL**  is also required for the  **Support Contact**  group.  (This information *will* be displayed publicly).
+- **Contacts**: For each customer contact, provide an employee  **Name**,  **Phone number**, and  **Email**  address.  (These *will not* be displayed publicly). A **Support URL**  is also required for the  **Support Contact**  group.  (This information *will* be displayed publicly).
 
 **Support contact** (required): For general support questions.
 
