@@ -28,7 +28,7 @@ The objective of this tutorial is to demonstrate the steps to be performed in G 
 > [!NOTE]
 > The G Suite connector was recently updated on October 2019. Changes made to the G Suite connector include:
 - Added support for additional G Suite user and group attributes. 
-- Updated G Suite target attribute names to match what is defined [here](/azure/active-directory/manage-apps/customize-application-attributes).
+- Updated G Suite target attribute names to match what is defined [here](https://developers.google.com/admin-sdk/directory).
 - Updated default attribute mappings.
 
 ## Prerequisites
@@ -125,6 +125,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 > [!TIP]
 > You may also choose to enable SAML-based single sign-on for G Suite , following the instructions provided in the [G Suite Single sign-on tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-tutorial). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
 
+> [!NOTE]
+> To learn more about G Suite's Directory API endpoint, refer to [Directory API](https://developers.google.com/admin-sdk/directory).
+
 ### To configure automatic user provisioning for G Suite in Azure AD:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
@@ -192,9 +195,6 @@ This section guides you through the steps to configure the Azure AD provisioning
 This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on G Suite.
 
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
-
-> [!NOTE]
-> Another viable option for automating user provisioning to G Suite is to use [Google Cloud Directory Sync](https://support.google.com/a/answer/106368?hl=en). This option provisions your on-premises Active Directory identities to G Suite.
 
 ## Additional resources
 

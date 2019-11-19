@@ -1,5 +1,5 @@
 ---
-title: How to configure system and user-assigned managed identities on an Azure VM using Azure CLI
+title: Configure managed identities on Azure VM using Azure CLI - Azure AD
 description: Step by step instructions for configuring system and user-assigned managed identities on an Azure VM using Azure CLI.
 services: active-directory
 documentationcenter: 

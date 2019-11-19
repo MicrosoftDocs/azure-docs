@@ -1,15 +1,11 @@
 ---
-title: Manage & monitor Microsoft Azure Recovery Services Agent backups
-description: Learn how to manage and monitor Microsoft Azure Recovery Services Agent backups by using the Azure Backup service.
+title: Manage and monitor MARS Agent backups
+description: Learn how to manage and monitor Microsoft Azure Recovery Services (MARS) Agent backups by using the Azure Backup service.
 ms.reviewer: srinathv
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.author: dacurwin
 ---
-# Manage Microsoft Azure Recovery Services Agent backups by using the Azure Backup service
+# Manage Microsoft Azure Recovery Services (MARS) Agent backups by using the Azure Backup service
 
 This article describes how to manage files and folders that are backed up with the Microsoft Azure Recovery Services Agent.
 
@@ -205,4 +201,4 @@ If you stopped protection while retaining data and decided to resume protection,
 ## Next steps
 
 - For information about supported scenarios and limitations, refer to the [Support Matrix for MARS](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent).
-- Learn more about [Ad hoc backup policy retention behavior](backup-configure-vault.md#ad-hoc-backup-policy-retention-behavior).
+- Learn more about [On demand backup policy retention behavior](backup-configure-vault.md#on-demand-backup-policy-retention-behavior).

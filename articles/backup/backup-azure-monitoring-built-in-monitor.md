@@ -1,14 +1,8 @@
 ---
-title: 'Azure Backup: Monitor Azure Backup protected workloads'
+title: Monitor Azure Backup protected workloads
 description: In this article, learn about the monitoring and notification capabilities for Azure Backup workloads using the Azure portal.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: Azure Backup; Alerts;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2019
-ms.author: dacurwin
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
 ---
 
@@ -58,7 +52,7 @@ There are few exceptions when an alert is not raised on a failure, they are:
 
 The above exceptions are designed from the understanding that the result of these operations (primarily user triggered) shows up immediately on portal/PS/CLI clients. Hence, the user is immediately aware and doesn't need a notification.
 
-### Alerts from the following Azure Backup solutions are shown here:
+### Alerts from the following Azure Backup solutions are shown here
 
 - Azure VM backups
 - Azure File backups
@@ -97,7 +91,7 @@ If the frequency was set to an hourly digest and an alert was raised and resolve
 > - If a destructive operation such as **stop protection with delete data** is performed, an alert is raised and an email is sent to subscription owners, admins, and co-admins even if notifications are NOT configured for the Recover Service vault.
 > - To configure notification for successful jobs use [Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
 
-## Inactivating Alerts
+## Inactivating alerts
 
 To inactivate/resolve an active alert, you can click on the list item corresponding to the alert you wish to inactivate. This opens up a screen that displays detailed information about the alert, with an 'Inactivate' button on the top. Clicking this button would change the status of the alert to 'Inactive'. You may also inactivate an alert by right-clicking on the list item corresponding to that alert and selecting 'Inactivate'.
 

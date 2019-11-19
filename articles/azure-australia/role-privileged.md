@@ -1,5 +1,6 @@
 ---
-title: Role-Based Access Control and Privileged Identity Management in Azure Australia
+title: Role-Based Access Control and Privileged Identity Management
+titleSuffix: Azure Australia
 description: Guidance on Implementing Role Based Access Control and Privileged Identity Management within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
 author: Galey801
 ms.service: azure-australia
