@@ -1,11 +1,11 @@
 ---
-title: Azure Migrate support matrix for physical server assessment and migration
-description: Summarizes settings and limitations for physical server assessment and migration using the Azure Migrate service.
+title: Support for physical server assessment/migration with Azure Migrate
+description: Summarizes support for physical server assessment/migration with Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ---
 
@@ -13,8 +13,6 @@ ms.author: raynew
 
 You can use the [Azure Migrate service](migrate-overview.md) to assess and migrate machines to the Microsoft Azure cloud. This article summarizes support settings and limitations for assessing and migrating on-premises physical servers.
 
-> [!NOTE]
-> If features are mentioned here that you don't yet see in the Azure Migrate portal, hang on. They will appear over the next week or so.
 
 
 ## Physical server scenarios

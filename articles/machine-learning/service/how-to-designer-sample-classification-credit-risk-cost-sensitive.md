@@ -1,7 +1,7 @@
 ---
-title: 'Designer: Predict credit risk (cost sensitive)'
+title: 'Designer: Predict credit risk example'
 titleSuffix: Azure Machine Learning
-description: This article shows you how to build a complex machine learning pipeline using the designer (preview). You'll learn how to implement custom Python scripts and compare multiple models to choose the best option.
+description: Build a classifier and use custom Python scripts to predict credit risk using Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,8 +11,10 @@ ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
 ---
+# Build a classifier & use Python scripts to predict credit risk using Azure Machine Learning designer
 
-# Sample 4 - Classification with custom Python script: Predict credit risk
+**Designer (preview) sample 4**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 This article shows you how to build a complex machine learning pipeline using the designer (preview). You'll learn how to implement custom logic using Python scripts and compare multiple models to choose the best option.

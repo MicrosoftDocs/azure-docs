@@ -1,10 +1,10 @@
 ---
-title: Deploy Azure Machine Learning to a device - Azure IoT Edge | Microsoft Docs
-description: In this tutorial, you create an Azure Machine Learning model, then deploy it as a module to an edge device
+title: 'Tutorial: Deploy Azure Machine Learning to a device - Azure IoT Edge'
+description: 'In this tutorial, you create an Azure Machine Learning model, then deploy it as a module to an edge device'
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/16/2019
+ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge

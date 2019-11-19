@@ -1,14 +1,8 @@
 ---
-title: 'Azure Backup: Monitor Azure Backup with Azure Monitor'
+title: Monitor Azure Backup with Azure Monitor
 description: Monitor Azure Backup workloads and create custom alerts by using Azure Monitor.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: Log Analytics; Azure Backup; Alerts; Diagnostic Settings; Action groups
-ms.service: backup
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: dacurwin
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
 ---
 
