@@ -13,7 +13,7 @@ ms.reviewer: prishet
 
 # Manage directories, files, and permissions in Azure Data Lake Storage Gen2 (Azure CLI)
 
-This article shows you how to use the [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). to create and manage directories, files, and permissions in storage accounts that have a hierarchical namespace. 
+This article shows you how to use the [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) to create and manage directories, files, and permissions in storage accounts that have a hierarchical namespace. 
 
 [Source code](https://github.com/Azure/azure-cli-extensions/tree/master/src) | [Sample](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview)
 
@@ -32,7 +32,7 @@ This article shows you how to use the [Azure Command-Line Interface (CLI)](https
    ```azurecli
     az --version
    ```
-  If your version of Azure CLI is lower than `2.0.67`, then install a later version. See [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+   If your version of Azure CLI is lower than `2.0.67`, then install a later version. See [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 3. Install the `storage-preview` extension.
 

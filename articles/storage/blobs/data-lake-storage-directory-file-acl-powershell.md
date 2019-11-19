@@ -64,16 +64,21 @@ This article shows you how to use PowerShell to create and manage directories, f
 
    Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
-4. Get the storage account context.
+4. Get the storage account.
 
    ```powershell
    $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
-   $ctx = $storageAccount.Context
    ```
 
    * Replace the `<resource-group-name>` placeholder value with the name of your resource group.
 
    * Replace the `<storage-account-name>` placeholder value with the name of your storage account.
+
+5. Get the storage account context.
+
+   ```powershell
+   $ctx = $storageAccount.Context
+   ```
 
 ## Create a file system
 
