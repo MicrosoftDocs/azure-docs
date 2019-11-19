@@ -103,34 +103,6 @@ public static void Run(string myQueueItem,
 }
 ```
 
-# [F#](#tab/fsharp)
-
-The following example shows a Service Bus trigger binding in a *function.json* file and an [F# function](functions-reference-fsharp.md) that uses the binding. The function logs a Service Bus queue message. 
-
-Here's the binding data in the *function.json* file:
-
-```json
-{
-"bindings": [
-    {
-    "queueName": "testqueue",
-    "connection": "MyServiceBusConnection",
-    "name": "myQueueItem",
-    "type": "serviceBusTrigger",
-    "direction": "in"
-    }
-],
-"disabled": false
-}
-```
-
-Here's the F# script code:
-
-```fsharp
-let Run(myQueueItem: string, log: ILogger) =
-    log.LogInformation(sprintf "F# ServiceBus queue trigger function processed message: %s" myQueueItem)
-```
-
 # [JavaScript](#tab/javascript)
 
 The following example shows a Service Bus trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function reads [message metadata](#trigger---message-metadata) and logs a Service Bus queue message. 
@@ -370,10 +342,6 @@ In JavaScript, access the queue or topic message by using `context.bindings.<nam
 
 **TODO**
 
-# [F#](#tab/fsharp)
-
-**TODO**
-
 # [JavaScript](#tab/javascript)
 
 **TODO**
@@ -490,43 +458,6 @@ public static async Task Run(TimerInfo myTimer, ILogger log, IAsyncCollector<str
     await outputSbQueue.AddAsync("1 " + message);
     await outputSbQueue.AddAsync("2 " + message);
 }
-```
-
-# [F#](#tab/fsharp)
-
-The following example shows a Service Bus output binding in a *function.json* file and an [F# script function](functions-reference-fsharp.md) that uses the binding. The function uses a timer trigger to send a queue message every 15 seconds.
-
-Here's the binding data in the *function.json* file:
-
-```json
-{
-    "bindings": [
-        {
-            "schedule": "0/15 * * * * *",
-            "name": "myTimer",
-            "runsOnStartup": true,
-            "type": "timerTrigger",
-            "direction": "in"
-        },
-        {
-            "name": "outputSbQueue",
-            "type": "serviceBus",
-            "queueName": "testqueue",
-            "connection": "MyServiceBusConnection",
-            "direction": "out"
-        }
-    ],
-    "disabled": false
-}
-```
-
-Here's F# script code that creates a single message:
-
-```fsharp
-let Run(myTimer: TimerInfo, log: ILogger, outputSbQueue: byref<string>) =
-    let message = sprintf "Service Bus queue message created at: %s" (DateTime.Now.ToString())
-    log.LogInformation(message)
-    outputSbQueue = message
 ```
 
 # [JavaScript](#tab/javascript)
@@ -670,6 +601,8 @@ Java functions can also write to a Service Bus topic. The following example uses
 
 ## Output - attributes
 
+# [C#](#tab/csharp)
+
 In [C# class libraries](functions-dotnet-class-library.md), use the [ServiceBusAttribute](https://github.com/Azure/azure-functions-servicebus-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusAttribute.cs).
 
 The attribute's constructor takes the name of the queue or the topic and subscription. You can also specify the connection's access rights. How to choose the access rights setting is explained in the [Output - configuration](#output---configuration) section. Here's an example that shows the attribute applied to the return value of the function:
@@ -699,10 +632,6 @@ For a complete example, see [Output - example](#output---example).
 You can use the `ServiceBusAccount` attribute to specify the Service Bus account to use at class, method, or parameter level.  For more information, see [Trigger - attributes](#trigger---attributes).
 
 # [C# Script](#tab/csharp-script)
-
-**TODO**
-
-# [F#](#tab/fsharp)
 
 **TODO**
 
@@ -738,9 +667,11 @@ The following table explains the binding configuration properties that you set i
 
 ## Output - usage
 
-In Azure Functions 1.x, the runtime creates the queue if it doesn't exist and you have set `accessRights` to `manage`. In Functions version 2.x, the queue or topic must already exist; if you specify a queue or topic that doesn't exist, the function will fail. 
+In Azure Functions 1.x, the runtime creates the queue if it doesn't exist and you have set `accessRights` to `manage`. In Functions version 2.x, the queue or topic must already exist; if you specify a queue or topic that doesn't exist, the function will fail.
 
-In C# and C# script, you can use the following parameter types for the output binding:
+# [C#](#tab/csharp)
+
+Use the following parameter types for the output binding:
 
 * `out T paramName` - `T` can be any JSON-serializable type. If the parameter value is null when the function exits, Functions creates the message with a null object.
 * `out string` - If the parameter value is null when the function exits, Functions does not create a message.
@@ -755,9 +686,36 @@ When working with C# functions:
 
 * To access the session ID, bind to a [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) type and use the `sessionId` property.
 
-In JavaScript, access the queue or topic by using `context.bindings.<name from function.json>`. You can assign a string, a byte array, or a JavaScript object (deserialized into JSON) to `context.binding.<name>`.
+# [C# Script](#tab/csharp-script)
 
-To send a message to a session-enabled queue in non-C# languages, use the [Azure Service Bus SDK](https://docs.microsoft.com/azure/service-bus-messaging) rather than the built-in output binding.
+Use the following parameter types for the output binding:
+
+* `out T paramName` - `T` can be any JSON-serializable type. If the parameter value is null when the function exits, Functions creates the message with a null object.
+* `out string` - If the parameter value is null when the function exits, Functions does not create a message.
+* `out byte[]` - If the parameter value is null when the function exits, Functions does not create a message.
+* `out BrokeredMessage` - If the parameter value is null when the function exits, Functions does not create a message (for Functions 1.x)
+* `out Message` - If the parameter value is null when the function exits, Functions does not create a message (for Functions 2.x)
+* `ICollector<T>` or `IAsyncCollector<T>` - For creating multiple messages. A message is created when you call the `Add` method.
+
+When working with C# functions:
+
+* Async functions need a return value or `IAsyncCollector` instead of an `out` parameter.
+
+* To access the session ID, bind to a [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) type and use the `sessionId` property.
+
+# [JavaScript](#tab/javascript)
+
+Access the queue or topic by using `context.bindings.<name from function.json>`. You can assign a string, a byte array, or a JavaScript object (deserialized into JSON) to `context.binding.<name>`.
+
+# [Python](#tab/python)
+
+Use the [Azure Service Bus SDK](https://docs.microsoft.com/azure/service-bus-messaging) rather than the built-in output binding.
+
+# [Java](#tab/java)
+
+Use the [Azure Service Bus SDK](https://docs.microsoft.com/azure/service-bus-messaging) rather than the built-in output binding.
+
+---
 
 ## Exceptions and return codes
 
@@ -793,10 +751,10 @@ This section describes the global configuration settings available for this bind
 
 |Property  |Default | Description |
 |---------|---------|---------|
-|maxAutoRenewDuration|00:05:00|The maximum duration within which the message lock will be renewed automatically.|
-|autoComplete|true|Whether the trigger should immediately mark as complete (autocomplete) or wait for processing to call complete.|
-|maxConcurrentCalls|16|The maximum number of concurrent calls to the callback that the message pump should initiate. By default, the Functions runtime processes multiple messages concurrently. To direct the runtime to process only a single queue or topic message at a time, set `maxConcurrentCalls` to 1. |
-|prefetchCount|n/a|The default PrefetchCount that will be used by the underlying MessageReceiver.|
+|`maxAutoRenewDuration`|00:05:00|The maximum duration within which the message lock will be renewed automatically.|
+|`autoComplete`|true|Whether the trigger should immediately mark as complete (autocomplete) or wait for processing to call complete.|
+|`maxConcurrentCalls`|16|The maximum number of concurrent calls to the callback that the message pump should initiate. By default, the Functions runtime processes multiple messages concurrently. To direct the runtime to process only a single queue or topic message at a time, set `maxConcurrentCalls` to 1. |
+|`prefetchCount`|n/a|The default PrefetchCount that will be used by the underlying `MessageReceiver`.|
 
 
 ## Next steps
