@@ -1,20 +1,15 @@
 ---
-title: Back up and restore Azure Files with Azure Backup and PowerShell
+title: Back up and restore Azure Files with PowerShell
 description: In this article, learn how to back up and restore Azure Files using the Azure Backup service and PowerShell. 
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.author: dacurwin
-ms.reviewer: pullabhk
 ---
 
 # Back up and restore Azure Files with PowerShell
 
 This article describes how to use Azure PowerShell to back up and recover an Azure Files file share using an [Azure Backup](backup-overview.md) Recovery Services vault.
 
-This tutorial explains how to:
+This article explains how to:
 
 > [!div class="checklist"]
 >

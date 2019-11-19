@@ -1,7 +1,7 @@
 ---
-title: 'Designer: Classify, predict churn'
+title: 'Designer: Predict churn example'
 titleSuffix: Azure Machine Learning
-description: This designer (preview) sample pipeline shows binary classifier prediction of churn, a common task for customer relationship management (CRM).
+description: Follow this classification example to predict churn with Azure Machine Learning designer & boosted decision trees. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,7 +12,10 @@ ms.reviewer: sgilley
 ms.date: 11/04/2019
 ---
 
-# Sample 5 - Classification: Predict churn
+# Use boosted decision tree to predict churn with Azure Machine Learning designer
+
+**Designer (preview) sample 5**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Learn how to build a complex machine learning pipeline without writing a single line of code using the designer (preview).

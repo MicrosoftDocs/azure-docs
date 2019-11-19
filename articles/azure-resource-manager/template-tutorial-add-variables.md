@@ -1,11 +1,7 @@
 ---
-title: Tutorial - add variable to Azure Resource Manager template
+title: Tutorial - add variable to template
 description: Add variables to your Azure Resource Manager template to simplify the syntax.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
