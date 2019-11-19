@@ -279,7 +279,7 @@ Separation of Duties, also called Segregation of Duties decribes the requirement
 - Identify the required level of Separation of Duties. Examples: 
   - Between Development/Test and Production environments 
   - Security-wise sensitive tasks vs Database Administrator (DBA) management level tasks vs developer tasks. 
-    - Examples: Auditor, creation of security policy for Role-level Security (RLS), Implementing SQL Database objects with DDL-permissions.
+    - Examples: Auditor, creation of security policy for Role-level Security (RLS), Implementing SQL database objects with DDL-permissions.
 
 - Identify a comprehensive hierarchy of users (and automated processes) that access the system.
 
@@ -486,6 +486,7 @@ Another technique for preventing unauthorized users from viewing data is to obfu
 Network security refers to access controls and best practices to secure your data in transit to Azure SQL Database.
 
 ### Configure my client to connect securely to Azure SQL Database 
+Prevent client machines and applications connecting to Azure SQL Database from well-known vulnerabilities due to dependence on older protocols and cipher suites.
 
 **How to implement**:
 
@@ -507,22 +508,27 @@ Network security refers to access controls and best practices to secure your dat
   - There are future plans to have encryption enforced for both **Proxy** and **Redirect** connection types. 
 
 ### Minimize Attack Surface
+Minimize the number of features that can be attacked by a malicious user by implementing network access controls for Azure SQL Database and managed instance.
 
 > [!NOTE]
 > Mentioned in: OSA Practice #5
 
 **How to implement**:
 
+- Set Allow Access to Azure services to OFF.
+
 - Use VNet Service endpoints and VNet Firewall Rules.
 
-- For managed instance, follow our documentation on [Network requirements](sql-database-managed-instance-connectivity-architecture.md#network-requirements). 
+- Use Private Link (preview).
+
+- For managed instance, follow the guidelines in [Network requirements](sql-database-managed-instance-connectivity-architecture.md#network-requirements). 
 
 **Best practices**:
 
 - Restricting access to Azure SQL Database and Azure SQL Database managed instance by connecting on a private endpoint (for example, using a private data path): 
   - Single databases users should utilize [VNet Service endpoints with VNet Firewall Rules](sql-database-vnet-service-endpoint-rule-overview.md) to restrict access to customer owned virtual networks if possible.
   - Azure SQL Database managed instance can be isolated inside a virtual network to prevent external access. Applications and tools that reside in the same or peered virtual network in the same region could access it directly. Applications and tools that are in different region could utilize VNet-to-VNet connection or Express route circuit peering to establish connection. Customer should use Network Security Groups (NSG) to restrict access over port 1433 only to resources that require access to managed instance 
-  - The Azure SQL team is working on a [Private Link](sql-database-private-endpoint-overview.md) feature that would provide a dedicated private IP for Logical server inside a customer’s virtual network. You can also use a proxy as described in this [blog post](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Using-a-TCP-proxy-to-connect-to-SQL-Database-over-VPN/ba-p/390962). 
+  - Use the [Private Link](sql-database-private-endpoint-overview.md) feature that provides a dedicated private IP for Logical server inside a customer’s virtual network. 
   - Mobile users should utilize point-to-site VPN connections to connect over the data path.
   - Users connected to their on-premises network should utilize site-to-site VPN connection or Express Route to connect over the data path.
 
@@ -540,7 +546,7 @@ Network security refers to access controls and best practices to secure your dat
   - Use [Network Security Groups (NSGs)](../virtual-network/security-overview.md) to control traffic between subnets inside the Azure VNet boundary.
   - Enable [Azure Network Watcher](../network-watcher/network-watcher-monitoring-overview.md) for your subscription to monitor inbound and outbound network traffic.
 
-### For Power BI connecting to SQL Database and Azure SQL Database managed instance
+### Configure Power BI for secure connections to Azure SQL Database and managed instance
 
 **Best practices**:
 
@@ -552,7 +558,7 @@ Network security refers to access controls and best practices to secure your dat
 
 - For Power BI Service, use the [on-premises data gateway](https://docs.microsoft.com/power-bi/service-gateway-onprem), keeping in mind [Limitations and Considerations](https://docs.microsoft.com/power-bi/service-gateway-onprem#limitations-and-considerations).
 
-### For App Service connecting to SQL Database & MI
+### Configure App Service for secure connections to Azure SQL Database and managed instance
 
 **Best practices**:
 
@@ -566,7 +572,7 @@ Network security refers to access controls and best practices to secure your dat
 
 - Install [Web Application Firewall (WAF)](../application-gateway/waf-overview.md) to protect your web app from common exploits and vulnerabilities.
 
-### For Azure VM hosting applications connecting to Azure SQL Database or Azure SQL Database managed instance
+### Configure Azure VM hosting for secure connections to Azure SQL Database and managed instance
 
 **Best practices**:
 
@@ -587,6 +593,7 @@ Network security refers to access controls and best practices to secure your dat
 - Use [VNet Service endpoints](sql-database-vnet-service-endpoint-rule-overview.md) for secure access to PaaS services like Azure Storage via the Azure backbone network. 
 
 ### Protect against Distributed Denial of Service (DDoS) attacks
+Distributed Denial of Service (DDoS) attacks are attempts by a malicious user to send a flood of network traffic to Azure SQL Database with the aim of overwhelming the Azure infrastructure and causing it to reject valid logins and workload.
 
 > [!NOTE]
 > Mentioned in: OSA Practice #9
