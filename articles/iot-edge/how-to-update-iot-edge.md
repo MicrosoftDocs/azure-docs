@@ -5,7 +5,7 @@ keywords:
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/18/2019
+ms.date: 11/19/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -87,15 +87,15 @@ If you use specific tags in your deployment (for example, mcr.microsoft.com/azur
 
 1. In the **IoT Edge Modules** section, select **Runtime Settings**.
 
-  ![Configure runtime settings](./media/how-to-update-iot-edge/configure-runtime.png)
+    ![Configure runtime settings](./media/how-to-update-iot-edge/configure-runtime.png)
 
 1. In **Runtime Settings**, update the **Image** value for **Edge Hub** with the desired version.
 
-  ![Update Edge Hub Image version](./media/how-to-update-iot-edge/runtime-settings-edgehub.png)
+    ![Update Edge Hub Image version](./media/how-to-update-iot-edge/runtime-settings-edgehub.png)
 
-1. Collapse the **Edge Hub** settings, and update the **Image** value for **Edge Agent**.
+1. Collapse the **Edge Hub** settings, and update the **Image** value for **Edge Agent** with the same desired version.
 
-  ![Update Edge Hub Agent version](./media/how-to-update-iot-edge/runtime-settings-edgeagent.png)
+    ![Update Edge Hub Agent version](./media/how-to-update-iot-edge/runtime-settings-edgeagent.png)
 
 1. Select **Save**.
 
