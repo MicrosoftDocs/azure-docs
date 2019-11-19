@@ -52,6 +52,8 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + updated version of interpret-community to 0.2.0
   + **azureml-pipeline-steps**
     + Documented supported values for `runconfig_pipeline_params` for azure machine learning pipeline steps.
+  + **azureml-pipeline-core**
+    + Added CLI option to download output in json format for Pipeline commands.
   + **azureml-train-automl**
     + Moved Machine learning and training code in AzureML-Train-AutoML to a submodule AzureML-Train-AutoML-Runtime.
       + Added a thin client, AzureML-Train-AutoML-Client for submitting remote jobs without installing any machine learning packages.
