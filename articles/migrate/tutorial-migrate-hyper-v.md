@@ -1,6 +1,6 @@
 ---
-title: Migrate on-premises Hyper-V VMs to Azure with Azure Migrate Server Migration | Microsoft Docs
-description: This article describes how to migrate on-premises Hyper-V VMs to Azure with Azure Migrate Server Migration
+title: Migrate Hyper-V VMs to Azure with Azure Migrate Server Migration 
+description: Learn how to migrate on-premises Hyper-V VMs to Azure with Azure Migrate Server Migration
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
