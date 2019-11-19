@@ -5,7 +5,7 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/30/2019
+ms.date: 11/17/2019
 ---
 
 # Mapping data flow Expression Builder
@@ -72,6 +72,40 @@ With expression functions that return arrays, use square brackets [] to address 
 
 When you have column names that include special characters or spaces, surround the name with curly braces.
 * ```{[dbo].this_is my complex name$$$}```
+
+## Keyboard shortcuts
+
+* ```Ctrl-K Ctrl-C```: Comments entire line
+* ```Ctrl-K Ctrl-U```: Uncomment
+* ```F1```: Provide editor help commands
+* ```Alt-Down Arrow```: Move current line down
+* ```Alt-Up Arrow```: Move current line up
+* ```Cntrl-Space```: Show context help
+
+## Manual comments
+
+* ```/* This is my comment */```
+
+* ```/* This is a```
+*   ```multi-line comment */```
+   
+* ```// This is a single line comment```
+
+If you put a comment at the top of your expression, it will appear in the transformation text box to document your transformation expressions:
+
+![Comments](media/data-flow/comments2.png "Comments")
+
+## Convert to dates or timestamps
+
+```toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')```
+
+Note that to include string literals in your timestamp output, you need to wrap your conversion inside of a toString()
+
+## Handling column names with special characters
+
+When you have column names that include special characters or spaces, surround the name with curly braces.
+
+```{[dbo].this_is my complex name$$$}```
 
 ## Next steps
 

@@ -1,12 +1,8 @@
 ---
-title: Security features to help protect cloud workloads that use Azure Backup
+title: Security features to help protect cloud workloads
 description: Learn how to use security features in Azure Backup to make backups more secure.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.author: dacurwin
 ---
 # Security features to help protect cloud workloads that use Azure Backup
 
