@@ -1,5 +1,5 @@
 ---
-title: How to assign a managed identity access to an Azure resource using PowerShell
+title: Assign a managed identity access to a resource using PowerShell - Azure AD
 description: Step by step instructions for assigning a managed identity on one resource, access to another resource, using PowerShell.
 services: active-directory
 documentationcenter: 

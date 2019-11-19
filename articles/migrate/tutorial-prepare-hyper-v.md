@@ -1,11 +1,11 @@
 ---
-title: Prepare Hyper-V VMs for assessment and migration to Azure with Azure Migrate | Microsoft Docs
-description: Describes how to prepare for assessment and migration of Hyper-V VMs to Azure using Azure Migrate.
+title: Prepare Hyper-V VMs for assessment/migration with Azure Migrate 
+description: Learn how to prepare for assessment/migration of Hyper-V VMs with Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 09/16/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
 ---
