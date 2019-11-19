@@ -89,37 +89,48 @@ When you create or open a project, the main tag editor window opens. The tag edi
 * The main editor pane that allows you to apply tags.
 * The tags editor pane that allows users to modify, lock, reorder, and delete tags. 
 
-Follow these steps to label your forms:
+### Identify text elements
+
+Click **Run OCR on all files** on the left pane to get the text layout information for each document. The labeling tool will draw bounding boxes around each text element.
+
+### Apply labels to text
+
+Next, you'll create labels and apply them to the text elements that you want the model to recognize.
 
 1. First, use the tags editor pane to create the tags (labels) you'd like to identify.
-1. Select a form on the left to load it into the main tag editor.
-1. Click and drag to select one or multiple words from the highlighted terms.
+1. In the main editor, click and drag to select one or multiple words from the highlighted text elements.
 1. Click on the tag you want to apply, or press corresponding keyboard key.
 
-> [!TIP]
-> The number keys are assigned as hotkeys for the first ten tags. You can reorder your tags using the up and down arrow icons in the tag editor pane.
-
-![Tags list](../media/label-tool/tags.png)
+    > [!TIP]
+    > The number keys are assigned as hotkeys for the first ten tags. You can reorder your tags using the up and down arrow icons in the tag editor pane.
 
 Follow the above steps to label 10 of your forms, and then move on to the next step.
 
+![Main editor window of sample labeling tool](../media/label-tool/main-editor.png)
+
+
 ## Train a custom model
 
-Click the Train (traincar) icon in the left pane to open the Training page. Then click the **Train** button to begin training the model. Once the training process completes you'll see the following information:
+Click the Train icon (the train car) on the left pane to open the Training page. Then click the **Train** button to begin training the model. Once the training process completes you'll see the following information:
 
-* **Model ID** - The ID of the model that was just created and trained. Each training call creates a new model with its own ID. You'll need this string to call the **Analyze Form** API.
+* **Model ID** - The ID of the model that was just created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you'll need it if you want to do prediction calls through the REST API.
 * **Model Accuracy** - The model's average accuracy. You can improve model accuracy by labeling additional forms and training again to create a new model. We recommend starting by labeling 10 forms and adding more forms as needed.
 * The list of tags, and the estimated accuracy per tag.
 
 > [!NOTE]
 > You can also label and train using the Form Recognizer REST API. To train and Analyze with the REST API, see [Train with labels using the REST API and Python](./python-labeled-data.md).
 
-![training view](../media/label-tool/train.png)
+![training view](../media/label-tool/train-screen.png)
 
 ## Analyze a form
 
-Click on the Predict (rectangles) icon on the left to test your model. Select the form that you didn't use in the training process. Then click **Predict** tab on the right to get key/value predictions for the form. 
+Click on the Predict (rectangles) icon on the left to test your model. Upload a form document that you didn't use in the training process. Then click the **Predict** button on the right to get key/value predictions for the form. 
+
+Depending on the reported accuracy, you may want to do further training to improve the model. Add more input documents and repeat the steps above; the documents you've already labeled will remain in the project index.
 
 ## Next steps
 
-In this quickstart, you learned how to use the Form Recognizer sample labeling tool to train a model with manually labeled data. Next, see the [API reference documentation](https://aka.ms/form-recognizer/api) to explore the Form Recognizer API in more depth.
+In this quickstart, you learned how to use the Form Recognizer sample labeling tool to train a model with manually labeled data. If you'd like to implement your own labeling tool, learn the REST APIs that deal with labeled data training.
+
+> [!div class="nextstepaction"]
+> [Train with labels using Python](./python-labeled-data.md)
