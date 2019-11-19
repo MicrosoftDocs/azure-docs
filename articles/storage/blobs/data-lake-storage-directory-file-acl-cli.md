@@ -23,10 +23,10 @@ This article shows you how to use the [Azure Command-Line Interface (CLI)](https
 
 2. Verify that the version of Azure CLI that have installed is `2.0.67` or higher by using the following command.
 
-  ```azurecli
-   az --version
+   ```azurecli
+    az --version
    ```
-   If your version of Azure CLI is lower than `2.0.67`, then install a later version. See [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+  If your version of Azure CLI is lower than `2.0.67`, then install a later version. See [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 3. Install the `storage-preview` extension.
 
@@ -36,7 +36,7 @@ This article shows you how to use the [Azure Command-Line Interface (CLI)](https
 
 ## Connect to the account
 
-2. If you're using Azure CLI locally, run the login command.
+1. If you're using Azure CLI locally, run the login command.
 
    ```azurecli
    az login
