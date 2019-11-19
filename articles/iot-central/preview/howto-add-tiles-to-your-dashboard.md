@@ -82,4 +82,4 @@ The following table summarizes the usage of tiles in Azure IoT Central:
 
 ## Next steps
 
-Now that you've learned how to configure your Azure IoT Central default application dashboard, you can [Learn how to prepare and upload images](howto-prepare-images.md).
+Now that you've learned how to configure your Azure IoT Central default application dashboard, you can [Learn how to create a personal dashboard](howto-create-personal-dashboards.md).

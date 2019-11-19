@@ -102,6 +102,5 @@ To view the status of the job and all the affected devices, select the job. To d
 
 Now that you've learned how to create jobs in your Azure IoT Central application, here are some next steps:
 
-- [Use device sets](howto-use-device-sets.md)
 - [Manage your devices](howto-manage-devices.md)
 - [Version your device template](howto-version-device-template.md)
