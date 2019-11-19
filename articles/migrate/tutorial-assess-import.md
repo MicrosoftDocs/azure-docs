@@ -11,10 +11,7 @@ ms.author: raynew
 
 # Assess servers using imported data
 
-> [!NOTE]
-> If you don't yet see this feature in the Azure Migrate portal, hang on. It will appear over the next week or so.
-
-This article explains how to assess on-premises servers with [Azure Migrate: Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool), by importing server metadata using CSV. With this method of assessment, you don't need to set up the Azure Migrate appliance to create an assessment. This is useful if: 
+This article explains how to assess on-premises servers with [Azure Migrate: Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool), by importing server metadata using CSV. With this method of assessment, you don't need to set up the Azure Migrate appliance to create an assessment. This is useful if:
 
 - You want to create a quick initial assessment before you deploy the appliance.
 - You can't deploy the Azure Migrate appliance in your organization.
@@ -44,7 +41,7 @@ In this tutorial, you learn how to:
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
 
-## Set Azure permissions for Azure Migrate 
+## Set Azure permissions for Azure Migrate
 
 Your Azure account needs permissions to create an Azure Migrate project.
 
@@ -111,7 +108,7 @@ The following table summarizes the file fields to fill in.
 
 **Field name** | **Mandatory** | **Details**
 --- | --- | ---
-**Server name** | Yes | We recommend specifying the FQDN. 
+**Server name** | Yes | We recommend specifying the FQDN.
 **IP address** | No | Server address.
 **Number of cores** | Yes | The number of processor cores allocated to the server.
 **Memory** | Yes | Total RAM (MB) allocated to the server.
@@ -139,7 +136,7 @@ The following table summarizes the file fields to fill in.
 **Virtual machine manager ID** | No | This is the **InstanceUUid** for VMWare vCenter. Not needed for Hyper-V.
 **MAC address**| No | Server MAC address.
 **BIOS ID** | No | Server BIOS ID.
-**Custom server ID**| No | Local unique server IDs on-premises. <br/> Useful for tracking the imported server by local ID. 
+**Custom server ID**| No | Local unique server IDs on-premises. <br/> Useful for tracking the imported server by local ID.
 **Application 1 name** | No | Name of workloads running on the server.<br/> You can add details for more apps by [adding columns](#add-multiple-applications) in the template. You can add up to five applications.
 **Application 1 type** | No | Type of workload running in the server
 **Application 1 version** | No | Version of the workload running on the server.
@@ -157,7 +154,7 @@ Assessment recognizes specific operating system names. Any operating system name
 
 ### Add multiple disks
 
-The template provides default fields for the first disk.  You can add similar columns for up to 8 disks. 
+The template provides default fields for the first disk.  You can add similar columns for up to 8 disks.
 
 For example, to specify all fields for a second disk, add the columns:
 
@@ -194,10 +191,10 @@ After adding information to the CSV template, import the servers into Azure Migr
 
 1. In Azure Migrate > **Discover machines**, browse to the filled out template.
 2. Click **Import**.
-3. The import status is shown. 
+3. The import status is shown.
     - If warnings appear in the status, you can either fix them, or continue without addressing them.
     - Improving server information as suggested in warnings improves assessment accuracy.
-    - To view and fix warnings if they appear, click **Download warning details .CSV**. This downloads the CSV, with warnings added. You can review the warnings, and fix issues as needed. 
+    - To view and fix warnings if they appear, click **Download warning details .CSV**. This downloads the CSV, with warnings added. You can review the warnings, and fix issues as needed.
     If errors appear in the status (the import status is **Failed**), you need to fix these before you can continue with the import. To do this, download the CSV, that now has error details added. Review and address the errors as needed. Then upload the modified file again.
 4. When the import status is **Completed**, the server information is imported.
 
@@ -207,7 +204,7 @@ After adding information to the CSV template, import the servers into Azure Migr
 
 ## Updating server information
 
-You can update a server information by uploading the data for the server again with the same **Server name**. You cannot modify the **Server name** field. 
+You can update a server information by uploading the data for the server again with the same **Server name**. You cannot modify the **Server name** field.
 
 Deleting servers is currently not supported.
 
@@ -302,21 +299,21 @@ This view shows the estimated compute and storage cost of running VMs in Azure.
 
 Name | Name
 --- | ---
-**A - H** | 
+**A - H** |
 Apple Mac OS X 10 | Asianux 3<br/>Asianux 4<br/>Asianux 5
-CentOS<br/>CentOS 4/5 | CoreOS Linux 
-Debian GNU/Linux 4<br/>Debian GNU/Linux 5<br/>Debian GNU/Linux 6<br/>Debian GNU/Linux 7<br/>Debian GNU/Linux 8 | FreeBSD 
-**I - R** | 
+CentOS<br/>CentOS 4/5 | CoreOS Linux
+Debian GNU/Linux 4<br/>Debian GNU/Linux 5<br/>Debian GNU/Linux 6<br/>Debian GNU/Linux 7<br/>Debian GNU/Linux 8 | FreeBSD
+**I - R** |
 IBM OS/2 | MS-DOS |
-Novell NetWare 5<br/>Novell NetWare 6 | Oracle Linux<br/> Oracle Linux 4/5<br/>Oracle Solaris 10<br/> Oracle Solaris 11 
-Red Hat Enterprise Linux 2<br/>Red Hat Enterprise Linux 3<br/>Red Hat Enterprise Linux 4<br/>Red Hat Enterprise Linux 5<br/>Red Hat Enterprise Linux 6<br/>Red Hat Enterprise Linux 7<br/>Red Hat Fedora | 
-**S-T** | 
+Novell NetWare 5<br/>Novell NetWare 6 | Oracle Linux<br/> Oracle Linux 4/5<br/>Oracle Solaris 10<br/> Oracle Solaris 11
+Red Hat Enterprise Linux 2<br/>Red Hat Enterprise Linux 3<br/>Red Hat Enterprise Linux 4<br/>Red Hat Enterprise Linux 5<br/>Red Hat Enterprise Linux 6<br/>Red Hat Enterprise Linux 7<br/>Red Hat Fedora |
+**S-T** |
 SCO OpenServer 5<br/>SCO OpenServer 6<br/>SCO UnixWare 7 | Serenity Systems eComStation 1<br/>Serenity Systems eComStation 2
 Sun Microsystems Solaris 8<br/>Sun Microsystems Solaris 9 | SUSE Linux Enterprise 10<br/> SUSE Linux Enterprise 11<br/>SUSE Linux Enterprise 12<br/>SUSE Linux Enterprise 8/9<br/>SUSE Linux Enterprise 11<br/>SUSE openSUSE
-**U-Z** | 
+**U-Z** |
 Ubuntu Linux | VMware ESXi 4<br/>VMware ESXi 5<br/>VMware ESXi 6
 Windows 10<br/>Windows 2000<br/>Windows 3<br/>Windows 7<br/>Windows 8<br/>Windows 95<br/>Windows 98<br/>Windows NT<br/>Windows Server (R) 2008<br/>Windows Server 2003 | Windows Server 2008<br/>Windows Server 2008 R2<br/>Windows Server 2012<br/>Windows Server 2012 R2<br/>Windows Server 2016<br/>Windows Server 2019<br/>Windows Server Threshold<br/>Windows Vista<br/>Windows Web Server 2008 R2<br/>Windows XP Professional
-    
+
 
 ## Next steps
 

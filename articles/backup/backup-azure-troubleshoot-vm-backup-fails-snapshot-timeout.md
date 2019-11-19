@@ -1,14 +1,10 @@
 ---
-title: 'Troubleshoot Azure Backup failure: Agent and extension issues'
-description: 'Symptoms, causes, and resolutions of Azure Backup failures related to agent, extension, and disks.'
+title: Troubleshoot Agent and extension issues
+description: Symptoms, causes, and resolutions of Azure Backup failures related to agent, extension, and disks.
 ms.reviewer: saurse
-author: dcurwin
-manager: carmonm
-keywords: Azure backup; VM agent; Network connectivity;
-ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.author: dacurwin
+
 ---
 
 # Troubleshoot Azure Backup failure: Issues with the agent or extension
