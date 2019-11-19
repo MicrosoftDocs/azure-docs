@@ -43,7 +43,7 @@ Depending on your requirements, you can choose between load-based and schedule-b
 
 Autoscale support for HBase and LLAP workload is also public preview. For more information, see [Automatically scale Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-autoscale-clusters).
 
-### HDInsight Accelerated Writes for Apache Hbase 
+### HDInsight Accelerated Writes for Apache HBase 
 
 Accelerated Writes uses Azure premium SSD managed disks to improve performance of the Apache HBase Write Ahead Log (WAL). For more information, see [Azure HDInsight Accelerated Writes for Apache HBase](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-accelerated-writes).
 
