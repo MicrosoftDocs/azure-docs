@@ -139,6 +139,14 @@ The interactive console makes a client-side API request from the browser. You ca
 </cors>
 ```
 
+> [!NOTE]
+> 
+> If you apply the CORS policy in the Product scope, instead of the API(s) scope, and your API uses subscription key authentication through a header, your console won't work.
+>
+> The browser automatically issues an OPTIONS HTTP request, which doesn’t contain a header with the subscription key. Because of the missing subscription key, API Management can't associate the OPTIONS call with a Product, so it can’t apply the CORS policy.
+>
+> As a workaround you can pass the subscription key in a query parameter.
+
 ## Next steps
 
 Learn more about the new developer portal:

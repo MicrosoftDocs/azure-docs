@@ -1,5 +1,5 @@
 ---
-title: How to configure system and user-assigned managed identities on an Azure VMSS using REST
+title: Configure managed identities on Azure VMSS using REST - Azure AD
 description: Step by step instructions for configuring a system and user-assigned managed identities on an Azure VMSS using CURL to make REST API calls.
 services: active-directory
 documentationcenter: 
