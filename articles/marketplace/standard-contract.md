@@ -34,7 +34,7 @@ There are two kinds of amendments available for commercial marketplace publisher
 
 You can leverage the Standard Contract for the Microsoft commercial marketplace for the following offer types:  Azure Applications (Solution Templates and Managed Applications), Virtual Machines, Containers, Container Applications, IoT Edge Modules, and SaaS.
 
-### Customer Experience
+## Customer experience
 
 During the discovery experience in Azure marketplace or AppSource, customers will be able to see the terms associated with the offer as the Standard Contract for the Microsoft commercial marketplace and any universal amendments.
 
@@ -44,6 +44,6 @@ During the purchase process in the Azure portal, customers will be able to see t
 
 ![The Azure portal customer purchase experience.](media/marketplace-publishers-guide/azure-purchase-process.png)
 
-### API
+## API
 
 Customers may use Get-AzureRmMarketplaceTerms to retrieve the terms of an offer and accept it. The Standard Contract and associated amendments will be returned in the output of the cmdlet.
