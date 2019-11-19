@@ -28,8 +28,6 @@ The designer uses your Azure Machine Learning [workspace](concept-workspace.md) 
 + [Published pipelines](#publish)
 + [Real-time endpoints](#deploy)
 
-![Overview of the designer](media/ui-concept-visual-interface/overview.png)
-
 ## Model training and deployment
 
 The designer gives you a visual canvas to build, test, and deploy machine learning models. With the designer you can:
@@ -37,11 +35,11 @@ The designer gives you a visual canvas to build, test, and deploy machine learni
 + Drag-and-drop [datasets](#datasets) and [modules](#module) onto the canvas.
 + Connect the modules together to create a [pipeline draft](#pipeline-draft).
 + Submit a [pipeline run](#pipeline-run) using the compute resources in your Azure Machine Learning workspace.
-+ Convert your **training pipeline** to an **inference pipeline**.
-+ [Publish](#publish) your pipeline to a REST **pipeline endpoint** to submit new pipeline runs with different parameters and datasets.
-    + Publish a **training pipeline** to reuse a single pipeline and train multiple models changing parameters and datasets.
++ Convert your **training pipelines** to **inference pipelines**.
++ [Publish](#publish) your pipelines to a REST **pipeline endpoint** to submit new pipeline runs with different parameters and datasets.
+    + Publish a **training pipeline** to reuse a single pipeline to train multiple models while changing parameters and datasets.
     + Publish a **batch inference pipeline** to make predictions on new data by using a previously trained model.
-+ [Deploy](#deployment) a **real-time inference pipeline** to make predictions on new data in real time as a real-time endpoint.
++ [Deploy](#deploy) a **real-time inference pipeline** to a real-time endpoint to make predictions on new data in real time.
 
 ![Workflow diagram for training, batch inference, and real-time inference in the designer](media/ui-concept-visual-interface/designer-workflow-diagram.png)
 
@@ -64,9 +62,9 @@ When you're ready to run your pipeline draft, you submit a pipeline run.
 
 ### Pipeline run
 
- Each time you run a pipeline, the configuration of the pipeline and its results are stored in your workspace as a **pipeline run**. You can go back to any pipeline run to inspect it for troubleshooting or auditing purposes. **Clone** a pipeline run to create a new pipeline draft for you to edit.
- 
- Pipeline runs are grouped into [experiments](concept-azure-machine-learning-architecture.md#experiments) to organize run history. You set the experiment for every pipeline run. 
+Each time you run a pipeline, the configuration of the pipeline and its results are stored in your workspace as a **pipeline run**. You can go back to any pipeline run to inspect it for troubleshooting or auditing purposes. **Clone** a pipeline run to create a new pipeline draft for you to edit.
+
+Pipeline runs are grouped into [experiments](concept-azure-machine-learning-architecture.md#experiments) to organize run history. You can set the experiment for every pipeline run. 
 
 ## Datasets
 
@@ -103,7 +101,7 @@ To learn how to deploy your model, see [Tutorial: Deploy a machine learning mode
 
 ## Publish
 
-You can also publish a pipeline to a **pipeline endpoint**. Similar to a real-time endpoint, a pipeline endpoint lets you submit new pipeline runs from external applications using REST calls. However, you cannot send or receive data in real-time.
+You can also publish a pipeline to a **pipeline endpoint**. Similar to a real-time endpoint, a pipeline endpoint lets you submit new pipeline runs from external applications using REST calls. However, you cannot send or receive data in real-time using a pipeline endpoint.
 
 Published pipelines are flexible, they can be used to train or retrain models, perform batch inferencing, process new data, and much more. You can publish multiple pipelines to a single pipeline endpoint and specify which pipeline version to run.
 
