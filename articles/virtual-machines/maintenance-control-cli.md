@@ -31,20 +31,19 @@ With maintenance control, you can:
 - User must have **Resource Owner** access.
 
 
-## Enable preview
+## Install the maintenance extension
 
-Remove any old versions of the maintenance extension, and install the preview version. 
+Install the `maintenance` preview CLI extension. 
 
 ```azurecli-interactive
-az extension remove -n maintenance 
-az extension add -y --source https://mrpcliextension.blob.core.windows.net/cliextension/maintenance-1.0.0-py2.py3-none-any.whl
+az extension add -n maintenance
 ```
 
 ## Create a maintenance configuration
 
-Use [az maintenance configuration create]() to create a maintenance configuration. This example creates a maintenance configuration named *myConfig* scoped to the host. 
+Use `az maintenance configuration create` to create a maintenance configuration. This example creates a maintenance configuration named *myConfig* scoped to the host. 
 
-```bash
+```azurecli-interactive
 az group create \
    --location eastus \
    --name myMaintenanceRG
@@ -67,21 +66,21 @@ az maintenance configuration list --subscription $subId --output table
 
 ## Apply the configuration
 
-Use [az maintenance assignment create]() to apply the configuration.
+Use `az maintenance assignment create` to apply the configuration.
 
-### VM
+### Isolated VM
 
-To apply the configuration to a VM, use `--resource-type virtualMachines` and supply the name of the VM for `--resource-name` and the resource group for `-g`.
+Apply the configuration to a VM using the ID of the configuration. Specify `--resource-type virtualMachines` and supply the name of the VM for `--resource-name`, and the resource group for `--resource-group`. 
 
 ```bash
 az maintenance assignment create \
-   --provider-name Microsoft.Compute \
-   -g myMaintenanceRG \
-   -l eastus \
+   --resource-group myMaintenanceRG \
+   --location eastus \
    --resource-name myVM \
    --resource-type virtualMachines \
+   --provider-name Microsoft.Compute \
    --configuration-assignment-name myConfig \
-   --maintenance-configuration-id '/subscriptions/f679944f-bdad-45da-98fb-6097116fd136/resourcegroups/myMaintenanceRG/providers/Microsoft.Maintenance/maintenanceConfigurations/myConfig'
+   --maintenance-configuration-id '/subscriptions/1111abcd-1a11-1a2b-1a12-123456789abc/resourcegroups/myMaintenanceRG/providers/Microsoft.Maintenance/maintenanceConfigurations/myConfig'
 ```
 
 ### Dedicate host
