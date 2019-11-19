@@ -10,28 +10,48 @@ ms.author: thvankra
 
 # Manage Azure Cosmos DB SQL (Core) API resources using Azure Resource Manager templates
 
-This article describes how to perform different operations to automate management of your Azure Cosmos DB accounts, databases and containers using Azure Resource Manager templates. This article has examples for SQL API accounts only, to find examples for other API type accounts see: use Azure Resource Manager templates with Azure Cosmos DB's API for  [Cassandra](manage-cassandra-with-resource-manager.md), [Gremlin](manage-gremlin-with-resource-manager.md), [MongoDB](manage-mongodb-with-resource-manager.md), [Table](manage-table-with-resource-manager.md) articles.
-
-how to create and manage Cosmos DB accounts, databases and containers for MongoDB, Gremlin, Cassandra and Table API.
-
-## Create an Azure Cosmos account, database and container <a id="create-resource"></a>
-
-Create Azure Cosmos DB resources using an Azure Resource Manager template. This template will create an Azure Cosmos account with two containers that share 400 RU/s throughput at the database level and a single container with dedicated 400 RU/s throughput. Copy the template and deploy as shown below or visit [Azure Quickstart Gallery](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/) and deploy from the Azure portal. You can also download the template to your local computer or create a new template and specify the local path with the `--template-file` parameter.
+In this article, you learn how to use Azure Resource Manager templates to help automate management of your Azure Cosmos DB accounts, databases, and containers.
 
 > [!NOTE]
+> This article only shows Azure Resource Manager template examples for SQL API accounts. For examples that use other API types, see:
 >
-> - You cannot simultaneously add or remove locations to an Azure Cosmos account and modify other properties. These must be done as separate operations.
-> - Account names must be lowercase and 44 or fewer characters.
-> - To update RU/s, resubmit the template with updated throughput property values.
+> * [Cassandra](manage-cassandra-with-resource-manager.md)
+> * [Gremlin](manage-gremlin-with-resource-manager.md)
+> * [MongoDB](manage-mongodb-with-resource-manager.md)
+> * [Table](manage-table-with-resource-manager.md) 
+
+<a id="create-resource"></a>
+
+## Create an Azure Cosmos account, database, and container
+
+The following Azure Resource Manager template creates an Azure Cosmos account with:
+
+* Two containers that share 400 Requested Units per second (RU/s) throughput at the database level.
+* One container with dedicated 400 RU/s throughput.
+
+To create the Azure Cosmos DB resources, copy the following example template and deploy it as described, either via [Powershell](#deploy-via-powershell) or [Azure CLI](#deploy-via-azure-cli).
+
+* Optionally, you can visit the [Azure Quickstart Gallery](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/) and deploy the template from the Azure portal.
+* You can also download the template to your local computer or create a new template and specify the local path with the `--template-file` parameter.
+
+> [!IMPORTANT]
+>
+> * When you add or remove locations to an Azure Cosmos account, you can't simultaneously modify other properties. These operations must be done separately.
+> * Account names are limited to 44 characters, all lowercase.
+> * To change the throughput values, resubmit the template with updated RU/s.
 
 [!code-json[create-cosmosdb-sql](~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json)]
 
 > [!NOTE]
-> To create a container with large partition key, include the `"version":2` property within the `partitionKey` object in the previous template.
+> To create a container with large partition key, modify the previous template to include the `"version":2` property within the `partitionKey` object.
 
 ### Deploy via PowerShell
 
-To deploy the Azure Resource Manager template using PowerShell, **Copy** the script and select **Try it** to open Azure Cloud Shell. To paste the script, right-click the shell, and then select **Paste**:
+To use PowerShell to deploy the Azure Resource Manager template:
+
+1. **Copy** the script.
+2. Select **Try it** to open Azure Cloud Shell.
+3. Right-click in the Azure Cloud shell window, and then select **Paste**.
 
 ```azurepowershell-interactive
 
@@ -65,9 +85,11 @@ New-AzResourceGroupDeployment `
  (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2019-08-01" --ResourceGroupName $resourceGroupName).name
 ```
 
-If you choose to use a locally installed version of PowerShell instead of from Azure Cloud Shell, you have to [install](/powershell/azure/install-az-ps) the Azure PowerShell module. Run `Get-Module -ListAvailable Az` to find the version.
+You can choose to deploy the template with a locally installed version of PowerShell instead Azure Cloud Shell. You'll need to [install the Azure PowerShell module](/powershell/azure/install-az-ps). Run `Get-Module -ListAvailable Az` to find the version.
 
 ### Deploy via Azure CLI
+
+\***
 
 To deploy the Azure Resource Manager template using Azure CLI, select **Try it** to open Azure Cloud Shell. To paste the script, right-click the shell, and then select **Paste**:
 
