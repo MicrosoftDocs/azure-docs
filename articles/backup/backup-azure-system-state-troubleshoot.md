@@ -1,14 +1,9 @@
 ---
-title: Troubleshoot System State Backup with Azure Backup
+title: Troubleshoot System State Backup
 description: In this article, learn how to troubleshoot issues in System State Backup for on-premises Windows servers.
 ms.reviewer: srinathv
-author: dcurwin
-manager: carmonm
-keywords: how to backup; backup system state
-ms.service: backup
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.author: dacurwin
 ---
 
 # Troubleshoot System State Backup
