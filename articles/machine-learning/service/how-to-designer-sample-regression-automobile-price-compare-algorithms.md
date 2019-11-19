@@ -1,7 +1,7 @@
 ---
-title: 'Designer: Predict car prices (regression)'
+title: 'Designer: Predict car prices (advanced) example'
 titleSuffix: Azure Machine Learning
-description: This article shows you how to build a complex machine learning pipeline without writing a single line of code using the designer (preview). Learn how to train and compare multiple regression models to predict a car's price based on technical features
+description: Build & compare multiple ML regression models to predict an automobile's price  based on technical features with Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,8 +11,10 @@ ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
 ---
+# Train & compare multiple regression models to predict car prices with Azure Machine Learning designer
 
-# Sample 2 - Regression: Predict price and compare algorithms
+**Designer (preview) sample 2**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Learn how to build a  machine learning pipeline without writing a single line of code using the designer (preview). This sample trains and compares multiple regression models to predict a car's price based on its technical features. We'll provide the rationale for the choices made in this pipeline so you can tackle your own machine learning problems.
