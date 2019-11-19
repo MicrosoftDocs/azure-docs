@@ -1,10 +1,10 @@
 ---
-title: Azure Migrate appliance architecture | Microsoft Docs
-description: Provides an overview of the Azure Migrate appliance
+title: Azure Migrate appliance architecture
+description: Provides an overview of the Azure Migrate appliance used in server assessment and migration.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/04/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ---
 

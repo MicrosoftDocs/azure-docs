@@ -4,7 +4,7 @@ description: Describes data sources and connectors supported for tabular 1200 an
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 11/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -30,7 +30,7 @@ Data sources and connectors shown in Get Data or Import Wizard in Visual Studio 
 <a name="tab1400a">1</a> - Tabular 1400 and higher models only.   
 <a name="azsqlmanaged">2</a> - Azure SQL Database Managed Instance is supported. Because managed instance runs within Azure VNet with a private IP address, public endpoint must be enabled on the instance. If not enabled, an on-premises Data Gateway is required.    
 <a name="databricks">3</a> - Azure Databricks using the Spark connector is currently not supported.   
-<a name="gen2">4</a> - ADLS Gen2 is currently not supported.
+<a name="gen2">4</a> - ADLS Gen2 connector is currently not supported, however, Blob Storage connector can be used with an ADLS Gen2 data source.
 
 
 **Provider**   
@@ -38,14 +38,14 @@ In-memory and DirectQuery models connecting to Azure data sources use .NET Frame
 
 ## Other data sources
 
-Connecting to on-premises data sources from and Azure AS server require an On-premises gateway. When using a gateway, 64-bit providers are required.
+Connecting to on-premises data sources from an Azure Analysis Services server require an On-premises gateway. When using a gateway, 64-bit providers are required.
 
 ### In-memory and DirectQuery
 
 |Data source | In-memory provider | DirectQuery provider |
 |  --- | --- | --- |
-| SQL Server |SQL Server Native Client 11.0, Microsoft OLE DB Provider for SQL Server, .NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
-| SQL Server Data Warehouse |SQL Server Native Client 11.0, Microsoft OLE DB Provider for SQL Server, .NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
+| SQL Server |Microsoft OLE DB Driver for SQL Server MSOLEDBSQL (recommended), SQL Server Native Client 11.0, .NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
+| SQL Server Data Warehouse |Microsoft OLE DB Driver for SQL Server MSOLEDBSQL (recommended), SQL Server Native Client 11.0, .NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
 | Oracle | OLE DB Provider for Oracle, Oracle Data Provider for .NET |Oracle Data Provider for .NET |
 | Teradata |OLE DB Provider for Teradata, Teradata Data Provider for .NET |Teradata Data Provider for .NET |
 | | | |
@@ -86,7 +86,7 @@ Connecting to on-premises data sources from and Azure AS server require an On-pr
 
 ## Specifying a different provider
 
-Data models in Azure Analysis Services may require different data providers when connecting to certain data sources. In some cases, tabular models connecting to data sources using native providers such as SQL Server Native Client (SQLNCLI11) may return an error. If using native providers other than SQLOLEDB, you may see error message: **The provider 'SQLNCLI11.1' is not registered**. Or, if you have a DirectQuery model connecting to on-premises data sources and you use native providers, you may see error message: **Error creating OLE DB row set. Incorrect syntax near 'LIMIT'**.
+Data models in Azure Analysis Services may require different data providers when connecting to certain data sources. In some cases, tabular models connecting to data sources using native providers such as SQL Server Native Client (SQLNCLI11) may return an error. If using native providers other than MSOLEDBSQL, you may see error message: **The provider 'SQLNCLI11.1' is not registered**. Or, if you have a DirectQuery model connecting to on-premises data sources and you use native providers, you may see error message: **Error creating OLE DB row set. Incorrect syntax near 'LIMIT'**.
 
 When migrating an on-premises SQL Server Analysis Services tabular model to Azure Analysis Services, it may be necessary to change the provider.
 

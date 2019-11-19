@@ -1,5 +1,5 @@
 ---
-title: Create a managed Azure VM from a generalized on-premises VHD | Microsoft Docs
+title: Create a managed Azure VM from a generalized on-premises VHD 
 description: Upload a generalized VHD to Azure and use it to create new VMs, in the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''

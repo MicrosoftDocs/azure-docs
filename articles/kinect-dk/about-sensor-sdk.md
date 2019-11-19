@@ -1,6 +1,6 @@
 ---
 title: About Azure Kinect Sensor SDK
-description: Azure Kinect Sensor SDK
+description: Overview of the Azure Kinect Sensor software development kit (SDK), its features, and tools.
 author: tesych
 ms.author: tesych
 ms.prod: kinect-dk

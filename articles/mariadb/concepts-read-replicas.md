@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 11/17/2019
 ---
 
 # Read replicas in Azure Database for MariaDB
@@ -69,7 +69,7 @@ Learn how to [create a read replica in the Azure portal](howto-read-replicas-por
 
 ## Connect to a replica
 
-When you create a replica, it doesn't inherit the firewall rules or VNet service endpoint of the master server. These rules must be set up independently for the replica.
+At creation, a replica inherits the firewall rules or VNet service endpoint of the master server. Afterwards, these rules are independent from the the master server.
 
 The replica inherits the admin account from the master server. All user accounts on the master server are replicated to the read replicas. You can only connect to a read replica by using the user accounts that are available on the master server.
 
@@ -121,6 +121,8 @@ A replica is created by using the same server configuration as the master. After
 
 > [!IMPORTANT]
 > Before a master server configuration is updated to new values, update the replica configuration to equal or greater values. This action ensures the replica can keep up with any changes made to the master.
+
+Firewall rules, virtual network rules, and parameter settings are inherited from the master server to the replica when the replica is created. Afterwards, the replica's rules are independent.
 
 ### Stopped replicas
 
