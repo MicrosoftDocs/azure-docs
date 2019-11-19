@@ -389,7 +389,9 @@
       },
       "manager": {
         "articles/sql-database/**/*.md": "jroth",
-        "articles/backup/**/*.md": "carmonm"
+        "articles/backup/**/*.md": "carmonm",
+        "articles/site-recovery/**/*.md": "carmonm",
+        "articles/migrate/**/*.md": "carmonm
       },
       "ms.author": {
         "articles/governance/*.md": "dacoulte",
