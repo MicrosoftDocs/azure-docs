@@ -7,6 +7,7 @@ ms.service: azure-monitor
 ms.topic: reference
 ms.date: 11/11/2019
 ms.author: bwren
+ms.custom: subject-monitoring 
 ms.subservice: logs
 ---
 
