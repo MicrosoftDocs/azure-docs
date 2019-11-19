@@ -1,6 +1,6 @@
 ---
 title: Azure Serial Console proactive GRUB configuration| Microsoft Docs
-description: configure GRUB across various distributions allowing single user and recovery mode access in Azure virtual machines.
+description: Configure GRUB across various distributions allowing single user and recovery mode access in Azure virtual machines.
 services: virtual-machines-linux
 documentationcenter: ''
 author: vilibert
@@ -24,13 +24,13 @@ Having access to the Serial Console and GRUB will improve recovery times of your
 
 The reasons to perform a VM recovery are many and can be attributed to scenarios such as:
 
-   - corrupt file systems/kernel/MBR (Master Boot Record)
-   - failed kernel upgrades
-   - incorrect GRUB kernel parameters
-   - incorrect fstab configurations
-   - firewall configurations
-   - lost password
-   - mangled sshd configurations files
+   - Corrupt file systems/kernel/MBR (Master Boot Record)
+   - Failed kernel upgrades
+   - Incorrect GRUB kernel parameters
+   - Incorrect fstab configurations
+   - Firewall configurations
+   - Lost password
+   - Mangled sshd configurations files
    - Networking configurations
 
  Many other scenarios as detailed [here](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux#common-scenarios-for-accessing-the-serial-console)
@@ -68,14 +68,14 @@ Ensuring you have access to the Azure Serial Console and GRUB means that a passw
 
 ## Suggested order of recovery methods:
 
-• Azure Serial Console
+- Azure Serial Console
 
-• Disk Swap – can be automated using either:
+- Disk Swap – can be automated using either:
 
    - [Power Shell Recovery Scripts](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager)
    - [bash Recovery Scripts](https://github.com/sribs/azure-support-scripts)
 
-• Legacy Method
+- Legacy Method
 
 ## Disk Swap Video:
 
@@ -178,24 +178,24 @@ A **login:** prompt is not seen
 
 
 For 12.04 to obtain a **login:** prompt:
-1) Create a file called /etc/init/ttyS0.conf containing the following text:
+1. Create a file called /etc/init/ttyS0.conf containing the following text:
 
-```
-# ttyS0 - getty
-#
-# This service maintains a getty on ttyS0 from the point the system is
-# started until it is shut down again.
-start on stopped rc RUNLEVEL=[12345]
-stop on runlevel [!12345]
+    ```
+    # ttyS0 - getty
+    #
+    # This service maintains a getty on ttyS0 from the point the system is
+    # started until it is shut down again.
+    start on stopped rc RUNLEVEL=[12345]
+    stop on runlevel [!12345]
+    
+    respawn
+    exec /sbin/getty -L 115200 ttyS0 vt102
+    ```    
 
-respawn
-exec /sbin/getty -L 115200 ttyS0 vt102
-```    
-
-2) Ask upstart to start the getty     
-```
-sudo start ttyS0
-```
+2. Ask upstart to start the getty     
+    ```
+    sudo start ttyS0
+    ```
  
 The settings required to configure serial console for Ubuntu versions can be found [here](https://help.ubuntu.com/community/SerialConsoleHowto)
 
@@ -249,7 +249,7 @@ GRUB_CMDLINE_LINUX="console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
 GRUB_DISABLE_RECOVERY="true"
 ```
 
-enable the SysRq key
+Enable the SysRq key
 
 ```
 sysctl -w kernel.sysrq=1;echo kernel.sysrq = 1 >> /etc/sysctl.conf;sysctl -a | grep -i sysrq
@@ -268,7 +268,7 @@ GRUB_CMDLINE_LINUX="console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
 GRUB_DISABLE_RECOVERY="true"
 ```
 
-change the following lines in /etc/default/grub
+Change the following lines in /etc/default/grub
 
 ```
 GRUB_TIMEOUT=1 
@@ -287,7 +287,7 @@ to
 GRUB_TERMINAL="serial console"
 ```
 
-also add this line:
+Also add this line:
 
 ```
 GRUB_SERIAL_COMMAND=”serial –speed=115200 –unit=0 –word=8 –parity=no –stop=1″
@@ -370,7 +370,7 @@ Recreate the grub.cfg
 ## SLES 11 SP4 
 The Serial Console appears and displays boot messages but does not display a **login:** prompt
 
-ssh into the VM and update the file **/etc/inittab** by uncommenting this line:
+Open an ssh session into the VM and update the file **/etc/inittab** by un-commenting this line:
 
 ```
 #S0:12345:respawn:/sbin/agetty -L 9600 ttyS0 vt102
