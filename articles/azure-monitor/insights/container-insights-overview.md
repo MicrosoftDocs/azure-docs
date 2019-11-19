@@ -6,13 +6,20 @@ ms.subservice:
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 10/15/2019
+ms.date: 11/18/2019
 
 ---
 
 # Azure Monitor for containers overview
 
-Azure Monitor for containers is a feature designed to monitor the performance of container workloads deployed to either Azure Container Instances, managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS), or self-managed Kubernetes clusters hosted on Azure Stack. Monitoring your containers is critical, especially when you're running a production cluster, at scale, with multiple applications.
+Azure Monitor for containers is a feature designed to monitor the performance of container workloads deployed to:
+
+- Managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS)
+- Azure Container Instances
+- Self-managed Kubernetes clusters hosted on Azure Stack or on-premises
+- Azure Red Hat OpenShift
+
+Monitoring your containers is critical, especially when you're running a production cluster, at scale, with multiple applications.
 
 Azure Monitor for containers gives you performance visibility by collecting memory and processor metrics from controllers, nodes, and containers that are available in Kubernetes through the Metrics API. Container logs are also collected.  After you enable monitoring from Kubernetes clusters, metrics and logs are automatically collected for you through a containerized version of the Log Analytics agent for Linux. Metrics are written to the metrics store and log data is written to the logs store associated with your [Log Analytics](../log-query/log-query-overview.md) workspace. 
 
@@ -35,6 +42,7 @@ Azure Monitor for containers delivers a comprehensive monitoring experience usin
     >
 
 * Monitor container workloads [deployed to AKS Engine](https://github.com/microsoft/OMS-docker/tree/aks-engine) on-premises and [AKS Engine on Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
+* Monitor container workloads [deployed to Azure Red Hat OpenShift](../../openshift/intro-openshift.md).
 
 Check out the following video providing an intermediate level deep dive to help you learn about monitoring your AKS cluster with Azure Monitor for containers.
 
@@ -50,6 +58,4 @@ If you are interested in monitoring and managing your Docker and Windows contain
 
 ## Next steps
 
-- To begin monitoring your AKS cluster, review [How to enable the Azure Monitor for containers](container-insights-onboard.md) to understand the requirements and available methods to enable monitoring. 
-
-- To begin monitoring AKS Engine on Azure Stack or Kubernetes deployed on-premises, review [Configure Hybrid Kubernetes clusters with Azure Monitor for containers](container-insights-hybrid-setup.md).  
+To begin monitoring your Kubernetes cluster, review [How to enable the Azure Monitor for containers](container-insights-onboard.md) to understand the requirements and available methods to enable monitoring. 
