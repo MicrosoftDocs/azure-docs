@@ -49,6 +49,7 @@ module mycompute {
     location = "East US 2"
     admin_password = "ComplxP@assw0rd!"
     vm_os_simple = "WindowsServer"
+    is_windows_image = "true"
     remote_port = "3389"
     nb_instances = 2
     public_ip_dns = ["unique_dns_name"]

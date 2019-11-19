@@ -216,7 +216,7 @@ If you plan on using **network security groups** to control network traffic, per
 
 1. Identify the Azure region that you plan to use for HDInsight.
 
-2. Identify the IP addresses required by HDInsight. For more information, see [HDInsight management IP addresses](hdinsight-management-ip-addresses.md).
+2. Identify the service tags required by HDInsight for your region. For more information, see [Network security group (NSG) service tags for Azure HDInsight](hdinsight-service-tags.md).
 
 3. Create or modify the network security groups for the subnet that you plan to install HDInsight into.
 
