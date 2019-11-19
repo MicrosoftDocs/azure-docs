@@ -100,7 +100,7 @@ If a VM does not respond to the data traffic, it may be because either the targe
 
 If one or more network security groups configured on the subnet or on the VM, is blocking the source IP or port, then the VM is unable to respond.
 
-For the public load balancer, the IP address of the client will be used for communication between the client and the backend VM. Make sure the IP address of the clients are allowed the backend VM's network security group.
+For the public load balancer, the IP address of the client will be used for communication between the client and the load balancer backend VM. Make sure the IP address of the client is allowed in the backend VM's network security group.
 
 1. List the network security groups configured on the backend VM. For more information, see [Manage network security groups](../virtual-network/manage-network-security-group.md)
 1. From the list of network security groups, check if:
