@@ -197,7 +197,14 @@
         "articles/governance/blueprints/**/*.md": "DCtheGeek",
         "articles/governance/policy/**/*.md": "DCtheGeek",
         "articles/governance/management-groups/**/*.md": "rthorn17",
-        "articles/governance/resource-graph/**/*.md": "DCtheGeek"
+        "articles/governance/resource-graph/**/*.md": "DCtheGeek",
+        "articles/ansible/**/*.md": "TomArcherMsft",
+        "articles/backup/**/*.md": "dacurwin",
+        "articles/chef/**/*.md": "TomArcherMsft",
+        "articles/jenkins/**/*.md": "TomArcherMsft",
+        "articles/terraform/**/*.md": "TomArcherMsft",
+        "articles/lighthouse/**/*.md": "JnHs",
+        "articles/azure-resource-manager/**/*.md": "tfitzmac"
       },
       "feedback_system": {
         "articles/virtual-machines/windows/classic/**/*": "None",
@@ -378,14 +385,22 @@
         "articles/firewall/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=345022"
       },
       "manager": {
-        "articles/sql-database/**/*.md": "jroth"
+        "articles/sql-database/**/*.md": "jroth",
+        "articles/backup/**/*.md": "carmonm"
       },
       "ms.author": {
         "articles/governance/*.md": "dacoulte",
         "articles/governance/blueprints/**/*.md": "dacoulte",
         "articles/governance/policy/**/*.md": "dacoulte",
         "articles/governance/management-groups/**/*.md": "rithorn",
-        "articles/governance/resource-graph/**/*.md": "dacoulte"
+        "articles/governance/resource-graph/**/*.md": "dacoulte",
+        "articles/ansible/**/*.md": "tarcher",
+        "articles/backup/**/*.md": "dacurwin",
+        "articles/chef/**/*.md": "tarcher",
+        "articles/jenkins/**/*.md": "tarcher",
+        "articles/terraform/**/*.md": "tarcher",
+        "articles/lighthouse/**/*.md": "jenhayes",
+        "articles/azure-resource-manager/**/*.md": "tomfitz"
       },
       "ms.service": {
         "articles/governance/*.md": "governance",
@@ -393,12 +408,21 @@
         "articles/governance/policy/**/*.md": "azure-policy",
         "articles/governance/management-groups/**/*.md": "governance",
         "articles/governance/resource-graph/**/*.md": "resource-graph",
-        "articles/industry/**/*.md": "azure-industry"
+        "articles/industry/**/*.md": "azure-industry",
+        "articles/ansible/**/*.md": "ansible",
+        "articles/backup/**/*.md": "backup",
+        "articles/chef/**/*.md": "chef",
+        "articles/jenkins/**/*.md": "jenkins",
+        "articles/terraform/**/*.md": "terraform",
+        "articles/lighthouse/**/*.md": "lighthouse",
+        "articles/azure-resource-manager/**/*.md": "azure-resource-manager"
       },
       "ms.subservice": {
         "articles/industry/agriculture/**/*.md": "agriculture"
       },
       "searchScope": {
+        "articles/azure-cache-for-redis/**/*.md": ["Azure","Cache for Redis"],
+        "articles/azure-cache-for-redis/**/*.yml": ["Azure","Cache for Redis"],
         "articles/azure-databricks/**/*.md": ["Azure","Azure Databricks"],
         "articles/azure-databricks/**/*.yml": ["Azure","Azure Databricks"],
         "articles/cosmos-db/**/*.md": ["Azure","Azure Cosmos DB"],
@@ -429,6 +453,8 @@
         "articles/lighthouse/**/*.md": "Azure Lighthouse",
         "articles/synapse-analytics/**/*.md": "Azure Synapse Analytics",
         "articles/synapse-analytics/**/*.yml": "Azure Synapse Analytics",
+        "articles/backup/**/*.md": "Azure Backup",
+        "articles/backup/**/*.yml": "Azure Backup",
         "articles/industry/agriculture/**/*.md": "Azure for Industry: Agriculture",
         "articles/sql-data-warehouse/**/*.md": "Azure SQL Data Warehouse",
         "articles/sql-data-warehouse/**/*.yml": "Azure SQL Data Warehouse",
@@ -437,7 +463,12 @@
         "articles/virtual-machines/windows/sql/**/*.md": "Azure SQL Server VM",
         "articles/virtual-machines/windows/sql/**/*.yml": "Azure SQL Server VM",
         "articles/sql-database/**/*.md" : "Azure SQL Database",
-        "articles/sql-database/**/*.yml" : "Azure SQL Database"
+        "articles/sql-database/**/*.yml" : "Azure SQL Database",
+        "articles/ansible/**/*.yml" : "Ansible",
+        "articles/chef/**/*.yml" : "Chef",
+        "articles/jenkins/**/*.yml" : "Jenkins",
+        "articles/terraform/**/*.yml" : "Terraform",
+        "articles/azure-resource-manager/**/*.md": "Azure Resource Manager"
       },
       "featureFlags": {
         "articles/**/*.md": [

@@ -1,16 +1,7 @@
 ﻿---
-title: Import SQL BACPAC files with Azure Resource Manager templates | Microsoft Docs
+title: Import SQL BACPAC files with templates
 description: Learn how to use SQL Database extension to import SQL BACPAC files with Azure Resource Manager templates.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: dougeby
-editor:
-
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 04/08/2019
 ms.topic: tutorial
 ms.author: jgao

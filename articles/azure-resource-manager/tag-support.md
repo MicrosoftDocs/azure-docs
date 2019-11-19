@@ -1,11 +1,8 @@
 ---
-title: Azure Resource Manager tag support for resources
+title: Tag support for resources
 description: Shows which Azure resource types support tags. Provides details for all Azure services.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/27/2019
-ms.author: tomfitz
 ---
 
 # Tag support for Azure resources

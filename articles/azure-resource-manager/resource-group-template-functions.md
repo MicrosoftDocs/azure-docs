@@ -1,12 +1,8 @@
 ---
-title: Resource Manager Template Functions | Microsoft Docs
+title: Template functions
 description: Describes the functions to use in an Azure Resource Manager template to retrieve values, work with strings and numerics, and retrieve deployment information.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/24/2019
-ms.author: tomfitz
-
 ---
 # Azure Resource Manager template functions
 

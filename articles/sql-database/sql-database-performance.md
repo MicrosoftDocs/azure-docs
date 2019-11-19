@@ -21,16 +21,16 @@ Performance tuning options available Azure SQL Database are available on the dat
 
 | Performance tuning option | Single database and pooled database support | Instance database support |
 | :----------------------------- | ----- | ----- |
-| **[Performance overview](#performance-overview)** - Monitor all performance activities for your database. | Yes | No | 
-| **[Performance recommendations](#performance-recommendations)** - Shows performance recommendations that can improve performance of your workload. | Yes | No | 
-| **[Query Performance Insight](#query-performance-insight)** - Shows performance of top consuming queries on the database. | Yes | No | 
-| **[Automatic tuning](#automatic-tuning)** - Use Azure SQL Database to automatically optimize your database performance. | Yes | No | 
+| **Performance overview** - Monitor all performance activities for your database. | Yes | No | 
+| **Performance recommendations** - Shows performance recommendations that can improve performance of your workload. | Yes | No | 
+| **Query Performance Insight** - Shows performance of top consuming queries on the database. | Yes | No | 
+| **Automatic tuning** - Use Azure SQL Database to automatically optimize your database performance. | Yes | No | 
 
 ## Performance overview
 
 This view provides a summary of your database performance, and helps you with performance tuning and troubleshooting. 
 
-![Performance](./media/sql-database-performance/performance.png)
+![Performance overview for Azure SQL Database](./media/sql-database-performance/performance-overview-annotated.png)
 
 * The **Recommendations** tile provides a breakdown of tuning recommendations for your database (top three recommendations are shown if there are more). Clicking this tile takes you to **[Performance recommendations](#performance-recommendations)**. 
 * The **Tuning activity** tile provides a summary of the ongoing and completed tuning actions for your database, giving you a quick view into the history of tuning activity. Clicking this tile takes you to the full tuning history view for your database.
@@ -45,7 +45,7 @@ This page provides intelligent [tuning recommendations](sql-database-advisor.md)
 * Recommendations when schema issues are identified in the database.
 * Recommendations when queries can benefit from parameterized queries.
 
-![Performance](./media/sql-database-performance/recommendations.png)
+![Performance recommendations for Azure SQL Database](./media/sql-database-performance/performance-recommendations-annotated.png)
 
 You can also find complete history of tuning actions that were applied in the past.
 
@@ -59,13 +59,17 @@ Learn how to find an apply performance recommendations in [Find and apply perfor
 * The top CPU consuming queries, which can potentially be tuned for improved performance. 
 * The ability to drill down into the details of a query. 
 
-  ![performance dashboard](./media/sql-database-query-performance/performance.png)
+  ![Query Performance Insights for Azure SQL Database](./media/sql-database-performance/query-performance-insights-annotated.png)
 
 Find more information about this page in the article **[How to use Query Performance Insight](sql-database-query-performance.md)**.
 
 ## Automatic tuning
 
-Azure SQL databases can automatically tune database performance by applying [performance recommendations](sql-database-advisor.md). To learn more, read [Automatic tuning article](sql-database-automatic-tuning.md). To enable it, read [how to enable automatic tuning](sql-database-automatic-tuning-enable.md).
+Azure SQL databases can automatically tune database performance by applying [performance recommendations](sql-database-advisor.md). To enable it, read [how to enable automatic tuning](sql-database-automatic-tuning-enable.md).
+
+  ![Automatic tuning for Azure SQL Database](./media/sql-database-performance/automatic-tuning-annotated.png)
+
+To learn more, read [Automatic tuning article](sql-database-automatic-tuning.md).
 
 ## Additional resources
 
