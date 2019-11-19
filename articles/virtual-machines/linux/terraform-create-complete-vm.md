@@ -1,5 +1,5 @@
 ---
-title: Use Terraform to create a complete Linux VM in Azure  | Microsoft Docs
+title: Use Terraform to create a complete Linux VM in Azure  
 description: Learn how to use Terraform to create and manage a complete Linux virtual machine environment in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines

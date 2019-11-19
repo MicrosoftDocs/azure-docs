@@ -1,11 +1,8 @@
 ---
-title: CI/CD with Azure Pipelines and Resource Manager templates
+title: CI/CD with Azure Pipelines and templates
 description: Describes how to set up continuous integration in Azure Pipelines by using Azure Resource Group deployment projects in Visual Studio to deploy Resource Manager templates.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.author: tomfitz
 ---
 # Integrate Resource Manager templates with Azure Pipelines
 
