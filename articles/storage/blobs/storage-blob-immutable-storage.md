@@ -12,7 +12,7 @@ ms.reviewer: hux
 ms.subservice: blobs
 ---
 
-# Store business-critical data immutably in Azure Blob storage
+# Store business-critical blob data with immutable storage
 
 Immutable storage for Azure Blob storage enables users to store business-critical data objects in a WORM (Write Once, Read Many) state. This state makes the data non-erasable and non-modifiable for a user-specified interval. For the duration of the retention interval, blobs can be created and read, but cannot be modified or deleted. Immutable storage is available for general-purpose v2 and Blob storage accounts in all Azure regions.
 
@@ -28,11 +28,11 @@ Typical applications include:
 
 - **Legal hold**: Immutable storage for Azure Blob storage enables users to store sensitive information that is critical to litigation or business use in a tamper-proof state for the desired duration until the hold is removed. This feature is not limited only to legal use cases but can also be thought of as an event-based hold or an enterprise lock, where the need to protect data based on event triggers or corporate policy is required.
 
-Immutable storage supports the following:
+Immutable storage supports the following features:
 
 - **[Time-based retention policy support](#time-based-retention)**: Users can set policies to store data for a specified interval. When a time-based retention policy is set, blobs can be created and read, but not modified or deleted. After the retention period has expired, blobs can be deleted but not overwritten.
 
-- **[Legal hold policy support](#legal-holds)**: If the retention interval is not known, users can set legal holds to store data immutably until the legal hold is cleared.  When a legal hold policy is set, blobs can be created and read, but not modified or deleted. Each legal hold is associated with a user-defined alphanumeric tag (such as a case ID, event name, etc.) that is used as an identifier string. 
+- **[Legal hold policy support](#legal-holds)**: If the retention interval is not known, users can set legal holds to store immutable data until the legal hold is cleared.  When a legal hold policy is set, blobs can be created and read, but not modified or deleted. Each legal hold is associated with a user-defined alphanumeric tag (such as a case ID, event name, etc.) that is used as an identifier string. 
 
 - **Support for all blob tiers**: WORM policies are independent of the Azure Blob storage tier and apply to all the tiers: hot, cool, and archive. Users can transition data to the most cost-optimized tier for their workloads while maintaining data immutability.
 
@@ -62,11 +62,11 @@ For new blobs, the effective retention period is equal to the user-specified ret
 >
 > A new blob, _testblob2_, is now uploaded to the container. The effective retention period for this new blob is five years.
 
-An unlocked time-based retention policy is recommended only for feature testing and a policy must be locked in order to be compliant with SEC 17a-4(f) and other regulatory compliance. Once a time-based retention policy is locked, the policy cannot be removed and a maximum of 5 increases to the effective retention period is allowed. For more information on how to set and lock time-based retention policies, see the [Getting started](#getting-started) section.
+An unlocked time-based retention policy is recommended only for feature testing and a policy must be locked in order to be compliant with SEC 17a-4(f) and other regulatory compliance. Once a time-based retention policy is locked, the policy cannot be removed and a maximum of five increases to the effective retention period is allowed. For more information on how to set and lock time-based retention policies, see [Set and manage immutability policies for Blob storage](storage-blob-immutability-policies-manage.md).
 
 ### Legal holds
 
-When you set a legal hold, all existing and new blobs stay in the immutable state until the legal hold is cleared. For more information on how to set and clear legal holds, see the [Getting started](#getting-started) section.
+When you set a legal hold, all existing and new blobs stay in the immutable state until the legal hold is cleared. For more information on how to set and clear legal holds, see [Set and manage immutability policies for Blob storage](storage-blob-immutability-policies-manage.md).
 
 A container can have both a legal hold and a time-based retention policy at the same time. All blobs in that container stay in the immutable state until all legal holds are cleared, even if their effective retention period has expired. Conversely, a blob stays in an immutable state until the effective retention period expires, even though all legal holds have been cleared.
 
@@ -86,15 +86,15 @@ The following table shows the types of blob operations that are disabled for the
 ### Time-based retention
 
 - For a storage account, the maximum number of containers with locked time-based immutable policies is 1,000.
-- The minimum retention interval is 1 day. The maximum is 146,000 days (400 years).
+- The minimum retention interval is one day. The maximum is 146,000 days (400 years).
 - For a container, the maximum number of edits to extend a retention interval for locked time-based immutable policies is 5.
-- For a container, a maximum of 7 time-based retention policy audit logs are retained for a locked policy.
+- For a container, a maximum of seven time-based retention policy audit logs are retained for a locked policy.
 
 ### Legal hold
 
 - For a storage account, the maximum number of containers with a legal hold setting is 1,000.
 - For a container, the maximum number of legal hold tags is 10.
-- The minimum length of a legal hold tag is 3 alphanumeric characters. The maximum length is 23 alphanumeric characters.
+- The minimum length of a legal hold tag is three alphanumeric characters. The maximum length is 23 alphanumeric characters.
 - For a container, a maximum of 10 legal hold policy audit logs are retained for the duration of the policy.
 
 ## Pricing
@@ -118,7 +118,7 @@ Yes. To document compliance, Microsoft retained a leading independent assessment
 
 **Does the feature apply to only block blobs, or to page and append blobs as well?**
 
-Immutable storage can be used with any blob type as it is set at the container level, but we recommend that you use WORM for containers that mainly store block blobs. Unlike block blobs, any new page blobs and append blobs need to be created outside a WORM container, and then copied in. After you copy these blobs into a WORM container, no further *appends* to an append blob or changes to a page blob are allowed. Therefore, setting a WORM policy on a container that stores VHDs (page blobs) for any active Virtual Machines is strongly discouraged as it will lock the VM disk.
+Immutable storage can be used with any blob type as it is set at the container level, but we recommend that you use WORM for containers that mainly store block blobs. Unlike block blobs, any new page blobs and append blobs need to be created outside a WORM container, and then copied in. After you copy these blobs into a WORM container, no further *appends* to an append blob or changes to a page blob are allowed. Setting a WORM policy on a container that stores VHDs (page blobs) for any active virtual machines is discouraged as it will lock the VM disk.
 
 **Do I need to create a new storage account to use this feature?**
 
@@ -130,7 +130,7 @@ Yes, a container can have both a legal hold and a time-based retention policy at
 
 **Are legal hold policies only for legal proceedings or are there other use scenarios?**
 
-No, Legal Hold is just the general term used for a non time-based retention policy. It does not need to only be used for litigation related proceedings. Legal Hold policies are useful for disabling overwrite and deletes for protecting important enterprise WORM data, where the retention period is unknown. You may use it as an enterprise policy to protect your mission critical WORM workloads or use it as a staging policy before a custom event trigger requires the use of a time-based retention policy. 
+No, Legal Hold is just the general term used for a non-time-based retention policy. It does not need to only be used for litigation-related proceedings. Legal Hold policies are useful for disabling overwrite and deletes for protecting important enterprise WORM data, where the retention period is unknown. You may use it as an enterprise policy to protect your mission critical WORM workloads or use it as a staging policy before a custom event trigger requires the use of a time-based retention policy. 
 
 **Can I remove a _locked_ time-based retention policy or legal hold?**
 
@@ -158,7 +158,7 @@ Yes. When a time-based retention policy is first created, it is in an *unlocked*
 
 **Can I use soft delete alongside Immutable blob policies?**
 
-Yes. [Soft delete for Azure Blob storage](storage-blob-soft-delete.md) applies for all containers within a storage account regardless of a legal hold or time-based retention policy. We recommend enabling soft delete for additional protection before any immutable WORM policies are applied and confirmed. 
+Yes. [Soft delete for Azure Blob storage](storage-blob-soft-delete.md) applies for all containers within a storage account regardless of a legal hold or time-based retention policy. We recommend enabling soft delete for additional protection before any immutable WORM policies are applied and confirmed.
 
 **Where is the feature available?**
 
@@ -258,3 +258,7 @@ $policy = Get-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName `
 
 Remove-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 ```
+
+## Next steps
+
+[Set and manage immutability policies for Blob storage](storage-blob-immutability-policies-manage.md)
