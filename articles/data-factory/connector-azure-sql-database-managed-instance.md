@@ -9,8 +9,9 @@ ms.topic: conceptual
 ms.author: jingwang
 author: linda33wj
 manager: shwang
-ms.date: 09/09/2019
 ms.reviewer: douglasl
+ms.custom: seo-lt-2019
+ms.date: 09/09/2019
 ---
 
 # Copy data to and from Azure SQL Database Managed Instance by using Azure Data Factory
