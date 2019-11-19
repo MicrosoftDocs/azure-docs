@@ -16,14 +16,22 @@ ms.date: 03/12/2019
 
 ## Prerequisites
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-> [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
-
 - You must have an Azure subscription and be an administrator on that subscription
 - You must have Azure PowerShell installed and running.
 - This how-to guide assumes that you are already using a key from Azure Key Vault as the TDE protector for an Azure SQL Database or Data Warehouse. See [Transparent Data Encryption with BYOK Support](transparent-data-encryption-byok-azure-sql.md) to learn more.
+
+# [PowerShell](#tab/azure-powershell)
+
+ For Az module installation instructions, see [Install Azure PowerShell](/powershell/azure/install-az-ps). For specific cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/).
+
+> [!IMPORTANT]
+> The PowerShell Azure Resource Manager (RM) module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020.  The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
+
+# [Azure CLI](#tab/azure-cli)
+
+For installation, see [Install Azure CLI](/cli/azure/install-azure-cli).
+
+* * *
 
 ## Overview
 
@@ -52,7 +60,15 @@ The following query returns the VLFs and the encryptor respective thumbprints in
 SELECT * FROM sys.dm_db_log_info (database_id)
 ```
 
+# [PowerShell](#tab/azure-powershell)
+
 The PowerShell command **Get-AzureRmSqlServerKeyVaultKey** provides the thumbprint of the TDE Protector used in the query, so you can see which keys to keep and which keys to delete in AKV. Only keys no longer used by the database can be safely deleted from Azure Key Vault.
+
+# [Azure CLI](#tab/azure-cli)
+
+The PowerShell command **az sql server key show** provides the thumbprint of the TDE Protector used in the query, so you can see which keys to keep and which keys to delete in AKV. Only keys no longer used by the database can be safely deleted from Azure Key Vault.
+
+* * *
 
 This how-to guide goes over two approaches depending on the desired result after the incident response:
 
@@ -60,6 +76,8 @@ This how-to guide goes over two approaches depending on the desired result after
 - To make the Azure SQL databases / Data Warehouses **inaccessible**
 
 ## To keep the encrypted resources accessible
+
+# [PowerShell](#tab/azure-powershell)
 
 1. Create a [new key in Key Vault](/powershell/module/az.keyvault/add-azkeyvaultkey). Make sure this new key is created in a separate key vault from the potentially compromised TDE protector, since access control is provisioned on a vault level.
 
@@ -101,6 +119,52 @@ This how-to guide goes over two approaches depending on the desired result after
    ```powershell
    Restore-AzKeyVaultKey -VaultName <KeyVaultName> -InputFile <BackupFilePath>
    ```
+
+# [Azure CLI](#tab/azure-cli)
+
+For command reference, see the [Azure CLI keyvault](/cli/azure/keyvault/key).
+
+1. Create a [new key in Key Vault](/cli/azure/keyvault/key#az-keyvault-key-create). Make sure this new key is created in a separate key vault from the potentially compromised TDE protector, since access control is provisioned on a vault level.
+
+2. Add the new key to the server and update it as the server’s new TDE protector.
+
+   ```powershell
+   # add the key from Key Vault to the server  
+   az sql server key create --kid <KeyVaultKeyId> --resource-group <SQLDatabaseResourceGroupName> --server <LogicalServerName>
+
+   # set the key as the TDE protector for all resources under the server
+   az sql server tde-key set --server-key-type AzureKeyVault --kid <KeyVaultKeyId> --resource-group <SQLDatabaseResourceGroupName> --server <LogicalServerName>
+   ```
+
+3. Make sure the server and any replicas have updated to the new TDE protector.
+
+   > [!NOTE]
+   > It may take a few minutes for the new TDE protector to propagate to all databases and secondary databases under the server.
+
+   ```powershell
+   az sql server tde-key show --resource-group <SQLDatabaseResourceGroupName> --server <LogicalServerName>
+   ```
+
+4. Take a backup of the new key in Key Vault.
+
+   ```powershell
+   # --file parameter is optional; if removed, a file name is automatically generated.
+   az keyvault key backup --file <DesiredBackupFilePath> --name <KeyVaultKeyName> --vault-name <KeyVaultName>
+   ```
+
+5. Delete the compromised key from Key Vault.
+
+   ```powershell
+   az keyvault key delete --name <KeyVaultKeyName> --vault-name <KeyVaultName>
+   ```
+
+6. To restore a key to Key Vault in the future.
+
+   ```powershell
+   az keyvault key restore --file <BackupFilePath> --vault-name <KeyVaultName>
+   ```
+
+* * *
 
 ## To make the encrypted resources inaccessible
 

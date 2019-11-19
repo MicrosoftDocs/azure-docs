@@ -80,10 +80,8 @@ sqlpackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 
 # [PowerShell](#tab/azure-powershell)
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+> The PowerShell Azure Resource Manager (RM) module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020.  The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
 
 Use the [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport) cmdlet to submit an import database request to the Azure SQL Database service. Depending on database size, the import may take some time to complete.
 
@@ -117,38 +115,16 @@ $importStatus
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport) cmdlet to submit an import database request to the Azure SQL Database service. Depending on database size, the import may take some time to complete.
+Use the [az-sql-db-import](/cli/azure/sql/db#az-sql-db-import) command to submit an import database request to the Azure SQL Database service. Depending on database size, the import may take some time to complete.
 
 ```azure-cli
-$importRequest = az sql db import --admin-password $(ConvertTo-SecureString -String "<password>" -AsPlainText -Force)
-                 --admin-user "<userId>"
-                 --storage-key $(Get-AzStorageAccountKey -ResourceGroupName "<resourceGroupName>" -StorageAccountName "<storageAccountName>").Value[0]
-                 --storage-key-type StorageAccessKey
-                 --storage-uri "https://myStorageAccount.blob.core.windows.net/importsample/sample.bacpac"
-                 [--auth-type {ADPassword, SQL}]
-                 [--ids]
-                 [--name "<databaseName>"
-                 [--resource-group "<resourceGroupName>"
-                 [--server "<serverName>"
-                 [--subscription]
+# get the storage account key
+az storage account keys list --resource-group "<resourceGroupName>" --account-name "<storageAccountName>"
 
-                 -DatabaseMaxSizeBytes "<databaseSizeInBytes>" -Edition "Standard" -ServiceObjectiveName "P6"?
-```
-
-You can use the [Get-AzSqlDatabaseImportExportStatus](/powershell/module/az.sql/get-azsqldatabaseimportexportstatus) cmdlet to check the import's progress. Running the cmdlet immediately after the request usually returns `Status: InProgress`. The import is complete when you see `Status: Succeeded`.
-
-```azure-cli
-$importStatus = Get-AzSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
-
-[Console]::Write("Importing")
-while ($importStatus.Status -eq "InProgress") {
-    $importStatus = Get-AzSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
-    [Console]::Write(".")
-    Start-Sleep -s 10
-}
-
-[Console]::WriteLine("")
-$importStatus
+az sql db import --resource-group "<resourceGroupName>" --server "<serverName>" --name "<databaseName>" `
+    --storage-key-type "StorageAccessKey" --storage-key "<storageAccountKey>" `
+    --storage-uri "https://myStorageAccount.blob.core.windows.net/importsample/sample.bacpac" `
+    -u "<userId>" -p $(ConvertTo-SecureString -String "<password>" -AsPlainText -Force)
 ```
 
 * * *
