@@ -163,6 +163,9 @@ To use the template, you must specify the following inputs:
 }
 ```
 
+> [!NOTE]
+> This template is not idempotent unless the same `roleNameGuid` value is provided as a parameter for each deployment of the template. If no `roleNameGuid` is provided, by default a new GUID is generated on each deployment and subsequent deployments will fail with a `Conflict: RoleAssignmentExists` error.
+
 The scope of the role assignment is determined from the level of the deployment. Here are example [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) and [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) commands for how to start the deployment at a resource group scope.
 
 ```azurepowershell
@@ -182,9 +185,6 @@ New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $
 ```azurecli
 az deployment create --location centralus --template-file rbac-test.json --parameters principalId=$prinid builtInRoleType=Reader
 ```
-
-> [!NOTE]
-> This template is not idempotent unless the same `roleNameGuid` value is provided as a parameter for each deployment of the template. If no `roleNameGuid` is provided, by default a new GUID is generated on each deployment and subsequent deployments will fail with a `Conflict: RoleAssignmentExists` error.
 
 ## Create a role assignment at a resource scope
 
