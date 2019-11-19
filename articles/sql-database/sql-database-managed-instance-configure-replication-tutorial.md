@@ -33,6 +33,7 @@ To complete the tutorial, make sure you have the following prerequisites:
 - [SQL Server Management Studio (SSMS) 18.0 or greater](/ssms/download-sql-server-management-studio-ssms).
 - The latest version of [Azure Powershell](/powershell/azure/install-az-ps?view=azps-1.7.0).
 - An [Azure File share](../storage/files/storage-how-to-create-file-share.md). The name `replshare` is used in this tutorial, created within the storage account `replstorage`. 
+- Port 445 open for both the Azure firewall and the Windows firewall on the SQL Server. 
 
 ## 1 - Create the resource group
 Use the following PowerShell code snippet to create a new resource group:
@@ -281,11 +282,7 @@ Run the following T-SQL snippet to insert additional rows on the publisher, and 
 INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 ```
 
-## Troubleshooting
-
-## Snapshot agent fails to start
-
-Review the Snapshot agent history to determine the cause of failure. 
+## Known errors
 
 `Exception Message: Windows logins are not supported in this version of SQL Server.`
 
@@ -296,7 +293,9 @@ The snapshot agent was configured with a Windows login and needs to use a SQL Se
 2019-11-19 02:21:05.07 Connecting to Azure Files Storage '\\replstorage.file.core.windows.net\replshare'
 2019-11-19 02:21:31.21 Failed to connect to Azure Storage '' with OS error: 53.
 
+`Connecting to Azure Files Storage '\\replstorage.file.core.windows.net\replshare' Failed to connect to Azure Storage '' with OS error: 53.`
 
+This is likely because port 445 is closed in either the Azure firewall, the Windows firewall, or both. 
 
 ## Clean up resources
 
