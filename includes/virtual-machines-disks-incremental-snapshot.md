@@ -151,4 +151,8 @@ You can also use Azure Resource Manager templates to create an incremental snaps
 
 ## Next steps
 
-If you haven't yet signed up for the preview and you'd like to start using incremental snapshots, email us at AzureDisks@microsoft.com to get access to the public preview.
+1. If you haven't yet signed up for the preview and you'd like to start using incremental snapshots, email us at AzureDisks@microsoft.com to get access to the public preview. 
+
+2. Explore the following samples for cross-region copy of incremental snapshots using differential capability   
+
+    - [Using Azure .Net SDKs](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots)
