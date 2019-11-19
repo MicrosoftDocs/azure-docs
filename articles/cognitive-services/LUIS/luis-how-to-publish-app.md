@@ -79,8 +79,7 @@ For more information about the JSON endpoint response with sentiment analysis, s
 
 ## Spelling correction
 
-> [!CAUTION]
-> This feature applies to prediction endpoint queries targeting V2 predictions only.
+[!INCLUDE [Not supported in V3 API prediction endpoint](./includes/v2-support-only.md)]
 
 Corrections to spelling are made before the LUIS user utterance prediction. You can see any changes to the original utterance, including spelling, in the response.
 
