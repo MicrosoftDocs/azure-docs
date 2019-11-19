@@ -1,6 +1,6 @@
 ---
-title: Create a forest trust in Azure AD Domain Services | Microsoft Docs
-description: Learn how to create an outbound forest to an on-premises AD DS domain in the Azure portal for Azure AD Domain Services
+title: Tutorial - Create a forest trust in Azure AD Domain Services | Microsoft Docs
+description: Learn how to create a one-way outbound forest to an on-premises AD DS domain in the Azure portal for Azure AD Domain Services
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -9,17 +9,27 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/15/2019
+ms.date: 11/19/2019
 ms.author: iainfou
+
+#Customer intent: As an identity administrator, I want to create a one-way outbound forest from an Azure Active Directory Domain Services resource forest to an on-premises Active Directory Domain Services forest to provide authentication and resource access between forests.
 ---
 
-# Create an outbound forest trust to an on-premises domain in Azure Active Directory Domain Services
+# Tutorial: Create an outbound forest trust to an on-premises domain in Azure Active Directory Domain Services (preview)
 
-In environments where you can't synchronize password hashes, or you have users that exclusively sign in using smart cards so don't know their password, you can use a resource forest in Azure Active Directory Domain Services (AD DS). A resource forest uses a one-way outbound trust from Azure AD DS to one or more on-premises AD DS environments. This trust relationship lets users, applications, and computers authenticate against an on-premises domain from the Azure AD DS managed domain.
+In environments where you can't synchronize password hashes, or you have users that exclusively sign in using smart cards so they don't know their password, you can use a resource forest in Azure Active Directory Domain Services (AD DS). A resource forest uses a one-way outbound trust from Azure AD DS to one or more on-premises AD DS environments. This trust relationship lets users, applications, and computers authenticate against an on-premises domain from the Azure AD DS managed domain. Azure AD DS resource forests are currently in preview.
 
 ![Diagram of forest trust from Azure AD DS to on-premises AD DS](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 
-This article shows you how to create the one-way forest trust for Azure AD DS and an on-premises AD DS domain.
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Configure DNS in an on-premises AD DS environment to support Azure AD DS connectivity
+> * Create a one-way inbound forest trust in an on-premises AD DS environment
+> * Create a one-way outbound forest trust in Azure AD DS
+> * Test and validate the trust relationship for authentication and resource access
+
+If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
@@ -31,6 +41,10 @@ To complete this tutorial, you need the following resources and privileges:
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * An Azure Active Directory Domain Services managed domain created using a resource forest and configured in your Azure AD tenant.
     * If needed, [create and configure an Azure Active Directory Domain Services instance][create-azure-ad-ds-instance-advanced].
+
+## Sign in to the Azure portal
+
+In this tutorial, you create and configure the outbound forest trust from Azure AD DS using the Azure portal. To get started, first sign in to the [Azure portal](https://portal.azure.com).
 
 ## Networking considerations
 
@@ -92,12 +106,12 @@ To create the outbound trust for the Azure AD DS managed domain in the Azure por
 
 The following common scenarios let you validate that forest trust correctly authenticates users and access to resources:
 
-* [On-premises user authentication from the Azure AD DS resource forest]()
-* [Access resources in the Azure AD DS resource forest using on-premises user]()
-    * [Enable file and printer sharing]()
-    * [Create a security group and add members]()
-    * [Create a file share for cross-forest access]()
-    * [Validate cross-forest authentication to a resource]()
+* [On-premises user authentication from the Azure AD DS resource forest](#on-premises-user-authentication-from-the-azure-ad-ds-resource-forest)
+* [Access resources in the Azure AD DS resource forest using on-premises user](#access-resources-in-the-azure-ad-ds-resource-forest-using-on-premises-user)
+    * [Enable file and printer sharing](#enable-file-and-printer-sharing)
+    * [Create a security group and add members](#create-a-security-group-and-add-members)
+    * [Create a file share for cross-forest access](#create-a-file-share-for-cross-forest-access)
+    * [Validate cross-forest authentication to a resource](#validate-cross-forest-authentication-to-a-resource)
 
 ### On-premises user authentication from the Azure AD DS resource forest
 
@@ -180,6 +194,14 @@ Using the Windows Server VM joined to the Azure AD DS resource forest, you can t
 1. To validate the delete permission, right-select **New Text Document** and choose **Delete**. Choose **Yes** to confirm file deletion.
 
 ## Next steps
+
+In this tutorial, you learned how to:
+
+> [!div class="checklist"]
+> * Configure DNS in an on-premises AD DS environment to support Azure AD DS connectivity
+> * Create a one-way inbound forest trust in an on-premises AD DS environment
+> * Create a one-way outbound forest trust in Azure AD DS
+> * Test and validate the trust relationship for authentication and resource access
 
 For more conceptual information about forest types in Azure AD DS, see [What are resource forests?][concepts-forest] and [How do forest trusts work in Azure AD DS?][concepts-trust]
 

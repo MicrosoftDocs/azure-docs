@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/18/2019
+ms.date: 11/19/2019
 ms.author: iainfou
 ---
 
-# How trusts work for resource forests in Azure Active Directory Domain Services
+# How trust relationships work for resource forests in Azure Active Directory Domain Services
 
 Active Directory Domain Services (AD DS) provides security across multiple domains or forests through domain and forest trust relationships. Before authentication can occur across trusts, Windows must first check if the domain being requested by a user, computer, or service has a trust relationship with the domain of the requesting account.
 
@@ -94,7 +94,7 @@ Before you can create a forest trust, you need to verify you have the correct Do
 * Where there is no shared root DNS server, and the root DNS servers for each forest DNS namespace use DNS conditional forwarders for each DNS namespace to route queries for names in the other namespace.
 
     > [!IMPORTANT]
-    > Azure AD Domain Services resource forest must use this DNS configuration. Hosting a DNS namespace other than the resource forest DNS namespace is not a service Azure AD Domain Services. Conditional forwarders is the proper configuration.
+    > Azure AD Domain Services resource forest must use this DNS configuration. Hosting a DNS namespace other than the resource forest DNS namespace is not a feature of Azure AD Domain Services. Conditional forwarders is the proper configuration.
 
 * Where there is no shared root DNS server, and the root DNS servers for each forest DNS namespace are use DNS secondary zones are configured in each DNS namespace to route queries for names in the other namespace.
 
@@ -272,8 +272,9 @@ Administrators can use *Active Directory Domains and Trusts*, *Netdom* and *Nlte
 
 To learn more about resource forests, see [How do forest trusts work in Azure AD DS?][concepts-trust]
 
-To get started with creating an Azure AD DS managed domain with a resource forest, see [Create and configure an Azure AD DS managed domain][tutorial-create-advanced].
+To get started with creating an Azure AD DS managed domain with a resource forest, see [Create and configure an Azure AD DS managed domain][tutorial-create-advanced]. You can then [Create an outbound forest trust to an on-premises domain (preview)][create-forest-trust].
 
 <!-- LINKS - INTERNAL -->
 [concepts-trust]: concepts-forest-trust.md
 [tutorial-create-advanced]: tutorial-create-instance-advanced.md
+[create-forest-trust]: tutorial-create-forest-trust.md

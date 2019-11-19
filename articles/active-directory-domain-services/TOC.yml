@@ -23,6 +23,8 @@
       href: tutorial-configure-password-hash-sync.md
     - name: Create an advanced managed domain
       href: tutorial-create-instance-advanced.md
+    - name: Create a forest trust
+      href: tutorial-create-forest-trust.md
 - name: Samples
   items:
     - name: Create a managed domain using Azure PowerShell
@@ -73,8 +75,6 @@
           href: check-health.md
         - name: Configure email notifications
           href: notifications.md
-        - name: Create a forest trust
-          href: create-forest-trust.md
         - name: Delete a managed domain
           href: delete-aadds.md
         - name: Migrate from a Classic deployment (preview)
