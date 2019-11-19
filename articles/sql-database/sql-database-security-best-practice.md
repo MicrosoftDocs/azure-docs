@@ -374,6 +374,10 @@ Separation of Duties is not limited to the data in database, but includes applic
 
 Data protection is a set of capabilities for safeguarding important information from compromise by encryption or obfuscation.
 
+> [!NOTE]
+> Microsoft attests to Azure SQL Database and Azure SQL Database managed instance as being FIPS 140-2 Level 1 compliant. This is done after verifying the strict use of FIPS 140-2 Level 1 acceptable algorithms and FIPS 140-2 Level 1 validated instances of those algorithms including consistency with required key lengths, key management, key generation, and key storage. This attestation is meant to allow our customers to respond to the need or requirement for the use of FIPS 140-2 Level 1 validated instances in the processing of data or delivery of systems or applications. We define the terms  “FIPS 140-2 Level 1 compliant” and “FIPS 140-2 Level 1 compliance” used in the above statement to demonstrate their intended applicability to U.S. and Canadian government use of the different term “FIPS 140-2 Level 1 validated.” 
+
+
 ### Encrypt data in transit
 
 > [!NOTE]
@@ -415,7 +419,7 @@ Data in use is the data stored in memory of the database system during the execu
 
 - Always Encrypted isn't a substitute to encrypt data at rest (TDE) or in transit (SSL/TLS), and shouldn't be used for non-sensitive data in order to minimize performance and functionality impact. Using Always Encrypted in conjunction with TDE and TLS is recommended for comprehensive protection of data at-rest, in-transit, and in-use. 
 
-- Manage Always Encrypted keys with role separation if you are using AE to protect data from malicious DBAs. With role separation, a security admin creates the physical keys, and a DBA creates column master key and column encryption key metadata objects, describing the physical keys, in the database. During this process, the security admin doesn't need access to the database, and the DBA doesn't need access to the physical keys in plaintext. 
+- Manage Always Encrypted keys with role separation if you are using Always Encrypted to protect data from malicious DBAs. With role separation, a security admin creates the physical keys, and a DBA creates column master key and column encryption key metadata objects, describing the physical keys, in the database. During this process, the security admin doesn't need access to the database, and the DBA doesn't need access to the physical keys in plaintext. 
   - See the article, [Managing Keys with Role Separation](https://docs.microsoft.com/sql/relational-databases/security/encryption/overview-of-key-management-for-always-encrypted#managing-keys-with-role-separation) for details. 
 
 - Store your column master keys (CMKs) in Azure Key Vault for ease of management. Avoid using Windows Certificate Store (and in general, distributed key store solutions, as opposed central key management solutions) that make key management hard. 
@@ -437,17 +441,19 @@ Data in use is the data stored in memory of the database system during the execu
 
 ### Control access of application users to sensitive data through encryption
 
-Encryption can be used as a way to ensure that only application users who have access to cryptographic keys and can view or update the data.
+Encryption can be used as a way to ensure that only specific application users who have access to cryptographic keys and can view or update the data.
 
 **How to implement**:
 
 - Use Cell-level Encryption (CLE). See the article, [Encrypt a Column of Data](https://docs.microsoft.com/sql/relational-databases/security/encryption/encrypt-a-column-of-data) for details. 
+- While Always Encrypted can also be used to control application users' access to sensitive data, keep in mind that after you have granted a user access by giving the user permissions to get the column encryption key and the column master key, to reliably revoke that access you need to rotate the column encryption key, which is an expensive operation that requires re-encrypting all columns the column encryption key protects. 
 
-**Best practices**:
+**Best practices**
+When using CLE:
 
 - Control access to keys through SQL permissions and roles. 
 
-- Use AES (AES 256 recommended) for data encryption.  
+- Use AES (AES 256 recommended) for data encryption. Algorithms, such RC4, DES and TrippleDES, are deprecated and should not be used due to known vulnerabilities. 
 
 - Protect symmetric keys with asymmetric keys/certificates (not passwords) to avoid using 3DES. 
 
