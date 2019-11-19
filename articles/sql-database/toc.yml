@@ -125,10 +125,14 @@
 
     - name: Network security
       items:
-      - name: Virtual network endpoints
-        href: sql-database-vnet-service-endpoint-rule-overview.md
-      - name: Virtual network endpoints - PowerShell
-        href: sql-database-vnet-service-endpoint-rule-powershell.md
+      - name: Overview
+        href: sql-database-networkaccess-overview.md
+      - name: Virtual network firewall rules
+        items: 
+        - name: Virtual network endpoints
+          href: sql-database-vnet-service-endpoint-rule-overview.md
+        - name: Virtual network endpoints - PowerShell
+          href: sql-database-vnet-service-endpoint-rule-powershell.md
       - name: Private Link
         href: sql-database-private-endpoint-overview.md
   
@@ -153,10 +157,8 @@
         href: sql-database-audit-log-format.md
       - name: Conditional Access
         href: sql-database-conditional-access.md
-      - name: Server-level IP firewall rules
-        items:
-        - name: Create and manage
-          href: sql-database-firewall-configure.md      
+      - name: IP based firewall
+        href: sql-database-firewall-configure.md
 
     - name: Managed instance security
       items:
