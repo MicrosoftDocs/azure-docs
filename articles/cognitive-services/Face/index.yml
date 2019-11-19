@@ -103,7 +103,7 @@ landingContent:
           - text: Java SDK
             url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable
           - text: Node.js SDK
-            url: https://docs.microsoft.com/javascript/api/azure-cognitiveservices-face/?view=azure-node-latest
+            url: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face
           - text: Go SDK
             url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face
           - text: iOS SDK

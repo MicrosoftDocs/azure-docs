@@ -93,8 +93,8 @@ Learn about the [latest architecture for Azure Machine Learning](concept-azure-m
 For an overview of the service, read [What is Azure Machine Learning?](overview-what-is-azure-ml.md).
 
 Create your first experiment with your preferred method:
-  + [Use Python notebooks to train & deploy ML models](tutorial-1st-experiment-sdk-setup.md)
-  + [Use R Markdown to train & deploy ML models]( tutorial-1st-r-experiment.md) 
-  + [Use automated machine learning to train & deploy ML models](ui-tutorial-automobile-price-train-score.md) 
-  + [Use the designer's drag & drop capabilities to train & deploy](tutorial-first-experiment-automated-ml.md) 
-  + [Use the machine learning CLI to train and deploy a model](tutorial-train-deploy-model-cli.md)
+  + [Use Python notebooks](tutorial-1st-experiment-sdk-setup.md)
+  + [Use R Markdown]( tutorial-1st-r-experiment.md) 
+  + [Use automated machine learning](ui-tutorial-automobile-price-train-score.md) 
+  + [Use the designer's drag & drop capabilities](tutorial-first-experiment-automated-ml.md) 
+  + [Use the ML extension to the CLI](tutorial-train-deploy-model-cli.md)
