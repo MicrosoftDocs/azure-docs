@@ -143,8 +143,7 @@ Some connector operations make asynchronous calls or listen for webhook requests
 | Name | Multi-tenant limit | Integration service environment limit | Notes |
 |------|--------------------|---------------------------------------|-------|
 | Outbound request | 120 seconds <br>(2 minutes) | 240 seconds <br>(4 minutes) | Examples of outbound requests include outgoing calls such as HTTP webhook subscribe operations. <p><p>**Tip**: For longer running operations, use an [asynchronous polling pattern](../logic-apps/logic-apps-create-api-app.md#async-pattern) or an [until loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). |
-| Synchronous response | 120 seconds <br>(2 minutes) | 240 seconds <br>(4 minutes) | Examples of synchrounous responses include outgoing calls such as HTTP webhook unsubscribe operations. <p><p>**Note**: For the original caller to get the response, all steps in the response must finish within the limit unless you call another logic app as a nested workflow. For more information, see [Call, trigger, or nest logic apps](../logic-apps/logic-apps-http-endpoint.md). |
-| Inbound request | 120 seconds <br>(2 minutes) | 240 seconds <br>(4 minutes) | Examples of inbound requests include calls received by a Request trigger. |
+| Inbound request | 120 seconds <br>(2 minutes) | 240 seconds <br>(4 minutes) | Examples of inbound requests include calls received by a Request trigger and synchronous responses such as HTTP webhook unsubscribe operations. <p><p>**Note**: For the original caller to get the response, all steps in the response must finish within the limit unless you call another logic app as a nested workflow. For more information, see [Call, trigger, or nest logic apps](../logic-apps/logic-apps-http-endpoint.md). |
 |||||
 
 #### Message size
