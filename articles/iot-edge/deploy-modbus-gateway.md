@@ -49,13 +49,15 @@ This section walks through deploying Microsoft's sample Modbus module to your Io
    3. The module is automatically configured for your IoT Hub and appears in the list of IoT Edge Modules. The Routes are also automatically configured. Select **Review + create**.
    4. Review the deployment manifest and select **Create**.
 
-5. Select the Modbus module (`ModbusTCPModule`) in the list and select the **Module Twin Settings** tab. The required JSON for the module twin desired properties is auto populated, and requires only the IPv4 address of your Modbus device to be set for the value of **SlaveConnection**.
+5. Select the Modbus module, `ModbusTCPModule`, in the list and select the **Module Twin Settings** tab. The required JSON for the module twin desired properties is auto populated.
 
-6. Select **Update**.
+6. Look for the **SlaveConnection** property in the JSON and set its value to the IPv4 address of your Modbus device.
 
-7. Select **Review + create**, review the deployment, and then select **Create**.
+7. Select **Update**.
 
-8. Return to the device details page and select **Refresh**. You should see the new `ModbusTCPModule` module running along with the IoT Edge runtime.
+8. Select **Review + create**, review the deployment, and then select **Create**.
+
+9. Return to the device details page and select **Refresh**. You should see the new `ModbusTCPModule` module running along with the IoT Edge runtime.
 
 ## View data
 
