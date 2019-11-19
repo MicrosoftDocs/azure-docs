@@ -62,7 +62,9 @@
       - name: Aha!
         href: aha-tutorial.md
       - name: Airstack
-        href: airstack-tutorial.md  
+        href: airstack-tutorial.md
+      - name: Airtable
+        href: airtable-tutorial.md  
       - name: AirWatch
         href: airwatch-tutorial.md
       - name: Alcumus Info Exchange
