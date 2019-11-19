@@ -29,7 +29,7 @@ This article shows how to enable browser connection on lab virtual machines.
 ## Prerequisites 
 Either deploy a Bastion host in your existing lab's virtual network **(OR)** connect your lab with a Bastion configured VNet. 
 
-To learn how to deploy a Bastion host in a VNet, see  [Create an Azure Bastion host (Preview)](../bastion/bastion-create-host-portal.md). When creating the Bastion host, select the lab's virtual network. 
+To learn how to deploy a Bastion host in a VNet, see  [Create an Azure Bastion host](../bastion/bastion-create-host-portal.md). When creating the Bastion host, select the lab's virtual network. 
 
 To learn how to connect your lab with a Bastion configured VNet, see [Configure a virtual network in Azure DevTest Labs](devtest-lab-configure-vnet.md). Select the VNet that has the Bastion host deployed and the **AzureBastionSubnet** in it. Here are the detailed steps: 
 
@@ -60,9 +60,10 @@ To enable browser connect on lab virtual machines, follow these steps:
 
 1. In the Azure portal, navigate to *your lab*.
 1. Select **Configuration and policies**.
-1. In **Settings**, select **Browser connect (Preview)**.
+1. In **Settings**, select **Browser connect**.
 
     ![Enable browser connection](./media/enable-browser-connection-lab-virtual-machines/browser-connect.png)
+    
 
 ## Next Steps
 See the following article to learn how to connect to your VMs using a browser: [Connect to your virtual machines through a browser](connect-virtual-machine-through-browser.md)
