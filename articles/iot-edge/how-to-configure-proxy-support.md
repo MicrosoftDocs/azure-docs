@@ -4,7 +4,7 @@ description: How to configure the Azure IoT Edge runtime and any internet-facing
 author: kgremban
 manager: 
 ms.author: kgremban
-ms.date: 11/18/2019
+ms.date: 11/19/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -57,13 +57,13 @@ Proxy URLs take the following format: **protocol**://**proxy_host**:**proxy_port
 
 Whether your IoT Edge device runs on Windows or Linux, you need to access the installation packages through the proxy server. Depending on your operating system, follow the steps to install the IoT Edge runtime through a proxy server.
 
-### Linux
+### Linux devices
 
 If you're installing the IoT Edge runtime on a Linux device, configure the package manager to go through your proxy server to access the installation package. For example, [Set up apt-get to use a http-proxy](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy). Once your package manager is configured, follow the instructions in [Install Azure IoT Edge runtime on Linux](how-to-install-iot-edge-linux.md) as usual.
 
-### Windows
+### Windows devices
 
-If you're installing the IoT Edge runtime on a Windows device, you need to go through the proxy server twice. The first connection downloads the installer script file, and the second connection is during the installation to download the necessary components. You can configure proxy information in Windows settings, or include your proxy information directly in the PowerShell commands. 
+If you're installing the IoT Edge runtime on a Windows device, you need to go through the proxy server twice. The first connection downloads the installer script file, and the second connection is during the installation to download the necessary components. You can configure proxy information in Windows settings, or include your proxy information directly in the PowerShell commands.
 
 The following steps demonstrate an example of a windows installation using the `-proxy` argument:
 
@@ -102,9 +102,9 @@ Since Moby is built on Docker, refer to the Docker documentation to configure th
 Choose the article that applies to your IoT Edge device operating system:
 
 * [Configure Docker daemon on Linux](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)
-    * The Moby daemon on Linux devices keeps the name Docker.
+    The Moby daemon on Linux devices keeps the name Docker.
 * [Configure Docker daemon on Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon#proxy-configuration)
-    * The Moby daemon on Windows devices is called iotedge-moby. The names are different because it's possible to run both Docker Desktop and Moby in parallel on a Windows device.
+    The Moby daemon on Windows devices is called iotedge-moby. The names are different because it's possible to run both Docker Desktop and Moby in parallel on a Windows device.
 
 ### IoT Edge daemon
 
@@ -211,7 +211,7 @@ This step is ongoing throughout the life of the IoT Edge device.
 
 When you use the **Set modules** wizard to create deployments for IoT Edge devices, every module has an **Environment Variables** section that you can use to configure proxy server connections.
 
-To configure the IoT Edge agent and IoT Edge hub modules, select **Configure advanced Edge Runtime settings** on the first step of the wizard.
+To configure the IoT Edge agent and IoT Edge hub modules, select **Runtime Settings** on the first step of the wizard.
 
 ![Configure advanced Edge Runtime settings](./media/how-to-configure-proxy-support/configure-runtime.png)
 
