@@ -20,7 +20,7 @@ The following table provides overview of the scope of Storage Account Recovery d
 
 | |LRS|ZRS|GRS|RA - GRS|
 |---|---|---|---|---|
-|Storage Account Azure Resource Manager versions 1 and 2|Yes|Yes|Yes|Yes|
+|Storage Account Azure Resource Manager|Yes|Yes|Yes|Yes|
 |Storage Account Classic|Yes|Yes|Yes|Yes|
 
 Gather the following information and file a support request with Microsoft Support:
