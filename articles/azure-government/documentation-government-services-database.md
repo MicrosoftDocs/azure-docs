@@ -47,7 +47,7 @@ For details on this service and how to use it, see [Azure SQL Server Stretch Dat
 For details on this service and how to use it, see [Azure Cosmos DB documentation](../cosmos-db/index.yml).
 
 ### Variations
-Azure Cosmos DB is generally available in Azure Government. The **Add Azure Search** function currently isn't available in Cosmos DB for Azure Government because Azure Search is not yet deployed in Azure Government.
+Azure Cosmos DB is generally available in Azure Government with parity to the public version. One exception is the **Add Azure Cognitive Search** function currently, which isn't available in Cosmos DB for Azure Government.
 
 Also, the URLs for accessing Cosmos DB in Azure Government are different:
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Government Web, Mobile and API | Microsoft Docs
-description: This provides a comparision of features and guidance on developing applications for Azure Government
+description: This provides a comparison of features and guidance on developing applications for Azure Government
 services: azure-government
 cloud: gov
 documentationcenter: ''
@@ -13,10 +13,44 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/28/2018
+ms.date: 11/19/2019
 ms.author: gsacavdm
 ---
 # Azure Government Web + Mobile
+
+This article outlines the web and mobile services for the Azure Government environment, describing any feature variations that differ from the public version, as well as any environment-specific considerations.
+
+## Azure Cognitive Search
+[Azure Cognitive Search](https://docs.microsoft.com/azure/search/) is generally available in Azure Government.
+
+### Variations
+The endpoint and principle ID for search services created in Azure Government is as follows:
+
+| Service Type | Azure Public | Azure Government |
+| ------------ | ------------ | ---------------- |
+| Azure Cognitive Search Service |\*.search.windows.net |\*.search.windows.us|
+| Service Principal ID| abfa0a7c-a6b6-4736-8310-5855508787cd | 6a02c803-dafd-4136-b4c3-5a6f318b4714 |
+
+All generally available and most preview features are available in both public and government environments, with the following exceptions:
+
++ TBD []()
+
++ TBD []()
+
+Functionality that has been widely implemented by government search application developers include using the [AI enrichment pipelines](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) to extract structure and content from large undifferentiated text documents.
+
+Basic query syntax, formulating queries to search over large amounts of content, is also relevant to application developers. Azure Cognitive Search supports two syntaxes: [simple](https://docs.microsoft.com/azure/search/query-simple-syntax) and [full](https://docs.microsoft.com/azure/search/query-lucene-syntax). We recommend reviewing [query expression examples](https://docs.microsoft.com/azure/search/search-query-simple-examples) for an introduction.
+
+### Considerations
+The following information identifies the Azure Government boundary for Azure Cognitive Search:
+
+**THIS IS COPY-PASTED ** LIAM WHAT APPLIES??**
+
+| Regulated/controlled data permitted | Regulated/controlled data not permitted |
+| ----------------------------------- | --------------------------------------- |
+| Data entered, stored, and processed within AAzure App Service can contain export-controlled data. Binaries running within Azure App Service. Static authenticators, such as passwords and smartcard PINs for access to Azure platform components. Private keys of certificates used to manage Azure platform components. SQL connection strings. Other security information/secrets, such as certificates, encryption keys, master keys, and storage keys stored in Azure services. | Metadata is not permitted to contain export-controlled data. This metadata includes all configuration data entered when creating and maintaining your Azure App Service. Do not enter Regulated/controlled data into the following fields: Resource groups, Resource names, Resource tags|
+
+
 ## App Services
 ### Variations
 Azure App Services is generally available in Azure Government.
