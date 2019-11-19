@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: update-management
 author: bobbytreed
 ms.author: robreed
-ms.date: 04/02/2019
+ms.date: 11/19/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -25,6 +25,8 @@ To use Update Management, you need:
 
 - A virtual machine or computer with one of the supported operating systems installed.
 
+Linux agents must have access to an update repository.
+
 ## Supported operating systems
 
 Update Management is supported on the following operating systems:
@@ -40,10 +42,6 @@ Update Management is supported on the following operating systems:
 
 > [!NOTE]
 > To prevent updates from being applied outside a maintenance window on Ubuntu, reconfigure the Unattended-Upgrade package to disable automatic updates. For more information, see the [Automatic Updates topic in the Ubuntu Server Guide](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
-
-Linux agents must have access to an update repository.
-
-This solution doesn't support a Log Analytics Agent for Linux that's configured to report to multiple Azure Log Analytics workspaces.
 
 ## Enable Update Management for Azure virtual machines
 
@@ -125,7 +123,7 @@ In the **New update deployment** pane, specify the following information:
 - **Name**: Enter a unique name to identify the update deployment.
 - **Operating system**: Select **Windows** or **Linux**.
 - **Groups to update (preview)**: Define a query based on a combination of subscription, resource groups, locations, and tags to build a dynamic group of Azure VMs to include in your deployment. To learn more see, [Dynamic Groups](automation-update-management-groups.md)
-- **Machines to update**: Select a Saved Search, Imported group, or select Machines, to choose the machines that you want to update. If you choose **Machines**, the readiness of the machine is shown in the **UPDATE AGENT READINESS** column. You can see the health state of the machine before you schedule the update deployment. To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../azure-monitor/platform/computer-groups.md)
+- **Machines to update**: Select a Saved Search, Imported group, or select Machines, to choose the machines that you want to update. Selecting the Saved Search option does not return machine identities, only their names. If you have several VMs with the same name, they are returned in the results. If you choose **Machines**, the readiness of the machine is shown in the **UPDATE AGENT READINESS** column. You can see the health state of the machine before you schedule the update deployment. To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../azure-monitor/platform/computer-groups.md)
 
   ![New update deployment pane](./media/manage-update-multi/update-select-computers.png)
 
