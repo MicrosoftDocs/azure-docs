@@ -44,11 +44,11 @@ az appconfig kv export --name myTestAppConfigStore --file ~/Export.json
 
 ## Script explanation
 
-This script uses the following commands to export an app configuration store. Each command in the table links to command specific documentation.
+This script uses the following commands to export an App Configuration store. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|
-| [az appconfig export](/cli/azure/ext/appconfig/appconfig) | Exports from an app configuration store resource. |
+| [az appconfig export](/cli/azure/ext/appconfig/appconfig) | Exports from an App Configurationn store resource. |
 
 ## Next steps
 

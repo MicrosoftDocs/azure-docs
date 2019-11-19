@@ -36,7 +36,7 @@ You need to install the Azure App Configuration CLI extension first by executing
 ```azurecli-interactive
 #/bin/bash
 
-# Delete an app configuration store named myTestAppConfigStore from the Resource Group myResourceGroup
+# Delete an App Configuration store named myTestAppConfigStore from the Resource Group myResourceGroup
 az appconfig delete --name myTestAppConfigStore --resource-group myResourceGroup
 ```
 
@@ -44,11 +44,11 @@ az appconfig delete --name myTestAppConfigStore --resource-group myResourceGroup
 
 ## Script explanation
 
-This script uses the following commands to delete an app configuration store. Each command in the table links to command specific documentation.
+This script uses the following commands to delete an App Configuration store. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|
-| [az appconfig delete](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-delete) | Deletes an app configuration store resource. |
+| [az appconfig delete](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-delete) | Deletes an App Configuration store resource. |
 
 ## Next steps
 
