@@ -13,7 +13,7 @@ ms.date: 11/19/2019
 ms.author: allensu
 ---
 
-# Azure Resource Manager Support with Azure Load Balancer
+# Azure Resource Manager support with Azure Load Balancer
 
 
 
