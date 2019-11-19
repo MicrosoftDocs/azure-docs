@@ -171,7 +171,7 @@ Custom attributes cannot be referential attributes or multi-value attributes. Wo
      }
    },
      "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:CustomAttribute:User": {
-     "employeeNuCustomAttribute": "701984",
+     "CustomAttribute": "701984",
    },
    "meta": {
      "resourceType": "User",
