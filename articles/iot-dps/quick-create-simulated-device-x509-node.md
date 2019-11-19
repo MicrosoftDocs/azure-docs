@@ -1,6 +1,6 @@
 ﻿---
 title: "Quickstart: Provision a simulated X.509 device to Azure IoT Hub using Node.js"
-description: Create and provision a simulated X.509 device using Node.js device SDK for Azure IoT Hub Device Provisioning Service.This quickstart uses individual enrollments.
+description: Create and provision a simulated X.509 device using Node.js device SDK for Azure IoT Hub Device Provisioning Service. This quickstart uses individual enrollments.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2018
@@ -74,14 +74,14 @@ You will use sample code from the [Azure IoT SDK for Node.js](https://github.com
 
 5. From the Device Provisioning Service menu, select **Manage enrollments**. Select **Individual Enrollments** tab and select the **Add individual enrollment** button at the top. 
 
-6. Under the **Add Enrollment** panel, enter the following information:
+6. In the **Add Enrollment** panel, enter the following information:
    - Select **X.509** as the identity attestation *Mechanism*.
-   - Under the *Primary certificate .pem or .cer file*, select *Select a file* to select the certificate file **{certificate-name}_cert.pem** created in the previous steps.  
+   - Under the *Primary certificate .pem or .cer file*, choose *Select a file* to select the certificate file **{certificate-name}_cert.pem** created in the previous steps.  
    - Optionally, you may provide the following information:
      - Select an IoT hub linked with your provisioning service.
      - Enter a unique device ID. Make sure to avoid sensitive data while naming your device. 
      - Update the **Initial device twin state** with the desired initial configuration for the device.
-     - Once complete, select the **Save** button. 
+     - Once complete, press the **Save** button. 
 
      [![Add individual enrollment for X.509 attestation in the portal](./media/quick-create-simulated-device-x509-node/device-enrollment.png)](./media/quick-create-simulated-device-x509-node/device-enrollment.png#lightbox)
 
@@ -111,8 +111,8 @@ The [Azure IoT Hub Node.js Device SDK](https://github.com/Azure/azure-iot-sdk-no
 
 4. Edit the **register\_x509.js** file. Save the file after making the following changes.
     - Replace `provisioning host` with the **_Global Device Endpoint_** noted in **Step 1** above.
-    - Replace `id scope` with the **_Id Scope_** noted in **Step 1** above. 
-    - Replace `registration id` with the **_Registration Id_** noted in the previous section.
+    - Replace `id scope` with the **_ID Scope_** noted in **Step 1** above. 
+    - Replace `registration id` with the **_Registration ID_** noted in the previous section.
     - Replace `cert filename` and `key filename` with the files you copied in **Step 2** above. 
 
 5. Execute the script and verify the device was provisioned successfully.
@@ -121,7 +121,7 @@ The [Azure IoT Hub Node.js Device SDK](https://github.com/Azure/azure-iot-sdk-no
     node register_x509.js
     ```   
 
-6. In the portal, navigate to the IoT hub linked to your provisioning service and open the **IoT devices** blade. On successful provisioning of the simulated X.509 device to the hub, its device ID appears on the **IoT devices** blade, with *STATUS* as **enabled**. You might need to select the **Refresh** button at the top if you already opened the blade prior to running the sample device application. 
+6. In the portal, navigate to the IoT hub linked to your provisioning service and open the **IoT devices** blade. On successful provisioning of the simulated X.509 device to the hub, its device ID appears on the **IoT devices** blade, with *STATUS* as **enabled**. You might need to press the **Refresh** button at the top if you already opened the blade prior to running the sample device application. 
 
     ![Device is registered with the IoT hub](./media/quick-create-simulated-device-x509-node/hubregistration.png) 
 
@@ -133,8 +133,8 @@ The [Azure IoT Hub Node.js Device SDK](https://github.com/Azure/azure-iot-sdk-no
 If you plan to continue working on and exploring the device client sample, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all resources created by this quickstart.
 
 1. Close the device client sample output window on your machine.
-2. From the left-hand menu in the Azure portal, select **All resources** and then select your Device Provisioning service. Open the **Manage Enrollments** blade for your service, and then select the **Individual Enrollments** tab. Select the *REGISTRATION ID* of the device you enrolled in this quickstart, and press the **Delete** button at the top. 
-3. From the left-hand menu in the Azure portal, select **All resources** and then select your IoT hub. Open the **IoT devices** blade for your hub, select the *DEVICE ID* of the device you registered in this quickstart, and then press the **Delete** button at the top.
+2. From the left-hand menu in the Azure portal, select **All resources** and then select your Device Provisioning service. Open the **Manage Enrollments** blade for your service, and then select the **Individual Enrollments** tab. Select the checkbox next to the *REGISTRATION ID* of the device you enrolled in this quickstart, and press the **Delete** button at the top of the pane. 
+3. From the left-hand menu in the Azure portal, select **All resources** and then select your IoT hub. Open the **IoT devices** blade for your hub, select the checkbox next to the *DEVICE ID* of the device you registered in this quickstart, and then press the **Delete** button at the top of the pane.
 
 
 ## Next steps

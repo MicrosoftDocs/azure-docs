@@ -109,7 +109,7 @@ In this section, you will build and execute a sample that will read the endorsem
 
 2. On the Visual Studio menu, select **Build** > **Build Solution** to build all projects in the solution.
 
-3. In Visual Studio's *Solution Explorer* window, navigate to the **Provision\_Tools** folder. Right-select the **tpm_device_provision** project and select **Set as Startup Project**. 
+3. In Visual Studio's *Solution Explorer* window, navigate to the **Provision\_Tools** folder. Right-click the **tpm_device_provision** project and select **Set as Startup Project**. 
 
 4. On the Visual Studio menu, select **Debug** > **Start without debugging** to run the solution. The app reads and displays a **_Registration ID_** and an **_Endorsement key_**. Note or copy these values. They will be used in the next section for device enrollment. 
 
@@ -122,14 +122,14 @@ In this section, you will build and execute a sample that will read the endorsem
 
 1. Select the **Manage enrollments** tab, and then select the **Add individual enrollment** button at the top. 
 
-1. Under the **Add Enrollment**, enter the following information:
+1. In the **Add Enrollment** panel, enter the following information:
    - Select **TPM** as the identity attestation *Mechanism*.
    - Enter the *Registration ID* and *Endorsement key* for your TPM device from the values you noted previously.
    - Select an IoT hub linked with your provisioning service.
    - Optionally, you may provide the following information:
        - Enter a unique *Device ID* (you can use the suggested **test-docs-device** or provide your own). Make sure to avoid sensitive data while naming your device. If you choose not to provide one, the registration ID will be used to identify the device instead.
        - Update the **Initial device twin state** with the desired initial configuration for the device.
-   - Once complete, select the **Save** button. 
+   - Once complete, press the **Save** button. 
 
       ![Enter device enrollment information in the portal](./media/quick-create-simulated-device/enter-device-enrollment.png)  
 
@@ -177,7 +177,7 @@ In this section, you will configure sample code to use the [Advanced Message Que
     //hsm_type = SECURE_DEVICE_TYPE_X509;
     ```
 
-6. Right-select the **prov\_dev\_client\_sample** project and select **Set as Startup Project**. 
+6. Right-click the **prov\_dev\_client\_sample** project and select **Set as Startup Project**. 
 
 7. On the Visual Studio menu, select **Debug** > **Start without debugging** to run the solution. In the prompt to rebuild the project, select **Yes**, to rebuild the project before running.
 
@@ -208,8 +208,8 @@ If you plan to continue working on and exploring the device client sample, do no
 
 1. Close the device client sample output window on your machine.
 2. Close the TPM simulator window on your machine.
-3. From the left-hand menu in the Azure portal, select **All resources** and then select your Device Provisioning service. Open **Manage Enrollments** for your service, and then select the **Individual Enrollments** tab. Select the *REGISTRATION ID* of the device you enrolled in this quickstart, and press the **Delete** button at the top. 
-4. From the left-hand menu in the Azure portal, select **All resources** and then select your IoT hub. Open **IoT devices** for your hub, select the *DEVICE ID* of the device you registered in this quickstart, and then press the **Delete** button at the top.
+3. From the left-hand menu in the Azure portal, select **All resources** and then select your Device Provisioning service. Open **Manage Enrollments** for your service, and then select the **Individual Enrollments** tab. Select the checkbox next to the *REGISTRATION ID* of the device you enrolled in this quickstart, and press the **Delete** button at the top of the pane. 
+4. From the left-hand menu in the Azure portal, select **All resources** and then select your IoT hub. Open **IoT devices** for your hub, select the checkbox next to the *DEVICE ID* of the device you registered in this quickstart, and then press the **Delete** button at the top of the pane.
 
 ## Next steps
 

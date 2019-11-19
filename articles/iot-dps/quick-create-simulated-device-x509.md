@@ -39,7 +39,7 @@ This article will demonstrate individual enrollments.
 
 ## Prepare a development environment for the Azure IoT C SDK
 
-In this section, you will prepare a development environment used to build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) which include the sample code for the X.509 boot sequence.
+In this section, you will prepare a development environment used to build the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c), which includeS the sample code for the X.509 boot sequence.
 
 1. Download the [CMake build system](https://cmake.org/download/).
 
@@ -85,8 +85,6 @@ In this section, you will prepare a development environment used to build the [A
     -- Build files have been written to: E:/IoT Testing/azure-iot-sdk-c/cmake
     ```
 
-
-
 <a id="portalenroll"></a>
 
 ## Create a self-signed X.509 device certificate
@@ -102,7 +100,7 @@ You will use sample code from the Azure IoT C SDK to create the certificate to b
 
 2. On the Visual Studio menu, select **Build** > **Build Solution** to build all projects in the solution.
 
-3. In Visual Studio's *Solution Explorer* window, navigate to the **Provision\_Tools** folder. Right-select the **dice\_device\_enrollment** project and select **Set as Startup Project**. 
+3. In Visual Studio's *Solution Explorer* window, navigate to the **Provision\_Tools** folder. Right-click the **dice\_device\_enrollment** project and select **Set as Startup Project**. 
 
 4. On the Visual Studio menu, select **Debug** > **Start without debugging** to run the solution. In the output window, enter **i** for individual enrollment when prompted. 
 
@@ -117,10 +115,10 @@ You will use sample code from the Azure IoT C SDK to create the certificate to b
 
 2. Select the **Manage enrollments** tab, and then select the **Add individual enrollment** button at the top. 
 
-3. On **Add Enrollment**, enter the following information, and select the **Save** button.
+3. In the **Add Enrollment** panel, enter the following information, and press the **Save** button.
 
     - **Mechanism:** Select **X.509** as the identity attestation *Mechanism*.
-    - **Primary certificate .pem or .cer file:** Click **Select a file** to select the certificate file, X509testcert.pem, you created earlier.
+    - **Primary certificate .pem or .cer file:** Choose **Select a file** to select the certificate file, X509testcert.pem, you created earlier.
     - **IoT Hub Device ID:** Enter **test-docs-cert-device** to give the device an ID.
 
       [![Add individual enrollment for X.509 attestation in the portal](./media/quick-create-simulated-device-x509/device-enrollment.png)](./media/quick-create-simulated-device-x509/device-enrollment.png#lightbox)
@@ -157,7 +155,7 @@ In this section, update the sample code to send the device's boot sequence to yo
     hsm_type = SECURE_DEVICE_TYPE_X509;
     ```
 
-5. Right-select the **prov\_dev\_client\_sample** project and select **Set as Startup Project**. 
+5. Right-click the **prov\_dev\_client\_sample** project and select **Set as Startup Project**. 
 
 6. On the Visual Studio menu, select **Debug** > **Start without debugging** to run the solution. In the prompt to rebuild the project, select **Yes**, to rebuild the project before running.
 
@@ -176,7 +174,7 @@ In this section, update the sample code to send the device's boot sequence to yo
     test-docs-hub.azure-devices.net, deviceId: test-docs-cert-device    
     ```
 
-7. In the portal, navigate to the IoT hub linked to your provisioning service and select the **IoT devices** tab. On successful provisioning of the simulated X.509 device to the hub, its device ID appears on the **IoT devices** blade, with *STATUS* as **enabled**. You might need to select the **Refresh** button at the top. 
+7. In the portal, navigate to the IoT hub linked to your provisioning service and select the **IoT devices** tab. On successful provisioning of the simulated X.509 device to the hub, its device ID appears on the **IoT devices** blade, with *STATUS* as **enabled**. You might need to press the **Refresh** button at the top. 
 
     ![Device is registered with the IoT hub](./media/quick-create-simulated-device/hub-registration.png) 
 
@@ -186,8 +184,8 @@ In this section, update the sample code to send the device's boot sequence to yo
 If you plan to continue working on and exploring the device client sample, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all resources created by this quickstart.
 
 1. Close the device client sample output window on your machine.
-1. From the left-hand menu in the Azure portal, select **All resources** and then select your Device Provisioning service. Open **Manage Enrollments** for your service, and then select the **Individual Enrollments** tab. Select the *REGISTRATION ID* of the device you enrolled in this quickstart, and press the **Delete** button at the top. 
-1. From the left-hand menu in the Azure portal, select **All resources** and then select your IoT hub. Open **IoT devices** for your hub, select the *DEVICE ID* of the device you registered in this quickstart, and then press the **Delete** button at the top.
+1. From the left-hand menu in the Azure portal, select **All resources** and then select your Device Provisioning service. Open **Manage Enrollments** for your service, and then select the **Individual Enrollments** tab. Select the checkbox next to the *REGISTRATION ID* of the device you enrolled in this quickstart, and press the **Delete** button at the top of the pane. 
+1. From the left-hand menu in the Azure portal, select **All resources** and then select your IoT hub. Open **IoT devices** for your hub, select the checkbox next to the *DEVICE ID* of the device you registered in this quickstart, and then press the **Delete** button at the top of the pane.
 
 ## Next steps
 
