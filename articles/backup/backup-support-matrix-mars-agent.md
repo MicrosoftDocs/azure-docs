@@ -60,6 +60,8 @@ And to these IP addresses:
 - 20.190.128.0/18
 - 40.126.0.0/18
 
+Access to all of the URLs and IP addresses listed above uses the HTTPS protocol on port 443.
+
 ### Throttling support
 
 **Feature** | **Details**

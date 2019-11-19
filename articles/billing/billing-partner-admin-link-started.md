@@ -6,7 +6,7 @@ author: dhirajgandhi
 manager: dhgandhi
 ms.author: banders
 ms.date: 10/01/2019
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
