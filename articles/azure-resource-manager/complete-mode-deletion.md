@@ -1364,13 +1364,10 @@ Jump to a resource provider namespace:
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
 > | netAppAccounts | Yes |
-> | netAppAccounts / backupPolicies | Yes |
 > | netAppAccounts / capacityPools | Yes |
 > | netAppAccounts / capacityPools / volumes | Yes |
-> | netAppAccounts / capacityPools / volumes / backups | No |
 > | netAppAccounts / capacityPools / volumes / mountTargets | Yes |
 > | netAppAccounts / capacityPools / volumes / snapshots | Yes |
-> | netAppAccounts / vaults | No |
 ## Microsoft.Network
 
 > [!div class="mx-tableFixed"]

@@ -1359,13 +1359,11 @@ Jump to a resource provider namespace:
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | netAppAccounts | Yes | No |
-> | netAppAccounts / backupPolicies | Yes | Yes |
 > | netAppAccounts / capacityPools | Yes | No |
 > | netAppAccounts / capacityPools / volumes | Yes | No |
-> | netAppAccounts / capacityPools / volumes / backups | No | No |
 > | netAppAccounts / capacityPools / volumes / mountTargets | Yes | No |
 > | netAppAccounts / capacityPools / volumes / snapshots | Yes | No |
-> | netAppAccounts / vaults | No | No |
+
 ## Microsoft.Network
 
 > [!div class="mx-tableFixed"]
@@ -1807,6 +1805,7 @@ Jump to a resource provider namespace:
 > | applicationDefinitions | Yes | Yes |
 > | applications | Yes | Yes |
 > | jitRequests | Yes | Yes |
+
 
 ## Microsoft.SQL
 
