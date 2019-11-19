@@ -123,7 +123,12 @@ In the **New update deployment** pane, specify the following information:
 - **Name**: Enter a unique name to identify the update deployment.
 - **Operating system**: Select **Windows** or **Linux**.
 - **Groups to update (preview)**: Define a query based on a combination of subscription, resource groups, locations, and tags to build a dynamic group of Azure VMs to include in your deployment. To learn more see, [Dynamic Groups](automation-update-management-groups.md)
-- **Machines to update**: Select a Saved Search, Imported group, or select Machines, to choose the machines that you want to update. Selecting the Saved Search option does not return machine identities, only their names. If you have several VMs with the same name, they are returned in the results. If you choose **Machines**, the readiness of the machine is shown in the **UPDATE AGENT READINESS** column. You can see the health state of the machine before you schedule the update deployment. To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../azure-monitor/platform/computer-groups.md)
+- **Machines to update**: Select a Saved Search, Imported group, or select Machines, to choose the machines that you want to update.
+
+   >[!NOTE]
+   >Selecting the Saved Search option does not return machine identities, only their names. If you have several VMs with the same name across multiple resource groups, they are returned in the results. Using the **Groups to update (preview)** option is recommended to ensure you include unique VMs matching your criteria.
+
+   If you choose **Machines**, the readiness of the machine is shown in the **UPDATE AGENT READINESS** column. You can see the health state of the machine before you schedule the update deployment. To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../azure-monitor/platform/computer-groups.md)
 
   ![New update deployment pane](./media/manage-update-multi/update-select-computers.png)
 
