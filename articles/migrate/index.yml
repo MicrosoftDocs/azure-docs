@@ -67,6 +67,8 @@ landingContent:
         links:
           - text: Add assessment tools
             url: ./how-to-assess.md
+          - text: Discover application inventory
+            url: ./how-to-discover-applications.md
           - text: Add migration tools
             url: ./how-to-migrate.md
           - text: Scale VMware assessment
