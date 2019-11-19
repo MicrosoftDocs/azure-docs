@@ -6,7 +6,7 @@ author: ChJenk
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 11/18/2019
+ms.date: 11/19/2019
 ms.author: v-chjen
 ---
 
@@ -15,8 +15,6 @@ ms.author: v-chjen
 To simplify the procurement process for customers and reduce legal complexity for software vendors, Microsoft offers a Standard Contract for Microsoft's commercial marketplace in order to help facilitate transactions in the marketplace. Rather than crafting custom terms and conditions, commercial marketplace publishers can choose to offer their software under the Standard Contract, which customers only need to vet and accept once. The Standard Contract can be found here: [https://go.microsoft.com/fwlink/?linkid=2041178](https://go.microsoft.com/fwlink/?linkid=2041178).
 
 The terms and conditions for an offer are defined when creating the offer in Partner Center or in the Cloud Partner Portal. You can select to use the Standard Contract for Microsoft’s commercial marketplace instead of providing your own custom terms and conditions.
-
-![Enabling Standard Contract option](media/marketplace-publishers-guide/standard-contract.png)
 
 >[!Note]
 >Once you publish an offer using the Standard contract for Microsoft’s commercial marketplace, you are not able to use your own custom terms and conditions. It is an “or” scenario. You either offer your solution under the Standard Contract *or* your own terms and conditions. If you would like to modify the terms of the Standard Contract you can do so through Standard Contract Amendments.
@@ -32,8 +30,6 @@ There are two kinds of amendments available for commercial marketplace publisher
 ![Universal Amendments](media/marketplace-publishers-guide/universal-amendaments.png)
 
 * Custom Amendments: These amendments are special amendments to the Standard Contract that are targeted to specific customers only via Azure tenant IDs. Publishers can choose the tenant they want to target. Only customers from the tenant will be presented with the custom amendment terms in the offer’s purchase flow.  Customers must accept the terms of the Standard Contract and the amendment(s) before they can use your offer.
-
-![Custom Amendments](media/marketplace-publishers-guide/custom-amendaments.png)
 
 >[!Note]
 >These two types of amendments stack on top of each other. Customers targeted with custom amendments will also get the universal amendment to the Standard Contract during purchase.
