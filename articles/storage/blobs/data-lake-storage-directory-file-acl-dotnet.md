@@ -12,9 +12,15 @@ ms.reviewer: prishet
 
 # Manage directories, files, and ACLs in Azure Data Lake Storage Gen2 (.NET)
 
-This article shows you how to use .NET to create and manage directories, files, and permissions in storage accounts that have a hierarchical namespace. To create an account, see [Create an Azure Data Lake Storage Gen2 storage account](data-lake-storage-quickstart-create-account.md).
+This article shows you how to use .NET to create and manage directories, files, and permissions in storage accounts that have a hierarchical namespace. 
 
 [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/12.0.0-preview.6) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples)
+
+## Prerequisites
+
+> [!div class="checklist"]
+> * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
+> * A storage account that has a hierarchical namespace. Follow [these](data-lake-storage-quickstart-create-account.md) instructions to create one.
 
 ## Set up your project
 

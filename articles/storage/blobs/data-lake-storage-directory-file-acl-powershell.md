@@ -13,11 +13,24 @@ ms.reviewer: prishet
 
 # Manage directories, files, and permissions in Azure Data Lake Storage Gen2 (PowerShell)
 
-This article shows you how to use PowerShell to create and manage directories, files, and permissions in storage accounts that have a hierarchical namespace. To create an account, see [Create an Azure Data Lake Storage Gen2 storage account](data-lake-storage-quickstart-create-account.md).
+This article shows you how to use PowerShell to create and manage directories, files, and permissions in storage accounts that have a hierarchical namespace. 
+
+## Prerequisites
+
+> [!div class="checklist"]
+> * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
+> * A storage account that has a hierarchical namespace. Follow [these](data-lake-storage-quickstart-create-account.md) instructions to create one.
+> * .NET Framework is 4.7.2 or greater installed. See [Download .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework)
 
 ## Install PowerShell modules
 
-1.	Install the latest **PowershellGet** module.
+1. Verify that the version of PowerShell that have installed is `5.1` or higher by using the following command.	
+
+    ```powershell
+    echo $PSVersionTable.PSVersion.ToString() 
+    ```
+    
+    If you have a version that is lower than `5.1`, then install the latest **PowershellGet** module.
 
     ```powershell
     install-Module PowerShellGet –Repository PSGallery –Force 
@@ -28,8 +41,10 @@ This article shows you how to use PowerShell to create and manage directories, f
 3.	Install **Az.Storage** preview module.
 
     ```powershell
-    install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.9.1-preview –AllowPrerelease –AllowClobber –Force 
+    install-Module Az.Storage -Repository PSGallery -RequiredVersion 1.9.1-preview –AllowPrerelease –AllowClobber –Force 
     ```
+
+    For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0)
 
 ## Connect to the account
 
@@ -96,7 +111,7 @@ This example gets a directory by using the `Get-AzDataLakeGen2Item` cmdlet, and 
 ```powershell
 $filesystemName = "my-file-system"
 $dirname = "my-directory/"
-$dir =  -Context $ctx -FileSystem $filesystemName -Path $dirname
+$dir =  Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname
 $dir.ACL
 $dir.Permissions
 $dir.Directory.PathProperties.Group

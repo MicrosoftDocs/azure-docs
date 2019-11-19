@@ -13,9 +13,15 @@ ms.reviewer: prishet
 
 # Manage directories, files, and permissions in Azure Data Lake Storage Gen2 (Azure CLI)
 
-This article shows you how to use the [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). to create and manage directories, files, and permissions in storage accounts that have a hierarchical namespace. To create an account, see [Create an Azure Data Lake Storage Gen2 storage account](data-lake-storage-quickstart-create-account.md).
+This article shows you how to use the [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). to create and manage directories, files, and permissions in storage accounts that have a hierarchical namespace. 
 
 [Source code](https://github.com/Azure/azure-cli-extensions/tree/master/src) | [Sample](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview)
+
+## Prerequisites
+
+> [!div class="checklist"]
+> * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
+> * A storage account that has a hierarchical namespace. Follow [these](data-lake-storage-quickstart-create-account.md) instructions to create one.
 
 ## Install the storage CLI extension
 
