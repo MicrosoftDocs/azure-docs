@@ -6,13 +6,13 @@ documentationcenter: ''
 author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
 ---
+
 # Incrementally load data from a source data store to a destination data store
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
