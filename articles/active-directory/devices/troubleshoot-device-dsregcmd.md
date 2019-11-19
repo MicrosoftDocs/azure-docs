@@ -83,6 +83,9 @@ Displayed only when the device is Azure AD joined or hybrid Azure AD joined (not
 Displayed only when the device is Azure AD joined or hybrid Azure AD joined (not Azure AD registered). This section lists the common tenant details when a device is joined to Azure AD.
 
 > [!NOTE]
+> If the MDM URLs in this section are empty, it indicates that the MDM was either not configured or current user is not in scope of MDM enrollment. Check the Mobility settings in Azure AD to review your MDM configuration.
+
+> [!NOTE]
 > Even if you see MDM URLs this does not mean that the device is managed by an MDM. The information is displayed if the tenant has MDM configuration for auto-enrollment even if the device itself is not managed. 
 
 ### Sample tenant details output
