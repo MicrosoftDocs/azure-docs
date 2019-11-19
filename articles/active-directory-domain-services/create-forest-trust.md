@@ -15,7 +15,11 @@ ms.author: iainfou
 
 # Create an outbound forest trust to an on-premises domain in Azure Active Directory Domain Services
 
-For more information, see [What are resource forests?][concepts-forest] and [How do forest trusts work in Azure AD DS?][concepts-trust]
+In environments where you can't synchronize password hashes, or you have users that exclusively sign in using smart cards so don't know their password, you can use a resource forest in Azure Active Directory Domain Services (AD DS). A resource forest uses a one-way outbound trust from Azure AD DS to one or more on-premises AD DS environments. This trust relationship lets users, applications, and computers authenticate against an on-premises domain from the Azure AD DS managed domain.
+
+![Diagram of forest trust from Azure AD DS to on-premises AD DS](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
+
+This article shows you how to create the one-way forest trust for Azure AD DS and an on-premises AD DS domain.
 
 ## Prerequisites
 
@@ -177,8 +181,11 @@ Using the Windows Server VM joined to the Azure AD DS resource forest, you can t
 
 ## Next steps
 
-For more conceptual information about forest types in Azure AD DS, see [What are resource forests?][resource-forests]
+For more conceptual information about forest types in Azure AD DS, see [What are resource forests?][concepts-forest] and [How do forest trusts work in Azure AD DS?][concepts-trust]
 
 <!-- INTERNAL LINKS -->
 [concepts-forest]: concepts-resource-forest.md
 [concepts-trust]: concepts-forest-trust.md
+[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
+[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-ds-instance-advanced]: tutorial-create-instance-advanced.md
