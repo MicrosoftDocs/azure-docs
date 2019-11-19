@@ -12,7 +12,7 @@ ms.date: 11/04/2019
 ---
 # What's new in Azure Cognitive Search
 
-Learn what's new in the service. Bookmark this page to keep up-to-date with the service.
+Learn what's new in the service. Bookmark this page to keep up to date with the service.
 
 <a name="new-service-name"></a>
 
@@ -26,7 +26,7 @@ API versions, Nuget packages, namespaces, and endpoints are unchanged. Your exis
 
 November 4, 2019 - Ignite Conference
 
-+ [Incremental indexing (preview)](cognitive-search-incremental-indexing-conceptual.md) allows you to process or re-process only the steps that are absolutely necessary when making modifications to an enrichment pipeline. This is especially useful if you have image content that you previously analyzed. The output of costly analysis is stored and then used as a basis for additional indexing or enrichment.
++ [Incremental indexing (preview)](cognitive-search-incremental-indexing-conceptual.md) allows you to pick and choose which steps to reprocess when making modifications to an enrichment pipeline. Incremental indexing is useful if you have image content that you previously analyzed. The output of costly analysis is stored and then used as a basis for additional indexing or enrichment.
 
 <!-- 
 + Custom Entity Lookup is a cognitive skill used during indexing that allows you to provide a list of custom entities (such as part numbers, diseases, or names of locations you care about) that should be found within the text. It supports fuzzy matching, case-insensitive matching, and entity synonyms. -->
@@ -41,7 +41,7 @@ November 4, 2019 - Ignite Conference
 
 July 24 2019
 
-+ Generally availabile in [Azure Government Cloud](https://docs.microsoft.com/azure/azure-government/documentation-government-services-webandmobile.md#azure-cognitive-search).
++ Generally available in [Azure Government Cloud](https://docs.microsoft.com/azure/azure-government/documentation-government-services-webandmobile.md#azure-cognitive-search).
 
 ## Service updates
 
