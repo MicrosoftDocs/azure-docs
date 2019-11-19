@@ -120,11 +120,7 @@ These APIs provide fundamentally different data:
 ### What's the difference between the Invoice API and the Usage Details API?
 These APIs provide a different view of the same data:
 
-<<<<<<< HEAD
-- The [Invoice API](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices) is for Web Direct customers only. It provides a monthly rollup of your bill based on the aggregate charges for each meter type.
-=======
 - The [Invoice API](/rest/api/billing/2019-10-01-preview/invoices) is for Web Direct customers only. It provides a monthly rollup of your bill based on the aggregate charges for each meter type.
->>>>>>> 8148d8732dda179bdcb48dd258a741dc7ba16cd0
 
 - The [Usage Details API](https://docs.microsoft.com/rest/api/consumption/usagedetails) provides a granular view of the usage/cost records for each day. Both Enterprise and Web Direct customers can use it.
 
