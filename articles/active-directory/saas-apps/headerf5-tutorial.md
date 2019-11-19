@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/01/2019
+ms.date: 11/19/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -34,11 +34,11 @@ To learn more about SaaS app integration with Azure AD, see [What is application
 
 To get started, you need the following items:
 
-1. An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 
-1. F5 single sign-on (SSO) enabled subscription.
+* F5 single sign-on (SSO) enabled subscription.
 
-1. Deploying the joint solution requires the following license:
+* Deploying the joint solution requires the following license:
 
 	* F5 BIG-IP® Best bundle (or) 
 
@@ -54,36 +54,36 @@ To get started, you need the following items:
 	 
 		* A network hardware security module (HSM) to safeguard and manage digital keys for strong authentication
 
-2.	F5 BIG-IP system is provisioned with APM modules (LTM is optional)
+* F5 BIG-IP system is provisioned with APM modules (LTM is optional)
 
-3.	Although optional, it is highly recommended to Deploy the F5 systems in a [sync/failover device group](https://techdocs.f5.com/content/techdocs/en-us/bigip-14-1-0/big-ip-device-service-clustering-administration-14-1-0.html) (S/F DG), which includes the active standby pair, with a floating IP address for high availability (HA). Further interface redundancy can be achieved using the Link Aggregation Control Protocol (LACP). LACP manages the connected physical interfaces as a single virtual interface (aggregate group) and detects any interface failures within the group.
+* Although optional, it is highly recommended to Deploy the F5 systems in a [sync/failover device group](https://techdocs.f5.com/content/techdocs/en-us/bigip-14-1-0/big-ip-device-service-clustering-administration-14-1-0.html) (S/F DG), which includes the active standby pair, with a floating IP address for high availability (HA). Further interface redundancy can be achieved using the Link Aggregation Control Protocol (LACP). LACP manages the connected physical interfaces as a single virtual interface (aggregate group) and detects any interface failures within the group.
 
-4.	 For Kerberos applications, an on-premises AD service account for constrained delegation.  Refer to [F5 Documentation](https://support.f5.com/csp/article/K43063049) for creating a AD delegation account.
+* For Kerberos applications, an on-premises AD service account for constrained delegation.  Refer to [F5 Documentation](https://support.f5.com/csp/article/K43063049) for creating a AD delegation account.
 
 ## Access guided configuration
 
-1. Access guided configuration’ is supported on F5 TMOS version 13.1.0.8 and above. If your BIG-IP system is running a version below 13.1.0.8, please refer to the **Advanced configuration** section.
+* Access guided configuration’ is supported on F5 TMOS version 13.1.0.8 and above. If your BIG-IP system is running a version below 13.1.0.8, please refer to the **Advanced configuration** section.
 
-1. Access guided configuration presents a completely new and streamlined user experience. This workflow-based architecture provides intuitive, re-entrant configuration steps tailored to the selected topology.
+* Access guided configuration presents a completely new and streamlined user experience. This workflow-based architecture provides intuitive, re-entrant configuration steps tailored to the selected topology.
 
-1. Before proceeding to the configuration, upgrade the guided configuration by downloading the latest use case pack from [downloads.f5.com](https://login.f5.com/resource/login.jsp?ctx=719748). To upgrade, follow the below procedure.
+* Before proceeding to the configuration, upgrade the guided configuration by downloading the latest use case pack from [downloads.f5.com](https://login.f5.com/resource/login.jsp?ctx=719748). To upgrade, follow the below procedure.
 
 	>[!NOTE]
 	>The screenshots below are for the latest released version (BIG-IP 15.0 with AGC version 5.0). The configuration steps below are valid for this use case across from 13.1.0.8 to the latest BIG-IP version.
 
-	* On the F5 BIG-IP Web UI, click on Access >> Guide Configuration.
+1. On the F5 BIG-IP Web UI, click on **Access >> Guide Configuration**.
 
-	* On the **Guided Configuration** page, click on **Upgrade Guided Configuration** on the top left-hand corner.
+1. On the **Guided Configuration** page, click on **Upgrade Guided Configuration** on the top left-hand corner.
 
-		![F5 (Header Based) configuration](./media/headerf5-tutorial/configure14.png) 
+	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure14.png) 
 
-	* On the Upgrade Guide Configuration pop screen, select **Choose File** to upload the downloaded use case pack and click on **Upload and Install** button.
+1. On the Upgrade Guide Configuration pop screen, select **Choose File** to upload the downloaded use case pack and click on **Upload and Install** button.
 
-		![F5 (Header Based) configuration](./media/headerf5-tutorial/configure15.png) 
+	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure15.png) 
 
-	* When upgrade is completed, click on the **Continue** button.
+1. When upgrade is completed, click on the **Continue** button.
 
-		![F5 (Header Based) configuration](./media/headerf5-tutorial/configure16.png)
+	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure16.png)
 
 ## Scenario description
 
@@ -99,17 +99,17 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 ### Key Authentication Scenarios
 
-Apart from Azure Active Directory native integration support for modern authentication protocols like Open ID Connect, SAML and WS-Fed, F5 extends secure access for legacy-based authentication apps for both internal and external access with Azure AD, enabling modern scenarios (e.g. password-less access) to these applications. This include:
+* Apart from Azure Active Directory native integration support for modern authentication protocols like Open ID Connect, SAML and WS-Fed, F5 extends secure access for legacy-based authentication apps for both internal and external access with Azure AD, enabling modern scenarios (e.g. password-less access) to these applications. This include:
 
-	Header-based authentication apps
+* Header-based authentication apps
 
-	Kerberos authentication apps
+* Kerberos authentication apps
 
-	Anonymous authentication or no inbuilt authentication apps
+* Anonymous authentication or no inbuilt authentication apps
 
-	NTLM authentication apps (protection with dual prompts for the user)
+* NTLM authentication apps (protection with dual prompts for the user)
 
-	Forms Based Application (protection with dual prompts for the user)
+* Forms Based Application (protection with dual prompts for the user)
 
 ## Adding F5 from the gallery
 
@@ -231,11 +231,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure02.png)
  
-1. Provide a **Configuration Name**. Specify the **Entity ID** (same as what you configured on the Azure AD Application Configuration). Specify the **Host name**. Add a **Description** for reference.	Accept the remaining default entries and select and then click **Save & Next**.
+1. Provide a **Configuration Name**. Specify the **Entity ID** (same as what you configured on the Azure AD Application Configuration). Specify the **Host name**. Add a **Description** for reference. Accept the remaining default entries and select and then click **Save & Next**.
 
 	![F5 (Header Based) configuration](./media/headerf5-tutorial/configure03.png) 
 
-1. In this example we are creating a new Virtual Server as 192.168.30.20 with port 443.	Specify the Virtual Server IP address in the **Destination Address**. Select the Client **SSL Profile**, select Create new. Specify previously uploaded application certificate, (the wild card certificate in this example) and the associated key, and then click **Save & Next**.
+1. In this example we are creating a new Virtual Server as 192.168.30.20 with port 443. Specify the Virtual Server IP address in the **Destination Address**. Select the Client **SSL Profile**, select Create new. Specify previously uploaded application certificate, (the wild card certificate in this example) and the associated key, and then click **Save & Next**.
 
 	>[!NOTE]
 	>in this example our Internal webserver is running on port 888 and we want to publish it with 443.
@@ -252,11 +252,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. On the Single Sign-On Settings screen, select **Enable Single Sign-On**. Under Selected Single Sign-On Type choose **HTTP header-based**. Replace **session.saml.last.Identity** with **session.saml.last.attr.name.Identity** under Username Source ( this variable it set using claims mapping in the Azure AD ). Under SSO Headers.
 
-	o	**HeaderName  : MyAuthorization**
+	* **HeaderName  : MyAuthorization**
 
-	o	**Header Value : %{session.saml.last.attr.name.Identity}**
+	* **Header Value : %{session.saml.last.attr.name.Identity}**
 
-	o	Click **Save & Next**
+	* Click **Save & Next**
 
 	Refer Appendix for complete list of variables and values. You can add more headers as required.
 
