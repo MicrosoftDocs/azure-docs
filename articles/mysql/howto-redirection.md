@@ -32,23 +32,23 @@ Redirection is currently only supported when SSL is enabled. For details on how 
 
 1. Install [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) with [PECL](https://pecl.php.net/package/mysqlnd_azure).
 
-```bash
-sudo pecl install mysqlnd_azure
-```
+    ```bash
+    sudo pecl install mysqlnd_azure
+    ```
 
 2. Locate the extension directory (`extension_dir`) by running the below:
 
-```bash
-php -i | grep "extension_dir"
-```
+    ```bash
+    php -i | grep "extension_dir"
+    ```
 
 3. Change directories to the returned folder and ensure `mysqlnd_azure.so` is located in this folder. 
 
 4. Locate the folder for .ini files by running the below: 
 
-```bash
-php -i | grep "dir for additional .ini files"
-```
+    ```bash
+    php -i | grep "dir for additional .ini files"
+    ```
 
 5. Change directories to this returned folder. 
 
@@ -56,10 +56,10 @@ php -i | grep "dir for additional .ini files"
 
 7. Within the new .ini file, add the following lines to enable redirection.
 
-```bash
-extension=mysqlnd_azure
-mysqlnd_azure.enabled=on
-```
+    ```bash
+    extension=mysqlnd_azure
+    mysqlnd_azure.enabled=on
+    ```
 
 ### Windows
 
@@ -70,9 +70,9 @@ mysqlnd_azure.enabled=on
 
 1. Determine if you are running x64 or x86 version of PHP by running the following command
 
-```cmd
-php -i | findstr "Thread"
-```
+    ```cmd
+    php -i | findstr "Thread"
+    ```
 
 2. Download the corresponding x64 or x86 version of the [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) DLL from [PECL](https://pecl.php.net/package/mysqlnd_azure) that matches your version of PHP. 
 
@@ -80,31 +80,31 @@ php -i | findstr "Thread"
 
 4. Locate the extension directory (`extension_dir`) by running the below command:
 
-```cmd
-php -i | find "extension_dir"s
-```
+    ```cmd
+    php -i | find "extension_dir"s
+    ```
 
 5. Copy the `php_mysqlnd_azure.dll` file into the directory from returned in step 4. 
 
 6. Locate the PHP folder containing the `php.ini` file using the following command
 
-```cmd
-php -i | find "Loaded Configuration File"
-```
+    ```cmd
+    php -i | find "Loaded Configuration File"
+    ```
 
 7. Modify the `php.ini` file and add the following extra lines to enable redirection. 
 
-Under the Dynamic Extensions section: 
-```cmd
-extension=mysqlnd_azure
-```
-
-Under the Module Settings section: 
-
-```cmd 
-[mysqlnd_azure]
-mysqlnd_azure.enabled=on
-```
+    Under the Dynamic Extensions section: 
+    ```cmd
+    extension=mysqlnd_azure
+    ```
+    
+    Under the Module Settings section: 
+    
+    ```cmd 
+    [mysqlnd_azure]
+    mysqlnd_azure.enabled=on
+    ```
 
 ### Confirm redirection
 
