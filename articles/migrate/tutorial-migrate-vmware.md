@@ -1,6 +1,6 @@
 ---
-title: Migrate on-premises VMware VMs to Azure with agentless Azure Migrate Server Migration | Microsoft Docs
-description: Describes how to perform and agentless migration of on-premises VMware VMs to Azure, using Azure Migrate.
+title: Migrate VMware VMs to Azure with agentless Azure Migrate Server Migration 
+description: Learn how to run an agentless migration of VMware VMs to Azure, using Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
