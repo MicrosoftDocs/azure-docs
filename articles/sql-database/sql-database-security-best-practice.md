@@ -483,6 +483,7 @@ Another technique for preventing unauthorized users from viewing data is to obfu
 -  Dynamic Data Masking doesn't preserve the statistical properties of the masked values, which may impact query results (for example, queries containing filtering predicates or joins on the masked data).
 
 ## Network security
+Network security refers to access controls and best practices to secure your data in transit to Azure SQL Database.
 
 ### Configure my client to connect securely to Azure SQL Database 
 
