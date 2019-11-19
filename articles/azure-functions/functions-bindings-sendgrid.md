@@ -34,6 +34,8 @@ The SendGrid bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.Se
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
+## Example
+
 # [C#](#tab/csharp)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that uses a Service Bus queue trigger and a SendGrid output binding.
@@ -246,7 +248,7 @@ public static void Run(
 }
 ```
 
-For a complete example, see [C# example](#c-example).
+For a complete example, see [C# example](#example).
 
 # [C# Script](#tab/csharp-script)
 
