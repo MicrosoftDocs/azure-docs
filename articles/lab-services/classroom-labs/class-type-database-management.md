@@ -1,5 +1,5 @@
 ---
-title: Setup a Lab to Teach Database Management for Relational Databases | Microsoft Docs
+title: Set up a lab to teach database management for relational databases | Microsoft Docs
 description: Learn how to set up a lab to teach the management of relational databases. 
 services: lab-services
 documentationcenter: na
@@ -16,7 +16,7 @@ ms.date: 11/19/2019
 ms.author: enewman
 
 ---
-# Setup a Lab to Teach Database Management for Relational Databases
+# Set up a lab to teach database management for relational databases
 
 This article describes how to set up a lab for a basic databases management class in Azure Lab Services. Databases concepts are one of the introductory courses taught in most of the Computer Science departments in college. Structured Query Language (SQL) is an international standard. SQL is the standard language for relation database management including adding, accessing, and managing content in a database.  It is most noted for its quick processing, proven reliability, ease, and flexibility of use.
 
@@ -43,7 +43,7 @@ Use the settings in the table below when setting up a classroom lab.  For more i
 |Virtual Machine Size| Medium. This size is best suited for relational databases, in-memory caching, and analytics.|
 |Virtual Machine Image| SQL Server 2019 Standard on Windows Server 2019|
 
-## Installing and Database Servers
+## Template Machine Configuration
 
 To install MySQL on Windows Server 2019, you can follow the steps mentioned in [Install and Run MySQL Community Server on a Virtual Machine](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fclassic%2Ftoc.json#install-and-run-mysql-community-server-on-the-virtual-machine).
 
