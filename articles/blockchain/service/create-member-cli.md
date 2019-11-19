@@ -1,21 +1,21 @@
 ---
 title: Create an Azure Blockchain Service using Azure CLI
-description: Use Azure Blockchain Service to create a blockchain member using Azure CLI.
+description: Create an Azure Blockchain Service member for a blockchain consortium using the Azure CLI.
 services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/29/2019
+ms.date: 11/18/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
-ms.reviewer: seal
+ms.reviewer: janders
 manager: femila
 #Customer intent: As a network operator, I want use Azure Blockchain Service so that I can create a blockchain member on Azure
 ---
 
 # Quickstart: Create an Azure Blockchain Service blockchain member using Azure CLI
 
-Azure Blockchain Service is a blockchain platform you can use to execute your business logic within a smart contract. This quickstart shows you how to get started by creating a blockchain member using Azure CLI.
+In this quickstart, you deploy a new blockchain member and consortium in Azure Blockchain Service using Azure CLI.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

@@ -1,11 +1,11 @@
 ---
 title: Create an Azure Blockchain Service member using the Azure portal
-description: Use Azure Blockchain service to create a blockchain member.
+description: Create an Azure Blockchain Service member for a blockchain consortium using the Azure portal.
 services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/14/2019
+ms.date: 11/18/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: janders
@@ -15,7 +15,7 @@ manager: femila
 
 # Quickstart: Create an Azure Blockchain Service blockchain member using the Azure portal
 
-Azure Blockchain Service is a blockchain platform that you can execute your business logic within a smart contract. This quickstart shows you how to get started by creating a blockchain member using the Azure portal.
+In this quickstart, you deploy a new blockchain member and consortium in Azure Blockchain Service using the Azure portal.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
