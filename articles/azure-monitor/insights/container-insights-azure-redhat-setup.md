@@ -1,6 +1,6 @@
 ---
-title: Configure Azure RedHat OpenShift clusters with Azure Monitor for containers | Microsoft Docs
-description: This article describes how you can configure Azure Monitor for containers to monitor Kubernetes clusters hosted on Azure RedHat OpenShift.
+title: Configure Azure Red Hat OpenShift clusters with Azure Monitor for containers | Microsoft Docs
+description: This article describes how you can configure Azure Monitor for containers to monitor Kubernetes clusters hosted on Azure Red Hat OpenShift.
 ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
@@ -9,18 +9,18 @@ ms.author: magoedte
 ms.date: 11/18/2019
 ---
 
-# Configure Azure RedHat OpenShift clusters with Azure Monitor for containers
+# Configure Azure Red Hat OpenShift clusters with Azure Monitor for containers
 
-Azure Monitor for containers provides rich monitoring experience for the Azure Kubernetes Service (AKS) and AKS Engine clusters. This article describes how to enable monitoring of Kubernetes clusters hosted on [Azure RedHat OpenShift](../../openshift/intro-openshift.md) to achieve a similar monitoring experience.
+Azure Monitor for containers provides rich monitoring experience for the Azure Kubernetes Service (AKS) and AKS Engine clusters. This article describes how to enable monitoring of Kubernetes clusters hosted on [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) to achieve a similar monitoring experience.
 
-Azure Monitor for containers can be enabled for new, or one or more existing deployments of Azure RedHat Openshift using the following supported methods:
+Azure Monitor for containers can be enabled for new, or one or more existing deployments of Azure Red Hat Openshift using the following supported methods:
 
-- For an existing cluster from the Azure portal or Azure CLI
-- For a new cluster using Azure CLI 
+- For an existing cluster from the Azure portal or using Azure Resource Manager template
+- For a new cluster using Azure Resource Manager template 
 
 ## Supported and unsupported features
 
-Azure Monitor for containers supports monitoring Azure RedHat OpenShift as described in the [Overview](container-insights-overview.md) article, except for the following features:
+Azure Monitor for containers supports monitoring Azure Red Hat OpenShift as described in the [Overview](container-insights-overview.md) article, except for the following features:
 
 - Live data
 - Prometheus metrics scraping
@@ -33,15 +33,13 @@ Azure Monitor for containers supports monitoring Azure RedHat OpenShift as descr
 
 - To view the monitoring data, you are a member of the [*Log Analytics reader*](../platform/manage-access.md#manage-access-using-azure-permissions) role permission with the Log Analytics workspace configured with Azure Monitor for containers.
 
-- Using the latest CLI (version 2.0.65 or above).
+## Enable for a new cluster using an Azure Resource Manager template
 
-## Enable for a new cluster 
-
-Perform the following steps to deploy an Azure RedHat OpenShift cluster with monitoring enabled. Before proceeding, review the tutorial [Create an Azure Red Hat OpenShift cluster](../../openshift/tutorial-create-cluster.md#prerequisites) to understand the dependencies that you need to configure so your environment is setup correctly.
+Perform the following steps to deploy an Azure Red Hat OpenShift cluster with monitoring enabled. Before proceeding, review the tutorial [Create an Azure Red Hat OpenShift cluster](../../openshift/tutorial-create-cluster.md#prerequisites) to understand the dependencies that you need to configure so your environment is setup correctly.
 
 This method includes two JSON templates. One template specifies the configuration to deploy the cluster with monitoring enabled, and the other contains parameter values that you configure to specify the following:
 
-- The Azure RedHat OpenShift cluster resource ID. 
+- The Azure Red Hat OpenShift cluster resource ID. 
 
 - The resource group the cluster is deployed in.
 
@@ -118,7 +116,7 @@ The Log Analytics workspace has to be created before you enable monitoring using
 
 ## Enable for an existing cluster
 
-Perform the following steps to enable monitoring of an Azure RedHat OpenShift cluster deployed in Azure. You can accomplish this from the Azure portal or using the provided templates.
+Perform the following steps to enable monitoring of an Azure Red Hat OpenShift cluster deployed in Azure. You can accomplish this from the Azure portal or using the provided templates.
 
 ### From the Azure portal
  
