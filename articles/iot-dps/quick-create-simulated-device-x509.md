@@ -21,19 +21,20 @@ In this quickstart, you will learn how to create and run an X.509 device simulat
 If you're unfamiliar with the process of autoprovisioning, review [Auto-provisioning concepts](concepts-auto-provisioning.md). Also, make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing with this quickstart. 
 
 The Azure IoT Device Provisioning Service supports two types of enrollments:
-- [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
-- [Individual Enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
+
+* [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
+* [Individual Enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
 
 This article will demonstrate individual enrollments.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-
 ## Prerequisites
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 or later with the ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled.
-* Latest version of [Git](https://git-scm.com/download/) installed.
+The following prerequisites are for a Windows development environment. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) in the SDK documentation.
 
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 with the ['Desktop development with C++'](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) workload enabled. Visual Studio 2015 and Visual Studio 2017 are also supported.
+* Latest version of [Git](https://git-scm.com/download/) installed.
 
 <a id="setupdevbox"></a>
 
@@ -45,47 +46,47 @@ In this section, you will prepare a development environment used to build the [A
 
     It is important that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system.
 
-2. Open a command prompt or Git Bash shell. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
-    
+2. Find the tag name for the [latest release](https://github.com/Azure/azure-iot-sdk-c/releases/latest) of the SDK. Release tag names are date values in `yyyy-mm-dd` format. They may contain additional text following the date.
+
+3. Open a command prompt or Git Bash shell. Run the following command to clone the latest release of the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository. Use the tag you found in the previous step as the value for the `-b` parameter:
+
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    git clone -b <yyyy-mm-dd> https://github.com/Azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c
+    git submodule update --init
     ```
+
     You should expect this operation to take several minutes to complete.
 
-
-3. Create a `cmake` subdirectory in the root directory of the git repository, and navigate to that folder. 
+4. Create a `cmake` subdirectory in the root directory of the git repository, and navigate to that folder. Run the following commands from the *azure-iot-sdk-c* directory.
 
     ```cmd/sh
-    cd azure-iot-sdk-c
     mkdir cmake
     cd cmake
     ```
 
-4. The code sample uses an X.509 certificate to provide attestation via X.509 authentication. Run the following command, which builds a version of the SDK specific to your development client platform. A Visual Studio solution for the simulated device will be generated in the `cmake` directory. 
+5. The code sample uses an X.509 certificate to provide attestation via X.509 authentication. Run the following command to build a version of the SDK specific to your development platform that includes the device provisioning client. A Visual Studio solution for the simulated device will be generated in the `cmake` directory.
 
     ```cmd
     cmake -Duse_prov_client:BOOL=ON ..
     ```
-    
-    If `cmake` does not find your C++ compiler, you might get build errors while running the above command. If that happens, try running this command in the [Visual Studio command prompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
+
+    If `cmake` does not find your C++ compiler, you might get build errors while running the above command. If that happens, try running this command in the [Visual Studio command prompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs).
 
     Once the build succeeds, the last few output lines will look similar to the following output:
 
     ```cmd/sh
     $ cmake -Duse_prov_client:BOOL=ON ..
-    -- Building for: Visual Studio 15 2017
-    -- Selecting Windows SDK version 10.0.16299.0 to target Windows 10.0.17134.
-    -- The C compiler identification is MSVC 19.12.25835.0
-    -- The CXX compiler identification is MSVC 19.12.25835.0
+    -- Building for: Visual Studio 16 2019
+    -- The C compiler identification is MSVC 19.23.28107.0
+    -- The CXX compiler identification is MSVC 19.23.28107.0
 
     ...
 
     -- Configuring done
     -- Generating done
-    -- Build files have been written to: E:/IoT Testing/azure-iot-sdk-c/cmake
+    -- Build files have been written to: C:/code/azure-iot-sdk-c/cmake
     ```
-
-
 
 <a id="portalenroll"></a>
 
@@ -107,9 +108,8 @@ You will use sample code from the Azure IoT C SDK to create the certificate to b
 4. On the Visual Studio menu, select **Debug** > **Start without debugging** to run the solution. In the output window, enter **i** for individual enrollment when prompted. 
 
     The output window displays a locally generated self-signed X.509 certificate for your simulated device. Copy the output to clipboard, starting from **-----BEGIN CERTIFICATE-----** and ending with the first **-----END CERTIFICATE-----**, making sure to include both of these lines as well. You need only the first certificate from the output window.
- 
-5. Using a text editor, save the certificate to a new file named **_X509testcert.pem_**. 
 
+5. Using a text editor, save the certificate to a new file named **_X509testcert.pem_**. 
 
 ## Create a device enrollment entry in the portal
 
@@ -119,23 +119,19 @@ You will use sample code from the Azure IoT C SDK to create the certificate to b
 
 3. On **Add Enrollment**, enter the following information, and click the **Save** button.
 
-    - **Mechanism:** Select **X.509** as the identity attestation *Mechanism*.
-    - **Primary certificate .pem or .cer file:** Click **Select a file** to select the certificate file, X509testcert.pem, you created earlier.
-    - **IoT Hub Device ID:** Enter **test-docs-cert-device** to give the device an ID.
+    * **Mechanism:** Select **X.509** as the identity attestation *Mechanism*.
+    * **Primary certificate .pem or .cer file:** Click **Select a file** to select the certificate file, X509testcert.pem, you created earlier.
+    * **IoT Hub Device ID:** Enter **test-docs-cert-device** to give the device an ID.
 
       [![Add individual enrollment for X.509 attestation in the portal](./media/quick-create-simulated-device-x509/device-enrollment.png)](./media/quick-create-simulated-device-x509/device-enrollment.png#lightbox)
 
       On successful enrollment, your X.509 device appears as **riot-device-cert** under the *Registration ID* column in the *Individual Enrollments* tab. 
-
-
 
 <a id="firstbootsequence"></a>
 
 ## Simulate first boot sequence for the device
 
 In this section, update the sample code to send the device's boot sequence to your Device Provisioning Service instance. This boot sequence will cause the device to be recognized and assigned to an IoT hub linked to the Device Provisioning Service instance.
-
-
 
 1. In the Azure portal, select the **Overview** tab for your Device Provisioning service and note down the **_ID Scope_** value.
 
@@ -179,7 +175,6 @@ In this section, update the sample code to send the device's boot sequence to yo
 7. In the portal, navigate to the IoT hub linked to your provisioning service and click the **IoT Devices** tab. On successful provisioning of the simulated X.509 device to the hub, its device ID appears on the **IoT Devices** blade, with *STATUS* as **enabled**. You might need to click the **Refresh** button at the top. 
 
     ![Device is registered with the IoT hub](./media/quick-create-simulated-device/hub-registration.png) 
-
 
 ## Clean up resources
 
