@@ -23,9 +23,9 @@ Azure Active Directory (Azure AD) supports applying sensitivity labels published
 > [!IMPORTANT]
 > Using Azure AD sensitivity labels for Office 365 groups requires an Azure Active Directory Premium P1 license.
 
-## Group policies controlled by labels
+## Group settings controlled by labels
 
-There are two policies that can be associated with a label:
+There are two settings that can be associated with a label:
 
 - **Privacy**: Admins can associate a privacy setting with the label to control whether a group is public or private.
 - **Guest access**: Admins can enforce the guest policy for all groups that have the label assigned. This policy specifies whether guests can be added as members or not. If the guest policy is configured for a label, any groups that you assign the label to won't allow the AllowToAddGuests setting to be changed.
@@ -132,7 +132,7 @@ The sensitivity label option is only displayed for groups when all the following
 1. The group is an Office 365 group.
 1. The tenant has an active Azure Active Directory Premium P1 license.
 1. The current signed-in user has access to published labels.
-1. The current signed-in user has sufficient privileges to assign labels. The user must be either a Global Administrator, Group Administrator or the group owner.
+1. The current signed-in user has sufficient privileges to assign labels. The user must be either a Global Administrator, Group Administrator, or the group owner.
 1. The current signed-in user has an Office 365 license assigned. For more information about license requirements, see [Sensitivity labels in Office apps](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-office-apps).
 
 Please make sure all the conditions are met in order to assign labels to a group.
@@ -154,7 +154,7 @@ Labels can be swapped at any time using the same steps as assigning a label to a
 1. On the selected group's page, select **Properties** and select a new sensitivity label from the list.
 1. Select **Save**.
 
-### Group policies changes to published labels are not updated on the groups
+### Group setting changes to published labels are not updated on the groups
 
 As a best practice, we don't recommend that you change group settings for a label after the label is applied to groups. When you make changes to group settings associated with published labels in [Microsoft 365 compliance center](https://sip.protection.office.com/homepage), those policy changes aren't automatically applied on the impacted groups.
 
