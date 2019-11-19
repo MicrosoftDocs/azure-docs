@@ -12,7 +12,7 @@ ms.author: dacurwin
 
 # Azure Backup Server and DPM - FAQ
 
-## General Questions
+## General questions
 
 This article answers frequently asked questions about the Azure Backup Server and DPM.
 

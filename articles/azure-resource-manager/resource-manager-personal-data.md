@@ -1,12 +1,8 @@
 ---
-title: Azure Resource Manager personal data | Microsoft Docs
+title: Personal data
 description: Learn how to manage personal data associated with Azure Resource Manager operations.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: tomfitz
-
 ---
 # Manage personal data associated with Azure Resource Manager
 

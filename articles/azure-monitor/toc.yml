@@ -140,6 +140,8 @@
           href: learn/quick-create-workspace-posh.md
       - name: Delete and recover a workspace
         href: platform/delete-workspace.md
+      - name: Move a workspace
+        href: platform/move-workspace.md
       - name: Design for service providers
         href: platform/service-providers.md
       - name: Manage access
@@ -804,10 +806,10 @@
           href: insights/container-insights-hybrid-setup.md
         - name: Region mappings
           href: insights/container-insights-region-mapping.md
-      - name: Analyze 
+      - name: Monitor performance
         href: insights/container-insights-analyze.md
-      - name: Disable monitoring
-        href: insights/container-insights-optout.md
+      - name: Monitor health
+        href: insights/container-insights-health.md
       - name: View live data
         items:
         - name: Live Data (preview) overview
@@ -830,6 +832,10 @@
         href: insights/container-insights-agent-config.md
       - name: Update to enable metrics
         href: insights/container-insights-update-metrics.md
+      - name: Health monitoring configuration
+        href: insights/container-insights-health-monitors-config.md
+      - name: Disable monitoring
+        href: insights/container-insights-optout.md
       - name: Troubleshooting
         href: insights/container-insights-troubleshoot.md
     - name: Docker and Windows Container monitoring
@@ -1165,7 +1171,7 @@
         href: platform/autoscale-overview.md
       - name: Walkthrough
         href: platform/autoscale-get-started.md
-      - name: Settings
+      - name: Configuration settings
         href: platform/autoscale-understanding-settings.md
       - name: Best practices
         href: platform/autoscale-best-practices.md
@@ -1181,21 +1187,23 @@
         href: platform/autoscale-virtual-machine-scale-sets.md
       - name: Use webhooks and email notifications
         href: platform/autoscale-webhook-email.md
+      - name: Troubleshooting
+        href: platform/autoscale-troubleshoot.md
+      - name: Resource Log schemas
+        href: platform/autoscale-resource-log-schema.md    
     - name: PowerShell
       items:  
-      - name: Azure PowerShell samples
+      - name: Managing with PowerShell
         href: platform/powershell-quickstart-samples.md
-      - name: PowerShell cmdlets
+      - name: Create alerts
+        href: app/powershell-alerts.md  
+      - name: Manage Log Analytics
         href: platform/powershell-workspace-configuration.md
-      - name: Applications
+      - name: Application Insights
         items:
-        - name: Create Application Insights resources 
+        - name: Manage Application Insights
           href: app/powershell.md
-        - name: Create resources
-          href: app/powershell-script-create-resource.md
-        - name: Set alerts
-          href: app/powershell-alerts.md
-        - name: Get Azure diagnostics
+        - name: Manage Azure Cloud Services
           href: app/powershell-azure-diagnostics.md
     - name: Azure CLI samples
       href: platform/cli-samples.md

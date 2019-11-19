@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 
-ms.reviewer: trbye, jmartens, larryfr
-ms.author: tracych
-author: tracych
+ms.reviewer: trbye, jmartens, larryfr, vaidyas
+ms.author: vaidyas
+author: vaidya-s
 ms.date: 11/04/2019
 ms.custom: Ignite2019
 ---
@@ -191,7 +191,7 @@ The script *must contain* two functions:
 ```python
 # Snippets from a sample script.
 # Refer to the accompanying digit_identification.py
-# (https://github.com/Azure/MachineLearningNotebooks/blob/master/pipeline/digit_identification.py)
+# (https://aka.ms/batch-inference-notebooks)
 # for the implementation script.
 
 import os
