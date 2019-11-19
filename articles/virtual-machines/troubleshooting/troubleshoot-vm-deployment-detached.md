@@ -16,48 +16,6 @@ ms.author: vaaga
 
 # Troubleshoot virtual machine deployment due to detached disks
 
-## Error “Cannot attach data disk < GUID > to virtual machine because the disk is currently being detached”
-
-### In the current scenario:
-
-The user creates a virtual machine with a data disk named "Disk1". The user wants to detach "Disk1" and calls **PutVM** with "Disk1" not in the payload. This call fails.
-
-If the client calls **GetVM()**, they receive a virtual machine Model having "Disk1" returned by CRP (where the virtual machine's pre-provisioning state fails) since its detach operation failed, and the client must be informed.
-
-If the client wishes to attach another disk (e.g. "Disk2"), they make the call **PutVM()** for "Disk2" using the virtual machine model returned by **GetVM()**, unaware of existence of "Disk1" in the virtual machine model.
-
-1. Cx updates the virtual machine "VM1" by detaching data disk "Disk1".
-2. This **PutVMOperation** call fails because of an unknown issue.
-3. Cx calls **GetVM** through PowerShell, which gives the payload for "VM1" with the data disk set to "Disk1". 
-4. The client performs a virtual machine update, such as adding tags in the above payload.
-
-   > ![NOTE:]
-   > Cx need not remove "Disk1" from the payload.
-
-5. This update operation fails with **AttachDisksWhileBeingDetached** for "Disk1".
-
-In cases such as the one above, the **PutVM()** request payload will include Disk1, which Cx tried to detach before and failed. When the newer update payload has this disk, CRP assumes that the client is trying to reattach the failed detached "Disk1". Consequently, CRP throws the error **AttachDiskWhileBeingDetached**”** and fails the valid **PutVM()** call that was trying to attach "Disk2". 
-
-### Current Scenario with the **toBeDetached** data disk flag. (This feature flag is already GA)
-
-To improve the experience, Microsoft introduced the **toBeDetached** flag for data disks for API Version 2019-03-01, as per public documentation. This flag will help avoid/reduce **AttachDiskWhileBeing** detached CRIs from occurring.
-
-In the new scenario:
-
-1. Cx updates the virtual machine "VM1" by detaching data disk "Disk1".
-2. This **PutVMOperation** call fails because of an unknown issue.
-3. Cx calls **GetVM** through PowerShell, which gives the payload for "VM1" with the data disk set to "Disk1". In this case, the data disk "Disk1" will have the **toBeDetached** property set to "true".
-4. The client performs a virtual machine update, adding tags in the above payload.
-
-> ![NOTE:]
-> Cx need not remove "Disk1" from the payload.
-
-5. The update operation will now succeed.
-
-## Attach Disks while being Detached Public Documentation Draft
-
-This article describes how to resolve the [AttachDisksWhileBeingDetached](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/error-messages) error when trying to detach a disk from a virtual machine.
-
 ### Symptom
 
 When you're trying to update a virtual machine whose previous data disk detach failed, you might come across this error code.
