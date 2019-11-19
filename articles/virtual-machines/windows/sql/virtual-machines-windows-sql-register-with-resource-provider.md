@@ -127,24 +127,18 @@ Failover Cluster Instances and multi-instance deployments can only be registered
 
 # [AZ CLI](#tab/bash)
 
-For paid editions (Enterprise or Standard):
+Register SQL Server VM in lightweight mode with the Az CLI: 
 
   ```azurecli-interactive
   # Register Enterprise or Standard self-installed VM in Lightweight mode
   az sql vm create --name <vm_name> --resource-group <resource_group_name> --location <vm_location> --license-type PAYG 
   ```
 
-For free editions (Developer, Web, or Express):
-
-  ```azurecli-interactive
-  # Register Developer, Web, or Express self-installed VM in Lightweight mode
-  az sql vm create --name <vm_name> --resource-group <resource_group_name> --location <vm_location> --license-type PAYG 
-  ```
-
 
 # [PowerShell](#tab/powershell)
 
-Register the SQL Server VM by using the following PowerShell code snippet:
+Register SQL Server VM in lightweight mode with PowerShell:  
+
 
   ```powershell-interactive
   # Get the existing compute VM
@@ -162,7 +156,7 @@ Register the SQL Server VM by using the following PowerShell code snippet:
 
 If the SQL IaaS Extension has already been installed to the VM manually, then you can register the SQL Server VM in full mode without restarting the SQL Server service. **However, if the SQL IaaS extension has not been installed, registering in full mode will install the SQL IaaS extension in full mode and restart the SQL Server service. Please proceed with caution.**
 
-Below is the code snippet to register with SQL VM resource provider in full mode. You need to provide the type of SQL Server license as either pay-as-you-go (`PAYG`) to pay per usage, or Azure Hybrid Benefit (`AHUB`) to use your own license.  To register in full management mode, use the following PowerShell command:
+Below is the code snippet to register with SQL VM resource provider in full mode. To register in full management mode, use the following PowerShell command:
 
   ```powershell-interactive
   # Get the existing  Compute VM
@@ -184,6 +178,8 @@ To register your SQL Server 2008 or 2008 R2 instance on Windows Server 2008 inst
 
 # [AZ CLI](#tab/bash)
 
+Register SQL Server VM in NoAgent mode with the Az CLI: 
+
   ```azurecli-interactive
    az sql vm create -n sqlvm -g myresourcegroup -l eastus |
    --license-type PAYG --sql-mgmt-type NoAgent 
@@ -191,6 +187,10 @@ To register your SQL Server 2008 or 2008 R2 instance on Windows Server 2008 inst
  ```
 
 # [PowerShell](#tab/powershell)
+
+Register SQL Server VM in NoAgent mode with PowerShell: 
+
+
   ```powershell-interactive
   # Get the existing compute VM
   $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
