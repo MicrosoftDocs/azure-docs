@@ -1,13 +1,8 @@
 ---
-title: Back up Azure virtual machines at scale
+title: Tutorial - Back up Azure virtual machines at scale
 description: In this tutorial, learn how to create a Recovery Services vault, define a backup policy, and simultaneously back up multiple virtual machines.
-keywords: virtual machine backup; virtual machine back up; back up vm; backup vm; backup Azure vm; backup and disaster recovery
-author: dcurwin
-manager: carmonm
-ms.author: dacurwin
 ms.date: 01/31/2019
 ms.topic: tutorial
-ms.service: backup
 ms.custom: mvc
 ---
 
@@ -32,7 +27,7 @@ The Recovery Services vault contains the backup data, and the backup policy appl
 
 1. On the left-hand menu, select **All services** and in the services list, type *Recovery Services*. As you type, the list of resources filters. When you see Recovery Services vaults in the list, select it to open the Recovery Services vaults menu.
 
-    ![Open Recovery Services Vault menu](./media/tutorial-backup-vm-at-scale/full-browser-open-rs-vault.png) <br/>
+    ![Open Recovery Services Vault menu](./media/tutorial-backup-vm-at-scale/full-browser-open-rs-vault.png)
 
 2. In the **Recovery Services vaults** menu, click **Add** to open the Recovery Services vault menu.
 
