@@ -68,7 +68,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.DBforPostgreSQL](#microsoftdbforpostgresql)
 > - [Microsoft.DeploymentManager](#microsoftdeploymentmanager)
 > - [Microsoft.DesktopVirtualization](#microsoftdesktopvirtualization)
-> - [Microsoft.DetonationService](#microsoftdetonationservice)
 > - [Microsoft.Devices](#microsoftdevices)
 > - [Microsoft.DevOps](#microsoftdevops)
 > - [Microsoft.DevSpaces](#microsoftdevspaces)
@@ -112,7 +111,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.Migrate](#microsoftmigrate)
 > - [Microsoft.MixedReality](#microsoftmixedreality)
 > - [Microsoft.NetApp](#microsoftnetapp)
-> - [Microsoft.Nginx](#microsoftnginx)
 > - [Microsoft.Network](#microsoftnetwork)
 > - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
 > - [Microsoft.ObjectStore](#microsoftobjectstore)
@@ -159,7 +157,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.VMwareCloudSimple](#microsoftvmwarecloudsimple)
 > - [Microsoft.Web](#microsoftweb)
 > - [Microsoft.WindowsDefenderATP](#microsoftwindowsdefenderatp)
-> - [Microsoft.WindowsESU](#microsoftwindowsesu)
 > - [Microsoft.WindowsIoT](#microsoftwindowsiot)
 > - [Microsoft.WorkloadMonitor](#microsoftworkloadmonitor)
 
@@ -947,13 +944,6 @@ Jump to a resource provider namespace:
 > | hostpools / usersessions | No | No |
 > | workspaces | Yes | Yes |
 
-## Microsoft.DetonationService
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | detonationInstances | Yes | Yes |
-
 ## Microsoft.Devices
 
 > [!div class="mx-tableFixed"]
@@ -1376,13 +1366,6 @@ Jump to a resource provider namespace:
 > | netAppAccounts / capacityPools / volumes / mountTargets | Yes | No |
 > | netAppAccounts / capacityPools / volumes / snapshots | Yes | No |
 > | netAppAccounts / vaults | No | No |
-
-## Microsoft.Nginx
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | frontends | Yes | Yes |
 ## Microsoft.Network
 
 > [!div class="mx-tableFixed"]
@@ -2032,13 +2015,6 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ----------- |
 > | diagnosticSettings | No | No |
 > | diagnosticSettingsCategories | No | No |
-
-## Microsoft.WindowsESU
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | multipleActivationKeys | Yes | Yes |
 
 ## Microsoft.WindowsIoT
 
