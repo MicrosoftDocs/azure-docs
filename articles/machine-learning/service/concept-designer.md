@@ -15,7 +15,7 @@ ms.date: 11/12/2019
 # What is Azure Machine Learning designer (preview)? 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
-Azure Machine Learning designer lets you visually connect [datasets](#datasets) and  [modules](#module) on an interactive canvas to create machine learning models. Train, test, deploy, and manage models without writing a single line of code. 
+Azure Machine Learning designer lets you visually connect [datasets](#datasets) and  [modules](#module) on an interactive canvas to create machine learning models. To learn how to get started with the designer, see [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
 
 ![Azure Machine Learning designer example](./media/concept-ml-pipelines/designer-drag-and-drop.gif)
 
@@ -26,7 +26,7 @@ The designer uses your Azure Machine Learning [workspace](concept-workspace.md) 
 + [Compute resources](#compute)
 + [Registered models](concept-azure-machine-learning-architecture.md#models)
 + [Published pipelines](#publish)
-+ [Real-time endpoints](#deployment)
++ [Real-time endpoints](#deploy)
 
 ![Overview of the designer](media/ui-concept-visual-interface/overview.png)
 
@@ -35,9 +35,9 @@ The designer uses your Azure Machine Learning [workspace](concept-workspace.md) 
 The designer gives you a visual canvas to build, test, and deploy machine learning models. With the designer you can:
 
 + Drag-and-drop [datasets](#datasets) and [modules](#module) onto the canvas.
-+ Connect the modules together to create a [pipeline draft[(#pipeline-draft).
++ Connect the modules together to create a [pipeline draft](#pipeline-draft).
 + Submit a [pipeline run](#pipeline-run) using the compute resources in your Azure Machine Learning workspace.
-+ When you're ready, convert your **training pipeline** to an **inference pipeline**.
++ Convert your **training pipeline** to an **inference pipeline**.
 + [Publish](#publish) your pipeline to a REST **pipeline endpoint** to submit new pipeline runs with different parameters and datasets.
     + Publish a **training pipeline** to reuse a single pipeline and train multiple models changing parameters and datasets.
     + Publish a **batch inference pipeline** to make predictions on new data by using a previously trained model.
@@ -45,13 +45,11 @@ The designer gives you a visual canvas to build, test, and deploy machine learni
 
 ![Workflow diagram for training, batch inference, and real-time inference in the designer](media/ui-concept-visual-interface/designer-workflow-diagram.png)
 
-To learn how to get started with the designer, see [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
-
 ## Pipeline
 
 A [pipeline](concept-azure-machine-learning-architecture.md#ml-pipelines) consists of datasets and analytical modules, which you connect together. Pipelines have many uses: you can make a pipeline that trains a single model, or one that trains multiple models. You can create a pipeline that makes predictions in real time or in batch, or make a pipeline that only cleans data. Pipelines let you reuse your work and organize your projects.
 
-## Pipeline draft
+### Pipeline draft
 
 As you edit a pipeline in the designer, your progress is saved as a **pipeline draft**. You can edit a pipeline draft at any point by adding or removing modules, configuring compute targets, creating parameters, and so on.
 
@@ -64,7 +62,7 @@ A valid pipeline has these characteristics:
 
 When you're ready to run your pipeline draft, you submit a pipeline run.
 
-## Pipeline run
+### Pipeline run
 
  Each time you run a pipeline, the configuration of the pipeline and its results are stored in your workspace as a **pipeline run**. You can go back to any pipeline run to inspect it for troubleshooting or auditing purposes. **Clone** a pipeline run to create a new pipeline draft for you to edit.
  
@@ -95,7 +93,7 @@ Use compute resources from your workspace to run your pipeline and host your dep
 
 Compute targets are attached to your Machine Learning [workspace](concept-workspace.md). You manage your compute targets in your workspace in [Azure Machine Learning studio](https://ml.azure.com).
 
-## Deployment
+## Deploy
 
 To perform real-time inferencing, you must deploy a pipeline as a **real-time endpoint**. The real-time endpoint creates an interface between an external application and your scoring model. A call to a real-time endpoint returns prediction results to the application in real time. To make a call to a real-time endpoint, you pass the API key that was created when you deployed the endpoint. The endpoint is based on REST, a popular architecture choice for web programming projects.
 
