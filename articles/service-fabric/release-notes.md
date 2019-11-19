@@ -1,10 +1,10 @@
-﻿---
+---
 title: Azure Service Fabric releases
 description: Release notes for the latest features and improvements in Service Fabric.
 author: athinanthny
 manager: gamonroy
 ms.author: atsenthi
-ms.date: 6/10/2019
+ms.date: 06/10/2019
 ms.topic: conceptual
 ms.service: service-fabric
 hide_comments: true
@@ -27,7 +27,7 @@ This article provides more information on the latest releases and updates to the
 
 Azure Service Fabric 7.0 is now available! You will be able to update to 7.0 through the Azure portal or via an Azure Resource Manager deployment. Due to customer feedback on releases around the holiday period we will not begin automatically updating clusters set to receive automatic upgrades until January.
    In January, we will resume the standard roll-out procedure and clusters with automatic upgrades enabled will begin to receive the 7.0 update automatically. We will provide another announcement before the roll-out begins.
-We will also update our planned release dates to indicate that we take this policy into consideration. Look here for updates on our future [release schedules](https://github.com/Microsoft/service-fabric/#service-fabric-release-schedule)
+We will also update our planned release dates to indicate that we take this policy into consideration. Look here for updates on our future [release schedules](https://github.com/Microsoft/service-fabric/#service-fabric-release-schedule).
  
 This is the latest release of Service Fabric and is loaded with key features and improvements.
 
@@ -62,7 +62,7 @@ In addition, this release contains other new features, bug fixes, and supportabi
 
 | Release date | Release | More info |
 |---|---|---|
-| Novembet 18, 2019 | [Azure Service Fabric 7.0](https://techcommunity.microsoft.com/t5/Azure-Service-Fabric/Service-Fabric-7-0-Release/ba-p/1015482)  | [Release notes](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_70.md)|
+| November 18, 2019 | [Azure Service Fabric 7.0](https://techcommunity.microsoft.com/t5/Azure-Service-Fabric/Service-Fabric-7-0-Release/ba-p/1015482)  | [Release notes](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_70.md)|
 
 
 ### Service Fabric 6.5
