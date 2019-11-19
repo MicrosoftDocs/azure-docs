@@ -227,7 +227,7 @@ $file1.File.Properties
 This example gets a file by using the `Get-AzDataLakeGen2Item` cmdlet, and then prints property values to the console.
 
 ```powershell
-$filepath =  "upload.txt"
+$filepath =  "my-directory/upload.txt"
 $filesystemName = "my-file-system"
 $file = Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $filepath
 $file
@@ -243,7 +243,7 @@ $file.File.Properties
 
 Delete a file by using the `Remove-AzDataLakeGen2Item` cmdlet.
 
-This example deletes a directory named `my-directory`. 
+This example deletes a file named `upload.txt`. 
 
 ```powershell
 $filesystemName = "my-file-system"
