@@ -11,6 +11,8 @@ services: iot-central
 
 # Building government solutions with Azure IoT Central
 
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 Get started with building smart city solutions leveraging Azure IoT Central application templates. Start now with **water quality monitoring**, **water consumption monitoring**, and **connected waste management**.
 
 ## What is Water Quality Monitoring application template?   
@@ -72,5 +74,5 @@ Get started with the [Connected Waste Management application tutorial](./tutoria
 * Learn about [Water Quality Monitoring concepts](./concepts-waterqualitymonitoring-architecture.md)
 * Learn about [Water Consumption Monitoring concepts](./concepts-waterconsumptionmonitoring-architecture.md)
 * Learn about [Connected Waste Management concepts](./concepts-connectedwastemanagement-architecture.md)  
-* Learn about IoT Central, see [IoT Central overview](https://docs.microsoft.com/azure/iot-central/overview-iot-central)
+* Learn about IoT Central, see [IoT Central overview](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central)
  

@@ -12,6 +12,8 @@ manager: eliotgra
 
 # Building healthcare solutions with Azure IoT Central 
 
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 Learn to build healthcare solutions with Azure IoT Central using application templates.
 
 ## What is continuous patient monitoring template?

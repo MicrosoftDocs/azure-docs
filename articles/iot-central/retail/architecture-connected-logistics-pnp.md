@@ -4,11 +4,14 @@ description: An architecture of IoT Connected Logistics application template for
 author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
+ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
 ---
 
 # Architecture of IoT Central connected logistics application template
+
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 Partners & customer can leverage the app template & following guidance to develop end to end **connected logistics solutions**.
 
@@ -40,4 +43,4 @@ IoT Central platform provides rich extensibility options via Continuous Data Exp
 ## Next steps
 * Learn how to deploy [connected logistics solution template](./tutorial-iot-central-connected-logistics-pnp.md)
 * Learn more about [IoT Central retail templates](./overview-iot-central-retail-pnp.md)
-* Learn more about IoT Central refer to [IoT Central overview](../core/overview-iot-central-pnp.md)
+* Learn more about IoT Central refer to [IoT Central overview](../preview/overview-iot-central.md)

@@ -1,10 +1,10 @@
 ---
-title: Restore an Azure SQL database in a multitenant SaaS app  | Microsoft Docs
+title: Restore a database in a multitenant SaaS app
 description: Learn how to restore a single tenant's SQL database after accidentally deleting data
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: 
+ms.custom: seo-lt-2019
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein

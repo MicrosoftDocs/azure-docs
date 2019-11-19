@@ -36,6 +36,7 @@ This article provides an overview of the SQL Database resource limits for a SQL 
 
 > [!IMPORTANT]
 > As the number of databases approaches the limit per SQL Database server, the following can occur:
+>
 > - Increasing latency in running queries against the master database.  This includes views of resource utilization statistics such as sys.resource_stats.
 > - Increasing latency in management operations and rendering portal viewpoints that involve enumerating databases in the server.
 
@@ -54,7 +55,7 @@ When encountering high compute utilization, mitigation options include:
 
 ### Storage
 
-When database space used reaches the max size limit, database inserts and updates that increase the data size fail and clients receive an [error message](sql-database-develop-error-messages.md). SELECT and DELETE statements continue to succeed.
+When database space used reaches the max size limit, database inserts and updates that increase the data size fail and clients receive an [error message](troubleshoot-connectivity-issues-microsoft-azure-sql-database.md). SELECT and DELETE statements continue to succeed.
 
 When encountering high space utilization, mitigation options include:
 
@@ -96,13 +97,13 @@ Resource utilization values such as `avg_data_io_percent` and `avg_log_write_per
 Transaction log rate governance is a process in Azure SQL Database used to limit high ingestion rates for workloads such as bulk insert, SELECT INTO, and index builds. These limits are tracked and enforced at the subsecond level to the rate of log record generation, limiting throughput regardless of how many IOs may be issued against data files.  Transaction log generation rates currently scale linearly up to a point that is hardware-dependent, with the maximum log rate allowed being 96 MB/s with the vCore purchasing model. 
 
 > [!NOTE]
-> The actual physical IOs to transaction log files are not governed or limited. 
+> The actual physical IOs to transaction log files are not governed or limited.
 
 Log rates are set such that they can be achieved and sustained in a variety of scenarios, while the overall system can maintain its functionality with minimized impact to the user load. Log rate governance ensures that transaction log backups stay within published recoverability SLAs.  This governance also prevents an excessive backlog on secondary replicas.
 
 As log records are generated, each operation is evaluated and assessed for whether it should be delayed in order to maintain a maximum desired log rate (MB/s per second). The delays are not added when the log records are flushed to storage, rather log rate governance is applied during log rate generation itself.
 
-The actual log generation rates imposed at run time may also be influenced by feedback mechanisms, temporarily reducing the allowable log rates so the system can stabilize. Log file space management, avoiding running into out of log space conditions and Availability Group replication mechanisms can temporarily decrease the overall system limits. 
+The actual log generation rates imposed at run time may also be influenced by feedback mechanisms, temporarily reducing the allowable log rates so the system can stabilize. Log file space management, avoiding running into out of log space conditions and Availability Group replication mechanisms can temporarily decrease the overall system limits.
 
 Log rate governor traffic shaping is surfaced via the following wait types (exposed in the [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) DMV):
 

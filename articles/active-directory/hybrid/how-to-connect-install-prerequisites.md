@@ -216,7 +216,7 @@ The table below shows the minimum requirements for the Azure AD Connect sync com
 | 300,000–600,000 |1.6 GHz |32 GB |450 GB |
 | More than 600,000 |1.6 GHz |32 GB |500 GB |
 
-The minimum requirements for computers running AD FS or Web Application Servers is the following:
+The minimum requirements for computers running AD FS or Web Application Proxy Servers is the following:
 
 * CPU: Dual core 1.6 GHz or higher
 * MEMORY: 2 GB or higher

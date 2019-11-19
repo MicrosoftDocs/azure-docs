@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database Scale Resources | Microsoft Docs
+title: Scale Resources
 description: This article explains how to scale your database by adding or removing allocated resources.
 services: sql-database
 ms.service: sql-database
@@ -49,6 +49,8 @@ All three flavors of Azure SQL Database offer some ability to dynamically scale 
 - With a [single database](sql-database-single-database-scale.md), you can use either [DTU](sql-database-dtu-resource-limits-single-databases.md) or [vCore](sql-database-vcore-resource-limits-single-databases.md) models to define maximum amount of resources that will be assigned to each database.
 - A [Managed Instance](sql-database-managed-instance.md) uses [vCores](sql-database-managed-instance.md#vcore-based-purchasing-model) mode and enables you to define maximum CPU cores and maximum of storage allocated to your instance. All databases within the instance will share the resources allocated to the instance.
 - [Elastic pools](sql-database-elastic-pool-scale.md) enable you to define maximum resource limit per group of databases in the pool.
+
+Initiating scale up or scale down action in any of the flavors would restart database engine process and move it to a different virtual machine if needed. Moving database engine process to a new virtual machine is **online process** where you can continue using your existing Azure SQL Database service while the process is in progress. Once the target database engine is fully initialized and ready to process the queries, the connections will be [switched from source to target database engine](sql-database-single-database-scale.md#impact-of-changing-service-tier-or-rescaling-compute-size).
 
 > [!NOTE]
 > You can expect a short connection break when the scale up/scale down process is finished. If you have implemented [Retry logic for standard transient errors](sql-database-connectivity-issues.md#retry-logic-for-transient-errors), you will not notice the failover.

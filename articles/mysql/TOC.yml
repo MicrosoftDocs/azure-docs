@@ -73,6 +73,8 @@
     items:
     - name: Pricing tiers
       href: concepts-pricing-tiers.md
+    - name: Prepay for reserved capacity
+      href: concept-reserved-pricing.md        
     - name: Limits
       href: concepts-limits.md
   - name: Data access & security
@@ -166,6 +168,8 @@
       href: howto-configure-ssl.md
     - name: Web apps
       href: howto-connect-webapp.md
+    - name: Connect with redirection
+      href: howto-redirection.md
   - name: Configure server parameters
     items:
     - name: Azure portal

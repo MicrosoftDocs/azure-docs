@@ -1,5 +1,5 @@
 ---
-title: "Troubleshoot package execution in the SSIS integration runtime | Microsoft Docs"
+title: "Troubleshoot package execution in the SSIS integration runtime "
 description: "This article provides troubleshooting guidance for SSIS package execution in the SSIS integration runtime"
 services: data-factory
 documentationcenter: ""

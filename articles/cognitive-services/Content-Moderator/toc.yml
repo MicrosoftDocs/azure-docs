@@ -12,11 +12,7 @@
   - name: Using the client SDK
     items:
     - name: Using the .NET SDK
-      items:
-      - name: Analyze image content
-        href: image-moderation-quickstart-dotnet.md
-      - name: Analyze text content
-        href: text-moderation-quickstart-dotnet.md
+      href: dotnet-sdk-quickstart.md
     - name: Using the Python SDK
       href: python-sdk-quickstart.md
     - name: Using the Java SDK
@@ -69,8 +65,6 @@
       href: Review-Tool-User-Guide/Review-Moderated-Images.md
     - name: REST API
       href: try-review-api-review.md
-    - name: .NET SDK
-      href: moderation-reviews-quickstart-dotnet.md
     - name: Video reviews (.NET)
       href: video-reviews-quickstart-dotnet.md
     - name: Video transcript reviews (.NET)

@@ -1,7 +1,7 @@
 ---
 title:  "Train Model: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn  how to use the **Train Model** module in Azure Machine Learning service to train a classification or regression model. 
+titleSuffix: Azure Machine Learning
+description: Learn  how to use the **Train Model** module in Azure Machine Learning to train a classification or regression model. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,13 +9,13 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
+ms.date: 10/22/2019
 ---
 # Train Model module
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer (preview).
 
-Use this module to  train a classification or regression model. Training takes place after you have defined a model and set its parameters, and requires tagged data. You can also use **Train Model** to retrain an existing model with new data. 
+Use this module to train a classification or regression model. Training takes place after you have defined a model and set its parameters, and requires tagged data. You can also use **Train Model** to retrain an existing model with new data. 
 
 ## How the training process works
 
@@ -72,4 +72,4 @@ After the model is trained:
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

@@ -144,4 +144,4 @@ For more nuanced cases, use the Content Moderator [review tool](Review-Tool-User
 
 ## Next steps
 
-Test drive the [Image Moderation API console](try-image-api.md) and use the REST API code samples. Also check out the [Image moderation .NET quickstart](image-moderation-quickstart-dotnet.md) if you are familiar with Visual Studio and C#.
+Test drive the [Image Moderation API console](try-image-api.md) and use the REST API code samples. Also check out the Image moderation section of the [.NET SDK quickstart](dotnet-sdk-quickstart.md) if you are familiar with Visual Studio and C#.

@@ -4,11 +4,14 @@ description: A tutorial of smart inventory management application template for I
 author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
+ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
 ---
 
 # Tutorial: Deploy and walk through a smart inventory management application template
+
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 This tutorial shows you how to get started by deploying an IoT Central **smart inventory management** application template. You will learn how to deploy the template, what is included out of the box, and what you might want to do next.
 
@@ -103,4 +106,4 @@ If you're not going to continue to use this application, delete the application 
 ## Next steps
 * Learn more about smart inventory management [smart inventory management concept](./architecture-smart-inventory-management-pnp.md)
 * Learn more about other [IoT Central retail templates](./overview-iot-central-retail-pnp.md)
-* Learn more about IoT Central refer to [IoT Central overview](../core/overview-iot-central-pnp.md)
+* Learn more about IoT Central refer to [IoT Central overview](../preview/overview-iot-central.md)

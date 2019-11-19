@@ -68,6 +68,9 @@ To create a simple JavaScript user-defined function under an existing Stream Ana
 6.	Select **Save**. Your function appears in the list of functions.
 7.	Select the new **hex2Int** function, and check the function definition. All functions have a **UDF** prefix added to the function alias. You need to *include the prefix* when you call the function in your Stream Analytics query. In this case, you call **UDF.hex2Int**.
 
+## Testing JavaScript UDFs 
+You can test and debug your JavaScript UDF logic in any browser. Debugging and testing the logic of these user-defined functions is currently not supported in the Stream Analytics portal. Once the function works as expected, you can add it to the Stream Analytics job as mentioned above and then invoke it directly from your query.
+
 ## Call a JavaScript user-defined function in a query
 
 1. In the query editor, under the **Job topology** heading, select **Query**.
@@ -122,7 +125,6 @@ JavaScript language is case sensitive and casing of the object fields in JavaScr
 
 ## Troubleshooting
 JavaScript runtime errors are considered fatal, and are surfaced through the Activity log. To retrieve the log, in the Azure portal, go to your job and select **Activity log**.
-
 
 ## Other JavaScript user-defined function patterns
 

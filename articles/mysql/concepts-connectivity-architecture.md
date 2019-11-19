@@ -5,7 +5,7 @@ author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 11/15/2019
 ---
 
 # Connectivity architecture in Azure Database for MySQL
@@ -49,6 +49,9 @@ The following table lists the primary and secondary IPs of the Azure Database fo
 | North Europe | 191.235.193.75 | 40.113.93.91 |
 | South Central US | 23.98.162.75 | 13.66.62.124 |
 | South East Asia | 23.100.117.95 | 104.43.15.0 |
+| South Africa North | 102.133.152.0 | |
+| South Africa West | 102.133.24.0 | |
+| UAE North | 65.52.248.0 | |
 | UK South | 51.140.184.11 | |
 | UK West | 51.141.8.11| |
 | West Europe | 191.237.232.75 | 40.68.37.158 |
@@ -59,8 +62,15 @@ The following table lists the primary and secondary IPs of the Azure Database fo
 > [!NOTE]
 > *East US 2* has also a tertiary IP address of `52.167.104.0`.
 
+## Connection redirection
+
+Azure Database for MySQL supports an additional connection policy, **redirection**, that helps to reduce network latency between client applications and MySQL servers. With this feature, after the initial TCP session is established to the Azure Database for MySQL server, the server returns the backend address of the node hosting the MySQL server to the client. Thereafter, all subsequent packets flow directly to the server, bypassing the gateway. As packets flow directly to the server, latency and throughput have improved performance.
+
+This feature is supported in Azure Database for MySQL servers with engine versions 5.6, 5.7, and 8.0.
+
+Preview support for redirection is available in the [PHP mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) extension, developed by Microsoft, and is available on [PECL](https://pecl.php.net/package/mysqlnd_azure). See the [configuring redirection](./howto-redirection.md) article for more information on how to use redirection in your applications. 
+
 ## Next steps
 
 * [Create and manage Azure Database for MySQL firewall rules using the Azure portal](./howto-manage-firewall-using-portal.md)
 * [Create and manage Azure Database for MySQL firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md)
-

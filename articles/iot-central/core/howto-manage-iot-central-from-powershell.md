@@ -1,6 +1,6 @@
 ---
 title: Manage IoT Central from Azure PowerShell | Microsoft Docs
-description: Manage IoT Central from Azure PowerShell.
+description: This article describes how to create and manage your IoT Central applications from Azure PowerShell.
 services: iot-central
 ms.service: iot-central
 author: dominicbetts
