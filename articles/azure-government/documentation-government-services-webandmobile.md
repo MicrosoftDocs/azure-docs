@@ -22,9 +22,9 @@ This article outlines the web and mobile services for the Azure Government envir
 
 ## Azure Cognitive Search
 
-[Azure Cognitive Search](https://docs.microsoft.com/azure/search/) is generally available in Azure Government.For a self-directed exploration of search functionality using public data, visit the [Content Search and Intelligence](http://documentsearch.azurewebsites.net/home/) web site, select the dataset "US Court of Appeals District 1", and then choose one of the demo options.
+[Azure Cognitive Search](https://docs.microsoft.com/azure/search/) is generally available in Azure Government. For a self-directed exploration of search functionality using public data, visit the [Content Search and Intelligence](http://documentsearch.azurewebsites.net/home/) web site, select the dataset "US Court of Appeals District 1", and then choose one of the demo options.
 
-Functionality that has proven popular in government search applications is using [cognitive skills](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) to extract structure and information from large undifferentiated text documents.
+Functionality that has proven popular in government search applications includes [cognitive skills](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro), useful for extracting structure and information from large undifferentiated text documents.
 
 Basic query syntax, formulating queries to search over large amounts of content, is also relevant to application developers. Azure Cognitive Search supports two syntaxes: [simple](https://docs.microsoft.com/azure/search/query-simple-syntax) and [full](https://docs.microsoft.com/azure/search/query-lucene-syntax). You can review [query expression examples](https://docs.microsoft.com/azure/search/search-query-simple-examples) for an orientation.
 
