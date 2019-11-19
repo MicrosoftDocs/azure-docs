@@ -28,9 +28,9 @@ The overarching design goal of elastic pools is to be cost-effective. For this r
 This approach allows customers to use dense elastic pools to achieve adequate performance and major cost savings. However, if the workload against databases in a dense pool is sufficiently intense, resource contention becomes significant. Resource contention reduces user workload performance, and can negatively impact internal processes.
 
 When resource contention occurs in a densely packed pool, customers can choose one or more of the following actions to mitigate it:
-1.	Tune query workload to reduce resource consumption.
-2.	Reduce pool density by moving some databases to another pool, or by making them standalone databases.
-3.	Scale up the pool to get more resources.
+- Tune query workload to reduce resource consumption.
+- Reduce pool density by moving some databases to another pool, or by making them standalone databases.
+- Scale up the pool to get more resources.
 
 For suggestions on how to implement the last two actions, see [Operational recommendations](#operational-recommendations) later in this article. Reducing resource contention benefits both user workloads and internal processes, and lets the system reliably maintain expected level of service.
 
