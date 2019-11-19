@@ -60,15 +60,15 @@ You might find the answer you need in the documentation, the samples, or answers
 
 For faster results, scope your search to Stack Overflow, Microsoft docs, or code samples by using the following query on your [favorite search engine](https://bing.com):
 
- - Stack Overflow: `site:stackoverflow.com`
- - Microsoft Docs: `site:docs.microsoft.com`
- - GitHub Samples: `site:github.com/azure-samples`
-
 ```
 {your search keywords} site:stackoverflow.com
 ```
 
-Where `{your search keywords}` is your search keywords.
+Where `{your search keywords}` is your search keywords. This search will scope the results to Stack Overflow. Use the following site syntax to scope searches appropriately:
+
+ - Stack Overflow: `site:stackoverflow.com`
+ - Microsoft Docs: `site:docs.microsoft.com`
+ - GitHub Samples: `site:github.com/azure-samples`
 
 ## Create an Azure support request
 
