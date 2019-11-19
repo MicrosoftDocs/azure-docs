@@ -6,15 +6,21 @@ ms.subservice:
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 11/11/2019
+ms.date: 11/18/2019
 
 ---
 
 # How to enable Azure Monitor for containers
 
-This article provides an overview of the options available to setup Azure Monitor for containers to monitor the performance of workloads that are deployed to Kubernetes environments and hosted on [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/), AKS Engine on [Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908) or Kubernetes deployed on-premises.
+This article provides an overview of the options available to setup Azure Monitor for containers to monitor the performance of workloads that are deployed to Kubernetes environments and hosted on:
 
-Azure Monitor for containers can be enabled for new, or one or more existing deployments of AKS using the following supported methods:
+- [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/)
+
+- AKS Engine on [Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908) or Kubernetes deployed on-premises.
+
+- [Azure Red Hat OpenShift](../../openshift/intro-openshift.md)
+
+Azure Monitor for containers can be enabled for new, or one or more existing deployments of Kubernetes using the following supported methods:
 
 * From the Azure portal, Azure PowerShell, or with Azure CLI
 * Using [Terraform and AKS](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md)
@@ -43,7 +49,7 @@ Before you start, make sure that you have the following:
 
 The following is officially supported with Azure Monitor for containers.
 
-- Environments: Kubernetes on-premises, AKS Engine on Azure and Azure Stack. For more information, see [AKS Engine on Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
+- Environments: Azure Red Hat OpenShift, Kubernetes on-premises, and AKS Engine on Azure and Azure Stack. For more information, see [AKS Engine on Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
 - Versions of Kubernetes and support policy are the same as versions of [AKS supported](../../aks/supported-kubernetes-versions.md). 
 
 ## Network firewall requirements
@@ -82,7 +88,7 @@ The information in the following table lists the proxy and firewall configuratio
 
 ## Components
 
-Your ability to monitor performance relies on a containerized Log Analytics agent for Linux  specifically developed for Azure Monitor for containers. This specialized agent collects performance and event data from all nodes in the cluster, and the agent is automatically deployed and registered with the specified Log Analytics workspace during deployment. The  agent version is microsoft/oms:ciprod04202018 or later, and is represented by a date in the following format: *mmddyyyy*.
+Your ability to monitor performance relies on a containerized Log Analytics agent for Linux specifically developed for Azure Monitor for containers. This specialized agent collects performance and event data from all nodes in the cluster, and the agent is automatically deployed and registered with the specified Log Analytics workspace during deployment. The  agent version is microsoft/oms:ciprod04202018 or later, and is represented by a date in the following format: *mmddyyyy*.
 
 >[!NOTE]
 >With the preview release of Windows Server support for AKS, an AKS cluster with Windows Server nodes do not have an agent installed to collect data and forward to Azure Monitor. Instead, a Linux node automatically deployed in the cluster as part of the standard deployment collects and forwards the data to Azure Monitor on behalf all Windows nodes in the cluster.  
@@ -98,14 +104,17 @@ You enable Azure Monitor for containers by using one of the following methods de
 
 | Deployment State | Method | Description |
 |------------------|--------|-------------|
-| New AKS cluster | [Create cluster using Azure CLI](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| You can enable monitoring of a new AKS cluster that you create with Azure CLI. |
-| | [Create cluster using Terraform](container-insights-enable-new-cluster.md#enable-using-terraform)| You can enable monitoring of a new AKS cluster that you create using the open-source tool Terraform. |
-| Existing AKS cluster | [Enable using Azure CLI](container-insights-enable-existing-clusters.md#enable-using-azure-cli) | You can enable monitoring of an AKS cluster already deployed using Azure CLI. |
-| |[Enable using Terraform](container-insights-enable-existing-clusters.md#enable-using-terraform) | You can enable monitoring of an AKS cluster already deployed using the open-source tool Terraform. |
-| | [Enable from Azure Monitor](container-insights-enable-existing-clusters.md#enable-from-azure-monitor-in-the-portal)| You can enable monitoring of one or more AKS clusters already deployed from the AKS multi-cluster page in Azure Monitor. |
+| New Kubernetes cluster | [Create AKS cluster using Azure CLI](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| You can enable monitoring of a new AKS cluster that you create with Azure CLI. |
+| | [Create AKS cluster using Terraform](container-insights-enable-new-cluster.md#enable-using-terraform)| You can enable monitoring of a new AKS cluster that you create using the open-source tool Terraform. |
+| | [Create OpenShift cluster using an Azure Resource Manager template](container-insights-azure-redhat-setup.md#enable-for-a-new-cluster-using-an-azure-resource-manager-template) | You can enable monitoring of a new OpenShift cluster that you create with a pre-configured Azure Resource Manager template. |
+| Existing Kubernetes cluster | [Enable for AKS cluster using Azure CLI](container-insights-enable-existing-clusters.md#enable-using-azure-cli) | You can enable monitoring of an AKS cluster already deployed using Azure CLI. |
+| |[Enable for AKS cluster using Terraform](container-insights-enable-existing-clusters.md#enable-using-terraform) | You can enable monitoring of an AKS cluster already deployed using the open-source tool Terraform. |
+| | [Enable for AKS cluster from Azure Monitor](container-insights-enable-existing-clusters.md#enable-from-azure-monitor-in-the-portal)| You can enable monitoring of one or more AKS clusters already deployed from the multi-cluster page in Azure Monitor. |
 | | [Enable from AKS cluster](container-insights-enable-existing-clusters.md#enable-directly-from-aks-cluster-in-the-portal)| You can enable monitoring directly from an AKS cluster in the Azure portal. |
-| | [Enable using an Azure Resource Manager template](container-insights-enable-existing-clusters.md#enable-using-an-azure-resource-manager-template)| You can enable monitoring of an AKS cluster with a pre-configured Azure Resource Manager template. |
+| | [Enable for AKS cluster using an Azure Resource Manager template](container-insights-enable-existing-clusters.md#enable-using-an-azure-resource-manager-template)| You can enable monitoring of an AKS cluster with a pre-configured Azure Resource Manager template. |
 | | [Enable for hybrid Kubernetes cluster](container-insights-hybrid-setup.md) | You can enable monitoring of an AKS Engine hosted in Azure Stack or for Kubernetes hosted on-premises. |
+| | [Enable for OpenShift cluster using an Azure Resource Manager template](container-insights-azure-redhat-setup.md#enable-using-an-azure-resource-manager-template) | You can enable monitoring of an existing OpenShift cluster with a pre-configured Azure Resource Manager template. |
+| | [Enable for OpenShift cluster from Azure Monitor](container-insights-azure-redhat-setup.md#from-the-azure-portal) | You can enable monitoring of one or more OpenShift clusters already deployed from the multi-cluster page in Azure Monitor. |
 
 ## Next steps
 
