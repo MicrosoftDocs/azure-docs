@@ -32,7 +32,9 @@ If you prefer to install and use the CLI locally, this quickstart requires Azure
 Create a resource group with the [az group create](https://docs.microsoft.com/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location eastus
+az group create \
+                 --name myResourceGroup \
+                 --location westus2
 ```
 
 ## Create a blockchain member
@@ -40,14 +42,19 @@ az group create --name myResourceGroup --location eastus
 Create a blockchain member in Azure Blockchain Service that runs the Quorum ledger protocol in a new consortium. There are several parameters and properties you need to pass. Replace the example parameters with your values.
 
 ```azurecli-interactive
-az resource create --resource-group myResourceGroup --name myblockchainmember --resource-type Microsoft.Blockchain/blockchainMembers --is-full-object --properties "{ \"location\": \"eastus\", \"properties\": {\"password\": \"strongMemberAccountPassword@1\", \"protocol\": \"Quorum\", \"consortium\": \"myConsortiumName\", \"consortiumManagementAccountPassword\": \"strongConsortiumManagementPassword@1\" }, \"sku\": { \"name\": \"S0\" } }"
+az resource create \
+                    --resource-group myResourceGroup \
+                    --name myblockchainmember \
+                    --resource-type Microsoft.Blockchain/blockchainMembers \
+                    --is-full-object \
+                    --properties '{"location":"westus2", "properties":{"password":"strongMemberAccountPassword@1", "protocol":"Quorum", "consortium":"myConsortiumName", "consortiumManagementAccountPassword":"strongConsortiumManagementPassword@1"}, "sku":{"name":"S0"}}`
 ```
 
 | Parameter | Description |
 |---------|-------------|
 | **resource-group** | Resource group name where Azure Blockchain Service resources are created. Use the resource group you created in the previous section.
 | **name** | A unique name that identifies your Azure Blockchain Service blockchain member. The name is used for the public endpoint address. For example, `myblockchainmember.blockchain.azure.com`.
-| **location** | Azure region where the blockchain member is created. For example, `eastus`. Choose the location that is closest to your users or your other Azure applications.
+| **location** | Azure region where the blockchain member is created. For example, `westus2`. Choose the location that is closest to your users or your other Azure applications.
 | **password** | The password for the member's default transaction node. Use the password for basic authentication when connecting to blockchain member's default transaction node public endpoint.
 | **consortium** | Name of the consortium to join or create.
 | **consortiumAccountPassword** | The consortium account password is also known as the member account password. The member account password is used to encrypt the private key for the Ethereum account that is created for your member. You use the member account and member account password for consortium management.
@@ -62,7 +69,9 @@ You can use the blockchain member you created for the next quickstart or tutoria
 Run the following command to remove the resource group and all related resources.
 
 ```azurecli-interactive
-az group delete --name myResourceGroup --yes
+az group delete \
+                 --name myResourceGroup \
+                 --yes
 ```
 
 ## Next steps
