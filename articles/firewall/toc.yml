@@ -55,6 +55,8 @@
       href: integrate-lb.md
     - name: Application rules with SQL FQDNs
       href: sql-fqdn-filtering.md
+    - name: Create IP Groups
+      href: create-ip-groups.md
 - name: Reference
   items:
   - name: Azure CLI

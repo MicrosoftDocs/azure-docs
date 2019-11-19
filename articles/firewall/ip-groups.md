@@ -24,7 +24,7 @@ An IP Group can have a single IP address, a group of IP addresses, or one or mor
 
 ## Creating IP Groups
 
-An IP Group can be created using the Azure portal . For more information, see xxx.
+An IP Group can be created using the Azure portal . For more information, see [Create an IP Group (preview)](create-ip-group.md).
 
 ## Using an IP Group
 
