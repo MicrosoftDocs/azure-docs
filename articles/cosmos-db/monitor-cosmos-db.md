@@ -126,6 +126,20 @@ Following are queries that you can use to help you monitor your Azure Cosmos dat
     ```Kusto
     AzureActivity | where Caller == "test@company.com" and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by Resource
     ```
+* To get all queries greater than 100 RUs joined with data from **DataPlaneRequests** and **QueryRunTimeStatistics**.
+
+    ```Kusto
+    AzureDiagnostics
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" and todouble(requestCharge_s) > 100.0
+    | project activityId_g, requestCharge_s
+    | join kind= inner (
+        AzureDiagnostics
+        | where ResourceProvider =="MICROSOFT.DOCUMENTDB" and Category == "QueryRuntimeStatistics"
+        | project activityId_g, querytext_s
+    ) on $left.activityId_g == $right.activityId_g
+    | order by requestCharge_s desc
+    | limit 100
+    ```
 
 * To query for which operations take longer than 3 milliseconds:
 
@@ -145,6 +159,14 @@ Following are queries that you can use to help you monitor your Azure Cosmos dat
     AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | project TimeGenerated , duration_s | render timechart
     ```
     
+* To get Partition Key statistics to evaluate skew across top 3 partitions for database account:
+
+    ```Kusto
+    AzureDiagnostics 
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
+    | project SubscriptionId, regionName_s, databaseName_s, collectionname_s, partitionkey_s, sizeKb_s, ResourceId
+    ```
+
 ## Monitor Azure Cosmos DB programmatically
 The account level metrics available in the portal, such as account storage usage and total requests, are not available via the SQL APIs. However, you can retrieve usage data at the collection level by using the SQL APIs. To retrieve collection level data, do the following:
 
