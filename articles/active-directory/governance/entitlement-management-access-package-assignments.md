@@ -1,6 +1,6 @@
 ---
-title: View, add, and remove assignments for an access package in Azure AD entitlement management (Preview) - Azure Active Directory
-description: Learn how to view, add, and remove assignments for an access package in Azure Active Directory entitlement management (Preview).
+title: View, add, and remove assignments for an access package in Azure AD entitlement management - Azure Active Directory
+description: Learn how to view, add, and remove assignments for an access package in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
