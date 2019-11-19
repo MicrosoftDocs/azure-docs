@@ -117,7 +117,7 @@ Controls options for Application Insights, including [sampling options](./functi
 |Property  |Default | Description |
 |---------|---------|---------| 
 |enableDependencyTracking|true|Enables dependency tracking.|
-|enablePerformanceCountersCollection|true|Enables Kudu performance counters collection.|
+|enablePerformanceCountersCollection|true|Enables performance counters collection.|
 |samplingExcludedTypes|null|A semi-colon delimited list of types that you do not want to be sampled. Recognized types are: Dependency, Event, Exception, PageView, Request, Trace. All instances of the specified types are transmitted; the types that are not specified are sampled.| 
 |samplingIncludedTypes|null|A semi-colon delimited list of types that you want to be sampled. Recognized types are: Dependency, Event, Exception, PageView, Request, Trace. The specified types are sampled; all instances of the other types will always be transmitted.|
 |samplingSettings.isEnabled|true|Enables or disables sampling.| 
@@ -125,7 +125,7 @@ Controls options for Application Insights, including [sampling options](./functi
 
 ## cosmosDb
 
-Configuration setting can be found in [Cosmos DB triggers and bindings](functions-bindings-cosmosdb-v2.md#host-json).A semi-colon delimited list of types that you want to be sampled. Recognized types are: Dependency, Event, Exception, PageView, Request, Trace. The specified types are sampled; all instances of the other types will always be transmitted.
+Configuration setting can be found in [Cosmos DB triggers and bindings](functions-bindings-cosmosdb-v2.md#host-json).
 
 ## durableTask
 
