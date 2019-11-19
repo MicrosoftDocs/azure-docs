@@ -130,7 +130,61 @@ When editing the list of supported attributes, the following properties are prov
 - **API Expression** - Don't use, unless instructed to do so by the documentation for a specific provisioning connector (such as Workday).
 - **Referenced Object Attribute** - If it's a Reference type attribute, then this menu lets you select the table and attribute in the target application that contains the value associated with the attribute. For example, if you have an attribute named "Department" whose stored value references an object in a separate "Departments" table, you would select "Departments.Name". The reference tables and the primary ID fields supported for a given application are pre-configured and currently can't be edited using the Azure portal, but can be edited using the [Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
 
-To add a new attribute, scroll to the end of the list of supported attributes, populate the fields above using the provided inputs, and select **Add Attribute**. Select **Save** when finished adding attributes. You then need to reload the **Provisioning** tab for the new attributes to become available in the attribute-mapping editor.
+#### Provisioning a custom extension attribute to a SCIM compliant application
+The SCIM RFC defines a core user and group schema, while also allowing for extensions to the schema to meet your application's needs. To add a custom attribute to a SCIM application:
+   1. Go to portal.azure.com > Enterprise Applications > Select your application > Provisioning
+   2. Select the object (user or group) that you would like to add a custom attribute
+   3. Click show advanced options at the bottom of the screen
+   4. Click Edit attribute list
+   5. Add your custom attribute
+
+**Notes**
+
+* For SCIM applications, the attribute name must follow the pattern below. The "CustomExtensionName" and "CustomAttribute" can be customized per your application's requirements.  urn:ietf:params:scim:schemas:extension:2.0:CustomExtensionName:CustomAttribute
+* These instructions are only applicable to SCIM enabled applications. Applications such as ServiceNow and Salesforce are not integrated with Azure AD using SCIM and therefore do not require this specific namespace when adding a custom attribute
+* Custom attributes cannot be referential attributes or multi-value attributes. Work is in progress to support custom multi value attributes. 
+ 
+**Example custom attribute:**
+
+```json
+   {
+     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User",
+      "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
+      "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0"],
+     "userName":"bjensen",
+     "externalId":"bjensen",
+     "name":{
+       "formatted":"Ms. Barbara J Jensen III",
+       "familyName":"Jensen",
+       "givenName":"Barbara"
+     },
+     "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+     "employeeNumber": "701984",
+     "costCenter": "4130",
+     "organization": "Universal Studios",
+     "division": "Theme Park",
+     "department": "Tour Operations",
+     "manager": {
+       "value": "26118915-6090-4610-87e4-49d8ca9f808d",
+       "$ref": "../Users/26118915-6090-4610-87e4-49d8ca9f808d",
+       "displayName": "John Smith"
+     }
+   },
+     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:CustomAttribute": {
+     "employeeNuCustomAttribute": "701984",
+   },
+   "meta": {
+     "resourceType": "User",
+     "created": "2010-01-23T04:56:22Z",
+     "lastModified": "2011-05-13T04:42:34Z",
+     "version": "W\/\"3694e05e9dff591\"",
+     "location":
+ "https://example.com/v2/Users/2819c223-7f76-453a-919d-413861904646"
+   }
+ }
+```
+
+
 ## Provisioning a role to a SCIM app
 Use the steps below to provision roles for a user to your application. Note that the description below is specific to custom SCIM applications. For gallery applications such as Salesforce and ServiceNow, use the pre-defined role mappings. The bullets below describe how to transform the AppRoleAssignments attribute to the format your application expects.
 
