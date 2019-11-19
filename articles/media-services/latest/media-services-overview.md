@@ -53,9 +53,6 @@ Learn how to encode and package content, stream videos on-demand, broadcast live
 
 ### SDKs
 
-> [!NOTE]
-> The Azure Media Services v3 SDKs are not guaranteed to be thread-safe. When developing a multi-threaded application, you should add your own thread synchronization logic to protect the client or use a new AzureMediaServicesClient object per thread. You should also be careful of multi-threading issues introduced by optional objects provided by your code to the client (like an HttpClient instance in .NET).
-
 |SDK|Reference|
 |---|---|
 |[.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)|[.NET ref](https://aka.ms/ams-v3-dotnet-ref)|
@@ -65,6 +62,8 @@ Learn how to encode and package content, stream videos on-demand, broadcast live
 |[Go SDK](https://aka.ms/ams-v3-go-sdk) |[Go ref](https://aka.ms/ams-v3-go-ref)|
 |[Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)||
 
+> [!NOTE]
+> The Azure Media Services v3 SDKs are not guaranteed to be thread-safe. When developing a multi-threaded application, you should add your own thread synchronization logic to protect the client or use a new AzureMediaServicesClient object per thread. You should also be careful of multi-threading issues introduced by optional objects provided by your code to the client (like an HttpClient instance in .NET).
 
 ### Quickstarts  
 
