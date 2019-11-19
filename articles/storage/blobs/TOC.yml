@@ -276,6 +276,8 @@
         href: storage-blob-containers-list.md
       - name: Manage properties and metadata (.NET)
         href: storage-blob-container-properties-metadata.md
+      - name: Set and manage immutability policies
+        href:   
     - name: Create and manage blobs
       items:
       - name: List blobs (.NET)

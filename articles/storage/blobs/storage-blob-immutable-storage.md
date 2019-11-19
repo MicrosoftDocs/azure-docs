@@ -14,11 +14,11 @@ ms.subservice: blobs
 
 # Store business-critical data immutably in Azure Blob storage
 
-Immutable storage for Azure Blob storage enables users to store business-critical data objects in a WORM (Write Once, Read Many) state. This state makes the data non-erasable and non-modifiable for a user-specified interval. Blobs can be created and read, but not modified or deleted, for the duration of the retention interval. Immutable storage is enabled for general-purpose v2 and Blob storage accounts in all Azure regions.
+Immutable storage for Azure Blob storage enables users to store business-critical data objects in a WORM (Write Once, Read Many) state. This state makes the data non-erasable and non-modifiable for a user-specified interval. For the duration of the retention interval, blobs can be created and read, but cannot be modified or deleted. Immutable storage is available for general-purpose v2 and Blob storage accounts in all Azure regions.
 
 ## About immutable Blob storage
 
-Immutable storage helps healthcare organization, financial institutions, and related industries--particularly broker-dealer organizations--to store data securely. It can also be leveraged in any scenario to protect critical data against modification or deletion.
+Immutable storage helps healthcare organization, financial institutions, and related industries&mdash;particularly broker-dealer organizations&mdash;to store data securely. Immutable storage can also be leveraged in any scenario to protect critical data against modification or deletion.
 
 Typical applications include:
 
@@ -100,65 +100,6 @@ The following table shows the types of blob operations that are disabled for the
 ## Pricing
 
 There is no additional charge for using this feature. Immutable data is priced in the same way as regular, mutable data. For pricing details on Azure Blob storage, see the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
-
-## Getting started
-
-Immutable storage is available only for general-purpose v2 and Blob storage accounts. These accounts must be managed through [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). For information on upgrading an existing general-purpose v1 storage account, see [Upgrade a storage account](../common/storage-account-upgrade.md).
-
-The most recent releases of the [Azure portal](https://portal.azure.com), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), and [Azure PowerShell](https://github.com/Azure/azure-powershell/releases) support immutable storage for Azure Blob storage. [Client library support](#client-libraries) is also provided.
-
-### [Portal](#tab/azure-portal)
-
-1. Create a new container or select an existing container to store the blobs that need to be kept in the immutable state.
- The container must be in a GPv2 or blob storage account.
-2. Select **Access policy** in the container settings. Then select **+ Add policy** under **Immutable blob storage**.
-
-    ![Container settings in the portal](media/storage-blob-immutable-storage/portal-image-1.png)
-
-3. To enable time-based retention, select **Time-based retention** from the drop-down menu.
-
-    !["Time-based retention" selected under "Policy type"](media/storage-blob-immutable-storage/portal-image-2.png)
-
-4. Enter the retention interval in days (acceptable values of 1 to 146000 days).
-
-    !["Update retention period to" box](media/storage-blob-immutable-storage/portal-image-5-retention-interval.png)
-
-    The initial state of the policy is unlocked allowing you to test the feature and make changes to the policy before you lock it. Locking the policy is essential for compliance with regulations like SEC 17a-4.
-
-5. Lock the policy. Right-click the ellipsis (**...**), and the following menu appears with additional actions:
-
-    !["Lock policy" on the menu](media/storage-blob-immutable-storage/portal-image-4-lock-policy.png)
-
-6. Select **Lock Policy** and confirm the lock. The policy is now locked and cannot be deleted, only extensions of the retention interval will be allowed. Blob deletes and overrides are not permitted. 
-
-    ![Confirm "Lock policy" on the menu](media/storage-blob-immutable-storage/portal-image-5-lock-policy.png)
-
-7. To enable legal holds, select **+ Add Policy**. Select **Legal hold** from the drop-down menu.
-
-    !["Legal hold" on the menu under "Policy type"](media/storage-blob-immutable-storage/portal-image-legal-hold-selection-7.png)
-
-8. Create a legal hold with one or more tags.
-
-    !["Tag name" box under the policy type](media/storage-blob-immutable-storage/portal-image-set-legal-hold-tags.png)
-
-9. To clear a legal hold, simply remove the applied legal hold identifier tag.
-
-### [Azure CLI](#tab/azure-cli)
-
-The feature is included in the following command groups:
-`az storage container immutability-policy`  and `az storage container legal-hold`. Run `-h` on them to see the commands.
-
-### [PowerShell](#tab/azure-powershell)
-
-The Az.Storage module supports immutable storage.  To enable the feature, follow these steps:
-
-1. Ensure that you have the latest version of PowerShellGet installed: `Install-Module PowerShellGet –Repository PSGallery –Force`.
-2. Remove any previous installation of Azure PowerShell.
-3. Install Azure PowerShell: `Install-Module Az –Repository PSGallery –AllowClobber`.
-
-The [Sample PowerShell code](#sample-powershell-code) section later in this article illustrates the feature usage.
-
----
 
 ## Client libraries
 
