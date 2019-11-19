@@ -1,6 +1,6 @@
 ---
-title: Integrate Azure DNS with your Azure resources
-description: Learn how to use Azure DNS along to provide DNS for your Azure resources.
+title: Integrate Azure DNS with your Azure resources - Azure DNS
+description: In this article, learn how to use Azure DNS along to provide DNS for your Azure resources.
 services: dns
 author: vhorne
 ms.service: dns
