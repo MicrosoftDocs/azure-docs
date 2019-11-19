@@ -44,6 +44,8 @@ landingContent:
         links:
           - text: Route Blob storage events to a web endpoint
             url: blob-event-quickstart-portal.md
+          - text: Azure Functions as an event handler
+            url: custom-event-to-function.md
           - text: Queue storage as an event handler
             url: custom-event-to-queue-storage.md
           - text: Event Hubs as an event handler

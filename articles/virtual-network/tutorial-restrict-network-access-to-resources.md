@@ -1,10 +1,10 @@
 ---
-title: Restrict network access to PaaS resources - tutorial - Azure portal | Microsoft Docs
+title: Restrict access to PaaS resources - tutorial - Azure portal
 description: In this tutorial, you learn how to limit and restrict network access to Azure resources, such as Azure Storage and Azure SQL Database, with virtual network service endpoints using the Azure portal.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
+manager: mtillman
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
