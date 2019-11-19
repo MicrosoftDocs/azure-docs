@@ -28,7 +28,7 @@ This article assumes that you're using Modbus TCP protocol. For more information
 
 ## Prepare a Modbus container
 
-If you want to test the Modbus gateway functionality, Microsoft has a sample module that you can use. You can access the module from the Azure Marketplace, [Modbus](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft_iot.edge-modbus?tab=Overview), or with the image URI, **mcr.microsoft.com/azureiotedge/modbus:1.0**.
+If you want to test the Modbus gateway functionality, Microsoft has a sample module that you can use. You can access the module from the Azure Marketplace, [Modbus](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft_iot.edge-modbus?tab=Overview), or with the image URI, `mcr.microsoft.com/azureiotedge/modbus:1.0`.
 
 If you want to create your own module and customize it for your environment, there is an open-source [Azure IoT Edge Modbus module](https://github.com/Azure/iot-edge-modbus) project on GitHub. Follow the guidance in that project to create your own container image. To create a container image, refer to [Develop C# modules in Visual Studio](how-to-visual-studio-develop-csharp-module.md) or [Develop modules in Visual Studio Code](how-to-vs-code-develop-module.md). Those articles provide instructions on creating new modules and publishing container images to a registry.
 
@@ -49,7 +49,7 @@ This section walks through deploying Microsoft's sample Modbus module to your Io
    3. The module is automatically configured for your IoT Hub and appears in the list of IoT Edge Modules. The Routes are also automatically configured. Select **Review + create**.
    4. Review the deployment manifest and select **Create**.
 
-5. Select the name of the Modbus module, `ModbusTCPModule`, and in the list select the **Module Twin Settings** tab. The required JSON is for the module twin desired properties is auto populated, and requires only the IPv4 address of your Modbus device to be set for the value of **SlaveConnection**.
+5. Select the Modbus module (`ModbusTCPModule`) in the list and select the **Module Twin Settings** tab. The required JSON for the module twin desired properties is auto populated, and requires only the IPv4 address of your Modbus device to be set for the value of **SlaveConnection**.
 
 6. Select **Update**.
 
