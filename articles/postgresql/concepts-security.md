@@ -12,6 +12,15 @@ ms.date: 11/20/2019
 
 There are multiple layers of security that are available to protect the data on your Azure Database for PostgreSQL server. This article outlines those security options.
 
+## Information protection and encryption
+
+### In-transit
+Azure Database for PostgreSQL secures your data by encrypting data in-transit with Transport Layer Security. Encryption (SSL/TLS) is enforced by default.
+
+### At-rest
+The Azure Database for PostgreSQL service uses the FIPS 140-2 validated cryptographic module for storage encryption of data at-rest. Data, including backups, are encrypted on disk, with the exception of temporary files created while running queries. The service uses the AES 256-bit cipher included in Azure storage encryption, and the keys are system managed. Storage encryption is always on and can't be disabled.
+
+
 ## Network security
 Connections to an Azure Database for PostgreSQL server are first routed through a regional gateway. The gateway has a publicly accessible IP, while the server IP addresses are protected. For more information about the gateway, visit the [connectivity architecture article](concepts-connectivity-architecture.md).  
 
@@ -37,14 +46,6 @@ You can opt in to [Advanced Threat Protection](concepts-data-access-and-security
 
 [Audit logging](concepts-audit.md) is available to track activity in your databases. 
 
-
-## Information protection and encryption
-
-### In-transit
-Azure Database for PostgreSQL secures your data by encrypting data in-transit with Transport Layer Security. Encryption (SSL/TLS) is enforced by default.
-
-### At-rest
-The Azure Database for PostgreSQL service uses the FIPS 140-2 validated cryptographic module for storage encryption of data at-rest. Data, including backups, are encrypted on disk with the exception of temporary files created while running queries. The service uses the AES 256-bit cipher included in Azure storage encryption, and the keys are system managed. Storage encryption is always on and can't be disabled.
 
 ## Next steps
 - Enable firewall rules for [IPs](concepts-firewall-rules.md) or [virtual networks](concepts-data-access-and-security-vnet.md)
