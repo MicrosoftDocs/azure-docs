@@ -180,7 +180,7 @@ This example display widget is configured to:
 1. Return the `email` back to the self-asserted technical profile that has a reference to this display widget.
 1. Using the `SendCode` action, generate an OTP code and send an email with the OTP code to the user.
 
-![Send verification code email action](media/custom-email-verification/display-widget-verification-email-action-01.png)
+![Send verification code email action](media/custom-email/display-widget-verification-email-action-01.png)
 
 Under the [ClaimsSchema](claimsschema.md), add following [DisplayWidget](display-widgets.md) type of [VerificationWidget](display-widget-verification.md) to your policy.
 

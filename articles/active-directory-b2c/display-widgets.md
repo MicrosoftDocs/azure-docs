@@ -21,7 +21,7 @@ The **Display Widget** is a group of user interface elements that have special f
 
 The following image illustrates a self-asserted sign-up page with two display widgets that validate the email address and an alternative (secondary) email address.
 
-![Example rendered display widget](media/custom-email/display-widget-email.png)
+![Example rendered display widget](media/display-widgets/display-widget-email.png)
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
