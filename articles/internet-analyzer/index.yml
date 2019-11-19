@@ -51,4 +51,6 @@ landingContent:
             url: internet-analyzer-faq.md
           - text: Interpreting your scorecard
             url: internet-analyzer-scorecard.md
+          - text: Internet Analyzer CLI reference
+            url: https://azure.microsoft.com/support/trust-center/
 
