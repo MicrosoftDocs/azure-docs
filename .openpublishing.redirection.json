@@ -12373,6 +12373,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cosmos-db/logging.md",
+      "redirect_url": "/azure/cosmos-db/monitor-cosmos-db.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/cosmos-db-azure-monitor-metrics.md",
+      "redirect_url": "/azure/cosmos-db/monitor-cosmos-db.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/monitor-accounts.md",
+      "redirect_url": "/azure/cosmos-db/monitor-cosmos-db.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/iot-suite/iot-suite-v1-connecting-devices-linux.md",
       "redirect_url": "https://docs.microsoft.com/previous-versions/azure/iot-suite/iot-suite-v1-connecting-devices-linux",
       "redirect_document_id": false
