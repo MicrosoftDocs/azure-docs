@@ -51,7 +51,7 @@ Premium performance storage is ideal for workloads that require fast and consist
 
 Standard performance supports different [access tiers](storage-blob-storage-tiers.md) to store data in the most cost-effective manner. It's optimized for high capacity and high throughput on large data sets.
 
--**Backup and disaster recovery datasets**. Standard performance storage offers cost-efficient tiers making it a perfect use case for both short/long-term disaster recovery datasets, secondary backups, and compliance data archiving.
+-**Backup and disaster recovery datasets**. Standard performance storage offers cost-efficient tiers making it a perfect use case for both short and long-term disaster recovery datasets, secondary backups, and compliance data archiving.
 
 -**Media content**. Images and videos often are frequently accessed when they are first created and stored but their utilization decreases as these types of content get older. Standard performance storage offers suitable tiers for media content needs. 
 
