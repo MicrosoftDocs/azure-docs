@@ -126,7 +126,7 @@
   - name: Dedicated hosts
     href: dedicated-hosts.md
   - name: Maintenance and updates
-    href: ../maintenance-and-updates.md
+    href: ../maintenance-and-updates.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Disk storage
     items:
     - name: Introduction to managed disks

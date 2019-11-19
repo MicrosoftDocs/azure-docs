@@ -1,14 +1,20 @@
 ---
- title: include file
- description: include file
- services: virtual-machines
- author: shants123
- ms.service: virtual-machines
- ms.topic: include
- ms.date: 11/19/2019
- ms.author: shants
- ms.custom: include file
+title: Maintenance notifications for Azure VMs | Microsoft Docs
+description: Overview of maintenance notifications for virtual machines running in Azure.
+services: virtual-machines
+documentationcenter: ''
+author: shants123
+editor: ''
+tags: azure-service-management,azure-resource-manager
+
+ms.service: virtual-machines
+ms.workload: infrastructure-services
+ms.topic: article
+ms.date: 11/19/2019
+ms.author: shants
 ---
+
+# Handling planned maintenance notifications
 
 Azure periodically performs updates to improve the reliability, performance, and security of the host infrastructure for virtual machines. Updates are changes like patching the hosting environment or upgrading and decommissioning hardware. A majority of these updates are completed without any impact to the hosted virtual machines. However, there are cases where updates do have an impact:
 
@@ -58,5 +64,7 @@ It is best to use self-service maintenance in the following cases:
 - You need to control the sequence of maintenance, for example, multi-tier application to guarantee safe recovery.
 - More than 30 minutes of VM recovery time is needed between two update domains (UDs). To control the time between update domains, you must trigger maintenance on your VMs one update domain (UD) at a time.
 
+## Next steps
 
+You can handle planned maintenance using the [Azure CLI](maintenance-notifications-cli.md), [Azure PowerShell](maintenance-notifications-powershell.md) or [portal](maintenance-notifications-portal.md).
 
