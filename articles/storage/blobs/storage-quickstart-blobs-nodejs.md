@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to use the Azure Blob storage cli
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 11/05/2019
+ms.date: 11/19/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
@@ -101,7 +101,7 @@ From the project directory:
     const uuidv1 = require('uuid/v1');
     
     async function main() {
-        console.log('Azure Blob storage v12 - Javascript quickstart sample');
+        console.log('Azure Blob storage v12 - JavaScript quickstart sample');
         // Quick start code goes here
     }
     
@@ -207,7 +207,7 @@ Add this code to the end of the `main` function:
 
 ```javascript
 // Create the BlobServiceClient object which will be used to create a container client
-const blobServiceClient = await new BlobServiceClient.fromConnectionString(CONNECT_STR);
+const blobServiceClient = await BlobServiceClient.fromConnectionString(CONNECT_STR);
 
 // Create a unique name for the container
 const containerName = 'quickstart' + uuidv1();
@@ -219,7 +219,8 @@ console.log('\t', containerName);
 const containerClient = await blobServiceClient.getContainerClient(containerName);
 
 // Create the container
-await containerClient.create();
+const createContainerResponse = await containerClient.create();
+console.log("Container was created successfully. requestId: ", createContainerResponse.requestId);
 ```
 
 ### Upload blobs to a container
@@ -239,11 +240,12 @@ const blobName = 'quickstart' + uuidv1() + '.txt';
 // Get a block blob client
 const blockBlobClient = containerClient.getBlockBlobClient(blobName);
 
-console.log('\nUploading to Azure Storage as blob:\n\t', blobName);
+console.log('\nUploading to Azure storage as blob:\n\t', blobName);
 
 // Upload data to the blob
 const data = 'Hello, World!';
-await blockBlobClient.upload(data, data.length);
+const uploadBlobResponse = await blockBlobClient.upload(data, data.length);
+console.log("Blob was uploaded successfully. requestId: ", uploadBlobResponse.requestId);
 ```
 
 ### List the blobs in a container
@@ -304,7 +306,8 @@ Add this code to the end of the `main` function:
 console.log('\nDeleting container...');
 
 // Delete container
-await containerClient.delete();
+const deleteContainerResponse = await containerClient.delete();
+console.log("Container was deleted successfully. requestId: ", deleteContainerResponse.requestId);
 ```
 
 ## Run the code
