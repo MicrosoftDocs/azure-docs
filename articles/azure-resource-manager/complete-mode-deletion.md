@@ -2,7 +2,7 @@
 title: Complete mode deletion
 description: Shows how resource types handle complete mode deletion in Azure Resource Manager templates.
 ms.topic: conceptual
-ms.date: 10/27/2019
+ms.date: 11/19/2019
 ---
 
 # Deletion of Azure resources for complete mode deployments
@@ -12,8 +12,6 @@ This article describes how resource types handle deletion when not in a template
 The resource types marked with **Yes** are deleted when the type isn't in the template deployed with complete mode.
 
 The resource types marked with **No** aren't automatically deleted when not in the template; however, they're deleted if the parent resource is deleted. For a full description of the behavior, see [Azure Resource Manager deployment modes](deployment-modes.md).
-
-If you deploy to [more than one resource group in a template](resource-manager-cross-resource-group-deployment.md), resources in the resource group specified in the deployment operation are eligible to be deleted. Resources in the secondary resource groups aren't deleted.
 
 Jump to a resource provider namespace:
 > [!div class="op_single_selector"]
@@ -73,6 +71,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.DBforPostgreSQL](#microsoftdbforpostgresql)
 > - [Microsoft.DeploymentManager](#microsoftdeploymentmanager)
 > - [Microsoft.DesktopVirtualization](#microsoftdesktopvirtualization)
+> - [Microsoft.DetonationService](#microsoftdetonationservice)
 > - [Microsoft.Devices](#microsoftdevices)
 > - [Microsoft.DevOps](#microsoftdevops)
 > - [Microsoft.DevSpaces](#microsoftdevspaces)
@@ -116,6 +115,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.Migrate](#microsoftmigrate)
 > - [Microsoft.MixedReality](#microsoftmixedreality)
 > - [Microsoft.NetApp](#microsoftnetapp)
+> - [Microsoft.Nginx](#microsoftnginx)
 > - [Microsoft.Network](#microsoftnetwork)
 > - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
 > - [Microsoft.ObjectStore](#microsoftobjectstore)
@@ -162,6 +162,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.VMwareCloudSimple](#microsoftvmwarecloudsimple)
 > - [Microsoft.Web](#microsoftweb)
 > - [Microsoft.WindowsDefenderATP](#microsoftwindowsdefenderatp)
+> - [Microsoft.WindowsESU](#microsoftwindowsesu)
 > - [Microsoft.WindowsIoT](#microsoftwindowsiot)
 > - [Microsoft.WorkloadMonitor](#microsoftworkloadmonitor)
 
@@ -172,7 +173,6 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- |
 > | DomainServices | Yes |
 > | DomainServices/oucontainer | No |
-> | DomainServices/ReplicaSets | Yes |
 
 ## Microsoft.Addons
 
@@ -338,6 +338,7 @@ Jump to a resource provider namespace:
 > | registrations | Yes |
 > | registrations/customerSubscriptions | No |
 > | registrations/products | No |
+> | verificationKeys | No |
 
 ## Microsoft.Batch
 
@@ -385,6 +386,7 @@ Jump to a resource provider namespace:
 > | billingAccounts/billingRoleAssignments | No |
 > | billingAccounts/billingRoleDefinitions | No |
 > | billingAccounts/billingSubscriptions | No |
+> | billingAccounts/billingSubscriptions/invoices | No |
 > | billingAccounts/createBillingRoleAssignment | No |
 > | billingAccounts/createInvoiceSectionOperations | No |
 > | billingAccounts/customers | No |
@@ -637,8 +639,6 @@ Jump to a resource provider namespace:
 > | proximityPlacementGroups | Yes |
 > | restorePointCollections | Yes |
 > | restorePointCollections/restorePoints | No |
-> | sharedVMExtensions | Yes |
-> | sharedVMExtensions/versions | No |
 > | sharedVMImages | Yes |
 > | sharedVMImages/versions | No |
 > | snapshots | Yes |
@@ -710,6 +710,7 @@ Jump to a resource provider namespace:
 > | registries/runs/cancel | No |
 > | registries/scheduleRun | No |
 > | registries/scopeMaps | No |
+> | registries/taskRuns | Yes |
 > | registries/tasks | Yes |
 > | registries/tokens | No |
 > | registries/updatePolicies | No |
@@ -949,6 +950,13 @@ Jump to a resource provider namespace:
 > | hostpools/usersessions | No |
 > | workspaces | Yes |
 
+## Microsoft.DetonationService
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Complete mode deletion |
+> | ------------- | ----------- |
+> | detonationInstances | Yes |
+
 ## Microsoft.Devices
 
 > [!div class="mx-tableFixed"]
@@ -1086,7 +1094,6 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
-> | autoManagedVmConfigurationProfiles | Yes |
 > | configurationProfileAssignments | No |
 > | guestConfigurationAssignments | No |
 > | software | No |
@@ -1372,6 +1379,13 @@ Jump to a resource provider namespace:
 > | netAppAccounts/capacityPools/volumes/mountTargets | Yes |
 > | netAppAccounts/capacityPools/volumes/snapshots | Yes |
 > | netAppAccounts/vaults | No |
+
+## Microsoft.Nginx
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Complete mode deletion |
+> | ------------- | ----------- |
+> | frontends | Yes |
 ## Microsoft.Network
 
 > [!div class="mx-tableFixed"]
@@ -1389,18 +1403,18 @@ Jump to a resource provider namespace:
 > | ddosProtectionPlans | Yes |
 > | dnsOperationStatuses | No |
 > | dnszones | Yes |
-> | dnszones/A | No |
-> | dnszones/AAAA | No |
-> | dnszones/all | No |
-> | dnszones/CAA | No |
-> | dnszones/CNAME | No |
-> | dnszones/MX | No |
-> | dnszones/NS | No |
-> | dnszones/PTR | No |
-> | dnszones/recordsets | No |
-> | dnszones/SOA | No |
-> | dnszones/SRV | No |
-> | dnszones/TXT | No |
+> | dnszones / A | No |
+> | dnszones / AAAA | No |
+> | dnszones / all | No |
+> | dnszones / CAA | No |
+> | dnszones / CNAME | No |
+> | dnszones / MX | No |
+> | dnszones / NS | No |
+> | dnszones / PTR | No |
+> | dnszones / recordsets | No |
+> | dnszones / SOA | No |
+> | dnszones / SRV | No |
+> | dnszones / TXT | No |
 > | expressRouteCircuits | Yes |
 > | expressRouteCrossConnections | Yes |
 > | expressRouteGateways | Yes |
@@ -1420,22 +1434,22 @@ Jump to a resource provider namespace:
 > | networkProfiles | Yes |
 > | networkSecurityGroups | Yes |
 > | networkWatchers | Yes |
-> | networkWatchers/connectionMonitors | Yes |
-> | networkWatchers/lenses | Yes |
-> | networkWatchers/pingMeshes | Yes |
+> | networkWatchers / connectionMonitors | Yes |
+> | networkWatchers / lenses | Yes |
+> | networkWatchers / pingMeshes | Yes |
 > | p2sVpnGateways | Yes |
 > | privateDnsOperationStatuses | No |
 > | privateDnsZones | Yes |
-> | privateDnsZones/A | No |
-> | privateDnsZones/AAAA | No |
-> | privateDnsZones/all | No |
-> | privateDnsZones/CNAME | No |
-> | privateDnsZones/MX | No |
-> | privateDnsZones/PTR | No |
-> | privateDnsZones/SOA | No |
-> | privateDnsZones/SRV | No |
-> | privateDnsZones/TXT | No |
-> | privateDnsZones/virtualNetworkLinks | Yes |
+> | privateDnsZones / A | No |
+> | privateDnsZones / AAAA | No |
+> | privateDnsZones / all | No |
+> | privateDnsZones / CNAME | No |
+> | privateDnsZones / MX | No |
+> | privateDnsZones / PTR | No |
+> | privateDnsZones / SOA | No |
+> | privateDnsZones / SRV | No |
+> | privateDnsZones / TXT | No |
+> | privateDnsZones / virtualNetworkLinks | Yes |
 > | privateEndpoints | Yes |
 > | privateLinkServices | Yes |
 > | publicIPAddresses | Yes |
@@ -1445,7 +1459,7 @@ Jump to a resource provider namespace:
 > | serviceEndpointPolicies | Yes |
 > | trafficManagerGeographicHierarchies | No |
 > | trafficmanagerprofiles | Yes |
-> | trafficmanagerprofiles/heatMaps | No |
+> | trafficmanagerprofiles / heatMaps | No |
 > | trafficManagerUserMetricsKeys | No |
 > | virtualHubs | Yes |
 > | virtualNetworkGateways | Yes |
@@ -1664,6 +1678,7 @@ Jump to a resource provider namespace:
 > | applicationWhitelistings | No |
 > | assessmentMetadata | No |
 > | assessments | No |
+> | autoDismissAlertsRules | No |
 > | automations | Yes |
 > | AutoProvisioningSettings | No |
 > | Compliances | No |
@@ -1678,7 +1693,6 @@ Jump to a resource provider namespace:
 > | iotSecuritySolutions/analyticsModels/aggregatedRecommendations | No |
 > | jitNetworkAccessPolicies | No |
 > | networkData | No |
-> | playbookConfigurations | Yes |
 > | policies | No |
 > | pricings | No |
 > | regulatoryComplianceStandards | No |
@@ -1814,25 +1828,25 @@ Jump to a resource provider namespace:
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
 > | managedInstances | Yes |
-> | managedInstances/databases | Yes |
-> | managedInstances/databases/backupShortTermRetentionPolicies | No |
-> | managedInstances/databases/schemas/tables/columns/sensitivityLabels | No |
-> | managedInstances/databases/vulnerabilityAssessments | No |
-> | managedInstances/databases/vulnerabilityAssessments/rules/baselines | No |
-> | managedInstances/encryptionProtector | No |
-> | managedInstances/keys | No |
-> | managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | No |
-> | managedInstances/vulnerabilityAssessments | No |
+> | managedInstances / databases | Yes |
+> | managedInstances / databases / backupShortTermRetentionPolicies | No |
+> | managedInstances / databases / schemas / tables / columns / sensitivityLabels | No |
+> | managedInstances / databases / vulnerabilityAssessments | No |
+> | managedInstances / databases / vulnerabilityAssessments / rules / baselines | No |
+> | managedInstances / encryptionProtector | No |
+> | managedInstances / keys | No |
+> | managedInstances / restorableDroppedDatabases / backupShortTermRetentionPolicies | No |
+> | managedInstances / vulnerabilityAssessments | No |
 > | servers | Yes |
-> | servers/administrators | No |
-> | servers/communicationLinks | No |
-> | servers/databases | Yes |
-> | servers/encryptionProtector | No |
-> | servers/firewallRules | No |
-> | servers/keys | No |
-> | servers/restorableDroppedDatabases | No |
-> | servers/serviceobjectives | No |
-> | servers/tdeCertificates | No |
+> | servers / administrators | No |
+> | servers / communicationLinks | No |
+> | servers / databases | Yes |
+> | servers / encryptionProtector | No |
+> | servers / firewallRules | No |
+> | servers / keys | No |
+> | servers / restorableDroppedDatabases | No |
+> | servers / serviceobjectives | No |
+> | servers / tdeCertificates | No |
 > | virtualClusters | No |
 
 ## Microsoft.SqlVirtualMachine
@@ -2007,6 +2021,13 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- |
 > | diagnosticSettings | No |
 > | diagnosticSettingsCategories | No |
+
+## Microsoft.WindowsESU
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Complete mode deletion |
+> | ------------- | ----------- |
+> | multipleActivationKeys | Yes |
 
 ## Microsoft.WindowsIoT
 
