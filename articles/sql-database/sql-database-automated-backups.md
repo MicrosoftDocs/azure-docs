@@ -80,7 +80,9 @@ For single databases and managed instances, a minimum backup storage amount equa
 
 You can use Azure subscription cost analysis to determine your current spending on backup storage.
 
-If you go to your subscription and open Cost Analysis blade, you can select meter subcategory **mi pitr backup storage** to see your current backup cost cost and charge forecast. You can also include other meter subcategories such as **managed instance general purpose - storage** or **managed instance general purpose - storage** to compare backup storage cost with other cost categories.
+![Backup storage cost analysis](./media/sql-database-automated-backup/check-backup-storage-cost-sql-mi.png)
+
+If you go to your subscription and open Cost Analysis blade, you can select meter subcategory **mi pitr backup storage** to see your current backup cost and charge forecast. You can also include other meter subcategories such as **managed instance general purpose - storage** or **managed instance general purpose - storage** to compare backup storage cost with other cost categories.
 
 > [!Note]
 > You can [change retention period to 7 days](#change-pitr-backup-retention-period-using-azure-portal) to reduce the backup storage cost.
@@ -119,17 +121,19 @@ You can change the default PITR backup retention period using the Azure portal, 
 
 To change the PITR backup retention period using the Azure portal, navigate to the server object whose retention period you wish to change within the portal and then select the appropriate option based on which server object you're modifying.
 
-#### Single Azure SQL Database
+#### [Single database & Elastic pools](#tab/single-database)
 
 Change of PITR backup retention for single Azure SQL Databases is performed at the server level. Change made at the server level applies to databases on that server. To change PITR for Azure SQL Database server from Azure portal, navigate to the server overview blade, click on Manage Backups on the navigation menu, and then click on Configure retention at the navigation bar.
 
 ![Change PITR Azure portal](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
 
-#### Managed instance database
+#### [Managed Instance](#tab/managed-instance)
 
 Change of PITR backup retention for SQL Database managed instance is performed at an individual database level. To change PITR backup retention for an instance database from Azure portal, navigate to the individual database overview blade, and then click on Configure backup retention at the navigation bar.
 
 ![Change PITR Azure portal](./media/sql-database-automated-backup/configure-backup-retention-sqlmi.png)
+
+---
 
 ### Change PITR backup retention period using PowerShell
 
