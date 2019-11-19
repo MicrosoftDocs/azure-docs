@@ -9,7 +9,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 09/05/2019
+ms.date: 11/19/2019
 ms.author: juliako
 ---
 
@@ -47,8 +47,7 @@ Depending on a type of your Video Indexer account, different feature sets are av
 
 This section describes the steps you need to take to start using the animated character detection model. 
 
-> [!NOTE]
-> Since in trial accounts Custom Vision integration is managed by Video Indexer, you can start creating and using an animated characters model and skip the following section ("Connect your Custom Vision account").
+Since in  the trial accounts the Custom Vision integration is managed by Video Indexer, you can start creating and using the animated characters model and skip the following section ("Connect your Custom Vision account").
 
 ### Connect your Custom Vision account (paid accounts only)
 
