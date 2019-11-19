@@ -68,7 +68,7 @@ To mount the problem VM, the Rescue VM must meet the following prerequisites:
 
 ## Step 2: Create the problem VM on the Rescue VM’s Hyper-V server
 
-1.  [Create a snapshot disk](troubleshoot-recovery-disks-portal-windows.md#take-a-snapshot-of-the-os-disk) for the OS disk of the VM that has problem, and then attach the snapshot disk to the recuse.
+1.  [Create a snapshot disk](troubleshoot-recovery-disks-portal-windows.md#take-a-snapshot-of-the-os-disk) for the OS disk of the VM that has problem, and then attach the snapshot disk to the recuse VM.
 
 2.  Remote desktop to the Rescue VM.
 
