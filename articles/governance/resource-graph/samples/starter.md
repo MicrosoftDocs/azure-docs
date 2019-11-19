@@ -1,11 +1,8 @@
 ---
 title: Starter query samples
 description: Use Azure Resource Graph to run some starter queries, including counting resources, ordering resources, or by a specific tag.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: quickstart
-ms.service: resource-graph
 ---
 # Starter Resource Graph queries
 
@@ -270,7 +267,10 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 ---
 
 > [!NOTE]
-> Be aware that while `=~` allows case insensitive matching, use of properties (such as **properties.storageProfile.osDisk.osType**) in the query require the case to be correct. If the property is the incorrect case, it can still return a value, but the grouping or summarization would be incorrect.
+> Be aware that while `=~` allows case insensitive matching, use of properties (such as
+> **properties.storageProfile.osDisk.osType**) in the query require the case to be correct. If the
+> property is the incorrect case, a null or incorrect value is returned and the grouping or
+> summarization would be incorrect.
 
 ## <a name="show-storage" />Show resources that contain storage
 
@@ -563,6 +563,6 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.network/networksecur
 
 ## Next steps
 
-- Learn more about the [query language](../concepts/query-language.md)
-- Learn to [explore resources](../concepts/explore-resources.md)
-- See samples of [Advanced queries](advanced.md)
+- Learn more about the [query language](../concepts/query-language.md).
+- Learn more about how to [explore resources](../concepts/explore-resources.md).
+- See samples of [Advanced queries](advanced.md).

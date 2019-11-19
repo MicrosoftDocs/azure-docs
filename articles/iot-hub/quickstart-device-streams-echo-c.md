@@ -1,5 +1,5 @@
 ---
-title: Communicate to a device app in C via Azure IoT Hub device streams (preview) | Microsoft Docs
+title: Communicate to device app in C with Azure IoT Hub device streams
 description: In this quickstart, you run a C device-side application that communicates with an IoT device via a device stream.
 author: robinsh
 ms.service: iot-hub
@@ -51,9 +51,10 @@ You need the following prerequisites:
 
 The preview of device streams is currently supported only for IoT hubs that are created in the following regions:
 
-* Central US
-
-* Central US EUAP
+  * Central US
+  * Central US EUAP
+  * North Europe
+  * Southeast Asia
 
 ## Prepare the development environment
 

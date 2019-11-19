@@ -1,5 +1,5 @@
 ---
-title: Azure Linux VM sizes - previous generations | Microsoft Docs
+title: Azure Linux VM sizes - previous generations 
 description: Lists the previous generations of sizes available for Linux virtual machines in Azure. Lists information about the number of vCPUs, data disks and NICs as well as storage throughput and network bandwidth for sizes in this series.
 services: virtual-machines-linux
 documentationcenter: ''

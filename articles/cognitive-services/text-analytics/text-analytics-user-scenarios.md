@@ -43,4 +43,4 @@ Monitor user product feedback on your product’s twitter or Facebook page. Use 
 ## Next steps
 
 * [What is the Text Analytics API?](overview.md)
-* [Send a request to the Text Analytics API using C#](quickstarts/csharp.md)
+* [Send a request to the Text Analytics API using the client library](quickstarts/text-analytics-sdk.md)

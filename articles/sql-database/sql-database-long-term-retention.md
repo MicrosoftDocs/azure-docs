@@ -1,5 +1,5 @@
 ---
-title: Store Azure SQL Database backups for up to 10 years | Microsoft Docs
+title: Store backups for up to 10 years 
 description: Learn how Azure SQL Database supports storing full database backups for up to 10 years.
 services: sql-database
 ms.service: sql-database

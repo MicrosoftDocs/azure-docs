@@ -9,10 +9,8 @@ tags: azure-resource-manager,azure-service-management
 
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-
 ms.topic: article
-ms.date: 10/31/2019
+ms.date: 11/18/2019
 ms.author: shants
 
 ---

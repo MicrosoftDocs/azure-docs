@@ -51,7 +51,7 @@ The following code sample illustrates how to use a Cosmos DB account endpoint an
 //NB > Keep these values in a safe and secure location. Together they provide Administrative access to your DocDB account.
 
 private static readonly string endpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
-private static readonly SecureString authorizationKey = ToSecureString(ConfigurationManager.AppSettings["AuthorizationKey"]);
+private static readonly string authorizationKey = ConfigurationManager.AppSettings["AuthorizationKey"];
 
 client = new DocumentClient(new Uri(endpointUrl), authorizationKey);
 

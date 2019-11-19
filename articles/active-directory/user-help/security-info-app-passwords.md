@@ -1,5 +1,5 @@
 ---
-title: Set up app passwords from the Security info (preview) page - Azure Active Directory | Microsoft Docs
+title: Create app passwords in Security info (preview) - Azure AD
 description: Set up auto-generated passwords (app passwords) to use with any non-browser app, or any app that doesn't support two-factor verification, in your organization. This app password is separate from a normal password and can be set up from the Security info page.
 services: active-directory
 author: eross-msft
@@ -15,7 +15,7 @@ ms.author: lizross
 ms.collection: M365-identity-device-management
 ---
 
-# Manage app passwords from your Security info (preview) page
+# Create app passwords from your Security info (preview) page
 
 Certain apps, such as Outlook 2010, don't support two-step verification. This lack of support means that if you're using two-step verification in your organization, the app won't work. To get around this problem, you can create an auto-generated password to use with each non-browser app, separate from your normal password.
 

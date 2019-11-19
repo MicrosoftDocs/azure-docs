@@ -1,18 +1,13 @@
 ---
 title: Connect computers by using the Log Analytics gateway | Microsoft Docs
 description: Connect your devices and Operations Manager-monitored computers by using the Log Analytics gateway to send data to the Azure Automation and Log Analytics service when they do not have internet access.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ae9a1623-d2ba-41d3-bd97-36e65d3ca119
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service:  azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/12/2019
+author: MGoedtel
 ms.author: magoedte
+ms.date: 10/30/2019
+
 ---
 
 # Connect computers without internet access by using the Log Analytics gateway in Azure Monitor
@@ -23,18 +18,18 @@ ms.author: magoedte
 
 This article describes how to configure communication with Azure Automation and Azure Monitor by using the Log Analytics gateway when computers that are directly connected or that are monitored by Operations Manager have no internet access. 
 
-The Log Analytics gateway is an HTTP forward proxy that supports HTTP tunneling using the HTTP CONNECT command. This gateway sends data to Azure Automation and a Log Analytics workspace in Azure Monitor on behalf of the computers that cannot directly connect to the internet. It does not cache data from the agents, the agent handles caching data in this situation until communication is restored.
+The Log Analytics gateway is an HTTP forward proxy that supports HTTP tunneling using the HTTP CONNECT command. This gateway sends data to Azure Automation and a Log Analytics workspace in Azure Monitor on behalf of the computers that cannot directly connect to the internet. 
 
 The Log Analytics gateway supports:
 
-* Reporting up to the same four Log Analytics workspace agents that are behind it and that are configured with Azure Automation Hybrid Runbook Workers.  
+* Reporting up to the same Log Analytics workspaces configured on each agent behind it and that are configured with Azure Automation Hybrid Runbook Workers.  
 * Windows computers on which the Microsoft Monitoring Agent is directly connected to a Log Analytics workspace in Azure Monitor.
 * Linux computers on which a Log Analytics agent for Linux is directly connected to a Log Analytics workspace in Azure Monitor.  
 * System Center Operations Manager 2012 SP1 with UR7, Operations Manager 2012 R2 with UR3, or a management group in Operations Manager 2016 or later that is integrated with Log Analytics.  
 
 Some IT security policies don't allow internet connection for network computers. These unconnected computers could be point of sale (POS) devices or servers supporting IT services, for example. To connect these devices to Azure Automation or a Log Analytics workspace so you can manage and monitor them, configure them to communicate directly with the Log Analytics gateway. The Log Analytics gateway can receive configuration information and forward data on their behalf. If the computers are configured with the Log Analytics agent to directly connect to a Log Analytics workspace, the computers instead communicate with the Log Analytics gateway.  
 
-The Log Analytics gateway transfers data from the agents to the service directly. It doesn't analyze any of the data in transit.
+The Log Analytics gateway transfers data from the agents to the service directly. It doesn't analyze any of the data in transit and the gateway does not cache data when it loses connectivity with the service. When the gateway is unable to communicate with service, the agent continues to run and queues the collected data on the disk of the monitored computer. When the connection is restored, the agent sends the cached data collected to Azure Monitor.
 
 When an Operations Manager management group is integrated with Log Analytics, the management servers can be configured to connect to the Log Analytics gateway to receive configuration information and send collected data, depending on the solution you have enabled.  Operations Manager agents send some data to the management server. For example, agents might send Operations Manager alerts, configuration assessment data, instance space data, and capacity data. Other high-volume data, such as Internet Information Services (IIS) logs, performance data, and security events, is sent directly to the Log Analytics gateway. 
 
@@ -168,7 +163,7 @@ The following table highlights the parameters supported by setup.
 To silently install the gateway and configure it with a specific proxy address, port number, type the following:
 
 ```dos
-Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200” HASPROXY=1 LicenseAccepted=1 
+Msiexec.exe /I "oms gateway.msi" /qn PORTNUMBER=8080 PROXY="10.80.2.200" HASPROXY=1 LicenseAccepted=1 
 ```
 
 Using the /qn command-line option hides setup, /qb shows setup during silent install.  
@@ -176,7 +171,7 @@ Using the /qn command-line option hides setup, /qb shows setup during silent ins
 If you need to provide credentials to authenticate with the proxy, type the following:
 
 ```dos
-Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200” HASPROXY=1 HASAUTH=1 USERNAME=”<username>” PASSWORD=”<password>” LicenseAccepted=1 
+Msiexec.exe /I "oms gateway.msi" /qn PORTNUMBER=8080 PROXY="10.80.2.200" HASPROXY=1 HASAUTH=1 USERNAME="<username>" PASSWORD="<password>" LicenseAccepted=1 
 ```
 
 After installation, you can confirm the settings are accepted (exlcuding the username and password) using the following PowerShell cmdlets:
@@ -295,50 +290,11 @@ To configure specific servers or groups to use the Log Analytics gateway server:
 
 ### Configure for Automation Hybrid Runbook Workers
 
-If you have Automation Hybrid Runbook Workers in your environment, follow these steps for manual, temporary workarounds to configure OMS Gateway to support the workers.
+If you have Automation Hybrid Runbook Workers in your environment, follow these steps to configure the gateway to support the workers.
 
-To follow the steps in this section, you need to know the Azure region where the Automation account resides. To find that location:
+Refer to the [Configure your network](../../automation/automation-hybrid-runbook-worker.md#network-planning) section of the Automation documentation to find the URL for each region.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Select the Azure Automation service.
-1. Select the appropriate Azure Automation account.
-1. View its region under **Location**.
-
-   ![Screenshot of the Automation account location in the Azure portal](./media/gateway/location.png)
-
-Use the following tables to identify the URL for each location.
-
-**Job Runtime Data service URLs**
-
-| **Location** | **URL** |
-| --- | --- |
-| North Central US |ncus-jobruntimedata-prod-su1.azure-automation.net |
-| West Europe |we-jobruntimedata-prod-su1.azure-automation.net |
-| South Central US |scus-jobruntimedata-prod-su1.azure-automation.net |
-| East US 2 |eus2-jobruntimedata-prod-su1.azure-automation.net |
-| Central Canada |cc-jobruntimedata-prod-su1.azure-automation.net |
-| North Europe |ne-jobruntimedata-prod-su1.azure-automation.net |
-| South East Asia |sea-jobruntimedata-prod-su1.azure-automation.net |
-| Central India |cid-jobruntimedata-prod-su1.azure-automation.net |
-| Japan |jpe-jobruntimedata-prod-su1.azure-automation.net |
-| Australia |ase-jobruntimedata-prod-su1.azure-automation.net |
-
-**Agent service URLs**
-
-| **Location** | **URL** |
-| --- | --- |
-| North Central US |ncus-agentservice-prod-1.azure-automation.net |
-| West Europe |we-agentservice-prod-1.azure-automation.net |
-| South Central US |scus-agentservice-prod-1.azure-automation.net |
-| East US 2 |eus2-agentservice-prod-1.azure-automation.net |
-| Central Canada |cc-agentservice-prod-1.azure-automation.net |
-| North Europe |ne-agentservice-prod-1.azure-automation.net |
-| South East Asia |sea-agentservice-prod-1.azure-automation.net |
-| Central India |cid-agentservice-prod-1.azure-automation.net |
-| Japan |jpe-agentservice-prod-1.azure-automation.net |
-| Australia |ase-agentservice-prod-1.azure-automation.net |
-
-If your computer is registered as a Hybrid Runbook Worker automatically, use the Update Management solution to manage the patch. Follow these steps:
+If your computer is registered as a Hybrid Runbook Worker automatically, for example if the Update Management solution is enabled for one or more VMs, follow these steps:
 
 1. Add the Job Runtime Data service URLs to the Allowed Host list on the Log Analytics gateway. For example:
     `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`

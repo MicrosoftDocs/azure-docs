@@ -1,5 +1,5 @@
 ---
-title: Time sync for Windows VMs in Azure| Microsoft Docs
+title: Time sync for Windows VMs in Azure
 description: Time sync for Windows virtual machines.
 services: virtual-machines-windows
 documentationcenter: ''

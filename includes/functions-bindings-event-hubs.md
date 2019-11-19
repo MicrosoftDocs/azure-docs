@@ -638,7 +638,7 @@ def main(timer: func.TimerRequest) -> str:
 The following example shows a Java function that writes a message contianing the current time to an Event Hub.
 
 ```java
-@}FunctionName("sendTime")
+@FunctionName("sendTime")
 @EventHubOutput(name = "event", eventHubName = "samples-workitems", connection = "AzureEventHubConnection")
 public String sendTime(
    @TimerTrigger(name = "sendTimeTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo)  {

@@ -166,7 +166,7 @@ If the SQL Server IaaS Agent extension is installed, you should see it listed as
 If it is not installed or failed to be provisioned, you can install it with the following command. In addition to the VM name and resource group, you must also specify the region (**$region**) that your VM is located in.
 
 ```powershell
-$region = “EASTUS2”
+$region = "EASTUS2"
 Set-AzVMSqlServerExtension -VMName $vmname `
     -ResourceGroupName $resourcegroupname -Name "SQLIaasExtension" `
     -Version "1.2" -Location $region 
@@ -207,7 +207,7 @@ You can use PowerShell to enable Automated Backup as well as to modify its confi
 First, select, or create a storage account for the backup files. The following script selects a storage account or creates it if it does not exist.
 
 ```powershell
-$storage_accountname = “yourstorageaccount”
+$storage_accountname = "yourstorageaccount"
 $storage_resourcegroupname = $resourcegroupname
 
 $storage = Get-AzStorageAccount -ResourceGroupName $resourcegroupname `
@@ -272,8 +272,8 @@ The following script provides a set of variables that you can customize to enabl
 ```powershell
 $vmname = "yourvmname"
 $resourcegroupname = "vmresourcegroupname"
-$region = “Azure region name such as EASTUS2”
-$storage_accountname = “storageaccountname”
+$region = "Azure region name such as EASTUS2"
+$storage_accountname = "storageaccountname"
 $storage_resourcegroupname = $resourcegroupname
 $retentionperiod = 10
 $backupscheduletype = "Manual"

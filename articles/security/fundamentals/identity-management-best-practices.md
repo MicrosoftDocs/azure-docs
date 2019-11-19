@@ -4,7 +4,7 @@ description: This article provides a set of best practices for identity manageme
 services: security
 documentationcenter: na
 author: barclayn
-manager: barbkess
+manager: RKarlin
 editor: TomSh
 
 ms.assetid: 07d8e8a8-47e8-447c-9c06-3a88d2713bc1
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/03/2019
+ms.date: 10/28/2019
 ms.author: barclayn
 
 ---
 # Azure Identity Management and access control security best practices
+
 In this article, we discuss a collection of Azure identity management and access control security best practices. These best practices are derived from our experience with [Azure AD](../../active-directory/fundamentals/active-directory-whatis.md) and the experiences of customers like yourself.
 
 For each best practice, we explain:
@@ -29,7 +30,11 @@ For each best practice, we explain:
 * Possible alternatives to the best practice
 * How you can learn to enable the best practice
 
-This Azure identity management and access control security best practices article is based on a consensus opinion and Azure platform capabilities and feature sets, as they exist at the time this article was written. Opinions and technologies change over time and this article will be updated on a regular basis to reflect those changes.
+This Azure identity management and access control security best practices article is based on a consensus opinion and Azure platform capabilities and feature sets, as they exist at the time this article was written.
+
+The intention in writing this article is to provide a general roadmap to a more robust security posture after deployment guided by our “[5 steps to securing your identity infrastructure](steps-secure-identity.md)” checklist, which walks you through some of our core features and services.
+
+Opinions and technologies change over time and this article will be updated on a regular basis to reflect those changes.
 
 Azure identity management and access control security best practices discussed in this article include:
 
@@ -38,6 +43,7 @@ Azure identity management and access control security best practices discussed i
 * Manage connected tenants
 * Enable single sign-on
 * Turn on Conditional Access
+* Plan for routine security improvements
 * Enable password management
 * Enforce multi-factor verification for users
 * Use role-based access control
@@ -52,6 +58,9 @@ Many consider identity to be the primary perimeter for security. This is a shift
 [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) is the Azure solution for identity and access management. Azure AD is a multitenant, cloud-based directory and identity management service from Microsoft. It combines core directory services, application access management, and identity protection into a single solution.
 
 The following sections list best practices for identity and access security using Azure AD.
+
+**Best practice**: Center security controls and detections around user and service identities.
+**Detail**: Use Azure AD to collocate controls and identities.
 
 ## Centralize identity management
 
@@ -118,6 +127,15 @@ To balance security and productivity, you need to think about how a resource is 
 **Best practice**: Block legacy authentication protocols.
 **Detail**: Attackers exploit weaknesses in older protocols every day, particularly for password spray attacks. Configure Conditional Access to block legacy protocols. See the video [Azure AD: Do’s and Don’ts](https://www.youtube.com/watch?v=wGk0J4z90GI) for more information.
 
+## Plan for routine security improvements
+
+Security is always evolving, and it is important to build into your cloud and identity management framework a way to regularly show growth and discover new ways to secure your environment.
+
+Identity Secure Score is a set of recommended security controls that Microsoft publishes that works to provide you a numerical score to objectively measure your security posture and help plan future security improvements. You can also view your score in comparison to those in other industries as well as your own trends over time.
+
+**Best practice**: Plan routine security reviews and improvements based on best practices in your industry.
+**Detail**: Use the Identity Secure Score feature to rank your improvements over time.
+
 ## Enable password management
 
 If you have multiple tenants or you want to enable users to [reset their own passwords](../../active-directory/user-help/active-directory-passwords-update-your-own-password.md), it’s important that you use appropriate security policies to prevent abuse.
@@ -139,22 +157,31 @@ There are multiple options for requiring two-step verification. The best option 
 
 Following are options and benefits for enabling two-step verification:
 
-**Option 1**: [Enable Multi-Factor Authentication by changing user state](../../active-directory/authentication/howto-mfa-userstates.md).   
+**Option 1**: Enable MFA for all users and login methods with Azure AD Security Defaults
+**Benefit**: This option enables you to easily and quickly enforce MFA for all users in your environment with a stringent policy to:
+
+* Challenge administrative accounts and administrative logon mechanisms
+* Require MFA challenge via Microsoft Authenticator for all users
+* Restrict legacy authentication protocols.
+
+This method is available to all licensing tiers but is not able to be mixed with existing Conditional Access policies. You can find more information In Azure AD Security Defaults
+
+**Option 2**: [Enable Multi-Factor Authentication by changing user state](../../active-directory/authentication/howto-mfa-userstates.md).   
 **Benefit**: This is the traditional method for requiring two-step verification. It works with both [Azure Multi-Factor Authentication in the cloud and Azure Multi-Factor Authentication Server](/azure/active-directory/authentication/concept-mfa-whichversion). Using this method requires users to perform two-step verification every time they sign in and overrides Conditional Access policies.
 
 To determine where Multi-Factor Authentication needs to be enabled, see [Which version of Azure MFA is right for my organization?](/azure/active-directory/authentication/concept-mfa-whichversion).
 
-**Option 2**: [Enable Multi-Factor Authentication with Conditional Access policy](/azure/active-directory/authentication/howto-mfa-getstarted).
+**Option 3**: [Enable Multi-Factor Authentication with Conditional Access policy](/azure/active-directory/authentication/howto-mfa-getstarted).
 **Benefit**: This option allows you to prompt for two-step verification under specific conditions by using [Conditional Access](/azure/active-directory/active-directory-conditional-access-azure-portal). Specific conditions can be user sign-in from different locations, untrusted devices, or applications that you consider risky. Defining specific conditions where you require two-step verification enables you to avoid constant prompting for your users, which can be an unpleasant user experience.
 
 This is the most flexible way to enable two-step verification for your users. Enabling a Conditional Access policy works only for Azure Multi-Factor Authentication in the cloud and is a premium feature of Azure AD. You can find more information on this method in [Deploy cloud-based Azure Multi-Factor Authentication](/azure/active-directory/authentication/howto-mfa-getstarted).
 
-**Option 3**: Enable Multi-Factor Authentication with Conditional Access policies by evaluating user and sign-in risk of [Azure AD Identity Protection](/azure/active-directory/authentication/tutorial-risk-based-sspr-mfa).   
+**Option 4**: Enable Multi-Factor Authentication with Conditional Access policies by evaluating user and sign-in risk of [Azure AD Identity Protection](/azure/active-directory/authentication/tutorial-risk-based-sspr-mfa).   
 **Benefit**: This option enables you to:
 
-- Detect potential vulnerabilities that affect your organization’s identities.
-- Configure automated responses to detected suspicious actions that are related to your organization’s identities.
-- Investigate suspicious incidents and take appropriate action to resolve them.
+* Detect potential vulnerabilities that affect your organization’s identities.
+* Configure automated responses to detected suspicious actions that are related to your organization’s identities.
+* Investigate suspicious incidents and take appropriate action to resolve them.
 
 This method uses the Azure AD Identity Protection risk evaluation to determine if two-step verification is required based on user and sign-in risk for all cloud applications. This method requires Azure Active Directory P2 licensing. You can find more information on this method in [Azure Active Directory Identity Protection](/azure/active-directory/identity-protection/overview).
 
@@ -164,6 +191,7 @@ This method uses the Azure AD Identity Protection risk evaluation to determine i
 Organizations that don’t add extra layers of identity protection, such as two-step verification, are more susceptible for credential theft attack. A credential theft attack can lead to data compromise.
 
 ## Use role-based access control
+
 Access management for cloud resources is critical for any organization that uses the cloud. [Role-based access control (RBAC)](/azure/role-based-access-control/overview)helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to.
 
 Designating groups or individual roles responsible for specific functions in Azure helps avoid confusion that can lead to human and automation errors that create security risks. Restricting access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) security principles is imperative for organizations that want to enforce security policies for data access.
@@ -181,8 +209,8 @@ You can use [RBAC](/azure/role-based-access-control/overview) to assign permissi
 **Best practice**: Grant security teams with Azure responsibilities access to see Azure resources so they can assess and remediate risk.
 **Detail**: Grant security teams the RBAC [Security Reader](/azure/role-based-access-control/built-in-roles#security-reader) role. You can use the root management group or the segment management group, depending on the scope of responsibilities:
 
-- **Root management group** for teams  responsible for all enterprise resources
-- **Segment management group** for teams with limited scope (commonly because of regulatory or other organizational boundaries)
+* **Root management group** for teams  responsible for all enterprise resources
+* **Segment management group** for teams with limited scope (commonly because of regulatory or other organizational boundaries)
 
 **Best practice**: Grant the appropriate permissions to security teams that have direct operational responsibilities.
 **Detail**: Review the RBAC built-in roles for the appropriate role assignment. If the built-in roles don't meet the specific needs of your organization, you can create [custom roles for Azure resources](/azure/role-based-access-control/custom-roles). As with built-in roles, you can assign custom roles to users, groups, and service principals at subscription, resource group, and resource scopes.
@@ -214,18 +242,18 @@ The following summarizes the best practices found in [Securing privileged access
 **Best practice**: Identify and categorize accounts that are in highly privileged roles.   
 **Detail**: After turning on Azure AD Privileged Identity Management, view the users who are in the global administrator, privileged role administrator, and other highly privileged roles. Remove any accounts that are no longer needed in those roles, and categorize the remaining accounts that are assigned to admin roles:
 
-- Individually assigned to administrative users, and can be used for non-administrative purposes (for example, personal email)
-- Individually assigned to administrative users and designated for administrative purposes only
-- Shared across multiple users
-- For emergency access scenarios
-- For automated scripts
-- For external users
+* Individually assigned to administrative users, and can be used for non-administrative purposes (for example, personal email)
+* Individually assigned to administrative users and designated for administrative purposes only
+* Shared across multiple users
+* For emergency access scenarios
+* For automated scripts
+* For external users
 
 **Best practice**: Implement “just in time” (JIT) access to further lower the exposure time of privileges and increase your visibility into the use of privileged accounts.   
 **Detail**: Azure AD Privileged Identity Management lets you:
 
-- Limit users to only taking on their privileges JIT.
-- Assign roles for a shortened duration with confidence that the privileges are revoked automatically.
+* Limit users to only taking on their privileges JIT.
+* Assign roles for a shortened duration with confidence that the privileges are revoked automatically.
 
 **Best practice**: Define at least two emergency access accounts.   
 **Detail**: Emergency access accounts help organizations restrict privileged access in an existing Azure Active Directory environment. These accounts are highly privileged and are not assigned to specific individuals. Emergency access accounts are limited to scenarios where normal administrative accounts can’t be used. Organizations must limit the emergency account's usage to only the necessary amount of time.
