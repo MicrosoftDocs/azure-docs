@@ -383,7 +383,9 @@ module.exports = function (context, myQueueItem) {
 
 ---
 
-## Attributes
+## Attributes and annotations
+
+# [C#](#tab/csharp)
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) attribute.
 
@@ -400,6 +402,24 @@ public static CreateMessageOptions Run(
  ```
 
 For a complete example, see [C# example](#example).
+
+# [C# Script](#tab/csharp-script)
+
+**TODO**
+
+# [JavaScript](#tab/javascript)
+
+**TODO**
+
+# [Python](#tab/python)
+
+**TODO**
+
+# [Java](#tab/java)
+
+**TODO**
+
+---
 
 ## Configuration
 
