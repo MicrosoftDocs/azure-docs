@@ -34,8 +34,8 @@ The InnoDB Buffer Pool size is not configurable and tied to your [pricing tier](
 
 |**Pricing Tier**|**vCore(s)**|**InnoDB Buffer Pool size in MB <br>(servers supporting up to 4 TB storage)**| **InnoDB Buffer Pool size in MB <br>(servers supporting up to 16 TB storage)**|
 |:---|---:|---:|---:|
-|Basic| 1| 960| |50|
-|Basic| 2| 2560| |100|
+|Basic| 1| 960| 50|
+|Basic| 2| 2560| 100|
 |General Purpose| 2| 3584| 7168|
 |General Purpose| 4| 7680| 15360|
 |General Purpose| 8| 15360|30720|
