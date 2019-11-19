@@ -122,7 +122,7 @@ For more information on using Azure Dev Spaces and multi-service development wit
     The Dev Spaces CLI's `azds prep` command generates Docker and Kubernetes assets with default settings. These files persist for the lifetime of the project, and they can be customized:
 
     * `./Dockerfile` and `./Dockerfile.develop` describe the app's container image, and how the source code is built and runs within the container.
-    * A [Helm chart](https://helm.sh/docs/developing_charts/) under `./charts/webfrontend` describes how to deploy the container to Kubernetes.
+    * A [Helm chart](https://helm.sh/docs/topics/charts/) under `./charts/webfrontend` describes how to deploy the container to Kubernetes.
     * `./azds.yaml` is the Azure Dev Spaces configuration file.
 
     For more information, see [How Azure Dev Spaces works and is configured](https://docs.microsoft.com/azure/dev-spaces/how-dev-spaces-works).
