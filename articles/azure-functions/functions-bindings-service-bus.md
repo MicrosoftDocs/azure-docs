@@ -63,7 +63,7 @@ public static void Run(
 }
 ```
 
-### Trigger - C# script example
+# [C# Script](#tab/csharp-script)
 
 The following example shows a Service Bus trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function reads [message metadata](#trigger---message-metadata) and logs a Service Bus queue message.
 
@@ -282,14 +282,6 @@ The Service Bus account to use is determined in the following order:
 * The `ServiceBusAccount` attribute applied to the function.
 * The `ServiceBusAccount` attribute applied to the class.
 * The "AzureWebJobsServiceBus" app setting.
-
-# [C# Script](#tab/csharp-script)
-
-**TODO**
-
-# [C# Script](#tab/csharp-script)
-
-**TODO**
 
 # [JavaScript](#tab/javascript)
 
