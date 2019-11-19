@@ -1,13 +1,8 @@
 ---
 title: Log Analytics Data Model for Resource Specific Diagnostics Events
 description: This data model is in reference to the Resource Specific Mode of sending diagnostic events to Log Analytics (LA). 
-ms.reviewer: dcurwin
-author: adbalaji
-manager: sivan
-ms.service: backup
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.author: dacurwin
 ---
 # New Log Analytics Data Model for Azure Backup Data
 
@@ -16,7 +11,7 @@ ms.author: dacurwin
 > This data
 > model is in reference to the Resource Specific Mode of sending diagnostic
 > events to Log Analytics (LA). For the Azure Diagnostics – based data model, click
-> [here](https://docs.microsoft.com/en-us/azure/backup/backup-azure-log-analytics-data-model).
+> [here](https://docs.microsoft.com/azure/backup/backup-azure-log-analytics-data-model).
 
 ## CoreAzureBackup
 

@@ -43,11 +43,11 @@ To send your vault diagnostics data to LA:
 Once data flows into the LA Workspace, dedicated tables for each of these events are created in your workspace. You can query any of these tables directly and also perform joins or unions between these tables if necessary.
 
 > [!IMPORTANT]
-> The above six events, namely, CoreAzureBackup, AddonAzureBackupAlerts, AddonAzureBackupProtectedInstance, AddonAzureBackupJobs, AddonAzureBackupPolicy, and AddonAzureBackupStorage, are supported **only** in Resource Specific Mode. **Please note that if you try to send data for these 6 events in Azure Diagnostics Mode, no data will flow to the LA Workspace.**
+> The above six events, namely, CoreAzureBackup, AddonAzureBackupAlerts, AddonAzureBackupProtectedInstance, AddonAzureBackupJobs, AddonAzureBackupPolicy, and AddonAzureBackupStorage, are supported **only** in Resource Specific Mode. **Please note that if you try to send data for these six events in Azure Diagnostics Mode, no data will flow to the LA Workspace.**
 
 ## Legacy Event
 
-Traditionally, all backup-related diagnostics data for a vault has been contained in a single event called ‘AzureBackupReport’. The 6 events described above are, in essence, a decomposition of all the data contained in AzureBackupReport. 
+Traditionally, all backup-related diagnostics data for a vault has been contained in a single event called ‘AzureBackupReport’. The six events described above are, in essence, a decomposition of all the data contained in AzureBackupReport. 
 
 Currently, we continue to support the AzureBackupReport event for backward-compatibility, in cases where users have existing custom queries on this event, for example, custom log alerts, custom visualizations etc. However, we recommend choosing the new events for all new diagnostics settings on the vault since this makes the data much easier to work with in log queries, provides better discoverability of schemas and their structure, improves performance across both ingestion latency and query times. Support for using the Azure Diagnostics mode will eventually be phased out and hence choosing the new events may help you to avoid complex migrations at a later date.
 
