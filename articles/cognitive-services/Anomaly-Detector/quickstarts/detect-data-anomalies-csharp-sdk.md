@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 10/19/2019
+ms.date: 11/19/2019
 ms.author: aahi
 ---
 
@@ -134,22 +134,4 @@ Run the application with the dotnet `run` command from your application director
 dotnet run
 ```
 
-## Clean up resources
-
-If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with the resource group.
-
-* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
-
-## Next steps
-
-Concepts:
-
-* What is the [Anomaly Detector API?](../overview.md)
-* [Anomaly detection methods](../how-to/identify-anomalies)
-* [Best practices](../concepts/anomaly-detection-best-practices.md) when using the Anomaly Detector API.
-
-Tutorials:
-
-* [Streaming anomaly detection with Azure Databricks](../tutorials/anomaly-detection-streaming-databricks.md)
-* [Anomaly detection on streaming data using Azure Databricks](../tutorials/batch-anomaly-detection-powerbi.md)
+[!INCLUDE [anomaly-detector-next-steps](../includes/quickstart-cleanup-and-next-steps.md)]
