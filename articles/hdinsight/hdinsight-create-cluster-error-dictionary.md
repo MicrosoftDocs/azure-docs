@@ -84,7 +84,7 @@ Make sure that **VirtualNetworkId** and subnet are in the correct format. To obt
 ---
 >>>>>>> Stashed changes
 
-## Sceneario: CustomizationFailedErrorCode  
+## Scenario: CustomizationFailedErrorCode  
 
 ### Issue
 Cluster deployment failed due to an error in the custom script action. Failed Actions: ‘&lt;SCRIPT_NAME&gt;, Please go to Ambari UI to further debug the failure. 
