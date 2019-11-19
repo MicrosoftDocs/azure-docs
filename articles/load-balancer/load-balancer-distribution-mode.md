@@ -1,7 +1,7 @@
 ---
 title: Configure Azure Load Balancer distribution mode
 titlesuffix: Azure Load Balancer
-description: How to configure the distribution mode for Azure Load Balancer to support source IP affinity.
+description: In this article, get started configuring the distribution mode for Azure Load Balancer to support source IP affinity.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -11,7 +11,7 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 11/19/2019
 ms.author: allensu
 ---
 
@@ -27,7 +27,7 @@ The default distribution mode for Azure Load Balancer is a 5-tuple hash. The tup
 
 ## Source IP affinity mode
 
-Load Balancer can also be configured by using the source IP affinity distribution mode. This distribution mode is also known as session affinity or client IP affinity. The mode uses a 2-tuple (source IP and destination IP) or 3-tuple (source IP, destination IP, and protocol type) hash to map traffic to the available servers. By using source IP affinity, connections that are started from the same client computer go to the same DIP endpoint.
+The load balancer can also be configured by using the source IP affinity distribution mode. This distribution mode is also known as session affinity or client IP affinity. The mode uses a 2-tuple (source IP and destination IP) or 3-tuple (source IP, destination IP, and protocol type) hash to map traffic to the available servers. By using source IP affinity, connections that are started from the same client computer go to the same DIP endpoint.
 
 The following figure illustrates a 2-tuple configuration. Notice how the 2-tuple runs through the load balancer to virtual machine 1 (VM1). VM1 is then backed up by VM2 and VM3.
 
