@@ -27,7 +27,7 @@ This article shows how to set and manage immutability policies for Blob storage 
 
 3. To enable time-based retention, select **Time-based retention** from the drop-down menu.
 
-    !["Time-based retention" selected under "Policy type"](media/storage-blob-immutable-storage/portal-image-2.png)
+    !["Time-based retention" selected under "Policy type"](media/storage-blob-immutability-policies-manage/portal-image-2.png)
 
 4. Enter the retention interval in days (acceptable values are 1 to 146000 days).
 
