@@ -68,54 +68,46 @@ To mount the problem VM, the Rescue VM must meet the following prerequisites:
 
 ## Step 2: Create the problem VM on the Rescue VM’s Hyper-V server
 
-1.  Record the name of the disk in the problem VM, and then delete the problem VM. Make sure that you keep all attached disks. 
+1.  [Create a snapshot disk](troubleshoot-recovery-disks-portal-windows.md#take-a-snapshot-of-the-os-disk) for the OS disk of the VM that has problem, and then attach the snapshot disk to the recuse.
 
-2.  Attach the OS disk of your problem VM as a data disk of the Rescue VM.
+2.  Remote desktop to the Rescue VM.
 
-    1.  After the problem VM is deleted, go to the Rescue VM.
+3.  Open Disk Management (diskmgmt.msc). Make sure that the disk of the problem VM is set to **Offline**.
 
-    2.  Select **Disks**, and then **Add data disk**.
+4.  Open Hyper-V Manager: In **Server Manager**, select the **Hyper-V role**. Right-click the server, and then select the **Hyper-V Manager**.
 
-    3.  Select the problem VM’s disk, and then select **Save**.
+5.  In the Hyper-V Manager, right-click the Rescue VM, and then select **New** > **Virtual Machine** > **Next**.
 
-3.  After the disk has successfully attached, remote desktop to the Rescue VM.
+6.  Type a name for the VM, and then select **Next**.
 
-4.  Open Disk Management (diskmgmt.msc). Make sure that the disk of the problem VM is set to **Offline**.
+7.  Select **Generation 1**.
 
-5.  Open Hyper-V Manager: In **Server Manager**, select the **Hyper-V role**. Right-click the server, and then select the **Hyper-V Manager**.
+8.  Set the startup memory at 1024 MB or more.
 
-6.  In the Hyper-V Manager, right-click the Rescue VM, and then select **New** > **Virtual Machine** > **Next**.
+9. If applicable select the Hyper-V Network Switch that was created. Else move to the next page.
 
-7.  Type a name for the VM, and then select **Next**.
-
-8.  Select **Generation 1**.
-
-9.  Set the startup memory at 1024 MB or more.
-
-10. If applicable select the Hyper-V Network Switch that was created. Else move to the next page.
-
-11. Select **Attach a virtual hard disk later**.
+10. Select **Attach a virtual hard disk later**.
 
     ![the image about the Attach a Virtual Hard Disk Later option](media/troubleshoot-vm-by-use-nested-virtualization/attach-disk-later.png)
 
-12. Select **Finish** when the VM is created.
+11. Select **Finish** when the VM is created.
 
-13. Right-click the VM that you created, and then select **Settings**.
+12. Right-click the VM that you created, and then select **Settings**.
 
-14. Select **IDE Controller 0**, select **Hard Drive**, and then click **Add**.
+13. Select **IDE Controller 0**, select **Hard Drive**, and then click **Add**.
 
     ![the image about adds new hard drive](media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
 
-15. In **Physical Hard Disk**, select the disk of the problem VM that you attached to the Azure VM. If you do not see any disks listed, check if the disk is set to offline by using Disk management.
+14. In **Physical Hard Disk**, select the disk of the problem VM that you attached to the Azure VM. If you do not see any disks listed, check if the disk is set to offline by using Disk management.
 
     ![the image about mounts the disk](media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
 
 
-17. Select **Apply**, and then select **OK**.
+15. Select **Apply**, and then select **OK**.
 
-18. Double-click on the VM, and then start it.
+16. Double-click on the VM, and then start it.
 
-19. Now you can work on the VM as the on-premises VM. You could follow any troubleshooting steps you need.
+17. Now you can work on the VM as the on-premises VM. You could follow any troubleshooting steps you need.
 
 ## Step 3: Re-create your Azure VM in Azure
 
