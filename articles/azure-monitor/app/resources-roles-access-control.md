@@ -121,16 +121,16 @@ Since certain roles can be linked to notifications and e-mail alerts it can be h
 ### Query within the context of a specific Application Insights resource for owners and contributors
 
 ```powershell
-$resourceGroup = “RGNAME”
-$resourceName = “AppInsightsName”
-$resourceType = “microsoft.insights/components”
+$resourceGroup = "RGNAME"
+$resourceName = "AppInsightsName"
+$resourceType = "microsoft.insights/components"
 (Get-AzRoleAssignment -ResourceGroup $resourceGroup -ResourceType $resourceType -ResourceName $resourceName | Where-Object {$_.RoleDefinitionName -in @('Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
 ```
 
 ### Query within the context of a specific resource group for owners and contributors
 
 ```powershell
-$resourceGroup = “RGNAME”
+$resourceGroup = "RGNAME"
 (Get-AzRoleAssignment -ResourceGroup $resourceGroup | Where-Object {$_.RoleDefinitionName -in @('Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
 ```
 

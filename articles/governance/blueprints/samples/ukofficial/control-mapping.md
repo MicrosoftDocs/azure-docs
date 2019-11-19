@@ -1,12 +1,8 @@
 ---
 title: UK OFFICIAL & UK NHS blueprint samples - Control mapping
 description: Control mapping of the UK OFFICIAL and UK NHS blueprint samples. Each control is mapped to one or more Azure Policies that assist with assessment.
-services: blueprints
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
-ms.service: blueprints
 ---
 # Control mapping of the UK OFFICIAL and UK NHS blueprint samples
 
@@ -235,7 +231,7 @@ following articles to learn about the overview and how to deploy this sample:
 > [UK OFFICIAL and UK NHS blueprints - Overview](./index.md)
 > [UK OFFICIAL and UK NHS blueprints - Deploy steps](./deploy.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).

@@ -1,7 +1,7 @@
 ---
 title: Translator Text API Transliterate Method
 titleSuffix: Azure Cognitive Services
-description: Use the Translator Text API Transliterate method.
+description: Convert text in one language from one script to another script with the Translator Text API Transliterate method.
 services: cognitive-services
 author: swmachan
 manager: nitinme

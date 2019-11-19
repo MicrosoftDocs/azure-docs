@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 7/5/2019
+ms.date: 11/04/2019
 ms.author: dapine
 ---
 

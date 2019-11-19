@@ -9,6 +9,7 @@ ms.reviewer: barbkess
 
 ms.assetid: d72e4da0-0123-409b-96c2-e613f3f83fb1
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na

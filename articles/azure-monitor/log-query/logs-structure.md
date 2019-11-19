@@ -1,12 +1,13 @@
 ---
 title: Structure of Azure Monitor Logs | Microsoft Docs
 description: You require a log query to retrieve log data from Azure Monitor.  This article describes how new log queries are used in Azure Monitor and provides concepts that you need to understand before creating one.
-services: log-analytics
-author: bwren
-ms.service: log-analytics
+ms.service:  azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/22/2019
+author: bwren
 ms.author: bwren
+ms.date: 08/22/2019
+
 ---
 
 # Structure of Azure Monitor Logs
