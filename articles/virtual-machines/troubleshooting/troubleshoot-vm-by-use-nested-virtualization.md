@@ -109,13 +109,13 @@ To mount the problem VM, the Rescue VM must meet the following prerequisites:
 
 17. Now you can work on the VM as the on-premises VM. You could follow any troubleshooting steps you need.
 
-## Step 3: Re-create your Azure VM in Azure
+## Step 3: Replace the OS disk used by the problem VM
 
 1.  After you get the VM back online, shut down the VM in the Hyper-V manager.
 
 2.  [Unmount and detach the repaired OS disk](troubleshoot-recovery-disks-portal-windows.md#unmount-and-detach-original-virtual-hard-disk
-)
-3.  [Change the OS disk that is used by the VM to the repaired OS disk](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm
+).
+3.  [Replace the OS disk used by the VM with the repaired OS disk](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm
 ).
 
 ## Next steps
