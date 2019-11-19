@@ -1,6 +1,6 @@
 ---
-title: Run your first query using PowerShell
-description: This article walks you through the steps to enable the Resource Graph module for Azure PowerShell and run your first query.
+title: "Quickstart: Your first PowerShell query"
+description: In this quickstart, you follow the steps to enable the Resource Graph module for Azure PowerShell and run your first query.
 ms.date: 10/18/2019
 ms.topic: quickstart
 ---
