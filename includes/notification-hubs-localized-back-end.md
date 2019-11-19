@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: notification-hubs
- author: spelluru
+ author: sethmanheim
  ms.service: notification-hubs
  ms.topic: include
- ms.date: 04/02/2018
- ms.author: spelluru
+ ms.date: 11/07/2019
+ ms.author: sethm
  ms.custom: include file
 ---
 
