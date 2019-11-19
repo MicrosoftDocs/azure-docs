@@ -1,5 +1,5 @@
 ---
-title: Copy data with Dynamics CRM or Dynamics 365 (Common Data Service)
+title: Copy data in Dynamics (Common Data Service)
 description: Learn how to copy data from Microsoft Dynamics CRM or Microsoft Dynamics 365 (Common Data Service) to supported sink data stores, or from supported source data stores to Dynamics CRM or Dynamics 365, by using a copy activity in a data factory pipeline.
 services: data-factory
 documentationcenter: ''
