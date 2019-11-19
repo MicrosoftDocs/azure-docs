@@ -150,7 +150,7 @@ The SCIM RFC defines a core user and group schema, while also allowing for exten
    {
      "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User",
       "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
-      "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0"],
+      "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User"],
      "userName":"bjensen",
      "externalId":"bjensen",
      "name":{
@@ -170,7 +170,7 @@ The SCIM RFC defines a core user and group schema, while also allowing for exten
        "displayName": "John Smith"
      }
    },
-     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:CustomAttribute": {
+     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:CustomAttribute:User": {
      "employeeNuCustomAttribute": "701984",
    },
    "meta": {
