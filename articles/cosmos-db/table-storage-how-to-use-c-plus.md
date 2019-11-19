@@ -43,14 +43,12 @@ In this guide, you use storage features from a C++ application. To do so, instal
 
 To install the Azure Storage Client Library for C++, use the following methods:
 
-* Linux. Follow the instructions given in [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).  
-* Windows. In Visual Studio, select **Tools > NuGet Package Manager > Package Manager Console**. Run the following command in the **Package Management Console**:
-
-  ```powershell
-  Install-Package wastorage
-  ```
-
-For more information about **Package Management Console**, see [Install and manage packages with the Package Manager Console in Visual Studio](/nuget/tools/package-manager-console).
+* **Linux:** Follow the instructions given in the [Azure Storage Client Library for C++ README: Getting Started on Linux](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux) page.
+* **Windows:** This client library uses [vcpkg](https://github.com/microsoft/vcpkg) as its default dependency manager and release channel, so it is recommended to use it in Windows. Follow the [quick-start](https://github.com/microsoft/vcpkg#quick-start) to initialize vcpkg, and then simply call:
+```powershell
+.\vcpkg.exe install azure-storage-cpp
+```
+For more advanced usage, you can also find the guide of how to build via source code or export Nuget in [azure-storage-cpp's Readme.md](https://github.com/Azure/azure-storage-cpp#download--install).
 
 ### Configure access to the Table client library
 
