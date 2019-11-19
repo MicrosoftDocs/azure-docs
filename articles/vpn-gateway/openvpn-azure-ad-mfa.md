@@ -14,8 +14,8 @@ ms.author: alzam
 
 You can enable MFA for users in your Azure AD tenant so that users are prompted for a second factor authentication before access is granted.
 
-> [!Prerequisite]
-> You have configured an Azure AD tenant as described in the "Configure a tenant" document.
+> [!NOTE]
+> Prerequisite: You have configured an Azure AD tenant as described in the "Configure a tenant" document.
 >
 
 ### <a name="tenant"></a>1. Login to the Azure portal and navigate to **Azure Active Directory** , **All users** and click on **Multi-Factor Authentication**
