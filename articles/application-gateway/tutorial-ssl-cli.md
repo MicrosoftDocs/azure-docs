@@ -1,11 +1,11 @@
 ---
-title: Create an application gateway with SSL termination - Azure CLI
+title: SSL termination using CLI - Azure Application Gateway
 description: Learn how to create an application gateway and add a certificate for SSL termination using the Azure CLI.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 08/01/2019
+ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
 ---

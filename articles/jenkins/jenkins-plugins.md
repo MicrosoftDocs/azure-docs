@@ -1,11 +1,7 @@
 ---
 title: Jenkins plugins for Azure
 description: Learn about the Jenkins plugin available for use with Azure
-ms.service: jenkins
 keywords: jenkins, plugis, azure, devops
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 03/22/2019
 ms.topic: article
 ---
