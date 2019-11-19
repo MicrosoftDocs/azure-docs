@@ -1620,8 +1620,6 @@ Jump to a resource provider namespace:
 > | resources | No | No |
 > | subscriptions | No | No |
 > | subscriptions / providers | No | No |
-> | subscriptions / resourceGroups | No | No |
-> | subscriptions / resourcegroups / resources | No | No |
 > | subscriptions / resources | No | No |
 > | subscriptions / tagnames | No | No |
 > | subscriptions / tagNames / tagValues | No | No |
