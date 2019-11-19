@@ -14,7 +14,7 @@ ms.date: 11/18/2019
 
 This article provides an overview of the options available to setup Azure Monitor for containers to monitor the performance of workloads that are deployed to Kubernetes environments and hosted on:
 
-- [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/)
+- [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/) (AKS)
 
 - AKS Engine on [Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908) or Kubernetes deployed on-premises.
 
@@ -22,8 +22,9 @@ This article provides an overview of the options available to setup Azure Monito
 
 Azure Monitor for containers can be enabled for new, or one or more existing deployments of Kubernetes using the following supported methods:
 
-* From the Azure portal, Azure PowerShell, or with Azure CLI
-* Using [Terraform and AKS](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md)
+- From the Azure portal, Azure PowerShell, or with Azure CLI
+
+- Using [Terraform and AKS](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -31,15 +32,15 @@ Azure Monitor for containers can be enabled for new, or one or more existing dep
 
 Before you start, make sure that you have the following:
 
-* **A Log Analytics workspace.**
+- **A Log Analytics workspace.**
 
     Azure Monitor for containers supports a Log Analytics workspace in the regions listed in Azure [Products by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor).
 
     You can create a workspace when you enable monitoring of your new AKS cluster or let the onboarding experience create a default workspace in the default resource group of the AKS cluster subscription. If you chose to create it yourself, you can create it through [Azure Resource Manager](../platform/template-workspace-configuration.md), through [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../learn/quick-create-workspace.md). For a list of the supported mapping pairs used for the default workspace, see [Region mapping for Azure Monitor for containers](container-insights-region-mapping.md).
 
-* You are a member of the **Log Analytics contributor role** to enable container monitoring. For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../platform/manage-access.md).
+- You are a member of the **Log Analytics contributor role** to enable container monitoring. For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../platform/manage-access.md).
 
-* You are a member of the **[Owner](../../role-based-access-control/built-in-roles.md#owner)** role on the AKS cluster resource.
+- You are a member of the **[Owner](../../role-based-access-control/built-in-roles.md#owner)** role on the AKS cluster resource.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
@@ -118,4 +119,4 @@ You enable Azure Monitor for containers by using one of the following methods de
 
 ## Next steps
 
-* With monitoring enabled to capture health metrics for both the AKS cluster nodes and pods, these health metrics are available in the Azure portal. To learn how to use Azure Monitor for containers, see [View Azure Kubernetes Service health](container-insights-analyze.md).
+- With monitoring enabled, you can begin analyzing the performance of your Kubernetes clusters hosted on Azure Kubernetes Service (AKS), Azure Stack, or other environment. To learn how to use Azure Monitor for containers, see [View Kubernetes cluster performance](container-insights-analyze.md).
