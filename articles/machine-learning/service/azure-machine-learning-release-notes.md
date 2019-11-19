@@ -61,6 +61,9 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-train-automl-runtime**
     + Moved Machine learning and training code in AzureML-Train-AutoML to a submodule AzureML-Train-AutoML-Runtime.
       + Added a thin client, AzureML-Train-AutoML-Client for submitting remote jobs without installing any machine learning packages.
+  + **azureml-contrib-train-rl**
+    + Added reinforcement learning support in SDK.
+    + Added AmlWindowsCompute support in RL SDK. 
 
  
 ## 2019-11-11
