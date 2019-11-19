@@ -54,11 +54,11 @@ git clone https://github.com/Azure/azure-iot-sdk-csharp-digital-twin
 
 This operation may take several minutes to complete.
 
-## Build the code
+## Run the device sample
 
 You use the device SDK to build the included sample code. The application you build simulates a device that connects to an IoT hub. The application sends telemetry and properties and receives commands.
 
-1. In a local terminal window, navigate to the **/azure-iot-sdk-csharp-digital-twin/digitaltwin/device/sample/EnvironmentalSensorSample** folder. 
+1. In a local terminal window, go to the folder of your cloned repository and navigate to the **/azure-iot-sdk-csharp-digital-twin/digitaltwin/device/sample/EnvironmentalSensorSample** folder. 
 
 1. Configure the _device connection string_:
 
@@ -66,13 +66,11 @@ You use the device SDK to build the included sample code. The application you bu
     set DIGITAL_TWIN_DEVICE_CONNECTION_STRING=<YourDeviceConnectionString>
     ```
 
-## Run the device sample
+1. Run a sample application in the SDK to simulate an IoT Plug and Play device that sends telemetry to your IoT hub. In the same terminal window, to build the necessary packages and run the sample application, use the following command:
 
-Run a sample application in the SDK to simulate an IoT Plug and Play device that sends telemetry to your IoT hub. In the same terminal window, to build the necessary packages and run the sample application, use the following command:
-
-```cmd\sh
-    dotnet run
-```
+    ```cmd\sh
+        dotnet run
+    ```
 
 You see messages saying that the device has successfully registered and is waiting for updates from the cloud. This indicates that the device is now ready to receive commands and property updates, and has begun sending telemetry data to the hub. Keep the sample running as you complete the next steps.
 

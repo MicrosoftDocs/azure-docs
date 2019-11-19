@@ -38,7 +38,7 @@ Run the following command to get the _IoT hub connection string_ for your hub (n
 az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 ```
 
-## Connect your device
+## Run the sample device
 
 In this quickstart, you use a sample environmental sensor that's written in C# as the IoT Plug and Play device. The following instructions show you how to install and run the device:
 
@@ -48,7 +48,7 @@ In this quickstart, you use a sample environmental sensor that's written in C# a
     git clone https://github.com/Azure/azure-iot-sdk-csharp-digital-twin
     ```
 
-1. This terminal window will now be used as your _device_ terminal. Go to your cloned repository and navigate to the **/azure-iot-sdk-csharp-digital-twin/digitaltwin/device/sample/EnvironmentalSensorSample** folder.
+1. This terminal window will now be used as your _device_ terminal. Go to the folder of your cloned repository, and navigate to the **/azure-iot-sdk-csharp-digital-twin/digitaltwin/device/sample/EnvironmentalSensorSample** folder.
 
 1. Configure the _device connection string_:
 
@@ -64,7 +64,7 @@ In this quickstart, you use a sample environmental sensor that's written in C# a
 
 1. You see messages saying that the device has successfully registered and is waiting for updates from the cloud. This indicates that the device is now ready to receive commands and property updates, and has begun sending telemetry data to the hub. Don't close this terminal, you'll need it later to confirm the service samples also worked.
 
-## Build the solution
+## Run the sample solution
 
 In this quickstart, you use a sample IoT solution in C# to interact with the sample device.
 

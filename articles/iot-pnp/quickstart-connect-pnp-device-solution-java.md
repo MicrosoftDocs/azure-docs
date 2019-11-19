@@ -10,9 +10,6 @@ services: iot-pnp
 ms.custom: mvc
 
 # As a solution developer, I want to connect to and interact with an IoT Plug and Play device that's connected to my solution. For example, to collect telemetry from the device or to control the behavior of the device.
-
-######################### INCOMPLETE ###########################
-# 102, 111-117    Need to confirm what the state info on EnvironmentalSensor looks like
 ---
 
 # Quickstart: Interact with an IoT Plug and Play Preview device that's connected to your solution (Java)
@@ -51,7 +48,7 @@ Run the following command to get the _IoT hub connection string_ for your hub (n
 az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 ```
 
-## Connect your device
+## Run the sample device
 
 In this quickstart, you use a sample environmental sensor that's written in Java as the IoT Plug and Play device. The following instructions show you how to install and run the device:
 
@@ -61,7 +58,7 @@ In this quickstart, you use a sample environmental sensor that's written in Java
     git clone https://github.com/Azure/azure-iot-sdk-java-digital-twin
     ```
 
-1. This terminal window will now be used as your _device_ terminal. Go to your cloned repository and navigate to the **/azure-iot-sdk-java-digital-twin/digital-twin** folder. Install the required libraries and build the simulated device application by running the following command:
+1. This terminal window will now be used as your _device_ terminal. Go to the folder of your cloned repository, and navigate to the **/azure-iot-sdk-java-digital-twin/digital-twin** folder. Install the required libraries and build the simulated device application by running the following command:
 
     ```cmd/sh
     mvn clean install -DskipTests
@@ -73,7 +70,7 @@ In this quickstart, you use a sample environmental sensor that's written in Java
     set DIGITAL_TWIN_DEVICE_CONNECTION_STRING=<YourDeviceConnectionString>
     ```
 
-1. Run the following commands to navigate to the device folder and run the sample:
+1. Run the following command to run the sample from the device folder.
 
     ```cmd/sh
     java -jar device-samples\target\environmental-sensor-sample-with-deps.jar
@@ -81,7 +78,7 @@ In this quickstart, you use a sample environmental sensor that's written in Java
 
 1. You see messages saying that the device is connected and waiting for service updates, followed by telemetry logs. This indicates that the device is now ready to receive commands and property updates, and has begun sending telemetry data to the hub. Keep the sample running as you complete the next steps. Don't close this terminal, you'll need it later to confirm the service samples also worked.
 
-## Build the solution
+## Run the sample solution
 
 In this quickstart, you use a sample IoT solution in Java to interact with the sample device.
 
@@ -102,7 +99,7 @@ In this quickstart, you use a sample IoT solution in Java to interact with the s
     State of environmental sensor was set to true
     ```
 
-1. Go to the _service_ terminal and use the following command to run the sample for reading device information:
+1. Go to the _service_ terminal and use the following command to run the service sample for reading device information:
 
     ```cmd/sh
     java -jar service-samples/get-digital-twin/target/get-digital-twin-with-deps.jar
@@ -125,7 +122,7 @@ In this quickstart, you use a sample IoT solution in Java to interact with the s
     set PROPERTY_VALUE=42
     ```
 
-1. Use the following command to run the sample for updating the property:
+1. Use the following command to run the service sample for updating the property:
 
     ```cmd/sh
     java -jar service-samples/update-digital-twin/target/update-digital-twin-with-deps.jar
@@ -192,7 +189,7 @@ In this quickstart, you use a sample IoT solution in Java to interact with the s
     set PAYLOAD=10
     ```
 
-1. Use the following command to run the sample for invoking the command:
+1. Use the following command to run the service sample for invoking the command:
 
     ```cmd/sh
     java -jar service-samples/invoke-digital-twin-command/target/invoke-digital-twin-command-with-deps.jar

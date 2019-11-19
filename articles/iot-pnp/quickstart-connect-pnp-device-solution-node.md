@@ -38,7 +38,7 @@ Run the following command to get the _IoT hub connection string_ for your hub (n
 az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 ```
 
-## Connect your device
+## Run the sample device
 
 In this quickstart, you use a sample environmental sensor that's written in Node.js as the IoT Plug and Play device. The following instructions show you how to install and run the device:
 
@@ -48,7 +48,7 @@ In this quickstart, you use a sample environmental sensor that's written in Node
     git clone https://github.com/azure-samples/azure-iot-samples-node
     ```
 
-1. This terminal window will now be used as your _device_ terminal. Go to your cloned repository and navigate to the **/azure-iot-samples-node/digital-twins/Quickstarts/Device** folder. Install all the dependencies by running the following command:
+1. This terminal window will now be used as your _device_ terminal. Go to the folder of your cloned repository, and navigate to the **/azure-iot-samples-node/digital-twins/Quickstarts/Device** folder. Install all the dependencies by running the following command:
 
     ```cmd/sh
     npm install
@@ -68,7 +68,7 @@ In this quickstart, you use a sample environmental sensor that's written in Node
 
 1. You see messages saying that the device has sent some information and reported itself online. This indicates that the device has begun sending telemetry data to the hub, and is now ready to receive commands and property updates. Don't close this terminal, you'll need it later to confirm the service samples also worked.
 
-## Build the solution
+## Run the sample solution
 
 In this quickstart, you use a sample IoT solution in Node.js to interact with the sample device.
 

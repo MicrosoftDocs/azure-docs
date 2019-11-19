@@ -54,11 +54,11 @@ git clone https://github.com/Azure/azure-iot-sdk-node --recursive -b digitaltwin
 
 This operation may take several minutes to complete.
 
-## Build the code
+## Install required libraries
 
 You use the device SDK to build the included sample code. The application you build simulates a device that connects to an IoT hub. The application sends telemetry and properties and receives commands.
 
-1. In a local terminal window, navigate to the **/azure-iot-sdk-node/digitaltwins/samples/device/javascript** folder. Then run the following command to install the required libraries:
+1. In a local terminal window, go to the folder of your cloned repository and navigate to the **/azure-iot-sdk-node/digitaltwins/samples/device/javascript** folder. Then run the following command to install the required libraries:
 
     ```cmd/sh
     npm install
@@ -69,7 +69,7 @@ You use the device SDK to build the included sample code. The application you bu
     set DEVICE_CONNECTION_STRING=<YourDeviceConnectionString>
     ```
 
-## Run the device sample
+## Run the sample device
 
 Run a sample application in the SDK to simulate an IoT Plug and Play device that sends telemetry to your IoT hub. To run the sample application, use the following command:
 
