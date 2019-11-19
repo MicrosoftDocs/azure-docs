@@ -1,14 +1,14 @@
 ---
-title: Azure SQL Database managed instance security using Azure AD server principals (logins) | Microsoft Docs
+title: Managed instance security with Azure AD server principals (logins)
 description: Learn about techniques and features to secure a managed instance in Azure SQL Database, and use Azure AD server principals (logins)
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.topic: tutorial
-author: VanMSFT
-ms.author: vanto
-ms.reviewer: carlrab
-ms.date: 02/20/2019
+author: GitHubMirek
+ms.author: mireks
+ms.reviewer: vanto
+ms.date: 11/06/2019
 ---
 # Tutorial: Managed instance security in Azure SQL Database using Azure AD server principals (logins)
 
@@ -63,7 +63,7 @@ See the following articles for examples of connecting to your managed instance:
 - [Quickstart: Configure Azure VM to connect to a managed instance](sql-database-managed-instance-configure-vm.md)
 - [Quickstart: Configure a point-to-site connection to a managed instance from on-premises](sql-database-managed-instance-configure-p2s.md)
 
-1. Log into your managed instance using a standard SQL Server account (non-azure AD) that is a `sysadmin`, using [SQL Server Management Studio](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance).
+1. Log into your managed instance using a standard SQL Server account (non-azure AD) that is a `sysadmin` or an Azure AD admin for MI, using [SQL Server Management Studio](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance).
 
 2. In **Object Explorer**, right-click the server and choose **New Query**.
 
@@ -116,7 +116,7 @@ To create other Azure AD server principals (logins), SQL Server roles or permiss
 
 To add the login to the `sysadmin` server role:
 
-1. Log into the managed instance again, or use the existing connection with the SQL Principal that is a `sysadmin`.
+1. Log into the managed instance again, or use the existing connection with the Azure AD admin or SQL Principal that is a `sysadmin`.
 
 1. In **Object Explorer**, right-click the server and choose **New Query**.
 

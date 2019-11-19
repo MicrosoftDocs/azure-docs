@@ -1,5 +1,5 @@
 ---
-title: Repeatable copy in Azure Data Factory| Microsoft Docs
+title: Repeatable copy in Azure Data Factory
 description: 'Learn how to avoid duplicates even though a slice that copies data is run more than once.'
 services: data-factory
 documentationcenter: ''

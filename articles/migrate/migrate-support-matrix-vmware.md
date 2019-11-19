@@ -1,12 +1,11 @@
 ---
-title: Azure Migrate support matrix for VMware assessment and migration
-description: Summarizes support settings and limitations for assessment and migration of VMware VMs to Azure using the Azure Migrate service.
-services: backup
+title: Support for VMware assessment and migration in Azure Migrate
+description: Learn about support for VMware VM assessment/migration in Azure Migrate. 
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ---
 
@@ -107,7 +106,7 @@ dc.services.visualstudio.com | Upload app logs used for internal monitoring.
 *.servicebus.windows.net | Communication between the appliance and the Azure Migrate service.
 *.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | Connect to Azure Migrate service URLs.
 *.blob.core.windows.net | Upload data to storage accounts.
-http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/download | Used for Azure Migrate appliance updates.
+https://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/download | Used for Azure Migrate appliance updates.
 
 ## Assessment-port requirements
 
@@ -210,7 +209,7 @@ dc.services.visualstudio.com | Upload app logs used for internal monitoring.
 *.servicebus.windows.net | Communication between the appliance and the Azure Migrate service.
 *.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | Connect to Azure Migrate service URLs.
 *.blob.core.windows.net | Upload data to storage accounts.
-http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/download | Used for Azure Migrate appliance updates.
+https://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/download | Used for Azure Migrate appliance updates.
 
 
 ## Agentless migration-port requirements

@@ -1,7 +1,7 @@
 ---
-title: Index CSV blobs with Azure Cognitive Search Blob indexer
+title: Search over CSV blobs 
 titleSuffix: Azure Cognitive Search
-description: Crawl CSV blobs in Azure Blob storage for full text search using an Azure Cognitive Search index. Indexers automate data ingestion for selected data sources like Azure Blob storage.
+description: Extract and import CSV from Azure Blob storage using the delimitedText parsing mode, currently in public preview.
 
 manager: nitinme
 author: mgottein 
@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ---
 
-# How to index CSV blobs using a Blob indexer in Azure Cognitive Search 
+# How to index CSV blobs using delimitedText parsing mode and Blob indexers in Azure Cognitive Search 
 
-> [!Note]
-> delimitedText parsing mode is in preview and not intended for production use. The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.
->
+> [!IMPORTANT] 
+> The delimitedText parsing mode is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is currently no portal or .NET SDK support.
 
 By default, [Azure Cognitive Search blob indexer](search-howto-indexing-azure-blob-storage.md) parses delimited text blobs as a single chunk of text. However, with blobs containing CSV data, you often want to treat each line in the blob as a separate document. For example, given the following delimited text, you might want to parse it into two documents, each containing "id", "datePublished", and "tags" fields: 
 
@@ -24,7 +24,7 @@ By default, [Azure Cognitive Search blob indexer](search-howto-indexing-azure-bl
     1, 2016-01-12, "azure-search,azure,cloud" 
     2, 2016-07-07, "cloud,mobile" 
 
-In this article, you will learn how to parse CSV blobs with an Azure Cognitive Search blob indexerby setting the `delimitedText` parsing mode. 
+In this article, you will learn how to parse CSV blobs with an Azure Cognitive Search blob indexer by setting the `delimitedText` parsing mode. 
 
 > [!NOTE]
 > Follow the indexer configuration recommendations in [One-to-many indexing](search-howto-index-one-to-many-blobs.md) to output multiple search documents from one Azure blob.

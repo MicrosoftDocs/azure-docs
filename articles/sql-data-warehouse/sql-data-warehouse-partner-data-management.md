@@ -1,6 +1,6 @@
 ---
-title: SQL Data Warehouse data management partners 
-description: Lists of third-party data management partners with solutions that support SQL Data Warehouse.
+title: Data management partners 
+description: Lists of third-party data management partners with solutions that support Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: mabasile-MSFT
 manager: craigg
@@ -10,6 +10,7 @@ ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: mabasile
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # SQL Data Warehouse data management partners

@@ -1,5 +1,5 @@
 ---
-title: Wrangling data flows in Azure Data Factory | Microsoft Docs
+title: Wrangling data flows in Azure Data Factory 
 description: An overview of wrangling data flows in Azure Data Factory
 author: djpmsft
 ms.author: daperlov

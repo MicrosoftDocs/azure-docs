@@ -40,12 +40,15 @@
       href: get-started-get-model-rest-apis.md
 - name: Tutorials
   items:
-  - name: Build app
+  - name: Build decomposable app
     items:
-    - name: Determine user intentions
-      href: luis-quickstart-intents-only.md
-    - name: Identify common user data with prebuilt models
-      href: luis-tutorial-prebuilt-intents-entities.md
+    - name: 1. Determine user intentions
+      href: tutorial-intents-only.md
+    - name: 2. Extract user data
+      href: tutorial-machine-learned-entity.md
+      displayName: n-depth, constraint, descriptor, phrase list, entity
+  - name: Build app
+    items: 
     - name: Get sentiment from user utterances
       href: luis-quickstart-intent-and-sentiment-analysis.md
     - name: Get well-formatted data with regular expressions
@@ -164,13 +167,16 @@
     items:
     - name: Add an intent
       href: luis-how-to-add-intents.md
-    - name: Add entity to utterance 
-      href: luis-how-to-add-example-utterances.md
-    - name: Add entity without utterance
+    - name: Add an entity to extract data
       href: luis-how-to-add-entities.md
       displayName: roles, import
     - name: Use prebuilt models
       href: howto-add-prebuilt-models.md
+    - name: Label entity in utterance
+      href: label-entity-example-utterance.md
+    - name: Add Descriptor
+      displayName: synonym, interchange, phrase list, descriptor
+      href: luis-how-to-add-features.md
     - name: With REST APIs
       items:
       - name: Build app programmatically using Node.js
@@ -188,9 +194,7 @@
     - name: Using the dashboard
       displayName: dashboard, analytics, charts, data, unclear predictions, incorrect predictions, imbalance, endpoint hits, status, evaluation, accuracy, active version, problematic intents, nearest rival, usage
       href: luis-how-to-use-dashboard.md
-    - name: Add Phrase list
-      displayName: synonym, interchange
-      href: luis-how-to-add-features.md
+
     - name: Review endpoint utterances
       displayName: active learning
       href: luis-how-to-review-endpoint-utterances.md
@@ -304,6 +308,8 @@
     displayName: Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web
   - name: Custom entity reference
     items: 
+    - name: Machine-learned entity
+      href: reference-entity-machine-learned-entity.md
     - name: Composite entity
       href: reference-entity-composite.md
     - name: List entity
@@ -314,6 +320,8 @@
       href: reference-entity-regular-expression.md
     - name: Simple entity
       href: reference-entity-simple.md
+  - name: Pattern syntax
+    href: reference-pattern-syntax.md
   - name: Sentiment 
     href: luis-reference-prebuilt-sentiment.md
   - name: Developer resources
@@ -332,8 +340,6 @@
     - name: V2 Authoring REST APIs
       href: https://go.microsoft.com/fwlink/?linkid=2092087
     - name: V2 Prediction REST APIs
-      href: https://go.microsoft.com/fwlink/?linkid=2092356
-    - name: Endpoint V3 REST API
       href: https://go.microsoft.com/fwlink/?linkid=2092356
     - name: HTTP codes
       displayName: 400, 401, 403, 409, 410, 414, 429
