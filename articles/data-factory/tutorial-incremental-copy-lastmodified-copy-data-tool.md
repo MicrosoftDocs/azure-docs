@@ -1,5 +1,5 @@
 ---
-title: Incrementally copy new and changed files based on LastModifiedDate by using the Copy Data tool 
+title: Data tool to copy new and updated files incrementally
 description: Create an Azure data factory and then use the Copy Data tool to incrementally load new files based on LastModifiedDate.
 services: data-factory
 documentationcenter: ''
@@ -12,9 +12,10 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 1/24/2019
-
 ---
+
 # Incrementally copy new and changed files based on LastModifiedDate by using the Copy Data tool
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]

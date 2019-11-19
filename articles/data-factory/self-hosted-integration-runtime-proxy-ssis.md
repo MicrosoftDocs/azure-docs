@@ -1,18 +1,18 @@
 ---
-title: Configure self-hosted integration runtime as a proxy for SSIS in Azure Data Factory 
+title: Configure self-hosted integration runtime as a proxy for SSIS
 description: Learn how to configure Self-Hosted Integration Runtime as a proxy for Azure-SSIS Integration Runtime. 
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-
 ms.topic: conceptual
-ms.date: 11/12/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
-manager: craigg
+manager: mflasko
+ms.custom: seo-lt-2019
+ms.date: 11/12/2019
 ---
 
 # Configure Self-Hosted IR as a proxy for Azure-SSIS IR in ADF

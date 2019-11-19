@@ -18,6 +18,7 @@ zone_pivot_groups: programming-languages-set-two
 Before you get started, make sure to:
 
 > [!div class="checklist"]
+>
 > * [Create an Azure Speech Resource](../../../../get-started.md)
 > * [Create a LUIS application and get an endpoint key](../../../../quickstarts/create-luis.md)
 > * [Setup your development environment](../../../../quickstarts/setup-platform.md)
@@ -34,7 +35,7 @@ Let's add some code that works as a skeleton for our project.
 
 ## Create a Speech configuration
 
-Before you can initialize a `IntentRecognizer` object, you need to create a configuration that uses your LUIS Endpoing key and region. Insert this code next.
+Before you can initialize an `IntentRecognizer` object, you need to create a configuration that uses your LUIS Endpoint key and region. Insert this code next.
 
 This sample constructs the `SpeechConfig` object using LUIS key and region. For a full list of available methods, see [SpeechConfig Class](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig).
 
@@ -43,9 +44,9 @@ This sample constructs the `SpeechConfig` object using LUIS key and region. For 
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=12)]
 
-## Initialize a IntentRecognizer
+## Initialize an IntentRecognizer
 
-Now, let's create a `IntentRecognizer`. Insert this code right below your Speech configuration.
+Now, let's create an `IntentRecognizer`. Insert this code right below your Speech configuration.
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=15)]
 
 ## Add a LanguageUnderstandingModel and Intents
@@ -55,7 +56,7 @@ You now need to associate a `LanguageUnderstandingModel` with the intent recogni
 
 ## Recognize an intent
 
-From the `IntentRecognizer` object, you're going to call the `recognize_once()` method. This method lets the Speech service know that you're sending a single phrase for recognition, and that once the phrase is identified to stop reconizing speech.
+From the `IntentRecognizer` object, you're going to call the `recognize_once()` method. This method lets the Speech service know that you're sending a single phrase for recognition, and that once the phrase is identified to stop recognizing speech.
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=35)]
 
 ## Display the recognition results (or errors)
@@ -67,7 +68,7 @@ Inside the using statement, below your call to `recognize_once()`, add this code
 
 ## Check your code
 
-At this point, your code should look like this:
+At this point, your code should look like this:  
 (We've added some comments to this version)
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=5-47)]
 
