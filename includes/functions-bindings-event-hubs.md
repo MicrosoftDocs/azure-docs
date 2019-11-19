@@ -380,7 +380,7 @@ The Event Hubs trigger provides several [metadata properties](../articles/azure-
 |`SequenceNumber`|`Int64`|The logical sequence number of the event.|
 |`SystemProperties`|`IDictionary<String,Object>`|The system properties, including the event data.|
 
-See [code examples](#trigger---example) that use these properties earlier in this article.
+See [code examples](#trigger) that use these properties earlier in this article.
 
 ## Trigger - host.json properties
 
