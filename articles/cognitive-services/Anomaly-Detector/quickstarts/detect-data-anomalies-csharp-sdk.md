@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 10/15/2019
+ms.date: 10/19/2019
 ms.author: aahi
 ---
 
@@ -22,6 +22,8 @@ Use the Anomaly Detector client library for .NET to:
 * Detect the anomaly status of the latest data point in your time series
 
 [Library reference documentation](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector?view=azure-dotnet-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.AnomalyDetector/) | [Code samples](https://github.com/Azure-Samples/anomalydetector)
+
+You can find the source code for this sample on [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs).
 
 ## Prerequisites
 
@@ -141,9 +143,13 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Next steps
 
-> [!div class="nextstepaction"]
->[Streaming anomaly detection with Azure Databricks](../tutorials/anomaly-detection-streaming-databricks.md)
+Concepts:
 
 * What is the [Anomaly Detector API?](../overview.md)
+* [Anomaly detection methods](../how-to/identify-anomalies)
 * [Best practices](../concepts/anomaly-detection-best-practices.md) when using the Anomaly Detector API.
-* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs).
+
+Tutorials:
+
+* [Streaming anomaly detection with Azure Databricks](../tutorials/anomaly-detection-streaming-databricks.md)
+* [Anomaly detection on streaming data using Azure Databricks](../tutorials/batch-anomaly-detection-powerbi.md)
