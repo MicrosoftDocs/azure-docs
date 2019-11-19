@@ -38,7 +38,7 @@ The InnoDB Buffer Pool size is not configurable and tied to your [pricing tier](
 |Basic| 2| 2560| 100|
 |General Purpose| 2| 3584| 7168|
 |General Purpose| 4| 7680| 15360|
-|General Purpose| 8| 15360|30720|
+|General Purpose| 8| 15360| 30720|
 |General Purpose| 16| 31232| 62464|
 |General Purpose| 32| 62976| 125952|
 |General Purpose| 64| 125952| 251904|
