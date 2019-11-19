@@ -16,9 +16,19 @@ ms.custom: seodec18, seo-javascript-october2019
 
 # Try the Speech service for free
 
-Using the Speech service is easy and affordable. There are two options available free of charge so you can discover what the service can do and decide whether it's right for your needs.
+Using the Speech service is easy and affordable. There are two options available free of charge so you can discover what the service can do and decide whether it's right for your needs:
 
-In this article, you'll use an Azure account to create a Speech resource. You can sign up for a free Microsoft Azure account—it comes with $200 in service credit that you can apply toward a paid Speech service subscription for up to 30 days. Speech service also offers a free, low-volume tier that's suitable for developing applications. You can keep this free subscription even after your free trial or service credit expires.
+- Get a free trial without providing any credit card info (you need to have an existing Azure account)
+- Create a new Azure account at no charge for a trial period (credit card information required)
+
+In this article, you'll choose one of these options that suits your needs best.
+
+> [!NOTE]
+> The Speech service has two service tiers: free and subscription, which have different limitations and benefits. When you sign up for a free Azure account it comes with $200 in service credit that you can apply toward a paid Speech service subscription, valid for up to 30 days.
+>
+> If you use the free, low-volume Speech service tier you can keep this free subscription even after your free trial or service credit expires.
+>
+> For more information, see [Cognitive Services pricing - Speech Services](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ## Try the Speech service without credit card info
 
@@ -39,13 +49,9 @@ You'll be presented with billing choices. Choose the free option and then read a
 
 ## Try the Speech service using a new Azure account
 
-You can use your existing Azure account and the free pricing tier (F0) to try most Speech service features. Alternatively, you can create a new Azure account free of charge.
-
-New Azure accounts receive a $200 service credit that is available for up to 30 days. You can use this credit to further explore the Speech service or to begin application development using the subscription tier (S0), which offers more options and less restrictions than the free tier. For more information, see [Cognitive Services pricing - Speech Services](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
-
 To sign up for a new Azure account, you will need a Microsoft account. If you do not have a Microsoft account, you can sign up for one free of charge at the [Microsoft account portal](https://account.microsoft.com/account). Select **Sign in with Microsoft** and then, when asked to sign in, select **Create a Microsoft account**. Follow the steps to create and verify your new Microsoft account.
 
-Once you have a Microsoft account, go to the [Azure sign-up page](https://azure.microsoft.com/free/ai/), select **Start free**, and create a new Azure account using a Microsoft account. 
+Once you have a Microsoft account, go to the [Azure sign-up page](https://azure.microsoft.com/free/ai/), select **Start free**, and create a new Azure account using a Microsoft account.
 
 ### Create a Speech resource in Azure
 
