@@ -448,10 +448,6 @@
       href: speech-devices-sdk-linux-quickstart.md
     - name: Android
       href: speech-devices-sdk-android-quickstart.md
-  - name: How-to
-    items:
-    - name: How to create a custom keyword
-      href: speech-devices-sdk-create-kws.md
   - name: Resources
     items:
     - name: Troubleshoot the Speech Devices SDK
