@@ -33,8 +33,7 @@ You must meet the following prerequisites before you use the Face API containers
 
 ## Request access to the private container registry
 
-> [!NOTE]
-> Thank you for your interest in Face containers. Unfortunately, the Face containers' team is no longer accepting requests for private container registry access. If you already have access, it will continue to function as it did previously. We encourage you to check back periodically for updates and apologize for any inconvenience.
+[!INCLUDE [Request access to private container registry](../../../includes/cognitive-services-containers-request-access.md)]
 
 ### The host computer
 
