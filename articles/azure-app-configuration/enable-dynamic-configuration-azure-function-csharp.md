@@ -3,7 +3,7 @@ title: Tutorial for using Azure App Configuration dynamic configuration in an Az
 description: In this tutorial, you learn how to dynamically update the configuration data for Azure Function apps
 services: azure-app-configuration
 documentationcenter: ''
-author: zhenlwa
+author: zhenlan
 manager: qingye
 editor: ''
 
@@ -20,7 +20,7 @@ ms.custom: azure-function
 ---
 # Tutorial: Use dynamic configuration in an Azure Function app
 
-The App Configuration .NET Standard configuraiton provider supports caching and refreshing configuration dynamically driven by application activity. This tutorial shows how you can implement dynamic configuration updates in your code. It builds on the Azure Function app introduced in the quickstarts. Before you continue, finish [Create an Azure function with Azure App Configuration](./quickstart-azure-function-csharp.md) first.
+The App Configuration .NET Standard configuration provider supports caching and refreshing configuration dynamically driven by application activity. This tutorial shows how you can implement dynamic configuration updates in your code. It builds on the Azure Function app introduced in the quickstarts. Before you continue, finish [Create an Azure function with Azure App Configuration](./quickstart-azure-function-csharp.md) first.
 
 In this tutorial, you learn how to:
 
@@ -44,7 +44,7 @@ In this tutorial, you learn how to:
     private static IConfigurationRefresher ConfigurationRefresher { set; get; }
     ```
 
-2. Update the constructor and use the `ConfigureRefresh` method to specify the setting to be refreshed from the App Configuration store. An instance of `IConfigurationRefresher` is retrieved using `GetRefresher` method. Optionally, we also update the configuration cache expiration time window to 1 minute from the default 30 seconds.
+2. Update the constructor and use the `ConfigureRefresh` method to specify the setting to be refreshed from the App Configuration store. An instance of `IConfigurationRefresher` is retrieved using `GetRefresher` method. Optionally, we also change the configuration cache expiration time window to 1 minute from the default 30 seconds.
 
     ```csharp
     static Function1()
@@ -63,7 +63,7 @@ In this tutorial, you learn how to:
     }
     ```
 
-3. Update the `Run` method and signal to refresh the configuration using the `Refresh` method at the beginning of the Function call. This will be no-op if the cache expiration time window is not reached. Remove the `await` operator if the configuration is preferred to be refreshed without blocking.
+3. Update the `Run` method and signal to refresh the configuration using the `Refresh` method at the beginning of the Function call. This will be no-op if the cache expiration time window isn't reached. Remove the `await` operator if you prefer the configuration to be refreshed without blocking.
 
     ```csharp
     public static async Task<IActionResult> Run(
@@ -126,7 +126,7 @@ The example code used in this tutorial can be downloaded from [App Configuration
 
 ## Next steps
 
-In this tutorial, you enabled your Azure Function app to dynamically refresh configuration settings from App Configuration. To learn how to use an Azure managed identity to streamline access to App Configuration, continue to the next tutorial.
+In this tutorial, you enabled your Azure Function app to dynamically refresh configuration settings from App Configuration. To learn how to use an Azure managed identity to streamline the access to App Configuration, continue to the next tutorial.
 
-[!div class="nextstepaction"]
-[Managed identity integration](./howto-integrate-azure-managed-service-identity.md)
+> [!div class="nextstepaction"]
+> [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)
