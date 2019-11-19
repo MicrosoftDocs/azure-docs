@@ -68,7 +68,7 @@ Redirection is currently only supported when SSL is enabled. For details on how 
 - php-mysql
 - Azure Database for MySQL server with SSL enabled
 
-1. Determine if you are running x64 or x86 version of PHP by running the following command
+1. Determine if you are running a x64 or x86 version of PHP by running the following command:
 
     ```cmd
     php -i | findstr "Thread"
@@ -84,9 +84,9 @@ Redirection is currently only supported when SSL is enabled. For details on how 
     php -i | find "extension_dir"s
     ```
 
-5. Copy the `php_mysqlnd_azure.dll` file into the directory from returned in step 4. 
+5. Copy the `php_mysqlnd_azure.dll` file into the directory returned in step 4. 
 
-6. Locate the PHP folder containing the `php.ini` file using the following command
+6. Locate the PHP folder containing the `php.ini` file using the following command:
 
     ```cmd
     php -i | find "Loaded Configuration File"
@@ -99,8 +99,7 @@ Redirection is currently only supported when SSL is enabled. For details on how 
     extension=mysqlnd_azure
     ```
     
-    Under the Module Settings section: 
-    
+    Under the Module Settings section:     
     ```cmd 
     [mysqlnd_azure]
     mysqlnd_azure.enabled=on
