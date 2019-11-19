@@ -28,11 +28,8 @@ The Script Action URL that is provided as part of the Create Cluster request is 
   - For a WASB URL, make sure that the script exists in the storage account that is given in request. Make sure that the storage key for this storage account is accurate. 
   - For an ADLS URL, make sure that the script exists in the storage account.
 
-<<<<<<< Updated upstream
-=======
 ---
 
->>>>>>> Stashed changes
 ## Scenario DeploymentDocument 'CsmDocument_2_0' failed the validation
 
 ### Issue
@@ -45,11 +42,8 @@ The Script Action URL that is provided as part of the Create Cluster request is 
 
 Make sure that the corresponding Azure Data Lake Store Gen 1 account is added to the cluster. The service principal that is used to access the Azure Data Lake Store Gen 1 account is also added to the cluster. 
 
-<<<<<<< Updated upstream
-=======
 ---
 
->>>>>>> Stashed changes
 ## Scenario: DeploymentDocument 'CsmDocument_2_0' failed the validation.  
 
 ### Issue 
@@ -61,13 +55,9 @@ The customer-specified VM sizes are not allowed for the role. This may be true b
 ### Resolution
 The error message lists the valid values for the VM size. Select one of these valid values, and retry the Create Cluster request. 
 
-<<<<<<< Updated upstream
-Scenario: InvalidVirtualNetworkId  
-=======
 ---
 
 ## Scenario: InvalidVirtualNetworkId  
->>>>>>> Stashed changes
 
 ### Issue 
 The VirtualNetworkId is not valid. VirtualNetworkId '&lt;USER_VIRTUALNETWORKID&gt;’ 
@@ -79,10 +69,7 @@ The **VirtualNetworkId** value that is specified during cluster creation is not 
 Make sure that **VirtualNetworkId** and subnet are in the correct format. To obtain the **VirtualnetworkId** value, go to the Azure portal, select your virtual network, and then select **Properties** on the menu. The **ResourceID** property is the **VirtualNetworkId** value. The following screenshot shows the **&lt;*virtual network*&gt; Properties** page in the Azure portal:
 ![Virtual network page. ](media/hdinsight-create-cluster-error-dictionary/hdinsight-create-cluster-error-dictionary-2.png)
 
-<<<<<<< Updated upstream
-=======
 ---
->>>>>>> Stashed changes
 
 ## Scenario: CustomizationFailedErrorCode  
 
@@ -96,10 +83,7 @@ The user’s custom script that was provided during the Create Cluster request i
 Because this is the user’s custom script, users should troubleshoot the issue and rerun the script if necessary. To troubleshoot the script failure, examine the logs in the /var/lib/ambari-agent/* folder. Or, open the Operations page in Ambari UI, and select the **run_customscriptionaction** operation to view the error details. The following screenshot shows an example of how the Ambari Operations page appears: 
 ![Ambari Operations page.](media/hdinsight-create-cluster-error-dictionary/hdinsight-create-cluster-error-dictionary-1.png)
 
-<<<<<<< Updated upstream
-=======
 ---
->>>>>>> Stashed changes
 
 ## Scenario: InvalidDocumentErrorCode  
 
@@ -112,10 +96,7 @@ The custom metastore is incompatible with the selected HDInsight cluster version
 ### Resolution
 Make sure to use only Metastore versions that are supported by each HDInsight cluster version. Notice that if a custom metastore is not specified, HDInsight internally creates a metastore. However, this metastore will automatically be deleted upon cluster deletion. 
 
-<<<<<<< Updated upstream
-=======
 ---
->>>>>>> Stashed changes
 
 ## Scenario: FailedToConnectWithClusterErrorCode  
 ### Issue
@@ -131,11 +112,8 @@ If you plan to use network security groups to control network traffic, take 
     - Create or modify the network security groups for the subnet that you plan to install HDInsight into. 
     - **Network security groups:** Allow **inbound** traffic on port **443** from the IP addresses. This makes sure that HDInsight management services can reach the cluster from outside the virtual network. 
 
-<<<<<<< Updated upstream
-=======
 ---
 
->>>>>>> Stashed changes
 ## Scenario: StoragePermissionsBlockedForMsi  
 
 ### Issue
@@ -148,11 +126,8 @@ The required permissions were not provided to **Manage identity.** **User-assign
 
 Open the Azure portal, go to your Storage account, look under **Access Control (IAM)**, and make sure that the Storage Blob Data Contributor or the Storage Blob Data Owner role has ""Assigned" access to the **User-assigned managed identity** for the subscription. For more information, see [Set up permissions for the managed identity on the Data Lake Storage Gen2 account](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Fhdinsight%2Fhdinsight-hadoop-use-data-lake-storage-gen2%23set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account&data=02%7C01%7CJasmine.Serano%40microsoft.com%7C395e78a6bca746f62d2208d757381e72%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637073770850434499&sdata=DhFi%2FiU9klKpGsPJ686dYngj4X9N88w1kTInlD%2FtmD4%3D&reserved=0). 
 
-<<<<<<< Updated upstream
-=======
 ---
 
->>>>>>> Stashed changes
 ## Scenario: InvalidNetworkSecurityGroupSecurityRules   
 
 ### Issue
