@@ -18,9 +18,7 @@ ms.author: diberry
 
 When you finish building, training, and testing your active LUIS app, make it available to your client application by publishing it to the endpoint. 
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
-
-<a name="publish-your-trained-app-to-an-http-endpoint"></a>
+[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 ## Publishing
 
