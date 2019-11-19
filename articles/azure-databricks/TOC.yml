@@ -573,10 +573,10 @@
       - name: Load Data
         href: /azure/databricks/spark/latest/spark-sql/language-manual/load-data
         maintainContext: true
-      - name: Merge Into  (Delta Lake on AzureDatabricks
+      - name: Merge Into  (Delta Lake on Azure Databricks
         href: /azure/databricks/spark/latest/spark-sql/language-manual/merge-into
         maintainContext: true
-      - name: Optimize  (Delta Lake on AzureDatabricks
+      - name: Optimize  (Delta Lake on Azure Databricks
         href: /azure/databricks/spark/latest/spark-sql/language-manual/optimize
         maintainContext: true
       - name: Refresh Table
@@ -714,9 +714,9 @@
       - name: Advanced MLlib example
         href: /azure/databricks/applications/machine-learning/mllib/advanced-mllib
         maintainContext: true
-    - name: Auto ML
+    - name: AutoML
       items:
-        - name: Auto ML overview
+        - name: AutoML overview
           href: /azure/databricks/applications/machine-learning/automl/index
           maintainContext: true
         - name: Hyperopt
@@ -920,7 +920,7 @@
       - name: Tumor/Normal pipeline
         href: /azure/databricks/applications/genomics/secondary/tumor-normal-pipeline
         maintainContext: true
-      - name: Variant annotation using Pipe Tansformer
+      - name: Variant annotation using Pipe Transformer
         href: /azure/databricks/applications/genomics/secondary/variant-annotation-pipe
         maintainContext: true
       - name: Variant annotation methods
@@ -1256,7 +1256,7 @@
       - name: Set executor log level
         href: /azure/databricks/kb/execution/set-executor-log-level
         maintainContext: true 
-      - name: Seralized task is too large
+      - name: Serialized task is too large
         href: /azure/databricks/kb/execution/spark-serialized-task-is-too-large
         maintainContext: true
     - name: Jobs
@@ -1367,7 +1367,7 @@
       - name: Notebook autosave fails due to file size limits
         href: /azure/databricks/kb/notebooks/notebook-autosave
         maintainContext: true 
-      - name: Can't run notebook after cancelling streaming cell
+      - name: Can't run notebook after canceling streaming cell
         href: /azure/databricks/kb/notebooks/streaming-notebook-stuck
         maintainContext: true 
       - name: Troubleshoot cancel command
@@ -1392,7 +1392,7 @@
       - name: Command fails after installing Bokeh
         href: /azure/databricks/kb/python/python-cmd-fails-tornado-version
         maintainContext: true 
-      - name: Command cancelled due to library conflict
+      - name: Command canceled due to library conflict
         href: /azure/databricks/kb/python/python-command-cancelled
         maintainContext: true 
       - name: Command fails with AttributeError
@@ -1609,6 +1609,12 @@
           items:
           - name: Supported runtime releases
             href: /azure/databricks/release-notes/runtime/supported
+            maintainContext: true
+          - name: Databricks Runtime 6.2
+            href: /azure/databricks/release-notes/runtime/6.2
+            maintainContext: true
+          - name: Databricks Runtime 6.2 ML
+            href: /azure/databricks/release-notes/runtime/6.2ml
             maintainContext: true
           - name: Databricks Runtime 6.1
             href: /azure/databricks/release-notes/runtime/6.1

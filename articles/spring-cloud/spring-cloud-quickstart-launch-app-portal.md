@@ -69,7 +69,7 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
 
 1. In the **Default repository** section, set **URI** to "https\://github.com/Azure-Samples/piggymetrics", set **LABEL** to "config", and select **Apply** to save your changes.
 
-    ![Screenshot of ASC portal](media/spring-cloud-tutorial-config-server/portal-config-server.png)
+    ![Screenshot of ASC portal](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
 ## Build and deploy microservice applications
 

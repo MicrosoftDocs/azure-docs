@@ -530,8 +530,8 @@
     topicHref: /azure/industry
     items:
       - name: Azure FarmBeats
-        tocHref: /azure/industry/agriculture
-        topicHref: /azure/industry/agriculture
+        tocHref: /azure/industry
+        topicHref: /azure/industry
 #  - name: Internet of Things
 #    tocHref: /azure/iot-fundamentals/
 #    topicHref: /azure/iot-fundamentals/
