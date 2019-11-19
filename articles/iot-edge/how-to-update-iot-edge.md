@@ -81,34 +81,25 @@ The IoT Edge service will pull the latest versions of the runtime images and aut
 
 ### Update a specific tag image
 
-If you use specific tags in your deployment (for example, mcr.microsoft.com/azureiotedge-hub:**1.0.7**) then all you need to do is update the tag in your deployment manifest and apply the changes to your device. 
+If you use specific tags in your deployment (for example, mcr.microsoft.com/azureiotedge-hub:**1.0.7**) then all you need to do is update the tag in your deployment manifest and apply the changes to your device.
 
-In the IoT Hub in the Azure portal, the runtime deployment images are declared in **Runtime Settings**.
+1. In the IoT Hub in the Azure portal, select your IoT Edge device, and select **Set Modules**.
 
-![Configure advanced edge runtime settings](./media/how-to-update-iot-edge/configure-runtime.png)
+1. In the **IoT Edge Modules** section, select **Runtime Settings**.
 
-In a JSON deployment manifest, update the module images in the **systemModules** section. 
+![Configure runtime settings](./media/how-to-update-iot-edge/configure-runtime.png)
 
-```json
-"systemModules": {
-  "edgeAgent": {
-    "type": "docker",
-    "settings": {
-      "image": "mcr.microsoft.com/azureiotedge-agent:1.0.7",
-      "createOptions": ""
-    }
-  },
-  "edgeHub": {
-    "type": "docker",
-    "status": "running",
-    "restartPolicy": "always",
-    "settings": {
-      "image": "mcr.microsoft.com/azureiotedge-hub:1.0.7",
-      "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}], \"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
-    }
-  }
-},
-```
+1. In **Runtime Settings**, update the **Image** value for **Edge Hub** with the desired version.
+
+![Update Edge Hub Image version](./media/how-to-update-iot-edge/runtime-settings-edgehub.png)
+
+1. Collapse the **Edge Hub** settings, and update the **Image** value for **Edge Agent**.
+
+![Update Edge Hub Agent version](./media/how-to-update-iot-edge/runtime-settings-edgeagent.png)
+
+1. Select **Save**.
+
+1. Select **Review + create**, review the deployment, and select **Create**.
 
 ## Update to a release candidate version
 
