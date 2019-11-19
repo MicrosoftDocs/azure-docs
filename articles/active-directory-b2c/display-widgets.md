@@ -17,9 +17,11 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-The **Display Widget** is a group of user interface elements that have special functionality and interact with the Azure Active Directory B2C (Azure AD B2C) back-end service. It allows the user to perform actions on the page that invoke [validation technical profiles](validation-technical-profile.md) at the back end. Display Widgets are displayed on the page and are referenced by a [self-asserted technical profile](self-asserted-technical-profile.md). Following example illustrates a self-asserted sign-up page with two display widget that validate the email address and the alternative (secondary) email address.
+The **Display Widget** is a group of user interface elements that have special functionality and interact with the Azure Active Directory B2C (Azure AD B2C) back-end service. It allows the user to perform actions on the page that invoke [validation technical profiles](validation-technical-profile.md) at the back end. Display Widgets are displayed on the page and are referenced by a [self-asserted technical profile](self-asserted-technical-profile.md).
 
-![Example rendered display widget](media/custom-email-verification/display-widget-email.png)
+The following image illustrates a self-asserted sign-up page with two display widgets that validate the email address and an alternative (secondary) email address.
+
+![Example rendered display widget](media/custom-email/display-widget-email.png)
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
