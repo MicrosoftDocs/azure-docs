@@ -57,7 +57,7 @@ Get the array index of the failing disk and set the **toBeDetached** flag for th
 PS D:> $vm.StorageProfile.DataDisks[0].ToBeDetached = $true 
 ```
 
-Alternately, you can also detach this disk using the command below, which will be helpful for users using API versions before 2019-03-01
+Alternately, you can also detach this disk using the command below, which will be helpful for users using API versions before March 01, 2019.
 
 ```azurepowershell-interactive
 PS D:> Remove-AzureRmVMDataDisk -VM $vm -Name "f94901ef-75ee-4477-9ad6-1c74da50e7ef" 
@@ -79,7 +79,7 @@ GET https://management.azure.com/subscriptions/11ceafd0-fa99-4f18-a6b7-ced6ad02e
 
 ### Step 2: Set the flag for failing disks to "true".
 
-Set the **toBeDetached** for failing disk to true in the payload returned in Step 1. Please Note: The API version specified for Get and Put calls needs to be 2019-03-01 or greater.
+Set the **toBeDetached** for failing disk to true in the payload returned in Step 1. Please Note: The API version specified for Get and Put calls needs to be `2019-03-01` or greater.
 
 **Sample Request Body**
 
@@ -139,7 +139,7 @@ Set the **toBeDetached** for failing disk to true in the payload returned in Ste
 }
 ```
 
-Alternately you can also remove the failing data disk from the above payload, which is helpful for users using API versions before 2019-03-01
+Alternately you can also remove the failing data disk from the above payload, which is helpful for users using API versions before March 01, 2019.
 
 ### Step 3: Update the virtual machine
 
