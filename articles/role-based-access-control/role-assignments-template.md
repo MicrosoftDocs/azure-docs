@@ -1,6 +1,6 @@
 ---
 title: Manage access to Azure resources using RBAC and Azure Resource Manager templates | Microsoft Docs
-description: Learn how to manage access to Azure resources for users, groups, and applications using role-based access control (RBAC) and Azure Resource Manager templates.
+description: Learn how to manage access to Azure resources for users, groups, and service principal using role-based access control (RBAC) and Azure Resource Manager templates.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/20/2019
+ms.date: 11/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -19,16 +19,50 @@ ms.reviewer: bagovind
 
 [Role-based access control (RBAC)](overview.md) is the way that you manage access to Azure resources. In addition to using Azure PowerShell or the Azure CLI, you can manage access to Azure resources using [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md). Templates can be helpful if you need to deploy resources consistently and repeatedly. This article describes how you can manage access using RBAC and templates.
 
+## Get the security principal identifier
+
+When working with templates, you need to provide the unique security principal identifier of the user, group, or service principal (identity used by an application) you want to assign the role to. The identifier has the format: `11111111-1111-1111-1111-111111111111`. This section describes how to get the identifier.
+
+To get the identifier of a user, you can use the [Get-AzADUser](/powershell/module/az.resources/get-azaduser) or [az ad user show](/cli/azure/ad/user#az-ad-user-show) commands.
+
+```azurepowershell
+$prinid = (Get-AzADUser -DisplayName "{name}").id
+```
+
+```azurecli
+prinid=$(az ad user show --upn-or-object-id "{email}" --query objectId --output tsv)
+```
+
+To get the identifier of a group, you can use the [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup) or [az ad group show](/cli/azure/ad/grup#az-ad-group-show) commands.
+
+```azurepowershell
+$prinid = (Get-AzADGroup -DisplayName "{name}").id
+```
+
+```azurecli
+prinid=$(az ad group show --group "{name}" --query objectId --output tsv)
+```
+
+To get the identifier of a service principal, you can use the [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) or [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) commands. For a service principal, use the object ID and **not** the application ID.
+
+```azurepowershell
+$prinid = (Get-AzADServicePrincipal -DisplayName "{name}").id
+```
+
+```azurecli
+prinid=$(az ad sp list --display-name "{name}" --query [].objectId --output tsv)
+```
+
 ## Create a role assignment at a resource group scope (without parameters)
 
 In RBAC, to grant access, you create a role assignment. The following template shows a basic way to create a role assignment. Some values are specified within the template. The following template demonstrates:
 
--  How to assign the [Reader](built-in-roles.md#reader) role to a user, group, or application at a resource group scope
+-  How to assign the [Reader](built-in-roles.md#reader) role to a user, group, or service principal at a resource group scope
 
 To use the template, you must do the following:
 
 - Create a new JSON file and copy the template
-- Replace `<your-principal-id>` with the unique identifier of a user, group, or application to assign the role to. The identifier has the format: `11111111-1111-1111-1111-111111111111`
+- Replace `<your-principal-id>` with the identifier of a user, group, or service principal to assign the role to
 
 ```json
 {
@@ -66,13 +100,12 @@ The following shows an example of the Reader role assignment to a user for a res
 
 The previous template isn't very flexible. The following template uses parameters and can be used at different scopes. The following template demonstrates:
 
-- How to assign a role to a user, group, or application at either a resource group or subscription scope
+- How to assign a role to a user, group, or service principal at either a resource group or subscription scope
 - How to specify the Owner, Contributor, and Reader roles as a parameter
 
 To use the template, you must specify the following inputs:
 
-- The unique identifier of a user, group, or application to assign the role to
-- The role to assign
+- The identifier of a user, group, or service principal to assign the role to
 - A unique identifier that will be used for the role assignment, or you can use the default identifier
 
 ```json
@@ -124,34 +157,24 @@ To use the template, you must specify the following inputs:
 }
 ```
 
-To get the unique identifier of a user to assign the role to, you can use the [Get-AzADUser](/powershell/module/az.resources/get-azaduser) or [az ad user show](/cli/azure/ad/user#az-ad-user-show) commands.
-
-```azurepowershell
-$userid = (Get-AzADUser -DisplayName "{name}").id
-```
-
-```azurecli
-userid=$(az ad user show --upn-or-object-id "{email}" --query objectId --output tsv)
-```
-
 The scope of the role assignment is determined from the level of the deployment. Here are example [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) and [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) commands for how to start the deployment at a resource group scope.
 
 ```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json -principalId $userid -builtInRoleType Reader
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json -principalId $prinid -builtInRoleType Reader
 ```
 
 ```azurecli
-az group deployment create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$userid builtInRoleType=Reader
+az group deployment create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$prinid builtInRoleType=Reader
 ```
 
 Here are example [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) and [az deployment create](/cli/azure/deployment#az-deployment-create) commands for how to start the deployment at a subscription scope and specify the location.
 
 ```azurepowershell
-New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $userid -builtInRoleType Reader
+New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $prinid -builtInRoleType Reader
 ```
 
 ```azurecli
-az deployment create --location centralus --template-file rbac-test.json --parameters principalId=$userid builtInRoleType=Reader
+az deployment create --location centralus --template-file rbac-test.json --parameters principalId=$prinid builtInRoleType=Reader
 ```
 
 > [!NOTE]
@@ -171,13 +194,12 @@ For the type and name of the role assignment, use the following format:
 The following template demonstrates:
 
 - How to create a new storage account
-- How to assign a role to a user, group, or application at the storage account scope
+- How to assign a role to a user, group, or service principal at the storage account scope
 - How to specify the Owner, Contributor, and Reader roles as a parameter
 
 To use the template, you must specify the following inputs:
 
-- The unique identifier of a user, group, or application to assign the role to
-- The role to assign
+- The identifier of a user, group, or service principal to assign the role to
 
 ```json
 {
@@ -243,11 +265,11 @@ To use the template, you must specify the following inputs:
 To deploy the previous template, you use the resource group commands. Here are example [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) and [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) commands for how to start the deployment at a resource scope.
 
 ```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json -principalId $userid -builtInRoleType Contributor
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json -principalId $prinid -builtInRoleType Contributor
 ```
 
 ```azurecli
-az group deployment create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$userid builtInRoleType=Contributor
+az group deployment create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$prinid builtInRoleType=Contributor
 ```
 
 The following shows an example of the Contributor role assignment to a user for a storage account after deploying the template.
