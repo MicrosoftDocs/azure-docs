@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: peterclu
-author: peterlu
+ms.author: peterlu
+author: peterclu
 ms.date: 11/12/2019
 # As a data scientist, I want to understand the big picture about how the designer for Azure Machine Learning works.
 ---
