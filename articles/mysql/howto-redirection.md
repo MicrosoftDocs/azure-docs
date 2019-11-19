@@ -84,7 +84,7 @@ php -i | grep "extension_dir"
 php -i | grep "dir for additional .ini files"
 ```
 
-5. Within the folder returned in step 4, modify the .ini file with the following extra lines to enable redirection. 
+5. Within the folder returned in step 4, modify the `php.ini` file with the following extra lines to enable redirection. 
 
 ```cmd
 extension=mysqlnd_azure
