@@ -1,31 +1,22 @@
 ---
-title: Use the CLI to handle maintenance notifications for VMs in Azure | Microsoft Docs
+title: Get maintenance notifications for Azure VMs using the CLI
 description: View maintenance notifications for virtual machines running in Azure, and start self-service maintenance, using the Azure CLI.
 services: virtual-machines
-documentationcenter: ''
 author: shants123
-editor: ''
 tags: azure-service-management,azure-resource-manager
 
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 11/19/2019
 ms.author: shants
 ---
 
 # Handling planned maintenance notifications using the Azure CLI
 
-**This article applies to virtual machines running both Windows and Linux.**
+**This article applies to virtual machines running both Linux and Windows.**
 
-[!INCLUDE [virtual-machines-maintenance-notifications-common.md](../../includes/virtual-machines-maintenance-notifications-common.md)]
-
-You can also handle planned maintenance using the [Azure PowerShell](maintenance-notifications-powershell.md) or [portal](maintenance-notifications-portal.md).
-
-## Check maintenance status 
-
-You can also use the CLI to see when VMs are scheduled for maintenance. Planned maintenance information is available from [az vm get-instance-view](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-get-instance-view).
+You can use the CLI to see when VMs are scheduled for [maintenance](maintenance-notifications.md). Planned maintenance information is available from [az vm get-instance-view](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-get-instance-view).
  
 Maintenance information is returned only if there is maintenance planned. 
 
@@ -64,11 +55,6 @@ To start maintenance on your classic VM named *myVM* in the *myService* service 
 azure compute virtual-machine initiate-maintenance --service-name myService --name myDeployment --virtual-machine-name myVM
 ```
 
-
-[!INCLUDE [virtual-machines-maintenance-notifications-common-faq.md](../../includes/virtual-machines-maintenance-notifications-common-faq.md)]
-
-
-
 ## Next steps
 
-Learn how you can register for maintenance events from within the VM using [Scheduled Events](/linux/scheduled-events.md).
+You can also handle planned maintenance using the [Azure PowerShell](maintenance-notifications-powershell.md) or [portal](maintenance-notifications-portal.md).

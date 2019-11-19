@@ -1,31 +1,24 @@
 ---
-title: Use the portal to handle maintenance notifications for VMs in Azure | Microsoft Docs
+title: Use the portal for maintenance notifications for Azure VMs
 description: View maintenance notifications for virtual machines running in Azure, and start self-service maintenance, using the portal.
 services: virtual-machines
-documentationcenter: ''
 author: shants123
-editor: ''
 tags: azure-service-management,azure-resource-manager
 
 
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 11/19/2019
 ms.author: shants
 
 ---
 
 # Handling planned maintenance notifications using the portal
 
+**This article applies to virtual machines running both Linux and Windows.**
 
-[!INCLUDE [virtual-machines-maintenance-notifications-common.md](../../includes/virtual-machines-maintenance-notifications-common.md)]
-
-You can also handle planned maintenance using the [Azure CLI](maintenance-notifications-cli.md) or [PowerShell](maintenance-notifications-powershell.md).
-
-## View VMs scheduled for maintenance in the portal
-
-Once a planned maintenance wave is scheduled, you can observe the list of virtual machines that are impacted by the upcoming maintenance wave. 
+Once a [planned maintenance](maintenance-notifications.md) wave is scheduled, you can check for a list of virtual machines that are impacted. 
 
 You can use the Azure portal and look for VMs scheduled for maintenance.
 
@@ -75,9 +68,6 @@ Once you start maintenance, your virtual machine will be maintained and the main
 If you missed the self-service window, you will still be able to see the window when your VM will be maintained by Azure. 
 
 
-[!INCLUDE [virtual-machines-maintenance-notifications-common-faq.md](../../includes/virtual-machines-maintenance-notifications-common-faq.md)]
-
-
 ## Next steps
 
-Learn how you can register for maintenance events from within the VM using [Scheduled Events](/windows/scheduled-events.md).
+You can also handle planned maintenance using the [Azure CLI](maintenance-notifications-cli.md) or [PowerShell](maintenance-notifications-powershell.md).
