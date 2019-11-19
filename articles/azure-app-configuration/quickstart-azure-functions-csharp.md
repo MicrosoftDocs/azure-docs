@@ -16,11 +16,11 @@ ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
 
-#Customer intent: As an Azure function developer, I want to manage all my app settings in one place.
+#Customer intent: As an Azure Functions developer, I want to manage all my app settings in one place.
 ---
-# Quickstart: Create an Azure function with Azure App Configuration
+# Quickstart: Create an Azure Functions app with Azure App Configuration
 
-In this quickstart, you incorporate the Azure App Configuration service into an Azure function to centralize storage and management of all your application settings separate from your code.
+In this quickstart, you incorporate the Azure App Configuration service into an Azure Functions app to centralize storage and management of all your application settings separate from your code.
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ In this quickstart, you incorporate the Azure App Configuration service into an 
 
     Leave **Label** and **Content Type** empty for now.
 
-## Create a function app
+## Create a Functions app
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
@@ -58,7 +58,7 @@ In this quickstart, you incorporate the Azure App Configuration service into an 
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
-3. Add a `static` property `Configuration` to create a singleton instance of `IConfiguration`. Then add a `static` constructor to connect to App Configuration by calling `AddAzureAppConfiguration()`. This will load configuration once at the application startup. The same configuration instance will be used for all Function calls later.
+3. Add a `static` property `Configuration` to create a singleton instance of `IConfiguration`. Then add a `static` constructor to connect to App Configuration by calling `AddAzureAppConfiguration()`. This will load configuration once at the application startup. The same configuration instance will be used for all Functions calls later.
 
     ```csharp
     private static IConfiguration Configuration { set; get; }
@@ -117,7 +117,7 @@ In this quickstart, you incorporate the Azure App Configuration service into an 
 
 ## Next steps
 
-In this quickstart, you created a new App Configuration store and used it with an Azure function. To learn more about how to use App Configuration, continue to the next tutorial that demonstrates authentication.
+In this quickstart, you created a new App Configuration store and used it with an Azure Functions app via the [App Configuration provider](https://go.microsoft.com/fwlink/?linkid=2074664). To learn how to configure your Azure Functions app to dynamically refresh configuration settings, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)
+> [Enable dynamic configuration](./enable-dynamic-configuration-azure-functions-csharp.md)
