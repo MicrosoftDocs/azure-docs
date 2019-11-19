@@ -85,7 +85,7 @@ To target specific device groups to enable the credential provider, use the foll
 
 ### Enable with a provisioning package
 
-For devices not managed by Intune, a provisioning package can be installed to enable the functionality. The Windows Configuration Designer app can be installed from the [Microsoft Store](https://www.microsoft.com/store/apps/9nblggh4tx22).
+For devices not managed by Intune, a provisioning package can be installed to enable the functionality. The Windows Configuration Designer app can be installed from the [Microsoft Store](https://www.microsoft.com/en-us/p/windows-configuration-designer/9nblggh4tx22).
 
 1. Launch the Windows Configuration Designer.
 1. Select **File** > **New project**.

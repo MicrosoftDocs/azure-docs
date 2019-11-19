@@ -1,7 +1,7 @@
 ---
-title: 'Designer: Classify, predict flight delays' 
+title: 'Designer: Predict flight delay example' 
 titleSuffix: Azure Machine Learning
-description: This article shows you how to build a machine learning model to predict flight delays using the drag-and-drop designer and custom R code.
+description: Build a classifier and use custom R code to predict flight delays with Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,8 +11,10 @@ ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
 ---
+# Build a classifier & use R to predict flight delays with Azure Machine Learning designer
 
-# Sample 6 - Classification: Predict flight delays using R
+**Designer (preview) sample 6**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 This pipeline uses historical flight and weather data to predict if a scheduled passenger flight will be delayed by more than 15 minutes. This problem can be approached as a classification problem, predicting two classes: delayed, or on time.

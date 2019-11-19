@@ -8,7 +8,7 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 11/13/2019
 ms.author: jingwang
 
 ---
@@ -17,17 +17,10 @@ ms.author: jingwang
 
 *This article applies to the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), and [SFTP](connector-sftp.md).*
 
-If you want to **copy files as-is** between file-based stores (binary copy), skip the format section in both input and output dataset definitions. If you want to **parse or generate files with a specific format**, Azure Data Factory supports the following file format types:
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-* [Text format](#text-format)
-* [JSON format](#json-format)
-* [Parquet format](#parquet-format)
-* [ORC format](#orc-format)
-* [Avro format](#avro-format)
-* [Binary format](#binary-format)
-
-> [!TIP]
-> Learn how copy activity maps your source data to sink from [Schema mapping in copy activity](copy-activity-schema-and-type-mapping.md).
+>[!NOTE]
+>Data Factory introduced new format-based dataset model, see corresponding format article linked above with details. The following configurations on file-based data store dataset mentioned in this article is still supported as-is for backward compabitility. You are suggested to use the new model going forward. 
 
 ## Text format
 

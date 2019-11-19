@@ -15,6 +15,7 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
+ms.custom: fasttrack-edit
 
 ---
 
@@ -218,6 +219,12 @@ To use this API, you need the send key and relay resource ID. If you saved your 
 
     armclient login
     armclient put /subscriptions/ebcidic-asci-anna-nath-rak1111111/resourceGroups/myapp-rg/providers/Microsoft.Web/sites/myhcdemoapp/hybridConnectionNamespaces/demo-relay/relays/relay-demo-hc?api-version=2016-08-01 @hctest.json
+
+## Secure your Hybrid Connections ##
+
+An existing Hybrid Connection can be added to other App Service Web Apps by any user who has sufficient permissions on the underlying Azure Service Bus Relay. This means that if you must prevent others from reusing that same Hybrid Connection (for example when the target resource is a service that does not have any additional security measures in place to prevent unauthorized access), you must lock down access to the Azure Service Bus Relay.
+
+Anyone with `Reader` access to the Relay will be able to _see_ the Hybrid Connection when attempting to add it to their Web App in the Azure Portal, but they will not be able to _add_ it as they lack the permissions to retrieve the connection string which is used to establish the relay connection. In order to successfully add the Hybrid Connection, they must have the `listKeys` permission (`Microsoft.Relay/namespaces/hybridConnections/authorizationRules/listKeys/action`). The `Contributor` role or any other role which includes this permission on the Relay will allow users to use the Hybrid Connection and add it to their own Web Apps.
 
 ## Troubleshooting ##
 

@@ -1,9 +1,6 @@
 ---
 title: Tutorial - Create an Azure virtual machine scale set using Terraform
 description: Learn to use Terraform to configure and version an Azure virtual machine scale set.
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/07/2019
 ---

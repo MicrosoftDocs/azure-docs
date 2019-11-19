@@ -386,7 +386,7 @@ The portal now validates your template and deploys your cloned hub. If you have 
 
 Now that you have your clone up and running, you need to copy all of the devices from the original hub to the clone. 
 
-There are multiple ways to accomplish this. You either originally used [Device Provisioning Service (DPS)](/azure/iot-dps/about-iot-dps.md)to provision the devices, or you didn't. If you did, this is not difficult. If you did not, this can be very complicated. 
+There are multiple ways to accomplish this. You either originally used [Device Provisioning Service (DPS)](/azure/iot-dps/about-iot-dps)to provision the devices, or you didn't. If you did, this is not difficult. If you did not, this can be very complicated. 
 
 If you did not use DPS to provision your devices, you can skip the next section and start with [Using Import/Export to move the devices to the new hub](#using-import-export-to-move-the-devices-to-the-new-hub).
 

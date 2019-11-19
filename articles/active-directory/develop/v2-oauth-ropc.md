@@ -20,9 +20,12 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Microsoft identity platform and the OAuth 2.0 resource owner password credential
+# Microsoft identity platform and the OAuth 2.0 Resource Owner Password Credentials
 
-Microsoft identity platform supports the [resource owner password credential (ROPC) grant](https://tools.ietf.org/html/rfc6749#section-4.3), which allows an application to sign in the user by directly handling their password. The ROPC flow requires a high degree of trust and user exposure and you should only use this flow when other, more secure, flows can't be used.
+Microsoft identity platform supports the [OAuth 2.0 Resource Owner Password Credentials (ROPC) grant](https://tools.ietf.org/html/rfc6749#section-4.3), which allows an application to sign in the user by directly handling their password.
+
+> [!WARNING]
+> Microsoft recommends you do _not_ use the ROPC flow. In most scenarios, more secure alternatives are available and recommended. This flow requires a very high degree of trust in the application, and carries risks which are not present in other flows. You should only use this flow when other more secure flows can't be used.
 
 > [!IMPORTANT]
 >
