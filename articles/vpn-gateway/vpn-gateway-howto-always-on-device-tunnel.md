@@ -1,5 +1,6 @@
 ---
-title: 'Configure an Always On VPN tunnel for VPN Gateway'
+title: 'Configure an Always-On VPN tunnel'
+titleSuffix: Azure VPN Gateway
 description: Steps to configure Always On VPN tunnel for VPN Gateway
 services: vpn-gateway
 author: cherylmc

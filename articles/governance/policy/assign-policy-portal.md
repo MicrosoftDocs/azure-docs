@@ -1,5 +1,5 @@
 ---
-title: Create policy to audit resources with portal - Azure Policy
+title: Create policy to audit resources with portal
 description: This article walks you through the steps to create a policy definition to identify non-compliant resources.
 ms.date: 12/06/2018
 ms.topic: quickstart

@@ -1,5 +1,5 @@
 ---
-title: How to configure managed identities for Azure resources on an Azure VM by using a template
+title: Configure managed identities on Azure VM using template - Azure AD
 description: Step-by-step instructions for configuring managed identities for Azure resources on an Azure VM, using an Azure Resource Manager template.
 services: active-directory
 documentationcenter: ''

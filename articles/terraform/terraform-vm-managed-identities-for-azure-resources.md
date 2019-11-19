@@ -1,9 +1,6 @@
 ---
 title: Tutorial - Create a Linux VM with a managed identity from the Azure Marketplace image using Terraform
 description: Create Terraform Linux VM with a managed identity and Remote State Management using Azure Marketplace image 
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/07/2019
 ---
