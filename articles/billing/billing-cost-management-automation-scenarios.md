@@ -9,7 +9,7 @@ editor: ''
 tags: billing
 
 ms.assetid: 204b15b2-6667-4b6c-8ea4-f32c06f287fd
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na

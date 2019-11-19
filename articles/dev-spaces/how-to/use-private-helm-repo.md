@@ -74,7 +74,7 @@ Learn more about [Helm and how it works][helm].
 
 [helm]: https://docs.helm.sh
 [helm-chart]: https://helm.sh/docs/topics/charts/
-[helm-dependency-update]: ccc
+[helm-dependency-update]: https://v2.helm.sh/docs/helm/#helm-dependency-update
 [helm-repo-add]: https://v2.helm.sh/docs/helm/#helm-repo-add
 [helm-repo-update]: https://v2.helm.sh/docs/helm/#helm-repo-update
 [helm-requirements]: https://helm.sh/docs/topics/charts/#chart-dependencies
