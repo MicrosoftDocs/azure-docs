@@ -18,6 +18,7 @@ This topic presents the Azure Security Center alerts available when monitoring t
 
 * [Azure network layer](#network-layer)
 * [Azure management layer (Azure Resource Manager) (Preview)](#management-layer)
+* [Azure Key Vault](#azure-keyvault)
 
 >[!NOTE]
 >The following analytics are applicable to all resource types. They use the telemetry that Security Center provides by tapping into Azure internal feeds.
@@ -74,3 +75,28 @@ Security Center offers an additional layer of protection by using Azure Resource
 
 >[!NOTE]
 >Security Center stores security-related customer data in the same geo as its resource. If Microsoft hasn't yet deployed Security Center in the resource's geo, then it stores the data in the United States. When Cloud App Security is enabled, this information is stored in accordance with the geo location rules of Cloud App Security. For more information, see [Data storage for non-regional services](https://azuredatacentermap.azurewebsites.net/).
+
+## Azure Key Vault <a name="azure-keyvault"></a>
+
+Azure Key Vault is a cloud service that safeguards encryption keys and secrets like certificates, connection strings, and passwords. 
+
+Azure Security Center includes Azure-native, advanced threat protection for Azure Key Vault, providing an additional layer of security intelligence. Security Center detects unusual and potentially harmful attempts to access or exploit Key Vault accounts. This layer of protection allows you to address threats without being a security expert, and without the need to manage third-party security monitoring systems.  
+
+When anomalous activities occur, Security Center shows alerts and optionally sends them via email to subscription administrators. These alerts include the details of the suspicious activity and recommendations on how to investigate and remediate threats. 
+
+> [!NOTE]
+> This service is not currently available in Azure government and sovereign cloud regions.
+
+> [!div class="mx-tableFixed"]
+
+|Alert|Description|
+|---|---|
+|**Access from a TOR exit node to a Key Vault**|The Key Vault has been accessed by someone using the TOR IP anonymization system to hide their location. Malicious actors often try to hide their location when attempting to gain unauthorized access to internet-connected resources.|
+|**Suspicious policy change and secret query in a Key Vault**|A Key Vault policy change has been made and then operations to list and/or get secrets occurred. In addition, this operation pattern is not normally performed by the user on this vault. This is highly indicative that the Key Vault is compromised and the secrets within have been stolen by a malicious actor.|
+|**Suspicious secret listing and query in a Key Vault**|A Secret List operation was followed by many Secret Get operations. In addition, this operation pattern is not normally performed by the user on this vault. This indicates that someone could be dumping the secrets stored in the Key Vault for potentially malicious purposes.|
+|**Unusual user-application pair accessed a Key Vault**|The Key Vault has been accessed by a User-Application pairing that does not normally access it. This may be a legitimate access attempt (for example, following an infrastructure or code update). Or, it may indicate that your infrastructure is compromised and a malicious actor is attempting to access the secrets stored within.|
+|**Unusual application accessed a Key Vault**|The Key Vault has been accessed by an Application that does not normally access it. This may be a legitimate access attempt (for example, following an infrastructure or code update). Or, it may indicate that your infrastructure is compromised and a malicious actor is attempting to access the secrets stored within.|
+|**Unusual user accessed a Key Vault**|The Key Vault has been accessed by a User that does not normally access it. This may be a legitimate access attempt (for example, a new user needing access has joined the organization). Or, it may indicate that your infrastructure is compromised and a malicious actor is attempting to access the secrets stored within.|
+|**Unusual operation pattern in a Key Vault**|An unusual set of Key Vault operations has been performed compared with historical data. Key Vaults typical exhibit the same behavior over time. This may be a legitimate change in activity. Or, it may indicate that your infrastructure is compromised warranting further investigation.|
+|**High volume of operations in a Key Vault**|A larger volume of Key Vault operations has been performed compared with historical data. Key Vaults typical exhibit the same behavior over time. This may be a legitimate change in activity. Or, it may indicate that your infrastructure is compromised warranting further investigation.|
+|**User accessed high volume of Key Vaults**|The number of vaults that a user or application accesses has changed compared with historical data. Key Vault activity is typically the same over time. This may be a legitimate change in activity. Or, it may indicate that your infrastructure is compromised warranting further investigation.|
