@@ -67,16 +67,16 @@ To apply published labels to groups, you must first enable the feature. These st
 1. Then save the changes and apply the settings:
 
     ```PowerShell
-    Set-AzureADDirectorySetting -Id $Setting.I -DirectorySetting $Setting
+    Set-AzureADDirectorySetting -Id $Setting.Id -DirectorySetting $Setting
     ```
 
 That's it. You've enabled the feature and you can apply published labels to groups.
 
 ## Assign a label to a new group in Azure portal
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with a Global admin or Groups admin account, or as a group owner.
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com).
 1. Select **Groups**, and then select **New group**.
-1. On the **New Group** page, fill out the required information for the new group and select a sensitivity label from the list.
+1. On the **New Group** page, select **Office 365**, and then fill out the required information for the new group and select a sensitivity label from the list.
 
    ![Assign a sensitivity label in the New groups page](./media/groups-assign-sensitivity-labels/new-group-page.png)
 
@@ -156,10 +156,13 @@ Labels can be swapped at any time using the same steps as assigning a label to a
 
 ### Group policies changes to published labels are not updated on the groups
 
-As a best practice, we don't recommend that you change group settings for a label after the label is applied to groups. When you makes changes to group settings associated with published labels in [Microsoft 365 compliance center](https://sip.protection.office.com/homepage), those policy changes aren't automatically applied on the impacted groups.
+As a best practice, we don't recommend that you change group settings for a label after the label is applied to groups. When you make changes to group settings associated with published labels in [Microsoft 365 compliance center](https://sip.protection.office.com/homepage), those policy changes aren't automatically applied on the impacted groups.
 
 If you must make a change, use an [Azure AD PowerShell script](https://github.com/microsoftgraph/powershell-aad-samples/blob/master/ReassignSensitivityLabelToO365Groups.ps1) to manually apply updates to the impacted groups. This method makes sure that all existing groups enforce the new setting.
 
 ## Next steps
 
 - [Use sensitivity labels with Microsoft Teams, Office 365 groups, and SharePoint sites](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites)
+- [Update groups after label policy change manually with Azure AD PowerShell script](https://github.com/microsoftgraph/powershell-aad-samples/blob/master/ReassignSensitivityLabelToO365Groups.ps1)
+- [Edit your group settings](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-settings-azure-portal)
+- [Manage groups using PowerShell commands](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-settings-v2-cmdlets)
