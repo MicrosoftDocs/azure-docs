@@ -198,36 +198,6 @@ The Log Analytics workspace has to be created before you enable monitoring using
     provisioningState       : Succeeded
     ```
 
-## Verify deployment
-
-Run the following command to verify that the agent is deployed successfully. 
-
-```
-kubectl get ds omsagent --namespace=kube-system
-```
-
-The output should resemble the following, which indicates that it was deployed properly:
-
-```
-User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system 
-NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
-omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
-```  
-
-To verify deployment of the solution, run the following command:
-
-```
-kubectl get deployment omsagent-rs -n=kube-system
-```
-
-The output should resemble the following, which indicates that it was deployed properly:
-
-```
-User@aksuser:~$ kubectl get deployment omsagent-rs -n=kube-system 
-NAME       DESIRED   CURRENT   UP-TO-DATE   AVAILABLE    AGE
-omsagent   1         1         1            1            3h
-```
-
 ## Next steps
 
 With monitoring enabled to collect health and resource utilization of your RedHat OpenShift cluster and workloads running on them, learn [how to use](container-insights-analyze.md) Azure Monitor for containers.
