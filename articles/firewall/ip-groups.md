@@ -9,7 +9,7 @@ ms.date: 12/16/2019
 ms.author: victorh
 ---
 
-# IP groups (preview) in Azure Firewall
+# IP Groups (preview) in Azure Firewall
 
 > [!IMPORTANT]
 > This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
