@@ -60,13 +60,107 @@ The feature is included in the following command groups:
 
 ### [PowerShell](#tab/azure-powershell)
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 The Az.Storage module supports immutable storage.  To enable the feature, follow these steps:
 
 1. Ensure that you have the latest version of PowerShellGet installed: `Install-Module PowerShellGet –Repository PSGallery –Force`.
 2. Remove any previous installation of Azure PowerShell.
 3. Install Azure PowerShell: `Install-Module Az –Repository PSGallery –AllowClobber`.
 
-The [Sample PowerShell code](#sample-powershell-code) section later in this article illustrates the feature usage.
+The following sample PowerShell script is for reference. This script creates a new storage account and container. It then shows you how to set and clear legal holds, create and lock a time-based retention policy (also known as an immutability policy), and extend the retention interval.
+
+First, create an Azure Storage account:
+
+```powershell
+$resourceGroup = "<Enter your resource group>"
+$storageAccount = "<Enter your storage account name>"
+$container = "<Enter your container name>"
+$location = "<Enter the storage account location>"
+
+# Log in to Azure
+Connect-AzAccount
+Register-AzResourceProvider -ProviderNamespace "Microsoft.Storage"
+
+# Create your Azure resource group
+New-AzResourceGroup -Name $resourceGroup -Location $location
+
+# Create your Azure storage account
+$storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup -StorageAccountName `
+    $storageAccount -SkuName Standard_ZRS -Location $location -Kind StorageV2
+
+# Create a new container using the context
+$container = New-AzStorageContainer -Name $container -Context $account.Context
+
+# List the containers in the account
+Get-AzStorageContainer -Context $account.Context
+
+# Remove a container
+Remove-AzStorageContainer -Name $container -Context $account.Context
+```
+
+Set and clear legal holds:
+
+```powershell
+# Set a legal hold
+Add-AzRmStorageContainerLegalHold -ResourceGroupName $resourceGroup `
+    -StorageAccountName $storageAccount -Name $container -Tag <tag1>,<tag2>,...
+
+# Clear a legal hold
+Remove-AzRmStorageContainerLegalHold -ResourceGroupName $resourceGroup `
+    -StorageAccountName $storageAccount -Name $container -Tag <tag3>
+```
+
+Create or update immutability policies:
+
+```powershell
+# Create an immutablity policy
+Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName $resourceGroup `
+    -StorageAccountName $storageAccount -ContainerName $container -ImmutabilityPeriod 10
+```
+
+Retrieve immutability policies:
+
+```powershell
+# Get an immutability policy
+Get-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName $resourceGroup `
+    -StorageAccountName $storageAccount -ContainerName $container
+```
+
+Lock immutability policies (add `-Force` to dismiss the prompt):
+
+```powershell
+# Lock immutability policies
+$policy = Get-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName `
+    $resourceGroup -StorageAccountName $storageAccount -ContainerName $container
+Lock-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName `
+    $resourceGroup -StorageAccountName $storageAccount -ContainerName $container `
+    -Etag $policy.Etag
+```
+
+Extend immutability policies:
+
+```powershell
+# Extend immutability policies
+$policy = Get-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName `
+    $resourceGroup -StorageAccountName $storageAccount -ContainerName $container
+
+Set-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy `
+    $policy -ImmutabilityPeriod 11 -ExtendPolicy
+```
+
+Remove an unlocked immutability policy (add `-Force` to dismiss the prompt):
+
+```powershell
+# Remove an unlocked immutability policy
+$policy = Get-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName `
+    $resourceGroup -StorageAccountName $storageAccount -ContainerName $container
+
+Remove-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
+```
 
 ---
 
+## Next steps
+
+[Store business-critical blob data with immutable storage](storage-blob-immutable-storage.md)
