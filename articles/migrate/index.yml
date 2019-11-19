@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure Migrate documentation
-summary: Use Azure Migrate to migrate to the Azure cloud. Azure Migrate provides a central hub for discovery, assessment, and migration of on-premises workloads to Azure. The hub provides Azure Migrate tools, and well as integrated tools from independent software vendors (ISVs). 
+summary: Azure Migrate provides a central hub of tools for discovery, assessment, and migration of on-premises workloads to Azure. 
 
 metadata:
   title: Azure Migrate documentation
-  description: Use Azure Migrate to migrate to the Azure cloud. Azure Migrate provides a central hub for discovery, assessment, and migration of on-premises workloads to Azure. The hub provides Azure Migrate tools, and well as integrated tools from independent software vendors (ISVs). 
+  description: Use Azure Migrate to migrate on-premises workloads to Azure. 
   ms.service: azure-migrate
   ms.topic: landing-page
   ms.collection: collection
