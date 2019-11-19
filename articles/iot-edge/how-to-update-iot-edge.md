@@ -89,11 +89,11 @@ If you use specific tags in your deployment (for example, mcr.microsoft.com/azur
 
     ![Configure runtime settings](./media/how-to-update-iot-edge/configure-runtime.png)
 
-1. In **Runtime Settings**, update the **Image** value for **Edge Hub** with the desired version.
+1. In **Runtime Settings**, update the **Image** value for **Edge Hub** with the desired version. Don't select **Save** just yet.
 
     ![Update Edge Hub Image version](./media/how-to-update-iot-edge/runtime-settings-edgehub.png)
 
-1. Collapse the **Edge Hub** settings, and update the **Image** value for **Edge Agent** with the same desired version.
+1. Collapse the **Edge Hub** settings, or scroll down, and update the **Image** value for **Edge Agent** with the same desired version.
 
     ![Update Edge Hub Agent version](./media/how-to-update-iot-edge/runtime-settings-edgeagent.png)
 
