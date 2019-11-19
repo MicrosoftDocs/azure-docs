@@ -17,12 +17,12 @@ Learn best practices for managing HDInsight clusters.
 
 | Option | Documents |
 |---|---|
-| Azure Data Factory | [Create on-demand Apache Hadoop clusters in HDInsight using Azure Data Factory](../hdinsight-hadoop-create-linux-clusters-adf.md) |
+| Azure Data Factory | [Create on-demand Apache Hadoop clusters in HDInsight using Azure Data Factory](./hdinsight-hadoop-create-linux-clusters-adf.md) |
 | Custom Resource Manager template | [Create Apache Hadoop clusters in HDInsight by using Resource Manager templates](./hdinsight-hadoop-create-linux-clusters-arm-templates.md) |
 | Quickstart templates | [HDInsight Quickstart templates](https://azure.microsoft.com/resources/templates/?term=hdinsight) |
 | Azure samples | [HDInsight Azure samples](https://docs.microsoft.com/samples/browse/?products=azure-hdinsight) |
-| Azure portal | [Create Linux-based clusters in HDInsight by using the Azure portal](./apache-spark-intellij-tool-plugin.md) |
-| Azure CLI | [Create HDInsight clusters using the Azure CLI](./hdinsight-hadoop-create-linux-clusters-azure-cli/) |
+| Azure portal | [Create Linux-based clusters in HDInsight by using the Azure portal](./spark/apache-spark-intellij-tool-plugin.md) |
+| Azure CLI | [Create HDInsight clusters using the Azure CLI](./hdinsight-hadoop-create-linux-clusters-azure-cli.md) |
 | Azure PowerShell | [Create Linux-based clusters in HDInsight using Azure PowerShell](./hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |
 | cURL | [Create Apache Hadoop clusters using the Azure REST API](./hdinsight-hadoop-create-linux-clusters-curl-rest.md) |
 | SDKs (.NET, Python, Java) | [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet), [Python](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python), [Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable), [Go](https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview) |
@@ -31,10 +31,10 @@ Learn best practices for managing HDInsight clusters.
 
 | Option | Documents |
 |---|---|
-| Script actions | [Customize Azure HDInsight clusters by using script actions](../hdinsight-hadoop-customize-cluster-linux.md) |
-| Bootstrap | [Customize HDInsight clusters using Bootstrap](../hdinsight-hadoop-customize-cluster-bootstrap.md) |
-| External metastores | [Use external metadata stores in Azure HDInsight](../hdinsight-use-external-metadata-stores.md) |
-| Custom Ambari DB | [Set up HDInsight clusters with a custom Ambari DB](../hdinsight-custom-ambari-db.md) |
+| Script actions | [Customize Azure HDInsight clusters by using script actions](./hdinsight-hadoop-customize-cluster-linux.md) |
+| Bootstrap | [Customize HDInsight clusters using Bootstrap](./hdinsight-hadoop-customize-cluster-bootstrap.md) |
+| External metastores | [Use external metadata stores in Azure HDInsight](./hdinsight-use-external-metadata-stores.md) |
+| Custom Ambari DB | [Set up HDInsight clusters with a custom Ambari DB](./hdinsight-custom-ambari-db.md) |
 
 ## What are some errors I might face when creating clusters?
 
