@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-The **Display Widget** is a group of user interface elements that has special functionality and interacts with Azure Active Directory B2C backend service. It allows the user to perform certain actions on the page, which invokes certain [validation technical profiles](validation-technical-profile.md) at the backend. **Display Widgets** are displayed on the page and are referenced in [Self Asserted Technical Profile](self-asserted-technical-profile.md). Following example illustrates a self-asserted sign-up page with two display widget that validate the email address and the alternative (secondary) email address.
+The **Display Widget** is a group of user interface elements that have special functionality and interact with the Azure Active Directory B2C (Azure AD B2C) back-end service. It allows the user to perform actions on the page that invoke [validation technical profiles](validation-technical-profile.md) at the back end. Display Widgets are displayed on the page and are referenced by a [self-asserted technical profile](self-asserted-technical-profile.md). Following example illustrates a self-asserted sign-up page with two display widget that validate the email address and the alternative (secondary) email address.
 
 ![Example rendered display widget](media/custom-email-verification/display-widget-email.png)
 
@@ -118,7 +118,7 @@ In the example below, it will send a code in either email or SMS based on user s
 
 ## Referencing display widgets
 
-Display widgets are referenced in the [display claims](self-asserted-technical-profile.md#display-claims) of the [self asserted technical profile](self-asserted-technical-profile.md). For example:
+Display widgets are referenced in the [display claims](self-asserted-technical-profile.md#display-claims) of the [self-asserted technical profile](self-asserted-technical-profile.md). For example:
 
 ```XML
 <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
