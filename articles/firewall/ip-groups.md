@@ -22,7 +22,7 @@ IP Groups allow you to group and manage IP addresses for Azure Firewall rules in
 
 An IP Group can have a single IP address, a group of IP addresses, or one or more IP address ranges.
 
-## Creating IP groups
+## Creating IP Groups
 
 An IP Group can be created using the Azure portal . For more information, see xxx.
 
