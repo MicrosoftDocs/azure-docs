@@ -3,7 +3,7 @@ title: Template deployment what-if (Preview)
 description: Determine what changes will happen to your resources before deploying an Azure Resource Manager template.
 author: mumian
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 11/19/2019
 ms.author: jgao
 ---
 # Resource Manager template deployment what-if operation (Preview)
@@ -50,6 +50,8 @@ The following screenshots show the two different output formats:
 - Full resource payloads
 
     ![Resource Manager template deployment what-if operation fullresourcepayloads output](./media/template-deploy-what-if/resource-manager-deployment-whatif-output-fullresourcepayload.png)
+
+  Some of the properties that are listed as deleted won't actually change. In the preceding image, these properties are accessTier, encryption.keySource and others in that section. Properties can be incorrectly reported as deleted when they aren't in the template but are automatically set during deployment. The final deployed resource will have the values set for the properties. As the what-if operation matures, these properties will be filtered out of the result.
 
 - Resource ID only
 
