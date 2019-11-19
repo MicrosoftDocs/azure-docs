@@ -4,7 +4,7 @@ description: Learn how you can purchase Azure reservations with up front or mont
 services: billing
 author: bandersmsft
 manager: yashar
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 11/01/2019
 ms.author: banders
