@@ -1,7 +1,7 @@
 ---
-title: 'Designer: Classify, predict income'
+title: 'Designer: Classify, predict income example'
 titleSuffix: Azure Machine Learning
-description: Learn how to build a machine learning classifier without writing a single line of code using the designer (preview).
+description: Follow this example build a no-code classifier to predict income with Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,8 +11,10 @@ ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
 ---
+# Build a classifier & use feature selection to predict income with Azure Machine Learning designer
 
-# Sample 3 - Classification with feature selection: Income Prediction
+**Designer (preview) sample 3**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Learn how to build a machine learning classifier without writing a single line of code using the designer (preview). This sample trains a **two-class boosted decision tree** to predict adult census income (>=50K or <=50K).
