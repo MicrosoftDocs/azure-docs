@@ -4,7 +4,7 @@ description: In this quickstart you will use the C device SDK to create a simula
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
-ms.topic: quickstart
+ms.topic: Quickstart
 ms.service: iot-dps
 services: iot-dps 
 manager: philmea
@@ -12,7 +12,7 @@ ms.custom: mvc
 #Customer intent: As a new IoT developer, I want simulate a device using the C SDK so that I can learn how secure provisioning works with symmetric keys.
 ---
 
-# Quickstart: Provision a simulated device with symmetric keys
+# quickstart: Provision a simulated device with symmetric keys
 
 In this quickstart, you will learn how to create and run a device simulator on a Windows development machine. You will configure this simulated device to use a symmetric key to authenticate with a Device Provisioning Service instance and be assigned to an IoT hub. Sample code from the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) will be used to simulate a boot sequence for the device that initiates provisioning. The device will be recognized based on an individual enrollment with a provisioning service instance and assigned to an IoT hub.
 
@@ -86,15 +86,13 @@ The SDK includes the sample code for a simulated device. This simulated device w
     -- Build files have been written to: E:/IoT Testing/azure-iot-sdk-c/cmake
     ```
 
-
-
 ## Create a device enrollment entry in the portal
 
-1. Sign in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service.
+1. Sign in to the Azure portal, select the **All resources** button on the left-hand menu and open your Device Provisioning service.
 
-2. Select the **Manage enrollments** tab, and then click the **Add individual enrollment** button at the top. 
+2. Select the **Manage enrollments** tab, and then select the **Add individual enrollment** button at the top. 
 
-3. On **Add enrollment**, enter the following information, and click the **Save** button.
+3. On **Add enrollment**, enter the following information, and select the **Save** button.
 
    - **Mechanism**: Select **Symmetric Key** as the identity attestation *Mechanism*.
 
@@ -120,7 +118,7 @@ In this section, update the sample code to send the device's boot sequence to yo
 
 
 
-1. In the Azure portal, select the **Overview** tab for your Device Provisioning service and note down the **_ID Scope_** value.
+1. In the Azure portal, select the **Overview** tab for your Device Provisioning service and note the **_ID Scope_** value.
 
     ![Extract Device Provisioning Service endpoint information from the portal blade](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
@@ -163,9 +161,9 @@ In this section, update the sample code to send the device's boot sequence to yo
    
     Save the file.
 
-7. Right-click the **prov\_dev\_client\_sample** project and select **Set as Startup Project**. 
+7. Right-select the **prov\_dev\_client\_sample** project and select **Set as Startup Project**. 
 
-8. On the Visual Studio menu, select **Debug** > **Start without debugging** to run the solution. In the prompt to rebuild the project, click **Yes**, to rebuild the project before running.
+8. On the Visual Studio menu, select **Debug** > **Start without debugging** to run the solution. In the prompt to rebuild the project, select **Yes**, to rebuild the project before running.
 
     The following output is an example of the simulated device successfully booting up, and connecting to the provisioning Service instance to be assigned to an IoT hub:
 
@@ -183,22 +181,22 @@ In this section, update the sample code to send the device's boot sequence to yo
     Press enter key to exit:
     ```
 
-9. In the portal, navigate to the IoT hub your simulated device was assigned to and click the **IoT Devices** tab. On successful provisioning of the simulated to the hub, its device ID appears on the **IoT Devices** blade, with *STATUS* as **enabled**. You might need to click the **Refresh** button at the top. 
+9. In the portal, navigate to the IoT hub your simulated device was assigned to and select the **IoT devices** tab. On successful provisioning of the simulated to the hub, its device ID appears on the **IoT Devices** blade, with *STATUS* as **enabled**. You might need to select the **Refresh** button at the top. 
 
     ![Device is registered with the IoT hub](./media/quick-create-simulated-device/hub-registration.png) 
 
 
 ## Clean up resources
 
-If you plan to continue working on and exploring the device client sample, do not clean up the resources created in this Quickstart. If you do not plan to continue, use the following steps to delete all resources created by this Quickstart.
+If you plan to continue working on and exploring the device client sample, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all resources created by this quickstart.
 
 1. Close the device client sample output window on your machine.
-1. From the left-hand menu in the Azure portal, click **All resources** and then select your Device Provisioning service. Open **Manage Enrollments** for your service, and then click the **Individual Enrollments** tab. Select the *REGISTRATION ID* of the device you enrolled in this Quickstart, and click the **Delete** button at the top. 
-1. From the left-hand menu in the Azure portal, click **All resources** and then select your IoT hub. Open **IoT Devices** for your hub, select the *DEVICE ID* of the device you registered in this Quickstart, and then click **Delete** button at the top.
+1. From the left-hand menu in the Azure portal, select **All resources** and then select your Device Provisioning service. Open **Manage Enrollments** for your service, and then select the **Individual Enrollments** tab. Select the *REGISTRATION ID* of the device you enrolled in this quickstart, and press the **Delete** button at the top. 
+1. From the left-hand menu in the Azure portal, select **All resources** and then select your IoT hub. Open **IoT devices** for your hub, select the *DEVICE ID* of the device you registered in this quickstart, and then press the **Delete** button at the top.
 
 ## Next steps
 
-In this Quickstart, you’ve created a simulated device on your Windows machine and provisioned it to your IoT hub using Symmetric key with the Azure IoT Hub Device Provisioning Service on the portal. To learn how to enroll your device programmatically, continue to the Quickstart for programmatic enrollment of X.509 devices. 
+In this quickstart, you’ve created a simulated device on your Windows machine and provisioned it to your IoT hub using Symmetric key with the Azure IoT Hub Device Provisioning Service on the portal. To learn how to enroll your device programmatically, continue to the quickstart for programmatic enrollment of X.509 devices. 
 
 > [!div class="nextstepaction"]
-> [Azure Quickstart - Enroll X.509 devices to Azure IoT Hub Device Provisioning Service](quick-enroll-device-x509-java.md)
+> [Azure quickstart - Enroll X.509 devices to Azure IoT Hub Device Provisioning Service](quick-enroll-device-x509-java.md)
