@@ -23,7 +23,7 @@ If you're just getting started with machine learning, take a look at the [basic 
 
 Here's the completed graph for this pipeline:
 
-[![Graph of the pipeline](media/how-to-designer-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](how-to-designer-sample-regression-predict-automobile-price-compare-algorithms/graph.png#lightbox)
+[![Graph of the pipeline](media/how-to-designer-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/how-to-designer-sample-regression-predict-automobile-price-compare-algorithms/graph.png#lightbox)
 
 ## Prerequisites
 
