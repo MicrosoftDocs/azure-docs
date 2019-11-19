@@ -34,7 +34,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 You need these permissions.
 
 **Task** | **Permissions**
---- | --- | ---
+--- | ---
 **Create an Azure Migrate project** | Your Azure account needs permissions to create a project.
 **Register the Azure Migrate appliance** | Azure Migrate uses a lightweight Azure Migrate appliance to assess VMware VMs with Azure Migrate Server Assessment, and to run [agentless migration](server-migrate-overview.md) of VMware VMs with Azure Migrate Server Migration. This appliance discovers VMs, and sends VM metadata and performance data to Azure Migrate.<br/><br/>During registration, Azure Migrate creates two Azure Active Directory (Azure AD) apps that uniquely identify the appliance, and needs permissions to create these apps.<br/> - The first app communicates with Azure Migrate service endpoints.<br/> - The second app accesses an Azure Key Vault created during registration to store Azure AD app info and appliance configuration settings.
 **Create a Key Vault** | To migrate VMware VMs with Azure Migrate Server Migration, Azure Migrate creates a Key Vault to manage access keys to the replication storage account in your subscription. To create the vault, you need role assignment permissions on the resource group in which the Azure Migrate project resides.
@@ -109,7 +109,7 @@ Azure Migrate needs to access the vCenter Server to discover VMs for assessment 
 
 - If you plan to discover applications or visualize dependency in an agentless manner, create a vCenter Server account with read-only access along with privileges enabled for **Virtual machines** > **Guest Operations**. 
 
-![vCenter Server account privileges](./media/tutorial-prepare-vmware/vCenterServer_permissions.png)
+  ![vCenter Server account privileges](./media/tutorial-prepare-vmware/vCenterServer_permissions.png)
 
 - If you are not planning to do application discovery and agentless dependency visualization, set up a read-only account for the vCenter Server.
 
