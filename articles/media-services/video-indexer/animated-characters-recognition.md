@@ -45,14 +45,17 @@ Depending on a type of your Video Indexer account, different feature sets are av
 
 ## Use the animated character detection with portal 
 
-This section describes the steps you need to take to start using the animated character detection model.
+This section describes the steps you need to take to start using the animated character detection model. 
+
+> [!NOTE]
+> Since in trial accounts Custom Vision integration is managed by Video Indexer, you can start creating and using an animated characters model and skip the following section ("Connect your Custom Vision account").
 
 ### Connect your Custom Vision account (paid accounts only)
 
 If you own a Video Indexer paid account, you need to connect a Custom Vision account first. If you don't have a Custom Vision account already, please create one. For more information, see [Custom Vision](../../cognitive-services/custom-vision-service/home.md).
 
 > [!NOTE]
-> Both accounts need to be in the same region. The Custom Vision integration is currently not support in the Japan region.
+> Both accounts need to be in the same region. The Custom Vision integration is currently not supported in the Japan region.
 
 #### Connect a Custom Vision account with API 
 
