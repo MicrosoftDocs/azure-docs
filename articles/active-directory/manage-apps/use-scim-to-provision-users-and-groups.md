@@ -1322,7 +1322,7 @@ Best practices (recommended but not required)
 * Support multiple redirect URLs. Administrators can configure provisioning from both "portal.azure.com" and "aad.portal.azure.com". Supporting multiple redirect URLs will ensure that users can authorize access from either portal.
 * Support multiple secrets to ensure smooth secret renewal, without downtime. 
 
-**Long lived OAuth bearer tokens:** If your application does not suport the OAuth authorization code grant flow, you can also generate a long lived OAuth bearer token than that an administrator can use to setup the provisioning integration. The token should be perpetual, or else the provisioning job will be [quarantined](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status) when the token expires. This token must be below 1KB in size.  
+**Long lived OAuth bearer tokens:** If your application does not support the OAuth authorization code grant flow, you can also generate a long lived OAuth bearer token than that an administrator can use to setup the provisioning integration. The token should be perpetual, or else the provisioning job will be [quarantined](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status) when the token expires. This token must be below 1KB in size.  
 
 For additional authentication and authorization methods, let us know on [UserVoice](https://aka.ms/appprovisioningfeaturerequest).
 
