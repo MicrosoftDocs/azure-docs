@@ -81,21 +81,21 @@ The IoT Edge service will pull the latest versions of the runtime images and aut
 
 ### Update a specific tag image
 
-If you use specific tags in your deployment (for example, mcr.microsoft.com/azureiotedge-hub:**1.0.7**) then all you need to do is update the tag in your deployment manifest and apply the changes to your device.
+If you use specific tags in your deployment (for example, mcr.microsoft.com/azureiotedge-hub:**1.0.8**) then all you need to do is update the tag in your deployment manifest and apply the changes to your device.
 
 1. In the IoT Hub in the Azure portal, select your IoT Edge device, and select **Set Modules**.
 
 1. In the **IoT Edge Modules** section, select **Runtime Settings**.
 
-![Configure runtime settings](./media/how-to-update-iot-edge/configure-runtime.png)
+  ![Configure runtime settings](./media/how-to-update-iot-edge/configure-runtime.png)
 
 1. In **Runtime Settings**, update the **Image** value for **Edge Hub** with the desired version.
 
-![Update Edge Hub Image version](./media/how-to-update-iot-edge/runtime-settings-edgehub.png)
+  ![Update Edge Hub Image version](./media/how-to-update-iot-edge/runtime-settings-edgehub.png)
 
 1. Collapse the **Edge Hub** settings, and update the **Image** value for **Edge Agent**.
 
-![Update Edge Hub Agent version](./media/how-to-update-iot-edge/runtime-settings-edgeagent.png)
+  ![Update Edge Hub Agent version](./media/how-to-update-iot-edge/runtime-settings-edgeagent.png)
 
 1. Select **Save**.
 
