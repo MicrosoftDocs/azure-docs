@@ -26,7 +26,7 @@ With maintenance control, you can:
 
 ## Limitations
 
-- VMs must be on a [dedicated host](./linux/dedicated-hosts.md), be created using an [isolated VM size](./linux/isolation.md), or in a Dedicated Node Group (DNG).
+- VMs must be on a [dedicated host](./linux/dedicated-hosts.md), or be created using an [isolated VM size](./linux/isolation.md).
 - After 35 days, an update will automatically be applied and availability constraints will not be respected.
 - User must have **Resource Owner** access.
 
@@ -39,7 +39,6 @@ Remove any old versions of the maintenance extension, and install the preview ve
 az extension remove -n maintenance 
 az extension add -y --source https://mrpcliextension.blob.core.windows.net/cliextension/maintenance-1.0.0-py2.py3-none-any.whl
 ```
-
 
 ## Create a maintenance configuration
 
@@ -59,6 +58,12 @@ az maintenance configuration create \
 Copy the configuration ID from the output to use later.
 
 For dedicated hosts, you can use `--maintenanceScope host` to have the configuration scoped to a dedicated host. Using `--maintenanceScope host` will ensure that all VMs on a host will follow the same maintenance configuration.
+
+You can query for available maintenance configurations using [az maintenance configuration list]()
+
+```azurecli-interactive
+az maintenance configuration list --subscription $subId --output table
+```
 
 ## Apply the configuration
 
