@@ -1,5 +1,5 @@
 ---
-title: Manage folder & file access: Azure Data Lake Storage Gen2 & Azure Storage Explorer
+title: 'Azure Storage Explorer: Manage access in Azure Data Lake Storage Gen2'
 description: In this how to, you learn how to set permissions with Azure Storage Explorer on files and directories inside your Azure Data Lake Storage Gen2 capable storage account.
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -10,7 +10,7 @@ ms.author: normesta
 ms.reviewer: stewu
 ---
 
-# Manage folder & file access: Azure Data Lake Storage Gen2 & Azure Storage Explorer
+# Use Azure Storage Explorer to manage access in Azure Data Lake Storage Gen2
 
 Files stored in Azure Data Lake Storage Gen2 support fine grained permissions and access control list (ACL) management. Together, fine grained permissions and ACL management allow you to manage access to your data at a very granular level.
 

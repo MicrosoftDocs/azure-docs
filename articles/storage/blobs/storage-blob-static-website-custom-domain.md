@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Enable custom domain with SSL on a static website using Azure CDN - Azure Storage'
+title: 'Tutorial: Enable a custom domain with SSL for a static website'
 description: Learn how to configure a custom domain for static website hosting.
 author: normesta
 ms.service: storage

@@ -1,6 +1,6 @@
 ---
-title: Optimize performance - Hive on HDInsight and Azure Data Lake Storage Gen2 | Microsoft Docs
-description: Azure Data Lake Storage Gen2 Hive Performance Tuning Guidelines
+title: 'Tune performance: Hive, HDInsight & Azure Data Lake Storage Gen2 | Microsoft Docs'
+description: Azure Data Lake Storage Gen2 Hive Performance Tuning Guidelines.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -10,7 +10,7 @@ ms.author: normesta
 ms.reviewer: stewu
 ---
 
-# Optimize performance - Hive on HDInsight and Azure Data Lake Storage Gen2
+# Tune performance: Hive, HDInsight & Azure Data Lake Storage Gen2
 
 The default settings have been set to provide good performance across many different use cases.  For I/O intensive queries, Hive can be tuned to get better performance with Azure Data Lake Storage Gen2.  
 
