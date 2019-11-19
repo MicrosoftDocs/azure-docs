@@ -39,6 +39,8 @@ Install the `maintenance` preview CLI extension.
 az extension add -n maintenance
 ```
 
+If you choose to install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) locally, you need version 2.0.76 or later.
+
 ## Create a maintenance configuration
 
 Use `az maintenance configuration create` to create a maintenance configuration. This example creates a maintenance configuration named *myConfig* scoped to the host. 
@@ -61,7 +63,7 @@ For dedicated hosts, you can use `--maintenanceScope host` to have the configura
 You can query for available maintenance configurations using [az maintenance configuration list]()
 
 ```azurecli-interactive
-az maintenance configuration list --subscription $subId --output table
+az maintenance configuration list
 ```
 
 ## Apply the configuration
@@ -72,7 +74,7 @@ Use `az maintenance assignment create` to apply the configuration.
 
 Apply the configuration to a VM using the ID of the configuration. Specify `--resource-type virtualMachines` and supply the name of the VM for `--resource-name`, and the resource group for `--resource-group`. 
 
-```bash
+```azurecli-interactive
 az maintenance assignment create \
    --resource-group myMaintenanceRG \
    --location eastus \
@@ -89,7 +91,7 @@ To apply a configuration to a dedicated host, you need to include `--resource-ty
 
 The parameter `--resource-id` is the ID of the host. You can use [az vm host get-instance-view](/cli/azure/vm/host#az-vm-host-get-instance-view) to get the ID of your dedicated host.
 
-```bash
+```azurecli-interactive
 az maintenance assignment create \
    -g myDHResourceGroup \
    --resource-name myHost \
@@ -107,13 +109,13 @@ sourceGroups/myResourceGroup/providers/Microsoft.Compute/hostGroups/myHostGroup/
 
 ## Check for pending updates
 
-Use [az maintenance update list]() to see if there are pending updates. Update --subscription to be the ID for the subscription that contains the VM.
+Use `az maintenance update list` to see if there are pending updates. Update --subscription to be the ID for the subscription that contains the VM.
 
-## VM
+### Isolated VM
 
-Check for pending updates for a VM. In this example, the output is formatted as a table for readability.
+Check for pending updates for an isolated VM. In this example, the output is formatted as a table for readability.
 
-```bash
+```azurecli-interactive
 az maintenance update list \
    -g myMaintenanceRg \
    --resource-name myVM \
@@ -126,7 +128,7 @@ az maintenance update list \
 
 To check for pending updates for a dedicated host. In this example, the output is formatted as a table for readability. Replace the values for the resources with your own.
 
-```bash
+```azurecli-interactive
 az maintenance update list \
    --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
    -g myHostResourceGroup \
@@ -140,13 +142,13 @@ az maintenance update list \
 
 ## Apply updates
 
-Use [az maintenance apply update]() to apply pending updates.
+Use `az maintenance apply update` to apply pending updates.
 
-## VM
+### Isolated VM
 
-Create a request to apply updates to a single VM.
+Create a request to apply updates to an isolated VM.
 
-```bash
+```azurecli-interactive
 az maintenance applyupdate create \
    -g myMaintenanceRG\
    --resource-name myVM \
@@ -158,7 +160,7 @@ az maintenance applyupdate create \
 
 Apply updates to a dedicated host.
 
-```bash
+```azurecli-interactive
 az maintenance applyupdate create \
    --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
    -g myHostResourceGroup \
@@ -173,10 +175,12 @@ az maintenance applyupdate create \
 
 Use [az maintenance configuration delete]() to delete a maintenance configuration.
 
-```bash
+```azurecli-interactive
 az maintenance configuration delete \
    --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
    -g myResourceGroup \
    --name myConfig
 ```
 
+## Next steps
+To learn more, see [Maintenance and updates](maintenance-and-updates.md).
