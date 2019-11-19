@@ -44,7 +44,7 @@ landingContent:
           - text: Prepare and connect an MX Chip IoT DevKit
             url: howto-connect-devkit.md
           - text: Connect other IoT clouds
-            url: ../core/howto-build-iotc-device-bridge.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+            url: howto-build-iotc-device-bridge.md
   - title: Stay connected
     linkLists:
       - linkListType: tutorial
@@ -56,7 +56,7 @@ landingContent:
           - text: Manage your devices
             url: howto-manage-devices.md
           - text: Run a job
-            url: ../core/howto-run-a-job.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+            url: howto-run-a-job.md
           - text: Analyze your device data
             url: howto-create-analytics.md
   - title: Transform
@@ -88,8 +88,8 @@ landingContent:
           - text: Customize application UI
             url: howto-customize-ui.md  
           - text: Configure personal dashboards
-            url: ../core/howto-create-personal-dashboards.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+            url: howto-create-personal-dashboards.md
           - text: Use dashboard tiles
-            url: ../core/howto-add-tiles-to-your-dashboard.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+            url: howto-add-tiles-to-your-dashboard.md
           - text: Use application templates
             url: howto-use-app-templates.md
