@@ -30,7 +30,7 @@ The list of supported server parameters is constantly growing. Use the server pa
 
 ## Non-configurable server parameters
 
-InnoDB Buffer Pool and Max Connections are not configurable and tied to your [pricing tier](concepts-service-tiers.md).
+The InnoDB Buffer Pool size is not configurable and tied to your [pricing tier](concepts-service-tiers.md).
 
 |**Pricing Tier**|**vCore(s)**|**InnoDB Buffer Pool size in MB <br>(servers supporting up to 4 TB storage)**| **InnoDB Buffer Pool size in MB <br>(servers supporting up to 16 TB storage)**|
 |:---|---:|---:|---:|
