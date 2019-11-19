@@ -89,15 +89,17 @@ Custom rules are always applied before rules in the Default Rule Set are evaluat
 
 
 ### Bot protection rule (preview)
+A managed Bot protection rule set can be enabled for your WAF to take custom actions on requests from known bot categories. There are three bot categories supported: Bad Bots, Good Bots and Unknown Bots. Bot signatures are managed and dynamically updated by WAF platform. Malicious IP addresses for Bad Bots are sourced from the Microsoft Threat Intelligence feed. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) powers Microsoft threat intelligence and is used by multiple services including Azure Security Center. Good bots include validated seacrh engines. Unknown categories include additional Bot groups. You may set custom actions to Block, Allow, Log or redirect for different types of Bots.
 
-A managed Bot protection rule set can be enabled for your WAF to take custom actions on requests from known malicious IP addresses. The IP addresses are sourced from the Microsoft Threat Intelligence feed. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) powers Microsoft threat intelligence and is used by multiple services including Azure Security Center.
 
 ![Bot Protection Rule Set](../media/afds-overview/botprotect2.png)
 
-> [!IMPORTANT]
-> Bot protection rule set is currently in public preview and is provided with a preview service level agreement. Certain features may not be supported or may have constrained capabilities.  See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
+[!IMPORTANT] Bot protection rule set is currently in public preview and is provided with a preview service level agreement. Certain features may not be supported or may have constrained capabilities. See the Supplemental Terms of Use for Microsoft Azure Previews for details.
 
-If Bot Protection is enabled, incoming requests that match Malicious Bots client IPs are logged at FrontdoorWebApplicationFirewallLog log. You may access WAF logs from storage account, event hub or log analytics. 
+If Bot Protection is enabled, incoming requests that match bot rules are logged at FrontdoorWebApplicationFirewallLog log. You may access WAF logs from storage account, event hub or log analytics.
+
+
+
 
 ## Configuration
 
