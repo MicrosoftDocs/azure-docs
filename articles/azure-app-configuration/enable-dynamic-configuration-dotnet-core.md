@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to dynamically update the configura
 services: azure-app-configuration
 documentationcenter: ''
 author: abarora
-manager: zhenlwa
+manager: zhenlan
 editor: ''
 
 ms.assetid: 
@@ -137,7 +137,7 @@ The `ConfigureRefresh` method is used to specify the settings used to update the
 
 ## Next steps
 
-In this tutorial, you enabled your .NET Core app to dynamically refresh configuration settings from App Configuration. To learn how to use an Azure managed identity to streamline access to App Configuration, continue to the next tutorial.
+In this tutorial, you enabled your .NET Core app to dynamically refresh configuration settings from App Configuration. To learn how to use an Azure managed identity to streamline the access to App Configuration, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)

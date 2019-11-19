@@ -44,14 +44,14 @@ az appconfig kv import --name myTestAppConfigStore --source file --path ~/Import
 
 ## Script explanation
 
-This script uses the following commands to import an App Configuration store. Each command in the table links to command specific documentation.
+This script uses the following commands to import to an App Configuration store. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|
-| [az appconfig import](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-import) | Imports to an App Configuration store resource. |
+| [az appconfig kv import](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-import) | Imports to an App Configuration store resource. |
 
 ## Next steps
 
 For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
-Additional App Configuration CLI script samples can be found in the [Azure App Configuration documentation](../cli-samples.md).
+Additional App Configuration CLI script samples can be found in the [Azure App Configuration CLI samples](../cli-samples.md).

@@ -107,7 +107,7 @@ You use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/
 
 ## Next steps
 
-In this quickstart, you created a new App Configuration store and used it with a .NET Core console app via the [App Configuration provider](https://go.microsoft.com/fwlink/?linkid=2074664). To learn more about how to use App Configuration, continue to the next tutorial that demonstrates authentication.
+In this quickstart, you created a new App Configuration store and used it with a .NET Core console app via the [App Configuration provider](https://go.microsoft.com/fwlink/?linkid=2074664). To learn how to configure your .NET Core app to dynamically refresh configuration settings, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)
+> [Enable dynamic configuration](./enable-dynamic-configuration-dotnet-core.md)

@@ -84,12 +84,12 @@ This script uses the following commands to operate on key-values in an App Confi
 
 | Command | Notes |
 |---|---|
-| [az appconfig kv set](/cli/azure/ext/appconfig/appconfig) | Creates or updates a key-value. |
-| [az appconfig kv list](/cli/azure/ext/appconfig/appconfig) | Lists key-values in an App Configuration store. |
-| [az appconfig kv delete](/cli/azure/ext/appconfig/appconfig) | Deletes a key-value. |
+| [az appconfig kv set](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-set) | Creates or updates a key-value. |
+| [az appconfig kv list](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-list) | Lists key-values in an App Configuration store. |
+| [az appconfig kv delete](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-delete) | Deletes a key-value. |
 
 ## Next steps
 
 For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
-Additional App Configuration CLI script samples can be found in the [Azure App Configuration documentation](../cli-samples.md).
+Additional App Configuration CLI script samples can be found in the [Azure App Configuration CLI samples](../cli-samples.md).

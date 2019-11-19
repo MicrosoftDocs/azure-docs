@@ -54,4 +54,4 @@ This script uses the following commands to delete an App Configuration store. Ea
 
 For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
-Additional App Configuration CLI script samples can be found in the [Azure App Configuration documentation](../cli-samples.md).
+Additional App Configuration CLI script samples can be found in the [Azure App Configuration CLI samples](../cli-samples.md).
