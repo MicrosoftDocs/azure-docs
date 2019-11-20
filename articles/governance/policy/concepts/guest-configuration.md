@@ -67,7 +67,7 @@ The following table shows a list of the local tools used on each supported opera
 
 |Operating system|Validation tool|Notes|
 |-|-|-|
-|Windows|[Microsoft Desired State Configuration](/powershell/dsc) v2| |
+|Windows|[Windows PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) v2| |
 |Linux|[Chef InSpec](https://www.chef.io/inspec/)| Ruby and Python are installed by the Guest Configuration extension. |
 
 ### Validation frequency
