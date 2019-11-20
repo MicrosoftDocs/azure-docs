@@ -78,7 +78,7 @@ Configure VPN peering to enable communication between the virtual network of the
 # Set variables
 $SubscriptionId = '<SubscriptionID>'
 $resourceGroup = 'SQLMI-Repl'
-$pubvNet = 'vnet-sql-mi-publisher'
+$pubvNet = 'sql-mi-publisher-vnet'
 $subvNet = 'sql-vm-sub-vnet'
 $pubsubName = 'Pub-to-Sub-Peering'
 $subpubName = 'Sub-to-Pub-Peering'
@@ -123,16 +123,25 @@ Once VPN peering is established, test connectivity by launching SQL Server Manag
 
 ## 5 - Create private DNS zone
 
+A private DNS zone to allow DNS routing between the managed instances and the SQL Server. 
+
 1. Sign into the [Azure portal](https://portal.azure.com).
 1. Select **Create a resource** to create a new Azure resource. 
 1. Search for `private dns zone` on Azure Marketplace. 
-1. Choose the **Private DNS zone** resource published by Microsoft and then select **Create** to create the zone. 
-1. Choose the subscription and resource group from the drop-downs. 
+1. Choose the **Private DNS zone** resource published by Microsoft and then select **Create** to create the DNS zone. 
+1. Choose the subscription and resource group from the drop-down. 
 1. Provide an arbitrary name for your DNS zone such as `repldns.com`. 
 
    ![Create private DNS zone](media/sql-database-managed-instance-configure-replication-tutorial/create-private-dns-zone.png)
 
 1. Select **Review + create**. Review the parameters for your private DNS zone and then select **Create** to create your resource. 
+1. Go to your new **Private DNS zone** and select **Overview**. 
+1. Select **+ Record set** to create a new A-Record. 
+1. Provide the name of your SQL Server VM and the private internal IP address. 
+
+   ![Create private DNS zone](media/sql-database-managed-instance-configure-replication-tutorial/configure-a-record.png)
+
+1. Select **OK** to create the A record. 
 
 ## 7 - Create Azure Storage Account
 
@@ -169,7 +178,6 @@ GO
 -- Create new database
 CREATE DATABASE [ReplTutorial]
 GO
-
 
 -- Create table
 USE [ReplTutorial]
@@ -297,6 +305,8 @@ INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 
 ## Known errors
 
+### Windows logins are not supported
+
 `Exception Message: Windows logins are not supported in this version of SQL Server.`
 
 The snapshot agent was configured with a Windows login and needs to use a SQL Server login instead. 
@@ -306,20 +316,33 @@ The snapshot agent was configured with a Windows login and needs to use a SQL Se
 2019-11-19 02:21:05.07 Connecting to Azure Files Storage '\\replstorage.file.core.windows.net\replshare'
 2019-11-19 02:21:31.21 Failed to connect to Azure Storage '' with OS error: 53.
 
+### Failed to connect to Azure Storage
+
+
 `Connecting to Azure Files Storage '\\replstorage.file.core.windows.net\replshare' Failed to connect to Azure Storage '' with OS error: 53.`
 
 This is likely because port 445 is closed in either the Azure firewall, the Windows firewall, or both. 
 
+### Could not connect to Subscriber
+
+`The process could not connect to Subscriber 'SQL-VM-SUB`
+`Could not open a connection to SQL Server [53].`
+`A network-related or instance-specific error has occurred while establishing a connection to SQL Server. Server is not found or not accessible. Check if instance name is correct and if SQL Server is configured to allow remote connections.`
+
+Possible solutions:
+- Ensure port 1433 is open. 
+- Ensure TCP/IP is enabled on the subscriber. 
+- Verify your A-record is configured correctly. 
+- Verify your VPN peering is configured correctly. 
+
+
 ## Clean up resources
 
-```powershell
-# Set the variables
-$ResourceGroupName = "SQLMI-Repl"
-
-# Remove the resource2 group
-Remove-AzResourceGroup -Name $ResourceGroupName
-
-```
+1. Navigate to your resource group in the [Azure portal](https://portal.azure.com). 
+1. Select the managed instance(s) and then select **Delete**. Type `yes` in the text box to confirm you want to delete the resource and then select **Delete**. This process may take some time to complete in the background, and until it"s done, you will not be able to delete the *Virtual cluster* or any other dependent resources. Monitor the delete in the Activity tab to confirm your managed instance has been deleted. 
+1. Once the managed instance is deleted, delete the *Virtual cluster* by selecting it in your resource group, and then choosing **Delete**. Type `yes` in the text box to confirm you want to delete the resource and then select **Delete**. 
+1. Delete any remaining resources. Type `yes` in the text box to confirm you want to delete the resource and then select **Delete**. 
+1. Delete the resource group by selecting **Delete resource group**, typing in the name of the resource group, `myResourceGroup`, and then selecting **Delete**. 
 
 ## Next steps
 
