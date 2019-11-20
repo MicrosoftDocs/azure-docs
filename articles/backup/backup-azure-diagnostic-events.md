@@ -79,4 +79,4 @@ The below image shows an example of a user having three diagnostic settings for 
 
 ## Next steps
 
-[Learn the Log Analytics Data Model for the Diagnostics Events](https://aka.ms/AA6idnf)
+[Learn the Log Analytics Data Model for the Diagnostics Events](https://aka.ms/diagnosticsdatamodel)
