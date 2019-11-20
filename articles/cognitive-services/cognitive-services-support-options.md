@@ -7,7 +7,7 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 11/18/2019
+ms.date: 11/20/2019
 ms.author: dapine
 ---
 
@@ -40,7 +40,7 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
     <img alt='Stack Overflow' src='https://docs.microsoft.com/media/logos/logo_stackoverflow.svg'>
 </div>
 
-Stack Overflow is the preferred channel for development-related questions. It's where members of the community and Microsoft team members are directly involved in helping you solve your problems.
+For immediate answers from the community, look to Stack Overflow. Stack Overflow is the preferred channel for development-related questions. It's where members of the community and Microsoft team members are directly involved in helping you solve your problems.
 
 If you can't find an answer to your problem via search, submit a new question to Stack Overflow. Use one of the following tags when you formulate the question:
 
@@ -58,25 +58,25 @@ If you can't find an answer to your problem via search, submit a new question to
     <img alt='UserVoice' src='https://docs.microsoft.com/media/logos/logo-uservoice.svg'>
 </div>
 
-Share your ideas for making Cognitive Services and the accompanying APIs work better for the applications you develop. Use our [growing Knowledge Base](https://cognitive.uservoice.com/knowledgebase) to find answers to common questions:
+To request new features, post them on UserVoice. Share your ideas for making Cognitive Services and the accompanying APIs work better for the applications you develop. Use our [growing Knowledge Base](https://cognitive.uservoice.com/knowledgebase) to find answers to common questions:
 
-| Service           | Cognitive Services UserVoice URL |
-|-------------------|---------------|
-| Anomaly Detector  | https://cognitive.uservoice.com/forums/912196-anomaly-detector |
-| Bing services     | https://cognitive.uservoice.com/forums/555907-bing-search |
-| Computer Vision   | https://cognitive.uservoice.com/forums/430309-computer-vision |
-| Content Moderator | https://cognitive.uservoice.com/forums/559960-content-moderator |
-| Custom Vision     | https://cognitive.uservoice.com/forums/598141-custom-vision-service |
-| Face              | https://cognitive.uservoice.com/forums/430315-face |
-| Form              | https://cognitive.uservoice.com/forums/921556-form-recognizer |
-| Immersive         | https://feedback.azure.com/forums/34192--general-feedback |
-| LUIS              | https://cognitive.uservoice.com/forums/551524-luis |
-| Personalizer      | https://cognitive.uservoice.com/forums/921562-personalizer |
-| QnA Maker         | https://cognitive.uservoice.com/forums/578689-qna-maker |
-| Speech Services   | https://cognitive.uservoice.com/forums/912208-speech-service |
-| Text Analytics    | https://cognitive.uservoice.com/forums/555922-text-analytics |
-| Translator Text   | https://cognitive.uservoice.com/forums/558796-translator |
-| Video Indexer     | https://cognitive.uservoice.com/forums/598144-video-indexer |
+| Service                       | Cognitive Services UserVoice URL |
+|-------------------------------|---------------|
+| Anomaly Detector              | https://cognitive.uservoice.com/forums/912196-anomaly-detector |
+| Bing services                 | https://cognitive.uservoice.com/forums/555907-bing-search |
+| Computer Vision               | https://cognitive.uservoice.com/forums/430309-computer-vision |
+| Content Moderator             | https://cognitive.uservoice.com/forums/559960-content-moderator |
+| Custom Vision                 | https://cognitive.uservoice.com/forums/598141-custom-vision-service |
+| Face                          | https://cognitive.uservoice.com/forums/430315-face |
+| Form                          | https://cognitive.uservoice.com/forums/921556-form-recognizer |
+| Immersive                     | https://feedback.azure.com/forums/34192--general-feedback |
+| Language Understanding (LUIS) | https://cognitive.uservoice.com/forums/551524-luis |
+| Personalizer                  | https://cognitive.uservoice.com/forums/921562-personalizer |
+| QnA Maker                     | https://cognitive.uservoice.com/forums/578689-qna-maker |
+| Speech Services               | https://cognitive.uservoice.com/forums/912208-speech-service |
+| Text Analytics                | https://cognitive.uservoice.com/forums/555922-text-analytics |
+| Translator Text               | https://cognitive.uservoice.com/forums/558796-translator |
+| Video Indexer                 | https://cognitive.uservoice.com/forums/598144-video-indexer |
 
 ## Release notes
 
@@ -113,13 +113,13 @@ You might find the answer you need in the documentation, the samples, or answers
 
 ### Scoped Search
 
-For faster results, scope your search to Stack Overflow, Microsoft docs, or code samples by using the following query on your [favorite search engine](https://bing.com):
+For faster results, scope your search to relevant sites such as Stack Overflow, Microsoft docs, or GitHub code samples. Use the `site:` query notation in your [favorite search engine](https://bing.com):
 
 ```
-{your search keywords} site:stackoverflow.com
+{search keywords} site:stackoverflow.com
 ```
 
-Where `{your search keywords}` is your search keywords. This search will scope the results to Stack Overflow. Use the following site syntax to scope searches appropriately:
+Where `{search keywords}` is the context of your search. This search will scope the results to Stack Overflow. Consider using these scoped searches appropriately:
 
  - Stack Overflow: `site:stackoverflow.com`
  - Microsoft Docs: `site:docs.microsoft.com`
@@ -131,7 +131,7 @@ Where `{your search keywords}` is your search keywords. This search will scope t
     <img alt='GitHub' src='https://docs.microsoft.com/media/logos/logo_octokitty.svg'>
 </div>
 
-Samples are often posted as open source. For questions and issues, create an *issue* in the respective GitHub repository. You can submit a pull request, too. The following is the **Azure Samples** listing of Cognitive Services sample source code:
+Samples are often posted as open source. For questions and issues, create an *issue* in the respective GitHub repository. You can submit a pull request too! Looking for **Azure Samples** source code, below is a listing of Cognitive Services sample source code:
 
 * [Azure Samples - Cognitive Services](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=cognitive&type=&language=)
 
@@ -151,17 +151,17 @@ Steps to reproduce the behavior:
 
 A clear and concise description of what you expected to happen.
 
-**Which Cognitive Services offering are you using**
+**Which Cognitive Services offerings are you using**
 
 Detail the Cognitive Services offering that you're attempting to use, and provide details as to what you're trying to achieve.
 
 **Platform, Operating System, and Programming Language**
 
- - OS: [e.g. Windows, Linux, Android, iOS, ...] - please be specific
+ - OS: [e.g.,  Windows, Linux, Android, iOS, ...] - please be specific
  - Hardware - x64, x86, ARM, ...
- - Browser  [e.g. Chrome, Safari] (if applicable)- please be specific
+ - Browser, e.g.,  Chrome, Safari] (if applicable)- please be specific
 
-**Additional context**
+**Context**
 
  - Error messages, log information, stack trace, ...
  - If you report an error for a specific service interaction, report the SessionId and time (incl. timezone) of the reported incidents. The SessionId is reported in all call-backs/events you receive.
