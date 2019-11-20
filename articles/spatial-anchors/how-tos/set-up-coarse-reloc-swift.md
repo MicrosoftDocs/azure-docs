@@ -1,5 +1,5 @@
 ---
-title: How to create and locate anchors using on-device sensors in Swift| Microsoft Docs
+title: Coarse relocalization in Swift
 description: In-depth explanation of how to create and locate anchors using on-device sensors in Swift.
 author: bucurb
 manager: dacoghl
