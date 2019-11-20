@@ -12,6 +12,8 @@ ms.date: 11/21/2019
 
 # Create an Azure application offer
 
+The steps for publishing an Azure application offer in commercial marketplace are outlined here.
+
 ## Azure application offer type
 
 This topic outlines fundamentals about Azure application offers.  You should be familiar with these concepts before starting the process of publishing a new Azure application offer in the Marketplace.
@@ -37,7 +39,7 @@ There are two kinds of Azure application plans, managed applications and solutio
 
 All Azure applications include at least two files in the root folder of a `.zip` archive:
 
-* An ARM template file named [mainTemplate.json](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  This is the template that defines the resources to deploy into the customer's Azure subscription.  For examples of ARM templates, see the [Azure Quickstart Templates gallery](https://azure.microsoft.com/resources/templates/) or the corresponding [GitHub: Azure Resource Manager Quickstart Templates](https://github.com/azure/azure-quickstart-templates) repo.
+* A Resource Manager template file named [mainTemplate.json](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  This is the template that defines the resources to deploy into the customer's Azure subscription.  For examples of ARM templates, see the [Azure Quickstart Templates gallery](https://azure.microsoft.com/resources/templates/) or the corresponding [GitHub: Azure Resource Manager Quickstart Templates](https://github.com/azure/azure-quickstart-templates) repo.
 
 * A user interface definition for the Azure application creation experience named [createUiDefinition.json](https://docs.microsoft.com/azure/managed-applications/create-uidefinition-overview).  In the user interface, you specify elements that enable consumers to provide parameter values.
 
@@ -397,7 +399,7 @@ The **Package details** subtab enables you to edit the draft version of your tec
 
 All Azure application plan packages must include these two files in the root folder of a `.zip` archive:
 
-* An ARM template file named [mainTemplate.json](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  This is the template that automates the deployment of resources into the customers Azure subscription.  For examples of ARM templates, see the [Azure Quickstart Templates gallery](https://azure.microsoft.com/documentation/templates/) or the corresponding [GitHub: Azure Resource Manager Quickstart Templates](https://github.com/azure/azure-quickstart-templates) repo.
+* A Resource Manager template file named [mainTemplate.json](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  This is the template that automates the deployment of resources into the customers Azure subscription.  For examples of ARM templates, see the [Azure Quickstart Templates gallery](https://azure.microsoft.com/documentation/templates/) or the corresponding [GitHub: Azure Resource Manager Quickstart Templates](https://github.com/azure/azure-quickstart-templates) repo.
 
 * A user interface definition for the Azure application creation experience named [createUiDefinition.json](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
 
