@@ -4,7 +4,7 @@ description: In this article, you learn how to enable and create large file shar
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/11/2019
+ms.date: 11/20/2019
 ms.author: rogarana
 ms.subservice: files
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
@@ -59,16 +59,18 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ### CLI
 
-To create a storage account with large file shares enabled, make sure to change the values below, then use the following command:
+To create a storage account with large file shares enabled, replace `<yourStorageAccountName>`, `<yourResourceGroup>`, and `<yourDesiredRegion>` with your values, then use the following command:
 
 ```
-az storage account create –name youstorageacocunt -g yourresourcegroup -l eastuseuap –sku Standard_LRS –enable-large-file-share
+az storage account create –name <yourStorageAccountName>-g <yourResourceGroup> -l <yourDesiredRegion> –sku Standard_LRS –enable-large-file-share
 ```
 
 ### PowerShell
 
+To create a storage account with large file shares enabled, replace `<yourStorageAccountName>`, `<yourResourceGroup>`, and `<yourDesiredRegion>` with your values, then use the following command:
+
 ```PowerShell
-New-AzStorageAccount -ResourceGroupName $rgname -Name $stoname -Location eastus2euap -SkuName Standard_LRS -EnableLargeFileShare;
+New-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAccountName> -Location <yourDesiredRegion> -SkuName Standard_LRS -EnableLargeFileShare;
 ```
 
 ## Enable on existing account
@@ -92,22 +94,21 @@ If you receive the following error: "Large file shares are not available for the
 
 You can enable large file shares on your existing accounts. If you do this, then the account will no longer be able to convert to GZRS, GRS, or RA-GRS. This choice is irreversible on this account.
 
-Use the following command to enable large file shares on your existing account:
+Replace `<yourStorageAccountName>` and `<yourResourceGroup>` in the following command, then use it to enable large file shares on your existing account:
 
 ```bash
-az storage account update –name yourstorageacocunt -g yourresourcegroup –enable-large-file-share –sku Standard_LRS
+az storage account update –name <yourStorageAccountName> -g <yourResourceGroup> –enable-large-file-share –sku Standard_LRS
 ```
 
 ### PowerShell
 
 You can enable large file shares on your existing accounts. If you do this, then the account will no longer be able to convert to GZRS, GRS, or RA-GRS. This choice is irreversible on this account.
 
-Use the following command to enable large file shares on your existing account:
+Replace `<yourStorageAccountName>` and `<yourResourceGroup>` in the following command, then use it to enable large file shares on your existing account:
 
 ```PowerShell
-Set-AzStorageAccount -ResourceGroupName $rgname -Name $stoname -EnableLargeFileShare -SkuName $stotype -UpgradeToStorageV2;
+Set-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAccountName> -EnableLargeFileShare -SkuName Standard_LRS -UpgradeToStorageV2
 ```
-
 
 ## Create a large file share
 
@@ -122,6 +123,8 @@ Creating a large file share is almost identical to creating a standard file shar
 ![large-file-shares-create-share.png](media/storage-files-how-to-create-large-file-share/large-file-shares-create-share.png)
 
 ### CLI
+
+Once you've enabled large file shares on your storage account, you can expand existing file shares in that account to the higher quotas. Replace `<yourStorageAccountName>`, `<yourStorageAccountKey>`, and `<yourFileShareName>` in the following command with your values, then you can use it to set the quota to the maximum size:
 
 ```bash
 az storage share create \
@@ -152,7 +155,24 @@ Once you've enabled large file shares on your storage account, you can expand ex
 
 ### CLI
 
+Once you've enabled large file shares on your storage account, you can expand existing file shares in that account to the higher quotas. Replace `<yourStorageAccountName>`, `<yourStorageAccountKey>`, and `<yourFileShareName>` in the following command with your values, then you can use it to set the quota to the maximum size:
+
+```
+az storage share update --account-name <yourStorageAccountName> --account-key <yourStorageAccountKey> --name <yourFileShareName> --quota 10240
+```
+
 ### PowerShell
+
+Once you've enabled large file shares on your storage account, you can expand existing file shares in that account to the higher quotas. Replace `<YourStorageAccountConnectionString>` and `<YourStorageAccountFileShareName>` in the following command with your values, then you can use it to set the quota to the maximum size:
+
+```PowerShell
+##Config
+$connectionstring="<YourStorageAccountConnectionString>"
+$sharename="<YourStorageAccountFileShareName>"
+$ctx = New-AzStorageContext -ConnectionString $connectionstring
+# update quota
+Set-AzStorageShareQuota -ShareName $sharename -Context $ctx -Quota 10240
+```
 
 ## Next steps
 
