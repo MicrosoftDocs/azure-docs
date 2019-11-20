@@ -23,7 +23,7 @@ In addition to the Azure Spring requirements, this tutorial depends on the follo
 
 * An Azure application to monitor.  This example uses a database implemented in this article: [How to use Spring Data Apache Cassandra API with Azure Cosmos DB](https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
  
-## Set up action group with alert
+## Set up action group
 The following procedure initializes both **Action Group** and **Alert** starting from the **Monitor Overview** page of the Azure portal.
 
 1. Navigate to **Monitor - Alerts** and **Alerts** from the left navigation pane.
@@ -58,6 +58,8 @@ The following procedure initializes both **Action Group** and **Alert** starting
 
   ![Screenshot Portal define action](media/alerts-action-groups/action-2.png)
 
+## Set up Alert 
+
 The previous steps created an **Action Group** that uses email. You could also use phone notification, webhooks, or an Azure function to send notification.  Next, we will configure an **Alert** to use the **Action Group**.  
 
 From the **Monitor Alerts** page, click **Manage Alert Rules**.
@@ -69,3 +71,9 @@ From the **Monitor Alerts** page, click **Manage Alert Rules**.
 1. Click **+ New alert rule**.
 
   ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-3.png)
+
+In three steps on the **Create rule** page, specify the **RESOURCE**, **CONDITION**, and **ACTIONS**.  From **ACTIONS** select the previously defined **Action Group**.
+
+Name the alert rule and click **Create alert rule**.
+
+  ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-4.png)
