@@ -220,13 +220,13 @@ Message: Azure.RequestFailedException : StatusCode: 404, ReasonPhrase: 'Not Foun
 
 Several App Configuration client library samples are available to you in this GitHub repository.  These include:
 
-* [Hello world](samples/Sample1_HelloWorld.cs): Create and delete a configuration setting.
-* [Hello world async with labels](samples/Sample2_HelloWorldExtended.cs): Asynchronously create, update and delete configuration settings with labels.
-* [Make a configuration setting readonly](samples/Sample3_SetClearReadOnly.cs): Make a configuration setting read-only, and then return it to a read-write state.
-* [Read revision history](samples/Sample4_ReadRevisionHistory.cs): Read the revision history of a configuration setting that has been changed.
-* [Get a setting if changed](samples/Sample5_GetSettingIfChanged.cs): Save bandwidth by using a conditional request to retrieve a setting only if it is different from your local copy.
-* [Update a setting if it hasn't changed](samples/Sample6_UpdateSettingIfUnchanged.cs): Prevent lost updates by using optimistic concurrency to update a setting only if your local updates were applied to the same version as the resource in the configuration store.
-* [Create a mock client](samples/Sample7_MockClient.cs): Mock a client for testing using the [Moq library][moq].
+* [Hello world](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/appconfiguration/Azure.Data.AppConfiguration/samples/Sample1_HelloWorld.cs): Create and delete a configuration setting.
+* [Hello world async with labels](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/appconfiguration/Azure.Data.AppConfiguration/samples/Sample2_HelloWorldExtended.cs): Asynchronously create, update and delete configuration settings with labels.
+* [Make a configuration setting readonly](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/appconfiguration/Azure.Data.AppConfiguration/samples/Sample3_SetClearReadOnly.cs): Make a configuration setting read-only, and then return it to a read-write state.
+* [Read revision history](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/appconfiguration/Azure.Data.AppConfiguration/samples/Sample4_ReadRevisionHistory.cs): Read the revision history of a configuration setting that has been changed.
+* [Get a setting if changed](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/appconfiguration/Azure.Data.AppConfiguration/samples/Sample5_GetSettingIfChanged.cs): Save bandwidth by using a conditional request to retrieve a setting only if it is different from your local copy.
+* [Update a setting if it hasn't changed](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/appconfiguration/Azure.Data.AppConfiguration/samples/Sample6_UpdateSettingIfUnchanged.cs): Prevent lost updates by using optimistic concurrency to update a setting only if your local updates were applied to the same version as the resource in the configuration store.
+* [Create a mock client](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/appconfiguration/Azure.Data.AppConfiguration/samples/Sample7_MockClient.cs): Mock a client for testing using the [Moq library][moq].
 
  For more details see the [samples README][samples_readme].
 
@@ -242,17 +242,17 @@ This project has adopted the Microsoft Open Source Code of Conduct. For more inf
 
 <!-- LINKS -->
 [azconfig_docs]: https://docs.microsoft.com/azure/azure-app-configuration/
-[azconfig_setting_concepts]: https://docs.microsoft.com/en-us/azure/azure-app-configuration/concept-key-value
-[azconfig_asof_snapshot]: https://docs.microsoft.com/en-us/azure/azure-app-configuration/concept-point-time-snapshot
+[azconfig_setting_concepts]: https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value
+[azconfig_asof_snapshot]: https://docs.microsoft.com/azure/azure-app-configuration/concept-point-time-snapshot
 [source_root]: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/appconfiguration/Azure.Data.AppConfiguration
 [source_samples]: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/appconfiguration/Azure.Data.AppConfiguration/samples
 [reference_docs]: https://azure.github.io/azure-sdk-for-net/appconfiguration.html
 [azconfig_rest]: https://github.com/Azure/AppConfiguration#rest-api-reference
 [azure_cli]: https://docs.microsoft.com/cli/azure
 [azure_sub]: https://azure.microsoft.com/free/
-[configuration_client_class]: src/ConfigurationClient.cs
+[configuration_client_class]: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/appconfiguration/Azure.Data.AppConfiguration/src/ConfigurationClient.cs
 [configuration_store]: https://docs.microsoft.com/azure/azure-app-configuration/quickstart-dotnet-core-app#create-an-app-configuration-store
-[label_concept]: https://docs.microsoft.com/en-us/azure/azure-app-configuration/concept-key-value#label-keys
+[label_concept]: https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value#label-keys
 [nuget]: https://www.nuget.org/
 [package]: https://www.nuget.org/packages/Azure.ApplicationModel.Configuration/
 [samples_readme]: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/appconfiguration/Azure.Data.AppConfiguration/samples/README.md

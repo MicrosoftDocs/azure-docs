@@ -68,8 +68,7 @@ All client libraries, by default, use Netty HTTP client. Adding the above depend
 
 ### Alternate HTTP Client
 
-If, instead of Netty it is preferable to use OkHTTP, there is a HTTP client available for that too. Exclude the default
-Netty and include OkHTTP client in your pom.xml.
+If instead of Netty it is preferable to use OkHTTP, there is a HTTP client available for okHTTP too. Exclude the default Netty and include OkHTTP client in your pom.xml.
 
 [//]: # ({x-version-update-start;com.azure:azure-data-appconfiguration;current})
 
@@ -103,7 +102,7 @@ Netty and include OkHTTP client in your pom.xml.
 
 ### Configuring HTTP Clients
 
-When an HTTP client is included on the classpath, as shown above, it is not necessary to specify it in the client library [builders](#create-client), unless you want to customize the HTTP client in some fashion. If this is desired, the `httpClient` builder method is often available to achieve just this, by allowing users to provide a custom (or customized) `com.azure.core.http.HttpClient` instances.
+When an HTTP client is included on the classpath, as shown above, it is not necessary to specify it in the client library builders, unless you want to customize the HTTP client in some fashion. If this is desired, the `httpClient` builder method is often available to achieve just this, by allowing users to provide a custom (or customized) `com.azure.core.http.HttpClient` instances.
 
 For starters, by having the Netty or OkHTTP dependencies on your classpath, as shown above, you can create new instances of these `HttpClient` types using their builder APIs. For example, here is how you would create a Netty HttpClient instance:
 
@@ -116,11 +115,11 @@ HttpClient client = new NettyAsyncHttpClientBuilder()
 
 ### Default SSL library
 
-All client libraries, by default, use the Tomcat-native Boring SSL library to enable native-level performance for SSL operations. The Boring SSL library is an uber jar containing native libraries for Linux / macOS / Windows, and provides better performance compared to the default SSL implementation within the JDK. For more information, including how to reduce the dependency size, refer to the [performance tuning][performance_tuning] section of the wiki.
+All client libraries, by default, use the Tomcat-native Boring SSL library to enable native-level performance for SSL operations. The Boring SSL library is an uber jar containing native libraries for Linux / macOS / Windows, and provides better performance compared to the default SSL implementation within the JDK. For more information, including how to reduce the dependency size, see the [performance tuning][performance_tuning] section of the wiki.
 
 ### Create an App Configuration Store
 
-To create a Configuration Store you can use the Azure Portal or [Azure CLI][azure_cli].
+To create a Configuration Store, you can use the Azure Portal or [Azure CLI][azure_cli].
 
 You need to install the Azure App Configuration CLI extension first by executing the following command:
 
@@ -136,7 +135,7 @@ az appconfig create --name <config-store-name> --resource-group <resource-group-
 
 ### Authenticate the client
 
-In order to interact with the App Configuration service you'll need to create an instance of the Configuration Client class. To make this possible you'll need the connection string of the Configuration Store.
+In order to interact with the App Configuration service, you'll need to create an instance of the Configuration Client class. To make this possible, you'll need the connection string of the Configuration Store.
 
 #### Get credentials
 
@@ -150,7 +149,7 @@ Alternatively, get the connection string from the Azure Portal.
 
 #### Create a Configuration Client
 
-Once you have the value of the connection string you can create the configuration client:
+Once you have the value of the connection string, you can create the configuration client:
 
 ```Java
 ConfigurationClient client = new ConfigurationClientBuilder()
@@ -170,7 +169,7 @@ ConfigurationAsyncClient client = new ConfigurationClientBuilder()
 
 ### Configuration Setting
 
-A configuration setting is the fundamental resource within a configuration store. In its simplest form it is a key and a value. However, there are additional properties such as the modifiable content type and tags fields that allow the value to be interpreted or associated in different ways.
+A configuration setting is the fundamental resource within a configuration store. In its simplest form, it is a key and a value. However, there are additional properties such as the modifiable content type and tags fields that allow the value to be interpreted or associated in different ways.
 
 The Label property of a configuration setting provides a way to separate configuration settings into different dimensions. These dimensions are user defined and can take any form. Some common examples of dimensions to use for a label include regions, semantic versions, or environments. Many applications have a required set of configuration keys that have varying values as the application exists across different dimensions. For example, MaxRequests may be 100 in "NorthAmerica", and 200 in "WestEurope". By creating a configuration setting named MaxRequests with a label of "NorthAmerica" and another, only with a different value, in the "WestEurope" label, a solution can be achieved that allows the application to seamlessly retrieve Configuration Settings as it runs in these two dimensions.
 
@@ -342,7 +341,7 @@ When you interact with App Configuration using this Java client library, errors 
 
 This project welcomes contributions and suggestions. Most contributions require you to agree to a [Contributor License Agreement (CLA)][cla] declaring that you have the right to, and actually do, grant us the rights to use your contribution.
 
-When you submit a pull request, a CLA-bot will automatically determine whether you need to provide a CLA and decorate the PR appropriately (e.g., label, comment). Simply follow the instructions provided by the bot. You will only need to do this once across all repos using our CLA.
+When you submit a pull request, a CLA-bot will automatically determine whether you need to provide a CLA and decorate the PR appropriately (e.g., label, comment). Follow the instructions provided by the bot. You will only need to do this once across all repos using our CLA.
 
 This project has adopted the [Microsoft Open Source Code of Conduct][coc]. For more information see the [Code of Conduct FAQ][coc_faq] or contact [opencode@microsoft.com][coc_contact] with any additional questions or comments.
 
@@ -359,9 +358,9 @@ This project has adopted the [Microsoft Open Source Code of Conduct][coc]. For m
 [maven]: https://maven.apache.org/
 [package]: https://search.maven.org/artifact/com.azure/azure-data-appconfiguration
 [rest_api]: https://github.com/Azure/AppConfiguration#rest-api-reference
-[samples]: src/samples/java/com/azure/data/appconfiguration
-[samples_readme]: src/samples/README.md
-[source_code]: src
+[samples]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/appconfiguration/azure-data-appconfiguration/src/samples/java/com/azure/data/appconfiguration
+[samples_readme]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/appconfiguration/azure-data-appconfiguration/src/samples/README.md
+[source_code]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/appconfiguration/azure-data-appconfiguration/src
 [spring_quickstart]: https://docs.microsoft.com/azure/azure-app-configuration/quickstart-java-spring-app
 [performance_tuning]: https://github.com/Azure/azure-sdk-for-java/wiki/Performance-Tuning
 

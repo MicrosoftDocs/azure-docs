@@ -19,7 +19,7 @@ ms.author: mametcal
 
 # App Configuration client library for TypeScript/JavaScript
 
-[Azure App Configuration](https://docs.microsoft.com/en-us/azure/azure-app-configuration/overview) is a managed service that helps developers centralize their application and feature settings simply and securely.
+[Azure App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/overview) is a managed service that helps developers centralize their application and feature settings simply and securely.
 
 Use the client library for App Configuration to:
 
@@ -30,7 +30,7 @@ Use the client library for App Configuration to:
 [Source code](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/appconfiguration/app-configuration/) |
 [Package (NPM)](https://www.npmjs.com/package/@azure/app-configuration) |
 [API reference documentation](https://azure.github.io/azure-sdk-for-js/appconfiguration.html) |
-[Product documentation](https://docs.microsoft.com/en-us/azure/azure-app-configuration/) |
+[Product documentation](https://docs.microsoft.com/azure/azure-app-configuration/) |
 [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/appconfiguration/app-configuration/samples)
 
 ## Getting started
@@ -39,7 +39,7 @@ Use the client library for App Configuration to:
 
 * Node.js version 8.x.x or higher
 
-**Prerequisites**: You must have an [Azure Subscription](https://azure.microsoft.com) and an [App Configuration](https://docs.microsoft.com/en-us/azure/azure-app-configuration/) resource to use this package.
+**Prerequisites**: You must have an [Azure Subscription](https://azure.microsoft.com) and an [App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/) resource to use this package.
 
 ### 1. Install the `@azure/app-configuration` package
 
@@ -127,7 +127,7 @@ async function run() {
     value: "testvalue",
     // Labels allow you to create variants of a key tailored
     // for specific use-cases like supporting multiple environments.
-    // https://docs.microsoft.com/en-us/azure/azure-app-configuration/concept-key-value#label-keys
+    // https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value#label-keys
     label: "optional-label"
   });
 
@@ -183,6 +183,6 @@ folder for more details.
 ## Related projects
 
 * [Microsoft Azure SDK for JavaScript](https://github.com/Azure/azure-sdk-for-js)
-* [Azure App Configuration](https://docs.microsoft.com/en-us/azure/azure-app-configuration/overview)
+* [Azure App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/overview)
 
 ![Impressions](https://azure-sdk-impressions.azurewebsites.net/api/impressions/azure-sdk-for-js%2Fsdk%2Fappconfiguration%2Fapp-configuration%2FREADME.png)
