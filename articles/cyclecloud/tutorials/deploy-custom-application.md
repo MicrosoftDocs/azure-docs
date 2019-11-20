@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud Tutorial - Deploy a New Application to an HPC Cluster | Microsoft Docs
+title: Tutorial - Deploy a New Application to an HPC Cluster
 description: In this tutorial, you will use a project to install a custom application to your cluster.
 author: KimliW
 ms.date: 08/01/2018

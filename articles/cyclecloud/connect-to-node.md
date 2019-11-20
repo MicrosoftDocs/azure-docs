@@ -1,5 +1,5 @@
 ---
-title: Connect to a Node in Azure CycleCloud | Microsoft Docs
+title: Connecting to a Cluster Node
 description: Use the CycleCloud web interface and a cloud shell to log into a cluster node
 author: KimliW
 ms.date: 11/08/2019

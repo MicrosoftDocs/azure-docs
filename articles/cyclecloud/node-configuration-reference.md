@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud Node Configuration Resource | Microsoft Docs
+title: Node Configuration Resource
 description: Resource information for Node Configuration in Azure CycleCloud.
 author: KimliW
 ms.topic: reference

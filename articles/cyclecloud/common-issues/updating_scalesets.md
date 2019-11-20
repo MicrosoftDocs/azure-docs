@@ -1,5 +1,5 @@
 ---
-title: CycleCloud Common Issues - Updating Scalesets | Microsoft Docs
+title: Common Issues - Updating Scalesets
 description: Azure CycleCloud common issue - Updating Scalesets
 author: adriankjohnson
 ms.date: 11/15/2019

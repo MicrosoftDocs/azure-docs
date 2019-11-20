@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud Storage Options | Microsoft Docs
+title: Storage Options
 description: Attach and manage storage options within Azure CycleCloud.
 author: KimliW
 ms.date: 08/01/2018

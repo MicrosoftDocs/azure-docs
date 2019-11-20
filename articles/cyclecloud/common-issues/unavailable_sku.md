@@ -1,5 +1,5 @@
 ---
-title: CycleCloud Common Issues - Unavailable SKU| Microsoft Docs
+title: Common Issues - Unavailable SKU| Microsoft Docs
 description: Azure CycleCloud common issue - Unavailable SKU
 author: adriankjohnson
 ms.date: 11/15/2019

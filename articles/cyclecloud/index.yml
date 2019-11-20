@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Azure CycleCloud
 metadata:
-  title: CycleCloud Documentation - Quickstarts, Concepts, Resources | Microsoft Docs
+  title: CycleCloud Documentation - Quickstarts, Concepts, Resources
   description: Azure CycleCloud is designed to provide secure and flexible cloud HPC and Big Compute environments to users with dynamic scaling of clusters.
   services: cyclecloud
   author: KimliW

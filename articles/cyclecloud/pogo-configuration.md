@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud pogo Configuration | Microsoft Docs
+title: pogo Configuration
 description: Configure Azure CycleCloud's pogo tool.
 author: KimliW
 ms.technology: pogo

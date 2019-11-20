@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud Volume Mount | Microsoft Docs
+title: Volume Mount
 description: Manage volume storage options within Azure CycleCloud.
 author: KimliW
 ms.date: 08/01/2018

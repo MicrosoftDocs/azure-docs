@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud Clusters and Nodes | Microsoft Docs
+title: Clusters and Nodes
 description: Learn about Azure CycleCloud clusters, nodes, and node arrays.
 author: KimliW
 ms.date: 08/01/2018

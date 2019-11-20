@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud pogo Introduction | Microsoft Docs
+title: pogo Introduction
 description: Installing and using Azure CycleCloud's pogo tool.
 author: KimliW
 ms.technology: jetpack

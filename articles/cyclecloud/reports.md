@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud Reporting Options | Microsoft Docs
+title: Reporting Options
 description: View, Edit, and Create Reports within Azure CycleCloud.
 author: KimliW
 ms.date: 08/01/2018

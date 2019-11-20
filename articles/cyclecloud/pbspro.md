@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud PBS Professional OSS Integration | Microsoft Docs
+title: PBS Professional OSS Integration
 description: PBS Professional OSS scheduler configuration in Azure CycleCloud.
 author: KimliW
 ms.date: 08/01/2018

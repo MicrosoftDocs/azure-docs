@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud Template File Reference | Microsoft Docs
+title: Template File Reference - Files 
 description: Parameter reference for CycleCloud Template Files
 author: mvrequa
 ms.topic: reference

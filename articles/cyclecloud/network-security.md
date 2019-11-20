@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud Network Security Options | Microsoft Docs
+title: Network Security Options
 description: Configure your network to work with Azure CycleCloud.
 services: azure cyclecloud
 author: KimliW

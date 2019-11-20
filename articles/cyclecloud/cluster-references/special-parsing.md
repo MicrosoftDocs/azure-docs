@@ -1,5 +1,5 @@
 ---
-title: Azure Special Parsing for Parameters | Microsoft Docs
+title: Special Parsing for Parameters
 description: Parameterize attributes with expressions for enhanced configurability.
 author: mvrequa
 ms.date: 08/01/2018

@@ -1,5 +1,5 @@
 ---
-title: CycleCloud Common Issues - Cluster Credentials | Microsoft Docs
+title: Common Issues - Cluster Credentials
 description: Azure CycleCloud common issue - Cluster Credentials
 author: adriankjohnson
 ms.date: 11/15/2019

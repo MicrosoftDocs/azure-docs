@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud pogo Commands | Microsoft Docs
+title: pogo Commands
 description: Using Azure CycleCloud's pogo tool.
 author: KimliW
 ms.technology: pogo

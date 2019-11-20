@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud API Reference | Microsoft Docs
+title: API Reference
 description:  Azure CycleCloud REST API Reference.
 author: adriankjohnson
 ms.topic: reference

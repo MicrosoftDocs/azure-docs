@@ -1,5 +1,5 @@
 ---
-title: CycleCloud Common Issues - Resource Group Privilege | Microsoft Docs
+title: Common Issues - Resource Group Privilege
 description: Azure CycleCloud common issue - Resource Group Privilege
 author: adriankjohnson
 ms.date: 11/15/2019

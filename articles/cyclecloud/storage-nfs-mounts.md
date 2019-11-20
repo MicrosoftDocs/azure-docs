@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud Network File System Options | Microsoft Docs
+title: Network File System Options
 description: Attach and manage simple network file systems within Azure CycleCloud.
 author: KimliW
 ms.date: 08/01/2018

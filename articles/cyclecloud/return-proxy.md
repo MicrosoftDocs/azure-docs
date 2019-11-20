@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud Return Proxy Enable | Microsoft Docs
+title: Return Proxy Enable
 description: Enable Return Proxy for Azure CycleCloud.
 author: KimliW
 ms.date: 08/01/2018

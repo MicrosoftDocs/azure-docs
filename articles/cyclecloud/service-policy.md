@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud Service Policy | Microsoft Docs
+title: Service Policy
 description: Complete service policy for Azure CycleCloud.
 services: azure cyclecloud
 author: KimliW

@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud Proxy Traffic | Microsoft Docs
+title: Proxy Traffic
 description: Enable proxy access to your Azure CycleCloud install.
 services: azure cyclecloud
 author: KimliW

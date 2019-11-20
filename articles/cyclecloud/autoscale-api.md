@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud AutoScale API | Microsoft Docs
+title: AutoScale API
 description: Autoscaling non-standard cluster types with Azure CycleCloud.
 author: KimliW
 ms.date: 08/01/2018

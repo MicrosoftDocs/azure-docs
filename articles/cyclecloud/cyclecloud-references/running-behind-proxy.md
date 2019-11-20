@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud using Web Proxy | Microsoft Docs
+title: Using a Web Proxy
 description: Running Azure CycleCloud from behind HTTP/HTTPs Proxy.
 author: dpwatrous
 ms.date: 12/18/2018

@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud Storage - Blobs and Lockers | Microsoft Docs
+title: Storage - Blobs and Lockers
 description: Project and User Blobs for storage within Azure CycleCloud.
 author: KimliW
 ms.date: 08/01/2018

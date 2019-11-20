@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud Alerts and Notifications | Microsoft Docs
+title: Alerts and Notifications
 description: View or customize alerts and notifications within Azure CycleCloud.
 services: azure cyclecloud
 author: KimliW

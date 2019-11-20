@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud Cluster User Management | Microsoft Docs
+title: Cluster User Management
 description: Manage user login access to cluster nodes
 author: jermth
 ms.date: 04/15/2019

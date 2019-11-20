@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud Cluster Reference Docs | Microsoft Docs
+title: Cluster Reference Docs
 description: Build a new cluster template file and fill in the desired attributes with the parameters shown here.
 author: KimliW
 ms.date: 08/01/2018

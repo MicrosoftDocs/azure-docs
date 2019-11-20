@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud Configuration | Microsoft Docs
+title: Configuration
 description: Configure your Azure credentials to work with Azure CycleCloud.
 author: KimliW
 ms.date: 08/01/2018

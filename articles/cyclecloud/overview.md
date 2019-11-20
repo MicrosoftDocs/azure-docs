@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud Overview | Microsoft Docs
+title: Overview
 description: Azure CycleCloud overview and introduction.
 author: KimliW
 ms.date: 08/01/2018

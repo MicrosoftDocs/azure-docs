@@ -1,5 +1,5 @@
 ---
-title: Tag Nodes in Azure CycleCloud | Microsoft Docs
+title: Tagging Nodes
 description: Using node tags in Azure CycleCloud.
 author: KimliW
 ms.date: 08/01/2018

@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud Custom Images | Microsoft Docs
+title: Custom Images
 description: Create and modify custom images or Marketplace Images for Azure CycleCloud.
 author: adriankjohnson
 ms.date: 08/01/2018

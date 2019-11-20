@@ -1,5 +1,5 @@
 ---
-title: CycleCloud Common Issues - Slurm Configuration| Microsoft Docs
+title: Common Issues - Slurm Configuration| Microsoft Docs
 description: Azure CycleCloud common issue - Slurm Configuration
 author: adriankjohnson
 ms.date: 11/15/2019

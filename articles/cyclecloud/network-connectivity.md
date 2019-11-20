@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud Network Connectivity Configuration | Microsoft Docs
+title: Network Connectivity Configuration
 description: Configure Azure CycleCloud to access your Virtual Machines
 author: adriankjohnson
 ms.date: 11/15/2019

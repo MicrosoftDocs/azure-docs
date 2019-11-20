@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud SSL Configuration | Microsoft Docs
+title: SSL Configuration
 description: Enable SSL for secure transfers in Azure CycleCloud.
 services: azure cyclecloud
 author: KimliW
