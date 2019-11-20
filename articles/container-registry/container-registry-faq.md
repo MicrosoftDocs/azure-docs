@@ -253,6 +253,7 @@ Image quarantine is currently a preview feature of ACR. You can enable the quara
 - [Check health with `az acr check-health`](#check-health-with-az-acr-check-health)
 - [docker pull fails with error: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)](#docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers)
 - [docker push succeeds but docker pull fails with error: unauthorized: authentication required](#docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required)
+- [`az acr login` succeeds, but docker commands fails with error: unauthorized: authentication required](#az-acr-login-succeeds-but-docker-fails-with-error-unauthorized-authentication-required)
 - [Enable and get the debug logs of the docker daemon](#enable-and-get-the-debug-logs-of-the-docker-daemon)	
 - [New user permissions may not be effective immediately after updating](#new-user-permissions-may-not-be-effective-immediately-after-updating)
 - [Authentication information is not given in the correct format on direct REST API calls](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
@@ -316,6 +317,10 @@ To resolve the error:
   ```
 
 Details of `--signature-verification` can be found by running `man dockerd`.
+
+### az acr login succeeds but docker fails with error: unauthorized: authentication required
+
+Make sure you use an all lowercase server URL, for example, `docker push myregistry.azurecr.io/myimage:latest`, even if the registry resource name is uppercase or mixed case, like `myRegistry`.
 
 ### Enable and get the debug logs of the Docker daemon	
 
