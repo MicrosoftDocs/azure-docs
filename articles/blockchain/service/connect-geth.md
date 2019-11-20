@@ -43,7 +43,7 @@ You can get the Geth connection string for an Azure Blockchain Service transacti
 1. Open a command prompt or shell.
 1. Use the Geth attach subcommand to attach to the running Geth instance on your transaction node. Paste the connection string as an argument for the attach subcommand. For example:
 
-    ```
+    ``` bash
     geth attach <connection string>
     ```
 
@@ -51,7 +51,7 @@ You can get the Geth connection string for an Azure Blockchain Service transacti
 
     For example, use the following API to find out the chainId.
 
-    ```bash
+    ``` bash
     admin.nodeInfo.protocols.istanbul.config.chainId
     ```
 
