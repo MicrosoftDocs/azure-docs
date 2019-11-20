@@ -21,12 +21,15 @@ In addition to the Azure Spring requirements, this tutorial depends on the follo
 
 * A deployed Azure Spring Cloud instance.  Follow our [quickstart](spring-cloud-quickstart-launch-app-cli.md) to get started.
 
-* An Azure application to monitor.  This example uses a database implemented in this article: [How to use Spring Data Apache Cassandra API with Azure Cosmos DB](https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
+* An Azure resource to monitor, for example the database implemented in this article: [How to use Spring Data Apache Cassandra API with Azure Cosmos DB](https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
  
-## Set up action group
-The following procedure initializes both **Action Group** and **Alert** starting from the **Monitor Overview** page of the Azure portal.
+The following procedures initialize both **Action Group** and **Alert** starting from the **Monitor Overview** page of the Azure portal.
 
-1. Navigate to **Monitor - Alerts** and **Alerts** from the left navigation pane.
+## Set up Action Group
+
+The following procedure initializes an **Action Group**.
+
+1. Navigate to **Monitor - Alerts**, and then select **Alerts** from the left navigation pane.
 
 1. Select **Subscription** and **Resource group**.
 
@@ -60,7 +63,9 @@ The following procedure initializes both **Action Group** and **Alert** starting
 
 ## Set up Alert 
 
-The previous steps created an **Action Group** that uses email. You could also use phone notification, webhooks, or an Azure function to send notification.  Next, we will configure an **Alert** to use the **Action Group**.  
+The previous steps created an **Action Group** that uses email. You could also use phone notification, webhooks, Azure function, etc. to send notification.  
+
+Next, we will configure an **Alert** to use the **Action Group**.  
 
 From the **Monitor Alerts** page, click **Manage Alert Rules**.
 
@@ -72,9 +77,11 @@ From the **Monitor Alerts** page, click **Manage Alert Rules**.
 
   ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-3.png)
 
-In three steps on the **Create rule** page, specify the **RESOURCE**, **CONDITION**, and **ACTIONS**.  From **ACTIONS** select the previously defined **Action Group**.
+1. On the **Create rule** page, specify the **RESOURCE**, **CONDITION**, and **ACTIONS**.  From **ACTIONS** pane select the previously defined **Action Group**.
 
-Name the alert rule and click **Create alert rule**.
+1. Under **OTHER DETAILS**, Name the alert rule.
+
+1. Click **Create alert rule**.
 
   ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-4.png)
 
