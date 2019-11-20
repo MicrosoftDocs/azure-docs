@@ -1,11 +1,11 @@
 ---
 title: Connect to an Azure Cosmos account with Azure Private Link
 description: Learn how to securely access the Azure Cosmos account from a VM by creating a Private Endpoint.
-author: SnehaGunda
+author: asudbring
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.author: sngun
+ms.author: allensu
 
 ---
 # Connect privately to an Azure Cosmos account using Azure Private Link
@@ -94,7 +94,7 @@ Create an [Azure Cosmos SQL API account](../cosmos-db/create-cosmosdb-resources-
 
 ## Create a Private Endpoint for your Azure Cosmos account
 
-Create a Private Link for your Azure Cosmos account as described in the [Create a Private Link using the Azure portal](../cosmos-db/how-to-configure-private-endpoints.md#create-a-private-link-using-the-azure-portal) section of the linked article.
+Create a Private Link for your Azure Cosmos account as described in the [Create a Private Link using the Azure portal](../cosmos-db/how-to-configure-private-endpoints.md#create-a-private-endpoint-by-using-the-azure-portal) section of the linked article.
 
 ## Connect to a VM from the internet
 

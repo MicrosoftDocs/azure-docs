@@ -91,13 +91,17 @@ The Log Analytics workspace must exist in the following regions:
 * West Central US
 * East US
 * East US 2
+* North Central US
 * South Central US
+* Central US
 * West US
 * West US 2
 * Central US
 * France Central
-* North Europe
 * West Europe
+* North Europe
+* Brazil South
+* UK West
 * UK South
 * Australia East
 * Australia Southeast

@@ -6,7 +6,7 @@ ms.subservice:
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 10/15/2019
+ms.date: 11/14/2019
 
 ---
 
@@ -14,41 +14,29 @@ ms.date: 10/15/2019
 
 Azure Monitor for VMs monitors your Azure virtual machines (VM) and virtual machine scale sets at scale. It analyzes the performance and health of your Windows and Linux VMs, and monitors their processes and dependencies on other resources and external processes. 
 
-It includes support for monitoring performance and application dependencies for VMs that are hosted on-premises or in another cloud provider. Three key features deliver in-depth insight:
-
-- **Logical components of Azure VMs and virtual machine scale sets that run Windows and Linux**: Are measured against pre-configured health criteria, and they alert you when the evaluated condition is met.  ​
+It includes support for monitoring performance and application dependencies for VMs that are hosted on-premises or in another cloud provider. The following key features deliver in-depth insight:
 
 - **Pre-defined trending performance charts**: Display core performance metrics from the guest VM operating system.
 
 - **Dependency map**: Displays the interconnected components with the VM from various resource groups and subscriptions.  
 
-The features are organized into three perspectives:
-
-- Health
-- Performance
-- Map
-
 >[!NOTE]
 >We recently [announced changes](https://azure.microsoft.com/updates/updates-to-azure-monitor-for-virtual-machines-preview-before-general-availability-release/
-) we are making changes to the Health feature based on the feedback we have received from our public preview customers. Given the number of changes we will be making, we are going to stop offering the Health feature for new customers. Existing customers can continue to use the health feature. For more details, please refer to our [General Availability FAQ](vminsights-ga-release-faq.md).  
+) we are making to the Health feature based on the feedback we have received from our public preview customers. Given the number of changes we will be making, we are going to stop offering the Health feature for new customers. Existing customers can continue to use the health feature. For more details, please refer to our [General Availability FAQ](vminsights-ga-release-faq.md).  
 
 Integration with Azure Monitor logs delivers powerful aggregation and filtering, and it can analyze data trends over time. Such comprehensive workload monitoring can't be achieved with Azure Monitor or Service Map alone.  
 
-You can view this data in a single VM from the virtual machine directly, or you can use Azure Monitor to deliver an aggregated view of your VMs. This view is based on each feature's perspective:
+You can view this data in a single VM from the virtual machine directly, or you can use Azure Monitor to deliver an aggregated view of your VMs where the view supports Azure resource-context or workspace-context modes. For more information, see [access modes overview](../platform/design-logs-deployment.md#access-mode).
 
-- **Health**: The VMs are related to a resource group.
-- **Map** and **Performance**: The VMs are configured to report to a specific Log Analytics workspace.
+![Virtual machine insights perspective in the Azure portal](./media/vminsights-overview/vminsights-azmon-directvm.png)
 
-![Virtual machine insights perspective in the Azure portal](./media/vminsights-overview/vminsights-azmon-directvm-01.png)
-
-Azure Monitor for VMs can deliver predictable performance and availability of vital applications. It identifies critical operating system events, performance bottlenecks, and network issues. Azure Monitor for VMs can also help you understand whether an issue is related to other dependencies.  
+Azure Monitor for VMs can deliver predictable performance and availability of vital applications. It identifies performance bottlenecks and network issues. Azure Monitor for VMs can also help you understand whether an issue is related to other dependencies.  
 
 ## Data usage
 
-When you deploy Azure Monitor for VMs, the data that's collected by your VMs is ingested and stored in Azure Monitor. Health criteria metrics are stored in Azure Monitor in a time-series database, performance and dependency data collected are stored in a Log Analytics workspace. Based on the pricing that's published on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/), Azure Monitor for VMs is billed for:
+When you deploy Azure Monitor for VMs, the data that's collected by your VMs is ingested and stored in Azure Monitor. Performance and dependency data collected are stored in a Log Analytics workspace. Based on the pricing that's published on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/), Azure Monitor for VMs is billed for:
 
 - The data that's ingested and stored.
-- The number of health criteria metric time-series that are monitored.
 - The alert rules that are created.
 - The notifications that are sent. 
 
