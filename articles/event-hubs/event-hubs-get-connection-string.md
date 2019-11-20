@@ -69,7 +69,7 @@ az eventhubs namespace authorization-rule keys list --resource-group dummyresour
 Or you can use the following to get the connection string for an EventHub entity:
 
 ```azurecli-interactive
-az eventhubs namespace authorization-rule keys list --resource-group dummyresourcegroup --namespace-name dummynamespace --name RootManageSharedAccessKey --eventhub-name dummyeventhub
+az eventhubs eventhub authorization-rule keys list --resource-group dummyresourcegroup --namespace-name dummynamespace --eventhub-name dummyeventhub --name RootManageSharedAccessKey
 ```
 
 For more information about Azure CLI commands for Event Hubs, see [Azure CLI for Event Hubs](/cli/azure/eventhubs).
