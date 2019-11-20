@@ -184,7 +184,7 @@ Provide a short description of your offer (up to 100 characters), which may be u
 
 ### Long summary
 
-Provide a longer description of your offer (up to 256 characters). This may be used in marketplace search results.
+Provide a longer description of your offer (up to 256 characters). The description may be used in marketplace search results.
 
 ### Description
 
@@ -256,14 +256,14 @@ The **Preview** tab enables you to define a limited **Preview Audience** for val
 
 Your preview audience is identified by Azure subscription ID GUIDs, paired with an optional description for each.  Neither of these fields are visible to customers.
 
-Add up to ten Azure subscription IDs manually, or up to 100 if uploading a CSV file.  By adding these subscriptions, you are defining an audience that will be allowed preview access to your offer before it is fully published.  If your offer is already live, you may still define a preview audience for testing any changes or updates to your offer.
+Add up to 10 Azure subscription IDs manually, or up to 100 if uploading a CSV file.  By adding these subscriptions, you are defining an audience that will be allowed preview access to your offer before it is fully published.  If your offer is already live, you may still define a preview audience for testing any changes or updates to your offer.
 
 >[!Note]
 >The preview audience differs from a private audience. A preview audience is allowed access to your offer *prior* to being published live in the marketplaces. You may also choose to create a plan and make it available only to a private audience (using the plan Availability tab).  Your preview audience will be able to see and validate all plans, including plans which will be available only to a private audience once your offer is fully published to the marketplace.
 
 ## Plan overview
 
-The **Plan overview** tab enables you to provide different plan options within the same offer. These plans (referred to as SKUs in the Cloud Partner Portal) can differ in terms of plan type (solution template vs. managed application), monetization, or audience.  You must configure at least one plan in order to list your offer in the marketplace.
+The **Plan overview** tab enables you to provide different plan options within the same offer. These plans (referred to as SKUs in the Cloud Partner Portal) can differ in terms of plan type (solution template vs. managed application), monetization, or audience.  Configure at least one plan in order to list your offer in the marketplace.
 
 Once created, you will see your plan names, IDs, plan type, availability (Public or Private), current publishing status, and any available actions on this tab.
 
@@ -308,7 +308,7 @@ Select the **Azure Government Cloud** option to make your solution deployable in
 
 This option is only visible if **Azure Government Cloud** is selected under **Cloud availability**.
 
-Azure Government services handle data that is subject to certain government regulations and requirements, such as FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4, and CJIS.  To bring awareness to your certifications for these programs, you can provide up to 100 links describing your certifications.  This can be either links to your listing on the program directly, or a links to descriptions of your compliance with them on your own websites.  These links will only be visible to Azure Government Cloud customers.
+Azure Government services handle data that is subject to certain government regulations and requirements, such as FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4, and CJIS.  To bring awareness to your certifications for these programs, you can provide up to 100 links describing your certifications.  These links can be either links to your listing on the program directly, or a links to descriptions of your compliance with them on your own websites.  These links will only be visible to Azure Government Cloud customers.
 
 ## Plan listing
 
@@ -316,7 +316,7 @@ The **plan listing** tab displays the plan-specific listing information that can
 
 ### Name
 
-Pre-populated based on your name you assigned your plan when you created it.  This will appear as the title of this "Software plan" displayed in the marketplace.  May contain up to 100 characters.
+Pre-populated based on your name you assigned your plan when you created it.  This name will appear as the title of this "Software plan" displayed in the marketplace.  May contain up to 100 characters.
 
 ### Summary
 
@@ -345,7 +345,7 @@ You have the option to configure each plan to be visible to everyone or to only 
 
 ### Hide plan
 
-If your solution template is intended to be only be deployed indirectly when referenced though another solution template or managed application, check this box to publish your solution template but hide it from customers searching and browsing for it directly.
+If your solution template is intended to be deployed only indirectly when referenced though another solution template or managed application, check this box to publish your solution template but hide it from customers searching and browsing for it directly.
 
 ## Pricing and availability
 
@@ -393,13 +393,13 @@ The **technical configuration** tab allows you to upload the deployment package 
 
 The **Package details** subtab enables you to edit the draft version of your technical configuration.
 
-***Version*** - Assign the current version of the technical configuration.  You must increment this version each time you publish a change to this page. Version must be in the format `{integer}.{integer}.{integer}`.
+***Version*** - Assign the current version of the technical configuration.  Increment this version each time you publish a change to this page. Version must be in the format `{integer}.{integer}.{integer}`.
 
 ***Package file*** (`.zip`) - This package contains all of the template files needed for this plan, as well as any additional resources, packaged as a `.zip` file.
 
 All Azure application plan packages must include these two files in the root folder of a `.zip` archive:
 
-* A Resource Manager template file named [mainTemplate.json](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  This is the template that automates the deployment of resources into the customers Azure subscription.  For examples of ARM templates, see the [Azure Quickstart Templates gallery](https://azure.microsoft.com/documentation/templates/) or the corresponding [GitHub: Azure Resource Manager Quickstart Templates](https://github.com/azure/azure-quickstart-templates) repo.
+* A Resource Manager template file named [mainTemplate.json](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  This template automates the deployment of resources into the customers Azure subscription.  For examples of ARM templates, see the [Azure Quickstart Templates gallery](https://azure.microsoft.com/documentation/templates/) or the corresponding [GitHub: Azure Resource Manager Quickstart Templates](https://github.com/azure/azure-quickstart-templates) repo.
 
 * A user interface definition for the Azure application creation experience named [createUiDefinition.json](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
 
@@ -415,7 +415,7 @@ Managed application plans have additional complexity on the **Technical configur
 
 ### Enable just-in-time (JIT) access
 
-Select this option to enable Just-in-time (JIT) access for this plan.  JIT access enables you to request elevated access to a managed application's resources for troubleshooting or maintenance. You always have read-only access to the resources, but for a specific time period you can have greater access.  For more information, see [Enable and request just-in-time access for Azure Managed Applications](https://docs.microsoft.com/azure/managed-applications/request-just-in-time-access).  To require that consumers of your managed application grant your account permanent access, leave this unchecked.
+Select this option to enable Just-in-time (JIT) access for this plan.  JIT access enables you to request elevated access to a managed application's resources for troubleshooting or maintenance. You always have read-only access to the resources, but for a specific time period you can have greater access.  For more information, see [Enable and request just-in-time access for Azure Managed Applications](https://docs.microsoft.com/azure/managed-applications/request-just-in-time-access).  To require that consumers of your managed application grant your account permanent access, leave this option unchecked.
 
 >[!Note]
 >Be sure to update your `createUiDefinition.json` file in order to support this feature.  
@@ -439,7 +439,7 @@ Select this option to specify which actions customers can perform on the managed
 
 List the additional actions you would like to enable your customer to perform here, separated by semicolons.  For more information, see [Understanding deny assignments for Azure resources](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments).  For available actions, see [Azure Resource Manager resource provider operations](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations). For example, to permit consumers to restart virtual machines, add `Microsoft.Compute/virtualMachines/restart/action` to the allowed actions.
 
-### Public Azure / Azure Government Cloud
+### Global Azure / Azure Government Cloud
 
 Indicate who should have management access to this managed application in each supported cloud.  Users, groups, or applications that you want to be granted permission to the managed resource group are identified using Azure Active Directory (AAD) identities.
 
@@ -464,7 +464,7 @@ For more information about completing this tab, see [Co-sell option in Partner C
 
 ## Test drive
 
-The **Test drive** tab enables you to set up a demonstration (or "test drive") which will enable customers to try your offer before committing to purchase it. Learn more in the article [What is Test Drive?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)  If you no longer want to provide a test drive for your offer, return to the **Offer setup** page and un-check **Enable test drive**.
+The **Test drive** tab enables you to set up a demonstration (or "test drive") which will enable customers to try your offer before committing to purchase it. Learn more in the article [What is Test Drive?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)  If you no longer want to provide a test drive for your offer, return to the **Offer setup** page and uncheck **Enable test drive**.
 
 ### Technical configuration
 
@@ -482,7 +482,7 @@ In order to deploy the Test Drive on your behalf, please create and provide a se
 
 - **Azure AD app ID** (required): Enter your Azure Active Directory (AD) [application ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). To find this ID, sign in to the [Azure portal](https://portal.azure.com/), select the Active Directory tab in the left-menu, select **App registrations**, then look for the **Application ID** number listed (e.g. 50c464d3-4930-494c-963c-1e951d15360e).
 
-- **Azure AD app client secret** (required): Enter your Azure AD application [client secret](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets). To find this value, sign in to the [Azure portal](https://portal.azure.com/). Select the **Azure Active Directory** tab in the left menu, select **App registrations**, then select your test drive app. Next, select **Certificates and secrets**, select **New client secret**, enter a description, select **Never** under **Expires**, then choose **Add**. Make sure to copy down the value. (Don't navigate away from the page before you do this, or else you won't have access to the value.)
+- **Azure AD app client secret** (required): Enter your Azure AD application [client secret](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets). To find this value, sign in to the [Azure portal](https://portal.azure.com/). Select the **Azure Active Directory** tab in the left menu, select **App registrations**, then select your test drive app. Next, select **Certificates and secrets**, select **New client secret**, enter a description, select **Never** under **Expires**, then choose **Add**. Make sure to copy down the value. (Don't navigate away from the page before you have copied the value, or else you won't have access to the value.)
 
 Remember to **Save** before moving on to the next section!
 
@@ -509,7 +509,7 @@ Select **Save** after completing these fields.
 
 Once you have completed all the required sections of the offer, select **publish** in the top-right corner of the portal. You will be redirected to the **Review and publish** page. 
 
-If this is your first time publishing this offer, you can:
+If it is your first time publishing this offer, you can:
 
 - See the completion status for each section of the offer.
     - *Not started* - means the section has not been touched and needs to be completed.

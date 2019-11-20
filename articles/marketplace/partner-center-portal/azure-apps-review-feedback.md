@@ -16,7 +16,7 @@ This article explains how to access the Azure DevOps environment used by the Mic
 
 ![Review feedback process](./media/review-feedback-process.png)
 
-Typically, review issues are referenced as pull request (PR). Each PR is linked to an online [Azure DevOps](https://azure.microsoft.com/services/devops/) (previously named Visual Studio Team Services (VSTS)) item, which contains details about the issue. The following image displays an example of the Partner Center experience in case of issues found during reviews. 
+Typically, review issues are referenced as pull request (PR). Each PR is linked to an online [Azure DevOps](https://azure.microsoft.com/services/devops/) (previously named Visual Studio Team Services (VSTS)) item, which contains details about the issue. The following image displays an example of the Partner Center experience if issues are found during reviews. 
 
 ![Publishing status](./media/publishing-status.png)
 
