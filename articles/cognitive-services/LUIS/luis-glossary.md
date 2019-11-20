@@ -25,7 +25,7 @@ Authoring is the ability to create, manage and deploy a [LUIS app](#luis-app), e
 
 ## <a name="authoring-key"></a>Authoring Key
 
-Previously named "Programmatic" key. Used to author the app. Not used for production-level endpoint queries. For more information, see [Key limits](luis-boundaries.md#key-limits).   
+Previously named "Programmatic" key. Used to author the app. Not used for production-level endpoint queries. For more information, see [Key limits](luis-boundaries.md#key-limits).
 
 ## <a name="batch-test-json-file"></a>Batch test JSON file
 
