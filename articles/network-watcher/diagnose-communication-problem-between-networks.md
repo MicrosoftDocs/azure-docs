@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Diagnose communication problem between networks - Azure Portal'
+title: 'Tutorial: Diagnose communication problem between networks - Azure portal'
 titleSuffix: Azure Network Watcher
 description: Learn how to diagnose a communication problem between an Azure virtual network connected to an on-premises, or other virtual network, through an Azure virtual network gateway, using Network Watcher's VPN diagnostics capability.
 services: network-watcher
