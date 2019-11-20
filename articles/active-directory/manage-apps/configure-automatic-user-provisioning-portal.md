@@ -1,5 +1,5 @@
 ---
-title: User provisioning management for enterprise apps in the Azure Active Directory | Microsoft Docs
+title: User provisioning management for enterprise apps in Azure AD
 description: Learn how to manage user account provisioning for enterprise apps using the Azure Active Directory
 services: active-directory
 documentationcenter: ''
