@@ -86,7 +86,7 @@ Labels are string key/value pairs that you can use to filter and group deploymen
 
 By default, all deployment report two metrics: how many devices meet the target condition for this deployment, and how many devices have applied the deployment. Additionally, you can define your own custom metrics to help monitor and manage the deployment. 
 
-Metrics provide summary counts of the various states that devices may report back as a result of applying a deployment configuration. Metrics can query the [edgeHub module twin reported properties](module-edgeagent-edgehub.md#edgehub-reported-properties), like the last dsired status or last connect time. For example: 
+Metrics provide summary counts of the various states that devices may report back as a result of applying a deployment configuration. Metrics can query the [edgeHub module twin reported properties](module-edgeagent-edgehub.md#edgehub-reported-properties), like the last desired status or last connect time. For example: 
 
 ```sql
 SELECT deviceId FROM devices
