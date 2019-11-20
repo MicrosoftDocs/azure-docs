@@ -15,7 +15,7 @@ ms.author: diberry
 
 # Plan your LUIS app schema with subject domain and data extraction
 
-A LUIS app schema contains intents[^1] and entities[^2]] relevant to your subject domain[^3]. The intents classify user utterances[^4], and the entities extract data from the user utterances.
+A LUIS app schema contains [intents](luis-glossary.md#intent) and [entities](luis-glossary.md#entity) relevant to your subject [domain](luis-glossary.md#domain). The intents classify user [utterances](luis-glossary.md#utterance), and the entities extract data from the user utterances.
 
 ## Identify your domain
 
@@ -57,7 +57,3 @@ When determining which entities to use in your app, keep in mind that there are 
 > [!div class="nextstepaction"]
 > [Learning the LUIS development lifecylce](luis-concept-app-iteration.md)
 
-[^1]: An [intent](luis-concept-intent.md) represents a task or action the user wants to perform. It is a purpose or goal expressed in a user's input, such as booking a flight, paying a bill, or finding a news article. In LUIS, the intent prediction is based on the entire utterance. Entities, by comparison, are pieces of an utterance.
-[^2]: [Entities](luis-concept-entity-types.md) are important words in [utterances](luis-concept-utterance.md) that describe information relevant to the [intent](luis-concept-intent.md), and sometimes they are essential to it. An entity is essentially a datatype in LUIS.
-[^3]: In the LUIS context, a **domain** is an area of knowledge. Your domain is specific to your app area of knowledge. This can be a general area such as the travel agent app. A travel agent app can also be specific to just the areas of information for your company such as specific geographical locations, languages, and services.
-[^4]: An utterance is a natural language phrase such as "book 2 tickets to Seattle next Tuesday". Example utterances are added to the intent.
