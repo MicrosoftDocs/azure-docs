@@ -1,8 +1,8 @@
 ---
-title: Quickstart - Create Android app with Azure Spatial Anchors | Microsoft Docs
+title: Quickstart: Create an Android app
 description: In this quickstart, you learn how to build an Android app using Spatial Anchors.
 author: craigktreasure
-manager: aliemami
+manager: vriveras
 services: azure-spatial-anchors
 
 ms.author: crtreasu

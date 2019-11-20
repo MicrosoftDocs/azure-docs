@@ -1,8 +1,8 @@
 ---
-title: Quickstart - Create a Xamarin iOS app with Azure Spatial Anchors | Microsoft Docs
+title: Quickstart: Create a Xamarin iOS app
 description: In this quickstart, you learn how to build an iOS app with Xamarin using Spatial Anchors.
 author: craigktreasure
-manager: virivera
+manager: vriveras
 services: azure-spatial-anchors
 
 ms.author: crtreasu
