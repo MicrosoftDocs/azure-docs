@@ -36,7 +36,7 @@ Azure Resource Manager resources, such as the Recovery Services vault, record in
 
 In the monitoring section, select **Diagnostic settings** and specify the target for the Recovery Services vault's diagnostic data.
 
-![The Recovery Services vault's diagnostic setting, targeting Log Analytics](media/backup-azure-monitoring-laworkspace/diagnostic_setting_new.png)
+![The Recovery Services vault's diagnostic setting, targeting Log Analytics](media/backup-azure-monitoring-laworkspace/diagnostic-setting-new.png)
 
 You can target a Log Analytics workspace from another subscription. To monitor vaults across subscriptions in a single place, select the same Log Analytics workspace for multiple Recovery Services vaults. To channel all the information that's related to Azure Backup to the Log Analytics workspace, choose **Resource Specific** in the toggle that appears, and select the following events - **CoreAzureBackup**, **AddonAzureBackupJobs**, **AddonAzureBackupAlerts**, **AddonAzureBackupPolicy**, **AddonAzureBackupStorage**, **AddonAzureBackupProtectedInstance**. Please refer to [this article](https://aka.ms/AA6jkus) for more details on configuring LA Diagnostics Settings.
 
@@ -69,7 +69,7 @@ When you select any of the overview tiles, you can view further information. Her
 
    ![Log Analytics graph for restore jobs](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertsazure.png)
 
-Similarly, by clicking on the other tiles, you will be able to see reports on Restore Jobs, Cloud Storage, Backup Items, Alerts from On-Premises Resources Backup, and Log Backup Jobs.
+Similarly, by clicking on the other tiles, you will be able to see reports on Restore Jobs, Cloud Storage, Backup Items, Alerts from on-premises Resources Backup, and Log Backup Jobs.
 
 These graphs are provided with the template. You can edit the graphs or add more graphs if you need to.
 
