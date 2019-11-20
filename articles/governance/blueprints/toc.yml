@@ -71,7 +71,7 @@
     - name: Control mapping
       displayName: standards, irs, 1075
       href: ./samples/irs-1075/control-mapping.md
-      name: Steps to Deploy
+    - name: Steps to Deploy
       displayName: standards, irs, 1075
       href: ./samples/irs-1075/deploy.md
   - name: ISO 27001
