@@ -228,7 +228,7 @@ For more information on network security groups, see the [overview of network se
 
 For more information on controlling outbound traffic from HDInsight clusters, see [Configure outbound network traffic restriction for Azure HDInsight clusters](hdinsight-restrict-outbound-traffic.md).
 
-#### Forced tunneling to on-premise
+#### Forced tunneling to on-premises
 
 Forced tunneling is a user-defined routing configuration where all traffic from a subnet is forced to a specific network or location, such as your on-premises network. HDInsight does __not__ support forced tunneling of traffic to on-premises networks. 
 

@@ -247,7 +247,7 @@ In order to enable Azure AD users to sign in to SumoLogic, they must be provisio
     d. Click **Save**.
 
 > [!NOTE]
-> You can use any other SumoLogic user account creation tools or APIs provided by SumoLogic to provision AAD user accounts.
+> You can use any other SumoLogic user account creation tools or APIs provided by SumoLogic to provision Azure AD user accounts.
 
 ### Test single sign-on
 
