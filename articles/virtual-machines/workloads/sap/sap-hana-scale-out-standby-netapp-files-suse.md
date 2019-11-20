@@ -322,7 +322,7 @@ Configure and prepare your OS by doing the following steps:
 
 2. **[A]** Add a network route, so that the communication to the Azure NetApp Files goes via the storage network interface.  
 
-The following instructions assume that the storage network interface is `eth1`. 
+    The following instructions assume that the storage network interface is `eth1`.  
 
     <pre><code>
     vi /etc/sysconfig/network/ifroute-<b>eth1</b>
