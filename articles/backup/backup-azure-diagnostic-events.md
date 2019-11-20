@@ -11,7 +11,7 @@ Azure Backup sends diagnostics events that can be collected and used for the pur
 
 You can configure diagnostics settings for a Recovery Services Vault via the Azure portal, by navigating to the vault and clicking the **Diagnostic Settings** menu item. Clicking on **+ Add Diagnostic Setting** lets you send one or more diagnostics events to a Storage Account, Event Hub, or a Log Analytics (LA) Workspace.
 
-![Diagnostics Settings Blade](./media/backup-azure-diagnostics-events/diagnostics-blade.PNG)
+![Diagnostics Settings Blade](./media/backup-azure-diagnostics-events/diagnostics-settings-blade.png)
 
 ## Diagnostics Events Available for Azure Backup Users
 
@@ -38,7 +38,7 @@ To send your vault diagnostics data to LA:
 4.	Select **Resource Specific** in the toggle and check the following six events - **CoreAzureBackup**, **AddonAzureBackupAlerts**, **AddonAzureBackupProtectedInstance**, **AddonAzureBackupJobs**, **AddonAzureBackupPolicy**, and **AddonAzureBackupStorage**.
 5.	Click on **Save**.
 
-![Resource Specific mode](./media/backup-azure-diagnostics-events/resource-specific.png)
+![Resource Specific mode](./media/backup-azure-diagnostics-events/resource-specific-blade.png)
 
 Once data flows into the LA Workspace, dedicated tables for each of these events are created in your workspace. You can query any of these tables directly and also perform joins or unions between these tables if necessary.
 
@@ -53,7 +53,7 @@ Currently, we continue to support the AzureBackupReport event for backward-compa
 
 You may choose to create separate diagnostics settings for AzureBackupReport and the six new events, until you have migrated all of your custom queries to use data from the new tables. The below image shows an example of a vault having two diagnostic settings. The first setting, named **Setting1** sends data of AzureBackupReport event to an LA Workspace in AzureDiagnostics mode. The second setting, named **Setting2** sends data of the six new Azure Backup events to an LA Workspace in Resource Specific mode.
 
-![Two Settings](./media/backup-azure-diagnostics-events/two-settings.png)
+![Two Settings](./media/backup-azure-diagnostics-events/two-settings-example.png)
 
 > [!IMPORTANT]
 > The AzureBackupReport event is supported **only** in Azure Diagnostics Mode. **Please note that if you try to send data for this event in Resource Specific Mode, no data will flow to the LA Workspace.**
@@ -65,7 +65,7 @@ You may choose to create separate diagnostics settings for AzureBackupReport and
 
 Azure Backup and Azure Site Recovery Events are sent from the same Recovery Services Vault. As Azure Site Recovery is currently not onboarded onto Resource Specific tables, users wanting to send Azure Site Recovery Events to LA are directed to use Azure Diagnostics Mode **only** (see image below). **Choosing Resource Specific Mode for the Azure Site Recovery Events will prevent the required data from being sent to the LA Workspace**.
 
-![Site Recovery Events](./media/backup-azure-diagnostics-events/site-recovery.png)
+![Site Recovery Events](./media/backup-azure-diagnostics-events/site-recovery-settings.png)
 
 To summarize the above nuances:
 
@@ -75,7 +75,7 @@ To summarize the above nuances:
 
 The below image shows an example of a user having three diagnostic settings for a vault. The first setting, named **Setting1** sends data from AzureBackupReport event to an LA Workspace in AzureDiagnostics mode. The second setting, named **Setting2** sends data from the six new Azure Backup events to an LA Workspace in Resource Specific mode. The third setting, named **Setting3**, sends data from the Azure Site Recovery events to an LA Workspace in Azure Diagnostics Mode.
 
-![Three Settings](./media/backup-azure-diagnostics-events/three-settings.png)
+![Three Settings](./media/backup-azure-diagnostics-events/three-settings-example.png)
 
 ## Next steps
 
