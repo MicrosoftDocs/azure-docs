@@ -25,7 +25,7 @@ If you select another offer type, you may be redirected to the older [Cloud Part
 
 ![Create offer window on Partner Center](./media/new-offer-click.png)
 
-The **New offer** dialog box is displayed. 
+The **New offer** dialog box is displayed.
 
 ![New offer dialog box](./media/new-offer-popup.png)
 
@@ -63,7 +63,7 @@ The **Offer setup** tab asks for the following information. Select **Save** afte
 
 - **Would you like to sell through Microsoft?** (Yes/No)
     - **Yes**, you would like to sell your offer through Microsoft, with Microsoft hosting marketplace transactions on your behalf; or 
-    - **No**, you would prefer to just list your offer through the marketplaces, processing any monetary transactions independently of Microsoft.    
+    - **No**, you would prefer to just list your offer through the marketplaces, processing any monetary transactions independently of Microsoft.
 
 ### Sell through Microsoft
 
@@ -97,11 +97,11 @@ The following table shows an example breakdown of costs and payouts to demonstra
 - Partners who have qualified for the **Reduced Marketplace Service Fee** will see a reduced transaction fee on the SaaS offers from May 2019 until June 2020. In this scenario, Microsoft bills $100.00 for your software license and pays out $90.00 to the publisher.
 
 > [!NOTE]
-> **Reduced Marketplace Service Fee**: For certain SaaS offers that you have published on our Commercial Marketplace, Microsoft will reduce its Marketplace Service Fee from 20% (as described in the Microsoft Publisher Agreement) to 10%. In order for your offer to qualify, at least one of your offers must have been designated by Microsoft as being either IP co-sell ready or IP co-sell prioritized.  Eligibility must be met at least five (5) business days before the end of each calendar month in order to receive this reduced Marketplace Service Fee for the month.  The Reduced Marketplace Service Fee does not apply to VMs, Managed Apps or any other products made available through our Commercial Marketplace.  The Reduced Marketplace Service Fee will only be available to qualified offers for license charges collected by Microsoft between May 1, 2019 and June 30, 2020.  After this time, the Marketplace Service Fee will return to its normal amount. 
+> **Reduced Marketplace Service Fee**: For certain SaaS offers that you have published on our Commercial Marketplace, Microsoft will reduce its Marketplace Service Fee from 20% (as described in the Microsoft Publisher Agreement) to 10%. In order for your offer to qualify, at least one of your offers must have been designated by Microsoft as being either IP co-sell ready or IP co-sell prioritized.  Eligibility must be met at least five (5) business days before the end of each calendar month in order to receive this reduced Marketplace Service Fee for the month.  The Reduced Marketplace Service Fee does not apply to VMs, Managed Apps or any other products made available through our Commercial Marketplace.  The Reduced Marketplace Service Fee will only be available to qualified offers for license charges collected by Microsoft between May 1, 2019 and June 30, 2020.  After this time, the Marketplace Service Fee will return to its normal amount.
 
 ### List through Microsoft
 
-Promote your business with Microsoft by creating a marketplace listing. Selecting to list your offer only and not transact through Microsoft means that Microsoft doesn't participate directly in software license transactions. There is no associated transaction fee and the publisher keeps 100% of any software licensing fees collected from the customer. However, the publisher is responsible for supporting all aspects of the software license transaction, including but not limited to: order fulfillment, metering, billing, invoicing, payment, and collection. 
+Promote your business with Microsoft by creating a marketplace listing. Selecting to list your offer only and not transact through Microsoft means that Microsoft doesn't participate directly in software license transactions. There is no associated transaction fee and the publisher keeps 100% of any software licensing fees collected from the customer. However, the publisher is responsible for supporting all aspects of the software license transaction, including but not limited to: order fulfillment, metering, billing, invoicing, payment, and collection.
 
 - **How do you want potential customers to interact with this listing offer?**
 
@@ -115,7 +115,7 @@ List your offer to customers with a link to a free trial by providing a valid UR
 > The tokens your application will receive through your trial link can only be used to obtain user information through Azure AD to automate account creation in your app. Microsoft Accounts (MSA) are not supported for authentication using this token.
 
 ##### Contact me
-Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you've configured. For more information about configuring your CRM, see [Connect lead management](#connect-lead-management). 
+Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you've configured. For more information about configuring your CRM, see [Connect lead management](#connect-lead-management).
 
 ## Example marketplace offer listing
 
@@ -152,16 +152,16 @@ By enabling test drive, you will be asked to configure a demonstration environme
 - [Common lead configuration errors](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
 - [Lead Management Overview One Pager](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
 
-Remember to **Save** before moving on to the next section!
+Remember to **Save** before moving on to the next section.
 
 ## Properties
-The **Properties** tab asks you to define the categories and industries used to group your offer on the marketplaces, the legal contracts supporting your offer, and your app version. 
+The **Properties** tab asks you to define the categories and industries used to group your offer on the marketplaces, the legal contracts supporting your offer, and your app version.
 
-Select **Save** after completing these fields. 
+Select **Save** after completing these fields.
 
 ### Category
 
-Select a minimum of one (1) and a maximum of three (3) categories used for grouping your offer into the appropriate marketplace search areas. Please call out how your offer supports these categories in the offer description. 
+Select a minimum of one (1) and a maximum of three (3) categories used for grouping your offer into the appropriate marketplace search areas. Please call out how your offer supports these categories in the offer description.
 
 ### Industry
 
@@ -230,28 +230,28 @@ Provide details to be displayed in the marketplace, including descriptions of yo
 - **Description** (required): Provide a description of your offer to be displayed in the marketplace listing(s) overview. Consider including a value proposition, key benefits, any category or industry associations, in-app purchase opportunities, any required disclosures, and a link to learn more.
 Up to 3,000 characters of text can be entered in this field. For additional tips, see the article [Write a great app description](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
 - **Search keywords**: Enter up to three search keywords that customers can use to find your offer in the marketplace(s).
-- **Getting started instructions** (required): Explain how to configure and start using your app for potential customers.  This quickstart can contain links to more detailed online documentation. Up to 3,000 characters of text can be entered in this field. 
+- **Getting started instructions** (required): Explain how to configure and start using your app for potential customers.  This quickstart can contain links to more detailed online documentation. Up to 3,000 characters of text can be entered in this field.
 
 #### **Description**
 
-This is a required field. Items to include in the description: 
+This is a required field. Items to include in the description:
 
 * Clearly describe your offer's value proposition in the first few sentences of your description.  
 * Keep in mind that the first few sentences might be displayed in search engine results.  
 * Do not rely on features and functionality to sell your product. Instead, focus on the value you deliver.  
-* Use industry-specific vocabulary or benefit-based wording as much as possible. 
+* Use industry-specific vocabulary or benefit-based wording as much as possible.
 
-Core components of your value proposition should include the following information: 
+Core components of your value proposition should include the following information:
 
-* Description of the product. 
-* Type of user that benefits from the product. 
-* Customer needs or pain that the product addresses. 
+* Description of the product.
+* Type of user that benefits from the product.
+* Customer needs or pain that the product addresses.
 
-To make your offer description more engaging you can use HTML tags to format the description. 
+To make your offer description more engaging you can use HTML tags to format the description.
 
 1. If you want to create paragraphs, add `<p>` at the begging of the text and add `</p>` at the end.
 
-    **Example**: 
+    **Example**:
 
     `<p>` This is my first paragraph. `</p>` <br>
     `<p>` This is my second paragraph. `</p>` <br>
@@ -261,44 +261,44 @@ To make your offer description more engaging you can use HTML tags to format the
     <p> This is my first paragraph. </p>
     <p> This is my second paragraph. </p>
 
-1. If you want to add a **bulleted list of items**, place your text within the `<li>` tags below. You can copy and paste more bulleted items (items between the `<li>` and `</li>` tags) within the `<ul>` and `</ul>` tags. Make sure you add the `<ul></ul>`. 
+1. If you want to add a **bulleted list of items**, place your text within the `<li>` tags below. You can copy and paste more bulleted items (items between the `<li>` and `</li>` tags) within the `<ul>` and `</ul>` tags. Make sure you add the `<ul></ul>`.
 
     **Example**:
 
     ```
     <ul> 
-        <li>add text here</li> 
-        <li> add text here </li> 
-        <li> add text here </li> 
-    </ul> 
+        <li>add text here</li>
+        <li> add text here </li>
+        <li> add text here </li>
+    </ul>
     ```
 
     The above would look like this:
     <ul> 
-        <li>add text here</li> 
-        <li> add text here </li> 
-        <li> add text here </li> 
+        <li>add text here</li>
+        <li> add text here </li>
+        <li> add text here </li>
     </ul> 
 
-1. To **bold** content, add `<b>` at the beginning of the text you want to bold and add `</b>` at the end of the text you want to bold. 
+1. To **bold** content, add `<b>` at the beginning of the text you want to bold and add `</b>` at the end of the text you want to bold.
 
     **Example**: `<b>` FREE TRIAL `</b>`
     
-    The above would cause the words FREE TRIAL to be bolded in the description of the offer in the storefront. 
+    The above would cause the words FREE TRIAL to be bolded in the description of the offer in the storefront.
 
     **FREE TRIAL**
 
-1. To add **line breaks** between your content, add `<br>` before the content that you want to start on a new line. If you want to leave a space and make sure content starts on a new line, add `<br><br>` before the content. 
+1. To add **line breaks** between your content, add `<br>` before the content that you want to start on a new line. If you want to leave a space and make sure content starts on a new line, add `<br><br>` before the content.
 
     **Example**:
 
-    This is a text line. `<br>` This is a text line that will start in a new line. `<br><br>` This is a line that will start two lines below. 
+    This is a text line. `<br>` This is a text line that will start in a new line. `<br><br>` This is a line that will start two lines below.
 
     The above would look like this:
 
-    This is a text line. <br> This is a text line that will start in a new line. <br><br> This is a line that will start two lines below. 
+    This is a text line. <br> This is a text line that will start in a new line. <br><br> This is a line that will start two lines below.
 
-1. If you want to **increase the size of the text**, first choose how big you want the text to be. Use the below examples. After you have selected the size of the text, add the corresponding `<H*></H*>` tags to the beginning and ending of the text. 
+1. If you want to **increase the size of the text**, first choose how big you want the text to be. Use the below examples. After you have selected the size of the text, add the corresponding `<H*></H*>` tags to the beginning and ending of the text.
 
     **Example**:
 
@@ -336,7 +336,7 @@ To make your offer description more engaging you can use HTML tags to format the
 - **Screenshots** (required): Add screenshots demonstrating your offer. A maximum of five (5) screenshots may be added and should be sized at 1280 x 720 pixels. All images must be in .PNG format.
 - **Videos** (optional): Add links to videos demonstrating your offer. You can use links to YouTube and/or Vimeo videos, which are shown along with your offer to customers. You will also need to enter a thumbnail image of the video, sized to 1280 x 720 pixels in PNG format. You can display a maximum of four videos per offer.
 
-Remember to **Save** before moving on to the next section!
+Remember to **Save** before moving on to the next section.
 
 #### Additional marketplace listing resources
 
