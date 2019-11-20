@@ -15,13 +15,15 @@ ms.subservice: B2C
 
 # Verification Display Widget
 
-A verification widget is used to verify a claim, such as email or phone number, with a verification code send to the user. The verification display widget is consisted of two steps (actions):
+Use a verification [Display Widget](display-widgets.md) to verify a claim, for example an email address or phone number, with a verification code sent to the user.
 
-1. Asks the user for the address where to send the verification code to (such as email address or phone number). The user clicks on **Send code** button, which execute the **SendCode Action** of the verification display widget. The **SendCode Action** generates a code, construct the content to be sent, and send it to the user. Note: the value of the address can be pre-populate and serve as a second factor authentication.
+The verification display widget consists of two steps (actions):
+
+1. Request a destination from the user, such as an email address or phone number, to which the verification code should be sent. When the user selects the **Send Code** button, the **SendCode Action** of the verification display widget is executed. The **SendCode Action** generates a code, constructs the content to be sent, and sends it to the user. The value of the address can be pre-populated and serve as a second-factor authentication.
 
     ![Example page for send code action](media/display-widget-verification/display-widget-verification-email-action-01.png)
 
-1. After the code has been sent, user reads the message, types the verification code in the display widget, and clicks **Verify code**. By clicking on the Verify code, the **VerifyCode Action** is executed to verify the code associated with the address. If user clicks on the **Send New Code**, the first action is executed again.
+1. After the code has been sent, the user reads the message, enters the verification code into the control provided by the display widget, and selects **Verify Code**. By selecting **Verify Code**, the **VerifyCode Action** is executed to verify the code associated with the address. If the user selects **Send New Code**, the first action is executed again.
 
     ![Example page for verify code action](media/display-widget-verification/display-widget-verification-email-action-02.png)
 
@@ -31,19 +33,18 @@ A verification widget is used to verify a claim, such as email or phone number, 
 
 The **VerificationWidget** must contain following elements:
 
-- The type of the [DisplayWidget](display-widgets.md) is `VerificationWidget`
-- Display claims.
-  - **Send to**, one or more claims specifying where to send the verification code to. For example *email*, or *country code* and *phone number*.
-  - **Verification code**, the verification code claim, user provide after the code has been sent. This claim must set as required and the `ControlClaimType`  must set to `VerificationCode`.
-- Output claim (optional), to be return to the self-asserted page, after user completes verification process. For example *email*, or *country code* and *phone number*. The self-asserted technical profile uses the claims to persist the data or bubble up the output the claims to the next orchestration step.
-- Two Actions with following names:
-  - **SendCode**, sends a code to the user. This action usually contains two validation technical profile, to generate a code and to send it.
-  - **VerifyCode**, verifies the code. This actinon usually contains a single validation technical profile.
+- The type of the `DisplayWidget` is `VerificationWidget`.
+- `DisplayClaims`
+  - **Send to** - One or more claims specifying where to send the verification code to. For example, *email* or *country code* and *phone number*.
+  - **Verification code** - The verification code claim that user provides after the code has been sent. This claim must be set as required, and the `ControlClaimType` must be set to `VerificationCode`.
+- Output claim (optional) to be returned to the self-asserted page after the user completes verification process. For example, *email* or *country code* and *phone number*. The self-asserted technical profile uses the claims to persist the data or bubble up the output claims to the next orchestration step.
+- Two `Action`s with following names:
+  - **SendCode** - Sends a code to the user. This action usually contains two validation technical profile, to generate a code and to send it.
+  - **VerifyCode** - Verifies the code. This actinon usually contains a single validation technical profile.
 
+In the example below, an **email** textbox is displayed on the page. When the user enters their email address and selects **SendCode**, the **SendCode** action is triggered in the Azure AD B2C back end.
 
-In the example below, a **email** textbox is shown on the page where the user can click **SendCode** button which will trigger **SendCode** action in the backend.
-
-Then the user enter **verificationCode** and click **VerifyCode** button to trigger **VerifyCode** action in the backend. If all validations pass, the **VerificationWidget** is considered complete and the user can continue to the next step.
+Then, the user enters the **verificationCode** and selects **VerifyCode** to trigger the **VerifyCode** action in the back end. If all validations pass, the **VerificationWidget** is considered complete and the user can continue to the next step.
 
 ```XML
 <DisplayWidget Id="emailVerificationWidget" UserInterfaceWidgetType="VerificationWidget">
