@@ -1,5 +1,5 @@
 ---
-title: CycleCloud Common Issues - Software Configuration | Microsoft Docs
+title: Common Issues - Software Configuration
 description: Azure CycleCloud common issue - Software Configuration
 author: adriankjohnson
 ms.date: 11/15/2019

@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud Environment Resource | Microsoft Docs
+title: Environment Resource
 description: Learn about Azure CycleCloud Environments using Azure Resource Manager
 author: KimliW
 ms.date: 08/01/2018

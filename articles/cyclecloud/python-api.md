@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud Python API | Microsoft Docs
+title: Python API
 description: Interact with a CycleCloud installation programmatically.
 author: rokeptne
 ms.date: 07/16/2019

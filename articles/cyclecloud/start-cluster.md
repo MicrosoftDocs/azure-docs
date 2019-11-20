@@ -1,5 +1,5 @@
 ---
-title: Starting a Cluster in Azure CycleCloud | Microsoft Docs
+title: Starting a Cluster
 description: Clusters and Cluster Status in Azure CycleCloud.
 author: KimliW
 ms.date: 08/01/2018

@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud Submit Once CLI | Microsoft Docs
+title: Submit Once CLI
 description: Use the Submit Once Command Line Interface in Azure CycleCloud.
 author: KimliW
 ms.technology: submitonce

@@ -1,5 +1,5 @@
 ---
-title: CycleCloud Common Issues - Resolving Cookbooks | Microsoft Docs
+title: Common Issues - Resolving Cookbooks
 description: Azure CycleCloud common issue - Resolving Cookbooks
 author: adriankjohnson
 ms.date: 11/15/2019

@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud Submit Once Installation | Microsoft Docs
+title: Submit Once Installation
 description: Manually install the Submit Once tool for Azure CycleCloud.
 author: KimliW
 ms.technology: submitonce

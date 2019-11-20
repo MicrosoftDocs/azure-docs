@@ -1,5 +1,5 @@
 ---
-title: CycleCloud Common Issues - Unknown Config Status | Microsoft Docs
+title: Common Issues - Unknown Config Status
 description: Azure CycleCloud common issue - Unknown Config Status
 author: adriankjohnson
 ms.date: 11/15/2019

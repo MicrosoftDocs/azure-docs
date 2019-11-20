@@ -1,5 +1,5 @@
 ---
-title: CycleCloud Common Issues - Scaleset Attribute| Microsoft Docs
+title: Common Issues - Scaleset Attribute| Microsoft Docs
 description: Azure CycleCloud common issue - Scaleset Attribute
 author: adriankjohnson
 ms.date: 11/15/2019

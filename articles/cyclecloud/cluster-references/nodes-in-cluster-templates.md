@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud Cluster Template Reference | Microsoft Docs
+title: Cluster Template Reference - Nodes
 description: Attributes for nodes and nodearrays within cluster templates for use with Azure CycleCloud
 author: KimliW
 ms.date: 08/01/2018

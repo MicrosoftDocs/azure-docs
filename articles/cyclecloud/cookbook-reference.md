@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud Cookbook Reference | Microsoft Docs
+title: Cookbook Reference
 description: Reference resource for Chef Cookbooks in Azure CycleCloud
 author: KimliW
 ms.topic: reference

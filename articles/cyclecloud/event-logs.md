@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud Event Logs | Microsoft Docs
+title: Event Logs
 description: Review all activity with the Azure CycleCloud Event Log.
 author: adriankjohnson
 ms.date: 07/29/2019

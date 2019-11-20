@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud Images | Microsoft Docs
+title: Images
 description: Attach and manage images within Azure CycleCloud.
 author: KimliW
 ms.date: 08/01/2018

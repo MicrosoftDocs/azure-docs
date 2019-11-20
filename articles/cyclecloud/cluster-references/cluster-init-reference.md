@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud Cluster Template Reference | Microsoft Docs
+title: Azure CycleCloud Cluster Template Reference
 description: Parameter reference for cluster templates for use with Azure CycleCloud
 author: KimliW
 ms.date: 08/01/2018

@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud Grid Engine Scheduler Integration | Microsoft Docs
+title: Grid Engine Scheduler Integration
 description: Grid Engine scheduler configuration in Azure CycleCloud.
 author: KimliW
 ms.date: 08/01/2018

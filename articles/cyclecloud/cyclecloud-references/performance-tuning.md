@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud Performance Tuning | Microsoft Docs
+title: Performance Tuning
 description: Change default configuration settings in Azure CycleCloud for greater performance.
 author: KimliW
 ms.date: 08/01/2018

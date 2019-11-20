@@ -1,5 +1,5 @@
 ---
-title: CycleCloud Common Issues - Marketplace Images | Microsoft Docs
+title: Common Issues - Marketplace Images
 description: Azure CycleCloud common issue - Marketplace Images
 author: adriankjohnson
 ms.date: 11/15/2019

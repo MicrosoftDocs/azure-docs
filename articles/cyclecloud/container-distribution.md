@@ -1,5 +1,5 @@
 ---
-title: Run Azure CycleCloud in a Container Instance | Microsoft Docs
+title: Running in a Container Instance
 description: Run Azure CycleCloud in a Container Instance for quick and easy use.
 author: KimliW
 ms.date: 08/01/2018

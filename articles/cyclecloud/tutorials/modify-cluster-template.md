@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud Tutorial - Cluster Templates and Persistent Storage | Microsoft Docs
+title: Tutorial - Cluster Templates and Persistent Storage
 description: In this tutorial, you will modify a cluster template to add storage to the cluster's NFS server.
 author: KimliW
 ms.date: 08/01/2018

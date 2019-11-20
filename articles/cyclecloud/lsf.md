@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud IBM Spectrum LSF Integration | Microsoft Docs
+title: IBM Spectrum LSF Integration
 description: LSF scheduler configuration in Azure CycleCloud.
 author: mvrequa
 ms.date: 11/01/2019

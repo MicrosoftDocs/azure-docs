@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud HTCondor Scheduler Integration | Microsoft Docs
+title: HTCondor Scheduler Integration
 description: HT Condor Scheduler configurations in Azure CycleCloud
 author: KimliW
 ms.date: 08/01/2018

@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud Release Notes | Microsoft Docs
+title: Archived Release Notes
 description: Product release notes for Azure CycleCloud
 author: adriankjohnson
 ms.date: 10/02/2019

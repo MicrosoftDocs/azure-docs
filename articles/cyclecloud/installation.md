@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud Manual Installation | Microsoft Docs
+title: Manual Installation
 description: Manually install and configure Azure CycleCloud.
 author: KimliW
 ms.date: 08/01/2018

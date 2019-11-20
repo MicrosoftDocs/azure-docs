@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud Submit Once Overview | Microsoft Docs
+title: Submit Once Overview
 description: Overview and prerequisites for the Submit Once tool in Azure CycleCloud.
 author: KimliW
 ms.technology: submitonce

@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud Service Monitoring | Microsoft Docs
+title: Service Monitoring
 description: Monitor external services using Azure CycleCloud.
 author: KimliW
 ms.date: 08/01/2018

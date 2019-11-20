@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud Submit Once User Management | Microsoft Docs
+title: Submit Once User Management
 description: Create and manage user accounts for Submit Once in Azure CycleCloud.
 author: KimliW
 ms.technology: submitonce
