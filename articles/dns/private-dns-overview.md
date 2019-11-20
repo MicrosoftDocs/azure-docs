@@ -1,6 +1,6 @@
 ---
 title: What is Azure Private DNS?
-description: An overview of the private DNS hosting service on Microsoft Azure.
+description: In this article, get started with an overview of the private DNS hosting service on Microsoft Azure.
 services: dns
 author: vhorne
 ms.service: dns
