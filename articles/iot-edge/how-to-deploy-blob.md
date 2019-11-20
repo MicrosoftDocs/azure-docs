@@ -97,7 +97,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
      > [!IMPORTANT]
      > Do not change the second half of the storage mount value, which points to a specific location in the module. The storage mount should always end with **:/blobroot** for Linux containers and **:C:/BlobRoot** for Windows containers.
 
-5. On the **Module Twin Settings** tab, copying the following JSON and paste it into the box.
+5. On the **Module Twin Settings** tab, copy the following JSON and paste it into the box.
 
    ![Module Twin Settings](./media/how-to-deploy-blob/addmodule-tab4.png)
 
