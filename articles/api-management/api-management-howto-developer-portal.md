@@ -23,7 +23,7 @@ This article describes the differences between self-hosted and managed versions 
 
 > [!WARNING]
 > The new developer portal is currently being rolled out to API Management services.
-> If your service is newly created or is a Developer tier service, you should already have the latest version. Otherwise, you might experience problems (for example, with the publishing functionality). The feature rollout will complete on Monday November 11th, 2019.
+> If your service is newly created or is a Developer tier service, you should already have the latest version. Otherwise, you might experience problems (for example, with the publishing functionality). The feature rollout is expected to complete by Friday November 22nd, 2019.
 >
 > [Learn how to migrate from the preview version to the generally available version](#preview-to-ga) of the developer portal.
 
@@ -138,6 +138,14 @@ The interactive console makes a client-side API request from the browser. You ca
     </expose-headers>
 </cors>
 ```
+
+> [!NOTE]
+> 
+> If you apply the CORS policy in the Product scope, instead of the API(s) scope, and your API uses subscription key authentication through a header, your console won't work.
+>
+> The browser automatically issues an OPTIONS HTTP request, which doesn’t contain a header with the subscription key. Because of the missing subscription key, API Management can't associate the OPTIONS call with a Product, so it can’t apply the CORS policy.
+>
+> As a workaround you can pass the subscription key in a query parameter.
 
 ## Next steps
 

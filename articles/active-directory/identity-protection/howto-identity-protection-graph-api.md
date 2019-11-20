@@ -65,7 +65,7 @@ Before you get started, you’ll need:
 
    ![Creating an application](./media/howto-identity-protection-graph-api/44.png)
 
-   1. In the **Name** textbox, type a name for your application (for example: AADIP Risk Detection API Application).
+   1. In the **Name** textbox, type a name for your application (for example: Azure AD Risk Detection API Application).
 
    1. As **Type**, select **Web Application And / Or Web API**.
 
@@ -119,7 +119,7 @@ Before you get started, you’ll need:
 
    ![Creating an application](./media/howto-identity-protection-graph-api/24.png)
 
-   1. In the **Key description** textbox, type a description (for example, *AADIP Risk Detection*).
+   1. In the **Key description** textbox, type a description (for example, *Azure AD Risk Detection*).
    1. As **Duration**, select **In 1 year**.
    1. Click **Save**.
    1. Copy the key value, and then paste it into a safe location.   
