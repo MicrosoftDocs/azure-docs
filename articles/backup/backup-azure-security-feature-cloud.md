@@ -35,7 +35,7 @@ Soft delete is currently supported in the West Central US, East Asia, Canada Cen
    > [!NOTE]
    > If any soft-deleted backup items are present in the vault, the vault cannot be deleted at that time. Please try vault deletion after the backup items are permanently deleted, and there is no item in soft deleted state left in the vault.
 
-4. In order to restore the soft-deleted VM, it must first be undeleted. To undelete, choose the soft-deleted VM, and then click on the option **Undelete**.
+4. In order to restore the soft-deleted VM, it must first be undeleted. To undelete, choose the soft-deleted VM, and then select the option **Undelete**.
 
    ![Screenshot of Azure portal, Undelete VM](./media/backup-azure-security-feature-cloud/choose-undelete.png)
 
@@ -66,9 +66,9 @@ Soft delete is enabled by default on newly created vaults to protect backup data
 
 To disable soft delete, follow these steps:
 
-* In the Azure portal, go to your vault, and then go to **Settings** -> **Properties**.
-* In the properties pane, select **Security Settings** -> **Update**.  
-* In the security settings pane, under Soft Delete, select **Disable**.
+1. In the Azure portal, go to your vault, and then go to **Settings** -> **Properties**.
+2. In the properties pane, select **Security Settings** -> **Update**.  
+3. In the security settings pane, under **Soft Delete**, select **Disable**.
 
 
 ![Disable soft delete](./media/backup-azure-security-feature-cloud/disable-soft-delete.png)
@@ -79,23 +79,29 @@ Backup data in soft deleted state prior disabling this feature, will remain in s
 
 Follow these steps:
 
-* Follow the steps to [disable soft delete](#disabling-soft-delete). 
-* In the Azure portal, go to your vault, go to **Backup Items** and choose the soft deleted VM 
+1. Follow the steps to [disable soft delete](#disabling-soft-delete). 
+2. In the Azure portal, go to your vault, go to **Backup Items** and choose the soft deleted VM 
 
 ![Choose soft deleted VM](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
-* Click on the option **Undelete**.
+
+3. Select the option **Undelete**.
 
 ![Choose Undelete](./media/backup-azure-security-feature-cloud/choose-undelete.png)
-* A window will appear. Select **Undelete**.
+
+
+4. A window will appear. Select **Undelete**.
 
 ![Select Undelete](./media/backup-azure-security-feature-cloud/undelete-vm.png)
-* Choose **Delete backup data** to permanently delete the backup data.
+
+5. Choose **Delete backup data** to permanently delete the backup data.
 
 ![Choose Delete backup data](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
-* Type the name of the backup item to confirm that you want to delete the recovery points.
+
+6. Type the name of the backup item to confirm that you want to delete the recovery points.
 
 ![Type the name of the backup item](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
-* To delete the backup data for the item, select **Delete**. A notification message lets you know that the backup data has been deleted.
+
+7. To delete the backup data for the item, select **Delete**. A notification message lets you know that the backup data has been deleted.
 
 
 ## Other security features
