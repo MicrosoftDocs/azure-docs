@@ -208,6 +208,8 @@ SQL authentication refers to the authentication of a user when connecting to Azu
 
 ## Access management
 
+Access management is the process of controlling and managing authorized users' access and privileges to Azure SQL Database.
+
 ### Implement principle of least privilege
 
 > [!NOTE]
@@ -260,7 +262,7 @@ The following best practices are optional but will result in better manageabilit
 - Remember that permissions in SQL Server Database Engine can be applied on the following scopes. The smaller the scope, the smaller the impact of the granted permissions: 
   - Logical server (special roles in master database) 
   - Database 
-  - Schema (Schema-design for SQL Server: recommendations for Schema design with security in mind)
+  - Schema (Schema-design for SQL Server: recommendations for Schema design with security in mind(http://andreas-wolter.com/en/schema-design-for-sql-server-recommendations-for-schema-design-with-security-in-mind/))
   - Object (table, view, procedure, etc.) 
   > [!NOTE]
   > It is not recommended to apply permissions on the object level because this level adds unnecessary complexity to the overall implementation. If you decide to use object-level permissions, those should be clearly documented. The same applies to column-level-permissions, which are even less recommendable for the same reasons. The standard rules for [DENY](https://docs.microsoft.com/sql/t-sql/statements/deny-object-permissions-transact-sql) don't apply for columns.
