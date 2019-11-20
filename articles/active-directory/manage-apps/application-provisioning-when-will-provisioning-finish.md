@@ -1,5 +1,5 @@
 ---
-title: User provisioning to an Azure AD Gallery application is taking hours or more | Microsoft Docs
+title: User provisioning to Azure AD Gallery app is taking hours or more
 description: How to find out why provisioning to your application may be taking longer than you expected
 services: active-directory
 documentationcenter: ''
