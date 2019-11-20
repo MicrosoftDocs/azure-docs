@@ -9,6 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
+ms.custom: fasttrack-edit
 ---
 
 # Indexers in Azure Cognitive Search
@@ -42,6 +43,7 @@ All operations related to indexers, including GET requests for status or definit
 Indexers crawl data stores on Azure.
 
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
+* [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md) (in preview)
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)

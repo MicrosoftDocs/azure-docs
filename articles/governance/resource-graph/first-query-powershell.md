@@ -1,6 +1,6 @@
 ---
-title: Run your first query using PowerShell
-description: This article walks you through the steps to enable the Resource Graph module for Azure PowerShell and run your first query.
+title: "Quickstart: Your first PowerShell query"
+description: In this quickstart, you follow the steps to enable the Resource Graph module for Azure PowerShell and run your first query.
 ms.date: 10/18/2019
 ms.topic: quickstart
 ---
@@ -28,7 +28,7 @@ The Azure Resource Graph module requires the following software:
 
 - Azure PowerShell 1.0.0 or higher. If it isn't yet installed, follow [these instructions](/powershell/azure/install-az-ps).
 
-- PowerShellGet 2.0.1 or higher. If it isn't installed or updated, follow [these instructions](/powershell/gallery/installing-psget).
+- PowerShellGet 2.0.1 or higher. If it isn't installed or updated, follow [these instructions](/powershell/scripting/gallery/installing-psget).
 
 ### Install the module
 

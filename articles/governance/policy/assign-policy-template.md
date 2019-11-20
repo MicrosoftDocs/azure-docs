@@ -1,6 +1,6 @@
 ---
-title: Create assignment with Resource Manager template
-description: This article walks you through the steps to use a Resource Manager template to create a policy assignment to identify non-compliant resources.
+title: "Quickstart: New policy assignment with templates"
+description: In this quickstart, you use a Resource Manager template to create a policy assignment to identify non-compliant resources.
 ms.date: 03/13/2019
 ms.topic: quickstart
 ---

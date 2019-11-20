@@ -60,11 +60,11 @@ landingContent:
       - linkListType: concept
         links:
           - text: PowerShell DSC
-            url: /powershell/dsc/overview/overview
+            url: /powershell/scripting/dsc/overview/overview
       - linkListType: quickstart
         links:
           - text: Create a DSC Configuration from Group Policy
-            url: /powershell/dsc/quickstarts/gpo-quickstart
+            url: /powershell/scripting/dsc/quickstarts/gpo-quickstart
       - linkListType: tutorial
         links:
           - text: Configure Servers and manage drift with State Configuration
