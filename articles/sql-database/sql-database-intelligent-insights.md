@@ -1,5 +1,5 @@
 ---
-title: Monitor database performance with Intelligent Insights - Azure SQL Database | Microsoft Docs
+title: Monitor database performance with Intelligent Insights
 description: Azure SQL Database Intelligent Insights uses built-in intelligence to continuously monitor database usage through artificial intelligence and detect disruptive events that cause poor performance.
 services: sql-database
 ms.service: sql-database
@@ -59,6 +59,17 @@ For a hands-on overview on using Intelligent Insights with Azure SQL Analytics a
 >
 
 Intelligent Insights shines in discovering and troubleshooting SQL Database performance issues. In order to use Intelligent Insights to troubleshoot SQL Database and Managed Instance database performance issues, see [Troubleshoot Azure SQL Database performance issues with Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
+
+## Intelligent Insights options
+
+Intelligent Insights options available in Azure SQL Database are:
+
+| Intelligent Insights option | Single database and pooled database support | Instance database support |
+| :----------------------------- | ----- | ----- |
+| **Configure Intelligent Insights** - Configure Intelligent Insights analysis for your databases. | Yes | Yes | 
+| **Stream insights to Azure SQL Analytics** -- Stream insights to Azure SQL Analytics monitoring solution for Azure SQL Database. | Yes | Yes | 
+| **Stream insights to Event Hub** - Stream insights to Event Hubs for further custom integrations. | Yes | Yes | 
+| **Stream insights to Azure Storage** - Stream insights to Azure Storage for further analysis and long term archival. | Yes | Yes |
 
 ## Configure Intelligent Insights
 

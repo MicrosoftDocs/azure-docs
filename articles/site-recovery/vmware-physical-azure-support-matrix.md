@@ -1,11 +1,11 @@
 ---
-title: Support matrix for disaster recovery of VMware VMs and physical servers to Azure with Azure Site Recovery | Microsoft Docs
+title: Support matrix for VMware/physical disaster recovery in Azure Site Recovery 
 description: Summarizes support for disaster recovery of VMware VMs and physical server to Azure using Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 11/15/2019
 ms.author: raynew
 
 ---
@@ -58,6 +58,9 @@ Ports | 443 used for control channel orchestration<br/>9443 for data transport
 ## Replicated machines
 
 Site Recovery supports replication of any workload running on a supported machine.
+
+> [!Note]
+> The following table lists the support for machines with BIOS boot. Please refer to [Storage](#storage) section for support on UEFI based machines.
 
 **Component** | **Details**
 --- | ---
@@ -200,7 +203,7 @@ Guest/server - exclude disk | Yes
 Guest/server multipath (MPIO) | No
 Guest/server GPT partitions | Five partitions are supported from [Update Rollup 37](https://support.microsoft.com/help/4508614/) (version 9.25 of the Mobility service) onwards. Previously four were supported.
 ReFS | Resilient File System is supported with Mobility service version 9.23 or higher
-Guest/server EFI/UEFI boot | - Supported when you're running Mobility service version 9.13 or later.<br/> - Supported when migrating VMware VMs or physical servers running Windows Server 2012 or later to Azure.<br/> - You can only replicate VMs for migration. Failback to on-premises isn't supported.<br/> - Only NTFS is supported <br/> - Secure UEFI boot type is not supported. <br/> - Disk sector size should be 512 bytes per physical sector.
+Guest/server EFI/UEFI boot | - Supported for Windows Server 2012 or later, SLES 12 SP4 and RHEL 8.0 with mobility agent version 9.30 onwards<br/> - Secure UEFI boot type is not supported. 
 
 ## Replication channels
 
@@ -221,6 +224,7 @@ Cool storage | No
 Hot storage| No
 Block blobs | No
 Encryption-at-rest (SSE)| Yes
+Encryption-at-rest (CMK)| No
 Premium storage | Yes
 Import/export service | No
 Azure Storage firewalls for VNets | Yes.<br/> Configured on target storage/cache storage account (used to store replication data).

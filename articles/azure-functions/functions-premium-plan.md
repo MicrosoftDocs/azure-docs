@@ -2,8 +2,6 @@
 title: Azure Functions Premium plan 
 description: Details and configuration options (VNet, no cold start, unlimited execution duration) for the Azure Functions Premium plan.
 author: jeffhollan
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
@@ -122,6 +120,7 @@ Below are the currently supported regions for each OS.
 |West Europe| ✔ | ✔ |
 |West India| ✔ |  |
 |West US| ✔ | ✔ |
+|West US 2| ✔ |  |
 
 <sup>1</sup>Maximum scale out limited to 20 instances.  
 <sup>2</sup>Maximum scale out limited to 60 instances.

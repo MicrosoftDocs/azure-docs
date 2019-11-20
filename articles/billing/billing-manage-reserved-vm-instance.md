@@ -1,10 +1,9 @@
 ---
 title: Manage Azure Reservations
 description: Learn how you can manage Azure Reservations.
-ms.service: billing
+ms.service: cost-management-billing
 author: bandersmsft
 manager: yashesvi
-ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na

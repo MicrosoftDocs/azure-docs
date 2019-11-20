@@ -1,5 +1,5 @@
 ---
-title: "Provision Enterprise Edition for the Azure-SSIS Integration Runtime | Microsoft Docs"
+title: "Provision Enterprise Edition for the Azure-SSIS Integration Runtime "
 description: "This article describes the features of Enterprise Edition for the Azure-SSIS Integration Runtime and how to provision it"
 services: data-factory
 documentationcenter: ""

@@ -1,6 +1,6 @@
 ---
-title: 'How to debug UDFs in Azure Digital Twins | Microsoft Docs'
-description: Guideline about how to debug UDFs in Azure Digital Twins.
+title: How to debug UDFs - Azure Digital Twins | Microsoft Docs
+description: Learn about recommended approaches to debug user-defined functions in Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -30,7 +30,7 @@ Azure Digital Twins supports robust logging, monitoring, and analytics. Solution
 
 * For logging configuration specific to Azure Digital Twins, read [How to configure monitoring and logging](./how-to-configure-monitoring.md).
 * Consult the [Azure Monitor](../azure-monitor/overview.md) overview to learn about powerful log settings enabled through Azure Monitor.
-* Review the article [Collect and consume log data from your Azure resources](../azure-monitor/platform/resource-logs-overview.md) for configuring diagnostic log settings in Azure Digital Twins through the Azure Portal, Azure CLI, or PowerShell.
+* Review the article [Collect and consume log data from your Azure resources](../azure-monitor/platform/resource-logs-overview.md) for configuring diagnostic log settings in Azure Digital Twins through the Azure portal, Azure CLI, or PowerShell.
 
 Once configured, you'll be able to select all log categories, metrics, and use powerful Azure Monitor log analytics workspaces to support your debugging efforts.
 

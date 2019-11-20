@@ -258,6 +258,7 @@ Image quarantine is currently a preview feature of ACR. You can enable the quara
 - [Authentication information is not given in the correct format on direct REST API calls](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
 - [Why does the Azure portal not list all my repositories or tags?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
 - [Why does the Azure portal fail to fetch repositories or tags?](#why-does-the-azure-portal-fail-to-fetch-repositories-or-tags)
+- [Why does my pull or push request fail with disallowed operation?](#why-does-my-pull-or-push-request-fail-with-disallowed-operation)
 - [How do I collect http traces on Windows?](#how-do-i-collect-http-traces-on-windows)
 
 ### Check health with `az acr check-health`
@@ -419,6 +420,13 @@ The browser might not be able to send the request for fetching repositories or t
 
 Please contact your network administrator or check your network configuration and connectivity. Try running `az acr check-health -n yourRegistry` using your Azure CLI to check if your environment is able to connect to the Container Registry. In addition, you could also try an incognito or private session in your browser to avoid any stale browser cache or cookies.
 
+### Why does my pull or push request fail with disallowed operation?
+
+Here are some senarios where operations maybe disallowed:
+* Classic registries are no longer supported. Please upgrade to a supported [SKUs](https://aka.ms/acr/skus) using [az acr update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update) or the azure portal.
+* The image or repository maybe locked so that it can't be deleted or updated. You can use the [az acr show repository](https://docs.microsoft.com/azure/container-registry/container-registry-image-lock) command to view current attributes.
+* Some operations are disallowed if the image is in quarantine. Learn more about [quarantine](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
+
 ### How do I collect http traces on Windows?
 
 #### Prerequisites
@@ -445,6 +453,8 @@ Configure the Docker proxy to output of the previous command and the port 8888 (
 
 - [How do I batch cancel runs?](#how-do-i-batch-cancel-runs)
 - [How do I include the .git folder in az acr build command?](#how-do-i-include-the-git-folder-in-az-acr-build-command)
+- [Does Tasks support GitLab for Source triggers?](#does-tasks-support-gitlab-for-source-triggers)
+- [What git repository management service does Tasks support?](#what-git-repository-management-service-does-tasks-support)
 
 ### How do I batch cancel runs?
 
@@ -459,11 +469,30 @@ az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o 
 
 If you pass a local source folder to the `az acr build` command, the `.git` folder is excluded from the uploaded package by default. You can create a `.dockerignore` file with the following setting. It tells the command to restore all files under `.git` in the uploaded package. 
 
-```
+```sh
 !.git/**
 ```
 
 This setting also applies to the `az acr run` command.
+
+### Does Tasks support GitLab for Source triggers?
+
+We currently do not support GitLab for Source triggers.
+
+### What git repository management service does Tasks support?
+
+| Git service | Source context | Manual build | Auto build through commit trigger |
+|---|---|---|---|
+| GitHub | https://github.com/user/myapp-repo.git#mybranch:myfolder | Yes | Yes |
+| Azure Repos | https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder | Yes | Yes |
+| GitLab | https://gitlab.com/user/myapp-repo.git#mybranch:myfolder | Yes | No |
+| BitBucket | https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder | Yes | No |
+
+## Run Error Message Troubleshooting
+
+| Error message | Troubleshooting guide |
+|---|---|
+|No access was configured for the VM, hence no subscriptions were found|This could happen if you are using `az login --identity` in your ACR Task. This is a transient error and occurs when the role assignment of your Managed Identity hasn't propagated. Waiting a few seconds before retrying works.|
 
 ## CI/CD integration
 

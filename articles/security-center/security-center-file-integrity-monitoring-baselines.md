@@ -1,5 +1,5 @@
 ---
-title: Compare baselines with File Integrity Monitoring in Azure Security Center | Microsoft Docs
+title: File Integrity Monitoring in Azure Security Center
 description: Learn how to compare baselines with File Integrity Monitoring in Azure Security Center.
 services: security-center
 documentationcenter: na

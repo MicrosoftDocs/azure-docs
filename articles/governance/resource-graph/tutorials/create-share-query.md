@@ -1,11 +1,8 @@
 ---
-title: Create and share a query in Azure portal
-description: In this tutorial, learn to create a Resource Graph Query and share it with others in the Azure portal.
-author: DCtheGeek
-ms.author: dacoulte
+title: "Tutorial: Manage queries in Azure portal"
+description: In this tutorial, you create a Resource Graph Query and share the new query with others in the Azure portal.
 ms.date: 10/23/2019
 ms.topic: tutorial
-ms.service: resource-graph
 ---
 # Tutorial: Create and share an Azure Resource Graph query in the Azure portal
 
@@ -49,7 +46,7 @@ follow these steps:
    | summarize count() by tostring(properties.storageProfile.osDisk.osType)
    ```
 
-    Select **Run query** to see the query results in the bottom pane.
+   Select **Run query** to see the query results in the bottom pane.
 
    For more information about this query, see
    [Samples – Count virtual machines by OS type](../samples/starter.md#count-virtual-machines-by-os-type).
@@ -94,10 +91,10 @@ To create a new Shared query, follow these steps:
    | summarize count() by tostring(properties.storageProfile.osDisk.osType)
    ```
     
-    Select **Run query** to see the query results in the bottom pane.
+   Select **Run query** to see the query results in the bottom pane.
 
-    For more information about this query, see
-    [Samples – Count virtual machines by OS type](../samples/starter.md#count-virtual-machines-by-os-type).
+   For more information about this query, see
+   [Samples – Count virtual machines by OS type](../samples/starter.md#count-virtual-machines-by-os-type).
 
 1. Select **Save** or **Save as**.
 
@@ -105,19 +102,21 @@ To create a new Shared query, follow these steps:
    ![Save the new query using the save button](../media/create-share-query/save-shared-query-buttons.png)
 
 1. In the **Save query** pane, enter **Count VMs by OS** for the name.
+
 1. Change the type to **Shared query**, set the description to **Count of virtual machines by OS
    type**, and set **Subscription** to specify where the query resource gets created.
+
 1. Leave the **Publish to resource-graph-queries resource group** check box selected and the
    **Resource Group location** set to **(US) West Central US**.
+
 1. Select **Save** at the bottom of the **Save query** pane. The tab title changes from **Query 1**
    to **Count VMs by OS**. The first time the **resource-graph-queries** resource group is used, the
    save takes longer than expected as the resource group gets created.
-
    
    ![Save the new query as a Shared query](../media/create-share-query/save-shared-query-window.png)
 
    > [!NOTE] 
-   >You can clear the **Publish to resource-graph-queries resource group** check box if you
+   > You can clear the **Publish to resource-graph-queries resource group** check box if you
    > want to provide the name of an existing resource group to save the shared query into. Using the
    > default named resource group for queries makes Shared queries easier to discover. It also makes
    > the purpose of that resource group more apparent. However, you might opt to select an existing
@@ -135,7 +134,7 @@ To create a new Shared query, follow these steps:
    ![Show the Shared Query with icon](../media/create-share-query/show-saved-shared-query.png)
 
    > [!NOTE] 
-   >When a saved query is open and the tab shows its name, the **Save** button updates it
+   > When a saved query is open and the tab shows its name, the **Save** button updates it
    > with any changes that have been made. To create a new saved query, select **Save as** and
    > proceed as if you were saving a brand new query.
 

@@ -1,15 +1,15 @@
 ---
-title: Support matrix for disaster recovery of Azure VMs between Azure regions with Azure Site Recovery | Microsoft Docs
-description: Summarizes prerequisites and support for disaster recovery of Azure VMs from one region to another with Azure Site Recovery
+title: Support matrix for Azure VM disaster recovery with Azure Site Recovery 
+description: Summarizes support for Azure VMs disaster recovery to a secondary region with Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/26/2019
+ms.date: 11/15/2019
 ms.author: raynew
 
 ---
-# Support matrix for replicating Azure VMs from one region to another
+# Support matrix for Azure VM disaster recovery between Azure regions
 
 This article summarizes support and prerequisites for disaster recovery of Azure VMs from one Azure region to another, using the [Azure Site Recovery](site-recovery-overview.md) service.
 
@@ -68,7 +68,7 @@ This table summarizes support for the cache storage account used by Site Recover
 --- | --- | ---
 General purpose V2 storage accounts (Hot and Cool tier) | Supported | Usage of GPv2 is not recommended because transaction costs for V2 are substantially higher than V1 storage accounts.
 Premium storage | Not supported | Standard storage accounts are used for cache storage, to help optimize costs.
-Azure Storage firewalls for virtual networks  | Supported | If you are using firewall enabled cache storage account or target storage account, ensure you ['Allow trusted Microsoft services'](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+Azure Storage firewalls for virtual networks  | Supported | If you are using firewall enabled cache storage account or target storage account, ensure you ['Allow trusted Microsoft services'](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).<br></br>Also, ensure that you allow access to at least one subnet of source Vnet.
 
 
 ## Replicated machine operating systems
@@ -203,6 +203,7 @@ Redundancy | LRS and GRS are supported.<br/><br/> ZRS isn't supported.
 Cool and hot storage | Not supported | VM disks aren't supported on cool and hot storage
 Storage Spaces | Supported |
 Encryption at rest (SSE) | Supported | SSE is the default setting on storage accounts.	 
+Encryption at rest (CMK) | Not Supported | 	 
 Azure Disk Encryption (ADE) for Windows OS | Supported for VMs with managed disks. VMs using unmanaged disks are not supported |
 Azure Disk Encryption (ADE) for Linux OS | Not supported |
 Hot add	| Supported | Enabling replication for a data disk that you add to a replicated Azure VM is supported for VMs that use managed disks.
@@ -216,7 +217,8 @@ RA-GRS | Supported |
 ZRS | Not supported |
 Cool and Hot Storage | Not supported | Virtual machine disks are not supported on cool and hot storage
 Azure Storage firewalls for virtual networks  | Supported | If restrict virtual network access to storage accounts, enable [Allow trusted Microsoft services](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
-General purpose V2 storage accounts (Both Hot and Cool tier) | Yes | Transaction costs increase substantially compared to General purpose V1 storage accounts
+General purpose V2 storage accounts (Both Hot and Cool tier) | Supported | Transaction costs increase substantially compared to General purpose V1 storage accounts
+Generation 2 (UEFI boot) | Supported
 
 >[!IMPORTANT]
 > To avoid performance issues, make sure that you follow VM disk scalability and performance targets for [Linux](../virtual-machines/linux/disk-scalability-targets.md) or [Windows](../virtual-machines/windows/disk-scalability-targets.md) VMs. If you use default settings, Site Recovery creates the required disks and storage accounts, based on the source configuration. If you customize and select your own settings,follow the disk scalability and performance targets for your source VMs.
@@ -228,7 +230,6 @@ The following table summarizes Site Recovery limits.
 - These limits are based on our tests, but obviously don't cover all possible application I/O combinations.
 - Actual results can vary based on you app I/O mix.
 - There are two limits to consider, per disk data churn and per virtual machine data churn.
-- As an example, if we use a Premium P20 disk as described in the table below, Site Recovery can handle 5 MBs of churn per disk, with at max of five such disks per VM, due to the limit of 25 MB/s total churn per VM.
 
 **Storage target** | **Average source disk I/O** |**Average source disk data churn** | **Total source disk data churn per day**
 ---|---|---|---

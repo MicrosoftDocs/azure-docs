@@ -31,13 +31,15 @@ You can also assign roles using Privileged Identity Management (PIM). For more d
 
 2. Select **Azure Active Directory**, select **Users**, and then search for and select the user getting the role assignment. For example, _Alain Charon_.
 
-3. On the **Alain Charon - Profile** page, select **Directory role**.
+      ![All users page - select the user](media/active-directory-users-assign-role-azure-portal/directory-role-select-user.png)
+
+3. On the **Alain Charon - Profile** page, select **Assigned roles**.
 
     The **Alain Charon - Directory role** page appears.
 
-4. Select **Add role**, select the role to assign to Alain (for example, _Application administrator_), and then choose **Select**.
+4. Select **Add assignment**, select the role to assign to Alain (for example, _Application administrator_), and then choose **Select**.
 
-    ![Directory roles page, showing the selected role](media/active-directory-users-assign-role-azure-portal/directory-role-select-role.png)
+    ![Assigned roles page - showing the selected role](media/active-directory-users-assign-role-azure-portal/directory-role-select-role.png)
 
     The Application administrator role is assigned to Alain Charon and it appears on the **Alain Charon - Directory role** page.
 
@@ -48,9 +50,9 @@ If you need to remove the role assignment from a user, you can also do that from
 
 1. Select **Azure Active Directory**, select **Users**, and then search for and select the user getting the role assignment removed. For example, _Alain Charon_.
 
-2. Select **Directory role**, select **Application administrator**, and then select **Remove role**.
+2. Select **Assigned roles**, select **Application administrator**, and then select **Remove assignment**.
 
-    ![Directory roles page, showing the selected role and the remove option](media/active-directory-users-assign-role-azure-portal/directory-role-remove-role.png)
+    ![Assigned roles page, showing the selected role and the remove option](media/active-directory-users-assign-role-azure-portal/directory-role-remove-role.png)
 
     The Application administrator role is removed from Alain Charon and it no longer appears on the **Alain Charon - Directory role** page.
 

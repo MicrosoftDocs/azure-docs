@@ -1,5 +1,5 @@
 ---
-title: 'Authenticate and authorize by using an API in Azure Time Series Insights | Microsoft Docs'
+title: 'API authentication and authorization - Azure Time Series Insights | Microsoft Docs'
 description: This article describes how to configure authentication and authorization for a custom application that calls the Azure Time Series Insights API.
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,7 +10,7 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 11/14/2019
 ms.custom: seodec18
 ---
 

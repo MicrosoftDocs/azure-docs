@@ -1,5 +1,5 @@
 ---
-title: Copy data from Amazon Redshift using Azure Data Factory | Microsoft Docs
+title: Copy data from Amazon Redshift using Azure Data Factory 
 description: Learn about how to copy data from Amazon Redshift to supported sink data stores by using Azure Data Factory.
 services: data-factory
 documentationcenter: ''

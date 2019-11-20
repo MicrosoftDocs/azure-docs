@@ -1,11 +1,8 @@
 ---
-title: Azure resources without 800 count limit
+title: Resources without 800 count limit
 description: Lists the Azure resource types that can have more than 800 instances in a resource group.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/09/2019
-ms.author: tomfitz
+ms.date: 11/07/2019
 ---
 
 # Resources not limited to 800 instances per resource group
@@ -69,8 +66,18 @@ For some resource types, you need to contact support to have the 800 instance li
 
 * services
 
+## Microsoft.EventHub
+
+* clusters
+* namespaces
+
+## Microsoft.Experimentation
+
+* experimentWorkspaces
+
 ## Microsoft.GuestConfiguration
 
+* configurationProfileAssignments
 * guestConfigurationAssignments
 * software
 * softwareUpdateProfile
@@ -136,9 +143,17 @@ For some resource types, you need to contact support to have the 800 instance li
 
 * workspaceCollections - By default, limited to 800 instances. That limit can be increased by contacting support.
 
+## Microsoft.Relay
+
+* namespaces
+
 ## Microsoft.Scheduler
 
 * jobcollections
+
+## Microsoft.ServiceBus
+
+* namespaces
 
 ## Microsoft.ServiceFabricMesh
 
