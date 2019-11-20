@@ -62,7 +62,9 @@ Code that implements exponential backoff is shown below.
                 await func();
             }
             catch (Exception ex) when (ex is TimeoutException ||
-                ex is System.Net.Http.HttpRequestException)
+                ex is System.Net.Http.HttpRequestException ||
+                (ex is Microsoft.Azure.KeyVault.Models.KeyVaultErrorException 
+                    && ((Microsoft.Azure.KeyVault.Models.KeyVaultErrorException)ex).Message.Contains("'429'")))
             {
                 Debug.WriteLine("Exception raised is: " +
                     ex.GetType().ToString() +
@@ -77,11 +79,13 @@ Code that implements exponential backoff is shown below.
 
     public struct ExponentialBackoff
     {
-        private readonly int m_maxRetries, m_delayMilliseconds, m_maxDelayMilliseconds;
-        private int m_retries, m_pow;
+        private readonly int m_maxRetries;
+        private readonly long m_delayMilliseconds, m_maxDelayMilliseconds;
+        private int m_retries;
+        private long m_pow;
 
-        public ExponentialBackoff(int maxRetries, int delayMilliseconds,
-            int maxDelayMilliseconds)
+        public ExponentialBackoff(int maxRetries, long delayMilliseconds,
+            long maxDelayMilliseconds)
         {
             m_maxRetries = maxRetries;
             m_delayMilliseconds = delayMilliseconds;
@@ -101,7 +105,7 @@ Code that implements exponential backoff is shown below.
             {
                 m_pow = m_pow << 1; // m_pow = Pow(2, m_retries - 1)
             }
-            int delay = Math.Min(m_delayMilliseconds * (m_pow - 1) / 2,
+            int delay = (int)Math.Min(m_delayMilliseconds * (m_pow - 1) / 2,
                 m_maxDelayMilliseconds);
             return Task.Delay(delay);
         }
