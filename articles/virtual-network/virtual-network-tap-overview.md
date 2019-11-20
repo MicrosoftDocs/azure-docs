@@ -40,11 +40,12 @@ preview by sending an email to <azurevnettap@microsoft.com> with your subscript
 - [Awake Security](https://awakesecurity.com/technology-partners/microsoft-azure/)
 - [Cisco Stealthwatch Cloud](https://blogs.cisco.com/security/cisco-stealthwatch-cloud-and-microsoft-azure-reliable-cloud-infrastructure-meets-comprehensive-cloud-security)
 - [Darktrace](https://www.darktrace.com/en/azure/)
-- [ExtraHop Reveal(x)](https://www.extrahop.com/company/tech-partners/microsoft/)
+- [ExtraHop Reveal(x)](https://www.extrahop.com/partners/tech-partners/microsoft/)
 - [Fidelis Cybersecurity](https://www.fidelissecurity.com/technology-partners/microsoft-azure )
 - [Flowmon](https://www.flowmon.com/blog/azure-vtap)
 - [NetFort LANGuardian](https://www.netfort.com/languardian/solutions/visibility-in-azure-network-tap/)
 - [Netscout vSTREAM]( https://www.netscout.com/technology-partners/microsoft/azure-vtap)
+- [Riverbed SteelCentral AppResponse]( https://www.riverbed.com/products/steelcentral/steelcentral-appresponse-11.html)
 - [RSA NetWitness® Platform](https://www.rsa.com/azure)
 - [Vectra Cognito](https://vectra.ai/microsoftazure)
 

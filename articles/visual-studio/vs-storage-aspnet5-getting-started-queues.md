@@ -1,5 +1,5 @@
 ---
-title: Get started with queue storage and Visual Studio connected services (ASP.NET Core) | Microsoft Docs
+title: Get started with queue storage using Visual Studio (ASP.NET Core) 
 description: How to get started using Azure queue storage in an ASP.NET Core project in Visual Studio
 services: storage
 author: ghogen
@@ -12,6 +12,7 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: ghogen
+ROBOTS: NOINDEX,NOFOLLOW
 ---
 # Get started with queue storage and Visual Studio connected services (ASP.NET Core)
 

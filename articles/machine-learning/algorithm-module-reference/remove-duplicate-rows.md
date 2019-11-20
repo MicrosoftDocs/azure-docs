@@ -1,7 +1,7 @@
 ---
 title:  "Remove Duplicate Rows: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Remove Duplicate Rows module in Azure Machine Learning service to remove potential duplicates from a dataset.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Remove Duplicate Rows module in Azure Machine Learning to remove potential duplicates from a dataset.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,11 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ROBOTS: NOINDEX
+ms.date: 10/22/2019
 ---
 # Remove Duplicate Rows module
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to remove potential duplicates from a dataset.
 
@@ -47,7 +46,7 @@ When you run the module, it creates a candidate dataset, and returns a set of ro
 
 ## How to use Remove Duplicate Rows
 
-1. Add the module to your experiment. You can find the **Remove Duplicate Rows** module under **Data Transformation**, **Manipulation**.  
+1. Add the module to your pipeline. You can find the **Remove Duplicate Rows** module under **Data Transformation**, **Manipulation**.  
 
 2. Connect the dataset that you want to check for duplicate rows.
 
@@ -65,7 +64,7 @@ When you run the module, it creates a candidate dataset, and returns a set of ro
     + If selected, the first row is returned and others discarded. 
     + If you uncheck this option, the last duplicate row is kept in the results, and others are discarded. 
 
-5. Run the experiment.
+5. Run the pipeline.
 
 6. To review the results, right-click the module, select **Results dataset**, and click **Visualize**. 
 
@@ -74,4 +73,4 @@ When you run the module, it creates a candidate dataset, and returns a set of ro
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

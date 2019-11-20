@@ -18,10 +18,9 @@ ms.author: juliako
 
 ---
 # Analyze your media using the Azure portal 
-> [!NOTE]
-> To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
-> 
-> 
+
+> [!IMPORTANT]
+> Review the [retirement plans](media-services-analytics-overview.md#retirement-plans) of some media processors.
 
 ## Overview
 Azure Media Services Analytics is a collection of speech and vision components (at enterprise scale, compliance, security and global reach) that make it easier for organizations and enterprises to derive actionable insights from their video files. For more detailed overview of Azure Media Services Analytics see [this](media-services-analytics-overview.md) topic. 

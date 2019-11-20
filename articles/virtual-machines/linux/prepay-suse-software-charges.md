@@ -4,7 +4,7 @@ description: Learn how you can prepay for software plans to save money over your
 author: bandersmsft
 manager: yashesvi
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na

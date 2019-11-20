@@ -3,7 +3,7 @@ title: Troubleshoot outbound SMTP connectivity in Azure | Microsoft Docs
 description: Learn how to troubleshoot issues of outbound SMTP connectivity in Azure.
 services: virtual-network
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 
 ms.service: virtual-network

@@ -1,8 +1,8 @@
 ---
 title: Working with the change feed support in Azure Cosmos DB 
 description: Use Azure Cosmos DB change feed support to track changes in documents and perform event-based processing like triggers and keeping caches and analytics systems up-to-date. 
-author: rimman
-ms.author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
@@ -36,7 +36,7 @@ This feature is currently supported by the following Azure Cosmos DB APIs and cl
 
 ## Change feed and different operations
 
-Today, you see all operations in the change feed. The functionality where you can control change feed, for specific operations such as updates only and not inserts is not yet available. You can add a “soft marker” on the item for updates and filter based on that when processing items in the change feed. Currently change feed doesn’t log deletes. Similar to the previous example, you can add a soft marker on the items that are being deleted, for example, you can add an attribute in the item called "deleted" and set it to "true" and set a TTL on the item, so that it can be automatically deleted. You can read the change feed for historic items, for example, items that were added five years ago. If the item is not deleted you can read the change feed as far as the origin of your container.
+Today, you see all operations in the change feed. The functionality where you can control change feed, for specific operations such as updates only and not inserts is not yet available. You can add a “soft marker” on the item for updates and filter based on that when processing items in the change feed. Currently change feed doesn’t log deletes. Similar to the previous example, you can add a soft marker on the items that are being deleted, for example, you can add an attribute in the item called "deleted" and set it to "true" and set a TTL on the item, so that it can be automatically deleted. You can read the change feed for historic items (the most recent change corresponding to the item, it doesn't include the intermediate changes), for example, items that were added five years ago. If the item is not deleted you can read the change feed as far as the origin of your container.
 
 ### Sort order of items in change feed
 

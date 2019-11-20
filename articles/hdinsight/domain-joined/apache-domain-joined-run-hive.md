@@ -1,14 +1,15 @@
 ---
-title: Configure Hive policies in HDInsight with Enterprise Security Package - Azure
+title: Apache Hive policies in Apache Ranger - Azure HDInsight
 description: Learn how to configure Apache Ranger policies for Hive in an Azure HDInsight service with Enterprise Security Package.
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
-ms.reviewer: mamccrea
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
 ---
+
 # Configure Apache Hive policies in HDInsight with Enterprise Security Package
 Learn how to configure Apache Ranger policies for Apache Hive. In this article, you create two Ranger policies to restrict access to the hivesampletable. The hivesampletable comes with HDInsight clusters. After you have configured the policies, you use Excel and ODBC driver to connect to Hive tables in HDInsight.
 

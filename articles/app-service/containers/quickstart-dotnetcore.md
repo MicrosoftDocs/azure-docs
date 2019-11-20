@@ -12,7 +12,6 @@ ms.assetid: c02959e6-7220-496a-a417-9b2147638e2e
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: linux
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: cephalin

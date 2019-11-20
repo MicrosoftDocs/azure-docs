@@ -1,5 +1,5 @@
 ---
-title: Azure Hybrid Benefit for Windows Server | Microsoft Docs
+title: Azure Hybrid Benefit for Windows Server 
 description: Learn how to maximize your Windows Software Assurance benefits to bring on-premises licenses to Azure
 services: virtual-machines-windows
 documentationcenter: ''
@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 332583b6-15a3-4efb-80c3-9082587828b0
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
@@ -32,7 +32,7 @@ For customers with Software Assurance, Azure Hybrid Benefit for Windows Server a
 > For classic VMs, only deploying new VM from on premises custom images is supported. To take advantage of the capabilities supported in this article, you must first migrate classic VMs to Resource Manager model.
 >
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## Ways to use Azure Hybrid Benefit for Windows Server
 There are few ways to use Windows virtual machines with the Azure Hybrid Benefit:

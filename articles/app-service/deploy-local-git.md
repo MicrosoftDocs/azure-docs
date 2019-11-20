@@ -10,7 +10,6 @@ ms.assetid: ac50a623-c4b8-4dfd-96b2-a09420770063
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: cephalin

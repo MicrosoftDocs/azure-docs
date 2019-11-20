@@ -4,7 +4,7 @@ description: How to reset the password of a local Windows user account when the 
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: gwallace
+manager: dcscontentpm
 editor: ''
 
 ms.assetid: cf353dd3-89c9-47f6-a449-f874f0957013

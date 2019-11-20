@@ -3,10 +3,8 @@ title: Container recommendations in Azure Security Center | Microsoft Docs
 description: This document explains the Azure Security Center recommendations for how to help protect your containers.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: 2e76c7f7-a3dd-4d9f-add9-7e0e10e9324d
 ms.service: security-center
 ms.devlang: na
@@ -14,7 +12,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
-ms.author: rkarlin
+ms.author: memildin
 
 ---
 # Understand Azure Security Center container recommendations

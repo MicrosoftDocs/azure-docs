@@ -27,7 +27,7 @@ For details on the changes that Connected Services makes in your project to enab
 
 Before you begin, make sure that you're signed into Visual Studio. Sign in with the same account that you use for your Azure subscription. Then open an ASP.NET 4.7.1 or later, or ASP.NET Core 2.0 web project, and do the follow steps:
 
-1. In **Solution Explorer**, choose **Add** > **Connected Service**.
+1. In **Solution Explorer**, right-click the project that you want to add the key vault support to, and choose **Add** > **Connected Service**.
    The Connected Service page appears with services you can add to your project.
 1. In the menu of available services, choose **Secure Secrets With Azure Key Vault**.
 
@@ -129,6 +129,21 @@ When no longer needed, delete the resource group. This deletes the Key Vault and
 1. Enter the name of your resource group in the Search box at the top of the portal. When you see the resource group used in this quickstart in the search results, select it.
 2. Select **Delete resource group**.
 3. In the **TYPE THE RESOURCE GROUP NAME:** box, enter in the name of the resource group and select **Delete**.
+
+## Troubleshooting
+
+If your key vault is running on an different Microsoft account than the one you're logged in to Visual Studio (for example, the key vault is running on your work account, but Visual Studio is using your private account) you get an error in your Program.cs file, that Visual Studio can't get access to the key vault. To fix this issue:
+
+1. Go to the [Azure portal](https://portal.azure.com) and open your Key Vault.
+
+1. Choose **Access policies**, then **Add Access Policy**, and choose the account you are logged in with as Principal.
+
+1. In Visual Studio, choose **File** > **Account Settings**.
+Select **Add an account** from the **All account** section. Sign in with the account you have chosen as Principal of your access policy.
+
+1. Choose **Tools** > **Options**, and look for **Azure Service Authentication**. Then select the account you just added to Visual Studio.
+
+Now, when you debug your application, Visual Studio connects to the account your key vault is located on.
 
 ## How your ASP.NET Core project is modified
 

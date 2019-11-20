@@ -1,18 +1,10 @@
 ---
-title: How to Scale Azure Cache for Redis | Microsoft Docs
+title: How to Scale Azure Cache for Redis
 description: Learn how to scale your Azure Cache for Redis instances
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
 
-ms.assetid: 350db214-3b7c-4877-bd43-fef6df2db96c
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/11/2017
 ms.author: yegu
 
@@ -72,7 +64,7 @@ You can scale your Azure Cache for Redis instances with PowerShell by using the 
 
     Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
-For more information on scaling with PowerShell, see [To scale an Azure Cache for Redis using Powershell](cache-howto-manage-redis-cache-powershell.md#scale).
+For more information on scaling with PowerShell, see [To scale an Azure Cache for Redis using Powershell](cache-how-to-manage-redis-cache-powershell.md#scale).
 
 ### Scale using Azure CLI
 To scale your Azure Cache for Redis instances using Azure CLI, call the `azure rediscache set` command and pass in the desired configuration changes that include a new size, sku, or cluster size, depending on the desired scaling operation.

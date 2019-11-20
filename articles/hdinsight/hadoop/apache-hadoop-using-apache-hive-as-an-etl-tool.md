@@ -8,8 +8,8 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
-
 ---
+
 # Use Apache Hive as an Extract, Transform, and Load (ETL) tool
 
 You typically need to clean and transform incoming data before loading it into a destination suitable for analytics. Extract, Transform, and Load (ETL) operations are used to prepare data and load it into a data destination.  Apache Hive on HDInsight can read in unstructured data, process the data as needed, and then load the data into a relational data warehouse for decision support systems. In this approach, data is extracted from the source and stored in scalable storage, such as Azure Storage blobs or Azure Data Lake Storage. The data is then transformed using a sequence of Hive queries and is finally staged within Hive in preparation for bulk loading into the destination data store.
@@ -18,7 +18,7 @@ You typically need to clean and transform incoming data before loading it into a
 
 The following figure shows an overview of the use case and model for ETL automation. Input data is transformed to generate the appropriate output.  During that transformation, the data can change shape, data type, and even language.  ETL processes can convert Imperial to metric, change time zones, and improve precision to properly align with existing data in the destination.  ETL processes can also combine new data with existing data to keep reporting up-to-date, or to provide further insight into existing data.  Applications such as reporting tools and services can then consume this data in the desired format.
 
-![Apache Hive as ETL](./media/apache-hadoop-using-apache-hive-as-an-etl-tool/hdinsight-etl-architecture.png)
+![Apache Hive as ETL architecture](./media/apache-hadoop-using-apache-hive-as-an-etl-tool/hdinsight-etl-architecture.png)
 
 Hadoop is typically used in ETL processes that import either a massive number of text files (like CSVs) or a smaller but frequently changing number of text files, or both.  Hive is a great tool to use to prepare the data before loading it into the data destination.  Hive allows you to create a schema over the CSV and use a SQL-like language to generate MapReduce programs that interact with the data. 
 

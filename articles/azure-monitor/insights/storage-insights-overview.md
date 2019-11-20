@@ -1,23 +1,18 @@
 ---
 title: Monitor Azure Storage services with Azure Monitor for Storage (preview)| Microsoft Docs
 description: This article describes the Azure Monitor for Storage feature that provides storage admins with a quick understanding of performance and utilization issues with their Azure Storage accounts.
-services: azure-monitor
-documentationcenter: ''
+ms.service:  azure-monitor
+ms.subservice: 
+ms.topic: conceptual
 author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: 
-ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/15/2019
 ms.author: magoedte
+ms.date: 08/15/2019
+
 ---
 
 # Monitoring your storage service with Azure Monitor for Storage (preview)
 
-Azure Monitor for Storage (preview) provides a comprehensive monitoring of your Azure Storage accounts by delivering a unified view of your Azure Storage services performance, capacity, and availability. You can observe storage capacity, and performance in two ways, view directly from a storage account or view from Azure Monitor to see across groups of storage accounts. 
+Azure Monitor for Storage (preview) provides comprehensive monitoring of your Azure Storage accounts by delivering a unified view of your Azure Storage services performance, capacity, and availability. You can observe storage capacity, and performance in two ways, view directly from a storage account or view from Azure Monitor to see across groups of storage accounts. 
 
 This article will help you understand the experience Azure Monitor for Storage (preview) delivers to derive actionable knowledge on the health and performance of Storage accounts at scale, with a capability to focus on hotspots and diagnose latency, throttling, and availability issues.
 
@@ -37,6 +32,10 @@ This feature does not require you to enable or configure anything, the storage m
 
 >[!NOTE]
 >There is no charge to access this feature and you will only be charged for the Azure Monitor essential features you configure or enable, as described on the [Azure Monitor pricing details](https://azure.microsoft.com/pricing/details/monitor/) page.
+
+>[!NOTE]
+>Azure Monitor for Storage does not support [general-purpose v1 accounts](../../storage/common/storage-account-overview.md#general-purpose-v1-accounts).
+>
 
 ## View from Azure Monitor
 

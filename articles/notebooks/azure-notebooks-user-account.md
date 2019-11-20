@@ -1,19 +1,8 @@
 ---
 title: Sign into Azure Notebooks
 description: Configure your user account for Azure Notebooks using a Microsoft account or a work/school account.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: douge
-
-ms.assetid: 0d657fcc-26bc-41dd-abf0-3e5cfd66e0e0
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/15/2019
-ms.author: kraigb
 ---
 
 # Your user account for Azure Notebooks

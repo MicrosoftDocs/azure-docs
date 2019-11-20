@@ -187,6 +187,7 @@ Sets the source image an existing image version in a Shared Image Gallery. The i
 The `imageVersionId` should be the ResourceId of the image version. Use [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list) to list image versions.
 
 ## Properties: buildTimeoutInMinutes
+
 By default, the Image Builder will run for 240 minutes. After that, it will timeout and stop, whether or not the image build is complete. If the timeout is hit, you will see an error similar to this:
 
 ```text
@@ -200,7 +201,6 @@ If you find you need more time for customizations to complete, set this to what 
 
 
 ## Properties: customize
-
 
 Image Builder supports multiple ‘customizers’. Customizers are functions that are used to customize your image, such as running scripts, or rebooting servers. 
 
@@ -439,17 +439,18 @@ Before you can distribute to the Image Gallery, you must create a gallery and an
 
 ```json
 {
-     "type": "sharedImage",
-     "galleryImageId": “<resource ID>”,
-     "runOutputName": "<name>",
-     "artifactTags": {
-          "<name": "<value>",
-           "<name>": "<value>"
-             }
-     "replicationRegions": [
+    "type": "sharedImage",
+    "galleryImageId": "<resource ID>",
+    "runOutputName": "<name>",
+    "artifactTags": {
+        "<name>": "<value>",
+        "<name>": "<value>"
+    },
+    "replicationRegions": [
         "<region where the gallery is deployed>",
         "<region>"
-    ]}
+    ]
+}
 ``` 
 
 Distribute properties for shared image galleries:
@@ -468,14 +469,14 @@ Distribute properties for shared image galleries:
 You can output to a VHD. You can then copy the VHD, and use it to publish to Azure MarketPlace, or use with Azure Stack.  
 
 ```json
- { 
-     "type": "VHD",
-     "runOutputName": "<VHD name>",
-     "tags": {
-          "<name": "<value>",
-           "<name>": "<value>"
-             }
- }
+{ 
+    "type": "VHD",
+    "runOutputName": "<VHD name>",
+    "tags": {
+        "<name": "<value>",
+        "<name>": "<value>"
+    }
+}
 ```
  
 OS Support: Windows  and Linux

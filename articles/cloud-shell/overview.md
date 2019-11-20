@@ -13,13 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 09/03/2019
 ms.author: damaerte
 ---
 # Overview of Azure Cloud Shell
-Azure Cloud Shell is an interactive, browser-accessible shell for managing Azure resources.
-It provides the flexibility of choosing the shell experience that best suits the way you work.
-Linux users can opt for a Bash experience, while Windows users can opt for PowerShell.
+Azure Cloud Shell is an interactive, authenticated, browser-accessible shell for managing Azure resources.
+It provides the flexibility of choosing the shell experience that best suits the way you work, either Bash or PowerShell.
 
 Try from shell.azure.com by clicking below.
 

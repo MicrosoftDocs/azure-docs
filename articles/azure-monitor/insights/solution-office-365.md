@@ -1,18 +1,15 @@
 ---
 title: Office 365 management solution in Azure | Microsoft Docs
 description: This article provides details on configuration and use of the Office 365 solution in Azure.  It includes detailed description of the Office 365 records created in Azure Monitor.
-services: operations-management-suite
-documentationcenter: ''
+ms.service:  azure-monitor
+ms.subservice: 
+ms.topic: conceptual
 author: bwren
-manager: carmonm
-editor: ''
-ms.service: azure-monitor
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 07/01/2019
 ms.author: bwren
+ms.date: 08/13/2019
+
 ---
+
 # Office 365 management solution in Azure (Preview)
 
 ![Office 365 logo](media/solution-office-365/icon.png)
@@ -68,7 +65,10 @@ From your Office 365 subscription:
 
 - Username: Email address of an administrative account.
 - Tenant ID: Unique ID for Office 365 subscription.
-- Client ID: 16-character string that represents Office 365 client.
+
+The following information should be gathered during the creation and configuration of Office 365 application in Azure Active Directory:
+
+- Application (Client) ID: 16-character string that represents Office 365 client.
 - Client Secret: Encrypted string necessary for authentication.
 
 ### Create an Office 365 application in Azure Active Directory
@@ -77,45 +77,49 @@ The first step is to create an application in Azure Active Directory that the ma
 
 1. Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com/).
 1. Select **Azure Active Directory** and then **App registrations**.
-1. Click **New application registration**.
+1. Click **New registration**.
 
     ![Add app registration](media/solution-office-365/add-app-registration.png)
-1. Enter an application **Name** and **Sign-on URL**.  The name should be descriptive.  Use `http://localhost` for the URL, and keep _Web app / API_ for the **Application type**
+1. Enter an application **Name**. Select **Accounts in any organizational directory (Any Azure AD directory - Multitenant)** for the **Supported account types**.
     
     ![Create application](media/solution-office-365/create-application.png)
-1. Click **Create** and validate the application information.
+1. Click **Register** and validate the application information.
 
     ![Registered app](media/solution-office-365/registered-app.png)
 
+1. Save the application (client) ID along with the rest of the information that was gathered before.
+
+
 ### Configure application for Office 365
 
-1. Click **Settings** to open the **Settings** menu.
-1. Select **Properties**. Change **Multi-tenanted** to _Yes_.
+1. Select **Authentication** and verify that **Accounts in any organizational directory (Any Azure AD directory - Multitenant)** is selected under **Supported account types**.
 
     ![Settings multitenant](media/solution-office-365/settings-multitenant.png)
 
-1. Select **Required permissions** in the **Settings** menu and then click **Add**.
-1. Click **Select an API** and then **Office 365 Management APIs**. click **Office 365 Management APIs**. Click **Select**.
+1. Select **API permissions** and then **Add a permission**.
+1. Click **Office 365 Management APIs**. 
 
     ![Select API](media/solution-office-365/select-api.png)
 
-1. Under **Select permissions** select the following options for both **Application permissions** and **Delegated permissions**:
+1. Under **What type of permissions does your application require?** select the following options for both **Application permissions** and **Delegated permissions**:
    - Read service health information for your organization
    - Read activity data for your organization
    - Read activity reports for your organization
 
-     ![Select API](media/solution-office-365/select-permissions.png)
+     ![Select API](media/solution-office-365/select-permissions-01.png)![Select API](media/solution-office-365/select-permissions-02.png)
 
-1. Click **Select** and then **Done**.
-1. Click **Grant permissions** and then click **Yes** when asked for verification.
+1. Click **Add permissions**.
+1. Click **Grant admin consent** and then click **Yes** when asked for verification.
 
-    ![Grant permissions](media/solution-office-365/grant-permissions.png)
 
-### Add a key for the application
+### Add a secret for the application
 
-1. Select **Keys** in the **Settings** menu.
+1. Select **Certificates & secrets** and then **New client secret**.
+
+    ![Keys](media/solution-office-365/secret.png)
+ 
 1. Type in a **Description** and **Duration** for the new key.
-1. Click **Save** and then copy the **Value** that's generated.
+1. Click **Add** and then save the **Value** that was generated as the client secret along with the rest of the information that was gathered before.
 
     ![Keys](media/solution-office-365/keys.png)
 
@@ -186,7 +190,12 @@ To enable the administrative account for the first time, you must provide admini
     
     ![Admin consent](media/solution-office-365/admin-consent.png)
 
+> [!NOTE]
+> You might be redirected to a page that doesn't exist. Consider it as a success.
+
 ### Subscribe to Log Analytics workspace
+
+The last step is to subscribe the application to your Log Analytics workspace. You also do this with a PowerShell script.
 
 The last step is to subscribe the application to your Log Analytics workspace. You also do this with a PowerShell script.
 
@@ -234,18 +243,20 @@ The last step is to subscribe the application to your Log Analytics workspace. Y
                     $authority = "https://login.windows.net/$adTenant";
                     $ARMResource ="https://management.azure.com/";break} 
                     }
-    
+
     Function RESTAPI-Auth { 
-    
-    $global:SubscriptionID = $Subscription.SubscriptionId
+    $global:SubscriptionID = $Subscription.Subscription.Id
     # Set Resource URI to Azure Service Management API
-    $resourceAppIdURIARM=$ARMResource;
+    $resourceAppIdURIARM=$ARMResource
     # Authenticate and Acquire Token 
     # Create Authentication Context tied to Azure AD Tenant
     $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList $authority
     # Acquire token
-    $global:authResultARM = $authContext.AcquireToken($resourceAppIdURIARM, $clientId, $redirectUri, "Auto")
-    $authHeader = $global:authResultARM.CreateAuthorizationHeader()
+    $platformParameters = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.PlatformParameters" -ArgumentList "Auto"
+    $global:authResultARM = $authContext.AcquireTokenAsync($resourceAppIdURIARM, $clientId, $redirectUri, $platformParameters)
+    $global:authResultARM.Wait()
+    $authHeader = $global:authResultARM.Result.CreateAuthorizationHeader()
+
     $authHeader
     }
     
@@ -269,7 +280,7 @@ The last step is to subscribe the application to your Log Analytics workspace. Y
     
     Function Connection-API
     {
-    $authHeader = $global:authResultARM.CreateAuthorizationHeader()
+    $authHeader = $global:authResultARM.Result.CreateAuthorizationHeader()
     $ResourceName = "https://manage.office.com"
     $SubscriptionId   =  $Subscription[0].Subscription.Id
     
@@ -313,7 +324,7 @@ The last step is to subscribe the application to your Log Analytics workspace. Y
     Function Office-Subscribe-Call{
     try{
     #----------------------------------------------------------------------------------------------------------------------------------------------
-    $authHeader = $global:authResultARM.CreateAuthorizationHeader()
+    $authHeader = $global:authResultARM.Result.CreateAuthorizationHeader()
     $SubscriptionId   =  $Subscription[0].Subscription.Id
     $OfficeAPIUrl = $ARMResource + 'subscriptions/' + $SubscriptionId + '/resourceGroups/' + $ResourceGroupName + '/providers/Microsoft.OperationalInsights/workspaces/' + $WorkspaceName + '/datasources/office365datasources_' + $SubscriptionId + $OfficeTennantId + '?api-version=2015-11-01-preview'
     

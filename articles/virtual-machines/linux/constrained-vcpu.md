@@ -1,5 +1,5 @@
 ---
-title: Azure constrained vCPU sizes - Linux | Microsoft Docs
+title: Azure constrained vCPU sizes - Linux 
 description: Lists the Vm sizes that are capable of having a constrained vCPU count.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -10,7 +10,7 @@ tags: azure-resource-manager,azure-service-management
 
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services

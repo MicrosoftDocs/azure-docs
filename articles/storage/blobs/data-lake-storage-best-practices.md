@@ -12,7 +12,7 @@ ms.reviewer: sachins
 
 # Best practices for using Azure Data Lake Storage Gen2
 
-In this article, you learn about best practices and considerations for working with Azure Data Lake Storage Gen2. This article provides information around security, performance, resiliency, and monitoring for Data Lake Storage Gen2. Before Data Lake Storage Gen2, working with truly big data in services like Azure HDInsight was complex. You had to shard data across multiple Blob storage accounts so that petabyte storage and optimal performance at that scale could be achieved. With Data Lake Storage Gen2, most of the hard limits for size and performance are removed. However, there are still some considerations that this article covers so that you can get the best performance with Data Lake Storage Gen2.
+In this article, you learn about best practices and considerations for working with Azure Data Lake Storage Gen2. This article provides information around security, performance, resiliency, and monitoring for Data Lake Storage Gen2. Before Data Lake Storage Gen2, working with truly big data in services like Azure HDInsight was complex. You had to shard data across multiple Blob storage accounts so that petabyte storage and optimal performance at that scale could be achieved. Data Lake Storage Gen2 supports individual file sizes as high as 5TB and most of the hard limits for performance have been removed. However, there are still some considerations that this article covers so that you can get the best performance with Data Lake Storage Gen2.
 
 ## Security considerations
 
@@ -26,11 +26,11 @@ Once a security group is assigned permissions, adding or removing users from the
 
 ### Security for groups
 
-When you or your users need access to data in a storage account with hierarchical namespace enabled, it’s best to use Azure Active Directory security groups. Some recommended groups to start with might be **ReadOnlyUsers**, **WriteAccessUsers**, and **FullAccessUsers** for the root of the file system, and even separate ones for key subdirectories. If there are any other anticipated groups of users that might be added later, but have not been identified yet, you might consider creating dummy security groups that have access to certain folders. Using security group ensures that you can avoid long processing time when assigning new permissions to thousands of files.
+When you or your users need access to data in a storage account with hierarchical namespace enabled, it’s best to use Azure Active Directory security groups. Some recommended groups to start with might be **ReadOnlyUsers**, **WriteAccessUsers**, and **FullAccessUsers** for the root of the container, and even separate ones for key subdirectories. If there are any other anticipated groups of users that might be added later, but have not been identified yet, you might consider creating dummy security groups that have access to certain folders. Using security group ensures that you can avoid long processing time when assigning new permissions to thousands of files.
 
 ### Security for service principals
 
-Azure Active Directory service principals are typically used by services like Azure Databricks to access data in Data Lake Storage Gen2. For many customers, a single Azure Active Directory service principal might be adequate, and it can have full permissions at the root of the Data Lake Storage Gen2 file system. Other customers might require multiple clusters with different service principals where one cluster has full access to the data, and another cluster with only read access. 
+Azure Active Directory service principals are typically used by services like Azure Databricks to access data in Data Lake Storage Gen2. For many customers, a single Azure Active Directory service principal might be adequate, and it can have full permissions at the root of the Data Lake Storage Gen2 container. Other customers might require multiple clusters with different service principals where one cluster has full access to the data, and another cluster with only read access. 
 
 ### Enable the Data Lake Storage Gen2 firewall with Azure service access
 

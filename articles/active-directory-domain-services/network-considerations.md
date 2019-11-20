@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/09/2019
+ms.date: 10/23/2019
 ms.author: iainfou
 
 ---
@@ -32,7 +32,7 @@ As you design the virtual network for Azure AD DS, the following considerations 
     * To minimize latency, keep your core applications close to, or in the same region as, the virtual network subnet for your Azure AD DS managed domain. You can use virtual network peering or virtual private network (VPN) connections between Azure virtual networks.
 * The virtual network can't rely on DNS services other than those provided by Azure AD DS.
     * Azure AD DS provides its own DNS service. The virtual network must be configured to use these DNS service addresses. Name resolution for additional namespaces can be accomplished using conditional forwarders.
-    * You can't use custom DNS server settings to direct queries other DNS servers, including on VMs. Resources in the virtual network must use the DNS service provided by Azure AD DS.
+    * You can't use custom DNS server settings to direct queries from other DNS servers, including on VMs. Resources in the virtual network must use the DNS service provided by Azure AD DS.
 
 > [!IMPORTANT]
 > You can't move Azure AD DS to a different virtual network after you've enabled the service.
@@ -42,7 +42,7 @@ An Azure AD DS managed domain connects to a subnet in an Azure virtual network. 
 * Azure AD DS must be deployed in its own subnet. Don't use an existing subnet or a gateway subnet.
 * A network security group is created during the deployment of an Azure AD DS managed domain. This network security group contains the required rules for correct service communication.
     * Don't create or use an existing network security group with your own custom rules.
-* Azure AD DS requires between five and seven IP addresses. Make sure that your subnet IP address range can provide this number of addresses.
+* Azure AD DS requires 3-5 IP addresses. Make sure that your subnet IP address range can provide this number of addresses.
     * Restricting the available IP addresses can prevent Azure AD Domain Services from maintaining two domain controllers.
 
 The following example diagram outlines a valid design where Azure AD DS has its own subnet, there's a gateway subnet for external connectivity, and application workloads are in a connected subnet within the virtual network:
@@ -87,8 +87,8 @@ An Azure AD DS managed domain creates some networking resources during deploymen
 | Azure resource                          | Description |
 |:----------------------------------------|:---|
 | Network interface card                  | Azure AD DS hosts the managed domain on two domain controllers (DCs) that run on Windows Server as Azure VMs. Each VM has a virtual network interface that connects to your virtual network subnet. |
-| Dynamic basic public IP address         | Azure AD DS communicates with the synchronization and management service using a basic SKU public IP address. For more information about public IP addresses, see [IP address types and allocation methods in Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md). |
-| Azure basic load balancer               | Azure AD DS uses a basic SKU load balancer for network address translation (NAT) and load balancing (when used with secure LDAP). For more information about Azure load balancers, see [What is Azure Load Balancer?](../load-balancer/load-balancer-overview.md) |
+| Dynamic standard public IP address         | Azure AD DS communicates with the synchronization and management service using a standard SKU public IP address. For more information about public IP addresses, see [IP address types and allocation methods in Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md). |
+| Azure standard load balancer               | Azure AD DS uses a standard SKU load balancer for network address translation (NAT) and load balancing (when used with secure LDAP). For more information about Azure load balancers, see [What is Azure Load Balancer?](../load-balancer/load-balancer-overview.md) |
 | Network address translation (NAT) rules | Azure AD DS creates and uses three NAT rules on the load balancer - one rule for secure HTTP traffic, and two rules for secure PowerShell remoting. |
 | Load balancer rules                     | When an Azure AD DS managed domain is configured for secure LDAP on TCP port 636, three rules are created and used on a load balancer to distribute the traffic. |
 

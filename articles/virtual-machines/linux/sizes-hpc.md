@@ -1,5 +1,5 @@
 ---
-title: Azure Linux VM sizes - HPC | Microsoft Docs
+title: Azure Linux VM sizes - HPC 
 description: Lists the different sizes available for Linux high performance computing virtual machines in Azure. Lists information about the number of vCPUs, data disks and NICs as well as storage throughput and network bandwidth for sizes in this series.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -10,7 +10,7 @@ tags: azure-resource-manager,azure-service-management
 
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services

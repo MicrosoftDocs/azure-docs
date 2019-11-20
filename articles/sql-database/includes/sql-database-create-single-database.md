@@ -3,7 +3,7 @@ author: MashaMSFT
 ms.service: sql-database
 ms.subservice: single-database  
 ms.topic: include
-ms.date: 07/31/2019
+ms.date: 11/04/2019
 ms.author: mathoma
 ---
 
@@ -18,8 +18,8 @@ In this step, you will create an Azure SQL Database single database.
 
 Create your resource group and single database using the Azure portal.
 
-1. Select **Azure SQL** in the left-hand menu of the Azure portal. If **Azure SQL** is not in the list, select **All services**, then type *Azure SQL* in the search box.
-2. Select **+Add** to open the **Select SQL deployment option** page. You can view additional information about the different databases by selecting **Show details** on the **Databases** tile.
+1. Select **Azure SQL** in the left-hand menu of the [Azure portal](https://portal.azure.com). If **Azure SQL** is not in the list, select **All services**, then type *Azure SQL* in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
+2. Select **+ Add** to open the **Select SQL deployment option** page. You can view additional information about the different databases by selecting **Show details** on the **Databases** tile.
 3. Select **Create**:
 
    ![Create single database](../media/sql-database-get-started-portal/create-single-database.png)
@@ -38,7 +38,7 @@ Create your resource group and single database using the Azure portal.
        - **Server name**: Type `mysqlserver`; along with some numbers for uniqueness.
        - **Server admin login**: Type `azureuser`.
        - **Password**: Type a complex password that meets password requirements.
-       - **Location**: Choose a location from the drop-down, such as `West US 2`.
+       - **Location**: Choose a location from the drop-down, such as `West US`.
 
          ![New server](../media/sql-database-get-started-portal/new-server.png)
 
@@ -50,12 +50,12 @@ Create your resource group and single database using the Azure portal.
 
      ![SQL Database details](../media/sql-database-get-started-portal/sql-db-basic-db-details.png)
 
-   - Select **Provisioned** and **Gen5**.
+   - Select **Provisioned**.
 
      ![Provisioned Gen4](../media/sql-database-get-started-portal/create-database-provisioned.png)
 
-   - Review the settings for **Max vCores**, **Min vCores**, **Autopause delay**, and **Data max size**. Change these as desired.
-   - Accept the preview terms and click **OK**.
+   - Review the settings for **vCores**, and **Data max size**. Change these as desired. 
+     - Optionally, you can also select **Change configuration** to change the hardware generation.
    - Select **Apply**.
 
 5. Select the **Additional settings** tab. 
@@ -81,7 +81,7 @@ Create your resource group and single database using PowerShell.
    # Set variables for your server and database
    $subscriptionId = '<SubscriptionID>'
    $resourceGroupName = "myResourceGroup-$(Get-Random)"
-   $location = "West US 2"
+   $location = "West US"
    $adminLogin = "azureuser"
    $password = "PWD27!"+(New-Guid).Guid
    $serverName = "mysqlserver-$(Get-Random)"
@@ -136,6 +136,15 @@ Create your resource group and single database using PowerShell.
       -SampleName "AdventureWorksLT"
    $database
    ```
+
+This portion of the article uses the following PowerShell cmdlets:
+
+| Command | Notes |
+|---|---|
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
+| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Creates a SQL Database server that hosts single databases and elastic pools. |
+| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Creates a firewall rule for a logical server. | 
+| [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Creates a new Azure SQL Database single database. | 
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -202,5 +211,16 @@ Create your resource group and single database using AZ CLI.
       --family Gen5 \
       --capacity 2
    ```
+
+This script uses the following commands. Each command in the table links to command specific documentation.
+
+| Command | Notes |
+|---|---|
+| [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set) | Sets a subscription to be the current active subscription. | 
+| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
+| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Creates a SQL Database server that hosts single databases and elastic pools. |
+| [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule) | Creates a server's firewall rules. | 
+| [az sql db create](/cli/azure/sql/db?view=azure-cli-latest) | Creates a database. | 
+
 
 ---

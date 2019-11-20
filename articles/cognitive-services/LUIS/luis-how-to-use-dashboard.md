@@ -1,7 +1,7 @@
 ---
 title: Dashboard - Language Understanding - LUIS
 titleSuffix: Azure Cognitive Services
-description: Fix intents with the analytics dashboard, a visualized reporting tool.
+description: Fix intents and entities with your trained app's dashboard. The dashboard displays overall app information, with highlights of intents that should be fixed. 
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 11/08/2019
 ms.author: diberry
 ---
 
@@ -73,9 +73,9 @@ The primary method of fixing your app will be to add or edit example utterances 
 
 Adding example utterances should be done by someone who:
 
-* has a high degree of understanding of what utterances are in the different intents
-* knows how utterances in one intent may be confused with another intent
-* is able to decide if two intents, which are frequently confused with each other, should be collapsed into a single intent, and the different data pulled out with entities
+* has a high degree of understanding of what utterances are in the different intents.
+* knows how utterances in one intent may be confused with another intent.
+* is able to decide if two intents, which are frequently confused with each other, should be collapsed into a single intent. If this is the case, the different data must be pulled out with entities.
 
 ### Patterns and phrase lists
 

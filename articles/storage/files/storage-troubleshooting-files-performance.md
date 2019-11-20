@@ -53,6 +53,7 @@ To confirm if most of your requests are metadata centric, you can use the same s
 ### Workaround
 
 - Check if the application can be modified to reduce the number of metadata operations.
+- Add a VHD on the file share and mount VHD over SMB from the client to perform files operations against the data. This approach works for single writer and multiple readers scenarios and allows metadata operations to be local, offering performance similar to a local direct-attached storage.
 
 ### Cause 3: Single-threaded application
 
@@ -81,6 +82,7 @@ One potential cause of this is a lack fo SMB multi-channel support. Currently, A
 
 - Obtaining a VM with a bigger core may help improve throughput.
 - Running the client application from multiple VMs will increase throughput.
+
 - Use REST APIs where possible.
 
 ## Throughput on Linux clients is significantly lower when compared to Windows clients.
@@ -91,8 +93,9 @@ This is a known issue with the implementation of SMB client on Linux.
 
 ### Workaround
 
-- Spread the load across multiple VMs
+- Spread the load across multiple VMs.
 - On the same VM, use multiple mount points with **nosharesock** option, and spread the load across these mount points.
+- On Linux, try mounting with **nostrictsync** option to avoid forcing SMB flush on every fsync call. For Azure Files, this option does not interfere with data consistentcy, but may result in stale file metadata on directory listing (**ls -l** command). Directly querying metadata of file (**stat** command) will return the most up-to date file metadata.
 
 ## High latencies for metadata heavy workloads involving extensive open/close operations.
 

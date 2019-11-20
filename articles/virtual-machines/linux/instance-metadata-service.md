@@ -1,5 +1,5 @@
 ---
-title: Azure Instance Metadata Service | Microsoft Docs
+title: Azure Instance Metadata Service 
 description: RESTful interface to get information about Linux VM's compute, network, and upcoming maintenance events.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -9,7 +9,7 @@ editor: ''
 tags: azure-resource-manager
 
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
@@ -595,7 +595,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tagsList
 
 ### Validating that the VM is running in Azure
 
-Marketplace vendors want to ensure that their software is licensed to run only in Azure. If someone copies the VHD out to on-premise, then they should have the ability to detect that. By calling into Instance Metadata Service, Marketplace vendors can get signed data that guarantees response only from Azure.
+Marketplace vendors want to ensure that their software is licensed to run only in Azure. If someone copies the VHD out to on-premises, then they should have the ability to detect that. By calling into Instance Metadata Service, Marketplace vendors can get signed data that guarantees response only from Azure.
 
 > [!NOTE]
 > Requires jq to be installed.
@@ -604,7 +604,7 @@ Marketplace vendors want to ensure that their software is licensed to run only i
 
  ```bash
   # Get the signature
-   curl  --silent -H Metadata:True http://169.254.169.254/metadata/attested/document?api-version=2018-10-01 | jq -r '.["signature"]' > signature
+   curl  --silent -H Metadata:True http://169.254.169.254/metadata/attested/document?api-version=2019-04-30 | jq -r '.["signature"]' > signature
   # Decode the signature
   base64 -d signature > decodedsignature
   #Get PKCS7 format

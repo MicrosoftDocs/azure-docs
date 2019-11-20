@@ -4,7 +4,7 @@ description: Learn what to consider when planning for an Azure Files deployment.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 2/7/2019
+ms.date: 10/24/2019
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -64,7 +64,7 @@ Cloud tiering is an optional feature of Azure File Sync in which frequently acce
 This section covers Azure File Sync agent system requirements and interoperability with Windows Server features and roles and third-party solutions.
 
 ### Evaluation cmdlet
-Before deploying Azure File Sync, you should evaluate whether it is compatible with your system using the Azure File Sync evaluation cmdlet. This cmdlet checks for potential issues with your file system and dataset, such as unsupported characters or an unsupported OS version. Note that its checks cover most but not all of the features mentioned below; we recommend you read through the rest of this section carefully to ensure your deployment goes smoothly. 
+Before deploying Azure File Sync, you should evaluate whether it is compatible with your system using the Azure File Sync evaluation cmdlet. This cmdlet checks for potential issues with your file system and dataset, such as unsupported characters or an unsupported operating system version. Note that its checks cover most but not all of the features mentioned below; we recommend you read through the rest of this section carefully to ensure your deployment goes smoothly. 
 
 The evaluation cmdlet can be installed by installing the Az PowerShell module, which can be installed by following the instructions here: [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
@@ -92,13 +92,16 @@ To display the results in CSV:
 ```
 
 ### System Requirements
-- A server running Windows Server 2012 R2, Windows Server 2016 or Windows Server 2019:
+- A server running one of the following operating system versions:
 
     | Version | Supported SKUs | Supported deployment options |
     |---------|----------------|------------------------------|
     | Windows Server 2019 | Datacenter and Standard | Full and Core |
     | Windows Server 2016 | Datacenter and Standard | Full and Core |
     | Windows Server 2012 R2 | Datacenter and Standard | Full and Core |
+    | Windows Server IoT 2019 for Storage| Datacenter and Standard | Full and Core |
+    | Windows Storage Server 2016| Datacenter and Standard | Full and Core |
+    | Windows Storage Server 2012 R2| Datacenter and Standard | Full and Core |
 
     Future versions of Windows Server will be added as they are released.
 
@@ -150,15 +153,18 @@ Windows Server Failover Clustering is supported by Azure File Sync for the "File
 > The Azure File Sync agent must be installed on every node in a Failover Cluster for sync to work correctly.
 
 ### Data Deduplication
-**Agent version 5.0.2.0 or newer**   
-Data Deduplication is supported on volumes with cloud tiering enabled on Windows Server 2016 and Windows Server 2019. Enabling Data Deduplication on a volume with cloud tiering enabled lets you cache more files on-premises without provisioning more storage. 
+**Windows Server 2016 and Windows Server 2019**   
+Data Deduplication is supported on volumes with cloud tiering enabled on Windows Server 2016. Enabling Data Deduplication on a volume with cloud tiering enabled lets you cache more files on-premises without provisioning more storage. 
 
 When Data Deduplication is enabled on a volume with cloud tiering enabled, Dedup optimized files within the server endpoint location will be tiered similar to a normal file based on the cloud tiering policy settings. Once the Dedup optimized files have been tiered, the Data Deduplication garbage collection job will run automatically to reclaim disk space by removing unnecessary chunks that are no longer referenced by other files on the volume.
 
 Note the volume savings only apply to the server; your data in the Azure file share will not be deduped.
 
-**Windows Server 2012 R2 or older agent versions**  
-For volumes that don't have cloud tiering enabled, Azure File Sync supports Windows Server Data Deduplication being enabled on the volume.
+> [!Note]  
+> Data Deduplication and Cloud Tiering are not currently supported on the same volume on Server 2019 due to a bug that will be fixed in a future update.
+
+**Windows Server 2012 R2**  
+Azure File Sync does not support Data Deduplication and cloud tiering on the same volume on Windows Server 2012 R2. If Data Deduplication is enabled on a volume, cloud tiering must be disabled. 
 
 **Notes**
 - If Data Deduplication is installed prior to installing the Azure File Sync agent, a restart is required to support Data Deduplication and cloud tiering on the same volume.
@@ -170,7 +176,7 @@ For volumes that don't have cloud tiering enabled, Azure File Sync supports Wind
     - Note: Once a file is tiered by Azure File Sync, the Deduplication optimization job will skip the file.
 - If a server running Windows Server 2012 R2 with the Azure File Sync agent installed is upgraded to Windows Server 2016 or Windows Server 2019, the following steps must be performed to support Data Deduplication and cloud tiering on the same volume:  
     - Uninstall the Azure File Sync agent for Windows Server 2012 R2 and restart the server.
-    - Download the Azure File Sync agent for the new server OS version (Windows Server 2016 or Windows Server 2019).
+    - Download the Azure File Sync agent for the new server operating system version (Windows Server 2016 or Windows Server 2019).
     - Install the Azure File Sync agent and restart the server.  
     
     Note: The Azure File Sync configuration settings on the server are retained when the agent is uninstalled and reinstalled.
@@ -240,7 +246,7 @@ Azure File Sync is available only in the following regions:
 |--------|---------------------|
 | Australia East | New South Wales |
 | Australia Southeast | Victoria |
-| Brazil South | Sao Paolo State |
+| Brazil South | Sao Paulo State |
 | Canada Central | Toronto |
 | Canada East | Quebec City |
 | Central India | Pune |
@@ -249,12 +255,15 @@ Azure File Sync is available only in the following regions:
 | East US | Virginia |
 | East US2 | Virginia |
 | France Central | Paris |
-| Korea Central| Seoul |
-| Korea South| Busan |
+| France South* | Marseille |
+| Korea Central | Seoul |
+| Korea South | Busan |
 | Japan East | Tokyo, Saitama |
 | Japan West | Osaka |
 | North Central US | Illinois |
 | North Europe | Ireland |
+| South Africa North | Johannesburg |
+| South Africa West* | Cape Town |
 | South Central US | Texas |
 | South India | Chennai |
 | Southeast Asia | Singapore |
@@ -263,12 +272,16 @@ Azure File Sync is available only in the following regions:
 | US Gov Arizona | Arizona |
 | US Gov Texas | Texas |
 | US Gov Virginia | Virginia |
+| UAE North | Dubai |
+| UAE Central* | Abu Dhabi |
 | West Europe | Netherlands |
 | West Central US | Wyoming |
 | West US | California |
 | West US 2 | Washington |
 
 Azure File Sync supports syncing only with an Azure file share that's in the same region as the Storage Sync Service.
+
+For the regions marked with asterisks, you must contact Azure Support to request access to Azure Storage in those regions. The process is outlined in [this document](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 ### Azure disaster recovery
 To protect against the loss of an Azure region, Azure File Sync integrates with the [geo-redundant storage redundancy](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS) option. GRS storage works by using asynchronous block replication between storage in the primary region, with which you normally interact, and storage in the paired secondary region. In the event of a disaster which causes an Azure region to go temporarily or permanently offline, Microsoft will failover storage to the paired region. 
@@ -291,12 +304,15 @@ To support the failover integration between geo-redundant storage and Azure File
 | East US             | West US            |
 | East US 2           | Central US         |
 | France Central      | France South       |
+| France South        | France Central     |
 | Japan East          | Japan West         |
 | Japan West          | Japan East         |
 | Korea Central       | Korea South        |
 | Korea South         | Korea Central      |
 | North Europe        | West Europe        |
 | North Central US    | South Central US   |
+| South Africa North  | South Africa West  |
+| South Africa West   | South Africa North |
 | South Central US    | North Central US   |
 | South India         | Central India      |
 | Southeast Asia      | East Asia          |

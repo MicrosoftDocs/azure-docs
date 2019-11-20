@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/01/2019
+ms.date: 09/06/2019
 ms.author: atsenthi
 
 ---
@@ -64,7 +64,7 @@ $resourceId = $newKeyVault.ResourceId
 
 # Add the certificate to the key vault.
 $PasswordSec = ConvertTo-SecureString -String $Password -AsPlainText -Force
-$KVSecret = Import-AzureKeyVaultCertificate -VaultName $vaultName -Name $certName `
+$KVSecret = Import-AzKeyVaultCertificate -VaultName $vaultName -Name $certName `
     -FilePath $certFilename -Password $PasswordSec
 
 $CertificateThumbprint = $KVSecret.Thumbprint
@@ -185,6 +185,8 @@ Next, open the template file in a text editor and make three updates to support 
             },
         ...
     ```
+
+For additional information see [Deploy a Service Fabric cluster that uses certificate common name instead of thumbprint.](https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn)
 
 ## Deploy the updated template
 Redeploy the updated template after making the changes.

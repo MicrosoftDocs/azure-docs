@@ -1,14 +1,13 @@
 ---
-title: Restrict access using Shared Access Signatures - Azure HDInsight 
+title: Restrict access using Shared Access Signatures - Azure HDInsight
 description: Learn how to use Shared Access Signatures to restrict HDInsight access to data stored in Azure storage blobs.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
-
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/29/2019
-ms.author: hrasheed
+ms.date: 11/13/2019
 ---
 
 # Use Azure Storage Shared Access Signatures to restrict access to data in HDInsight
@@ -29,15 +28,15 @@ HDInsight has full access to data in the Azure Storage accounts associated with 
 
 * An existing [storage container](../storage/blobs/storage-quickstart-blobs-portal.md).  
 
-* If using PowerShell, you will need the [Az Module](https://docs.microsoft.com/powershell/azure/overview).
+* If using PowerShell, you'll need the [Az Module](https://docs.microsoft.com/powershell/azure/overview).
 
-* If wanting to use Azure CLI and you have not yet installed it, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* If wanting to use Azure CLI and you haven't yet installed it, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 * If using [Python](https://www.python.org/downloads/), version 2.7 or higher.
 
 * If using C#, Visual Studio must be version 2013 or higher.
 
-* The [URI scheme](./hdinsight-hadoop-linux-information.md#URI-and-scheme) for your storage account. This would be `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2 or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage or Data Lake Storage Gen2, the URI would be `wasbs://` or `abfss://`, respectively  See also, [secure transfer](../storage/common/storage-require-secure-transfer.md).
+* The [URI scheme](./hdinsight-hadoop-linux-information.md#URI-and-scheme) for your storage account. This would be `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2 or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage, the URI would be `wasbs://`. See also, [secure transfer](../storage/common/storage-require-secure-transfer.md).
 
 * An existing HDInsight cluster to add a Shared Access Signature to. If not, you can use Azure PowerShell to create a cluster and add a Shared Access Signature during cluster creation.
 
@@ -65,7 +64,7 @@ The difference between the two forms is important for one key scenario: revocati
     * The time interval has elapsed.
     * The stored access policy is modified to have an expiry time in the past. Changing the expiry time is one way to revoke the SAS.
 
-3. The stored access policy referenced by the SAS is deleted, which is another way to revoke the SAS. If you recreate the stored access policy with the same name, all  SAS tokens for the previous policy are valid (if the expiry time on the SAS has not passed). If you intend to revoke the SAS, be sure to use a different name if you recreate the access policy with an expiry time in the future.
+3. The stored access policy referenced by the SAS is deleted, which is another way to revoke the SAS. If you recreate the stored access policy with the same name, all  SAS tokens for the previous policy are valid (if the expiry time on the SAS hasn't passed). If you intend to revoke the SAS, be sure to use a different name if you recreate the access policy with an expiry time in the future.
 
 4. The account key that was used to create the SAS is regenerated. Regenerating the key causes all applications that use the previous key to fail authentication. Update all components to the new key.
 
@@ -223,15 +222,13 @@ You may need to execute `pip install --upgrade azure-storage` if you receive the
 
 When creating an HDInsight cluster, you must specify a primary storage account and you can optionally specify additional storage accounts. Both of these methods of adding storage require full access to the storage accounts and containers that are used.
 
-To use a Shared Access Signature to limit access to a container, add a custom entry to the **core-site** configuration for the cluster. 
-You can add the entry during cluster creation using PowerShell or after cluster creation using Ambari.
+To use a Shared Access Signature to limit access to a container, add a custom entry to the **core-site** configuration for the cluster. You can add the entry during cluster creation using PowerShell or after cluster creation using Ambari.
 
 ### Create a cluster that uses the SAS
 
 Replace `CLUSTERNAME`, `RESOURCEGROUP`, `DEFAULTSTORAGEACCOUNT`, `STORAGECONTAINER`, `STORAGEACCOUNT`, and `TOKEN` with the appropriate values. Enter the PowerShell commands:
 
 ```powershell
-
 $clusterName = 'CLUSTERNAME'
 $resourceGroupName = 'RESOURCEGROUP'
 
@@ -282,11 +279,10 @@ $defaultStorageContext = New-AzStorageContext `
                                 -StorageAccountName $defaultStorageAccountName `
                                 -StorageAccountKey $defaultStorageAccountKey
 
-
 # Create a blob container. This holds the default data store for the cluster.
 New-AzStorageContainer `
     -Name $clusterName `
-    -Context $defaultStorageContext 
+    -Context $defaultStorageContext
 
 # Cluster login is used to secure HTTPS services hosted on the cluster
 $httpCredential = Get-Credential `
@@ -299,9 +295,9 @@ $sshCredential = Get-Credential `
     -UserName "sshuser"
 
 # Create the configuration for the cluster
-$config = New-AzHDInsightClusterConfig 
+$config = New-AzHDInsightClusterConfig
 
-$config = $config | Add-AzHDInsightConfigValues `
+$config = $config | Add-AzHDInsightConfigValue `
     -Spark2Defaults @{} `
     -Core @{"fs.azure.sas.$SASContainerName.$SASStorageAccountName.blob.core.windows.net"=$SASToken}
 
@@ -355,29 +351,29 @@ If you have an existing cluster, you can add the SAS to the **core-site** config
 
 1. Open the Ambari web UI for your cluster. The address for this page is `https://YOURCLUSTERNAME.azurehdinsight.net`. When prompted, authenticate to the cluster using the admin name (admin) and password you used when creating the cluster.
 
-2. From the left side of the Ambari web UI, select **HDFS** and then select the **Configs** tab in the middle of the page.
+1. Navigate to **HDFS** > **Configs** > **Advanced** > **Custom core-site**.
 
-3. Select the **Advanced** tab, and then scroll until you find the **Custom core-site** section.
+1. Expand the **Custom core-site** section, scroll to the end and, then select **Add property...**. Use the following values for **Key** and **Value**:
 
-4. Expand the **Custom core-site** section, then scroll to the end and select the **Add property...** link. Use the following values for the **Key** and **Value** fields:
+    * **Key**: `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
+    * **Value**: The SAS returned by one of the methods earlier executed.
 
-   * **Key**: `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
-   * **Value**: The SAS returned by one of the methods earlier executed.
+    Replace `CONTAINERNAME` with the container name you used with the C# or SAS application. Replace `STORAGEACCOUNTNAME` with the storage account name you used.
 
-     Replace `CONTAINERNAME` with the container name you used with the C# or SAS application. Replace `STORAGEACCOUNTNAME` with the storage account name you used.
+    Select **Add** to save this key and value
 
-5. Click the **Add** button to save this key and value, then click the **Save** button to save the configuration changes. When prompted, add a description of the change ("adding SAS storage access" for example) and then click **Save**.
+1. Select the **Save** button to save the configuration changes. When prompted, add a description of the change ("adding SAS storage access" for example) and then select **Save**.
 
-    Click **OK** when the changes have been completed.
+    Select **OK** when the changes have been completed.
 
    > [!IMPORTANT]  
    > You must restart several services before the change takes effect.
 
-6. In the Ambari web UI, select **HDFS** from the list on the left, and then select **Restart All Affected** from the **Service Actions** drop down list on the right. When prompted, select __Confirm Restart All__.
+1. A **Restart** drop-down list will appear. Select **Restart All Affected** from the drop-down list and then __Confirm Restart All__.
 
-    Repeat this process for MapReduce2 and YARN.
+    Repeat this process for **MapReduce2** and **YARN**.
 
-7. Once the services have restarted, select each one and disable maintenance mode from the **Service Actions** drop down.
+1. Once the services have restarted, select each one and disable maintenance mode from the **Service Actions** drop down.
 
 ## Test restricted access
 
@@ -402,7 +398,7 @@ Use the following steps to verify that you can only read and list items on the S
 3. Use the following command to verify that you can read the contents of the file. Replace the `SASCONTAINER` and `SASACCOUNTNAME` as in the previous step. Replace `sample.log` with the name of the file displayed in the previous command:
 
     ```bash
-    hdfs dfs -text wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/sample.log
+    hdfs dfs -text wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/sample.log
     ```
 
     This command lists the contents of the file.
@@ -435,9 +431,7 @@ Use the following steps to verify that you can only read and list items on the S
 
 ## Next steps
 
-Now that you have learned how to add limited-access storage to your HDInsight cluster, learn other ways to work with data on your cluster:
+Now that you've learned how to add limited-access storage to your HDInsight cluster, learn other ways to work with data on your cluster:
 
 * [Use Apache Hive with HDInsight](hadoop/hdinsight-use-hive.md)
-* [Use Apache Pig with HDInsight](hadoop/hdinsight-use-pig.md)
 * [Use MapReduce with HDInsight](hadoop/hdinsight-use-mapreduce.md)
-

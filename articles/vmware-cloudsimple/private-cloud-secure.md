@@ -28,12 +28,12 @@ For more information about RBAC, see [What is role-based access control (RBAC) f
 
 ## RBAC for Private Cloud vCenter
 
-A default user `CloudOwner@cloudsimple.local` is created in the vCenter SSO domain when a Private Cloud is created.  CloudOwner user has privileges for managing vCenter.   Additional identity sources are added to the vCenter SSO for giving access to different users.  Pre-defined roles and groups are set up on the vCenter that can be used to add additional users.
+A default user `CloudOwner@cloudsimple.local` is created in the vCenter SSO domain when a Private Cloud is created.  CloudOwner user has privileges for managing vCenter. Additional identity sources are added to the vCenter SSO for giving access to different users.  Pre-defined roles and groups are set up on the vCenter that can be used to add additional users.
 
 ### Add new users to vCenter
 
-1. [Escalate privileges](escalate-private-cloud-privileges.md) for *CloudOwner@cloudsimple.local* user on the Private Cloud.
-2. Sign into vCenter using *CloudOwner@cloudsimple.local*
+1. [Escalate privileges](escalate-private-cloud-privileges.md) for **CloudOwner@cloudsimple.local** user on the Private Cloud.
+2. Sign into vCenter using **CloudOwner@cloudsimple.local**
 3. [Add vCenter Single Sign-On Users](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-72BFF98C-C530-4C50-BF31-B5779D2A4BBB.html).
 4. Add users to [vCenter single sign-on groups](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html).
 
@@ -46,8 +46,8 @@ You can add additional identity providers for vCenter SSO domain of your Private
 * [Use Active Directory as an identity provider](set-vcenter-identity.md) on Private Cloud vCenter.
 * [Use Azure AD as an identity provider](azure-ad.md) on Private Cloud vCenter
 
-1. [Escalate privileges](escalate-private-cloud-privileges.md) for *CloudOwner@cloudsimple.local* user on the Private Cloud.
-2. Sign into vCenter using *CloudOwner@cloudsimple.local*
+1. [Escalate privileges](escalate-private-cloud-privileges.md) for **CloudOwner@cloudsimple.local** user on the Private Cloud.
+2. Sign into vCenter using **CloudOwner@cloudsimple.local**
 3. Add users from the identity provider to [vCenter single sign-on groups](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html).
 
 ## Secure network on your Private Cloud environment

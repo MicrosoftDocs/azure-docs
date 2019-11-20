@@ -1,7 +1,7 @@
 ---
 title: Language support - Translator Text API
 titleSuffix: Azure Cognitive Services
-description: A list of natural languages supported by the Translator Text API.
+description: The Translator Text API supports the following languages for text to text translation using Neural Machine Translation (NMT).
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -224,6 +224,7 @@ The following languages are available for customization to or from English using
 | Hungarian      | `hu`          |
 | Icelandic | `is` |
 | Indonesian|	`id`	|
+| Irish | `ga`	|
 | Italian      | `it`          |
 | Japanese      | `ja`          |
 |Kiswahili|	`sw`	|
@@ -232,6 +233,7 @@ The following languages are available for customization to or from English using
 | Lithuanian      | `lt`          |
 |Malagasy|	`mg`	|
 | Norwegian      | `nb`          |
+| Persian      | `fa`          |
 | Polish      | `pl`          |
 | Portuguese      | `pt`          |
 | Romanian      | `ro`          |

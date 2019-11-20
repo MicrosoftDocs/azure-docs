@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure IoT Hub module identity and module twin (C) | Microsoft Docs
+title: Get started with Azure IoT Hub module identity & module twin (C)
 description: Learn how to create module identity and update module twin using IoT SDKs for C.
 author: chrissie926
 ms.service: iot-hub
@@ -26,7 +26,7 @@ At the end of this tutorial, you have two C apps:
 > [!NOTE]
 > For information about the Azure IoT SDKs that you can use to build both applications to run on devices, and your solution backend, see [Azure IoT SDKs](iot-hub-devguide-sdks.md).
 
-To complete this tutorial, you need the following:
+## Prerequisites
 
 * An active Azure account. (If you don't have an account, you can create an [Azure free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
 
@@ -295,7 +295,7 @@ static void deviceTwinCallback(DEVICE_TWIN_UPDATE_STATE update_state, const unsi
     (void)userContextCallback;
 
     printf("Device Twin update received (state=%s, size=%zu): %s\r\n", 
-        ENUM_TO_STRING(DEVICE_TWIN_UPDATE_STATE, update_state), size, payLoad);
+        MU_ENUM_TO_STRING(DEVICE_TWIN_UPDATE_STATE, update_state), size, payLoad);
 }
 
 static void reportedStateCallback(int status_code, void* userContextCallback)

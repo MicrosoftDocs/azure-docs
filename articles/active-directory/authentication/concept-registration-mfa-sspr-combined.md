@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 08/29/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -32,6 +32,9 @@ Azure AD combined security information registration is not currently available t
 
 > [!IMPORTANT]
 > Users who are enabled for both the original preview and the enhanced combined registration experience will see the new behavior. Users who are enabled for both experiences will see only the new My Profile experience. The new My Profile aligns with the look and feel of combined registration and provides a seamless experience for users. Users can see My Profile by going to [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
+
+> [!NOTE] 
+> You might encounter an error message while trying to access the Security info option. For example, "Sorry, we can't sign you in". In this case, confirm that you don't have any configuration or group policy object that blocks third-party cookies on the web browser. 
 
 My Profile pages are localized based on the language settings of the computer accessing the page. Microsoft stores the most recent language used in the browser cache, so subsequent attempts to access the pages will continue to render in the last language used. If you clear the cache, the pages will re-render. If you want to force a specific language, you can add `?lng=<language>` to the end of the URL, where `<language>` is the code of the language you want to render.
 
@@ -131,6 +134,8 @@ A user who has previously set up at least one method navigates to [https://aka.m
 A user who has previously set up at least one method that can be used for Multi-Factor Authentication navigates to [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). The user changes the current default method to a different default method. When finished, the user sees the new default method on the Security info page.
 
 ## Next steps
+
+[Force users to re-register authentication methods](howto-mfa-userdevicesettings.md#manage-authentication-methods)
 
 [Enable combined registration in your tenant](howto-registration-mfa-sspr-combined.md)
 

@@ -1,16 +1,14 @@
 ---
-title: Quickstart - Create Android app with Azure Spatial Anchors | Microsoft Docs
+title: 'Quickstart: Create an Android app'
 description: In this quickstart, you learn how to build an Android app using Spatial Anchors.
 author: craigktreasure
-manager: aliemami
+manager: vriveras
 services: azure-spatial-anchors
 
 ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-# ms.reviewer: MSFT-alias-of-reviewer
-#Customer intent: As a Mixed Reality developer, I want to learn how to use Azure Spatial Anchors in my Android app (in either Java or C++/NDK) that can place and locate a 3D object that persists across devices and platforms.
 ---
 
 # Quickstart: Create an Android app with Azure Spatial Anchors
@@ -36,7 +34,7 @@ To complete this quickstart, make sure you have:
   - To build the NDK sample, you'll also need to install the NDK and CMake 3.6 or greater SDK Tools in Android Studio.
 - A <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">developer enabled</a> and <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore capable</a> Android device.
   - Additional device drivers may be required for your computer to communicate with your Android device. See [here](https://developer.android.com/studio/run/device.html) for additional information and instructions.
-- Your app must target ARCore **1.8**.
+- Your app must target ARCore **1.11.0**.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -50,7 +48,7 @@ To complete this quickstart, make sure you have:
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
-Download `arcore_c_api.h` from [here](https://raw.githubusercontent.com/google-ar/arcore-android-sdk/v1.8.0/libraries/include/arcore_c_api.h) and place it in `Android\NDK\libraries\include`.
+Download `arcore_c_api.h` from [here](https://raw.githubusercontent.com/google-ar/arcore-android-sdk/v1.11.0/libraries/include/arcore_c_api.h) and place it in `Android\NDK\libraries\include`.
 
 From within the newly cloned repository, initialize submodules by running the following command:
 

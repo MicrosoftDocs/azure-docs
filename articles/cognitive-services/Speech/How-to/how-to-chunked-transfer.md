@@ -3,13 +3,13 @@ title: How to Chunked Transfer Audio Stream | Microsoft Docs
 titlesuffix: Azure Cognitive Services
 description: How to use chunked trasfer to send audio stream to the Bing Speech service
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 # Chunked transfer encoding

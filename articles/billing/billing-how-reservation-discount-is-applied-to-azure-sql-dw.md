@@ -4,9 +4,9 @@ description: Learn how reservation discounts apply to Azure SQL Data Warehouse t
 services: billing
 author: yashesvi
 manager: yashar
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 04/13/2019
+ms.date: 09/30/2019
 ms.author: banders
 ---
 

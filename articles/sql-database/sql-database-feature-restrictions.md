@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database Feature restrictions | Microsoft Docs
+title: Feature restrictions
 description:  Azure SQL Database Feature restrictions improves your database security by restricting features in your database that can be by attackers to gain access to information in them.
 services: sql-database
 ms.service: sql-database
@@ -7,8 +7,8 @@ ms.subservice: security
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: vainolo
-ms.author: arib
+author: barmichal
+ms.author: mibar
 ms.reviewer: vanto
 ms.date: 03/22/2019
 ---

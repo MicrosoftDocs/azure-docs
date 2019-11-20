@@ -77,7 +77,7 @@ The following is a listing of cmdlets in the internal `Orchestrator.AssetManagem
 
 ## Add a connection type to your module
 
-You can provide a custom [connection type](../automation-connections.md) for you to use in your Automation Account by adding an optional file to your module. This file is a metadata file specifying an Azure Automation connection type to be used with the module's cmdlets in your Automation Account. To achieve this, you must first know how to author a PowerShell module. For more information on module authoring, see [How to Write a PowerShell Script Module](/powershell/developer/module/how-to-write-a-powershell-script-module).
+You can provide a custom [connection type](../automation-connections.md) for you to use in your Automation Account by adding an optional file to your module. This file is a metadata file specifying an Azure Automation connection type to be used with the module's cmdlets in your Automation Account. To achieve this, you must first know how to author a PowerShell module. For more information on module authoring, see [How to Write a PowerShell Script Module](/powershell/scripting/developer/module/how-to-write-a-powershell-script-module).
 
 ![Use a custom connection in the Azure portal](../media/modules/connection-create-new.png)
 
@@ -264,4 +264,4 @@ The following table lists the modules that are imported by default when an Autom
 
 ## Next steps
 
-* To learn more about creating PowerShell Modules, see [Writing a Windows PowerShell Module](https://msdn.microsoft.com/library/dd878310%28v=vs.85%29.aspx)
+* To learn more about creating PowerShell Modules, see [Writing a Windows PowerShell Module](/powershell/scripting/developer/windows-powershell)

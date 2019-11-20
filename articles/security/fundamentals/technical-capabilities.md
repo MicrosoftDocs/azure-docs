@@ -144,7 +144,7 @@ Azure AD Privileged Identity Management lets you:
 
 #### Identity protection
 
-[Azure AD Identity Protection](../../active-directory/identity-protection/overview.md) is a security service that provides a consolidated view into risk events and potential vulnerabilities affecting your organization’s identities. Identity Protection uses existing Azure Active Directory’s anomaly detection capabilities (available through Azure AD’s Anomalous Activity Reports), and introduces new risk event types that can detect anomalies in real-time.
+[Azure AD Identity Protection](../../active-directory/identity-protection/overview.md) is a security service that provides a consolidated view into risk detections and potential vulnerabilities affecting your organization’s identities. Identity Protection uses existing Azure Active Directory’s anomaly detection capabilities (available through Azure AD’s Anomalous Activity Reports), and introduces new risk detection types that can detect anomalies in real-time.
 
 ## Secure resource access
 
@@ -306,7 +306,7 @@ Azure also provides several easy-to-use features to help secure both inbound and
 
 - [Setup Azure Active Directory authentication for your app](https://azure.microsoft.com/blog/azure-websites-authentication-authorization/)
 
-- [Secure traffic to your app by enabling Transport Layer Security (TLS/SSL) - HTTPS](../../app-service/app-service-web-tutorial-custom-ssl.md)
+- [Secure traffic to your app by enabling Transport Layer Security (TLS/SSL) - HTTPS](../../app-service/configure-ssl-bindings.md)
 
   - [Force all incoming traffic over HTTPS connection](http://microsoftazurewebsitescheatsheet.info/)
 

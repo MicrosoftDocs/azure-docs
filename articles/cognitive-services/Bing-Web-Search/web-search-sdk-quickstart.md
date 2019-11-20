@@ -238,7 +238,7 @@ This sample uses the `count` and `offset` parameters to limit the number of resu
     {
         try
         {
-            var webData = await client.Web.SearchAsync(query: "Best restaurants in Seattle", offset: 10, count: 20).Result;
+            var webData = await client.Web.SearchAsync(query: "Best restaurants in Seattle", offset: 10, count: 20);
             Console.WriteLine("\r\nSearching for \" Best restaurants in Seattle \"");
 
             if (webData?.WebPages?.Value?.Count > 0)
@@ -298,7 +298,7 @@ This sample uses the `response_filter` parameter to filter search results. The s
         try
         {
             IList<string> responseFilterstrings = new List<string>() { "news" };
-            var webData = await client.Web.SearchAsync(query: "Microsoft", responseFilter: responseFilterstrings).Result;
+            var webData = await client.Web.SearchAsync(query: "Microsoft", responseFilter: responseFilterstrings);
             Console.WriteLine("\r\nSearching for \" Microsoft \" with response filter \"news\"");
 
             if (webData?.News?.Value?.Count > 0)
@@ -361,7 +361,7 @@ This sample uses the `answer_count`, `promote`, and `safe_search` parameters to 
         try
         {
             IList<string> promoteAnswertypeStrings = new List<string>() { "videos" };
-            var webData = await client.Web.SearchAsync(query: "Music Videos", answerCount: 2, promote: promoteAnswertypeStrings, safeSearch: SafeSearch.Strict).Result;
+            var webData = await client.Web.SearchAsync(query: "Music Videos", answerCount: 2, promote: promoteAnswertypeStrings, safeSearch: SafeSearch.Strict);
             Console.WriteLine("\r\nSearching for \"Music Videos\"");
 
             if (webData?.Videos?.Value?.Count > 0)

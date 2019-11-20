@@ -1,10 +1,10 @@
 ---
-title: Azure SQL Database Managed Instance determine VNet/subnet size | Microsoft Docs
+title: Managed instance determine VNet/subnet size
 description: This topic describes how to calculate the size of the subnet where the Azure SQL Database Managed Instances will be deployed.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: 
+ms.custom: seo-lt-2019
 ms.devlang: 
 ms.topic: conceptual
 author: srdan-bozovic-msft
@@ -23,7 +23,7 @@ When you create a Managed Instance, Azure allocates a number of virtual machines
 By design, a Managed Instance needs a minimum of 16 IP addresses in a subnet and may use up to 256 IP addresses. As a result, you can use a subnet masks between /28 and /24 when defining your subnet IP ranges. A network mask bit of /28 (14 hosts per network) is a good size for a single general purpose or business-critical deployment. A mask bit of /27 (30 hosts per network) is ideal for a multiple Managed Instance deployments within the same VNet. Mask bit settings of /26 (62 hosts) and /24 (254 hosts) allows further scaling out of the VNet to support additional Managed Instances.
 
 > [!IMPORTANT]
-> A subnet size with 16 IP addresses is the bare minimum with limited potential for the further Managed Instance scale out. Choosing subnet with the prefix /27 or below is highly recommended.
+> A subnet size with 16 IP addresses is the bare minimum with limited potential where a scaling operation like vCore size change is not supported. Choosing subnet with the prefix /27 or longest prefix is highly recommended.
 
 ## Determine subnet size
 

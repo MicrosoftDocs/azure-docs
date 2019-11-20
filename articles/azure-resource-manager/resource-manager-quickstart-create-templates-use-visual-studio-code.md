@@ -1,16 +1,7 @@
 ---
-title: Use Visual Studio Code to create Azure Resource Manager template | Microsoft Docs
+title: Create template - Visual Studio Code
 description: Use Visual Studio Code and the Azure Resource Manager tools extension to work on Resource Manager templates.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
-
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 03/04/2019
 ms.topic: quickstart
 ms.author: jgao
@@ -23,7 +14,7 @@ ms.author: jgao
 
 Learn how to use Visual Studio code and the Azure Resource Manager Tools extension to create and edit Azure Resource Manager templates. You can create Resource Manager templates in Visual Studio Code without the extension, but the extension provides autocomplete options that simplify template development. To understand the concepts associated with deploying and managing your Azure solutions, see [Azure Resource Manager overview](resource-group-overview.md).
 
-In this tutorial, you deploy a storage account:
+In this quickstart, you deploy a storage account:
 
 ![resource manager template quickstart visual studio code diagram](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/resource-manager-template-quickstart-vscode-diagram.png)
 
@@ -43,7 +34,7 @@ To complete this article, you need:
 
 ## Open a Quickstart template
 
-Instead of creating a template from scratch, you open a template from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/). Azure QuickStart Templates is a repository for Resource Manager templates.
+Instead of creating a template from scratch, you open a template from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/). Azure Quickstart Templates is a repository for Resource Manager templates.
 
 The template used in this quickstart is called [Create a standard storage account](https://azure.microsoft.com/resources/templates/101-storage-account-create/). The template defines an Azure Storage account resource.
 
@@ -116,25 +107,25 @@ There are many methods for deploying templates. Azure Cloud shell is used in thi
     # [CLI](#tab/CLI)
 
     ![Azure portal Cloud shell upload file](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-upload-file.png)
-   
+
     # [PowerShell](#tab/PowerShell)
-    
+
     ![Azure portal Cloud shell upload file](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-upload-file-powershell.png)
-    
+
     ---
 
     Select the file you saved in the previous section. The default name is **azuredeploy.json**. The template file must be accessible from the shell.
 
-    You can optionally use the **ls** command and the **cat** command to verify the file is uploaded successfully. 
+    You can optionally use the **ls** command and the **cat** command to verify the file is uploaded successfully.
 
     # [CLI](#tab/CLI)
 
     ![Azure portal Cloud shell list file](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-list-file.png)
-   
+
     # [PowerShell](#tab/PowerShell)
-    
+
     ![Azure portal Cloud shell list file](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-list-file-powershell.png)
-    
+
     ---
 4. From the Cloud shell, run the following commands. Select the tab to show the PowerShell code or the CLI code.
 
@@ -147,31 +138,31 @@ There are many methods for deploying templates. Azure Cloud shell is used in thi
     az group create --name $resourceGroupName --location "$location" &&
     az group deployment create --resource-group $resourceGroupName --template-file "$HOME/azuredeploy.json"
     ```
-   
+
     # [PowerShell](#tab/PowerShell)
-    
+
     ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-    
+
     New-AzResourceGroup -Name $resourceGroupName -Location "$location"
     New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$HOME/azuredeploy.json"
     ```
-    
+
     ---
 
-    Update the template file name if you save the file to a name other than **azuredeploy.json**. 
+    Update the template file name if you save the file to a name other than **azuredeploy.json**.
 
     The following screenshot shows a sample deployment:
 
     # [CLI](#tab/CLI)
 
     ![Azure portal Cloud shell deploy template](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-deploy-template.png)
-   
+
     # [PowerShell](#tab/PowerShell)
-    
+
     ![Azure portal Cloud shell deploy template](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-deploy-template-powershell.png)
-    
+
     ---
 
     The storage account name and the storage URL in the outputs section are highlighted on the screenshot. You need the storage account name in the next step.
@@ -186,15 +177,15 @@ There are many methods for deploying templates. Azure Cloud shell is used in thi
     read storageAccountName &&
     az storage account show --resource-group $resourceGroupName --name $storageAccountName
     ```
-   
+
     # [PowerShell](#tab/PowerShell)
-    
+
     ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
     $storageAccountName = Read-Host -Prompt "Enter the Storage Account name"
     Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
     ```
-    
+
     ---
 
 To learn more about using Azure storage accounts, see [Quickstart: Upload, download, and list blobs using the Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md).
@@ -210,7 +201,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-The main focus of this quickstart is to use Visual Studio Code to edit an existing template from Azure Quickstart templates. You also learned how to deploy the template using either CLI or PowerShell from the Azure Cloud shell. The templates from Azure Quickstart templates might not give you everything you need. The next tutorial shows you how to find the information from template reference so you can create an encrypted Azure Storage account.
+The main focus of this quickstart is to use Visual Studio Code to edit an existing template from Azure Quickstart templates. You also learned how to deploy the template using either CLI or PowerShell from the Azure Cloud shell. The templates from Azure Quickstart templates might not give you everything you need. To learn more about template development, see our new beginner tutorial series:
 
 > [!div class="nextstepaction"]
-> [Create an encrypted storage account](./resource-manager-tutorial-create-encrypted-storage-accounts.md)
+> [Beginner tutorials](./template-tutorial-create-first-template.md)

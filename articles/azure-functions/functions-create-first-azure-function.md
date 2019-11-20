@@ -1,21 +1,12 @@
 ---
-title: Create your first function from the Azure portal | Microsoft Docs
+title: Create your first serverless function from the Azure portal
 description: Learn how to create your first Azure Function for serverless execution using the Azure portal.
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
-
 ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
-ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 03/28/2018
-ms.author: glenga
 ms.custom: mvc, devcenter, cc996988-fb4f-47
-
-
 ---
+
 # Create your first function in the Azure portal
 
 Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/solutions/serverless/) environment without having to first create a VM or publish a web application. In this article, learn how to use Functions to create a "hello world" function in the Azure portal.

@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/12/2019
+ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -78,7 +78,7 @@ Azure has data operations that enable you to grant access to data within an obje
 
 *Scope* is the set of resources that the access applies to. When you assign a role, you can further limit the actions allowed by defining a scope. This is helpful if you want to make someone a [Website Contributor](built-in-roles.md#website-contributor), but only for one resource group.
 
-In Azure, you can specify a scope at multiple levels: [management group](../governance/management-groups/index.md), subscription, resource group, or resource. Scopes are structured in a parent-child relationship.
+In Azure, you can specify a scope at multiple levels: [management group](../governance/management-groups/overview.md), subscription, resource group, or resource. Scopes are structured in a parent-child relationship.
 
 ![Scope for a role assignment](./media/overview/rbac-scope.png)
 
@@ -96,7 +96,7 @@ The following diagram shows an example of a role assignment. In this example, th
 
 ![Role assignment to control access](./media/overview/rbac-overview.png)
 
-You can create role assignments using the Azure portal, Azure CLI, Azure PowerShell, Azure SDKs, or REST APIs. You can have up to 2000 role assignments in each subscription. To create and remove role assignments, you must have `Microsoft.Authorization/roleAssignments/*` permission. This permission is granted through the [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator) roles.
+You can create role assignments using the Azure portal, Azure CLI, Azure PowerShell, Azure SDKs, or REST APIs. You can have up to **2000** role assignments in each subscription and **500** role assignments in each management group. To create and remove role assignments, you must have `Microsoft.Authorization/roleAssignments/*` permission. This permission is granted through the [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator) roles.
 
 ## Multiple role assignments
 
@@ -137,4 +137,4 @@ The following are the high-level steps that RBAC uses to determine if you have a
 - [Quickstart: View the access a user has to Azure resources using the Azure portal](check-access.md)
 - [Manage access to Azure resources using RBAC and the Azure portal](role-assignments-portal.md)
 - [Understand the different roles in Azure](rbac-and-directory-admin-roles.md)
-- [Enterprise Cloud Adoption: Resource access management in Azure](/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access)
+- [Enterprise Cloud Adoption: Resource access management in Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

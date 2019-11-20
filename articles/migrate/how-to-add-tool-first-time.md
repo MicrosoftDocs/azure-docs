@@ -1,10 +1,10 @@
 ---
-title: Add an assessment/migration tool for the first time in Azure Migrate| Microsoft Docs
+title: Add an assessment/migration tool in Azure Migrate
 description: Describes how to create an Azure Migrate project and add an assessment/migration tool.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 07/09/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ---
 
@@ -13,7 +13,7 @@ ms.author: raynew
 # Add an assessment/migration tool for the first time
 
 This article describes how to add an assessment or migration tool to an [Azure Migrate](migrate-overview.md) project for the first time.  
-Azure Migrate provides a central hub to track discovery, assessment and migration of your on-premises apps and workloads, and private/public cloud VMs, to Azure. The hub provides Azure Migrate tools for assessment and migration, as well as third-party, independent software vendor (ISV) [offerings](migrate-services-overview.md#isv-integration) . 
+Azure Migrate provides a central hub to track discovery, assessment and migration of your on-premises apps and workloads, and private/public cloud VMs, to Azure. The hub provides Azure Migrate tools for assessment and migration, as well as other tools and independent software vendor (ISV) [offerings](migrate-services-overview.md#isv-integration) . 
 
 ## Create a project and add a tool
 
@@ -40,14 +40,23 @@ Set up a new Azure Migrate project in an Azure subscription, and add a tool.
 
     You can create an Azure Migrate project in any of these geographies.
 
-    **Geography** | **Storage location region**
+   **Geography** | **Storage location region**
     --- | ---
-    Asia | Southeast Asia or East Asia
-    Europe | South Europe or West Europe
+    Asia   | Southeast Asia or East Asia
+    Europe | North Europe or West Europe
+    Japan  | Japan East or Japan West
     United Kingdom | UK South or UK West
     United States | Central US or West US 2
+    Canada | Canada Central
+    India  | India Central or India South
+    Australia | Australia SouthEast
 
     The geography specified for the project is only used to store the metadata gathered from on-premises VMs. You can select any target region for the actual migration.
+
+    If you want to specify a specific region within a geography for deploying the migrate project and its associated resources (Policy restrictions in your subscription may allow deploying of Azure resources only to a specific Azure region), you can use the below API to create a migrate project. Specify the Subscription ID, Resource group name, Migrate project name along with location(any of the Azure regions mentioned in the table where Azure Migrate is deployed.)
+
+    `PUT /subscriptions/<subid>/resourceGroups/<rg>/providers/Microsoft.Migrate/MigrateProjects/<mymigrateprojectname>?api-version=2018-09-01-preview "{location: 'centralus', properties: {}}"`   
+
 
 4. Click **Next**, and add an assessment or migration tool.
 

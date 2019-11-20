@@ -1,5 +1,5 @@
 ---
-title: How to tag an Azure Linux virtual machine | Microsoft Docs
+title: How to tag an Azure Linux virtual machine 
 description: Learn about tagging an Azure Linux virtual machine created in Azure using the Resource Manager deployment model.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -10,7 +10,7 @@ tags: azure-resource-manager
 
 ms.assetid: ca0e17e5-d78e-42e6-9dad-c1e8f1c58027
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services

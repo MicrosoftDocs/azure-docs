@@ -10,7 +10,6 @@ ms.assetid:
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 03/28/2019
 ms.author: cephalin

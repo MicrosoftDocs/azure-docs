@@ -8,7 +8,7 @@ manager: katiiceva
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 3/18/2019
+ms.date: 03/18/2019
 ---
 # Azure Stream Analytics output to Azure SQL Database
 

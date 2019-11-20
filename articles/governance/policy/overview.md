@@ -1,12 +1,8 @@
 ---
 title: Overview of Azure Policy
 description: Azure Policy is a service in Azure, that you use to create, assign and, manage policy definitions in your Azure environment.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 12/06/2018
 ms.topic: overview
-ms.service: azure-policy
-manager: carmonm
 ---
 # Overview of the Azure Policy service
 
@@ -64,12 +60,11 @@ effect that takes place if the conditions are met.
 
 In Azure Policy, we offer several built-in policies that are available by default. For example:
 
-- **Require SQL Server 12.0**: Validates that all SQL servers use version 12.0. Its effect is to deny all servers that don't meet these criteria.
 - **Allowed Storage Account SKUs**: Determines if a storage account being deployed is within a set of SKU sizes. Its effect is to deny all storage accounts that don't adhere to the set of defined SKU sizes.
 - **Allowed Resource Type**: Defines the resource types that you can deploy. Its effect is to deny all resources that aren't part of this defined list.
 - **Allowed Locations**: Restricts the available locations for new resources. Its effect is used to enforce your geo-compliance requirements.
 - **Allowed Virtual Machine SKUs**: Specifies a set of virtual machine SKUs that you can deploy.
-- **Apply tag and its default value**: Applies a required tag and its default value if it's not specified by the deploy request.
+- **Add a tag to resources**: Applies a required tag and its default value if it's not specified by the deploy request.
 - **Enforce tag and its value**: Enforces a required tag and its value to a resource.
 - **Not allowed resource types**: Prevents a list of resource types from being deployed.
 
@@ -164,7 +159,7 @@ In this scenario, when defining the initiative parameters for **initiativeC**, y
 options:
 
 - Use the parameters of the policy definitions within this initiative: In this example, *allowedLocations* and *allowedSingleLocation* become initiative parameters for **initiativeC**.
-- Provide values to the parameters of the policy definitions within this initiative definition. In this example, you can provide a list of locations to **policyA’s parameter – allowedLocations** and **policyB’s parameter – allowedSingleLocation**. You can also provide values when assigning this initiative.
+- Provide values to the parameters of the policy definitions within this initiative definition. In this example, you can provide a list of locations to **policyA's parameter – allowedLocations** and **policyB's parameter – allowedSingleLocation**. You can also provide values when assigning this initiative.
 - Provide a list of *value* options that can be used when assigning this initiative. When you assign this initiative, the inherited parameters from the policy definitions within the initiative, can only have values from this provided list.
 
 When creating value options in an initiative definition, you're unable to input a different value

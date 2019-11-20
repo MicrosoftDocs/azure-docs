@@ -1,13 +1,8 @@
 ---
 title: About Azure VM backup
-description: Learn about Azure VM backup, and note some best practices.
-
-author: dcurwin
-manager: carmonm
-ms.service: backup
+description: In this article, learn how the Azure Backup service backs up Azure Virtual machines, and how to follow best practices.
 ms.topic: conceptual
-ms.date: 03/04/2019
-ms.author: dacurwin
+ms.date: 09/13/2019
 ---
 
 # An overview of Azure VM backup
@@ -30,10 +25,10 @@ Here's how Azure Backup completes a backup for Azure VMs:
     - The backup is optimized by backing up each VM disk in parallel.
     - For each disk that's being backed up, Azure Backup reads the blocks on the disk and identifies and transfers only the data blocks that changed (the delta) since the previous backup.
     - Snapshot data might not be immediately copied to the vault. It might take some hours at peak times. Total backup time for a VM will be less than 24 hours for daily backup policies.
- 1. Changes made to a Windows VM after Azure Backup is enabled on it are:
-    -	Microsoft Visual C++ 2013 Redistributable(x64) - 12.0.40660 is installed in the VM
-    -	Startup type of Volume Shadow Copy service (VSS) changed to automatic from manual
-    -	IaaSVmProvider Windows service is added
+1. Changes made to a Windows VM after Azure Backup is enabled on it are:
+    - Microsoft Visual C++ 2013 Redistributable(x64) - 12.0.40660 is installed in the VM
+    - Startup type of Volume Shadow Copy service (VSS) changed to automatic from manual
+    - IaaSVmProvider Windows service is added
 
 1. When the data transfer is complete, the snapshot is removed, and a recovery point is created.
 
@@ -50,7 +45,7 @@ When you back up Azure VMs with Azure Backup, VMs are encrypted at rest with Sto
 
 For managed and unmanaged Azure VMs, Backup supports both VMs encrypted with BEKs only or VMs encrypted with BEKs together with KEKs.
 
-The backed-up BEKs (secrets) and KEKs (keys) are encrypted. They can be read and used only when they're restored back to the key vault by authorized users. Neither unauthorized users nor Azure can read or use backed-up keys or secrets.
+The backed-up BEKs (secrets) and KEKs (keys) are encrypted. They can be read and used only when they're restored back to the key vault by authorized users. Neither unauthorized users, or Azure, can read or use backed-up keys or secrets.
 
 BEKs are also backed up. So, if the BEKs are lost, authorized users can restore the BEKs to the key vault and recover the encrypted VMs. Only users with the necessary level of permissions can back up and restore encrypted VMs or keys and secrets.
 
@@ -136,48 +131,14 @@ Data disk 2 | 4095 GB | 0 GB
 The actual size of the VM in this case is 17 GB + 30 GB + 0 GB = 47 GB. This protected-instance size (47 GB) becomes the basis for the monthly bill. As the amount of data in the VM grows, the protected-instance size used for billing changes to match.
 
 <a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb"></a>
-## Limited Public Preview: Backup of VM with disk sizes up to 30 TB
 
-Azure Backup now supports a limited public preview of larger and more powerful [Azure Managed Disks](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/) of up to 30 TB in size. This preview provides production-level support for managed virtual machines.
+## Public Preview: Backup of VM with disk sizes up to 30 TB
 
-You can seamlessly enroll in the preview without any impact on your ongoing backups. After the subscription is enrolled in the preview, all the virtual machines with disk sizes up to 30 TB should be successfully backed up. To enroll in the preview:
- 
-Execute the following cmdlets from an elevated PowerShell terminal:
+Azure Backup now supports public preview of larger and more powerful [Azure Managed Disks](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/) of up to 30 TB in size. This preview provides production-level support for managed virtual machines.
 
-1. Sign in to your Azure account.
+The backups for your virtual machines with each disk size up to 30 TB and a maximum of 256 TB combined for all disks in a VM should work seamlessly without impacting your existing backups. There is no user action required to get the backups running for the large sized disks, if the virtual machine is already configured with Azure Backup.
 
-    ```powershell
-    PS C:> Login-AzureRmAccount
-    ```
-
-2. Select the subscription that you want to register for the upgrade:
-
-    ```powershell
-    PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
-    ```
-3. Register this subscription in the preview program: 
-
-    ```powershell
-    PS C:> Register-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices
-    ```
-
-    Wait for 30 minutes for the subscription to be enrolled in the preview. 
-
- 4. To check the status, run the following cmdlets:
-
-    ```powershell
-    PS C:> Get-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices 
-    ```
-5. When the subscription shows as registered, run the following command:
-    
-    ```powershell
-    PS C:> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
-    ```
-
-> [!NOTE]
-> Encrypted VMs with disks larger than 4 TB aren't supported in this preview.
-
-
+All Azure Virtual Machines with large disks having backup configured should be successfully backed up.
 
 ## Next steps
 

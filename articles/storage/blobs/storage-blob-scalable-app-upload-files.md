@@ -1,10 +1,10 @@
 ---
 title: Upload large amounts of random data in parallel to Azure Storage  | Microsoft Docs 
-description: Learn how to use the Azure SDK to upload large amounts of random data in parallel to an Azure Storage account
+description: Learn how to use the Azure Storage client library to upload large amounts of random data in parallel to an Azure Storage account
 author: roygara
 ms.service: storage
 ms.topic: tutorial
-ms.date: 02/20/2018
+ms.date: 10/08/2019
 ms.author: rogarana
 ms.subservice: blobs
 ---
@@ -23,7 +23,7 @@ In part two of the series, you learn how to:
 
 Azure blob storage provides a scalable service for storing your data. To ensure your application is as performant as possible, an understanding of how blob storage works is recommended. Knowledge of the limits for Azure blobs is important, to learn more about these limits visit: [blob storage scalability targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).
 
-[Partition naming](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47) is another potentially important factor when designing a highly performing application using blobs. For block sizes greater than or equal to four MiB, [High-Throughput block blobs](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) are used, and partition naming will not impact performance. For block sizes less than four MiB, Azure storage uses a range-based partitioning scheme to scale and load balance. This configuration means that files with similar naming conventions or prefixes go to the same partition. This logic includes the name of the container that the files are being uploaded to. In this tutorial, you use files that have GUIDs for names as well as randomly generated content. They are then uploaded to five different containers with random names.
+[Partition naming](../blobs/storage-performance-checklist.md#partitioning) is another potentially important factor when designing a high-performance application using blobs. For block sizes greater than or equal to 4 MiB, [High-Throughput block blobs](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) are used, and partition naming will not impact performance. For block sizes less than 4 MiB, Azure storage uses a range-based partitioning scheme to scale and load balance. This configuration means that files with similar naming conventions or prefixes go to the same partition. This logic includes the name of the container that the files are being uploaded to. In this tutorial, you use files that have GUIDs for names as well as randomly generated content. They are then uploaded to five different containers with random names.
 
 ## Prerequisites
 

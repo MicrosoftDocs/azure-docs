@@ -84,28 +84,28 @@ To use a default property value, remove the property from the configuration obje
 
 1. In your IoT Hub, locate and select the device you wish to change.
 
-2. Click on your device, and then on **azureiotsecurity** module.
+1. Click on your device, and then on **azureiotsecurity** module.
 
-3. Click on **Module Identity Twin**.
+1. Click on **Module Identity Twin**.
 
-4. Edit the properties you wish to change in the security module.
+1. Edit the properties you wish to change in the security module.
    
    For example, to configure connection events as high priority and collect high priority events every 7 minutes, use the following configuration.
    
-   ```json
+    ```json
     "desired": {
-      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration": {
-        "highPriorityMessageFrequency": {
-          "value" : "PT7M"
-        },    
-        "eventPriorityConnectionCreate": {
-          "value" : "High" 
-        }
-      } 
-    }, 
+    	"ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration": {
+    		"highPriorityMessageFrequency": {
+    			"value": "PT7M"
+    		},
+    		"eventPriorityConnectionCreate": {
+    			"value": "High"
+    		}
+    	}
+    }
     ```
 
-5. Click **Save**.
+1. Click **Save**.
 
 ### Using a default value
 

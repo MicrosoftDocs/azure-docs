@@ -196,7 +196,7 @@ A dynamic port allocated by an `Endpoint` configuration provides only one port *
 ## Kestrel in Reliable Services
 You can use Kestrel in Reliable Services by importing the **Microsoft.ServiceFabric.AspNetCore.Kestrel** NuGet package. This package contains `KestrelCommunicationListener`, an implementation of `ICommunicationListener`. `KestrelCommunicationListener` allows you to create an ASP.NET Core WebHost inside a reliable service by using Kestrel as the web server.
 
-Kestrel is a cross-platform web server for ASP.NET Core based on libuv, a cross-platform asynchronous I/O library. Unlike HTTP.sys, Kestrel doesn't use a centralized endpoint manager. Also unlike HTTP.sys, Kestrel doesn't support port sharing between multiple processes. Each instance of Kestrel must use a unique port.
+Kestrel is a cross-platform web server for ASP.NET Core. Unlike HTTP.sys, Kestrel doesn't use a centralized endpoint manager. Also unlike HTTP.sys, Kestrel doesn't support port sharing between multiple processes. Each instance of Kestrel must use a unique port. For more on Kestrel, see the [Implementation Details](https://docs.microsoft.com/aspnet/core/fundamentals/servers/kestrel?view=aspnetcore-2.2).
 
 ![Kestrel diagram][4]
 
@@ -335,6 +335,9 @@ new KestrelCommunicationListener(serviceContext, (url, listener) => ...
 ```
 
 In this configuration, `KestrelCommunicationListener` will automatically select an unused port from the application port range.
+
+For HTTPS, it should have the Endpoint configured with HTTPS protocol without a port specified in ServiceManifest.xml and pass the endpoint name to KestrelCommunicationListener constructor.
+
 
 ## Service Fabric configuration provider
 App configuration in ASP.NET Core is based on key-value pairs established by the configuration provider. Read [Configuration in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/) to understand more on general ASP.NET Core configuration support.

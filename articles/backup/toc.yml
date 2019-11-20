@@ -20,6 +20,8 @@
   items:
   - name: Back up Azure VMs at scale
     href: tutorial-backup-vm-at-scale.md
+  - name: Back up Azure VMs with PowerShell
+    href: tutorial-backup-azure-vm.md
   - name: Restore a disk
     href: tutorial-restore-disk.md
   - name: Restore individual files
@@ -49,7 +51,17 @@
     - name: DPM/Azure Backup Server (MABS) support matrix
       href: backup-support-matrix-mabs-dpm.md
     - name: MARS agent support matrix
-      href: backup-support-matrix-mars-agent.md
+      href: backup-support-matrix-mars-agent.md      
+  - name: Security
+    items:
+    - name: Role-Based Access Control
+      href: backup-rbac-rs-vault.md
+    - name: Security for cloud workloads
+      href: backup-azure-security-feature-cloud.md
+    - name: Security for hybrid backups
+      href: backup-azure-security-feature.md
+    - name: Built-in security controls
+      href: backup-security-controls.md
   - name: Frequently asked questions (FAQ)
     items:
     - name: FAQ-Recovery Services vaults
@@ -68,18 +80,12 @@
       href: backup-azure-monitor-alert-faq.md
   - name: Backup architecture
     href: backup-architecture.md
-  - name: Role-Based Access Control
-    href: backup-rbac-rs-vault.md
-  - name: Security for hybrid backups
-    href: backup-azure-security-feature.md
   - name: Configure offline-backup
     href: backup-azure-backup-import-export.md
   - name: Offline backup for DPM and Azure Backup Server
     href: backup-azure-backup-server-import-export-.md
   - name: Replace your tape library
     href: backup-azure-backup-cloud-as-tape.md
-  - name: Azure Common Security Attributes
-    href: backup-security-attributes.md
 - name: How to
   items:
   - name: Azure Backup Server
@@ -162,6 +168,12 @@
         href: backup-azure-vms-encryption.md
       - name: Restore keys and secret for encrypted VMs
         href: backup-azure-restore-key-secret.md
+  - name: Diagnostics Events for Recovery Services Vaults
+    items:
+    - name: Using Diagnostics Settings for Recovery Services Vaults
+      href: backup-azure-diagnostic-events.md
+    - name: Log Analytics Data Model for Resource Specific Diagnostics Events
+      href: backup-azure-log-analytics-new-data-model.md
   - name: Configure Azure Backup reports
     items:
     - name: Configure Azure Backup reports
@@ -170,8 +182,6 @@
       href: backup-azure-reports-data-model.md
     - name: Log Analytics data model for Azure Backup
       href: backup-azure-log-analytics-data-model.md
-    - name: Updating Azure Backup Central Reporting Content Pack
-      href: backup-azure-central-reporting-updates.md
   - name: Data Protection Manager
     items:
     - name: Prepare DPM workloads in the Azure portal
@@ -230,6 +240,8 @@
       href: backup-azure-restore-windows-server.md
     - name: Restore Windows Server System State
       href: backup-azure-restore-system-state.md
+    - name: Manage Windows Server files and folders backup
+      href: backup-azure-manage-mars.md
   - name: Recovery Services vault
     items:
     - name: Overview of Recovery Services vaults

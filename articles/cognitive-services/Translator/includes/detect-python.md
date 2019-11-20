@@ -108,7 +108,10 @@ If you'd like to compare your code against ours, the complete sample is availabl
 
 ## Sample response
 
-Find the country/region abbreviation in this [list of languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+After you run the sample, you should see the following printed to terminal:
+
+> [!NOTE]
+> Find the country/region abbreviation in this [list of languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 ```json
 [

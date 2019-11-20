@@ -2,11 +2,11 @@
 title: Azure Blockchain Limits
 description: Overview of the service and functional limits in Azure Blockchain Service
 services: azure-blockchain
-keywords: blockchain
+keywords: 
 author: PatAltimore
 ms.author: patricka
 ms.date: 05/02/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
@@ -29,7 +29,7 @@ Changing the pricing tier between Basic and Standard after member creation is no
 
 ## Storage capacity
 
-The maximum amount of storage that can be used per node for ledger data and logs is 1 terabyte.
+The maximum amount of storage that can be used per node for ledger data and logs is 1.8 terabytes.
 
 Decreasing ledger and log storage size is not supported.
 

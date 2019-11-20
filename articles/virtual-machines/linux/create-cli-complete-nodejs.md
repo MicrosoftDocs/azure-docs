@@ -1,5 +1,5 @@
 ---
-title: Create a complete Linux environment with the Azure Classic CLI | Microsoft Docs
+title: Create a complete Linux environment with the Azure Classic CLI 
 description: Create storage, a Linux VM, a virtual network and subnet, a load balancer, an NIC, a public IP, and a network security group, all from the ground up by using the Azure Classic CLI.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -10,7 +10,7 @@ tags: azure-resource-manager
 
 ms.assetid: 4ba4060b-ce95-4747-a735-1d7c68597a1a
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure

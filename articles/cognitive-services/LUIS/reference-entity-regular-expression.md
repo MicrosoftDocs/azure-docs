@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 07/24/2019
+ms.date: 09/29/2019
 ms.author: diberry
 ---
 # Regular expression entity 
@@ -40,35 +40,63 @@ This regex expression also matches any words that end with these numbers, such a
 
 ### Example JSON
 
-When using `kb[0-9]{6}`, as the regular expression entity definition, the following JSON response is an example utterance with the returned regular expression entities for the query `When was kb123456 published?`:
+When using `kb[0-9]{6}`, as the regular expression entity definition, the following JSON response is an example utterance with the returned regular expression entities for the query:
+
+`When was kb123456 published?`:
+
+#### [V2 prediction endpoint response](#tab/V2)
 
 ```JSON
-{
-  "query": "when was kb123456 published?",
-  "topScoringIntent": {
-    "intent": "FindKBArticle",
-    "score": 0.933641255
-  },
-  "intents": [
-    {
-      "intent": "FindKBArticle",
-      "score": 0.933641255
-    },
-    {
-      "intent": "None",
-      "score": 0.04397359
-    }
-  ],
-  "entities": [
-    {
-      "entity": "kb123456",
-      "type": "KB number",
-      "startIndex": 9,
-      "endIndex": 16
-    }
-  ]
+"entities": [
+  {
+    "entity": "kb123456",
+    "type": "KB number",
+    "startIndex": 9,
+    "endIndex": 16
+  }
+]
+```
+
+
+#### [V3 prediction endpoint response](#tab/V3)
+
+
+This is the JSON if `verbose=false` is set in the query string:
+
+```json
+"entities": {
+    "KB number": [
+        "kb123456"
+    ]
 }
 ```
+
+This is the JSON if `verbose=true` is set in the query string:
+
+```json
+"entities": {
+    "KB number": [
+        "kb123456"
+    ],
+    "$instance": {
+        "KB number": [
+            {
+                "type": "KB number",
+                "text": "kb123456",
+                "startIndex": 9,
+                "length": 8,
+                "modelTypeId": 8,
+                "modelType": "Regex Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+
+* * * 
 
 ## Next steps
 

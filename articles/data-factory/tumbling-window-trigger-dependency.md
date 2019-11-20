@@ -1,5 +1,5 @@
 ---
-title: Create tumbling window trigger dependencies in Azure Data Factory | Microsoft Docs
+title: Create tumbling window trigger dependencies in Azure Data Factory 
 description: Learn how to create dependency on a tumbling window trigger in Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -153,6 +153,10 @@ You can monitor the dependency chain and the corresponding windows from the trig
 If you click on 'View Trigger Dependencies', you can see the status of the dependencies. If one of the dependency triggers fails, you must successfully rerun it in order for the dependent trigger to run. A tumbling window trigger will wait on dependencies for seven days before timing out.
 
 ![Monitor dependencies](media/tumbling-window-trigger-dependency/tumbling-window-dependency08.png "Monitor dependencies")
+
+For a more visual to view the trigger dependency schedule, select the Gantt view.
+
+![Monitor dependencies](media/tumbling-window-trigger-dependency/tumbling-window-dependency09.png "Monitor dependencies")
 
 ## Next steps
 

@@ -152,7 +152,7 @@ var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMi
     var toSign = resourceUri + '\n' + expires;
 
     // Use crypto
-    var hmac = crypto.createHmac('sha256', new Buffer(signingKey, 'base64'));
+    var hmac = crypto.createHmac('sha256', Buffer.from(signingKey, 'base64'));
     hmac.update(toSign);
     var base64UriEncoded = encodeURIComponent(hmac.digest('base64'));
 
@@ -170,14 +170,14 @@ As a comparison, the equivalent Python code to generate a security token is:
 from base64 import b64encode, b64decode
 from hashlib import sha256
 from time import time
-from urllib import quote_plus, urlencode
+from urllib import parse
 from hmac import HMAC
 
 def generate_sas_token(uri, key, policy_name, expiry=3600):
     ttl = time() + expiry
-    sign_key = "%s\n%d" % ((quote_plus(uri)), int(ttl))
+    sign_key = "%s\n%d" % ((parse.quote_plus(uri)), int(ttl))
     print sign_key
-    signature = b64encode(HMAC(b64decode(key), sign_key, sha256).digest())
+    signature = b64encode(HMAC(b64decode(key), sign_key.encode('utf-8'), sha256).digest())
 
     rawtoken = {
         'sr' :  uri,
@@ -188,7 +188,7 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
     if policy_name is not None:
         rawtoken['skn'] = policy_name
 
-    return 'SharedAccessSignature ' + urlencode(rawtoken)
+    return 'SharedAccessSignature ' + parse.urlencode(rawtoken)
 ```
 
 The following are the installation instructions for the prerequisites.
@@ -359,7 +359,7 @@ For more information about authentication using certificate authority, see [Devi
 
 ### Register an X.509 certificate for a device
 
-The [Azure IoT Service SDK for C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/service) (version 1.0.8+) supports registering a device that uses an X.509 certificate for authentication. Other APIs such as import/export of devices also support X.509 certificates.
+The [Azure IoT Service SDK for C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/service) (version 1.0.8+) supports registering a device that uses an X.509 certificate for authentication. Other APIs such as import/export of devices also support X.509 certificates.
 
 You can also use the CLI extension command [az iot hub device-identity](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) to configure X.509 certificates for devices.
 
@@ -386,7 +386,7 @@ await registryManager.AddDeviceAsync(device);
 
 ### Use an X.509 certificate during run-time operations
 
-The [Azure IoT device SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device) (version 1.0.11+) supports the use of X.509 certificates.
+The [Azure IoT device SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device) (version 1.0.11+) supports the use of X.509 certificates.
 
 ### C\# Support
 

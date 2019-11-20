@@ -11,9 +11,8 @@ ms.assetid: ae78b410-1bc0-4d72-8fc4-ac69801247ae
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2018
+ms.date: 09/18/2019
 ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
@@ -73,9 +72,9 @@ It's recommended that you use **App Credentials** to deploy to your app because 
 
 For enhanced security, you should allow FTP over SSL only. You can also disable both FTP and FTPS if you don't use FTP deployment.
 
-In your app's resource page in [Azure portal](https://portal.azure.com), select **App settings** in the left navigation.
+In your app's resource page in [Azure portal](https://portal.azure.com), select **Configuration** > **General settings** from the left navigation.
 
-To disable unencrypted FTP, select **FTPS Only**. To disable both FTP and FTPS entirely, select **Disable**. When finished, click **Save**. If using **FTPS Only** you must enforce TLS 1.2 or higher by navigating to the **SSL settings** blade of your web app. TLS 1.0 and 1.1 are not supported with **FTPS Only**.
+To disable unencrypted FTP, select **FTPS Only** in **FTP state**. To disable both FTP and FTPS entirely, select **Disabled**. When finished, click **Save**. If using **FTPS Only**, you must enforce TLS 1.2 or higher by navigating to the **TLS/SSL settings** blade of your web app. TLS 1.0 and 1.1 are not supported with **FTPS Only**.
 
 ![Disable FTP/S](./media/app-service-deploy-ftp/disable-ftp.png)
 

@@ -21,7 +21,7 @@ ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
 ---
 
-# Quickstart: Set up a dev environment
+# Quickstart: Set up a tenant
 
 The Microsoft identity platform allows developers to build apps targeting a wide variety of custom Microsoft 365 environments and identities. To get started using Microsoft identity platform, you will need access to an environment, also called an Azure AD tenant, that can register and manage apps, have access to Microsoft 365 data, and deploy custom Conditional Access and tenant restrictions.
 

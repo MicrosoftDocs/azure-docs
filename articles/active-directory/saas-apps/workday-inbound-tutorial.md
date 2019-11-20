@@ -71,7 +71,7 @@ This section describes the end-to-end user provisioning solution architecture fo
 
 1. The HR team performs worker transactions (Joiners/Movers/Leavers or New Hires/Transfers/Terminations) in Workday HCM
 2. The Azure AD Provisioning Service runs scheduled synchronizations of identities from Workday HR and identifies changes that need to be processed for sync with on-premises Active Directory.
-3. The Azure AD Provisioning Service invokes the on-premises AAD Connect Provisioning Agent with a request payload containing AD account create/update/enable/disable operations.
+3. The Azure AD Provisioning Service invokes the on-premises Azure AD Connect Provisioning Agent with a request payload containing AD account create/update/enable/disable operations.
 4. The Azure AD Connect Provisioning Agent uses a service account to add/update AD account data.
 5. The Azure AD Connect / AD Sync engine runs delta sync to pull updates in AD.
 6. The Active Directory updates are synced with Azure Active Directory.
@@ -93,7 +93,8 @@ This section covers the following aspects of planning:
 
 The scenario outlined in this tutorial assumes that you already have the following items:
 
-* A valid Azure AD Premium P1 or higher subscription with global administrator access
+* A valid Azure AD Premium P1 or higher subscription license for every user that will be sourced from Workday and provisioned into either on-premises Active Directory or Azure Active Directory.
+* Azure AD global administrator access to configure the provisioning agent
 * A Workday implementation tenant for testing and integration purposes
 * Administrator permissions in Workday to create a system integration user, and make changes to test employee data for testing purposes
 * For user provisioning to Active Directory, a server running Windows Server 2012 or greater with .NET 4.7.1+ runtime is required to host the [on-premises provisioning agent](https://go.microsoft.com/fwlink/?linkid=847801)
@@ -103,11 +104,11 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 To facilitate provisioning workflows between Workday and Active Directory, Azure AD provides multiple provisioning connector apps that you can add from the Azure AD app gallery:
 
-![AAD App Gallery](./media/workday-inbound-tutorial/wd_gallery.png)
+![Azure AD App Gallery](./media/workday-inbound-tutorial/wd_gallery.png)
 
 * **Workday to Active Directory User Provisioning** - This app facilitates user account provisioning from Workday to a single Active Directory domain. If you have multiple domains, you can add one instance of this app from the Azure AD app gallery for each Active Directory domain you need to provision to.
 
-* **Workday to Azure AD User Provisioning** - While AAD Connect is the tool that should be used to synchronize Active Directory users to Azure Active Directory, this app can be used to facilitate provisioning of cloud-only users from Workday to a single Azure Active Directory tenant.
+* **Workday to Azure AD User Provisioning** - While Azure AD Connect is the tool that should be used to synchronize Active Directory users to Azure Active Directory, this app can be used to facilitate provisioning of cloud-only users from Workday to a single Azure Active Directory tenant.
 
 * **Workday Writeback** - This app facilitates write-back of user's email addresses from Azure Active Directory to Workday.
 
@@ -487,6 +488,9 @@ In this section, you will configure how user data flows from Workday to Active D
    > [!TIP]
    > When you are configuring the provisioning app for the first time, you will need to test and verify your attribute mappings and expressions to make sure that it is giving you the desired result. Microsoft recommends using the scoping filters under **Source Object Scope** to test your mappings with a few test users from Workday. Once you have verified that the mappings work, then you can either remove the filter or gradually expand it to include more users.
 
+   > [!CAUTION] 
+   > The default behavior of the provisioning engine is to disable/delete users that go out of scope. This may not be desirable in your Workday to AD integration. To override this default behavior refer to the article [Skip deletion of user accounts that go out of scope](../manage-apps/skip-out-of-scope-deletions.md)
+  
 1. In the **Target Object Actions** field, you can globally filter what actions are performed on Active Directory. **Create** and **Update** are most common.
 
 1. In the **Attribute mappings** section, you can define how individual Workday attributes map to Active Directory attributes.
@@ -764,7 +768,7 @@ Once the Workday provisioning app configurations have been completed, you can tu
   * [What is the GA version of the Provisioning Agent?](#what-is-the-ga-version-of-the-provisioning-agent)
   * [How do I know the version of my Provisioning Agent?](#how-do-i-know-the-version-of-my-provisioning-agent)
   * [Does Microsoft automatically push Provisioning Agent updates?](#does-microsoft-automatically-push-provisioning-agent-updates)
-  * [Can I install the Provisioning Agent on the same server running AAD Connect?](#can-i-install-the-provisioning-agent-on-the-same-server-running-aad-connect)
+  * [Can I install the Provisioning Agent on the same server running Azure AD Connect?](#can-i-install-the-provisioning-agent-on-the-same-server-running-azure-ad-connect)
   * [How do I configure the Provisioning Agent to use a proxy server for outbound HTTP communication?](#how-do-i-configure-the-provisioning-agent-to-use-a-proxy-server-for-outbound-http-communication)
   * [How do I ensure that the Provisioning Agent is able to communicate with the Azure AD tenant and no firewalls are blocking ports required by the agent?](#how-do-i-ensure-that-the-provisioning-agent-is-able-to-communicate-with-the-azure-ad-tenant-and-no-firewalls-are-blocking-ports-required-by-the-agent)
   * [How do I de-register the domain associated with my Provisioning Agent?](#how-do-i-de-register-the-domain-associated-with-my-provisioning-agent)
@@ -793,7 +797,7 @@ No, sending email notifications after completing provisioning operations is not 
 
 One of the final steps involved in new AD account provisioning is the delivery of the temporary password assigned to the user’s AD account. Many enterprises still use the traditional approach of delivering the temporary password to the user’s manager, who then hands over the password to the new hire/contingent worker. This process has an inherent security flaw and there is an option available to implement a better approach using Azure AD capabilities.
 
-As part of the hiring process, HR teams usually run a background check and vet the mobile number of the new hire. With the Workday to AD User Provisioning integration, you can build on top of this fact and rollout a self-service password reset capability for the user on Day 1. This is accomplished by propagating the “Mobile Number” attribute of the new hire from Workday to AD and then from AD to Azure AD using AAD Connect. Once the “Mobile Number” is present in Azure AD, you can enable the [Self-Service Password Reset (SSPR)](../authentication/howto-sspr-authenticationdata.md) for the user’s account, so that on Day 1, a new hire can use the registered and verified mobile number for authentication.
+As part of the hiring process, HR teams usually run a background check and vet the mobile number of the new hire. With the Workday to AD User Provisioning integration, you can build on top of this fact and rollout a self-service password reset capability for the user on Day 1. This is accomplished by propagating the “Mobile Number” attribute of the new hire from Workday to AD and then from AD to Azure AD using Azure AD Connect. Once the “Mobile Number” is present in Azure AD, you can enable the [Self-Service Password Reset (SSPR)](../authentication/howto-sspr-authenticationdata.md) for the user’s account, so that on Day 1, a new hire can use the registered and verified mobile number for authentication.
 
 #### Does the solution cache Workday user profiles in the Azure AD cloud or at the provisioning agent layer?
 
@@ -854,9 +858,9 @@ When suggesting a new idea, please check to see if someone else has already sugg
 
 Yes, Microsoft automatically updates the provisioning agent. You can disable automatic updates by stopping the Windows service **Microsoft Azure AD Connect Agent Updater**.
 
-#### Can I install the Provisioning Agent on the same server running AAD Connect?
+#### Can I install the Provisioning Agent on the same server running Azure AD Connect?
 
-Yes, you can install the Provisioning Agent on the same server that runs AAD Connect.
+Yes, you can install the Provisioning Agent on the same server that runs Azure AD Connect.
 
 #### At the time of configuration the Provisioning Agent prompts for Azure AD admin credentials. Does the Agent store the credentials locally on the server?
 
@@ -1351,66 +1355,7 @@ To do this change, you must use [Workday Studio](https://community.workday.com/s
 
 ### Exporting and importing your configuration
 
-This section describes how to use the Microsoft Graph API and Graph Explorer to export your Workday Provisioning attribute mappings and schema to a JSON file and import it back into Azure AD.
-
-#### Step 1: Retrieve your Workday Provisioning App Service Principal ID (Object ID)
-
-1. Launch the [Azure portal](https://portal.azure.com), and navigate to the Properties section of your Workday provisioning application.
-1. In the Properties section of your provisioning app, copy the GUID value associated with the *Object ID* field. This value is also called the **ServicePrincipalId** of your App and it will be used in Graph Explorer operations.
-
-   ![Workday App Service Principal ID](./media/workday-inbound-tutorial/wd_export_01.png)
-
-#### Step 2: Sign into Microsoft Graph Explorer
-
-1. Launch [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
-1. Click on the "Sign-In with Microsoft" button and sign-in using Azure AD Global Admin or App Admin credentials.
-
-    ![Graph Sign-in](./media/workday-inbound-tutorial/wd_export_02.png)
-
-1. Upon successful sign-in, you will see the user account details in the left-hand pane.
-
-#### Step 3: Retrieve the Provisioning Job ID of the Workday Provisioning App
-
-In the Microsoft Graph Explorer, run the following GET query replacing [servicePrincipalId]  with the **ServicePrincipalId** extracted from the [Step 1](#step-1-retrieve-your-workday-provisioning-app-service-principal-id-object-id).
-
-```http
-   GET https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/jobs
-```
-
-You will get a response as shown below. Copy the "id attribute" present in the response. This value is the **ProvisioningJobId** and will be used to retrieve the underlying schema metadata.
-
-   [![Provisioning Job ID](./media/workday-inbound-tutorial/wd_export_03.png)](./media/workday-inbound-tutorial/wd_export_03.png#lightbox)
-
-#### Step 4: Download the Provisioning Schema
-
-In the Microsoft Graph Explorer, run the following GET query, replacing [servicePrincipalId] and [ProvisioningJobId] with the ServicePrincipalId and the ProvisioningJobId retrieved in the previous steps.
-
-```http
-   GET https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/jobs/[ProvisioningJobId]/schema
-```
-
-Copy the JSON object from the response and save it to a file to create a backup of the schema.
-
-#### Step 5: Import the Provisioning Schema
-
-> [!CAUTION]
-> Perform this step only if you need to modify the schema for configuration that cannot be changed using the Azure portal or if you need to restore the configuration from a previously backed up file with valid and working schema.
-
-In the Microsoft Graph Explorer, configure the following PUT query, replacing [servicePrincipalId] and [ProvisioningJobId] with the ServicePrincipalId and the ProvisioningJobId retrieved in the previous steps.
-
-```http
-    PUT https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/jobs/[ProvisioningJobId]/schema
-```
-
-In the "Request Body" tab, copy the contents of the JSON schema file.
-
-   [![Request Body](./media/workday-inbound-tutorial/wd_export_04.png)](./media/workday-inbound-tutorial/wd_export_04.png#lightbox)
-
-In the "Request Headers" tab, add the Content-Type header attribute with value “application/json”
-
-   [![Request Headers](./media/workday-inbound-tutorial/wd_export_05.png)](./media/workday-inbound-tutorial/wd_export_05.png#lightbox)
-
-Click on the "Run Query" button to import the new schema.
+Refer to the article [Exporting and importing provisioning configuration](../manage-apps/export-import-provisioning-configuration.md)
 
 ## Managing personal data
 

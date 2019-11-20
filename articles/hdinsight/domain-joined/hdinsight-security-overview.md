@@ -6,7 +6,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: overview
-ms.date: 07/22/2019
+ms.date: 09/23/2019
 #Customer intent: As a user of Azure HDInsight, I want to learn the means that Azure HDInsight offers to ensure security for the enterprise.
 ---
 
@@ -48,13 +48,17 @@ Auditing of all access to the cluster resources, and the data, is necessary to t
 
 The admin can view and report all access to the HDInsight cluster resources and data. The admin can also view and report all changes to the access control policies created in Apache Ranger supported endpoints. 
 
-To access Apache Ranger and Ambari audit logs as well as ssh access logs, [enable Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md) and view the related auditing records.
+To access Apache Ranger and Ambari audit logs as well as ssh access logs, [enable Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md#cluster-auditing) and view the tables that provide auditing records.
 
 ### Encryption
 
 Protecting data is important for meeting organizational security and compliance requirements. Along with restricting access to data from unauthorized employees, you should encrypt it.
 
 Both data stores for HDInsight clusters, Azure Blob storage and Azure Data Lake Storage Gen1/Gen2, support transparent server-side [encryption of data](../../storage/common/storage-service-encryption.md) at rest. Secure HDInsight clusters will seamlessly work with this capability of server-side encryption of data at rest.
+
+### Compliance
+
+Azure compliance offerings are based on various types of assurances, including formal certifications, attestations, validations, authorizations, and assessments produced by independent third-party auditing firms, as well as contractual amendments, self-assessments, and customer guidance documents produced by Microsoft. For HDInsight compliance information, see the [Microsoft Trust Center](https://www.microsoft.com/trust-center) and the [Overview of Microsoft Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).
 
 ## Shared responsibility model
 
@@ -69,6 +73,7 @@ The following table provides links to resources for each type of security soluti
 | Data Access Security | Configure [access control lists ACLs](../../storage/blobs/data-lake-storage-access-control.md) for Azure Data Lake Storage Gen1 and Gen2  | Customer |
 |  | Enable the ["Secure transfer required"](../../storage/common/storage-require-secure-transfer.md) property on storage accounts. | Customer |
 |  | Configure [Azure Storage firewalls](../../storage/common/storage-network-security.md) and virtual networks | Customer |
+|  | Configure [Azure virtual network service endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) for Cosmos DB and [Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) | Customer |
 |  | Ensure [TLS encryption](../../storage/common/storage-security-tls.md) is enabled for data in transit. | Customer |
 |  | Configure [customer-managed keys](../../storage/common/storage-encryption-keys-portal.md) for Azure Storage encryption | Customer |
 | Application and middleware security | Integrate with AAD-DS and [Configure Authentication](apache-domain-joined-configure-using-azure-adds.md) | Customer |

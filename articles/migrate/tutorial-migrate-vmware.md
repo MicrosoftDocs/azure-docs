@@ -1,10 +1,10 @@
 ---
-title: Migrate on-premises VMware VMs to Azure with agentless Azure Migrate Server Migration | Microsoft Docs
-description: Describes how to perform and agentless migration of on-premises VMware VMs to Azure, using Azure Migrate.
+title: Migrate VMware VMs agentless Azure Migrate Server Migration 
+description: Learn how to run an agentless migration of VMware VMs with Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/08/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -43,12 +43,11 @@ To decide whether you want to use agentless or agent-based migration, review the
 
 Before you begin this tutorial, you should:
 
-1. [Understand](migrate-architecture.md) the VMware migration architecture.
-2. [Complete the first tutorial](tutorial-prepare-vmware.md) in this series to set up Azure and VMware for migration. Specifically, in this tutorial  you need to:
+1. [Complete the first tutorial](tutorial-prepare-vmware.md) in this series to set up Azure and VMware for migration. Specifically, in this tutorial  you need to:
     - [Prepare Azure](tutorial-prepare-vmware.md#prepare-azure) for migration.
     - [Prepare the on-premises environment](tutorial-prepare-vmware.md#prepare-for-agentless-vmware-migration) for migration.
     
-3. We recommend that you try assessing VMware VMs with Azure Migrate Server Assessment before migrating them to Azure. To set up assessment, [complete the second tutorial](tutorial-assess-vmware.md) in this series. If you don't want to assess VMs you can skip this tutorial. Although we recommend that you try out an assessment, but you don't have to run an assessment before you try a migration.
+2. We recommend that you try assessing VMware VMs with Azure Migrate Server Assessment before migrating them to Azure. To set up assessment, [complete the second tutorial](tutorial-assess-vmware.md) in this series. If you don't want to assess VMs you can skip this tutorial. Although we recommend that you try out an assessment, but you don't have to run an assessment before you try a migration.
 
 
 
@@ -121,7 +120,10 @@ Enable ssh | Ensure ssh is enabled and the sshd service is set to start automati
 
 ## Replicate VMs
 
-With discovery completed, you can begin replication of VMware VMs to Azure.
+With discovery completed, you can begin replication of VMware VMs to Azure. 
+
+> [!NOTE]
+> You can replicate up to 10 machines together. If you need to replicate more, then replicate them simultaneously in batches of 10. For agentless migration you can run up to 100 simultaneous replications.
 
 1. In the Azure Migrate project > **Servers**, **Azure Migrate: Server Migration**, click **Replicate**.
 

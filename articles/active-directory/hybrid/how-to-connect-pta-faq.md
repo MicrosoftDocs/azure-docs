@@ -39,8 +39,7 @@ No. Pass-through Authentication is only available in the worldwide instance of A
 Yes. All Conditional Access capabilities, including Azure Multi-Factor Authentication, work with Pass-through Authentication.
 
 ## Does Pass-through Authentication support "Alternate ID" as the username, instead of "userPrincipalName"?
-
-Yes, Pass-through Authentication supports `Alternate ID` as the username when configured in Azure AD Connect. As a pre-requisite, Azure AD Connect needs to synchronize the on-premises Active Directory `UserPrincipalName` attribute to Azure AD. For more information, see [Custom installation of Azure AD Connect](how-to-connect-install-custom.md). Not all Office 365 applications support `Alternate ID`. Refer to the specific application's documentation support statement.
+To a limited extent, Pass-through Authentication supports Alternate ID as the username when configured in Azure AD Connect. As a pre-requisite, Azure AD Connect needs to synchronize the on-premises Active Directory `UserPrincipalName` attribute to Azure AD. This makes the  `UserPrincipalName` on the on-premises AD and Azure AD become identical. If you would like to use another attribute to synchronize from on-premises AD as the UPN to Azure AD, you will have to use either Password Hash sync or AD FS. For more information, see [Custom installation of Azure AD Connect](how-to-connect-install-custom.md). Not all Office 365 applications support `Alternate ID`. Refer to the specific application's documentation support statement.
 
 ## Does password hash synchronization act as a fallback to Pass-through Authentication?
 

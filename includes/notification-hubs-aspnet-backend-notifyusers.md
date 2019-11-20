@@ -5,7 +5,7 @@
  author: spelluru
  ms.service: notification-hubs
  ms.topic: include
- ms.date: 03/22/2019
+ ms.date: 09/11/2019
  ms.author: spelluru
  ms.custom: include file
 ---
@@ -180,6 +180,9 @@ In this section, you add a new controller to the WebAPI backend to handle reques
         }
     }
     ```
+    > [!IMPORTANT]
+    > Enter the **name** and the **DefaultFullSharedAccessSignature** of your hub before proceeding further. 
+    
 7. Next, create a new controller named **RegisterController**. In Solution Explorer, right-click the **Controllers** folder, select **Add**, and then select **Controller**.
 
 8. Select **Web API 2 Controller - Empty**, and then select **Add**.

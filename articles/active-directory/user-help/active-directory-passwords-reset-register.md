@@ -1,6 +1,6 @@
 ---
-title: Register for self-service password reset - Azure Active Directory | Microsoft Docs
-description: Register authentication data for Azure AD self-service password reset
+title: Register authentication info to reset your own password - Azure AD
+description: Register your verification method information for Azure AD self-service password reset, so you can reset your own password without administrator help.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -16,12 +16,12 @@ ms.author: lizross
 ms.collection: M365-identity-device-management
 ---
 
-# Register for self-service password reset
+# Register your verification method info to reset your own password
 
 > [!IMPORTANT]
 > Are you here because you can't sign in? If so, see [Reset your work or school password](active-directory-passwords-update-your-own-password.md).
 
-As an end user, you can reset your password or unlock your account by yourself if you use Azure Active Directory (Azure AD) self-service password reset (SSPR). Before you can use this functionality, you have to register your authentication methods or confirm the predefined authentication methods that your administrator has populated.
+As an end user, you can reset your password or unlock your account by yourself if you use Azure Active Directory (Azure AD) self-service password reset (SSPR). Before you can use this functionality, you have to register your verification methods or confirm the predefined verification methods that your administrator has populated.
 
 ## Register or confirm authentication data with SSPR
 
@@ -34,13 +34,13 @@ As an end user, you can reset your password or unlock your account by yourself i
     * **Security Questions**: Your administrator has approved this list of questions for you to answer. You can't use the same question or answer more than once.
 4. Provide and verify the information that your administrator requires. If more than one option is available, we suggest that you register multiple methods. This gives you flexibility when one of the methods isn't available. An example is when you're traveling and you're unable to access your office phone.
 
-    ![Register authentication methods and select finish][Register]
+    ![Register verification methods and select finish][Register]
 
 5. Select **finish**. You can now use SSPR when you need to in the future.
 
 If you enter data for **Authentication Phone** or **Authentication Email**, it's not visible in the global directory. The only people who can see this data are you and your administrators. Only you can see the answers to your security questions.
 
-Your administrators might require you to confirm your authentication methods after a period of time to make sure you still have the appropriate methods registered.
+Your administrators might require you to confirm your verification methods after a period of time to make sure you still have the appropriate methods registered.
 
 ## Common problems and their solutions
 

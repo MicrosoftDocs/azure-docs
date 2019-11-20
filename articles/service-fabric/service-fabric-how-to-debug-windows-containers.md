@@ -75,4 +75,4 @@ Below is a list of known limitations with debugging containers in Service Fabric
     Visual Studio supports console and ASP.NET project types for .NET and .NET Core.
 
 ## Next steps
-To learn more about the capabilities of Service Fabric and containers, see Service Fabric containers overview](service-fabric-containers-overview.md).
+To learn more about the capabilities of Service Fabric and containers, see [Service Fabric containers overview](service-fabric-containers-overview.md).

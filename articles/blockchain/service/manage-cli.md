@@ -13,9 +13,9 @@ manager: femila
 #Customer intent: As a network operator, I want to use CLI to configure transaction nodes.
 ---
 
-# Manage Azure Blockchain Service with Azure CLI
+# Manage Azure Blockchain Service using Azure CLI
 
-In addition to the Azure portal, you can use Azure CLI to quickly create and manage blockchain members and transaction nodes for your Azure Blockchain Service.
+In addition to the Azure portal, you can use Azure CLI to manage blockchain members and transaction nodes for your Azure Blockchain Service.
 
 Make sure that you have installed the latest [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) and logged in to an Azure account in with `az login`.
 
@@ -55,7 +55,6 @@ az resource update --resource-group <myResourceGroup> --name <myMemberName> --re
 | **resource-group** | Resource group name where Azure Blockchain Service resources are created. |
 | **name** | Name that identifies your Azure Blockchain Service member. |
 | **password** | The member account password. The password must meet three of the following four requirements: length needs to be between 12 & 72 characters, 1 lower case character, 1 upper case character, 1 number, and 1 special character that is not number sign(#), percent(%), comma(,), star(*), back quote(\`), double quote("), single quote('), dash(-) and semicolon(;). |
-
 
 ## Create transaction node
 
@@ -183,7 +182,7 @@ az role assignment create --role <role> --assignee <assignee> --scope /subscript
 |---------|-------------|
 | **role** | Name of the Azure AD role. |
 | **assignee** | Azure AD user ID. For example, `user@contoso.com` |
-| **scope** | Scope of the role assignment. Can be either a blockchain member of transaction node. |
+| **scope** | Scope of the role assignment. Can be either a blockchain member or transaction node. |
 
 **Example:**
 
@@ -216,7 +215,7 @@ az role assignment create --role <role> --assignee-object-id <assignee_object_id
 |---------|-------------|
 | **role** | Name of the Azure AD role. |
 | **assignee-object-id** | Azure AD group ID or application ID. |
-| **scope** | Scope of the role assignment. Can be either a blockchain member of transaction node. |
+| **scope** | Scope of the role assignment. Can be either a blockchain member or transaction node. |
 
 **Example:**
 
@@ -239,7 +238,7 @@ az role assignment delete --role <myRole> --assignee <assignee> --scope /subscri
 |---------|-------------|
 | **role** | Name of the Azure AD role. |
 | **assignee** | Azure AD user ID. For example, `user@contoso.com` |
-| **scope** | Scope of the role assignment. Can be either a blockchain member of transaction node. |
+| **scope** | Scope of the role assignment. Can be either a blockchain member or transaction node. |
 
 ## Next steps
 

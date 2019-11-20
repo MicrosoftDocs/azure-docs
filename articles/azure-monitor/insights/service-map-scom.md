@@ -1,18 +1,13 @@
 ---
 title: Azure Monitor for VMs integration with System Center Operations Manager | Microsoft Docs
 description: Azure Monitor for VMs automatically discovers application components on Windows and Linux systems and maps the communication between services. This article discusses using the Map feature to automatically create distributed application diagrams in Operations Manager.
-services: azure-monitor
-documentationcenter: ''
+ms.service:  azure-monitor
+ms.subservice: 
+ms.topic: conceptual
 author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: e8614a5a-9cf8-4c81-8931-896d358ad2cb
-ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/12/2019
 ms.author: magoedte
+ms.date: 07/12/2019
+
 ---
 
 # System Center Operations Manager integration with Azure Monitor for VMs Map feature

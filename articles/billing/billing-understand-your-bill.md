@@ -4,12 +4,12 @@ description: Learn how to read and understand your usage and bill for your Azure
 author: bandersmsft
 manager: dougeby
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/28/2019
+ms.date: 10/01/2019
 ms.author: banders
 ---
 

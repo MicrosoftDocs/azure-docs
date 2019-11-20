@@ -1,5 +1,5 @@
 ---
-title: Download a Windows VHD from Azure | Microsoft Docs
+title: Download a Windows VHD from Azure 
 description: Download a Windows VHD using the Azure portal.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.assetid:
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
+
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn

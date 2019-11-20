@@ -1,5 +1,5 @@
 ---
-title: Azure availability options for Linux VMs | Microsoft Docs
+title: Azure availability options for Linux VMs 
 description: Learn about the availability features for running Linux virtual machines in Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -8,7 +8,7 @@ manager: jeconnoc
 editor: ''
 
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
@@ -17,5 +17,6 @@ ms.author: cynthn
 
 ---
 
+# Availability options for virtual machines in Azure
 [!INCLUDE [virtual-machines-common-availability](../../../includes/virtual-machines-common-availability.md)]
 
