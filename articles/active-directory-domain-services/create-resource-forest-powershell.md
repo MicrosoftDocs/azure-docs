@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 11/20/2019
 ms.author: iainfou
 
 #Customer intent: As an identity administrator, I want to create an Azure AD Domain Services resource forest and one-way outbound forest from an Azure Active Directory Domain Services resource forest to an on-premises Active Directory Domain Services forest using Azure PowerShell to provide authentication and resource access between forests.
@@ -133,12 +133,14 @@ New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 
 ## Create an Azure AD DS resource forest
 
+To create an Azure AD DS resource forest, you use the `New-AaddsForest` cmdlet. This cmdlet is part of a wider set of cmdlets that support creating and managing Azure AD DS resource forests, including create the one-way bound forest in a following section. These cmdlets are available from the [PowerShell Gallery](https://www.powershellgallery.com/).
+
 1. First, create a resource group using the [New-AzResourceGroup][New-AzResourceGroup] cmdlet. In the following example, the resource group is named *myResourceGroup* and is created in the *westus* region. Use your own name and desired region:
 
     ```azure-powershell
     New-AzResourceGroup `
       -Name "myResourceGroup" `
-      -Location "westus"
+      -Location "WestUS"
     ```
 
 1. Review the following parameters needed for the `New-AaddsForest` cmdlet. Make sure you also have the prerequisite **Azure PowerShell** and **Azure AD PowerShell** modules. Make sure you have planned the virtual network requirements to provide application and on-premises connectivity.
@@ -147,7 +149,7 @@ New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
     |:-----------------------------|---------------------------|:------------|
     | Subscription                 | *-azureSubscriptionId*    | Subscription ID used for Azure AD DS billing. You can get the list of subscriptions using the [Get-AzureRMSubscription][Get-AzureRMSubscription] cmdlet. |
     | Resource Group               | *-aaddsResourceGroupName* | Name of the resource group for the Azure AD DS instance and associated resources. |
-    | Location                     | *-aaddsLocation*          | The Azure region to host your Azire AD DS instance. For available regions, see [supported regions for Azure AD DS.](https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds&regions=all) |
+    | Location                     | *-aaddsLocation*          | The Azure region to host your Azure AD DS instance. For available regions, see [supported regions for Azure AD DS.](https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds&regions=all) |
     | Azure AD DS administrator    | *-aaddsAdminUser*         | The user principal name of the first Azure AD DS administrator. This account must be an existing cloud user account in your Azure Active Directory. The user, and the user running the cmdlet, is added to the *AAD DC Administrators* group. |
     | Azure AD DS domain name      | *-aaddsDomainName*        | The FQDN of the Azure AD DS instance, based on the previous guidance on how to choose a forest name. |
 
@@ -168,7 +170,7 @@ New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
     New-AaddsForest `
         -azureSubscriptionId <subscriptionId> `
         -aaddsResourceGroupName "myResourceGroup" `
-        -aaddsLocation "West US" `
+        -aaddsLocation "WestUS" `
         -aaddsAdminUser "contosoadmin@contoso.com" `
         -aaddsDomainName "rf.aaddscontoso.com" `
         -aaddsVnetName "myVnet" `
@@ -182,6 +184,8 @@ New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
     It takes quite some time to create the Azure AD DS resource forest and supporting resources. Allow the cmdlet to complete. Continue on to the next section to configure your on-premises network connectivity while the Azure AD resource forest provisions in the background.
 
 ## Configure and validate network settings
+
+As the Azure AD DS continues to deploy, configure and validate the hybrid network connectivity to the on-premises datacenter. You also need a management VM to use with Azure AD DS for regular maintenance. Some of the hybrid connectivity may already exist in your environment, or you may need to work with others in your team to configure the connections.
 
 1. Create the hybrid connectivity to your on-premises network to Azure using an Azure VPN or Azure ExpressRoute connection. The hybrid network configuration is beyond the scope of this documentation, and may already exist in your environment. For details on specific scenarios, see the following articles:
 
