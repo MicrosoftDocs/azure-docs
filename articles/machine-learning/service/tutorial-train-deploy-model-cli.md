@@ -429,7 +429,7 @@ This command returns a JSON document that contains the name of the deleted servi
 
 ### Delete the training compute
 
-If you plan on continuing to use the Azure Machine Learning workspace, but want to get rid of the `cpu` compute target created for training, use the following command:
+If you plan on continuing to use the Azure Machine Learning workspace, but want to get rid of the `cpu-compute` compute target created for training, use the following command:
 
 ```azurecli-interactive
 az ml computetarget delete -n cpu
