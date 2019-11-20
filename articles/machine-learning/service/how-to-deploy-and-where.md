@@ -576,7 +576,8 @@ For more information, see these documents:
 Deployment uses the inference configuration deployment configuration to deploy the models. The deployment process is similar regardless of the compute target. Deploying to AKS is slightly different because you must provide a reference to the AKS cluster.
 
 ### Securing deployments with SSL
-Please see [this document](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-secure-web-service#enable) for more information on how to secure your web service deployments.
+
+For more information on how to secure a web service deployment, see [Use SSL to secure a web service](how-to-secure-web-service.md#enable).
 
 ### <a id="local"></a> Local deployment
 
