@@ -119,7 +119,7 @@ All client libraries, by default, use the Tomcat-native Boring SSL library to en
 
 ### Create an App Configuration Store
 
-To create a Configuration Store, you can use the Azure Portal or [Azure CLI][azure_cli].
+To create a Configuration Store, you can use the Azure portal or [Azure CLI][azure_cli].
 
 First you need to install the Azure App Configuration CLI extension by executing the following command:
 
@@ -145,7 +145,7 @@ Use the [Azure CLI][azure_cli] snippet below to get the connection string from t
 az appconfig credential list --name <config-store-name>
 ```
 
-Alternatively, get the connection string from the Azure Portal.
+Alternatively, get the connection string from the Azure portal.
 
 #### Create a Configuration Client
 
