@@ -217,7 +217,7 @@ Java functions can also be triggered when a message is added to a Service Bus to
 
 ---
 
-## Trigger - attributes
+## Trigger - attributes and annotations
 
 # [C#](#tab/csharp)
 
@@ -278,13 +278,17 @@ The Service Bus account to use is determined in the following order:
 * The `ServiceBusAccount` attribute applied to the class.
 * The "AzureWebJobsServiceBus" app setting.
 
+# [C# Script](#tab/csharp-script)
+
+Attributes are not supported by C# Script.
+
 # [JavaScript](#tab/javascript)
 
-**TODO**
+Attributes are not supported by JavaScript.
 
 # [Python](#tab/python)
 
-**TODO**
+Attributes are not supported by Python.
 
 # [Java](#tab/java)
 
