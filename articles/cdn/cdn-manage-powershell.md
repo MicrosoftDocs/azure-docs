@@ -39,8 +39,6 @@ PS C:\> Get-Command -Module Az.Cdn
 
 CommandType     Name                                               Version    Source
 -----------     ----                                               -------    ------
-Alias           Get-AzCdnEdgeNodes                                 1.4.0      Az.Cdn
-Alias           Validate-AzCdnCustomDomain                         1.4.0      Az.Cdn
 Cmdlet          Confirm-AzCdnEndpointProbeURL                      1.4.0      Az.Cdn
 Cmdlet          Disable-AzCdnCustomDomain                          1.4.0      Az.Cdn
 Cmdlet          Disable-AzCdnCustomDomainHttps                     1.4.0      Az.Cdn
