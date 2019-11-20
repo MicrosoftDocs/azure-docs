@@ -11,7 +11,9 @@ ms.date: 11/18/2019
 
 # Ingest json formatted sample data into Azure Data Explorer
 
-This article shows you how to ingest json formatted data into an Azure Data Explorer database. This article will start with a simple example of a flattened json and build up to more complex json schemas containing arrays and dictionaries. In the following examples, Use Kusto query language for testing purposes only. For production scenarios, use client libraries or data connections. In this situations the data management service aggregates data, according to the [batching policy](/azure/kusto/concepts/batchingpolicy), resulting in a latency of a few minutes.
+This article shows you how to ingest json formatted data into an Azure Data Explorer database. This article will start with a simple example of a flattened json and build up to more complex json schemas containing arrays and dictionaries. In the following examples, Use Kusto query language for testing purposes only. For production scenarios, use client libraries or data connections. Read [Ingest data using the Azure Data Explorer Python library](/azure/data-explorer/python-ingest-data) and [Ingest data using the Azure Data Explorer .NET Standard SDK](https://docs.microsoft.com/en-us/azure/data-explorer/net-standard-ingest-data) for a walk-through regarding ingesting data with these client libraries.
+
+In this situations the data management service aggregates data, according to the [batching policy](/azure/kusto/concepts/batchingpolicy), resulting in a latency of a few minutes.
 \\TODO\\ Target service is the Data Management service which is ingest-YourService (The ingest process executed against the Data Management endpoint: https://ingest-[YourClusterName].[region].kusto.windows.net. The command requires [database or ingestor admin permissions](/azure/kusto/management/access-control/role-based-authorization) on the relevant database.\\
 
 \\TODO: Add code sample (C# + Python + KQL with comment) - all places.\\ 
@@ -315,6 +317,7 @@ Use Python to ingest data in raw json format.
 
 ## Ingest multi-lined json records
 
+# [KQL](#tab/kusto-query-language)
 1. Ingest data into the table `Events`.
 
     ```Kusto
@@ -322,6 +325,25 @@ Use Python to ingest data in raw json format.
     ```
 
     The file *multilined.json* has a few indented json records. The format `multijson` tells the engine to read records by the json structure.
+
+# [C#](#tab/c-sharp)
+    1. Ingest data into the table `Events`.
+
+    ```C#
+    
+    ```
+
+    The file *multilined.json* has a few indented json records. The format `multijson` tells the engine to read records by the json structure.
+
+# [Python](#tab/python)
+     1. Ingest data into the table `Events`.
+
+    ```Python
+    
+    ```
+
+    The file *multilined.json* has a few indented json records. The format `multijson` tells the engine to read records by the json structure.
+---
 
 ## Ingest json records containing arrays
 
@@ -349,6 +371,7 @@ Ingestion of a json array is usually done by an [update policy](/azure/kusto/man
 }
 ```
 
+# [KQL](#tab/kusto-query-language)
 1. Create an update function that expands the collection of `records` so that each value in the collection receives a separate row, using the mv-expand operator. We will use table `RawEvents` as a source table and `Events` as a target table.
 
     ```Kusto
@@ -388,6 +411,23 @@ Ingestion of a json array is usually done by an [update policy](/azure/kusto/man
     Events
     ```
 
+# [C#](#tab/c-sharp)
+   
+
+    ```C#
+    
+    ```
+
+
+# [Python](#tab/python)
+
+
+    ```Python
+    
+    ```
+
+---    
+
 ## Ingest json records containing dictionaries
 
 Referring key value pairs in a json record can be done by ingestion mapping. You can ingest data with the following structure:
@@ -420,6 +460,7 @@ Referring key value pairs in a json record can be done by ingestion mapping. You
 }
 ```
 
+# [KQL](#tab/kusto-query-language)
 1. Create a json mapping
 
     ```Kusto
@@ -448,3 +489,19 @@ Referring key value pairs in a json record can be done by ingestion mapping. You
     Events
     ```
 
+# [C#](#tab/c-sharp)
+   
+
+    ```C#
+    
+    ```
+
+
+# [Python](#tab/python)
+
+
+    ```Python
+    
+    ```
+
+---    
