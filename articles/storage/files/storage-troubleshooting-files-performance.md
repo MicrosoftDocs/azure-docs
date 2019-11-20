@@ -53,6 +53,7 @@ To confirm if most of your requests are metadata centric, you can use the same s
 ### Workaround
 
 - Check if the application can be modified to reduce the number of metadata operations.
+- Add a VHD on the file share and mount VHD over SMB from the client to perform files operations against the data. This approach works for single writer and multiple readers scenarios and allows metadata operations to be local, offering performance similar to a local direct-attached storage.
 
 ### Cause 3: Single-threaded application
 

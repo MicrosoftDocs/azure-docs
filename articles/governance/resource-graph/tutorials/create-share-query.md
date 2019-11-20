@@ -1,6 +1,6 @@
 ---
-title: Create and share a query in Azure portal
-description: In this tutorial, learn to create a Resource Graph Query and share it with others in the Azure portal.
+title: "Tutorial: Manage queries in Azure portal"
+description: In this tutorial, you create a Resource Graph Query and share the new query with others in the Azure portal.
 ms.date: 10/23/2019
 ms.topic: tutorial
 ---

@@ -1,6 +1,6 @@
 ---
 title: What is Azure Load Balancer?
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Overview of Azure Load Balancer features, architecture, and implementation. Learn how the Load Balancer works and leverage it in the cloud.
 services: load-balancer
 documentationcenter: na
