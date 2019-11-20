@@ -93,7 +93,7 @@ In this quickstart, you use a sample IoT solution in Java to interact with the s
 
 ### Read a property
 
-1. When you connected the _device_ in its terminal, you saw the following message indicating its online status:
+1. When you connected the _device_ in its terminal, you saw the following message indicating its online status. The `state` property, which is used to indicate whether or not the device is online, is _true_:
 
     ```cmd/sh
     State of environmental sensor was set to true
@@ -105,12 +105,20 @@ In this quickstart, you use a sample IoT solution in Java to interact with the s
     java -jar service-samples/get-digital-twin/target/get-digital-twin-with-deps.jar
     ```
 
-1. In the _service_ terminal output, scroll to the `environmentalSensor` component. You see that the `state` property, which is used to indicate whether or not the device is online, has been reported as _true_:
+1. In the _service_ terminal output, scroll to the `environmentalSensor` component. You see that the `state` property has been reported as _true_:
     ```JSON
-    "state": {
-      "reported": {
-        "value": "true"
+    "environmentalSensor" : {
+      "name" : "environmentalSensor",
+      "properties" : {
+        "state" : {
+          "reported" : {
+            "value" : true,
+            "desiredState" : null
+          },
+          "desired" : null
+        }
       }
+    }
     ```
 
 ### Update a writable property
