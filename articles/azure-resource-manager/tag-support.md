@@ -2,7 +2,7 @@
 title: Tag support for resources
 description: Shows which Azure resource types support tags. Provides details for all Azure services.
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 11/20/2019
 ---
 
 # Tag support for Azure resources
@@ -1617,12 +1617,7 @@ Jump to a resource provider namespace:
 > | notifyResourceJobs | No | No |
 > | providers | No | No |
 > | resourceGroups | Yes | No |
-> | resources | No | No |
 > | subscriptions | No | No |
-> | subscriptions / providers | No | No |
-> | subscriptions / resources | No | No |
-> | subscriptions / tagnames | No | No |
-> | subscriptions / tagNames / tagValues | No | No |
 > | tenants | No | No |
 
 ## Microsoft.SaaS

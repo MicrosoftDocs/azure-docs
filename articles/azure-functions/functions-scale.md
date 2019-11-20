@@ -1,14 +1,9 @@
 ---
-title: Azure Functions scale and hosting | Microsoft Docs
+title: Azure Functions scale and hosting 
 description: Learn how to choose between Azure Functions Consumption plan and Premium plan.
-author: ggailey777
-manager: gwallace
-keywords: azure functions, functions,  consumption plan, premium plan, event processing, webhooks, dynamic compute, serverless architecture
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/27/2019
-ms.author: glenga
 
 ms.custom: H1Hack27Feb2017
 
