@@ -96,7 +96,7 @@ A managed bot protection rule set can be enabled for your WAF to take custom act
 
 [!IMPORTANT] Bot protection rule set is currently in public preview and is provided with a preview service level agreement. Certain features may not be supported or may have constrained capabilities. See the Supplemental Terms of Use for Microsoft Azure Previews for details.
 
-If Bot Protection is enabled, incoming requests that match bot rules are logged at FrontdoorWebApplicationFirewallLog log. You may access WAF logs from storage account, event hub or log analytics.
+If bot protection is enabled, incoming requests that match bot rules are logged at the FrontdoorWebApplicationFirewallLog log. You may access WAF logs from a storage account, event hub, or log analytics.
 
 
 
