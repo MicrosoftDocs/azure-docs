@@ -142,7 +142,7 @@ For SCIM applications, the attribute name must follow the pattern shown in the e
 
 These instructions are only applicable to SCIM enabled applications. Applications such as ServiceNow and Salesforce are not integrated with Azure AD using SCIM and therefore do not require this specific namespace when adding a custom attribute
 
-Custom attributes cannot be referential attributes or multi-value attributes. Work is in progress to support custom multi value extension attributes on a custom app. They are currently only supported on applications in the gallery.  
+Custom attributes can't be referential attributes or multi-value attributes. Custom multi-value extension attributes are currently supported only for applications in the gallery.  
  
 **Example representation of a user with an extension attribute:**
 
