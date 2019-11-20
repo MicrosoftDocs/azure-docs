@@ -1,6 +1,5 @@
 ---
 title: "GitHub Actions & Azure Kubernetes Service"
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.date: 11/04/2019
 ms.topic: conceptual
