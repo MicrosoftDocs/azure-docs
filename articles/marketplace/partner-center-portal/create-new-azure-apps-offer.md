@@ -7,7 +7,7 @@ ms.author: v-qiwe
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/11/2019
+ms.date: 11/21/2019
 ---
 
 # Create an Azure application offer
@@ -227,7 +227,7 @@ In this section, you can provide logos and images that will be used when showing
 
 #### Store logos
 
-Provide your offer's logo in two sizes: **Small (48 x 48)** and **Large (216 x 216)**.
+Provide your offer's logo in three sizes: **Small (48 x 48)**, **Medium (90 X 90)**, and **Large (216 x 216)**.
 
 #### Hero
 
@@ -235,7 +235,7 @@ The hero image is optional. If you provide one, it must measure 815 x 290 pixels
 
 #### Screenshots
 
-Add screenshots that show how your offer works. At least three screenshots are required, and you can add up to five. All screenshots must be 1280 x 720 pixels.
+Add screenshots that show how your offer works. You can add up to five screenshots. All screenshots must be 1280 x 720 pixels.
 
 #### Videos
 

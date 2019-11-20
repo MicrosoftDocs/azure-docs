@@ -24,6 +24,9 @@ The PR that contains specific details about the submission will be mentioned in 
 
 ## Azure DevOps access
 
+All users with access to the “developer” role in Partner Center will have access to view the PR items referenced in review feedback.
+
+<!---
 To view the PR items referenced in review feedback, publishers must first be granted proper authorization. Otherwise, new publishers receive a 401 - Not Authorized response page when trying to view PRs. To request access to this Azure DevOps repository, perform the following steps:
 
 1. Collect the following information:
@@ -39,7 +42,7 @@ To view the PR items referenced in review feedback, publishers must first be gra
 1. In **Step 1 of 2** page, supply your contact information and select **Continue**.
 1. In **Step 2 of 2** page, specify an incident title (for example Request Azure DevOps access) and supply the information you collected in the first step (above). Read and accept the agreement, then select **Submit**.
 
-If the incident creation was successful, a confirmation page is displayed. Save the confirmation information on this page for your reference. The Microsoft Support Team should reply to your access request within a few business days.
+If the incident creation was successful, a confirmation page is displayed. Save the confirmation information on this page for your reference. The Microsoft Support Team should reply to your access request within a few business days. --->
 
 ## Reviewing the pull request
 
