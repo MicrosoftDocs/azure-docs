@@ -1,6 +1,6 @@
 ---
 title: Azure Kinect known issues and troubleshooting
-description: Known issues and troubleshooting Azure Kinect device
+description: Learn about some of the known issues and troubleshooting tips when using the Sensor SDK with Azure Kinect DK.
 author: tesych
 ms.author: tesych
 ms.prod: kinect-dk

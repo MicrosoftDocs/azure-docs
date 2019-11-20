@@ -1,13 +1,8 @@
 ---
-title: Troubleshoot SQL Server database backup by using Azure Backup | Microsoft Docs
+title: Troubleshoot SQL Server database backup 
 description: Troubleshooting information for backing up SQL Server databases running on Azure VMs with Azure Backup.
-ms.reviewer: anuragm
-author: dcurwin
-manager: carmonm
-ms.service: backup
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.author: dacurwin
 ---
 
 # Troubleshoot SQL Server database backup by using Azure Backup
@@ -22,11 +17,11 @@ To configure protection for a SQL Server database on a virtual machine, you must
 
 ## Error messages
 
-### Backup Type Unsupported
+### Backup type unsupported
 
 | Severity | Description | Possible causes | Recommended action |
 |---|---|---|---|
-| Warning | Current settings for this database don't support certain backup types present in the associated policy. | <li>Only a full database backup operation can be performed on the master database. Neither differential backup nor transaction log backup is possible. </li> <li>Any database in the simple recovery model does not allow for the backup of transaction logs.</li> | Modify the database settings such that all the backup types in the policy are supported. Or, change the current policy to include only the supported backup types. Otherwise, the unsupported backup types will be skipped during scheduled backup or the backup job will fail for ad hoc backup.
+| Warning | Current settings for this database don't support certain backup types present in the associated policy. | <li>Only a full database backup operation can be performed on the master database. Neither differential backup nor transaction log backup is possible. </li> <li>Any database in the simple recovery model does not allow for the backup of transaction logs.</li> | Modify the database settings such that all the backup types in the policy are supported. Or, change the current policy to include only the supported backup types. Otherwise, the unsupported backup types will be skipped during scheduled backup or the backup job will fail for on-demand backup.
 
 ### UserErrorSQLPODoesNotSupportBackupType
 
@@ -45,7 +40,7 @@ To configure protection for a SQL Server database on a virtual machine, you must
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-| Log chain is broken. | The database or the VM is backed up through another backup solution, which truncates the log chain.|<ul><li>Check if another backup solution or script is in use. If so, stop the other backup solution. </li><li>If the backup was an ad hoc log backup, trigger a full backup to start a new log chain. For scheduled log backups, no action is needed because the Azure Backup service will automatically trigger a full backup to fix this issue.</li>|
+| Log chain is broken. | The database or the VM is backed up through another backup solution, which truncates the log chain.|<ul><li>Check if another backup solution or script is in use. If so, stop the other backup solution. </li><li>If the backup was an on-demand log backup, trigger a full backup to start a new log chain. For scheduled log backups, no action is needed because the Azure Backup service will automatically trigger a full backup to fix this issue.</li>|
 
 ### UserErrorOpeningSQLConnection
 
@@ -57,7 +52,7 @@ To configure protection for a SQL Server database on a virtual machine, you must
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-| First full backup is missing for this data source. | Full backup is missing for the database. Log and differential backups are parents to a full backup, so be sure to take full backups before triggering differential or log backups. | Trigger an ad hoc full backup.   |
+| First full backup is missing for this data source. | Full backup is missing for the database. Log and differential backups are parents to a full backup, so be sure to take full backups before triggering differential or log backups. | Trigger an on-demand full backup.   |
 
 ### UserErrorBackupFailedAsTransactionLogIsFull
 

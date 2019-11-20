@@ -1,5 +1,5 @@
 ---
-title: About cryptographic requirements and Azure VPN gateways | Microsoft Docs
+title: 'Azure VPN Gateway: Cryptographic requirements'
 description: This article discusses cryptographic requirements and Azure VPN gateways 
 services: vpn-gateway
 author: yushwang

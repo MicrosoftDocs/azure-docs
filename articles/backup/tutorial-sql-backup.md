@@ -1,14 +1,8 @@
 ---
 title: Tutorial - Back up SQL Server databases to Azure 
 description: In this tutorial, learn how to back up a SQL Server database running on an Azure VM to an Azure Backup Recovery Services vault.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
-ms.author: dacurwin
-
-
 ---
 # Back up a SQL Server database in an Azure VM
 
@@ -19,7 +13,7 @@ This tutorial shows you how to back up a SQL Server database running on an Azure
 > * Create and configure a vault.
 > * Discover databases, and set up backups.
 > * Set up auto-protection for databases.
-> * Run an ad-hoc backup.
+> * Run an on-demand backup.
 
 ## Prerequisites
 
@@ -98,7 +92,7 @@ Discover databases running on the VM.
 
     ![Deployment success message](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
-8. Azure Backup discovers all SQL Server databases on the VM. During discovery the below occurs in the background:
+8. Azure Backup discovers all SQL Server databases on the VM. During discovery the following occurs in the background:
 
     * Azure Backup register the VM with the vault for workload backup. All databases on the registered VM can only be backed up to this vault.
     * Azure Backup installs the **AzureBackupWindowsWorkload** extension on the VM. No agent is installed on the SQL database.
@@ -211,7 +205,7 @@ To create a backup policy:
 
 14. After you complete the edits to the backup policy, select **OK**.
 
-## Run an ad-hoc backup
+## Run an on-demand backup
 
 1. In your Recovery Services vault, choose Backup items.
 2. Click on "SQL in Azure VM".
@@ -229,7 +223,7 @@ In this tutorial, you used the Azure portal to:
 > * Create and configure a vault.
 > * Discover databases, and set up backups.
 > * Set up auto-protection for databases.
-> * Run an ad-hoc backup.
+> * Run an on-demand backup.
 
 Continue to the next tutorial to restore an Azure virtual machine from disk.
 

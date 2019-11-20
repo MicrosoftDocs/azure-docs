@@ -1,16 +1,7 @@
 ---
-title: Continuous integration with Azure Pipelines | Microsoft Docs
+title: Continuous integration with Azure Pipelines
 description: Learn how to continuously build, test, and deploy Azure Resource Manager templates.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: carmonm
-editor:
-
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 10/29/2019
 ms.topic: tutorial
 ms.author: jgao
