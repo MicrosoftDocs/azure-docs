@@ -36,7 +36,7 @@ Delegating a subnet to specific services provides the following advantages:
 ## Who can delegate?
 Subnet delegation is an exercise that the virtual network owners need to perform to designate one of the subnets for a specific Azure Service. Azure Service in turn deploys the instances into this subnet for consumption by the customer workloads.
 
-## What subnet delegation can do to your subnet?
+## Impact of subnet delegation on your subnet
 Each Azure service defines their own deployment model, where they can define what properties they do or do not support in a delegated subnet for injection purposes, such as follows:
 - shared subnet with other Azure Services or VM / virtual machine scale set in the same subnet, or it only supports a dedicated subnet with only instances of this service in it.
 - supports NSG association with the delegated subnet.
@@ -51,7 +51,7 @@ Injected services can also add their own policies as follows:
 - **Security policies**: Collection of security rules required for a given service to work.
 - **Route policies**: Collection of routes required for a given service to work.
 
-## What subnet delegation cannot do to your subnet?
+## What subnet delegation does not do
 
 The Azure services being injected into a delegated subnet still have the basic set of properties that are available for non-delegated subnets, such as:
 -  Azure services can inject instances into customer subnets, but cannot impact the existing workloads.
