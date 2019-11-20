@@ -39,19 +39,23 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 
 #### Add modules
 
-1. In the **IoT Edge Modules** section of the page, click the **Add** dropdown and select **IoT Edge Module** to display the **Add IoT Edge Module** page.
+1. In the **IoT Edge Modules** section of the page, click the **Add** dropdown and select **IoT Edge Module** to display the **Add IoT Edge Module** page. 
+
+   You will specify values for **Module Settings**, **Container Create Options**, and the **Module Twin Settings** tabs before selecting **Add**.
 
 2. On the **Module Settings** tab, provide a name for the module and then specify the container image:
 
    ![Module Twin Settings](./media/how-to-deploy-blob/addmodule-tab1.png)
 
-   - **IoT Edge Module Name** - `azureblobstorageoniotedge`
-   - **Image URI** - `mcr.microsoft.com/azure-blob-storage:latest`
+   Examples:
+  
+   - **IoT Edge Module Name**: `azureblobstorageoniotedge`
+   - **Image URI**: `mcr.microsoft.com/azure-blob-storage:latest`
 
    > [!IMPORTANT]
    > Azure IoT Edge is case-sensitive when you make calls to modules, and the Storage SDK also defaults to lowercase. Although the name of the module in the [Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace) is **AzureBlobStorageonIoTEdge**, changing the name to lowercase helps to ensure that your connections to the Azure Blob Storage on IoT Edge module aren't interrupted.
 
-3. On the  **Container Create Options** tab, add your storage account information and a mount for the storage on your device. Copy and paste the following JSON into the box, referring to the placeholder descriptions in the next step.
+3. On the **Container Create Options** tab, add your storage account information and a mount for the storage on your device. Copy and paste the following JSON into the box, referring to the placeholder descriptions in the next step.
 
    ![Module Twin Settings](./media/how-to-deploy-blob/addmodule-tab3.png)
 
@@ -74,8 +78,6 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 
 4. Update the JSON that you copied with the following information:
 
-   - Replace `<your storage account name>` with a name that you can remember. Account names should be 3 to 24 characters long with lowercase letters and numbers. No spaces.
-
    - Replace `<your storage account name>` with a name that you can remember. Account names should be 3 to 24 characters long, with lowercase letters and numbers. No spaces.
 
    - Replace `<your storage account key>` with a 64-byte base64 key. You can generate a key with tools like [GeneratePlus](https://generate.plus/en/base64). You'll use these credentials to access the blob storage from other modules.
@@ -93,11 +95,13 @@ A deployment manifest is a JSON document that describes which modules to deploy,
      > [!IMPORTANT]
      > Do not change the second half of the storage mount value, which points to a specific location in the module. The storage mount should always end with **:/blobroot** for Linux containers and **:C:/BlobRoot** for Windows containers.
 
-5. On the **Module Twin Settings** tab, set the [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) and [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties) properties for your module by copying the following JSON and pasting it into the box.
+5. On the **Module Twin Settings** tab, copying the following JSON and pasting it into the box.
 
    ![Module Twin Settings](./media/how-to-deploy-blob/addmodule-tab4.png)
 
-   Configure each property with an appropriate value, save it, and continue with the deployment. If you are using the IoT Edge simulator, set the values to the related environment variables for these properties, which you can find in the explanation section of [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) and [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties).
+   This JSON defines the the [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) and [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties) properties for your module.
+  
+   Configure each property with an appropriate value, as indicated by the placeholders. If you are using the IoT Edge simulator, set the values to the related environment variables for these properties as described by [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) and [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties).
 
    ```json
    {
@@ -125,23 +129,23 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 
    For information on configuring deviceToCloudUploadProperties and deviceAutoDeleteProperties after your module has been deployed, see [Edit the Module Twin](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin). For more information about desired properties, see [Define or update desired properties](module-composition.md#define-or-update-desired-properties).
 
-6. Select **Save**.
+6. Select **Add**.
 
-7. Select **Next** to continue to the routes section.
+7. Select **Next: Routes** to continue to the routes section.
 
 #### Specify routes
 
-Keep the default routes, and select **Next** to continue to the review section.
+Keep the default routes and select **Next: Review + create** to continue to the review section.
 
 #### Review deployment
 
 The review section shows you the JSON deployment manifest that was created based on your selections in the previous two sections. There are also two modules declared that you didn't add: **$edgeAgent** and **$edgeHub**. These two modules make up the [IoT Edge runtime](iot-edge-runtime.md) and are required defaults in every deployment.
 
-Review your deployment information, then select **Submit**.
+Review your deployment information, then select **Create**.
 
 ### Verify your deployment
 
-After you submit the deployment, you return to the **IoT Edge** page of your IoT hub.
+After you create the deployment, you return to the **IoT Edge** page of your IoT hub.
 
 1. Select the IoT Edge device that you targeted with the deployment to open its details.
 1. In the device details, verify that the blob storage module is listed as both **Specified in deployment** and **Reported by device**.
