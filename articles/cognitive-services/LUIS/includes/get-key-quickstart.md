@@ -10,7 +10,7 @@ ms.date: 11/20/2019
 ms.author: diberry
 ---
 
-Access to the keys and endpoints is provided in the LUIS portal in the Manage Section on the Azure Resources page. 
+Keys and endpoints are provided in the LUIS portal in the **Manage Section** on the **Azure Resources** page. 
  
 1. Sign in to the [LUIS portal](https://preview.luis.ai/). 
 1. Create a new app, or select an existing app from the apps list.
