@@ -102,7 +102,7 @@ If instead of Netty it is preferable to use OkHTTP, there is a HTTP client avail
 
 ### Configuring HTTP Clients
 
-When an HTTP client is included on the classpath, as shown above, it is not necessary to specify it in the client library builders, unless you want to customize the HTTP client in some fashion. If this is desired, the `httpClient` builder method is often available to achieve just this, by allowing users to provide a custom (or customized) `com.azure.core.http.HttpClient` instances.
+When a HTTP client is included on the classpath, as shown above, it is not necessary to specify it in the client library builders, unless you want to customize the HTTP client in some fashion. If this is desired, the `httpClient` builder method is often available to achieve just this, by allowing users to provide a custom (or customized) `com.azure.core.http.HttpClient` instances.
 
 For starters, by having the Netty or OkHTTP dependencies on your classpath, as shown above, you can create new instances of these `HttpClient` types using their builder APIs. For example, here is how you would create a Netty HttpClient instance:
 
@@ -121,7 +121,7 @@ All client libraries, by default, use the Tomcat-native Boring SSL library to en
 
 To create a Configuration Store, you can use the Azure Portal or [Azure CLI][azure_cli].
 
-You need to install the Azure App Configuration CLI extension first by executing the following command:
+First you need to install the Azure App Configuration CLI extension by executing the following command:
 
 ```Powershell
 az extension add -n appconfig
@@ -195,7 +195,7 @@ try {
 
 ```
 
-An application that has a large set of configurations that it needs to periodically update is be better suited using the asynchronous client, for example all settings with a specific label are periodically updated.
+For an application that has a large set of configurations and was periodic updates, it is better suited to use the asynchronous client, for example all settings with a specific label are periodically updated.
 
 ```Java
 ConfigurationAsyncClient client = new ConfigurationClientBuilder()
@@ -343,7 +343,7 @@ This project welcomes contributions and suggestions. Most contributions require 
 
 When you submit a pull request, a CLA-bot will automatically determine whether you need to provide a CLA and decorate the PR appropriately (e.g., label, comment). Follow the instructions provided by the bot. You will only need to do this once across all repos using our CLA.
 
-This project has adopted the [Microsoft Open Source Code of Conduct][coc]. For more information see the [Code of Conduct FAQ][coc_faq] or contact [opencode@microsoft.com][coc_contact] with any additional questions or comments.
+This project has adopted the [Microsoft Open Source Code of Conduct][coc]. For more information, see the [Code of Conduct FAQ][coc_faq] or contact [opencode@microsoft.com][coc_contact] with any additional questions or comments.
 
 <!-- LINKS -->
 [api_documentation]: https://aka.ms/java-docs
