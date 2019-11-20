@@ -15,13 +15,45 @@ ms.author: diberry
 
 # What is Language Understanding (LUIS)?
 
-Language Understanding (LUIS) is a cloud-based API service that applies custom machine-learning intelligence to a user's conversational, natural language text to predict overall meaning, and pull out relevant, detailed information. 
+Language Understanding (LUIS) is a cloud-based API service that applies custom machine-learning intelligence to natural language text to predict overall meaning, and pull out relevant, detailed information. 
 
-A client application for LUIS is any conversational application that communicates with a user in natural language to complete a task. Examples of client applications include social media apps, chat bots, and speech-enabled desktop applications.  
+Example - 
+
+Client application sends - “find me a wireless keyboard for $30”
+
+LUIS responds - 
+```JSON
+{
+    "query": "find me a wireless keyboard for $30",
+    "prediction": {
+        "topIntent": "Finditem",
+        "intents": {
+            "Finditem": {
+                "score": 0.934672
+            }
+        },
+        "entities": {
+            "item": [
+                "wireless keyboard"
+            ],
+            "money": [
+        {
+            "number": 30,
+            "units": "Dollar"
+        }
+           ]
+        }
+        
+    }
+}
+```
+In the example above, the intent, or overall meaning of the phrase is the user is trying to find an item. The detailed information that LUIS can pull out are what we call entities. In this case it's the name of the item the user is looking for and the amount of money they want to spend.
+
+Client applications use the categorization, or itent and detailed information, or entities, returned by LUIS to drive actions in the application. Examples of client applications include social media apps, chat bots, and speech-enabled desktop applications. A client application for LUIS is often a conversational application that communicates with a user in natural language to complete a task. 
 
 ![Conceptual image of 3 client applications working with Cognitive Services Language Understanding (LUIS)](./media/luis-overview/luis-entry-point.png "Conceptual image of 3 client applications working with Cognitive Services Language Understanding (LUIS)")
 
-## Use LUIS in a chat bot
+## Example use LUIS in a chat bot
 
 <a name="Accessing-LUIS"></a>
 
@@ -43,16 +75,16 @@ The LUIS app provides intelligence so the client application can make smart choi
 
 ## Natural language processing
 
-Your LUIS app contains a domain-specific natural language model. You can start the LUIS app with a prebuilt domain model, build your own model, or blend pieces of a prebuilt domain with your own custom information.
+Your LUIS app contains domain-specific natural language models which work together. You can start the LUIS app with one or more prebuilt models, build your own model, or blend pieces of a prebuilt models with your own custom information.
 
-* **Prebuilt model** LUIS has many prebuilt domain models including intents, utterances, and prebuilt entities. You can use the prebuilt entities without having to use the intents and utterances of the prebuilt model. [Prebuilt domain models](luis-how-to-use-prebuilt-domains.md) include the entire design for you and are a great way to start using LUIS quickly.
+* **Prebuilt model** LUIS has many prebuilt domains that include intent and entity models that work together to complete common useage scenarios. These domains include actual labeled utterances that can be inspected and edited if you wish to customize them. [Prebuilt domain models](luis-how-to-use-prebuilt-domains.md) include the entire design for you and are a great way to start using LUIS quickly. In addition there are prebuilt entities such as currency and number that you can use independently outside the prebuilt domains.
 
-* **Custom model** LUIS gives you several ways to identify your own custom models including intents, and entities. Entities include machine-learned entities, specific or literal entities, and a combination of machine-learned and literal.
+* **Custom model** LUIS gives you several ways to build your own custom models including intents, and entities. Entities include machine-learned entities, pattern match entities, and a combination of machine-learned and pattern match.
 
 ## Build the LUIS model
 Build the model with the [authoring](https://go.microsoft.com/fwlink/?linkid=2092087) APIs or with the [LUIS portal](https://www.luis.ai).
 
-The LUIS model begins with categories of user intentions called **[intents](luis-concept-intent.md)**. Each intent needs examples of user **[utterances](luis-concept-utterance.md)**. Each utterance can provide data that needs to be extracted. 
+The LUIS model begins with categories of input text called **[intents](luis-concept-intent.md)**. Each intent needs examples of user **[utterances](luis-concept-utterance.md)**. Each utterance can provide data that needs to be extracted. 
 
 |Example user utterance|Intent|Extracted data|
 |-----------|-----------|-----------|
