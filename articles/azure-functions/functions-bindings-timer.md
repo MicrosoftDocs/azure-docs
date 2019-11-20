@@ -158,7 +158,7 @@ public void keepAlive(
 
 ---
 
-## Attributes
+## Attributes and annotations
 
 # [C#](#tab/csharp)
 
@@ -180,19 +180,30 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 # [C# Script](#tab/csharp-script)
 
-**TODO**
+Attributes are not supported by C# Script.
 
 # [JavaScript](#tab/javascript)
 
-**TODO**
+Attributes are not supported by JavaScript.
 
 # [Python](#tab/python)
 
-**TODO**
+Attributes are not supported by Python.
 
 # [Java](#tab/java)
 
-**TODO**
+The `@TimerTrigger` annotation on the function defines the schedule using the same string format as [CRON expressions](https://en.wikipedia.org/wiki/Cron#CRON_expression).
+
+```java
+@FunctionName("keepAlive")
+public void keepAlive(
+  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 */5 * * * *") String timerInfo,
+      ExecutionContext context
+ ) {
+     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
+     context.getLogger().info("Timer is triggered: " + timerInfo);
+}
+```
 
 ---
 
