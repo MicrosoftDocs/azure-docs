@@ -7,7 +7,7 @@ title: Speech Service Documentation
 description: Get started with the Speech service.
 ---
 
-<div id="main" class="v2">    
+<div id="main" class="v2">
     <div class="container">
         <h1>Speech Service Documentation</h1>
         <ul class="pivots">
@@ -54,7 +54,7 @@ description: Get started with the Speech service.
                                         </div>
                                     </div>
                                 </a>
-                            </li>                          
+                            </li>
                             <li>
                                 <a href="https://aka.ms/speech/sr-blob">
                                     <div class="cardSize">
@@ -211,7 +211,7 @@ description: Get started with the Speech service.
                                         </div>
                                     </div>
                                 </a>
-                            </li>                                                                
+                            </li>
                             <li>
                                 <a href="https://aka.ms/speech/tts-pricing">
                                     <div class="cardSize">
@@ -249,7 +249,7 @@ description: Get started with the Speech service.
                                         </div>
                                     </div>
                                 </a>
-                            </li>                                               
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -311,7 +311,7 @@ description: Get started with the Speech service.
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -430,7 +430,7 @@ description: Get started with the Speech service.
                                         </div>
                                     </div>
                                 </a>
-                            </li>              
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -530,7 +530,7 @@ description: Get started with the Speech service.
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -659,7 +659,7 @@ description: Get started with the Speech service.
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
                             <li>
                                 <a href="https://aka.ms/speech/custom-sr-languages">
                                     <div class="cardSize">
@@ -698,7 +698,7 @@ description: Get started with the Speech service.
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -801,7 +801,7 @@ description: Get started with the Speech service.
                                         </div>
                                     </div>
                                 </a>
-                            </li>                                                         
+                            </li>
                         </ul>
                     </li>
                 </ul>
