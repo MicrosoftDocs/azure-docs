@@ -1,6 +1,6 @@
 ---
-title: Create an environment from a blueprint sample
-description: Use a blueprint sample to create a blueprint definition that sets up two resource groups and configures a role assignment for each.
+title: "Tutorial: Blueprint sample to new environment"
+description: In this tutorial, you use a blueprint sample to create a blueprint definition that sets up two resource groups and configures a role assignment for each.
 ms.date: 03/05/2019
 ms.topic: tutorial
 ---
