@@ -177,13 +177,13 @@
       displayName: DevOps
   - name: Export template
     href: export-template-portal.md
-  - name: Move across regions
+  - name: Move-regions
     items:
-    - name: Move resources across regions
+    - name: Move across regions
       href: resource-group-move-region.md
-    - name: Support for moving across regions
+    - name: Support-move regions
       href: region-move-support.md
-    - name: Move services across regions
+    - name: Move services (regions)
       items:
       - name: Azure VMs
         href: ../site-recovery/azure-to-azure-tutorial-migrate.md?toc=/azure/azure-resource-manager/toc.json
@@ -197,15 +197,15 @@
         href: ../virtual-network/move-across-regions-nsg-portal.md?toc=/azure/azure-resource-manager/toc.json
       - name: Public IP addresses
         href: ../virtual-network/move-across-regions-publicip-portal.md?toc=/azure/azure-resource-manager/toc.json
-  - name: Move across resource groups/subscriptions
+  - name: Move-resource groups/subscriptions
     items:
-    - name: Move resources across resource groups/subscriptions
+    - name: Move across resource groups/subscriptions
       href: resource-group-move-resources.md
-    - name: Support for moving across resource groups/subscriptions
+    - name: Support-move resource groups/subscriptions
       href: move-support-resources.md
     - name: Troubleshoot move
       href: troubleshoot-move.md
-    - name: Moving services across resource groups/subscriptions
+    - name: Move services (resource groups/subscriptions)
       items:
       - name: App Service
         href: ./move-limitations/app-service-move-limitations.md
