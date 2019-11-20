@@ -27,6 +27,7 @@ Use the Anomaly Detector client library for Node.js to:
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
 * The current version of [Node.js](https://nodejs.org/)
+* An Anomaly detector key and endpoint
 
 ## Setting up
 

@@ -27,6 +27,7 @@ Use the Anomaly Detector client library for .NET to:
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
 * The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
+* An Anomaly detector key and endpoint
 
 ## Setting up
 

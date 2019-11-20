@@ -26,6 +26,7 @@ Use the Anomaly Detector client library for Python to:
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
+* An Anomaly detector key and endpoint
 * [Python 3.x](https://www.python.org/)
 * The [Pandas data analysis library](https://pandas.pydata.org/)
  

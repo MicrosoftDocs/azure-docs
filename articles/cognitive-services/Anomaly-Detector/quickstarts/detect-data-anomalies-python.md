@@ -26,7 +26,7 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 ## Prerequisites
 
 - [Python 2.x or 3.x](https://www.python.org/downloads/)
-
+- An Anomaly detector key and endpoint
 - The [Requests library](https://pypi.org/project/requests/) for python
 
 - A JSON file containing time series data points. The example data for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).

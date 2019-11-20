@@ -26,7 +26,7 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 ## Prerequisites
 
 - Any edition of [Visual Studio 2017 or later](https://visualstudio.microsoft.com/downloads/),
-
+- An Anomaly detector key and endpoint
 - The [Json.NET](https://www.newtonsoft.com/json) framework, available as a NuGet package. To install Newtonsoft.Json as a NuGet package in Visual Studio:
     
     1. Right click your project in **Solution Explorer**.
