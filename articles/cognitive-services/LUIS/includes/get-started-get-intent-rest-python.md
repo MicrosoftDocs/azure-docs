@@ -14,6 +14,7 @@ ms.author: diberry
 
 * [Python 3.6](https://www.python.org/downloads/) or later.
 * [Visual Studio Code](https://code.visualstudio.com/)
+* Public app ID: df67dcdb-c37d-46af-88e1-8b97951ca1c2
 
 ## Get LUIS key
 
