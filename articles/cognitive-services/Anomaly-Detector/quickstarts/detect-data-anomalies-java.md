@@ -21,7 +21,7 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 | Detect anomalies as a batch                        | The JSON response containing the anomaly status (and other data) for each data point in the time series data, and the positions of any detected anomalies. |
 | Detect the anomaly status of the latest data point | The JSON response containing the anomaly status (and other data) for the latest data point in the time series data.                                                                                                                                         |
 
- While this application is written in Java, the API is a RESTful web service compatible with most programming languages.
+ While this application is written in Java, the API is a RESTful web service compatible with most programming languages. You can find the source code for this quickstart on [Github](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/java-detect-anomalies.java).
 
 ## Prerequisites
 
