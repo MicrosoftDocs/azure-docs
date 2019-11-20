@@ -51,7 +51,7 @@ AKS provides security controls and visibility into the security posture of your 
 
 For details of Security Center's recommendations, see [Virtual Machine protection](security-center-virtual-machine-protection.md).
 
-## Run-time protection - Real-time threat detection 
+## Run-time protection - Real-time threat detection
 
 Security Center provides real-time threat detection for your containerized environments and generates alerts for suspicious activities. You can use this information to quickly remediate security issues and improve the security of your containers.
 
