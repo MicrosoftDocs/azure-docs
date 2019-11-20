@@ -4,7 +4,7 @@ description: 'Learn about pipelines and activities in Azure Data Factory.'
 services: data-factory
 documentationcenter: ''
 author: djpmsft
-ms.author: daperlovl
+ms.author: daperlov
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
@@ -44,7 +44,7 @@ Azure Data Factory supports the following transformation activities that can be 
 Data transformation activity | Compute environment
 ---------------------------- | -------------------
 [Data Flow](control-flow-execute-data-flow-activity.md) | Azure Databricks managed by Azure Data Factory
-[Azure Function](control-flow-azure-function-activity) | Azure Functions
+[Azure Function](control-flow-azure-function-activity.md) | Azure Functions
 [Hive](transform-data-using-hadoop-hive.md) | HDInsight [Hadoop]
 [Pig](transform-data-using-hadoop-pig.md) | HDInsight [Hadoop]
 [MapReduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
@@ -72,9 +72,9 @@ Control activity | Description
 [Get Metadata](control-flow-get-metadata-activity.md) | GetMetadata activity can be used to retrieve metadata of any data in Azure Data Factory.
 [If Condition Activity](control-flow-if-condition-activity.md) | The If Condition can be used to branch based on condition that evaluates to true or false. The If Condition activity provides the same functionality that an if statement provides in programming languages. It evaluates a set of activities when the condition evaluates to `true` and another set of activities when the condition evaluates to `false`.
 [Lookup Activity](control-flow-lookup-activity.md) | Lookup Activity can be used to read or look up a record/ table name/ value from any external source. This output can further be referenced by succeeding activities.
-[Set Variable](ontrol-flow-set-variable-activity.md) | Set the value of an existing variable.
+[Set Variable](control-flow-set-variable-activity.md) | Set the value of an existing variable.
 [Until Activity](control-flow-until-activity.md) | Implements Do-Until loop that is similar to Do-Until looping structure in programming languages. It executes a set of activities in a loop until the condition associated with the activity evaluates to true. You can specify a timeout value for the until activity in Data Factory.
-[Validation Activity](control-flow-validation-activity.md) | Ensure a pipeline only continues execution if a reference dataset exists, meets a specified criteria or a timeout has been reached.
+[Validation Activity](control-flow-validation-activity.md) | Ensure a pipeline only continues execution if a reference dataset exists, meets a specified criteria, or a timeout has been reached.
 [Wait Activity](control-flow-wait-activity.md) | When you use a Wait activity in a pipeline, the pipeline waits for the specified period of time before continuing with execution of subsequent activities.
 [Web Activity](control-flow-web-activity.md) | Web Activity can be used to call a custom REST endpoint from a Data Factory pipeline. You can pass datasets and linked services to be consumed and accessed by the activity.
 [Webhook Activity](control-flow-webhook-activity.md) | Using the webhook activity, call an endpoint and pass a callback URL. The pipeline run waits for the callback to be invoked before proceeding to the next activity.
@@ -106,7 +106,7 @@ name | Name of the pipeline. Specify a name that represents the action that the 
 description | Specify the text describing what the pipeline is used for. | String | No
 activities | The **activities** section can have one or more activities defined within it. See the [Activity JSON](#activity-json) section for details about the activities JSON element. | Array | Yes
 parameters | The **parameters** section can have one or more parameters defined within the pipeline, making your pipeline flexible for reuse. | List | No
-concurrency | The maximum number of concurrent runs the pipeline can have. By default, there is no maximum. If the maximum concurrent runs is reached, additional pipeline runs will be queued until earlier ones complete | Number | No 
+concurrency | The maximum number of concurrent runs the pipeline can have. By default, there is no maximum. If the concurrency limit is reached, additional pipeline runs will be queued until earlier ones complete | Number | No 
 annotations | A list of tags associated with the pipeline | Array | No
 
 ## Activity JSON
@@ -139,7 +139,7 @@ Tag | Description | Required
 --- | ----------- | ---------
 name | Name of the activity. Specify a name that represents the action that the activity performs. <br/><ul><li>Maximum number of characters: 55</li><li>Must start with a letter number, or an underscore (\_)</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | Yes</li></ul>
 description | Text describing what the activity or is used for | Yes
-type | Type of the activity. See the [Data Movement Activities](#data-movement-activities), [Data Transformation Activities](#data-transformation-activities), and [Control Activities](#control-activities) sections for different types of activities. | Yes
+type | Type of the activity. See the [Data Movement Activities](#data-movement-activities), [Data Transformation Activities](#data-transformation-activities), and [Control Activities](#control-flow-activities) sections for different types of activities. | Yes
 linkedServiceName | Name of the linked service used by the activity.<br/><br/>An activity may require that you specify the linked service that links to the required compute environment. | Yes for HDInsight Activity, Azure Machine Learning Batch Scoring Activity, Stored Procedure Activity. <br/><br/>No for all others
 typeProperties | Properties in the typeProperties section depend on each type of activity. To see type properties for an activity, click links to the activity in the previous section. | No
 policy | Policies that affect the run-time behavior of the activity. This property includes timeout and retry behavior. If it is not specified, default values are used. For more information, see [Activity policy](#activity-policy) section. | No
@@ -204,7 +204,7 @@ Tag | Description | Required
 --- | ----------- | --------
 name | Name of the activity. Specify a name that represents the action that the activity performs.<br/><ul><li>Maximum number of characters: 55</li><li>Must start with a letter number, or an underscore (\_)</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | Yes</li><ul>
 description | Text describing what the activity or is used for | Yes
-type | Type of the activity. See the [data movement activities](#data-movement-activities), [data transformation activities](#data-transformation-activities), and [control activities](#control-activities) sections for different types of activities. | Yes
+type | Type of the activity. See the [data movement activities](#data-movement-activities), [data transformation activities](#data-transformation-activities), and [control activities](#control-flow-activities) sections for different types of activities. | Yes
 typeProperties | Properties in the typeProperties section depend on each type of activity. To see type properties for an activity, click links to the activity in the previous section. | No
 dependsOn | This property is used to define Activity Dependency, and how subsequent activities depend on previous activities. For more information, see [activity dependency](#activity-dependency). | No
 
@@ -369,7 +369,7 @@ Pipelines are scheduled by triggers. There are different types of triggers (sche
 
 To have your trigger kick off a pipeline run, you must include a pipeline reference of the particular pipeline in the trigger definition. Pipelines & triggers have an n-m relationship. Multiple triggers can kick off a single pipeline and the same trigger can kick off multiple pipelines. Once the trigger is defined, you must start the trigger to have it start triggering the pipeline. For more information about triggers, see [pipeline execution and triggers](concepts-pipeline-execution-triggers.md) article.
 
-For example, say you have a scheduler trigger, “Trigger A” that I wish to kick off my pipeline, “MyCopyPipeline.” You define the trigger as shown in the following example:
+For example, say you have a scheduler trigger, “Trigger A” that I wish to kick off my pipeline, “MyCopyPipeline”. You define the trigger as shown in the following example:
 
 ### Trigger A definition
 

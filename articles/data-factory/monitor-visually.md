@@ -14,7 +14,7 @@ ms.date: 11/19/2018
 
 # Visually monitor Azure Data Factory
 
-Once you've created created and published a pipeline in Azure Data Factory, you can associate it with a trigger or manually kick off an ad hoc run. You can monitor all of your pipeline runs natively in the Azure Data Factory user experience without writing a singling line of code. To open the monitoring experience, select the **Monitor & Manage** tile in the data factory blade of the [Azure portal](https://portal.azure.com/). If you're already in the ADF UX, click on the **Monitor** icon on the left sidebar.
+Once you've created and published a pipeline in Azure Data Factory, you can associate it with a trigger or manually kick off an ad hoc run. You can monitor all of your pipeline runs natively in the Azure Data Factory user experience. To open the monitoring experience, select the **Monitor & Manage** tile in the data factory blade of the [Azure portal](https://portal.azure.com/). If you're already in the ADF UX, click on the **Monitor** icon on the left sidebar.
 
 All data factory runs are displayed in the browser's local time zone. If you change the time zone, all the date/time fields snap to the one that you selected.
 
@@ -29,7 +29,7 @@ The default monitoring view is list of pipeline runs in the selected time period
 | Run Start | Start date and time for the pipeline run (MM/DD/YYYY, HH:MM:SS AM/PM) |
 | Duration | Run duration (HH:MM:SS) |
 | Triggered By | The name of the trigger that started the pipeline |
-| Status | **Failed**, **Succeeded**, **In Progress**, **Cancelled** or **Queued** |
+| Status | **Failed**, **Succeeded**, **In Progress**, **Canceled**, or **Queued** |
 | Annotations | Filterable tags associated with a pipeline  |
 | Parameters | Parameters for the pipeline run (name/value pairs) |
 | Error | If the pipeline failed, the run error |
@@ -37,7 +37,7 @@ The default monitoring view is list of pipeline runs in the selected time period
 
 ![List view for monitoring pipeline runs](media/monitor-visually/pipeline-runs.png)
 
-You need to manually select the **Refresh** button to refresh the list of pipeline and activity runs. Auto-refresh is currently not supported.
+You need to manually select the **Refresh** button to refresh the list of pipeline and activity runs. Autorefresh is currently not supported.
 
 ![Refresh button](media/monitor-visually/refresh.png)
 
@@ -49,11 +49,11 @@ To view activity runs for each pipeline run, select the **View activity runs** i
 | --- | --- |
 | Activity Name | Name of the activity inside the pipeline |
 | Activity Type | Type of the activity, such as **Copy**, **ExecuteDataFlow**, or **AzureMLExecutePipeline** |
-| Actions | Icons that allow you to see JSON input information, JSON output information or detailed activity-specific monitoring experiences | 
+| Actions | Icons that allow you to see JSON input information, JSON output information, or detailed activity-specific monitoring experiences | 
 | Run Start | Start date and time for the activity run (MM/DD/YYYY, HH:MM:SS AM/PM) |
 | Duration | Run duration (HH:MM:SS) |
-| Status | **Failed**, **Succeeded**, **In Progress**, or **Cancelled** |
-| Integration Runtime | Which Integration Runtime the activity was ran on |
+| Status | **Failed**, **Succeeded**, **In Progress**, or **Canceled** |
+| Integration Runtime | Which Integration Runtime the activity was run on |
 | User Properties | User-defined properties of the activity |
 | Error | If the activity failed, the run error |
 | Run ID | ID of the activity run |
@@ -62,7 +62,7 @@ To view activity runs for each pipeline run, select the **View activity runs** i
 
 ### Promote user properties to monitor
 
-You can promote any pipeline activity property as a user property so that it becomes an entity that you can monitor. For example, you can promote the **Source** and **Destination** properties of the copy activity in your pipeline as user properties. You can also select **Auto Generate** to generate the **Source** and **Destination** user properties for a copy activity.
+Promote any pipeline activity property as a user property so that it becomes an entity that you monitor. For example, you can promote the **Source** and **Destination** properties of the copy activity in your pipeline as user properties. Select **Auto Generate** to generate the **Source** and **Destination** user properties for a copy activity.
 
 ![Create user properties](media/monitor-visually/monitor-user-properties-image1.png)
 
@@ -87,7 +87,7 @@ Toggle whether pipeline runs will be in descending or ascending according to the
 | --- | --- |
 | Pipeline Name | Filter by the name of the pipeline. |
 | Run Start |  Determine the time range of the pipeline runs displayed. Options include quick filters for **Last 24 hours**, **Last week**, and **Last 30 days** or to select a custom date and time. |
-| Run Status | Filter runs by status: **Succeeded**, **Failed**, **Queued**, **Cancelled**, or **In Progress**. |
+| Run Status | Filter runs by status: **Succeeded**, **Failed**, **Queued**, **Canceled**, or **In Progress**. |
 | Annotations | Filter by tags applied to each pipeline |
 | Runs | Filter whether you want to see reran pipelines |
 
@@ -125,7 +125,7 @@ Use Gantt views to quickly visualize your pipelines and activity runs.
 
 ![Example of a Gantt chart](media/monitor-visually/gantt1.png)
 
-You can look at the Gantt view per pipeline or group by annotations/tags that you have created on your pipelines.
+You can look at the Gantt view per pipeline or group by annotations/tags that you've created on your pipelines.
 
 ![Gantt chart annotations](media/monitor-visually/gantt2.png)
 
