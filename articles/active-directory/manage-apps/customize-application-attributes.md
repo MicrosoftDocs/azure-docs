@@ -136,7 +136,7 @@ The SCIM RFC defines a core user and group schema, while also allowing for exten
    2. Under **Mappings**, select the object (user or group) for which you'd like to add a custom attribute.
    3. Click show advanced options at the bottom of the screen
    4. Click Edit attribute list
-   5. Add your custom attribute
+   5. At the bottom of the attribute list, enter information about the custom attribute in the fields provided. Then select **Add Attribute**.
 
 For SCIM applications, the attribute name must follow the pattern shown in the example below. The "CustomExtensionName" and "CustomAttribute" can be customized per your application's requirements, for example:  urn:ietf:params:scim:schemas:extension:2.0:CustomExtensionName:CustomAttribute
 
