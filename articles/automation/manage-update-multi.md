@@ -61,9 +61,7 @@ When onboarding is finished, Update Management is enabled for your virtual machi
 
 ## Enable Update Management for non-Azure virtual machines and computers
 
-To learn how to enable Update Management for non-Azure Windows virtual machines and computers, see [Connect Windows computers to the Azure Monitor service in Azure](../log-analytics/log-analytics-windows-agent.md).
-
-To learn how to enable Update Management for non-Azure Linux virtual machines and computers, see [Connect your Linux computers to Azure Monitor logs](../log-analytics/log-analytics-agent-linux.md).
+The Log Analytics agent for Windows and Linux needs to be installed on the VMs that are running on your corporate network or other cloud environment in order to enable them with Update Management. To learn the system requirements and supported methods to deploy the agent to machines hosted outside of Azure, see [Overview of the Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md).
 
 ## View computers attached to your Automation account
 
