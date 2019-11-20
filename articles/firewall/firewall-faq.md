@@ -63,6 +63,9 @@ Azure Firewall is a basic firewall service that can address certain customer sce
 
 The Web Application Firewall (WAF) is a feature of Application Gateway that provides centralized inbound protection of your web applications from common exploits and vulnerabilities. Azure Firewall provides inbound protection for non-HTTP/S protocols (for example, RDP, SSH, FTP), outbound network-level protection for all ports and protocols, and application-level protection for outbound HTTP/S.
 
+## Can I place Azure Firewall in front of Application Gateway or Application Gateway in front of Azure Firewall?
+Application Gateway and Azure Firewall can work in conjunction, however it is recommended to leverage Application Gateway and Azure Firewall in parallel for the best performance and least amount of cost.  Azure Firewall is recommended for non-HTTP/HTTPS workloads, Application Gateway is recommended for only HTTP/HTTPS workloads.  Within Application Gateway you can enable logging as well as WAF support to meet the security standards required of a traditional firewall.
+
 ## What is the difference between Network Security Groups (NSGs) and Azure Firewall?
 
 The Azure Firewall service complements network security group functionality. Together, they provide better "defense-in-depth" network security. Network security groups provide distributed network layer traffic filtering to limit traffic to resources within virtual networks in each subscription. Azure Firewall is a fully stateful, centralized network firewall as-a-service, which provides network- and application-level protection across different subscriptions and virtual networks.
