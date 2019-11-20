@@ -36,7 +36,7 @@ SSD = true
 ```
 
 > [!NOTE]
-Azure SSD will round up to the next size for [pricing](https://azure.microsoft.com/en-us/pricing/details/managed-disks). For example, if you create a disk size of 100GB, you will be charged at the 128GB rate.
+Azure SSD will round up to the next size for [pricing](https://azure.microsoft.com/pricing/details/managed-disks). For example, if you create a disk size of 100GB, you will be charged at the 128GB rate.
 
 > [!WARNING]
 > When your cluster is deleted, all persistent volumes are deleted as well! If you want your storage to persist longer than your cluster, you must attach a preexisting volume by id.
