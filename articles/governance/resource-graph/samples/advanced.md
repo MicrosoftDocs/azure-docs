@@ -1,10 +1,10 @@
 ---
 title: Advanced query samples
-description: Use Azure Resource Graph to run some advanced queries, including virtual machine scale set capacity, listing all tags used, and matching virtual machines with regular expressions.
+description: Use Azure Resource Graph to run some advanced queries, including working with columns, listing tags used, and matching resources with regular expressions.
 ms.date: 11/18/2019
-ms.topic: quickstart
+ms.topic: sample
 ---
-# Advanced Resource Graph queries
+# Advanced Resource Graph query samples
 
 The first step to understanding queries with Azure Resource Graph is a basic understanding of the
 [Query Language](../concepts/query-language.md). If you aren't already familiar with [Azure Data
