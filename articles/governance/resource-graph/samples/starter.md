@@ -2,9 +2,9 @@
 title: Starter query samples
 description: Use Azure Resource Graph to run some starter queries, including counting resources, ordering resources, or by a specific tag.
 ms.date: 11/18/2019
-ms.topic: quickstart
+ms.topic: sample
 ---
-# Starter Resource Graph queries
+# Starter Resource Graph query samples
 
 The first step to understanding queries with Azure Resource Graph is a basic understanding of the
 [Query Language](../concepts/query-language.md). If you aren't already familiar with
