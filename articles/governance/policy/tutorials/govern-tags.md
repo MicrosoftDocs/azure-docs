@@ -1,6 +1,6 @@
 ---
-title: Manage tag governance
-description: Use the Modify effect of Azure Policy to create and enforce a tag governance model on new and existing resources.
+title: "Tutorial: Manage tag governance"
+description: In this tutorial, you use the Modify effect of Azure Policy to create and enforce a tag governance model on new and existing resources.
 ms.date: 11/04/2019
 ms.topic: tutorial
 ---
