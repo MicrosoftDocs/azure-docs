@@ -31,7 +31,7 @@ To preview the results of a dynamic group, click the **Preview** button. This pr
 
 ## Non-Azure machines
 
-For non-Azure machines, saved searches also referred to as computer groups are used to create the dynamic group. To learn how to create a saved search, see [Creating a computer group](../azure-monitor/platform/computer-groups.md#creating-a-computer-group). Once your group is created you can select it from the list of saved searches. Click **Preview** to preview the computers in the saved search at that time.
+For non-Azure machines, saved searches also referred to as computer groups, are used to create the dynamic group. To learn how to create a saved search, see [Creating a computer group](../azure-monitor/platform/computer-groups.md#creating-a-computer-group). Once your group is created you can select it from the list of saved searches. Click **Preview** to preview the computers in the saved search at that time.
 
 ![Select groups](./media/automation-update-management/select-groups-2.png)
 

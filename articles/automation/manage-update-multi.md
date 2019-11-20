@@ -25,7 +25,7 @@ To use Update Management, you need:
 
 - A virtual machine or computer with one of the supported operating systems installed.
 
-Linux agents must have access to an update repository.
+- Access to an update repository for Linux VMs.
 
 ## Supported operating systems
 
@@ -122,7 +122,7 @@ In the **New update deployment** pane, specify the following information:
 
 - **Name**: Enter a unique name to identify the update deployment.
 - **Operating system**: Select **Windows** or **Linux**.
-- **Groups to update**: Define a query based on a combination of subscription, resource groups, locations, and tags to build a dynamic group of Azure VMs to include in your deployment. To learn more see, [Dynamic Groups](automation-update-management-groups.md)
+- **Groups to update**: Define a query based on a combination of subscription, resource groups, locations, and tags to build a dynamic group of Azure VMs to include in your deployment. For non-Azure VMs, saved searches are used to create a dynamic group to include in your deployment. To learn more see, [Dynamic Groups](automation-update-management-groups.md).
 - **Machines to update**: Select a Saved Search, Imported group, or select Machines, to choose the machines that you want to update.
 
    >[!NOTE]
