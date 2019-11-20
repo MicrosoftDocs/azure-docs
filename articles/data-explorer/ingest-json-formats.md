@@ -11,7 +11,10 @@ ms.date: 11/18/2019
 
 # Ingest json formatted sample data into Azure Data Explorer
 
-This article shows you how to ingest json formatted data into an Azure Data Explorer database. This article will start with a simple example of a flattened json and build up to more complex json schemas containing arrays and dictionaries.
+This article shows you how to ingest json formatted data into an Azure Data Explorer database. This article will start with a simple example of a flattened json and build up to more complex json schemas containing arrays and dictionaries. In the following examples, Use Kusto query language for testing purposes only. For production scenarios, use client libraries or data connections. In this situations the data management service aggregates data, according to the [batching policy](/azure/kusto/concepts/batchingpolicy), resulting in a latency of a few minutes.
+\\TODO\\ Target service is the Data Management service which is ingest-YourService (The ingest process executed against the Data Management endpoint: https://ingest-[YourClusterName].[region].kusto.windows.net. The command requires [database or ingestor admin permissions](/azure/kusto/management/access-control/role-based-authorization) on the relevant database.\\
+
+\\TODO: Add code sample (C# + Python + KQL with comment) - all places.\\ 
 
 ## Prerequisites
 
@@ -54,6 +57,10 @@ We'll start by ingesting json records as raw data to a single column table. Late
 
 In this example the data manipulation, using queries and update policy, is done after the data is ingested.
 
+# [KQL](#tab/kusto-query-language)
+
+Use Kusto query language to ingest data in raw json format.
+
 1. Sign in to [https://dataexplorer.azure.com](https://dataexplorer.azure.com).
 
 1. In the upper-left of the application, select **Add cluster**.
@@ -68,7 +75,7 @@ In this example the data manipulation, using queries and update policy, is done 
 
     This query creates a table with a single `Event` column of a [dynamic](/azure/kusto/query/scalar-data-types/dynamic) data type.
 
-1. Create a json mapping
+1. Create the json mapping
 
     ```Kusto
     .create table RawEvents ingestion json mapping 'RawEventMapping' '[{"column":"Event","path":"$"}]'
@@ -78,13 +85,117 @@ In this example the data manipulation, using queries and update policy, is done 
 
 1. Ingest data into the `RawEvents` table.
 
-    \\TODO: Remove the following note + ingest command, replace it with code sample (C# + Python + KQL with comment) - all places.\\ 
-
-
-
     ```Kusto
     .ingest into table RawEvents h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=json, jsonMappingReference=RawEventMapping)
     ```
+
+# [C#](#tab/c-sharp)
+Use C# to ingest data in raw json format.
+
+1. Create the `RawEvents` table.
+
+    ```C#
+    var table = "RawEvents";
+    using (var kustoClient = KustoClientFactory.CreateCslAdminProvider(kustoConnectionStringBuilder))
+    {
+        var command =
+            CslCommandGenerator.GenerateTableCreateCommand(
+                table,
+                new[]
+                {
+                    Tuple.Create("Events", "System.Object"),
+                });
+    
+        kustoClient.ExecuteControlCommand(command);
+    }
+    ```
+
+1. Create the json mapping
+    
+    ```C#
+    var tableMapping = "RawEventMapping";
+    using (var kustoClient = KustoClientFactory.CreateCslAdminProvider(kustoConnectionStringBuilder))
+    {
+        var command =
+            CslCommandGenerator.GenerateTableJsonMappingCreateCommand(
+                tableName,
+                tableMapping,
+                new[]
+                {
+                         new JsonColumnMapping {ColumnName = "Events", JsonPath = "$"},
+                });
+    
+        kustoClient.ExecuteControlCommand(command);
+    }
+    ```
+1. Ingest data into the `RawEvents` table
+
+    ```C#
+    var ingestUri = "https://ingest-<ClusterName>.<Region>.kusto.windows.net:443/";
+    var ingestConnectionStringBuilder =
+        new KustoConnectionStringBuilder(ingestUri)
+        {
+            FederatedSecurity = true,
+            InitialCatalog = database,
+            UserID = user,
+            Password = password,
+            Authority = tenantId
+        };
+    
+    using (var ingestClient = KustoIngestFactory.CreateQueuedIngestClient(ingestConnectionStringBuilder))
+    {
+        var properties =
+            new KustoQueuedIngestionProperties(database, table)
+            {
+                Format = DataSourceFormat.json,
+                CSVMappingReference = tableMapping
+            };
+    
+        ingestClient.IngestFromSingleBlob(blobPath, deleteSourceOnSuccess: false, ingestionProperties: properties);
+    }
+    ```
+
+# [Python](#tab/python)
+Use C# to ingest data in raw json format.
+
+1. Create the `RawEvents` table.
+
+    ```Python
+    KUSTO_CLIENT = KustoClient(KCSB_DATA)
+    CREATE_TABLE_COMMAND = ".create table RawEvents (Events: dynamic)"
+    
+    RESPONSE = KUSTO_CLIENT.execute_mgmt(KUSTO_DATABASE, CREATE_TABLE_COMMAND)
+    
+    dataframe_from_result_table(RESPONSE.primary_results[0])
+    ```
+
+1. Create the json mapping
+
+    ```Python
+    CREATE_MAPPING_COMMAND = """ .create table RawEvents ingestion json mapping 'RawEventMapping' '[{"column":"Event","path":"$"}]'"""
+    
+    RESPONSE = KUSTO_CLIENT.execute_mgmt(KUSTO_DATABASE, CREATE_MAPPING_COMMAND)
+    
+    dataframe_from_result_table(RESPONSE.primary_results[0])
+    ```
+
+1. Ingest data into the `RawEvents` table.
+
+    ```Python
+    INGESTION_CLIENT = KustoIngestClient(KCSB_INGEST)
+    BLOB_PATH = \\TODO\\: the path from KQL
+    
+    # All ingestion properties are documented here: https://docs.microsoft.com/azure/kusto/management/data-ingest#ingestion-properties
+    INGESTION_PROPERTIES = IngestionProperties(database=KUSTO_DATABASE, table=DESTINATION_TABLE, dataFormat=DataFormat.json,
+                                               mappingReference=DESTINATION_TABLE_COLUMN_MAPPING)
+    # FILE_SIZE is the raw size of the data in bytes
+    BLOB_DESCRIPTOR = BlobDescriptor(BLOB_PATH, FILE_SIZE)
+    INGESTION_CLIENT.ingest_from_blob(
+        BLOB_DESCRIPTOR, ingestion_properties=INGESTION_PROPERTIES)
+    
+    print('Done queuing up ingestion with Azure Data Explorer')
+    ```
+---
 
 ## Ingest flattened json records
 
