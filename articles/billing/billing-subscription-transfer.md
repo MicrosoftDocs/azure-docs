@@ -5,7 +5,7 @@ keywords: transfer azure subscription, azure transfer subscription, move azure s
 author: bandersmsft
 manager: amberb
 tags: billing,top-support-issue
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
