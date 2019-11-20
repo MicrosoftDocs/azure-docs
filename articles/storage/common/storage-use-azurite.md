@@ -1,5 +1,5 @@
 ---
-title: Use Azurite emulator for local development and testing - Azure Storage
+title: Use Azurite emulator for local Storage development and testing
 description: The Azurite open-source emulator (preview) provides a free local environment for testing your Azure storage applications.
 author: mhopkins-msft
 
