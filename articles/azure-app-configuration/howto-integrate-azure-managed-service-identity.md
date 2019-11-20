@@ -16,15 +16,15 @@ ms.date: 02/24/2019
 ms.author: yegu
 
 ---
-# Integrate with Azure managed identities
+# Integrate with Azure Managed Identities
 
-Azure Active Directory [managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) help simplify secrets management for your cloud application. With a managed identity, you can set up your code to use the service principal that was created for the Azure compute service it runs on. You use a managed identity instead of a separate credential stored in Azure Key Vault or a local connection string. 
+Azure Active Directory [managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) help simplify secrets management for your cloud application. With a managed identity, you can set up your code to use the service principal that was created for the Azure service it runs on. You use a managed identity instead of a separate credential stored in Azure Key Vault or a local connection string. 
 
-Azure App Configuration and its .NET Core, .NET, and Java Spring client libraries come with managed service identity (MSI) support built into them. Although you aren't required to use it, MSI eliminates the need for an access token that contains secrets. Your code can access the app configuration store using only the service endpoint. You can embed this URL in your code directly without the concern of exposing any secret.
+Azure App Configuration and its .NET Core, .NET Framework, and Java Spring client libraries come with the managed identity support built into them. Although you aren't required to use it, the managed identity eliminates the need for an access token that contains secrets. Your code can access the App Configuration store using only the service endpoint. You can embed this URL in your code directly without the concern of exposing any secret.
 
-This tutorial shows how you can take advantage of MSI to access App Configuration. It builds on the web app introduced in the quickstarts. Before you continue, finish [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) first.
+This tutorial shows how you can take advantage of the managed identity to access App Configuration. It builds on the web app introduced in the quickstarts. Before you continue, finish [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) first.
 
-In addition, this tutorial optionally shows how you can use MSI in conjunction with App Configuration's Key Vault references. This allows you to seamlessly access secrets stored in Key Vault as well as configuration values in App Configuration. If you wish to explore this capability, finish [Use Key Vault References with ASP.NET Core](./use-key-vault-references-dotnet-core.md) first.
+In addition, this tutorial optionally shows how you can use the managed identity in conjunction with App Configuration's Key Vault references. This allows you to seamlessly access secrets stored in Key Vault as well as configuration values in App Configuration. If you wish to explore this capability, finish [Use Key Vault References with ASP.NET Core](./use-key-vault-references-dotnet-core.md) first.
 
 You can use any code editor to do the steps in this tutorial. [Visual Studio Code](https://code.visualstudio.com/) is an excellent option available on the Windows, macOS, and Linux platforms.
 
@@ -60,7 +60,7 @@ To set up a managed identity in the portal, you first create an application as n
 
 ## Grant access to App Configuration
 
-1. In the [Azure portal](https://portal.azure.com), select **All resources** and select the app configuration store that you created in the quickstart.
+1. In the [Azure portal](https://portal.azure.com), select **All resources** and select the App Configuration store that you created in the quickstart.
 
 1. Select **Access control (IAM)**.
 
@@ -78,9 +78,9 @@ To set up a managed identity in the portal, you first create an application as n
 
 ## Use a managed identity
 
-1. Find the URL to your app configuration store by going into its configuration screen in the Azure portal, then clicking on the **Access Keys** tab.
+1. Find the URL to your App Configuration store by going into its configuration screen in the Azure portal, then clicking on the **Access Keys** tab.
 
-1. Open *appsettings.json*, and add the following script. Replace *\<service_endpoint>*, including the brackets, with the URL to your app configuration store. 
+1. Open *appsettings.json*, and add the following script. Replace *\<service_endpoint>*, including the brackets, with the URL to your App Configuration store. 
 
     ```json
     "AppConfig": {
@@ -199,7 +199,7 @@ http://<app_name>.azurewebsites.net
 
 ## Use managed identity in other languages
 
-App Configuration providers for .NET Framework and Java Spring also have built-in support for managed identity. In these cases, use your app configuration store's URL endpoint instead of its full connection string when you configure a provider. For example, for the .NET Framework console app created in the quickstart, specify the following settings in the *App.config* file:
+App Configuration providers for .NET Framework and Java Spring also have built-in support for managed identity. In these cases, use your App Configuration store's URL endpoint instead of its full connection string when you configure a provider. For example, for the .NET Framework console app created in the quickstart, specify the following settings in the *App.config* file:
 
 ```xml
     <configSections>
@@ -224,6 +224,7 @@ App Configuration providers for .NET Framework and Java Spring also have built-i
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
 ## Next steps
+In this tutorial, you added an Azure managed identity to streamline access to App Configuration and improve credential management for your app. To learn more about how to use App Configuration, continue to the Azure CLI samples.
 
 > [!div class="nextstepaction"]
 > [CLI samples](./cli-samples.md)
