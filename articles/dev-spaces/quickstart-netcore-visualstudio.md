@@ -1,6 +1,5 @@
 ---
 title: "Debug and iterate with Visual Studio and .NET Core on AKS with Azure Dev Spaces"
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.date: 11/13/2019
 ms.topic: quickstart
