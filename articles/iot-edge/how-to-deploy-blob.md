@@ -55,10 +55,12 @@ A deployment manifest is a JSON document that describes which modules to deploy,
    > [!IMPORTANT]
    > Azure IoT Edge is case-sensitive when you make calls to modules, and the Storage SDK also defaults to lowercase. Although the name of the module in the [Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace) is **AzureBlobStorageonIoTEdge**, changing the name to lowercase helps to ensure that your connections to the Azure Blob Storage on IoT Edge module aren't interrupted.
 
-3. On the **Container Create Options** tab, add your storage account information and a mount for the storage on your device. Copy and paste the following JSON into the box, referring to the placeholder descriptions in the next step.
+3. On the **Container Create Options** tab, add JSON code to provide storage account information and a mount for the storage on your device.
 
    ![Module Twin Settings](./media/how-to-deploy-blob/addmodule-tab3.png)
 
+   Copy and paste the following JSON into the box, referring to the placeholder descriptions in the next step.
+  
    ```json
    {
      "Env":[
@@ -76,7 +78,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
    }
    ```
 
-4. Update the JSON that you copied with the following information:
+4. Update the JSON that you copied for **Container Create Options** with the following information:
 
    - Replace `<your storage account name>` with a name that you can remember. Account names should be 3 to 24 characters long, with lowercase letters and numbers. No spaces.
 
