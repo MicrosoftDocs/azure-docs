@@ -228,15 +228,15 @@ For a complete example, see [Trigger](#trigger).
 
 # [C# Script](#tab/csharp-script)
 
-**TODO**
+Attributes are not supported by C# Script.
 
 # [JavaScript](#tab/javascript)
 
-**TODO**
+Attributes are not supported by JavaScript.
 
 # [Python](#tab/python)
 
-**TODO**
+Attributes are not supported by Python.
 
 # [Java](#tab/java)
 
@@ -1673,15 +1673,15 @@ The attribute's constructor takes the database name and collection name. For inf
 
 # [C# Script](#tab/csharp-script)
 
-**TODO**
+Attributes are not supported by C# Script.
 
 # [JavaScript](#tab/javascript)
 
-**TODO**
+Attributes are not supported by JavaScript.
 
 # [Python](#tab/python)
 
-**TODO**
+Attributes are not supported by Python.
 
 # [Java](#tab/java)
 
@@ -2258,15 +2258,15 @@ The attribute's constructor takes the database name and collection name. For inf
 
 # [C# Script](#tab/csharp-script)
 
-**TODO**
+Attributes are not supported by C# Script.
 
 # [JavaScript](#tab/javascript)
 
-**TODO**
+Attributes are not supported by JavaScript.
 
 # [Python](#tab/python)
 
-**TODO**
+Attributes are not supported by Python.
 
 # [Java](#tab/java)
 
