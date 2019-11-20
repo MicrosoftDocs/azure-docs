@@ -1,5 +1,6 @@
 ---
-title: Introduction to flow logging for network security groups with Azure Network Watcher | Microsoft Docs
+title: Introduction to flow logging for NSGs
+titleSuffix: Azure Network Watcher
 description: This article explains how to use the NSG flow logs feature of Azure Network Watcher.
 services: network-watcher
 documentationcenter: na

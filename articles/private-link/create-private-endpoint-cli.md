@@ -2,11 +2,11 @@
 title: 'Create an Azure private endpoint using Azure CLI| Microsoft Docs'
 description: Learn about Azure private endpoint
 services: private-link
-author: KumudD
+author: asudbring
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
-ms.author: kumud
+ms.author: allensu
 
 ---
 # Create a private endpoint using Azure CLI
