@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Share anchors with Azure Cosmos DB
+title: 'Tutorial: Share anchors with Azure Cosmos DB'
 description: In this tutorial, you learn how to share Azure Spatial Anchors identifiers across Android/iOS devices in Unity with a back-end service and Azure Cosmos DB.
 author: ramonarguelles
 manager: vriveras
@@ -9,8 +9,6 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-# ms.reviewer: MSFT-alias-of-reviewer
-#Customer intent: As a mixed reality developer, I want to learn how to share Azure Spatial Anchors identifiers among devices in Unity with a back-end service and Azure Cosmos DB.
 ---
 # Tutorial: Sharing Azure Spatial Anchors across sessions and devices with an Azure Cosmos DB back end
 
