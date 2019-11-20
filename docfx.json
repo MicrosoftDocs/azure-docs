@@ -208,7 +208,8 @@
         "articles/azure-resource-manager/**/*.md": "tfitzmac",
         "articles/dev-spaces/**/*.md": "zr-msft",
         "articles/site-recovery/*.md": "rayne-wiselman",
-        "articles/migrate/*.md": "rayne-wiselman"
+        "articles/migrate/*.md": "rayne-wiselman",
+        "articles/notebooks/*.md": "kraigb"
       },
       "feedback_system": {
         "articles/virtual-machines/windows/classic/**/*": "None",
@@ -393,7 +394,8 @@
         "articles/azure-functions/**/*.md": "gwallace",
         "articles/backup/**/*.md": "carmonm",
         "articles/site-recovery/**/*.md": "carmonm",
-        "articles/migrate/**/*.md": "carmonm"
+        "articles/migrate/**/*.md": "carmonm",
+        "articles/notebooks/*.md": "barbkess"
       },
       "ms.author": {
         "articles/governance/*.md": "dacoulte",
@@ -411,7 +413,8 @@
         "articles/azure-resource-manager/**/*.md": "tomfitz",
         "articles/dev-spaces/**/*.md": "zarhoads",
         "articles/site-recovery/*.md": "raynew",
-        "articles/migrate/*.md": "raynew"
+        "articles/migrate/*.md": "raynew",
+        "articles/notebooks/*.md": "kraigb"
       },
       "ms.service": {
         "articles/governance/*.md": "governance",
@@ -430,7 +433,8 @@
         "articles/azure-resource-manager/**/*.md": "azure-resource-manager",
         "articles/dev-spaces/**/*.md": "azure-dev-spaces",
         "articles/site-recovery/*.md": "site-recovery",
-        "articles/migrate/*.md": "azure-migrate"
+        "articles/migrate/*.md": "azure-migrate",
+        "articles/notebooks/*.md": "azure-notebooks"
       },
       "ms.subservice": {
         "articles/industry/agriculture/**/*.md": "agriculture"

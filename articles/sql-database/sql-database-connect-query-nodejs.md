@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Use Node.js to query"
+title: "Quickstart: Use Node.js to query data from an Azure SQL database"
 description: How to use Node.js to create a program that connects to an Azure SQL database and query it using T-SQL statements.
 services: sql-database
 ms.service: sql-database
@@ -71,8 +71,7 @@ Open a command prompt and create a folder named *sqltest*. Open the folder you c
 1. Replace its contents with the following code. Then add the appropriate values for your server, database, user, and password.
 
     ```js
-    const Connection = require("tedious").Connection;
-    const Request = require("tedious").Request;
+    const { Connection, Request } = require("tedious");
 
     // Create connection to database
     const config = {

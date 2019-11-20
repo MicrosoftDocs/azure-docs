@@ -1,6 +1,6 @@
 ---
-title: Run your first query using Azure Resource Graph Explorer
-description: This article walks you through the steps to run your first query from Azure portal using Azure Resource Graph Explorer.
+title: "Quickstart: Your first portal query"
+description: In this quickstart, you follow the steps to run your first query from Azure portal using Azure Resource Graph Explorer.
 ms.date: 10/21/2019
 ms.topic: quickstart
 ---

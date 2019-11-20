@@ -6,7 +6,7 @@ author: rothja
 manager: jeffreyg
 
 tags: billing
-ms.service: azure-policy
+ms.service: cost-management-billing
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: byvinyal
