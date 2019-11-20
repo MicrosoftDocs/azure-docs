@@ -36,7 +36,11 @@
     href: conditional-access-azure-management.md
 - name: How-to guides
   items:
-  - name: Manage access
+  - name: List role assignments
+    items:
+    - name: Portal
+      href: role-assignments-list-portal.md
+  - name: Add or remove role assignments
     items:
     - name: Portal
       href: role-assignments-portal.md
@@ -50,7 +54,7 @@
       href: role-assignments-rest.md
     - name: Template
       href: role-assignments-template.md
-  - name: Deny access
+  - name: List deny assignments
     items:
     - name: Deny assignments
       href: deny-assignments.md
@@ -60,7 +64,7 @@
       href: deny-assignments-powershell.md
     - name: REST API
       href: deny-assignments-rest.md
-  - name: Custom roles
+  - name: Create custom roles
     items:
     - name: Overview
       href: custom-roles.md
