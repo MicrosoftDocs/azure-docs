@@ -1,6 +1,6 @@
 ---
 title: Getting started with R
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Use this R programming tutorial to get started using the R language with Azure Machine Learning Studio (classic) to create a forecasting solution.
 services: machine-learning
 ms.service: machine-learning

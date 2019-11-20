@@ -156,6 +156,10 @@ The validators are described in this table:
 
 The validators are all associated with properties of the `TokenValidationParameters` class, themselves initialized from the ASP.NET/ASP.NET Core configuration. In most cases, you won't have to change the parameters. There's one exception, for apps that aren't single tenants. (That is, web apps that accept users from any organization or from personal Microsoft accounts.) In this case, the issuer must be validated.
 
+## Token validation in Azure Functions
+
+It's also possible to validate incoming access tokens in Azure functions. You can find examples of validating tokens in Azure functions in [Dotnet](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions), [NodeJS](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions), and [Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions).
+
 ## Next steps
 
 > [!div class="nextstepaction"]

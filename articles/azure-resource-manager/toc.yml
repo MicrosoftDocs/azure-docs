@@ -138,6 +138,8 @@
       href: resource-group-create-multiple.md
     - name: Subscription level resources
       href: deploy-to-subscription.md
+    - name: Management group level resources
+      href: deploy-to-management-group.md
   - name: Deploy templates
     items:
     - name: Deploy - portal
@@ -152,6 +154,8 @@
     - name: Deploy - REST API
       displayName: deployment
       href: resource-group-template-deploy-rest.md
+    - name: What-if deployment
+      href: template-deploy-what-if.md
     - name: Redeploy on error
       displayName: rollback
       href: rollback-on-error.md

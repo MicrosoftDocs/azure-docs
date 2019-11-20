@@ -1,5 +1,5 @@
 ---
-title: "Configure replication in an Azure SQL Database managed instance database "
+title: Configure replication in a managed instance database
 description: Learn about configuring transactional replication in an Azure SQL Database managed instance database
 services: sql-database
 ms.service: sql-database

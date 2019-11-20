@@ -1,5 +1,5 @@
 ---
-title: Setup alerts and notifications using Azure portal 
+title: Setup alerts and notifications (Azure portal)
 description: Use the Azure portal to create SQL Database alerts, which can trigger notifications or automation when the conditions you specify are met.
 services: sql-database
 ms.service: sql-database

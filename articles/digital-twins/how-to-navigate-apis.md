@@ -1,5 +1,5 @@
 ---
-title: Navigate Azure Digital Twins APIs | Microsoft Docs
+title: Navigate the APIs - Azure Digital Twins | Microsoft Docs
 description: Learn how to common patterns of querying the Azure Digital Twins management APIs.
 ms.author: alinast
 author: alinamstanciu
@@ -115,4 +115,4 @@ To learn some common API query patterns, read [How to query Azure Digital Twins 
 
 To learn more about your API endpoints, read [How to use Digital Twins Swagger](./how-to-use-swagger.md).
 
-To review OData syntax and available comparison operators, read [OData comparison operators in Azure Search](../search/search-query-odata-comparison-operators.md).
+To review OData syntax and available comparison operators, read [OData comparison operators in Azure Cognitive Search](../search/search-query-odata-comparison-operators.md).

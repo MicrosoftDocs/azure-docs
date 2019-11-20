@@ -14,7 +14,7 @@ ms.date: 11/04/2019
 
 In this article, you learn about Azure Machine Learning, a cloud-based environment you can use to train, deploy, automate, manage, and track ML models. 
 
-Azure Machine Learning can be used for any kind of machine learning, from classical ml to deep learning, supervised and unsupervised learning. Whether you prefer to write Python or R code or zero-code/low-code options such as the [designer](ui-tutorial-automobile-price-train-score.md), you can build, train and track highly accurate machine learning and deep-learning models in an Azure Machine Learning Workspace. 
+Azure Machine Learning can be used for any kind of machine learning, from classical ml to deep learning, supervised, and unsupervised learning. Whether you prefer to write Python or R code or zero-code/low-code options such as the [designer](ui-tutorial-automobile-price-train-score.md), you can build, train, and track highly accurate machine learning and deep-learning models in an Azure Machine Learning Workspace. 
 
 Start training on your local machine and then scale out to the cloud. 
 
@@ -39,7 +39,7 @@ Azure Machine Learning provides all the tools developers and data scientists nee
 
 + Jupyter notebooks: use our [example notebooks](https://aka.ms/aml-notebooks) or create your own notebooks to leverage our <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK for Python</a> samples for your machine learning. 
 
-+ R scripts or notebooks in which you use the <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html on" target="_blank">SDK for R</a> to write your own code, or use the R modules in the designer.
++ R scripts or notebooks in which you use the <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">SDK for R</a> to write your own code, or use the R modules in the designer.
 
 + [Visual Studio Code extension](how-to-vscode-tools.md)
 
@@ -48,7 +48,6 @@ Azure Machine Learning provides all the tools developers and data scientists nee
 + Open-source frameworks such as PyTorch, TensorFlow, and scikit-learn and many more
 
 You can even use [MLflow to track metrics and deploy models](how-to-use-mlflow.md) or Kubeflow to [build end-to-end workflow pipelines](https://www.kubeflow.org/docs/azure/).
-
 
 ## Build ML models in Python or R
 
@@ -64,7 +63,7 @@ For code-free or low-code training and deployment, try:
 
 + **Azure Machine Learning designer (preview)**
 
-  Use the designer to prep data, train, test, deploy, manage, and track machine learning models without writing any code. There is no programming required, you visually connect datasets and modules to construct your model.   Try out the [designer tutorial](tutorial-designer-automobile-price-train-score.md).
+  Use the designer to prep data, train, test, deploy, manage, and track machine learning models without writing any code. There is no programming required, you visually connect datasets and modules to construct your model. Try out the [designer tutorial](tutorial-designer-automobile-price-train-score.md).
 
   Learn more in [the Azure Machine Learning designer overview article](concept-designer.md). 
 
@@ -86,13 +85,31 @@ These models can be consumed and return predictions in [real time](how-to-consum
 And with advanced [machine learning pipelines](concept-ml-pipelines.md), you can collaborate on each step from data preparation, model training and evaluation, through deployment. Pipelines allow you to:
 
 * Automate the end-to-end machine learning process in the cloud
-* Reuse components and only re-run steps when needed
+* Reuse components and only rerun steps when needed
 * Use different compute resources in each step
 * Run batch scoring tasks
 
 If you want to use scripts to automate your machine learning workflow, the [machine learning CLI](reference-azure-machine-learning-cli.md) provides command-line tools that perform common tasks, such as submitting a training run or deploying a model.
 
 To get started using Azure Machine Learning, see [Next steps](#next-steps).
+
+## Integration with other services
+
+Azure Machine Learning works with other services on the Azure platform, and also integrates with open source tools such as Git and MLFlow.
+
++ Compute targets such as __Azure Kubernetes Service__, __Azure Container Instances__, __Azure Databricks__, __Azure Data Lake Analytics__, and __Azure HDInsight__. For more information on compute targets, see [What are compute targets?](concept-compute-target.md).
++ __Azure Event Grid__. For more information, see [Consume Azure Machine Learning events](concept-event-grid-integration.md).
++ __Azure Monitor__. For more information, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
++ Data stores such as __Azure Storage accounts__, __Azure Data Lake Storage__, __Azure SQL Database__, __Azure Database for PostgreSQL__, and __Azure Open Datasets__. For more information, see [Access data in Azure storage services](how-to-access-data.md) and [Create datasets with Azure Open Datasets](how-to-create-register-datasets.md#create-datasets-with-azure-open-datasets).
++ __Azure Virtual Networks__. For more information, see [Secure experimentation and inference in a virtual network](how-to-enable-virtual-network.md).
++ __Azure Pipelines__. For more information, see [Train and deploy machine learning models](/azure/devops/pipelines/targets/azure-machine-learning).
++ __Git repository logs__. For more information, see [Git integration](concept-train-model-git-integration.md).
++ __MLFlow__. For more information, see [MLflow to track metrics and deploy models](how-to-use-mlflow.md) 
++ __Kubeflow__. For more information, see [build end-to-end workflow pipelines](https://www.kubeflow.org/docs/azure/).
+
+### Secure communications
+
+Your Azure Storage account, compute targets, and other resources can be used securely inside a virtual network to train models and perform inference. For more information, see [Secure experimentation and inference in a virtual network](how-to-enable-virtual-network.md).
 
 ## <a name="sku"></a>Basic & Enterprise editions
 
