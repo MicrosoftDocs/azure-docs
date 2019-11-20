@@ -15,7 +15,7 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/30/2019
+ms.date: 11/20/2019
 ms.author: radeltch
 
 ---
@@ -97,17 +97,17 @@ One method for achieving HANA high availability is by configuring host auto fail
 ![SAP NetWeaver High Availability overview](./media/high-availability-guide-suse-anf/sap-hana-scale-out-standby-netapp-files-suse.png)
 
 In the preceding diagram, which follows SAP HANA network recommendations, three subnets are represented within one Azure virtual network: 
-* For communication with the storage system
-* For internal HANA inter-node communication
 * For client communication
+* For internal HANA inter-node communication
+* For communication with the storage system
 
 The Azure NetApp volumes are in separate subnet, [delegated to Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet).  
 
 For this example configuration, the subnets are:  
 
-  - `storage` 10.23.2.0/24  
-  - `hana` 10.23.3.0/24  
   - `client` 10.23.0.0/24  
+  - `hana` 10.23.3.0/24  
+  - `storage` 10.23.2.0/24  
   - `anf` 10.23.1.0/26  
 
 ## Set up the Azure NetApp Files infrastructure 
@@ -207,19 +207,19 @@ The SAP HANA configuration for the layout that's presented in this article, usin
 
 ## Deploy Linux virtual machines via the Azure portal
 
-First you need to create the Azure NetApp Files volumes. Do the following:
+First you need to create the Azure NetApp Files volumes. Then do the following:
 1. Create the [Azure virtual network subnets](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet) in your [Azure virtual network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview). 
 1. Deploy the VMs. 
 1. Create the additional network interfaces, and attach the network interfaces to the corresponding VMs.  
 
-   Each virtual machine has three network interfaces, which correspond to the three Azure virtual network subnets (`storage`, `hana`, and `client`). 
+   Each virtual machine has three network interfaces, which correspond to the three Azure virtual network subnets (`client`, `hana` and`storage`). 
 
    For more information, see [Create a Linux virtual machine in Azure with multiple network interface cards](https://docs.microsoft.com/azure/virtual-machines/linux/multiple-nics).  
 
 > [!IMPORTANT]
 > For SAP HANA workloads, low latency is critical. To achieve low latency, work with your Microsoft representative to ensure that the virtual machines and the Azure NetApp Files volumes are deployed in close proximity. When you're [onboarding new SAP HANA system](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxjSlHBUxkJBjmARn57skvdUQlJaV0ZBOE1PUkhOVk40WjZZQVJXRzI2RC4u) that's using SAP HANA Azure NetApp Files, submit the necessary information. 
  
-The next instructions assume that you've already created the resource group, the Azure virtual network, and the three Azure virtual network subnets: `storage`, `hana`, and `client`. When you deploy the VMs, select the storage subnet, so that the storage network interface is the primary interface on the VMs. If that's not possible, configure an explicit route to the Azure NetApp Files delegated subnet via the storage subnet gateway. 
+The next instructions assume that you've already created the resource group, the Azure virtual network, and the three Azure virtual network subnets: `client`, `hana` and `storage`. When you deploy the VMs, select the client subnet, so that the client network interface is the primary interface on the VMs. You will also need to configure an explicit route to the Azure NetApp Files delegated subnet via the storage subnet gateway. 
 
 > [!IMPORTANT]
 > Make sure that the OS you select is SAP-certified for SAP HANA on the specific VM types you're using. For a list of SAP HANA certified VM types and OS releases for those types, go to the [SAP HANA certified IaaS platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) site. Click into the details of the listed VM type to get the complete list of SAP HANA-supported OS releases for that type.  
@@ -232,13 +232,13 @@ The next instructions assume that you've already created the resource group, the
 
    b. Select the availability set that you created earlier for SAP HANA.  
 
-   c. Select the storage Azure virtual network subnet. Select [Accelerated Network](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).  
+   c. Select the client Azure virtual network subnet. Select [Accelerated Network](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).  
 
-   When you deploy the virtual machines, the network interface name is automatically generated. We'll refer to the network interfaces, which are attached to the storage Azure virtual network subnet, as **hanadb1-storage**, **hanadb2-storage**, and **hanadb3-storage**. 
+   When you deploy the virtual machines, the network interface name is automatically generated. In these instructions for simplicity we'll refer to the automatically generated network interfaces, which are attached to the client Azure virtual network subnet, as **hanadb1-client**, **hanadb2-client**, and **hanadb3-client**. 
 
 3. Create three network interfaces, one for each virtual machine, for the `hana`  virtual network subnet (in this example, **hanadb1-hana**, **hanadb2-hana**, and **hanadb3-hana**).  
 
-4. Create three network interfaces, one for each virtual machine, for the `client` virtual network subnet (in this example, **hanadb1-client**, **hanadb2-client**, and **hanadb3-client**).  
+4. Create three network interfaces, one for each virtual machine, for the `storage` virtual network subnet (in this example, **hanadb1-storage**, **hanadb2-storage**, and **hanadb3-storage**).  
 
 5. Attach the newly created virtual network interfaces to the corresponding virtual machines by doing the following:  
 
@@ -248,7 +248,7 @@ The next instructions assume that you've already created the resource group, the
 
     c. In the **Overview** pane, select **Stop** to deallocate the virtual machine.  
 
-    d. Select **Networking**, and then attach the network interface. In the **Attach network interface** drop-down list, select the already created network interfaces for the `hana` and `client` subnets.  
+    d. Select **Networking**, and then attach the network interface. In the **Attach network interface** drop-down list, select the already created network interfaces for the `storage` and `hana` subnets.  
     
     e. Select **Save**. 
  
@@ -256,20 +256,21 @@ The next instructions assume that you've already created the resource group, the
  
     g. Leave the virtual machines in stopped state for now. Next, we'll enable [accelerated networking](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) for all newly attached network interfaces.  
 
-6. Enable accelerated networking for the additional network interfaces for the `hana` and `client` subnets by doing the following:  
+6. Enable accelerated networking for the additional network interfaces for the `storage` and `hana` subnets by doing the following:  
 
     a. Open [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) in the [Azure portal](https://portal.azure.com/#home).  
 
-    b. Execute the following commands to enable accelerated networking for the additional network interfaces, which are attached to the `hana` and `client` subnets.  
+    b. Execute the following commands to enable accelerated networking for the additional network interfaces, which are attached to the `storage` and `hana` subnets.  
 
     <pre><code>
+    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb1-storage</b> --accelerated-networking true
+    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb2-storage</b> --accelerated-networking true
+    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb3-storage</b> --accelerated-networking true
+    
     az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb1-hana</b> --accelerated-networking true
     az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb2-hana</b> --accelerated-networking true
     az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb3-hana</b> --accelerated-networking true
-    
-    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb1-client</b> --accelerated-networking true
-    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb2-client</b> --accelerated-networking true
-    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb3-client</b> --accelerated-networking true
+
     </code></pre>
 
 7. Start the virtual machines by doing the following:  
@@ -292,30 +293,47 @@ Configure and prepare your OS by doing the following:
 
     <pre><code>
     # Storage
-    10.23.2.4   hanadb1
-    10.23.2.5   hanadb2
-    10.23.2.6   hanadb3
+    10.23.2.4   hanadb1-storage
+    10.23.2.5   hanadb2-storage
+    10.23.2.6   hanadb3-storage
     # Client
-    10.23.0.5   hanadb1-client
-    10.23.0.6   hanadb2-client
-    10.23.0.7   hanadb3-client
+    10.23.0.5   hanadb1
+    10.23.0.6   hanadb2
+    10.23.0.7   hanadb3
     # Hana
     10.23.3.4   hanadb1-hana
     10.23.3.5   hanadb2-hana
     10.23.3.6   hanadb3-hana
     </code></pre>
 
-2. **[A]** Change DHCP and cloud config settings to avoid unintended hostname changes.  
+2. **[A]** Change DHCP and cloud config settings for the network interface for storage to avoid unintended hostname changes.  
+
+The following instructions assume that the storage network interface is `eth1`. 
 
     <pre><code>
     vi /etc/sysconfig/network/dhcp
     #Change the following DHCP setting to "no"
     DHCLIENT_SET_HOSTNAME="no"
-    vi /etc/sysconfig/network/ifcfg-eth0
-    # Edit ifcfg-eth0 
+    vi /etc/sysconfig/network/ifcfg-<b>eth1</b>
+    # Edit ifcfg-eth1 
     #Change CLOUD_NETCONFIG_MANAGE='yes' to "no"
     CLOUD_NETCONFIG_MANAGE='no'
     </code></pre>
+
+2. **[A]** Add a network route, so that the communication to the Azure Netapp Files goes via the storage network interface.  
+
+The following instructions assume that the storage network interface is `eth1`. 
+
+    <pre><code>
+    vi /etc/sysconfig/network/ifroute-<b>eth1</b>
+    # Add the following routes 
+    # RouterIPforStorageNetwork - - -
+    # ANFNetwork/cidr RouterIPforStorageNetwork - -
+    <b>10.23.2.1</b> - - -
+    <b>10.23.1.0/26</b> <b>10.23.2.1</b> - -
+    </code></pre>
+
+Reboot the VM to activate the changes.  
 
 3. **[A]** Prepare the OS for running SAP HANA on NetApp Systems with NFS, as described in [SAP HANA on NetApp AFF Systems with NFS configuration guide](https://www.netapp.com/us/media/tr-4435.pdf). Create configuration file */etc/sysctl.d/netapp-hana.conf* for the NetApp configuration settings.  
 
