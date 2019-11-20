@@ -23,53 +23,6 @@ Are you just starting to explore the functionality of Azure Cognitive Services? 
 > * If you find an issue with one of the samples on GitHub, raise a *GitHub* issue.
 > * Search for a solution in the *UserVoice forum*.
 
-## Stay informed
-
-<div class='icon is-large'>
-    <img alt='Stay informed' src='https://docs.microsoft.com/media/common/i_whats-new.svg'>
-</div>
-
-News about Cognitive Services is shared in the [Azure blog](https://azure.microsoft.com/blog/topics/cognitive-services/).
-
-## Release notes
-
-<div class='icon is-large'>
-    <img alt='Release notes' src='https://docs.microsoft.com/media/common/i_learn-about.svg'>
-</div>
-
-The release notes are updated as new releases are made available. The notes contain information about new features, improvements, and bug fixes.
-
- - [Custom Vision Service](custom-vision-service/release-notes.md)
- - [Face API](face/releasenotes.md)
- - [Language Understanding (LUIS)](luis/whats-new.md)
- - [Speech Services](speech-service/releasenotes.md)
- - [Speech Services SDK](speech-service/devices-sdk-release-notes.md)
- - [Text Analytics](text-analytics/whats-new.md)
-
-## Search
-
-<div class='icon is-large'>
-    <img alt='Search' src='https://docs.microsoft.com/media/common/i_search.svg'>
-</div>
-
-You might find the answer you need in the documentation, the samples, or answers to [Stack Overflow](https://www.stackoverflow.com) questions or in the samples.
-
- - https://stackoverflow.com/questions/tagged/azure-cognitive-services
-
-### Scoped Search
-
-For faster results, scope your search to Stack Overflow, Microsoft docs, or code samples by using the following query on your [favorite search engine](https://bing.com):
-
-```
-{your search keywords} site:stackoverflow.com
-```
-
-Where `{your search keywords}` is your search keywords. This search will scope the results to Stack Overflow. Use the following site syntax to scope searches appropriately:
-
- - Stack Overflow: `site:stackoverflow.com`
- - Microsoft Docs: `site:docs.microsoft.com`
- - GitHub Samples: `site:github.com/azure-samples`
-
 ## Create an Azure support request
 
 <div class='icon is-large'>
@@ -98,6 +51,79 @@ If you can't find an answer to your problem via search, submit a new question to
 > The following posts from Stack Overflow contain tips on how to form questions and add source code. Following these guidelines might help increase the chances that community members assess and respond to your question quickly:
 > * [How do I ask a good question?](https://stackoverflow.com/help/how-to-ask)
 > * [How to create a minimal, reproducible example?](https://stackoverflow.com/help/minimal-reproducible-example)
+
+## UserVoice forum
+
+<div class='icon is-large'>
+    <img alt='UserVoice' src='https://docs.microsoft.com/media/logos/logo-uservoice.svg'>
+</div>
+
+Share your ideas for making Cognitive Services and the accompanying APIs work better for the applications you develop. Use our [growing Knowledge Base](https://cognitive.uservoice.com/knowledgebase) to find answers to common questions:
+
+| Service           | Cognitive Services UserVoice URL |
+|-------------------|---------------|
+| Anomaly Detector  | https://cognitive.uservoice.com/forums/912196-anomaly-detector |
+| Bing services     | https://cognitive.uservoice.com/forums/555907-bing-search |
+| Computer Vision   | https://cognitive.uservoice.com/forums/430309-computer-vision |
+| Content Moderator | https://cognitive.uservoice.com/forums/559960-content-moderator |
+| Custom Vision     | https://cognitive.uservoice.com/forums/598141-custom-vision-service |
+| Face              | https://cognitive.uservoice.com/forums/430315-face |
+| Form              | https://cognitive.uservoice.com/forums/921556-form-recognizer |
+| Immersive         | https://feedback.azure.com/forums/34192--general-feedback |
+| LUIS              | https://cognitive.uservoice.com/forums/551524-luis |
+| Personalizer      | https://cognitive.uservoice.com/forums/921562-personalizer |
+| QnA Maker         | https://cognitive.uservoice.com/forums/578689-qna-maker |
+| Speech Services   | https://cognitive.uservoice.com/forums/912208-speech-service |
+| Text Analytics    | https://cognitive.uservoice.com/forums/555922-text-analytics |
+| Translator Text   | https://cognitive.uservoice.com/forums/558796-translator |
+| Video Indexer     | https://cognitive.uservoice.com/forums/598144-video-indexer |
+
+## Release notes
+
+<div class='icon is-large'>
+    <img alt='Release notes' src='https://docs.microsoft.com/media/common/i_learn-about.svg'>
+</div>
+
+The release notes are updated as new releases are made available. The notes contain information about new features, improvements, and bug fixes.
+
+ - [Custom Vision Service](custom-vision-service/release-notes.md)
+ - [Face API](face/releasenotes.md)
+ - [Language Understanding (LUIS)](luis/whats-new.md)
+ - [Speech Services](speech-service/releasenotes.md)
+ - [Speech Services SDK](speech-service/devices-sdk-release-notes.md)
+ - [Text Analytics](text-analytics/whats-new.md)
+
+## Stay informed
+
+<div class='icon is-large'>
+    <img alt='Stay informed' src='https://docs.microsoft.com/media/common/i_whats-new.svg'>
+</div>
+
+News about Cognitive Services is shared in the [Azure blog](https://azure.microsoft.com/blog/topics/cognitive-services/).
+
+## Search
+
+<div class='icon is-large'>
+    <img alt='Search' src='https://docs.microsoft.com/media/common/i_search.svg'>
+</div>
+
+You might find the answer you need in the documentation, the samples, or answers to [Stack Overflow](https://www.stackoverflow.com) questions or in the samples.
+
+ - https://stackoverflow.com/questions/tagged/azure-cognitive-services
+
+### Scoped Search
+
+For faster results, scope your search to Stack Overflow, Microsoft docs, or code samples by using the following query on your [favorite search engine](https://bing.com):
+
+```
+{your search keywords} site:stackoverflow.com
+```
+
+Where `{your search keywords}` is your search keywords. This search will scope the results to Stack Overflow. Use the following site syntax to scope searches appropriately:
+
+ - Stack Overflow: `site:stackoverflow.com`
+ - Microsoft Docs: `site:docs.microsoft.com`
+ - GitHub Samples: `site:github.com/azure-samples`
 
 ## Create a GitHub issue
 
@@ -147,30 +173,4 @@ Detail the Cognitive Services offering that you're attempting to use, and provid
     <img alt='Reddit' src='https://docs.microsoft.com/media/logos/logo_reddit.svg'>
 </div>
 
-Reddit is community driven web content rating and discussion website, offering the latest details of [Azure Cognitive Services](https://www.reddit.com/r/AZURE/search/?q=Cognitive%20Services&restrict_sr=1). Registered members can submit content and others can vote on it - organically enabling the most relevant content to bubble up.
-
-## UserVoice forum
-
-<div class='icon is-large'>
-    <img alt='UserVoice' src='https://docs.microsoft.com/media/logos/logo-uservoice.svg'>
-</div>
-
-Share your ideas for making Cognitive Services and the accompanying APIs work better for the applications you develop. Use our [growing Knowledge Base](https://cognitive.uservoice.com/knowledgebase) to find answers to common questions:
-
-| Service           | Cognitive Services UserVoice URL |
-|-------------------|---------------|
-| Anomaly Detector  | https://cognitive.uservoice.com/forums/912196-anomaly-detector |
-| Bing services     | https://cognitive.uservoice.com/forums/555907-bing-search |
-| Computer Vision   | https://cognitive.uservoice.com/forums/430309-computer-vision |
-| Content Moderator | https://cognitive.uservoice.com/forums/559960-content-moderator |
-| Custom Vision     | https://cognitive.uservoice.com/forums/598141-custom-vision-service |
-| Face              | https://cognitive.uservoice.com/forums/430315-face |
-| Form              | https://cognitive.uservoice.com/forums/921556-form-recognizer |
-| Immersive         | https://feedback.azure.com/forums/34192--general-feedback |
-| LUIS              | https://cognitive.uservoice.com/forums/551524-luis |
-| Personalizer      | https://cognitive.uservoice.com/forums/921562-personalizer |
-| QnA Maker         | https://cognitive.uservoice.com/forums/578689-qna-maker |
-| Speech Services   | https://cognitive.uservoice.com/forums/912208-speech-service |
-| Text Analytics    | https://cognitive.uservoice.com/forums/555922-text-analytics |
-| Translator Text   | https://cognitive.uservoice.com/forums/558796-translator |
-| Video Indexer     | https://cognitive.uservoice.com/forums/598144-video-indexer |
+Reddit is community driven web content rating and discussion website, offering the latest details of [Azure Cognitive Services](https://www.reddit.com/r/AZURE/search/?q=Cognitive%20Services&restrict_sr=1). Registered members can submit content and others can vote on it - organically enabling the most relevant content will rise to the top.
