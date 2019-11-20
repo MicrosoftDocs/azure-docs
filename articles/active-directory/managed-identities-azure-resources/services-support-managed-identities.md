@@ -1,5 +1,5 @@
 ---
-title: Azure Services that support managed identities for Azure resources
+title: Azure Services that support managed identities - Azure AD
 description: List of services that support managed identities for Azure resources and Azure AD authentication
 services: active-directory
 author: MarkusVi
