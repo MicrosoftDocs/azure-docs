@@ -1,6 +1,6 @@
 ---
 title: Load balance zone-redundant VMs using Azure CLI
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Learn how to create a public Standard Load Balancer with zone redundant frontend using Azure CLI
 services: load-balancer
 documentationcenter: na

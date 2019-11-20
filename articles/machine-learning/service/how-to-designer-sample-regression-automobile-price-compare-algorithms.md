@@ -1,7 +1,7 @@
 ---
-title: 'Designer: Predict car prices (regression)'
+title: 'Designer: Predict car prices (advanced) example'
 titleSuffix: Azure Machine Learning
-description: This article shows you how to build a complex machine learning pipeline without writing a single line of code using the designer (preview). Learn how to train and compare multiple regression models to predict a car's price based on technical features
+description: Build & compare multiple ML regression models to predict an automobile's price  based on technical features with Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,8 +11,10 @@ ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
 ---
+# Train & compare multiple regression models to predict car prices with Azure Machine Learning designer
 
-# Sample 2 - Regression: Predict price and compare algorithms
+**Designer (preview) sample 2**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Learn how to build a  machine learning pipeline without writing a single line of code using the designer (preview). This sample trains and compares multiple regression models to predict a car's price based on its technical features. We'll provide the rationale for the choices made in this pipeline so you can tackle your own machine learning problems.
@@ -21,7 +23,7 @@ If you're just getting started with machine learning, take a look at the [basic 
 
 Here's the completed graph for this pipeline:
 
-[![Graph of the pipeline](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Graph of the pipeline](media/how-to-designer-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/how-to-designer-sample-regression-predict-automobile-price-compare-algorithms/graph.png#lightbox)
 
 ## Prerequisites
 
@@ -48,7 +50,7 @@ The main data preparation tasks include data cleaning, integration, transformati
 
 Use the **Select Columns in Dataset** module to exclude normalized-losses that have many missing values. We then use **Clean Missing Data** to remove the rows that have missing values. This helps to create a clean set of training data.
 
-![Data pre-processing](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/data-processing.png)
+![Data pre-processing](media/how-to-designer-sample-regression-predict-automobile-price-compare-algorithms/data-processing.png)
 
 ## Train the model
 
@@ -70,7 +72,7 @@ After the model is trained, use the **Score Model** and **Evaluate Model** modul
 
 Here are the results:
 
-![Compare the results](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/result.png)
+![Compare the results](media/how-to-designer-sample-regression-predict-automobile-price-compare-algorithms/result.png)
 
 These results show that the model built with **Boosted Decision Tree Regression** has a lower root mean squared error than the model built on **Decision Forest Regression**.
 

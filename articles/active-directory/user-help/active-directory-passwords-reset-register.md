@@ -1,6 +1,6 @@
 ---
-title: Register to reset your own password - Azure AD
-description: Register your authentication data for Azure AD self-service password reset, so you can reset your own password without administrator help.
+title: Register authentication info to reset your own password - Azure AD
+description: Register your authentication method information for Azure AD self-service password reset, so you can reset your own password without administrator help.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -16,7 +16,7 @@ ms.author: lizross
 ms.collection: M365-identity-device-management
 ---
 
-# Register to reset your own password
+# Register your authentication method info to reset your own password
 
 > [!IMPORTANT]
 > Are you here because you can't sign in? If so, see [Reset your work or school password](active-directory-passwords-update-your-own-password.md).
