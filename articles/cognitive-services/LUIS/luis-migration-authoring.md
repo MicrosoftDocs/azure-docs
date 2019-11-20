@@ -21,10 +21,10 @@ Language Understanding (LUIS) authoring authentication changed from an email acc
 
 Using an Azure resource for authoring allows you, as the owner of the resource, to control access to authoring. You can create and name authoring resources to manage different groups of authors. 
 
-For example, if you have 2 types of LUIS apps you are authoring, with different members, you can create two different authoring resources and assign contributors. The Azure authoring resource controls the authorization. 
+For example, if you are the owner of 2 LUIS apps, and you have different members who are collaborators on each app. You can create two different authoring resources and assign each app to one resource. Then assign each memeber as a contributor to the proper authroing resource depending on which app they used to collaborate on. The Azure authoring resource controls the authorization. 
 
 > [!Note]
-> Before migration, co-authors are known as _collaborators_. After migration, the Azure role of _contributor_ is used for the same functionality.
+> Before migration, co-authors are known as _collaborators_ on the LUIS app level. After migration, the Azure role of _contributor_ is used for the same functionality but on the azure resource level.
 
 ## What is migrating?
 
@@ -56,9 +56,10 @@ You can delay the migration process, by canceling out of the window. You are per
 
 ### Before you migrate
 
+* **Required**, you need to have an [Azure subscription](https://azure.microsoft.com/free/). A part of the subscription process does require billing information. However, you can use the Free (`F0`) pricing tier when you use LUIS. 
 * **Optionally**, backup the apps from the LUIS portal's apps list by exporting each app or use the export [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40).
 * **Optionally**, save each app's collaborator's list. This email list is provided as part of the migration process.
-* **Required**, you need to have an [Azure subscription](https://azure.microsoft.com/free/). A part of the subscription process does require billing information. However, you can use the Free (`F0`) pricing tier when you use LUIS. 
+
 
 **Authoring your LUIS app is free**, indicated by the `F0` tier. Learn [more about pricing tiers](luis-boundaries.md#key-limits).
 
@@ -83,7 +84,11 @@ You can add contributors to the authoring resource from the _Azure portal_, on t
 
 ## Migration for the app contributor
 
-Every user of LUIS needs to migrate, including collaborators/contributors. 
+Every user of LUIS needs to migrate, including collaborators/contributors. A collaborator must migrate to have access to the app.
+
+
+> [!Note]
+> If the owner of the LUIS app migrated and added the collaborator as a contributor on the Azure resource, the collaborator will still have no access to the app unless they also migrate.
 
 ### Before the app is migrated
 
@@ -97,7 +102,10 @@ After the migration process, any apps you own are available on the **My apps** p
 
 ## Troubleshooting
 
-LUIS authoring keys are only visible in the LUIS portal after the migration process is complete. If you create the authoring keys, such as with the LUIS CLI, the user still needs to complete the migration process. 
+* LUIS authoring keys are only visible in the LUIS portal after the migration process is complete. If you create the authoring keys, such as with the LUIS CLI, the user still needs to complete the migration process. 
+* If a migrated user adds a non-migrated user as a contributor on their azure resource, the non-migrated user will have no access to the apps unless they migrate.
+* If a non-migrated user is not an owner to any apps but he is a collaborator to other apps that are owned by others and the owners have undergone the migration process, this user will need to migrate to have access to the apps.
+* If a non-migrated user added another migrated user as a collaborator to their app, an error will occur as you will not be able to add a migrated user as a collboartor to an app. The non-migrated user will then have to go through the migration process and create an azure resource and add the migrated user as a contributor to that resource. 
 
 ## Next steps
 
