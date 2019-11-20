@@ -25,7 +25,7 @@ If you select another offer type, you may be redirected to the older [Cloud Part
 
 ![Create offer window on Partner Center](./media/new-offer-click.png)
 
-The **New offer** dialog box is displayed.
+The **New offer** dialog box is displayed. 
 
 ![New offer dialog box](./media/new-offer-popup.png)
 
@@ -152,7 +152,7 @@ By enabling test drive, you will be asked to configure a demonstration environme
 - [Common lead configuration errors](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
 - [Lead Management Overview One Pager](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
 
-Remember to **Save** before moving on to the next section.
+Remember to **Save** before moving on to the next section!
 
 ## Properties
 The **Properties** tab asks you to define the categories and industries used to group your offer on the marketplaces, the legal contracts supporting your offer, and your app version. 
@@ -336,7 +336,7 @@ To make your offer description more engaging you can use HTML tags to format the
 - **Screenshots** (required): Add screenshots demonstrating your offer. A maximum of five (5) screenshots may be added and should be sized at 1280 x 720 pixels. All images must be in .PNG format.
 - **Videos** (optional): Add links to videos demonstrating your offer. You can use links to YouTube and/or Vimeo videos, which are shown along with your offer to customers. You will also need to enter a thumbnail image of the video, sized to 1280 x 720 pixels in PNG format. You can display a maximum of four videos per offer.
 
-Remember to **Save** before moving on to the next section.
+Remember to **Save** before moving on to the next section!
 
 #### Additional marketplace listing resources
 
