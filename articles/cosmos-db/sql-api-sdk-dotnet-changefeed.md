@@ -35,7 +35,7 @@ ms.author: maquaran
 |**Current supported framework**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 > [!NOTE]
-> If you are using change feed processor, please see the latest version 3.x of the [.NET SDK](sql-api-sdk-dotnet-standard.md), which has change feed built into the SDK. 
+> If you are using change feed processor, please see the latest version 3.x of the [.NET SDK](change-feed-processor.md), which has change feed built into the SDK. 
 
 ## Release notes
 
