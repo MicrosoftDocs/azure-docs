@@ -1,12 +1,8 @@
 ---
-title: Azure Resource Manager template functions - resources | Microsoft Docs
+title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template to retrieve values about resources.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/24/2019
-ms.author: tomfitz
-
+ms.date: 10/26/2019
 ---
 # Resource functions for Azure Resource Manager templates
 
@@ -745,6 +741,12 @@ The resource ID is returned in the following format:
 
 ```json
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+```
+
+When used in a [subscription-level deployment](deploy-to-subscription.md), the resource ID is returned in the following format:
+
+```json
+/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
 To get the ID in other formats, see:

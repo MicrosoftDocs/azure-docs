@@ -22,7 +22,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Known issues on Internet Explorer and Microsoft Edge browsers with MSAL.js
+# Use Internet Explorer and Microsoft Edge browsers with MSAL.js
 
 Microsoft Authentication Library for JavaScript (MSAL.js) is generated for [JavaScript ES5](https://fr.wikipedia.org/wiki/ECMAScript#ECMAScript_Edition_5_.28ES5.29) so that it can run in Internet Explorer. There are, however, a few things to know.
 

@@ -1,9 +1,10 @@
 ---
-title: Azure SQL Database - performance diagnostics in the Hyperscale service tier | Microsoft Docs
+title: Performance diagnostics in Hyperscale
 description: This article describes how to troubleshoot Hyperscale performance problems in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
+ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 author: denzilribeiro
 ms.author: denzilr
@@ -97,7 +98,7 @@ A ratio of reads done on RBPEX to aggregated reads done on all other data files 
 
 ## Additional Resources
 
-- For vCore resource limits for a hyperscale single database see [Hyperscale service tier vCore Limits](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-for-provisioned-compute)
+- For vCore resource limits for a hyperscale single database see [Hyperscale service tier vCore Limits](sql-database-vcore-resource-limits-single-databases.md#hyperscale---provisioned-compute---gen5)
 - For Azure SQL Database performance tuning, see [Query performance in Azure SQL Database](sql-database-performance-guidance.md)
 - For performance tuning using Query Store, see [Performance monitoring using Query store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store/)
 - For DMV monitoring scripts, see [Monitoring performance Azure SQL Database using dynamic management views](sql-database-monitoring-with-dmvs.md)

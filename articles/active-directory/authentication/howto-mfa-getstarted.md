@@ -206,6 +206,9 @@ function Set-MfaState {
 Get-MsolUser -All | Set-MfaState -State Disabled
 ```
 
+> [!NOTE]
+> We recently changed the behavior and PowerShell script above accordingly. Previously, the script saved off the MFA methods, disabled MFA, and restored the methods. This is no longer necessary now that the default behavior for disable doesn't clear the methods.
+
 ## Plan Conditional Access policies
 
 To plan your Conditional Access policy strategy, which will determine when MFA and other controls are required, refer to [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md).
@@ -217,6 +220,7 @@ It is important that you prevent being inadvertently locked out of your Azure AD
 1. Sign in to the [Azure portal](https://portal.azure.com) using a global administrator account.
 1. Browse to **Azure Active Directory**, **Conditional Access**.
 1. Select **New policy**.
+   ![Create a Conditional Access policy to enable MFA for Azure portal users in pilot group](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 1. Provide a meaningful name for your policy.
 1. Under **users and groups**:
    * On the **Include** tab, select the **All users** radio button
@@ -234,8 +238,6 @@ It is important that you prevent being inadvertently locked out of your Azure AD
 1. Skip the **Session** section.
 1. Set the **Enable policy** toggle to **On**.
 1. Click **Create**.
-
-![Create a Conditional Access policy to enable MFA for Azure portal users in pilot group](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 
 ## Plan integration with on-premises systems
 

@@ -1,9 +1,9 @@
 ---
-title: Create a water consumption monitoring app with Azure IoT Central | Microsoft Docs
-description: Learn to create a water consumption monitoring application using Azure IoT Central application templates.
+title: 'Tutorial: Create a water consumption monitoring app with Azure IoT Central'
+description: 'Tutorial: Learn to create a water consumption monitoring application using Azure IoT Central application templates.'
 author: miriambrus
 ms.author: miriamb
-ms.date: 09/24/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -11,6 +11,8 @@ manager: abjork
 ---
 
 # Tutorial: Create a water consumption monitoring application in IoT Central
+
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 This tutorial guides you to create an Azure IoT Central water consumption monitoring application from the IoT Central Water Consumption Monitoring application template. 
 
@@ -42,7 +44,7 @@ To create a new Azure IoT Central water consumption monitoring application:
 
     ![Enter your organization account](media/tutorial-waterconsumptionmonitoring/sign-in.png)
 
-2. Click on **Build** from the left navigation menu and select the **Government** tab. The government page displays several government application templates.
+2. Click on **Build** from the left pane and select the **Government** tab. The government page displays several government application templates.
 
    ![Build Government App templates](./media/tutorial-waterconsumptionmonitoring/iotcentral-government-tab-overview1.png)
 
@@ -54,7 +56,7 @@ This template includes sample water consumption device template, simulated devic
     * **URL**: IoT Central will autogenerate a URL for you based on the application name. You can choose to update the URL to your liking. You can change the URL later too. 
     * If you have an Azure subscription, enter your *Directory, Azure subscription, and Region*. If you don't have a subscription, you can enable **7-day free trial** and complete the required contact information.  
 
-    For more information about directories and subscriptions, see the [create an application quickstart](../core/quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+    For more information about directories and subscriptions, see the [create an application quickstart](../preview/quick-deploy-iot-central.md).
 
 5. Click **Create** button at the bottom of the page. 
 
@@ -238,7 +240,7 @@ As a builder, you can change several settings to customize the user experience i
 
 If you're not going to continue to use this application, delete your application with the following steps:
 
-1. Open the Administration tab from the left navigation menu of your IoT Central application. 
+1. Open the Administration tab from the left pane of your IoT Central application. 
 2. Select Application settings and click Delete button at the bottom of the page. 
 
 

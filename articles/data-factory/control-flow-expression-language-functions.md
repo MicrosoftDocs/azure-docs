@@ -1,5 +1,5 @@
 ---
-title: Expression and functions in Azure Data Factory | Microsoft Docs
+title: Expression and functions in Azure Data Factory 
 description: This article provides information  about expressions and functions that you can use in creating data factory entities.
 services: data-factory
 documentationcenter: ''

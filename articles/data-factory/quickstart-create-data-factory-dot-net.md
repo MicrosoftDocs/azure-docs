@@ -282,7 +282,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
        pipelineRun = client.PipelineRuns.Get(
            resourceGroup, dataFactoryName, runResponse.RunId);
        Console.WriteLine("Status: " + pipelineRun.Status);
-       if (pipelineRun.Status == "InProgress")
+       if (pipelineRun.Status == "InProgress" || pipelineRun.Status == "Queued")
            System.Threading.Thread.Sleep(15000);
        else
            break;

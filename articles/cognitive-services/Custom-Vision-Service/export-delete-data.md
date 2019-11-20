@@ -1,7 +1,7 @@
 ---
 title: Export or delete your data - Custom Vision Service
 titleSuffix: Azure Cognitive Services
-description: Learn how to export or delete your data in the Custom Vision Service.
+description: You maintain full control over your data. This article explains how you can view, export or delete your data in the Custom Vision Service.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme

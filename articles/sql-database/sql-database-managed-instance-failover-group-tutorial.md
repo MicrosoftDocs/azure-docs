@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Add a SQL Database managed instance to a failover group"
+title: "Tutorial: Add a managed instance to a failover group"
 description: Learn to configure a failover group for your Azure SQL Database managed instance. 
 services: sql-database
 ms.service: sql-database

@@ -4,11 +4,14 @@ description: A tutorial of Connected logistics application template for IoT Cent
 author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
+ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
 ---
 
 # Tutorial: Deploy and walk through a connected logistics application template
+
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 This tutorial shows you how to get started by deploying an IoT Central **connected logistics** application template. You will learn how to deploy the template, what is included out of the box, and what you might want to do next.
 
@@ -102,4 +105,4 @@ If you're not going to continue to use this application, delete the application 
 ## Next steps
 * Learn more about [connected logistics concept](./architecture-connected-logistics-pnp.md)
 * Learn more about other [IoT Central retail templates](./overview-iot-central-retail-pnp.md)
-* Learn more about [IoT Central overview](../core/overview-iot-central-pnp.md)
+* Learn more about [IoT Central overview](../preview/overview-iot-central.md)

@@ -216,7 +216,7 @@ If you plan on using **network security groups** to control network traffic, per
 
 1. Identify the Azure region that you plan to use for HDInsight.
 
-2. Identify the IP addresses required by HDInsight. For more information, see [HDInsight management IP addresses](hdinsight-management-ip-addresses.md).
+2. Identify the service tags required by HDInsight for your region. For more information, see [Network security group (NSG) service tags for Azure HDInsight](hdinsight-service-tags.md).
 
 3. Create or modify the network security groups for the subnet that you plan to install HDInsight into.
 
@@ -243,6 +243,10 @@ If you plan on using a **firewall** and access the cluster from outside on certa
 For a list of ports for specific services, see the [Ports used by Apache Hadoop services on HDInsight](hdinsight-hadoop-port-settings-for-services.md) document.
 
 For more information on firewall rules for virtual appliances, see the [virtual appliance scenario](../virtual-network/virtual-network-scenario-udr-gw-nva.md) document.
+
+## Load balancing
+
+When you create an HDInsight cluster, a load balancer is created as well. The type of this load balancer is at the [basic SKU level](../load-balancer/load-balancer-overview.md#skus) which has certain constraints. One of these constraints is that if you have two virtual networks in different regions, you cannot connect to basic load balancers. See [virtual networks FAQ: constraints on global vnet peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers), for more information.
 
 ## Next steps
 

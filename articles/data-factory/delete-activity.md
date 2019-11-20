@@ -1,5 +1,5 @@
 ---
-title: Delete Activity in Azure Data Factory | Microsoft Docs
+title: Delete Activity in Azure Data Factory 
 description: Learn how to delete files in various file stores with the Delete Activity in Azure Data Factory.
 services: data-factory
 documentationcenter: ''
