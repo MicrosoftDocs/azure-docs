@@ -14,7 +14,7 @@ ms.author: helohr
 You can configure the assignment type of your personal desktop host pool to adjust your Windows Virtual Desktop environment to better suit your needs. In this topic, we'll show you how to configure automatic or direct assignment for your users.
 
 >[!NOTE]
-> This does not apply to a pooled host pool because users would not have 1:1 mapping to a session host within the host pool.
+> The instructions in this article only apply to personal desktop host pools, not pooled host pools, since users in pooled host pools aren't assigned to specific session hosts.
 
 ## Configure automatic assignment
 
