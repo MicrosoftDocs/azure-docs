@@ -1,12 +1,8 @@
 ---
 title: Supported languages in Azure Functions
 description: Learn which languages are supported (GA) and which are experimental or in preview.
-author: ggailey777
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/02/2018
-ms.author: glenga
 
 ---
 
