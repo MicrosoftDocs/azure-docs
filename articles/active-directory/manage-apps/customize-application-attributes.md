@@ -138,7 +138,7 @@ The SCIM RFC defines a core user and group schema, while also allowing for exten
    4. Click Edit attribute list
    5. Add your custom attribute
 
-For SCIM applications, the attribute name must follow the pattern below. The "CustomExtensionName" and "CustomAttribute" can be customized per your application's requirements.  urn:ietf:params:scim:schemas:extension:2.0:CustomExtensionName:CustomAttribute
+For SCIM applications, the attribute name must follow the pattern shown in the example below. The "CustomExtensionName" and "CustomAttribute" can be customized per your application's requirements, for example:  urn:ietf:params:scim:schemas:extension:2.0:CustomExtensionName:CustomAttribute
 
 These instructions are only applicable to SCIM enabled applications. Applications such as ServiceNow and Salesforce are not integrated with Azure AD using SCIM and therefore do not require this specific namespace when adding a custom attribute
 
