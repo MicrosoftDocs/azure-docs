@@ -81,8 +81,8 @@ Use these optional properties to configure transcription:
 
 | Parameter | Description |
 |-----------|-------------|
-| `ProfanityFilterMode` | Specifies how to handle profanity in recognition results. Accepted values are `None` which disables profanity filtering, `masked` which replaces profanity with asterisks, `removed` which removes all profanity from the result, or `tags` which adds "profanity" tags. The default setting is `masked`. |
-| `PunctuationMode` | Specifies how to handle punctuation in recognition results. Accepted values are `None` which disables punctuation, `dictated` which implies explicit punctuation, `automatic` which lets the decoder deal with punctuation, or `dictatedandautomatic` which implies dictated punctuation marks or automatic. |
+| `ProfanityFilterMode` | Specifies how to handle profanity in recognition results. Accepted values are `None` which disables profanity filtering, `Masked` which replaces profanity with asterisks, `Removed` which removes all profanity from the result, or `Tags` which adds "profanity" tags. The default setting is `Masked`. |
+| `PunctuationMode` | Specifies how to handle punctuation in recognition results. Accepted values are `None` which disables punctuation, `Dictated` which implies explicit punctuation, `Automatic` which lets the decoder deal with punctuation, or `DictatedAndAutomatic` which implies dictated punctuation marks or automatic. |
  | `AddWordLevelTimestamps` | Specifies if word level timestamps should be added to the output. Accepted values are `true` which enables word level timestamps and `false` (the default value) to disable it. |
  | `AddSentiment` | Specifies sentiment should be added to the utterance. Accepted values are `true` which enables sentiment per utterance and `false` (the default value) to disable it. |
  | `AddDiarization` | Specifies that diarization analysis should be carried out on the input which is expected to be mono channel containing two voices. Accepted values are `true` which enables diarization and `false` (the default value) to disable it. It also requires `AddWordLevelTimestamps` to be set to true.|
