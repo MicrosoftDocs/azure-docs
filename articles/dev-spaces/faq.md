@@ -45,7 +45,7 @@ Yes, you can use Azure Dev Spaces on AKS clusters with [API server authorized IP
 
 ### Can I use Azure Dev Spaces on AKS clusters with restricted egress traffic for cluster nodes?
 
-Yes, you can use Azure Dev Spaces on AKS clusters with [Restricted egress traffic for cluster nodes][aks-restrict-egress-traffic] enabled once the following FQDNs have been whitelist -
+Yes, you can use Azure Dev Spaces on AKS clusters with [Restricted egress traffic for cluster nodes][aks-restrict-egress-traffic] enabled once the following FQDNs have been allowed:
 
 | FQDN                                    | Port      | Use      |
 |-----------------------------------------|-----------|----------|

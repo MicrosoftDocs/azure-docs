@@ -446,7 +446,7 @@ After your pods have restarted, you can begin using your existing namespace with
 
 ### Enable Azure Dev Spaces on AKS cluster with restricted egress traffic for cluster nodes
 
-To enable Azure Dev Spaces on an AKS cluster for which the egress traffic from cluster nodes is restricted, you will have to whitelist following FQDNs
+To enable Azure Dev Spaces on an AKS cluster for which the egress traffic from cluster nodes is restricted, you will have to allow following FQDNs:
 
 | FQDN                                    | Port      | Use      |
 |-----------------------------------------|-----------|----------|
