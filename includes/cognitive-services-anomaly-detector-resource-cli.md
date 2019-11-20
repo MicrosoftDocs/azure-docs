@@ -8,13 +8,16 @@ ms.date: 10/08/2019
 
 Start using the Anomaly Detector service by creating one of the Azure resources below.
 
-* A [trial resource](https://azure.microsoft.com/try/cognitive-services/#decision) (no Azure subscription needed): 
+* A <a href="https://azure.microsoft.com/try/cognitive-services/#decision" target="_blank" rel="noopener">trial resource (opens in a new tab)</a>
+    * No Azure subscription needed: 
     * Valid for seven days, for free. After signing up, a trial key and endpoint will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/). 
     * This is a great option if you want to try Anomaly Detector, but don’t have an Azure subscription.
 
-* An [Anomaly Detector resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector):
+* An <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector" target="_blank" rel="noopener">Anomaly Detector resource (opens in a new tab)</a>:
     * Available through the Azure portal until you delete the resource.
     * Use the free pricing tier to try the service, and upgrade later to a paid tier for production.
+
+
 
 ### Create an environment variable
 
