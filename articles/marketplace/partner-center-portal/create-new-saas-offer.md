@@ -7,7 +7,7 @@ ms.author: v-chjen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 11/21/2019
 ---
 
 # Create a new SaaS offer
@@ -17,7 +17,7 @@ To begin creating Software as a Service (SaaS) offers, ensure that you first [Cr
 ![Commercial Marketplace dashboard on Partner Center](./media/new-offer-overview.png)
 
 >[!Note]
-> Once an offer has been published, edits to the offer made in Partner Center will only be updated in the system and store fronts after re-publishing. Please ensure that you submit the offer for publication after you make changes.
+> Once an offer has been published, edits to the offer made in Partner Center will only be updated in the system and store fronts after re-publishing. Make sure you submit the offer for publication after you make changes.
 
 Select the + **New offer…** button, then select the **Software as a Service** menu item.
 
@@ -155,13 +155,14 @@ By enabling test drive, you will be asked to configure a demonstration environme
 Remember to **Save** before moving on to the next section.
 
 ## Properties
+
 The **Properties** tab asks you to define the categories and industries used to group your offer on the marketplaces, the legal contracts supporting your offer, and your app version.
 
 Select **Save** after completing these fields.
 
 ### Category
 
-Select a minimum of one (1) and a maximum of three (3) categories used for grouping your offer into the appropriate marketplace search areas. Please call out how your offer supports these categories in the offer description.
+Select a minimum of one (1) and a maximum of three (3) categories used for grouping your offer into the appropriate marketplace search areas. In the offer description, call out how your offer supports these categories.
 
 ### Industry
 
@@ -498,7 +499,7 @@ If this is your first time publishing this offer, you can:
 
 - See the completion status for each section of the offer.
     - *Not started* - means the section has not been touched and needs to be completed.
-    - *Incomplete* - means the section has errors that need to be fixed or requires more information to be provided. Please go back to the section(s) and update it.
+    - *Incomplete* - means the section has errors that need to be fixed or requires more information to be provided. You'll need to go back to the section and update it.
     - *Complete* - means the section is complete, all required data has been provided and there are no errors. All sections of the offer must be in a complete state before you can submit the offer.
 - Provide testing instructions to the certification team to ensure that your app is tested correctly, in addition to any supplementary notes helpful for understanding your app.
 - Submit the offer for publishing by selecting **Submit**. We will send you an email to let you know when a preview version of the offer is available for you to review and approve. You must return to Partner Center and select **Go-live** for the offer to publish your offer to the public (or if a private offer, to the private audience).
