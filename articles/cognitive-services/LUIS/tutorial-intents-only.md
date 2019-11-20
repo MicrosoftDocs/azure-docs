@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 11/05/2019
+ms.date: 11/20/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to create a custom app with intents, so that I can analyze user text in that subject domain.
 ---
 
-# Tutorial: Build LUIS app to determine user intentions
+# Tutorial: Build a LUIS app to determine user intentions
 
 In this tutorial, you create a custom app that predicts a user's intention based on the utterance (text). 
 
@@ -54,7 +54,7 @@ These intentions are categorized into **Intents**.
 
 ## Create a new intent 
 
-1. In the [preview LUIS portal](https://preview.luis.ai), inside the app's **Build** section, select **+ Create**. Enter the new intent name listed below then select **Done**.
+1. In the portal, inside the app's **Build** section, select **+ Create**. Enter the new intent name, `OrderPizza`, then select **Done**.
 
     The `OrderPizza` intent is predicted when: a user wants to order a pizza. 
 
