@@ -1,12 +1,8 @@
 ---
-title: Restore SAP HANA databases on Azure VMs - Azure Backup
+title: Restore SAP HANA databases on Azure VMs
 description: In this article, discover how to restore SAP HANA databases that are running on Azure Virtual Machines.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.author: dacurwin
 ---
 
 # Restore SAP HANA databases on Azure VMs
@@ -15,7 +11,7 @@ This article describes how to restore SAP HANA databases that are running on Azu
 
 For more information, on how to back up SAP HANA databases, see [Back up SAP HANA databases on Azure VMs](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database).
 
-## Restore to a time or a recovery point
+## Restore to a point in time or to a recovery point
 
 Azure Backup can restore SAP HANA databases that are running on Azure VMs as follows:
 
@@ -96,18 +92,18 @@ Before restoring a database, note the following:
 ![Restore to alternate location](media/sap-hana-db-restore/restore-alternate-location.png)
 
 * Select the SAP HANA host name and instance name to which you want to restore the database.
-* Check if the target SAP HANA instance is ready for restore by ensuring its **Backup Readiness.** Refer to the prerequisites section for more details.
+* Check if the target SAP HANA instance is ready for restore by ensuring its **Backup Readiness.** Refer to the [prerequisites section](#prerequisites) for more details.
 * In the **Restored DB Name** box, enter the name of the target database.
 
 > [!NOTE]
-> Single Database Container (SDC) restores must follow these [checks](https://launchpad.support.sap.com/).
+> Single Database Container (SDC) restores must follow these [checks](backup-azure-sap-hana-database-troubleshoot.md#single-container-database-sdc-restore).
 
 * If applicable, select **Overwrite if the DB with the same name already exists on selected HANA instance**.
 * Select **OK**.
 
 ![Restore configuration - final screen](media/sap-hana-db-restore/restore-configuration-last.png)
 
-* In **Select restore point**, select **Logs (Point in Time)** to restore to a specific point in time. Or select **Full & Differential** to restore to a specific recovery point.
+* In **Select restore point**, select **Logs (Point in Time)** to [restore to a specific point in time](#restore-to-a-specific-point-in-time). Or select **Full & Differential** to [restore to a specific recovery point](#restore-to-a-specific-recovery-point).
 
 ### Restore and overwrite
 
@@ -115,11 +111,11 @@ Before restoring a database, note the following:
 
 ![Overwrite DB](media/sap-hana-db-restore/overwrite-db.png)
 
-* In **Select restore point**, select **Logs (Point in Time)** to restore to a specific point in time. Or select **Full & Differential** to restore to a specific recovery point.
+* In **Select restore point**, select **Logs (Point in Time)** to [restore to a specific point in time](#restore-to-a-specific-point-in-time). Or select **Full & Differential** to [restore to a specific recovery point](#restore-to-a-specific-recovery-point).
 
 ### Restore to a specific point in time
 
-If you've selected **Full & Differential** as the restore type, do the following:
+If you've selected **Logs (Point in Time)** as the restore type, do the following:
 
 * Select a recovery point from the log graph and select **OK** to choose the point of restore.
 
@@ -150,8 +146,8 @@ If you've selected **Full & Differential** as the restore type, do the following
 ![Restore progress](media/sap-hana-db-restore/restore-progress.png)
 
 > [!NOTE]
-> In Multiple Database Container (MDC) restores after the system DB is restored to a target instance, one needs to run the pre-registration script again. Only then the subsequent tenant DB restores will succeed. To learn more refer to Troubleshooting – MDC Restore.
+> In Multiple Database Container (MDC) restores after the system DB is restored to a target instance, one needs to run the pre-registration script again. Only then the subsequent tenant DB restores will succeed. To learn more refer to [Troubleshooting – MDC Restore](backup-azure-sap-hana-database-troubleshoot.md#multiple-container-database-mdc-restore).
 
 ## Next steps
 
-* Learn how to manage SAP HANA databases backed up using Azure Backup
+* [Learn how](sap-hana-db-manage.md) to manage SAP HANA databases backed up using Azure Backup

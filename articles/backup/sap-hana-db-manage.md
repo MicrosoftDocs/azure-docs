@@ -1,17 +1,13 @@
 ---
-title: Manage backed up SAP HANA databases on Azure VMs - Azure Backup
+title: Manage backed up SAP HANA databases on Azure VMs
 description: In this article, learn common tasks for managing and monitoring SAP HANA databases that are running on Azure virtual machines.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.author: dacurwin
 ---
 
 # Manage and monitor backed up SAP HANA databases
 
-This article describes common tasks for managing and monitoring SAP HANA databases that are running on an Azure virtual machine (VM) and that are backed up to an Azure Backup Recovery Services vault by the [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview) service. You'll learn how to monitor jobs and alerts, trigger an ad-hoc backup, edit policies, stop and resume database protection and unregister a VM from backups.
+This article describes common tasks for managing and monitoring SAP HANA databases that are running on an Azure virtual machine (VM) and that are backed up to an Azure Backup Recovery Services vault by the [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview) service. You'll learn how to monitor jobs and alerts, trigger an on-demand backup, edit policies, stop and resume database protection and unregister a VM from backups.
 
 If you haven't configured backups yet for your SAP HANA databases, see [Back up SAP HANA databases on Azure VMs](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database).
 
@@ -147,11 +143,11 @@ To resume protection for an SAP HANA database:
 
 ### Upgrading from SAP HANA 1.0 to 2.0
 
-Learn how to continue backup for an SAP HANA database after upgrading from SAP HANA 1.0 to 2.0 – Troubleshoot – Upgrading from SAP HANA 1.0 to 2.0.
+Learn how to continue backup for an SAP HANA database [after upgrading from SAP HANA 1.0 to 2.0](backup-azure-sap-hana-database-troubleshoot.md#upgrading-from-sap-hana-1.0-to-2.0).
 
 ### Upgrading without a SID change
 
-Learn how to continue backup of an SAP HANA database whose SID has not changed after upgradation – Troubleshoot – Upgrading without a SID change.
+Learn how to continue backup of an SAP HANA database whose [SID has not changed after upgrade](backup-azure-sap-hana-database-troubleshoot.md#upgrading-without-an-sid-change).
 
 ### Unregister an SAP HANA database
 

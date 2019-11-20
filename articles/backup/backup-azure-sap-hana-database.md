@@ -21,7 +21,7 @@ In this article, you will learn how to:
 
 ## Prerequisites
 
-Refer to the prerequisites and setting up permissions sections to set up the database for backup.
+Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [setting up permissions](tutorial-backup-sap-hana-db.md#setting-up-permissions) sections to set up the database for backup.
 
 ### Set up network connectivity
 
@@ -146,7 +146,7 @@ If you want to take a local backup (using HANA Studio) of a database that's bein
 3. To do this, double-click **systemdb** > **Configuration** > **Select Database** > **Filter (Log)**.
 4. Set **enable_auto_log_backup** to **No**.
 5. Set **log_backup_using_backint** to **False**.
-6. Take an ad hoc full backup of the database.
+6. Take an on-demand full backup of the database.
 7. Wait for the full backup and catalog backup to finish.
 8. Revert the previous settings back to those for Azure:
     * Set **enable_auto_log_backup** to **Yes**.

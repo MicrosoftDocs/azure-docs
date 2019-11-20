@@ -1,12 +1,8 @@
 ---
-title: FAQ - Back up SAP HANA databases on Azure VMs - Azure Backup
+title: FAQ - Back up SAP HANA databases on Azure VMs
 description: In this article, discover answers to common questions about backing up SAP HANA databases using the Azure Backup service.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.author: dacurwin
 ---
 
 # Frequently asked questions – Back up SAP HANA databases on Azure VMs
@@ -42,11 +38,11 @@ A renamed database is treated as a new database. Therefore, the service will tre
 
 ### What are the prerequisites to back up SAP HANA databases on an Azure VM?
 
-Refer to the prerequisites and setting up permissions sections.
+Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [setting up permissions](tutorial-backup-sap-hana-db.md#setting-up-permissions) sections.
 
 ### What permissions should be set for Azure to be able to back up SAP HANA databases?
 
-Running the pre-registration script sets the required permissions to allow Azure to back up SAP HANA databases. You can find more about the permissions here.
+Running the pre-registration script sets the required permissions to allow Azure to back up SAP HANA databases. You can find more about the permissions [here](tutorial-backup-sap-hana-db.md#setting-up-permissions).
 
 ### Will backups work after migrating SAP HANA from 1.0 to 2.0?
 
@@ -64,7 +60,7 @@ Ensure that the **Force Overwrite** option is selected while restoring.
 
 ### Why do I see the “Source and target systems for restore are incompatible” error?
 
-Refer to the [SAP HANA Note 1642148](https://launchpad.support.sap.com/#/notes/1642148) to see what restore types are currently supported.
+Refer to the SAP HANA Note [1642148](https://launchpad.support.sap.com/#/notes/1642148) to see what restore types are currently supported.
 
 ## Next steps
 

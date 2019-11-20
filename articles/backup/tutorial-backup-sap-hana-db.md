@@ -1,15 +1,11 @@
 ---
-title: Back up SAP HANA databases in an Azure VM - Azure Backup
+title: Tutorial - Back up SAP HANA databases in Azure VMs 
 description: In this tutorial, learn how to back up SAP HANA databases running on Azure VM to an Azure Backup Recovery Services vault. 
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.author: dacurwin
 ---
 
-# Back up SAP HANA databases in an Azure VM
+# Tutorial: Back up SAP HANA databases in an Azure VM
 
 This tutorial shows you how to back up SAP HANA databases running on Azure VMs to an Azure Backup Recovery Services vault. In this article you'll learn how to:
 
@@ -19,13 +15,13 @@ This tutorial shows you how to back up SAP HANA databases running on Azure VMs t
 > * Discover databases
 > * Configure backups
 
-You can find [here](sap-hana-backup-support-matrix.md) all the scenarios that we currently support.
+[Here](sap-hana-backup-support-matrix.md#scenario-support) are all the scenarios that we currently support.
 
 ## Onboard to the public preview
 
 Onboard to the public preview as follows:
 
-* In the portal, register your subscription ID to the Recovery Services service provider by following [this article](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors#solution-3---azure-portal).
+* In the portal, register your subscription ID to the Recovery Services service provider by [following this article](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors#solution-3---azure-portal).
 
 * For PowerShell, run this cmdlet. It should complete as "Registered".
 
