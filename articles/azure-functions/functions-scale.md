@@ -1,14 +1,9 @@
 ---
-title: Azure Functions scale and hosting | Microsoft Docs
+title: Azure Functions scale and hosting 
 description: Learn how to choose between Azure Functions Consumption plan and Premium plan.
-author: ggailey777
-manager: gwallace
-keywords: azure functions, functions,  consumption plan, premium plan, event processing, webhooks, dynamic compute, serverless architecture
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/27/2019
-ms.author: glenga
 
 ms.custom: H1Hack27Feb2017
 
@@ -43,8 +38,8 @@ The following table indicates the current level of support for the three hosting
 
 | | Consumption plan | Premium plan | Dedicated plan |
 |-|:----------------:|:------------:|:----------------:|
-| Windows | GA | preview | GA |
-| Linux | GA | preview | GA |
+| Windows | GA | GA | GA |
+| Linux | GA | GA | GA |
 
 ## Consumption plan
 
@@ -61,7 +56,7 @@ Function apps in the same region can be assigned to the same Consumption plan. T
 
 To learn more about how to estimate costs when running in a Consumption plan, see [Understanding Consumption plan costs](functions-consumption-costs.md).
 
-## <a name="premium-plan"></a>Premium plan (preview)
+## <a name="premium-plan"></a>Premium plan
 
 When you're using the Premium plan, instances of the Azure Functions host are added and removed based on the number of incoming events just like the Consumption plan.  Premium plan supports the following features:
 

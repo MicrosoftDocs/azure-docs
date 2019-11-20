@@ -29,7 +29,7 @@ You'll learn how to:
 
 To complete this quickstart, make sure you have:
 
-- A developer enabled macOS machine with <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 10+</a> and <a href="https://cocoapods.org" target="_blank">CocoaPods</a> installed.
+- A developer enabled macOS machine with the latest version of <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode</a> and <a href="https://cocoapods.org" target="_blank">CocoaPods</a> installed.
 - Git installed via HomeBrew. Enter the following command into a single line of the Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Then, run `brew install git`.
 - A developer enabled <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">ARKit compatible</a> iOS device.
 
@@ -64,6 +64,10 @@ cd ./iOS/Objective-C/
 Run `pod install --repo-update` to install the CocoaPods for the project.
 
 Now open the `.xcworkspace` in Xcode.
+
+> [!NOTE]
+> See the troubleshooting steps [here](#cocoapods-issues-on-macos-catalina-1015) if you're having CocoaPod issues after
+> upgrading to macOS Catalina (10.15).
 
 # [Swift](#tab/openproject-swift)
 
@@ -116,6 +120,20 @@ Select **Build and then run the current scheme**.
 > `.xcworkspace`. Open the `.xcworkspace` and try again.
 
 In Xcode, stop the app by pressing **Stop**.
+
+## Troubleshooting
+
+### CocoaPods issues on macOS Catalina (10.15)
+
+If you recently updated to macOS Catalina (10.15) and had CocoaPods installed beforehand, CocoaPods may be in a broken
+state and fail to properly configure your pods and `.xcworkspace` project files. To resolve this issue, you'll need to
+reinstall CocoaPods by running the following commands:
+
+```shell
+brew update
+brew install cocoapods --build-from-source
+brew link --overwrite cocoapods
+```
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

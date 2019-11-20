@@ -1,7 +1,7 @@
 ---
 title:  "Select Columns in Dataset: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Select Columns in Dataset  module in Azure Machine Learning service to choose a subset of columns to use in downstream operations.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Select Columns in Dataset  module in Azure Machine Learning to choose a subset of columns to use in downstream operations.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,11 +9,11 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
+ms.date: 10/22/2019
 ---
 # Select Columns in Dataset module
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to choose a subset of columns to use in downstream operations. The module does not physically remove the columns from the source dataset; instead, it creates a subset of columns, much like a database *view* or *projection*.
 
@@ -107,4 +107,4 @@ For example, in a dataset with the columns Col1, Col2, Col3, and Col4, you could
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

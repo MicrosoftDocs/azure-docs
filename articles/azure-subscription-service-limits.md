@@ -6,7 +6,7 @@ author: rothja
 manager: jeffreyg
 tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
@@ -43,6 +43,7 @@ In the following list of limits, a new table reflects any differences in limits 
 * [Automation](#automation-limits)
 * [Azure Cache for Redis](#azure-cache-for-redis-limits)
 * [Azure Cloud Services](#azure-cloud-services-limits)
+* [Azure Cognitive Search](#azure-cognitive-search-limits)
 * [Azure Cognitive Services](#azure-cognitive-services-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
 * [Azure Database for MySQL](#azure-database-for-mysql)
@@ -51,11 +52,10 @@ In the following list of limits, a new table reflects any differences in limits 
 * [Azure Firewall](#azure-firewall-limits)
 * [Azure Functions](#functions-limits)
 * [Azure Kubernetes Service](#azure-kubernetes-service-limits)
-* [Azure Machine Learning Service](#azure-machine-learning-service-limits)
+* [Azure Machine Learning](#azure-machine-learning-limits)
 * [Azure Maps](#azure-maps-limits)
 * [Azure Monitor](#azure-monitor-limits)
 * [Azure Policy](#azure-policy-limits)
-* [Azure Search](#azure-search-limits)
 * [Azure SignalR Service](#azure-signalr-service-limits)
 * [Backup](#backup-limits)
 * [Batch](#batch-limits)
@@ -79,6 +79,7 @@ In the following list of limits, a new table reflects any differences in limits 
 * [Multi-Factor Authentication](#multi-factor-authentication-limits)
 * [Networking](#networking-limits)
   * [Application Gateway](#application-gateway-limits)
+  * [Azure Bastion](#azure-bastion-limits)
   * [Azure DNS](#azure-dns-limits)
   * [Azure Front Door Service](#azure-front-door-service-limits)
   * [Azure Firewall](#azure-firewall-limits)
@@ -124,7 +125,7 @@ For information about Resource Manager API read and write limits, see [Throttlin
 [!INCLUDE [azure-virtual-machines-limits](../includes/azure-virtual-machines-limits.md)]
 
 #### Virtual Machines limits - Azure Resource Manager
-The following limits apply when you use Azure Resource Manager and Azure resource groups. Limits that haven't changed with Azure Resource Manager aren't listed. See the previous table for those limits.
+The following limits apply when you use Azure Resource Manager and Azure resource groups.
 
 [!INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
 
@@ -149,7 +150,7 @@ The following table details the features and limits of the Basic, Standard, and 
 ### Azure Kubernetes Service limits
 [!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
 
-### Azure Machine Learning Service limits
+### Azure Machine Learning limits
 The latest values for Azure Machine Learning Compute quotas can be found in the [Azure Machine Learning quota page](../articles/machine-learning/service/how-to-manage-quotas.md)
 
 ### Networking limits
@@ -174,6 +175,9 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 #### Traffic Manager limits
 [!INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
+
+#### Azure Bastion limits
+[!INCLUDE [Azure Bastion limits](../includes/bastion-limits.md)]
 
 #### Azure DNS limits
 [!INCLUDE [dns-limits](../includes/dns-limits.md)]
@@ -261,7 +265,7 @@ For Azure Database for MySQL limits, see [Limitations in Azure Database for MySQ
 ### Azure Database for PostgreSQL
 For Azure Database for PostgreSQL limits, see [Limitations in Azure Database for PostgreSQL](postgresql/concepts-limits.md).
 
-### Azure Search limits
+### Azure Cognitive Search limits
 Pricing tiers determine the capacity and limits of your search service. Tiers include:
 
 * **Free** multitenant service, shared with other Azure subscribers, is intended for evaluation and small development projects.
@@ -276,7 +280,7 @@ Pricing tiers determine the capacity and limits of your search service. Tiers in
 
 [!INCLUDE [azure-search-limits-per-service](../includes/azure-search-limits-per-service.md)]
 
-To learn more about limits on a more granular level, such as document size, queries per second, keys, requests, and responses, see [Service limits in Azure Search](search/search-limits-quotas-capacity.md).
+To learn more about limits on a more granular level, such as document size, queries per second, keys, requests, and responses, see [Service limits in Azure Cognitive Search](search/search-limits-quotas-capacity.md).
 
 ### Media Services limits
 [!INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]

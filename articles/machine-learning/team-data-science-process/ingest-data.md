@@ -1,6 +1,6 @@
 ---
 title: Load data into Azure storage environments - Team Data Science Process
-description: Move Data to and from Azure Blob Storage
+description: Learn about how to ingest data into various target environments where the data is stored and processed.
 services: machine-learning
 author: marktab
 manager: cgronlun

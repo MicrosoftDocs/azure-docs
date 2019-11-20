@@ -1,16 +1,15 @@
 ---
 title: Monitor Azure app services performance | Microsoft Docs
 description: Application performance monitoring for Azure app services. Chart load and response time, dependency information, and set alerts on performance.
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 10/04/2019
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 10/04/2019
 
 ---
+
 # Monitor Azure App Service performance
 
 Enabling monitoring on your ASP.NET and ASP.NET Core based web applications running on [Azure App Services](https://docs.microsoft.com/azure/app-service/) is now easier than ever. Whereas previously you needed to manually install a site extension, the latest extension/agent is now built into the app service image by default. This article will walk you through enabling Application Insights monitoring as well as provide preliminary guidance for automating the process for large-scale deployments.
@@ -320,9 +319,6 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
 
 > [!NOTE]
 > Java and Node.js applications are only supported on Azure App Services via manual SDK based instrumentation and therefore the steps below do not apply to these scenarios.
-
-> [!NOTE]
-> ASP.NET Core 3.0 applications are not supported. Please follow [Manual instrumentation](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) via code for ASP.NET Core 3.0 apps.
 
 1. Check that the application is monitored via `ApplicationInsightsAgent`.
     * Check that `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of "~2".

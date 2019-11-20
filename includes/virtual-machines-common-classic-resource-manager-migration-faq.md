@@ -11,7 +11,7 @@ ms.custom: include file
 
 ---
 
-# Frequently asked questions about classic to Azure Resource Manager migration
+
 
 ## Does this migration plan affect any of my existing services or applications that run on Azure virtual machines? 
 

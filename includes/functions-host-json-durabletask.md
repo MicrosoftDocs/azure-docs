@@ -13,6 +13,8 @@ ms.custom: include file
 
 Configuration settings for [Durable Functions](../articles/azure-functions/durable-functions-overview.md).
 
+### Durable Functions 1.x
+
 ```json
 {
   "durableTask": {
@@ -34,6 +36,48 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
     "eventGridPublishRetryCount": 3,
     "eventGridPublishRetryInterval": "00:00:30",
     "eventGridPublishEventTypes": ["Started", "Completed", "Failed", "Terminated"]
+  }
+}
+```
+
+### <a name="durable-functions-2-0-host-json"></a>Durable Functions 2.x
+
+```json
+{
+  "durableTask": {
+    "hubName": "MyTaskHub",
+    "storageProvider": {
+      "controlQueueBatchSize": 32,
+      "partitionCount": 4,
+      "controlQueueVisibilityTimeout": "00:05:00",
+      "workItemQueueVisibilityTimeout": "00:05:00",
+      "maxQueuePollingInterval": "00:00:30",
+      "connectionStringName": "AzureWebJobsStorage",
+      "trackingStoreConnectionStringName": "TrackingStorage",
+      "trackingStoreNamePrefix": "DurableTask"
+    },
+    "tracing": {
+      "traceInputsAndOutputs": false,
+      "traceReplayEvents": false,
+    },
+    "notifications": {
+      "eventGrid": {
+        "topicEndpoint": "https://topic_name.westus2-1.eventgrid.azure.net/api/events",
+        "keySettingName": "EventGridKey",
+        "publishRetryCount": 3,
+        "publishRetryInterval": "00:00:30",
+        "publishEventTypes": [
+          "Started",
+          "Pending",
+          "Failed",
+          "Terminated"
+        ]
+      }
+    },
+    "maxConcurrentActivityFunctions": 10,
+    "maxConcurrentOrchestratorFunctions": 10,
+    "extendedSessionsEnabled": false,
+    "extendedSessionIdleTimeoutInSeconds": 30
   }
 }
 ```
