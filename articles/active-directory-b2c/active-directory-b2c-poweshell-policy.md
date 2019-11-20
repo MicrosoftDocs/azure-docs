@@ -30,14 +30,14 @@ In this How-to guide, you will learn how to do the following:
 
 ## Prerequisites
 
-* An Azure AD subscription with [Azure AD B2C tenant](https://docs.microsoft.com/en-us/azure/active-directory-b2c/tutorial-create-tenant) setup.
-* Installation of the [AzureADPreview](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) PowerShell module
+* An Azure AD subscription with [Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) setup.
+* Installation of the [AzureADPreview](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) PowerShell module
 * An Azure AD admin credential with read/write permissions for custom policies: Global Admin,
 
 ## Getting Started
 
 ### Downloading the AzureADPreview module
-The Azure Ad Power Shell Preview module provides the functionality to interact with custom policies. This module provides other access to other Azure AD entities as well such as users. The module can be imported as shown below in your PowerShell console. Visit the [Azure Active Directory PowerShell for Graph](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) for additional guidance.
+The Azure Ad Power Shell Preview module provides the functionality to interact with custom policies. This module provides other access to other Azure AD entities as well such as users. The module can be imported as shown below in your PowerShell console. Visit the [Azure Active Directory PowerShell for Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) for additional guidance.
 
 Not sure if you have the right version downloaded? It is easy to check. Start off by running
 ```PowerShell
@@ -147,7 +147,7 @@ After completing your changes to the policy, you may require to publish these ch
 ```PowerShell
 PS C:\> Set-AzureADMSTrustFrameworkPolicy -Id B2C_1A_signup_signin -InputFilePath C:\B2C_1A_signup_signin.xml
 ```
-> Note: Additonal examples can be viewed in our [reference documentation](https://docs.microsoft.com/en-us/powershell/module/azuread/Set-AzureADMSTrustFrameworkPolicy?view=azureadps-2.0-preview#examples).
+> Note: Additonal examples can be viewed in our [reference documentation](https://docs.microsoft.com/powershell/module/azuread/Set-AzureADMSTrustFrameworkPolicy?view=azureadps-2.0-preview#examples).
 ## Upload a new policy to your Azure AD B2C tenant
 Many times when making a change to production it is common to publish multiple versions for fallback instead of overwritting the value in a specific policy. This allows you to perform A/B testing. Alteratively, you can easily copy an existing policy and make small changes to be uploaded to be used for separate applications.
 
@@ -170,7 +170,7 @@ When attempting to publish a custom policy to the Azure AD B2C tenant, there are
 * Improper XML format - this can be resolved with an online XML validator site or extension tools from your preferred XML editor. 
 * Policy validation errors - this includes the chain of files the upload file refers to (the relying party policy file, the extensions file, and the base file).
 
-> For more information please refer to our walkthrough  [Troubleshoot Azure AD B2C custom policies and Identity Experience Framework](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-guide-troubleshooting-custom) documentation.
+> For more information please refer to our walkthrough  [Troubleshoot Azure AD B2C custom policies and Identity Experience Framework](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-guide-troubleshooting-custom) documentation.
 
 
 ## Next steps
