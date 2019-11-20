@@ -12,8 +12,6 @@ ms.author: assafi
 ---
 
 > [!Tip]
-> For detailed API technical documentation and to see it in action  please refer to the following links:
+> For detailed API technical documentation and to see it in action, use the following links. You can also send POST requests from the built-in API test console. No setup is required, simply paste your resource key and JSON documents into the request:
 > - Latest Text Analytics stable API - [v2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1)
 > - Latest Text Analytics preview API - [v3.0-Preview.1](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1)
->
-> You can send POST requests from the built-in **API test console**. There is no setup, and the only requirements are to paste an access key and the JSON documents into the request.
