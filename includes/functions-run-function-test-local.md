@@ -34,6 +34,12 @@ npm install
 npm start     
 ```
 
+### Python
+
+```command
+func host start    
+```
+
 When the Functions host starts, it writes something like the following output, which has been truncated for readability:
 
 ```output
