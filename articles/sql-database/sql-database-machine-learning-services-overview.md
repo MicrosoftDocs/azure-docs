@@ -18,7 +18,7 @@ ms.date: 22/20/2019
 Machine Learning Services is a feature of Azure SQL Database, used for executing in-database R scripts. The feature includes Microsoft R packages for high-performance predictive analytics and machine learning. The relational data can be used in R scripts through stored procedures, T-SQL script containing R statements, or R code containing T-SQL.
 
 > [!IMPORTANT]
-> Azure SQL Database Machine Learning Services (with R) is currently in preview. Currently, it is not possible to sign up for the preview.
+> Azure SQL Database Machine Learning Services (with R) is in preview. Sign up to the preview is currently closed.
 >
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
