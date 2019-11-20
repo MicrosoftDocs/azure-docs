@@ -1,12 +1,8 @@
 ---
 title: Using return value from an Azure Function
 description: Learn to manage return values for Azure Functions
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
 
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 01/14/2019
 ms.author: cshoe
