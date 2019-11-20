@@ -2,7 +2,7 @@
 title: Cluster Template Reference - Network
 description: Network Interface reference for cluster templates for use with Azure CycleCloud
 author: KimliW
-ms.date: 010/19/2018
+ms.date: 10/19/2018
 ms.author: adjohnso
 ---
 
