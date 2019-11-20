@@ -26,6 +26,10 @@ ADX supports two json file formats:
 * `json`: Line separated json. Each line in the input data has exactly one json record.
 * `multijson`: Multi-lined json. The parser ignores the line separators and reads a record from the previous position to the end of a valid json.
 
+\\TODO: Json vs multojson - if we have new lines or not
+Flatten vs multi level vs array vs dictionary - json structure\\
+
+
 Ingestion of json formatted data requires you to specify the *format* [ingestion property](/azure/kusto/management/data-ingestion/index#ingestion-properties). The ingest command default is the `csv` format.
 
 ## Ingestion mapping
@@ -156,7 +160,7 @@ Use C# to ingest data in raw json format.
     ```
 
 # [Python](#tab/python)
-Use C# to ingest data in raw json format.
+Use Python to ingest data in raw json format.
 
 1. Create the `RawEvents` table.
 
@@ -172,8 +176,7 @@ Use C# to ingest data in raw json format.
 1. Create the json mapping
 
     ```Python
-    CREATE_MAPPING_COMMAND = """ .create table RawEvents ingestion json mapping 'RawEventMapping' '[{"column":"Event","path":"$"}]'"""
-    
+    CREATE_MAPPING_COMMAND = """.create table RawEvents ingestion json mapping 'RawEventMapping' '[{"column":"Event","path":"$"}]'"""
     RESPONSE = KUSTO_CLIENT.execute_mgmt(KUSTO_DATABASE, CREATE_MAPPING_COMMAND)
     
     dataframe_from_result_table(RESPONSE.primary_results[0])
@@ -199,16 +202,17 @@ Use C# to ingest data in raw json format.
 
 ## Ingest flattened json records
 
+# [KQL](#tab/kusto-query-language)
 1. Create a new table, with the schema similar to the json input data. We will use this table for all the following ingest commands. 
 
-> [!NOTE]
-> Column names are a little different.
+    > [!NOTE]
+    > Column names are a little different.
 
     ```Kusto
     .create table Events (Time: datetime, Device: string, MessageId: string, Temperature: double, Humidity: double)
     ```
 
-1. Create a json mapping
+1. Create the json mapping
 
     ```Kusto
     .create table Events ingestion json mapping 'FlatEventMapping' '[{"column":"Time","path":"$.timestamp"},{"column":"Device","path":"$.timestamp"},{"column":"MessageId","path":"$.timestamp"},{"column":"Temperature","path":"$.timestamp"},{"column":"Humidity","path":"$.timestamp"}]'
@@ -223,6 +227,91 @@ Use C# to ingest data in raw json format.
     ```
 
     The file 'simple.json' has a few line separated json records. The format is `json`, and the mapping used in the ingest command is the `FlatEventMapping` you just created.
+
+# [C#](#tab/c-sharp)
+1. Create a new table, with the schema similar to the json input data. We will use this table for all the following ingest commands. 
+
+    > [!NOTE]
+    > Column names are a little different.
+
+    ```C#
+        var table = "Events";
+    using (var kustoClient = KustoClientFactory.CreateCslAdminProvider(kustoConnectionStringBuilder))
+    {
+        var command =
+            CslCommandGenerator.GenerateTableCreateCommand(
+                table,
+                new[]
+                {
+                    Tuple.Create("Time", "System.DateTime"),
+                    Tuple.Create("Device", "System.String"),
+                    Tuple.Create("MessageId", "System.String"),
+                    Tuple.Create("Temperature", "System.Double"),
+                    Tuple.Create("Humidity", "System.Double"),
+                });
+    
+        kustoClient.ExecuteControlCommand(command);
+    }
+    ```
+
+1. Create the json mapping
+
+    ```C#
+    var tableMapping = "FlatEventMapping";
+    using (var kustoClient = KustoClientFactory.CreateCslAdminProvider(kustoConnectionStringBuilder))
+    {
+        var command =
+            CslCommandGenerator.GenerateTableJsonMappingCreateCommand(
+                tableName,
+                tableMapping,
+                new[]
+                {
+                         new JsonColumnMapping {ColumnName = "Time", JsonPath = "$.timestamp"},
+                         new JsonColumnMapping {ColumnName = "Device", JsonPath = "$.timestamp"},
+                         new JsonColumnMapping {ColumnName = "MessageId", JsonPath = "$.timestamp"},
+                         new JsonColumnMapping {ColumnName = "Temperature", JsonPath = "$.timestamp"},
+                         new JsonColumnMapping {ColumnName = "Humidity", JsonPath = "$.timestamp"},
+                });
+    
+        kustoClient.ExecuteControlCommand(command);
+    }
+    ```
+
+    In this mapping, the `timestamp` entries will be ingested to the column `Time`, and will be ingested as `datetime` data type, as defined by the table schema.        
+
+1. Ingest data into the table `Events`.
+
+    \\TODO\\
+
+    The file 'simple.json' has a few line separated json records. The format is `json`, and the mapping used in the ingest command is the `FlatEventMapping` you just created.
+
+# [Python](#tab/python)
+1. Create a new table, with the schema similar to the json input data. We will use this table for all the following ingest commands. 
+
+    > [!NOTE]
+    > Column names are a little different.
+
+    ```Python
+    KUSTO_CLIENT = KustoClient(KCSB_DATA)
+    CREATE_TABLE_COMMAND = ".create table Events (Time: datetime, Device: string, MessageId: string, Temperature: double, Humidity: double)"
+    RESPONSE = KUSTO_CLIENT.execute_mgmt(KUSTO_DATABASE, CREATE_TABLE_COMMAND)
+    dataframe_from_result_table(RESPONSE.primary_results[0])
+    ```
+
+1. Create the json mapping
+
+    ```Python
+    CREATE_MAPPING_COMMAND = """.create table Events ingestion json mapping 'FlatEventMapping' '[{"column":"Time","path":"$.timestamp"},{"column":"Device","path":"$.timestamp"},{"column":"MessageId","path":"$.timestamp"},{"column":"Temperature","path":"$.timestamp"},{"column":"Humidity","path":"$.timestamp"}]'""" 
+    RESPONSE = KUSTO_CLIENT.execute_mgmt(KUSTO_DATABASE, CREATE_MAPPING_COMMAND)
+    dataframe_from_result_table(RESPONSE.primary_results[0])
+    ```
+
+1. Ingest data into the table `Events`.
+
+    \\TODO\\
+
+    The file 'simple.json' has a few line separated json records. The format is `json`, and the mapping used in the ingest command is the `FlatEventMapping` you just created.    
+---
 
 ## Ingest multi-lined json records
 
