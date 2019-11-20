@@ -1,19 +1,15 @@
 ---
-title: Reservations software costs for Azure | Microsoft Docs
+title: Reservations software costs for Azure
 description: Learn which software meters are not included in Azure Reserved VM Instance costs.
-services: 'billing'
-documentationcenter: ''
 author: yashar
 manager: yashar
-editor: ''
 tags: billing
-
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/01/2019
+ms.date: 11/14/2019
 ms.author: banders
 
 ---
@@ -60,7 +56,7 @@ Virtual machine reserved instance and SQL reserved capacity discounts apply only
 |dc72ee45-2ab7-4698-b435-e2cf10d1f9f6|Cloud Services 64 vCPU License|
 |7a803026-244c-4659-834c-11e6b2d6b76f|Cloud Services 80 vCPU License|
 
-## Rates for Azure meters
+## Get rates for Azure meters
 
 You can get the cost of each of these meters through Azure RateCard API. For information on how to get the rates for an azure meter, see [Get price and metadata information for resources used in an Azure subscription](/previous-versions/azure/reference/mt219004(v=azure.100)).
 
