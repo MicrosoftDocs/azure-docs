@@ -46,7 +46,7 @@ Please create an Azure Blob Storage linked service under the same ADF where your
 ## Configure Azure-SSIS IR with Self-Hosted IR as a proxy
 Having prepared your Self-Hosted IR and Azure Blob Storage linked service for staging, you can now configure your new/existing Azure-SSIS IR with Self-Hosted IR as a proxy on ADF portal/app.  If your existing Azure-SSIS IR is running, please stop it before you do this and then restart it afterwards.
 
-On the **Advanced Settings** page, please check the **Set up Self-Hosted Integration Runtime as a proxy for your Azure-SSIS Integration Runtime** checkbox, select your Self-Hosted IR and Azure Blob Storage linked service for staging, and specify a blob container name for **Staging Path** if you want.
+On the **Advanced Settings** page, please check the **Set-up Self-Hosted Integration Runtime as a proxy for your Azure-SSIS Integration Runtime** checkbox, select your Self-Hosted IR and Azure Blob Storage linked service for staging, and specify a blob container name for **Staging Path** if you want.
 
 ![Configure Azure-SSIS IR with Self-Hosted IR as a proxy](media/self-hosted-integration-runtime-proxy-ssis/shir-advanced-settings-ssisir.png)
 
@@ -57,7 +57,7 @@ When designing new packages containing Data Flow Tasks with OLEDB/Flat File Sour
 
 ![Enable ConnectByProxy property](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-manager-properties.png)
 
-You can also enable this property when running existing packages without having to manually change them one by one.  There are 2 options:
+You can also enable this property when running existing packages without having to manually change them one by one.  There are two options:
 - Opening, rebuilding, and redeploying the project containing those packages with the latest SSDT to run on your Azure-SSIS IR: The property can then be enabled by setting it to **True** for the relevant connection managers that appear on the **Connection Managers** tab of Execute Package pop-up window when running packages from SSMS.
 
   ![Enable ConnectByProxy property2](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssms.png)
