@@ -1,13 +1,8 @@
 ---
 title: Testing Azure Functions
 description: Create automated tests for a C# Function in Visual Studio and JavaScript Function in VS Code
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture, testing
 
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
