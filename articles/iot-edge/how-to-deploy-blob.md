@@ -39,23 +39,24 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 
 #### Add modules
 
-1. In the **IoT Edge Modules** section of the page, click the **Add** dropdown and select **IoT Edge Module** to display the **Add IoT Edge Module** page. 
+1. In the **IoT Edge Modules** section of the page, click the **Add** dropdown and select **IoT Edge Module** to display the **Add IoT Edge Module** page.
 
-   You will specify values for **Module Settings**, **Container Create Options**, and the **Module Twin Settings** tabs before selecting **Add**.
+   > [!NOTE]
+   > Don't select **Add** until you've specified values on the **Module Settings**, **Container Create Options**, and  **Module Twin Settings** tabs as described in this procedure.
 
-2. On the **Module Settings** tab, provide a name for the module and then specify the container image:
-
-   ![Module Twin Settings](./media/how-to-deploy-blob/addmodule-tab1.png)
+2. On the **Module Settings** tab, provide a name for the module and then specify the container image URI:
 
    Examples:
   
    - **IoT Edge Module Name**: `azureblobstorageoniotedge`
    - **Image URI**: `mcr.microsoft.com/azure-blob-storage:latest`
 
+   ![Module Twin Settings](./media/how-to-deploy-blob/addmodule-tab1.png)
+
    > [!IMPORTANT]
    > Azure IoT Edge is case-sensitive when you make calls to modules, and the Storage SDK also defaults to lowercase. Although the name of the module in the [Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace) is **AzureBlobStorageonIoTEdge**, changing the name to lowercase helps to ensure that your connections to the Azure Blob Storage on IoT Edge module aren't interrupted.
 
-3. On the **Container Create Options** tab, add JSON code to provide storage account information and a mount for the storage on your device.
+3. On the **Container Create Options** tab, you will provide JSON code to provide storage account information and a mount for the storage on your device.
 
    ![Module Twin Settings](./media/how-to-deploy-blob/addmodule-tab3.png)
 
@@ -97,12 +98,10 @@ A deployment manifest is a JSON document that describes which modules to deploy,
      > [!IMPORTANT]
      > Do not change the second half of the storage mount value, which points to a specific location in the module. The storage mount should always end with **:/blobroot** for Linux containers and **:C:/BlobRoot** for Windows containers.
 
-5. On the **Module Twin Settings** tab, copying the following JSON and pasting it into the box.
+5. On the **Module Twin Settings** tab, copying the following JSON and paste it into the box.
 
    ![Module Twin Settings](./media/how-to-deploy-blob/addmodule-tab4.png)
 
-   This JSON defines the the [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) and [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties) properties for your module.
-  
    Configure each property with an appropriate value, as indicated by the placeholders. If you are using the IoT Edge simulator, set the values to the related environment variables for these properties as described by [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) and [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties).
 
    ```json
