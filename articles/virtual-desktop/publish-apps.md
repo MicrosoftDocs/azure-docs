@@ -30,25 +30,7 @@ To publish a built-in app:
 
 ## Update app icons
 
-After you publish an app, it'll have the default icon instead of its regular icon picture. To correct this, run the following cmdlet to get the **InstallLocation**.
-
-```powershell
-Get-AppxPackage *Appname*
-```
-
-After that, run the following cmdlet to find the **Executable** for the InstallLocation:
-
-```powershell
-explorer.exe “<InstallLocation>”
-```
-
-Once you have the information on hand, go to your assets and find the file path for the image you want to use. Supported image formats are PNG, BMP, GIF, JPG, JPEG and ICO.
-
-Finally, run the following cmdlet with `<InstallLocation>` and `<Executable>` replaced with the relevant values:
-
-```powershell
-Set-RdsRemoteApp $tenant1 $pool1 $appgroup1 -Name $remoteapp3 -FriendlyName $remoteapp3 -IconPath "<InstallLocation>\<Executable>" -IconIndex 0
-```
+After you publish an app, it'll have the default icon instead of its regular icon picture. To change the icon to its regular icon, put the icon on a network share. Supported image formats are PNG, BMP, GIF, JPG, JPEG, and ICO.
 
 ## Publish Microsoft Edge
 
