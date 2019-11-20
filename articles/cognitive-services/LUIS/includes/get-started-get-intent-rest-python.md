@@ -59,8 +59,8 @@ Use Python to query the [prediction endpoint](https://aka.ms/luis-apim-v3-predic
 
 1. Replace the following values:
 
-    * `YOUR-KEY` with your starter key
-    * `YOUR-ENDPOINT` with your endpoint. For example, `westus2.api.cognitive.microsoft.com`
+    * `YOUR-KEY` with your starter key.
+    * `YOUR-ENDPOINT` with your endpoint. For example, `westus2.api.cognitive.microsoft.com`.
 
 1. Install the `requests` dependency. This is used to make HTTP requests:
 
