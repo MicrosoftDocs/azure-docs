@@ -16,7 +16,7 @@ ms.author: cynthn
 
 Manage platform updates, that don't require a reboot, using maintenance control. Azure frequently updates its infrastructure to improve reliability, performance, security or launch new features. Most updates are transparent to users. Some sensitive workloads, like gaming, media streaming, and financial transactions, can’t tolerate even few seconds of a VM freezing or disconnecting for maintenance. Maintenance control gives you the option to wait on platform updates and apply them within a 35-day rolling window. 
 
-Maintenance control lets you decide when to apply updates to your isolated VMs.
+Maintenance control lets you decide when to apply updates to your isolated VMs and Azure Dedicated Hosts.
 
 With maintenance control, you can:
 - Batch updates into one update package.
@@ -33,19 +33,20 @@ With maintenance control, you can:
 ## Limitations
 
 - VMs must be on a [dedicated host](./linux/dedicated-hosts.md), or be created using an [isolated VM size](./linux/isolation.md).
-- After 35 days, an update will automatically be applied and availability constraints will not be respected.
+- After 35 days, an update will automatically be applied.
 - User must have **Resource Owner** access.
 
 
 ## Install the maintenance extension
 
-Install the `maintenance` preview CLI extension. 
+If you choose to install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) locally, you need version 2.0.76 or later.
+
+Install the `maintenance` preview CLI extension locally or in Cloud Shell. 
 
 ```azurecli-interactive
 az extension add -n maintenance
 ```
 
-If you choose to install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) locally, you need version 2.0.76 or later.
 
 ## Create a maintenance configuration
 
@@ -64,21 +65,21 @@ az maintenance configuration create \
 
 Copy the configuration ID from the output to use later.
 
-For dedicated hosts, you can use `--maintenanceScope host` to have the configuration scoped to a dedicated host. Using `--maintenanceScope host` will ensure that all VMs on a host will follow the same maintenance configuration.
+Using `--maintenanceScope host` ensures that the maintenance config is used for controlling updates to the host.
 
-You can query for available maintenance configurations using [az maintenance configuration list]()
+You can query for available maintenance configurations using `az maintenance configuration list`.
 
 ```azurecli-interactive
 az maintenance configuration list
 ```
 
-## Apply the configuration
+## Assign the configuration
 
-Use `az maintenance assignment create` to apply the configuration.
+Use `az maintenance assignment create` to assign the configuration to your isolated VM or Azure Dedicated Host.
 
 ### Isolated VM
 
-Apply the configuration to a VM using the ID of the configuration. Specify `--resource-type virtualMachines` and supply the name of the VM for `--resource-name`, and the resource group for `--resource-group`. 
+Apply the configuration to a VM using the ID of the configuration. Specify `--resource-type virtualMachines` and supply the name of the VM for `--resource-name`, and the resource group for to the VM in `--resource-group`, and the location of the VM for `--location). 
 
 ```azurecli-interactive
 az maintenance assignment create \
@@ -91,7 +92,7 @@ az maintenance assignment create \
    --maintenance-configuration-id '/subscriptions/1111abcd-1a11-1a2b-1a12-123456789abc/resourcegroups/myMaintenanceRG/providers/Microsoft.Maintenance/maintenanceConfigurations/myConfig'
 ```
 
-### Dedicate host
+### Dedicated host
 
 To apply a configuration to a dedicated host, you need to include `--resource-type hosts`, `--resource-parent-name` with the name of the host group, and `--resource-parent-type hostGroups`. 
 
@@ -156,11 +157,13 @@ Create a request to apply updates to an isolated VM.
 
 ```azurecli-interactive
 az maintenance applyupdate create \
+   --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
    -g myMaintenanceRG\
    --resource-name myVM \
    --resource-type virtualMachines \
    --provider-name Microsoft.Compute
 ```
+
 
 ### Dedicated host
 
@@ -177,9 +180,40 @@ az maintenance applyupdate create \
    --resource-parent-type hostGroups
 ```
 
+## Check the status of applying updates 
+
+You can check on the progress of the updates using `az maintenance applyupdate get`. 
+
+### Isolated VM
+
+```azurecli-interactive
+az maintenance applyupdate get \
+   --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \ 
+   --resource-group myMaintenanceRG \
+   --resource-name myVM \
+   --resource-type virtualMachines \
+   --provider-name Microsoft.Compute \
+   --apply-update-name default
+```
+
+### Dedicated host
+
+```azurecli-interactive
+az maintenance applyupdate get \
+   --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \ 
+   --resource-group myMaintenanceRG \
+   --resource-name myHost \
+   --resource-type hosts \
+   --provider-name Microsoft.Compute \
+   --resource-parent-name myHostGroup \ 
+   --resource-parent-type hostGroups \
+   --apply-update-name default
+```
+
+
 ## Delete a maintenance configuration
 
-Use [az maintenance configuration delete]() to delete a maintenance configuration.
+Use [az maintenance configuration delete]() to delete a maintenance configuration. Deleting the configuration removes the maintenance control from the associated resources.
 
 ```azurecli-interactive
 az maintenance configuration delete \
