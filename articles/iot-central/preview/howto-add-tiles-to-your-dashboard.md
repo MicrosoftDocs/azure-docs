@@ -43,8 +43,7 @@ Now when an operator views the default application dashboard, they see the new t
 > [!div class="mx-imgBorder"]
 > !["Dashboard" tab with displayed settings and properties for the tile](media/howto-add-tiles-to-your-dashboard/settings-and-properties.png)
 
-
-## Edit Tiles
+## Edit tiles
 
 To edit a tile on the dashboard, first click **Edit** at the top left of the page, which will open edit mode for the dashboard and all its tiles. 
 
@@ -61,7 +60,7 @@ You can also change the chart visualization by clicking the **Ruler** icon on th
 > [!div class="mx-imgBorder"]
 > ![Dropdown for tile visualization settings](media/howto-add-tiles-to-your-dashboard/visualization-settings.png)
 
-## Tile Types
+## Tile types
 
 The following table summarizes the usage of tiles in Azure IoT Central:
  
