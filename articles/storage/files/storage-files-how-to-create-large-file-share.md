@@ -124,21 +124,22 @@ Creating a large file share is almost identical to creating a standard file shar
 
 ### CLI
 
-Once you've enabled large file shares on your storage account, you can expand existing file shares in that account to the higher quotas. Replace `<yourStorageAccountName>`, `<yourStorageAccountKey>`, and `<yourFileShareName>` in the following command with your values, then you can use it to set the quota to the maximum size:
+Once you've enabled large file shares on your storage account, you can create file shares in that account with higher quotas. Replace `<yourStorageAccountName>`, `<yourStorageAccountKey>`, and `<yourFileShareName>` in the following command with your values, then you can use it to create a large file share:
 
 ```bash
-az storage share create \
-    --account-name $STORAGEACCT \
-    --account-key $STORAGEKEY \
-    --name "myshare"
+az storage share create --account-name <yourStorageAccountName> --account-key <yourStorageAccountKey> --name <yourFileShareName>
 ```
 
 ### PowerShell
 
+Once you've enabled large file shares on your storage account, you can create file shares in that account with higher quotas. Replace `<YourStorageAccountConnectionString>` and `<YourStorageAccountFileShareName>` in the following command with your values, then you can use it to create a large file share:
+
 ```PowerShell
-New-AzStorageShare `
-   -Name myshare `
-   -Context $storageAcct.Context
+##Config
+$connectionstring="<YourStorageAccountConnectionString>"
+$shareName="<YourStorageAccountFileShareName>"
+$ctx = New-AzStorageContext -ConnectionString $connectionstring
+New-AzStorageShare -Name $shareName -Context $ctx
 ```
 
 ## Expand existing file shares
@@ -168,10 +169,10 @@ Once you've enabled large file shares on your storage account, you can expand ex
 ```PowerShell
 ##Config
 $connectionstring="<YourStorageAccountConnectionString>"
-$sharename="<YourStorageAccountFileShareName>"
+$shareName="<YourStorageAccountFileShareName>"
 $ctx = New-AzStorageContext -ConnectionString $connectionstring
 # update quota
-Set-AzStorageShareQuota -ShareName $sharename -Context $ctx -Quota 10240
+Set-AzStorageShareQuota -ShareName $shareName -Context $ctx -Quota 10240
 ```
 
 ## Next steps
