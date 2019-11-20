@@ -1,5 +1,5 @@
 ---
-title: How to do proof-of-possession for X.509 CA certificates with Azure IoT Hub Device Provisioning Service
+title: Verify X.509 CA certificates with Azure IoT Hub Device Provisioning Service
 description: How to do proof-of-possession for X.509 CA certificates with Azure IoT Hub Device Provisioning Service
 author: wesmc7777
 ms.author: wesmc
