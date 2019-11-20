@@ -46,7 +46,7 @@ Before you proceed to the steps of registering the Peering Service, you need to 
 **Azure PowerShell**
 
 ```azurepowershell-interactive
-Register-AzProviderFeature-FeatureName AllowPeeringService ProviderNamespace Microsoft.Peering 
+Register-AzProviderFeature -FeatureName AllowPeeringService -ProviderNamespace Microsoft.Peering 
 
 Register-AzResourceProvider -ProviderNamespace Microsoft.Peering 
 

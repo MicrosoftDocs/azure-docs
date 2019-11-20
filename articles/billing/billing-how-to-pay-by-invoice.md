@@ -4,7 +4,7 @@ description: Describes how to pay for Azure subscriptions by invoice.
 author: bandersmsft
 manager: jureid
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na

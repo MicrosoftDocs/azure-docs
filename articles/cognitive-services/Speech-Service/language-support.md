@@ -252,6 +252,7 @@ The **Speech Translation** API supports different languages for speech-to-speech
 | Swedish      | `sv`          |
 | Tahitian      | `ty`          |
 | Tamil      | `ta`          |
+| Telugu      | `te`          |
 | Thai      | `th`          |
 | Tongan      | `to`          |
 | Turkish      | `tr`          |

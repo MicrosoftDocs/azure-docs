@@ -112,7 +112,7 @@ run_config.environment.docker.enabled = True
 run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
 
 dependencies = CondaDependencies.create(
-    pip_packages=["scikit-learn", "scipy", "numpy"])
+    pip_packages=["scikit-learn", "scipy", "numpy==1.16.2"])
 run_config.environment.python.conda_dependencies = dependencies
 ```
 
