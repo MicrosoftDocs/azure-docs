@@ -1,11 +1,7 @@
 ---
 title: Durable entities - Azure Functions
 description: Learn what durable entities are and how to use them in the Durable Functions extension for Azure Functions.
-services: functions
 author: cgillum
-manager: jeconnoc
-keywords:
-ms.service: azure-functions
 ms.topic: overview
 ms.date: 11/02/2019
 ms.author: azfuncdf
