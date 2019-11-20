@@ -55,4 +55,4 @@ When determining which entities to use in your app, keep in mind that there are 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about LUIS authoring development lifecycles](luis-concept-app-iteration.md)
+> [Learning the LUIS development lifecylce](luis-concept-app-iteration.md)
