@@ -77,3 +77,11 @@ In three steps on the **Create rule** page, specify the **RESOURCE**, **CONDITIO
 Name the alert rule and click **Create alert rule**.
 
   ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-4.png)
+
+Verify that the new alert rule is enabled.
+
+  ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-5.png)
+
+## Next steps
+* [SMS Alert Behavior in Action Groups](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-sms-behavior)
+* [Tutorial: Using Distributed Tracing with Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing)
