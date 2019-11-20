@@ -1,8 +1,8 @@
 ---
-title: Tutorial - Step-by-step instructions to create a new Android app using Azure Spatial Anchors | Microsoft Docs
+title: 'Tutorial: Create a new Android app'
 description: In this tutorial, you learn how to create a new Android app using Azure Spatial Anchors.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 
 ms.author: rgarcia
