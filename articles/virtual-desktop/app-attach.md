@@ -36,7 +36,7 @@ First, you need to get the OS image you'll use for the MSIX app. To get the OS i
 >[!NOTE]
 >You must be member of the Windows Insider program to access the Windows Insider portal. To learn more about the Windows Insider program, check out our [Windows Insider documentation](https://docs.microsoft.com/windows-insider/at-home/).
 
-1. Scroll down to the **Select edition** section and select **Windows 10 Insider Preview Enterprise (FAST) – Build XXXXX.**
+1. Scroll down to the **Select edition** section and select **Windows 10 Insider Preview Enterprise (FAST) – Build XXXXX**.
 
 2. Select **Confirm**, then select the language you wish to use, and then select **Confirm** again.
     
@@ -171,7 +171,7 @@ If your app uses a certificate that isn't public-trusted or was self-signed, her
 2. In the window that appears, select the **Digital signatures** tab. There should be only one item in the list on the tab, as shown in the following image. Select that item to highlight the item, then select **De
 3. When the digital signal details window appears, select the **General** tab, then select **Install certificate**.
 4. When the installer opens, select **local machine** as your storage location, then select **Next**.
-5. If the intaller asks you if you want to allow the app to make changes to your device, select **Yes**.
+5. If the installer asks you if you want to allow the app to make changes to your device, select **Yes**.
 6. Select **Place all certificates in the following store**, then select **Browse**.
 7. When the select certificate store window appears, select **Trusted people**, then select **OK**.
 8. Select **Finish**.
@@ -225,7 +225,7 @@ Before you update the PowerShell scripts, make sure you have the volume GUID of 
 
 6.  Update the **\$volumeGuid** variable with the volume GUID you just copied.
 
-7. Opean an Admin PowerShell prompt and update the following PowerShell script with the variables that apply to your environment.
+7. Open an Admin PowerShell prompt and update the following PowerShell script with the variables that apply to your environment.
 
     ```powershell
     #MSIX app attach staging sample
