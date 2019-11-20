@@ -590,7 +590,7 @@ Java functions can also write to a Service Bus topic. The following example uses
 
 ---
 
-## Output - attributes
+## Output - attributes and annotations
 
 # [C#](#tab/csharp)
 
@@ -624,15 +624,15 @@ You can use the `ServiceBusAccount` attribute to specify the Service Bus account
 
 # [C# Script](#tab/csharp-script)
 
-**TODO**
+Attributes are not supported by C# Script.
 
 # [JavaScript](#tab/javascript)
 
-**TODO**
+Attributes are not supported by JavaScript.
 
 # [Python](#tab/python)
 
-**TODO**
+Attributes are not supported by Python.
 
 # [Java](#tab/java)
 
