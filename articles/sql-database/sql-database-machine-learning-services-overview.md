@@ -11,7 +11,7 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
-ms.date: 22/20/2019
+ms.date: 11/20/2019
 ---
 # Azure SQL Database Machine Learning Services with R (preview)
 
