@@ -319,7 +319,7 @@ Details of `--signature-verification` can be found by running `man dockerd`.
 
 ### az acr login succeeds but docker fails with error: unauthorized: authentication required
 
-Make sure you use all lower case server url, e.g. `docker push myregistry.azurecr.io/myimage:latest` even if the registry resource name is upper or mixed case like `myRegistry`
+Make sure you use an all lowercase server URL, for example, `docker push myregistry.azurecr.io/myimage:latest`, even if the registry resource name is uppercase or mixed case, like `myRegistry`.
 
 ### Enable and get the debug logs of the Docker daemon	
 
