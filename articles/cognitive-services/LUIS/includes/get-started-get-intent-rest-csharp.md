@@ -6,7 +6,7 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include 
-ms.date: 10/17/2019
+ms.date: 11/20/2019
 ms.author: diberry
 ---
 
@@ -22,7 +22,7 @@ ms.author: diberry
 
 ## Get intent programmatically
 
-Use C# to query the prediction endpoint GET [API](https://aka.ms/luis-apim-v3-prediction) to get the prediction result. 
+Use C# (.NET Core) to query the [prediction endpoint](https://aka.ms/luis-apim-v3-prediction) and get a prediction result.
 
 1. Create a new console application targeting the C# language, with a project and folder name of `predict-with-rest`. 
 
