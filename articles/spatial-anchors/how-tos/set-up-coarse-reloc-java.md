@@ -1,5 +1,5 @@
 ---
-title: How to create and locate anchors using on-device sensors in Java | Microsoft Docs
+title: Coarse relocalization in Java
 description: In-depth explanation of how to create and locate anchors using on-device sensors in Java.
 author: bucurb
 manager: dacoghl
