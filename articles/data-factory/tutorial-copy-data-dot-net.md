@@ -15,9 +15,9 @@ ms.author: jingwang
 ---
 # Copy data from Azure Blob to Azure SQL Database using Azure Data Factory
 
-In this tutorial, you create a Data Factory pipeline that copies data from Azure Blob Storage to Azure SQL Database. The configuration pattern in this tutorial applies to copying from a file-based data store to a relational data store. For a list of data stores supported as sources and sinks, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+In this tutorial, you create a Data Factory pipeline that copies data from Azure Blob Storage to Azure SQL Database. The configuration pattern in this tutorial applies to copying from a file-based data store to a relational data store. For a list of data stores supported as sources and sinks, see the [supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-You perform the following steps in this tutorial:
+You take the following steps in this tutorial:
 
 > [!div class="checklist"]
 > * Create a data factory.
@@ -33,11 +33,11 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 
 ## Prerequisites
 
-* **Azure Storage account**. You use the blob storage as **source** data store. If you don't have an Azure storage account, see [Create a general-purpose storage account](../storage/common/storage-quickstart-create-account.md).
-* **Azure SQL Database**. You use the database as **sink** data store. If you don't have an Azure SQL Database, see [Create an Azure SQL database](../sql-database/sql-database-single-database-get-started.md).
-* **Visual Studio**. The walkthrough in this article uses Visual Studio 2019.
-* **[Azure SDK for .NET](/dotnet/azure/dotnet-tools)**.
-* **Azure Active Directory application**. If you don't have an Azure Active Directory application, see the [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) section of [How to: Use the portal to create an Azure AD application](../active-directory/develop/howto-create-service-principal-portal.md). Make note of the following values that you use in later steps: **Application (client) ID**, **authentication key**, and **Directory (tenant) ID**. Assign application to "**Contributor**" role by following instructions in the same article.
+* *Azure Storage account*. You use the blob storage as *source* data store. If you don't have an Azure storage account, see [Create a general-purpose storage account](../storage/common/storage-quickstart-create-account.md).
+* *Azure SQL Database*. You use the database as *sink* data store. If you don't have an Azure SQL Database, see [Create an Azure SQL database](../sql-database/sql-database-single-database-get-started.md).
+* *Visual Studio*. The walkthrough in this article uses Visual Studio 2019.
+* *[Azure SDK for .NET](/dotnet/azure/dotnet-tools)*.
+* *Azure Active Directory application*. If you don't have an Azure Active Directory application, see the [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) section of [How to: Use the portal to create an Azure AD application](../active-directory/develop/howto-create-service-principal-portal.md). Make note of the following values that you use in later steps: **Application (client) ID**, **authentication key**, and **Directory (tenant) ID**. Assign application to "**Contributor**" role by following instructions in the same article.
 
 ### Create a blob and a SQL table
 
@@ -88,7 +88,7 @@ Next, create a sink SQL table:
 
 Using Visual Studio, create a C# .NET console application.
 
-1. Open **Visual Studio**.
+1. Open Visual Studio.
 2. In the **Start** window, select **Create a new project**.
 3. In the **Create a new project** window, choose the C# version of **Console App (.NET Framework)** from the list of project types. Then select **Next**.
 4. In the **Configure your new project** window, enter a **Project name** of *ADFv2Tutorial*. For **Location**, browse to and/or create the directory to save the project in. Then select **Create**. The new project appears in the Visual Studio IDE.
@@ -98,7 +98,7 @@ Using Visual Studio, create a C# .NET console application.
 Next, install the required library packages using the NuGet package manager.
 
 1. In the menu bar, choose **Tools** > **NuGet Package Manager** > **Package Manager Console**.
-2. In the **Package Manager Console** pane, run the following commands to install packages. Refer to [Microsoft.Azure.Management.DataFactory nuget package](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/) with details.
+2. In the **Package Manager Console** pane, run the following commands to install packages. For information about the Azure Data Factory NuGet package, see [Microsoft.Azure.Management.DataFactory](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/).
 
     ```package manager console
     Install-Package Microsoft.Azure.Management.DataFactory
@@ -110,7 +110,7 @@ Next, install the required library packages using the NuGet package manager.
 
 Follow these steps to create a data factory client.
 
-1. Open *Program.cs*, include the following statements to add references to namespaces.
+1. Open *Program.cs*, then overwrite the existing `using` statements with the following code to add references to namespaces.
 
     ```csharp
     using System;
@@ -208,7 +208,7 @@ In this tutorial, you create two linked services for the source and sink, respec
 
 ### Create an Azure Storage linked service
 
-Add the following code to the `Main` method that creates an *Azure Storage linked service*. Learn more from [Azure Blob linked service properties](connector-azure-blob-storage.md#linked-service-properties) on supported properties and details.
+Add the following code to the `Main` method that creates an *Azure Storage linked service*. For information about supported properties and details, see [Azure Blob linked service properties](connector-azure-blob-storage.md#linked-service-properties).
 
 ```csharp
 // Create an Azure Storage linked service
@@ -230,7 +230,7 @@ Console.WriteLine(SafeJsonConvert.SerializeObject(
 
 ### Create an Azure SQL Database linked service
 
-Add the following code to the `Main` method that creates an *Azure SQL Database linked service*. Learn more from [Azure SQL Database linked service properties](connector-azure-sql-database.md#linked-service-properties) on supported properties and details.
+Add the following code to the `Main` method that creates an *Azure SQL Database linked service*. For information about supported properties and details, see [Azure SQL Database linked service properties](connector-azure-sql-database.md#linked-service-properties).
 
 ```csharp
 // Create an Azure SQL Database linked service
@@ -254,12 +254,12 @@ In this section, you create two datasets: one for the source, the other for the 
 
 ### Create a dataset for source Azure Blob
 
-Add the following code to the `Main` method that creates an *Azure blob dataset*. Learn more from [Azure Blob dataset properties](connector-azure-blob-storage.md#dataset-properties) on supported properties and details.
+Add the following code to the `Main` method that creates an *Azure blob dataset*. For information about supported properties and details, see [Azure Blob dataset properties](connector-azure-blob-storage.md#dataset-properties).
 
 You define a dataset that represents the source data in Azure Blob. This Blob dataset refers to the Azure Storage linked service you create in the previous step, and describes:
 
 - The location of the blob to copy from: `FolderPath` and `FileName`
-- The blob format indicating how to parse the content: `TextFormat` and its settings (for example, column delimiter)
+- The blob format indicating how to parse the content: `TextFormat` and its settings (such as column delimiter)
 - The data structure, including column names and data types, which map here to the sink SQL table
 
 ```csharp
@@ -298,7 +298,7 @@ Console.WriteLine(
 
 ### Create a dataset for sink Azure SQL Database
 
-Add the following code to the `Main` method that creates an *Azure SQL Database dataset*. Learn more from [Azure SQL Database dataset properties](connector-azure-sql-database.md#dataset-properties) on supported properties and details.
+Add the following code to the `Main` method that creates an *Azure SQL Database dataset*. For information about supported properties and details, see [Azure SQL Database dataset properties](connector-azure-sql-database.md#dataset-properties).
 
 You define a dataset that represents the sink data in Azure SQL Database. This dataset refers to the Azure SQL Database linked service you created in the previous step. It also specifies the SQL table that holds the copied data. 
 
@@ -323,7 +323,7 @@ Console.WriteLine(
 
 ## Create a pipeline
 
-Add the following code to the `Main` method that creates a *pipeline with a copy activity*. In this tutorial, this pipeline contains one activity: copy activity, which takes in the Blob dataset as source and the SQL dataset as sink. Learn more from [Copy activity in Azure Data Factory](copy-activity-overview.md) on copy activity details.
+Add the following code to the `Main` method that creates a *pipeline with a copy activity*. In this tutorial, this pipeline contains one activity: copy activity, which takes in the Blob dataset as source and the SQL dataset as sink. For information about copy activity details, see [Copy activity in Azure Data Factory](copy-activity-overview.md).
 
 ```csharp
 // Create a pipeline with copy activity
@@ -422,7 +422,7 @@ Now insert the code to check pipeline run states and to get details about the co
 
 Build the application (by choosing **Build** > **Build Solution**), start the application (by choosing **Debug** > **Start Debugging**), and then verify the pipeline execution.
 
-The console prints the progress of creating a data factory, linked service, datasets, pipeline, and pipeline run. It then checks the pipeline run status. Wait until you see the copy activity run details with the data read/written size. Then, use tools such as SSMS (SQL Server Management Studio) or Visual Studio to connect to your destination Azure SQL Database, and check whether the data has been copied into the table you specified.
+The console prints the progress of creating a data factory, linked service, datasets, pipeline, and pipeline run. It then checks the pipeline run status. Wait until you see the copy activity run details with the data read/written size. Then, using tools such as SQL Server Management Studio (SSMS) or Visual Studio, you can connect to your destination Azure SQL Database and check whether the destination table you specified contains the copied data.
 
 ### Sample output
 
