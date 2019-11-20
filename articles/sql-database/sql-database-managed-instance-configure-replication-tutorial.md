@@ -33,7 +33,7 @@ To complete the tutorial, make sure you have the following prerequisites:
 - [SQL Server Management Studio (SSMS) 18.0 or greater](/ssms/download-sql-server-management-studio-ssms).
 - The latest version of [Azure Powershell](/powershell/azure/install-az-ps?view=azps-1.7.0).
 - An [Azure File share](../storage/files/storage-how-to-create-file-share.md). The name `replshare` is used in this tutorial, created within the storage account `replstorage`. 
-- Port 445 open for both the Azure firewall and the Windows firewall on the SQL Server. 
+- Port 445, and 1433 allow SQL traffic on both the Azure Firewall and the Windows Firewall. 
 
 ## 1 - Create the resource group
 Use the following PowerShell code snippet to create a new resource group:
@@ -120,6 +120,19 @@ Get-AzVirtualNetworkPeering `
 Once VPN peering is established, test connectivity by launching SQL Server Management Studio (SSMS) on your SQL Server VM and connecting to both managed instances. For more information on connecting to a managed instance using SSMS, see [Use SSMS to connect to the MI](sql-database-managed-instance-configure-p2s#use-ssms-to-connect-to-the-managed-instance). 
 
 ![Test connectivity to the managed instances](media/sql-database-managed-instance-configure-replication-tutorial/test-connectivity-to-mi.png)
+
+## 5 - Create private DNS zone
+
+1. Sign into the [Azure portal](https://portal.azure.com).
+1. Select **Create a resource** to create a new Azure resource. 
+1. Search for `private dns zone` on Azure Marketplace. 
+1. Choose the **Private DNS zone** resource published by Microsoft and then select **Create** to create the zone. 
+1. Choose the subscription and resource group from the drop-downs. 
+1. Provide an arbitrary name for your DNS zone such as `repldns.com`. 
+
+   ![Create private DNS zone](media/sql-database-managed-instance-configure-replication-tutorial/create-private-dns-zone.png)
+
+1. Select **Review + create**. Review the parameters for your private DNS zone and then select **Create** to create your resource. 
 
 ## 7 - Create Azure Storage Account
 
