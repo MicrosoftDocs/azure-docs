@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 11/07/2019
+ms.date: 11/20/2019
 ms.author: diberry
-#Customer intent: As a new user, I want to understand how and why to use the machine-learned entity.  
+#Customer intent: As a new user, I want to understand how to extract complex data contained in a user utterance.  
 ---
 
-# Tutorial: Extract structured data with machine-learned entities in Language Understanding (LUIS)
+# Tutorial: Extract structured data from user utterance with machine-learned entities in Language Understanding (LUIS)
 
 In this tutorial, extract structured data from an utterance using the machine-learned entity. 
 
