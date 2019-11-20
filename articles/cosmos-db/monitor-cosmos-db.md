@@ -7,6 +7,7 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: bwren
+ms.custom: subject-monitoring 
 ---
 
 # Monitoring Azure Cosmos DB

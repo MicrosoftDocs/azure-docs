@@ -1,6 +1,6 @@
 ---
-title: Protect new resources with blueprint locks
-description: In this tutorial, you'll learn to use the Azure Blueprints resource locks options Read Only and Do Not Delete to protect newly deployed resources.
+title: "Tutorial: Protect new resources with locks"
+description: In this tutorial, you use the Azure Blueprints resource locks options Read Only and Do Not Delete to protect newly deployed resources.
 ms.date: 03/28/2019
 ms.topic: tutorial
 ---

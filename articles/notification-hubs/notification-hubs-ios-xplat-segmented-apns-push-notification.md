@@ -13,10 +13,10 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 07/28/2019
+ms.date: 11/07/2019
 ms.author: sethm
 ms.reviewer: jowargo
-ms.lastreviewed: 07/28/2019
+ms.lastreviewed: 11/07/2019
 ---
 
 # Tutorial: Push notifications to specific iOS devices using Azure Notification Hubs
@@ -57,6 +57,7 @@ The first step is to add the UI elements to your existing storyboard that enable
      ![Xcode interface builder][3]
 
 2. In the assistant editor, create outlets for all the switches and call them "WorldSwitch", "PoliticsSwitch", "BusinessSwitch", "TechnologySwitch", "ScienceSwitch", "SportsSwitch"
+
 3. Create an Action for your button called `subscribe`; your `ViewController.h` should contain the following code:
 
     ```objc
