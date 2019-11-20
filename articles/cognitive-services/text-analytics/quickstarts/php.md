@@ -17,7 +17,7 @@ ms.author: aahi
 
 This article shows you how to [detect language](#Detect), [analyze sentiment](#SentimentAnalysis), [extract key phrases](#KeyPhraseExtraction), and [identify linked entities](#Entities) using the [Text Analytics APIs](//go.microsoft.com/fwlink/?LinkID=759711) with PHP.
 
-[!INCLUDE [text-analytics-api-references](../../../../includes/text-analytics-api-references.md)]
+[!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
 ## Prerequisites
 

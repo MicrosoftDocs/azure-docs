@@ -18,7 +18,7 @@ ms.author: aahi
 
 Use this quickstart to begin analyzing language with the Text Analytics REST API and Python. This article shows you how to [detect language](#Detect), [analyze sentiment](#SentimentAnalysis), [extract key phrases](#KeyPhraseExtraction), and [identify linked entities](#Entities).
 
-[!INCLUDE [text-analytics-api-references](../../../../includes/text-analytics-api-references.md)]
+[!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
 ## Prerequisites
 
