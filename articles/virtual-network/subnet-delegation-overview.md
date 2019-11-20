@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/19/2019
+ms.date: 11/20/2019
 ms.author: kumud
 
 ---
@@ -39,8 +39,8 @@ Subnet delegation is an exercise that the virtual network owners need to perform
 ## What subnet delegation can do to your subnet?
 Each Azure service defines their own deployment model, where they can define what properties they do or do not support in a delegated subnet for injection purposes, such as follows:
 - shared subnet with other Azure Services or VM / virtual machine scale set in the same subnet, or it only supports a dedicated subnet with only instances of this service in it.
-- NSG association with the delegated subnet.
-- NSG associated with the delegated subnet can be also associated with any other subnet.
+- supports NSG association with the delegated subnet.
+- supports NSG associated with the delegated subnet can be also associated with any other subnet.
 - allows route table association with the delegated subnet.
 - allows the route table associated with the delegated subnet to be associated with any other subnet.
 - dictates the minimum number of IP Addresses in the delegated subnet.
