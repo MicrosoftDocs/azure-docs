@@ -1,5 +1,5 @@
 ---
-title: Set up incremental indexing (preview) of enriched content based change tracking
+title: Add incremental indexing (preview) 
 titleSuffix: Azure Cognitive Search
 description: Enable change tracking and preserve state of enriched content for controlled processing in a cognitive skillset. This feature is currently in public preview.
 

@@ -1,6 +1,6 @@
 ---
 
-title: Periodic backup and restore in Azure Service Fabric  | Microsoft Docs
+title: Periodic backup and restore in Azure Service Fabric
 description: Use Service Fabric's periodic backup and restore feature for enabling periodic data backup of your application data.
 services: service-fabric
 documentationcenter: .net
@@ -182,6 +182,16 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 ```
 
+#### Using Service Fabric Explorer
+
+1. In Service Fabric Explorer, navigate to the Backups tab and select Actions > Create Backup Policy.
+
+    ![Create Backup Policy][6]
+
+2. Fill out the information. For Azure clusters, AzureBlobStore should be selected.
+
+    ![Create Backup Policy Azure Blob Storage][7]
+
 ### Enable periodic backup
 After defining backup policy to fulfill data protection requirements of the application, the backup policy should be associated with the application. Depending on requirement, the backup policy can be associated with an application, service, or a partition.
 
@@ -307,3 +317,5 @@ To view backups in Service Fabric Explorer, navigate to a partition and select t
 [3]: ./media/service-fabric-backuprestoreservice/enable-app-backup.png
 [4]: ./media/service-fabric-backuprestoreservice/enable-application-backup.png
 [5]: ./media/service-fabric-backuprestoreservice/backup-enumeration.png
+[6]: ./media/service-fabric-backuprestoreservice/create-bp.png
+[7]: ./media/service-fabric-backuprestoreservice/creation-bp.png
