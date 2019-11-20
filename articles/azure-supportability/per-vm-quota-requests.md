@@ -115,13 +115,14 @@ You can also **request Quota for multiple regions** through a single support cas
    
 8. Select the **SKU Families** that require an increase
 
-![SKU series selected](./media/resource-manager-core-quotas-request/1-1-8.png)
+   ![SKU series selected](./media/resource-manager-core-quotas-request/1-1-8.png)
 
 9. Enter the new limits you would like on the subscription. To remove a line, uncheck the SKU from the SKU family dropdown or click the discard "x" icon. 
 
    ![SKU new quota request](./media/resource-manager-core-quotas-request/1-1-9.png)
    
-   10. To request Quota for more than one location you can check on another **location** from the drop down and select appropriate VM Type. This step will pre-load SKU families selected for earlier **location** against the new location and you can simply enter the new limits you would like.
+
+10. To request Quota for more than one location you can check on another **location** from the drop down and select appropriate VM Type. This step will pre-load SKU families selected for earlier **location** against the new location and you can simply enter the new limits you would like.
    
     ![SKU new quota request](./media/resource-manager-core-quotas-request/1-1-10.png)
  
