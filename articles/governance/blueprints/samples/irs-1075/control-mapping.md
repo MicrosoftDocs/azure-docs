@@ -475,6 +475,7 @@ articles to learn about the blueprint and how to deploy this sample:
 
 > [!div class="nextstepaction"]
 > [IRS 1075 blueprint - Overview](./index.md)
+> [IRS 1075 blueprint - Deploy steps](./deploy.md)
 
 Additional articles about blueprints and how to use them:
 
