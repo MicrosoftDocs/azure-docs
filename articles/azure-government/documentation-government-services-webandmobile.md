@@ -35,20 +35,28 @@ The endpoint for search services created in Azure Government is as follows:
 | ------------ | ------------ | ---------------- |
 | Azure Cognitive Search Service |\*.search.windows.net |\*.search.windows.us|
 
-All generally available and most preview features are available in both public and government environments, with the following exceptions:
+All generally available and preview features in the public cloud is also available in Azure Government.
 
-+ **TBD** []()
-
-+ **TBD** []()
-
-### Considerations
+<!-- ### Considerations
 The following information identifies the Azure Government boundary for Azure Cognitive Search:
 
-**THIS IS COPY-PASTED ** LIAM WHAT APPLIES??**
+EXAMPLE
 
 | Regulated/controlled data permitted | Regulated/controlled data not permitted |
 | ----------------------------------- | --------------------------------------- |
-| Data entered, stored, and processed within AAzure App Service can contain export-controlled data. Binaries running within Azure App Service. Static authenticators, such as passwords and smartcard PINs for access to Azure platform components. Private keys of certificates used to manage Azure platform components. SQL connection strings. Other security information/secrets, such as certificates, encryption keys, master keys, and storage keys stored in Azure services. | Metadata is not permitted to contain export-controlled data. This metadata includes all configuration data entered when creating and maintaining your Azure App Service. Do not enter Regulated/controlled data into the following fields: Resource groups, Resource names, Resource tags|
+| Data entered, stored, and processed within Azure Cognitive Search can contain export-controlled data. Binaries running within Azure App Service. Static authenticators, such as passwords and smartcard PINs for access to Azure platform components. Private keys of certificates used to manage Azure platform components. SQL connection strings. Other security information/secrets, such as certificates, encryption keys, master keys, and storage keys stored in Azure services. | Metadata is not permitted to contain export-controlled data. This metadata includes all configuration data entered when creating and maintaining your Azure App Service. Do not enter Regulated/controlled data into the following fields: Resource groups, Resource names, Resource tags|
+
+FROM NATI
+
+1.	Management APIs (none of the following is considered secured): 
+a.	The actual name of the search service (e.g. customers can use credit card numbers for their search service name)
+b.	The names of the Azure subscription and resource group containing the search service 
+c.	Resource tags (key-value strings a user can associate with its search service)
+2.	Data APIs:
+a.	Resource metadata, like index definitions, indexers, data sources, synonym-maps, skillsets. Note that some parts of these metadata are not secured like the names of created resources (e.g. index name, data source name) and certain parts of index metadata (e.g. field names, custom analyzers names, etc.), while other parts of metadata are secured, like data source’s connection strings and index definition’ encrypted index credentials, for example.
+b.	Indexed documents, including data from data sources that is indexed to the service
+c.	Search/query strings sent as part of the search API  
+d.	Http headers sent to Azure search REST API -->
 
 
 ## App Services
