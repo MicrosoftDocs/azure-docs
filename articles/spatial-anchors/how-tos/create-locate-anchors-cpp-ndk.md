@@ -1,8 +1,8 @@
 ---
-title: How to create and locate anchors using Azure Spatial Anchors in C++/NDK | Microsoft Docs
+title: Create & locate anchors in C++/NDK
 description: In-depth explanation of how to create and locate anchors using Azure Spatial Anchors in C++/NDK.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 
 ms.author: rgarcia
