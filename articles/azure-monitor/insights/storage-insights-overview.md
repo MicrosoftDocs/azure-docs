@@ -238,7 +238,7 @@ To help troubleshoot any storage-related issues you identify with Azure Monitor 
 
 ### Why can I only see 200 storage accounts?
 
-The number of selected storage accounts has a limit of 200, regardless of the number of subscriptions that are selected. They can be selected and viewed in Storage Insights.
+The number of selected storage accounts has a limit of 200, regardless of the number of subscriptions that are selected.
 
 ### What happens when I click on a recently pinned tile in the dashboard?
 
@@ -263,13 +263,13 @@ The portal will show data only for selected subscriptions on portal launch. To c
 Refer to the [Modify the availability threshold](storage-insights-overview.md#modify-the-availability-threshold)
 section for the detailed steps on how to change the coloring and thresholds for availability.
 
-### How to analyze and troubleshoot the data shown in Storage Insights?
+### How to analyze and troubleshoot the data shown in Azure Monitor for Storage?
 
- Refer to the [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-monitoring-diagnosing-troubleshooting) article for details on how to analyze and troubleshoot the Azure Storage data shown in the SAI.
+ Refer to the [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-monitoring-diagnosing-troubleshooting) article for details on how to analyze and troubleshoot the Azure Storage data shown in the Azure Monitor for Storage.
 
 ### Why don’t I see all the types of errors in metrics?
 
-A: Currently, up-to three different types of error are shown and the rest of the errors are grouped together in a single bucket. It is controlled using splitByLimit and can be modified. For changing this property:
+Currently, up to three different types of error are shown and the rest of the errors are grouped together in a single bucket. It is controlled using splitByLimit and can be modified. For changing this property:
 
 1. Click on edit workbook.
 2. Go to metrics, click on edit and then select **Transactions, Sum** or whatever metrics you want to edit.
@@ -282,9 +282,9 @@ A: Currently, up-to three different types of error are shown and the rest of the
 
 If you want to see n different types of error than specify splitByLimit as n+1, 1 extra for rest of the errors.
 
-###  I saved my Workbook while on some Storage Account. Why can’t I find it now?
+###  I saved my workbook while on some Storage Account. Why can’t I find it now?
 
-Each Workbook is saved in the storage account that you saved in it. Try to find the specific Storage Account in which the user saved the workbook. Otherwise, there is no way to find a specific workbook without knowing the resource (storage account).
+Each workbook is saved in the storage account that you saved it in. Try to find the specific Storage Account in which the user saved the workbook. Otherwise, there is no way to find a specific workbook without knowing the resource (storage account).
 
 ### What is time range?
 
@@ -294,7 +294,7 @@ Time range shows you data from a certain time frame. For example, if the time ra
 
 Time granularity is the time difference between two data points. For example, if the time grain is set to 1 second that means metrics are collected each second.
 
-### What is the time granularity once we pin any part of the Workbooks to a dashboard?
+### What is the time granularity once we pin any part of the workbooks to a dashboard?
 
 The default time granularity is set to automatic, it currently can't be changed at this time. To see this, you can click on the ellipse in the top right of a tile on the dashboard and select **Customize tile data** this will bring up the "configure tile settings" on the right.
 
@@ -316,10 +316,6 @@ To change the name of a step in your saved workbook select edit under the step a
 
 ![Select edit at the bottom of a workbook step to open up the settings](./media/storage-insights-overview/fqa-edit.png)
 ![In settings select the gear at the bottom, to be able to change the step name](./media/storage-insights-overview/fqa-change-name.png)
-
-### What if I am not seeing any health data or getting an authentication issue while retrieving the health data?
-
-A: Go to Storage accounts (from the home page), select the account, and under “Support + troubleshooting” select resource health. If health data is enabled and you still see no health data, contact support. There is a contact support link you can select under "what actions can you take".
 
 ## Next steps
 
