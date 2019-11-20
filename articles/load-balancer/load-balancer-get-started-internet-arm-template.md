@@ -1,6 +1,6 @@
 ﻿---
 title: Create a public Load Balancer - Azure template
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Learn how to create a public load balancer in Resource Manager using a template
 services: load-balancer
 documentationcenter: na

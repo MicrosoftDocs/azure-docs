@@ -9,15 +9,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/19/2019
 ms.author: diberry
 ---
 
 # Add contributors to your app
 
 An app owner can add contributors to apps. These collaborators can modify the model, train, and publish the app. 
-
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 [!INCLUDE [Manage collaborators and contributors based on migrated or not-migrated apps](./includes/manage-contributor-collaborator-migration.md)]
 
@@ -51,8 +49,6 @@ An app has a single author, the owner, but can have many collaborators. To allow
 1. Select **Manage** from the top right menu, then select **Collaborators** in the left menu.
 
 1. Select **Add Collaborator** from the toolbar.
-
-    [![Add collaborator](./media/luis-how-to-collaborate/add-collaborator.png "Add collaborator")](./media/luis-how-to-collaborate/add-collaborator.png#lightbox)
 
 1. Enter the email address the collaborator uses to sign in to the LUIS portal.
 

@@ -3,7 +3,7 @@ title: Template deployment what-if (Preview)
 description: Determine what changes will happen to your resources before deploying an Azure Resource Manager template.
 author: mumian
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 11/19/2019
 ms.author: jgao
 ---
 # Resource Manager template deployment what-if operation (Preview)
@@ -89,6 +89,8 @@ The what-if output is similar to:
 Notice at the top of the output that colors are defined to indicate the type of changes.
 
 At the bottom of the output, it shows the sku name (storage account type) will be changed from **Standard_LRS** to **Standard_GRS**.
+
+Some of the properties that are listed as deleted won't actually change. In the preceding image, these properties are accessTier, encryption.keySource and others in that section. Properties can be incorrectly reported as deleted when they aren't in the template but are automatically set during deployment. The final deployed resource will have the values set for the properties. As the what-if operation matures, these properties will be filtered out of the result.
 
 ### Test deletion
 
