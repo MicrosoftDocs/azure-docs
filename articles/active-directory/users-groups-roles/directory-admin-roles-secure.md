@@ -90,7 +90,7 @@ After you have turned on Azure AD Privileged Identity Management:
 
 2. To select the tenant where you want to use Privileged Identity Management, select your user name in the upper right-hand corner of the Azure portal.
 
-3. Select **All services** and filter the list for **Azure AD Privileged Identity Management**.
+3. On the Azure portal menu, select **All services** and filter the list for **Azure AD Privileged Identity Management**.
 
 4. Open Privileged Identity Management from the **All services** list and pin it to your dashboard.
 
