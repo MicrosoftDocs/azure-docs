@@ -143,7 +143,7 @@ To resume protection for an SAP HANA database:
 
 ### Upgrading from SAP HANA 1.0 to 2.0
 
-Learn how to continue backup for an SAP HANA database [after upgrading from SAP HANA 1.0 to 2.0](backup-azure-sap-hana-database-troubleshoot.md#upgrading-from-sap-hana-1.0-to-2.0).
+Learn how to continue backup for an SAP HANA database [after upgrading from SAP HANA 1.0 to 2.0](backup-azure-sap-hana-database-troubleshoot.md#upgrading-from-sap-hana-10-to-20).
 
 ### Upgrading without a SID change
 
