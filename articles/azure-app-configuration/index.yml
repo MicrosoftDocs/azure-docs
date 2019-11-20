@@ -80,7 +80,8 @@ sections:
           src: https://docs.microsoft.com/media/logos/logo_Python.svg
         title: Python
     rows:
-      - values:
+      - title: &#32;
+        values:
           - href: /azure/azure-app-configuration/sdks/azure-sdk-for-java
           - href: /azure/azure-app-configuration/sdks/azure-sdk-for-js
           - href: /azure/azure-app-configuration/sdks/azure-sdk-for-net
