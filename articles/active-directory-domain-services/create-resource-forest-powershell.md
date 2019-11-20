@@ -102,7 +102,7 @@ The Azure AD DS resource forest is a separate forest from your on-premises Activ
 
 To establish a trust requires network connectivity and name resolution. The resource forest works like traditional Active Directory - it locates domains and domain controllers using DNS. For this name resolution to work correctly, the Azure AD DS resource forest name must be different from your on-premises Active Directory forest, including any child domains and other trusted forest names.
 
-> [!NOTE]
+> [!IMPORTANT]
 > In public preview, secure LDAP over the Internet to the Azure AD DS domain isn't supported.
 
 It's recommended to prefix your existing forest name with either *aadds* or *rf* and then optionally add another label to the left of the domain for additional uniqueness.
@@ -133,7 +133,6 @@ New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 
 ## Create an Azure AD DS resource forest
 
-
 1. First, create a resource group using the [New-AzResourceGroup][New-AzResourceGroup] cmdlet. In the following example, the resource group is named *myResourceGroup* and is created in the *westus* region. Use your own name and desired region:
 
     ```azure-powershell
@@ -141,6 +140,7 @@ New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
       -Name "myResourceGroup" `
       -Location "westus"
     ```
+
 1. Review the following parameters needed for the `New-AaddsForest` cmdlet. Make sure you also have the prerequisite **Azure PowerShell** and **Azure AD PowerShell** modules. Make sure you have planned the virtual network requirements to provide application and on-premises connectivity.
 
     | Name                         | Cmdlet parameter          | Description |
@@ -188,7 +188,7 @@ New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 * [Azure Site-to-Site VPN](/vpn-gateway/vpn-gateway-about-vpngateways).
 * [Azure ExpressRoute Overview](/vpn-gateway/vpn-gateway-about-vpngateways).
 
-    > [!NOTE]
+    > [!IMPORTANT]
     > If you create the connection directly to your Azure AD DS virtual network, use a separate gateway subnet. Don't create the gateway in the Azure AD DS subnet.
 
 1. To administer an Azure AD DS domain, you create a management VM, join it to the managed domain, and install the required AD DS management tools.
@@ -290,7 +290,7 @@ You should have Windows Server virtual machine joined to the Azure AD DS resourc
 
 1. Connect to the Windows Server VM joined to the Azure AD DS resource forest using Remote Desktop and your Azure AD DS administrator credentials. If you get a Network Level Authentication (NLA) error, check the user account you used is not a domain user account.
 
-    > [!NOTE]
+    > [!TIP]
     > To securely connect to your VMs joined to Azure AD Domain Services, you can use the [Azure Bastion Host Service](https://docs.microsoft.com/azure/bastion/bastion-overview) in supported Azure regions.
 
 1. Open a command prompt and use the `whoami` command to show the distinguished name of the currently authenticated user:
@@ -316,7 +316,7 @@ Using the Windows Server VM joined to the Azure AD DS resource forest, you can t
 
 1. Connect to the Windows Server VM joined to the Azure AD DS resource forest using Remote Desktop and your Azure AD DS administrator credentials. If you get a Network Level Authentication (NLA) error, check the user account you used is not a domain user account.
 
-    > [!NOTE]
+    > [!TIP]
     > To securely connect to your VMs joined to Azure AD Domain Services, you can use the [Azure Bastion Host Service](https://docs.microsoft.com/azure/bastion/bastion-overview) in supported Azure regions.
 
 1. Open **Windows Settings**, then search for and select **Network and Sharing Center**.
