@@ -41,7 +41,7 @@ Public IP addresses have a nominal charge. To view the pricing, read the [IP add
 
 ## Create a public IP address
 
-1. At the top, left corner of the portal, select **+ Create a resource**.
+1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
 2. Enter *public ip address* in the *Search the Marketplace* box. When **Public IP address** appears in the search results, select it.
 3. Under **Public IP address**, select **Create**.
 4. Enter, or select values for the following settings, under **Create public IP address**, then select **Create**:
