@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure VNET Gateway and connections - Azure PowerShell
+title: Troubleshoot Azure VNet gateway and connections - Azure PowerShell
 titleSuffix: Azure Network Watcher
 description: This page explains how to use the Azure Network Watcher troubleshoot PowerShell cmdlet
 services: network-watcher
