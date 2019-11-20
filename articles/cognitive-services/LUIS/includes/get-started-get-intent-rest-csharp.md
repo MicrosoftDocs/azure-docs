@@ -30,12 +30,14 @@ Use C# to query the prediction endpoint GET [API](https://aka.ms/luis-apim-v3-pr
     dotnet new console -lang C# -n predict-with-rest
     ```
 
-1. Install required dependencies with the following dotnet CLI commands.
+1. Change to the `predict-with-rest` directory you just created, and install required dependencies with these commands:  
 
     ```console
+    cd predict-with-rest
     dotnet add package System.Net.Http
     ```
-1. Overwrite Program.cs with the following code:
+
+1. Open `Program.cs` in your favorite IDE or editor. Then overwrite `Program.cs` with the following code:
     
    ```csharp
     using System;
@@ -97,10 +99,10 @@ Use C# to query the prediction endpoint GET [API](https://aka.ms/luis-apim-v3-pr
 
 1. Replace the following values:
 
-    * `YOUR-KEY` with your starter key
-    * `YOUR-ENDPOINT` with your endpoint, for example, `westus2.api.cognitive.microsoft.com`
+    * `YOUR-KEY` with your starter key.
+    * `YOUR-ENDPOINT` with your endpoint. For example, `westus2.api.cognitive.microsoft.com`.
 
-1. Build the console application. 
+1. Build the console application with this command: 
 
     ```console
     dotnet build
@@ -112,7 +114,7 @@ Use C# to query the prediction endpoint GET [API](https://aka.ms/luis-apim-v3-pr
     dotnet run
     ```
 
-1. Review prediction response in JSON format:
+1. Review the prediction response, which is returned as JSON:
 
     ```console
     Hit ENTER to exit...
