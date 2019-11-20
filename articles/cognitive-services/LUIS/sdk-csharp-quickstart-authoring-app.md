@@ -58,7 +58,7 @@ After you add the environment variable, restart the console window.
 
 ```bash
 export COGNITIVESERVICE_AUTHORING_KEY=<replace-with-your-authoring-key>
-export COGNITIVESERVICE_REGION=<replace-with-your-region>
+export COGNITIVESERVICE_REGION=<replace-with-your-authoring-region>
 ```
 
 After you add the environment variable, run `source ~/.bashrc` from your console window to make the changes effective.
@@ -68,8 +68,8 @@ After you add the environment variable, run `source ~/.bashrc` from your console
 Edit your `.bash_profile`, and add the environment variable:
 
 ```bash
-export COGNITIVESERVICE_AUTHORING_KEY=<replace-with-your-luis-authoring-key> 
-export COGNITIVESERVICE_REGION=<replace-with-your-luis-region>
+export COGNITIVESERVICE_AUTHORING_KEY=<replace-with-your-authoring-key> 
+export COGNITIVESERVICE_REGION=<replace-with-your-authoring-region>
 ```
 
 After you add the environment variable, run `source .bash_profile` from your console window to make the changes effective.
