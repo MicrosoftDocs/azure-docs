@@ -39,7 +39,7 @@ To create an Azure IoT Central application, select **Build** in the left menu. C
 
 You can only create Pay-As-You-Go applications as a CSP. To showcase Azure IoT Central to your customer, you can create a trial application separately. Learn more about Trial and Pay-As-You-Go applications on the [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/).
 
-## Application Name
+## Application name
 
 The name of your application is displayed on the **Application Manager** page and within each Azure IoT Central application. You can choose any name for your Azure IoT Central application. Choose a name that makes sense to you and to others in your organization.
 
