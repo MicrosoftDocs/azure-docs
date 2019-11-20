@@ -117,7 +117,7 @@ See below on how these actions can be rectified.
 
 ### Q: Does Windows 10 device registration in Azure AD support TPMs in FIPS mode?
 
-**A:** No, currently device registration on Windows 10 for all device states - Hybrid Azure AD join, Azure AD join, and Azure AD registered - does not support TPMs in FIPS mode. To successfully join or register to Azure AD, FIPS mode needs to be turned off for the TPMs on those devices
+**A:** Windows 10 device registration only supported for FIPS-compliant TPM 2.0 and not supported for TPM 1.2. If your devices have FIPS-compliant TPM 1.2, you must disable them before proceeding with Azure AD join or Hybrid Azure AD join. Note that Microsoft does not provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Please contact your hardware OEM for support. 
 
 ---
 

@@ -1,12 +1,8 @@
 ---
-title: Back up Azure Files file shares with the Azure Backup Service
+title: Tutorial - Back up Azure Files file shares
 description: In this tutorial, learn how to use the Azure portal to configure a Recovery Services vault and back up Azure file shares.
-author: dcurwin
-ms.author: dacurwin
 ms.date: 06/10/2019
 ms.topic: tutorial
-ms.service: backup
-manager: carmonm
 ---
 
 # Back up Azure file shares in the Azure portal
