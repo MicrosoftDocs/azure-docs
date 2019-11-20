@@ -91,7 +91,7 @@ Dmgcmd.exe is included in the self-hosted installer. It's typically located in t
 Use the application as follows:
 
 ```powershell
-dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<thumbprint>"] -EnableRemoteAccessInContainer "<port>" ["<thumbprint>"] -DisableRemoteAccess -Key "<AuthenticationKey>" -GenerateBackupFile "<filePath>" "<password>" -ImportBackupFile "<filePath>" "<password>" -Restart -Start -Stop -StartUpgradeService -StopUpgradeService -TurnOnAutoUpdate -TurnOffAutoUpdate -SwitchServiceAccount "<domain\user>" ["<password>"] -Loglevel <logLevel> ] 
+dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<thumbprint>"] -EnableRemoteAccessInContainer "<port>" ["<thumbprint>"] -DisableRemoteAccess -Key "<AuthenticationKey>" -GenerateBackupFile "<filePath>" "<password>" -ImportBackupFile "<filePath>" "<password>" -Restart -Start -Stop -StartUpgradeService -StopUpgradeService -TurnOnAutoUpdate -TurnOffAutoUpdate -SwitchServiceAccount "<domain\user>" ["<password>"] -Loglevel <logLevel> ]
 ```
 
 Here are details of the application's parameters and properties: 
@@ -112,7 +112,7 @@ Here are details of the application's parameters and properties:
 | **StopUpgradeService**                                          | Stop the self-hosted integration runtime upgrade service.        | No       |
 | **TurnOnAutoUpdate**                                            | Turn on the self-hosted integration runtime auto-update.        | No       |
 | **TurnOffAutoUpdate**                                           | Turn off the self-hosted integration runtime auto-update.       | No       |
-| **SwitchServiceAccount** "<`domain\user`>" [<"`password`">]           | Set DIAHostService to run as a new account. Use the empty password "" for system accounts and virtual accounts. | No       |
+| **SwitchServiceAccount** "`<domain\user>`" ["`<password>`"]           | Set DIAHostService to run as a new account. Use the empty password "" for system accounts and virtual accounts. | No       |
 | **Loglevel** `<logLevel>`                                       | Set the Event Tracing for Windows (ETW) log level to **Off**, **Error**, **Verbose**, or **All**. This property is mostly used by Microsoft Support engineers while they debug your installation. | No       |
 
 ## Command flow and data flow
@@ -295,7 +295,7 @@ If you move your cursor over the icon or message in the notification area, you c
 
 ![Notifications in the notification area](media/create-self-hosted-integration-runtime/system-tray-notifications.png)
 
-## Ports and firewall
+## Ports and firewalls
 
 There are two firewalls to consider:
 
