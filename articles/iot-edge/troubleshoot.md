@@ -302,7 +302,7 @@ For the IoT Edge hub, set an environment variable **OptimizeForPerformance** to 
 
 In the Azure portal:
 
-In your IoT Hub, select your IoT Edge device and from the device details page select **Set Modules** > **Runtime Settings**. Create an environment variable for the Edge Hub module called *OptimizeForPerformance* that is set to *false*.
+In your IoT Hub, select your IoT Edge device and from the device details page and select **Set Modules** > **Runtime Settings**. Create an environment variable for the Edge Hub module called *OptimizeForPerformance* that is set to *false*.
 
 ![OptimizeForPerformance set to false](./media/troubleshoot/optimizeforperformance-false.png)
 
