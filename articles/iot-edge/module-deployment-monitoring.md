@@ -4,7 +4,7 @@ description: Use automatic deployments in Azure IoT Edge to manage groups of dev
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 09/27/2018
+ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -13,20 +13,16 @@ ms.custom: seodec18
 
 # Understand IoT Edge automatic deployments for single devices or at scale
 
-Azure IoT Edge devices follow a [device lifecycle](../iot-hub/iot-hub-device-management-overview.md) that is similar to other types of IoT devices:
+Automatic deployments and layered deployment help you manage and configure modules on large numbers of IoT Edge devices. 
 
-1. Provision new IoT Edge devices by imaging a device with an OS and installing the [IoT Edge runtime](iot-edge-runtime.md).
-2. Configure the devices to run [IoT Edge modules](iot-edge-modules.md), and then monitor their health. 
-3. Finally, retire devices when they are replaced or become obsolete.  
-
-Azure IoT Edge provides two ways to configure the modules to run on IoT Edge devices: one for development and fast iterations on a single device (you used this method in the Azure IoT Edge [tutorials](tutorial-deploy-function.md)), and one for managing large fleets of IoT Edge devices. Both of these approaches are available in the Azure portal and programmatically. For targeting groups or a large number of devices, you can specify which devices you'd like to deploy your modules to using [tags](../iot-edge/how-to-deploy-monitor.md#identify-devices-using-tags) in the device twin. The following steps talk about a deployment to a Washington State device group identified through the tags property. 
+Azure IoT Edge provides two ways to configure the modules to run on IoT Edge devices. The first method is to deploy modules on a per-device basis. You create a deployment manifest and then apply it to a particular device by name. The second method is to deploy modules automatically to any registered device that meets a set of defined conditions. You create a deployment manifest and then define which devices it applies to based on [tags](../iot-edge/how-to-deploy-monitor.md#identify-devices-using-tags) in the device twin. 
 
 This article focuses on the configuration and monitoring stages for fleets of devices, collectively referred to as IoT Edge automatic deployments. The overall deployment steps are as follows: 
 
 1. An operator defines a deployment that describes a set of modules as well as the target devices. Each deployment has a deployment manifest that reflects this information. 
 2. The IoT Hub service communicates with all targeted devices to configure them with the desired modules. 
 3. The IoT Hub service retrieves status from the IoT Edge devices and makes them available to the operator.  For example, an operator can see when an Edge device is not configured successfully or if a module fails during runtime. 
-4. At any time, new IoT Edge devices that meet the targeting conditions are configured for the deployment. For example, a deployment that targets all IoT Edge devices in Washington State automatically configures a new IoT Edge device once it is provisioned and added to the Washington State device group. 
+4. At any time, new IoT Edge devices that meet the targeting conditions are configured for the deployment. 
  
 This article describes each component involved in configuring and monitoring a deployment. For a walkthrough of creating and updating a deployment, see [Deploy and monitor IoT Edge modules at scale](how-to-deploy-monitor.md).
 
@@ -84,7 +80,20 @@ A priority defines whether a deployment should be applied to a targeted device r
 
 ### Labels 
 
-Labels are string key/value pairs that you can use to filter and group of deployments. A deployment may have multiple labels. Labels are optional and do no impact the actual configuration of IoT Edge devices. 
+Labels are string key/value pairs that you can use to filter and group deployments. A deployment may have multiple labels. Labels are optional and don't impact the actual configuration of IoT Edge devices. 
+
+### Metrics
+
+By default, all deployment report two metrics: how many devices meet the target condition for this deployment, and how many devices have applied the deployment. Additionally, you can define your own custom metrics to help monitor and manage the deployment. 
+
+Metrics provide summary counts of the various states that devices may report back as a result of applying a deployment configuration. Metrics can query the [edgeHub module twin reported properties](module-edgeagent-edgehub.md#edgehub-reported-properties), like the last desired status or last connect time. For example: 
+
+```sql
+SELECT deviceId FROM devices
+  WHERE properties.reported.lastDesiredStatus.code = 200
+```
+
+Adding your own metrics is optional, and doesn't impact the actual configuration of IoT Edge devices. 
 
 ### Deployment status
 
@@ -96,9 +105,19 @@ A deployment can be monitored to determine whether it applied successfully for a
 * **Unhealthy** shows the IoT Edge devices have reported back to the service that one or modules have not been deployed successfully. To further investigate the error, connect remotely to those devices and view the log files.
 * **Unknown** shows the IoT Edge devices that did not report any status pertaining this deployment. To further investigate, view service info and log files.
 
+## Layered deployment (Preview)
+
+Layered deployments are automatic deployments that can be combined together to reduce the number of unique deployments that need to be created. Layered deployments are useful in scenarios where the same modules are reused in different combinations in many automatic deployments. 
+
+Layered deployments have the same basic components as any automatic deployment. They target devices based on tags in the device twins, and provide the same functionality around labels, metrics, and status reporting. Layered deployments also have priorities assigned to them, but instead of using the priority to determine which deployment is applied to a device, the priority determines how multiple deployments are ranked on a device. For example, if two layered deployments have a module or a route with the same name, the layered deployment with the higher priority will be applied while the lower priority is overwritten. 
+
+The system runtime modules, edgeAgent and edgeHub, are not configured as part of a layered deployment. Any IoT Edge device targeted by a layered deployment needs a standard automatic deployment applied to it first to provide the base upon which layered deployments can be added. 
+
+An IoT Edge device can apply one and only on standard automatic deployment, but it can apply multiple layered automatic deployments. 
+
 ## Phased rollout 
 
-A phased rollout is an overall process whereby an operator deploys changes to a broadening set of IoT Edge devices. The goal is to make changes gradually to reduce the risk of making wide scale breaking changes.  
+A phased rollout is an overall process whereby an operator deploys changes to a broadening set of IoT Edge devices. The goal is to make changes gradually to reduce the risk of making wide scale breaking changes. Automatic deployments help manage phased rollouts across a fleet of IoT Edge devices. 
 
 A phased rollout is executed in the following phases and steps: 
 
@@ -111,7 +130,9 @@ A phased rollout is executed in the following phases and steps: 
 
 ## Rollback
 
-Deployments can be rolled back if you receive errors or misconfigurations.  Because a deployment defines the absolute module configuration for an IoT Edge device, an additional deployment must also be targeted to the same device at a lower priority even if the goal is to remove all modules.  
+Deployments can be rolled back if you receive errors or misconfigurations. Because a deployment defines the absolute module configuration for an IoT Edge device, an additional deployment must also be targeted to the same device at a lower priority even if the goal is to remove all modules.  
+
+Deleting a deployment does not remove the modules from targeted devices. There must be another deployment that defines a new configuration for the devices, even if it's an empty deployment. 
 
 Perform rollbacks in the following sequence: 
 
