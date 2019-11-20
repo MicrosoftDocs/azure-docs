@@ -59,8 +59,6 @@
         href: howto-use-action-groups.md
       - name: Create webhook actions on rules
         href: howto-create-webhooks.md
-      - name: Build workflows in Azure Logic Apps
-        href: howto-build-azure-logic-apps.md
       - name: Create custom rules
         href: howto-create-custom-rules.md
       - name: Create custom analytics
