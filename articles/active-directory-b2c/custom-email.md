@@ -15,9 +15,9 @@ ms.subservice: B2C
 
 # Custom email verification in Azure Active Directory B2C
 
-Learn how to send custom verification emails to customers using your applications. Use a custom email template and your own *From:* address, subject, localization support, and custom one-time password (OTP) settings.
+Use custom email in Azure Active Directory B2C (Azure AD B2C) to send customized email to users that sign up to use your applications. By using [DisplayWidgets](display-widgets.md) (currently in preview) and a third-party email provider, you can use your own email template and *From:* address and subject, as well as support localization and custom one-time password (OTP) settings.
 
-Custom email verification requires the use of a third-party email service like [SendGrid](https://sendgrid.com) or [SparkPost](https://sparkpost.com), or a custom REST API. This article describes setting up a solution that uses SendGrid.
+Custom email verification requires the use of a third-party email provider like [SendGrid](https://sendgrid.com) or [SparkPost](https://sparkpost.com), or a custom REST API. This article describes setting up a solution that uses SendGrid.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -40,117 +40,119 @@ Next, store the SendGrid API key in an Azure AD B2C policy key for your policies
 1. Enter a **Name** for the policy key. For example, `SendGridSecret`. The prefix `B2C_1A_` is added automatically to the name of your key.
 1. In **Secret**, enter your client secret that you previously recorded.
 1. For **Key usage**, select `Signature`.
-1. Click **Create**.
+1. Select **Create**.
 
 ## Create SendGrid template
 
-In this section you create SendGrid [dynamic transactional template](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/).
+With a SendGrid account created and SendGrid API key stored in a Azure AD B2C policy key, create a SendGrid [dynamic transactional template](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/).
 
-1. Open the [transactional templates](https://sendgrid.com/dynamic_templates) page and click **Create Template**.
-1. Add a unique template name, such as `Verification email` and then click **Save**.
-1. To begin editing your new template, click **Add Version**.
-1. Select **Code Editor** click **Continue**.
-1. In the HTML editor paste following HTML template or use your own. Note: the `{{otp}}` and `{{email}}` parameters will be replaced dynamically with the one-time password value and the user email address.
+1. On the SendGrid site, open the [transactional templates](https://sendgrid.com/dynamic_templates) page and select **Create Template**.
+1. Enter a unique template name like `Verification email` and then select **Save**.
+1. To begin editing your new template, select **Add Version**.
+1. Select **Code Editor** and then **Continue**.
+1. In the HTML editor, paste following HTML template or use your own. Note: the `{{otp}}` and `{{email}}` parameters will be replaced dynamically with the one-time password value and the user email address.
 
-```HTML
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    ```HTML
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en"><head id="Head1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Contoso demo account email verification code</title><meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
-   <!-- Template B O365 -->
-   <style>
-       table td {border-collapse:collapse;margin:0;padding:0;}
-   </style>
-</head>
-<body dir="ltr" lang="en">
-   <table width="100%" cellpadding="0" cellspacing="0" border="0" dir="ltr" lang="en">
-        <tr>
-           <td valign="top" width="50%"></td>
-           <td valign="top">
-              <!-- Email Header -->
-              <table width="640" cellpadding="0" cellspacing="0" border="0" dir="ltr" lang="en" style="border-left:1px solid #e3e3e3;border-right: 1px solid #e3e3e3;">
-               <tr style="background-color: #0072C6;">
-                   <td width="1" style="background:#0072C6; border-top:1px solid #e3e3e3;"></td>
-                   <td width="24" style="border-top:1px solid #e3e3e3;border-bottom:1px solid #e3e3e3;">&nbsp;</td>
-                   <td width="310" valign="middle" style="border-top:1px solid #e3e3e3; border-bottom:1px solid #e3e3e3;padding:12px 0;">
-                       <h1 style="line-height:20pt;font-family:Segoe UI Light; font-size:18pt; color:#ffffff; font-weight:normal;">
-                        <span id="HeaderPlaceholder_UserVerificationEmailHeader"><font color="#FFFFFF">Verify your email address</font></span>
-                       </h1>
-                   </td>
-                   <td width="24" style="border-top: 1px solid #e3e3e3;border-bottom: 1px solid #e3e3e3;">&nbsp;</td>
-               </tr>
-              </table>
-              <!-- Email Content -->
-              <table width="640" cellpadding="0" cellspacing="0" border="0" dir="ltr" lang="en">
-               <tr>
-                   <td width="1" style="background:#e3e3e3;"></td>
-                   <td width="24">&nbsp;</td>
-                   <td id="PageBody" width="640" valign="top" colspan="2" style="border-bottom:1px solid #e3e3e3;padding:10px 0 20px;border-bottom-style:hidden;">
-                       <table cellpadding="0" cellspacing="0" border="0">
-                           <tr>
-                               <td width="630" style="font-size:10pt; line-height:13pt; color:#000;">
-                                   <table cellpadding="0" cellspacing="0" border="0" width="100%" style="" dir="ltr" lang="en">
-                                       <tr>
-                                           <td>
+    <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en"><head id="Head1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Contoso demo account email verification code</title><meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
+       <!-- Template B O365 -->
+       <style>
+           table td {border-collapse:collapse;margin:0;padding:0;}
+       </style>
+    </head>
+    <body dir="ltr" lang="en">
+       <table width="100%" cellpadding="0" cellspacing="0" border="0" dir="ltr" lang="en">
+            <tr>
+               <td valign="top" width="50%"></td>
+               <td valign="top">
+                  <!-- Email Header -->
+                  <table width="640" cellpadding="0" cellspacing="0" border="0" dir="ltr" lang="en" style="border-left:1px solid #e3e3e3;border-right: 1px solid #e3e3e3;">
+                   <tr style="background-color: #0072C6;">
+                       <td width="1" style="background:#0072C6; border-top:1px solid #e3e3e3;"></td>
+                       <td width="24" style="border-top:1px solid #e3e3e3;border-bottom:1px solid #e3e3e3;">&nbsp;</td>
+                       <td width="310" valign="middle" style="border-top:1px solid #e3e3e3; border-bottom:1px solid #e3e3e3;padding:12px 0;">
+                           <h1 style="line-height:20pt;font-family:Segoe UI Light; font-size:18pt; color:#ffffff; font-weight:normal;">
+                            <span id="HeaderPlaceholder_UserVerificationEmailHeader"><font color="#FFFFFF">Verify your email address</font></span>
+                           </h1>
+                       </td>
+                       <td width="24" style="border-top: 1px solid #e3e3e3;border-bottom: 1px solid #e3e3e3;">&nbsp;</td>
+                   </tr>
+                  </table>
+                  <!-- Email Content -->
+                  <table width="640" cellpadding="0" cellspacing="0" border="0" dir="ltr" lang="en">
+                   <tr>
+                       <td width="1" style="background:#e3e3e3;"></td>
+                       <td width="24">&nbsp;</td>
+                       <td id="PageBody" width="640" valign="top" colspan="2" style="border-bottom:1px solid #e3e3e3;padding:10px 0 20px;border-bottom-style:hidden;">
+                           <table cellpadding="0" cellspacing="0" border="0">
+                               <tr>
+                                   <td width="630" style="font-size:10pt; line-height:13pt; color:#000;">
+                                       <table cellpadding="0" cellspacing="0" border="0" width="100%" style="" dir="ltr" lang="en">
+                                           <tr>
+                                               <td>
 
-   <div style="font-family:'Segoe UI', Tahoma, sans-serif; font-size:14px; color:#333;">
-       <span id="BodyPlaceholder_UserVerificationEmailBodySentence1">Thanks for verifying your {{email}} account!</span>
-   </div>
-   <br>
-   <div style="font-family:'Segoe UI', Tahoma, sans-serif; font-size:14px; color:#333; font-weight: bold">
-       <span id="BodyPlaceholder_UserVerificationEmailBodySentence2">Your code is: {{otp}}</span>
-   </div>
-   <br>
-   <br>
+       <div style="font-family:'Segoe UI', Tahoma, sans-serif; font-size:14px; color:#333;">
+           <span id="BodyPlaceholder_UserVerificationEmailBodySentence1">Thanks for verifying your {{email}} account!</span>
+       </div>
+       <br>
+       <div style="font-family:'Segoe UI', Tahoma, sans-serif; font-size:14px; color:#333; font-weight: bold">
+           <span id="BodyPlaceholder_UserVerificationEmailBodySentence2">Your code is: {{otp}}</span>
+       </div>
+       <br>
+       <br>
 
-                                               <div style="font-family:'Segoe UI', Tahoma, sans-serif; font-size:14px; color:#333;">
-                                               Sincerely,
-                                               </div>
-                                               <div style="font-family:'Segoe UI', Tahoma, sans-serif; font-size:14px; font-style:italic; color:#333;">
-                                                   Contoso
-                                               </div>
-                                           </td>
-                                       </tr>
-                                   </table>
-                               </td>
-                           </tr>
-                       </table>
+                                                   <div style="font-family:'Segoe UI', Tahoma, sans-serif; font-size:14px; color:#333;">
+                                                   Sincerely,
+                                                   </div>
+                                                   <div style="font-family:'Segoe UI', Tahoma, sans-serif; font-size:14px; font-style:italic; color:#333;">
+                                                       Contoso
+                                                   </div>
+                                               </td>
+                                           </tr>
+                                       </table>
+                                   </td>
+                               </tr>
+                           </table>
 
-                   </td>
+                       </td>
 
-                   <td width="1">&nbsp;</td>
-                   <td width="1"></td>
-                   <td width="1">&nbsp;</td>
-                   <td width="1" valign="top"></td>
-                   <td width="29">&nbsp;</td>
-                   <td width="1" style="background:#e3e3e3;"></td>
-               </tr>
-               <tr>
-                   <td width="1" style="background:#e3e3e3; border-bottom:1px solid #e3e3e3;"></td>
-                   <td width="24" style="border-bottom:1px solid #e3e3e3;">&nbsp;</td>
-                   <td id="PageFooterContainer" width="585" valign="top" colspan="6" style="border-bottom:1px solid #e3e3e3;padding:0px;">
+                       <td width="1">&nbsp;</td>
+                       <td width="1"></td>
+                       <td width="1">&nbsp;</td>
+                       <td width="1" valign="top"></td>
+                       <td width="29">&nbsp;</td>
+                       <td width="1" style="background:#e3e3e3;"></td>
+                   </tr>
+                   <tr>
+                       <td width="1" style="background:#e3e3e3; border-bottom:1px solid #e3e3e3;"></td>
+                       <td width="24" style="border-bottom:1px solid #e3e3e3;">&nbsp;</td>
+                       <td id="PageFooterContainer" width="585" valign="top" colspan="6" style="border-bottom:1px solid #e3e3e3;padding:0px;">
 
 
-                   </td>
+                       </td>
 
-                   <td width="29" style="border-bottom:1px solid #e3e3e3;">&nbsp;</td>
-                   <td width="1" style="background:#e3e3e3; border-bottom:1px solid #e3e3e3;"></td>
-               </tr>
-              </table>
+                       <td width="29" style="border-bottom:1px solid #e3e3e3;">&nbsp;</td>
+                       <td width="1" style="background:#e3e3e3; border-bottom:1px solid #e3e3e3;"></td>
+                   </tr>
+                  </table>
 
-           </td>
-           <td valign="top" width="50%"></td>
-       </tr>
-   </table>
-<img src="https://mucp.api.account.microsoft.com/m/v2/v?d=AIAACWEPFYXYIUTJIJVV4ST7XLBHVI5MLLYBKJAVXHBDTBHUM5VBSVVPTTVRWDFIXJ5JQTHYOH5TUYIPO4ZAFRFK52UAMIS3UNIPPI7ZJNDZPRXD5VEJBN4H6RO3SPTBS6AJEEAJOUYL4APQX5RJUJOWGPKUABY&amp;i=AIAACL23GD2PFRFEY5YVM2XQLM5YYWMHFDZOCDXUI2B4LM7ETZQO473CVF22PT6WPGR5IIE6TCS6VGEKO5OZIONJWCDMRKWQQVNP5VBYAINF3S7STKYOVDJ4JF2XEW4QQVNHMAPQNHFV3KMR3V3BA4I36B6BO7L4VQUHQOI64EOWPLMG5RB3SIMEDEHPILXTF73ZYD3JT6MYOLAZJG7PJJCAXCZCQOEFVH5VCW2KBQOKRYISWQLRWAT7IINZ3EFGQI2CY2EMK3FQOXM7UI3R7CZ6D73IKDI" width="1" height="1"></body>
-</html>
-```
+               </td>
+               <td valign="top" width="50%"></td>
+           </tr>
+       </table>
+    <img src="https://mucp.api.account.microsoft.com/m/v2/v?d=AIAACWEPFYXYIUTJIJVV4ST7XLBHVI5MLLYBKJAVXHBDTBHUM5VBSVVPTTVRWDFIXJ5JQTHYOH5TUYIPO4ZAFRFK52UAMIS3UNIPPI7ZJNDZPRXD5VEJBN4H6RO3SPTBS6AJEEAJOUYL4APQX5RJUJOWGPKUABY&amp;i=AIAACL23GD2PFRFEY5YVM2XQLM5YYWMHFDZOCDXUI2B4LM7ETZQO473CVF22PT6WPGR5IIE6TCS6VGEKO5OZIONJWCDMRKWQQVNP5VBYAINF3S7STKYOVDJ4JF2XEW4QQVNHMAPQNHFV3KMR3V3BA4I36B6BO7L4VQUHQOI64EOWPLMG5RB3SIMEDEHPILXTF73ZYD3JT6MYOLAZJG7PJJCAXCZCQOEFVH5VCW2KBQOKRYISWQLRWAT7IINZ3EFGQI2CY2EMK3FQOXM7UI3R7CZ6D73IKDI" width="1" height="1"></body>
+    </html>
+    ```
+
+1. Select **Save Template**.
 
 ## Add Azure AD B2C claim types
 
-The following claims types are necessary to generate and verify the email address using a one-time password (OTP) code.
+In your policy, add the following claim types.
 
-In your policy, add the following claim types:
+These claims types are necessary to generate and verify the email address using a one-time password (OTP) code.
 
 ```XML
 <ClaimType Id="Otp">
@@ -165,7 +167,7 @@ In your policy, add the following claim types:
   <DisplayName>Secondary Verification Code</DisplayName>
   <DataType>string</DataType>
   <UserHelpText>Enter your email verification code</UserHelpText>
-<UserInputType>TextBox</UserInputType>
+  <UserInputType>TextBox</UserInputType>
 </ClaimType>
 ```
 
@@ -182,38 +184,38 @@ This example display widget is configured to:
 
 ![Send verification code email action](media/custom-email/display-widget-verification-email-action-01.png)
 
-Under the [ClaimsSchema](claimsschema.md), add following [DisplayWidget](display-widgets.md) type of [VerificationWidget](display-widget-verification.md) to your policy.
+Under [ClaimsSchema](claimsschema.md), add the following [DisplayWidget](display-widgets.md) of type [VerificationWidget](display-widget-verification.md) to your policy.
 
 ```XML
 <DisplayWidgets>
-    <DisplayWidget Id="emailVerificationWidget" UserInterfaceWidgetType="VerificationWidget">
+  <DisplayWidget Id="emailVerificationWidget" UserInterfaceWidgetType="VerificationWidget">
     <DisplayClaims>
-        <DisplayClaim ClaimTypeReferenceId="email"  Required="true" />
-        <DisplayClaim ClaimTypeReferenceId="verificationCode" ControlClaimType="VerificationCode" Required="true" />
+      <DisplayClaim ClaimTypeReferenceId="email" Required="true" />
+      <DisplayClaim ClaimTypeReferenceId="verificationCode" ControlClaimType="VerificationCode" Required="true" />
     </DisplayClaims>
     <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="email" />
+      <OutputClaim ClaimTypeReferenceId="email" />
     </OutputClaims>
     <Actions>
-        <Action Id="SendCode">
+      <Action Id="SendCode">
         <ValidationClaimsExchange>
-            <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="GenerateOtp" />
-            <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="SendGrid" />
+          <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="GenerateOtp" />
+          <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="SendGrid" />
         </ValidationClaimsExchange>
-        </Action>
-        <Action Id="VerifyCode">
+      </Action>
+      <Action Id="VerifyCode">
         <ValidationClaimsExchange>
-            <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="VerifyOtp" />
+          <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="VerifyOtp" />
         </ValidationClaimsExchange>
-        </Action>
+      </Action>
     </Actions>
-    </DisplayWidget>
+  </DisplayWidget>
 </DisplayWidgets>
 ```
 
 ## Add OTP technical profiles
 
-The `GenerateOtp` technical profile generates a code for the email address. The `VerifyOtp` technical profile verifies the code associated with the email address. You can change the configuration of the format and the expiration of the one time password. For more information, see [One time password technical profile](json-transformations.md).
+The `GenerateOtp` technical profile generates a code for the email address. The `VerifyOtp` technical profile verifies the code associated with the email address. You can change the configuration of the format and the expiration of the one-time password. For more information, see [One-time password technical profile](json-transformations.md).
 
 ```XML
 <ClaimsProvider>
@@ -222,41 +224,41 @@ The `GenerateOtp` technical profile generates a code for the email address. The 
     <TechnicalProfile Id="GenerateOtp">
       <DisplayName>Generate one time password</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <Metadata>
-      <Item Key="Operation">GenerateCode</Item>
-      <Item Key="CodeExpirationInSeconds">1200</Item>
-      <Item Key="CodeLength">6</Item>
-      <Item Key="CharacterSet">0-9</Item>
-      <Item Key="ReuseSameCode">true</Item>
-      <Item Key="MaxNumAttempts">5</Item>
-    </Metadata>
-    <InputClaims>
-      <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="identifier" />
-    </InputClaims>
-    <OutputClaims>
-      <OutputClaim ClaimTypeReferenceId="otp" PartnerClaimType="otpGenerated" />
-    </OutputClaims>
-  </TechnicalProfile>
+      <Metadata>
+        <Item Key="Operation">GenerateCode</Item>
+        <Item Key="CodeExpirationInSeconds">1200</Item>
+        <Item Key="CodeLength">6</Item>
+        <Item Key="CharacterSet">0-9</Item>
+        <Item Key="ReuseSameCode">true</Item>
+        <Item Key="MaxNumAttempts">5</Item>
+      </Metadata>
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="identifier" />
+      </InputClaims>
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="otp" PartnerClaimType="otpGenerated" />
+      </OutputClaims>
+    </TechnicalProfile>
 
-  <TechnicalProfile Id="VerifyOtp">
-    <DisplayName>Verify one time password</DisplayName>
-    <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <Metadata>
-      <Item Key="Operation">VerifyCode</Item>
-      <Item Key="UserMessage.VerificationHasExpired">You have exceed the maximum time allowed.</Item>
-      <Item Key="UserMessage.MaxRetryAttemped">You have exceed the number of retries allowed.</Item>
-      <Item Key="UserMessage.InvalidCode">You have entered the wrong code.</Item>
-      <Item Key="UserMessage.ServerError">Cannot verify the code, please try again later.</Item>
-    </Metadata>
-    <InputClaims>
-      <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="identifier" />
-      <InputClaim ClaimTypeReferenceId="verificationCode" PartnerClaimType="otpToVerify" />
-    </InputClaims>
-  </TechnicalProfile>
-</ClaimsProviders>
+    <TechnicalProfile Id="VerifyOtp">
+      <DisplayName>Verify one time password</DisplayName>
+      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+      <Metadata>
+        <Item Key="Operation">VerifyCode</Item>
+        <Item Key="UserMessage.VerificationHasExpired">You have exceed the maximum time allowed.</Item>
+        <Item Key="UserMessage.MaxRetryAttemped">You have exceed the number of retries allowed.</Item>
+        <Item Key="UserMessage.InvalidCode">You have entered the wrong code.</Item>
+        <Item Key="UserMessage.ServerError">Cannot verify the code, please try again later.</Item>
+      </Metadata>
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="identifier" />
+        <InputClaim ClaimTypeReferenceId="verificationCode" PartnerClaimType="otpToVerify" />
+      </InputClaims>
+    </TechnicalProfile>
+  </ClaimsProviders>
 ```
 
-## Add a REST API technical profiles
+## Add a REST API technical profile
 
 This REST API technical profile generates the email content (using the SendGrid format).
 
@@ -265,23 +267,23 @@ This REST API technical profile generates the email content (using the SendGrid 
   <DisplayName>RestfulProvider</DisplayName>
   <TechnicalProfiles>
     <TechnicalProfile Id="SendGrid">
-    <DisplayName>Use SendGrid's email API to send the code the the user</DisplayName>
-    <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <Metadata>
-      <Item Key="ServiceUrl">https://api.sendgrid.com/v3/mail/send</Item>
-      <Item Key="AuthenticationType">Bearer</Item>
-      <Item Key="SendClaimsIn">Body</Item>
-      <Item Key="ClaimUsedForRequestPayload">sendGridReqBody</Item>
-    </Metadata>
-    <CryptographicKeys>
-      <Key Id="BearerAuthenticationToken" StorageReferenceId="B2C_1A_SendGridApiKey" />
-    </CryptographicKeys>
-    <InputClaimsTransformations>
-      <InputClaimsTransformation ReferenceId="GenerateSendGridRequestBody" />
-    </InputClaimsTransformations>
-    <InputClaims>
-      <InputClaim ClaimTypeReferenceId="sendGridReqBody" />
-    </InputClaims>
+      <DisplayName>Use SendGrid's email API to send the code the the user</DisplayName>
+      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+      <Metadata>
+        <Item Key="ServiceUrl">https://api.sendgrid.com/v3/mail/send</Item>
+        <Item Key="AuthenticationType">Bearer</Item>
+        <Item Key="SendClaimsIn">Body</Item>
+        <Item Key="ClaimUsedForRequestPayload">sendGridReqBody</Item>
+      </Metadata>
+      <CryptographicKeys>
+        <Key Id="BearerAuthenticationToken" StorageReferenceId="B2C_1A_SendGridApiKey" />
+      </CryptographicKeys>
+      <InputClaimsTransformations>
+        <InputClaimsTransformation ReferenceId="GenerateSendGridRequestBody" />
+      </InputClaimsTransformations>
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="sendGridReqBody" />
+      </InputClaims>
     </TechnicalProfile>
   </TechnicalProfiles>
 </ClaimsProvider>
@@ -289,7 +291,9 @@ This REST API technical profile generates the email content (using the SendGrid 
 
 ## Add the claims transformation
 
-Add the following claims transformation to output a JSON string claim that will be the body of the request sent to SendGrid. The JSON object's structure is defined by the IDs in dot notation of the InputParameters and the TransformationClaimTypes of the InputClaims. Numbers in the dot notation imply arrays. The values come from the InputClaims' values and the InputParameters' "Value" properties.
+Add the following claims transformation to output a JSON string claim that will be the body of the request sent to SendGrid.
+
+The JSON object's structure is defined by the IDs in dot notation of the InputParameters and the TransformationClaimTypes of the InputClaims. Numbers in the dot notation imply arrays. The values come from the InputClaims' values and the InputParameters' "Value" properties.
 
 ```XML
 <ClaimsTransformation Id="GenerateSendGridRequestBody" TransformationMethod="GenerateJson">
@@ -341,7 +345,7 @@ For more information, see [Self-asserted technical profile](restful-technical-pr
     <OutputClaim ClaimTypeReferenceId="objectId" />
     <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
     <OutputClaim ClaimTypeReferenceId="authenticationSource" />
-  <OutputClaim ClaimTypeReferenceId="newUser" />
+    <OutputClaim ClaimTypeReferenceId="newUser" />
   </OutputClaims>
   <ValidationTechnicalProfiles>
     <ValidationTechnicalProfile ReferenceId="AAD-UserWriteUsingLogonEmail" />
