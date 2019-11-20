@@ -993,6 +993,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/firewall/public-preview.md",
+      "redirect_url": "/azure/firewall/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/frontdoor/waf-faq.md",
       "redirect_url": "/azure/web-application-firewall/afds/waf-faq",
       "redirect_document_id": false
@@ -12366,6 +12371,21 @@
       "source_path": "articles/cosmos-db/documentdb-sdk-java.md",
       "redirect_url": "/azure/cosmos-db/sql-api-sdk-java",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/logging.md",
+      "redirect_url": "/azure/cosmos-db/monitor-cosmos-db",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/cosmos-db-azure-monitor-metrics.md",
+      "redirect_url": "/azure/cosmos-db/monitor-cosmos-db",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/monitor-accounts.md",
+      "redirect_url": "/azure/cosmos-db/monitor-cosmos-db",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-suite/iot-suite-v1-connecting-devices-linux.md",

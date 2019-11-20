@@ -37,7 +37,7 @@ This article gives you an overview of the sign-ins report.
 
 ### Who can access the data?
 
-* Users in the Security Administrator, Security Reader, and Report Reader roles
+* Users in the Security Administrator, Security Reader, Global Reader, and Report Reader roles
 * Global Administrators
 * Any user (non-admins) can access their own sign-ins 
 

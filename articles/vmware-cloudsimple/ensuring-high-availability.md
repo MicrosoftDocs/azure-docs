@@ -25,7 +25,7 @@ The CloudSimple solution provides high availability for your applications runnin
 | Leaf Switch Port Failure | YES | Redundant NIC |  |  |
 | Leaf Switch Failure | YES | Redundant leaf switches |  |  |
 | Rack Failure | YES | Placement groups |  |  |
-| Network Connectivity to on-premise DC | YES  | Redundant networking services |  | Redundant ER circuits |
+| Network Connectivity to on-premises DC | YES  | Redundant networking services |  | Redundant ER circuits |
 | Network Connectivity to Azure | YES | |  | Redundant ER circuits |
 | Datacenter Failure | YES |  |  | Availability zones |
 | Regional Failure | YES  |  |  | Azure regions |
