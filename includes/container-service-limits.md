@@ -14,7 +14,8 @@ ms.custom: include file
 | Resource | Default limit |
 | --- | :--- |
 | Maximum clusters per subscription | 100 |
-| Maximum nodes per cluster | 100 |
+| Maximum nodes per cluster with Virtual Machine Availability Sets | 100 |
+| Maximum nodes per cluster with Virtual Machine Scale Sets | 800 (100 nodes per node pool) |
 | Maximum pods per node: [Basic networking][basic-networking] with Kubenet | 110 |
 | Maximum pods per node: [Advanced networking][advanced-networking] with Azure Container Networking Interface | Azure CLI deployment: 30<sup>1</sup><br />Azure Resource Manager template: 30<sup>1</sup><br />Portal deployment: 30 |
 
