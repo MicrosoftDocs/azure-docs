@@ -2,9 +2,6 @@
 title: "Frequently asked questions about Azure Dev Spaces"
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 09/25/2019
 ms.topic: "conceptual"
 description: "Find answers to some of the common questions about Azure Dev Spaces"
