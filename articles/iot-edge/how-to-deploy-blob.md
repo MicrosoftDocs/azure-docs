@@ -3,7 +3,7 @@ title: Deploy the Azure Blob Storage module to devices - Azure IoT Edge | Micros
 description: Deploy an Azure Blob Storage module to your IoT Edge device to store data at the edge.
 author: arduppal
 ms.author: arduppal
-ms.date: 11/18/2019
+ms.date: 11/19/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
@@ -39,17 +39,21 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 
 #### Add modules
 
-1. In the **IoT Edge Modules** section of the page, click the **Add** dropdown and select **IoT Edge Module**.
+1. In the **IoT Edge Modules** section of the page, click the **Add** dropdown and select **IoT Edge Module** to display the **Add IoT Edge Module** page.
 
-1. Provide a name for the module and then specify the container image:
+2. On the **Module Settings** tab, provide a name for the module and then specify the container image:
 
-   - **IoT Edge Module Name** - azureblobstorageoniotedge
-   - **Image URI** - mcr.microsoft.com/azure-blob-storage:latest
+   ![Module Twin Settings](./media/how-to-deploy-blob/addmodule-tab1.png)
+
+   - **IoT Edge Module Name** - `azureblobstorageoniotedge`
+   - **Image URI** - `mcr.microsoft.com/azure-blob-storage:latest`
 
    > [!IMPORTANT]
    > Azure IoT Edge is case-sensitive when you make calls to modules, and the Storage SDK also defaults to lowercase. Although the name of the module in the [Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace) is **AzureBlobStorageonIoTEdge**, changing the name to lowercase helps to ensure that your connections to the Azure Blob Storage on IoT Edge module aren't interrupted.
 
-1. The default **Container Create Options** values define the port bindings that your container needs, but you also need to add your storage account information and a mount for the storage on your device. Replace the default JSON in the portal with the JSON below:
+3. On the  **Container Create Options** tab, add your storage account information and a mount for the storage on your device. Copy and paste the following JSON into the box, referring to the placeholder descriptions in the next step.
+
+   ![Module Twin Settings](./media/how-to-deploy-blob/addmodule-tab3.png)
 
    ```json
    {
@@ -68,7 +72,9 @@ A deployment manifest is a JSON document that describes which modules to deploy,
    }
    ```
 
-1. Update the JSON that you copied with the following information:
+4. Update the JSON that you copied with the following information:
+
+   - Replace `<your storage account name>` with a name that you can remember. Account names should be 3 to 24 characters long with lowercase letters and numbers. No spaces.
 
    - Replace `<your storage account name>` with a name that you can remember. Account names should be 3 to 24 characters long, with lowercase letters and numbers. No spaces.
 
@@ -87,7 +93,11 @@ A deployment manifest is a JSON document that describes which modules to deploy,
      > [!IMPORTANT]
      > Do not change the second half of the storage mount value, which points to a specific location in the module. The storage mount should always end with **:/blobroot** for Linux containers and **:C:/BlobRoot** for Windows containers.
 
-1. Set [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) and [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties) properties for your module by copying the following JSON and pasting it into the **Set module twin's desired properties** box. Configure each property with an appropriate value, save it, and continue with the deployment. If you are using the IoT Edge simulator, set the values to the related environment variables for these properties, which you can find in the explanation section of [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) and [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties).
+5. On the **Module Twin Settings** tab, set the [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) and [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties) properties for your module by copying the following JSON and pasting it into the box.
+
+   ![Module Twin Settings](./media/how-to-deploy-blob/addmodule-tab4.png)
+
+   Configure each property with an appropriate value, save it, and continue with the deployment. If you are using the IoT Edge simulator, set the values to the related environment variables for these properties, which you can find in the explanation section of [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) and [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties).
 
    ```json
    {
@@ -111,15 +121,13 @@ A deployment manifest is a JSON document that describes which modules to deploy,
      }
    }
 
-      ```
-
-   ![set container create options, deviceAutoDeleteProperties and deviceToCloudUploadProperties properties](./media/how-to-deploy-blob/iotedge-custom-module.png)
+   ```
 
    For information on configuring deviceToCloudUploadProperties and deviceAutoDeleteProperties after your module has been deployed, see [Edit the Module Twin](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Edit-Module-Twin). For more information about desired properties, see [Define or update desired properties](module-composition.md#define-or-update-desired-properties).
 
-1. Select **Save**.
+6. Select **Save**.
 
-1. Select **Next** to continue to the routes section.
+7. Select **Next** to continue to the routes section.
 
 #### Specify routes
 
@@ -189,7 +197,6 @@ Azure IoT Edge provides templates in Visual Studio Code to help you develop edge
 
 1. Replace `<storage mount>` according to your container operating system. Provide the name of a [volume](https://docs.docker.com/storage/volumes/) or the absolute path to a directory on your IoT Edge device where you want the blob module to store its data. The storage mount maps a location on your device that you provide to a set location in the module.  
 
-      
      - For Linux containers, the format is *\<storage path or volume>:/blobroot*. For example
          - use [volume mount](https://docs.docker.com/storage/volumes/): **my-volume:/blobroot** 
          - use [bind mount](https://docs.docker.com/storage/bind-mounts/): **/srv/containerdata:/blobroot**. Make sure to follow the steps to [grant directory access to the container user](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
