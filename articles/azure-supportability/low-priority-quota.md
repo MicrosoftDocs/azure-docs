@@ -58,7 +58,7 @@ You can also **request Quota for multiple regions** through a single support cas
 
 ![Provide details](./media/resource-manager-core-quotas-request/3-7.png)
 
-8. For the selected location, select **Type** value as **‘Low priority’**. You can request both Standard and Low priority quota types from a single support case through multi-selection support on the **Type** field. Learn more about **increasing Standard quota per VM Series** on the <> page.
+8. For the selected location, select **Type** value as **‘Low priority’**. You can request both Standard and Low priority quota types from a single support case through multi-selection support on the **Type** field. Learn more about **increasing Standard quota per VM Series** on this [page](https://docs.microsoft.com/en-us/azure/azure-supportability/per-vm-quota-requests).
 
 ![Provide details](./media/resource-manager-core-quotas-request/3-8.png)
 
@@ -102,7 +102,7 @@ You can also **request Quota for multiple regions** through a single support cas
 
   ![Fill in form](./media/resource-manager-core-quotas-request/3-2-6.png)
  
-7.	For the selected location, select **Type** value as **‘Low priority’.** You can request both Standard and Low priority quota types from a single support case through multi-selection support on the **Type** field. Learn more about **increasing standard quota per VM Series** on the <> page.
+7.	For the selected location, select **Type** value as **‘Low priority’.** You can request both Standard and Low priority quota types from a single support case through multi-selection support on the **Type** field. Learn more about **increasing standard quota per VM Series** on this [page](https://docs.microsoft.com/en-us/azure/azure-supportability/per-vm-quota-requests).
 
   ![Fill in form](./media/resource-manager-core-quotas-request/3-2-7.png)
  
