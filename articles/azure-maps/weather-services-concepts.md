@@ -56,32 +56,6 @@ Some of the Weather service APIs allow user to specify if the data is returned e
 | 8          |![](./media/weather-services-concepts/MostlyCloudyThunderStorms.png)| Yes |  No   | Sunny|
 | 9           |![](./media/weather-services-concepts/PartlySunnyThunderStorms.png)| Yes |  No   | Sunny|
 | 10           |![](./media/weather-services-concepts/Cloudy.png)| Yes |  No   | Sunny|
-| 11           |![](./media/weather-services-concepts/IntermittentClouds.png)| Yes |  No   | Sunny|
-| 12           |![](./media/weather-services-concepts/IntermittentClouds.png)| Yes |  No   | Sunny|
-| 13           |![](./media/weather-services-concepts/IntermittentClouds.png)| Yes |  No   | Sunny|
-| 14           |![](./media/weather-services-concepts/IntermittentClouds.png)| Yes |  No   | Sunny|
-| 15           |![](./media/weather-services-concepts/IntermittentClouds.png)| Yes |  No   | Sunny|
-| 16           |![](./media/weather-services-concepts/IntermittentClouds.png)| Yes |  No   | Sunny|
-| 17           |![](./media/weather-services-concepts/IntermittentClouds.png)| Yes |  No   | Sunny|
-| 18           |![](./media/weather-services-concepts/IntermittentClouds.png)| Yes |  No   | Sunny|
-| 19           |![](./media/weather-services-concepts/IntermittentClouds.png)| Yes |  No   | Sunny|
-| 20           |![](./media/weather-services-concepts/IntermittentClouds.png)| Yes |  No   | Sunny|
-| 21           |![](./media/weather-services-concepts/IntermittentClouds.png)| Yes |  No   | Sunny|
-| 22           |![](./media/weather-services-concepts/IntermittentClouds.png)| Yes |  No   | Sunny|
-| 23           |![](./media/weather-services-concepts/IntermittentClouds.png)| Yes |  No   | Sunny|
-| 24           |![](./media/weather-services-concepts/IntermittentClouds.png)| Yes |  No   | Sunny|
-| 25           |![](./media/weather-services-concepts/IntermittentClouds.png)| Yes |  No   | Sunny|
-| 26           |![](./media/weather-services-concepts/IntermittentClouds.png)| Yes |  No   | Sunny|
-| 27           |![](./media/weather-services-concepts/IntermittentClouds.png)| Yes |  No   | Sunny|
-| 28           |![](./media/weather-services-concepts/IntermittentClouds.png)| Yes |  No   | Sunny|
-| 29           |![](./media/weather-services-concepts/IntermittentClouds.png)| Yes |  No   | Sunny|
-| 30           |![](./media/weather-services-concepts/IntermittentClouds.png)| Yes |  No   | Sunny|
-| 31           |![](./media/weather-services-concepts/IntermittentClouds.png)| Yes |  No   | Sunny|
-| 32           |![](./media/weather-services-concepts/IntermittentClouds.png)| Yes |  No   | Sunny|
-| 33           |![](./media/weather-services-concepts/IntermittentClouds.png)| Yes |  No   | Sunny|
-| 34           |![](./media/weather-services-concepts/IntermittentClouds.png)| Yes |  No   | Sunny|
-
-
 
 
 ## Radar and satellite imagery color scale
