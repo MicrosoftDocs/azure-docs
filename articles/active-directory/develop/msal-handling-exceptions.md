@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/21/2019
+ms.date: 11/22/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
@@ -523,8 +523,6 @@ In certain cases when calling an API requiring Conditional Access, you can recei
 
 Choose the tab below that matches the language you are using for your app:
 
-### [iOS/macOS](#tab/iosmacos)
-
 ### MSAL for iOS and macOS
 
 MSAL for iOS and macOS allows you to request specific claims in both interactive and silent token acquisition scenarios.
@@ -533,15 +531,11 @@ To request custom claims, specify `claimsRequest` in `MSALSilentTokenParameters`
 
 See [Request custom claims using MSAL for iOS and macOS](request-custom-claims.md) for more info.
 
-### [.NET](#tab/dotnet)
-
 ### .NET
 
 When calling an API requiring Conditional Access from MSAL.NET, your application will need to handle claim challenge exceptions. This will appear as an [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) where the [Claims](/dotnet/api/microsoft.identity.client.msalserviceexception.claims?view=azure-dotnet) property won't be empty.
 
 To handle the claim challenge, you'll need to use the `.WithClaim()` method of the `PublicClientApplicationBuilder` class.
-
-### [JavaScript](#tab/javascript)
 
 ### JavaScript
 
