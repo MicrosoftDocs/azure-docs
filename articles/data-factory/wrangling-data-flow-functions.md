@@ -113,13 +113,13 @@ Keep and Remove Top, Keep Range (corresponding M functions,
 | Function | Status |
 | -- | -- |
 | Table.PromoteHeaders | Not supported. The same result can be achieved by setting “First row as header” in the dataset. |
-| Table.CombineColumns | This is a very common scenario which is not directly supported but can be achieved by adding a new column which concatenates two given columns.  For example, Table.AddColumn(RemoveEmailColumn, “Name”, each [FirstName] & ” ” & [LastName]) |
+| Table.CombineColumns | This is a common scenario that isn't directly supported but can be achieved by adding a new column that concatenates two given columns.  For example, Table.AddColumn(RemoveEmailColumn, “Name”, each [FirstName] & ” ” & [LastName]) |
 | Table.TransformColumnTypes | This is supported in most cases. The following scenarios are unsupported: transforming string to currency type, transforming string to time type, transforming string to Percentage type. |
 | Table.NestedJoin | Just doing a join will result in a validation error. The columns must be expanded for it to work. |
-| Table.Distinct | Remove duplicate rows is not supported. |
-| Table.RemoveLastN | Remove bottom rows is not supported. |
-| Table.RowCount | Not supported, but can achieved with an add column with all cells empty (condition column can be used) and then using group by on that column. Table.Group is supported. | 
-| Row level error handling | Row level error handling is currently not supported. For example, to filter out non-numeric values from a column, one approach would be to transform the text column to a number. Every cell which fails to transform will be in an error state and need to be filtered. This scenario is not possible in wrangling data flow. |
+| Table.Distinct | Remove duplicate rows isn't supported. |
+| Table.RemoveLastN | Remove bottom rows isn't supported. |
+| Table.RowCount | Not supported, but can be achieved with an add column with all cells empty (condition column can be used) and then using group by on that column. Table.Group is supported. | 
+| Row level error handling | Row level error handling is currently not supported. For example, to filter out non-numeric values from a column, one approach would be to transform the text column to a number. Every cell which fails to transform will be in an error state and need to be filtered. This scenario isn't possible in wrangling data flow. |
 | Table.Transpose | Not supported |
 | Table.Pivot | Not supported |
 
