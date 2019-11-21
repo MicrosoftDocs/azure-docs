@@ -29,11 +29,11 @@ Follow these steps to grant data access for a user principal.
 
 1. Select **Data Access Policies**, and then select **+ Add**.
 
-    [![Select and add a Data Access Policy](media/data-access/data-access-one.png)](media/data-access/data-access-one.png#lightbox)
+    [![Select and add a Data Access Policy](media/data-access/data-access-select-add-button.png)](media/data-access/data-access-select-add-button.png#lightbox)
 
 1. Choose **Select user**. Search for the user name or email address to locate the user you want to add. Select **Select** to confirm the selection.
 
-    [![Select a user to add](media/data-access/data-access-two.png)](media/data-access/data-access-two.png#lightbox)
+    [![Select a user to add](media/data-access/data-access-select-user-to-confirm.png)](media/data-access/data-access-select-user-to-confirm.png#lightbox)
 
 1. Choose **Select role**. Choose the appropriate access role for the user:
 
@@ -43,15 +43,15 @@ Follow these steps to grant data access for a user principal.
 
    Select **OK** to confirm the role choice.
 
-    [![Confirm the selected role](media/data-access/data-access-three.png)](media/data-access/data-access-three.png#lightbox)
+    [![Confirm the selected role](media/data-access/data-access-select-a-role.png)](media/data-access/data-access-select-a-role.png#lightbox)
 
 1. Select **OK** on the **Select User Role** page.
 
-    [![Select OK on the Select User Role page](media/data-access/data-access-four.png)](media/data-access/data-access-four.png#lightbox)
+    [![Select OK on the Select User Role page](media/data-access/data-access-confirm-user-and-role.png)](media/data-access/data-access-confirm-user-and-role.png#lightbox)
 
 1. Confirm that the **Data Access Policies** page lists the users and the roles for each user.
 
-    [![Verify the correct users and roles](media/data-access/data-access-five.png)](media/data-access/data-access-five.png#lightbox)
+    [![Verify the correct users and roles](media/data-access/data-access-verify-and-confirm-assignments.png)](media/data-access/data-access-verify-and-confirm-assignments.png#lightbox)
 
 ## Provide guest access from another AAD tenant
 
@@ -61,19 +61,19 @@ Follow these steps to grant guest access to a Time Series Insights environment t
 
 1. Select **Data Access Policies**, and then select **+ Invite**.
 
-    [![Select Data Access Polices, then + Invite](media/data-access/data-access-six.png)](media/data-access/data-access-six.png#lightbox)
+    [![Select Data Access Polices, then + Invite](media/data-access/data-access-invite-another-aad-tenant.png)](media/data-access/data-access-invite-another-aad-tenant.png#lightbox)
 
 1. Enter the email address for the user you want to invite. This email address must be associated with Azure AD. You can optionally include a personal message with the invitation.
 
-    [![Enter the email address to find the selected user](media/data-access/data-access-seven.png)](media/data-access/data-access-seven.png#lightbox)
+    [![Enter the email address to find the selected user](media/data-access/data-access-invite-guest-by-email.png)](media/data-access/data-access-invite-guest-by-email.png#lightbox)
 
 1. Look for the confirmation bubble that appears on the screen.
 
-    [![Look for the confirmation bubble to appear](media/data-access/data-access-eight.png)](media/data-access/data-access-eight.png#lightbox)
+    [![Look for the confirmation bubble to appear](media/data-access/data-access-confirmation-bubble.png)](media/data-access/data-access-confirmation-bubble.png#lightbox)
 
 1. Choose **Select user**. Search for the email address of the guest user you invited to locate the user you want to add. Then, **Select** to confirm the selection.
 
-    [![Select the user and confirm the selection](media/data-access/data-access-nine.png)](media/data-access/data-access-nine.png#lightbox)
+    [![Select the user and confirm the selection](media/data-access/data-access-select-invited-person-confirmation.png)](media/data-access/data-access-select-invited-person-confirmation.png#lightbox)
 
 1. Choose **Select role**. Choose the appropriate access role for the guest user:
 
@@ -83,13 +83,13 @@ Follow these steps to grant guest access to a Time Series Insights environment t
 
    Select **OK** to confirm the role choice.
 
-    [![Confirm the role choice](media/data-access/data-access-ten.png)](media/data-access/data-access-ten.png#lightbox)
+    [![Confirm the role choice](media/data-access/data-access-select-ok-and-confirm.png)](media/data-access/data-access-select-ok-and-confirm.png#lightbox)
 
 1. Select **OK** on the **Select User Role** page.
 
 1. Confirm that the **Data Access Policies** page lists the guest user and the roles for each guest user.
 
-    [![Verify that users and roles are correctly assigned](media/data-access/data-access-eleven.png)](media/data-access/data-access-eleven.png#lightbox)
+    [![Verify that users and roles are correctly assigned](media/data-access/data-access-confirm-invited-users-and-roles.png)](media/data-access/data-access-confirm-invited-users-and-roles.png#lightbox)
 
 1. Now the guest user must follow steps to access the environment located in the Azure tenant to which you invited them. First, they accept the invitation you sent them. This invitation is sent via email to the email address you used in **step 5**. They select **Get Started** to accept.
 
