@@ -37,12 +37,12 @@ After labeling, review the example utterance and ensure the selected span of tex
 
 ## Confirm predicted entity
 
-If there is a dotted lined box around the span of text and the entity name is above the utterance, it indicates the text is predicted but _not labeled yet_. To turn the prediction into a label, select the utterance, then select **Confirm entity predictions**.
+If there is a dotted-lined box around the span of text and the entity name is above the utterance, it indicates the text is predicted but _not labeled yet_. To turn the prediction into a label, select the utterance row, then select **Confirm entity predictions**.
 
 > [!div class="mx-imgBorder"]
 > ![Predict complete machine-learned entity](media/label-utterances/example-1-label-machine-learned-entity-complete-order-predicted.png)
 
-Alternatively, you could click on the entity name above the text, and click Confirm Prediction from the menu that appears.
+Alternatively, you could select the entity name above the text, then select **Confirm Prediction** from the menu that appears.
 
 > [!div class="mx-imgBorder"]
 > ![Predict complete machine-learned entity with menu](media/label-utterances/example-1-label-machine-learned-entity-complete-order-predicted-menu.png)
@@ -51,7 +51,7 @@ Alternatively, you could click on the entity name above the text, and click Conf
 
 The entity palette offers an alternative to the previous labeling experience. It allows you to brush over text to instantly label it with an entity.
 
-1. Open the entity palette by clicking on the Highlighter icon at the top right of the utterance table. 
+1. Open the entity palette by selecting on the Highlighter icon at the top right of the utterance table. 
 
     > [!div class="mx-imgBorder"]
     > ![Entity palette for machine-learned entity](media/label-utterances/example-1-label-machine-learned-entity-palette.png)
@@ -66,9 +66,9 @@ The entity palette offers an alternative to the previous labeling experience. It
     > [!div class="mx-imgBorder"]
     > ![Entity palette for machine-learned entity](media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png)
 
-## Labeling subcomponents of a multiple level machine learned entity
+## Labeling subcomponents of a multiple-level machine learned entity
 
-Subcomponents in entities are labeled exactly the same way as top level entities. When selecting text, the entities available in the pop-up window are relative to the context in which the text appears. For example, if you have a 5-level machine-learned entity, and you are selecting text that has been labeled with the 1st and 2nd levels (indicated by a labeled entity name under the example utterance), the entities available in the pop-up window are limited to the context of components of the 3rd level. To label the text with other entities, click on 'Label as another entity' option.
+Subcomponents in entities are labeled exactly the same way as top level entities. When selecting text, the entities available in the pop-up window are relative to the context in which the text appears. For example, if you have a 5-level machine-learned entity, and you are selecting text that has been labeled with the 1st and 2nd levels (indicated by a labeled entity name under the example utterance), the entities available in the pop-up window are limited to the context of components of the 3rd level. To label the text with other entities, select **Label as another entity** option.
 
 > [!div class="mx-imgBorder"]
 > ![Entity palette for machine-learned entity](media/label-utterances/example-1-label-machine-learned-entity-subcomponent.png)
@@ -77,7 +77,7 @@ Subcomponents can be labeled only if the parent is also labeled.
 
 ## Unlabel entities
 
-To unlabel an entity, click on the entity name underneath the text and pick unlabel. If the entity you are trying to unlabel has labeled subcomponents, then the subcomponents must be unlabeled first. 
+To unlabel an entity, select the entity name underneath the text and select **Unlabel**. If the entity you are trying to unlabel has labeled subcomponents, then the subcomponents must be unlabeled first. 
 
 ## Editing labels using the entity palette
 
