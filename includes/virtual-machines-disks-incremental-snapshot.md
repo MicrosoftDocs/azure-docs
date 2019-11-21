@@ -81,7 +81,7 @@ On Windows, the following command will either install or update your existing in
 ```PowerShell
 Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi; Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'
 ```
-On Linux, the CLI installation will vary depending on operating system version.  See [Install the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) for your particular Linux version.
+On Linux, the CLI installation will vary depending on operating system version.  See [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) for your particular Linux version.
 
 To create an incremental snapshot, use [az snapshot create](https://docs.microsoft.com/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create) with the `--incremental` parameter.
 
