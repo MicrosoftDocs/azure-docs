@@ -1,10 +1,6 @@
 ---
 title: "Introduction to Azure Dev Spaces"
-titleSuffix: Azure Dev Spaces
-author: zr-msft
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-ms.author: zarhoads
 ms.date: 05/07/2019
 ms.topic: "overview"
 description: "Introduction to Azure Dev Spaces"

@@ -1,5 +1,5 @@
 ---
-title: Send Guest OS metrics to the Azure Monitor metric store classic Cloud Services 
+title: Send classic Cloud Services metrics to Azure Monitor metrics database
 description: Send Guest OS metrics to the Azure Monitor metric store Cloud Services
 author: anirudhcavale
 services: azure-monitor

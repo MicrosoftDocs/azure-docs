@@ -1,6 +1,6 @@
 ---
 title: Support for VMware assessment and migration in Azure Migrate
-description: Learn about support for VMware VM assessment/migration in Azure Migrate. 
+description: Learn about support for VMware VM assessment/migration in Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
@@ -73,7 +73,13 @@ This table summarizes assessment support and limitations for VMware virtualizati
 
 ## Assessment-vCenter Server permissions
 
-For assessment, you need a read-only account for the vCenter Server.
+Azure Migrate needs to access the vCenter Server to discover VMs for assessment and agentless migration.
+
+- If you plan to discover applications or visualize dependency in an agentless manner, create a vCenter Server account with read-only access along with privileges enabled for **Virtual machines** > **Guest Operations**.
+
+  ![vCenter Server account privileges](./media/tutorial-prepare-vmware/vcenter-server-permissions.png)
+
+- If you are not planning to do application discovery and agentless dependency visualization, set up a read-only account for the vCenter Server.
 
 ## Assessment-appliance requirements
 
@@ -318,7 +324,7 @@ Download and install in Azure Migrate | When you install the appliance and are p
 **Independent disks** | Supported.
 **Passthrough disks** | Supported.
 **NFS** | NFS volumes mounted as volumes on the VMs won't be replicated.
-iSCSI targets | VMs with iSCSI targets aren't supported for agentless migration.
+**iSCSI targets** | VMs with iSCSI targets aren't supported for agentless migration.
 **Multipath IO** | Not supported.
 **Storage vMotion** | Supported
 **Teamed NICs** | Not supported.
