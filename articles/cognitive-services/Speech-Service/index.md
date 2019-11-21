@@ -685,7 +685,7 @@ description: Get started with the Speech Services.
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>What's new?</h3>
+                                                    <h3>Release notes</h3>
                                                     <p>When developing a Speech Services solution learn what changes are happening to the SDKs and REST APIs with release notes.</p>
                                                 </div>
                                             </div>
