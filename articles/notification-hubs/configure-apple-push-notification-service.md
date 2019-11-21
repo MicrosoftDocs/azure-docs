@@ -41,7 +41,7 @@ The following procedure gives you steps to configure Apple Push Notification Ser
    * Enter the values for **Key ID**, **Bundle ID**, **Team ID**, and **Token**.
    * Select **Sandbox** mode. Or, to send push notifications to users who purchased your app from the store, select **Production** mode.
 
-     ![Screenshot of an APNS token configuration in the Azure portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-token.png)
+     ![Screenshot of an APNS token configuration in the Azure portal](./media/configure-apple-push-notification-service/notification-hubs-apple-config-token.png)
 
 ## Next steps
 For a tutorial with step-by-step instructions for pushing notifications to iOS devices, see the following article: [Push notifications to iOS devices by using Notification Hubs and APNS](notification-hubs-ios-apple-push-notification-apns-get-started.md)
