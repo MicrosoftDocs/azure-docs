@@ -1,6 +1,5 @@
 ---
 title: "Use a custom traefik ingress controller and configure HTTPS"
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.date: "08/13/2019"
 ms.topic: "conceptual"

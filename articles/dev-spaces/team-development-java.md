@@ -1,6 +1,5 @@
 ---
 title: "Team development with Azure Dev Spaces using Java and VS Code"
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 
 author: stepro

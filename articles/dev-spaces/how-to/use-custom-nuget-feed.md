@@ -1,6 +1,5 @@
 ---
 title: "How to use a custom NuGet feed in Azure Dev Spaces"
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 
 author: "zr-msft"

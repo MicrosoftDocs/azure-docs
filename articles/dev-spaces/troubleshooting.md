@@ -1,6 +1,5 @@
 ---
 title: "Troubleshooting"
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.date: 09/25/2019
 ms.topic: "conceptual"
