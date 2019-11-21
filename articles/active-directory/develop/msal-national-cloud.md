@@ -182,14 +182,13 @@ To enable your MSAL for Java (MSAL4J) application for sovereign clouds, you must
 - Use a specific authority, depending on the cloud in the config file for your application
 - To call the Microsoft Graph API requires a specific Graph endpoint URL, depending on the cloud.
 
-See [Authentication in National Clouds](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud) for more information.
-
 ---
 
 ## Next steps
 
 Learn more about:
 
+- [Authentication in National Clouds](authentication-national-cloud.md)
 - [Azure Government](https://docs.microsoft.com/azure/azure-government/)
 - [Azure China 21Vianet](https://docs.microsoft.com/azure/china/)
 - [Azure Germany](https://docs.microsoft.com/azure/germany/)
