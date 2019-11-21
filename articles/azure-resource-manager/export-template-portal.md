@@ -2,7 +2,7 @@
 title: Export template in Azure portal
 description: Use Azure portal to export an Azure Resource Manager template from resources in your subscription.
 ms.topic: conceptual
-ms.date: 10/11/2019
+ms.date: 11/21/2019
 ---
 # Single and multi-resource export to a template in Azure portal
 
@@ -27,7 +27,7 @@ Depending on the option you choose, the exported templates have different qualit
 | Template is snapshot of the resources' current state. It includes any manual changes you made after deployment. | Template only shows state of resources at the time of deployment. Any manual changes you made after deployment aren't included. |
 | You can select which resources from a resource group to export. | All resources for a specific deployment are included. You can't pick a subset of those resources or add resources that were added at a different time. |
 | Template includes all properties for the resources, including some properties you wouldn't normally set during deployment. You might want to remove or clean up these properties before reusing the template. | Template includes only the properties needed for the deployment. The template is ready-to-use. |
-| Template probably doesn't include all of the parameters you need for reuse. Most property values are hard-coded in the template. To redeploy the template in other environments, you need to add parameters that increase the ability to configure the resources. | Template includes parameters that make it easy to redeploy in different environments. |
+| Template probably doesn't include all of the parameters you need for reuse. Most property values are hard-coded in the template. To redeploy the template in other environments, you need to add parameters that increase the ability to configure the resources.  You also have the option to unselect **Include parameters** so that you can author your own parameters. | Template includes parameters that make it easy to redeploy in different environments. |
 
 Export the template from a resource group or resource, when:
 
@@ -56,6 +56,8 @@ To export one or more resources from a resource group:
 
    ![Show template](./media/export-template-portal/show-template.png)
 
+   **Include parameters** is selected by default.  When selected, all template parameters will be included when the template is generated. If you’d like to author your own parameters, toggle this checkbox to not include them.
+
 ## Export template from a resource
 
 To export one resource:
@@ -68,7 +70,7 @@ To export one resource:
 
    ![Export resource](./media/export-template-portal/export-single-resource.png)
 
-1. The exported template is displayed, and is available to download and deploy. The template only contains the single resource.
+1. The exported template is displayed, and is available to download and deploy. The template only contains the single resource. **Include parameters** is selected by default.  When selected, all template parameters will be included when the template is generated. If you’d like to author your own parameters, toggle this checkbox to not include them.
 
 ## Export template before deployment
 
