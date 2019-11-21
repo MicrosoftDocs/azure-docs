@@ -645,6 +645,7 @@ Advanced threat protection enables you to detect and respond to potential threat
 
 ### Audit critical security events
 Tracking of database events helps you understand database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations. It also enables and facilitates adherence to compliance standards. 
+
 **How to implement**:
 
 - Enable [SQL Database Auditing](sql-database-auditing.md) to track database events and write them to an audit log in your Azure storage account, Log Analytics workspace, or Event Hubs. 
@@ -731,7 +732,8 @@ Discover columns that potentially contain sensitive data. Classify the columns t
 - Use classification in a way that is tailored to the specific needs of your organization. Customize your Information Protection policy (sensitivity labels, information types, discovery logic) in the [SQL Information Protection](../security-center/security-center-info-protection-policy.md) policy in Azure Security Center. 
 
 ### Track access to sensitive data 
-Monitor who accesses sensitive data and queries they run on sensitive data.
+Monitor who accesses sensitive data and capture queries on sensitive data in audit logs.
+
 **How to implement**:
 
 - Use SQL Audit and Data Classification in combination. 
