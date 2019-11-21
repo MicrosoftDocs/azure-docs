@@ -122,7 +122,7 @@ Then, MSAL is initialized using the following code:
 
 ```csharp
 public static IPublicClientApplication PublicClientApp;
-PublicClientApp = new PublicClientApplicationBuilder.Create(ClientId)
+PublicClientApp = PublicClientApplicationBuilder.Create(ClientId)
                                                     .Build();
 ```
 
