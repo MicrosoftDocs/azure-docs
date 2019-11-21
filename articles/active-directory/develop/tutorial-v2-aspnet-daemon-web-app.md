@@ -53,16 +53,16 @@ From your shell or command line:
 git clone https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2.git
 ```
 
-or [download the sample in a ZIP file](https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp/archive/master.zip).
+Or [download the sample in a ZIP file](https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp/archive/master.zip).
 
-## Register the sample application with your Azure Active Directory tenant
+## Register the sample application with your Azure AD tenant
 
 There is one project in this sample. To register it, you can:
 
-- either follow the steps [Register the sample with your Azure Active Directory tenant](#register-the-sample-application-with-your-azure-active-directory-tenant) and [Configure the sample to use your Azure AD tenant](#choose-the-azure-ad-tenant-where-you-want-to-create-your-applications)
-- or use PowerShell scripts that:
-  - **automatically** creates the Azure AD applications and related objects (passwords, permissions, dependencies) for you
-  - modify the Visual Studio projects' configuration files.
+- Either follow the steps [Register the sample with your Azure Active Directory tenant](#register-the-sample-application-with-your-azure-active-directory-tenant) and [Configure the sample to use your Azure AD tenant](#choose-the-azure-ad-tenant-where-you-want-to-create-your-applications)
+- Or use PowerShell scripts that:
+  - **Automatically** creates the Azure AD applications and related objects (passwords, permissions, dependencies) for you
+  - Modify the Visual Studio projects' configuration files.
 
 If you want to use this automation:
 
@@ -86,7 +86,7 @@ If you want to use this automation:
 
 If you don't want to use this automation, follow the steps below.
 
-### Choose the Azure AD tenant where you want to create your applications
+### Choose the Azure AD tenant for the applications
 
 As a first step you'll need to:
 
@@ -101,10 +101,10 @@ As a first step you'll need to:
 1. When the **Register an application page** appears, enter your application's registration information:
    - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `dotnet-web-daemon-v2`.
    - In the **Supported account types** section, select **Accounts in any organizational directory**.
-   - In the Redirect URI (optional) section, select **Web** in the combo-box and enter the following redirect URIs.
+   - In the Redirect URI (optional) section, select **Web** in the combo-box and enter the following redirect URIs:
        - `https://localhost:44316/`
        - `https://localhost:44316/Account/GrantPermissions`
-    > Note that if there are more than one redirect URIs, you'd need to add them from the **Authentication** tab later after the app has been created successfully.
+          If there are more than one redirect URIs, you'd need to add them from the **Authentication** tab later after the app has been created successfully.
 1. Select **Register** to create the application.
 1. On the app **Overview** page, find the **Application (client) ID** value and record it for later. You'll need it to configure the Visual Studio configuration file for this project.
 1. In the list of pages for the app, select **Authentication**.
@@ -133,7 +133,7 @@ Open the solution in Visual Studio to configure the projects
 
 ### Configure the client project
 
-> Note: if you used the setup scripts, the changes below will have been applied for you
+If you used the setup scripts, the following changes will have been applied for you.
 
 1. Open the `UserSync\Web.Config` file
 1. Find the app key `ida:ClientId` and replace the existing value with the application ID (clientId) of the `dotnet-web-daemon-v2` application copied from the Azure portal.
@@ -203,7 +203,7 @@ This project has WebApp / Web API projects. To deploy them to Azure Web Sites, y
 1. On the Settings tab, make sure `Enable Organizational Authentication` is NOT selected.  Click **Save**. Click on **Publish** on the main screen.
 1. Visual Studio will publish the project and automatically open a browser to the URL of the project.  If you see the default web page of the project, the publication was successful.
 
-### Update the Active Directory tenant application registration for `dotnet-web-daemon-v2`
+### Update the Azure AD tenant application registration for `dotnet-web-daemon-v2`
 
 1. Navigate back to the [Azure portal](https://portal.azure.com).
 In the left-hand navigation pane, select the **Azure Active Directory** service, and then select **App registrations**.
@@ -212,7 +212,7 @@ In the left-hand navigation pane, select the **Azure Active Directory** service,
 1. From the *Branding* menu, update the **Home page URL**, to the address of your service, for example [https://dotnet-web-daemon-v2-contoso.azurewebsites.net](https://dotnet-web-daemon-v2-contoso.azurewebsites.net). Save the configuration.
 1. Add the same URL in the list of values of the *Authentication -> Redirect URIs* menu. If you have multiple redirect urls, make sure that there a new entry using the App service's Uri for each redirect url.
 
-## Community Help and Support
+## Community help and support
 
 Use [Stack Overflow](http://stackoverflow.com/questions/tagged/msal) to get support from the community.
 Ask your questions on Stack Overflow first and browse existing issues to see if someone has asked your question before.
