@@ -1,10 +1,6 @@
 ---
 title: "Use a custom traefik ingress controller and configure HTTPS"
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: "08/13/2019"
 ms.topic: "conceptual"
 description: "Learn how to configure Azure Dev Spaces to use a custom traefik ingress controller and configure HTTPS using that ingress controller"

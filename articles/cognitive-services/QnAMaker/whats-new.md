@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 10/14/2019
+ms.date: 11/08/2019
 ms.author: diberry
 ---
 
@@ -19,6 +19,12 @@ Learn what's new in the service. These items may release notes, videos, blog pos
 ## Release notes 
 
 Learn what's new with QnA Maker.
+
+### November 2019
+
+* [US Government cloud support](https://docs.microsoft.com/azure/azure-government/documentation-government-services-aiandcognitiveservices#qna-maker) for QnA Maker
+* [Multi-turn](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/multiturn-conversation) feature in GA
+* [Chit-chat support](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/chit-chat-knowledge-base#language-support) available in tier-1 languages
 
 ### October 2019
 
