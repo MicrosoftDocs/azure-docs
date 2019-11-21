@@ -47,15 +47,15 @@ Some of the Weather service APIs allow user to specify if the data is returned e
 | Icon Number |Icon| Day | Night | Text |
 |-------------|----|-----|-------|------|
 | 1           |![](./media/weather-services-concepts/Sunny.png)| Yes |  No   | Sunny|
-| 2           |![](./media/weather-services-concepts/MostlySunny.png)| Yes |  No   | Sunny|
-| 3           |![](./media/weather-services-concepts/HazySunshine.png)| Yes |  No   | Sunny|
-| 4           |![](./media/weather-services-concepts/MostlyCloudy.png)| Yes |  No   | Sunny|
-| 5           |![](./media/weather-services-concepts/IntermittentClouds.png)| Yes |  No   | Sunny|
-| 6           |![](./media/weather-services-concepts/PartlySunnyShowers.png)| Yes |  No   | Sunny|
-| 7           |![](./media/weather-services-concepts/MostlyCloudyShowers.png)| Yes |  No   | Sunny|
-| 8          |![](./media/weather-services-concepts/MostlyCloudyTStorms.png)| Yes |  No   | Sunny|
-| 9           |![](./media/weather-services-concepts/PartlySunnyTStorms.png)| Yes |  No   | Sunny|
-| 10           |![](./media/weather-services-concepts/Cloudy.png)| Yes |  No   | Sunny|
+| 2           |![](./media/weather-services-concepts/MostlySunny.png)| Yes |  No   | Mostly sunny|
+| 3           |![](./media/weather-services-concepts/HazySunshine.png)| Yes |  No   | Hazy sunshine|
+| 4           |![](./media/weather-services-concepts/MostlyCloudy.png)| Yes |  No   | Mostly cloudy|
+| 5           |![](./media/weather-services-concepts/IntermittentClouds.png)| Yes |  No   | Intermittent clouds |
+| 6           |![](./media/weather-services-concepts/PartlySunnyShowers.png)| Yes |  No   | Partly sunny showers|
+| 7           |![](./media/weather-services-concepts/MostlyCloudyShowers.png)| Yes |  No   | Mostly cloudy showers|
+| 8          |![](./media/weather-services-concepts/MostlyCloudyTStorms.png)| Yes |  No   | Mostly cloudy thunderstorms|
+| 9           |![](./media/weather-services-concepts/PartlySunnyTStorms.png)| Yes |  No   | Partly sunny thunderstorms|
+| 10           |![](./media/weather-services-concepts/Cloudy.png)| Yes |  No   | Cloudy|
 
 
 ## Radar and satellite imagery color scale
