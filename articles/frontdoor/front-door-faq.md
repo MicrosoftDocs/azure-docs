@@ -1,5 +1,5 @@
 ---
-title: Azure Front Door Service - Frequently Asked Questions for Front Door | Microsoft Docs
+title: Azure Front Door Service - Frequently Asked Questions
 description: This page provides answers to frequently asked questions about Azure Front Door Service
 services: frontdoor
 documentationcenter: ''
