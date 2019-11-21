@@ -16,13 +16,14 @@ ms.author: victorh
 
 IP Groups allow you to group and manage IP addresses for Azure Firewall rules in the following ways:
 
+- As a source address in DNAT rules
 - As a source or destination address in network rules
 - As a source address in application rules
-- As a source address in DNAT rules
+
 
 An IP Group can have a single IP address, a group of IP addresses, or one or more IP address ranges.
 
-## Creating IP Groups
+## Create an IP Group
 
 An IP Group can be created using the Azure portal . For more information, see [Create an IP Group (preview)](create-ip-group.md).
 
