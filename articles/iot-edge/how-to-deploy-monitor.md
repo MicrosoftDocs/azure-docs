@@ -39,7 +39,9 @@ For more information about device twins and tags, see [Understand and use device
 
 ## Create a deployment
 
-You can create a deployment onto a single IoT Edge device, or a layered deployment where multiple deployments are layered onto the same IoT Edge device. For more information about their differences, see [Understand IoT Edge automatic deployments for single devices or at scale](module-deployment-monitoring.md).
+IoT Edge provides two different types of automatic deployments that you can use to customize your scenario. You can create a standard *deployment*, which includes that system runtime modules and any additional modules and routes. Each device can only apply one deployment. Or you can create a *layered deployment*, which only includes custom modules and routes, not the system runtime. Many layered deployments can be combined on a device, on top of a standard deployment. For more information about how the two types of automatic deployments work together, see [Understand IoT Edge automatic deployments for single devices or at scale](module-deployment-monitoring.md).
+
+The steps for creating a deployment and a layered deployment are very similar. Any differences are called out in the following steps. 
 
 1. In the [Azure portal](https://portal.azure.com), go to your IoT Hub.
 1. From the left bar, select **IoT Edge** under **Automatic Device Management**.
@@ -47,23 +49,25 @@ You can create a deployment onto a single IoT Edge device, or a layered deployme
 
 There are five steps to create a deployment. The following sections walk through each one.
 
-### Step 1: Name and Label
+### Step 1: Name and label
 
 1. Give your deployment a unique name that is up to 128 lowercase letters. Avoid spaces and the following invalid characters: `& ^ [ ] { } \ | " < > /`.
 1. You can add labels as key-value pairs to help track your deployments. For example, **HostPlatform** and **Linux**, or **Version** and **3.0.1**.
 1. Select **Next: Modules** to move to step two.
 
-### Step 2: Add Modules (optional)
+### Step 2: Modules
 
-You can add up to 20 modules to a deployment.
+You can add up to 20 modules to a deployment. If you create a deployment with no modules, it removes any current modules from the target devices.
 
-If you create a deployment with no modules, it removes any current modules from the target devices.
+In deployments, you can manage the settings for the IoT Edge agent and IoT Edge hub modules. Select **Runtime Settings** to configure the two runtime modules. In layered deployment, the runtime modules are not included so cannot be configured. 
 
 You can add three types of modules:
 
 * IoT Edge Module
 * Marketplace Module
 * Azure Stream Analytics Module
+
+#### Add an IoT Edge module
 
 To add custom code as a module, or to manually add an Azure service module, follow these steps:
 
@@ -85,11 +89,15 @@ To add custom code as a module, or to manually add an Azure service module, foll
 1. Enter **Environment Variables** for this module. Environment variables provide configuration information to a module.
 1. Select **Add** to add your module to the deployment.
 
+#### Add a module from the Marketplace
+
 To add a module for the Azure Marketplace, follow these steps:
 
 1. In the **IoT Edge Modules** section of the page, click **Add**.
 1. Select **Marketplace Module**.
-1. Choose a module from the **IoT Edge Module Marketplace** page. The module you select is automatically configured for your subscription, resource group, and device. It then appears in your list of IoT Edge modules. Some modules may require additional configuration. For more information see [Deploy modules from Azure marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace).
+1. Choose a module from the **IoT Edge Module Marketplace** page. The module you select is automatically configured for your subscription, resource group, and device. It then appears in your list of IoT Edge modules. Some modules may require additional configuration. For more information, see [Deploy modules from Azure marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace).
+
+#### Add a Stream Analytics module
 
 To add a module from Azure Stream Analytics, follow these steps:
 
@@ -101,7 +109,7 @@ To add a module from Azure Stream Analytics, follow these steps:
 
 Once you have all the modules for a deployment configured, select **Next: Routes** to move to step three.
 
-### Step 3: Specify Routes (optional)
+### Step 3: Routes
 
 Routes define how modules communicate with each other within a deployment. By default the wizard gives you a route called **Route name** and defined as **FROM /* INTO $upstream**, which means that any messages output by any modules are sent to your IoT hub.  
 
@@ -109,13 +117,13 @@ Add or update the routes with information from [Declare routes](module-compositi
 
 Select **Next: Metrics**.
 
-### Step 4: Specify Metrics (optional)
+### Step 4: Metrics
 
 Metrics provide summary counts of the various states that a device may report back as a result of applying configuration content.
 
 1. Enter a name for **Metric Name**.
 
-1. Enter a query for **Value**. The query is based on IoT Edge hub module twin [reported properties](module-edgeagent-edgehub.md#edgehub-reported-properties). The metric represents the number of rows returned by the query.
+1. Enter a query for **Metric Criteria**. The query is based on IoT Edge hub module twin [reported properties](module-edgeagent-edgehub.md#edgehub-reported-properties). The metric represents the number of rows returned by the query.
 
    For example:
 
@@ -126,11 +134,13 @@ Metrics provide summary counts of the various states that a device may report ba
 
 Select **Next: Target Devices**.
 
-### Step 5: Target Devices
+### Step 5: Target devices
 
 Use the tags property from your devices to target the specific devices that should receive this deployment.
 
 Since multiple deployments may target the same device, you should give each deployment a priority number. If there's ever a conflict, the deployment with the highest priority (larger values indicate higher priority) wins. If two deployments have the same priority number, the one that was created most recently wins.
+
+If multiple deployments target the same device then only the one with the higher priority is applied. If multiple layered deployments target the same device then they are all applied. However, if any properties are duplicated, like if there are two routes with the same name, then the one from the higher priority layered deployment overwrites the rest. 
 
 1. Enter a positive integer for the deployment **Priority**.
 1. Enter a **Target condition** to determine which devices will be targeted with this deployment. The condition is based on device twin tags or device twin reported properties and should match the expression format. For example, `tags.environment='test'` or `properties.reported.devicemodel='4000x'`.
@@ -153,7 +163,7 @@ To view the details of a deployment and monitor the devices running it, use the 
 
 1. Inspect the deployment list. For each deployment, you can view the following details:
    * **ID** - the name of the deployment.
-   * **Type** - the type of deployment.
+   * **Type** - the type of deployment, either **Deployment** or **Layered Deployment**. 
    * **Target Condition** - the tag used to define targeted devices.
    * **Priority** - the priority number assigned to the deployment.
    * **System metrics** - **Targeted** specifies the number of device twins in IoT Hub that match the targeting condition, and **Applied** specifies the number of devices that have had the deployment content applied to their module twins in IoT Hub.
