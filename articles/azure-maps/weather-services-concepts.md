@@ -46,7 +46,7 @@ Some of the Weather service APIs allow user to specify if the data is returned e
 
 | Icon Number |Icon| Day | Night | Text |
 |-------------|----|-----|-------|------|
-| 1           |![](./media/weather-services-concepts/sunny.png| Yes |  No   | Sunny|
+| 1           |![](./media/weather-services-concepts/Sunny.png| Yes |  No   | Sunny|
 | 2           |![](./media/weather-services-concepts/MostlySunny.png)| Yes |  No   | Sunny|
 | 3           |![](./media/weather-services-concepts/HazySunshine.png)| Yes |  No   | Sunny|
 | 4           |![](./media/weather-services-concepts/MostlyCloudy.png)| Yes |  No   | Sunny|
