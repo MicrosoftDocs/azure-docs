@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: update-management
 author: bobbytreed
 ms.author: robreed
-ms.date: 09/26/2019
+ms.date: 11/21/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -15,6 +15,18 @@ manager: carmonm
 In addition to the details that are provided in the Azure portal, you can do searches against the logs. On the solution pages, select **Log Analytics**. The **Log Search** pane opens.
 
 You can also learn how to customize the queries or use them from different clients and more by visiting:  [Log Analytics search API documentation](https://dev.loganalytics.io/).
+
+## Update records
+
+Records that are collected by Update Management for Windows and Linux VMs and the data types that appear in log search results are displayed in the following table:
+
+| Data type | Data type in Log Search | Fields |
+| --- | --- | --- |
+| Updates required | `RequiredUpdate` | Computer, KBID, ManagementGroupName, Product, PublishDate, Server, SourceHealthServiceId, SourceSystem, TenantId, TimeGenerated, Type, UpdateClassification, UpdateSeverity, UpdateTitle | 
+| View updates available and their installation status | `Update` | ApprovalSource, Approved, BulletinID, BulletinUrl, Classification, Computer, ComputerEnvironment, CVENumbers, InstallTimeAvailable, InstallTimeDeviationRangeSeconds, INstallTimePredictionSections, KBID, ManagementGroupName, MSRCBUlletinID, MSRCSeverity | 
+| Update agent details | `UpdateAgent` | AgeofOldestMissingRequiredUpdate, AutomaticUpdateEnabled, AutomaticUpdateValue, Computer, DaySinceLastUpdateBucket, ManagementGroupName, OSVersion, Server, SourceHealthServiceId, SourceSystem, TenantId, TimeGenerated, Type, WindowsUpdateAgentVersion, WSUSServer | 
+| Update deployment status | Computer, ComputerEnvironment, CorrelationId, EndTime, ErrorResult, InstallationStatus, KBID, ManagementGroupName, OSType, Product, Resource, ResourceGroup, ResourceId, ResourceProvider, ResourceType, SourceComputerId, SourceSystem, StartTime, SubscriptionId, SucceededOnRetry, TimeGenerated, Title, Type, UpdateId, UpdateRunName, VMUUID, _ResourceId | 
+| Update summary | Computer, ComputerEnvironment, CriticalUpdatesMissing, ManagementGroupName, NETRuntimeVersion, OldestMissingSecurityUpdateBucket, OldestMIssingSecurityUpdateInDays, OsVersion, OtherUpdatesMissing, Resource, ResourceGroup, ResourceId, ResourceProvider, ResourceType, RestartPending, SecurityUpdatesMissing, SourceComputerId, SourceSystem, SubscriptionId, TimeGenerated, TotalUpdateMissing, Type, VMUUID, WindowsUpdateAgentVersion, WindowsUpdateAgentVersion, WSUSServer, _ResourceId |
 
 ## Sample queries
 
