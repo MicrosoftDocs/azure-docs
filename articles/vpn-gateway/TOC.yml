@@ -156,7 +156,7 @@
       href: vpn-gateway-howto-always-on-user-tunnel.md
     - name: Advertise custom routes to P2S clients
       href: vpn-gateway-p2s-advertise-custom-routes.md
-  - name: Create a zone-redundant VNet gateway in Azure Availability Zones
+  - name: Create a zone-redundant gateway
     href: create-zone-redundant-vnet-gateway.md
   - name: Configure IPsec/IKE policies on connections
     href: vpn-gateway-ipsecikepolicy-rm-powershell.md
