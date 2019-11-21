@@ -126,7 +126,6 @@ No, backup storage is not deducted from your managed instance storage space. The
 You can do so using the [Azure Cost Management solution](/azure/cost-management/). Navigate to **Subscriptions** in the [Azure portal](https://portal.azure.com) and select **Cost Analysis**. 
 
 Use the **Accumulated costs** option and then filter by the **Resource type** as `microsoft.sql/managedinstances`. 
-
   
 ## Inbound NSG rules
 
