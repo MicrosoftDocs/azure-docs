@@ -23,11 +23,12 @@ You can test a user's credentials by entering the username and password then cli
 > [!NOTE]
 > It is possible to lock yourself out of your CycleCloud instance when changing from local to AD or LDAP authentication. Access will be granted to users that have both a local account and can authenticate to the server configured (local passwords will be ignored). The instructions below make effort to guard against lockout.
 
-1. Click the check box to enable Active Directory
-2. Enter the appropriate Active Directory settings
-3. Click "Test" to ensure that CycleCloud can use the provided settings. Use an account that exists on your authentication server.
-4. In a separate browser or incognito window, log in as the domain account you added in step 2.
-5. If the login in step 4 is successful, you can log out of your first session. Authentication is correctly configured.
+1. Click the check box to enable Active Directory.
+2. Enter the URL for your Active Directory server (starting with ldap:// or ldaps://)
+3. Enter the default domain in the form of "DOMAIN" or "@domain.com" depending on whether your users authenticate with names such as "DOMAIN\user" or "user@domain.com" (UPN). If this field is left blank, users must enter their fully-qualified name.
+4. Click "Test" to ensure that CycleCloud can use the provided settings. Use an account that exists on your authentication server.
+5. In a separate browser or incognito window, log in as the domain account you added in step 2.
+6. If the login in step 4 is successful, you can log out of your first session. Authentication is correctly configured.
 
 ![Active Directory configuration](~/images/active-directory.png)
 
@@ -43,8 +44,8 @@ with "Authentication succeeded".
 
 ### LDAP
 
-1. Click the check box to enable LDAP authentication
-2. Enter the appropriate LDAP settings
+1. Click the check box to enable LDAP authentication.
+2. Enter the appropriate LDAP settings.
 3. Click "Test" to ensure that CycleCloud can use the provided settings. Use an account that exists on your authentication server.
 4. In a separate browser or incognito window, log in as the domain account you added in step 2.
 5. If the login in step 4 is successful, you can log out of your first session. Authentication is correctly configured.
