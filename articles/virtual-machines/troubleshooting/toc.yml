@@ -176,8 +176,8 @@
 - name: Boot errors Linux
   href: boot-error-troubleshoot-linux.md
   items:
- - name: Grub Rescue
-   href: troubleshoot-vm-boot-error.md
+  - name: Grub Rescue
+    href: troubleshoot-vm-boot-error.md
 - name: Boot errors Windows
   href: boot-error-troubleshoot.md
   items:

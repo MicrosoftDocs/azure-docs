@@ -30,7 +30,7 @@ This article lists the common boot errors that you may receive when you start a 
 
 Troubleshoot a Linux VM by attaching the OS disk to a recovery VM using Azure:
 
-- [Azure VM repair](repair-linux-vm-using-azure-virtual-machines-repair-commands.md)
+- [Azure VM repair](repair-linux-vm-using-azure-virtual-machine-repair-commands.md)
 
  Disk Swap – this can be automated using either:
 - [Power Shell Recovery Scripts](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager)
