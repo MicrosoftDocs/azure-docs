@@ -24,6 +24,8 @@ This tutorial is intended for an experienced audience and assumes that the user 
 
 To learn more, see the [Azure SQL Database managed instance overview](sql-database-managed-instance-index.yml), [capabilities](sql-database-managed-instance.md), and [SQL Transactional Replication](sql-database-managed-instance-transactional-replication.md) articles.
 
+To configure replication between a managed instance publisher and a managed instance subscriber, see the [Configure transactional replication between two managed instances tutorial](replication-with-sql-database-managed-instance.md). 
+
 ## Prerequisites
 
 To complete the tutorial, make sure you have the following prerequisites:
@@ -122,7 +124,7 @@ Once VPN peering is established, test connectivity by launching SQL Server Manag
 
 ## 5 - Create private DNS zone
 
-A private DNS zone to allow DNS routing between the managed instances and the SQL Server. 
+A private DNS zone allows DNS routing between the managed instances and the SQL Server. 
 
 ### Create private DNS Zone
 1. Sign into the [Azure portal](https://portal.azure.com).
@@ -140,7 +142,7 @@ A private DNS zone to allow DNS routing between the managed instances and the SQ
 
 1. Go to your new **Private DNS zone** and select **Overview**. 
 1. Select **+ Record set** to create a new A-Record. 
-1. Provide the name of your SQL Server VM and the private internal IP address. 
+1. Provide the name of your SQL Server VM as well as the private internal IP address. 
 
    ![Configure A record](media/sql-database-managed-instance-configure-replication-tutorial/configure-a-record.png)
 
@@ -167,13 +169,14 @@ A private DNS zone to allow DNS routing between the managed instances and the SQ
 Copy the file share path in the format of:
 `\\storage-account-name.file.core.windows.net\file-share-name`
 
-The file share used for this tutorial is:
-`\\replstorage.file.core.windows.net\replshare`
+Example: `\\replstorage.file.core.windows.net\replshare`
 
-Copy the storage access keys in the format of:
+Copy the storage access key connection string in the format of:
 `DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
+Example: `DefaultEndpointsProtocol=https;AccountName=replstorage;AccountKey=dYT5hHZVu9aTgIteGfpYE64cfis0mpKTmmc8+EP53GxuRg6TCwe5eTYWrQM4AmQSG5lb3OBskhg==;EndpointSuffix=core.windows.net`
 
- For more information, see [View and copy storage access keys](../storage/common/storage-account-manage.md#access-keys). 
+
+For more information, see [View and copy storage access keys](../storage/common/storage-account-manage.md#access-keys). 
 
 
 ## 7 - Create a database
@@ -232,14 +235,15 @@ Once connectivity is established and you have a sample database, you can configu
 
    ```sql
    EXEC sp_adddistpublisher @publisher = 'sql-mi-publisher.b6bf57.database.windows.net', -- primary publisher
-                @distribution_db = N'distribution',
-                @security_mode = 0,
-                @login = N'azureuser',
-                @password = N'<publisher_password>',
-                @working_directory = N'\\replstorage.file.core.windows.net\replshare',
-                @storage_connection_string = N'<storage_connection_string>'
-   ```
+        @distribution_db = N'distribution',
+        @security_mode = 0,
+        @login = N'azureuser',
+        @password = N'<publisher_password>',
+        @working_directory = N'\\replstorage.file.core.windows.net\replshare',
+        @storage_connection_string = N'<storage_connection_string>'
+        -- example: @storage_connection_string = N'DefaultEndpointsProtocol=https;AccountName=replstorage;AccountKey=dYT5hHZVu9aTgIteGfpYE64cfis0mpKTmmc8+EP53GxuRg6TCwe5eTYWrQM4AmQSG5lb3OBskhg==;EndpointSuffix=core.windows.net'
 
+   ```
 
 1. Connect to the `sql-mi-publisher` managed instance. 
 1. Open a **New Query** window and run the following Transact-SQL code to register the distributor at the publisher: 
