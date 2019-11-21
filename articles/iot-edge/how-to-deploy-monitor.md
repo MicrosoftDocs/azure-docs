@@ -89,7 +89,7 @@ To add a module for the Azure Marketplace, follow these steps:
 
 1. In the **IoT Edge Modules** section of the page, click **Add**.
 1. Select **Marketplace Module**.
-1. Choose a module from the **IoT Edge Module Marketplace** page. The module you select is automatically configured for your subscription, resource group, and device. It then appears in your list of IoT Edge modules. Some modules may require additional configuration. For more information see [Deploy modules from Azure marketplace](how-to-deploy-modules-portal#deploy-modules-from-azure-marketplace).
+1. Choose a module from the **IoT Edge Module Marketplace** page. The module you select is automatically configured for your subscription, resource group, and device. It then appears in your list of IoT Edge modules. Some modules may require additional configuration. For more information see [Deploy modules from Azure marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace).
 
 To add a module from Azure Stream Analytics, follow these steps:
 
