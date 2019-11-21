@@ -420,6 +420,8 @@
         href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Azure classic CLI
         href: ../common/storage-azure-cli-nodejs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Monitor storage
+      href: ../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Move across regions
       href: ../common/storage-account-move.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Troubleshoot
@@ -529,6 +531,8 @@
       href: https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata
     - name: Azure Storage on Stack Overflow
       href: https://stackoverflow.com/questions/tagged/windows-azure-storage
+    - name: Monitoring data
+      href: ../common/monitor-storage-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Pricing for Blob storage
       href: https://azure.microsoft.com/pricing/details/storage/blobs/
     - name: Azure pricing calculator
