@@ -46,10 +46,10 @@ You can enable slow query and audit logging on your server. These logs are also 
 ## Performance Recommendations
 The [Performance Recommendations](concepts-performance-recommendations.md) feature identifies opportunities to improve workload performance. Performance Recommendations provides you with recommendations for creating new indexes that have the potential to improve the performance of your workloads. To produce index recommendations, the feature takes into consideration various database characteristics, including its schema and the workload as reported by Query Store. After implementing any performance recommendation, customers should test performance to evaluate the impact of those changes.
 
-## Service health notifications for planned maintenance
-The **Service health notifications for planned maintenance** feature will be utilizing the Azure communication channels and integrated as part of the Azure portal’s new Service Health blade – Planned maintenance section to allow customers to view all scheduled maintenance for their subscriptions all in one place. It also helps to scale the notification to the right audiences for different resource groups, as some external customers have different teams/contacts responsible for different resources.
+## Service health
+The **Service health** feature allows you to view service health for your subscriptions all in one place. The service health feature will be utilizing the Azure communication channels and integrated as part of the Azure portal’s new Service Health blade. This feature helps to scale the notification to the right audiences for different resource groups, as some external customers have different teams/contacts responsible for different resources.
 
-To learn about creating **Service health notifications for planned maintenance**, visit [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications.md) article.
+You can now view all scheduled maintenance for your subscription by using **Planned maintenance** event type. To learn about creating **Service health alerts**, visit [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications.md) article.
 
 > [!IMPORTANT]
 > Service health notifications for planned maintenance is currently in preview in EAST US and UK South region.
