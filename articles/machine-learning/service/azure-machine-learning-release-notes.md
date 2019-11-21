@@ -27,10 +27,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   
   + **Preview features**
     + [Contrib features below] 
-    + **azureml-contrib-dataset**
-      + When calling `to_pandas_dataframe` on a labeled dataset with the download option, you can now specify whether to overwrite existing files or not.
-      + When calling `keep_columns` or `drop_columns` that results in a timeseries, label, or image column being dropped, the corresponding capabilities will be dropped for the dataset as well.
-      + Fixed an issue with pytorch loader for the object detection task.
 
 + **Breaking changes**
   + [Reference upcoming breaking changes and old API support drop date]
@@ -39,6 +35,10 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-automl-runtime**
     + AutoML will now take into account both true and false classes when calculating averaged scalar metrics for binary classification tasks.
     + Moved Machine learning and training code in AzureML-AutoML-Core to a new package AzureML-AutoML-Runtime.
+  + **azureml-contrib-dataset**
+    + When calling `to_pandas_dataframe` on a labeled dataset with the download option, you can now specify whether to overwrite existing files or not.
+    + When calling `keep_columns` or `drop_columns` that results in a timeseries, label, or image column being dropped, the corresponding capabilities will be dropped for the dataset as well.
+    + Fixed an issue with pytorch loader for the object detection task.
   + **azureml-contrib-interpret**
     + Removed explanation dashboard widget from azureml-contrib-interpret, changed package to reference the new one in interpret_community
     + Updated version of interpret-community to 0.2.0
