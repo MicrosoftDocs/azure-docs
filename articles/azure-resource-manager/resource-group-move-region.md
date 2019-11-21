@@ -4,7 +4,7 @@ description: Provides an overview of moving Azure resources across Azure regions
 author: rayne-wiselman
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 11/21/2019
 ms.author: raynew
 ---
 
