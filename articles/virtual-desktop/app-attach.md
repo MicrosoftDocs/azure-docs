@@ -33,17 +33,17 @@ First, you need to get the OS image you'll use for the MSIX app. To get the OS i
 
 1. Open the [Windows Insider portal](https://www.microsoft.com/software-download/windowsinsiderpreviewadvanced?wa=wsignin1.0) and sign in.
 
->[!NOTE]
->You must be member of the Windows Insider program to access the Windows Insider portal. To learn more about the Windows Insider program, check out our [Windows Insider documentation](https://docs.microsoft.com/windows-insider/at-home/).
+    >[!NOTE]
+    >You must be member of the Windows Insider program to access the Windows Insider portal. To learn more about the Windows Insider program, check out our [Windows Insider documentation](https://docs.microsoft.com/windows-insider/at-home/).
 
-1. Scroll down to the **Select edition** section and select **Windows 10 Insider Preview Enterprise (FAST) – Build XXXXX**.
+2. Scroll down to the **Select edition** section and select **Windows 10 Insider Preview Enterprise (FAST) – Build XXXXX**.
 
-2. Select **Confirm**, then select the language you wish to use, and then select **Confirm** again.
+3. Select **Confirm**, then select the language you wish to use, and then select **Confirm** again.
     
      >[!NOTE]
      >At the moment, English is the only language that has been tested with the feature. You can select other languages, but they may not display as intended.
     
-3. When the download link is generated, select the **64-bit Download** and save it to your local hard disk.
+4. When the download link is generated, select the **64-bit Download** and save it to your local hard disk.
 
 ## Prepare the VHD image for Azure 
 
@@ -396,7 +396,7 @@ Each of these automatic scripts runs one phase of the app attach scripts:
 - The logoff script runs the deregister script.
 - The shutdown script runs the destage script.
 
-## Use packages from the Microsoft Store for Business or Education offline
+## Use packages offline
 
 If you're using packages from the [Microsoft Store for Business](https://businessstore.microsoft.com/) or the [Microsoft Store for Education](https://educationstore.microsoft.com/) within your network or on devices that aren't connected to the internet, you need to get the package licenses from the Microsoft Store and install them on your device to successfully run the app. If your device is online and can connect to the Microsoft Store for Business, the required licenses should download automatically, but if you're offline, you'll need to set up the licenses manually. 
 
