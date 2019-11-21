@@ -28,7 +28,7 @@ To learn more, see the [Azure SQL Database managed instance overview](sql-databa
 
 To complete the tutorial, make sure you have the following prerequisites:
 
-- An [Azure subscription](https://azure.microsoft.com/en-us/free/). 
+- An [Azure subscription](https://azure.microsoft.com/free/). 
 - Experience with deploying two managed instances within the same virtual network, and SQL Server, either on-premises, or on an Azure VM. 
 - [SQL Server Management Studio (SSMS) 18.0 or greater](/ssms/download-sql-server-management-studio-ssms).
 - The latest version of [Azure Powershell](/powershell/azure/install-az-ps?view=azps-1.7.0).
@@ -117,7 +117,7 @@ Get-AzVirtualNetworkPeering `
 
 ```
 
-Once VPN peering is established, test connectivity by launching SQL Server Management Studio (SSMS) on your SQL Server VM and connecting to both managed instances. For more information on connecting to a managed instance using SSMS, see [Use SSMS to connect to the MI](sql-database-managed-instance-configure-p2s#use-ssms-to-connect-to-the-managed-instance). 
+Once VPN peering is established, test connectivity by launching SQL Server Management Studio (SSMS) on your SQL Server VM and connecting to both managed instances. For more information on connecting to a managed instance using SSMS, see [Use SSMS to connect to the MI](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance). 
 
 ![Test connectivity to the managed instances](media/sql-database-managed-instance-configure-replication-tutorial/test-connectivity-to-mi.png)
 
