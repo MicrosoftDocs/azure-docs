@@ -1,7 +1,7 @@
 ---
 title: Azure Blockchain Service overview
 description: Overview of Azure Blockchain Service
-ms.date: 11/18/2019
+ms.date: 11/21/2019
 ms.topic: overview
 ms.reviewer: janders
 #Customer intent: As a network operator or developer, I want to understand how I can use Azure Blockchain Service to build and manage consortium blockchain networks on Azure

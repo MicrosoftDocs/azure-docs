@@ -58,4 +58,4 @@ To delete the resource group:
 In this quickstart, you deployed an Azure Blockchain Service member and a new consortium. Try the next quickstart to use  Azure Blockchain Development Kit for Ethereum to attach to a consortium on Azure Blockchain Service.
 
 > [!div class="nextstepaction"]
-> [Use Visual Studio Code to connect to an Azure Blockchain Service consortium network](connect-vscode.md)
+> [Use Visual Studio Code to connect to Azure Blockchain Service](connect-vscode.md)
