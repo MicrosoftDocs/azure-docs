@@ -1,3 +1,27 @@
+---
+title: AD FS support in Microsoft Authentication Library for Python
+titleSuffix: Microsoft identity platform
+description: Learn about Active Directory Federation Services (AD FS) support in Microsoft Authentication Library for Java (MSAL4j).
+services: active-directory
+documentationcenter: dev-center-name
+author: sangonzal
+manager: henrikm
+editor: ''
+
+ms.service: active-directory
+ms.subservice: develop
+ms.devlang: na
+ms.topic: conceptual
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 11/21/2019
+ms.author: sagonzal
+ms.reviewer: navyasri.canumalla
+ms.custom: aaddev
+#Customer intent: As an application developer, I want to learn about AD FS support in MSAL for Java so I can decide if this platform meets my application development needs and requirements.
+ms.collection: M365-identity-device-management
+---
+
 Active Directory Federation Services (AD FS) in Windows Server enables you to add OpenID Connect and OAuth 2.0 based authentication and authorization to applications you are developing. Those applications can authenticate users directly against AD FS. For more information, read [AD FS Scenarios for Developers](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers).
 
 
