@@ -204,4 +204,4 @@ In this tutorial, you've created Private and Shared queries. To learn more about
 language, continue to the query language details page.
 
 > [!div class="nextstepaction"]
-> [Get more information about the query language](./concepts/query-language.md)
+> [Get more information about the query language](../concepts/query-language.md)
