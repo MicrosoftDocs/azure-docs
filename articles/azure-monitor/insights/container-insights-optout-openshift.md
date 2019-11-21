@@ -94,7 +94,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
 
 ### Remove the solution using Azure CLI
 
-Execute the following command with Azure CLI on Linux to remove the solution and clean up the configuration on your AKS cluster.
+Execute the following command with Azure CLI on Linux to remove the solution and clean up the configuration on your cluster.
 
 ```azurecli
 az login   
@@ -112,7 +112,7 @@ ProvisioningState       : Succeeded
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Execute the following PowerShell commands in the folder containing the template to remove the solution and clean up the configuration from your AKS cluster.    
+Execute the following PowerShell commands in the folder containing the template to remove the solution and clean up the configuration from your cluster.    
 
 ```powershell
 Connect-AzAccount
@@ -126,4 +126,4 @@ The configuration change can take a few minutes to complete. When it's completed
 ProvisioningState       : Succeeded
 ```
 
-If the workspace was created only to support monitoring the cluster and it's no longer needed, you have to manually delete it. If you are not familiar with how to delete a workspace, see [Delete an Azure Log Analytics workspace with the Azure portal](../../log-analytics/log-analytics-manage-del-workspace.md). 
+If the workspace was created only to support monitoring the cluster and it's no longer needed, you have to manually delete it. If you are not familiar with how to delete a workspace, see [Delete an Azure Log Analytics workspace](../../log-analytics/log-analytics-manage-del-workspace.md). 
