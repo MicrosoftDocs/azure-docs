@@ -1,6 +1,6 @@
 ---
 title: Manage access to Azure resources using RBAC and Azure Resource Manager templates | Microsoft Docs
-description: Learn how to manage access to Azure resources for users, groups, and service principal using role-based access control (RBAC) and Azure Resource Manager templates.
+description: Learn how to manage access to Azure resources for users, groups, and applications using role-based access control (RBAC) and Azure Resource Manager templates.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/18/2019
+ms.date: 11/21/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -19,25 +19,25 @@ ms.reviewer: bagovind
 
 [Role-based access control (RBAC)](overview.md) is the way that you manage access to Azure resources. In addition to using Azure PowerShell or the Azure CLI, you can manage access to Azure resources using [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md). Templates can be helpful if you need to deploy resources consistently and repeatedly. This article describes how you can manage access using RBAC and templates.
 
-## Get the security principal identifier
+## Get object IDs
 
-When working with templates, you need to provide the unique security principal identifier of the user, group, or service principal you want to assign the role to. The identifier has the format: `11111111-1111-1111-1111-111111111111`. You can get the identifier using the Azure portal or you can use Azure PowerShell and Azure CLI commands.
+To assign a role, you need to specify the ID of the user, group, or application you want to assign the role to. The ID has the format: `11111111-1111-1111-1111-111111111111`. You can get the ID using the Azure portal, Azure PowerShell, or Azure CLI.
 
 ### User
 
-To get the identifier of a user, you can use the [Get-AzADUser](/powershell/module/az.resources/get-azaduser) or [az ad user show](/cli/azure/ad/user#az-ad-user-show) commands.
+To get the ID of a user, you can use the [Get-AzADUser](/powershell/module/az.resources/get-azaduser) or [az ad user show](/cli/azure/ad/user#az-ad-user-show) commands.
 
 ```azurepowershell
 $prinid = (Get-AzADUser -DisplayName "{name}").id
 ```
 
 ```azurecli
-prinid=$(az ad user show --upn-or-object-id "{email}" --query objectId --output tsv)
+prinid=$(az ad user show --id "{email}" --query objectId --output tsv)
 ```
 
 ### Group
 
-To get the identifier of a group, you can use the [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup) or [az ad group show](/cli/azure/ad/group#az-ad-group-show) commands.
+To get the ID of a group, you can use the [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup) or [az ad group show](/cli/azure/ad/group#az-ad-group-show) commands.
 
 ```azurepowershell
 $prinid = (Get-AzADGroup -DisplayName "{name}").id
@@ -47,9 +47,9 @@ $prinid = (Get-AzADGroup -DisplayName "{name}").id
 prinid=$(az ad group show --group "{name}" --query objectId --output tsv)
 ```
 
-### Service principal
+### Application
 
-To get the identifier of a service principal (identity used by an application), you can use the [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) or [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) commands. For a service principal, use the object ID and **not** the application ID.
+To get the ID of a service principal (identity used by an application), you can use the [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) or [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) commands. For a service principal, use the object ID and **not** the application ID.
 
 ```azurepowershell
 $prinid = (Get-AzADServicePrincipal -DisplayName "{name}").id
@@ -63,12 +63,12 @@ prinid=$(az ad sp list --display-name "{name}" --query [].objectId --output tsv)
 
 In RBAC, to grant access, you create a role assignment. The following template shows a basic way to create a role assignment. Some values are specified within the template. The following template demonstrates:
 
--  How to assign the [Reader](built-in-roles.md#reader) role to a user, group, or service principal at a resource group scope
+-  How to assign the [Reader](built-in-roles.md#reader) role to a user, group, or application at a resource group scope
 
 To use the template, you must do the following:
 
 - Create a new JSON file and copy the template
-- Replace `<your-principal-id>` with the identifier of a user, group, or service principal to assign the role to
+- Replace `<your-principal-id>` with the ID of a user, group, or application to assign the role to
 
 ```json
 {
@@ -106,13 +106,13 @@ The following shows an example of the Reader role assignment to a user for a res
 
 The previous template isn't very flexible. The following template uses parameters and can be used at different scopes. The following template demonstrates:
 
-- How to assign a role to a user, group, or service principal at either a resource group or subscription scope
+- How to assign a role to a user, group, or application at either a resource group or subscription scope
 - How to specify the Owner, Contributor, and Reader roles as a parameter
 
 To use the template, you must specify the following inputs:
 
-- The identifier of a user, group, or service principal to assign the role to
-- A unique identifier that will be used for the role assignment, or you can use the default identifier
+- The ID of a user, group, or application to assign the role to
+- A unique ID that will be used for the role assignment, or you can use the default ID
 
 ```json
 {
@@ -200,12 +200,12 @@ For the type and name of the role assignment, use the following format:
 The following template demonstrates:
 
 - How to create a new storage account
-- How to assign a role to a user, group, or service principal at the storage account scope
+- How to assign a role to a user, group, or application at the storage account scope
 - How to specify the Owner, Contributor, and Reader roles as a parameter
 
 To use the template, you must specify the following inputs:
 
-- The identifier of a user, group, or service principal to assign the role to
+- The ID of a user, group, or application to assign the role to
 
 ```json
 {
