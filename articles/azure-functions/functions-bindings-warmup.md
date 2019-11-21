@@ -1,7 +1,6 @@
 ---
 title: Azure Functions warmup trigger
 description: Understand how to use the warmup trigger in Azure Functions.
-services: functions
 documentationcenter: na
 author: alexkarcher-msft
 manager: gwallace
@@ -13,9 +12,9 @@ ms.date: 11/08/2019
 ms.author: alkarche
 ---
 
-# Azure Functions Warmup Trigger
+# Azure Functions warm-up trigger
 
-This article explains how to work with the warmup trigger in Azure Functions. This trigger type allows your function app to pre-load custom dependencies during the [pre-warming process](./functions-premium-plan.md#pre-warmed-instances) when running in the [Premium plan](./functions-premium-plan.md). You can use a warmup trigger to ensure your functions have already loaded all of their dependencies when they start processing requests.
+This article explains how to work with the warmup trigger in Azure Functions. The warmup trigger is supported only for function apps running in a [Premium plan](functions-premium-plan.md). A warmup trigger  is invoked when an instance is added to scale a running function app. You can use a warmup trigger to pre-load custom dependencies during the [pre-warming process](./functions-premium-plan.md#pre-warmed-instances) so that your functions are ready to start processing requests immediately. 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -31,7 +30,7 @@ The warmup trigger lets you define a function that will be run on an instance wh
 
 The warmup trigger is intended to create shared dependencies that will be used by the other functions in your app. [See examples of shared dependencies here](./manage-connections.md#client-code-examples).
 
-Not that the warmup trigger is only called during scale up operations, not during restarts or other non-scale startups. You must ensure your logic can load all necessary dependencies without using the warmup trigger. Lazy loading is a good pattern to achieve this.
+Not that the warmup trigger is only called during scale-up operations, not during restarts or other non-scale startups. You must ensure your logic can load all necessary dependencies without using the warmup trigger. Lazy loading is a good pattern to achieve this.
 
 ## Trigger - example
 
@@ -41,7 +40,7 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 
 
 * Your function must be named ```warmup``` and there may only be one warmup function per app.
-* To use warmup in dotnet functions, please make sure you have a package reference to **Microsoft.Azure.WebJobs.Extensions >= 3.0.5**
+* To use warmup as a .NET class library function, please make sure you have a package reference to **Microsoft.Azure.WebJobs.Extensions >= 3.0.5**
     * ```<PackageReference Include="Microsoft.Azure.WebJobs.Extensions" Version="3.0.5" />```
 
 
@@ -75,7 +74,7 @@ namespace WarmupSample
 
 The following example shows a warmup trigger in a *function.json* file and a [C# script function](functions-reference-csharp.md) that will run on each new instance when it is added to your app.
 
-Your function must be named ```warmup``` and there may only be one warmup function per app.
+Your function must be named ```warmup```, and there may only be one warmup function per app.
 
 Here's the *function.json* file:
 
