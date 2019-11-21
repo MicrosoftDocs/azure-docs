@@ -1,15 +1,16 @@
 ---
 # aka.ms/skyeye/meta for more information
 layout: HubPage
-ms.date: 10-19-2019
+hide_bc: false
+ms.date: 11-21-2019
 ms.topic: hub-page
 title: Speech Service Documentation
-description: Get started with the Speech service.
+description: Get started with the Speech Services.
 ---
 
 <div id="main" class="v2">
     <div class="container">
-        <h1>Speech Service Documentation</h1>
+        <h1>Speech Service documentation</h1>
         <ul class="pivots">
             <li>
                 <a href="#start">Get Started</a>
@@ -796,6 +797,111 @@ description: Get started with the Speech service.
                                                     <h3>Pricing</h3>
                                                     <p>Learn more about the costs associated with Custom Voice.
                                                     </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#architecture">Architecture</a>
+                <ul id="architecture">
+                    <li>
+                        <a href="#deploy-architecture">Deployment</a>
+                        <ul id="deploy-architecture" class="cardsC">
+                            <li>
+                                <a href="speech-container-howto.md?tabs=stt">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Deploy Speech-to-text Docker container</h3>
+                                                    <p>Learn how to deploy speech recognition functionality as a container image.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="speech-container-howto.md?tabs=tts">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Deploy Text-to-speech Docker container</h3>
+                                                    <p>Learn how to deploy speech synthesis functionality as a container image.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="speech-container-howto-on-premises">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Orchestrate Speech containers with Kubernetes & Helm</h3>
+                                                    <p>Leverage industry-leading container orchestration, with on-premises Kubernetes clusters and Speech containers.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="speech-container-howto.md?tabs=cstt">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Deploy Custom Speech-to-text Docker container</h3>
+                                                    <p>Learn how to deploy custom model speech recognition functionality as a container image.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="speech-container-howto.md?tabs=ctts">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Deploy Custom Text-to-speech Docker container</h3>
+                                                    <p>Learn how to deploy custom model speech synthesis functionality as a container image.</p>
                                                 </div>
                                             </div>
                                         </div>
