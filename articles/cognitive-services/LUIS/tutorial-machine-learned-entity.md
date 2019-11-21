@@ -54,11 +54,11 @@ Start with a machine-learned entity, which is the beginning and top-level entity
 
 While you may not know how detailed you want your entity when you begin your app, a best practice is to start with a machine-learned entity, then decompose with subcomponents as your app matures.
 
-In practical terms, you will create a machine-learned entity to represent an order for a pizza app. The order should have all the parts that are necessary to fullfil the order. To begin, the entity will include all order-related text, and specifically pull out size, and quantity. 
+In practical terms, you will create a machine-learned entity to represent an order for a pizza app. The order should have all the parts that are necessary to fullfil the order. To begin, the entity will extract order-related text, pulling out size, and quantity. 
 
-An utterance for `deliver one large cheese pizza` should extract the entire utterance as the order, then also extract `1` and `large`. 
+An utterance for `Please deliver one large cheese pizza to me` should extract `one large cheese pizza` as the order, then also extract `1` and `large`. 
 
-There is further decomposition you can do such as toppings or crust. After this tutorial, you should feel confident adding these subcomponents to your existing `Order` entity.
+There is further decomposition you can add such as creating subcomponents for toppings or crust. After this tutorial, you should feel confident adding these subcomponents to your existing `Order` entity.
 
 ## Import example .json to begin app
 
@@ -66,12 +66,12 @@ There is further decomposition you can do such as toppings or crust. After this 
 
 1. In the [preview LUIS portal](https://preview.luis.ai), on the **My apps** page, select **Import**, then **Import as JSON**. Find the saved JSON file from the previous step. You don't need to change the name of the app. Select **Done**
 
-1. From the **Manage** section, on the **Versions** tab, select the version, then select **Clone** to clone the version, and name it `mach-learn`. Then select **Done** to finish the clone process. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
+1. From the **Manage** section, on the **Versions** tab, select the version, then select **Clone** to clone the version, and name it `mach-learn`, then select **Done** to finish the clone process. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
 
     > [!TIP] 
     > Cloning is a best practice before you modify your app. When you are finished with a version, export a version, as a .json or .lu file, and check that into your source control.
 
-1. Select **Build** then **Intents** to see the main building blocks of a LUIS app, the intents.
+1. Select **Build** then **Intents** to see the intents, the main building blocks of a LUIS app.
 
     ![Change from the Versions page to the Intents page.](media/tutorial-machine-learned-entity/new-version-imported-app.png)
 
@@ -92,9 +92,9 @@ To extract details about a pizza order, create a top level, machine-learned `Ord
     ![Label beginning and ending of text for complete order](media/tutorial-machine-learned-entity/mark-complete-order.png)
 
     > [!NOTE]
-    > An entity won't always be the entire utterance. In this specific case, `pickup` indicates how the order is to be received so it should be part of the labeled entity for the order. 
+    > An entity won't always be the entire utterance. In this specific case, `pickup` indicates how the order is to be received. From a conceptual perspective, `pickup` should be part of the labeled entity for the order. 
 
-1. In the **Choose an entity type** box, select **Add Structure** then select **Next**. Structure is  necessary to allow for subcomponents such as size and quantity.
+1. In the **Choose an entity type** box, select **Add Structure** then select **Next**. Structure is necessary to add subcomponents such as size and quantity.
 
     ![Add structure to entity](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
 
@@ -103,7 +103,7 @@ To extract details about a pizza order, create a top level, machine-learned `Ord
 
 1. In the **Create new phrase list descriptor** box, enter the name `SizeDescriptor` then enter values of: `small`, `medium`, and `large`. When the **Suggestions** box fills in, select `extra large`, and `xl`. Select **Done** to create the new phrase list. 
 
-    This phrase list descriptor helps the `Size` subcomponent find words related to size by providing it with example word. This list doesn't need to include every size word but should include words that are expected to indicate size. 
+    This phrase list descriptor helps the `Size` subcomponent find words related to size by providing it with example words. This list doesn't need to include every size word but should include words that are expected to indicate size. 
 
     ![Create a descriptor for the size subcomponent](media/tutorial-machine-learned-entity/size-entity-size-descriptor-phrase-list.png)
 
@@ -177,6 +177,8 @@ A constraint is applied as a text match, either with exact matching (such as a l
 1. In the drop-down list, select the prebuilt number. 
 
     ![Create quantity entity with prebuilt number as constraint.](media/tutorial-machine-learned-entity/create-constraint-from-prebuilt-number.png)
+
+    The `Quantity` entity will only fire if a prebuilt number is found.
 
     The entity with the constraint is created but not yet applied to the example utterances.
 
