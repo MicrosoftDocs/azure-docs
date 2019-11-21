@@ -1,6 +1,6 @@
 ---
-title: [service-name] monitoring data reference | Microsoft Docs
-description: 
+title: Azure Storage monitoring data reference | Microsoft Docs
+description: Put description here.
 author: bwren
 services: azure-monitor
 ms.service: azure-monitor
@@ -9,16 +9,16 @@ ms.date: 09/30/2019
 ms.author: bwren
 ms.subservice: logs
 ---
-<!-- Template for monitoring data reference article for Azure services. This is supported by a main monitoring article for the service. -->
 
+# Azure Storage monitoring data reference
 
-
-# [service-name] monitoring data reference
-See [Monitoring [service-name]](monitor-service.md) for details on collecting and analyzing monitoring data for [service-name].
+See [Monitoring Azure Storage](monitor-service.md) for details on collecting and analyzing monitoring data for Azure Storage.
 
 <!-- Fill in the table with the operations that can be created in the Activity log for the service. -->
+
 ## Activity log
-The following table lists the operations related to Azure Cosmos DB that may be create in the Activity log.
+
+The following table lists the operations related to Azure Storage that might be created in the Activity log.
 
 | Operation | Description |
 |:---|:---|
@@ -26,7 +26,9 @@ The following table lists the operations related to Azure Cosmos DB that may be 
 | | |
 
 <!-- Fill in the table with the operations that can be created in the Activity log for the service. Create a separate section for each table. -->
+
 ## Resource logs
+
 The following table lists the properties for Azure Cosmos DB resource logs when they're collected in Azure Monitor Logs or Azure Storage. 
 
 ### AzureDiagnostics table
@@ -37,8 +39,10 @@ The following table lists the properties for Azure Cosmos DB resource logs when 
 |  |  |
 
 <!-- Fill in the namespace and the table with the metrics for the service. -->
+
 ### Metrics
-The following tables list the platform metrics collected for [service-name]. All metrics are stored in the namespace **<!-- Namespace -->**.
+
+The following tables list the platform metrics collected for Azure Storage. All metrics are stored in the namespace **<!-- Namespace -->**.
 
 
 | Metric | Unit | Description | 
@@ -49,5 +53,5 @@ The following tables list the platform metrics collected for [service-name]. All
 
 ## See Also
 
-- See [Monitoring Azure Cosmos DB](monitor-cosmos-db.md) for a description of monitoring Azure Cosmos DB.
-- See [Monitoring Azure resources with Azure Monitor](../azure-monitor/insights/monitor-azure-resources.md) for details on monitoring Azure resources.
+- See [Monitoring Azure Storage](monitor-storage.md) for a description of monitoring Azure Cosmos DB.
+- See [Monitoring Azure resources with Azure Monitor](../../azure-monitor/insights/monitor-azure-resources.md) for details on monitoring Azure resources.
