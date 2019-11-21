@@ -1,5 +1,5 @@
 ---
-title: Manage directories, files, and ACLs in Azure Data Lake Storage Gen2 (.NET)
+title: Manage files in Azure Data Lake Storage Gen2 - .NET (preview)
 description: Use the Azure Storage client library to manage directories and file and directory access control lists (ACL) in storage accounts that have a hierarchical namespace.
 author: normesta
 ms.service: storage
@@ -10,9 +10,12 @@ ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ---
 
-# Manage directories, files, and ACLs in Azure Data Lake Storage Gen2 (.NET)
+# Manage files in Azure Data Lake Storage Gen2 - .NET (preview)
 
 This article shows you how to use .NET to create and manage directories, files, and permissions in storage accounts that have a hierarchical namespace. 
+
+> [!IMPORTANT]
+> The [Azure.Storage.Files.DataLake](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/12.0.0-preview.6) NuGet package that is featured in this article is currently in public preview.
 
 [API reference documentation](https://azure.github.io/azure-sdk-for-net/storage.html) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/12.0.0-preview.6) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples)
 

@@ -1,5 +1,5 @@
 ---
-title: Manage directories, files, and permissions in Azure Data Lake Storage Gen2 (Java)
+title: Manage files in Azure Data Lake Storage Gen2 - Java (preview)
 description: Use Azure Storage libraries for Java to manage directories and file and directory access control lists (ACL) in storage accounts that have a hierarchical namespace.
 author: normesta
 ms.service: storage
@@ -10,9 +10,12 @@ ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ---
 
-# Manage directories, files, and permissions in Azure Data Lake Storage Gen2 (Java)
+# Manage files in Azure Data Lake Storage Gen2 - Java (preview)
 
 This article shows you how to use Java to create and manage directories, files, and permissions in storage accounts that have a hierarchical namespace. 
+
+> [!IMPORTANT]
+> The Java library that is featured in this article is currently in public preview.
 
 [API reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.0-preview.6/index.html) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake) | [Package (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake/12.0.0-preview.6/jar) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake)
 
