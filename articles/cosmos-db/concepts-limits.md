@@ -26,7 +26,7 @@ After you create an Azure Cosmos account under your subscription, you can manage
 | Maximum storage per container | Unlimited |
 | Maximum storage per database | Unlimited |
 | Maximum attachment size per Account (Attachment feature is being depreciated) | 2 GB |
-| Minimum RUs required for 1 GB | 10 RU/s |
+| Minimum RUs required per 1 GB | 10 RU/s |
 
 > [!NOTE]
 > To learn about best practices for managing workloads that have partition keys requiring higher limits for storage or throughput, see [Create a synthetic partition key](synthetic-partition-keys.md).
