@@ -102,7 +102,7 @@ Follow these steps to grant guest access to a Time Series Insights environment t
 
     [![Guest reviews permissions and accepts](media/data-access/data-access-grant-permission-sign-in.png)](media/data-access/data-access-grant-permission-sign-in.png#lightbox)
 
-1. The administrator [shares the environment URL](time-series-insights/time-series-insights-parameterized-urls.md) with their guest.
+1. The administrator [shares the environment URL](time-series-insights-parameterized-urls.md) with their guest.
 
 1. After the guest user is signed in to the email address you used to invite them, and they accept the invitation, they will be directed to Azure Portal. 
 
