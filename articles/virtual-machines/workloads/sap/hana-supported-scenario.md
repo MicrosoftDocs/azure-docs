@@ -12,7 +12,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/06/2018
+ms.date: 11/25/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 
@@ -34,7 +34,7 @@ Let's understand the terms and definitions used in the document.
 - Multipurpose DR: A system at DR site configured to use non-production environment along with production instance configured to use to DR event. 
 - Single SID:  A system with one instance installed.
 - Multi SID: A system with multiple instances configured. Also called an MCOS environment.
-
+- HSR: SAP HANA System Replication.
 
 ## Overview
 The HANA Large Instances support the variety of architectures to accomplish your business requirements. The following list covers the scenarios and their configuration details. 
@@ -558,6 +558,239 @@ The following mountpoints are preconfigured:
 -  At the DR: The volumes and mountpoints are configured (marked as “Required for HANA installation”) for the production HANA Instance installation at the DR HLI unit. 
 - At the DR: The data, logbackups, and shared volumes (marked as “Storage Replication”) are replicated via snapshot from the production site. These volumes are mounted during the failover time only. For more information, read the document [Disaster recovery failover procedure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) for more details. 
 - Boot volume for **SKU Type I class** is replicated to DR node.
+
+
+## 11. Single node with DR using HSR
+ 
+This topology supports one node in a scale up configuration with one SID with the HANA system replication to the DR site for a primary SID. In the diagram, only single SID is depicted at the primary site, but multisid (MCOS) is supported as well.
+
+### Architecture diagram  
+
+![single-node-hsr-dr-11.png](media/hana-supported-scenario/single-node-hsr-dr-11.png)
+
+### Ethernet
+The following network interfaces are preconfigured:
+
+| NIC LOGICAL INTERFACES | SKU TYPE | Name with SUSE OS | Name with RHEL OS | Use case|
+| --- | --- | --- | --- | --- |
+| A | TYPE I | eth0.tenant | eno1.tenant | Client to HLI/HSR |
+| B | TYPE I | eth2.tenant | eno3.tenant | Configured but not in use |
+| C | TYPE I | eth1.tenant | eno2.tenant | Node to storage |
+| D | TYPE I | eth4.tenant | eno4.tenant | Configured but not in use |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client to HLI/HSR |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Configured but not in use |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node to storage |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Configured but not in use |
+
+### Storage
+The following mountpoints are preconfigured on both the HLI units (Primary and DR):
+
+| Mountpoint | Use case | 
+| --- | --- |
+|/hana/shared/SID | HANA Install for SID | 
+|/hana/data/SID/mnt00001 | Data files install for SID | 
+|/hana/log/SID/mnt00001 | Log files install for SID | 
+|/hana/logbackups/SID | Redo logs for SID |
+
+
+### Key considerations
+- /usr/sap/SID is a symbolic link to /hana/shared/SID.
+- For MCOS: Volume size distribution is based off the database size in memory. Refer the [Overview and architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) section to learn what database sizes in memory are supported with multisid environment.
+- Primary node get sync to DR node using HANA system replication. 
+- [Global Reach](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-global-reach) is used to link the ExpressRoute circuits together to make a private network between your regions network.
+
+
+
+## 12. Single node HSR to DR (cost optimized) 
+ 
+ This topology supports one node in a scale up configuration with one SID with the HANA system replication to the DR site for a primary SID. In the diagram, only single SID is depicted at the primary site, but multisid (MCOS) is supported as well. At the DR site, HLI unit is used for QA instance while production operations are running from the primary site. At the time of DR failover (or failover test), QA instance at DR site is taken down.
+
+### Architecture diagram  
+
+![single-node-hsr-dr-cost-optimized-12.png](media/hana-supported-scenario/single-node-hsr-dr-cost-optimized-12.png)
+
+### Ethernet
+The following network interfaces are preconfigured:
+
+| NIC LOGICAL INTERFACES | SKU TYPE | Name with SUSE OS | Name with RHEL OS | Use case|
+| --- | --- | --- | --- | --- |
+| A | TYPE I | eth0.tenant | eno1.tenant | Client to HLI/HSR |
+| B | TYPE I | eth2.tenant | eno3.tenant | Configured but not in use |
+| C | TYPE I | eth1.tenant | eno2.tenant | Node to storage |
+| D | TYPE I | eth4.tenant | eno4.tenant | Configured but not in use |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client to HLI/HSR |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Configured but not in use |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node to storage |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Configured but not in use |
+
+### Storage
+The following mountpoints are preconfigured:
+
+| Mountpoint | Use case | 
+| --- | --- |
+|**At the primary site**|
+|/hana/shared/SID | HANA Install for production SID | 
+|/hana/data/SID/mnt00001 | Data files install for production SID | 
+|/hana/log/SID/mnt00001 | Log files install for production SID | 
+|/hana/logbackups/SID | Redo logs for production SID |
+|**At the DR site**|
+|/hana/shared/SID | HANA Install for production SID | 
+|/hana/data/SID/mnt00001 | Data files install for production  SID | 
+|/hana/log/SID/mnt00001 | Log files install for production SID | 
+|/hana/logbackups/SID | Redo logs for production SID |
+|/hana/shared/QA-SID | HANA Install for QA SID | 
+|/hana/data/QA-SID/mnt00001 | Data files install for QA  SID | 
+|/hana/log/QA-SID/mnt00001 | Log files install for QA SID |
+|/hana/logbackups/QA-SID | Redo logs for QA SID |
+
+### Key considerations
+- /usr/sap/SID is a symbolic link to /hana/shared/SID.
+- For MCOS: Volume size distribution is based off the database size in memory. Refer the [Overview and architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) section to learn what database sizes in memory are supported with multisid environment.
+- At the DR: The volumes and mountpoints are configured (marked as “PROD Instance at DR site”) for the production HANA Instance installation at the DR HLI unit. 
+- At the DR: The data, logbackups, log, shared volumes for QA (marked as “QA Instance installation”) are configured for the QA instance installation.
+- Primary node get sync to DR node using HANA system replication. 
+- [Global Reach](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-global-reach) is used to link the ExpressRoute circuits together to make a private network between your regions network.
+
+## 13. High availability and disaster recovery with HSR 
+ 
+ This topology support two nodes for the HANA System Replication (HSR) configuration for the local regions high availability. For the DR, the third node at the DR region gets sync from primary site using HSR (async mode). 
+
+### Architecture diagram  
+
+![hana-system-replication-dr-13.png](media/hana-supported-scenario/hana-system-replication-dr-13.png)
+
+### Ethernet
+The following network interfaces are preconfigured:
+
+| NIC LOGICAL INTERFACES | SKU TYPE | Name with SUSE OS | Name with RHEL OS | Use case|
+| --- | --- | --- | --- | --- |
+| A | TYPE I | eth0.tenant | eno1.tenant | Client to HLI/HSR |
+| B | TYPE I | eth2.tenant | eno3.tenant | Configured but not in use |
+| C | TYPE I | eth1.tenant | eno2.tenant | Node to storage |
+| D | TYPE I | eth4.tenant | eno4.tenant | Configured but not in use |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client to HLI/HSR |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Configured but not in use |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node to storage |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Configured but not in use |
+
+### Storage
+The following mountpoints are preconfigured:
+
+| Mountpoint | Use case | 
+| --- | --- |
+|**At the primary site**|
+|/hana/shared/SID | HANA Install for production SID | 
+|/hana/data/SID/mnt00001 | Data files install for production SID | 
+|/hana/log/SID/mnt00001 | Log files install for production SID | 
+|/hana/logbackups/SID | Redo logs for production SID |
+|**At the DR site**|
+|/hana/shared/SID | HANA Install for production SID | 
+|/hana/data/SID/mnt00001 | Data files install for production  SID | 
+|/hana/log/SID/mnt00001 | Log files install for production SID | 
+|/hana/logbackups/SID | Redo logs for production SID |
+
+
+### Key considerations
+- /usr/sap/SID is a symbolic link to /hana/shared/SID.
+- At the DR: The volumes and mountpoints are configured (marked as “PROD DR instance”) for the production HANA Instance installation at the DR HLI unit. 
+- Primary site node get sync to DR node using HANA system replication. 
+- [Global Reach](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-global-reach) is used to link the ExpressRoute circuits together to make a private network between your regions network.
+
+## 14. High availability and disaster recovery with HSR (cost optimized)
+ 
+ This topology support two nodes for the HANA System Replication (HSR) configuration for the local regions high availability. For the DR, the third node at the DR region gets sync from primary site using HSR (async mode), while an another instance (eg. QA) already running out from the DR node. 
+
+### Architecture diagram  
+
+![hana-system-replication-dr-cost-optimized-14.png](media/hana-supported-scenario/hana-system-replication-dr-cost-optimized-14.png)
+
+### Ethernet
+The following network interfaces are preconfigured:
+
+| NIC LOGICAL INTERFACES | SKU TYPE | Name with SUSE OS | Name with RHEL OS | Use case|
+| --- | --- | --- | --- | --- |
+| A | TYPE I | eth0.tenant | eno1.tenant | Client to HLI/HSR |
+| B | TYPE I | eth2.tenant | eno3.tenant | Configured but not in use |
+| C | TYPE I | eth1.tenant | eno2.tenant | Node to storage |
+| D | TYPE I | eth4.tenant | eno4.tenant | Configured but not in use |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client to HLI/HSR |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Configured but not in use |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node to storage |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Configured but not in use |
+
+### Storage
+The following mountpoints are preconfigured:
+
+| Mountpoint | Use case | 
+| --- | --- |
+|**At the primary site**|
+|/hana/shared/SID | HANA Install for production SID | 
+|/hana/data/SID/mnt00001 | Data files install for production SID | 
+|/hana/log/SID/mnt00001 | Log files install for production SID | 
+|/hana/logbackups/SID | Redo logs for production SID |
+|**At the DR site**|
+|/hana/shared/SID | HANA Install for production SID | 
+|/hana/data/SID/mnt00001 | Data files install for production  SID | 
+|/hana/log/SID/mnt00001 | Log files install for production SID | 
+|/hana/logbackups/SID | Redo logs for production SID |
+|/hana/shared/QA-SID | HANA Install for QA SID | 
+|/hana/data/QA-SID/mnt00001 | Data files install for QA  SID | 
+|/hana/log/QA-SID/mnt00001 | Log files install for QA SID |
+|/hana/logbackups/QA-SID | Redo logs for QA SID |
+
+### Key considerations
+- /usr/sap/SID is a symbolic link to /hana/shared/SID.
+- At the DR: The volumes and mountpoints are configured (marked as “PROD DR instance”) for the production HANA Instance installation at the DR HLI unit. 
+- At the DR: The data, logbackups, log, shared volumes for QA (marked as “QA Instance installation”) are configured for the QA instance installation.
+- Primary site node get sync to DR node using HANA system replication. 
+- [Global Reach](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-global-reach) is used to link the ExpressRoute circuits together to make a private network between your regions network.
+
+## 15. Scale-out with DR using HSR
+ 
+This topology supports multiple nodes in a scale-out with a DR. You can request this topology with or without the standby node. Primary site nodes get sync to the DR site nodes with HANA system replication (async mode).
+
+
+### Architecture diagram  
+
+![scale-out-dr-hsr-15.png](media/hana-supported-scenario/scale-out-dr-hsr-15.png)
+
+
+### Ethernet
+The following network interfaces are preconfigured:
+
+| NIC LOGICAL INTERFACES | SKU TYPE | Name with SUSE OS | Name with RHEL OS | Use case|
+| --- | --- | --- | --- | --- |
+| A | TYPE I | eth0.tenant | eno1.tenant | Client to HLI/HSR |
+| B | TYPE I | eth2.tenant | eno3.tenant | Node to node communication |
+| C | TYPE I | eth1.tenant | eno2.tenant | Node to storage |
+| D | TYPE I | eth4.tenant | eno4.tenant | Configured but not in use |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client to HLI/HSR |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Node to node communication |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node to storage |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Configured but not in use |
+
+### Storage
+The following mountpoints are preconfigured:
+
+| Mountpoint | Use case | 
+| --- | --- |
+|**On the primary node**|
+|/hana/shared | HANA Install for production SID | 
+|/hana/data/SID/mnt00001 | Data files install for production SID | 
+|/hana/log/SID/mnt00001 | Log files install for production SID | 
+|/hana/logbackups/SID | Redo logs for production SID |
+|**On the DR node**|
+|/hana/shared | HANA Install for production SID | 
+|/hana/data/SID/mnt00001 | Data files install for production SID | 
+|/hana/log/SID/mnt00001 | Log files install for production SID | 
+|/hana/logbackups/SID | Redo logs for production SID |
+
+
+### Key considerations
+- /usr/sap/SID is a symbolic link to /hana/shared/SID.
+- At the DR: The volumes and mountpoints are configured for the production HANA Instance installation at the DR HLI unit. 
+- Primary site nodes get sync to DR nodes using HANA system replication. 
+- [Global Reach](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-global-reach) is used to link the ExpressRoute circuits together to make a private network between your regions network.
 
 
 ## Next steps
