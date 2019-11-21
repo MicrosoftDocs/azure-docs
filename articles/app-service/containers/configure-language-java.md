@@ -636,7 +636,7 @@ For more info on configuring database connectivity with WildFly, see [PostgreSQL
 
 ### Use Service Bus as a message broker
 
-You can configure WildFly and your message-driven beans to use [Azure Service Bus](/azure/service-bus-messaging) as your message broker. After configuration, you can send and receive messages using [Apache Qpid](https://qpid.apache.org) as your Java Message Service (JMS) client.
+You can configure WildFly and your message-driven beans to use [Azure Service Bus](/azure/service-bus-messaging) as your message broker. After configuration, you can send and receive messages using [Apache Qpid](https://qpid.apache.org) as your Java Message Service (JMS) client. There are a few steps to configure a JMS resource adapter (JMS RA) which will enable Enterprise Java Beans (EJBs) to configure a remote JMS connection factory and queue. This remote setup will point to Azure Service Bus and use the Apache Qpid JMS provider for the AMQP protocol.
 
 The following steps describe the required configuration and code. These steps assume you have created an App Service instance for hosting your bean, a Service Bus Namespace, a Queue, and a Topic with a Subscription. For information on creating these resources, see:
 
@@ -652,7 +652,7 @@ The following steps describe the required configuration and code. These steps as
     | WEBAPP_NAME         | The name of your App Service instance.                                     |
     | REGION              | The name of the region where your app is hosted.                           |
     | DEFAULT_SBNAMESPACE | The name of your Service Bus Namespace.                                    |
-    | SB_SAS_POLICY       | The name of the shared access signature (SAS) policy for your namespace.       |
+    | SB_SAS_POLICY       | The name of the shared access signature (SAS) policy for your namespace.   |
     | SB_SAS_KEY          | The primary or secondary key for your queue's SAS policy.                  |
     | SB_QUEUE            | The name of your Service Bus Queue.                                        |
     | SB_TOPIC            | The name of your Service Bus Topic.                                        |
@@ -709,10 +709,10 @@ The following steps describe the required configuration and code. These steps as
 
     ```bash
     echo "Generating jndi.properties file in /home/site/deployments/tools directory"
-    echo "connectionfactory.${PROP_HELLOWORLDMDB_CONN}=amqps://${DEFAULT_SBNAMESPACE}.servicebus.windows.net?amqp.idleTimeout=120000&jms.username=${SB_SAS_POLICY}&jms.password=${SB_SAS_KEY}" > /home/site/deployments/tools/jndi.properties
-    echo "queue.${PROP_HELLOWORLDMDB_QUEUE}=${SB_QUEUE}" >> /home/site/deployments/tools/jndi.properties
-    echo "topic.${PROP_HELLOWORLDMDB_TOPIC}=${SB_TOPIC}" >> /home/site/deployments/tools/jndi.properties
-    echo "queue.${PROP_HELLOWOROLDMDB_SUBSCRIPTION}=${SB_TOPIC}/Subscriptions/${SB_SUBSCRIPTION}" >> /home/site/deployments/tools/jndi.properties
+    echo "connectionfactory.mymdbconnection=amqps://${DEFAULT_SBNAMESPACE}.servicebus.windows.net?amqp.idleTimeout=120000&jms.username=${SB_SAS_POLICY}&jms.password=${SB_SAS_KEY}" > /home/site/deployments/tools/jndi.properties
+    echo "queue.mymdbqueue=${SB_QUEUE}" >> /home/site/deployments/tools/jndi.properties
+    echo "topic.mymdbtopic=${SB_TOPIC}" >> /home/site/deployments/tools/jndi.properties
+    echo "queue.mymdbsubscription=${SB_TOPIC}/Subscriptions/${SB_SUBSCRIPTION}" >> /home/site/deployments/tools/jndi.properties
     echo "====== contents of /home/site/deployments/tools/jndi.properties ======"
     cat /home/site/deployments/tools/jndi.properties
     echo "====== EOF /home/site/deployments/tools/jndi.properties ======"
@@ -722,14 +722,14 @@ The following steps describe the required configuration and code. These steps as
     echo "# Configure the ee subsystem to enable MDB annotation property substitution" >> /home/site/deployments/tools/commands.cli
     echo "/subsystem=ee:write-attribute(name=annotation-property-replacement,value=true)" >> /home/site/deployments/tools/commands.cli
     echo "# Define system properties to be used in the substititution" >> /home/site/deployments/tools/commands.cli
-    echo "/system-property=property.helloworldmdb.queue:add(value=java:global/remoteJMS/${PROP_HELLOWORLDMDB_QUEUE})" >> /home/site/deployments/tools/commands.cli
-    echo "/system-property=property.helloworldmdb.topic:add(value=java:global/remoteJMS/${PROP_HELLOWOROLDMDB_SUBSCRIPTION})" >> /home/site/deployments/tools/commands.cli
-    echo "/system-property=property.connection.factory:add(value=java:global/remoteJMS/${PROP_HELLOWORLDMDB_CONN})" >> /home/site/deployments/tools/commands.cli
+    echo "/system-property=property.mymdb.queue:add(value=java:global/remoteJMS/mymdbqueue})" >> /home/site/deployments/tools/commands.cli
+    echo "/system-property=property.mymdb.topic:add(value=java:global/remoteJMS/mymdbsubscription)" >> /home/site/deployments/tools/commands.cli
+    echo "/system-property=property.connection.factory:add(value=java:global/remoteJMS/mymdbconnection)" >> /home/site/deployments/tools/commands.cli
     echo "/subsystem=ee:list-add(name=global-modules, value={\"name\" => \"org.jboss.genericjms.provider\", \"slot\" =>\"main\"}" >> /home/site/deployments/tools/commands.cli
     echo "/subsystem=naming/binding=\"java:global/remoteJMS\":add(binding-type=external-context,module=org.jboss.genericjms.provider,class=javax.naming.InitialContext,environment=[java.naming.factory.initial=org.apache.qpid.jms.jndi.JmsInitialContextFactory,org.jboss.as.naming.lookup.by.string=true,java.naming.provider.url=/home/site/deployments/tools/jndi.properties])" >> /home/site/deployments/tools/commands.cli
     echo "/subsystem=resource-adapters/resource-adapter=generic-ra:add(module=org.jboss.genericjms,transaction-support=XATransaction)" >> /home/site/deployments/tools/commands.cli
-    echo "/subsystem=resource-adapters/resource-adapter=generic-ra/connection-definitions=sbf-cd:add(class-name=org.jboss.resource.adapter.jms.JmsManagedConnectionFactory, jndi-name=java:/jms/${PROP_HELLOWORLDMDB_CONN})" >> /home/site/deployments/tools/commands.cli
-    echo "/subsystem=resource-adapters/resource-adapter=generic-ra/connection-definitions=sbf-cd/config-properties=ConnectionFactory:add(value=${PROP_HELLOWORLDMDB_CONN})" >> /home/site/deployments/tools/commands.cli
+    echo "/subsystem=resource-adapters/resource-adapter=generic-ra/connection-definitions=sbf-cd:add(class-name=org.jboss.resource.adapter.jms.JmsManagedConnectionFactory, jndi-name=java:/jms/mymdbconnection)" >> /home/site/deployments/tools/commands.cli
+    echo "/subsystem=resource-adapters/resource-adapter=generic-ra/connection-definitions=sbf-cd/config-properties=ConnectionFactory:add(value=mymdbconnection)" >> /home/site/deployments/tools/commands.cli
     echo "/subsystem=resource-adapters/resource-adapter=generic-ra/connection-definitions=sbf-cd/config-properties=JndiParameters:add(value=\"java.naming.factory.initial=org.apache.qpid.jms.jndi.JmsInitialContextFactory;java.naming.provider.url=/home/site/deployments/tools/jndi.properties\")" >> /home/site/deployments/tools/commands.cli
     echo "/subsystem=resource-adapters/resource-adapter=generic-ra/connection-definitions=sbf-cd:write-attribute(name=security-application,value=true)" >> /home/site/deployments/tools/commands.cli
     echo "/subsystem=ejb3:write-attribute(name=default-resource-adapter-name, value=generic-ra)" >> /home/site/deployments/tools/commands.cli
@@ -776,7 +776,7 @@ The following steps describe the required configuration and code. These steps as
     @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
     @MessageDriven(name = "MyQueueListener", activationConfig = {
             @ActivationConfigProperty(propertyName = "connectionFactory", propertyValue = "${property.connection.factory}"),
-            @ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "${property.helloworldmdb.queue}"),
+            @ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "${property.mymdb.queue}"),
             @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue"),
             @ActivationConfigProperty(propertyName = "acknowledgeMode", propertyValue = "Auto-acknowledge") })
     public class MyQueueListener implements MessageListener {
@@ -800,14 +800,14 @@ The following steps describe the required configuration and code. These steps as
     }
     ```
 
-    The `connectionFactory` and `destinationLookup` values refer to the JNDI values configured previously. The `destinationType` value is `javax.jms.Queue`, indicating that you are connecting to a Service Bus Queue instance. This value should be `javax.jms.Topic` when you connect to a Service Bus Topic, as shown here:
+    The `connectionFactory` and `destinationLookup` values refer to the WildFly system property values configured by the *startup.sh* script. The `destinationType` value is `javax.jms.Queue`, indicating that you are connecting to a Service Bus Queue instance. This value should be `javax.jms.Topic` when you connect to a Service Bus Topic, as shown here:
 
     ```java
     @TransactionManagement(TransactionManagementType.BEAN)
     @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
     @MessageDriven(name = "MyTopicListener", activationConfig = {
             @ActivationConfigProperty(propertyName = "connectionFactory", propertyValue = "${property.connection.factory}"),
-            @ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "${property.helloworldmdb.topic}"),
+            @ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "${property.mymdb.topic}"),
             @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Topic"),
             @ActivationConfigProperty(propertyName = "acknowledgeMode", propertyValue = "Auto-acknowledge") })
         public class MyTopicListener implements MessageListener {
