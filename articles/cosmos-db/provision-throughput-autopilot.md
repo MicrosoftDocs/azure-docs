@@ -89,6 +89,17 @@ You can configure autopilot for databases or containers while creating them. Use
 
 With similar steps, you can also create a database with provisioned throughput in autopilot mode.
 
+## <a id="autopilot-limits"> Throughput and storage limits for autopilot
+
+The following table shows the maximum throughout and storage limits for different options in autopilot mode:
+
+|Maximum throughput limit  |Maximum storage limit  |
+|---------|---------|
+|4000 RU/s  |   50 GB    |
+|20,000 RU/s  |  200 GB  |
+|100,000 RU/s    |  1 TB   |
+|500,000 RU/s    |  5 TB  |
+
 ## Next steps
 
 * Learn more about [logical partitions](partition-data.md).
