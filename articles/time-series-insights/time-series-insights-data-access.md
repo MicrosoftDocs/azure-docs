@@ -56,9 +56,9 @@ Follow these steps to grant data access for a user principal.
 
     [![Verify the correct users and roles](media/data-access/data-access-verify-and-confirm-assignments.png)](media/data-access/data-access-verify-and-confirm-assignments.png#lightbox)
 
-## Provide guest access from another AAD tenant
+## Provide guest access from another Azure AD tenant
 
-`Guest` isn’t a management role. It’s a term used for an account that’s invited from one tenant to another. After the guest account is invited into the tenant’s directory, it can have the same access control applied to it like any other account. You can grant management access to a Time Series Insights Environment by using the Access Control (IAM) blade. Or you can grant access to the data in the environment through the Data Access Policies blade. For more information on Azure Active Directory (Azure AD) tenant guest access, read [Add Azure Active Directory B2B collaboration users in the Azure portal](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
+The `Guest` role isn’t a management role. It’s a term used for an account that’s invited from one tenant to another. After the guest account is invited into the tenant’s directory, it can have the same access control applied to it like any other account. You can grant management access to a Time Series Insights Environment by using the Access Control (IAM) blade. Or you can grant access to the data in the environment through the Data Access Policies blade. For more information on Azure Active Directory (Azure AD) tenant guest access, read [Add Azure Active Directory B2B collaboration users in the Azure portal](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
 
 Follow these steps to grant guest access to a Time Series Insights environment to an Azure AD user from another tenant.
 
@@ -104,7 +104,7 @@ Follow these steps to grant guest access to a Time Series Insights environment t
 
 1. The administrator [shares the environment URL](time-series-insights-parameterized-urls.md) with their guest.
 
-1. After the guest user is signed in to the email address you used to invite them, and they accept the invitation, they will be directed to Azure Portal. 
+1. After the guest user is signed in to the email address you used to invite them, and they accept the invitation, they will be directed to Azure portal. 
 
 1. The guest can now access the shared environment using the environment URL provided by the administrator. They can enter that URL into their web browser for immediate access.
 
