@@ -66,11 +66,8 @@ The following scenarios are not supported for staged rollout:
 - Admins can roll out cloud authentication by using security groups. To avoid sync latency when you're using on-premises Active Directory security groups, we recommend that you use cloud security groups. The following conditions apply:
 
     - You can use a maximum of 10 groups per feature. That is, you can use 10 groups each for *password hash sync*, *pass-through authentication*, and *seamless SSO*.
-
     - Nested groups are *not supported*. This scope applies to public preview as well.
-
     - Dynamic groups are *not supported* for staged rollout.
-
     - Contact objects inside the group will block the group from being added.
 
 - You still need to make the final cutover from federated to cloud authentication by using Azure AD Connect or PowerShell. Staged rollout doesn't switch domains from federated to managed.
@@ -222,15 +219,15 @@ Removing a user from the group disables staged rollout for that user. To disable
 
 ## Frequently asked questions
 
-**Q: Can a customer use this capability in production?**
+**Q: Can I use this capability in production?**
 
-A: Yes, this feature can be used in your production tenant, but we recommend that you first try out this capability in your test tenant.
+A: Yes, you can use this feature in your production tenant, but we recommend that you first try it out in your test tenant.
 
 **Q: Can this feature be used to maintain a permanent "co-existence," where some users use federated authentication and others use cloud authentication?**
 
 A: No, this feature is designed for migrating from federated to cloud authentication in stages and then to eventually cut over to cloud authentication. We do not recommend using a permanent mixed state, because this approach could lead to unexpected authentication flows.
 
-**Q: Can we use PowerShell to perform staged rollout?**
+**Q: Can I use PowerShell to perform staged rollout?**
 
 A: Yes. To learn how to use PowerShell to perform staged rollout, see [Azure AD Preview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
 
