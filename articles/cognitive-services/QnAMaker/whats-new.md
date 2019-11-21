@@ -22,9 +22,9 @@ Learn what's new with QnA Maker.
 
 ### November 2019
 
-* [US Government cloud support](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-services-aiandcognitiveservices#qna-maker) for QnA Maker
-* [Multi-turn](https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/how-to/multiturn-conversation) feature in GA
-* [Chit-chat support](https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/how-to/chit-chat-knowledge-base#language-support) available in tier-1 languages
+* [US Government cloud support](https://docs.microsoft.com/azure/azure-government/documentation-government-services-aiandcognitiveservices#qna-maker) for QnA Maker
+* [Multi-turn](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/multiturn-conversation) feature in GA
+* [Chit-chat support](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/chit-chat-knowledge-base#language-support) available in tier-1 languages
 
 ### October 2019
 
