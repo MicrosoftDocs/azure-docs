@@ -103,4 +103,4 @@ Now that you have an overview of Azure IoT Central, here are suggested next step
   - [As a builder, customize the application for your operators](tutorial-customize-operator.md)
   - [As an operator, monitor your devices](tutorial-monitor-devices.md)
   - [As an operator, add a real device to your solution](tutorial-add-device.md)
-  - [As a device developer, create code for your devices](tutorial-add-device.md#prepare-the-client-code)
+  - [As a device developer, create code for your devices](tutorial-add-device.md)
