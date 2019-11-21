@@ -181,9 +181,9 @@
     items:
     - name: Move across regions
       href: resource-group-move-region.md
-    - name: Move support (regions)
+    - name: Supported services
       href: region-move-support.md
-    - name: Move services (regions)
+    - name: Services
       items:
       - name: Azure VMs
         href: ../site-recovery/azure-to-azure-tutorial-migrate.md?toc=/azure/azure-resource-manager/toc.json
@@ -201,11 +201,11 @@
     items:
     - name: Move across resource groups/subscriptions
       href: resource-group-move-resources.md
-    - name: Move support (resource groups/subscriptions)
+    - name: Supported services
       href: move-support-resources.md
     - name: Troubleshoot move
       href: troubleshoot-move.md
-    - name: Move services (resource groups/subscriptions)
+    - name: Services
       items:
       - name: App Service
         href: ./move-limitations/app-service-move-limitations.md

@@ -108,7 +108,7 @@ The following Azure PaaS resources are supported by Azure Security Center:
 
 To learn more about the supported features for the above list of PaaS resources, see [PaaS services supported features](security-center-services.md#paas-services).
 
-Protection for Virtual Machines residing Azure Stack is also supported. For more information about Security Center’s integration with Azure Stack, see [Onboard your Azure Stack virtual machines to Security Center](https://docs.microsoft.com/azure/security-center/quick-onboard-azure-stack).
+Protection for Virtual Machines residing in Azure Stack is also supported. For more information about Security Center’s integration with Azure Stack, see [Onboard your Azure Stack virtual machines to Security Center](https://docs.microsoft.com/azure/security-center/quick-onboard-azure-stack).
 
 ## Next steps
 
