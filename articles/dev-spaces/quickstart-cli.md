@@ -1,10 +1,6 @@
 ---
 title: "Deploy an application on Kubernetes using Azure Dev Spaces"
-titleSuffix: Azure Dev Spaces
-author: zr-msft
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-ms.author: zarhoads
 ms.date: 07/08/2019
 ms.topic: quickstart
 description: "Deploy a microservice on AKS with Azure Dev Spaces"

@@ -1,5 +1,5 @@
 ---
-title: Create and use compute targets for model training
+title: Use compute targets for model training
 titleSuffix: Azure Machine Learning
 description: Configure the training environments (compute targets) for machine learning model training. You can easily switch between training environments. Start training locally. If you need to scale out, switch to a cloud-based compute target.
 services: machine-learning

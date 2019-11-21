@@ -1,10 +1,6 @@
 ---
 title: "How to create a Kubernetes cluster enabled for Azure Dev Spaces using Azure Cloud Shell"
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: "10/04/2018"
 ms.topic: "conceptual"
 description: "Learn how to quickly create a Kubernetes cluster enabled for Azure Dev Spaces directly from your browser without installing anything."
