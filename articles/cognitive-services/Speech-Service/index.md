@@ -1061,7 +1061,7 @@ description: Get started with the Speech Services.
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Overview</h3>
+                                                    <h3>Designing Voice assistants</h3>
                                                     <p>Learn how to create natural, human-like conversational interfaces for your applications and experiences with Voice assistants.</p>
                                                 </div>
                                             </div>
