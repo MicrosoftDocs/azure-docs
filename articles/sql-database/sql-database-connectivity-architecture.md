@@ -49,6 +49,10 @@ If you are connecting from outside Azure, your connections have a connection pol
 
 ![architecture overview](./media/sql-database-connectivity-architecture/connectivity-onprem.png)
 
+> [!IMPORTANT]
+> Additionally open ports 14000-14999 to enable [Connecting with DAC](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
+
+
 ## Azure SQL Database gateway IP addresses
 
 The table below lists the IP Addresses of Gateways by region. To connect to an Azure SQL Database, you need to allow network traffic to & from **all** Gateways for the region.

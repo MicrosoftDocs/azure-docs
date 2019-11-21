@@ -1,5 +1,6 @@
 ---
-title: Log network traffic flow to and from a VM - tutorial - Azure portal | Microsoft Docs
+title: 'Tutorial: Log network traffic flow to and from a VM - Azure portal'
+titleSuffix: Azure Network Watcher
 description: Learn how to log network traffic flow to and from a VM using Network Watcher's NSG flow logs capability.
 services: network-watcher
 documentationcenter: na

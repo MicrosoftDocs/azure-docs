@@ -7,9 +7,7 @@ author: bandersmsft
 manager: dougeby
 editor: ''
 tags: billing
-
-ms.assetid: db93f546-6b56-4b51-960d-1a5bf0274fc8
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na

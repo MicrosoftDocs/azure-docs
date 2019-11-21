@@ -1,6 +1,6 @@
 ---
 title: High availability ports overview in Azure
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Learn about high availability ports load balancing on an internal load balancer. 
 services: load-balancer
 documentationcenter: na

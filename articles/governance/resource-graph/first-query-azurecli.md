@@ -1,6 +1,6 @@
 ---
-title: Run your first query using Azure CLI
-description: This article walks you through the steps to enable the Resource Graph extension for Azure CLI and run your first query.
+title: "Quickstart: Your first Azure CLI query"
+description: In this quickstart, you follow the steps to enable the Resource Graph extension for Azure CLI and run your first query.
 ms.date: 10/18/2019
 ms.topic: quickstart
 ---

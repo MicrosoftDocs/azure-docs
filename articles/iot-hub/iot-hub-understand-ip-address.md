@@ -17,7 +17,7 @@ The IP address of your IoT hub changes after a failover to another region. You c
 
 ## Discover your IoT hub IP address
 
-Your IoT Hub IP address can be discovered by using a reverse DNS lookup on the CNAME ([*iot-hub-name*].azure-devices.net). You can use **nslookup** to verify the IP address of an IoT hub instance:
+Your IoT Hub IP address can be discovered by using a DNS lookup on the CNAME ([*iot-hub-name*].azure-devices.net). You can use **nslookup** to verify the IP address of an IoT hub instance:
 
 ```cmd/sh
 nslookup {YourIoTHubName}.azure-devices.net
