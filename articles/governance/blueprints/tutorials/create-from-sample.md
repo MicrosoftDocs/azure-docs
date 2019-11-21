@@ -255,4 +255,4 @@ In this tutorial, you've learned how to create a new blueprint from a sample def
 more about Azure Blueprints, continue to the blueprint lifecycle article.
 
 > [!div class="nextstepaction"]
-> [Learn about the blueprint lifecycle](./concepts/lifecycle.md)
+> [Learn about the blueprint lifecycle](../concepts/lifecycle.md)
