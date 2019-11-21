@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/12/2019
+ms.date: 11/20/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 #Customer intent: As an application developer, I want to know how to set up OpenId Connect authentication in a web application built using Node.js with Express.
@@ -145,7 +145,7 @@ Clean the solution, rebuild the solution, and run  UserSync application, and beg
 
 When you sign in, the app will first ask you for permission to sign you in & read your user profile.  This consent allows the application to ensure that you are a business user.
 
-![User Consent](./media/tutorial-v2-aspnet-daemon-webapp/FirstConsent.PNG)
+![User Consent](./media/tutorial-v2-aspnet-daemon-webapp/firstconsent.png)
 
 The application will then try to sync a list of users from your Azure AD tenant, via the Microsoft Graph.  If it is unable to do so, it will ask you (the tenant administrator) to connect your tenant to the application.
 
