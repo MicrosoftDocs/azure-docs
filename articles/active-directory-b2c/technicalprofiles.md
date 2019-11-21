@@ -190,10 +190,10 @@ The **DisplayClaim** element contains the following attributes:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | No | The identifier of a claim type already defined in the ClaimsSchema section in the policy file or parent policy file. |
-| DisplayWidgetReferenceId | No | The identifier of a [display widget](display-widgets.md) already defined in the ClaimsSchema section in the policy file or parent policy file. |
+| DisplayControlReferenceId | No | The identifier of a [display control](display-controls.md) already defined in the ClaimsSchema section in the policy file or parent policy file. |
 | Required | No | Indicates whether the display claim is required. |
 
-The **DisplayClaim** requires that you specify either a `ClaimTypeReferenceId` or `DisplayWidgetReferenceId`.
+The **DisplayClaim** requires that you specify either a `ClaimTypeReferenceId` or `DisplayControlReferenceId`.
 
 ### PersistedClaims
 

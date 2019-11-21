@@ -48,8 +48,12 @@ The **BuildingBlocks** element is added inside the [TrustFrameworkPolicy](trustf
     <Localization>
       ...
     </Localization>
+    <DisplayControls>
+      ...
+    </DisplayControls>
  </BuildingBlocks>
 ```
+
 
 The **BuildingBlocks** element contains the following elements that must be specified in the order defined:
 
@@ -58,11 +62,11 @@ The **BuildingBlocks** element contains the following elements that must be spec
 - [Predicates and PredicateValidationsInput](predicates.md) - Enables you to perform a validation process to ensure that only properly formed data is entered into a claim.
 
 - [ClaimsTransformations](claimstransformations.md) - Contains a list of claims transformations that can be used in your policy.  A claims transformation converts one claim into another. In the claims transformation, you specify a transform method, such as:
-    - Changing the case of a string claim to the one specified. For example, changing a string from lowercase to uppercase.
-    - Comparing two claims and returning a claim with true indicating that the claims match, otherwise false.
-    - Creating a string claim from the provided parameter in the policy.
-    - Creating a random string using the random number generator.
-    - Formatting a claim according to the provided format string. This transformation uses the C# `String.Format` method.
+  - Changing the case of a string claim to the one specified. For example, changing a string from lowercase to uppercase.
+  - Comparing two claims and returning a claim with true indicating that the claims match, otherwise false.
+  - Creating a string claim from the provided parameter in the policy.
+  - Creating a random string using the random number generator.
+  - Formatting a claim according to the provided format string. This transformation uses the C# `String.Format` method.
 
 - InputValidation - This element allows you to perform boolean aggregations that are similar to *and* and *or*.
 
@@ -70,4 +74,4 @@ The **BuildingBlocks** element contains the following elements that must be spec
 
 - [Localization](localization.md) - Allows you to support multiple languages. The localization support in policies allows you set up the list of supported languages in a policy and pick a default language. Language-specific strings and collections are also supported.
 
-- [DisplayWidgets](display-widgets.md) - Defines the display widgets to be used on a page. Display widgets have special functionality and interact with back-end validation technical profiles.
+- [DisplayControls](display-controls.md) - Defines the display controls to be used on a page. Display controls have special functionality and interact with back-end validation technical profiles. Display controls are currently in **preview**.

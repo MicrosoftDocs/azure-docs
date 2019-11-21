@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # Custom email verification in Azure Active Directory B2C
 
-Use custom email in Azure Active Directory B2C (Azure AD B2C) to send customized email to users that sign up to use your applications. By using [DisplayWidgets](display-widgets.md) (currently in preview) and a third-party email provider, you can use your own email template and *From:* address and subject, as well as support localization and custom one-time password (OTP) settings.
+Use custom email in Azure Active Directory B2C (Azure AD B2C) to send customized email to users that sign up to use your applications. By using [DisplayControls](display-controls.md) (currently in preview) and a third-party email provider, you can use your own email template and *From:* address and subject, as well as support localization and custom one-time password (OTP) settings.
 
 Custom email verification requires the use of a third-party email provider like [SendGrid](https://sendgrid.com) or [SparkPost](https://sparkpost.com), or a custom REST API. This article describes setting up a solution that uses SendGrid.
 
@@ -171,24 +171,24 @@ These claims types are necessary to generate and verify the email address using 
 </ClaimType>
 ```
 
-## Create a DisplayWidget
+## Create a DisplayControl
 
-A verification display widget is used to verify the email address with a verification code that's sent to the user.
+A verification display control is used to verify the email address with a verification code that's sent to the user.
 
-This example display widget is configured to:
+This example display control is configured to:
 
 1. Collect the `email` address claim type from the user.
 1. Wait for the user to provide the `verificationCode` claim type with the code sent to the user.
-1. Return the `email` back to the self-asserted technical profile that has a reference to this display widget.
+1. Return the `email` back to the self-asserted technical profile that has a reference to this display control.
 1. Using the `SendCode` action, generate an OTP code and send an email with the OTP code to the user.
 
-![Send verification code email action](media/custom-email/display-widget-verification-email-action-01.png)
+![Send verification code email action](media/custom-email/display-control-verification-email-action-01.png)
 
-Under [ClaimsSchema](claimsschema.md), add the following [DisplayWidget](display-widgets.md) of type [VerificationWidget](display-widget-verification.md) to your policy.
+Under [ClaimsSchema](claimsschema.md), add the following [DisplayControl](display-controls.md) of type [VerificationControl](display-control-verification.md) to your policy.
 
 ```XML
-<DisplayWidgets>
-  <DisplayWidget Id="emailVerificationWidget" UserInterfaceWidgetType="VerificationWidget">
+<DisplayControls>
+  <DisplayControl Id="emailVerificationControl" UserInterfaceControlType="VerificationControl">
     <DisplayClaims>
       <DisplayClaim ClaimTypeReferenceId="email" Required="true" />
       <DisplayClaim ClaimTypeReferenceId="verificationCode" ControlClaimType="VerificationCode" Required="true" />
@@ -209,8 +209,8 @@ Under [ClaimsSchema](claimsschema.md), add the following [DisplayWidget](display
         </ValidationClaimsExchange>
       </Action>
     </Actions>
-  </DisplayWidget>
-</DisplayWidgets>
+  </DisplayControl>
+</DisplayControls>
 ```
 
 ## Add OTP technical profiles
@@ -313,11 +313,11 @@ The JSON object's structure is defined by the IDs in dot notation of the InputPa
 </ClaimsTransformation>
 ```
 
-## Make a reference to the DisplayWidget
+## Make a reference to the DisplayControl
 
-In the final step, add a reference to the DisplayWidget you created. Replace your existing `LocalAccountSignUpWithLogonEmail` self-asserted technical profile with the following if you used an earlier version of Azure AD B2C policy. This technical profile uses `DisplayClaims` with a reference to the DisplayWidget.
+In the final step, add a reference to the DisplayControl you created. Replace your existing `LocalAccountSignUpWithLogonEmail` self-asserted technical profile with the following if you used an earlier version of Azure AD B2C policy. This technical profile uses `DisplayClaims` with a reference to the DisplayControl.
 
-For more information, see [Self-asserted technical profile](restful-technical-profile.md) and [DisplayWidget](display-widgets.md).
+For more information, see [Self-asserted technical profile](restful-technical-profile.md) and [DisplayControl](display-controls.md).
 
 ```XML
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
@@ -332,8 +332,8 @@ For more information, see [Self-asserted technical profile](restful-technical-pr
     <InputClaim ClaimTypeReferenceId="email" />
   </InputClaims>
   <DisplayClaims>
-    <DisplayClaim DisplayWidgetReferenceId="emailVerificationWidget" />
-    <DisplayClaim DisplayWidgetReferenceId="SecondaryEmailVerificationWidget" />
+    <DisplayClaim DisplayControlReferenceId="emailVerificationControl" />
+    <DisplayClaim DisplayControlReferenceId="SecondaryEmailVerificationControl" />
     <DisplayClaim ClaimTypeReferenceId="displayName" Required="true" />
     <DisplayClaim ClaimTypeReferenceId="givenName" Required="true" />
     <DisplayClaim ClaimTypeReferenceId="surName" Required="true" />

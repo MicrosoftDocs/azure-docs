@@ -70,7 +70,7 @@ In a self-asserted technical profile, the output claims collection return the cl
 - **Output the claims via output claims transformation**
 - **Setting a default value in an output claim** - Without collecting data from the user or returning the data from the validation technical profile. The `LocalAccountSignUpWithLogonEmail` self-asserted technical profile sets the **executed-SelfAsserted-Input** claim to `true`.
 - **A validation technical profile returns the output claims** - Your technical profile may call a validation technical profile that returns some claims. You may want to bubble up the claims and return them to the next orchestration steps in the user journey. For example, when signing in with a local account, the self-asserted technical profile named `SelfAsserted-LocalAccountSignin-Email` calls the validation technical profile named `login-NonInteractive`. This technical profile validates the user credentials and also returns the user profile. Such as 'userPrincipalName', 'displayName', 'givenName' and 'surName'.
-- **A display widget returns the output claims** - Your technical profile may have a reference to a [display widget](display-widgets.md). The display widget returns some claims, such as the verified email address. You may want to bubble up the claims and return them to the next orchestration steps in the user journey. 
+- **A display control returns the output claims** - Your technical profile may have a reference to a [display control](display-controls.md). The display control returns some claims, such as the verified email address. You may want to bubble up the claims and return them to the next orchestration steps in the user journey.
 
 The following example demonstrates the use of a self-asserted technical profile.
 
@@ -87,8 +87,8 @@ The following example demonstrates the use of a self-asserted technical profile.
     <InputClaim ClaimTypeReferenceId="email" />
   </InputClaims>
   <DisplayClaims>
-    <DisplayClaim DisplayWidgetReferenceId="emailVerificationWidget" />
-    <DisplayClaim DisplayWidgetReferenceId="SecondaryEmailVerificationWidget" />
+    <DisplayClaim DisplayControlReferenceId="emailVerificationControl" />
+    <DisplayClaim DisplayControlReferenceId="SecondaryEmailVerificationControl" />
     <DisplayClaim ClaimTypeReferenceId="displayName" Required="true" />
     <DisplayClaim ClaimTypeReferenceId="givenName" Required="true" />
     <DisplayClaim ClaimTypeReferenceId="surName" Required="true" />

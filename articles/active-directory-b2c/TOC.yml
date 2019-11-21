@@ -307,11 +307,11 @@
             href: active-directory-b2c-reference-sso-custom.md
           - name: Validation
             href: validation-technical-profile.md
-      - name: DisplayWidgets
-        href: display-widgets.md
+      - name: DisplayControls
+        href: display-controls.md
         items:
         - name: Verification
-          href: display-widget-verification.md
+          href: display-control-verification.md
       - name: UserJourneys
         href: userjourneys.md
       - name: RelyingParty
