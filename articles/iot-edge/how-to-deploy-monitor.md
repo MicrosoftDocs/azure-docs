@@ -39,11 +39,11 @@ For more information about device twins and tags, see [Understand and use device
 
 ## Create a deployment
 
-You can create a deployment for a single module onto an IoT Edge device, or a layered deployment where multiple modules are layered onto the same IoT Edge device. For more information about their differences, see [Understand IoT Edge automatic deployments for single devices or at scale](module-deployment-monitoring.md).
+You can create a deployment onto a single IoT Edge device, or a layered deployment where multiple deployments are layered onto the same IoT Edge device. For more information about their differences, see [Understand IoT Edge automatic deployments for single devices or at scale](module-deployment-monitoring.md).
 
 1. In the [Azure portal](https://portal.azure.com), go to your IoT Hub.
 1. From the left bar, select **IoT Edge** under **Automatic Device Management**.
-1. Select **Create Deployment** or **Create Layed Deployment**.
+1. Select **Create Deployment** or **Create Layered Deployment**.
 
 There are five steps to create a deployment. The following sections walk through each one.
 
