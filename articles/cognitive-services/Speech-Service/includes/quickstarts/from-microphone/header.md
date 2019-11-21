@@ -12,7 +12,7 @@ ms.date: 11/20/2019
 ms.author: erhopf
 ---
 
-In this quickstart, you'll use the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) to interactively recognize speech from a microphone input, and get a text transcription of the captured audio. It's easy to integrate this feature into your apps or devices for common transcription tasks, and can be used in conjunction with bot framework to build voice assistants. 
+In this quickstart, you'll use the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) to interactively recognize speech from a microphone input, and get a text transcription of the captured audio. It's easy to integrate this feature into your apps or devices for common transcription tasks, and can be used for more complex integrations, like combining the Bot Framework and Speech SDK build voice assistants. 
 
 After satisfying a few prerequisites, recognizing speech from a microphone only takes four steps:
 
