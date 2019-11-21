@@ -88,7 +88,7 @@
     href: container-distribution.md
   - name: Start a Cluster
     href: start-cluster.md
-  - name: Connect to a cluster mode
+  - name: Connect to a Cluster Node
     href: connect-to-node.md
   - name: Terminate a Cluster
     href: end-cluster.md
