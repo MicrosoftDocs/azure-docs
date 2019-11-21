@@ -59,8 +59,8 @@ Follow these instructions to deploy the Azure Resource Management template:
 Here's how to enter parameters for configuring the tool:
 
 - For the **isServicePrincipal** parameter, select **false**.
-- For the credentials, enter the Azure AD credentials with MFA disabled which will be used to sign in to Azure to create the Azure AD application and Azure web app resources. See [What you need to run the Azure Resource Manager template](#what-you-need-to-run-the-azure-resource-manager-template).
-- For the **applicationName**, use a unique name for the application that will be registered in your Azure Active Directory for the management tool and which will be used for the web app URL; for example, Apr3UX.
+- For the credentials, enter your Azure Active Directory credentials with multi-factor authentication disabled. These credentials will be the ones you use to sign in to Azure and create the Azure AD application and Azure web app resources. To learn more, see [What you need to run the Azure Resource Manager template](#what-you-need-to-run-the-azure-resource-manager-template).
+- For the **applicationName**, use a unique name for your app that will be registered in your Azure Active Directory. This name will also be used for the web app URL. For example, you can use a name like "Apr3UX."
 
 ## Provide consent for the management tool
 
