@@ -1,25 +1,19 @@
 ---
-title: 'Tutorial: Use IoT Hub events to trigger Azure Logic Apps'
-description: 'Tutorial: Using the event routing service of Azure Event Grid, create automated processes to perform Azure Logic Apps actions based on IoT Hub events.' 
+title: Tutorial - Use IoT Hub events to trigger Azure Logic Apps
+description: Tutorial - Using the event routing service of Azure Event Grid, create automated processes to perform Azure Logic Apps actions based on IoT Hub events.
 services: iot-hub
-documentationcenter: ''
-author: kgremban
-manager: philmea
-editor: ''
-
+author: robinsh
 ms.service: iot-hub
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/11/2019
-ms.author: kgremban
+ms.date: 11/21/2019
+ms.author: robinsh
 ---
 
-# Tutorial: Send email notifications about Azure IoT Hub events using Logic Apps
+# Tutorial: Send email notifications about Azure IoT Hub events using Event Grid and Logic Apps
 
 Azure Event Grid enables you to react to events in IoT Hub by triggering actions in your downstream business applications.
 
-This article walks through a sample configuration that uses IoT Hub and Event grid. By the end, you will have an Azure logic app set up to send a notification email every time a device is added to your IoT hub. 
+This article walks through a sample configuration that uses IoT Hub and Event Grid. By the end, you will have an Azure logic app set up to send a notification email every time a device is added to your IoT hub. 
 
 ## Prerequisites
 
@@ -29,20 +23,27 @@ This article walks through a sample configuration that uses IoT Hub and Event gr
 
 ## Create a logic app
 
-First, create a logic app and add an Event grid trigger that monitors the resource group for your virtual machine. 
+First, create a logic app and add an event grid trigger that monitors the resource group for your virtual machine. 
 
 ### Create a logic app resource
 
-1. In the [Azure portal](https://portal.azure.com), select **Create a resource** > **Integration** > **Logic App**.
+1. In the [Azure portal](https://portal.azure.com), select **Create a resource**, then type "logic app" in the search box and select return. Select **Logic App** from the results.
 
    ![Create logic app](./media/publish-iot-hub-events-to-logic-apps/select-logic-app.png)
 
-2. Give your logic app a name that's unique in your subscription, then select the same subscription, resource group, and location as your IoT hub. 
+2. On the next screen, select **Create**. 
+
+3.  Give your logic app a name that's unique in your subscription, then select the same subscription, resource group, and location as your IoT hub. 
+
+   ![Fields for create logic app](./media/publish-iot-hub-events-to-logic-apps/create-logic-app-fields.png)
+
 3. Select **Create**.
 
-4. Once the resource is created, navigate to your logic app. 
+4. Once the resource is created, navigate to your logic app. To do this, select **Resource groups**, then select the resource group you created for this tutorial. Then find the logic app in the list of resources and select it. 
 
-5. The Logic Apps Designer shows you templates for common patterns so you can get started faster. In the Logic App Designer under **Templates**, choose **Blank Logic App** so that you can build your logic app from scratch.
+5. In the Logic Apps Designer, page down to see **Templates**. Choose **Blank Logic App** so that you can build your logic app from scratch.
+
+***ROBIN STOPPED HERE***
 
 ### Select a trigger
 
