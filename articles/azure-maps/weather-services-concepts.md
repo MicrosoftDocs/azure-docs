@@ -53,8 +53,8 @@ Some of the Weather service APIs allow user to specify if the data is returned e
 | 5           |![](./media/weather-services-concepts/IntermittentClouds.png)| Yes |  No   | Sunny|
 | 6           |![](./media/weather-services-concepts/PartlySunnyShowers.png)| Yes |  No   | Sunny|
 | 7           |![](./media/weather-services-concepts/MostlyCloudyShowers.png)| Yes |  No   | Sunny|
-| 8          |![](./media/weather-services-concepts/MostlyCloudyThunderStorms.png)| Yes |  No   | Sunny|
-| 9           |![](./media/weather-services-concepts/PartlySunnyThunderStorms.png)| Yes |  No   | Sunny|
+| 8          |![](./media/weather-services-concepts/MostlyCloudyTStorms.png)| Yes |  No   | Sunny|
+| 9           |![](./media/weather-services-concepts/PartlySunnyTStorms.png)| Yes |  No   | Sunny|
 | 10           |![](./media/weather-services-concepts/Cloudy.png)| Yes |  No   | Sunny|
 
 
