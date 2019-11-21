@@ -1,14 +1,9 @@
 ---
-title: 'Azure Backup: Create Recovery Services vaults'
-description: creating Recovery Services vaults that stores the backups and recovery points
+title: Create Recovery Services vaults
+description: In this article, learn how to create Recovery Services vaults that store the backups and recovery points.
 ms.reviewer: sogup
-author: dcurwin
-manager: carmonm
-keywords: Recovery Services vault; Azure VM backup; Azure VM restore;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.author: dacurwin
 ---
 
 # Create a Recovery Services vault
@@ -71,7 +66,14 @@ Azure Backup automatically handles storage for the vault. You need to specify ho
    - Learn more about [geo](../storage/common/storage-redundancy-grs.md) and [local](../storage/common/storage-redundancy-lrs.md) redundancy.
 
 > [!NOTE]
-> Changing **Storage Replication type** (Locally-redundant/ Geo-redundant) for a Recovery services vault has to be done before configuring backups in the vault. Once you configure backup, the option to modify is disabled and you cannot change the **Storage Replication type**. 
+> Changing **Storage Replication type** (Locally-redundant/ Geo-redundant) for a Recovery services vault has to be done before configuring backups in the vault. Once you configure backup, the option to modify is disabled and you cannot change the **Storage Replication type**.
+
+## Modifying default settings
+
+We highly recommend you review the default settings for **Storage Replication type** and **Security settings** before configuring backups in the vault. 
+* **Storage Replication type** by default is set to **Geo-redundant**. Once you configure the backup, the option to modify is disabled. Follow these [steps](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) to review and modify the settings. 
+* **Soft delete** by default is **Enabled** on newly created vaults to protect backup data from accidental or malicious deletes. Follow these [steps](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#disabling-soft-delete) to review and modify the settings.
+
 
 ## Next steps
 

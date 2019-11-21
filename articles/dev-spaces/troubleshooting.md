@@ -1,10 +1,6 @@
 ---
 title: "Troubleshooting"
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 09/25/2019
 ms.topic: "conceptual"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
@@ -87,6 +83,14 @@ azure-cli                         2.0.60 *
 Despite the error message when running `az aks use-dev-spaces` with a version of the Azure CLI before 2.0.63, the installation does succeed. You can continue to use `azds` without any issues.
 
 To fix this issue, update your installation of the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) to 2.0.63 or later. This update will resolve the error message you receive when running `az aks use-dev-spaces`. Alternatively, you can continue to use your current version of the Azure CLI and the Azure Dev Spaces CLI.
+
+### Error "Unable to reach kube-apiserver"
+
+You might see this error when Azure Dev Spaces is unable to connect to your AKS cluster's API server. 
+
+If access to your AKS cluster API server is locked down or if you have [API server authorized IP address ranges](../aks/api-server-authorized-ip-ranges.md) enabled for your AKS cluster, you must also [create](../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled) or [update](../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges) your cluster to [allow additional ranges based on your region](https://github.com/Azure/dev-spaces/tree/master/public-ips).
+
+Ensure that the API server is available by running kubectl commands. If the API server is unavailable, please contact AKS support and try again when the API server is working.
 
 ## Common issues when preparing your project for Azure Dev Spaces
 
@@ -439,3 +443,13 @@ kubectl -n my-namespace delete pod --all
 ```
 
 After your pods have restarted, you can begin using your existing namespace with Azure Dev Spaces.
+
+### Enable Azure Dev Spaces on AKS cluster with restricted egress traffic for cluster nodes
+
+To enable Azure Dev Spaces on an AKS cluster for which the egress traffic from cluster nodes is restricted, you will have to allow following FQDNs:
+
+| FQDN                                    | Port      | Use      |
+|-----------------------------------------|-----------|----------|
+| cloudflare.docker.com | HTTPS:443 | To pull linux alpine and other Azure Dev Spaces images |
+| gcr.io | HTTP:443 | To pull helm/tiller images|
+| storage.googleapis.com | HTTP:443 | To pull helm/tiller images|

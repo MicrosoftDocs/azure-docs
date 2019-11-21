@@ -6,17 +6,17 @@ manager: nitinme
 description: Two tables representing the container registries, repositories and image names for all Cognitive Service offerings.
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 11/15/2019
 ms.author: dapine
 ---
 
 ### Container repositories and images
 
-The tables below are a comprehensive listing of the available container images offered by Azure Cognitive Services.
+The tables below are a listing of the available container images offered by Azure Cognitive Services. For a complete list of all the available container image names and their available tags, see [Cognitive Services container image tags](../container-image-tags.md).
 
 #### Public "Ungated" (container registry: `mcr.microsoft.com`)
 
-The Microsoft Container Registry hosts all of the publicly available "ungated" containers for Cognitive Services.
+The Microsoft Container Registry (MCR) syndicates all of the publicly available "ungated" containers for Cognitive Services. They are also available directly from the [Docker hub](https://hub.docker.com/_/microsoft-azure-cognitive-services).
 
 | Service | Container | Container Registry / Repository / Image Name |
 |--|--|--|
@@ -39,5 +39,3 @@ The Container Preview registry hosts all of the publicly available "gated" conta
 | [Speech Service API](../../speech-service/speech-container-howto.md?tab=cstt) | Custom Speech-to-text | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text` |
 | [Speech Service API](../../speech-service/speech-container-howto.md?tab=tts) | Text-to-speech | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech` |
 | [Speech Service API](../../speech-service/speech-container-howto.md?tab=ctts) | Custom Text-to-speech | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech` |
-| [Translator Text](../../translator/how-to-install-containers.md) | Translator Text | `containerpreview.azurecr.io/microsoft/cognitive-services-translator-text` |
-

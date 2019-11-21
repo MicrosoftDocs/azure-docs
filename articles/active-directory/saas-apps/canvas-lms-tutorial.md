@@ -247,7 +247,7 @@ To enable Azure AD users to log in to Canvas, they must be provisioned into Canv
    e. Click **Add User**.
 
 > [!NOTE]
-> You can use any other Canvas user account creation tools or APIs provided by Canvas to provision AAD user accounts.
+> You can use any other Canvas user account creation tools or APIs provided by Canvas to provision Azure AD user accounts.
 
 ### Test single sign-on
 

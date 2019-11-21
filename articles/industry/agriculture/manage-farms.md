@@ -54,7 +54,7 @@ The Farm list page displays a list of created farms. Select a farm to view the l
 The **Farms** page displays a list of created farms.
 
 1.	Select a farm to view and edit the farm.
-2.	Select **Edit Farm** to edit the farm information. In the **Farm Details** window, you can edit **Name**, **Crops**, **Address**, and **Farm Boundary** fields.
+2.	Select **Edit Farm** to edit the farm information. In the **Farm Details** window, you can edit **Name**, **Crops**, **Address**, and define **Farm Boundary** fields.
 
     ![Project Farm Beats](./media/create-farms/edit-farm-1.png)
 

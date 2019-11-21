@@ -1,5 +1,5 @@
 ---
-title: Links on the page don't work for an Application Proxy application | Microsoft Docs
+title: Links on the page don't work for an Application Proxy application
 description:  How to troubleshoot issues with broken links on Application Proxy applications you have integrated with Azure AD
 services: active-directory
 documentationcenter: ''

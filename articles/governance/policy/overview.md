@@ -1,11 +1,8 @@
 ---
 title: Overview of Azure Policy
 description: Azure Policy is a service in Azure, that you use to create, assign and, manage policy definitions in your Azure environment.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 12/06/2018
 ms.topic: overview
-ms.service: azure-policy
 ---
 # Overview of the Azure Policy service
 
@@ -48,10 +45,10 @@ Azure Policy has several permissions, known as operations, in two Resource Provi
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Many Built-in roles grant permission to Azure Policy resources. The **Resource Policy Contributor
-(Preview)** role includes most Azure Policy operations. **Owner** has full rights. Both
-**Contributor** and **Reader** can use all read Azure Policy operations, but **Contributor** can
-also trigger remediation.
+Many Built-in roles grant permission to Azure Policy resources. The **Resource Policy Contributor**
+role includes most Azure Policy operations. **Owner** has full rights. Both **Contributor** and
+**Reader** can use all read Azure Policy operations, but **Contributor** can also trigger
+remediation.
 
 If none of the Built-in roles have the permissions required, create a [custom role](../../role-based-access-control/custom-roles.md).
 

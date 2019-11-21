@@ -1,18 +1,16 @@
 ---
-title: Create and share a query in Azure portal
-description: In this tutorial, learn to create a Resource Graph Query and share it with others in the Azure portal.
-author: DCtheGeek
-ms.author: dacoulte
+title: "Tutorial: Manage queries in Azure portal"
+description: In this tutorial, you create a Resource Graph Query and share the new query with others in the Azure portal.
 ms.date: 10/23/2019
 ms.topic: tutorial
-ms.service: resource-graph
 ---
 # Tutorial: Create and share an Azure Resource Graph query in the Azure portal
 
 Azure Resource Graph Explorer lets you save your Resource Graph queries directly in the Azure
 portal. There are two types of queries: _Private_ and _Shared_. A Private query is saved in your
 Azure portal settings. Whereas a Shared query is a Resource Manager resource that can be managed
-with role-based access controls (RBAC) and protected with resource locks.
+with role-based access controls (RBAC) and protected with resource locks. Both types of queries are
+encrypted at rest.
 
 By saving queries in the Azure portal, you save the time you might otherwise spend looking for your
 favorite or commonly used queries. When you share queries, you help your team realize goals of

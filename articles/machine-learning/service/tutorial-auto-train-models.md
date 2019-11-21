@@ -1,5 +1,5 @@
 ---
-title: 'Regression model tutorial: Automated ML'
+title: 'Regression tutorial: Automated ML'
 titleSuffix: Azure Machine Learning
 description: Learn how to generate a machine learning model by using automated machine learning. Azure Machine Learning can perform data preprocessing, algorithm selection, and hyperparameter selection in an automated way for you. Then the final model is deployed with Azure Machine Learning.
 services: machine-learning

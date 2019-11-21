@@ -1,12 +1,8 @@
 ---
 title: Back up and restore Azure File Shares
 description: This article details how to back up and restore your Azure file shares, and explains management tasks.
-author: dcurwin
-ms.author: dacurwin
 ms.date: 07/29/2019
-ms.topic: tutorial
-ms.service: backup
-manager: carmonm
+ms.topic: conceptual
 ---
 
 # Back up and restore Azure file shares
@@ -42,7 +38,7 @@ Backup for Azure file shares is in Preview. Azure file shares in both general-pu
 
 ## Configuring backup for an Azure file share
 
-This tutorial assumes you already have established an Azure file share. To back up your Azure file share:
+This article assumes you already have established an Azure file share. To back up your Azure file share:
 
 1. Create a Recovery Services vault in the same region as your file share. If you already have a vault, open your vault's Overview page and click **Backup**.
 
@@ -190,13 +186,13 @@ To resume protection for the file share, go to the Backup Item and click Resume 
 
    ![Select the job you want to monitor](./media/backup-file-shares/resume-backup-job.png)
 
-### Delete Backup data
+### Delete backup data
 
 You can delete the backup of a file share during the Stop backup job, or anytime after you have stopped protection. It may even be beneficial to wait days or weeks before deleting the recovery points. Unlike restoring recovery points, when deleting backup data, you can't choose specific recovery points to delete. If you choose to delete your backup data, you delete all recovery points associated with the item.
 
 The following procedure assumes the Backup job for the virtual machine has been stopped. Once the Backup job is stopped, the Resume backup and Delete Backup Data options are available in the Backup item dashboard. Click Delete Backup Data and type the name of the File share to confirm deletion. Optionally, provide a Reason to delete or Comment.
 
-## See Also
+## Next steps
 
 For more information on Azure file shares, see
 
