@@ -116,6 +116,8 @@ Entity linking
 | DateTime      | Set           | "every Tuesday"     |
 | URL           | N/A\*         | "https:\//www.bing.com"    |
 | Email         | N/A\*         | "support@contoso.com" |
+| US Phone Number  | N/A\*         | (US phone numbers only) "(312) 555-0176" |
+| IP Address    | N/A\*         | "10.0.0.100" |
 
 \* Depending on the input and extracted entities, certain entities may omit the `SubType`.  All the supported entity types listed are available only for the English, Chinese-Simplified, French, German, and Spanish languages.
 
