@@ -50,4 +50,4 @@ When you call `ConfidentialClientApplication.AcquireToken()` or `PublicClientApp
 
 ## See also
 
-[MSAL4J reference documentation](https://javadoc.io/doc/com.microsoft.azure/msal4j/latest/index.html)
+For the federated case, see [Configure Azure Active Directory sign in behavior for an application by using a Home Realm Discovery policy](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal)

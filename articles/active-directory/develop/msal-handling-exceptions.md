@@ -523,6 +523,16 @@ In certain cases when calling an API requiring Conditional Access, you can recei
 
 Choose the tab below that matches the language you are using for your app:
 
+### [iOS/macOS](#tab/iosmacos)
+
+### MSAL for iOS and macOS
+
+MSAL for iOS and macOS allows you to request specific claims in both interactive and silent token acquisition scenarios.
+
+To request custom claims, specify `claimsRequest` in `MSALSilentTokenParameters` or `MSALInteractiveTokenParameters`.
+
+See [Request custom claims using MSAL for iOS and macOS](request-custom-claims.md) for more info.
+
 ### [.NET](#tab/dotnet)
 
 ### .NET
@@ -561,16 +571,6 @@ Interactively acquiring the token prompts the user and gives them the opportunit
 When calling an API requiring Conditional Access, you can receive a claims challenge in the error from the API. In this case, you can pass the claims returned in the error to the `claimsRequest` field of the `AuthenticationParameters.ts` class to satisfy the appropriate policy. 
 
 See [Requesting Additional Claims](active-directory-optional-claims.md) for more detail.
-
-### [iOS/macOS](#tab/iosmacos)
-
-### MSAL for iOS and macOS
-
-MSAL for iOS and macOS allows you to request specific claims in both interactive and silent token acquisition scenarios.
-
-To request custom claims, specify `claimsRequest` in `MSALSilentTokenParameters` or `MSALInteractiveTokenParameters`.
-
-See [Request custom claims using MSAL for iOS and macOS](request-custom-claims.md) for more info.
 
 ---
 
