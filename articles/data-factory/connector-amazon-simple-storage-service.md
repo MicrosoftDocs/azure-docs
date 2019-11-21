@@ -1,5 +1,5 @@
 ---
-title: Copy data from Amazon Simple Storage Service (S3) using Azure Data Factory | Microsoft Docs
+title: Copy data from Amazon Simple Storage Service (S3) using Azure Data Factory 
 description: Learn about how to copy data from Amazon Simple Storage Service (S3) to supported sink data stores by using Azure Data Factory.
 services: data-factory
 author: linda33wj

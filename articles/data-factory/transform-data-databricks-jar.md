@@ -1,5 +1,5 @@
 ---
-title: Transform data with Databricks Jar - Azure | Microsoft Docs
+title: Transform data with Databricks Jar - Azure 
 description: Learn how to process or transform data by running a Databricks Jar.
 services: data-factory
 documentationcenter: ''

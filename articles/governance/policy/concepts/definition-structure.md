@@ -1,11 +1,8 @@
 ---
 title: Details of the policy definition structure
-description: Describes how resource policy definition is used by Azure Policy to establish conventions for resources in your organization by describing when the policy is enforced and what effect to take.
-author: DCtheGeek
-ms.author: dacoulte
+description: Describes how policy definitions are used to establish conventions for Azure resources in your organization.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-policy
 ---
 # Azure Policy definition structure
 
@@ -170,8 +167,7 @@ would be used by each assignment of the policy definition to limit the accepted 
 
 ### Using a parameter value
 
-In the policy rule, you reference parameters with the following `parameters` deployment value
-function syntax:
+In the policy rule, you reference parameters with the following `parameters` function syntax:
 
 ```json
 {
@@ -330,7 +326,7 @@ The following fields are supported:
   - This bracket syntax supports tag names that have apostrophes in it by escaping with double
     apostrophes.
   - Where **'\<tagName\>'** is the name of the tag to validate the condition for.
-  - Example: `tags['''My.Apostrophe.Tag''']` where **'\<tagName\>'** is the name of the tag.
+  - Example: `tags['''My.Apostrophe.Tag''']` where **'My.Apostrophe.Tag'** is the name of the tag.
 - property aliases - for a list, see [Aliases](#aliases).
 
 > [!NOTE]
@@ -343,7 +339,7 @@ A parameter value can be passed to a tag field. Passing a parameter to a tag fie
 flexibility of the policy definition during policy assignment.
 
 In the following example, `concat` is used to create a tags field lookup for the tag named the
-value of the **tagName** parameter. If that tag doesn't exist, the **append** effect is used to add
+value of the **tagName** parameter. If that tag doesn't exist, the **modify** effect is used to add
 the tag using the value of the same named tag set on the audited resources parent resource group by
 using the `resourcegroup()` lookup function.
 
@@ -354,11 +350,17 @@ using the `resourcegroup()` lookup function.
         "exists": "false"
     },
     "then": {
-        "effect": "append",
-        "details": [{
-            "field": "[concat('tags[', parameters('tagName'), ']')]",
-            "value": "[resourcegroup().tags[parameters('tagName')]]"
-        }]
+        "effect": "modify",
+        "details": {
+            "operations": [{
+                "operation": "add",
+                "field": "[concat('tags[', parameters('tagName'), ']')]",
+                "value": "[resourcegroup().tags[parameters('tagName')]]"
+            }],
+            "roleDefinitionIds": [
+                "/providers/microsoft.authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+            ]
+        }
     }
 }
 ```
@@ -471,50 +473,16 @@ Azure Policy supports the following types of effect:
 
 - **Append**: adds the defined set of fields to the request
 - **Audit**: generates a warning event in activity log but doesn't fail the request
-- **AuditIfNotExists**: enables auditing if a resource doesn't exist
+- **AuditIfNotExists**: generates a warning event in activity log if a related resource doesn't
+  exist
 - **Deny**: generates an event in the activity log and fails the request
-- **DeployIfNotExists**: deploys a resource if it doesn't already exist
+- **DeployIfNotExists**: deploys a related resource if it doesn't already exist
 - **Disabled**: doesn't evaluate resources for compliance to the policy rule
-- **EnforceOPAConstraint**: configures the Open Policy Agent admissions controller with Gatekeeper
-  v3 for self-managed Kubernetes clusters on Azure (preview)
-- **EnforceRegoPolicy**: configures the Open Policy Agent admissions controller with Gatekeeper v2
-  in Azure Kubernetes Service (preview)
+- **EnforceOPAConstraint** (preview): configures the Open Policy Agent admissions controller with
+  Gatekeeper v3 for self-managed Kubernetes clusters on Azure (preview)
+- **EnforceRegoPolicy** (preview): configures the Open Policy Agent admissions controller with
+  Gatekeeper v2 in Azure Kubernetes Service
 - **Modify**: adds, updates, or removes the defined tags from a resource
-
-For **append**, you must provide the following details:
-
-```json
-"effect": "append",
-"details": [{
-    "field": "field name",
-    "value": "value of the field"
-}]
-```
-
-The value can be either a string or a JSON format object.
-
-**AuditIfNotExists** and **DeployIfNotExists** evaluate the existence of a related resource and
-apply a rule. If the resource doesn't match the rule, the effect is implemented. For example, you
-can require that a network watcher is deployed for all virtual networks. For more information, see
-the [Audit if extension doesn't exist](../samples/audit-ext-not-exist.md) example.
-
-The **DeployIfNotExists** effect requires the **roleDefinitionId** property in the **details**
-portion of the policy rule. For more information, see [Remediation - Configure policy
-definition](../how-to/remediate-resources.md#configure-policy-definition).
-
-```json
-"details": {
-    ...
-    "roleDefinitionIds": [
-        "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
-        "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
-    ]
-}
-```
-
-Similarly, **Modify** requires **roleDefinitionId** property in the **details** portion of the
-policy rule for the [remediation task](../how-to/remediate-resources.md). **Modify** also requires
-an **operations** array to define what actions to take on the resources tags.
 
 For complete details on each effect, order of evaluation, properties, and examples, see
 [Understanding Azure Policy Effects](effects.md).
@@ -738,6 +706,6 @@ and `productName`. It uses two built-in policies to apply the default tag value.
 - Review examples at [Azure Policy samples](../samples/index.md).
 - Review [Understanding policy effects](effects.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
-- Learn how to [get compliance data](../how-to/getting-compliance-data.md).
+- Learn how to [get compliance data](../how-to/get-compliance-data.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
 - Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).

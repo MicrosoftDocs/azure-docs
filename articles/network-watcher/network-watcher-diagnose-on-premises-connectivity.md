@@ -1,5 +1,6 @@
 ---
-title: Diagnose On-Premises connectivity via VPN gateway with Azure Network Watcher | Microsoft Docs
+title: Diagnose On-Premises connectivity via VPN gateway
+titleSuffix: Azure Network Watcher
 description: This article describes how to diagnose on-premises connectivity via VPN gateway with Azure Network Watcher resource troubleshooting.
 services: network-watcher
 documentationcenter: na

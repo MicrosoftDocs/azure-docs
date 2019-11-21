@@ -171,7 +171,7 @@ If multiple people are editing runbooks in your source control repository with d
 
 Currently, there is no way to update the access token in Source Control from the portal. After your personal access token is expired or revoked, you can update Source Control with a new access token in the following ways:
 
-* Through the [REST Api](https://docs.microsoft.com/en-us/rest/api/automation/sourcecontrol/update).
+* Through the [REST Api](https://docs.microsoft.com/rest/api/automation/sourcecontrol/update).
 * By using the [Update-AzAutomationSourceControl](/powershell/module/az.automation/update-azautomationsourcecontrol) cmdlet.
 
 ## Next steps

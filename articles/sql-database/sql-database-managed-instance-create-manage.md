@@ -1,5 +1,5 @@
 ---
-title: Management API reference for Azure SQL Database Managed Instance | Microsoft Docs
+title: Management API reference for managed instance
 description: Learn about creating and managing Azure SQL Database Managed Instances.
 services: sql-database
 ms.service: sql-database

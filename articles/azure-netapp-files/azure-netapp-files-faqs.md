@@ -100,15 +100,7 @@ Azure NetApp Files provides volume performance metrics. You can also use Azure M
 
 For an NFS volume to automatically mount at VM start or reboot, add an entry to the `/etc/fstab` file on the host. 
 
-For example: 
-`$ANFIP:/$FILEPATH		/$MOUNTPOINT	nfs bg,rw,hard,noatime,nolock,rsize=65536,wsize=65536,vers=3,tcp,_netdev 0 0`
-
-- $ANFIP  
-    The IP address of the Azure NetApp Files volume found in the volume properties blade
-- $FILEPATH  
-    The export path of the Azure NetApp Files volume
-- $MOUNTPOINT  
-    The directory created on the Linux host used to mount the NFS export
+See [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md) for details.  
 
 ### Why does the DF command on NFS client not show the provisioned volume size?
 

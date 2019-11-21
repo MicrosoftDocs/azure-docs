@@ -1,6 +1,6 @@
 ---
 
-title: Allow or block invites to specific organizations - Azure Active Directory | Microsoft Docs
+title: Allow or block invites to specific organizations - Azure AD
 description: Shows how an administrator can use the Azure portal or PowerShell to set an access or deny list to allow or block B2B users from certain domains.
 
 services: active-directory
@@ -79,6 +79,9 @@ If you switch from one policy to the other, this discards the existing policy co
 ## Set the allow or deny list policy using PowerShell
 
 ### Prerequisite
+
+> [!Note]
+> The AzureADPreview Module is not a fully supported module as it is in preview. 
 
 To set the allow or deny list by using PowerShell, you must install the preview version of the Azure Active Directory Module for Windows PowerShell. Specifically, install the AzureADPreview module version 2.0.0.98 or later.
 

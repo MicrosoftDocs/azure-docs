@@ -30,7 +30,7 @@ Machines will have a status of **Connected** or **Disconnected** based on how re
 
 In Public Preview, we support:
 
-- Windows Server 2012 R2 and above
+- Windows Server 2012 R2 and newer
 - Ubuntu 16.04 and 18.04
 
 The Public Preview release is designed for evaluation purposes and should not be used to manage critical production resources.
@@ -79,7 +79,7 @@ See the section [Proxy server configuration](quickstart-onboard-powershell.md#pr
 
 ## Register the required Resource Providers
 
-Once the 'Feature Flag' registration has been approved, you must register the required Resource Providers.
+In order to use Azure Arc for Servers, you must register the required Resource Providers.
 
 * **Microsoft.HybridCompute**
 * **Microsoft.GuestConfiguration**
@@ -128,7 +128,7 @@ Log data collected by the [Microsoft Monitoring Agent (MMA)](https://docs.micros
 
 - Machines that already have the MMA agent installed, will have **Azure Arc** functionality enabled via updated Management Packs.
 - [MMA agent version 10.20.18011 or above](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows#agent-and-vm-extension-version) is required for Azure Arc for servers integration.
-- When querying for log data in [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview#log-queries), the returned data schema will contain the Hybrid **ResourceId** in the form `/subscriptions/<SubscriptionId/resourceGroups/<ResourceGroup>/providers/Microsoft.HybridCompute/machines/<MachineName>`.
+- When querying for log data in [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview), the returned data schema will contain the Hybrid **ResourceId** in the form `/subscriptions/<SubscriptionId/resourceGroups/<ResourceGroup>/providers/Microsoft.HybridCompute/machines/<MachineName>`.
 
 For more information, see [Get started with Log Analytics in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
 

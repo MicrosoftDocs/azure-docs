@@ -1,6 +1,6 @@
 ---
-title: Cheat sheet for Azure Synapse Analytics (formerly SQL DW) | Microsoft Docs
-description: Find links and best practices to quickly build your Azure Synapse Analytics solutions.
+title: Cheat sheet for Azure Synapse Analytics (formerly SQL DW) 
+description: Find links and best practices to quickly build your Azure Synapse Analytics (formerly SQL DW) solutions.
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
@@ -14,7 +14,7 @@ ms.reviewer: igorstan
 
 # Cheat sheet for Azure Synapse Analytics (formerly SQL DW)
 
-This cheat sheet provides helpful tips and best practices for building Azure Synapse Analytics solutions. 
+This cheat sheet provides helpful tips and best practices for building Azure Synapse solutions. 
 
 The following graphic shows the process of designing a data warehouse:
 
@@ -110,12 +110,12 @@ Resource groups are used as a way to allocate memory to queries. If you need mor
 
 If you notice that queries take too long, check that your users do not run in large resource classes. Large resource classes consume many concurrency slots. They can cause other queries to queue up.
 
-Finally, by using Gen2 of [SQL pool](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pools), each resource class gets 2.5 times more memory than Gen1.
+Finally, by using Gen2 of [SQL pool](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse), each resource class gets 2.5 times more memory than Gen1.
 
 Learn more how to work with [resource classes and concurrency].
 
 ## Lower your cost
-A key feature of Azure Synapse Analytics is the ability to [manage compute resources](sql-data-warehouse-manage-compute-overview.md). You can pause SQL pool when you're not using it, which stops the billing of compute resources. You can scale resources to meet your performance demands. To pause, use the [Azure portal](pause-and-resume-compute-portal.md) or [PowerShell](pause-and-resume-compute-powershell.md). To scale, use the [Azure portal](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md), or a [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
+A key feature of Azure Synapse is the ability to [manage compute resources](sql-data-warehouse-manage-compute-overview.md). You can pause SQL pool when you're not using it, which stops the billing of compute resources. You can scale resources to meet your performance demands. To pause, use the [Azure portal](pause-and-resume-compute-portal.md) or [PowerShell](pause-and-resume-compute-powershell.md). To scale, use the [Azure portal](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md), or a [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
 Autoscale now at the time you want with Azure Functions:
 
@@ -127,7 +127,7 @@ Autoscale now at the time you want with Azure Functions:
 
 We recommend considering SQL Database and Azure Analysis Services in a hub-and-spoke architecture. This solution can provide workload isolation between different user groups while also using advanced security features from SQL Database and Azure Analysis Services. This is also a way to provide limitless concurrency to your users.
 
-Learn more about [typical architectures that take advantage of Azure Synapse Analytics](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/).
+Learn more about [typical architectures that take advantage of Azure Synapse](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/).
 
 Deploy in one click your spokes in SQL databases from SQL pool:
 

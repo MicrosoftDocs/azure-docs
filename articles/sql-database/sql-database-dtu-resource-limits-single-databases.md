@@ -1,10 +1,10 @@
 ---
-title: Azure SQL Database DTU resource limits single databases| Microsoft Docs
+title: DTU resource limits single databases
 description: This page describes some common DTU resource limits for single databases in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: 
+ms.custom: seo-lt-2019
 ms.devlang:
 ms.topic: conceptual
 author: stevestein

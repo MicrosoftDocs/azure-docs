@@ -1,5 +1,5 @@
 ---
-title: 'Copy data from Azure Blob Storage to SQL Database | Microsoft Docs'
+title: 'Copy data from Azure Blob Storage to SQL Database '
 description: 'This tutorial provides step-by-step instructions for copying  data from Azure Blob Storage to Azure SQL Database.'
 services: data-factory
 documentationcenter: ''

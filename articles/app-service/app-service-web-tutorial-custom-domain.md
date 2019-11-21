@@ -57,9 +57,13 @@ To map a custom DNS name to a web app, the web app's [App Service plan](https://
 
 Open the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
 
-### Navigate to the app in the Azure portal
+### Select the app in the Azure portal
 
-From the left menu, select **App Services**, and then select the name of the app.
+Search for and select **App Services**.
+
+![Select App Services](./media/app-service-web-tutorial-custom-domain/app-services.png)
+
+On the **App Services** page, select the name of your Azure app.
 
 ![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-domain/select-app.png)
 
@@ -323,7 +327,7 @@ At the bottom of the page, the root virtual directory `/` points to `site\wwwroo
 
 ![Customize virtual directory](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
-Once the operation completes, your app should return the right page at the root path (for example, http://contoso.com).
+Once the operation completes, your app should return the right page at the root path (for example, `http://contoso.com`).
 
 ## Automate with scripts
 

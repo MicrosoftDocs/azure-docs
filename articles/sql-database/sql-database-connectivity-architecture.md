@@ -1,10 +1,11 @@
 ---
-title: Azure SQL Database and SQL Data Warehouse Connectivity Architecture | Microsoft Docs
+title: Connectivity Architecture 
 description: This document explains the Azure SQL connectivity architecture for database connections from within Azure or from outside of Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
 ms.custom: fasttrack-edit
+titleSuffix: Azure SQL Database and SQL Data Warehouse
 ms.devlang: 
 ms.topic: conceptual
 author: rohitnayakmsft
@@ -47,6 +48,10 @@ If you are connecting from within Azure your connections have a connection polic
 If you are connecting from outside Azure, your connections have a connection policy of `Proxy` by default. A policy of `Proxy` means that the TCP session is established via the Azure SQL Database gateway and all subsequent packets flow via the gateway. The following diagram illustrates this traffic flow.
 
 ![architecture overview](./media/sql-database-connectivity-architecture/connectivity-onprem.png)
+
+> [!IMPORTANT]
+> Additionally open ports 14000-14999 to enable [Connecting with DAC](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
+
 
 ## Azure SQL Database gateway IP addresses
 
