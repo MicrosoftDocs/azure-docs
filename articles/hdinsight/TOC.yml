@@ -355,7 +355,7 @@
           href: ./spark/apache-spark-jupyter-notebook-kernels.md
         - name: Use external packages with Jupyter using cell magic
           href: ./spark/apache-spark-jupyter-notebook-use-external-packages.md
-        - name: Use external packages with Jupyter using script action
+        - name: Safely manage Python environment on Azure HDInsight using Script Action
           href: ./spark/apache-spark-python-package-installation.md
         - name: Use Apache Zeppelin notebooks
           href: ./spark/apache-spark-zeppelin-notebook.md

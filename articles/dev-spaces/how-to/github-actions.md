@@ -1,10 +1,6 @@
 ---
 title: "GitHub Actions & Azure Kubernetes Service"
-titleSuffix: Azure Dev Spaces
-author: zr-msft
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-ms.author: zarhoads
 ms.date: 11/04/2019
 ms.topic: conceptual
 description: "Review and test changes from a pull request directly in Azure Kubernetes Service using GitHub Actions and Azure Dev Spaces."

@@ -1,10 +1,6 @@
 ---
 title: "Team development on Kubernetes using Azure Dev Spaces"
-titleSuffix: Azure Dev Spaces
-author: zr-msft
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-ms.author: zarhoads
 ms.date: 04/25/2019
 ms.topic: quickstart
 description: "Team Kubernetes development with containers and microservices on Azure"
