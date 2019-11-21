@@ -112,7 +112,7 @@ You will use sample code from the Azure IoT C SDK to create the certificate to b
 
 2. Select the **Manage enrollments** tab, then select the **Add individual enrollment** button at the top.
 
-3. In the **Add Enrollment** panel, enter the following information and press the **Save** button.
+3. In the **Add Enrollment** panel, enter the following information, then press the **Save** button.
 
     * **Mechanism:** Select **X.509** as the identity attestation *Mechanism*.
     * **Primary certificate .pem or .cer file:** Choose **Select a file** to select the certificate file, X509testcert.pem, you created earlier.
@@ -148,7 +148,7 @@ In this section, update the sample code to send the device's boot sequence to yo
 
 5. Right-click the **prov\_dev\_client\_sample** project and select **Set as Startup Project**.
 
-6. On the Visual Studio menu, select **Debug** > **Start without debugging** to run the solution. In the prompt to rebuild the project, select **Yes**, to rebuild the project before running.
+6. On the Visual Studio menu, select **Debug** > **Start without debugging** to run the solution. In the prompt to rebuild the project, select **Yes** to rebuild the project before running.
 
     The following output is an example of the provisioning device client sample successfully booting up, and connecting to the provisioning Service instance to get IoT hub information and registering:
 
