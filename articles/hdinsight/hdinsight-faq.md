@@ -8,7 +8,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 11/20/2019
 ---
 
 # Azure HDInsight: Frequently asked questions
@@ -175,6 +175,10 @@ Yes, you can deploy an additional virtual machine within the same subnet as an H
 - Edge nodes: You can add another edge node to the cluster, as described in [Use empty edge nodes on Apache Hadoop clusters in HDInsight](hdinsight-apps-use-edge-node.md).
 
 - Standalone nodes:  You can add a standalone virtual machine to the same subnet and access the cluster from that virtual machine by using the private end point `https://<CLUSTERNAME>-int.azurehdinsight.net`. For more information, see [Controlling network traffic](hdinsight-plan-virtual-network-deployment.md#networktraffic).
+
+### Should I store data on the local disk of edge node?
+No, keeping data on local disk is not a good idea. In case of node failure, all the data stored locally will be lost. We recommend storing data in ADLS Gen 2, Blob store or by mounting Azure File Storage.
+
 
 ### Can I add an existing HDInsight cluster to another virtual network?
 
