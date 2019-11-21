@@ -1,18 +1,18 @@
 ---
 title: Access Azure Kinect DK data in a body frame
-description: Describe the APIs to access the data stored in a body frame
+description: Learn about the data in a body frame and the functions to access that data in the Azure Kinect DK.
 author: qm13
 ms.author: quentinm
 ms.reviewer: yijwan
 ms.prod: kinect-dk
 ms.date: 06/26/2019
-ms.topic: quickstart
+ms.topic: how-to
 keywords: body, frame, azure, kinect, body, tracking, tips
 ---
 
 # Access data in body frame
 
-This article describes the data contained in a body frame and the functions to access the data.
+This article describes the data contained in a body frame and the functions to access that data.
 
 The following functions are covered:
 

@@ -1,7 +1,7 @@
 ---
-title: 'MLOps: Manage, deploy, & monitor ML models'
+title: 'MLOps: ML model management'
 titleSuffix: Azure Machine Learning
-description: 'Learn how to use Azure Machine Learning for MLOps: deploy, manage, and monitor your models to continuously improve them. You can deploy the models you trained with Azure Machine Learning, on your local machine, or from other sources.'  
+description: 'Learn about model management with Azure Machine Learning (MLOps). Deploy, manage, and monitor your models to continuously improve them. '  
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: jpe316
 ms.author:  jordane
-ms.date: 06/24/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
 ---
 
-# MLOps: Manage, deploy, and monitor models with Azure Machine Learning
+# MLOps: model management, deployment and monitoring with Azure Machine Learning
 
 In this article, learn about how to use Azure Machine Learning to manage the lifecycle of your models. Azure Machine Learning uses a Machine Learning Operations (MLOps) approach, which improves the quality and consistency of your machine learning solutions. 
 
@@ -121,7 +121,7 @@ For more information, see [Deploy models](how-to-deploy-and-where.md).
 Microsoft Power BI supports using machine learning models for data analytics. For more information, see [Azure Machine Learning integration in Power BI (preview)](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 
 
-## Monitor ML applications for operational and ML related issues
+## Monitor for operational & ML issues
 
 Monitoring enables you to understand what data is being sent to your model, and the predictions that it returns.
 
@@ -130,7 +130,7 @@ This information helps you understand how your model is being used. The collecte
 For more information, see [How to enable model data collection](how-to-enable-data-collection.md).
 
 
-## Capture an end to end audit trail of the ML lifecycle
+## Audit trail of the ML lifecycle
 
 Azure ML gives you the capability to track the end to end audit trail of all of your ML assets. Specifically:
 
@@ -139,7 +139,7 @@ Azure ML gives you the capability to track the end to end audit trail of all of 
 - Azure ML Run history stores a snapshot of the code, data and compute used to train a model.
 - The Azure ML Model Registry captures all of the metadata associated with your model (which experiment trained it, where it is being deployed, if its deployments are healthy).
 
-## Automate the end to end ML lifecycle 
+## Automate the ML lifecycle 
 
 You can use GitHub and Azure Pipelines to create a continuous integration process that trains a model. In a typical scenario, when a Data Scientist checks a change into the Git repo for a project, the Azure Pipeline will start a training run. The results of the run can then be inspected to see the performance characteristics of the trained model. You can also create a pipeline that deploys the model as a web service.
 
@@ -152,8 +152,18 @@ For more information on using Azure Pipelines with Azure Machine Learning, see t
 
 ## Next steps
 
-Learn more about [how and where you can deploy models](how-to-deploy-and-where.md) with Azure Machine Learning. For an example of deployment, see [Tutorial: Deploy an image classification model in Azure Container Instances](tutorial-deploy-models-with-aml.md).
+Learn more by reading and exploring the following resources:
 
-Learn how to create [continuous integration and deployment of ML models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning). 
++ [How & where to deploy models](how-to-deploy-and-where.md) with Azure Machine Learning
 
-Learn how to create client applications and services that [Consume a model deployed as a web service](how-to-consume-web-service.md).
++ [Tutorial: Deploy an image classification model in ACI](tutorial-deploy-models-with-aml.md).
+
++ [End-to-end MLOps examples repo](https://github.com/microsoft/MLOps)
+
++ [CI/CD of ML models with Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning)
+
++ Create clients that [consume a deployed model](how-to-consume-web-service.md)
+
++ [Machine learning at scale](/azure/architecture/data-guide/big-data/machine-learning-at-scale)
+
++ [Azure AI reference architectures & best practices rep](https://github.com/microsoft/AI)

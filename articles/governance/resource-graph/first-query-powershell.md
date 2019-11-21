@@ -1,11 +1,8 @@
 ---
-title: Run your first query using PowerShell
-description: This article walks you through the steps to enable the Resource Graph module for Azure PowerShell and run your first query.
-author: DCtheGeek
-ms.author: dacoulte
+title: "Quickstart: Your first PowerShell query"
+description: In this quickstart, you follow the steps to enable the Resource Graph module for Azure PowerShell and run your first query.
 ms.date: 10/18/2019
 ms.topic: quickstart
-ms.service: resource-graph
 ---
 # Quickstart: Run your first Resource Graph query using Azure PowerShell
 
@@ -31,7 +28,7 @@ The Azure Resource Graph module requires the following software:
 
 - Azure PowerShell 1.0.0 or higher. If it isn't yet installed, follow [these instructions](/powershell/azure/install-az-ps).
 
-- PowerShellGet 2.0.1 or higher. If it isn't installed or updated, follow [these instructions](/powershell/gallery/installing-psget).
+- PowerShellGet 2.0.1 or higher. If it isn't installed or updated, follow [these instructions](/powershell/scripting/gallery/installing-psget).
 
 ### Install the module
 
@@ -123,9 +120,10 @@ Uninstall-Module -Name 'Az.ResourceGraph'
 
 ## Next steps
 
-- Get more information about the [query language](./concepts/query-language.md)
-- Learn to [explore resources](./concepts/explore-resources.md)
-- Run your first query with [Azure CLI](first-query-azurecli.md)
-- See samples of [Starter queries](./samples/starter.md)
-- See samples of [Advanced queries](./samples/advanced.md)
-- Provide feedback on [UserVoice](https://feedback.azure.com/forums/915958-azure-governance)
+- Get more information about the [query language](./concepts/query-language.md).
+- Learn more about how to [explore resources](./concepts/explore-resources.md).
+- Run your first query by using the [Azure portal](first-query-portal.md).
+- Run your first query with [Azure CLI](first-query-azurecli.md).
+- See samples of [Starter queries](./samples/starter.md).
+- See samples of [Advanced queries](./samples/advanced.md).
+- Provide feedback on [UserVoice](https://feedback.azure.com/forums/915958-azure-governance).

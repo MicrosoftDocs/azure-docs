@@ -25,8 +25,10 @@ Only general-purpose v2 storage accounts support GZRS and RA-GZRS. For more info
 
 GZRS and RA-GZRS are currently available for preview in the following regions:
 
+- Asia Southeast
 - Europe North
 - Europe West
+- UK South
 - US East
 - US East 2
 - US Central

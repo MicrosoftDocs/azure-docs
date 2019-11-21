@@ -1,5 +1,5 @@
 ---
-title: Create an FSLogix profile container for a host pool using Azure NetApp Files in Windows Virtual Desktop - Azure
+title: FSLogix profile containers NetApp Windows Virtual Desktop - Azure
 description: How to create an FSLogix profile container using Azure NetApp Files in Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr

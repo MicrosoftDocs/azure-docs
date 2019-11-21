@@ -1,15 +1,8 @@
 ---
-title: Back up an SAP HANA database to Azure with Azure Backup | Microsoft Docs
+title: Back up an SAP HANA database to Azure 
 description: This tutorial explains how to back up an SAP HANA database to Azure with the Azure Backup service.
-
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.author: dacurwin
-
-
 ---
 # Back up an SAP HANA database to Azure
 
@@ -50,6 +43,9 @@ Make sure you do the following before you configure backups:
     sudo zypper update
     sudo zypper install unixODBC
     ```
+
+    > [!NOTE]
+    > If you not updating the repositories, make sure the version of unixODBC is min 2.3.4. To know the version of uniXODBC, run ```odbcinst -j``` as root
 
 2. Allow connectivity from the VM to the internet, so that it can reach Azure, as described in procedure [below](#set-up-network-connectivity).
 

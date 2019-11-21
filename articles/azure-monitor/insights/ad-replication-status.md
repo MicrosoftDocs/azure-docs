@@ -3,8 +3,8 @@ title: Monitor Active Directory replication status with Azure Monitor | Microsof
 description: The Active Directory Replication Status solution pack regularly monitors your Active Directory environment for any replication failures.
 ms.service:  azure-monitor
 ms.subservice: logs
-ms.topic: article
-author: mgoedtel
+ms.topic: conceptual
+author: MGoedtel
 ms.author: magoedte
 ms.date: 01/24/2018
 

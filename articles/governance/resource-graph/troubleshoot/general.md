@@ -1,11 +1,8 @@
 ---
 title: Troubleshoot common errors
 description: Learn how to troubleshoot issues querying Azure resources with Azure Resource Graph.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/18/2019
 ms.topic: troubleshooting
-ms.service: resource-graph
 ---
 # Troubleshoot errors using Azure Resource Graph
 

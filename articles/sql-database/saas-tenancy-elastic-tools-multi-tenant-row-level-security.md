@@ -1,5 +1,5 @@
 ---
-title: "Multi-tenant apps with RLS and elastic database tools | Microsoft Docs"
+title: Multi-tenant apps with RLS and elastic database tools
 description: Use elastic database tools with row-level security to build an application with a highly scalable data tier.
 services: sql-database
 ms.service: sql-database

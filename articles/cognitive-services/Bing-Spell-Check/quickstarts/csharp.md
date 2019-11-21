@@ -89,7 +89,7 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
     ```csharp
     var values = new Dictionary<string, string>();
     values.Add("text", text);
-    
+    var content = new FormUrlEncodedContent(values);
     content.Headers.ContentType = new MediaTypeHeaderValue("application/x-www-form-urlencoded");
     response = await client.PostAsync(uri, new FormUrlEncodedContent(values));
     ```

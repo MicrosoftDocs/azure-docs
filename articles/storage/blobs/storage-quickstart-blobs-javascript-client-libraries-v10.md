@@ -1,12 +1,11 @@
 ---
-title: Quickstart - Create a blob in Azure Storage by using JavaScript and HTML in the browser
-description: Learn to upload, list, and delete blobs using JavaScript in an HTML page.
+title: "Quickstart: Azure Blob storage for JavaScript v10 in the browser"
+description: Learn to upload, list, and delete blobs using JavaScript v10 SDK in an HTML page.
 services: storage
-author: KarlErickson
-
+author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
-ms.author: karler
+ms.author: mhopkins
 ms.date: 08/29/2019
 ms.topic: quickstart
 ms.subservice: blobs
@@ -164,23 +163,23 @@ When you make changes to *index.html*, be sure to reload the page to see the cha
 
 ### Add the blob storage client library
 
-To enable calls to the blob storage API, first [Download the Azure Storage SDK for JavaScript - Blob client library](https://aka.ms/downloadazurestoragejsblob), extract the contents of the zip, and place the *azure-storage.blob.js* file in the *azure-blobs-javascript* folder.
+To enable calls to the blob storage API, first [Download the Azure Storage SDK for JavaScript - Blob client library](https://aka.ms/downloadazurestoragejsblob), extract the contents of the zip, and place the *azure-storage-blob.js* file in the *azure-blobs-javascript* folder.
 
 Next, paste the following HTML into *index.html* after the `</body>` closing tag, replacing the placeholder comment.
 
 ```html
-<script src="azure-storage.blob.js" charset="utf-8"></script>
+<script src="azure-storage-blob.js" charset="utf-8"></script>
 
 <script>
 // You'll add code here in the following sections.
 </script>
 ```
 
-This code adds a reference to the script file and provides a place for your own JavaScript code. For the purposes of this quickstart, we're using the *azure-storage.blob.js* script file so that you can open it in VS Code, read its contents, and set breakpoints. In production, you should use the more compact *azure-storage.blob.min.js* file that is also provided in the zip file.
+This code adds a reference to the script file and provides a place for your own JavaScript code. For the purposes of this quickstart, we're using the *azure-storage-blob.js* script file so that you can open it in VS Code, read its contents, and set breakpoints. In production, you should use the more compact *azure-storage.blob.min.js* file that is also provided in the zip file.
 
 You can find out more about each blob storage function in the [reference documentation](https://docs.microsoft.com/javascript/api/%40azure/storage-blob/index). Note that some of the functions in the SDK are only available in Node.js or only available in the browser.
 
-The code in *azure-storage.blob.js* exports a global variable called `azblob`, which you'll use in your JavaScript code to access the blob storage APIs.
+The code in *azure-storage-blob.js* exports a global variable called `azblob`, which you'll use in your JavaScript code to access the blob storage APIs.
 
 ### Add the initial JavaScript code
 
@@ -250,7 +249,7 @@ createContainerButton.addEventListener("click", createContainer);
 deleteContainerButton.addEventListener("click", deleteContainer);
 ```
 
-This code calls the ContainerURL [create](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL#create-aborter--icontainercreateoptions-) and [delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL#delete-aborter--icontainerdeletemethodoptions-) functions without using an [Aborter](https://docs.microsoft.com/javascript/api/@azure/storage-blob/aborter) instance. To keep things simple for this quickstart, this code assumes that your storage account has been created and is enabled. In production code, use an Aborter instance to add timeout functionality.
+This code calls the ContainerURL [create](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#create-containercreateoptions-) and [delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#delete-containerdeletemethodoptions-) functions without using an [Aborter](https://docs.microsoft.com/javascript/api/@azure/storage-blob/aborter) instance. To keep things simple for this quickstart, this code assumes that your storage account has been created and is enabled. In production code, use an Aborter instance to add timeout functionality.
 
 ### List blobs
 
@@ -286,7 +285,7 @@ const listFiles = async () => {
 listButton.addEventListener("click", listFiles);
 ```
 
-This code calls the [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL?view=azure-node-preview#listblobflatsegment-aborter--undefined---string--icontainerlistblobssegmentoptions-) function in a loop to ensure that all segments are retrieved. For each segment, it loops over the list of blob items it contains and updates the **Files** list.
+This code calls the [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) function in a loop to ensure that all segments are retrieved. For each segment, it loops over the list of blob items it contains and updates the **Files** list.
 
 ### Upload blobs
 
@@ -314,7 +313,7 @@ selectButton.addEventListener("click", () => fileInput.click());
 fileInput.addEventListener("change", uploadFiles);
 ```
 
-This code connects the **Select and upload files** button to the hidden `file-input` element. In this way, the button `click` event triggers the file input `click` event and displays the file picker. After you select files and close the dialog box, the `input` event occurs and the `uploadFiles` function is called. This function calls the browser-only [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/#uploadbrowserdatatoblockblob-aborter--blob---arraybuffer---arraybufferview--blockbloburl--iuploadtoblockbloboptions-) function for each file you selected. Each call returns a Promise, which is added to a list so that they can all be awaited at once, causing the files to upload in parallel.
+This code connects the **Select and upload files** button to the hidden `file-input` element. In this way, the button `click` event triggers the file input `click` event and displays the file picker. After you select files and close the dialog box, the `input` event occurs and the `uploadFiles` function is called. This function calls the browser-only [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/blockblobclient#uploadbrowserdata-blob---arraybuffer---arraybufferview--blockblobparalleluploadoptions-) function for each file you selected. Each call returns a Promise, which is added to a list so that they can all be awaited at once, causing the files to upload in parallel.
 
 ### Delete blobs
 
