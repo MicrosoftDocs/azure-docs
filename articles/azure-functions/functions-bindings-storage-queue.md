@@ -279,15 +279,15 @@ The storage account to use is determined in the following order:
 
 # [C# Script](#tab/csharp-script)
 
-**TODO**
+Attributes are not supported by C# Script.
 
 # [JavaScript](#tab/javascript)
 
-**TODO**
+Attributes are not supported by Java Script.
 
 # [Python](#tab/python)
 
-**TODO**
+Attributes are not supported by Python.
 
 # [Java](#tab/java)
 
@@ -633,15 +633,15 @@ You can use the `StorageAccount` attribute to specify the storage account at cla
 
 # [C# Script](#tab/csharp-script)
 
-**TODO**
+Attributes are not supported by C# Script.
 
 # [JavaScript](#tab/javascript)
 
-**TODO**
+Attributes are not supported by Java Script.
 
 # [Python](#tab/python)
 
-**TODO**
+Attributes are not supported by Python.
 
 # [Java](#tab/java)
 
