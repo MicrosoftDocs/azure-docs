@@ -1,8 +1,7 @@
 ---
 title: "How to use a private Helm repository in Azure Dev Spaces"
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
+
 author: "zr-msft"
 ms.author: "zarhoads"
 ms.date: "08/22/2019"
