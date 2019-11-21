@@ -5,7 +5,7 @@ keywords:
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/17/2019
+ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -107,6 +107,50 @@ Here's a basic deployment manifest with one module as an example:
 }
 ```
 
+## Layered deployment (Preview)
+
+Layered deployments are a type of automatic deployment that can be stacked on top of each other. For more information about layered deployments, see [Understand IoT Edge automatic deployments for single devices or at scale](module-deployment-monitoring.md). 
+
+Layered deployments can be created and managed with the Azure CLI like any automatic deployment, with just a few differences. The same deployment commands in the Azure CLI work for layered deployments, but you use the `--layered` flag to identify a layered deployment. For example, to create a new layered deployment: 
+
+```cli
+az iot edge deployment create --layered --deployment-id [deployment id] --content [file path]
+```
+
+The second difference is in the construction of the deployment manifest. Layered deployment always require that a standard automatic deployment be on a device before a layered deployment can be applied. The baseline automatic deployment is responsible for the required components of every IoT Edge deployment, like the system runtime modules. For that reason, a layered deployment manifest doesn't contain any of that information. 
+
+Here's a basic layered deployment manifest with one module as an example: 
+
+```json
+{
+  "content": {
+    "modulesContent": {
+      "$edgeAgent": {
+        "properties.desired.modules.SimulatedTemperatureSensor": {
+          "settings": {
+            "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
+              "createOptions": ""
+          },
+          "type": "docker",
+          "status": "running",
+          "restartPolicy": "always",
+          "version": "1.0"
+        }
+      },
+      "$edgeHub": {
+        "properties.desired.routes.upstream": "FROM /messages/* INTO $upstream"
+      },
+      "SimulatedTemperatureSensor": {
+        "properties.desired": {
+          "SendData": true,
+          "SendInterval": 5
+        }
+      }
+    }
+  }
+}
+```
+
 ## Identify devices using tags
 
 Before you can create a deployment, you have to be able to specify which devices you want to affect. Azure IoT Edge identifies devices using **tags** in the device twin. Each device can have multiple tags that you define in any way that makes sense for your solution. For example, if you manage a campus of smart buildings, you might add the following tags to a device:
@@ -136,12 +180,13 @@ az iot edge deployment create --deployment-id [deployment id] --hub-name [hub na
 
 The deployment create command takes the following parameters: 
 
-* **--deployment-id** - The name of the deployment that will be created in the IoT hub. Give your deployment a unique name that is up to 128 lowercase letters. Avoid spaces and the following invalid characters: `& ^ [ ] { } \ | " < > /`.
+* **--deployment-id** - The name of the deployment that will be created in the IoT hub. Give your deployment a unique name that is up to 128 lowercase letters. Avoid spaces and the following invalid characters: `& ^ [ ] { } \ | " < > /`. Required parameter. 
+* **--content** - Filepath to the deployment manifest JSON. Required parameter. 
 * **--hub-name** - Name of the IoT hub in which the deployment will be created. The hub must be in the current subscription. Change your current subscription with the `az account set -s [subscription name]` command.
-* **--content** - Filepath to the deployment manifest JSON. 
 * **--labels** - Add labels to help track your deployments. Labels are Name, Value pairs that describe your deployment. Labels take JSON formatting for the names and values. For example, `{"HostPlatform":"Linux", "Version:"3.0.1"}`
 * **--target-condition** - Enter a target condition to determine which devices will be targeted with this deployment. The condition is based on device twin tags or device twin reported properties and should match the expression format. For example, `tags.environment='test' and properties.reported.devicemodel='4000x'`. 
 * **--priority** - A positive integer. In the event that two or more deployments are targeted at the same device, the deployment with the highest numerical value for Priority will apply.
+* **--metrics** - Create metrics that query the edgeHub reported properties to track the status of a deployment. Metrics take JSON input or a filepath. For example, `'{"queries": {"mymetric": "SELECT deviceId FROM devices WHERE properties.reported.lastDesiredStatus.code = 200"}}'`. 
 
 ## Monitor a deployment
 
@@ -152,7 +197,7 @@ az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name
 ```
 
 The deployment show command takes the following parameters:
-* **--deployment-id** - The name of the deployment that exists in the IoT hub.
+* **--deployment-id** - The name of the deployment that exists in the IoT hub. Required parameter. 
 * **--hub-name** - Name of the IoT hub in which the deployment exists. The hub must be in the current subscription. Switch to the desired subscription with the command `az account set -s [subscription name]`
 
 Inspect the deployment in the command window. The **metrics** property lists a count for each metric that is evaluated by each hub:
@@ -170,8 +215,8 @@ az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [
 
 The deployment show-metric command takes the following parameters: 
 * **--deployment-id** - The name of the deployment that exists in the IoT hub.
-* **--metric-id** - The name of the metric for which you want to see the list of device IDs, for example `reportedFailedCount`
-* **--hub-name** - Name of the IoT hub in which the deployment exists. The hub must be in the current subscription. Switch to the desired subscription with the command `az account set -s [subscription name]`
+* **--metric-id** - The name of the metric for which you want to see the list of device IDs, for example `reportedFailedCount`.
+* **--hub-name** - Name of the IoT hub in which the deployment exists. The hub must be in the current subscription. Switch to the desired subscription with the command `az account set -s [subscription name]`.
 
 ## Modify a deployment
 
@@ -182,6 +227,8 @@ If you update the target condition, the following updates occur:
 * If a device didn't meet the old target condition, but meets the new target condition and this deployment is the highest priority for that device, then this deployment is applied to the device. 
 * If a device currently running this deployment no longer meets the target condition, it uninstalls this deployment and takes on the next highest priority deployment. 
 * If a device currently running this deployment no longer meets the target condition and doesn't meet the target condition of any other deployments, then no change occurs on the device. The device continues running its current modules in their current state, but is not managed as part of this deployment anymore. Once it meets the target condition of any other deployment, it uninstalls this deployment and takes on the new one. 
+
+You cannot update the content of a deployment, which includes the modules and routes defined in the deployment manifest. If you want to update the content of a deployment, you do so by creating a new deployment that targets the same devices with a higher priority. You can modify certain properties of an existing module, including the target condition, labels, metrics, and priority. 
 
 Use the [az iot edge deployment update](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-update) command to update a deployment:
 
@@ -196,6 +243,8 @@ The deployment update command takes the following parameters:
   * targetCondition - for example `targetCondition=tags.location.state='Oregon'`
   * labels 
   * priority
+* **--add** - Add a new property to the deployment, including target conditions or labels. 
+* **--remove** - Remove an existing property, including target conditions or labels. 
 
 
 ## Delete a deployment
