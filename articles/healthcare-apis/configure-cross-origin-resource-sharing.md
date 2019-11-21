@@ -4,7 +4,7 @@ description: This article describes how to configure cross-origin resource shari
 author: matjazl
 ms.author: matjazl 
 ms.date: 3/11/2019
-ms.topic: reference
+ms.topic: conceptual
 ms.service: healthcare-apis
 ms.subservice: fhir
 ---
