@@ -101,8 +101,8 @@
       href: deployment-manager-health-check.md
   - name: Resource Manager and classic deployment
     href: resource-manager-deployment-model.md
-  - name: Azure common security attributes
-    href: azure-resource-manager-security-attributes.md
+  - name: Built-in security controls
+    href: azure-resource-manager-security-controls.md
 - name: How to
   items:
   - name: Create templates
@@ -138,6 +138,8 @@
       href: resource-group-create-multiple.md
     - name: Subscription level resources
       href: deploy-to-subscription.md
+    - name: Management group level resources
+      href: deploy-to-management-group.md
   - name: Deploy templates
     items:
     - name: Deploy - portal
@@ -152,6 +154,8 @@
     - name: Deploy - REST API
       displayName: deployment
       href: resource-group-template-deploy-rest.md
+    - name: What-if deployment
+      href: template-deploy-what-if.md
     - name: Redeploy on error
       displayName: rollback
       href: rollback-on-error.md
@@ -249,6 +253,8 @@
       href: resource-manager-common-deployment-errors.md
     - name: AccountNameInvalid
       href: resource-manager-storage-account-name-errors.md
+    - name: DeploymentQuotaExceeded
+      href: deployment-quota-exceeded.md
     - name: InvalidTemplate
       href: resource-manager-invalid-template-errors.md
     - name: Linux deployment issues
@@ -304,10 +310,14 @@
       href: resource-group-template-functions-resource.md
     - name: String functions
       href: resource-group-template-functions-string.md
-  - name: Complete mode deletion
-    href: complete-mode-deletion.md
-  - name: Resource instance limit
-    href: resources-without-rg-limit.md
+  - name: Resource capabilities
+    items:
+    - name: Complete mode deletion
+      href: complete-mode-deletion.md
+    - name: Extension resource types
+      href: extension-resource-types.md
+    - name: Resource instance limit
+      href: resources-without-rg-limit.md
   - name: Resource providers by service
     href: azure-services-resource-providers.md
   - name: REST - Resource Manager

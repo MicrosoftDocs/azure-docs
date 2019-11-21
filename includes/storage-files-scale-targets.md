@@ -8,7 +8,7 @@ ms.author: rogarana
 | Resource | Standard file shares | Premium file shares |
 |----------|---------------|------------------------------------------|
 | Minimum size of a file share | No minimum; pay as you go | 100 GiB; provisioned |
-| Maximum size of a file share | 100 TiB, | 100 TiB |
+| Maximum size of a file share | 100 TiB*, 5 TiB | 100 TiB |
 | Maximum size of a file in a file share | 1 TiB | 1 TiB |
 | Maximum number of files in a file share | No limit | No limit |
 | Maximum IOPS per share | 10,000 IOPS*, 1,000 IOPS | 100,000 IOPS |

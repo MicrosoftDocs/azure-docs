@@ -1,12 +1,8 @@
 ---
-title: Azure deployment quota exceeded
+title: Deployment quota exceeded
 description: Describes how to resolve the error of having more than 800 deployments in the resource group history.
-author: tfitzmac
-
-ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 10/04/2019
-ms.author: tomfitz
 ---
 
 # Resolve error when deployment count exceeds 800
@@ -31,7 +27,7 @@ To delete all deployments older than five days, use:
 
 ```azurecli-interactive
 startdate=$(date +%F -d "-5days")
-deployments=$(az group deployment list --resource-group exampleGroup --query "[?properties.timestamp>'$startdate'].name" --output tsv)
+deployments=$(az group deployment list --resource-group exampleGroup --query "[?properties.timestamp<'$startdate'].name" --output tsv)
 
 for deployment in $deployments
 do

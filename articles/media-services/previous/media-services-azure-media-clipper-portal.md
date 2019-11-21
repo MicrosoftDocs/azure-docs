@@ -4,9 +4,9 @@ title: Use Azure Media Clipper in the Portal | Microsoft Docs
 description: Create clips using Azure Media Clipper from the Azure Portal
 services: media-services
 keywords: clip;subclip;encoding;media
-author: dbgeorge
-manager: jasonsue
-ms.author: dwgeo
+author: Juliako
+manager: femila
+ms.author: juliako
 ms.date: 03/14/2019
 ms.topic: article
 # Use only one of the following. Use ms.service for services, ms.prod for on premises. Remove the # before the relevant field.

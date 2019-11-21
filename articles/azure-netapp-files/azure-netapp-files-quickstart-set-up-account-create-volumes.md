@@ -106,7 +106,7 @@ This how-to article requires the Azure PowerShell module Az version 2.6.0 or lat
     ``` 
 
     > [!NOTE]
-    > Please refer to [Products available by region](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=netapp&regions=all) for a list of supported regions.
+    > Please refer to [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all) for a list of supported regions.
     > To obtain the region name that is supported by our command line tools, please use `Get-AzLocation | select Location`
     >
 
@@ -133,7 +133,7 @@ This how-to article requires the Azure PowerShell module Az version 2.6.0 or lat
     ``` 
 
     > [!NOTE]
-    > Please refer to [Products available by region](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=netapp&regions=all) for a list of supported regions.
+    > Please refer to [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all) for a list of supported regions.
     > To obtain the region name that is supported by our command line tools, please use `az account list-locations -query "[].{Region:name}" --out table`
     >
 
@@ -342,7 +342,7 @@ This how-to article requires the Azure PowerShell module Az version 2.6.0 or lat
     VNET_ID=$(az network vnet show --resource-group $RESOURCE_GROUP --name $VNET_NAME --query "id" -o tsv)
     SUBNET_ID=$(az network vnet subnet show --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --name $SUBNET_NAME --query "id" -o tsv)
     VOLUME_SIZE_GiB=100 # 100 GiB
-    UNIQUE_FILE_PATH="myfilepath2" # Please note that creation token needs to be unique within all ANF Accounts
+    UNIQUE_FILE_PATH="myfilepath2" # Please note that creation token needs to be unique within subscription and region
 
     az netappfiles volume create \
         --resource-group $RESOURCE_GROUP \
@@ -354,7 +354,7 @@ This how-to article requires the Azure PowerShell module Az version 2.6.0 or lat
         --vnet $VNET_ID \
         --subnet $SUBNET_ID \
         --usage-threshold $VOLUME_SIZE_GiB \
-        --creation-token $UNIQUE_FILE_PATH \
+        --file-path $UNIQUE_FILE_PATH \
         --protocol-types "NFSv3"
     ```
 

@@ -1,5 +1,5 @@
 ---
-title: Set Variable Activity in Azure Data Factory | Microsoft Docs
+title: Set Variable Activity in Azure Data Factory 
 description: Learn how to use the Set Variable activity to set the value of an existing variable defined in a Data Factory pipeline
 services: data-factory
 documentationcenter: ''

@@ -155,7 +155,7 @@ private static async Task AvailabilityTestRun(string name, string location, stri
         log.LogError($"[Error]: {ex.Message}");
 
         // optional - throw to fail the function
-        throw;
+        //throw;
     }
     finally
     {

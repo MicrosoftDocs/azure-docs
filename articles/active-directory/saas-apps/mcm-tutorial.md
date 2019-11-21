@@ -9,6 +9,7 @@ ms.reviewer: barbkess
 
 ms.assetid: 7f00799d-e3e9-4ba9-ae4a-fbca843ac5db
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -183,7 +184,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, you create a user called Britta Simon in MCM. Work with [MCM support team](https://mcmtechnology.com/support/) to add the users in the MCM platform. Users must be created and activated before you use single sign-on.
 
 >[!NOTE]
->You can use any other MCM user account creation tools or APIs provided by MCM to provision AAD user accounts.
+>You can use any other MCM user account creation tools or APIs provided by MCM to provision Azure AD user accounts.
 
 ### Test single sign-on 
 

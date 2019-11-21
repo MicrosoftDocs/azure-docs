@@ -9,6 +9,7 @@ ms.reviewer: barbkess
 
 ms.assetid: 3186b9a8-f4d8-45e2-ad82-6275f95e7aa6
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -222,7 +223,7 @@ In order to enable Azure Active Directory users to log in to New Relic, they mus
     c. Click **Add this user**.
 
 >[!NOTE]
->You can use any other New Relic user account creation tools or APIs provided by New Relic to provision AAD user accounts.
+>You can use any other New Relic user account creation tools or APIs provided by New Relic to provision Azure AD user accounts.
 > 
 
 ### Test single sign-on 

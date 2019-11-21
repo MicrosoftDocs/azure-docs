@@ -4,7 +4,7 @@ description: Describes how to change the credit card used to pay for an Azure su
 author: bandersmsft
 manager: jureid
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
