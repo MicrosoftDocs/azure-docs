@@ -141,7 +141,7 @@ After that, you'll need to "expand" the MSIX image by unpacking it. To unpack th
     `Successfully unpacked and applied ACLs for package: <package name>.msix`
 
     >[!NOTE]
-    > If using packages from the Microsoft Store for Business (or Education) within your network, or on devices that are not connected to the internet, you will need to obtain the package licenses from the Store and install them to run the app successfully. See [Use packages from the Microsoft Store for Business and Education offline](#use-packages-from-the-microsoft-store-for-business-or-education-offline).
+    > If using packages from the Microsoft Store for Business (or Education) within your network, or on devices that are not connected to the internet, you will need to obtain the package licenses from the Store and install them to run the app successfully. See [Use packages offline](#use-packages-offline).
 
 3. Navigate to the mounted VHD and open the app folder and confirm package content is present.
 
