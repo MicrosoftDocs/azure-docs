@@ -25,6 +25,7 @@ In this quickstart, you learn to deploy an application. You create a prediction 
 
 * Get an [Azure subscription](https://azure.microsoft.com/free).
 * Complete the [previous portal quickstart](get-started-portal-build-app.md) or [download and import the app](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/in-portal/build-portal-app.json).
+* If you have apps that pre-date Azure resource authentication, [migrate to an Azure resource](luis-migration-authoring.md). Some portal pages look different when email authentication is in effect.
 
 ## Create the endpoint resource
 
@@ -56,7 +57,7 @@ You create the prediction endpoint resource in the Azure portal. This resource s
 
 Every time you create a new resource for LUIS, you need to assign the resource to the LUIS app. After it's assigned, you won't need to do this step again unless you create a new resource. You might create a new resource to expand the regions of your app or to support a higher number of prediction queries.
 
-1. Sign in to the [LUIS portal](https://www.luis.ai) and choose the **myEnglishApp** app from the apps list.
+1. Sign in to the [LUIS portal](https://preview.luis.ai) and choose the **myEnglishApp** app from the apps list.
 
 1. Select **Manage** in the upper-right menu, and then select **Azure Resources**.
 
@@ -82,7 +83,7 @@ Every time you create a new resource for LUIS, you need to assign the resource t
 
 ## Prediction endpoint request
 
-The `query=` at the end of the URL is where the user's utterance is appended to the GET request. After the `query=`, enter the same user utterance used at the end of the previous quickstart:
+In the preview portal, `query=` at the end of the URL is where the user's utterance is appended to the GET request. After the `query=`, enter the same user utterance used at the end of the previous quickstart:
 
 ```Is there a form named hrf-234098```
 
