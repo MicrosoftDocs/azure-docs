@@ -15,7 +15,7 @@ ms.author: jingwang
 ---
 # Copy data from Azure Blob to Azure SQL Database using Azure Data Factory
 
-In this tutorial, you create a Data Factory pipeline that copies data from Azure Blob Storage to Azure SQL Database. The configuration pattern in this tutorial applies to copying from a file-based data store to a relational data store. For a list of data stores supported as sources and sinks, see the [supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats) table.
+In this tutorial, you create a Data Factory pipeline that copies data from Azure Blob Storage to Azure SQL Database. The configuration pattern in this tutorial applies to copying from a file-based data store to a relational data store. For a list of data stores supported as sources and sinks, see [supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
 
 You take the following steps in this tutorial:
 
@@ -27,7 +27,7 @@ You take the following steps in this tutorial:
 > * Start a pipeline run.
 > * Monitor the pipeline and activity runs.
 
-This tutorial uses .NET SDK. You can use other mechanisms to interact with Azure Data Factory, refer to samples under **Quickstarts**.
+This tutorial uses .NET SDK. You can use other mechanisms to interact with Azure Data Factory; refer to samples under **Quickstarts**.
 
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
@@ -37,7 +37,7 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 * *Azure SQL Database*. You use the database as *sink* data store. If you don't have an Azure SQL Database, see [Create an Azure SQL database](../sql-database/sql-database-single-database-get-started.md).
 * *Visual Studio*. The walkthrough in this article uses Visual Studio 2019.
 * *[Azure SDK for .NET](/dotnet/azure/dotnet-tools)*.
-* *Azure Active Directory application*. If you don't have an Azure Active Directory application, see the [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) section of [How to: Use the portal to create an Azure AD application](../active-directory/develop/howto-create-service-principal-portal.md). Make note of the following values that you use in later steps: **Application (client) ID**, **authentication key**, and **Directory (tenant) ID**. Assign application to "**Contributor**" role by following instructions in the same article.
+* *Azure Active Directory application*. If you don't have an Azure Active Directory application, see the [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) section of [How to: Use the portal to create an Azure AD application](../active-directory/develop/howto-create-service-principal-portal.md). Copy the following values for use in later steps: **Application (client) ID**, **authentication key**, and **Directory (tenant) ID**. Assign application to the **Contributor** role by following instructions in the same article.
 
 ### Create a blob and a SQL table
 
@@ -47,7 +47,7 @@ Now, prepare your Azure Blob and Azure SQL Database for the tutorial by creating
 
 First, create a source blob by creating a container and uploading an input text file to it:
 
-1. Open Notepad. Copy the following text and save it as *inputEmp.txt* file on your disk.
+1. Open Notepad. Copy the following text and save it locally to a file named *inputEmp.txt*.
 
     ```inputEmp.txt
     John|Doe
@@ -74,7 +74,7 @@ Next, create a sink SQL table:
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-2. Allow Azure services to access SQL server. Ensure that **Allow access to Azure services** setting is turned **ON** for your Azure SQL server so that the Data Factory service can write data to your Azure SQL server. To verify and turn on this setting, do the following steps:
+2. Allow Azure services to access SQL server. Ensure that you allow access to Azure services in your Azure SQL server so that the Data Factory service can write data to your Azure SQL server. To verify and turn on this setting, do the following steps:
 
     1. Go to the [Azure portal](https://portal.azure.com) to manage your SQL server. Search for and select **SQL servers**.
 
@@ -126,7 +126,7 @@ Follow these steps to create a data factory client.
 
 2. Add the following code to the `Main` method that sets variables. Replace the 13 placeholders with your own values.
 
-    To see the list of Azure regions in which Data Factory is currently available, go to the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/) page. Under the **Products** drop-down list, choose **Browse** > **Analytics** > **Data Factory**. Then in the **Regions** drop-down list, choose the regions that interest you. A grid appears with the availability status of Data Factory products for your selected regions.
+    To see the list of Azure regions in which Data Factory is currently available, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). Under the **Products** drop-down list, choose **Browse** > **Analytics** > **Data Factory**. Then in the **Regions** drop-down list, choose the regions that interest you. A grid appears with the availability status of Data Factory products for your selected regions.
 
     > [!NOTE]
     > Data stores, such as Azure Storage and Azure SQL Database, and computes, such as HDInsight, that Data Factory uses can be in other regions than what you choose for Data Factory.
@@ -259,8 +259,8 @@ Add the following code to the `Main` method that creates an *Azure blob dataset*
 You define a dataset that represents the source data in Azure Blob. This Blob dataset refers to the Azure Storage linked service you create in the previous step, and describes:
 
 - The location of the blob to copy from: `FolderPath` and `FileName`
-- The blob format indicating how to parse the content: `TextFormat` and its settings (such as column delimiter)
-- The data structure, including column names and data types, which map here to the sink SQL table
+- The blob format indicating how to parse the content: `TextFormat` and its settings, such as column delimiter
+- The data structure, including column names and data types, which map in this example to the sink SQL table
 
 ```csharp
 // Create an Azure Blob dataset
@@ -323,7 +323,7 @@ Console.WriteLine(
 
 ## Create a pipeline
 
-Add the following code to the `Main` method that creates a *pipeline with a copy activity*. In this tutorial, this pipeline contains one activity: copy activity, which takes in the Blob dataset as source and the SQL dataset as sink. For information about copy activity details, see [Copy activity in Azure Data Factory](copy-activity-overview.md).
+Add the following code to the `Main` method that creates a *pipeline with a copy activity*. In this tutorial, this pipeline contains one activity: `CopyActivity`, which takes in the Blob dataset as source and the SQL dataset as sink. For information about copy activity details, see [Copy activity in Azure Data Factory](copy-activity-overview.md).
 
 ```csharp
 // Create a pipeline with copy activity
@@ -420,7 +420,7 @@ Now insert the code to check pipeline run states and to get details about the co
 
 ## Run the code
 
-Build the application (by choosing **Build** > **Build Solution**), start the application (by choosing **Debug** > **Start Debugging**), and then verify the pipeline execution.
+Build the application by choosing **Build** > **Build Solution**. Then start the application by choosing **Debug** > **Start Debugging**, and verify the pipeline execution.
 
 The console prints the progress of creating a data factory, linked service, datasets, pipeline, and pipeline run. It then checks the pipeline run status. Wait until you see the copy activity run details with the data read/written size. Then, using tools such as SQL Server Management Studio (SSMS) or Visual Studio, you can connect to your destination Azure SQL Database and check whether the destination table you specified contains the copied data.
 
