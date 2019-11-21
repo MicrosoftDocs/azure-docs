@@ -313,7 +313,7 @@ The following table explains the binding configuration properties that you set i
 
 # [C#](#tab/csharp)
 
-In C# and C# script, access the message data by using a method parameter such as `string paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. You can bind to any of the following types:
+Access the message data by using a method parameter such as `string paramName`. You can bind to any of the following types:
 
 * Object - The Functions runtime deserializes a JSON payload into an instance of an arbitrary class defined in your code. 
 * `string`
@@ -324,7 +324,14 @@ If you try to bind to `CloudQueueMessage` and get an error message, make sure th
 
 # [C# Script](#tab/csharp-script)
 
-**TODO**
+Access the message data by using a method parameter such as `string paramName`. The `paramName` is the value specified in the `name` property of *function.json*. You can bind to any of the following types:
+
+* Object - The Functions runtime deserializes a JSON payload into an instance of an arbitrary class defined in your code. 
+* `string`
+* `byte[]`
+* [CloudQueueMessage]
+
+If you try to bind to `CloudQueueMessage` and get an error message, make sure that you have a reference to [the correct Storage SDK version](#azure-storage-sdk-version-in-functions-1x).
 
 # [JavaScript](#tab/javascript)
 
@@ -660,7 +667,7 @@ The following table explains the binding configuration properties that you set i
 
 # [C#](#tab/csharp)
 
-In C# and C# script, write a single queue message by using a method parameter such as `out T paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. You can use the method return type instead of an `out` parameter, and `T` can be any of the following types:
+Write a single queue message by using a method parameter such as `out T paramName`. You can use the method return type instead of an `out` parameter, and `T` can be any of the following types:
 
 * An object serializable as JSON
 * `string`
@@ -676,7 +683,19 @@ In C# and C# script, write multiple queue messages by using one of the following
 
 # [C# Script](#tab/csharp-script)
 
-**TODO**
+Write a single queue message by using a method parameter such as `out T paramName`. The `paramName` is the value specified in the `name` property of *function.json*. You can use the method return type instead of an `out` parameter, and `T` can be any of the following types:
+
+* An object serializable as JSON
+* `string`
+* `byte[]`
+* [CloudQueueMessage] 
+
+If you try to bind to `CloudQueueMessage` and get an error message, make sure that you have a reference to [the correct Storage SDK version](#azure-storage-sdk-version-in-functions-1x).
+
+In C# and C# script, write multiple queue messages by using one of the following types: 
+
+* `ICollector<T>` or `IAsyncCollector<T>`
+* [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
 
 # [JavaScript](#tab/javascript)
 
