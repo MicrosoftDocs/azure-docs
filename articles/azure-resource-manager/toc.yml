@@ -177,11 +177,11 @@
       displayName: DevOps
   - name: Export template
     href: export-template-portal.md
-  - name: Move-regions
+  - name: Move - regions
     items:
     - name: Move across regions
       href: resource-group-move-region.md
-    - name: Support-move regions
+    - name: Move support (regions)
       href: region-move-support.md
     - name: Move services (regions)
       items:
@@ -197,11 +197,11 @@
         href: ../virtual-network/move-across-regions-nsg-portal.md?toc=/azure/azure-resource-manager/toc.json
       - name: Public IP addresses
         href: ../virtual-network/move-across-regions-publicip-portal.md?toc=/azure/azure-resource-manager/toc.json
-  - name: Move-resource groups/subscriptions
+  - name: Move - resource groups/subscriptions
     items:
     - name: Move across resource groups/subscriptions
       href: resource-group-move-resources.md
-    - name: Support-move resource groups/subscriptions
+    - name: Move support (resource groups/subscriptions)
       href: move-support-resources.md
     - name: Troubleshoot move
       href: troubleshoot-move.md
