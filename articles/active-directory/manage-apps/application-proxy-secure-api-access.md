@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 10/24/2019
 ms.author: celested
 ms.reviewer: japere
 ---
@@ -30,7 +30,7 @@ The following diagram shows how you can use Azure AD Application Proxy to secure
 
 The Azure AD Application Proxy forms the backbone of the solution, working as a public endpoint for API access, and providing authentication and authorization. You can access your APIs from a vast array of platforms by using the [ADAL](/azure/active-directory/develop/active-directory-authentication-libraries) libraries. 
 
-Since Azure AD Application Proxy authentication and authorization are built on top of Azure AD, you can use Azure AD conditional access to ensure only trusted devices can access APIs published through Application Proxy. Use Azure AD Join or Azure AD Hybrid Joined for desktops, and Intune Managed for devices. You can also take advantage of Azure Active Directory Premium features like Azure Multi-Factor Authentication, and the machine learning-backed security of [Azure Identity Protection](/azure/active-directory/active-directory-identityprotection).
+Since Azure AD Application Proxy authentication and authorization are built on top of Azure AD, you can use Azure AD Conditional Access to ensure only trusted devices can access APIs published through Application Proxy. Use Azure AD Join or Azure AD Hybrid Joined for desktops, and Intune Managed for devices. You can also take advantage of Azure Active Directory Premium features like Azure Multi-Factor Authentication, and the machine learning-backed security of [Azure Identity Protection](/azure/active-directory/active-directory-identityprotection).
 
 ## Prerequisites
 
@@ -51,7 +51,7 @@ To publish the SecretAPI web API through Application Proxy:
    
 1. At the top of the **Enterprise applications - All applications** page, select **New application**.
    
-1. On the **Add an application** page, under **Add your own app**, select **On-premises application**. 
+1. On the **Browse Azure AD Gallery** page, under **On-premises applications**, select **Add an on-premises application**. The **Add your own on-premises application** page appears.
    
 1. If you don't have an Application Proxy Connector installed, you'll be prompted to install it. Select **Download Application Proxy Connector** to download and install the connector. 
    

@@ -4,7 +4,7 @@ description: Reference documentation for Azure CDN rules engine match conditions
 services: cdn
 author: mdgattuso
 
-ms.service: cdn
+ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
@@ -66,6 +66,8 @@ Special Character | Description
 \* | An asterisk allows the preceding character to be matched zero or more times.
 Space | A space character is typically treated as a literal character.
 'value' | Single quotes are treated as literal characters. A set of single quotes does not have special meaning.
+
+Match conditions and features that support regular expressions accept patterns defined by Perl Compatible Regular Expressions (PCRE).
 
 ## Next steps
 

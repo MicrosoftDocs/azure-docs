@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Use the Apache Kafka Producer and Consumer APIs - Azure HDInsight '
+title: 'Tutorial: Apache Kafka Producer & Consumer APIs - Azure HDInsight'
 description: Learn how to use the Apache Kafka Producer and Consumer APIs with Kafka on HDInsight. In this tutorial, you learn how to use these APIs with Kafka on HDInsight from a Java application.
 author: dhgoelmsft
 ms.author: dhgoel
@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 04/02/2019
+ms.date: 10/08/2019
 #Customer intent: As a developer, I need to create an application that uses the Kafka consumer/producer API with Kafka on HDInsight
 ---
 
@@ -55,14 +55,13 @@ The important things to understand in the `pom.xml` file are:
     ```xml
     <!-- Kafka client for producer/consumer operations -->
     <dependency>
-      <groupId>org.apache.kafka</groupId>
-      <artifactId>kafka-clients</artifactId>
-      <version>${kafka.version}</version>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-clients</artifactId>
+            <version>${kafka.version}</version>
     </dependency>
     ```
 
-    > [!NOTE]  
-    > The `${kafka.version}` entry is declared in the `<properties>..</properties>` section of `pom.xml`, and is configured to the Kafka version of the HDInsight cluster.
+    The `${kafka.version}` entry is declared in the `<properties>..</properties>` section of `pom.xml`, and is configured to the Kafka version of the HDInsight cluster.
 
 * Plugins: Maven plugins provide various capabilities. In this project, the following plugins are used:
 
@@ -109,7 +108,7 @@ In this code, the consumer is configured to read from the start of the topic (`a
 
 ### Run.java
 
-The [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Run.java) file provides a command-line interface that runs either the producer or consumer code. You must provide the Kafka broker host information as a parameter. You can optionally include a group ID value, which is used by the consumer process. If you create multiple consumer instances using the same group ID, they will load balance reading from the topic.
+The [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Run.java) file provides a command-line interface that runs either the producer or consumer code. You must provide the Kafka broker host information as a parameter. You can optionally include a group ID value, which is used by the consumer process. If you create multiple consumer instances using the same group ID, they'll load balance reading from the topic.
 
 ## Build and deploy the example
 
@@ -137,47 +136,48 @@ The [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-2. Install [jq](https://stedolan.github.io/jq/), a command-line JSON processor. From the open SSH connection, enter following command to install `jq`:
+1. Install [jq](https://stedolan.github.io/jq/), a command-line JSON processor. From the open SSH connection, enter following command to install `jq`:
 
     ```bash
     sudo apt -y install jq
     ```
 
-3. Set up environment variables. Replace `PASSWORD` and `CLUSTERNAME` with the cluster login password and cluster name respectively, then enter the command:
+1. Set up password variable. Replace `PASSWORD` with the cluster login password, then enter the command:
 
     ```bash
     export password='PASSWORD'
-    export clusterNameA='CLUSTERNAME'
     ```
 
-4. Extract correctly cased cluster name. The actual casing of the cluster name may be different than you expect, depending on how the cluster was created. This command will obtain the actual casing, store it in a variable, and then display the correctly cased name, and the name you provided earlier. Enter the following command:
+1. Extract correctly cased cluster name. The actual casing of the cluster name may be different than you expect, depending on how the cluster was created. This command will obtain the actual casing, and then store it in a variable. Enter the following command:
 
     ```bash
-    export clusterName=$(curl -u admin:$password -sS -G "https://$clusterNameA.azurehdinsight.net/api/v1/clusters" \
-    | jq -r '.items[].Clusters.cluster_name')
-    echo $clusterName, $clusterNameA
+    export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
     ```
+    > [!Note]  
+    > If you're doing this process from outside the cluster, there is a different procedure for storing the cluster name. Get the cluster name in lower case from the Azure portal. Then, substitute the cluster name for `<clustername>` in the following command and execute it: `export clusterName='<clustername>'`.  
 
-5. To get the Kafka broker hosts and the Apache Zookeeper hosts, use the following command:
+1. To get the Kafka broker hosts, use the following command:
 
     ```bash
-    export KAFKABROKERS=`curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER \
-    | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    export KAFKABROKERS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2);
     ```
 
-6. Create Kafka topic, `myTest`, by entering the following command:
+    > [!Note]  
+    > This command requires Ambari access. If your cluster is behind an NSG, run this command from a machine that can access Ambari.
+
+1. Create Kafka topic, `myTest`, by entering the following command:
 
     ```bash
     java -jar kafka-producer-consumer.jar create myTest $KAFKABROKERS
     ```
 
-7. To run the producer and write data to the topic, use the following command:
+1. To run the producer and write data to the topic, use the following command:
 
     ```bash
     java -jar kafka-producer-consumer.jar producer myTest $KAFKABROKERS
     ```
 
-8. Once the producer has finished, use the following command to read from the topic:
+1. Once the producer has finished, use the following command to read from the topic:
 
     ```bash
     java -jar kafka-producer-consumer.jar consumer myTest $KAFKABROKERS
@@ -185,7 +185,7 @@ The [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started
 
     The records read, along with a count of records, is displayed.
 
-9. Use __Ctrl + C__ to exit the consumer.
+1. Use __Ctrl + C__ to exit the consumer.
 
 ### Multiple consumers
 
@@ -214,12 +214,21 @@ Consumption by clients within the same group is handled through the partitions f
 > [!IMPORTANT]  
 > There cannot be more consumer instances in a consumer group than partitions. In this example, one consumer group can contain up to eight consumers since that is the number of partitions in the topic. Or you can have multiple consumer groups, each with no more than eight consumers.
 
-Records stored in Kafka are stored in the order they are received within a partition. To achieve in-ordered delivery for records *within a partition*, create a consumer group where the number of consumer instances matches the number of partitions. To achieve in-ordered delivery for records *within the topic*, create a consumer group with only one consumer instance.
+Records stored in Kafka are stored in the order they're received within a partition. To achieve in-ordered delivery for records *within a partition*, create a consumer group where the number of consumer instances matches the number of partitions. To achieve in-ordered delivery for records *within the topic*, create a consumer group with only one consumer instance.
+
+## Clean up resources
+
+To clean up the resources created by this tutorial, you can delete the resource group. Deleting the resource group also deletes the associated HDInsight cluster, and any other resources associated with the resource group.
+
+To remove the resource group using the Azure portal:
+
+1. In the Azure portal, expand the menu on the left side to open the menu of services, and then choose __Resource Groups__ to display the list of your resource groups.
+2. Locate the resource group to delete, and then right-click the __More__ button (...) on the right side of the listing.
+3. Select __Delete resource group__, and then confirm.
 
 ## Next steps
 
 In this document, you learned how to use the Apache Kafka Producer and Consumer API with Kafka on HDInsight. Use the following to learn more about working with Kafka:
 
-* [Analyze Apache Kafka logs](apache-kafka-log-analytics-operations-management.md)
-* [Replicate data between Apache Kafka clusters](apache-kafka-mirroring.md)
-* [Apache Kafka Streams API with HDInsight](apache-kafka-streams-api.md)
+> [!div class="nextstepaction"]
+> [Analyze Apache Kafka logs](apache-kafka-log-analytics-operations-management.md)

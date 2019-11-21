@@ -1,5 +1,5 @@
 ---
-title: Deploy a split-merge service | Microsoft Docs
+title: Deploy a split-merge service
 description: Use the split-merge too to move data between sharded databases.
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-manager: craigg
 ms.date: 12/04/2018
 ---
 # Deploy a split-merge service to move data between sharded databases

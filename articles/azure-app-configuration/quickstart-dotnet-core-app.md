@@ -20,19 +20,14 @@ ms.author: yegu
 ---
 # Quickstart: Create a .NET Core app with App Configuration
 
-Azure App Configuration is a managed configuration service in Azure. You can use it to easily store and manage all your application settings in one place that's separated from your code. This quickstart shows you how to incorporate the service into a .NET Core console app.
-
-You can use any code editor to do the steps in this quickstart. [Visual Studio Code](https://code.visualstudio.com/) is an excellent option available on the Windows, macOS, and Linux platforms.
-
-![Quickstart app run](./media/quickstarts/dotnet-core-app-run.png)
+In this quickstart, you incorporate Azure App Configuration into a .NET Core console app to centralize storage and management of application settings separate from your code.
 
 ## Prerequisites
 
-To do this quickstart, install the [.NET Core SDK](https://dotnet.microsoft.com/download).
+- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- [.NET Core SDK](https://dotnet.microsoft.com/download)
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-## Create an app configuration store
+## Create an App Configuration store
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
@@ -50,15 +45,15 @@ You use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/
 
 1. Create a new folder for your project.
 
-2. In the new folder, run the following command to create a new ASP.NET Core MVC web app project:
+2. In the new folder, run the following command to create a new ASP.NET Core console app project:
 
         dotnet new console
 
-## Connect to an app configuration store
+## Connect to an App Configuration store
 
 1. Add a reference to the `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet package by running the following command:
 
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-008520001
+        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 2.0.0-preview-009470001-1371
 
 2. Run the following command to restore packages for your project:
 
@@ -86,7 +81,7 @@ You use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/
 
 ## Build and run the app locally
 
-1. Set an environment variable named **ConnectionString**, and set it to the access key to your app configuration store. If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
+1. Set an environment variable named **ConnectionString**, and set it to the access key to your App Configuration store. If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
@@ -112,7 +107,7 @@ You use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/
 
 ## Next steps
 
-In this quickstart, you created a new app configuration store and used it with a .NET Core console app via the [App Configuration provider](https://go.microsoft.com/fwlink/?linkid=2074664). To learn more about how to use App Configuration, continue to the next tutorial that demonstrates authentication.
+In this quickstart, you created a new App Configuration store and used it with a .NET Core console app via the [App Configuration provider](https://go.microsoft.com/fwlink/?linkid=2074664). To learn how to configure your .NET Core app to dynamically refresh configuration settings, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)
+> [Enable dynamic configuration](./enable-dynamic-configuration-dotnet-core.md)

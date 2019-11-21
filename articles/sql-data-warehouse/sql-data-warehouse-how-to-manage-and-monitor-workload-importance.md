@@ -1,15 +1,16 @@
 ---
-title: Manage and monitor workload importance in Azure SQL Data Warehouse | Microsoft Docs
-description: Learn how to manage and monitor request level importance.
+title: Manage and monitor workload importance
+description: Learn how to manage and monitor request level importance in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
-ms.subservice: workload management
+ms.subservice: workload-management
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: rortloff
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # Manage and monitor workload importance in Azure SQL Data Warehouse
@@ -67,4 +68,4 @@ GO
 - For more information on Importance, see [Workload Importance](sql-data-warehouse-workload-importance.md)
 
 > [!div class="nextstepaction"]
-> [Go to Configure Workload Importance ](sql-data-warehouse-how-to-configure-workload-importance.md)
+> [Go to Configure Workload Importance](sql-data-warehouse-how-to-configure-workload-importance.md)

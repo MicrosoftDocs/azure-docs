@@ -1,16 +1,15 @@
 ---
-title: "PowerShell and CLI: Enable SQL TDE - with Azure Key Vault - Bring your own key - Azure SQL Database | Microsoft Docs"
+title: Enable SQL TDE with Azure Key Vault
 description: "Learn how to configure an Azure SQL Database and Data Warehouse to start using Transparent Data Encryption (TDE) for encryption-at-rest using PowerShell or CLI."
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: 
+ms.custom: seo-lt-2019
 ms.devlang: 
 ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
-manager: craigg
 ms.date: 03/12/2019
 ---
 
@@ -28,10 +27,10 @@ This article walks through how to use a key from Azure Key Vault for Transparent
 - [Recommended but Optional] Have a hardware security module (HSM) or local key store for creating a local copy of the TDE Protector key material.
 - You must have Azure PowerShell installed and running. 
 - Create an Azure Key Vault and Key to use for TDE.
-  - [PowerShell instructions from Key Vault](../key-vault/key-vault-overview.md)
+  - [PowerShell instructions from Key Vault](../key-vault/quick-create-powershell.md)
   - [Instructions for using a hardware security module (HSM) and Key Vault](../key-vault/key-vault-hsm-protected-keys.md)
     - The key vault must have the following property to be used for TDE:
-  - [soft-delete](../key-vault/key-vault-ovw-soft-delete.md)
+  - [soft-delete](../key-vault/key-vault-ovw-soft-delete.md) and purge protection
   - [How to use Key Vault soft-delete with PowerShell](../key-vault/key-vault-soft-delete-powershell.md) 
 - The key must have the following attributes to be used for TDE:
    - No expiration date
@@ -74,6 +73,8 @@ Use the [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvau
 
 ## Step 3. Add the Key Vault key to the server and set the TDE Protector
 
+
+- Use the [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey?view=azps-2.4.0) cmdlet to retrieve the key ID from key vault
 - Use the [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) cmdlet to add the key from the Key Vault to the server.
 - Use the [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlet to set the key as the TDE protector for all server resources.
 - Use the [Get-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) cmdlet to confirm that the TDE protector was configured as intended.
@@ -147,7 +148,7 @@ Use the [Get-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/g
    -ServerName <LogicalServerName> `
    -ResourceGroupName <SQLDatabaseResourceGroupName> `
    -DatabaseName <DatabaseName> `
-   -State "Disabled”
+   -State "Disabled"
    ```
  
 - Use the [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) cmdlet to return the list of Key Vault keys added to the server.

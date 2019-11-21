@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
-ms.custom: aaddev 
+ms.custom: aaddev, identityplatformtop40 
 #Customer intent: As an application developer, I want to know how to write an ASP.NET Core web app that can sign in personal accounts, as well as work and school accounts from any Azure Active Directory instance.
 ms.collection: M365-identity-device-management
 ---
@@ -82,6 +82,10 @@ In this quickstart, you'll learn how an ASP.NET Core web app can sign in persona
     "ClientId": "Enter_the_Application_Id_here"
     "TenantId": "Enter_the_Tenant_Info_Here"
     ```
+
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > This quickstart supports Enter_the_Supported_Account_Info_Here.
 
 > [!div renderon="docs"]
 > Where:
@@ -160,3 +164,8 @@ Check out the GitHub repo for this ASP.NET Core tutorial for more information in
 
 > [!div class="nextstepaction"]
 > [ASP.NET Core Web App tutorial](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)
+
+Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey.
+
+> [!div class="nextstepaction"]
+> [Microsoft identity platform survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

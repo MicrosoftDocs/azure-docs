@@ -1,20 +1,15 @@
 ---
 title: Application Insights for Azure cloud services | Microsoft Docs
 description: Monitor your web and worker roles effectively with Application Insights
-services: application-insights
-documentationcenter: ''
-keywords: "WAD2AI, Azure Diagnostics"
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 5c7a5b34-329e-42b7-9330-9dcbb9ff1f88
-ms.service: application-insights
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.workload: tbd
-ms.date: 09/05/2018
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 09/05/2018
 
 ---
+
 # Application Insights for Azure cloud services
 [Application Insights][start] can monitor [Azure cloud service apps](https://azure.microsoft.com/services/cloud-services/) for availability, performance, failures, and usage by combining data from Application Insights SDKs with [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) data from your cloud services. With the feedback you get about the performance and effectiveness of your app in the wild, you can make informed choices about the direction of the design in each development lifecycle.
 
@@ -58,7 +53,7 @@ Each resource belongs to a resource group. Resource groups are used to manage co
 ### Resources for components
 We recommend that you create a separate resource for each component of your app. That is, you create a resource for each web role and worker role. You can analyze each component separately, but you create a [dashboard](../../azure-monitor/app/overview-dashboard.md) that brings together the key charts from all the components, so that you can compare and monitor them together in a single view. 
 
-An alternative approach is to send the telemetry from more than one role to the same resource, but [add a dimension property to each telemetry item](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer) that identifies its source role. In this approach, metric charts, such as exceptions, normally show an aggregation of the counts from the various roles, but you can segment the chart by the role identifier, as necessary. You can also filter searches by the same dimension. This alternative makes it a bit easier to view everything at the same time, but it could also lead to some confusion between the roles.
+An alternative approach is to send the telemetry from more than one role to the same resource, but [add a dimension property to each telemetry item](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) that identifies its source role. In this approach, metric charts, such as exceptions, normally show an aggregation of the counts from the various roles, but you can segment the chart by the role identifier, as necessary. You can also filter searches by the same dimension. This alternative makes it a bit easier to view everything at the same time, but it could also lead to some confusion between the roles.
 
 Browser telemetry is usually included in the same resource as its server-side web role.
 
@@ -79,8 +74,9 @@ If you've decided to create a separate resource for each role, and perhaps a sep
 
     ![Application Insights pane](./media/cloudservices/01-new.png)
 
-1. In the **Application Type** drop-down list, select **ASP.NET web application**.  
-    Each resource is identified by an instrumentation key. You might need this key later if you want to manually configure or verify the configuration of the SDK.
+1. In the **Application Type** drop-down list, select **ASP.NET web application**.
+
+Each resource is identified by an instrumentation key. You might need this key later if you want to manually configure or verify the configuration of the SDK.
 
 
 ## Set up Azure Diagnostics for each role
@@ -128,23 +124,58 @@ In Visual Studio, configure the Application Insights SDK for each cloud app proj
     * [Worker role](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L232)
     * [For webpages](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13) 
 
-1. Set the *ApplicationInsights.config* file to be copied always to the output directory.  
-    A message in the *.config* file asks you to place the instrumentation key there. However, for cloud apps, it's better to set it from the *.cscfg* file. This approach ensures that the role is correctly identified in the portal.
+1. Set the *ApplicationInsights.config* file to be copied always to the output directory.
 
-#### Run and publish the app
+   A message in the *.config* file asks you to place the instrumentation key there. However, for cloud apps, it's better to set it from the *.cscfg* file. This approach ensures that the role is correctly identified in the portal.
+
+## Set up Status Monitor to collect full SQL Queries (optional)
+
+This step is only needed if you want to capture full SQL queries on .NET Framework. 
+
+1. In `\*.csdef` file Add [startup task](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks) for each role similar to 
+
+    ```xml
+    <Startup>
+      <Task commandLine="AppInsightsAgent\InstallAgent.bat" executionContext="elevated" taskType="simple">
+        <Environment>
+          <Variable name="ApplicationInsightsAgent.DownloadLink" value="http://go.microsoft.com/fwlink/?LinkID=522371" />
+          <Variable name="RoleEnvironment.IsEmulated">
+            <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
+          </Variable>
+        </Environment>
+      </Task>
+    </Startup>
+    ```
+    
+2. Download [InstallAgent.bat](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat) and [InstallAgent.ps1](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1), put them into the `AppInsightsAgent` folder on each role project. Make sure to copy them to the output directory through Visual Studio file properties or build scripts.
+
+3. On all Worker Roles, add environment variables: 
+
+    ```xml
+      <Environment>
+        <Variable name="COR_ENABLE_PROFILING" value="1" />
+        <Variable name="COR_PROFILER" value="{324F817A-7420-4E6D-B3C1-143FBED6D855}" />
+        <Variable name="MicrosoftInstrumentationEngine_Host" value="{CA487940-57D2-10BF-11B2-A3AD5A13CBC0}" />
+      </Environment>
+    ```
+    
+## Run and publish the app
 
 1. Run your app, and sign in to Azure. 
 
-1. Open the Application Insights resources that you created.  
-    Individual data points are displayed in [Search](../../azure-monitor/app/diagnostic-search.md), and aggregated data is displayed in [Metric Explorer](../../azure-monitor/app/metrics-explorer.md). 
+1. Open the Application Insights resources that you created.
+
+   Individual data points are displayed in [Search][diagnostic], and aggregated data is displayed in [Metric Explorer](../../azure-monitor/app/metrics-explorer.md).
 
 1. Add more telemetry (see the next sections) and then publish your app to get live diagnostics and usage feedback. 
 
 If there is no data, do the following:
+
 1. To view individual events, open the [Search][diagnostic] tile.
 1. In the app, open various pages so that it generates some telemetry.
 1. Wait a few seconds, and then click **Refresh**.  
-    For more information, see [Troubleshooting][qna].
+
+For more information, see [Troubleshooting][qna].
 
 ## View Azure Diagnostics events
 You can find the [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) information in Application Insights in the following locations:

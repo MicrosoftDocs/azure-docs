@@ -247,7 +247,7 @@ In order to enable Azure AD users to sign in to SumoLogic, they must be provisio
     d. Click **Save**.
 
 > [!NOTE]
-> You can use any other SumoLogic user account creation tools or APIs provided by SumoLogic to provision AAD user accounts.
+> You can use any other SumoLogic user account creation tools or APIs provided by SumoLogic to provision Azure AD user accounts.
 
 ### Test single sign-on
 
@@ -261,5 +261,5 @@ When you click the SumoLogic tile in the Access Panel, you should be automatical
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Incrementally copy a table by using Azure Data Factory | Microsoft Docs'
+title: 'Incrementally copy a table by using Azure Data Factory '
 description: 'In this tutorial, you create an Azure data factory pipeline that copies data incrementally from an Azure SQL database to Azure Blob storage.'
 services: data-factory
 documentationcenter: ''
@@ -9,8 +9,6 @@ ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu

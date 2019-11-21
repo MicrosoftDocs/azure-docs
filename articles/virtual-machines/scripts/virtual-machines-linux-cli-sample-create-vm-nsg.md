@@ -1,10 +1,10 @@
 ---
-title: Azure CLI Script Sample - Create two VMs with an internal and external NSG | Microsoft Docs
+title: Azure CLI Script Sample - Create two VMs with an internal and external NSG 
 description: Azure CLI Script Sample - Create two VMs with internal and external NSG
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-service-management
 

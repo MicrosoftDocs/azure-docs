@@ -21,7 +21,10 @@ ms.collection: M365-identity-device-management
 
 ![Getting started with MFA Server on-premises](./media/howto-mfaserver-deploy/server2.png)</center>
 
-Now that we have determined to use on-premises Multi-Factor Authentication Server, let’s get going. This page covers a new installation of the server and setting it up with on-premises Active Directory. If you already have the MFA server installed and are looking to upgrade, see [Upgrade to the latest Azure Multi-Factor Authentication Server](howto-mfaserver-deploy-upgrade.md). If you're looking for information on installing just the web service, see [Deploying the Azure Multi-Factor Authentication Server Mobile App Web Service](howto-mfaserver-deploy-mobileapp.md).
+This page covers a new installation of the server and setting it up with on-premises Active Directory. If you already have the MFA server installed and are looking to upgrade, see [Upgrade to the latest Azure Multi-Factor Authentication Server](howto-mfaserver-deploy-upgrade.md). If you're looking for information on installing just the web service, see [Deploying the Azure Multi-Factor Authentication Server Mobile App Web Service](howto-mfaserver-deploy-mobileapp.md).
+
+> [!IMPORTANT]
+> As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who would like to require multi-factor authentication from their users should use cloud-based Azure Multi-Factor Authentication. Existing customers who have activated MFA Server prior to July 1 will be able to download the latest version, future updates and generate activation credentials as usual.
 
 ## Plan your deployment
 
@@ -96,7 +99,7 @@ If you aren't using the Event Confirmation feature, and your users aren't using 
 Follow these steps to download the Azure Multi-Factor Authentication Server from the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
-2. Select **Azure Active Directory** > **MFA Server**.
+2. Search for and select *Azure Active Directory*. Select **MFA Server**.
 3. Select **Server settings**.
 4. Select **Download** and follow the instructions on the download page to save the installer. 
 

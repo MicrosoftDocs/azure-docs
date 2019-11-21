@@ -1,5 +1,5 @@
 ---
-title: Send your security messages to Azure Security Center for IoT Preview| Microsoft Docs
+title: Send your security messages to Azure Security Center for IoT| Microsoft Docs
 description: Learn how to send your security messages using Azure Security Center for IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -9,53 +9,54 @@ manager: rkarlin
 editor: ''
 
 ms.assetid: c611bb5c-b503-487f-bef4-25d8a243803d
-ms.service: ascforiot
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/26/2019
+ms.date: 10/03/2019
 ms.author: mlottner
 
 ---
 
 # Send security messages SDK
 
-> [!IMPORTANT]
-> Azure Security Center for IoT is currently in public preview.
-> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-This how-to guide explains Azure Security Center (ASC) for IoT service capabilities when you choose to collect and send your device security messages without using an ASC for IoT agent, and explains how to do so.  
+This how-to guide explains the Azure Security Center for IoT service capabilities when you choose to collect and send your device security messages without using an Azure Security Center for IoT agent, and explains how to do so.  
 
 In this guide, you learn how to: 
 > [!div class="checklist"]
-> * Use the Send security message API for C#
-> * Use the Send security message API for C
+> * Send security messages using the Azure IoT C SDK
+> * Send security messages using the Azure IoT C# SDK
+> * Send security messages using the Azure IoT Python SDK
+> * Send security messages using the Azure IoT Node.js SDK
+> * Send security messages using the Azure IoT Java SDK
 
-## ASC for IoT capabilities
 
-ASC for IoT can process and analyze any kind of security message data as long as the data sent conforms to the [ASC for IoT schema](https://aka.ms/iot-security-schemas) and the message is set as a security message.
+## Azure Security Center for IoT capabilities
+
+Azure Security Center for IoT can process and analyze any kind of security message data as long as the data sent conforms to the [Azure Security Center for IoT schema](https://aka.ms/iot-security-schemas) and the message is set as a security message.
 
 ## Security message
 
-ASC for IoT defines a security message using the following criteria:
-- If the message was sent with Azure IoT C/C# SDK
+Azure Security Center for IoT defines a security message using the following criteria:
+- If the message was sent with Azure IoT SDK
 - If the message conforms to the [security message schema](https://aka.ms/iot-security-schemas)
 - If the message was set as a security message prior to sending
 
 Each security message includes the metadata of the sender such as `AgentId`, `AgentVersion`, `MessageSchemaVersion` and a list of security events.
 The schema defines the valid and required properties of the security message including the types of events.
 
-[!NOTE]
+>[!Note]
 > Messages sent that do not comply with the schema are ignored. Make sure to verify the schema before initiating sending data as ignored messages are not currently stored. 
-> Messages sent that were not set as a security message using the Azure IoT C/C# SDK will not be routed to the ASC for IoT pipeline
+
+>[!Note]
+> Messages sent that were not set as a security message using the Azure IoT SDK will not be routed to the Azure Security Center for IoT pipeline.
 
 ## Valid message example
 
 The example below shows a valid security message object. The example contains the message metadata and one `ProcessCreate` security event.
 
-Once set as a security message and sent, this message will be processed by ASC for IoT.
+Once set as a security message and sent, this message will be processed by Azure Security Center for IoT.
 
 ```json
 "AgentVersion": "0.0.1",
@@ -74,11 +75,11 @@ Once set as a security message and sent, this message will be processed by ASC f
         "Payload":
             [
                 {
-                    "Executable": "/usr/bin/echo",
+                    "Executable": "/usr/bin/myApp",
                     "ProcessId": 11750,
                     "ParentProcessId": 1593,
-                    "UserName": "nginx",
-                    "CommandLine": "./backup .htaccess"
+                    "UserName": "aUser",
+                    "CommandLine": "myApp -a -b"
                 }
             ]
     }
@@ -87,28 +88,15 @@ Once set as a security message and sent, this message will be processed by ASC f
 
 ## Send security messages 
 
-Send security messages without using the ASC for IoT agent, by using the [Azure IoT C# device SDK](https://github.com/Azure/azure-iot-sdk-csharp/tree/preview) or [Azure IoT C device SDK](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview).
+Send security messages *without* using Azure Security Center for IoT agent, by using the [Azure IoT C device SDK](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview), [Azure IoT C# device SDK](https://github.com/Azure/azure-iot-sdk-csharp/tree/preview), , [Azure IoT Node.js SDK](https://github.com/Azure/azure-iot-sdk-node), [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python), or [Azure IoT Java SDK](https://github.com/Azure/azure-iot-sdk-java).
 
-To send the device data from your devices for processing by ASC for IoT, use one of the following APIs to mark messages for correct routing to ASC for IoT processing pipeline. Messages sent this way will be processed and displayed as security insights within ASC for IoT within both IoT Hub or within Azure Security Center. 
+To send the device data from your devices for processing by Azure Security Center for IoT, use one of the following APIs to mark messages for correct routing to Azure Security Center for IoT processing pipeline. 
 
-All data that is sent, even if marked with the correct header, must also comply with the [ASC for IoT message schema](https://aka.ms/iot-security-schemas). 
+All data that is sent, even if marked with the correct header, must also comply with the [Azure Security Center for IoT message schema](https://aka.ms/iot-security-schemas). 
 
-### Send security message API
+### Send security message API 
 
-The **Send security messages** API is currently available in C and C#.  
-
-#### C# API
-
-```cs
-
-private static async Task SendSecurityMessageAsync(string messageContent)
-{
-    ModuleClient client = ModuleClient.CreateFromConnectionString("<connection_string>");
-    Message  securityMessage = new Message(Encoding.UTF8.GetBytes(messageContent));
-    securityMessage.SetAsSecurityMessage();
-    await client.SendEventAsync(securityMessage);
-}
-```
+The **Send security messages** API is currently available in C and C#, Python, Node.js, and Java.  
 
 #### C API
 
@@ -154,10 +142,82 @@ static void SendConfirmCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* 
     }
 }
 ```
+#### C# API
+
+```cs
+
+private static async Task SendSecurityMessageAsync(string messageContent)
+{
+    ModuleClient client = ModuleClient.CreateFromConnectionString("<connection_string>");
+    Message  securityMessage = new Message(Encoding.UTF8.GetBytes(messageContent));
+    securityMessage.SetAsSecurityMessage();
+    await client.SendEventAsync(securityMessage);
+}
+```
+#### Node.js API
+
+```typescript
+var Protocol = require('azure-iot-device-mqtt').Mqtt
+​
+function SendSecurityMessage(messageContent)​
+{​
+  var client = Client.fromConnectionString(connectionString, Protocol);​
+​
+  var connectCallback = function (err) {​
+    if (err) {​
+      console.error('Could not connect: ' + err.message);​
+    } else {​
+      var message = new Message(messageContent);​
+      message.setAsSecurityMessage();​
+      client.sendEvent(message);​
+  ​
+      client.on('error', function (err) {​
+        console.error(err.message);​
+      });​
+  ​
+      client.on('disconnect', function () {​
+        clearInterval(sendInterval);​
+        client.removeAllListeners();​
+        client.open(connectCallback);​
+      });​
+    }​
+  };​
+​
+  client.open(connectCallback);​
+}
+```
+
+#### Python API
+
+```python
+async def send_security_message_async(message_content):
+    conn_str = os.getenv("<connection_string>")​
+    device_client = IoTHubDeviceClient.create_from_connection_string(conn_str)​
+    await device_client.connect()​
+    security_message = Message(message_content)​
+    security_message.set_as_security_message()​
+    await device_client.send_d2c_message(security_message)​
+    await device_client.disconnect()
+```
+
+#### Java API
+
+```java
+public void SendSecurityMessage(string message)
+{
+    ModuleClient client = new ModuleClient("<connection_string>", IotHubClientProtocol.MQTT);
+    Message msg = new Message(message);
+    msg.setAsSecurityMessage();
+    EventCallback callback = new EventCallback();
+    string context = "<user_context>";
+    client.sendEventAsync(msg, callback, context);
+}
+```
+
 
 ## Next steps
-- Read the ASC for IoT service [Overview](overview.md)
-- Learn more about ASC for IoT [Architecture](architecture.md)
+- Read the Azure Security Center for IoT service [Overview](overview.md)
+- Learn more about Azure Security Center for IoT [Architecture](architecture.md)
 - Enable the [service](quickstart-onboard-iot-hub.md)
 - Read the [FAQ](resources-frequently-asked-questions.md)
 - Learn how to access [raw security data](how-to-security-data-access.md)

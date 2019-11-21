@@ -1,8 +1,8 @@
 ---
-title: Creating, updating statistics - Azure SQL Data Warehouse | Microsoft Docs
+title: Creating, updating statistics
 description: Recommendations and examples for creating and updating query-optimization statistics on tables in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,7 +10,7 @@ ms.subservice: development
 ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seoapril2019
+ms.custom: seo-lt-2019
 ---
 
 # Table statistics in Azure SQL Data Warehouse

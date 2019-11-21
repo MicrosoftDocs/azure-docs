@@ -1,13 +1,8 @@
 ---
 title: Azure Functions SendGrid bindings
 description: Azure Functions SendGrid bindings reference.
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
 
-ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/29/2017
 ms.author: cshoe
@@ -29,6 +24,9 @@ The SendGrid bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.Se
 ## Packages - Functions 2.x
 
 The SendGrid bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.SendGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid) NuGet package, version 3.x. Source code for the package is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/) GitHub repository.
+
+> [!NOTE]
+> Version 2.x does not create the topic or subscription configured in the `ServiceBusTrigger` instance. Version 2.x is based on [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) and does not handle queue management.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 

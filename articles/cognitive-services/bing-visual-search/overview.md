@@ -9,13 +9,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: overview
-ms.date: 03/27/2019
+ms.date: 08/30/2019
 ms.author: scottwhi
 ---
 
 # What is the Bing Visual Search API?
 
-The Bing Visual Search API returns insights for an image. You can either upload an image or provide a URL to one. Insights are visually similar images, shopping sources, webpages that include the image, and more. Insights returned by the Bing Visual Search API are similar to ones shown on Bing.com/images.
+The Bing Visual Search API returns insights for an image. You can either upload an image or provide a URL to one. Insights are visually similar images, shopping sources, webpages that include the image, and more. Insights returned by the Bing Visual Search API are similar to ones shown on Bing.com/images. 
 
 If you use the [Bing Image Search API](../bing-image-search/overview.md), you can use insight tokens from that API's search results for your Bing Visual Search instead of uploading an image.
 
@@ -34,6 +34,7 @@ You can discover the following insights by using Bing Visual Search:
 | Related searches                     | Related searches made by others or that are based on the contents of the image.            |
 | Webpages that include the image     | Webpages that include the input image.            |
 | Recipes                              | Webpages that include recipes for making the dish shown in the input image.            |
+| Entities                             | Well-known people, places, and things. |
 
 In addition to insights, Bing Visual Search returns a variety of terms (that is, tags) derived from the input image. The tags enable users to explore concepts found in the image. For example, if the input image is of a famous athlete, one of the tags may be the name of the athlete, another tag could be Sports. Or, if the input image is of an apple pie, the tags could be Apple Pie, Pies, and Desserts.
 
@@ -43,7 +44,7 @@ Bing Visual Search results also include bounding boxes for regions of interest i
 
 The Bing Visual Search API is a RESTful web service, making it easy to call from any programming language that can make HTTP requests and parse JSON. You can use either the REST API or the SDK for the service.
 
-1. Create a [Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to access the Bing Search APIs. If you don't have an Azure subscription, you can [create an account for free](https://azure.microsoft.com/free/). You can get your subscription key from the [Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#access-your-resource) after creating your account, or [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis) after activating a free trial.
+1. Create a [Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to access the Bing Search APIs. If you don't have an Azure subscription, you can [create an account for free](https://azure.microsoft.com/free/). You can get your subscription key from the [Azure portal](../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) after creating your account, or [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis) after activating a free trial.
 2. Send a request to the API with a valid search query.
 3. Process the API response by parsing the returned JSON message.
 

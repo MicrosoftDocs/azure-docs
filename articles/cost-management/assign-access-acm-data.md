@@ -1,20 +1,20 @@
 ---
-title: Assign access to Azure Cost Management data | Microsoft Docs
+title: Assign access to Azure Cost Management data
 description: This article walks you though assigning permission to Azure Cost Management data for various access scopes.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 06/04/2019
+ms.date: 10/14/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: vitavor
 ms.custom: secdec18
 ---
 
 # Assign access to Cost Management data
 
-For users with Azure Enterprise agreements, a combination of permissions granted in the Azure portal and the Enterprise (EA) portal define a user's level of access to Azure Cost Management data. For users with other Azure account types, a user's level of access is to Cost Management data is simpler. This article walks you through assigning access to Cost Management data. After the combination of permissions is assigned, the user views data in Cost Management based the scope that they have access to and on the scope that they select in the Azure portal.
+For users with Azure Enterprise agreements, a combination of permissions granted in the Azure portal and the Enterprise (EA) portal define a user's level of access to Azure Cost Management data. For users with other Azure account types, defining a user's level of access to Cost Management data is simpler by using Azure role-based access control. This article walks you through assigning access to Cost Management data. After the combination of permissions is assigned, the user views data in Cost Management based the scope that they have access to and on the scope that they select in the Azure portal.
 
 The scope that a user selects is used throughout Cost Management to provide data consolidation and to control access to cost information. When using scopes, users don't multi-select them. Instead, they select a larger scope that child scopes roll up to and then they filter-down to what they want to view. Data consolidation is important to understand because some people shouldn't have access to a parent scope that child scopes roll up to.
 
@@ -58,6 +58,8 @@ To view cost data for other Azure subscriptions, a user must have at least read 
 - Azure account
 - Management group
 - Resource group
+
+Various scopes are available after partners onboard customers to a Microsoft Customer Agreement. CSP customers can then use Cost Management features when enabled by their CSP partner. For more information, see [Get started with Azure Cost Management for partners](get-started-partners.md).
 
 ## Enable access to costs in the EA portal
 
@@ -124,7 +126,7 @@ After completing the steps above, the user account becomes an enrollment account
 
 ## Assign management group scope access
 
-Access to a management group scope requires at least the Cost Management Reader (or Reader) permission. You can configure permissions for a management group in the Azure portal. You must have at least the User Access Administrator (or Owner) permission for the management group to enable access for others. And for Azure EA accounts, you must also have enabled the **AO view charges** setting in the EA portal.
+Access to view the management group scope requires at least the Cost Management Reader (or Reader) permission. You can configure permissions for a management group in the Azure portal. You must have at least the User Access Administrator (or Owner) permission for the management group to enable access for others. And for Azure EA accounts, you must also have enabled the **AO view charges** setting in the EA portal.
 
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 2. Select **All Services** in the sidebar, search for _management groups_, then select **management groups**.

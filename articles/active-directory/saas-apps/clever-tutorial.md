@@ -9,6 +9,7 @@ ms.reviewer: barbkess
 
 ms.assetid: 069ff13a-310e-4366-a147-d6ec5cca12a5
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -118,8 +119,9 @@ To configure Azure AD single sign-on with Clever, perform the following steps:
 
 	| Name | Source Attribute|
 	| ---------------| --------------- |
-	| clever.teacher.credentials.district_username|user.userprincipalname|
+	| clever.teacher.credentials.district_username|user.userprincipalname |
 	| clever.student.credentials.district_username| user.userprincipalname |
+	| clever.staff.credentials.district_username| user.userprincipalname |
 	| Firstname  | user.givenname |
 	| Lastname  | user.surname |
 
@@ -243,5 +245,5 @@ When you click the Clever tile in the Access Panel, you should be automatically 
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

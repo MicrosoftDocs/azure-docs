@@ -7,7 +7,7 @@ ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 06/10/2019
 ---
 
 # Reference - IoT Hub endpoints
@@ -99,3 +99,4 @@ Other reference topics in this IoT Hub developer guide include:
 * [IoT Hub query language for device twins, jobs, and message routing](iot-hub-devguide-query-language.md)
 * [Quotas and throttling](iot-hub-devguide-quotas-throttling.md)
 * [IoT Hub MQTT support](iot-hub-mqtt-support.md)
+* [Understand your IoT hub IP address](iot-hub-understand-ip-address.md)

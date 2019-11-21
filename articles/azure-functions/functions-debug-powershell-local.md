@@ -1,15 +1,11 @@
 ---
 title: Debug PowerShell Azure Functions locally
 description: Understand how to develop functions by using PowerShell.
-services: functions
-documentationcenter: na
 author: tylerleonhardt
-manager: jeconnoc
-ms.service: azure-functions
-ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.author: tyleonha, glenga
+ms.author: tyleonha
+ms.reviewer: glenga
 # Customer intent: As a PowerShell developer, I want to learn how to debug my functions on my local computer so that I can publish higher quality code to Azure.
 ---
 
@@ -95,7 +91,7 @@ To debug your PowerShell functions in Visual Studio Code, you must have the foll
 
 * [PowerShell extension for Visual Studio Code](/powershell/scripting/components/vscode/using-vscode)
 * [Azure Functions extension for Visual Studio Code](functions-create-first-function-vs-code.md)
-* [PowerShell Core 6.2 or higher](/powershell/scripting/install/installing-powershell#powershell-core)
+* [PowerShell Core 6.2 or higher](/powershell/scripting/install/installing-powershell-core-on-windows)
 
 After installing these dependencies, load an existing PowerShell Functions project, or [create your first PowerShell Functions project](functions-create-first-function-powershell.md).
 
@@ -129,6 +125,9 @@ The start debugging operation does the following tasks:
 * Runs `func extensions install` in the terminal to install any Azure Functions extensions required by your function app.
 * Runs `func host start` in the terminal to start the function app in the Functions host.
 * Attach the PowerShell debugger to the PowerShell runspace within the Functions runtime.
+
+>[!NOTE]
+> You need to ensure PSWorkerInProcConcurrencyUpperBound is set to 1 to ensure correct debugging experience in Visual Studio Code. This is the default.
 
 With your function app running, you need a separate PowerShell console to call the HTTP triggered function.
 

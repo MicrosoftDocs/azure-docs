@@ -1,11 +1,6 @@
 ---
 title: "How Azure Dev Spaces works and is configured"
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
-author: zr-msft
-ms.author: zarhoads
 ms.date: 03/04/2019
 ms.topic: "conceptual"
 description: "Describes the processes that power Azure Dev Spaces and how they are configured in the azds.yaml configuration file"
@@ -206,7 +201,7 @@ The `up` command uploads your application source files and other artifacts neede
 1. Builds the container for your application.
 1. Deploys your application to the dev space.
 1. Creates a publicly accessible DNS name for your application endpoint if configured.
-1. Uses *port-forward* to provide access to your application endpoint using http://locahost.
+1. Uses *port-forward* to provide access to your application endpoint using http://localhost.
 1. Forwards stdout and stderr to the client-side tooling.
 
 
@@ -244,7 +239,7 @@ Changes to files such as source code or application configuration files can be a
 
 The way *devhostagent* executes the preceding steps is configured in the `azds.yaml` configuration file. This configuration is detailed in a later section.
 
-Updates to project files such as Dockerfiles, csproj files, or any part of the Helm chart require the application's container to be rebuilt and redeployed. When one of these files is synchronized to the dev space, the controller runs the [helm upgrade](https://helm.sh/docs/helm/#helm-upgrade) command and the application's container is rebuilt and redeployed.
+Updates to project files such as Dockerfiles, csproj files, or any part of the Helm chart require the application's container to be rebuilt and redeployed. When one of these files is synchronized to the dev space, the controller runs the [helm upgrade](https://helm.sh/docs/intro/using_helm/#helm-upgrade-and-helm-rollback-upgrading-a-release-and-recovering-on-failure) command and the application's container is rebuilt and redeployed.
 
 ### File Synchronization
 

@@ -4,6 +4,7 @@ description: Describes the SKUs tab used in creating a virtual machine offer in 
 services: Azure, Marketplace, Cloud Partner Portal, virtual machine
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: pabutler
@@ -64,6 +65,11 @@ The following table describes the purpose, contents, and formatting of these fie
 
 The pricing model described above is a basic description.  It is undergoing changes and may be affected by local or regional tax regulations and Microsoft pricing policies. 
 
+### New core sizes added on 7/2/2019
+
+VM publishers were notified on July 2, 2019 of the addition of new prices for new Azure virtual machine sizes (based on the number of cores).  The new prices are for the core sizes 10, 44, 48, 60, 120, 208, and 416.  For existing VM offers new prices for these cores sizes were automatically calculated based on current prices.  Publishers have until August 1, 2019 to review the additional prices and make any desired changes.  After this date, if not already re-published by the publisher, the automatically calculated prices for these new core sizes will take effect.
+
+
 ### Simplified Currency Pricing
 
 Starting September 1 2018, a new section called **Simplified Currency Pricing** will be added to the portal. Microsoft is streamlining the Azure Marketplace business by enabling more predictable pricing and collections from your customers across the world. This streamlining will include reducing the number of currencies in which we invoice your customers.  For more information, see [Update an existing VM offer on Azure Marketplace](./cpp-update-existing-offer.md).
@@ -75,7 +81,7 @@ Starting September 1 2018, a new section called **Simplified Currency Pricing** 
 * Prices are not changeable once an offer goes live. However, you may still add or remove supported regions. 
 * Microsoft charges the customer standard Azure VM usage fees in addition to your scheduled SKU fees.
 * Prices are set for all regions in local currency on available currency rates at the time of setting prices.  <!-- TD: Meaning? - Offer created, published, other? -->
-* To set each region’s price individually, please export the pricing spreadsheet, apply custom pricing, then import. 
+* To set each region's price individually, please export the pricing spreadsheet, apply custom pricing, then import. 
 
 
 ## Next steps

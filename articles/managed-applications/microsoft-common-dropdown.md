@@ -1,6 +1,6 @@
 ---
 title: Azure DropDown UI element | Microsoft Docs
-description: Describes the Microsoft.Common.DropDown UI element for Azure portal.
+description: Describes the Microsoft.Common.DropDown UI element for Azure portal. Use to select from available options when deploying a managed application.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -18,12 +18,15 @@ ms.author: tomfitz
 ---
 
 # Microsoft.Common.DropDown UI element
+
 A selection control with a dropdown list.
 
 ## UI sample
+
 ![Microsoft.Common.DropDown](./media/managed-application-elements/microsoft.common.dropdown.png)
 
 ## Schema
+
 ```json
 {
   "name": "element1",
@@ -48,6 +51,12 @@ A selection control with a dropdown list.
 }
 ```
 
+## Sample output
+
+```json
+"two"
+```
+
 ## Remarks
 
 - The label for `constraints.allowedValues` is the display text for an item, and its value is the output value of the element when selected.
@@ -55,11 +64,7 @@ A selection control with a dropdown list.
 - `constraints.allowedValues` must have at least one item.
 - To emulate a value not being required, add an item with a label and value of `""` (empty string) to `constraints.allowedValues`.
 
-## Sample output
-```json
-"two"
-```
-
 ## Next steps
+
 * For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).
 * For a description of common properties in UI elements, see [CreateUiDefinition elements](create-uidefinition-elements.md).

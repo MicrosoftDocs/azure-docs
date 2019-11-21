@@ -1,10 +1,10 @@
 ---
-title: Open ports to a Linux VM with Azure CLI | Microsoft Docs
+title: Open ports to a Linux VM with Azure CLI 
 description: Learn how to open a port / create an endpoint to your Linux VM using the Azure resource manager deployment model and the Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: eef9842b-495a-46cf-99a6-74e49807e74e

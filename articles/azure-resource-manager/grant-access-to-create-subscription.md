@@ -1,17 +1,9 @@
 ---
-title: Grant access to create Azure Enterprise subscriptions| Microsoft Docs
+title: Grant access to create Azure Enterprise subscriptions
 description: Learn how to give a user or service principal the ability to programmatically create Azure Enterprise subscriptions.
-services: azure-resource-manager
 author: jureid
 manager: jureid
-editor: ''
-
-ms.assetid:
-ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 05/23/2019
 ms.author: jureid
 ---

@@ -1,14 +1,8 @@
 ---
 title: Event Grid trigger for Azure Functions
 description: Understand how to handle Event Grid events in Azure Functions.
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
-keywords:
 
-ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
@@ -210,6 +204,7 @@ Here's the Python code:
 import logging
 import azure.functions as func
 
+
 def main(event: func.EventGridEvent):
     logging.info("Python Event Grid function processed a request.")
     logging.info("  Subject: %s", event.subject)
@@ -248,7 +243,6 @@ The following examples show trigger binding in a *function.json* file and [Java 
     ) 
     String content, 
     final ExecutionContext context) {
-      // log 
       context.getLogger().info("Event content: " + content);      
   }
 ```
@@ -285,7 +279,6 @@ Upon arrival, the event's JSON payload is de-serialized into the ```EventSchema`
     ) 
     EventSchema event, 
     final ExecutionContext context) {
-      // log 
       context.getLogger().info("Event content: ");
       context.getLogger().info("Subject: " + event.subject);
       context.getLogger().info("Time: " + event.eventTime); // automatically converted to Date by the runtime
@@ -298,7 +291,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 
 ## Attributes
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/EventGridTriggerAttribute.cs) attribute.
+In [C# class libraries](functions-dotnet-class-library.md), use the [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/TriggerBinding/EventGridTriggerAttribute.cs) attribute.
 
 Here's an `EventGridTrigger` attribute in a method signature:
 
@@ -552,7 +545,7 @@ The Event Grid trigger function executes and shows logs similar to the following
 
 ## Local testing with ngrok
 
-Another way to test an Event Grid trigger locally is to automate the HTTP connection between the Internet and your development computer. You can do that with an open-source tool named [ngrok](https://ngrok.com/):
+Another way to test an Event Grid trigger locally is to automate the HTTP connection between the Internet and your development computer. You can do that with a tool like [ngrok](https://ngrok.com/):
 
 1. [Create an ngrok endpoint](#create-an-ngrok-endpoint).
 1. [Run the Event Grid trigger function](#run-the-event-grid-trigger-function).

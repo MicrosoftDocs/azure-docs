@@ -1,15 +1,16 @@
 ---
 title: What are Azure Cognitive Services?
+titleSuffix: Azure Cognitive Services
 description: Azure Cognitive Services are APIs, SDKs, and services that you can use with Microsoft Azure to build intelligent applications.
 services: cognitive-services
 author: nitinme
 manager: nitinme
 
 ms.service: cognitive-services
-ms.subservice: 
-ms.topic: article
-ms.date: 04/19/2019
-ms.author: nitinme 
+ms.subservice:
+ms.topic: overview
+ms.date: 11/04/2019
+ms.author: nitinme
 ---
 
 # What are Azure Cognitive Services?
@@ -67,7 +68,7 @@ Azure Cognitive Services are APIs, SDKs, and services available to help develope
 |:-----------|:------------------|
 |[Anomaly Detector](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/ "Anomaly Detector") (Preview)|Anomaly Detector allows you to monitor and detect abnormalities in your time series data.|
 |[Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview "Content Moderator")|Content Moderator provides monitoring for possible offensive, undesirable, and risky content.|
-|[Personalizer](https://docs.microsoft.com/azure/cognitive-services/personalizer/ "Personalizer") (Preview)|Personalizer allows you to choose the best experience to show to your users, learning from their real-time behavior.|
+|[Personalizer](https://docs.microsoft.com/azure/cognitive-services/personalizer/ "Personalizer")|Personalizer allows you to choose the best experience to show to your users, learning from their real-time behavior.|
 
 ## Use free trials
 

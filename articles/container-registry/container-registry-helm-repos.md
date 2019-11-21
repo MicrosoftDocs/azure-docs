@@ -2,7 +2,8 @@
 title: Use Helm repositories in Azure Container Registry
 description: Learn how to use a Helm repository with Azure Container Registry to store charts for your applications
 services: container-registry
-author: iainfoulds
+author: dlepow
+manager: gwallace
 
 ms.service: container-registry
 ms.topic: article
@@ -221,7 +222,7 @@ For more information on how to use and manage Azure Container Registry, see the 
 <!-- LINKS - external -->
 [helm]: https://helm.sh/
 [helm-install]: https://docs.helm.sh/using_helm/#installing-helm
-[develop-helm-charts]: https://docs.helm.sh/developing_charts/
+[develop-helm-charts]: https://helm.sh/docs/topics/charts/
 [semver2]: https://semver.org/
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 

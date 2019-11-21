@@ -22,7 +22,8 @@ ms.author: shvija
 
 When entire Azure regions or datacenters (if no [availability zones](../availability-zones/az-overview.md) are used) experience downtime, it is critical for data processing to continue to operate in a different region or datacenter. As such, *Geo-disaster recovery* and *Geo-replication* are important features for any enterprise. Azure Event Hubs supports both geo-disaster recovery and geo-replication, at the namespace level. 
 
-The Geo-disaster recovery feature is globally available for both Event Hubs Standard and Dedicated SKU. Please note that you can only geo-pair namespaces across the same tier of SKU. For instance, if you have a namespace in a cluster which is offered only in our Dedicated SKU, it can only be paired with a namespace in another cluster. 
+> [!NOTE]
+> The Geo-disaster recovery feature is only available for the [standard and dedicated SKUs](https://azure.microsoft.com/pricing/details/event-hubs/).  
 
 ## Outages and disasters
 
@@ -34,7 +35,9 @@ The Geo-disaster recovery feature of Azure Event Hubs is a disaster recovery sol
 
 ## Basic concepts and terms
 
-The disaster recovery feature implements metadata disaster recovery, and relies on primary and secondary disaster recovery namespaces. Note that the Geo-disaster recovery feature is available for the [Standard SKU](https://azure.microsoft.com/pricing/details/event-hubs/) only. You do not need to make any connection string changes, as the connection is made via an alias.
+The disaster recovery feature implements metadata disaster recovery, and relies on primary and secondary disaster recovery namespaces. 
+
+The Geo-disaster recovery feature is available for the [standard and dedicated SKUs](https://azure.microsoft.com/pricing/details/event-hubs/) only. You do not need to make any connection string changes, as the connection is made via an alias.
 
 The following terms are used in this article:
 
@@ -45,6 +48,19 @@ The following terms are used in this article:
 -  *Metadata*: Entities such as event hubs and consumer groups; and their properties of the service that are associated with the namespace. Note that only entities and their settings are replicated automatically. Messages and events are not replicated. 
 
 -  *Failover*: The process of activating the secondary namespace.
+
+## Supported namespace pairs
+The following combinations of primary and secondary namespaces are supported:  
+
+| Primary namespace | Secondary namespace | Suppported | 
+| ----------------- | -------------------- | ---------- |
+| Standard | Standard | Yes | 
+| Standard | Dedicated | Yes | 
+| Dedicated | Dedicated | Yes | 
+| Dedicated | Standard | No | 
+
+> [!NOTE]
+> You can't pair namespaces that are in the same dedicated cluster. You can pair namespaces that are in separate clusters. 
 
 ## Setup and failover flow
 
@@ -81,7 +97,7 @@ If you made a mistake; for example, you paired the wrong regions during the init
 
 ## Samples
 
-The [sample on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) shows how to set up and initiate a failover. This sample demonstrates the following concepts:
+The [sample on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) shows how to set up and initiate a failover. This sample demonstrates the following concepts:
 
 - Settings required in Azure Active Directory to use Azure Resource Manager with Event Hubs. 
 - Steps required to execute the sample code. 
@@ -91,13 +107,19 @@ The [sample on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/sam
 
 Note the following considerations to keep in mind with this release:
 
-1. In your failover planning, you should also consider the time factor. For example, if you lose connectivity for longer than 15 to 20 minutes, you might decide to initiate the failover. 
+1. By design, Event Hubs geo-disaster recovery does not replicate data, and therefore you cannot reuse the old offset value of your primary event hub on your secondary event hub. We recommend restarting your event receiver with one of the following:
+
+- *EventPosition.FromStart()* - If you wish read all data on your secondary event hub.
+- *EventPosition.FromEnd()* - If you wish to read all new data from the time of connection to your secondary event hub.
+- *EventPosition.FromEnqueuedTime(dateTime)* - If you wish to read all data received in your secondary event hub starting from a given date and time.
+
+2. In your failover planning, you should also consider the time factor. For example, if you lose connectivity for longer than 15 to 20 minutes, you might decide to initiate the failover. 
  
-2. The fact that no data is replicated means that currently active sessions are not replicated. Additionally, duplicate detection and scheduled messages may not work. New sessions, scheduled messages, and new duplicates will work. 
+3. The fact that no data is replicated means that currently active sessions are not replicated. Additionally, duplicate detection and scheduled messages may not work. New sessions, scheduled messages, and new duplicates will work. 
 
-3. Failing over a complex distributed infrastructure should be [rehearsed](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) at least once. 
+4. Failing over a complex distributed infrastructure should be [rehearsed](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) at least once. 
 
-4. Synchronizing entities can take some time, approximately 50-100 entities per minute.
+5. Synchronizing entities can take some time, approximately 50-100 entities per minute.
 
 ## Availability Zones 
 
@@ -112,7 +134,7 @@ You can enable Availability Zones on new namespaces only, using the Azure portal
 
 ## Next steps
 
-* The [sample on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) walks through a simple workflow that creates a geo-pairing and initiates a failover for a disaster recovery scenario.
+* The [sample on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) walks through a simple workflow that creates a geo-pairing and initiates a failover for a disaster recovery scenario.
 * The [REST API reference](/rest/api/eventhub/disasterrecoveryconfigs) describes APIs for performing the Geo-disaster recovery configuration.
 
 For more information about Event Hubs, visit the following links:

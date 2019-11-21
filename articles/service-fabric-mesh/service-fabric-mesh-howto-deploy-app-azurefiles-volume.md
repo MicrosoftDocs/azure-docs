@@ -8,7 +8,6 @@ manager: chakdan
 editor: ''
 ms.assetid: 
 ms.service: service-fabric-mesh
-ms.devlang: azure-cli
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
@@ -24,6 +23,18 @@ This article describes how to mount an Azure Files based volume in a service of 
 To mount a volume in a service, create a volume resource in your Service Fabric Mesh application and then reference that volume in your service.  Declaring the volume resource and referencing it in the service resource can be done either in the [YAML-based resource files](#declare-a-volume-resource-and-update-the-service-resource-yaml) or the [JSON-based deployment template](#declare-a-volume-resource-and-update-the-service-resource-json). Before mounting the volume, first create an Azure storage account and a [file share in Azure Files](/azure/storage/files/storage-how-to-create-file-share).
 
 ## Prerequisites
+> [!NOTE]
+> **Known Issue with deployment on Windows RS5 development machine:** There is open bug with Powershell cmdlet New-SmbGlobalMapping on RS5 Windows machines that prevents mounting of Azurefile Volumes. Below is sample error that is encountered when  AzureFile based volume is being mounted on local development machine.
+```
+Error event: SourceId='System.Hosting', Property='CodePackageActivation:counterService:EntryPoint:131884291000691067'.
+There was an error during CodePackage activation.System.Fabric.FabricException (-2147017731)
+Failed to start Container. ContainerName=sf-2-63fc668f-362d-4220-873d-85abaaacc83e_6d6879cf-dd43-4092-887d-17d23ed9cc78, ApplicationId=SingleInstance_0_App2, ApplicationName=fabric:/counterApp. DockerRequest returned StatusCode=InternalServerError with ResponseBody={"message":"error while mounting volume '': mount failed"}
+```
+The workaround for the issue is to 
+1)Run below command as Powershell adminstrator and 2)Reboot the machine.
+```powershell
+PS C:\WINDOWS\system32> Mofcomp c:\windows\system32\wbem\smbwmiv2.mof
+```
 
 You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this article. 
 

@@ -32,7 +32,7 @@ There are multiple ways to solve the problem of running near-real-time analysis 
 
 The simplest design for a near-real-time analysis system is an infinite loop, where each iteration grabs a frame, analyzes it, and then consumes the result:
 
-```CSharp
+```csharp
 while (true)
 {
 	Frame f = GrabFrame();
@@ -50,7 +50,7 @@ If our analysis consisted of a lightweight client-side algorithm, this approach 
 
 While a simple single-threaded loop makes sense for a lightweight client-side algorithm, it doesn't fit well with the latency involved in cloud API calls. The solution to this problem is to allow the long-running API calls to execute in parallel with the frame-grabbing. In C#, we could achieve this using Task-based parallelism, for example:
 
-```CSharp
+```csharp
 while (true)
 {
 	Frame f = GrabFrame();
@@ -71,7 +71,7 @@ This code launches each analysis in a separate Task, which can run in the backgr
 
 In our final "producer-consumer" system, we have a producer thread that looks similar to our previous infinite loop. However, instead of consuming analysis results as soon as they are available, the producer simply puts the tasks into a queue to keep track of them.
 
-```CSharp
+```csharp
 // Queue that will contain the API call tasks. 
 var taskQueue = new BlockingCollection<Task<ResultWrapper>>();
 	 
@@ -108,7 +108,7 @@ while (true)
 
 We also have a consumer thread that takes tasks off the queue, waits for them to finish, and either displays the result or raises the exception that was thrown. By using the queue, we can guarantee that results get consumed one at a time, in the correct order, without limiting the maximum frame-rate of the system.
 
-```CSharp
+```csharp
 // Consumer thread. 
 while (true)
 {
@@ -140,7 +140,7 @@ The library contains the class FrameGrabber, which implements the producer-cons
 
 To illustrate some of the possibilities, there are two sample apps that use the library. The first is a simple console app, and a simplified version of it is reproduced below. It grabs frames from the default webcam, and submits them to the Face API for face detection.
 
-```CSharp
+```csharp
 using System;
 using VideoFrameAnalyzer;
 using Microsoft.ProjectOxford.Face;
@@ -156,7 +156,9 @@ namespace VideoFrameConsoleApplication
 			FrameGrabber<Face[]> grabber = new FrameGrabber<Face[]>();
 			
 			// Create Face API Client. Insert your Face API key here.
-			FaceServiceClient faceClient = new FaceServiceClient("<Subscription Key>");
+			private readonly IFaceClient faceClient = new FaceClient(
+            new ApiKeyServiceClientCredentials("<subscription key>"),
+            new System.Net.Http.DelegatingHandler[] { });
 
 			// Set up our Face API call.
 			grabber.AnalysisFunction = async frame => return await faceClient.DetectAsync(frame.Image.ToMemoryStream(".jpg"));

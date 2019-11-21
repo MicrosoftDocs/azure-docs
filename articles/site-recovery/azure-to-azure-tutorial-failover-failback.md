@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 08/05/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -46,7 +46,7 @@ This tutorial describes how to fail over an Azure virtual machine (VM) to a seco
      for performing a test failover.
 
 3. Select **Shut down machine before beginning failover** if you want Site Recovery to attempt to
-   do a shutdown of source VMs before triggering the failover. Failover continues even
+   do a shutdown of source VMs before triggering the failover. Shutdown helps to ensure no data loss. Failover continues even
    if shutdown fails. Site Recovery does not clean up the source after failover.
 
 4. Follow the failover progress on the **Jobs** page.

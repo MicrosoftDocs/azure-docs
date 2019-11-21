@@ -1,12 +1,13 @@
 ---
 title: How to manage a Commercial Marketplace account in Partner Center 
 description: Learn how to manage a Commercial Marketplace account in Partner Center. 
-author: mattwojo
+author: ChJenk
 manager: evansma
 ms.author: parthp 
 ms.service: marketplace 
-ms.topic: how-to
-ms.date: 05/30/2019
+ms.subservice: partnercenter-marketplace-publisher
+ms.topic: conceptual
+ms.date: 08/30/2019
 ---
 
 # How to manage your Commercial Marketplace account in Partner Center 
@@ -20,12 +21,12 @@ In this article, we'll dive into how to manage your Partner Center account, incl
 - [Update contact information](#contact-info)
 - [Manage financial details (payout account, tax profile, payout hold status)](#financial-details)
 - [Set up Tracking GUIDs for monitoring customer usage](#tracking-guids)
-- [Manager users](#manage-users)
-- [Manager groups](#manage-groups)
-- [Manager Azure AD applications](#manage-azure-ad-applications)
+- [Manage users](#manage-users)
+- [Manage groups](#manage-groups)
+- [Manage Azure AD applications](#manage-azure-ad-applications)
 - [Define user roles and permissions](#define-user-roles-and-permissions)
 - [Manage Azure AD tenants (work accounts)](#manage-tenants)
-- [Manager Partner Center Agreements](#agreements)
+- [Manage Partner Center Agreements](#agreements)
 
 
 ## Access your account settings
@@ -33,7 +34,7 @@ In this article, we'll dive into how to manage your Partner Center account, incl
 If you have not already done so, you (or your organization's administrator) should access the [account settings](https://partner.microsoft.com/dashboard/account/management) for your Partner Center account in order to:
 - check your company's account verification status
 - confirm your Seller ID, MPN ID, Publisher ID, and contact information, including the company approver and seller contact
-- set up your company’s financial details, including tax exemptions if appropriate
+- set up your company's financial details, including tax exemptions if appropriate
 - create user accounts for anyone who will use your business account in Partner Center
 
 ### Open developer settings
@@ -108,11 +109,11 @@ If you are outside the United States, you may be able to take advantage of tax t
 
 #### Payout hold status
 
-By default, Microsoft sends payments on a monthly basis. However, you have the option to put your payouts on hold, which will prevent sending payments to your account. If you choose to put your payouts on hold, we’ll continue to record any revenue that you earn and provide the details in your **Payout summary**. However, we won’t send any payments to your account until you remove the hold. 
+By default, Microsoft sends payments on a monthly basis. However, you have the option to put your payouts on hold, which will prevent sending payments to your account. If you choose to put your payouts on hold, we'll continue to record any revenue that you earn and provide the details in your **Payout summary**. However, we won't send any payments to your account until you remove the hold. 
 
-To place your payments on hold, go to **Account settings**. Under **Financial details**, in the **Payout hold status** section, toggle the slider to **On**. You can change your payout hold status at any time, but be aware that your decision will impact the next monthly payout. For example, if you want to hold April’s payout, make sure to set your payout hold status to **On** before the end of March.
+To place your payments on hold, go to **Account settings**. Under **Financial details**, in the **Payout hold status** section, toggle the slider to **On**. You can change your payout hold status at any time, but be aware that your decision will impact the next monthly payout. For example, if you want to hold April's payout, make sure to set your payout hold status to **On** before the end of March.
 
-Once you have set your payout hold status to **On**, all payouts will be on hold until you toggle the slider back to **Off**. When you do so, you’ll be included during the next monthly payout cycle (provided any applicable payment thresholds have been met). For example, if you’ve had your payouts on hold, but would like to have a payout generated in June, then make sure to toggle the payout hold status to **Off** before the end of May.
+Once you have set your payout hold status to **On**, all payouts will be on hold until you toggle the slider back to **Off**. When you do so, you'll be included during the next monthly payout cycle (provided any applicable payment thresholds have been met). For example, if you've had your payouts on hold, but would like to have a payout generated in June, then make sure to toggle the payout hold status to **Off** before the end of May.
 
 > [!NOTE]
 > Your **Payout hold status** selection applies to **all** revenue sources that are paid through Microsoft Partner Center, including Azure Marketplace, AppSource, Microsoft Store, advertising, etc.). You cannot select different hold statuses for each revenue source.
@@ -139,14 +140,19 @@ Reporting is done by the partner value (Microsoft Partner ID) and the GUIDs. You
 For more information, see the [Tracking Azure customer usage with GUIDs FAQ](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution#faq).
 
 
+## Create a billing profile
+
+If you are publishing a [Dynamics 365 for Customer Engagement & Power Apps](./create-new-customer-engagement-offer.md) or [Dynamics 365 for Operations](./create-new-operations-offer.md) offer, you need to complete your **billing profile**.
+
+The billing address is pre-populated from your legal entity, and you can update this address later. The TAX and VAT ID fields are optional.  The country name and company name cannot be edited.
 
 ## Multi-user account management
 
 Partner Center leverages [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) for multi-user account access and management. Your organization's Azure AD is automatically associated with your Partner Center account as part of the enrollment process. 
 
-## Manage Users
+## Manage users
 
-The **Users** section of Partner Center (under **Account Settings**) let's you use Azure AD to manage the users, groups, and Azure AD applications that have access to your Partner Center account. Note that in order to manage users, you must be signed in with your [work account](./company-work-accounts.md) (the associated Azure AD tenant). To manage users within a different work account / tenant, you will need to sign out and then sign back in as a user with **Manager** permissions on that work account / tenant. 
+The **Users** section of Partner Center (under **Account Settings**) let's you use Azure AD to manage the users, groups, and Azure AD applications that have access to your Partner Center account. In order to manage users, you must be signed in with your [work account](./company-work-accounts.md) (the associated Azure AD tenant). To manage users within a different work account / tenant, you will need to sign out and then sign back in as a user with **Manager** permissions on that work account / tenant. 
 
 Once you are signed in with your work account (Azure AD tenant), you can:
 - [Add or remove users](#add-or-remove-users)
@@ -218,7 +224,7 @@ If one of your users needs to change their password, they can do so themselves i
 3.	A confirmation page will appear showing the login information for the user, including a temporary password. Be sure to print or copy this info and provide it to the user, as you won't be able to access the temporary password after you leave this page.
 
 
-## Manage Groups
+## Manage groups
 
 Groups allow you to control multiple user roles and permissions all together.
 
@@ -274,7 +280,7 @@ If you want to grant Partner Center access to a brand-new Azure AD application a
 1.	From the **Users** page (under **Account settings**), select **Add Azure AD applications**.
 2.	On the next page, select **New Azure AD application**.
 3.	Enter the **Reply URL** for the new Azure AD application. This is the URL where users can sign in and use your Azure AD application (sometimes also known as the App URL or Sign-On URL). The **Reply URL** can't be longer than 256 characters and must be unique within your directory.
-4.	Enter the **App ID URI** for the new Azure AD application. This is a logical identifier for the Azure AD application that is presented when a single sign-on request is sent to Azure AD. Note that the **App ID URI** must be unique for each Azure AD application in your directory. This ID can't be longer than 256 characters. For more info about the App ID URI, see [Integrating applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#changing-the-application-registration-to-support-multi-tenant).
+4.	Enter the **App ID URI** for the new Azure AD application. This is a logical identifier for the Azure AD application that is presented when a single sign-on request is sent to Azure AD. Note that the **App ID URI** must be unique for each Azure AD application in your directory. This ID can't be longer than 256 characters. For more info about the App ID URI, see [Integrating applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-modify-supported-accounts#change-the-application-registration-to-support-different-accounts).
 5.	In the **Roles** section, specify the role(s) or customized permissions for the Azure AD application.
 6.	Select **Save**.
 
@@ -295,35 +301,24 @@ If your Azure AD application reads and writes data in Microsoft Azure AD, it wil
 4.	If you want to create more keys, select **Add another key**.
 
 
-### Define user roles and permissions
+## Define user roles and permissions
 
-Your company's users can be assigned the following roles and permissions in the Commercial Marketplace program on Partner Center. 
+Your company's users can be assigned the following roles and permissions for the Commercial Marketplace program on Partner Center:
 
-Note
-Azure Active Directory (AAD) tenant roles include global admin, user admin, and CSP roles. Non-AAD roles are those roles that do not manage the tenant and they include MPN admin, business profile admin, referral admin, incentive admin, and incentive user.
+- **Manager**
+  - Can access all Microsoft account features except tax and payout settings
+  - Can manage users, roles, and work accounts (tenants)
+- **Developer**
+  - Can manage and publish offers
+  - Can view some publisher reports
 
+> [!NOTE]
+> For the Commercial Marketplace program, the Global admin, Business Contributor, Financial Contributor, and Marketer roles are not used. Assigning these roles to users has no effect. Only the Manager and Developer roles grant permissions to users.
 
-|**Role**|**Permissions**|
-|----------------------------------|:---------------------------------|
-|Global admin|•	Can access all Microsoft account/services with full privileges
-|      |•	Create support tickets for the Partner Center
-||•	View agreements, price lists, and offers
-||•	View, create, and manage partner users|
-|Manager|•	Can access all Microsoft account features except tax and payout settings
-|      |•	Can manage users, roles, and work accounts (tenants)|
-|Developer|•	Can upload packages, submit apps and add-ons, and view the Usage report for telemetry details
-|      |•	Can't access financial info or account settings|
-|Business Contributor|•	Can access financial information and set pricing details
-|      |•	Can't create or submit new apps and add-ons|
-|Financial Contributor|•	Can view payout reports
-|      |•	Can't make changes to apps or settings|
-|Marketer|•	Can respond to customer reviews and non-financial reports
-|      |•	Can't make changes to apps or settings|
-
-For more information about managing roles and permissions in other areas of Partner Center, such as Azure Active Directory (AD), Cloud Solution Provider (CSP), Control Panel Vendor (CPV),Guest users, or Microsoft Partner Network (MPN), see [Assign users roles and permissions in Partner Center](https://docs.microsoft.com/partner-center/permissions-overview).
+For more information about managing roles and permissions in other areas of Partner Center, such as Azure Active Directory (AD), Cloud Solution Provider (CSP), Control Panel Vendor (CPV), Guest users, or Microsoft Partner Network (MPN), see [Assign users roles and permissions in Partner Center](https://docs.microsoft.com/partner-center/permissions-overview).
 
 
-## Manage Tenants
+## Manage tenants
 
 An Azure Active Directory (AD) tenant, also referred to as your "work account" throughout this documentation, is a representation of your organization set up in the Azure portal and helps you to manage a specific instance of Microsoft cloud services for your internal and external users. If your organization subscribed to a Microsoft cloud service, such as Azure, Microsoft Intune, or Office 365, an Azure AD tenant was established for you. 
 
@@ -345,7 +340,7 @@ To create a brand new Azure AD tenant with your Partner Center account:
 
 1.	From the **Tenants** page (under **Account settings**), select **Create a new Azure AD tenant**.
 2. Enter the directory information for your new Azure AD:
-    - **Domain name**: The unique name that we’ll use for your Azure AD domain, along with “.onmicrosoft.com”. For example, if you entered “example”, your Azure AD domain would be “example.onmicrosoft.com”.
+    - **Domain name**: The unique name that we'll use for your Azure AD domain, along with ".onmicrosoft.com". For example, if you entered "example", your Azure AD domain would be "example.onmicrosoft.com".
     - **Contact email**: An email address where we can contact you about your account if necessary.
     - **Global administrator user account info**: The first name, last name, username, and password that you want to use for the new global administrator account.
 3. Select **Create** to confirm the new domain and account info.
@@ -355,12 +350,12 @@ For more information about creating new tenants inside your Azure portal, rather
 
 ### Remove a tenant
 
-To remove a tenant from your Partner Center account, find its name on the **Tenants** page (in **Account settings**), then select **Remove**. You’ll be prompted to confirm that you want to remove the tenant. Once you do so, no users in that tenant will be able to sign into the Partner Center account, and any permissions you have configured for those users will be removed.
+To remove a tenant from your Partner Center account, find its name on the **Tenants** page (in **Account settings**), then select **Remove**. You'll be prompted to confirm that you want to remove the tenant. Once you do so, no users in that tenant will be able to sign into the Partner Center account, and any permissions you have configured for those users will be removed.
 
 When you remove a tenant, all users that were added to the Partner Center account from that tenant will no longer be able to sign in to the account.
 
 > [!TIP]
-> You can’t remove a tenant if you are currently signed into Partner Center using an account in the same tenant. To remove a tenant, you must sign in to Partner Center as an **Manager** for another tenant that is associated with the account. If there is only one tenant associated with the account, that tenant can only be removed after signing in with the Microsoft account that opened the account.
+> You can't remove a tenant if you are currently signed into Partner Center using an account in the same tenant. To remove a tenant, you must sign in to Partner Center as an **Manager** for another tenant that is associated with the account. If there is only one tenant associated with the account, that tenant can only be removed after signing in with the Microsoft account that opened the account.
 
 
 ## Agreements
@@ -369,7 +364,6 @@ The **Agreements** section of Partner Center (under **Account Settings**) let's 
 
 **Actions needed** may appear at the top of this page if there are agreement updates that need your attention. To accept an updated agreement, first read the linked Agreement Version, then select **Accept agreement**. 
 
-For information about Cloud Solution Provider (CSP) agreements in Partner Center, visit [Microsoft Cloud Agreements by region and language](https://docs.microsoft.com/partner-center/agreements).
 
 ## Next steps
 

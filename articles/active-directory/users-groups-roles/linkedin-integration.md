@@ -1,15 +1,14 @@
 ---
-title: Admin consent for LinkedIn account connections - Azure Active Directory | Microsoft Docs
+title: Admin consent for LinkedIn account connections - Azure AD | Microsoft Docs
 description: Explains how to enable or disable LinkedIn integration account connections in Microsoft apps in Azure Active Directory
 services: active-directory
 author: curtand
-manager: mtillman
-
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/29/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
@@ -40,7 +39,7 @@ You can enable LinkedIn account connections for only the users you want to have 
 1. Under **LinkedIn account connections**, allow users to connect their accounts to access their LinkedIn connections within some Microsoft apps. No data is shared until users consent to connect their accounts.
 
     * Select **Yes** to enable the service for all users in your organization
-    * Select **Selected** to enable only a group of selected users in your organization
+    * Select **Selected group** to enable the service for only a group of selected users in your organization
     * Select **No** to withdraw consent from all users in your organization
 
     ![Integrate LinkedIn account connections in the organization](./media/linkedin-integration/linkedin-integration.png)

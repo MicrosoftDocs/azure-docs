@@ -22,6 +22,11 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Is the Api Management service up and running?</li></ul>|
 
+## Microsoft.Batch/batchAccounts
+|Executed Checks|
+|---|
+|<ul><li>Is the Batch account up and running?</li><li>Has the pool quota been exceeded for this batch account?</li></ul>|
+
 ## Microsoft.CacheRedis/Redis
 |Executed Checks|
 |---|
@@ -68,6 +73,11 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Has the database migration service failed to provision?</li><li>Has the database migration service stopped due to inactivity or user request?</li></ul>|
 
+## Microsoft.DataShare/accounts
+|Executed Checks|
+|---|
+|<ul><li>Is the Data Share account up and running?</li><li>Is the cluster hosting the Data Share available?</li></ul>|
+
 ## Microsoft.DBforMariaDB/servers
 |Executed Checks|
 |---|
@@ -108,6 +118,16 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Are requests to key vault failing due to Azure KeyVault platform issues?</li><li>Are requests to key vault being throttled due to too many requests made by customer?</li></ul>|
 
+## Microsoft.MachineLearning/webServices
+|Executed Checks|
+|---|
+|<ul><li>Is the web service up and running?</li></ul>|
+
+## Microsoft.Media/mediaservices
+|Executed Checks|
+|---|
+|<ul><li>Is the media service up and running?</li></ul>|
+
 ## Microsoft.network/applicationgateways
 |Executed Checks|
 |---|
@@ -127,6 +147,11 @@ Below is a complete list of all the checks executed through resource health by r
 |Executed Checks|
 |---|
 |<ul><li>Are Front Door backends responding with errors to health probes?</li><li>Are configuration changes delayed?</li></ul>|
+
+## Microsoft.network/LoadBalancers
+|Executed Checks|
+|---|
+|<ul><li>Are the load balancing endpoints available?</li></ul>|
 
 ## Microsoft.network/virtualNetworkGateways
 |Executed Checks|
@@ -163,10 +188,15 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Are customers experiencing user generated Service Bus errors?</li><li>Are users experiencing an increase in transient errors due to a Service Bus namespace upgrade?</li></ul>|
 
-## Microsoft.SQL/Server/database
+## Microsoft.SQL/managedInstances/databases
 |Executed Checks|
 |---|
-|<ul><li> Have there been logins to the database?</li></ul>|
+|<ul><li>Is the database up and running?</li></ul>|
+
+## Microsoft.SQL/Server/databases
+|Executed Checks|
+|---|
+|<ul><li>Have there been logins to the database?</li></ul>|
 
 ## Microsoft.Storage/storageAccounts
 |Executed Checks|
@@ -188,7 +218,7 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Is the host server up and running?</li><li>Is Internet Information server running?</li><li>Is the Load balancer running?</li><li>Can the Web App be reached from within the datacenter?</li><li>Is the storage account hosting the site content available?</li></ul>|
 
-# Next Steps
+## Next Steps
 -  See [Introduction to Azure Service Health dashboard](service-health-overview.md) and [Introduction to Azure Resource Health](resource-health-overview.md) to understand more about them. 
 -  [Frequently asked questions about Azure Resource Health](resource-health-faq.md)
 - Set up alerts so you are notified of health issues. For more information, see [Configure Alerts for service health events](../azure-monitor/platform/alerts-activity-log-service-notifications.md). 

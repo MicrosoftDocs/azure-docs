@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database servers | Microsoft Docs
+title: Servers
 description: Learn about Azure SQL Database servers and their management.
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-manager: craigg
 ms.date: 03/12/2019
 ---
 # Azure SQL Database servers and their management

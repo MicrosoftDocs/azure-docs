@@ -1,6 +1,6 @@
 ---
 title: Run custom MapReduce programs - Azure HDInsight 
-description: When and how to run custom MapReduce programs in HDInsight.
+description: When and how to run custom Apache MapReduce programs on Azure HDInsight clusters.
 author: ashishthaps
 ms.reviewer: jasonh
 

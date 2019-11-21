@@ -1,21 +1,18 @@
 ---
-title: Enforce group naming policy on Office 365 groups - Azure Active Directory | Microsoft Docs
-description: How to set up naming policy for Office 365 groups in Azure Active Directory (preview)
+title: Enforce group naming policy in Azure Active Directory | Microsoft Docs
+description: How to set up naming policy for Office 365 groups in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
-
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 11/08/2019
 ms.author: curtand                   
 ms.reviewer: krbain
 ms.custom: "it-pro;seo-update-azuread-jan"
-
 ms.collection: M365-identity-device-management
 ---
 
@@ -73,12 +70,12 @@ Selected administrators can be exempted from these policies, across all group wo
 - User administrator
 - Directory writers
 
-## Configure naming policy in Azure portal (preview)
+## Configure naming policy in Azure portal
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with a User administrator account.
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with a Global Administrator account.
 1. Select **Groups**, then select **Naming policy** to open the Naming policy page.
 
-    ![open the Naming policy page in the admin center](./media/groups-naming-policy/policy-preview.png)
+    ![open the Naming policy page in the admin center](./media/groups-naming-policy/policy.png)
 
 ### View or edit the prefix-suffix naming policy
 
@@ -91,7 +88,7 @@ Selected administrators can be exempted from these policies, across all group wo
 
 1. On the **Naming policy** page, select **Blocked words**.
 
-    ![edit and upload blocked words list for naming policy](./media/groups-naming-policy/blockedwords-preview.png)
+    ![edit and upload blocked words list for naming policy](./media/groups-naming-policy/blockedwords.png)
 
 1. View or edit the current list of custom blocked words by selecting **Download**.
 1. Upload the new list of custom blocked words by selecting the file icon.
@@ -195,7 +192,7 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
 
 ## Remove the naming policy
 
-### Remove the naming policy using Azure portal (preview)
+### Remove the naming policy using Azure portal
 
 1. On the **Naming policy** page, select **Delete policy**.
 1. After you confirm the deletion, the naming policy is removed, including all prefix-suffix naming policy and any custom blocked words.

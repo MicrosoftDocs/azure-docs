@@ -1,12 +1,8 @@
 ---
 title: Overview of Azure Blueprints
 description: Understand how the Azure Blueprints service enables you to create, define, and deploy artifacts in your Azure environment.
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 02/08/2019
+ms.date: 08/26/2019
 ms.topic: overview
-ms.service: blueprints
-manager: carmonm
 ---
 # Overview of the Azure Blueprints service
 
@@ -78,7 +74,7 @@ as artifacts:
 |Resource  | Hierarchy options| Description  |
 |---------|---------|---------|
 |Resource Groups | Subscription | Create a new resource group for use by other artifacts within the blueprint.  These placeholder resource groups enable you to organize resources exactly the way you want them structured and provides a scope limiter for included policy and role assignment artifacts and Azure Resource Manager templates. |
-|Azure Resource Manager template | Subscription, Resource Group | Templates are used to compose complex environments. Example environments: a SharePoint farm, Azure Automation State Configuration, or a Log Analytics workspace. |
+|Azure Resource Manager template | Subscription, Resource Group | Templates, including nested and linked templates, are used to compose complex environments. Example environments: a SharePoint farm, Azure Automation State Configuration, or a Log Analytics workspace. |
 |Policy Assignment | Subscription, Resource Group | Allows assignment of a policy or initiative to the subscription the blueprint is assigned to. The policy or initiative must be within the scope of the blueprint definition location. If the policy or initiative has parameters, these parameters are assigned at creation of the blueprint or during blueprint assignment. |
 |Role Assignment | Subscription, Resource Group | Add an existing user or group to a built-in role to make sure the right people always have the right access to your resources. Role assignments can be defined for the entire subscription or nested to a specific resource group included in the blueprint. |
 
@@ -117,10 +113,10 @@ be assigned.
 
 ## Blueprint assignment
 
-Each **Published** **Version** of a blueprint can be assigned to an existing subscription. In the
-portal, the blueprint defaults the **Version** to the one **Published** most recently. If there are
-artifact parameters (or blueprint parameters), then the parameters are defined during the
-assignment process.
+Each **Published** **Version** of a blueprint can be assigned (with a max name length of 90
+characters) to an existing subscription. In the portal, the blueprint defaults the **Version** to
+the one **Published** most recently. If there are artifact parameters (or blueprint parameters),
+then the parameters are defined during the assignment process.
 
 ## Permissions in Azure Blueprints
 
@@ -139,7 +135,8 @@ To delete blueprints, your account needs the following permissions:
 - `Microsoft.Blueprint/blueprints/versions/delete`
 
 > [!NOTE]
-> The blueprint definition permissions must be granted or inherited on the management group or subscription scope where it is saved.
+> The blueprint definition permissions must be granted or inherited on the management group or
+> subscription scope where it is saved.
 
 To assign or unassign a blueprint, your account needs the following permissions:
 
@@ -147,15 +144,40 @@ To assign or unassign a blueprint, your account needs the following permissions:
 - `Microsoft.Blueprint/blueprintAssignments/delete` - Unassign a blueprint
 
 > [!NOTE]
-> As blueprint assignments are created on a subscription, the blueprint assign and unassign permissions must be granted on a subscription scope or be inherited onto a subscription scope.
+> As blueprint assignments are created on a subscription, the blueprint assign and unassign
+> permissions must be granted on a subscription scope or be inherited onto a subscription scope.
 
-All of the above permissions are included in the **Owner** role. The **Contributor** role has
-create blueprint and delete blueprint permissions, but does not have blueprint assignment
-permissions. If these built-in roles don't fit your security needs, consider creating a [custom
+The following built-in roles are available:
+
+|RBAC Role | Description |
+|-|-|
+|[Owner](../../role-based-access-control/built-in-roles.md#owner) | In addition to other permissions, includes all Azure Blueprint related permissions. |
+|[Contributor](../../role-based-access-control/built-in-roles.md#contributor) | In addition to other permissions, can create and delete blueprint definitions, but doesn't have blueprint assignment permissions. |
+|[Blueprint Contributor](../../role-based-access-control/built-in-roles.md#blueprint-contributor) | Can manage blueprint definitions, but not assign them. |
+|[Blueprint Operator](../../role-based-access-control/built-in-roles.md#blueprint-operator) | Can assign existing published blueprints, but can't create new blueprint definitions. Blueprint assignment only works if the assignment is done with a user-assigned managed identity. |
+
+If these built-in roles don't fit your security needs, consider creating a [custom
 role](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
-> The service principal for Azure Blueprint requires the **Owner** role on the assigned subscription in order to enable deployment. If using the portal, this role is automatically granted and revoked for the deployment. If using the REST API, this role must be manually granted, but is still automatically revoked after the deployment completes.
+> If using a system-assigned managed identity, the service principal for Azure Blueprints requires
+> the **Owner** role on the assigned subscription in order to enable deployment. If using the
+> portal, this role is automatically granted and revoked for the deployment. If using the REST API,
+> this role must be manually granted, but is still automatically revoked after the deployment
+> completes. If using a user-assigned managed identity, only the user creating the blueprint
+> assignment needs the `Microsoft.Blueprint/blueprintAssignments/write` permission, which is
+> included in both the **Owner** and **Blueprint Operator** built-in roles.
+
+## Naming limits
+
+The following limitations exist for certain fields:
+
+|Object|Field|Allowed Characters|Max. Length|
+|-|-|-|-|
+|Blueprint|Name|letters, numbers, hyphens, and periods|48|
+|Blueprint|Version|letters, numbers, hyphens, and periods|20|
+|Blueprint assignment|Name|letters, numbers, hyphens, and periods|90|
+|Blueprint artifact|Name|letters, numbers, hyphens, and periods|48|
 
 ## Video overview
 
