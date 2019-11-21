@@ -1,6 +1,5 @@
 ---
 title: "Create a Kubernetes dev space in the cloud using Java and VS Code"
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 author: stepro
 ms.author: stephpr
