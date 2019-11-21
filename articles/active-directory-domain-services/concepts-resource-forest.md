@@ -13,7 +13,7 @@ ms.date: 07/06/2020
 ms.author: iainfou
 ---
 
-# Resource forest concepts and features for Azure Active Directory Domain Services
+# Resource forest concepts and features for Azure Active Directory Domain Services (preview)
 
 Azure Active Directory Domain Services (Azure AD DS) provides a sign-in experience for legacy, on-premises, line-of-business applications. Users, groups, and password hashes of on-premises and cloud users are synchronized to the Azure AD DS managed domain. These synchronized password hashes are what gives users a single set of credentials they can use for the on-premises AD DS, Office 365, and Azure Active Directory.
 

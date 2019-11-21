@@ -75,7 +75,7 @@
       items: 
         - name: Virtual network considerations
           href: network-considerations.md
-        - name: Resource forest considerations
+        - name: Resource forest considerations (preview)
           href: plan-resource-forest.md
     - name: Manage Azure AD DS
       items: 

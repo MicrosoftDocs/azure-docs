@@ -32,7 +32,8 @@ In this article, you learn how to:
 
 If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure AD DS resource forests don't currently support Azure HDInsight or Azure Files. The default Azure AD DS user forests do support both of these additional services.
 
 ## Prerequisites
 

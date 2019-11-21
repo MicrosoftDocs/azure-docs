@@ -13,7 +13,7 @@ ms.date: 07/06/2020
 ms.author: iainfou
 ---
 
-# How trust relationships work for resource forests in Azure Active Directory Domain Services
+# How trust relationships work for resource forests in Azure Active Directory Domain Services (preview)
 
 Active Directory Domain Services (AD DS) provides security across multiple domains or forests through domain and forest trust relationships. Before authentication can occur across trusts, Windows must first check if the domain being requested by a user, computer, or service has a trust relationship with the domain of the requesting account.
 
@@ -26,6 +26,9 @@ The trust path is implemented by the Net Logon service using  an authenticated r
 For an overview of how trusts apply to Azure AD DS, see [Resource forest concepts and features][create-forest-trust].
 
 To get started using trusts in Azure AD DS, [create a managed domain that uses forest trusts][tutorial-create-advanced].
+
+> [!IMPORTANT]
+> Azure AD DS resource forests don't currently support Azure HDInsight or Azure Files. The default Azure AD DS user forests do support both of these additional services.
 
 ## Trust relationship flows
 

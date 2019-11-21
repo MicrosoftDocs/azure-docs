@@ -13,7 +13,7 @@ ms.date: 11/21/2019
 ms.author: iainfou
 ---
 
-# Overview and planning considerations for resource forests in Azure Active Directory Domain Services
+# Overview and planning considerations for resource forests in Azure Active Directory Domain Services (preview)
 
 In environments where you can't synchronize password hashes, or you have users that exclusively sign in using smart cards so they don't know their password, you can use a resource forest in Azure Active Directory Domain Services (AD DS). A resource forest uses a one-way outbound trust from Azure AD DS to one or more on-premises AD DS environments. This trust relationship lets users, applications, and computers authenticate against an on-premises domain from the Azure AD DS managed domain. Azure AD DS resource forests are currently in preview.
 
@@ -26,7 +26,10 @@ This article details some of the planning considerations for virtual network con
 * [What are resource forests?][concepts-forest]
 * [How do forest trusts work in Azure AD DS?][concepts-trust]
 
-## Networking considerations
+> [!IMPORTANT]
+> Azure AD DS resource forests don't currently support Azure HDInsight or Azure Files. The default Azure AD DS user forests do support both of these additional services.
+
+## Network considerations
 
 The virtual network that hosts the Azure AD DS resource forest needs network connectivity to your on-premises Active Directory. Applications and services also need network connectivity to the virtual network hosting the Azure AD DS resource forest. Network connectivity to the Azure AD DS resource forest must be always on and stable otherwise users may fail to authenticate or access resources.
 
@@ -78,9 +81,9 @@ It's recommended to prefix your existing forest name with either *aadds* or *rf*
 
 ## Next steps
 
-To learn more about resource forests and trusts, see [How do forest trusts work in Azure AD DS?][concepts-trust]
+For more conceptual information about forest types in Azure AD DS, see [What are resource forests?][concepts-forest] and [How do forest trusts work in Azure AD DS?][concepts-trust]
 
-To get started with creating an Azure AD DS managed domain with a resource forest, see [Create and configure an Azure AD DS managed domain][tutorial-create-advanced].
+To get started with creating an Azure AD DS managed domain with a resource forest, see [Create and configure an Azure AD DS managed domain][tutorial-create-advanced] then [Create an outbound forest trust to an on-premises domain][create-trust-portal]. You can also [Create an Azure AD DS resource forest and one-way outbound forest trust using Azure PowerShell][create-trust-powershell].
 
 <!-- LINKS - INTERNAL -->
 [concepts-trust]: concepts-forest-trust.md
