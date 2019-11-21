@@ -1,10 +1,10 @@
 ---
 title: Scale an instance of Azure SignalR Service
-description: Learn how to scale an Azure SignalR Service instance to add capacity.
+description: Learn how to scale an Azure SignalR Service instance to add or reduce capacity, through Azure Portal or Azure CLI. 
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 03/27/2019
+ms.date: 11/21/2019
 ms.author: zhshang
 ---
 # How to scale an Azure SignalR Service instance?
@@ -15,20 +15,20 @@ This article shows you how to scale your instance of Azure SignalR Service. Ther
 
 The scale settings take a few minutes to apply. They don't require you to change your code or redeploy your server application.
 
-For information about the pricing and capacities of individual SignalR Service, see [Azure SignalR Service Pricing Details](https://azure.microsoft.com/en-us/pricing/details/signalr-service/).  
+For information about the pricing and capacities of individual SignalR Service, see [Azure SignalR Service Pricing Details](https://azure.microsoft.com/pricing/details/signalr-service/).  
 
 > [!NOTE]
-> If change SignalR Service from the **Free** tier to **Standard** or vice versa, the public service IP will change and it usually takes 3-60 minutes to propagate the change to DNS servers across the entire internet. 
+> Changing SignalR Service from **Free** tier to **Standard** tier or vice versa, the public service IP will be changed and it usually takes 3-60 minutes to propagate the change to DNS servers across the entire internet. 
 > Your service might be unreachable before DNS gets updated. Generally it’s not recommended to change your pricing tier too often.
 
 
 ## Scale on Azure Portal
 
-1. In your browser, open the [Azure portal][portal].
+1. In your browser, open the [Azure portal](https://portal.azure.com).
 
 2. In your SignalR Service page, from the left menu, select **Scale**.
    
-3. Choose your Pricing tier, and then click **Select**. Select Unit count for **Standard** Tier.
+3. Choose your pricing tier, and then click **Select**. You need to set the unit count for **Standard** Tier.
    
     ![Scale on Portal](./media/signalr-howto-scale/signalr_howto_scale.png)
 
@@ -74,7 +74,7 @@ Make a note of the actual name generated for the new resource group. You will us
 
 ## Compare pricing tiers
 
-For detailed information, such as messages and connections for each pricing tier, see [SignalR Service Pricing Details](https://azure.microsoft.com/en-us/pricing/details/signalr-service/).
+For detailed information, such as included messages and connections for each pricing tier, see [SignalR Service Pricing Details](https://azure.microsoft.com/pricing/details/signalr-service/).
 
 For a table of service limits, quotas, and constraints in each tier, see [SignalR Service limits](../azure-subscription-service-limits.md#azure-signalr-service-limits).
 
