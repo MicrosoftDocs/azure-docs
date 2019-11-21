@@ -4,7 +4,7 @@ description: This article describes how to configure Cosmos DB settings in Azure
 author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
-ms.topic: conceptual
+ms.topic: reference 
 ms.date: 05/22/2019
 ms.author: matjazl
 ---

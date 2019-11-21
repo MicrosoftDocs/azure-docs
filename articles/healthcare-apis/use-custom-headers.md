@@ -4,7 +4,7 @@ description: This article describes how to add data to audit logs via custom HTT
 services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
-ms.topic: conceptual
+ms.topic: tutorial
 ms.reviewer: dseven
 ms.author: matjazl
 author: matjazl
