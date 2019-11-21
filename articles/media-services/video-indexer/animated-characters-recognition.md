@@ -66,7 +66,7 @@ Follow these steps to connect you Custom Vision account to Video Indexer, or to 
     * Training key (for the training resource)
     * Prediction key (for the prediction resource)
     * Endpoint 
-    * Prediction resource Id 
+    * Prediction resource ID
     
     > [!NOTE]
     > To provide all the keys you need to have two separate resources in Custom Vision, one for training and one for prediction.
