@@ -3,7 +3,7 @@ title: Weather services concepts in Azure Maps | Microsoft Docs
 description: Learn about weather services in Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/12/2019
+ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
