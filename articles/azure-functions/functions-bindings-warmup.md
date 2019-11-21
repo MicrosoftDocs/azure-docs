@@ -39,7 +39,7 @@ Not that the warmup trigger is only called during scale-up operations, not durin
 The following example shows a [C# function](functions-dotnet-class-library.md) that will run on each new instance when it is added to your app. A return value attribute isn't required.
 
 
-* Your function must be named ```warmup``` and there may only be one warmup function per app.
+* Your function must be named ```warmup``` (case-insensitive) and there may only be one warmup function per app.
 * To use warmup as a .NET class library function, please make sure you have a package reference to **Microsoft.Azure.WebJobs.Extensions >= 3.0.5**
     * ```<PackageReference Include="Microsoft.Azure.WebJobs.Extensions" Version="3.0.5" />```
 
@@ -74,7 +74,7 @@ namespace WarmupSample
 
 The following example shows a warmup trigger in a *function.json* file and a [C# script function](functions-reference-csharp.md) that will run on each new instance when it is added to your app.
 
-Your function must be named ```warmup```, and there may only be one warmup function per app.
+Your function must be named ```warmup``` (case-insensitive), and there may only be one warmup function per app.
 
 Here's the *function.json* file:
 
@@ -105,7 +105,7 @@ public static void Run(ILogger log)
 
 The following example shows a warmup trigger in a *function.json* file and a [JavaScript function](functions-reference-node.md)  that will run on each new instance when it is added to your app.
 
-Your function must be named ```warmup``` and there may only be one warmup function per app.
+Your function must be named ```warmup``` (case-insensitive) and there may only be one warmup function per app.
 
 Here's the *function.json* file:
 
@@ -136,7 +136,7 @@ module.exports = async function (context, warmupContext) {
 
 The following example shows a warmup trigger in a *function.json* file and a [Python function](functions-reference-python.md) that will run on each new instance when it is added to your app.
 
-Your function must be named ```warmup``` and there may only be one warmup function per app.
+Your function must be named ```warmup``` (case-insensitive) and there may only be one warmup function per app.
 
 Here's the *function.json* file:
 
@@ -169,7 +169,7 @@ def main(warmupContext: func.Context) -> None:
 
 The following example shows a warmup trigger in a *function.json* file and a [Java functions](functions-reference-java.md)  that will run on each new instance when it is added to your app.
 
-Your function must be named ```warmup``` and there may only be one warmup function per app.
+Your function must be named ```warmup``` (case-insensitive) and there may only be one warmup function per app.
 
 Here's the *function.json* file:
 
