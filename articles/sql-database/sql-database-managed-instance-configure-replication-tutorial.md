@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Configure transactional replication between two managed instances and SQL Server | Microsoft Docs"
-description: A tutorial that configures replication between a Publisher managed instance, a Distributor managed instance, and a SQL Server subscriber on an Azure VM. 
+title: "Configure transactional replication between two managed instances and SQL Server"
+description: "A tutorial that configures replication between a Publisher managed instance, a Distributor managed instance, and a SQL Server subscriber on an Azure VM, along with necessary networking components such as private DNS zone and VPN peering." 
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -8,7 +8,7 @@ ms.topic: tutorial
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
-ms.date: 11/04/2019
+ms.date: 11/21/2019
 ---
 # Tutorial: Configure transactional replication between two managed instances and SQL Server
 
@@ -29,16 +29,16 @@ To learn more, see the [Azure SQL Database managed instance overview](sql-databa
 To complete the tutorial, make sure you have the following prerequisites:
 
 - An [Azure subscription](https://azure.microsoft.com/free/). 
-- Experience with deploying two managed instances within the same virtual network, and SQL Server, either on-premises, or on an Azure VM. 
+- Experience with deploying two managed instances within the same virtual network. 
+- A SQL Server subscriber, either on-premises or an Azure VM. This tutorial uses an Azure VM.  
 - [SQL Server Management Studio (SSMS) 18.0 or greater](/ssms/download-sql-server-management-studio-ssms).
 - The latest version of [Azure Powershell](/powershell/azure/install-az-ps?view=azps-1.7.0).
-- An [Azure File share](../storage/files/storage-how-to-create-file-share.md). The name `replshare` is used in this tutorial, created within the storage account `replstorage`. 
 - Port 445, and 1433 allow SQL traffic on both the Azure Firewall and the Windows Firewall. 
 
 ## 1 - Create the resource group
 Use the following PowerShell code snippet to create a new resource group:
 
-```powershell
+```powershell-interactive
 # set variables
 $ResourceGroupName = "SQLMI-Repl"
 $Location = "East US 2"
@@ -66,13 +66,12 @@ Create a SQL Server virtual machine using the [Azure portal](https://portal.azur
 - Name: `sql-vm-sub`
 - Image: SQL Server 2016 or greater
 - Resource group: the same as the managed instance
-- Location: the same as the managed instance
 - Virtual network: `sql-vm-sub-vnet` 
 
-For more information about deploying a SQL Server VM to Azure, see [Quickstart: Create SQL Server VM](../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md)
+For more information about deploying a SQL Server VM to Azure, see [Quickstart: Create SQL Server VM](../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md).
 
 ## 4 - Configure VPN peering
-Configure VPN peering to enable communication between the virtual network of the two managed instances, and the virtual network of SQL Server. To do so, use the following PowerShell code snippet:
+Configure VPN peering to enable communication between the virtual network of the two managed instances, and the virtual network of SQL Server. To do so, use this PowerShell code snippet:
 
 ```powershell-interactive
 # Set variables
@@ -80,8 +79,8 @@ $SubscriptionId = '<SubscriptionID>'
 $resourceGroup = 'SQLMI-Repl'
 $pubvNet = 'sql-mi-publisher-vnet'
 $subvNet = 'sql-vm-sub-vnet'
-$pubsubName = 'Pub-to-Sub-Peering'
-$subpubName = 'Sub-to-Pub-Peering'
+$pubsubName = 'Pub-to-Sub-Peer'
+$subpubName = 'Sub-to-Pub-Peer'
 
 $virtualNetwork1 = Get-AzVirtualNetwork `
   -ResourceGroupName $resourceGroup `
@@ -117,7 +116,7 @@ Get-AzVirtualNetworkPeering `
 
 ```
 
-Once VPN peering is established, test connectivity by launching SQL Server Management Studio (SSMS) on your SQL Server VM and connecting to both managed instances. For more information on connecting to a managed instance using SSMS, see [Use SSMS to connect to the MI](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance). 
+Once VPN peering is established, test connectivity by launching SQL Server Management Studio (SSMS) on your SQL Server and connecting to both managed instances. For more information on connecting to a managed instance using SSMS, see [Use SSMS to connect to the MI](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance). 
 
 ![Test connectivity to the managed instances](media/sql-database-managed-instance-configure-replication-tutorial/test-connectivity-to-mi.png)
 
@@ -161,12 +160,15 @@ A private DNS zone to allow DNS routing between the managed instances and the SQ
 1. Repeat these steps to add a link for the subscriber virtual network, with a name such as `Sub-link`. 
 
 
-## 7 - Create Azure Storage Account
+## 6 - Create Azure Storage Account
 
 [Create an Azure Storage Account](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) for the working directory, and then create a [file share](../storage/files/storage-how-to-create-file-share.md) within the storage account. 
 
 Copy the file share path in the format of:
 `\\storage-account-name.file.core.windows.net\file-share-name`
+
+The file share used for this tutorial is:
+`\\replstorage.file.core.windows.net\replshare`
 
 Copy the storage access keys in the format of:
 `DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
@@ -174,8 +176,8 @@ Copy the storage access keys in the format of:
  For more information, see [View and copy storage access keys](../storage/common/storage-account-manage.md#access-keys). 
 
 
-## 8 - Create a database
-Create a new database on the publisher MI. To do so, do the following:
+## 7 - Create a database
+Create a new database on the publisher MI. To do so, follow these steps:
 
 1. Launch SQL Server Management Studio (SSMS) on your SQL Server. 
 1. Connect to the `sql-mi-publisher` managed instance. 
@@ -221,7 +223,7 @@ SELECT * FROM ReplTest
 GO
 ```
 
-## 9 - Configure distribution 
+## 8 - Configure distribution 
 Once connectivity is established and you have a sample database, you can configure distribution on your `sql-mi-distributor` managed instance. To do so, follow these steps:
 
 1. Launch SQL Server Management Studio (SSMS) on your SQL Server. 
@@ -248,8 +250,8 @@ EXEC sys.sp_adddistributor @distributor = 'sql-mi-distributor.b6bf57.database.wi
 ```
 
 
-## 10 - Create the publication
-Once distribution has been configured, you can now create the publisher. To do so, follow these steps: 
+## 9 - Create the publication
+Once distribution has been configured, you can now create the publication. To do so, follow these steps: 
 
 1. Launch SQL Server Management Studio (SSMS) on your SQL Server. 
 1. Connect to the `sql-mi-publisher` managed instance. 
@@ -269,7 +271,7 @@ Once distribution has been configured, you can now create the publisher. To do s
 1. Once your publication has been created, refresh the **Replication** node in **Object Explorer** and expand **Local Publications** to see your new publication. 
 
 
-## 11 - Create the subscription 
+## 10 - Create the subscription 
 
 Once the publication has been created, you can create the subscription. To do so, follow these steps: 
 
@@ -302,7 +304,7 @@ exec sp_addpushsubscription_agent
 GO
 ```
 
-## 12 - Test replication 
+## 11 - Test replication 
 
 Once replication has been configured, you can test it by inserting new items on the publisher and watching the changes propagate to the subscriber. 
 

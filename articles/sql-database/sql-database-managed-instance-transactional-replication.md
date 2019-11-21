@@ -167,17 +167,19 @@ If geo-replication is enabled on a **publisher** or **distributor** instance in 
 
 If geo-replication is enabled on a **subscriber** instance in a failover group, the publication should be configured to connect to the failover group listener endpoint for the subscriber managed instance. In the event of a failover, subsequent action by the managed instance administrator depends on the type of failover that occurred: 
 
-- For a failover with no dat loss, replication will just work after failover. 
+- For a failover with no data loss, replication will continue working after failover. 
 - For a failover with data loss, replication will work as well. It will replicate the lost changes again. 
 - For a failover with data loss, but the data loss is outside of the distribution database retention period, the managed instance administrator will need to reinitialize the subscription database. 
 
-
 ## Next steps
 
-1. [Configure replication between two managed instances](replication-with-sql-database-managed-instance.md). 
-1. [Create a publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
-1. [Create a push subscription](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) by using the Azure SQL Database server name as the subscriber (for example `N'azuresqldbdns.database.windows.net` and the Azure SQL Database name as the destination database (for example **Adventureworks**. )
+- [Configure replication between an MI publisher and subscriber](replication-with-sql-database-managed-instance.md)
+- [Configure replication between an MI publisher, MI distributor, and SQL Server subscriber](sql-database-managed-instance-configure-replication-tutorial.md)
+- [Create a publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
+- [Create a push subscription](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) by using the Azure SQL Database server name as the subscriber (for example `N'azuresqldbdns.database.windows.net` and the Azure SQL Database name as the destination database (for example **Adventureworks**. )
 
+
+For more information about configuring transactional replication, see the following tutorials:
 
 
 
