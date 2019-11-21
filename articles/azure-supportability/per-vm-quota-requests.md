@@ -108,7 +108,7 @@ You can also **request Quota for multiple regions** through a single support cas
 
    ![Quota Problem blade](./media/resource-manager-core-quotas-request/1-1-6.png)
 
-7. For the selected location, select **Type** value as **‘Standard’**. You can request both Standard and Low Priority quota types from a single support case through multi-selection support on the **Type** field. Learn more about **increasing Low Priority vCPUs limits** on the <> page.
+7. For the selected location, select **Type** value as **‘Standard’**. You can request both Standard and Low Priority quota types from a single support case through multi-selection support on the **Type** field. Learn more about **increasing Low Priority vCPUs limits** on this [page](https://docs.microsoft.com/en-us/azure/azure-supportability/low-priority-quota).
 
    ![SKU series selected](./media/resource-manager-core-quotas-request/1-1-7.png)
    
