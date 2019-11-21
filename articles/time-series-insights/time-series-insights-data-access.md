@@ -17,6 +17,9 @@ ms.custom: seodec18
 
 This article discusses the two types of Azure Time Series Insights Preview access policies.
 
+> [!TIP]
+> Read [Authentication and Authorization](time-series-insights-authentication-and-authorization.md) for Azure Active Directory app registration steps.
+
 ## Sign in to Time Series Insights
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
@@ -99,15 +102,22 @@ Follow these steps to grant guest access to a Time Series Insights environment t
 
     [![Guest reviews permissions and accepts](media/data-access/data-access-grant-permission-sign-in.png)](media/data-access/data-access-grant-permission-sign-in.png#lightbox)
 
-1. After the guest user is signed in to the email address you used to invite them, and they accept the invitation, they'll be directed to **insights.azure.com**. Once there, they'll select the avatar next to their email address in the upper-right corner of the screen.
+1. The administrator [shares the environment URL](time-series-insights/time-series-insights-parameterized-urls.md) with their guest.
 
-    [![Avatar selection on insights.azure.com](media/data-access/data-access-fourteen.png)](media/data-access/data-access-fourteen.png#lightbox)
+1. After the guest user is signed in to the email address you used to invite them, and they accept the invitation, they will be directed to Azure Portal. 
 
-1. Next, the guest user selects your Azure tenant from the directory drop-down menu. This tenant is the one to which you invited them.
+1. The guest can now access the shared environment using the environment URL provided by the administrator. They can enter that URL into their web browser for immediate access.
 
-    [![Guest user selects your Azure tenant from drop-down](media/data-access/data-access-fifteen.png)](media/data-access/data-access-fifteen.png#lightbox)
+1. The guest user will see the administrator's tenant by selecting their profile icon in the upper-right corner of the Time Series explorer.
 
-After the guest user selects your tenant, they see the Time Series Insights environment to which you provided them access. They now have all the capabilities associated with the role that you provided them with in **step 5**.
+    [![Avatar selection on insights.azure.com](media/data-access/data-access-select-tenant-and-instance.png)](media/data-access/data-access-select-tenant-and-instance.png#lightbox)
+
+
+    After the guest user selects the administrator's tenant, they will have the ability to select the shared Time Series Insights environment. 
+    
+    They now have all the capabilities associated with the role that you provided them with in **step 5**.
+
+    [![Guest user selects your Azure tenant from drop-down](media/data-access/data-access-all-capabilities.png)](media/data-access/data-access-all-capabilities.png#lightbox)
 
 ## Next steps
 
