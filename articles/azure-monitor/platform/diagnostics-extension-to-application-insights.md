@@ -1,5 +1,5 @@
 ---
-title: Configure Azure Diagnostics to send data to Application Insights
+title: Send Azure Diagnostics data to Application Insights
 description: Update the Azure Diagnostics public configuration to send data to Application Insights.
 ms.service:  azure-monitor
 ms.subservice: diagnostic-extension

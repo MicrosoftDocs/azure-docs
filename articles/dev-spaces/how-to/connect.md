@@ -1,6 +1,5 @@
 ---
 title: "Connect your development machine to an AKS cluster"
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.date: 11/04/2019
 ms.topic: "conceptual"
