@@ -938,7 +938,7 @@ description: Get started with the Speech Services.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
+                                                        <img src="https://docs.microsoft.com/media/illustrations/virtualization-containers-about.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -957,7 +957,7 @@ description: Get started with the Speech Services.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
+                                                        <img src="https://docs.microsoft.com/media/illustrations/virtualization-containers-about.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -976,7 +976,7 @@ description: Get started with the Speech Services.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_reference.jpg" alt="" />
+                                                        <img src="https://docs.microsoft.com/media/illustrations/virtualization-containers-samples.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -995,7 +995,7 @@ description: Get started with the Speech Services.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
+                                                        <img src="https://docs.microsoft.com/media/illustrations/virtualization-containers-about.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1014,7 +1014,7 @@ description: Get started with the Speech Services.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
+                                                        <img src="https://docs.microsoft.com/media/illustrations/virtualization-containers-about.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
