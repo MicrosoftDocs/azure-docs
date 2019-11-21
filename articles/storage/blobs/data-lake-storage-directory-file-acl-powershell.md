@@ -30,14 +30,14 @@ This article shows you how to use PowerShell to create and manage directories, f
     echo $PSVersionTable.PSVersion.ToString() 
     ```
     
-    If you have a version that is lower than `5.1`, then install the latest **PowershellGet** module.
+    To upgrade your version of PowerShell, see [Upgrading existing Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)
+    
+2. Install the latest **PowershellGet** module. Then, close and reopen the Powershell console.
 
     ```powershell
     install-Module PowerShellGet –Repository PSGallery –Force 
     ```
 
-2.	Close and then reopen the Powershell console.
- 
 3.	Install **Az.Storage** preview module.
 
     ```powershell
