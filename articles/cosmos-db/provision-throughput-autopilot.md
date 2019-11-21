@@ -63,7 +63,7 @@ Solutions to the previous problems not only require an enormous amount of time i
 | **Pricing** | Manually provisioned RU/s per hour. | For single write region accounts, you pay for the throughput used on an hourly basis, by using the autopilot RU/s per hour rate. <br/><br/>For accounts with multiple write regions, there is no extra charge for autopilot. You pay for the throughput used on hourly basis using the same multi-master RU/s per hour rate. |
 | **Best suited for workload types** |  Predictable and stable workloads|   Unpredictable and variable workloads  |
 
-## <a id="enable-autopilot"> Enable autopilot from Azure portal
+## <a id="enable-autopilot"></a> Enable autopilot from Azure portal
 
 You can try out autopilot in your Azure Cosmos accounts by enabling in from Azure portal. Use the following steps to enable the autopilot option:
 
@@ -89,7 +89,7 @@ You can configure autopilot for databases or containers while creating them. Use
 
 With similar steps, you can also create a database with provisioned throughput in autopilot mode.
 
-## <a id="autopilot-limits"> Throughput and storage limits for autopilot
+## <a id="autopilot-limits"></a> Throughput and storage limits for autopilot
 
 The following table shows the maximum throughout and storage limits for different options in autopilot mode:
 
