@@ -113,7 +113,50 @@ Layered deployments have the same basic components as any automatic deployment. 
 
 The system runtime modules, edgeAgent and edgeHub, are not configured as part of a layered deployment. Any IoT Edge device targeted by a layered deployment needs a standard automatic deployment applied to it first to provide the base upon which layered deployments can be added. 
 
-An IoT Edge device can apply one and only on standard automatic deployment, but it can apply multiple layered automatic deployments. 
+An IoT Edge device can apply one and only on standard automatic deployment, but it can apply multiple layered automatic deployments. Any layered deployments targeting a device must have a higher priority than the automatic deployment for that device. 
+
+### Module twin configuration
+
+When you work with layered deployments, you may, intentionally or otherwise, have two deployments with the same module targeting a device. In those cases you can decide whether the higher priority deployment should overwrite the module twin or append to it. For example, you may have a deployment that applies the same module to 100 different devices. However, 10 of those devices are in secure facilities and need additional configuration in order to communicate through proxy servers. You can use a layered deployment to add module twin properties that enable those 10 devices to communicate securely without overwriting the existing module twin information from the base deployment. 
+
+You can append module twin desired properties in the deployment manifest. Where in a standard deployment you would add properties in the **properties.desired** section of the module twin, in a layered deployment you can declare a new subset of desired properties. 
+
+For example, in a standard deployment you might add the simulated temperature sensor module with the following desired properties that tell it to send data in 5 second intervals:
+
+```json
+"SimulatedTemperatureSensor": {
+  "properties.desired": {
+    "SendData": true,
+    "SendInterval": 5
+  }
+}
+```
+
+In a layered deployment targeting the same devices, or a subset of the same devices, you may want to add an additional property that tells the simulated sensor to send 1000 messages and then stop. You don't want to overwrite the existing properties, so you create a new section within the desired properties called `layeredProperties` which contains the new property:
+
+```json
+"SimulatedTemperatureSensor": {
+  "properties.desired.layeredProperties": {
+    "StopAfterCount": 1000
+  }
+}
+```
+
+A device that has both deployments applied will reflect the following in the module twin for the simulated temperature sensor: 
+
+```json
+"properties": {
+  "desired": {
+    "SendData": true,
+    "SendInterval": 5,
+    "layeredProperties": {
+      "StopAfterCount": 1000
+    }
+  }
+}
+```
+
+If you do set the `properties.desired` field of the module twin in a layered deployment, it will overwrite the desired properties for that module in any lower priority deployments. 
 
 ## Phased rollout 
 
