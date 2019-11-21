@@ -46,6 +46,14 @@ You can enable slow query and audit logging on your server. These logs are also 
 ## Performance Recommendations
 The [Performance Recommendations](concepts-performance-recommendations.md) feature identifies opportunities to improve workload performance. Performance Recommendations provides you with recommendations for creating new indexes that have the potential to improve the performance of your workloads. To produce index recommendations, the feature takes into consideration various database characteristics, including its schema and the workload as reported by Query Store. After implementing any performance recommendation, customers should test performance to evaluate the impact of those changes.
 
+## Create activity log alerts for service health notifications
+The activity log alerts for service health notifications allow you to view all scheduled maintenance for your subscription all in one place. It also helps to scale the notification to the right audiences for different resource groups, as some external customers have different teams/contacts responsible for different resources.
+
+To learn about creating activity log alerts for service health notifications, visit [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications.md) article.
+
+> [!IMPORTANT]
+> Activity log alerts for service health notifications is currently in preview in region EAST US and UK South
+
 ## Next steps
 - See [How to set up alerts](howto-alert-on-metric.md) for guidance on creating an alert on a metric.
 - For more information on how to access and export metrics using the Azure portal, REST API, or CLI, see the [Azure Metrics Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
