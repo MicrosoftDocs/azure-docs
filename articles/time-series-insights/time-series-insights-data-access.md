@@ -91,13 +91,13 @@ Follow these steps to grant guest access to a Time Series Insights environment t
 
     [![Verify that users and roles are correctly assigned](media/data-access/data-access-confirm-invited-users-and-roles.png)](media/data-access/data-access-confirm-invited-users-and-roles.png#lightbox)
 
-1. Now the guest user must follow steps to access the environment located in the Azure tenant to which you invited them. First, they accept the invitation you sent them. This invitation is sent via email to the email address you used in **step 5**. They select **Get Started** to accept.
+1. Now, the guest user will receive an invitation email at the email address specified above. The guest user will select **Get Started** to confirm their acceptance and connect to Azure Cloud.
 
-    [![Guest invitation email for access](media/data-access/data-access-twelve.png)](media/data-access/data-access-twelve.png#lightbox)
+    [![Guest selects Get Started to accept](media/data-access/data-access-email-invitation.png)](media/data-access/data-access-email-invitation.png#lightbox)
 
-1. Next, the guest user accepts the permissions associated with the administrator's organization.
+1. After selecting **Get Started** the guest user will be presented with a permissions box associated with the administrator's organization. Upon granting permission by selecting **Accept**, they will be signed in.
 
-    [![Guest accepts permissions associated with the role assignment](media/data-access/data-access-thirteen.png)](media/data-access/data-access-thirteen.png#lightbox)
+    [![Guest reviews permissions and accepts](media/data-access/data-access-grant-permission-sign-in.png)](media/data-access/data-access-grant-permission-sign-in.png#lightbox)
 
 1. After the guest user is signed in to the email address you used to invite them, and they accept the invitation, they'll be directed to **insights.azure.com**. Once there, they'll select the avatar next to their email address in the upper-right corner of the screen.
 
