@@ -28,7 +28,7 @@ To view the default transaction node details:
 
 ## Create transaction node
 
-You can add up to nine additional transaction nodes to your blockchain member, for a total of ten transaction nodes. By adding transaction nodes, you can increase scalability or distribute load. For example, you could have a transaction node endpoint for different client applications.
+You can add up to nine additional transaction nodes to your blockchain member, for a total of 10 transaction nodes. By adding transaction nodes, you can increase scalability or distribute load. For example, you could have a transaction node endpoint for different client applications.
 
 To add a transaction node:
 
@@ -95,7 +95,7 @@ To use the URL, replace \<password\> with the password set when the node was pro
 
 ### Access keys
 
-For access key authentication, the access key is included in the endpoint URL. When the transaction node is provisioned, two access keys are generated. Either access key can be used for authentication. Two keys enable you change and rotate keys.
+For access key authentication, the access key is included in the endpoint URL. When the transaction node is provisioned, two access keys are generated. Either access key can be used for authentication. Two keys enable you to change and rotate keys.
 
 You can view a transaction node's access key details and copy endpoint addresses that include the access keys. Navigate to one of your Azure Blockchain Service member transaction nodes and select **Access Keys** in settings.
 
