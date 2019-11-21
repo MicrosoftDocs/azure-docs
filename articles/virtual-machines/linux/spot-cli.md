@@ -45,22 +45,6 @@ Sign in to Azure using [az login](/cli/azure/reference-index#az-login).
 az login
 ```
 
-## Register the feature
-
-For the public preview, you first need to register the feature.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.Compute --name LowPrioritySingleVM
-```
-
-Check the status of the feature registration.
-
-```azurecli-interactive
-az feature show --namespace Microsoft.Compute --name LowPrioritySingleVM | grep state
-```
-
-When this returns `"state": "Registered"`, you can move on to the next step.
-
 ## Create a Spot VM
 
 This example shows how to deploy a Linux Spot VM that will not be evicted based on price. 
@@ -74,7 +58,7 @@ az vm create \
     --admin-username azureuser \
     --generate-ssh-keys \
     --priority Spot \
-    --max-billing -1
+    --max-price -1
 ```
 
 After the VM is created, you can query to see the max billing price for all of the VMs in the resource group.

@@ -28,21 +28,6 @@ You have option to set a max price you are willing to pay, per hour, for the VM.
 >
 > For the early part of the public preview, you can set a max price, but it will be ignored. Spot VMs will have a fixed price, so there will not be any price-based evictions.
 
-## Register the feature
-
-For the public preview, you first need to register the feature.
-
-```azurepowershell-interactive
-Register-AzProviderFeature -FeatureName LowPrioritySingleVM -ProviderNamespace Microsoft.Compute
-```
-
-It takes a few minutes for the registration to complete. Use [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) to check on the status of the feature registration.
-
-```azurepowershell-interactive
-Get-AzProviderFeature -FeatureName LowPrioritySingleVM -ProviderNamespace Microsoft.Compute
-```
-
-When `RegistrationState` returns `Registered`, you can move on to the next step.
 
 ## Create the VM
 
