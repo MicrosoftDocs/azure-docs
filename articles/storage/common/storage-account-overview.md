@@ -48,7 +48,7 @@ General-purpose v1 storage accounts provide access to all Azure Storage services
 - Queues
 - Tables
 
-While you can use general-purpose v2 accounts in most cases, you should use general-purpose v1 accounts for these scenarios:
+You should use general-purpose v2 accounts in most cases. You can use general-purpose v1 accounts for these scenarios:
 
 * Your applications require the Azure classic deployment model. General-purpose v2 accounts and Blob storage accounts support only the Azure Resource Manager deployment model.
 
@@ -58,7 +58,7 @@ While you can use general-purpose v2 accounts in most cases, you should use gene
 
 ### BlockBlobStorage accounts
 
-A BlockBlobStorage account is a specialized storage account that you use to store unstructured object data as block blobs. You can also use a BlockBlobStorage account to create premium block blobs. This storage account kind supports block blobs and append blobs, but not page blobs, tables, or queues.
+A BlockBlobStorage account is a specialized storage account that you use to store unstructured object data as block blobs. You can also use a BlockBlobStorage account to create premium block blobs. This type of storage account supports block blobs and append blobs, but not page blobs, tables, or queues.
 
 Compared with general-purpose v2 and BlobStorage accounts, BlockBlobStorage accounts provide low and consistent latency, and higher transaction rates.
 
@@ -96,7 +96,7 @@ The available access tiers are:
 
 * The **Hot** access tier. This tier is optimized for frequent access of objects in the storage account. Accessing data in the hot tier is most cost-effective, while storage costs are higher. New storage accounts are created in the hot tier by default.
 * The **Cool** access tier. This tier is optimized for storing large amounts of data that is infrequently accessed and stored for at least 30 days. Storing data in the cool tier is more cost-effective, but accessing that data may be more expensive than accessing data in the hot tier.
-* The **Archive** tier. This tier is available only for individual block blobs. The archive tier is optimized for data that can tolerate several hours of retrieval latency. That data also remains in the Archive tier for at least 180 days. The archive tier is the most cost-effective option for storing data. Accessing that data, though, is more expensive than accessing data in the hot or cool tiers.
+* The **Archive** tier. This tier is available only for individual block blobs. The archive tier is optimized for data that can tolerate several hours of retrieval latency and that will remain in the Archive tier for at least 180 days. The archive tier is the most cost-effective option for storing data. However, accessing that data, is more expensive than accessing data in the hot or cool tiers.
 
 If there's a change in the usage pattern of your data, you can switch between these access tiers at any time. For more information about access tiers, see [Azure Blob storage: hot, cool, and archive access tiers](../blobs/storage-blob-storage-tiers.md).
 
@@ -160,11 +160,11 @@ AzCopy is a Windows command-line utility designed for high-performance copying o
 
 ### Data movement library
 
-The Azure Storage data movement library for .NET is based on the core data movement framework that powers AzCopy. The library is designed for high-performance, reliable, and easy data transfer operations similar to AzCopy. You can take advantage of the AzCopy features natively without having to deal with running and monitoring external instances of AzCopy. For more information, see [Azure Storage Data Movement Library for .Net](https://github.com/Azure/azure-storage-net-data-movement)
+The Azure Storage data movement library for .NET is based on the core data movement framework that powers AzCopy. The library is designed for high-performance, reliable, and easy data transfer operations similar to AzCopy. You can use the data movement library to take advantage of AzCopy features natively. For more information, see [Azure Storage Data Movement Library for .Net](https://github.com/Azure/azure-storage-net-data-movement)
 
 ### REST API or client library
 
-Create a custom application to migrate your data into a Blob storage account. You can do so by using one of the Azure client libraries or the Azure storage services REST API. Azure Storage provides rich client libraries for multiple languages and platforms like .NET, Java, C++, Node.JS, PHP, Ruby, and Python. The client libraries offer advanced capabilities such as retry logic, logging, and parallel uploads. You can also develop directly against the REST API, which can be called by any language that makes HTTP/HTTPS requests.
+You can create a custom application to migrate your data from a general-purpose v1 storage account into a Blob storage account. Use one of the Azure client libraries or the Azure storage services REST API. Azure Storage provides rich client libraries for multiple languages and platforms like .NET, Java, C++, Node.JS, PHP, Ruby, and Python. The client libraries offer advanced capabilities such as retry logic, logging, and parallel uploads. You can also develop directly against the REST API, which can be called by any language that makes HTTP/HTTPS requests.
 
 For more information about the Azure Storage REST API, see [Azure Storage Services REST API Reference](https://docs.microsoft.com/rest/api/storageservices/). 
 
