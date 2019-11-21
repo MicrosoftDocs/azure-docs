@@ -57,7 +57,10 @@ Filtering occurs in tandem with search, qualifying which documents to include in
 
 ## Defining filters
 
-Filters are OData expressions, articulated using a [subset of OData V4 syntax supported in Azure Cognitive Search](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
+
+
+
+s are OData expressions, articulated using a [subset of OData V4 syntax supported in Azure Cognitive Search](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
 
 You can specify one filter for each **search** operation, but the filter itself can include multiple fields, multiple criteria, and if you use an **ismatch** function, multiple full-text search expressions. In a multi-part filter expression, you can specify predicates in any order (subject to the rules of operator precedence). There is no appreciable gain in performance if you try to rearrange predicates in a particular sequence.
 
@@ -67,14 +70,14 @@ The following examples represent prototypical filter definitions in several APIs
 
 ```http
 # Option 1:  Use $filter for GET
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=Rfilter=Rooms/any(room: room/BaseRate lt 150.0)&$select=HotelId,Description&api-version=2019-05-06
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=Rooms/any(room: room/BaseRate lt 150.0)&$select=HotelId,Rooms/Description&api-version=2019-05-06
 
 # Option 2: Use filter for POST and pass it in the request body
 POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2019-05-06
 {
     "search": "*",
-    "filter": "Rooms/any(room: room/BaseRate lt 150.0",
-    "select": "HotelId,Description"
+    "filter": "Rooms/BaseRate lt 150.0",
+    "select": "HotelId, Rooms/Description"
 }
 ```
 
@@ -82,8 +85,8 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
     parameters =
         new SearchParameters()
         {
-            Filter = "Rooms/any(room: room/BaseRate lt 150.0",
-            Select = new[] { "HotelId", "Description" }
+            Filter = "Rooms/BaseRate lt 150.0",
+            Select = new[] { "HotelId", "Rooms/Description" }
         };
 
     var results = searchIndexClient.Documents.Search("*", parameters);
@@ -102,7 +105,7 @@ The following examples illustrate several usage patterns for filter scenarios. F
 + Combination of query string and **$filter**, where the filter creates the subset, and the query string provides the term inputs for full text search over the filtered subset. Using a filter with a query string is the most common usage pattern.
 
    ```
-   search=ooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Seattle'
+   search=Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Seattle'
    ```
 
 + Compound queries, separated by "or", each with its own filter criteria (for example, 'beagles' in 'dog' or 'siamese' in 'cat'). Expressions combined with `or` are evaluated individually, with the union of documents matching each expression sent back in the response. This usage pattern is achieved through the `search.ismatchscoring` function. You can also use the non-scoring version, `search.ismatch`.
