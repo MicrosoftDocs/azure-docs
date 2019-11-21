@@ -51,7 +51,7 @@ To use PowerShell to deploy the Azure Resource Manager template:
 
 1. **Copy** the script.
 2. Select **Try it** to open Azure Cloud Shell.
-3. Right-click in the Azure Cloud shell window, and then select **Paste**.
+3. Right-click in the Azure Cloud Shell window, and then select **Paste**.
 
 ```azurepowershell-interactive
 
@@ -89,9 +89,11 @@ You can choose to deploy the template with a locally installed version of PowerS
 
 ### Deploy via Azure CLI
 
-\***
+To use Azure CLI to deploy the Azure Resource Manager template:
 
-To deploy the Azure Resource Manager template using Azure CLI, select **Try it** to open Azure Cloud Shell. To paste the script, right-click the shell, and then select **Paste**:
+1. **Copy** the script.
+2. Select **Try it** to open Azure Cloud Shell.
+3. Right-click in the Azure Cloud Shell window, and then select **Paste**.
 
 ```azurecli-interactive
 read -p 'Enter the Resource Group name: ' resourceGroupName
@@ -122,17 +124,28 @@ az group deployment create --resource-group $resourceGroupName \
 az cosmosdb show --resource-group $resourceGroupName --name accountName --output tsv
 ```
 
-The `az cosmosdb show` command shows the newly created Azure Cosmos account after it has been provisioned. If you choose to use a locally installed version of Azure CLI instead of using CloudShell, see [Azure Command-Line Interface (CLI)](/cli/azure/) article.
+The `az cosmosdb show` command shows the newly created Azure Cosmos account after it's provisioned. You can choose to deploy the template with a locally installed version of Azure CLI instead Azure Cloud Shell. For information, see [Azure Command-Line Interface (CLI)](/cli/azure/).
 
-## Create an Azure Cosmos DB container with server-side functionality <a id="create-sproc"></a>
+<a id="create-sproc"></a>
 
-Create an Azure Cosmos DB container with a stored procedure, trigger and user-defined function using an Azure Resource Manager template. Copy the template and deploy as shown below or visit [Azure Quickstart Gallery](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-container-sprocs/) and deploy from the Azure portal. You can also download the template to your local computer or create a new template and specify the local path with the `--template-file` parameter.
+## Create an Azure Cosmos DB container with server-side functionality
+
+You can use an Azure Resource Manager template to create an Azure Cosmos DB container with a stored procedure, trigger, and user-defined function.
+
+Copy the template and deploy as described in the following sections.
+
+* Optionally, you can visit [Azure Quickstart Gallery](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-container-sprocs/) and deploy the template from the Azure portal.
+* You can also download the template to your local computer or create a new template and specify the local path with the `--template-file` parameter.
 
 [!code-json[create-cosmosdb-sql-sprocs](~/quickstart-templates/101-cosmosdb-sql-container-sprocs/azuredeploy.json)]
 
-### Deploy stored procedure template via PowerShell
+### Deploy with PowerShell
 
-To deploy the Resource Manager template using PowerShell, **Copy** the script and select **Try it** to open Azure Cloud Shell. To paste the script, right-click the shell, and then select **Paste**:
+To use PowerShell to deploy the Azure Resource Manager template:
+
+1. **Copy** the script.
+1. Select **Try it** to open Azure Cloud Shell.
+1. Right-click the Azure Cloud Shell window, and then select **Paste**:
 
 ```azurepowershell-interactive
 
@@ -158,11 +171,15 @@ New-AzResourceGroupDeployment `
  (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2019-08-01" --ResourceGroupName $resourceGroupName).name
 ```
 
-If you choose to use a locally installed version of PowerShell instead of from Azure Cloud Shell, you have to [install](/powershell/azure/install-az-ps) the Azure PowerShell module. Run `Get-Module -ListAvailable Az` to find the version.
+You can choose to deploy the template with a locally installed version of PowerShell instead of from Azure Cloud Shell. You'll need to [install the Azure PowerShell module](/powershell/azure/install-az-ps). Run `Get-Module -ListAvailable Az` to find the version.
 
-### Deploy stored procedure template via Azure CLI
+### Deploy with Azure CLI
 
-To deploy the Azure Resource Manager template using Azure CLI, select **Try it** to open Azure Cloud Shell. To paste the script, right-click the shell, and then select **Paste**:
+To use Azure CLI to deploy the Azure Resource Manager template:
+
+1. **Copy** the script.
+2. Select **Try it** to open Azure Cloud Shell.
+3. Right-click in the Azure Cloud Shell window, and then select **Paste**.
 
 ```azurecli-interactive
 read -p 'Enter the Resource Group name: ' resourceGroupName
@@ -184,9 +201,9 @@ az cosmosdb show --resource-group $resourceGroupName --name accountName --output
 
 ## Next Steps
 
-Here are some additional resources:
+You might find these resources to be helpful:
 
-- [Azure Resource Manager documentation](/azure/azure-resource-manager/)
-- [Azure Cosmos DB resource provider schema](/azure/templates/microsoft.documentdb/allversions)
-- [Azure Cosmos DB Quickstart templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
-- [Troubleshoot common Azure Resource Manager deployment errors](../azure-resource-manager/resource-manager-common-deployment-errors.md)
+* [Azure Resource Manager documentation](/azure/azure-resource-manager/)
+* [Azure Cosmos DB resource provider schema](/azure/templates/microsoft.documentdb/allversions)
+* [Azure Cosmos DB Quickstart templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
+* [Troubleshoot common Azure Resource Manager deployment errors](../azure-resource-manager/resource-manager-common-deployment-errors.md)
