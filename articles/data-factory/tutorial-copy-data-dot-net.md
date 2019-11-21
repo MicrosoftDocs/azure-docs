@@ -124,7 +124,7 @@ Follow these steps to create a data factory client.
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
 
-2. Add the following code to the `Main` method that sets variables. Replace the 13 placeholders with your own values.
+2. Add the following code to the `Main` method that sets variables. Replace the 14 placeholders with your own values.
 
     To see the list of Azure regions in which Data Factory is currently available, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). Under the **Products** drop-down list, choose **Browse** > **Analytics** > **Data Factory**. Then in the **Regions** drop-down list, choose the regions that interest you. A grid appears with the availability status of Data Factory products for your selected regions.
 
@@ -139,7 +139,7 @@ Follow these steps to create a data factory client.
     string subscriptionId = "<your subscription ID to create the factory>";
     string resourceGroup = "<your resource group to create the factory>";
 
-    string region = "East US";
+    string region = "<location to create the data factory in, such as East US>";
     string dataFactoryName = 
         "<specify the name of a data factory to create. It must be globally unique.>";
 
