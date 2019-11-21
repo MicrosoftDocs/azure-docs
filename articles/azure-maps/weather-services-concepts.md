@@ -44,9 +44,17 @@ Some of the Weather service APIs allow user to specify if the data is returned e
 |21      |float               |
 |22      |integer             |
 
+| Icon Number |Icon| Day | Night | Text |
+|-------------|----|-----|-------|------|
+| 1           |![](./media/weather-services-concepts/sunny.png| Yes |  No   | Sunny|
+| 2           |![](./media/weather-services-concepts/MostlySunny.png)| Yes |  No   | Sunny|
+| 3           |![](./media/weather-services-concepts/HazySunshine.png)| Yes |  No   | Sunny|
+| 4           |![](./media/weather-services-concepts/MostlyCloudy.png)| Yes |  No   | Sunny|
+| 5           |![](./media/weather-services-concepts/IntermittentClouds.png)| Yes |  No   | Sunny|
+
 ## Radar and satellite imagery color scale
 
-Via [Get Map Tile API](https://aka.ms/AzureMapsWeatherTiles) users can request latest radar and infrared satellite images. Please see below guide to help interpret colors used for radar and satellite tiles.
+Via [Get Map Tile v2 API](https://aka.ms/AzureMapsWeatherTiles) users can request latest radar and infrared satellite images. Please see below guide to help interpret colors used for radar and satellite tiles.
 
 ### Radar Images
 
