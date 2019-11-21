@@ -3,7 +3,7 @@ title: Localization support in Azure Maps | Microsoft Docs
 description: Learn about supported languages for the services in Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 06/26/2019
+ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
