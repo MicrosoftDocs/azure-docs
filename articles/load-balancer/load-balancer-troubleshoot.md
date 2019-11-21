@@ -3,7 +3,7 @@ title: Troubleshoot Azure Load Balancer
 description: Learn how to troubleshoot known issues with Azure Load Balancer.
 services: load-balancer
 documentationcenter: na
-author: chadmath
+author: asudbring
 manager: dcscontentpm
 ms.custom: seodoc18
 ms.service: load-balancer
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/19/2019
-ms.author: genli
+ms.author: allensu
 ---
 
 # Troubleshoot Azure Load Balancer

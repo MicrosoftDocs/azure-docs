@@ -1,6 +1,6 @@
 ﻿---
 title: Create an Azure internal Load Balancer by using PowerShell
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Learn how to create an internal load balancer by using the Azure PowerShell module with Azure Resource Manager
 services: load-balancer
 documentationcenter: na

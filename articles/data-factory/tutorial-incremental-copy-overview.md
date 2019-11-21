@@ -6,13 +6,13 @@ documentationcenter: ''
 author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
 ---
+
 # Incrementally load data from a source data store to a destination data store
 
 In a data integration solution, incrementally (or delta) loading data after an initial full data load is a widely used scenario. The tutorials in this section show you different ways of loading data incrementally by using Azure Data Factory.

@@ -76,6 +76,7 @@ The V3 Translator API is neural by default and statistical systems are only avai
 |Malagasy|	`mg`	|Statistical only|	Statistical|
 |Malay|	`ms`	|Statistical only	|Statistical|
 |Maltese|	`mt`	|Statistical only|	Statistical|
+|Maori| `mi`  |Neural only| Neural|
 |Norwegian|	`nb`	|Neural available|	Neural|
 |Persian|	`fa`	|Neural available|	Neural|
 |Polish|	`pl`	|Neural available|	Neural|
@@ -232,6 +233,7 @@ The following languages are available for customization to or from English using
 | Latvian      | `lv`          |
 | Lithuanian      | `lt`          |
 |Malagasy|	`mg`	|
+|Maori| `mi`  |
 | Norwegian      | `nb`          |
 | Persian      | `fa`          |
 | Polish      | `pl`          |

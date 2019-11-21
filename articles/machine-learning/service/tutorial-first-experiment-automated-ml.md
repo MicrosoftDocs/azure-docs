@@ -1,5 +1,5 @@
 ---
-title: Create your first automated ML classification experiment
+title: Create your first automated ML experiment
 titleSuffix: Azure Machine Learning
 description: Learn how to train and deploy a classification model with automated machine learning in Azure Machine Learning studio.
 services: machine-learning
