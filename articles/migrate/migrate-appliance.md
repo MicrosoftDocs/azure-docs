@@ -38,7 +38,7 @@ The appliance has these agents installed.
 
 **Agent** | **Details**
 --- | ---
-Discovery agent | Gathers configuration data of on-premise virtual machines
+Discovery agent | Gathers configuration data of on-premises virtual machines
 Assessment agent | Profiles the on-premises environment to collect VM performance data.
 Migration adapter | Orchestrates VM replication, and coordinates communication between VMs and Azure.
 Migration gateway | Sends replicated VM data to Azure.

@@ -19,6 +19,8 @@ To help secure your systems and environment, Azure Security Center generates sec
 
 With this preview feature, you can add your own *custom* initiatives. You'll then receive recommendations if your environment doesn't follow the policies you create.
 
+As discussed [here](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#definition-location) in the Azure Policy documentation, when you specify a location for your custom initiative, it must be a management group or a subscription. 
+
 ## To add a custom initiative to your subscription 
 
 1. From Security Center's sidebar, open the **Security policy** page.

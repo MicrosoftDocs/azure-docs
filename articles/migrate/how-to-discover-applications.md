@@ -4,7 +4,7 @@ description: Describes how to discover apps, roles, and features on on-premises 
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 11/18/2019
+ms.date: 11/20/2019
 ms.author: snehaa
 ---
 
@@ -14,10 +14,10 @@ This article describes how to discover applications, roles, and features on on-p
 
 Discovering the inventory of apps, and roles/features running on your on-premises machines helps you to identify and plan a migration path to Azure that's tailored for your workloads.
 
-App discovery using Azure Migrate: Server Assessment is agentless. Nothing needs to be installed on machines and VMs. Server Assessment uses the Azure Migrate appliance to perform discovery along with machine guest credentials. The appliance remotely accesses machines using WMI and SSH calls.
-
 > [!NOTE]
 > App discovery is currently supported for VMware VMs only, and is limited to discovery only. We don't yet offer app-based assessment.  Right now Server Assessment currently assesses on-premises VMware VMs, Hyper-V VMs, and physical servers at the machine level, for lift-and-shift migrations.
+
+App discovery using Azure Migrate: Server Assessment is agentless. Nothing needs to be installed on machines and VMs. Server Assessment uses the Azure Migrate appliance to perform discovery along with machine guest credentials. The appliance remotely accesses the VMware machines using VMware APIs.
 
 
 ## Before you start
