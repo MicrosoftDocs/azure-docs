@@ -249,7 +249,7 @@ The number of selected storage accounts has a limit of 200, regardless of the nu
 ### What happens when I save a workbook?
 
 * When you save a workbook, it lets you create a new copy of the workbook with your edits and change the title. Saving does not overwrite the workbook, the current workbook will always be the default view.
-* An **unsaved** workbook is just the default view of the Insights.
+* An **unsaved** workbook is just the default view.
 
 
 ### Why don’t I see all my subscriptions in the portal?
@@ -265,11 +265,11 @@ section for the detailed steps on how to change the coloring and thresholds for 
 
 ### How to analyze and troubleshoot the data shown in Azure Monitor for Storage?
 
- Refer to the [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-monitoring-diagnosing-troubleshooting) article for details on how to analyze and troubleshoot the Azure Storage data shown in the Azure Monitor for Storage.
+ Refer to the [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-monitoring-diagnosing-troubleshooting) article for details on how to analyze and troubleshoot the Azure Storage data shown in Azure Monitor for Storage.
 
 ### Why don’t I see all the types of errors in metrics?
 
-Currently, up to three different types of error are shown and the rest of the errors are grouped together in a single bucket. It is controlled using splitByLimit and can be modified. For changing this property:
+Currently, up to three different types of errors are shown and the rest of the errors are grouped together in a single bucket. It is controlled using splitByLimit and can be modified. For changing this property:
 
 1. Click on edit workbook.
 2. Go to metrics, click on edit and then select **Transactions, Sum** or whatever metrics you want to edit.
@@ -296,7 +296,7 @@ Time granularity is the time difference between two data points. For example, if
 
 ### What is the time granularity once we pin any part of the workbooks to a dashboard?
 
-The default time granularity is set to automatic, it currently can't be changed at this time. To see this, you can click on the ellipse in the top right of a tile on the dashboard and select **Customize tile data** this will bring up the "configure tile settings" on the right.
+The default time granularity is set to automatic, it currently can't be changed at this time.
 
 ### How do I change the timespan/ time range of the workbook step on my dashboard?
 
