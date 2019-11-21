@@ -561,7 +561,7 @@
       - name: Explain
         href: /azure/databricks/spark/latest/spark-sql/language-manual/explain
         maintainContext: true
-      - name: Fsck Repair Table  (Delta Lake on Azure    Databricks
+      - name: Fsck Repair Table  (Delta Lake on Azure Databricks)
         href: /azure/databricks/spark/latest/spark-sql/language-manual/fsck
         maintainContext: true
       - name: Functions
@@ -573,10 +573,10 @@
       - name: Load Data
         href: /azure/databricks/spark/latest/spark-sql/language-manual/load-data
         maintainContext: true
-      - name: Merge Into  (Delta Lake on Azure Databricks
+      - name: Merge Into  (Delta Lake on Azure Databricks)
         href: /azure/databricks/spark/latest/spark-sql/language-manual/merge-into
         maintainContext: true
-      - name: Optimize  (Delta Lake on Azure Databricks
+      - name: Optimize  (Delta Lake on Azure Databricks)
         href: /azure/databricks/spark/latest/spark-sql/language-manual/optimize
         maintainContext: true
       - name: Refresh Table
@@ -1522,9 +1522,9 @@
     href: /azure/databricks/dev-tools/stack
     maintainContext: true
   - name: Azure Databricks REST API
-    href: /azure/databricks//rest/api/databricks
+    href: /rest/api/databricks
   - name: Resource Manager template
-    href: /azure/databricks//azure/templates/microsoft.databricks/workspaces  
+    href: /azure/templates/microsoft.databricks/workspaces  
 - name: Resources
   items:
   - name: Release notes
