@@ -237,8 +237,8 @@ VNet peering (or virtual network peering) enables you to connect virtual network
 Yes. Global VNet peering enables you to peer VNets in different regions. Global VNet peering is available in all Azure public regions, China cloud regions, and Government cloud regions. You cannot globally peer from Azure public regions to national cloud regions.
 
 ### What are the constraints related to Global VNet Peering and Load Balancers?
-If the two virtual networks are in different regions (Global VNet Peering), you cannot connect to resources that use Basic Load Balancer. You can connect to resources that use Standard Load Balancer.
-The following resources use Basic Load Balancers which means you cannot communicate to them across Global VNet Peering:
+If the two virtual networks in two different regions are peered over Global VNet Peering, you cannot connect to resources that are behind a Basic Load Balancer through the Front End IP of the Load Balancer. This restriction does not exist for a Standard Load Balancer.
+The following resources can use Basic Load Balancers which means you cannot reach them through the Load Balancer's Front End IP over Global VNet Peering. You can however use Global VNet peering to reach the resources directly through their private VNet IPs, if permitted. 
 - VMs behind Basic Load Balancers
 - Virtual machine scale sets with Basic Load Balancers 
 - Redis Cache 

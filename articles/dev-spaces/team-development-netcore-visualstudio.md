@@ -1,6 +1,5 @@
 ---
 title: "Team development with Azure Dev Spaces using .NET Core and Visual Studio"
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 
 ms.custom: vs-azure
