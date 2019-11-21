@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 # Language and region support for the Speech Services
 
-Different languages are supported for different Speech Services functions. The following tables summarize language support.
+Language support varies by Speech Service functionality. The following tables summarize language support for [Speech-to-text](#speech-to-text), [Text-to-speech](#text-to-speech), and [Speech translation](#speech-translation) service offerings.
 
 ## Speech-to-text
 
@@ -65,7 +65,7 @@ Both the Microsoft Speech SDK and the REST API support the following languages (
 
 ## Text-to-speech
 
-Both the Microsoft Speech SDK and the REST API supports these voices, each of which supports a specific language and dialect, identified by locale.
+Both the Microsoft Speech SDK and REST APIs support these voices, each of which supports a specific language and dialect, identified by locale.
 
 > [!IMPORTANT]
 > Pricing varies for standard, custom and neural voices. Please visit the [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) page for additional information.
@@ -95,7 +95,7 @@ More than 75 standard voices are available in over 45 languages and locales, whi
 
 Locale | Language | Gender | Full service name mapping | Short name
 -------|----------|---------|----------|----------
-__\*__`ar-EG` | Arabic (Egypt) | Female | "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)" | "ar-EG-Hoda"
+<sup>&dagger;</sup>`ar-EG` | Arabic (Egypt) | Female | "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)" | "ar-EG-Hoda"
 `ar-SA` | Arabic (Saudi Arabia) | Male | "Microsoft Server Speech Text to Speech Voice (ar-SA, Naayf)" | "ar-SA-Naayf"
 `bg-BG` | Bulgarian | Male | "Microsoft Server Speech Text to Speech Voice (bg-BG, Ivan)" | "bg-BG-Ivan"
 `ca-ES` | Catalan (Spain) | Female | "Microsoft Server Speech Text to Speech Voice (ca-ES, HerenaRUS)" | "ca-ES-HerenaRUS"
@@ -177,7 +177,7 @@ __\*__`ar-EG` | Arabic (Egypt) | Female | "Microsoft Server Speech Text to Speec
 | | | Female | "Microsoft Server Speech Text to Speech Voice (zh-TW, HanHanRUS)" | "zh-TW-HanHanRUS"
 | | | Male | "Microsoft Server Speech Text to Speech Voice (zh-TW, Zhiwei, Apollo)" | "zh-TW-Zhiwei-Apollo"
 
-__\*__ *ar-EG supports Modern Standard Arabic (MSA).*
+&dagger; *ar-EG supports Modern Standard Arabic (MSA).*
 
 > [!NOTE]
 > You can use either the full service name mapping or the short voice name in your speech synthesis requests.
@@ -191,7 +191,7 @@ Voice customization is available for `de-DE`, `en-GB`, `en-IN`, `en-US`, `es-MX`
 
 ## Speech translation
 
-The **Speech Translation** API supports different languages for speech-to-speech and speech-to-text translation. The source language must always be from the Speech-to-text language table. The available target languages depend on whether the translation target is speech or text. You may translate incoming speech into more than [60 languages](https://www.microsoft.com/translator/business/languages/). A subset of these languages are available for [speech synthesis](language-support.md#text-languages).
+The **Speech Translation** API supports different languages for speech-to-speech and speech-to-text translation. The source language must always be from the Speech-to-text language table. The available target languages depend on whether the translation target is speech or text. You may translate incoming speech into more than [60 languages](https://www.microsoft.com/translator/business/languages/). A subset of languages are available for [speech synthesis](language-support.md#text-languages).
 
 ### Text languages
 
