@@ -30,13 +30,13 @@ Exceptions in Microsoft Authentication Library (MSAL) are intended for app devel
 
 When processing exceptions and errors, you can use the exception type itself and the error code to distinguish between exceptions.  For a list of error codes, see [Authentication and authorization error codes](reference-aadsts-error-codes.md).
 
-During the sign-in experience, you may encuonter errors about consents, Conditional Access (MFA, Device Management, Location-based restrictions), token issuance and redemption, and user properties.
+During the sign-in experience, you may encounter errors about consents, Conditional Access (MFA, Device Management, Location-based restrictions), token issuance and redemption, and user properties.
 
 See the following section that matches the language you are using for more details about error handling for your app.
 
 ## [Java](#tab/java)
 
-There are three type of exceptions: `MsalClientException`, `MsalServiceException`, and `MsalInteractionRequiredException`; all which inherit from `MsalException`.
+There are three types of exceptions: `MsalClientException`, `MsalServiceException`, and `MsalInteractionRequiredException`; all which inherit from `MsalException`.
 
 - `MsalClientException` is thrown when an error occurs that is local to the library or device.
 - `MsalServiceException` is thrown when the secure token service (STS) returns an error response or another networking error occurs.
@@ -91,7 +91,7 @@ MSAL exposes a `reason` field, which you can use to provide a better user experi
         }
 ```
 
-## [iOS/macOS](#tab/apple)
+## [iOS/macOS](#tab/iosmacos)
 
 ## MSAL for iOS and macOS errors
 
@@ -562,7 +562,7 @@ When calling an API requiring Conditional Access, you can receive a claims chall
 
 See [Requesting Additional Claims](active-directory-optional-claims.md) for more detail.
 
-### [iOS/macOS](#tab/apple)
+### [iOS/macOS](#tab/iosmacos)
 
 ### MSAL for iOS and macOS
 
