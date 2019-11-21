@@ -28,4 +28,4 @@ If you leave the **None** intent empty, an utterance that should be predicted ou
     |`Order a pizza for me`|
     |`Penguins in the ocean`|
 
-    These example shouldn't use words you expect in your subject domain such as `pizza`, `cheese`, `crust`, `pickup` `deliver`.
+    These examples shouldn't use words you expect in your subject domain such as `pizza`, `cheese`, `crust`, `pickup` `deliver`.
