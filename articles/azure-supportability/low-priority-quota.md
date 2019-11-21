@@ -19,9 +19,7 @@ For **Low priority quota** type, Resource Manager vCPU quotas are enforced acros
 
 Any time a new Low priority VM is to be deployed, the sum of new and existing vCPUs usage for all Low priority VM instances must not exceed the approved Low priority vCPU quota limit. If the Low priority quota is exceeded, the Low priority VM deployment will not be allowed. You can request an increase of the Low priority vCPUs quota limit from Azure portal. 
 
-Learn more about Low priority vCPU quota limits on the [<> page] and [<> page]
-
-Learn more about standard vCPU quotas on the Virtual machine vCPU quotas page and Azure subscription and service limits page. Learn more about increasing the regional vCPU limit for standard quota on the [<> page].
+Learn more about standard vCPU quotas on the Virtual machine vCPU quotas page and Azure subscription and service limits page. Learn more about increasing the regional vCPU limit for standard quota on this [page](https://docs.microsoft.com/en-us/azure/azure-supportability/regional-quota-requests).
 
 You can now request an increase in **Low priority quota limits for all VM Series** via **Help + Support** blade or the **Usages + Quota** blade in the portal.
 
