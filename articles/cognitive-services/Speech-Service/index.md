@@ -605,7 +605,7 @@ description: Get started with the Speech Services.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/logos/logo_azure.svg" alt="" />
+                                                        <img src="https://docs.microsoft.com/media/logos/logo_azure.svg" style="width:140px" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -624,7 +624,7 @@ description: Get started with the Speech Services.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/logos/logo_stackoverflow.svg" alt="" />
+                                                        <img src="https://docs.microsoft.com/media/logos/logo_stackoverflow.svg" style="width:140px" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -643,7 +643,7 @@ description: Get started with the Speech Services.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/logos/logo-uservoice.svg" alt="" />
+                                                        <img src="https://docs.microsoft.com/media/logos/logo-uservoice.svg" style="width:140px" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -662,7 +662,7 @@ description: Get started with the Speech Services.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/common/i_whats-new.svg" alt="" />
+                                                        <img src="https://docs.microsoft.com/media/common/i_whats-new.svg" style="width:140px" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1006,6 +1006,25 @@ description: Get started with the Speech Services.
                                                 <div class="cardText">
                                                     <h3>Designing for telephony data with Speech Services</h3>
                                                     <p>Learn how to use the appropriate technologies available from Speech Services for telephony data application scenarios.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://aka.ms/speech/va-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech_generic_reference.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Overview</h3>
+                                                    <p>Learn how to create natural, human-like conversational interfaces for your applications and experiences with Voice assistants.</p>
                                                 </div>
                                             </div>
                                         </div>
