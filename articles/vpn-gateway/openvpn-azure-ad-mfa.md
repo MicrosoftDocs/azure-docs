@@ -28,7 +28,7 @@ The prerequisite for this configuration is a configured Azure AD tenant using th
 
 ## <a name="users"></a> Select users
 
-1. On the multi-factor authentication page, select the user(s) for which you want to enable MFA.
+1. On the **multi-factor authentication** page, select the user(s) for which you want to enable MFA.
 2. Select **Enable**.
 
    ![Select](./media/openvpn-azure-ad-mfa/mfa2.jpg)
@@ -36,13 +36,13 @@ The prerequisite for this configuration is a configured Azure AD tenant using th
 ## <a name="enableauth"></a>Enable authentication
 
 1. Navigate to **Azure Active Directory  -> Enterprise applications -> All applications**.
-2. On the Enterprise applications - All applications page, select **Azure VPN**.
+2. On the **Enterprise applications - All applications** page, select **Azure VPN**.
 
    ![Directory ID](./media/openvpn-azure-ad-mfa/user1.jpg)
 
 ## <a name="enablesign"></a> Configure sign-in settings
 
-On the Azure VPN - Properties page, configure sign-in settings.
+On the **Azure VPN - Properties** page, configure sign-in settings.
 
 1. Set **Enabled for users to sign-in?** to **Yes**. This allows all users in the AD tenant to connect to the VPN successfully.
 2. Set **User assignment required?** to **Yes** if you want to limit sign-in to only users that have permissions to the Azure VPN.
