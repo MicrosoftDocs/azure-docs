@@ -511,6 +511,8 @@
     - name: Resource Manager template
       displayName: ARM
       href: /azure/templates/microsoft.storage/allversions
+    - name: Monitoring data
+      href: ../common/monitor-storage-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Resources
     items:
     - name: Azure updates
@@ -531,8 +533,6 @@
       href: https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata
     - name: Azure Storage on Stack Overflow
       href: https://stackoverflow.com/questions/tagged/windows-azure-storage
-    - name: Monitoring data
-      href: ../common/monitor-storage-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Pricing for Blob storage
       href: https://azure.microsoft.com/pricing/details/storage/blobs/
     - name: Azure pricing calculator
