@@ -74,10 +74,12 @@ You will also need to [Configure an Azure VM to connect](sql-database-managed-in
 
 Copy the file share path in the format of:
 `\\storage-account-name.file.core.windows.net\file-share-name`
+
 Example: `\\replstorage.file.core.windows.net\replshare`
 
 Copy the storage access keys in the format of:
 `DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
+
 Example: 
 `DefaultEndpointsProtocol=https;AccountName=replstorage;AccountKey=dYT5hHZVu9aTgIteGfpYE64cfis0mpKTmmc8+EP53GxuRg6TCwe5eTYWrQM4AmQSG5lb3OBskhg==;EndpointSuffix=core.windows.net`
 

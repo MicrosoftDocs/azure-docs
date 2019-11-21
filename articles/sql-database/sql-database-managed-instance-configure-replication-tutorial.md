@@ -167,12 +167,13 @@ A private DNS zone allows DNS routing between the managed instances and the SQL 
 [Create an Azure Storage Account](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) for the working directory, and then create a [file share](../storage/files/storage-how-to-create-file-share.md) within the storage account. 
 
 Copy the file share path in the format of:
-`\\storage-account-name.file.core.windows.net\file-share-name`
+`\\storage-account-name.file.core.windows.net\file-share-name`   
 
 Example: `\\replstorage.file.core.windows.net\replshare`
 
 Copy the storage access key connection string in the format of:
-`DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
+`DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`   
+
 Example: `DefaultEndpointsProtocol=https;AccountName=replstorage;AccountKey=dYT5hHZVu9aTgIteGfpYE64cfis0mpKTmmc8+EP53GxuRg6TCwe5eTYWrQM4AmQSG5lb3OBskhg==;EndpointSuffix=core.windows.net`
 
 
