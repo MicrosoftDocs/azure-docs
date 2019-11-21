@@ -125,6 +125,7 @@ Once VPN peering is established, test connectivity by launching SQL Server Manag
 
 A private DNS zone to allow DNS routing between the managed instances and the SQL Server. 
 
+### Create private DNS Zone
 1. Sign into the [Azure portal](https://portal.azure.com).
 1. Select **Create a resource** to create a new Azure resource. 
 1. Search for `private dns zone` on Azure Marketplace. 
@@ -135,13 +136,30 @@ A private DNS zone to allow DNS routing between the managed instances and the SQ
    ![Create private DNS zone](media/sql-database-managed-instance-configure-replication-tutorial/create-private-dns-zone.png)
 
 1. Select **Review + create**. Review the parameters for your private DNS zone and then select **Create** to create your resource. 
+
+### Create A record
+
 1. Go to your new **Private DNS zone** and select **Overview**. 
 1. Select **+ Record set** to create a new A-Record. 
 1. Provide the name of your SQL Server VM and the private internal IP address. 
 
-   ![Create private DNS zone](media/sql-database-managed-instance-configure-replication-tutorial/configure-a-record.png)
+   ![Configure A record](media/sql-database-managed-instance-configure-replication-tutorial/configure-a-record.png)
 
 1. Select **OK** to create the A record. 
+
+### Link the virtual network
+
+1. Go to your new **Private DNS zone** and select **Virtual network links**. 
+1. Select **+ Add**. 
+1. Provide a name for the link, such as `Pub-link`. 
+1. Select your subscription from the drop-down and then select the virtual network for your publisher managed instance. 
+1. Check the box next to **Enable auto registration**. 
+
+   ![Create vnet link](media/sql-database-managed-instance-configure-replication-tutorial/configure-vnet-link.png)
+
+1. Select **OK** to link your virtual network. 
+1. Repeat these steps to add a link for the subscriber virtual network, with a name such as `Sub-link`. 
+
 
 ## 7 - Create Azure Storage Account
 
@@ -233,7 +251,7 @@ EXEC sys.sp_adddistributor @distributor = 'sql-mi-distributor.b6bf57.database.wi
 ## 10 - Create the publication
 Once distribution has been configured, you can now create the publisher. To do so, follow these steps: 
 
-1. Launch SQL Server Management Studio (SSMS) on your SQL Server VM. 
+1. Launch SQL Server Management Studio (SSMS) on your SQL Server. 
 1. Connect to the `sql-mi-publisher` managed instance. 
 1. In **Object Explorer**, expand the **Replication** node and right-click the **Local Publication** folder. Select **New Publication...**. 
 1. Select **Next** to move past the welcome page. 
@@ -257,35 +275,32 @@ Once the publication has been created, you can create the subscription. To do so
 
 1. Launch SQL Server Management Studio (SSMS) on your SQL Server. 
 1. Connect to the `sql-mi-publisher` managed instance. 
-1. In **Object Explorer**, expand the **Replication** node, and then expand the **Local Publications** node. 
-1. Right-click on your publication `ReplTest` and select **New Subscriptions...**. 
-1. Select **Next** to move past the welcome page. 
-1. Ensure the correct publisher is selected from the drop down, and then select the `ReplTest` publication. Select **Next**.
+1. Open a **New Query** window and run the following Transact-SQL code to add the subscription and distribution agent. Use the DNS as part of the subscriber name. 
 
-   ![Choose the publication you want to replicate](media/sql-database-managed-instance-configure-replication-tutorial/select-publication.png)
+```sql
+use [ReplTutorial]
+exec sp_addsubscription 
+@publication = N'ReplTest',
+@subscriber = N'sql-vm-sub.repldns.com', -- include the DNS configured in the private DNS zone
+@destination_db = N'ReplSub', 
+@subscription_type = N'Push', 
+@sync_type = N'automatic', 
+@article = N'all', 
+@update_mode = N'read only', 
+@subscriber_type = 0
 
-1. Choose to **Run all agents at the distributor** for a push subscription and select **Next**. 
-1. On the **Subscribers** page, select **Add Subscriber** and then choose to **Add SQL Server Subscriber...**. Connect to your subscriber instance, such as `sql-vm-sub`. 
-
-   ![Add SQL Server as a subscriber](media/sql-database-managed-instance-configure-replication-tutorial/add-sql-server-subscriber.png)
-
-1. Select the subscriber you just added, and then select **\<New database...>** from the **Subscription Database** drop-down to open the **New Database** window. 
-1. Enter a name for your new subscription database, such as `ReplSub`, and then select **OK**. Select **Next** on the **Subscribers** page. 
-
-   ![Configure new subscription database](media/sql-database-managed-instance-configure-replication-tutorial/configure-subscriber-database.png)
-
-1. On the **Distribution Agent Security** page, select the ellipses (**....**) to configure the distribution agent security. 
-
-   ![Configure distribution agent security](media/sql-database-managed-instance-configure-replication-tutorial/configure-distribution-agent-security.png)
-
-1. Provide the SQL Server login for the Distributor, and to connect to the subscriber. Select **OK** to close the agent security page. Select **Next**. 
-
-   ![Provide SQL Server logins](media/sql-database-managed-instance-configure-replication-tutorial/provide-login-credentials-distribution-agent.png)
-
-
-1. On the **Synchronization Schedule** page, select **Next**. 
-1. On the **Initialize Subscriptions** page, select **Next**. 
-1. Select the checkbox next to **Create the subscription(s)** and (optionally) select the checkbox next to **Generate a script file with steps to create the subscription(s)**. 
+exec sp_addpushsubscription_agent
+@publication = N'ReplTest',
+@subscriber = N'sql-vm-sub.repldns.com', -- include the DNS configured in the private DNS zone
+@subscriber_db = N'ReplSub', 
+@job_login = N'azureuser', 
+@job_password = '<Complex Password>', 
+@subscriber_security_mode = 0, 
+@subscriber_login = N'azureuser', 
+@subscriber_password = '<Complex Password>', 
+@dts_package_location = N'Distributor'
+GO
+```
 
 ## 12 - Test replication 
 
@@ -294,12 +309,14 @@ Once replication has been configured, you can test it by inserting new items on 
 Run the following T-SQL snippet to view the rows on the subscriber:
 
 ```sql
+Use ReplSub
 select * from dbo.ReplTest
 ```
 
 Run the following T-SQL snippet to insert additional rows on the publisher, and then check the rows again on the subscriber. 
 
 ```sql
+Use ReplTutorial
 INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 ```
 
@@ -309,17 +326,18 @@ INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 
 `Exception Message: Windows logins are not supported in this version of SQL Server.`
 
-The snapshot agent was configured with a Windows login and needs to use a SQL Server login instead. 
+The agent was configured with a Windows login and needs to use a SQL Server login instead. Use the **Agent Security** page of the **Publication properties** to change the login credentials to a SQL Server login. 
 
-
-2019-11-19 02:21:05.07 Obtained Azure Storage Connection String for replstorage
-2019-11-19 02:21:05.07 Connecting to Azure Files Storage '\\replstorage.file.core.windows.net\replshare'
-2019-11-19 02:21:31.21 Failed to connect to Azure Storage '' with OS error: 53.
 
 ### Failed to connect to Azure Storage
 
 
 `Connecting to Azure Files Storage '\\replstorage.file.core.windows.net\replshare' Failed to connect to Azure Storage '' with OS error: 53.`
+
+2019-11-19 02:21:05.07 Obtained Azure Storage Connection String for replstorage
+2019-11-19 02:21:05.07 Connecting to Azure Files Storage '\\replstorage.file.core.windows.net\replshare'
+2019-11-19 02:21:31.21 Failed to connect to Azure Storage '' with OS error: 53.
+
 
 This is likely because port 445 is closed in either the Azure firewall, the Windows firewall, or both. 
 
@@ -332,6 +350,8 @@ This is likely because port 445 is closed in either the Azure firewall, the Wind
 Possible solutions:
 - Ensure port 1433 is open. 
 - Ensure TCP/IP is enabled on the subscriber. 
+- Confirm the DNS name was used when creating the subscriber. 
+- Verify that your virtual networks are correctly linked in the private DNS zone. 
 - Verify your A-record is configured correctly. 
 - Verify your VPN peering is configured correctly. 
 
