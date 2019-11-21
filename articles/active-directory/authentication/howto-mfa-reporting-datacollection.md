@@ -113,7 +113,7 @@ Bypasses (used for reporting):
 - Completion Reason
 - Bypass Used
 
-Changes (used to sync user changes to MFA Server or AAD):
+Changes (used to sync user changes to MFA Server or Azure AD):
 
 - Change Timestamp
 - Username

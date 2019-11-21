@@ -1,10 +1,6 @@
 ---
 title: "Running multiple dependent services using Node.js and VS Code"
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 11/21/2018
 ms.topic: tutorial
 description: "Rapid Kubernetes development with containers and microservices on Azure"
