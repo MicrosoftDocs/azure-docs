@@ -6,7 +6,7 @@ author: bandersmsft
 ms.author: banders
 ms.date: 11/08/2019
 ms.topic: conceptual
-ms.service: billing
+ms.service: cost-management-billing
 manager: boalcsva
 ---
 

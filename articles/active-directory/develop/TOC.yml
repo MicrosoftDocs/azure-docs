@@ -60,9 +60,7 @@
       - name: .NET Core console (daemon)
         href: quickstart-v2-netcore-daemon.md
       - name: Python console daemon
-        href: quickstart-v2-python-daemon.md
-      - name: ASP.NET daemon web app
-        href: https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2
+        href: quickstart-v2-python-daemon.md      
   - name: Tutorials
     items:
     - name: Single-page apps
@@ -83,6 +81,10 @@
         href: tutorial-v2-windows-uwp.md
       - name: Windows Desktop .NET
         href: tutorial-v2-windows-desktop.md
+    - name: Daemon apps
+      items:
+      - name: ASP.NET daemon web app
+        href: tutorial-v2-aspnet-daemon-web-app.md
   - name: Samples
     href: sample-v2-code.md
   - name: Concepts
@@ -241,7 +243,9 @@
           href: migrate-android-adal-msal.md
         - name: Migrate to MSAL.iOS and MacOS
           href: migrate-objc-adal-msal.md
-        - name: Migrate to MSAL Java
+        - name: Migrate to MSAL Python
+          href: migrate-python-adal-msal.md
+        - name: Migrate to MSAL for Java
           href: migrate-adal-msal-java.md
         - name: Migrate Xamarin apps using brokers from ADAL.NET to MSAL.NET
           href: msal-net-migration-ios-broker.md
@@ -452,7 +456,11 @@
               href: request-custom-claims.md
             - name: Redirect URI configuration
               href: redirect-uris-ios.md
-        - name: MSAL Java
+        - name: MSAL for Python
+          items:
+            - name: Token cache serialization
+              href: msal-python-token-cache-serialization.md
+        - name: MSAL for Java
           items:
             - name: Token cache serialization
               href: msal-java-token-cache-serialization.md

@@ -1,14 +1,9 @@
 ---
-title: Azure Functions scale and hosting | Microsoft Docs
+title: Azure Functions scale and hosting 
 description: Learn how to choose between Azure Functions Consumption plan and Premium plan.
-author: ggailey777
-manager: gwallace
-keywords: azure functions, functions,  consumption plan, premium plan, event processing, webhooks, dynamic compute, serverless architecture
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/27/2019
-ms.author: glenga
 
 ms.custom: H1Hack27Feb2017
 
@@ -28,9 +23,6 @@ Both Consumption and Premium plans automatically add compute power when your cod
 Premium plan provides additional features, such as premium compute instances, the ability to keep instances warm indefinitely, and VNet connectivity.
 
 App Service plan allows you to take advantage of dedicated infrastructure, which you manage. Your function app doesn't scale based on events, which means is never scales down to zero. (Requires that [Always on](#always-on) is enabled.)
-
-> [!NOTE]
-> You can switch between Consumption and Premium plans by changing the plan property of the function app resource.
 
 ## Hosting plan support
 

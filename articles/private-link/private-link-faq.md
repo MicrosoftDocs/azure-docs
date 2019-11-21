@@ -2,11 +2,11 @@
 title: Azure Private Link frequently asked questions (FAQ)
 description: Learn about Azure Private Link.
 services: private-link
-author: KumudD
+author: asudbring
 ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
-ms.author: kumud
+ms.author: allensu
 
 ---
 

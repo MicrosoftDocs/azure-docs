@@ -10,7 +10,7 @@ This article walks you through programmatically creating and managing policies. 
 definitions enforce different rules and effects over your resources. Enforcement makes sure that
 resources stay compliant with your corporate standards and service level agreements.
 
-For information about compliance, see [getting compliance data](getting-compliance-data.md).
+For information about compliance, see [getting compliance data](get-compliance-data.md).
 
 ## Prerequisites
 

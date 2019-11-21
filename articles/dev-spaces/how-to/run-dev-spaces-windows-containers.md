@@ -1,17 +1,13 @@
 ---
-title: "Use Azure Dev Spaces to interact with Windows containers"
-titleSuffix: Azure Dev Spaces
+title: "Interact with Windows containers"
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 07/25/2019
 ms.topic: "conceptual"
 description: "Learn how to run Azure Dev Spaces on an existing cluster with Windows containers"
 keywords: "Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Windows containers"
 ---
 
-# Use Azure Dev Spaces to interact with Windows containers
+# Interact with Windows containers using Azure Dev Spaces
 
 You can enable Azure Dev Spaces on both new and existing Kubernetes namespaces. Azure Dev Spaces will run and instrument services that run on Linux containers. Those services can also interact with applications that run on Windows containers in the same namespace. This article shows you how to use Dev Spaces to run services in a namespace with existing Windows containers.
 
