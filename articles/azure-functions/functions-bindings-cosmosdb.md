@@ -1413,7 +1413,7 @@ Here's the JavaScript code:
 
 ---
 
-## Output - attributes and annotations
+## Output - attributes
 
 # [C#](#tab/csharp)
 
