@@ -1,12 +1,8 @@
 ---
-title: Manage and monitor SQL Server DBs on an Azure VM - Azure Backup
+title: Manage and monitor SQL Server DBs on an Azure VM
 description: This article describes how to manage and monitor SQL Server databases that are running on an Azure VM.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.author: dacurwin
 ---
 
 # Manage and monitor backed up SQL Server databases
@@ -149,7 +145,7 @@ In the vault dashboard, go to **Manage** > **Backup Policies** and choose the po
 
 Policy modification will impact all the associated Backup Items and trigger corresponding **configure protection** jobs.
 
-### Inconsistent Policy
+### Inconsistent policy
 
 Sometimes, a modify policy operation can lead to an **inconsistent** policy version for some backup items. This happens when the corresponding **configure protection** job fails for the backup item after a modify policy operation is triggered. It appears as follows in the backup item view:
 

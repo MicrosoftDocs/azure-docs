@@ -1,13 +1,8 @@
 ---
-title: Troubleshoot SQL Server database backup by using Azure Backup | Microsoft Docs
+title: Troubleshoot SQL Server database backup 
 description: Troubleshooting information for backing up SQL Server databases running on Azure VMs with Azure Backup.
-ms.reviewer: anuragm
-author: dcurwin
-manager: carmonm
-ms.service: backup
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.author: dacurwin
 ---
 
 # Troubleshoot SQL Server database backup by using Azure Backup
@@ -22,7 +17,7 @@ To configure protection for a SQL Server database on a virtual machine, you must
 
 ## Error messages
 
-### Backup Type Unsupported
+### Backup type unsupported
 
 | Severity | Description | Possible causes | Recommended action |
 |---|---|---|---|

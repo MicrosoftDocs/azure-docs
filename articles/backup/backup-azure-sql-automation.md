@@ -1,22 +1,16 @@
 ---
-title: SQL DB in Azure VM backup & restore via PowerShell - Azure Backup
+title: SQL DB in Azure VM backup & restore via PowerShell
 description: Back up and restore SQL Databases in Azure VMs using Azure Backup and PowerShell.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: Azure Backup; SQL;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 03/15/2019
-ms.author: dacurwin
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
 ---
 
-# Back up and restore SQL Databases in Azure VMs with PowerShell
+# Back up and restore SQL databases in Azure VMs with PowerShell
 
 This article describes how to use Azure PowerShell to back up and recover a SQL DB within an Azure VM using [Azure Backup](backup-overview.md) Recovery Services vault.
 
-This tutorial explains how to:
+This article explains how to:
 
 > [!div class="checklist"]
 >
@@ -249,7 +243,7 @@ Get-AzRecoveryServicesBackupProtectableItem -workloadType MSSQL -ItemType SQLDat
 Once the relevant protectable items are fetched, enable the backups as instructed in the [above section](#configuring-backup).
 If one doesn't want to manually detect new DBs, they can opt for autoprotection as explained [below](#enable-autoprotection).
 
-## Enable AutoProtection
+## Enable autoprotection
 
 A user can configure backup such that all DBs added in the future are automatically protected with a certain policy. To enable autoprotection, use [Enable-AzRecoveryServicesBackupAutoProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupAutoProtection?view=azps-1.5.0) PS cmdlet.
 
@@ -337,7 +331,7 @@ In case of SQL DB restore, the following restore scenarios are supported.
 
 After fetching the relevant recovery point (distinct or log point-in-time), use [Get-AzRecoveryServicesBackupWorkloadRecoveryConfig](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupWorkloadRecoveryConfig?view=azps-1.5.0) PS cmdlet to fetch the recovery config object as per the desired recovery plan.
 
-#### Original Workload Restore
+#### Original workload restore
 
 To override the backed-up DB with data from the recovery point, just specify the right flag and the relevant recovery point as shown in the following example(s).
 
@@ -353,7 +347,7 @@ $OverwriteWithFullConfig = Get-AzRecoveryServicesBackupWorkloadRecoveryConfig -R
 $OverwriteWithLogConfig = Get-AzRecoveryServicesBackupWorkloadRecoveryConfig -PointInTime $PointInTime -Item $bkpItem  -OriginalWorkloadRestore -VaultId $targetVault.ID
 ```
 
-#### Alternate Workload Restore
+#### Alternate workload restore
 
 > [!IMPORTANT]
 > A backed up SQL DB can be restored as a new DB to another SQLInstance only, in a Azure VM 'registered' to this vault.
@@ -532,7 +526,7 @@ $SQLContainer = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppC
  Unregister-AzRecoveryServicesBackupContainer -Container $SQLContainer -VaultId $targetvault.ID
 ````
 
-### Track Azure Backup Jobs
+### Track Azure Backup jobs
 
 It is important to note that Azure Backup only tracks user triggered jobs in SQL backup. Scheduled backups (including log backups) are not visible in portal/powershell. However, if any scheduled jobs fail, a [backup alert](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault) is generated and shown in portal. [Use Azure Monitor](backup-azure-monitoring-use-azuremonitor.md) to track all the scheduled jobs and other relevant information.
 
