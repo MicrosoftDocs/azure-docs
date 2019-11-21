@@ -164,9 +164,6 @@ As you're creating your Azure NetApp Files for SAP NetWeaver on SUSE High Availa
 > [!IMPORTANT]
 > For SAP HANA workloads, low latency is critical. Work with your Microsoft representative to ensure that the virtual machines and the Azure NetApp Files volumes are deployed in close proximity.  
 
-> [!IMPORTANT]
-> The User ID for **sid**adm and the Group ID for `sapsys` on the VMs must match the configuration in Azure NetApp Files. If there's a mismatch between the VM IDs and the Azure NetApp configuration, the permissions for files on Azure NetApp volumes that are mounted on the VMs will be displayed as `nobody`. Be sure to specify the correct IDs when you're [onboarding a new system](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxjSlHBUxkJBjmARn57skvdUQlJaV0ZBOE1PUkhOVk40WjZZQVJXRzI2RC4u) to Azure NetApp Files.
-
 ### Sizing for HANA database on Azure NetApp Files
 
 The throughput of an Azure NetApp Files volume is a function of the volume size and service level, as documented in [Service level for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels). 
@@ -403,28 +400,33 @@ Configure and prepare your OS by doing the following steps:
     umount /mnt/tmp
     </code></pre>
 
-3. **[A]** Verify the NFS domain setting. Make sure that the domain is configured as **`localdomain`** and the mapping is set to **nobody**.  
+3. **[A]** Verify the NFS domain setting. Make sure that the domain is configured as the default Azure NetApp Files domain, i.e. **`defaultv4iddomain.com`** and the mapping is set to **nobody**.  
+
+    > [!IMPORTANT]
+    > Make sure to set the NFS domain in `/etc/idmapd.conf' on the VM to match the default domain configuration on Azure NetApp Files: **`defaultv4iddomain.com`**. If there's a mismatch between the domain configuration on the NFS client (i.e. the VM) and the NFS server, i.e. the Azure NetApp configuration, then the permissions for files on Azure NetApp volumes that are mounted on the VMs will be displayed as `nobody`.  
 
     <pre><code>
-    sudo cat  /etc/idmapd.conf
+    sudo cat /etc/idmapd.conf
     # Example
     [General]
     Verbosity = 0
     Pipefs-Directory = /var/lib/nfs/rpc_pipefs
-    Domain = <b>localdomain</b>
+    Domain = <b>ldefaultv4iddomain.com</b>
     [Mapping]
     Nobody-User = <b>nobody</b>
     Nobody-Group = <b>nobody</b>
     </code></pre>
 
-4. **[A]** Disable NFSv4 ID mapping. To create the directory structure where `nfs4_disable_idmapping` is located, execute the mount command. You won't be able to manually create the directory under /sys/modules, because access is reserved for the kernel / drivers.  
+4. **[A]** Verify `nfs4_disable_idmapping`. It should be set to **Y**. To create the directory structure where `nfs4_disable_idmapping` is located, execute the mount command. You won't be able to manually create the directory under /sys/modules, because access is reserved for the kernel / drivers.  
 
     <pre><code>
+    # Check nfs4_disable_idmapping 
+    cat /sys/module/nfs/parameters/nfs4_disable_idmapping
+    # If you need to set nfs4_disable_idmapping to Y
     mkdir /mnt/tmp
     mount 10.23.1.4:/HN1-shared /mnt/tmp
     umount  /mnt/tmp
-    # Disable NFSv4 idmapping. 
-    echo "N" > /sys/module/nfs/parameters/nfs4_disable_idmapping
+    echo "Y" > /sys/module/nfs/parameters/nfs4_disable_idmapping
     </code></pre>`
 
 5. **[A]** Create the SAP HANA group and user manually. The IDs for group sapsys and user **hn1**adm must be set to the same IDs, which are provided during the onboarding. (In this example, the IDs are set to **1001**.) If the IDs aren't set correctly, you won't be able to access the volumes. The IDs for group sapsys and user accounts **hn1**adm and sapadm must be the same on all virtual machines.  
