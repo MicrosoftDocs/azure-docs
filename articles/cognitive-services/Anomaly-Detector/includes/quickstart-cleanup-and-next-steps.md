@@ -21,9 +21,9 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 Concepts:
 
-* What is the [Anomaly Detector API?](../overview.md)
+* [What is the Anomaly Detector API?](../overview.md)
 * [Anomaly detection methods](../how-to/identify-anomalies.md)
-* [Best practices](../concepts/anomaly-detection-best-practices.md) when using the Anomaly Detector API.
+* [Best practices when using the Anomaly Detector API.](../concepts/anomaly-detection-best-practices.md) 
 
 Tutorials:
 
