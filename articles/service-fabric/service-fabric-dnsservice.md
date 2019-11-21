@@ -112,6 +112,8 @@ After you have a template, you can enable the DNS service with the following ste
 > [!NOTE]
 > When upgrading DNS from disabled to enabled, Service Fabric Explorer may not reflect the new state. To solve, restart the nodes by modifying the UpgradePolicy in your Azure Resource Manager template. See the [Service Fabric Template Reference](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications) for more.
 
+> [!NOTE]
+> Enabling DNS service when developing on a local machine will override some DNS settings. If you experience issues connecting to the internet, check your DNS settings.
 
 ## Setting the DNS name for your service
 You can set a DNS name for your services either declaratively for default services in the ApplicationManifest.xml file or through PowerShell commands.
