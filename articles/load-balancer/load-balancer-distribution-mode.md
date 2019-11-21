@@ -1,6 +1,6 @@
 ---
 title: Configure Azure Load Balancer distribution mode
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: In this article, get started configuring the distribution mode for Azure Load Balancer to support source IP affinity.
 services: load-balancer
 documentationcenter: na
