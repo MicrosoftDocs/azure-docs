@@ -149,7 +149,7 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
     NSString* const NHUserDefaultTags = @"notification_tags";
     ```
 
-10. Open your **AppDelegate.h** file and replace its contents with the following code:
+10. Open your project's **AppDelegate.h** file and replace its contents with the following code:
 
     ```objc
     #import <UIKit/UIKit.h>
@@ -167,7 +167,7 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 
     ```
 
-11. In your **AppDelegate.m** file, add the following `import` statements:
+11. In the project's **AppDelegate.m** file, add the following `import` statements:
 
     ```objc
     #import "Constants.h"
