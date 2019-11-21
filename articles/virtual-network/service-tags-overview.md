@@ -41,7 +41,7 @@ By default, service tags reflect the ranges for the entire cloud.  Some service 
 | **AzureActiveDirectory** | Azure Active Directory service. | Outbound | No | Yes |
 | **AzureActiveDirectoryDomainServices** | Management traffic for Azure Active Directory Domain Services dedicated deployments. | Both | No | Yes |
 | **AzureBackup** |Azure Backup service.<br/><br/>*Note:* This tag has a dependency on the **Storage** and **AzureActiveDirectory** tags. | Outbound | No | Yes |
-| **AzureCloud** | All [datacenter public IP addresses](https://www.microsoft.com/download/details.aspx?id=41653). | Outbound | Yes | Yes |
+| **AzureCloud** | All [datacenter public IP addresses](https://www.microsoft.com/download/details.aspx?id=56519). | Outbound | Yes | Yes |
 | **AzureConnectors** | Logic Apps connectors for probe/backend connections. | Inbound | Yes | Yes |
 | **AzureContainerRegistry** | Azure Container Registry service. | Outbound | Yes | Yes |
 | **AzureCosmosDB** | Azure Cosmos Database service. | Outbound | Yes | Yes |
