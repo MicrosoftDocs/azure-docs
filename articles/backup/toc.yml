@@ -51,7 +51,7 @@
     - name: DPM/Azure Backup Server (MABS) support matrix
       href: backup-support-matrix-mabs-dpm.md
     - name: MARS agent support matrix
-      href: backup-support-matrix-mars-agent.md
+      href: backup-support-matrix-mars-agent.md      
   - name: Security
     items:
     - name: Role-Based Access Control
@@ -168,6 +168,12 @@
         href: backup-azure-vms-encryption.md
       - name: Restore keys and secret for encrypted VMs
         href: backup-azure-restore-key-secret.md
+  - name: Diagnostics Events for Recovery Services Vaults
+    items:
+    - name: Using Diagnostics Settings for Recovery Services Vaults
+      href: backup-azure-diagnostic-events.md
+    - name: Log Analytics Data Model for Resource Specific Diagnostics Events
+      href: backup-azure-log-analytics-new-data-model.md
   - name: Configure Azure Backup reports
     items:
     - name: Configure Azure Backup reports

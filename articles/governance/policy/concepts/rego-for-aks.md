@@ -298,6 +298,6 @@ collected:
 - Review the [Policy definition structure](definition-structure.md).
 - Review [Understanding policy effects](effects.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
-- Learn how to [get compliance data](../how-to/getting-compliance-data.md).
+- Learn how to [get compliance data](../how-to/get-compliance-data.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
 - Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).

@@ -1,5 +1,5 @@
 ---
-title: Deploy OKD in Azure | Microsoft Docs
+title: Deploy OKD in Azure 
 description: Deploy OKD in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines

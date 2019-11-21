@@ -225,9 +225,9 @@
       items:
       - name: What's new in HDInsight 4.0
         href: ./hdinsight-version-release.md
-      - name: HDInsight 4.0 full release notes
+      - name: Release notes
         href: ./hdinsight-release-notes.md    
-      - name: HDInsight 3.6 full release notes
+      - name: Archived release notes for Azure HDInsight
         href: ./hdinsight-release-notes-archive.md 
     - name: Frequently asked questions (FAQ)
       href: ./hdinsight-faq.md
@@ -355,7 +355,7 @@
           href: ./spark/apache-spark-jupyter-notebook-kernels.md
         - name: Use external packages with Jupyter using cell magic
           href: ./spark/apache-spark-jupyter-notebook-use-external-packages.md
-        - name: Use external packages with Jupyter using script action
+        - name: Safely manage Python environment on Azure HDInsight using Script Action
           href: ./spark/apache-spark-python-package-installation.md
         - name: Use Apache Zeppelin notebooks
           href: ./spark/apache-spark-zeppelin-notebook.md
@@ -837,6 +837,8 @@
       href: ./hdinsight-plan-virtual-network-deployment.md
     - name: Required IP Addresses for NSGs and UDRs
       href: ./hdinsight-management-ip-addresses.md
+    - name: Service tags for Azure firewall
+      href: ./hdinsight-service-tags.md
   - name: How to
     items:
     - name: Create ESP clusters and sync with on-premises

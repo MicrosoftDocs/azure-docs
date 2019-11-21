@@ -243,7 +243,9 @@
           href: migrate-android-adal-msal.md
         - name: Migrate to MSAL.iOS and MacOS
           href: migrate-objc-adal-msal.md
-        - name: Migrate to MSAL Java
+        - name: Migrate to MSAL Python
+          href: migrate-python-adal-msal.md
+        - name: Migrate to MSAL for Java
           href: migrate-adal-msal-java.md
         - name: Migrate Xamarin apps using brokers from ADAL.NET to MSAL.NET
           href: msal-net-migration-ios-broker.md
@@ -394,9 +396,9 @@
         href: active-directory-configurable-token-lifetimes.md
     - name: Application configuration
       items:
-      - name: Azure portal app registrations training guide (legacy)
+      - name: Transitioning from App registrations (Legacy) to the new App registrations experience in the Azure portal
         href: app-registrations-training-guide-for-app-registrations-legacy-users.md
-      - name: Application Registration Portal app registration guide
+      - name: Transitioning from Application Registration Portal to the new App registrations experience in the Azure portal
         href: app-registration-portal-training-guide.md
       - name: Convert a single-tenant app to a multi-tenant app
         href: howto-convert-app-to-be-multi-tenant.md
@@ -454,7 +456,11 @@
               href: request-custom-claims.md
             - name: Redirect URI configuration
               href: redirect-uris-ios.md
-        - name: MSAL Java
+        - name: MSAL for Python
+          items:
+            - name: Token cache serialization
+              href: msal-python-token-cache-serialization.md
+        - name: MSAL for Java
           items:
             - name: Token cache serialization
               href: msal-java-token-cache-serialization.md

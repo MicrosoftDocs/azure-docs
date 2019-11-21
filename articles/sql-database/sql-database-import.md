@@ -23,6 +23,10 @@ You can import a SQL Server database into a database in Azure SQL Database using
 
 ## Import from a BACPAC file in the Azure portal
 
+Watch this video to see how to import from a BACPAC file in the Azure portal or continue reading below:
+
+> [!VIDEO hhttps://channel9.msdn.com/Shows/Data-Exposed/Its-just-SQL-Restoring-a-database-to-Azure-SQL-DB-from-backup/player?WT.mc_id=dataexposed-c9-niner]
+
 The [Azure portal](https://portal.azure.com) *only* supports creating a single database in Azure SQL Database and *only* from a BACPAC file stored in Azure Blob storage.
 
 Migrating a database into a [managed instance](sql-database-managed-instance.md) from a BACPAC file using Azure PowerShell is not currently supported. Use SQL Server Management Studio or SQLPackage instead.
