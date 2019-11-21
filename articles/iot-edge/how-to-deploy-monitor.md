@@ -59,13 +59,11 @@ You can add up to 20 modules to a deployment.
 
 If you create a deployment with no modules, it removes any current modules from the target devices.
 
-To add a module from Azure Stream Analytics, follow these steps:
+You can add three types of modules:
 
-1. In the **IoT Edge Modules** section of the page, click **Add**.
-1. Select **Azure Stream Analytics module**.
-1. Choose your **Subscription** from the drop-down menu.
-1. Choose your IoT **Edge job** from the drop-down menu.
-1. Select **Save** to add your module to the deployment.
+* IoT Edge Module
+* Marketplace Module
+* Azure Stream Analytics Module
 
 To add custom code as a module, or to manually add an Azure service module, follow these steps:
 
@@ -74,7 +72,7 @@ To add custom code as a module, or to manually add an Azure service module, foll
 1. Select **IoT Edge Module**.
 1. Give your module a **IoT Edge Module Name**.
 1. For the **Image URI** field, enter the container image for your module.
-1. Use the drop-down menu to select a **Restart policy**. Choose from the following options: 
+1. Use the drop-down menu to select a **Restart policy**. Choose from the following options:
    * **always** - The module always restarts if it shuts down for any reason.
    * **never** - The module never restarts if it shuts down for any reason.
    * **on-failure** - The module restarts if it crashes, but not if it shuts down cleanly. 
@@ -87,11 +85,25 @@ To add custom code as a module, or to manually add an Azure service module, foll
 1. Enter **Environment Variables** for this module. Environment variables provide configuration information to a module.
 1. Select **Add** to add your module to the deployment.
 
+To add a module for the Azure Marketplace, follow these steps:
+
+1. In the **IoT Edge Modules** section of the page, click **Add**.
+1. Select **Marketplace Module**.
+1. Choose a module from the **IoT Edge Module Marketplace** page. The module you select is automatically configured for your subscription, resource group, and device. It then appears in your list of IoT Edge modules. Some modules may require additional configuration. For more information see [Deploy modules from Azure marketplace](how-to-deploy-modules-portal#deploy-modules-from-azure-marketplace).
+
+To add a module from Azure Stream Analytics, follow these steps:
+
+1. In the **IoT Edge Modules** section of the page, click **Add**.
+1. Select **Azure Stream Analytics module**.
+1. Choose your **Subscription** from the drop-down menu.
+1. Choose your IoT **Edge job** from the drop-down menu.
+1. Select **Save** to add your module to the deployment.
+
 Once you have all the modules for a deployment configured, select **Next: Routes** to move to step three.
 
 ### Step 3: Specify Routes (optional)
 
-Routes define how modules communicate with each other within a deployment. By default the wizard gives you a route called **route** and defined as **FROM /* INTO $upstream**, which means that any messages output by any modules are sent to your IoT hub.  
+Routes define how modules communicate with each other within a deployment. By default the wizard gives you a route called **Route name** and defined as **FROM /* INTO $upstream**, which means that any messages output by any modules are sent to your IoT hub.  
 
 Add or update the routes with information from [Declare routes](module-composition.md#declare-routes), then select **Next** to continue to the review section.
 
@@ -125,32 +137,9 @@ Since multiple deployments may target the same device, you should give each depl
 
 Select **Next: Review + Create** to move on to the final step.
 
-### Step 6: Review Deployment
+### Step 6: Review and create
 
 Review your deployment information, then select **Create**.
-
-## Deploy modules from Azure Marketplace
-
-Azure Marketplace is an online applications and services marketplace where you can browse through a wide range of enterprise applications and solutions that are certified and optimized to run on Azure, including [IoT Edge modules](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). Azure Marketplace can also be accessed through the Azure portal under **Create a Resource**.
-
-You can deploy an IoT Edge module from either Azure Marketplace or the Azure portal:
-
-1. Find a module and begin the deployment process.
-
-   * Azure portal: Find a module and select **Create**.
-
-   * Azure Marketplace:
-
-     1. Find a module and select **Get it now**.
-     1. Acknowledge the provider's terms of use and privacy policy by selecting **Continue**.
-
-1. Choose your subscription and the IoT Hub to which the target device is attached.
-
-1. Choose **Deploy at Scale**.
-
-1. Choose whether to add the module to a new deployment or to a clone of an existing deployment; if cloning, select the existing deployment from the list.
-
-1. Select **Create** to continue the process of creating a deployment at scale. You'll be able to specify the same details as you would for any deployment.
 
 ## Monitor a deployment
 
@@ -164,7 +153,7 @@ To view the details of a deployment and monitor the devices running it, use the 
 
 1. Inspect the deployment list. For each deployment, you can view the following details:
    * **ID** - the name of the deployment.
-   * **Type** - either Deployment or Layered Deployment.
+   * **Type** - the type of deployment.
    * **Target Condition** - the tag used to define targeted devices.
    * **Priority** - the priority number assigned to the deployment.
    * **System metrics** - **Targeted** specifies the number of device twins in IoT Hub that match the targeting condition, and **Applied** specifies the number of devices that have had the deployment content applied to their module twins in IoT Hub.
