@@ -77,7 +77,7 @@ The script first creates a resource group in the east US location for the applic
 |iotc-devkit-sample@1.0.0 |Creates an application with device templates ready for you to connect an MXChip or Raspberry Pi device. Use this template if you're a device developer experimenting with any of these devices. |
 
 > [!NOTE]
-> The **Preview application** template is currently only available in the **North Europe** and **Central US** regions.
+> The **Preview application** template is currently only available in the **Europe** and **US** locations.
 
 ## View your IoT Central applications
 
