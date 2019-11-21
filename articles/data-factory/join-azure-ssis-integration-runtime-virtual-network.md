@@ -49,7 +49,7 @@ If your SSIS packages access Azure service resources supported with [virtual net
 
 ## Access to data sources protected by IP firewall rule
 
-If you want to secure data sources or resources by only allowing access from specific static public IP addresses, you can bring your own [public IP addresses](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-public-ip-address) while joining your Azure-SSIS IR to the virtual network subnet. In this case, the Azure-SSIS IR's IP addresses will be fixed to your provided ones. Then, add an IP address firewall rule to the data sources or resources to allow access from these IP addresses.
+If you want to secure data sources or resources by only allowing access from specific static public IP addresses, you can bring your own [public IP addresses](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address) while joining your Azure-SSIS IR to the virtual network subnet. In this case, the Azure-SSIS IR's IP addresses will be fixed to your provided ones. Then, add an IP address firewall rule to the data sources or resources to allow access from these IP addresses.
 
 ## Hosting the SSIS catalog in SQL Database
 If you host your SSIS catalog in Azure SQL Database with virtual network service endpoints, make sure that you join your Azure-SSIS IR to the same virtual network and subnet.
@@ -113,7 +113,7 @@ If you want to bring your own static public IP addresses for the Azure-SSIS IR w
 
 -   Provide two unused static public IP addresses, which are not already associated with other Azure service resources. The extra one will be used when we upgrade your Azure-SSIS IR.
 
--   The public IP addresses should be static and standard ones. Refer to [SKUs of Public IP Address](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku) for more details.
+-   The public IP addresses should be static and standard ones. Refer to [SKUs of Public IP Address](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku) for more details.
 
 -   The static public IP addresses should both have DNS names. If you have not setup the DNS name when creating the public IP address, you can also setup this in the Azure portal.
 
@@ -191,7 +191,7 @@ Make sure that you don't have an Azure policy that prevents the following resour
  
 - Can I add the static IP address of the Azure-SSIS IR to the firewall's allow list for the data source?
 
-    You are now able to bring your own static public IP addresses for the Azure-SSIS IR. In this case, you can add the provided IP addresses to the firewall's allow lists of your data sources. If you only specify the virtual network, please check the following answers for help:
+    You are now able to bring your own static public IP addresses for the Azure-SSIS IR. In this case, you can add the provided IP addresses to the firewall's allow lists of your data sources. You can also consider below options to whitelist Azure-SSIS IR to access your data source depending on your scenario:
 
     - If your data source is on-premises, after you connect the virtual network to your on-premises network and join your Azure-SSIS IR into the virtual network subnet, you can add the IP range of that subnet to the allow list.
     - If your data source is an Azure service supported with a virtual network service endpoint, you can configure a virtual network service point on your virtual network and join your Azure-SSIS IR into that virtual network subnet. Then you can allow access by using the virtual network rule of the Azure services instead of the IP range.
