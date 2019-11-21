@@ -1,6 +1,6 @@
 ---
 title: Details of the policy definition structure
-description: Describes how resource policy definition is used by Azure Policy to establish conventions for resources in your organization by describing when the policy is enforced and what effect to take.
+description: Describes how policy definitions are used to establish conventions for Azure resources in your organization.
 ms.date: 11/04/2019
 ms.topic: conceptual
 ---
@@ -706,6 +706,6 @@ and `productName`. It uses two built-in policies to apply the default tag value.
 - Review examples at [Azure Policy samples](../samples/index.md).
 - Review [Understanding policy effects](effects.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
-- Learn how to [get compliance data](../how-to/getting-compliance-data.md).
+- Learn how to [get compliance data](../how-to/get-compliance-data.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
 - Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).

@@ -1,13 +1,8 @@
 ---
-title: Back up Windows Server to Azure
+title: Tutorial - Back up Windows Server to Azure
 description: This tutorial details backing up on-premises Windows Servers to a Recovery Services vault.
-author: dcurwin
-manager: carmonm
-keywords: windows server back up; back up windows server; back up and disaster recovery
-ms.service: backup
 ms.topic: tutorial
 ms.date: 08/22/2018
-ms.author: dacurwin
 ms.custom: mvc
 ---
 # Back up Windows Server to Azure
@@ -22,7 +17,7 @@ You can use Azure Backup to protect your Windows Server from corruptions, attack
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at <https://portal.azure.com.>
+Sign in to the Azure portal at https://portal.azure.com.
 
 ## Create a Recovery Services vault
 

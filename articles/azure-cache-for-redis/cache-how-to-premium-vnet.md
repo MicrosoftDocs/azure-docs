@@ -92,11 +92,7 @@ When Azure Cache for Redis is hosted in a VNet, the ports in the following table
 
 #### Outbound port requirements
 
-There are nine outbound port requirements.
-
-- All outbound connections to the internet can be made through a client's on-premises auditing device.
-- Three of the ports route traffic to Azure endpoints servicing Azure Storage and Azure DNS.
-- The remaining port ranges and for internal Redis subnet communications. No subnet NSG rules are required for internal Redis subnet communications.
+There are nine outbound port requirements. Outbound requests in these ranges are either outbound to other services necessary for the cache to function or internal to the Redis subnet for internode communication. For geo-replication, additional outbound requirements exist for communication between subnets of the primary and secondary cache.
 
 | Port(s) | Direction | Transport Protocol | Purpose | Local IP | Remote IP |
 | --- | --- | --- | --- | --- | --- |
@@ -149,7 +145,7 @@ There are network connectivity requirements for Azure Cache for Redis that may n
 ### How can I verify that my cache is working in a VNET?
 
 >[!IMPORTANT]
->When connecting to an Azure Cache for Redis instance that is hosted in a VNET, your cache clients must be in the same VNET or in a VNET with VNET peering enabled. This includes any test applications or diagnostic pinging tools. Regardless of where the client application is hosted, Network security groups must be configured such that the client's network traffic is allowed to reach the Redis instance.
+>When connecting to an Azure Cache for Redis instance that is hosted in a VNET, your cache clients must be in the same VNET or in a VNET with VNET peering enabled within the same Azure region. Global VNET Peering isn't currently supported. This includes any test applications or diagnostic pinging tools. Regardless of where the client application is hosted, Network security groups must be configured such that the client's network traffic is allowed to reach the Redis instance.
 >
 >
 

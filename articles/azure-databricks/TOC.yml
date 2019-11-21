@@ -1610,6 +1610,12 @@
           - name: Supported runtime releases
             href: /azure/databricks/release-notes/runtime/supported
             maintainContext: true
+          - name: Databricks Runtime 6.2
+            href: /azure/databricks/release-notes/runtime/6.2
+            maintainContext: true
+          - name: Databricks Runtime 6.2 ML
+            href: /azure/databricks/release-notes/runtime/6.2ml
+            maintainContext: true
           - name: Databricks Runtime 6.1
             href: /azure/databricks/release-notes/runtime/6.1
             maintainContext: true
@@ -1711,7 +1717,9 @@
     href: https://azure.microsoft.com/roadmap/?category=analytics
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/databricks/
-  - name: Stack Overflow
+  - name: Ask a question - MSDN forum
+    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDatabricks
+  - name: Ask a question - Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-databricks
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
