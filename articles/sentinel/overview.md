@@ -15,13 +15,11 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 09/24/2019
 ms.author: rkarlin
 
 ---
 # What is Azure Sentinel?
-
-
 
 Microsoft Azure Sentinel is a scalable, cloud-native, **security information event management (SIEM)** and **security orchestration automated response (SOAR)** solution. Azure Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response. 
 
@@ -69,10 +67,9 @@ For example, if you use the ServiceNow ticketing system, you can use the tools p
 ![Playbooks](./media/tutorial-respond-threats-playbook/logic-app.png)
 
 
+## Investigation
 
-## Investigation (preview)
-
-Azure Sentinel [deep investigation](tutorial-investigate-cases.md) tools help you to understand the scope and find the root cause, of a potential security threat. You can choose an entity on the interactive graph to ask interesting questions for a specific entity, and drill down into that entity and its connections to get to the root cause of the threat. 
+Currently in preview, Azure Sentinel [deep investigation](tutorial-investigate-cases.md) tools help you to understand the scope and find the root cause, of a potential security threat. You can choose an entity on the interactive graph to ask interesting questions for a specific entity, and drill down into that entity and its connections to get to the root cause of the threat. 
 
 ![Investigation](./media/tutorial-investigate-cases/map-timeline.png)
 

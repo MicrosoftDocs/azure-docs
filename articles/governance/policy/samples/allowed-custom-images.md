@@ -1,12 +1,8 @@
 ---
 title: Sample - Approved VM images
 description: This sample policy definition requires that only approved custom images are deployed in your environment.
-author: DCtheGeek
-manager: carmonm
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/26/2019
-ms.author: dacoulte
+ms.topic: sample
 ---
 # Sample - Approved virtual machine images
 

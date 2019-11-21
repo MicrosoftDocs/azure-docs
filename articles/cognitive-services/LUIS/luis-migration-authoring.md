@@ -9,13 +9,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 11/19/2019
 ms.author: diberry
 ---
 
 # Migrate to an Azure resource authoring key
 
-Language Understanding (LUIS) authoring authentication changed from an email account to an Azure resource. 
+Language Understanding (LUIS) authoring authentication changed from an email account to an Azure resource. While not currently required, switching to an Azure resource will be enforced in the future.
 
 ## Why migrate?
 
@@ -50,7 +50,7 @@ You will be asked to migrate if:
 * You have apps on the email authentication system for authoring.
 * And you are the app owner. 
 
-You can delay the migration process, by canceling out of the window. You are periodically asked to migrate until you migrate or the migration deadline is passed. You can start the migration process from the top navigation bar's lock icon.
+You can delay the migration process by canceling out of the window. You are periodically asked to migrate until you migrate or the migration deadline is passed. You can start the migration process from the top navigation bar's lock icon.
 
 ## Migration for the app owner
 
@@ -94,6 +94,10 @@ You may choose to export an app you are a collaborator on, then import the app b
 The app owner needs to [add your email to the Azure authoring resource as a collaborator](luis-how-to-collaborate.md#add-contributor-to-azure-authoring-resource). 
 
 After the migration process, any apps you own are available on the **My apps** page of the LUIS portal.  
+
+## Troubleshooting
+
+LUIS authoring keys are only visible in the LUIS portal after the migration process is complete. If you create the authoring keys, such as with the LUIS CLI, the user still needs to complete the migration process. 
 
 ## Next steps
 

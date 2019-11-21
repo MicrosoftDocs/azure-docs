@@ -118,7 +118,7 @@ The `rate-limit` policy prevents API usage spikes on a per subscription basis by
 
 | Name      | Description                                                                                                                                                                                                                                                                                              | Required |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| set-limit | Root element.                                                                                                                                                                                                                                                                                            | Yes      |
+| rate-limit | Root element.                                                                                                                                                                                                                                                                                            | Yes      |
 | api       | Add one or more of these elements to impose a call rate limit on APIs within the product. Product and API call rate limits are applied independently. API can be referenced either via `name` or `id`. If both attributes are provided, `id` will be used and `name` will be ignored.                    | No       |
 | operation | Add one or more of these elements to impose a call rate limit on operations within an API. Product, API, and operation call rate limits are applied independently. Operation can be referenced either via `name` or `id`. If both attributes are provided, `id` will be used and `name` will be ignored. | No       |
 
@@ -181,9 +181,9 @@ In the following example, the rate limit is keyed by the caller IP address.
 
 ### Elements
 
-| Name      | Description   | Required |
-| --------- | ------------- | -------- |
-| set-limit | Root element. | Yes      |
+| Name              | Description   | Required |
+| ----------------- | ------------- | -------- |
+| rate-limit-by-key | Root element. | Yes      |
 
 ### Attributes
 

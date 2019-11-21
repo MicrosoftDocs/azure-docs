@@ -1,13 +1,8 @@
 ---
 title: Azure Backup support matrix
 description: Provides a summary of support settings and limitations for the Azure Backup service.
-
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.author: dacurwin
 ---
 
 # Support matrix for Azure Backup
@@ -55,7 +50,7 @@ Here's what's supported if you want to back up on-premises machines:
 **Limit** | **Details**
 --- | ---
 **Azure VM data disks** | Limit of 16
-**Azure VM data disk size** | Individual disks can be up to 4,095 GB
+**Azure VM data disk size** | Individual disk size can be up to 32 TB and a maximum of 256 TB combined for all disks in a VM.
 
 ### Azure VM backup options
 

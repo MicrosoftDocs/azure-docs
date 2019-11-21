@@ -1,21 +1,15 @@
 ---
-title: Create a function that runs on a schedule in Azure | Microsoft Docs
+title: Create a function that runs on a schedule in Azure 
 description: Learn how to create a function in Azure that runs based on a schedule that you define.
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
 
 ms.assetid: ba50ee47-58e0-4972-b67b-828f2dc48701
-ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 03/28/2018
-ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
 ---
 # Create a function in Azure that is triggered by a timer
 
-Learn how to use Azure Functions to create a [serverless](https://azure.microsoft.com/solutions/serverless/) function that runs based a schedule that you define.
+Learn how to use Azure Functions to create a [serverless](https://azure.microsoft.com/solutions/serverless/) function that runs based on a schedule that you define.
 
 ![Create function app in the Azure portal](./media/functions-create-scheduled-function/function-app-in-portal-editor.png)
 
@@ -37,7 +31,7 @@ Next, you create a function in the new function app.
 
 ## Create a timer triggered function
 
-1. Expand your function app and click the **+** button next to **Functions**. If this is the first function in your function app, select **In-portal** then **Continue**. Otherwise, go to step three.
+1. Expand your function app and click the **+** button next to **Functions**. If this is the first function in your function app, select **In-portal** then **Continue**. Otherwise, go to step 3.
 
    ![Functions quickstart page in the Azure portal](./media/functions-create-scheduled-function/function-app-quickstart-choose-portal.png)
 

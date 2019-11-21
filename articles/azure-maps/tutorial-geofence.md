@@ -1,9 +1,9 @@
 ---
-title: Create a geofence using Azure Maps | Microsoft Docs
-description: Setup a geofence by using Azure Maps.
+title: 'Tutorial: Create a geofence using Azure Maps'
+description: 'Tutorial: Setup a geofence by using Azure Maps.'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/14/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -11,7 +11,7 @@ manager: timlt
 ms.custom: mvc
 ---
 
-# Set up a geofence by using Azure Maps
+# Tutorial: Set up a geofence by using Azure Maps
 
 This tutorial walks you through the basics steps to set up geofence by using Azure Maps. The scenario we address in this tutorial is help construction site managers monitor potential hazardous equipment moving beyond the designated construction areas. A construction site involves expensive equipment and regulations. It typically requires that the equipment stays inside the construction site and does not leave without permission.
 
@@ -143,10 +143,24 @@ Open the Postman app and follow the following steps to upload the construction s
    }
    ```
 
-5. Click send and review the response header. The location header contains the URI to access or download the data for future use. It also contains a unique `udId` for the uploaded data.
+5. Click send and review the response header. Upon a successful request, the **Location** header will contain the status URI to check the current status of the upload request. The status URI will be of the following format. 
 
    ```HTTP
-   https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
+   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
+   ```
+
+6. Copy your status URI and append a `subscription-key` parameter to it with its value being your Azure Maps account subscription key. The status URI format should be like the one below:
+
+   ```HTTP
+   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
+   ```
+
+7. To get the, `udId` open a new tab in the Postman app and select GET HTTP method on the builder tab and make a GET request at the status URI. If your data upload was successful, you will receive a udId in the response body. Copy the udId for later use.
+
+   ```JSON
+   {
+    "udid" : "{udId}"
+   }
    ```
 
 ## Set up an event handler

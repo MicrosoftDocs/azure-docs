@@ -11,13 +11,16 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/10/2018
+ms.date: 11/04/2019
 ms.author: apimpm
 ---
 
 # How to authorize developer accounts using OAuth 2.0 in Azure API Management
 
 Many APIs support [OAuth 2.0](https://oauth.net/2/) to secure the API and ensure that only valid users have access, and they can only access resources to which they're entitled. In order to use Azure API Management's interactive Developer Console with such APIs, the service allows you to configure your service instance to work with your OAuth 2.0 enabled API.
+
+> [!IMPORTANT]
+> OAuth 2.0 authorization is not yet available in the interactive console of the new developer portal.
 
 ## <a name="prerequisites"> </a>Prerequisites
 
@@ -88,11 +91,11 @@ This guide shows you how to configure your API Management service instance to us
 
     ![OAuth 2.0 settings](./media/api-management-howto-oauth2/oauth-07.png)
 
-## <a name="step3"> </a>Test the OAuth 2.0 user authorization in the Developer Portal
+## <a name="step3"> </a>Legacy developer portal - test the OAuth 2.0 user authorization
 
-Once you have configured your OAuth 2.0 authorization server and configured your API to use that server, you can test it by going to the Developer Portal and calling an API.  Click **Developer portal** in the top menu from your Azure API Management instance **Overview** page.
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
-![Developer portal][api-management-developer-portal-menu]
+Once you have configured your OAuth 2.0 authorization server and configured your API to use that server, you can test it by going to the Developer Portal and calling an API. Click **Developer portal (legacy)** in the top menu from your Azure API Management instance **Overview** page.
 
 Click **APIs** in the top menu and select **Echo API**.
 
@@ -124,7 +127,6 @@ For more information about using OAuth 2.0 and API Management, see the following
 
 [api-management-oauth2-signin]: ./media/api-management-howto-oauth2/api-management-oauth2-signin.png
 [api-management-request-header-token]: ./media/api-management-howto-oauth2/api-management-request-header-token.png
-[api-management-developer-portal-menu]: ./media/api-management-howto-oauth2/api-management-developer-portal-menu.png
 [api-management-open-console]: ./media/api-management-howto-oauth2/api-management-open-console.png
 [api-management-apis-echo-api]: ./media/api-management-howto-oauth2/api-management-apis-echo-api.png
 

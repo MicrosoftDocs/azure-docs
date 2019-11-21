@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/06/2019
+ms.date: 10/28/2019
 ms.author: terrylan
 
 ---
@@ -30,28 +30,14 @@ This article provides information that helps you:
 [Developing secure applications on Azure](abstract-develop-secure-apps.md) is a general guide to the security questions and controls you should consider at each phase of the software development lifecycle when developing applications for the cloud.
 
 ## Cloud security advantages
-There are security advantages to being in the cloud. In an on-premises environment, organizations likely have unmet responsibilities and limited resources available to invest in security, which creates an environment where attackers are able to exploit vulnerabilities at all layers.
+It’s important to understand the [division of responsibility](shared-responsibility.md) between you and Microsoft. On-premises, you own the whole stack but as you move to the cloud some responsibilities transfer to Microsoft.
 
-![Security advantages of cloud era](./media/paas-deployments/advantages-of-cloud.png)
+There are [security advantages to being in the cloud](shared-responsibility.md#cloud security advantages). In an on-premises environment, organizations likely have unmet responsibilities and limited resources available to invest in security, which creates an environment where attackers are able to exploit vulnerabilities at all layers.
 
 Organizations are able to improve their threat detection and response times by using a provider’s cloud-based security capabilities and cloud intelligence.  By shifting responsibilities to the cloud provider, organizations can get more security coverage, which enables them to reallocate security resources and budget to other business priorities.
 
-## Division of responsibility
-It’s important to understand the division of responsibility between you and Microsoft. On-premises, you own the whole stack but as you move to the cloud some responsibilities transfer to Microsoft. The following responsibility matrix shows the areas of the stack in a SaaS, PaaS, and IaaS deployment that you are responsible for and Microsoft is responsible for.
-
-![Responsibility zones](./media/paas-deployments/responsibility-zones.png)
-
-For all cloud deployment types, you own your data and identities. You are responsible for protecting the security of your data and identities, on-premises resources, and the cloud components you control (which varies by service type).
-
-Responsibilities that are always retained by you, regardless of the type of deployment, are:
-
-- Data
-- Endpoints
-- Account
-- Access management
-
 ## Security advantages of a PaaS cloud service model
-Using the same responsibility matrix, let’s look at the security advantages of an Azure PaaS deployment versus on-premises.
+Let’s look at the security advantages of an Azure PaaS deployment versus on-premises.
 
 ![Security advantages of PaaS](./media/paas-deployments/advantages-of-paas.png)
 
@@ -177,5 +163,3 @@ See [Azure security best practices and patterns](best-practices-and-patterns.md)
 The following resources are available to provide more general information about Azure security and related Microsoft services:
 * [Azure Security Team Blog](https://blogs.msdn.microsoft.com/azuresecurity/) - for up to date information on the latest in Azure Security
 * [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) - where Microsoft security vulnerabilities, including issues with Azure, can be reported or via email to secure@microsoft.com
-
-

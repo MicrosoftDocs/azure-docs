@@ -5,7 +5,7 @@ author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.author: v-erkell
+ms.author: rohogue
 ---
 
 # Tutorial: Mount the cluster

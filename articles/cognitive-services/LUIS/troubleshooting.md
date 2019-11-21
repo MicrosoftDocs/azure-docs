@@ -9,7 +9,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 11/08/2019
 ms.author: diberry
 ---
 # Language Understanding Frequently Asked Questions (FAQ)
@@ -18,7 +18,7 @@ This article contains answers to frequently asked questions about Language Under
 
 ## What's new
 
-[Learn more](whats-new.md) about what's new in Language Understanding.
+[Learn more](whats-new.md) about what's new in Language Understanding (LUIS).
 
 <a name="luis-authoring"></a>
 
@@ -44,7 +44,7 @@ Yes, it is good to train your **None** intent with more utterances as you add mo
 See the [Bing Spell Check API V7](luis-tutorial-bing-spellcheck.md) tutorial. LUIS enforces limits imposed by Bing Spell Check API V7.
 
 ### How do I edit my LUIS app programmatically?
-To edit your LUIS app programmatically, use the [Authoring API](https://go.microsoft.com/fwlink/?linkid=2092087). See [Call LUIS authoring API](./luis-quickstart-node-add-utterance.md) and [Build a LUIS app programmatically using Node.js](./luis-tutorial-node-import-utterances-csv.md) for examples of how to call the Authoring API. The Authoring API requires that you use an [authoring key](luis-concept-keys.md#authoring-key) rather than an endpoint key. Programmatic authoring allows up to 1,000,000 calls per month and five transactions per second. For more info on the keys you use with LUIS, see [Manage keys](./luis-concept-keys.md).
+To edit your LUIS app programmatically, use the [Authoring API](https://go.microsoft.com/fwlink/?linkid=2092087). See [Call LUIS authoring API](./get-started-get-model-rest-apis.md) and [Build a LUIS app programmatically using Node.js](./luis-tutorial-node-import-utterances-csv.md) for examples of how to call the Authoring API. The Authoring API requires that you use an [authoring key](luis-concept-keys.md#azure-resources-for-luis) rather than an endpoint key. Programmatic authoring allows up to 1,000,000 calls per month and five transactions per second. For more info on the keys you use with LUIS, see [Manage keys](./luis-concept-keys.md).
 
 ### Where is the Pattern feature that provided regular expression matching?
 The previous **Pattern feature** is currently deprecated, replaced by **[Patterns](luis-concept-patterns.md)**.
@@ -64,11 +64,11 @@ To transfer a LUIS app to a different Azure subscription, export the LUIS app an
 
 ### A prebuilt entity is tagged in an example utterance instead of my custom entity. How do I fix this? 
 
-See [Troubleshooting prebuilt entities](luis-concept-entity-types.md#troubleshooting-prebuilt-entities).
+In the LUIS portal, you can label text for the exact entity you are interested in extracting. If the LUIS portal is not showing the correct entity prediction, you may need to add more utterances and label the entity within the text or add a descriptor (such as a feature). 
 
 ### I tried to import an app or version file but I got an error, what happened? 
 
-Read more about [version import errors](luis-how-to-manage-versions.md#import-errors) and [app import errors](luis-how-to-start-new-app.md#import-errors).
+Read more about [version import errors](luis-how-to-manage-versions.md#import-errors).
 
 <a name="luis-collaborating"></a>
 
@@ -213,6 +213,10 @@ See, Fix HTTP status code [403](#i-received-an-http-403-error-status-code-how-do
 ### I need to handle more endpoint queries. How do I do that? 
 
 See, Fix HTTP status code [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) and [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) to learn more.
+
+### I created an authoring key but it isn't showing in the LUIS portal. What happened?
+
+Authoring keys are available in the LUIS portal after [migrating to the authoring key experience](luis-migration-authoring.md).  
 
 ## App management
 

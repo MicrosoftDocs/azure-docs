@@ -1,5 +1,5 @@
 ---
-title: Join a CentOS VM to Azure AD Domain Services | Microsoft Docs'
+title: Join a CentOS VM to Azure AD Domain Services | Microsoft Docs
 description: Learn how to configure and join a CentOS Linux virtual machine to an Azure AD Domain Services managed domain.
 services: active-directory-ds
 author: iainfoulds
@@ -65,7 +65,7 @@ In the *hosts* file, update the *localhost* address. In the following example:
 Update these names with your own values:
 
 ```console
-127.0.0.1 centos centos.contoso.com
+127.0.0.1 centos.contoso.com centos
 ```
 
 When done, save and exit the *hosts* file using the `:wq` command of the editor.

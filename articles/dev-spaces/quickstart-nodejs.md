@@ -1,23 +1,24 @@
 ---
-title: "Debug and iterate with Visual Studio Code and Node.js on Kubernetes using Azure Dev Spaces"
-titleSuffix: Azure Dev Spaces
-author: zr-msft
+title: "Debug and iterate on Kubernetes: Visual Studio Code & Node.js"
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-ms.author: zarhoads
 ms.date: 07/08/2019
 ms.topic: quickstart
 description: "Rapid Kubernetes development with containers, microservices, and Node.js on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 manager: gwallace
 ---
-# Quickstart: Debug and iterate with Visual Studio Code and Node.js on Kubernetes using Azure Dev Spaces
+# Quickstart: Debug and iterate on Kubernetes with Visual Studio Code and Node.js - Azure Dev Spaces
 
 In this guide, you will learn how to:
 
 - Set up Azure Dev Spaces with a managed Kubernetes cluster in Azure.
 - Iteratively develop code in containers using Visual Studio Code.
 - Debug the code in your dev space from Visual Studio Code.
+
+Azure Dev Spaces also allows you debug and iterate using:
+- [Java and Visual Studio Code](quickstart-java.md)
+- [.NET Core and Visual Studio Code](quickstart-netcore.md)
+- [.NET Core and Visual Studio](quickstart-netcore-visualstudio.md)
 
 ## Prerequisites
 
@@ -38,6 +39,9 @@ az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --gen
 ## Enable Azure Dev Spaces on your AKS cluster
 
 Use the `use-dev-spaces` command to enable Dev Spaces on your AKS cluster and follow the prompts. The below command enables Dev Spaces on the *MyAKS* cluster in the *MyResourceGroup* group and creates a *default* dev space.
+
+> [!NOTE]
+> The `use-dev-spaces` command will also install the Azure Dev Spaces CLI if its not already installed. You cannot install the Azure Dev Spaces CLI in the Azure Cloud Shell.
 
 ```cmd
 $ az aks use-dev-spaces -g MyResourceGroup -n MyAKS

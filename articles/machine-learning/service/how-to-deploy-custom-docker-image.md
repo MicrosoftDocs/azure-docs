@@ -1,7 +1,7 @@
 ---
-title: Deploy models with a custom Docker base image
+title: Deploy models with custom Docker image
 titleSuffix: Azure Machine Learning
-description: 'Learn how to use a custom Docker base image when deploying your Azure Machine Learning models. When deploying a trained model, a base container image is deployed to run your model for inference. While Azure Machine Learning provides a default base image for you, you can also use your own base image.'
+description: 'Learn how to use a custom Docker base image when deploying your Azure Machine Learning models. While Azure Machine Learning provides a default base image for you, you can also use your own base image.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,6 +13,7 @@ ms.date: 08/22/2019
 ---
 
 # Deploy a model using a custom Docker base image
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Learn how to use a custom Docker base image when deploying trained models with Azure Machine Learning.
 
@@ -53,7 +54,7 @@ The information in this section assumes that you are using an Azure Container Re
     When using images stored in the __container registry for the workspace__, you do not need to authenticate to the registry. Authentication is handled by the workspace.
 
     > [!WARNING]
-    > The Azure Container Rzegistry for your workspace is __created the first time you train or deploy a model__ using the workspace. If you've created a new workspace, but not trained or created a model, no Azure Container Registry will exist for the workspace.
+    > The Azure Container Registry for your workspace is __created the first time you train or deploy a model__ using the workspace. If you've created a new workspace, but not trained or created a model, no Azure Container Registry will exist for the workspace.
 
     For information on retrieving the name of the Azure Container Registry for your workspace, see the [Get container registry name](#getname) section of this article.
 
@@ -178,15 +179,16 @@ Microsoft provides several docker images on a publicly accessible repository, wh
 | Image | Description |
 | ----- | ----- |
 | `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Basic image for Azure Machine Learning |
-| `mcr.microsoft.com/azureml/onnxruntime:v0.4.0` | Contains the ONNX runtime. |
-| `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-cuda10.0-cudnn7` | Contains the ONNX runtime and CUDA components. |
-| `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-tensorrt19.03` | Contains ONNX runtime and TensorRT. |
+| `mcr.microsoft.com/azureml/onnxruntime:latest` | Contains ONNX Runtime for CPU inferencing |
+| `mcr.microsoft.com/azureml/onnxruntime:latest-cuda` | Contains the ONNX Runtime and CUDA for GPU |
+| `mcr.microsoft.com/azureml/onnxruntime:latest-tensorrt` | Contains ONNX Runtime and TensorRT for GPU |
+| `mcr.microsoft.com/azureml/onnxruntime:latest-openvino-vadm ` | Contains ONNX Runtime and OpenVINO for Intel<sup></sup> Vision Accelerator Design based on Movidius<sup>TM</sup> MyriadX VPUs |
+| `mcr.microsoft.com/azureml/onnxruntime:latest-openvino-myriad` | Contains ONNX Runtime and OpenVINO for Intel<sup></sup> Movidius<sup>TM</sup> USB sticks |
+
+For more information about the ONNX Runtime base images see the [ONNX Runtime dockerfile section](https://github.com/microsoft/onnxruntime/blob/master/dockerfiles/README.md) in the GitHub repo.
 
 > [!TIP]
 > Since these images are publicly available, you do not need to provide an address, username or password when using them.
-
-> [!IMPORTANT]
-> Microsoft images that use CUDA or TensorRT must be used on Microsoft Azure Services only.
 
 For more information, see [Azure Machine Learning containers](https://github.com/Azure/AzureML-Containers).
 

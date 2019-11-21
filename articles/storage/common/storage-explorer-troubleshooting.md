@@ -1,10 +1,10 @@
 ---
 title: Azure Storage Explorer troubleshooting guide | Microsoft Docs
 description: Overview of debugging techniques for Azure Storage Explorer
-services: virtual-machines
+services: storage
 author: Deland-Han
 manager: dcscontentpm
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
@@ -53,7 +53,7 @@ If you don’t have a role that grants any management layer permissions, Storage
 
 ### What if I can't get the management layer permissions I need from my administrator?
 
-We don't currently have an RBAC-related solution for this issue. As a workaround, you can request a SAS URI to [attach to your resource](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-sas-uri).
+We don't currently have an RBAC-related solution for this issue. As a workaround, you can request a SAS URI to [attach to your resource](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
 
 ## Error: Self-signed certificate in certificate chain (and similar errors)
 

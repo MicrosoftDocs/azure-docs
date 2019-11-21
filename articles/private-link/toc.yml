@@ -32,6 +32,8 @@
   items:
   - name: Connect privately to a storage account
     href: create-private-endpoint-storage-portal.md
+  - name: Connect privately to a Cosmos DB account
+    href: create-private-endpoint-cosmosdb-portal.md
   - name: Disable network policies for a private endpoint
     href: disable-private-endpoint-network-policy.md
   - name: Disable network policies for a Private Link Service

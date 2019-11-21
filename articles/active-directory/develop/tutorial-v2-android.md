@@ -12,18 +12,29 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/09/2019
+ms.date: 10/10/2019
 ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev, identityplatformtop40 
 ms.collection: M365-identity-device-management
 ---
 
-# Sign in users and call the Microsoft Graph from an Android app
+# Tutorial: Sign in users and call the Microsoft Graph from an Android app
+
+> [!NOTE]
+> This tutorial has not yet been updated to work with MSAL for Android version 1.0 library. It works with an earlier version, as configured in this tutorial.
 
 In this tutorial, you'll learn how to integrate an Android app with the Microsoft identity platform. Your app will sign in a user, get an access token to call the Microsoft Graph API, and make a request to the Microsoft Graph API.  
 
-When you've completed the guide, your application will accept sign-ins of personal Microsoft accounts (including outlook.com, live.com, and others) and work or school accounts from any company or organization that uses Azure Active Directory.
+> [!div class="checklist"]
+> * Integrate an Android app with the Microsoft identity platform
+> * Sign in a user
+> * Get an access token to call the Microsoft Graph API
+> * Call the Microsoft Graph API.  
+
+When you've completed this tutorial, your application will accept sign-ins of personal Microsoft accounts (including outlook.com, live.com, and others) as well as work or school accounts from any company or organization that uses Azure Active Directory.
+
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## How this tutorial works
 
@@ -45,25 +56,26 @@ This sample uses the Microsoft Authentication library for Android (MSAL) to impl
 
 ## Prerequisites
 
-* This tutorial requires Android Studio version 16 or later (19+ is recommended).
+* This tutorial requires Android Studio version 3.5.
 
 ## Create a project
 
-This tutorial will create a new project. If you want to download the completed tutorial instead, [download the code](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip).
+This tutorial will create a new project. If you want to download the completed tutorial instead, [download the code](https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip).
 
 1. Open Android Studio, and select **Start a new Android Studio project**.
 2. Select **Basic Activity** and select **Next**.
 3. Name your application.
 4. Save the package name. You will enter it later into the Azure portal.
-5. Set the **Minimum API level** to **API 19** or higher, and click **Finish**.
-6. In the project view, choose **Project** in the dropdown to display source and non-source project files, open **app/build.gradle** and set `targetSdkVersion` to `27`.
+5. Change the language from **Kotlin** to **Java**.
+6. Set the **Minimum API level** to **API 19** or higher, and click **Finish**.
+7. In the project view, choose **Project** in the dropdown to display source and non-source project files, open **app/build.gradle** and set `targetSdkVersion` to `28`.
 
 ## Register your application
 
 1. Go to the [Azure portal](https://aka.ms/MobileAppReg).
 2. Open the [App registrations blade](https://ms.portal.azure.com/?feature.broker=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) and click **+New registration**.
 3. Enter a **Name** for your app and then, without setting a Redirect URI, click **Register**.
-4. In the **Manage** section of the pane that appears, select **Authentication** > **+ Add a platform** > **Android**.
+4. In the **Manage** section of the pane that appears, select **Authentication** > **+ Add a platform** > **Android**. (You may have to select "Switch to the new experience" near the top of the blade to see this section)
 5. Enter your project's Package Name. If you downloaded the code, this value is `com.azuresamples.msalandroidapp`.
 6. In the **Signature hash** section of the **Configure your Android app** page, click **Generating a development Signature Hash.** and copy the KeyTool command to use for your platform.
 
@@ -79,8 +91,8 @@ This tutorial will create a new project. If you want to download the completed t
 
 1. In Android Studio's project pane, navigate to **app\src\main\res**.
 2. Right-click **res** and choose **New** > **Directory**. Enter `raw` as the new directory name and click **OK**.
-3. In **app** > **src** > **res** > **raw**, create a new JSON file called `auth_config.json` and paste the MSAL Configuration that you saved earlier. See [MSAL Configuration for more info](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki/Configuring-your-app).
-4. In **app** > **src** > **main** > **AndroidManifest.xml**, add the `BrowserTabActivity` activity below. This entry allows Microsoft to call back to your application after it completes the authentication:
+3. In **app** > **src** > **main** > **res** > **raw**, create a new JSON file called `auth_config.json` and paste the MSAL Configuration that you saved earlier. See [MSAL Configuration for more info](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki/Configuring-your-app).
+4. In **app** > **src** > **main** > **AndroidManifest.xml**, add the `BrowserTabActivity` activity below to the application body. This entry allows Microsoft to call back to your application after it completes the authentication:
 
     ```xml
     <!--Intent filter to capture System Browser or Authenticator calling back to our app after sign-in-->
@@ -110,7 +122,7 @@ This tutorial will create a new project. If you want to download the completed t
 ### Create the app's UI
 
 1. In the Android Studio project window, navigate to **app** > **src** > **main** > **res** > **layout** and open **activity_main.xml** and open the **Text** view.
-2. Change the activity layout, for example: `<androidx.coordinatorlayout.widget.CoordinatorLayout` to `<androidx.coordinatorlayout.widget.LinearLayout`.
+2. Change the activity layout, for example: `<androidx.coordinatorlayout.widget.CoordinatorLayout` to `<androidx.coordinatorlayout.widget.DrawerLayout`. 
 3. Add the `android:orientation="vertical"` property to the `LinearLayout` node.
 4. Paste the following code into the `LinearLayout` node, replacing the current content:
 
@@ -172,13 +184,13 @@ This tutorial will create a new project. If you want to download the completed t
 
     ```gradle  
     implementation 'com.android.volley:volley:1.1.1'
-    implementation 'com.microsoft.identity.client:msal:0.3.+'
+    implementation 'com.microsoft.identity.client:msal:0.3+'
     ```
 
 ### Use MSAL
 
 Now make changes inside `MainActivity.java` to add and use MSAL in your app.
-In the Android Studio project window, navigate to **app** > **src** > **main** > **java** > **com.example.msal**, and open `MainActivity.java`.
+In the Android Studio project window, navigate to **app** > **src** > **main** > **java** > **com.example.(your app)**, and open `MainActivity.java`.
 
 #### Required imports
 
@@ -530,6 +542,10 @@ After you sign in, the app will display the data returned from the Microsoft Gra
 ### Consent
 
 The first time any user signs into your app, they will be prompted by Microsoft identity to consent to the permissions requested.  While most users are capable of consenting, some Azure AD tenants have disabled user consent which requires admins to consent on behalf of all users. To support this scenario, register your app's scopes in the Azure portal.
+
+## Clean up resources
+
+When no longer needed, delete the app object that you created in the [Register your application](#register-your-application) step.
 
 ## Get help
 

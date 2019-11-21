@@ -85,7 +85,7 @@ The Azure Logic Apps service isn't available in Azure Germany. However, Azure Sc
 
 For more information:
 
-- Become familiar with features in Azure Logic Apps by completing the [Logic Apps tutorials](https://docs.microsoft.com/azure/logic-apps/#step-by-step-tutorials).
+- Become familiar with features in Azure Logic Apps by completing the [Logic Apps tutorials](https://docs.microsoft.com/azure/logic-apps/tutorial-build-schedule-recurring-logic-app-workflow).
 - Review the [Azure Logic Apps overview](../logic-apps/logic-apps-overview.md).
 
 ## Next steps

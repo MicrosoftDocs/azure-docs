@@ -1,5 +1,5 @@
 ---
-title: Secure Azure AD Domain Services | Microsoft Docs'
+title: Secure Azure AD Domain Services | Microsoft Docs
 description: Learn how to disable weak ciphers, old protocols, and NTLM password hash synchronization for an Azure Active Directory Domain Services managed domain.
 services: active-directory-ds
 author: iainfoulds

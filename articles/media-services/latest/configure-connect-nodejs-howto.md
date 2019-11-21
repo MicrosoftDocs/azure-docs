@@ -126,5 +126,5 @@ node index.js
 
 ## Next steps
 
-Explore the Media Services [Node.js ref](https://aka.ms/ams-v3-nodejs-ref) documentation and check out [samples](https://github.com/Azure-Samples/media-services-v3-node-tutorials) that show how to use Media Services API with node.js.
+Explore the Media Services [Node.js ref](/javascript/api/overview/azure/mediaservices/management) documentation and check out [samples](https://github.com/Azure-Samples/media-services-v3-node-tutorials) that show how to use Media Services API with node.js.
 

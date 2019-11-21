@@ -1,16 +1,12 @@
 ---
-title: "Create a Kubernetes dev space in the cloud using .NET Core and VS Code"
-titleSuffix: Azure Dev Spaces
+title: "Create a Kubernetes dev space: Visual Studio Code & .NET Core"
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 09/26/2018
 ms.topic: tutorial
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 ---
-# Get started on Azure Dev Spaces with .NET Core
+# Create a Kubernetes dev space: Visual Studio Code and .NET Core with Azure Dev Spaces
 
 In this guide, you will learn how to:
 

@@ -43,7 +43,6 @@ So if you're asking "How can I improve my database performance?" consider the fo
      |Connection mode  |Supported protocol  |Supported SDKs  |API/Service port  |
      |---------|---------|---------|---------|
      |Gateway  |   HTTPS    |  All SDKS    |   SQL(443), Mongo(10250, 10255, 10256), Table(443), Cassandra(10350), Graph(443)    |
-     |Direct    |    HTTPS     |  .NET and Java SDK    |   Ports within 10,000-20,000 range    |
      |Direct    |     TCP    |  .NET SDK    | Ports within 10,000-20,000 range |
 
      Azure Cosmos DB offers a simple and open RESTful programming model over HTTPS. Additionally, it offers an efficient TCP protocol, which is also RESTful in its communication model and is available through the .NET client SDK. Both Direct TCP and HTTPS use SSL for initial authentication and encrypting traffic. For best performance, use the TCP protocol when possible.
@@ -56,8 +55,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
      CosmosClient client = new CosmosClient(serviceEndpoint, authKey,
      new CosmosClientOptions
      {
-        ConnectionMode = ConnectionMode.Direct,
-        ConnectionProtocol = Protocol.Tcp
+        ConnectionMode = ConnectionMode.Direct
      });
      ```
 
@@ -126,15 +124,15 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
      SQL .NET SDK version 1.9.0 and above support parallel queries, which enable you to query a partitioned collection in parallel. For more information, see [code samples](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) related to working with the SDKs. Parallel queries are designed to improve query latency and throughput over their serial counterpart. Parallel queries provide two parameters that users can tune to custom-fit their requirements, (a) MaxDegreeOfParallelism: to control the maximum number of partitions then can be queried in parallel, and (b) MaxBufferedItemCount: to control the number of pre-fetched results.
 
-    (a) ***Tuning MaxDegreeOfParallelism\:***
-    Parallel query works by querying multiple partitions in parallel. However, data from an individual partitioned collect is fetched serially with respect to the query. So, setting the MaxDegreeOfParallelism to the number of partitions has the maximum chance of achieving the most performant query, provided all other system conditions remain the same. If you don't know the number of partitions, you can set the MaxDegreeOfParallelism to a high number, and the system chooses the minimum (number of partitions, user provided input) as the MaxDegreeOfParallelism.
+    (a) ***Tuning degree of parallelism\:***
+    Parallel query works by querying multiple partitions in parallel. However, data from an individual partition is fetched serially with respect to the query. Setting the `MaxDegreeOfParallelism` in [SDK V2](sql-api-sdk-dotnet.md) or `MaxConcurrency` in [SDK V3](sql-api-sdk-dotnet-standard.md) to the number of partitions has the maximum chance of achieving the most performant query, provided all other system conditions remain the same. If you don't know the number of partitions, you can set the degree of parallelism to a high number, and the system chooses the minimum (number of partitions, user provided input) as the degree of parallelism.
 
     It is important to note that parallel queries produce the best benefits if the data is evenly distributed across all partitions with respect to the query. If the partitioned collection is partitioned such a way that all or a majority of the data returned by a query is concentrated in a few partitions (one partition in worst case), then the performance of the query would be bottlenecked by those partitions.
 
     (b) ***Tuning MaxBufferedItemCount\:***
     Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. MaxBufferedItemCount is the parameter to limit the number of pre-fetched results. Setting MaxBufferedItemCount to the expected number of results returned (or a higher number) allows the query to receive maximum benefit from pre-fetching.
 
-    Pre-fetching works the same way irrespective of the MaxDegreeOfParallelism, and there is a single buffer for the data from all partitions.  
+    Pre-fetching works the same way irrespective of the degree of parallelism, and there is a single buffer for the data from all partitions.  
 6. **Turn on server-side GC**
 
     Reducing the frequency of garbage collection may help in some cases. In .NET, set [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) to true.

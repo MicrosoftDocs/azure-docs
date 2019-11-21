@@ -1,16 +1,13 @@
 ---
 title: Azure Management and Operations Management Suite (OMS) | Microsoft Docs
 description: Overview of the areas of management for Azure applications and resources with links to content on Azure management tools that were previously bundled as Operations Management Suite (OMS).
-documentationcenter: ''
+ms.service:  azure-monitor
+ms.subservice: 
+ms.topic: conceptual
 author: bwren
-manager: carmonm
-editor: tysonn
-ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/07/2018
 ms.author: bwren
+ms.date: 09/07/2018
+
 ---
 
 # Azure Management - Monitoring

@@ -1,14 +1,11 @@
 ---
-title: Resource Manager Template Functions | Microsoft Docs
+title: Template functions
 description: Describes the functions to use in an Azure Resource Manager template to retrieve values, work with strings and numerics, and retrieve deployment information.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 04/08/2019
-ms.author: tomfitz
-
+ms.date: 11/19/2019
 ---
 # Azure Resource Manager template functions
+
 This article describes all the functions you can use in an Azure Resource Manager template. For information about using functions in your template, see [template syntax](template-expressions.md).
 
 To create your own functions, see [User-defined functions](resource-group-authoring-templates.md#functions).
@@ -75,6 +72,7 @@ Resource Manager provides several functions for making comparisons in your templ
 Resource Manager provides the following functions for getting values from sections of the template and values related to the deployment:
 
 * [deployment](resource-group-template-functions-deployment.md#deployment)
+* [environment](resource-group-template-functions-deployment.md#environment)
 * [parameters](resource-group-template-functions-deployment.md#parameters)
 * [variables](resource-group-template-functions-deployment.md#variables)
 
@@ -118,6 +116,7 @@ Resource Manager provides the following functions for working with integers:
 * [mul](resource-group-template-functions-numeric.md#mul)
 * [sub](resource-group-template-functions-numeric.md#sub)
 
+<a id="extensionResourceId" aria-hidden="true" />
 <a id="listkeys" aria-hidden="true" />
 <a id="list" aria-hidden="true" />
 <a id="providers" aria-hidden="true" />
@@ -125,10 +124,13 @@ Resource Manager provides the following functions for working with integers:
 <a id="resourcegroup" aria-hidden="true" />
 <a id="resourceid" aria-hidden="true" />
 <a id="subscription" aria-hidden="true" />
+<a id="subscriptionResourceId" aria-hidden="true" />
+<a id="tenantResourceId" aria-hidden="true" />
 
 ## Resource functions
 Resource Manager provides the following functions for getting resource values:
 
+* [extensionResourceId](resource-group-template-functions-resource.md#extensionresourceid)
 * [listAccountSas](resource-group-template-functions-resource.md#list)
 * [listKeys](resource-group-template-functions-resource.md#listkeys)
 * [listSecrets](resource-group-template-functions-resource.md#list)
@@ -138,6 +140,8 @@ Resource Manager provides the following functions for getting resource values:
 * [resourceGroup](resource-group-template-functions-resource.md#resourcegroup)
 * [resourceId](resource-group-template-functions-resource.md#resourceid)
 * [subscription](resource-group-template-functions-resource.md#subscription)
+* [subscriptionResourceId](resource-group-template-functions-resource.md#subscriptionresourceid)
+* [tenantResourceId](resource-group-template-functions-resource.md#tenantresourceid)
 
 <a id="base64" aria-hidden="true" />
 <a id="base64tojson" aria-hidden="true" />
@@ -208,6 +212,7 @@ Resource Manager provides the following functions for working with strings:
 * [utcNow](resource-group-template-functions-string.md#utcnow)
 
 ## Next steps
+
 * For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md)
 * To merge multiple templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md)
 * To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md)

@@ -1,12 +1,8 @@
 ---
-title: Create a policy for non-compliant resources
-description: This article walks you through the steps to create a policy definition to identify non-compliant resources.
-author: DCtheGeek
-ms.author: dacoulte
+title: "Quickstart: New policy assignment with portal"
+description: In this quickstart, you use Azure portal to create an Azure Policy assignment to identify non-compliant resources.
 ms.date: 12/06/2018
 ms.topic: quickstart
-ms.service: azure-policy
-manager: carmonm
 ---
 # Quickstart: Create a policy assignment to identify non-compliant resources
 

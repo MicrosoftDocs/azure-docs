@@ -26,11 +26,17 @@ landingContent:
         links:
           - text: What is Azure HDInsight?
             url: ./hdinsight-overview.md
+      - linkListType: learn
+        links:
+          - text: Building Analytical Solutions with Azure HDInsight
+            url: https://docs.microsoft.com/learn/paths/build-oss-analytical-solutions-az-hdinsight/
       - linkListType: concept
         links:
           - text: HDInsight components and versions
             url: ./hdinsight-component-versioning.md
-          - text: HDInsight supported node configurations
+          - text: Selecting the right VM size
+            url: ./hdinsight-selecting-vm-size.md
+          - text: HDInsight supported VM types
             url: ./hdinsight-supported-node-configuration.md
           - text: Compare storage options
             url: ./hdinsight-hadoop-compare-storage-options.md
@@ -40,6 +46,16 @@ landingContent:
             url: ./hdinsight-hadoop-provision-linux-clusters.md
           - text: Create clusters with Data Lake Store Gen2
             url: ./hdinsight-hadoop-use-data-lake-storage-gen2.md
+      - linkListType: whats-new
+        links:
+          - text: Custom Ambari DB
+            url: ./hdinsight-custom-ambari-db.md
+          - text: 'Autoscale: automatically scale hadoop clusters'
+            url: ./hdinsight-autoscale-clusters.md
+          - text: Monitoring with HDInsight
+            url: ./hdinsight-hadoop-oms-log-analytics-tutorial.md
+          - text: Migrate Apache Hive tables to HDInsight 4.0
+            url: ./interactive-query/apache-hive-migrate-workloads.md
 
   # Card
   - title: Apache Spark
@@ -135,7 +151,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Query HBase with Apache Phoenix
-            url: ./hbase/apache-hbase-phoenix-squirrel-linux.md      
+            url: ./hbase/apache-hbase-query-with-phoenix.md      
       - linkListType: concept
         links:
           - text: Accelerated Writes for Apache HBase

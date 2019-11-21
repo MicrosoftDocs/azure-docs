@@ -1,16 +1,16 @@
 ---
-title: Azure HPC Cache Preview overview 
+title: Azure HPC Cache overview
 description: Describes Azure HPC Cache, a file access accelerator solution for high-performance computing 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 09/19/2019
-ms.author: v-erkell
+ms.date: 10/30/2019
+ms.author: rohogue
 ---
 
-# What is Azure HPC Cache? (Preview)
+# What is Azure HPC Cache?
 
-Azure HPC Cache speeds access to your data for high-performance computing (HPC) tasks. By caching files in Azure, it makes the scalability of cloud computing available even for workflows where your data is stored across WAN links, such as in your local datacenter network-attached storage (NAS) environment.
+Azure HPC Cache speeds access to your data for high-performance computing (HPC) tasks. By caching files in Azure, Azure HPC Cache brings the scalability of cloud computing to your existing workflow. This service can be used even for workflows where your data is stored across WAN links, such as in your local datacenter network-attached storage (NAS) environment.
 
 Azure HPC Cache is easy to launch and monitor from the Azure portal. Existing NFS storage or new Blob containers can become part of its aggregated namespace, which makes client access simple even if you change the back-end storage target.
 
@@ -32,13 +32,13 @@ In media and entertainment, Azure HPC Cache can speed up data access for time-cr
 
 Many life sciences workflows can benefit from scale-out file caching.
 
-A research institute that wants to port its genomic analysis workflows into Azure can easily shift them by using Azure HPC Cache. Because the cache provides POSIX file access, they can run their existing client-side workflow in the cloud without any changes.
+A research institute that wants to port its genomic analysis workflows into Azure can easily shift them by using Azure HPC Cache. Because the cache provides POSIX file access, no client-side changes are needed to run their existing client workflow in the cloud.
 
 Azure HPC Cache also can be leveraged to improve efficiency in tasks like secondary analysis, pharmacological simulation, or AI-driven image analysis.
 
 ### Financial services analytics
 
-An Azure HPC Cache can help speed up quantitative analysis calculations, risk analysis workloads, and Monte Carlo simulations to give financial services companies better insight to make strategic decisions.
+An Azure HPC Cache deployment can help speed up quantitative analysis calculations, risk analysis workloads, and Monte Carlo simulations to give financial services companies better insight to make strategic decisions.
 
 ## Region availability
 
@@ -49,13 +49,17 @@ Azure HPC Cache is available in these Azure regions:
 * North Europe
 * West Europe
 * Southeast Asia
+* Sydney
 * West US 2
+* Korea Central
 
 Check the [Azure HPC Cache product page](https://azure.microsoft.com/services/hpc-cache) for the latest availability information.
 
-## Preview availability
+## Service availability
 
-The Azure HPC Cache public preview is restricted to ensure service quality. Request access by filling out [this form](https://aka.ms/onboard-hpc-cache). After your subscription is added to the access list you can create test caches.
+You must request access for each subscription you will use with Azure HPC Cache. This restriction helps ensure service quality in the initial months of general availability.
+
+Request access by filling out [this form](https://aka.ms/onboard-hpc-cache). After your subscription is added to the access list, you can create caches.
 
 ## Next steps
 

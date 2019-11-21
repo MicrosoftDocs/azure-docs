@@ -26,6 +26,7 @@ By default, your directory doesn't have self-service password reset turned on. U
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the Subscription Administrator. This is the same work or school account or the same Microsoft account that you used to create your directory.
 2. Open **Azure Active Directory** (in the navigation bar on the left side).
+3. Scroll down on the options blade and select **Password reset**.
 4. Set **Self service password reset enabled**  to **All**. 
 5. Click **Save** at the top of the page. You're done!
 

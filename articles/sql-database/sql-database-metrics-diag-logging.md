@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database metrics and diagnostics logging | Microsoft Docs
+title: Metrics and diagnostics logging
 description: Learn how to enable diagnostics in Azure SQL Database to store information about resource utilization and query execution statistics.
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 05/21/2019
+ms.date: 11/15/2019
 ---
 
 # Azure SQL Database metrics and diagnostics logging
@@ -28,7 +28,7 @@ Single databases, pooled databases in elastic pools, and instance databases in a
 For more information about the metrics and log categories supported by the various Azure services, see:
 
 - [Overview of metrics in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-- [Overview of Azure diagnostics logs](../azure-monitor/platform/diagnostic-logs-overview.md)
+- [Overview of Azure diagnostics logs](../azure-monitor/platform/resource-logs-overview.md)
 
 This article provides guidance to help you enable diagnostics telemetry for Azure SQL databases, elastic pools, and managed instances. It also can help you understand how to configure Azure SQL Analytics as a monitoring tool for viewing database diagnostics telemetry.
 
@@ -59,6 +59,7 @@ You can set up Azure SQL databases, and instance databases to collect the follow
 | Monitoring telemetry for databases | Single database and pooled database support | Instance database support |
 | :------------------- | ----- | ----- |
 | [Basic metrics](#basic-metrics): Contains DTU/CPU percentage, DTU/CPU limit, physical data read percentage, log write percentage, Successful/Failed/Blocked by firewall connections, sessions percentage, workers percentage, storage, storage percentage, and XTP storage percentage. | Yes | No |
+| [Instance and App Advanced](#advanced-metrics):  Contains tempdb system database data and log file size and tempdb percent log file used. | Yes | No |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): Contains information about the query runtime statistics such as CPU usage and query duration statistics. | Yes | Yes |
 | [QueryStoreWaitStatistics](#query-store-wait-statistics): Contains information about the query wait statistics (what your queries waited on) such are CPU, LOG, and LOCKING. | Yes | Yes |
 | [Errors](#errors-dataset): Contains information about SQL errors on a database. | Yes | Yes |
@@ -299,7 +300,7 @@ Read about how to [change diagnostics settings by using the Azure Monitor REST A
 
 ### Resource Manager template
 
-Read about how to [enable diagnostics settings at resource creation by using a Resource Manager template](../azure-monitor/platform/diagnostic-logs-stream-template.md).
+Read about how to [enable diagnostics settings at resource creation by using a Resource Manager template](../azure-monitor/platform/diagnostic-settings-template.md).
 
 ## Stream into Azure SQL Analytics
 
@@ -423,6 +424,16 @@ Refer to the following tables for details about Basic metrics by resource.
 |**Resource**|**Metrics**|
 |---|---|
 |Azure SQL database|DTU percentage, DTU used, DTU limit, CPU percentage, physical data read percentage, log write percentage, Successful/Failed/Blocked by firewall connections, sessions percentage, workers percentage, storage, storage percentage, XTP storage percentage, and deadlocks |
+
+## Advanced metrics
+
+Refer to the following table for details about advanced metrics.
+
+|**Metric**|**Metric Display Name**|**Description**|
+|---|---|---|
+|tempdb_data_size| Tempdb Data File Size Kilobytes |Tempdb Data File Size Kilobytes. Not applicable to data warehouses. This metric will be available for databases using the vCore purchasing model or 100 DTU and higher for DTU-based purchasing models. |
+|tempdb_log_size| Tempdb Log File Size Kilobytes |Tempdb Log File Size Kilobytes. Not applicable to data warehouses. This metric will be available for databases using the vCore purchasing model or 100 DTU and higher for DTU-based purchasing models. |
+|tempdb_log_used_percent| Tempdb Percent Log Used |Tempdb Percent Log Used. Not applicable to data warehouses. This metric will be available for databases using the vCore purchasing model or 100 DTU and higher for DTU-based purchasing models. |
 
 ## Basic logs
 
@@ -569,7 +580,7 @@ Learn more about [Query Store wait statistics data](https://docs.microsoft.com/s
 |query_hash_s|Query hash of the failed query, if available |
 |query_plan_hash_s|Query plan hash of the failed query, if available |
 
-Learn more about [SQL Server error messages](https://msdn.microsoft.com/library/cc645603.aspx).
+Learn more about [SQL Server error messages](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors?view=sql-server-ver15).
 
 ### Database wait statistics dataset
 
@@ -707,7 +718,7 @@ Learn more about the [Intelligent Insights log format](sql-database-intelligent-
 To learn how to enable logging and to understand the metrics and log categories supported by the various Azure services, see:
 
 - [Overview of metrics in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-- [Overview of Azure diagnostics logs](../azure-monitor/platform/diagnostic-logs-overview.md)
+- [Overview of Azure diagnostics logs](../azure-monitor/platform/resource-logs-overview.md)
 
 To learn about Event Hubs, read:
 

@@ -83,6 +83,8 @@
       href: azure-pim-resource-rbac.md
     - name: Use custom roles
       href: pim-resource-roles-custom-role-policy.md
+  - name: Troubleshoot PIM
+    href: pim-troubleshoot.md
   - name: Access reviews
     items:
     - name: Azure AD roles

@@ -8,16 +8,16 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.custom: mvc, seo-javascript-september2019
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.date: 06/21/2019
 # As a developer new to IoT Hub, I need to see how to use a back-end application to control a device connected to the hub.
 ---
 
-# Quickstart: Control a device connected to an IoT hub (Node.js)
+# Quickstart: Use Node.js to control a device connected to an Azure IoT hub
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
-IoT Hub is an Azure service that enables you to ingest high volumes of telemetry from your IoT devices into the cloud and manage your devices from the cloud. In this quickstart, you use a *direct method* to control a simulated device connected to your IoT hub. You can use direct methods to remotely change the behavior of a device connected to your IoT hub.
+IoT Hub is an Azure service that enables you to manage your IoT devices from the cloud, and ingest high volumes of device telemetry to the cloud for storage or processing. In this quickstart, you use a *direct method* to control a simulated device connected to your IoT hub. You can use direct methods to remotely change the behavior of a device connected to your IoT hub.
 
 The quickstart uses two pre-written Node.js applications:
 
@@ -65,11 +65,11 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
    **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
-   **MyNodeDevice**: The name of the device you're registering. Use **MyNodeDevice** as shown. If you choose a different name for your device, you need to use that name throughout this article, and update the device name in the sample applications before you run them.
+   **MyNodeDevice**: This is the name of the device you're registering. It's recommended to use **MyNodeDevice** as shown. If you choose a different name for your device, you also need to use that name throughout this article, and update the device name in the sample applications before you run them.
 
     ```azurecli-interactive
     az iot hub device-identity create \
-      --hub-name YourIoTHubName --device-id MyNodeDevice
+      --hub-name {YourIoTHubName} --device-id MyNodeDevice
     ```
 
 2. Run the following commands in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
@@ -78,7 +78,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string \
-      --hub-name YourIoTHubName \
+      --hub-name {YourIoTHubName} \
       --device-id MyNodeDevice \
       --output table
     ```
@@ -95,14 +95,15 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
     ```azurecli-interactive
     az iot hub show-connection-string \
-      --name YourIoTHubName --policy-name service --output table
+      --policy-name service --name {YourIoTHubName} --output table
+
     ```
 
     Make a note of the service connection string, which looks like:
 
    `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
 
-    You use this value later in the quickstart. The service connection string is different from the device connection string.
+    You use this value later in the quickstart. This service connection string is different from the device connection string you noted in the previous step.
 
 ## Listen for direct method calls
 
@@ -112,7 +113,7 @@ The simulated device application connects to a device-specific endpoint on your 
 
 2. Open the **SimulatedDevice.js** file in a text editor of your choice.
 
-    Replace the value of the `connectionString` variable with the device connection string you made a note of previously. Then save your changes to **SimulatedDevice.js** file.
+    Replace the value of the `connectionString` variable with the device connection string you made a note of earlier. Then save your changes to **SimulatedDevice.js**.
 
 3. In the local terminal window, run the following commands to install the required libraries and run the simulated device application:
 
@@ -123,7 +124,7 @@ The simulated device application connects to a device-specific endpoint on your 
 
     The following screenshot shows the output as the simulated device application sends telemetry to your IoT hub:
 
-    ![Run the simulated device](./media/quickstart-control-device-node/SimulatedDevice-1.png)
+    ![Run the simulated device](./media/quickstart-control-device-node/simulated-device-telemetry-iot-hub.png)
 
 ## Call the direct method
 
@@ -133,7 +134,7 @@ The back-end application connects to a service-side endpoint on your IoT Hub. Th
 
 2. Open the **BackEndApplication.js** file in a text editor of your choice.
 
-    Replace the value of the `connectionString` variable with the service connection string you made a note of previously. Then save your changes to the **BackEndApplication.js** file.
+    Replace the value of the `connectionString` variable with the service connection string you made a note of earlier. Then save your changes to **BackEndApplication.js**.
 
 3. In the local terminal window, run the following commands to install the required libraries and run the back-end application:
 
@@ -144,11 +145,11 @@ The back-end application connects to a service-side endpoint on your IoT Hub. Th
 
     The following screenshot shows the output as the application makes a direct method call to the device and receives an acknowledgment:
 
-    ![Run the back-end application](./media/quickstart-control-device-node/BackEndApplication.png)
+    ![Output when the application makes direct method call to the device](./media/quickstart-control-device-node/direct-method-device-call.png)
 
     After you run the back-end application, you see a message in the console window running the simulated device, and the rate at which it sends messages changes:
 
-    ![Change in simulated client](./media/quickstart-control-device-node/SimulatedDevice-2.png)
+    ![Output when there is a change in the simulated client](./media/quickstart-control-device-node/simulated-device-message-change.png)
 
 ## Clean up resources
 

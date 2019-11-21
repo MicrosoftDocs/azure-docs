@@ -1,6 +1,6 @@
 ---
 title: Azure Managed Application view definition artifact reference
-description: This article is a reference to view definition artifact.
+description: Provides an example of view definition artifact for Azure Managed Applications. The file name is viewDefinition.json.
 services: managed-applications
 ms.service: managed-applications
 ms.topic: conceptual

@@ -1,7 +1,7 @@
 ---
 title: Install and run containers - FACE API
 titleSuffix: Azure Cognitive Services
-description: Download, install, and run containers for Face in this walkthrough tutorial.
+description: This article shows you how to download, install, and run containers for Face in this walkthrough tutorial.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -9,11 +9,11 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 11/21/2019
 ms.author: dapine
 ---
 
-# Install and run Face containers
+# Install and run Face containers (Preview)
 
 Azure Cognitive Services Face provides a standardized Linux container for Docker that detects human faces in images. It also identifies attributes, which include face landmarks such as noses and eyes, gender, age, and other machine-predicted facial features. In addition to detection, Face can check if two faces in the same image or different images are the same by using a confidence score. Face also can compare faces against a database to see if a similar-looking or identical face already exists. It also can organize similar faces into groups by using shared visual traits.
 
@@ -121,8 +121,9 @@ Use the host, `http://localhost:5000`, for container APIs.
 
 ## Troubleshooting
 
-If you run the container with an output [mount](./face-resource-container-config.md#mount-settings) and logging is enabled, the container generates log files that are helpful to troubleshoot issues that happen while you start or run the container. 
+If you run the container with an output [mount](./face-resource-container-config.md#mount-settings) and logging is enabled, the container generates log files that are helpful to troubleshoot issues that happen while you start or run the container.
 
+[!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
 ## Billing
 

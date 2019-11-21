@@ -1,24 +1,24 @@
 ---
-title: Azure HPC Cache Preview data ingest - manual copy
+title: Azure HPC Cache data ingest - manual copy
 description: How to use cp commands to move data to a Blob storage target in Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 08/30/2019
-ms.author: v-erkell
+ms.date: 10/30/2019
+ms.author: rohogue
 ---
 
-# Azure HPC Cache (preview) data ingest - manual copy method
+# Azure HPC Cache data ingest - manual copy method
 
 This article gives detailed instructions for manually copying data to a Blob storage container for use with Azure HPC Cache. It uses multi-threaded parallel operations to optimize the copy speed.
 
-To learn more about moving data to Blob storage for your Azure HPC Cache, read [Move data to Azure Blob storage for Azure HPC Cache](hpc-cache-ingest.md).
+To learn more about moving data to Blob storage for your Azure HPC Cache, read [Move data to Azure Blob storage](hpc-cache-ingest.md).
 
 ## Simple copy example
 
 You can manually create a multi-threaded copy on a client by running more than one copy command at once in the background against predefined sets of files or paths.
 
-The Linux/UNIX ``cp`` command includes the argument ``-p`` to preserve ownership and mtime metadata. Adding this argument to the commands below is optional. (Adding the argument increases the number of filesystem calls sent from the client to the destination filesystem for metadata modification.)
+The Linux/UNIX ``cp`` command includes the argument ``-p`` to preserve ownership and mtime metadata. Adding this argument to the commands below is optional. (Adding the argument increases the number of file system calls sent from the client to the destination file system for metadata modification.)
 
 This simple example copies two files in parallel:
 
@@ -76,9 +76,9 @@ cp -R /mnt/source/dir1/dir1d /mnt/destination/dir1/ &
 
 ## When to add mount points
 
-After you have enough parallel threads going against a single destination filesystem mount point, there will be a point where adding more threads does not give more throughput. (Throughput will be measured in files/second or bytes/second, depending on your type of data.) Or worse, over-threading can sometimes cause a throughput degradation.  
+After you have enough parallel threads going against a single destination file system mount point, there will be a point where adding more threads does not give more throughput. (Throughput will be measured in files/second or bytes/second, depending on your type of data.) Or worse, over-threading can sometimes cause a throughput degradation.  
 
-When this happens, you can add client-side mount points to other Azure HPC Cache mount addresses, using the same remote filesystem mount path:
+When this happens, you can add client-side mount points to other Azure HPC Cache mount addresses, using the same remote file system mount path:
 
 ```bash
 10.1.0.100:/nfs on /mnt/sourcetype nfs (rw,vers=3,proto=tcp,addr=10.1.0.100)
@@ -131,7 +131,7 @@ Client4: cp -R /mnt/source/dir3/dir3d /mnt/destination/dir3/ &
 
 ## Create file manifests
 
-After understanding the approaches above (multiple copy-threads per destination, multiple destinations per client, multiple clients per network-accessible source filesystem), consider this recommendation: Build file manifests and then use them with copy commands across multiple clients.
+After understanding the approaches above (multiple copy-threads per destination, multiple destinations per client, multiple clients per network-accessible source file system), consider this recommendation: Build file manifests and then use them with copy commands across multiple clients.
 
 This scenario uses the UNIX ``find`` command to create manifests of files or directories:
 

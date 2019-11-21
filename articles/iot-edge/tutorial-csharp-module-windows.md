@@ -34,7 +34,7 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 
 This tutorial demonstrates how to develop a module in **C#** using **Visual Studio 2019**, and how to deploy it to a **Windows device**. If you're developing modules for Linux devices, go to [Develop a C# IoT Edge module for Linux devices](tutorial-csharp-module.md) instead. 
 
-Use the following table to understand your options for developing and deploying C modules to Windows devices: 
+Use the following table to understand your options for developing and deploying C# modules to Windows devices: 
 
 | C# | Visual Studio Code | Visual Studio 2017/2019 | 
 | -- | ------------------ | ------------------ |
@@ -82,7 +82,7 @@ The Azure IoT Edge Tools provides project templates for all supported IoT Edge m
 
    ![Configure your project for target device, module type, and container registry](./media/tutorial-csharp-module-windows/add-application-and-module.png)
 
-5. Select **OK** to apply your changes. 
+5. Select **Add** to create the project. 
 
 ### Add your registry credentials
 

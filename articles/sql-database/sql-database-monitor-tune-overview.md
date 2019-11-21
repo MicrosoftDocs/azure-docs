@@ -1,5 +1,5 @@
 ---
-title: Monitoring and performance tuning - Azure SQL Database | Microsoft Docs
+title: Monitoring and performance tuning
 description: Tips for performance tuning in Azure SQL Database through evaluation and improvement.
 services: sql-database
 ms.service: sql-database
@@ -181,7 +181,7 @@ A recompilation (or fresh compilation after cache eviction) can still result in 
 
 After you identify the problem, you can either tune the problem queries or upgrade the compute size or service tier to increase the capacity of your SQL database to absorb the CPU requirements. 
 
-For more information, see [Scale single database resources in Azure SQL Database](sql-database-single-database-scale.md) and [Scale elastic pool resources in Azure SQL Database](sql-database-elastic-pool-scale.md). For information about scaling a managed instance, see [Instance-level resource limits](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits).
+For more information, see [Scale single database resources in Azure SQL Database](sql-database-single-database-scale.md) and [Scale elastic pool resources in Azure SQL Database](sql-database-elastic-pool-scale.md). For information about scaling a managed instance, see [Service-tier resource limits](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
 ### Performance problems caused by increased workload volume
 

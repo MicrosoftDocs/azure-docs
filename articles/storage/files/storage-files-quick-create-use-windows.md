@@ -42,7 +42,7 @@ Next, you create a file share.
 
     ![Select Files](./media/storage-files-quick-create-use-windows/click-files.png)
 
-1. Select **+ File Share**.
+1. Select **File Share**.
 
     ![Select the add file share button](./media/storage-files-quick-create-use-windows/create-file-share.png)
 
@@ -170,6 +170,7 @@ Just like with on-premises VSS snapshots, you can view the snapshots from your m
 1. Select **Restore**. This action copies the contents of the entire directory recursively to the original location at the time the share snapshot was created.
 
    ![Restore button in warning message](./media/storage-files-quick-create-use-windows/snapshot-windows-restore.png)
+   Note:If your file has not changed, you will not see a previous version for that file because that file is the same version as the snapshot. This is consistent with how this works on a Windows file server.
 
 ## Clean up resources
 

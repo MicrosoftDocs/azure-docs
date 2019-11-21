@@ -23,7 +23,7 @@ Service Health tracks three types of health events that may impact your resource
 3. **Health advisories** - Changes in Azure services that require your attention. Examples include when Azure features are deprecated or if you exceed a usage quota.
 
 > [!NOTE]
-> To view Service Health events, users must have the Reader role on a subscription.
+> To view Service Health events, users must be [granted the Reader role](../role-based-access-control/role-assignments-portal.md) on a subscription.
 
 ## Get started with Service Health
 

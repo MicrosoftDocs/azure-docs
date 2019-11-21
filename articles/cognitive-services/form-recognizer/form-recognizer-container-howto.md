@@ -1,16 +1,17 @@
 ---
 title: How to install and run container for Form Recognizer
 titleSuffix: Azure Cognitive Services
-description: Learn how to use the Form Recognizer container to parse form and table data.
+description: This article will explain how to use the Azure Cognitive Services Form Recognizer container to parse form and table data.
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 11/21/2019
 ms.author: dapine
 ---
-# Install and run Form Recognizer containers
+
+# Install and run Form Recognizer containers (Preview)
 
 Azure Form Recognizer applies machine learning technology to identify and extract key-value pairs and tables from forms. It associates values and table entries with the key-value pairs and then outputs structured data that includes the relationships in the original file. 
 
@@ -297,7 +298,9 @@ The container provides REST endpoint APIs, which you can find on the [Form Recog
 
 ## Troubleshooting
 
-When you run the container, the container uses **stdout** and **stderr** to output information that's helpful for troubleshooting issues that arise when you start or run the container.
+If you run the container with an output [mount](form-recognizer-container-configuration.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container.
+
+[!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
 ## Billing
 

@@ -8,12 +8,12 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/31/2019
+ms.date: 11/26/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
 
-# Azure Active Directory B2C: User migration
+# Migrate users to Azure Active Directory B2C
 
 When you migrate your identity provider to Azure Active Directory B2C (Azure AD B2C), you might also need to migrate the user accounts. This article explains how to migrate existing user accounts from any identity provider to Azure AD B2C. The article is not meant to be prescriptive, but rather, it describes a few scenarios. The developer is responsible for the suitability of each approach.
 
@@ -45,51 +45,29 @@ You create the Azure AD B2C user account via Graph API (with the password or wit
 
 ### Step 1.1: Register your application in your tenant
 
-To communicate with the Graph API, you first must have a service account with administrative privileges. In Azure AD, you register an application and authentication to Azure AD. The application credentials are **Application ID** and **Application Secret**. The application acts as itself, not as a user, to call the Graph API.
+To communicate with the Graph API, you first must have a service account with administrative privileges. In Azure AD, you register an application and enable write access to the directory. The application credentials are the **Application ID** and **Application Secret**. The application acts as itself, not as a user, to call the Graph API.
 
-First, register your migration application in Azure AD. Then, create an application key (application secret) and set the application with write privileges.
+First, register an application that you can use for management tasks like user migration.
 
-1. Sign in to the [Azure portal][Portal].
-1. Select the **Directory + subscription** filter in the upper-right section of the portal.
-1. Select the directory containing your Azure AD B2C tenant.
-1. In the left-hand menu, select **Azure Active Directory** (*not* Azure AD B2C). To find it, you might need to select **All services**.
-1. Select **App registrations (Legacy)**.
-1. Select **New application registration**.
+[!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
 
-   ![Azure Active Directory and App registrations menu items highlighted](media/active-directory-b2c-user-migration/pre-migration-app-registration.png)
+### Step 1.2: Grant administrative permission to your application
 
-1. Create a new application by doing the following:
+Next, grant the application the Azure AD Graph API permissions required for writing to the directory.
 
-   - For **Name**, use *B2CUserMigration* or any other name you want.
-   - For **Application type**, select **Web app/API**.
-   - For **Sign-on URL**, use `https://localhost` (it's not relevant for this application).
-   - Select **Create**.
+[!INCLUDE [active-directory-b2c-permissions-directory](../../includes/active-directory-b2c-permissions-directory.md)]
 
-    After the application is created, the **Registered app** page is displayed showing its properties.
-1. Copy the application's **Application ID**, and save it for later.
+### Step 1.3: Create the application secret
 
-### Step 1.2: Create the application secret
+Create a client secret (key) for use by the user migration application that you configure in a later step.
 
-1. In the **Registered app** page, select **Settings**.
-1. Select **Keys**.
-1. Under **Passwords**, add a new key (also known as a client secret) named *MyClientSecret* or another name of your choosing, select an expiration window, select **Save**, and then copy the key value for later use.
+[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
-    ![Application ID value and Keys menu item highlighted in Azure portal](media/active-directory-b2c-user-migration/pre-migration-app-id-and-key.png)
-
-### Step 1.3: Grant administrative permission to your application
-
-1. In the **Settings** menu, select **Required permissions**.
-1. Select **Windows Azure Active Directory**.
-1. In the **Enable Access** pane, under **Application Permissions**, select **Read and write directory data**, and then select **Save**.
-1. In the **Required permissions** pane, select **Grant Permissions**, then select **Yes**.
-
-   ![Read/write directory checkbox, Save, and Grant permissions highlighted](media/active-directory-b2c-user-migration/pre-migration-app-registration-permissions.png)
-
-Now you have an application with permissions to create, read, and update users from your Azure AD B2C tenant.
+Now you have an application with permissions to create, read, and update users in your Azure AD B2C tenant.
 
 ### Step 1.4: (Optional) Environment cleanup
 
-Read and write directory data permissions do *not* include the right to delete users. To give your application the ability to delete users (to clean up your environment), you must perform an extra step, which involves running PowerShell to set User Account Administrator permissions. Otherwise, you can skip to the next section.
+The *Read and write directory data* permission does *not* include the right to delete users. To give your application the ability to delete users (to clean up your environment), you must perform an extra step, which involves running PowerShell to set User Account Administrator permissions. Otherwise, you can skip to the next section.
 
 > [!IMPORTANT]
 > You must use a B2C tenant administrator account that is *local* to the B2C tenant. The account name syntax is *admin\@contosob2c.onmicrosoft.com*.
@@ -195,12 +173,12 @@ To validate the migration, use one of the following two methods:
    1. Open **Azure AD B2C**, and then select **Users**.
    1. In the search box, type the user's display name, and then view the user's profile.
 
-- To retrieve a user by sign-in email address, use this sample application:
+- To retrieve a user by sign-in email address, use the sample application:
 
    1. Run the following command:
 
       ```Console
-          UserMigration.exe 3 {email address}
+          UserMigration.exe 3 {email address} > UserProfile.json
       ```
 
       > [!TIP]
@@ -324,7 +302,17 @@ In Solution Explorer, right-click on the `AADB2C.UserMigration.API`, select "Pub
 
 The preceding technical profile defines one input claim: `signInName` (send as email). On sign-in, the claim is sent to your RESTful endpoint.
 
-After you define the technical profile for your RESTful API, tell your Azure AD B2C policy to call the technical profile. The XML snippet overrides `SelfAsserted-LocalAccountSignin-Email`, which is defined in the base policy. The XML snippet also adds `ValidationTechnicalProfile`, with ReferenceId pointing to your technical profile `LocalAccountUserMigration`.
+After you define the technical profile for your RESTful API, configure the existing `SelfAsserted-LocalAccountSignin-Email` technical profile to additionally call your REST API technical profile by overriding it within your *TrustFrameworkExtensions.xml* file:
+
+```XML
+<TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
+  <ValidationTechnicalProfiles>
+    <ValidationTechnicalProfile ReferenceId="LocalAccountUserMigration" />
+  </ValidationTechnicalProfiles>
+</TechnicalProfile>
+```
+
+Then, change the `Id` of the `LocalAccountSignIn` technical profile to `LocalAccountUserMigration`.
 
 ### Step 4.4: Upload the policy to your tenant
 
