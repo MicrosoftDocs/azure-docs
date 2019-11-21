@@ -61,7 +61,7 @@ Use text-matching entities provide several ways to extract data:
 |--|--|
 |[List entity](#add-list-entities-for-exact-matches)|list of canonical names along with synonyms as alternative forms|
 |Regular expression entity|match text using a regular expression entity|
-|[Prebuilt entity](tutorial-machine-learned-entity.md#add-prebuilt-number-to-app-to-help-extract-data)|match common data types such as number, email, date|
+|[Prebuilt entity](tutorial-machine-learned-entity.md#add-prebuilt-number-to-help-extract-data)|match common data types such as number, email, date|
 |Prebuilt domain entity|match using selected subject domains|
 |[Pattern.any](#add-a-patternany-entity)| to match entities that may be easily confused with the surrounding text|  
 
