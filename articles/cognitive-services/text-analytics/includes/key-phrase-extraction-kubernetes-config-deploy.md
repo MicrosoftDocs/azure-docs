@@ -93,7 +93,7 @@ ms.author: dapine
 1. Run the Kubernetes `apply` command with the *keyphrase.yaml* file as its target:
 
     ```console
-    kuberctl apply -f keyphrase.yaml
+    kubectl apply -f keyphrase.yaml
     ```
 
     After the command successfully applies the deployment configuration, a message appears similar to the following output:
