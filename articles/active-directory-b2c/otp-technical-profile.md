@@ -1,5 +1,6 @@
 ---
-title: Verify claims with Display Controls in Azure AD B2C
+title: Verify claims with Display Controls
+titleSuffix: Azure AD B2C
 description: Learn how to use Azure AD B2C display controls to verify the claims in the user journeys provided by your custom policies.
 services: active-directory-b2c
 author: mmacy

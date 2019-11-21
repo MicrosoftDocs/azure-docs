@@ -1,5 +1,6 @@
 ---
-title: Custom email verifications in Azure AD B2C
+title: Custom email verifications
+titleSuffix: Azure AD B2C
 description: Learn how to customize email verification when customers sign up to use your Azure AD B2C-enabled applications.
 services: active-directory-b2c
 author: mmacy

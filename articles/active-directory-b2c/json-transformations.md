@@ -1,5 +1,6 @@
 ---
-title: JSON claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C  | Microsoft Docs
+title: JSON claims transformation examples for the Identity Experience Framework Schema
+titleSuffix: Azure AD B2C
 description: JSON claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -19,7 +20,7 @@ ms.subservice: B2C
 
 This article provides examples for using the JSON claims transformations of the Identity Experience Framework  schema in Azure Active Directory B2C (Azure AD B2C). For more information, see [ClaimsTransformations](claimstransformations.md).
 
-## GenerateJson 
+## GenerateJson
 
 Use either claim values or constants to generate a JSON string. The path string following dot notation is used to indicate where to insert the data into a JSON string. After splitting by dots, integers are interpreted as the index of a JSON array, and non-integers are interpreted as the index of a JSON object.
 
@@ -31,7 +32,7 @@ Use either claim values or constants to generate a JSON string. The path string 
 
 The following example generates a JSON string based on the claim value of "name" and "email," as well as constant strings.
 
-```XML      
+```XML
 <ClaimsTransformation Id="GenerateRequestBody" TransformationMethod="GenerateJson">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="name" TransformationClaimType="people.0.name" />
@@ -60,7 +61,7 @@ The following claims transformation outputs a JSON string claim that will be the
     - **from.email**: "service@contoso.com"
     - **personalizations.0.subject** "Contoso account email verification code"
 - Output claims:
-  - **extractedClaim**: 
+  - **extractedClaim**:
 ```JSON
 {
   "personalizations": [

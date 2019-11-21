@@ -1,6 +1,7 @@
 ---
-title: Display controls in Azure AD B2C
-description: Learn how to use Azure AD B2C display controls to customize user journeys in your custom policies.
+title: Display control reference
+titleSuffix: Azure AD B2C
+description: Reference for Azure AD B2C display controls. Use display controls for customizing user journeys defined in your custom policies.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -17,7 +18,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-The **Display Control** is a group of user interface elements that have special functionality and interact with the Azure Active Directory B2C (Azure AD B2C) back-end service. It allows the user to perform actions on the page that invoke [validation technical profiles](validation-technical-profile.md) at the back end. Display Controls are displayed on the page and are referenced by a [self-asserted technical profile](self-asserted-technical-profile.md).
+A **Display Control** is a user interface element that has special functionality and interacts with the Azure Active Directory B2C (Azure AD B2C) back-end service. It allows the user to perform actions on the page that invokes a [validation technical profile](validation-technical-profile.md) at the back end. Display Controls are displayed on the page and are referenced by a [self-asserted technical profile](self-asserted-technical-profile.md).
 
 The following image illustrates a self-asserted sign-up page with two display controls that validate the email address and an alternative (secondary) email address.
 
@@ -27,7 +28,7 @@ The following image illustrates a self-asserted sign-up page with two display co
 
 ## Prerequisites
 
- In the [Metadata](self-asserted-technical-profile.md#metadata) section of [Self Asserted Technical Profile](self-asserted-technical-profile.md), the referenced [Content Definition](contentdefinitions.md) needs to have DataUri set to a page contract version 2.0.0 or higher. For example:
+ In the [Metadata](self-asserted-technical-profile.md#metadata) section of a [self-asserted technical profile](self-asserted-technical-profile.md), the referenced [ContentDefinition](contentdefinitions.md) needs to have `DataUri` set to page contract version 2.0.0 or higher. For example:
 
 ```XML
 <ContentDefinition Id="api.selfasserted">
@@ -39,7 +40,7 @@ The following image illustrates a self-asserted sign-up page with two display co
 
 ## Defining Display Controls
 
-The **DisplayControl** element contains the following attribute:
+The **DisplayControl** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
@@ -50,16 +51,16 @@ The **DisplayControl** element contains the following elements:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| InputClaims | 0:1 | The **InputClaims** are used to prepopulate the value of the claims to be collected from the user. |
-| DisplayClaims | 0:1 | The **DisplayClaims** are used to represent claims to be collected from the user. |
-| OutputClaims | 0:1 | The **OutputClaims** are used to represent claims to be saved temporarily for this **display control**. |
-| Actions | 0:1 | The **Actions** are used to list the validation technical profiles to invoke for user actions happening at the front-end. |
+| InputClaims | 0:1 | **InputClaims** are used to prepopulate the value of the claims to be collected from the user. |
+| DisplayClaims | 0:1 | **DisplayClaims** are used to represent claims to be collected from the user. |
+| OutputClaims | 0:1 | **OutputClaims** are used to represent claims to be saved temporarily for this **display control**. |
+| Actions | 0:1 | **Actions** are used to list the validation technical profiles to invoke for user actions happening at the front-end. |
 
 ### Input claims
 
-In a display control, you can use **InputClaims** elements to prepopulate the value of claims to collect from the user on the page. Any **InputClaimsTransformations** can be defined in the self asserted technical profile which references this display control.
+In a display control, you can use **InputClaims** elements to prepopulate the value of claims to collect from the user on the page. Any **InputClaimsTransformations** can be defined in the self-asserted technical profile which references this display control.
 
-In the example below, you can prepopulate the email address to be verified with the one already present.
+The example below prepopulates the email address to be verified with the one already present.
 
 ```XML
 <DisplayControl Id="emailControl" UserInterfaceControlType="VerificationControl">
@@ -71,7 +72,7 @@ In the example below, you can prepopulate the email address to be verified with 
 
 ### Display claims
 
-Similar to the **display claims** defined in [self-asserted technical profile](self-asserted-technical-profile.md#display-claims), the display claims are representing the claims to be collected from the user within this display control. The **ClaimType** element referenced needs to set the **UserInputType** element to any user input type supported by Azure AD B2C, such as `TextBox` or `DropdownSingleSelect`. If a display claim value is required by an **Action**, set the **Required** attribute to `true` to force the user to provide a value for that specific display claim.
+Similar to the **display claims** defined in a [self-asserted technical profile](self-asserted-technical-profile.md#display-claims), the display claims are representing the claims to be collected from the user within this display control. The **ClaimType** element referenced needs to set the **UserInputType** element to any user input type supported by Azure AD B2C, such as `TextBox` or `DropdownSingleSelect`. If a display claim value is required by an **Action**, set the **Required** attribute to `true` to force the user to provide a value for that specific display claim.
 
 Certain display claims are required for certain types of display control. For example, **VerificationCode** is required for the display control of type **VerificationControl**. Use the attribute **ControlClaimType** to specify which DisplayClaim is designated for that required claim. For example:
 
@@ -85,7 +86,7 @@ The **output claims** of a display control are not outputted to the next orchest
 
 To bubble up the output the claims to the next orchestration step, use the **OutputClaims** of the actual self-asserted technical profile which references this display control.
 
-### Display Control Actions
+### Display control Actions
 
 The **Actions** of a display control are procedures happening at the backend when a user performs certain action in the client side  (the browser). For example, what validations to perform when the user clicks a button on the page. Each type of **display control** requires different set of display claims, output claims and actions to be performed.
 
