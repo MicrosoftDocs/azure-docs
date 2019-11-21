@@ -1,7 +1,6 @@
 ---
 # aka.ms/skyeye/meta for more information
 layout: HubPage
-hide_bc: false
 ms.date: 11-21-2019
 ms.topic: hub-page
 title: Speech Service Documentation
@@ -862,7 +861,7 @@ description: Get started with the Speech Services.
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Orchestrate Speech containers with Kubernetes & Helm</h3>
+                                                    <h3>Orchestration with Kubernetes & Helm</h3>
                                                     <p>Leverage industry-leading container orchestration, with on-premises Kubernetes clusters and Speech containers.</p>
                                                 </div>
                                             </div>
@@ -911,7 +910,7 @@ description: Get started with the Speech Services.
                         </ul>
                     </li>
                     <li>
-                        <a href="#misc-architecture">Misc</a>
+                        <a href="#misc-architecture">Design Scenarios</a>
                         <ul id="misc-architecture" class="cardsC">
                             <li>
                                 <a href="call-center-transcription.md">
