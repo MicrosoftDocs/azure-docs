@@ -36,13 +36,6 @@ The file share mounts as `clouddrive` in your `$Home` directory. This is a one-t
 
 The file share also contains a 5-GB image that is created for you which automatically persists data in your `$Home` directory. This applies for both Bash and PowerShell.
 
-## Securing storage access
-For security, each user should provision their own storage account.  For role-based access control (RBAC), users must have contributor access or above at the storage account level.
-
-Cloud Shell uses an Azure File Share in a storage account, inside a specified subscription. Due to inherited permissions, users with sufficient access rights to the subscription will be able to access all the storage accounts, and file shares contained in the subscription.
-
-Users should lock down access to their files by setting the permissions at the storage account or the subscription level.
-
 ## Use existing resources
 
 By using the advanced option, you can associate existing resources. When selecting a Cloud Shell region you must select a backing storage account co-located in the same region. For example, if your assigned region is West US than you must associate a file share that resides within West US as well.
@@ -54,7 +47,14 @@ When the storage setup prompt appears, select **Show advanced settings** to view
 
 ![The Resource group setting](media/persisting-shell-storage/advanced-storage.png)
 
-### Supported storage regions
+## Securing storage access
+For security, each user should provision their own storage account.  For role-based access control (RBAC), users must have contributor access or above at the storage account level.
+
+Cloud Shell uses an Azure File Share in a storage account, inside a specified subscription. Due to inherited permissions, users with sufficient access rights to the subscription will be able to access all the storage accounts, and file shares contained in the subscription.
+
+Users should lock down access to their files by setting the permissions at the storage account or the subscription level.
+
+## Supported storage regions
 Associated Azure storage accounts must reside in the same region as the Cloud Shell machine that you're mounting them to. To find your current region you may run `env` in Bash and locate the variable `ACC_LOCATION`. File shares receive a 5-GB image created for you to persist your `$Home` directory.
 
 Cloud Shell machines exist in the following regions:
