@@ -8,11 +8,11 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/15/2019
+ms.date: 11/21/2019
 ms.author: dapine
 ---
 
-# Install and run Speech Service containers
+# Install and run Speech Service containers (Preview)
 
 Containers enable you to run some of the Speech Service APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run a Speech container.
 
@@ -150,10 +150,10 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-t
 
 #### Speech-to-text locales
 
-All tags, except for `latest` are in the following format, where the `<culture>` indicates the locale container:
+All tags, except for `latest` are in the following format and are case-sensitive:
 
 ```
-<major>.<minor>.<patch>-<platform>-<culture>-<prerelease>
+<major>.<minor>.<patch>-<platform>-<locale>-<prerelease>
 ```
 
 The following tag is an example of the format:
@@ -192,10 +192,10 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 
 #### Text-to-speech locales
 
-All tags, except for `latest` are in the following format, where the `<culture>` indicates the locale and the `<voice>` indicates the voice of the container:
+All tags, except for `latest` are in the following format and are case-sensitive:
 
 ```
-<major>.<minor>.<patch>-<platform>-<culture>-<voice>-<prerelease>
+<major>.<minor>.<patch>-<platform>-<locale>-<voice>-<prerelease>
 ```
 
 The following tag is an example of the format:
