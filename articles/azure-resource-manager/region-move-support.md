@@ -4,13 +4,13 @@ description: Lists the Azure resource types that can be moved across Azure regio
 author: rayne-wiselman
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 11/11/2019
+ms.date: 11/21/2019
 ms.author: raynew
 ---
 
 # Support for moving Azure resources across regions
 
-This article lists whether an Azure resource type is supported for moving to another Azure region. It also provides information about special conditions to consider when moving a resource.
+This article confirms whether an Azure resource type is supported for moving to another Azure region. 
 
 Jump to a resource provider namespace:
 > [!div class="op_single_selector"]
