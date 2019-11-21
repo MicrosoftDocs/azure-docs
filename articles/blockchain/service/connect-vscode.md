@@ -1,11 +1,11 @@
 ---
-title: Use Visual Studio Code to connect to an Azure Blockchain Service consortium network
+title: Use Visual Studio Code to connect to Azure Blockchain Service
 description: Connect to an Azure Blockchain Service consortium network using the Azure Blockchain Development Kit for Ethereum extension in Visual Studio Code
 services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 11/18/2019
+ms.date: 11/19/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: chrisseg
@@ -32,7 +32,7 @@ In this quickstart, you install and use the Azure Blockchain Development Kit for
 
 On Windows, an installed C++ compiler is required for the node-gyp module. You can use the MSBuild tools:
 
-* If Visual Studio 2017 is installed, configure npm to use the MSBuild tools using the command `npm config set msvs_version 2017 -g`
+* If Visual Studio 2017 is installed, configure npm to use the MSBuild tools with the command `npm config set msvs_version 2017 -g`
 * If Visual Studio 2019 is installed, set the MS build tools path for npm. For example, `npm config set msbuild_path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe"`
 * Otherwise, install the stand-alone VS Build tools using `npm install --global windows-build-tools` in an elevated *Run as administrator* command shell.
 
@@ -76,7 +76,7 @@ The consortium and blockchain members are listed in the Visual Studio explorer s
 
 ## Next steps
 
-In this quickstart, you used Azure Blockchain Development Kit for Ethereum Visual Studio Code extension to attach to a consortium on Azure Blockchain Service. Try a tutorial to use Azure Blockchain Development Kit for Ethereum to create, build, deploy, and execute a smart contract function.
+In this quickstart, you used Azure Blockchain Development Kit for Ethereum Visual Studio Code extension to attach to a consortium on Azure Blockchain Service. Try the next tutorial to use Azure Blockchain Development Kit for Ethereum to create, build, deploy, and execute a smart contract function via a transaction.
 
 > [!div class="nextstepaction"]
 > [Use Visual Studio Code to create, build, and deploy smart contracts](send-transaction.md)
