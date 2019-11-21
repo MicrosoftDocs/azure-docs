@@ -1,10 +1,10 @@
 ---
 title: Common questions about Azure Migrate
-description: Addresses common and frequently asked questions about Azure Migrate
+description: Get answers to common questions about the Azure Migrate service.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 11/21/2019
 ms.author: snehaa
 ---
 
@@ -113,16 +113,10 @@ Server Assessment provides assessment to help with migration readiness, and eval
 
 ### What's the difference between Server Assessment and the Site Recovery Deployment Planner?
 
-Server Assessment is a migration planning tool. The Site Recovery Deployment Planner is a disaster recovery planning tool. 
+Server Assessment is a migration planning tool. The Site Recovery Deployment Planner is a disaster recovery planning tool.
 
 - **Plan on-premises migration to Azure**: If you plan to migrate your on-premises servers to Azure, use Server Assessment for migration planning. It assesses on-premises workloads and provides guidance and tools to help you migrate. After the migration plan is in place, you can use tools, including Azure Migrate Server Migration, to migrate the machines to Azure.
 - **Plan disaster recovery to Azure**: If you plan to set up disaster recovery from on-premises to Azure with Site Recovery, use the Site Recovery Deployment Planner. The Deployment Planner provides a deep, Site Recovery-specific assessment of your on-premises environment for the purpose of disaster recovery. It provides recommendations around disaster recovery, such as replication and failover.
-
-### Does Azure Migrate estimate costs for the Enterprise Agreement (EA) program?
-
-Azure Migrate Server Assessment currently doesn't support cost estimations for the [Enterprise Agreement program](https://azure.microsoft.com/offers/enterprise-agreement-support/). As a workaround, when you create an assessment, you can specify **Pay-As-You-Go** as the **Offer**, and manually add the discount percentage (applicable to the subscription) as the **Discount** in the assessment properties:
-
-  ![Assessment properties](./media/resources-faq/discount.png)
 
 ### What's the difference between as-on-premises and performance-based sizing?
 

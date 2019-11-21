@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: How to enroll X.509 device to the Azure Device Provisioning Service using C#"
+title: Enroll X.509 device to Azure Device Provisioning Service using C#
 description: This quickstart uses group enrollments. In this quickstart, enroll X.509 devices to the Azure IoT Hub Device Provisioning Service using C#.
 author: wesmc7777
 ms.author: wesmc
@@ -7,7 +7,6 @@ ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
-manager: philmea
 ms.devlang: csharp
 ms.custom: mvc
 ---
