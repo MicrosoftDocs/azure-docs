@@ -11,7 +11,7 @@ ms.author: v-todmc
 ---
 
 
-# HDI Insights: Create Cluster Error Dictionary 
+# HDInsight: Cluster creation errors
 
 This article describes resolutions to errors encountered when creating clusters. 
 
