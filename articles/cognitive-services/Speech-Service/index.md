@@ -595,6 +595,87 @@ description: Get started with the Speech Services.
                             </li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="#support">Support</a>
+                        <ul id="support" class="cardsC">
+                            <li>
+                                <a href="https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="https://docs.microsoft.com/media/logos/logo_azure.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure support</h3>
+                                                    <p>Explore the range of Azure support options and choose the plan that best fits your needs.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://stackoverflow.com/questions/tagged/microsoft-cognitive">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="https://docs.microsoft.com/media/logos/logo_stackoverflow.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Stack Overflow</h3>
+                                                    <p>	For immediate answers from the community, look to Stack Overflow as the preferred channel for development related questions.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://cognitive.uservoice.com/forums/912208-speech-service">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="https://docs.microsoft.com/media/logos/logo-uservoice.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>UserVoice forum</h3>
+                                                    <p>Share your ideas for making Speech Services and the accompanying APIs work better for the applications you develop.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="releasenotes.md">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="https://docs.microsoft.com/media/common/i_whats-new.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>What's new?</h3>
+                                                    <p>When developing a Speech Services solution learn what changes are happening to the SDKs and REST APIs with release notes.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
             <li>
@@ -925,25 +1006,6 @@ description: Get started with the Speech Services.
                                                 <div class="cardText">
                                                     <h3>Designing for telephony data with Speech Services</h3>
                                                     <p>Learn how to use the appropriate technologies available from Speech Services for telephony data application scenarios.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="releasenotes.md">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_reference.jpg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>What's new?</h3>
-                                                    <p>When developing a Speech Services solution learn what changes are happening to the SDKs and REST APIs with release notes.</p>
                                                 </div>
                                             </div>
                                         </div>
