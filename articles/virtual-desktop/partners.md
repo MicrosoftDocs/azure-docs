@@ -31,7 +31,7 @@ Cloudhouse is a Windows Virtual Desktop value-added services provider that offer
 
 By leveraging proven Cloudhouse containerization technology, the Cloudhouse service takes all applications, including ones designed for Windows XP, Windows 7, or Windows 8, and deploys them to a modern Windows Virtual Desktop without needing to change code or impact user experience. Cloudhouse further adds to the value of Windows Virtual Desktop by isolating applications from the underlying operating system, allowing Windows Servicing updates to be rolled out without affecting the containerized application. 
 
-- [Go to the partner website](https://cloudhouse.com/resources/migrate-everything-to-windows-10-on-microsoft-windows-virtua)
+- [Go to the partner website](https://cloudhouse.com/resources/migrate-everything-to-windows-10-on-microsoft-windows-virtua).
 
 ## VMware
 
