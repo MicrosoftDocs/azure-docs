@@ -29,11 +29,51 @@ Use the Language Understanding (LUIS) authoring client library for .NET to:
 * Language Understanding (LUIS) portal account - [Create one for free](https://www.luis.ai)
 * The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 
+
 ## Setting up
 
 ### Get your Language Understanding (LUIS) starter key
 
-Get your [starter key](luis-how-to-azure-subscription.md#starter-key), and [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `COGNITIVESERVICE_AUTHORING_KEY`.
+Get your [starter key](luis-how-to-azure-subscription.md#starter-key) by creating a LUIS authoring resource. Keep your key, and the region of the key for the next step.
+
+### Create an environment variable
+
+Using your key, and the region for the key, create two environment variables for authentication:
+
+* `COGNITIVESERVICE_AUTHORING_KEY` - The resource key for authenticating your requests.
+* `COGNITIVESERVICE_REGION` - The region associated with your key. For example `westus`.
+
+Use the instructions for your operating system.
+
+#### [Windows](#tab/windows)
+
+```console
+setx COGNITIVESERVICE_AUTHORING_KEY <replace-with-your-authoring-key>
+setx COGNITIVESERVICE_REGION <replace-with-your-authoring-region>
+```
+
+After you add the environment variable, restart the console window.
+
+#### [Linux](#tab/linux)
+
+```bash
+export COGNITIVESERVICE_AUTHORING_KEY=<replace-with-your-authoring-key>
+export COGNITIVESERVICE_REGION=<replace-with-your-authoring-region>
+```
+
+After you add the environment variable, run `source ~/.bashrc` from your console window to make the changes effective.
+
+#### [macOS](#tab/unix)
+
+Edit your `.bash_profile`, and add the environment variable:
+
+```bash
+export COGNITIVESERVICE_AUTHORING_KEY=<replace-with-your-authoring-key> 
+export COGNITIVESERVICE_REGION=<replace-with-your-authoring-region>
+```
+
+After you add the environment variable, run `source .bash_profile` from your console window to make the changes effective.
+***
 
 ### Create a new C# application
 

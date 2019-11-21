@@ -32,10 +32,6 @@ You can find more details on the developer portal in the [Azure API Management d
 
 ![API Management developer portal - admin mode](media/api-management-howto-developer-portal-customize/cover.png)
 
-> [!WARNING]
-> The developer portal is currently being rolled out to API Management services.
-> If your service is newly created or is a Developer tier service, you should already have the latest version. Otherwise, you might experience problems (for example, with the publishing functionality). The feature rollout is expected to complete by Friday November 22nd, 2019. 
-
 ## Prerequisites
 
 - Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md)
