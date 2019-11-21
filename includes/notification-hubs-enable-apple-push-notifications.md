@@ -105,7 +105,7 @@ To send push notifications to an iOS app, register your application with Apple, 
     You can choose to protect the certificate with a password, but this is optional. Click **OK** if you want to bypass password creation. Make a note of the file name and location of the exported .p12 certificate. They are used to enable authentication with APNs.
 
     > [!NOTE]
-    > This tutorial creates a file named **FirstTutorialCert.p12**. Your file name and location might be different.
+    > Your .p12 file name and location might be different than what is pictured in this tutorial.
 
 ## Create a provisioning profile for the app
 
