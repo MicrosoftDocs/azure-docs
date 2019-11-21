@@ -624,8 +624,10 @@ DDoS protection is automatically enabled as part of the Azure Platform. It inclu
   - Disable RDP and SSH from Internet to prevent brute force attack. 
 
 ## Monitoring, Logging, and Auditing  
+This section refers to capabilities to help you detect anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. It also describes best practices to configure database auditing to track and capture database events.
 
 ### Protect databases against attacks 
+Advanced threat protection enables you to detect and respond to potential threats as they occur by providing security alerts on anomalous activities.
 
 **How to implement**:
 
@@ -642,7 +644,7 @@ DDoS protection is automatically enabled as part of the Azure Platform. It inclu
 - For a full investigation experience, it's recommended to enable [SQL Database Auditing](sql-database-auditing.md) to track database events and write them to an audit log in an Azure storage account or Azure Log Analytics workspace. 
 
 ### Audit critical security events
-
+Tracking of database events helps you understand database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations. It also enables and facilitates adherence to compliance standards. 
 **How to implement**:
 
 - Enable [SQL Database Auditing](sql-database-auditing.md) to track database events and write them to an audit log in your Azure storage account, Log Analytics workspace, or Event Hubs. 
@@ -668,6 +670,7 @@ DDoS protection is automatically enabled as part of the Azure Platform. It inclu
 - [SQL Server Auditing](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) 
 
 ### Secure audit logs
+To support separation of duties and to separate DBA from Auditors, it is key to take measures to restrict access to the storage account. 
 
 **How to implement**:
 
@@ -683,7 +686,11 @@ DDoS protection is automatically enabled as part of the Azure Platform. It inclu
 
 ## Security Management
 
+This section describes the different aspects and best practices for managing your databases security posture. It includes best practices for ensuring your databases are configures to meet security standards, for discovering and for classifying and tracking access to potentially sensitive data in your databases. 
+
 ### Ensure that the database(s) are configured to meet security best practices 
+
+Proactively improve your database security by discovering and remediating potential database vulnerabilities.
 
 **How to implement**:
 
@@ -706,6 +713,8 @@ DDoS protection is automatically enabled as part of the Azure Platform. It inclu
 
 ### Identify and tag sensitive data 
 
+Discover columns that potentially contain sensitive data. Classify the columns to utilize advanced sensitivity-based auditing and protection scenarios. 
+
 **How to implement**:
 
 - Use [SQL Data Discovery and Classification](sql-database-data-discovery-and-classification.md) to discover, classify, label, and protect the sensitive data in your databases. 
@@ -722,7 +731,7 @@ DDoS protection is automatically enabled as part of the Azure Platform. It inclu
 - Use classification in a way that is tailored to the specific needs of your organization. Customize your Information Protection policy (sensitivity labels, information types, discovery logic) in the [SQL Information Protection](../security-center/security-center-info-protection-policy.md) policy in Azure Security Center. 
 
 ### Track access to sensitive data 
-
+Monitor who accesses sensitive data and queries they run on sensitive data.
 **How to implement**:
 
 - Use SQL Audit and Data Classification in combination. 
@@ -735,6 +744,8 @@ DDoS protection is automatically enabled as part of the Azure Platform. It inclu
   - [Identify and tag sensitive data](#identify-and-tag-sensitive-data) 
 
 ### Visualize security and compliance status 
+
+Use a unified infrastructure security management system that strengthens the security posture of your data centers (including SQL databases). View a list of recommendations concerning the security of your databases and compliance status.
 
 **How to implement**:
 
