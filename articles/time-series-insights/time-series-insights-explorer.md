@@ -114,7 +114,7 @@ Within minutes of connecting your event source to your Time Series Insights envi
     - **Patterns**: This feature proactively surfaces the most statistically significant patterns in a selected data region. You don't have to look at thousands of events to understand what patterns require the most time and energy. With Time Series Insights, you can jump directly into these statistically significant patterns to continue conducting an analysis. This feature is also helpful for post-mortem investigations into historical data.
     - **Column Stats**: Column stats provide charts and tables that break down data from each column of the selected data series over the selected timespan.
 
-      [![STATS](media/time-series-insights-explorer/tsi-ga-explorer-stat-column.png)](media/time-series-insights-explorer/tsi-ga-explorer-stat-column.png#lightbox)
+      [![STATS column charting and options](media/time-series-insights-explorer/tsi-ga-explorer-stat-column.png)](media/time-series-insights-explorer/tsi-ga-explorer-stat-column.png#lightbox)
 
 Now you've seen the various features and options that are available within the Time Series Insights explorer web app.
 
