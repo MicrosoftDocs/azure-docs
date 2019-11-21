@@ -47,7 +47,7 @@ Languages:
 
 ### Phone Number
 
-Phone numbers. 
+Phone numbers (US Phone numbers only). 
 
 Languages:
 
@@ -56,7 +56,7 @@ Languages:
 
 | Subtype name | Description                                  |
 |----------|----------------------------------------------|
-| N/A         | Phone numbers, for example `+1 123-123-123`. |
+| N/A         | US phone numbers, for example `(312) 555-0176`. |
 
 ### Email
 

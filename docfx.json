@@ -487,7 +487,10 @@
         "articles/terraform/**/*.yml" : "Terraform",
         "articles/azure-resource-manager/**/*.md": "Azure Resource Manager",
         "articles/site-recovery/**/*.md": "Azure Site Recovery",
-        "articles/migrate/**/*.md": "Azure Migrate"
+        "articles/migrate/**/*.md": "Azure Migrate",
+        "articles/spatial-anchors/**/*.md": "Azure Spatial Anchors",
+        "articles/spatial-anchors/**/*.yml": "Azure Spatial Anchors",
+        "articles/dev-spaces/**/*.md": "Azure Dev Spaces"
       },
       "featureFlags": {
         "articles/**/*.md": [
