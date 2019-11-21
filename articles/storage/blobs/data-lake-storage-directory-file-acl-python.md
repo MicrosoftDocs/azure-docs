@@ -14,7 +14,7 @@ ms.reviewer: prishet
 
 This article shows you how to use Python to create and manage directories, files, and permissions in storage accounts that have a hierarchical namespace. 
 
-[Library source code](https://github.com/Azure/azure-sdk-for-python) | [Package (Python Package Index)](https://pypi.org/project/azure-storage-file-datalake/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples)
+[API reference documentation](https://azure.github.io/azure-sdk-for-python/ref/Storage.html) | [Library source code](https://github.com/Azure/azure-sdk-for-python) | [Package (Python Package Index)](https://pypi.org/project/azure-storage-file-datalake/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples)
 
 ## Prerequisites
 
@@ -262,6 +262,8 @@ def list_directory_contents():
 
 ## See also
 
+* [Mapping between Azure Data Lake Storage Gen1 and Azure Data Lake Storage Gen2 APIs](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
+* [API reference documentation](https://azure.github.io/azure-sdk-for-python/ref/Storage.html) 
 * [Library source code](https://github.com/Azure/azure-sdk-for-python)
 * [Package (Python Package Index)](https://pypi.org/project/azure-storage-file-datalake/)
 * [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples)
