@@ -20,7 +20,7 @@ In this tutorial, you'll complete these steps:
 > - Inspect the new resource group
 > - Unassign the blueprint to remove the locks
 
-## Prequisites
+## Prerequisites
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
 before you begin.

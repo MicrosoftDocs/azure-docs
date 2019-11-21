@@ -11,7 +11,7 @@ reusable and rapidly deployable configurations based on Azure Resource Manager t
 security, and more. In this tutorial, you learn to use Azure Blueprints to do some of the common
 tasks related to creating, publishing, and assigning a blueprint within your organization. These tasks include:
 
-## Prequisites
+## Prerequisites
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
 before you begin.
