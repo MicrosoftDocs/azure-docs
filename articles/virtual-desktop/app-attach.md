@@ -33,8 +33,8 @@ First, you need to get the OS image you'll use for the MSIX app. To get the OS i
 
 1. Open the [Windows Insider portal](https://www.microsoft.com/software-download/windowsinsiderpreviewadvanced?wa=wsignin1.0) and sign in.
 
-    >[!NOTE]
-    >You must be member of the Windows Insider program to access the Windows Insider portal. To learn more about the Windows Insider program, check out our [Windows Insider documentation](https://docs.microsoft.com/windows-insider/at-home/).
+     >[!NOTE]
+     >You must be member of the Windows Insider program to access the Windows Insider portal. To learn more about the Windows Insider program, check out our [Windows Insider documentation](https://docs.microsoft.com/windows-insider/at-home/).
 
 2. Scroll down to the **Select edition** section and select **Windows 10 Insider Preview Enterprise (FAST) – Build XXXXX**.
 
