@@ -58,10 +58,9 @@ Follow these instructions to deploy the Azure Resource Management template:
 ### Guidance for template parameters
 Here's how to enter parameters for configuring the tool:
 
-- This is the RD broker URL:  https:\//rdbroker.wvd.microsoft.com/
-- This is the resource URL:  https:\//mrs-prod.ame.gbl/mrs-RDInfra-prod
-- Use your AAD credentials with MFA disabled to sign in to Azure. See [What you need to run the Azure Resource Manager template](#what-you-need-to-run-the-azure-resource-manager-template).
-- Use a unique name for the application that will be registered in your Azure Active Directory for the management tool; for example, Apr3UX.
+- For the **isServicePrincipal** parameter, select **false**.
+- For the credentials, enter the Azure AD credentials with MFA disabled which will be used to sign in to Azure to create the Azure AD application and Azure web app resources. See [What you need to run the Azure Resource Manager template](#what-you-need-to-run-the-azure-resource-manager-template).
+- For the **applicationName**, use a unique name for the application that will be registered in your Azure Active Directory for the management tool and which will be used for the web app URL; for example, Apr3UX.
 
 ## Provide consent for the management tool
 
