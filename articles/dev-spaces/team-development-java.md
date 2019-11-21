@@ -1,8 +1,7 @@
 ---
 title: "Team development with Azure Dev Spaces using Java and VS Code"
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
+
 author: stepro
 ms.author: stephpr
 ms.date: 08/01/2018
