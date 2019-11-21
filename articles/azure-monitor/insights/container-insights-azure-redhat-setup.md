@@ -6,7 +6,7 @@ ms.subservice:
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 11/18/2019
+ms.date: 11/21/2019
 ---
 
 # Configure Azure Red Hat OpenShift clusters with Azure Monitor for containers
@@ -28,7 +28,7 @@ Azure Monitor for containers supports monitoring Azure Red Hat OpenShift as desc
 
 - Live data
 - Prometheus metrics scraping
-- Collect metrics from cluster nodes and pods and writing them to the Azure Monitor metrics store
+- [Collect metrics](container-insights-update-metrics.md) from cluster nodes and pods and storing them in the Azure Monitor metrics database
 - Health feature
 
 ## Prerequisites
