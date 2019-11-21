@@ -136,6 +136,10 @@ As a solution builder, you can define custom rules and actions that operate over
 
 Administrators manage access to your application with [user roles and permissions](howto-administer.md).
 
+## Quotas
+
+Each Azure subscription has default quotas that could impact the scope of your IoT solution. Currently, IoT Central limits the number of applications you can deploy in a subscription to 10. If you need to increase this limit, contact [Microsoft support](https://azure.microsoft.com/support/options/).
+
 ## Next steps
 
 Now that you have an overview of IoT Central, here are suggested next steps:
