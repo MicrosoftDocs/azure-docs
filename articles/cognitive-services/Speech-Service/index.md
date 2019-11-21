@@ -852,13 +852,13 @@ description: Get started with the Speech Services.
                                 </a>
                             </li>
                             <li>
-                                <a href="speech-container-howto-on-premises">
+                                <a href="speech-container-howto-on-premises.md">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
+                                                        <img src="media/hub/speech_generic_reference.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -902,6 +902,49 @@ description: Get started with the Speech Services.
                                                 <div class="cardText">
                                                     <h3>Deploy Custom Text-to-speech Docker container</h3>
                                                     <p>Learn how to deploy custom model speech synthesis functionality as a container image.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#misc-architecture">Misc</a>
+                        <ul id="misc-architecture" class="cardsC">
+                            <li>
+                                <a href="call-center-transcription.md">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Designing for telephony data with Speech Services</h3>
+                                                    <p>Learn how to use the appropriate technologies available from Speech Services for telephony data application scenarios.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="releasenotes.md">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech_generic_reference.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>What's new?</h3>
+                                                    <p>When developing a Speech Services solution learn what changes are happening to the SDKs and REST APIs with release notes.</p>
                                                 </div>
                                             </div>
                                         </div>
