@@ -46,7 +46,7 @@ Running the pre-registration script sets the required permissions to allow Azure
 
 ### Will backups work after migrating SAP HANA from 1.0 to 2.0?
 
-Refer to [this section of the troubleshooting guide](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#upgrading-from-sap-hana-10-to-20).
+Refer to [this section](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#upgrading-from-sap-hana-10-to-20) of the troubleshooting guide.
 
 ## Restore
 

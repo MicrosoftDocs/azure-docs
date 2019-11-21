@@ -198,7 +198,7 @@ You have now successfully configured backup(s) for your SAP HANA database(s).
 
 ## Next Steps
 
-* [Learn how](backup-azure-sap-hana-database.md#run-an-on-demand-backup) to run on-demand backups on SAP HANA databases running on Azure VMs
-* [Learn how](sap-hana-db-restore.md) to Restore SAP HANA databases running on Azure VMs
-* [Learn how](sap-hana-db-manage.md) to manage SAP HANA databases that are backed up using Azure Backup
-* [Learn how](backup-azure-sap-hana-database-troubleshoot.md) to troubleshoot common issues when backing up SAP HANA databases
+* Learn how to [run on-demand backups on SAP HANA databases running on Azure VMs](backup-azure-sap-hana-database.md#run-an-on-demand-backup)
+* Learn how to [restore SAP HANA databases running on Azure VMs](sap-hana-db-restore.md)
+* Learn how to [manage SAP HANA databases that are backed up using Azure Backup](sap-hana-db-manage.md)
+* Learn how to [troubleshoot common issues when backing up SAP HANA databases](backup-azure-sap-hana-database-troubleshoot.md)

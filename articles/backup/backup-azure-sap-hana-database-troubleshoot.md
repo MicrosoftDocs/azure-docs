@@ -24,7 +24,7 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 | UserErrorHANALSNValidationFailure | Backup log chain is broken | The log backup destination may have  been updated from backint to file system or the backint executable may have  been changed | Trigger a full backup to resolve the  issue |
 | UserErrorIncomaptibleSrcTargetSystsemsForRestore | The source and target systems for restore are incompatible | The target system for restore is  incompatible with the source | Refer to the SAP Note [1642148](https://launchpad.support.sap.com/#/notes/1642148) to learn  about the restore types supported today |
 | UserErrorSDCtoMDCUpgradeDetected | SDC to MDC upgrade detected | The SAP HANA instance has been upgraded  from SDC to MDC. Backups will fail after the update. | Follow the steps listed in the [Upgrading from SAP HANA 1.0 to 2.0 section](#upgrading-from-sap-hana-10-to-20) to resolve the issue |
-| UserErrorInvalidBackintConfiguration | Detected invalid backint configuration | The backing parameters are incorrectly  specified for Azure backup | Check whether the parameters are set. If backint-based parameters are present in HOST, remove  them. If parameters aren't present at HOST level but have been manually  modified at a database level, revert them to the appropriate values as  described earlier. Or, run **Stop protection  and retain backup data** from the Azure portal, and then select **Resume backup**. |
+| UserErrorInvalidBackintConfiguration | Detected invalid backint configuration | The backing parameters are incorrectly  specified for Azure backup | Check if the following (backint) parameters are set: <br> * [catalog_backup_using_backint:true] <br>  * [enable_accumulated_catalog_backup:false] <br> * [parallel_data_backup_backint_channels:1] <br>* [log_backup_timeout_s:900)] <br> * [backint_response_timeout:7200] <br> If backint-based parameters are present in HOST, remove  them. If parameters aren't present at HOST level but have been manually  modified at a database level, revert them to the appropriate values as  described earlier. Or, run  [stop protection and retain backup data](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) from the Azure portal, and then select **Resume backup**. |
 
 ## Restore checks
 
@@ -63,7 +63,7 @@ Upgrades to OS or SAP HANA that don't cause a SID change can be handled as outli
 
 - [Stop protection](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) with retain data for the database
 - Rerun the [pre-registration script](https://aka.ms/scriptforpermsonhana)
-- [Resume protection]((sap-hana-db-manage.md#resume-protection-for-an-sap-hana-database) for the database again
+- [Resume protection](sap-hana-db-manage.md#resume-protection-for-an-sap-hana-database) for the database again
 
 ## Next steps
 

@@ -154,5 +154,5 @@ If you want to take a local backup (using HANA Studio) of a database that's bein
 
 ## Next steps
 
-* [Learn how](https://docs.microsoft.com/azure/backup/sap-hana-db-restore) to Restore SAP HANA databases running on Azure VMs
-* [Learn how](https://docs.microsoft.com/azure/backup/sap-hana-db-manage) to manage SAP HANA databases that are backed up using Azure Backup
+* Learn how to [restore SAP HANA databases running on Azure VMs](https://docs.microsoft.com/azure/backup/sap-hana-db-restore)
+* Learn how  to [manage SAP HANA databases that are backed up using Azure Backup](https://docs.microsoft.com/azure/backup/sap-hana-db-manage)

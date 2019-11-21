@@ -169,4 +169,5 @@ Unregister an SAP HANA instance after you disable protection but before you dele
 
 ## Next steps
 
-* [Learn how](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot) to troubleshoot common issues when backing up SAP HANA databases.
+* Learn how to [troubleshoot common issues when backing up SAP HANA databases.](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot)
+
