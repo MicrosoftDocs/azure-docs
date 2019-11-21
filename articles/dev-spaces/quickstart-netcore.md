@@ -1,6 +1,5 @@
 ---
 title: "Debug and iterate with Visual Studio Code and .NET Core on Kubernetes using Azure Dev Spaces (Visual Studio Code)"
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.date: 07/08/2019
 ms.topic: quickstart

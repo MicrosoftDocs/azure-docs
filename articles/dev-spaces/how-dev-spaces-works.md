@@ -1,6 +1,5 @@
 ---
 title: "How Azure Dev Spaces works and is configured"
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.date: 03/04/2019
 ms.topic: "conceptual"
