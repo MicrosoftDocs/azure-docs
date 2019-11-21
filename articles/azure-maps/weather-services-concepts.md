@@ -47,7 +47,7 @@ Some of the Weather service APIs allow user to specify if the data is returned e
 
 ## Weather icons
 
-Some of the Weather service APIs return icon codes (iconCode) in the response, which is a numeric value that can be used to define the logo. Please do not link directly to these images from your applications, the URLs can and will change.
+Some of the Weather service APIs return icon codes (iconCode) in the response, a numeric value that can be used to define the logo. Please do not link directly to these images from your applications, the URLs can and will change.
 
 | Icon Number |Icon| Day | Night | Text |
 |-------------|:----:|-----|-------|------|
@@ -120,7 +120,7 @@ The table below provides guidance to interpret the radar images and create a map
 | #8a32d7        | ![](./media/weather-services-concepts/color-8a32d7.png) | Mix-Heavy |
 | #6500ba        | ![](./media/weather-services-concepts/color-6500ba.png) | Mix-Severe |
 
-Detailed color palette for radar tiles with Hex color codes and dBZ values is showed below. dBZ represents precipitation intensity in weather radar. 
+Detailed color palette for radar tiles with Hex color codes and dBZ values is shown below. dBZ represents precipitation intensity in weather radar. 
 
 | **RAIN**             | **ICE**              | **SNOW**              | **MIXED**             |
 |----------------------|----------------------|-----------------------|-----------------------|
