@@ -315,7 +315,4 @@ $ContractConnection | Set-BlockchainMemberInvitation -SubscriptionId <Azure subs
 
 ## Next steps
 
-For more information about consortia, members, and nodes, see:
-
-> [!div class="nextstepaction"]
-> [Azure Blockchain Service consortium](consortium.md)
+For more information about consortia, members, and nodes, see [Azure Blockchain Service consortium](consortium.md)
