@@ -106,15 +106,15 @@ public SignalRConnectionInfo negotiate(
 
 # [C# Script](#tab/csharp-script)
 
-**TODO**
+Attributes are not supported by C# Script.
 
 # [JavaScript](#tab/javascript)
 
-**TODO**
+Attributes are not supported by JavaScript.
 
 # [Python](#tab/python)
 
-**TODO**
+Attributes are not supported by Python.
 
 # [Java](#tab/java)
 
@@ -211,7 +211,6 @@ public SignalRConnectionInfo negotiate(
 ```
 
 ---
-
 
 ## Output
 
