@@ -5,23 +5,15 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 11/20/2019
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: seal
+ms.reviewer: janders
 manager: femila
 #Customer intent: As a network operator, I want to use the Azure portal to create and configure transaction nodes.
 ---
 
 # Configure Azure Blockchain Service transaction nodes
-
-To interact with Azure Blockchain Service, you do so through connecting to one or more transaction nodes in your blockchain member.  In order to interact with transaction nodes, you will need to configure your nodes for access.
-
-## Prerequisites
-
-* [Create an Azure Blockchain member](create-member.md)
-
-## Transaction node overview
 
 Transaction nodes are used to send blockchain transactions to Azure Blockchain Service through a public endpoint. The default transaction node contains the private key of the Ethereum account registered on the blockchain, and as such cannot be deleted.
 
@@ -135,9 +127,9 @@ You can view a transaction node's connection strings and copy endpoint addresses
 
 Sample code is provided to quickly enable connecting to your transaction node via Web3, Nethereum, Web3js, and Truffle.
 
-You can view a transaction node's sample connection code and copy it to use with popular developer tools. Navigate to one of your Azure Blockchain Service member transaction nodes and select **Sample Code** in settings.
+You can view a transaction node's sample connection code and copy it to use with popular developer tools. Go to one of your Azure Blockchain Service member transaction nodes and select **Sample Code** in settings.
 
-Choose the Web3 or Nethereum tab to view the code sample you want to use.
+Choose the Web3, Nethereum, Truffle, or Web3j tab to view the code sample you want to use.
 
 ![Sample code](./media/configure-transaction-nodes/sample-code.png)
 
