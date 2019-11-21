@@ -18,7 +18,7 @@ This article describes resolutions to errors encountered when creating clusters.
 ## Scenario: DeploymentDocument 'CsmDocument_2_0' failed the validation  
 
 ### Issue
-'Script Action location cannot be accessed Uri : &lt;SCRIPT ACTION URL&gt;, ErrorMessage: The remote server returned an error: (404) Not Found.', 
+'Script Action location cannot be accessed at the provided URL. You receive an error message: "The remote server returned an error: (404) Not Found."
 
 ### Cause
 The Script Action URL that is provided as part of the Create Cluster request is not accessible from HDInsight service. We receive the “ErrorMessage” when we try to access the script action.
