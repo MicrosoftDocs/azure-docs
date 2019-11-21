@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Send a query to the Bing Local Business Search API using Node.js
 titleSuffix: Azure Cognitive Services
-description: Start using the Bing Local Business Search API in Node.
+description: Use this quickstart to begin sending requests to the Bing Local Business Search API, which is an Azure Cognitive Service.
 services: cognitive-services
 author: aahill
 manager: nitinme

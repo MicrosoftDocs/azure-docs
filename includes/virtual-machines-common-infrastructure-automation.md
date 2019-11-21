@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
 ---
-# Use infrastructure automation tools with virtual machines in Azure
+
 To create and manage Azure virtual machines (VMs) in a consistent manner at scale, some form of automation is typically desired. There are many tools and solutions that allow you to automate the complete Azure infrastructure deployment and management lifecycle. This article introduces some of the infrastructure automation tools that you can use in Azure. These tools commonly fit in to one of the following approaches:
 
 - Automate the configuration of VMs
@@ -65,7 +65,7 @@ DSC configurations define what to install on a machine and how to configure the 
 
 Learn how to:
 
-- [Create a basic DSC configuration](https://msdn.microsoft.com/powershell/dsc/quickstarts/website-quickstart).
+- [Create a basic DSC configuration](/powershell/scripting/dsc/quickstarts/website-quickstart).
 - [Configure a DSC pull server](/powershell/scripting/dsc/pull-server/pullserver).
 - [Use DSC for Linux](/powershell/scripting/dsc/getting-started/lnxgettingstarted).
 

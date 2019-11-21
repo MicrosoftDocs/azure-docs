@@ -1,19 +1,14 @@
 ---
-title: Backing up files and folders with Azure Backup - common questions
+title: Backing up files and folders - common questions
 description: Addresses common questions about backing up files and folders with Azure Backup.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.author: dacurwin
+
 ---
 
 # Common questions about backing up files and folders
 
 This article has answers to common questions abound backing up files and folders with the Microsoft Azure Recovery Services (MARS) Agent in the [Azure Backup](backup-overview.md) service.
-
-## General
 
 ## Configure backups
 
@@ -108,11 +103,11 @@ The size of the cache folder determines the amount of data that you are backing 
 
 1. Run this command in an elevated command prompt to stop the Backup engine:
 
-    ```PS C:\> Net stop obengine```
+    ```Net stop obengine```
 
 2. If you have configured System State backup, open Disk Management and unmount the disk(s) with names in the format `"CBSSBVol_<ID>"`.
 3. Don't move the files. Instead, copy the cache space folder to a different drive that has sufficient space.
-4. Update the following registry entries with the path of the new cache folder.<br/>
+4. Update the following registry entries with the path of the new cache folder.
 
     | Registry path | Registry Key | Value |
     | --- | --- | --- |
@@ -121,11 +116,13 @@ The size of the cache folder determines the amount of data that you are backing 
 
 5. Restart the Backup engine at an elevated command prompt:
 
-    ```PS C:\> Net stop obengine```
+  ```command
+  Net stop obengine
 
-    ```PS C:\> Net start obengine```
+  Net start obengine
+  ```
 
-6. Run an ad-hoc backup. After the backup finishes successfully using the new location, you can remove the original cache folder.
+6. Run an on-demand backup. After the backup finishes successfully using the new location, you can remove the original cache folder.
 
 ### Where should the cache folder be located?
 
