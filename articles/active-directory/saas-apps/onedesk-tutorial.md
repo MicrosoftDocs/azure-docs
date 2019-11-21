@@ -96,7 +96,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
-	![The Certificate download link](common/copy-metadataurl.png)
+	![The Certificate download link](common/metadataxml.png)
+
+1. On the **Set up OneDesk** section, copy the appropriate URL(s) based on your requirement.
+
+	![Copy configuration URLs](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
@@ -130,13 +134,29 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure OneDesk SSO
 
-To configure single sign-on on **OneDesk** side, you need to send the **App Federation Metadata Url** to [OneDesk support team](mailto:hello@onedesk.com). They set this setting to have the SAML SSO connection set properly on both sides.
+1. To automate the configuration within OneDesk, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
+
+	![My apps extension](common/install-myappssecure-extension.png)
+
+1. After adding extension to the browser, click on **Set up OneDesk** will direct you to the OneDesk application. From there, provide the admin credentials to sign into OneDesk. The browser extension will automatically configure the application for you and automate steps 3-5.
+
+	![Setup configuration](common/setup-sso.png)
+
+1. If you want to setup OneDesk manually, open a new web browser window and sign into your OneDesk company site as an administrator and perform the following steps:
+
+1. Click on the **Integrations** tab.
+
+    ![Settings tab](./media/onedesk-tutorial/img-integration.png)
+
+1. Click on the **Single Sign On**, select **Upload Metadata File** and click on the **Choose File** to upload the metadata file, which you have downloaded from the Azure portal.
+
+    ![Settings tab](./media/onedesk-tutorial/img-singlesignon.png)
 
 ### Create OneDesk test user
 
 In this section, a user called B.Simon is created in OneDesk. OneDesk supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in OneDesk, a new one is created after authentication.
 
-## Test SSO 
+## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
