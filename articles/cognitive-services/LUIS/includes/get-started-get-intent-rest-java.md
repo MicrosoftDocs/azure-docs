@@ -13,7 +13,7 @@ ms.author: diberry
 
 * [JDK SE](https://aka.ms/azure-jdks)  (Java Development Kit, Standard Edition)
 * [Visual Studio Code](https://code.visualstudio.com/) or your favorite IDE
-* Public app ID: df67dcdb-c37d-46af-88e1-8b97951ca1c2
+* Public app ID: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
 ## Get LUIS key
 
