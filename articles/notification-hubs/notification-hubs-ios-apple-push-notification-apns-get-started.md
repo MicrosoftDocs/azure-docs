@@ -67,8 +67,6 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 
 2. When setting the options for your new project, make sure to use the same **Product Name** and **Organization Identifier** that you used when you set the bundle identifier in the Apple Developer portal.
 
-    ![Xcode - project options][11]
-
 3. Under Project Navigator, select your project name under **Targets**, then select the **Signing & Capabilities** tab. Make sure you select the appropriate **Team** for your Apple Developer account. XCode should automatically pull down the Provisioning Profile you created previously based on your bundle identifier.
 
     If you don't see the new provisioning profile that you created in Xcode, try refreshing the profiles for your signing identity. Click **Xcode** on the menu bar, click **Preferences**, click the **Account** tab, click the **View Details** button, click your signing identity, and then click the refresh button in the bottom-right corner.
@@ -121,7 +119,9 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 
         ![Unzip Azure SDK][10]
 
-6. Add a new header file to your project named **Constants.h**. To do so, right-click the project name and select **New File...**. Then select **Header File**. This file holds the constants for your notification hub. Then select **Next**.
+6. Add a new header file to your project named **Constants.h**. To do so, right-click the project name and select **New File...**. Then select **Header File**. This file holds the constants for your notification hub. Then select **Next**. Name the file **Constants.h**.
+
+7. Add the following code to the Constants.h file:
 
     ```objc
     #ifndef Constants_h
@@ -134,11 +134,11 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
     #endif /* Constants_h */
     ```
 
-7. Add the implementation file for **Constants.h**. To do so, right-click the project name and select **New File...**. Select **Objective-C File**, and then select **Next**. Name the file **Constants.m**.
+8. Add the implementation file for Constants.h. To do so, right-click the project name and select **New File...**. Select **Objective-C File**, and then select **Next**. Name the file **Constants.m**.
 
     ![Add .m file](media/notification-hubs-ios-get-started/new-file-objc.png)
 
-8. Open the **Constants.m** file and replace its contents with the following code. Replace the string literal placeholders `NotificationHubConnectionString` and `NotificationHubConnectionString` with the hub name and the **DefaultListenSharedAccessSignature**, respectively, as noted previously:
+9. Open the **Constants.m** file and replace its contents with the following code. Replace the string literal placeholders `NotificationHubConnectionString` and `NotificationHubConnectionString` with the hub name and the **DefaultListenSharedAccessSignature**, respectively, as you  previously obtained from the portal:
 
     ```objc
     #import <Foundation/Foundation.h>
@@ -149,7 +149,7 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
     NSString* const NHUserDefaultTags = @"notification_tags";
     ```
 
-9. Open your **AppDelegate.h** file and replace its contents with the following code:
+10. Open your **AppDelegate.h** file and replace its contents with the following code:
 
     ```objc
     #import <UIKit/UIKit.h>
@@ -167,20 +167,20 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 
     ```
 
-10. In your **AppDelegate.m** file, add the following `import` statements:
+11. In your **AppDelegate.m** file, add the following `import` statements:
 
     ```objc
     #import "Constants.h"
     #import "NotificationDetailViewController.h"
     ```
 
-11. Also in your **AppDelegate.m** file, add the following line of code in the `didFinishLaunchingWithOptions` method based on your version of iOS. This code registers your device handle with APNs:
+12. Also in your **AppDelegate.m** file, add the following line of code in the `didFinishLaunchingWithOptions` method based on your version of iOS. This code registers your device handle with APNs:
 
     ```objc
     [[UNUserNotificationCenter currentNotificationCenter] setDelegate:self];
     ```
 
-12. In the same file, replace all the code after `didFinishLaunchingWithOptions` with the following code:
+13. In the same **AppDelegate.m** file, replace all the code after `didFinishLaunchingWithOptions` with the following code:
 
     ```objc
     // Tells the app that a remote notification arrived that indicates there is data to be fetched.
@@ -196,7 +196,6 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
     }
 
     // Tells the delegate that the app successfully registered with Apple Push Notification service (APNs).
-    //
 
     - (void) application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
         NSMutableSet *tags = [[NSMutableSet alloc] init];
@@ -327,11 +326,9 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 
     This code connects to the notification hub using the connection information you specified in **Constants.h**. It then gives the device token to the notification hub so that the notification hub can send notifications.
 
-13. To verify there are no failures, build and run the app on your device.
-
 ### NotificationDetailViewController
 
-1. Following the previous instructions, add another header file named **NotificationDetailViewController.h**. Replace the contents of the file with the following code:
+1. Similar the previous instructions, add another header file named **NotificationDetailViewController.h**. Replace the contents of the new header file with the following code:
 
     ```objc
     #import <UIKit/UIKit.h>
@@ -418,7 +415,7 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 
 ### ViewController
 
-1. In the project **ViewController.h** file, add the following `import` statements:
+1. In the project's **ViewController.h** file, add the following `import` statements:
 
     ```objc
     #import <WindowsAzureMessaging/WindowsAzureMessaging.h>
@@ -433,7 +430,7 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
     @property (strong, nonatomic) IBOutlet UIButton *unregisterButton;
     ```
 
-3. In the project **ViewController.m** implementation file, replace the contents of the file with the following code:
+3. In the project's **ViewController.m** implementation file, replace the contents of the file with the following code:
 
     ```objc
     #import "ViewController.h"
@@ -474,6 +471,8 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 
     @end
     ```
+
+4. To verify there are no failures, build and run the app on your device.
 
 ## Send test push notifications
 

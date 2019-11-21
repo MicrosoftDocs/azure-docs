@@ -5,7 +5,7 @@ services: notification-hubs
 author: sethmanheim
 ms.service: notification-hubs
 ms.topic: include
-ms.date: 11/12/2019
+ms.date: 11/21/2019
 ms.author: sethm
 ms.custom: include file
 ---
@@ -49,7 +49,7 @@ To send push notifications to an iOS app, register your application with Apple, 
 
    * **Description**: Type a descriptive name for your app.
 
-   * **Bundle ID**: Enter a Bundle ID of the form `<Organization Identifier>.<Product Name>` as mentioned in the [App Distribution Guide](https://help.apple.com/xcode/mac/current/#/dev91fe7130a). The *Organization Identifier* and *Product Name* values must match the organization identifier and product name you use when you create your Xcode project. In the following screenshot, the *NotificationHubs* value is used as an organization identifier and the *GetStarted* value is used as the product name. Make sure the **Bundle Identifier** value matches the value in your Xcode project, so that Xcode uses the correct publishing profile.
+   * **Bundle ID**: Enter a Bundle ID of the form **Organization Identifier.Product Name** as mentioned in the [App Distribution Guide](https://help.apple.com/xcode/mac/current/#/dev91fe7130a). The *Organization Identifier* and *Product Name* values must match the organization identifier and product name you use when you create your Xcode project. In the following screenshot, the **NotificationHubs** value is used as an organization identifier and the **GetStarted** value is used as the product name. Make sure the **Bundle Identifier** value matches the value in your Xcode project, so that Xcode uses the correct publishing profile.
 
       ![iOS Provisioning Portal register app ID page](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-bundle.png)
 
@@ -105,7 +105,7 @@ To send push notifications to an iOS app, register your application with Apple, 
     You can choose to protect the certificate with a password, but this is optional. Click **OK** if you want to bypass password creation. Make a note of the file name and location of the exported .p12 certificate. They are used to enable authentication with APNs.
 
     > [!NOTE]
-    > This tutorial creates a file named **QuickStart.p12**. Your file name and location might be different.
+    > This tutorial creates a file named **FirstTutorialCert.p12**. Your file name and location might be different.
 
 ## Create a provisioning profile for the app
 
