@@ -44,7 +44,7 @@ Select a profile before deploying the solution. You can use multiple profiles si
 | Internet blocked (inbound/outbound) |   |   |   |  |  |Yes |
 
 > [!NOTE]
-> In the secureworkstation guidance **devices** will be assigned with profiles and policies. Users will not have the policies applied to them directly, allowing device sharing (shared devices) to be in effect. If a secure workstation is not shared in your deployment, or individual user policies are needed, assignment of the user policy profiles can be assigned to the user and device. 
+> In the secure workstation guidance **devices** will be assigned with profiles and policies. Users will not have the policies applied to them directly, allowing device sharing (shared devices) to be in effect. If a secure workstation is not shared in your deployment, or individual user policies are needed, assignment of the user policy profiles can be assigned to the user and device. 
 
 ## License requirements
 
@@ -307,10 +307,10 @@ You might need to install Windows 32-bit apps or other apps whose deployment req
 
 ### Conditional Access only allowing secured workstation ability to access Azure portal
 
-Azure Active directory offers the ability to manage, and restrict who and what can access your Azure cloud management portal. Enabling (conditional access)[../conditional-access/overview.md] will assure that only your secure workstation can manage or change resources. It's essential that while deploying this feature you consider, if (emergency access)[../users-groups-roles/directory-emergency-access.md] functionality can or should be used only for extreme cases and the account managed through policy.
+Azure AD offers the ability to manage and restrict, who and what can access your Azure cloud management portal. Enabling [Conditional Access](../conditional-access/overview.md) will assure that only your secure workstation can manage or change resources. It's essential that while deploying this feature you consider, if [emergency access](../users-groups-roles/directory-emergency-access.md) functionality can or should be used only for extreme cases and the account managed through policy.
 
 > [!NOTE]
-> You will need to create a user group, and include your emergency user that can bypass the conditional access restrictions. For our example we have a security group called **Emergency BreakGlass**
+> You will need to create a user group, and include your emergency user that can bypass the Conditional Access policy. For our example we have a security group called **Emergency BreakGlass**
 
 1. Browse to the **Azure portal** > **Microsoft Intune** > **Conditional Access - Policies** > **New Policy**.
 1. Provide a **Name** for the policy.
@@ -323,6 +323,8 @@ Azure Active directory offers the ability to manage, and restrict who and what c
 1. Select **Enable Policy** > **On**
  
 This policy set will ensure that your Administrators must use a compliant Windows device, which is set by Intune, and WDATP. 
+
+Organizations should also consider blocking legacy authentication protocols in their environments. There are multiple ways to accomplish this task, for more information about blocking legacy authentication protocols see the article, [How to: Block legacy authentication to Azure AD with Conditional Access](../conditional-access/block-legacy-authentication.md).
 
 ### Use PowerShell to create custom settings
 
@@ -375,13 +377,13 @@ To assign devices and users, you need to map the [selected profiles](https://doc
 Monitoring the secure workstation deployment can be accomplished by enabling [Sentinel] and utilizing [Threat and Vulnerability Management](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/next-gen-threat-and-vuln-mgt)
 The guidance will not provide exhaustive threat hunting, but provide good common sense efforts to monitor and responds to potential security incidents.
 
-We will use **Azure Sentinel** for: 
+We will use **Azure Sentinel** to: 
 
-* Collect data from Intune, Azure portal, and Azure Active Director for user and device monitoring
+* Collect data from Intune, Azure portal, and Azure AD for user and device monitoring
 * Help Investigate user and device configuration suspicious activity
 * And drive the ability to explore security investigations using WDATP
 
-Sentinel monitoring requires that connectors to your data sources such as AAD be set up.
+Sentinel monitoring requires that connectors to your data sources such as Azure AD be set up.
 
 1. In the **Azure portal**, go to **Azure Sentinel (Preview)** > Select **Add**
 1. In the **Choose a workspace to add to Azure Sentinel** Select **Create a new workspace**
@@ -397,7 +399,7 @@ Next we will connect available secure workstation data sources to the monitoring
 
 1. In the **Azure portal**, go to **Azure Sentinel workspace** > Select **Secure Workstation Monitoring** workspace
 1. Select **Data Connectors**
-1. Choose **Azure Active Directory** > Open Connector Page > After reviewing the Prerequisite. Proceed to Configuration and select **Connect** for both Azure Active Directory Sign-in Logs, as well as Azure Active Directory Audit Logs.
+1. Choose **Azure Active Directory** > Open Connector Page > After reviewing the Prerequisite. Proceed to Configuration and select **Connect** for both Azure AD Sign-in Logs, as well as Azure AD Audit Logs.
 1. Choose **Azure Activity** > Open Connector Page > After reviewing the Prerequisite. Proceed to Configure Azure Activity Logs > Select your subscription > Select **Connect**
 
 As data is collected by Sentinel you will be able to observe activity by selecting **Azure portal**, go to **Azure Sentinel Overview** 
