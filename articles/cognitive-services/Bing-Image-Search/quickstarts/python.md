@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Search for images - Bing Image Search REST API and Python"
+title: "Quickstart: Search for images REST API and Python - Bing Image Search"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to send image search requests to the Bing Image Search REST API using Python, and receive JSON responses.
 services: cognitive-services
