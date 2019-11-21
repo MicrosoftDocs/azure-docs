@@ -44,12 +44,12 @@ In this section, you will prepare a development environment used to build the [A
 
     It is important that the Visual Studio prerequisites (Visual Studio and the 'Desktop development with C++' workload) are installed on your machine, **before** starting the `CMake` installation. Once the prerequisites are in place, and the download is verified, install the CMake build system.
 
-2. Find the tag name for the [latest release](https://github.com/Azure/azure-iot-sdk-c/releases/latest) of the SDK. Release tag names are date values in `yyyy-mm-dd` format. They may contain additional text following the date.
+2. Find the tag name for the [latest release](https://github.com/Azure/azure-iot-sdk-c/releases/latest) of the SDK.
 
 3. Open a command prompt or Git Bash shell. Run the following command to clone the latest release of the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository. Use the tag you found in the previous step as the value for the `-b` parameter:
 
     ```cmd/sh
-    git clone -b <yyyy-mm-dd> https://github.com/Azure/azure-iot-sdk-c.git
+    git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
     cd azure-iot-sdk-c
     git submodule update --init
     ```
@@ -101,7 +101,7 @@ You will use sample code from the Azure IoT C SDK to create the certificate to b
 
 3. In Visual Studio's *Solution Explorer* window, navigate to the **Provision\_Tools** folder. Right-click the **dice\_device\_enrollment** project and select **Set as Startup Project**.
 
-4. On the Visual Studio menu, select **Debug** > **Start without debugging** to run the solution. In the output window, enter **i** for individual enrollment when prompted. 
+4. On the Visual Studio menu, select **Debug** > **Start without debugging** to run the solution. In the output window, enter **i** for individual enrollment when prompted.
 
     The output window displays a locally generated self-signed X.509 certificate for your simulated device. Copy the output to clipboard, starting from **-----BEGIN CERTIFICATE-----** and ending with the first **-----END CERTIFICATE-----**, making sure to include both of these lines as well. You need only the first certificate from the output window.
 
@@ -113,7 +113,7 @@ You will use sample code from the Azure IoT C SDK to create the certificate to b
 
 2. Select the **Manage enrollments** tab, then click the **Add individual enrollment** button at the top.
 
-3. On **Add Enrollment**, enter the following information, and click the **Save** button.
+3. On **Add Enrollment**, enter the following information and click the **Save** button.
 
     * **Mechanism:** Select **X.509** as the identity attestation *Mechanism*.
     * **Primary certificate .pem or .cer file:** Click **Select a file** to select the certificate file, X509testcert.pem, you created earlier.
