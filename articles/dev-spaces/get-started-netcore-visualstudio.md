@@ -1,6 +1,5 @@
 ---
 title: "Create a Kubernetes dev space in the cloud using .NET Core and Visual Studio"
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
