@@ -44,9 +44,9 @@ The supported AD FS versions in this federated scenario are:
 - Active Directory Federation Services v3 (Windows Server 2012 R2)
 - Active Directory Federation Services v4 (AD FS 2016)
 
-## Acquire a token using integrated Windows authentication
+## Acquire a token via username and password
 
-When you call `ConfidentialClientApplication.AcquireToken()` or `PublicClientApplication.AcquireToken()` with `IntegratedWindowsAuthenticationParameters` or `UsernamePasswordParameters`, MSAL4J gets the identity provider to contact based on the user name. MSAL4J gets a [SAML 1.1 token](reference-saml-tokens.md) token from the identity provider, which it provides to Azure AD to get back a Jason Web Token (JWT).
+When you acquire a token using `ConfidentialClientApplication.AcquireToken()` or `PublicClientApplication.AcquireToken()` with `IntegratedWindowsAuthenticationParameters` or `UsernamePasswordParameters`, MSAL4J gets the identity provider to contact based on the username. MSAL4J gets a [SAML 1.1 token](reference-saml-tokens.md) token from the identity provider, which it then provides to Azure AD which returns the JSON Web Token (JWT).
 
 ## See also
 
