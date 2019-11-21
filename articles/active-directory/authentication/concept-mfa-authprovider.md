@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
