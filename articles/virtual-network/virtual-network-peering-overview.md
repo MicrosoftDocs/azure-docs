@@ -16,18 +16,18 @@ ms.author: anavin
 ---
 # Virtual network peering
 
-Virtual network peering enables you to seamlessly connect networks in [Azure Virtual Network](virtual-networks-overview.md). The virtual networks appear as one for connectivity purposes. The traffic between virtual machines uses the Microsoft backbone infrastructure. Like traffic between virtual machines in the same network, traffic is routed through *private* IP addresses only.
+Virtual network peering enables you to seamlessly connect networks in [Azure Virtual Network](virtual-networks-overview.md). The virtual networks appear as one for connectivity purposes. The traffic between virtual machines uses the Microsoft backbone infrastructure. Like traffic between virtual machines in the same network, traffic is routed through Microsoft's *private* network only.
 
 Azure supports the following types of peering:
 
-* Virtual network peering. Connect virtual networks within the same Azure region.
-* Global virtual network peering. Connecting virtual networks across Azure regions.
+* Virtual network peering: Connect virtual networks within the same Azure region.
+* Global virtual network peering: Connecting virtual networks across Azure regions.
 
 The benefits of using virtual network peering, whether local or global, include:
 
 * A low-latency, high-bandwidth connection between resources in different virtual networks.
 * The ability for resources in one virtual network to communicate with resources in a different virtual network.
-* The ability to transfer data across Azure subscriptions, deployment models, and Azure regions.
+* The ability to transfer data between virtual networks across Azure subscriptions, Azure Active Directory tenants, deployment models, and Azure regions.
 * The ability to peer virtual networks created through the Azure Resource Manager.
 * The ability to peer a virtual network created through Resource Manager to one created through the classic deployment model. To learn more about Azure deployment models, see [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * No downtime to resources in either virtual network when creating the peering, or after the peering is created.
@@ -83,8 +83,7 @@ You can also try the [Troubleshoot virtual network peering issues](virtual-netwo
 
 The following constraints apply only when virtual networks are globally peered:
 
-* Resources in one virtual network can't communicate with the front-end IP address of a Basic internal load balancer in a globally peered virtual network.
-* Support for Basic Load Balancer only exists within the same region. Support for Standard Load Balancer exists for both, virtual network peering and global virtual network peering.
+* Resources in one virtual network can't communicate with the front-end IP address of a Basic Internal Load Balancer (ILB)  in a globally peered virtual network.
 * Some services that use a Basic load balancer don't work over global virtual network peering. For more information, see [What are the constraints related to Global VNet Peering and Load Balancers?](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
 
 For more information, see [Requirements and constraints](virtual-network-manage-peering.md#requirements-and-constraints). To learn more about the supported number of peerings, see [Networking limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
@@ -97,14 +96,14 @@ To learn about permissions required to create a virtual network peering, see [Pe
 
 There's a nominal charge for ingress and egress traffic that uses a virtual network peering connection. For more information, see [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network).
 
-Gateway Transit is a peering property that enables a virtual network to utilize a VPN/ExpressRoute gateway in a peered virtual network. Gateway transit works for both cross premises and network-to-network connectivity. Traffic to the gateway (ingress or egress) in the peered virtual network incurs virtual network peering charges. For more information, see [VPN Gateway pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/) for ExpressRoute gateway charges and [Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network).
+Gateway Transit is a peering property that enables a virtual network to utilize a VPN/ExpressRoute gateway in a peered virtual network. Gateway transit works for both cross premises and network-to-network connectivity. Traffic to the gateway (ingress or egress) in the peered virtual network incurs virtual network peering charges. For more information, see [VPN Gateway pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/) for VPN gateway charges and ExpressRoute Gateway pricing for ExpressRoute gateway charges.
 
 >[!NOTE]
 > A previous version of this document stated that virtual network peering charges would not apply with Gateway Transit. It now reflects accurate pricing per the pricing page.
 
 ## Next steps
 
-* You create a peering between two virtual networks. The networks can belong to the same subscription, different deployment models in the same subscription, or different subscriptions. Complete a tutorial for one of the following scenarios:
+* You can create a peering between two virtual networks. The networks can belong to the same subscription, different deployment models in the same subscription, or different subscriptions. Complete a tutorial for one of the following scenarios:
 
     |Azure deployment model             | Subscription  |
     |---------                          |---------|
