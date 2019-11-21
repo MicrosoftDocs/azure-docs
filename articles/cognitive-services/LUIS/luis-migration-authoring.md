@@ -15,7 +15,7 @@ ms.author: diberry
 
 # Migrate to an Azure resource authoring key
 
-Language Understanding (LUIS) authoring authentication changed from an email account to an Azure resource. 
+Language Understanding (LUIS) authoring authentication changed from an email account to an Azure resource. While not currently required, switching to an Azure resource will be enforced in the future.
 
 ## Why migrate?
 
@@ -50,7 +50,7 @@ You will be asked to migrate if:
 * You have apps on the email authentication system for authoring.
 * And you are the app owner. 
 
-You can delay the migration process, by canceling out of the window. You are periodically asked to migrate until you migrate or the migration deadline is passed. You can start the migration process from the top navigation bar's lock icon.
+You can delay the migration process by canceling out of the window. You are periodically asked to migrate until you migrate or the migration deadline is passed. You can start the migration process from the top navigation bar's lock icon.
 
 ## Migration for the app owner
 
