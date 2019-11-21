@@ -39,7 +39,7 @@ You use Azure Blockchain Development Kit for Ethereum to:
 
 On Windows, an installed C++ compiler is required for the node-gyp module. You can use the MSBuild tools:
 
-* If Visual Studio 2017 is installed, configure npm to use the MSBuild tools using the command `npm config set msvs_version 2017 -g`
+* If Visual Studio 2017 is installed, configure npm to use the MSBuild tools with the command `npm config set msvs_version 2017 -g`
 * If Visual Studio 2019 is installed, set the MS build tools path for npm. For example, `npm config set msbuild_path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe"`
 * Otherwise, install the stand-alone VS Build tools using `npm install --global windows-build-tools` in an elevated *Run as administrator* command shell.
 
