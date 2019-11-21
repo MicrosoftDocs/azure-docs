@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Enable a custom domain with SSL for a static website'
+title: 'Tutorial: Enable custom domain & SSL for a static website in Azure'
 description: Learn how to configure a custom domain for static website hosting.
 author: normesta
 ms.service: storage
@@ -9,7 +9,7 @@ ms.author: normesta
 ms.reviewer: dineshm
 ---
 
-# Tutorial: Enable a custom domain with SSL for a static website
+# Tutorial: Enable custom domain & SSL for a static website in Azure
 
 This tutorial is part two of a series. In it, you learn to enable a custom domain endpoint with SSL for your static website. 
 
