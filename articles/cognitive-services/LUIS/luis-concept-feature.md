@@ -14,7 +14,7 @@ ms.author: diberry
 ---
 # Machine-learned features 
 
-In machine learning, a *feature* is a distinguishing trait or attribute of data that your system observes & learns through. In Language Understanding (LUIS), a feature describes and explains what is significant about your intents and entities.
+In machine learning, a _feature_ is a distinguishing trait or attribute of data that your system observes & learns through. In Language Understanding (LUIS), a feature describes and explains what is significant about your intents and entities.
 
 In the [preview LUIS portal](https://preview.luis.ai), features are _descriptors_ because they are used to _describe_ the intent or entity.  
 
@@ -51,7 +51,7 @@ The `enabledForAllModels` flag controls this model scope in the API.
 
 ### How to use a phrase list
 
-[Create a phrase list](luis-how-to-add-features.md) list when your intent or entity has words or phrases that are important such as:
+[Create a phrase list](luis-how-to-add-features.md) when your intent or entity has words or phrases that are important such as:
 
 * industry terms
 * slang
@@ -76,7 +76,7 @@ For example, if the intent is for booking a flight and the entity is ticket info
 
 ### Entity as a feature to another entity
 
-An entity (A) should be added as a feature to another entity (B) when the detection of that entity (A) is significant for the (B).
+An entity (A) should be added as a feature to another entity (B) when the detection of that entity (A) is significant for the prediction of entity (B).
 
 For example, if the street address entity (A) is detected, then finding the street address (A) adds weight to the prediction for the shipping address entity (B). 
 

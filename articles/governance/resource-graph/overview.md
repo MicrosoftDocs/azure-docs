@@ -1,10 +1,10 @@
 ---
 title: Overview of Azure Resource Graph
-description: Understand how the Azure Resource Graph service enables complex querying of resources at scale.
+description: Understand how the Azure Resource Graph service enables complex querying of resources at scale across subscriptions and tenants.
 ms.date: 10/21/2019
 ms.topic: overview
 ---
-# Overview of the Azure Resource Graph service
+# What is Azure Resource Graph?
 
 Azure Resource Graph is a service in Azure that is designed to extend Azure Resource Management by
 providing efficient and performant resource exploration with the ability to query at scale across a
