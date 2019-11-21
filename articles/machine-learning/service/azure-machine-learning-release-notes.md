@@ -20,7 +20,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 
 ## 2019-11-25
 
-### Azure Machine Learning SDK for Python v1.0.75
+### Azure Machine Learning SDK for Python v1.0.76
 
 + **New features**
   + [Insert new features below. Reference articles and/or doc pages]
@@ -38,8 +38,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 + **Bug fixes and improvements**
   + **azureml-automl-runtime**
     + AutoML will now take into account both true and false classes when calculating averaged scalar metrics for binary classification tasks.
-    + Moved Machine learning and training code in AzureML-Train-AutoML to a submodule AzureML-Train-AutoML-Runtime.
-      + Added a thin client, AzureML-Train-AutoML-Client for submitting remote jobs without installing any machine learning packages.
+    + Moved Machine learning and training code in AzureML-AutoML-Core to a new package AzureML-AutoML-Runtime.
   + **azureml-contrib-interpret**
     + Removed explanation dashboard widget from azureml-contrib-interpret, changed package to reference the new one in interpret_community
     + Updated version of interpret-community to 0.2.0
@@ -55,16 +54,12 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-pipeline-core**
     + Added CLI option to download output in json format for Pipeline commands.
   + **azureml-train-automl**
-    + Moved Machine learning and training code in AzureML-Train-AutoML to a submodule AzureML-Train-AutoML-Runtime.
-      + Added a thin client, AzureML-Train-AutoML-Client for submitting remote jobs without installing any machine learning packages.
+    + Split AzureML-Train-AutoML into 2 packages, an client package AzureML-Train-AutoML-Client and a ML training package AzureML-Train-AutoML-Runtime
   + **azureml-train-automl-client**
-    + Added AutoML client to azureml-sdk package, enabling remote AutoML runs to be submitted without installing the full AutoML package.
-    + Moved Machine learning and training code in AzureML-Train-AutoML to a submodule AzureML-Train-AutoML-Runtime.
-      + Added a thin client, AzureML-Train-AutoML-Client for submitting remote jobs without installing any machine learning packages.
+    + Added a thin client for submitting AutoML experiments without needing to install any machine learning dependencies locally.
     + Fixed logging of automatically detected lags, rolling window sizes and maximal horizons in the remote runs.
   + **azureml-train-automl-runtime**
-    + Moved Machine learning and training code in AzureML-Train-AutoML to a submodule AzureML-Train-AutoML-Runtime.
-      + Added a thin client, AzureML-Train-AutoML-Client for submitting remote jobs without installing any machine learning packages.
+    + Added a new AutoML package to isolate machine learning and runtime components from the client.
   + **azureml-contrib-train-rl**
     + Added reinforcement learning support in SDK.
     + Added AmlWindowsCompute support in RL SDK. 
