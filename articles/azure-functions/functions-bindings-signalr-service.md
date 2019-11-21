@@ -28,8 +28,6 @@ Before a client can connect to Azure SignalR Service, it must retrieve the servi
 
 For more information on how this binding is used to create a "negotiate" function that can be consumed by a SignalR client SDK, see the [Azure Functions development and configuration article](../azure-signalr/signalr-concept-serverless-development-config.md) in the SignalR Service concepts documentation.
 
-### Examples
-
 # [C#](#tab/csharp)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that acquires SignalR connection information using the input binding and returns it over HTTP.
@@ -102,7 +100,19 @@ public SignalRConnectionInfo negotiate(
 
 # [C#](#tab/csharp)
 
-**TODO**
+The [SignalRConnectionInfo](https://github.com/Azure/azure-functions-signalrservice-extension/blob/dev/src/SignalRServiceExtension/SignalRConnectionInfoAttribute.cs) attribute allows you to specify a `HubName`, `UserId` and `IdToken`.
+
+The following example demonstrates how to assign a hub name in the function.
+
+```cs
+[FunctionName("negotiate")]
+public static SignalRConnectionInfo Negotiate(
+    [HttpTrigger(AuthorizationLevel.Anonymous)]HttpRequest req,
+    [SignalRConnectionInfo(HubName = "chat")]SignalRConnectionInfo connectionInfo)
+{
+    return connectionInfo;
+}
+```
 
 # [C# Script](#tab/csharp-script)
 
