@@ -1,7 +1,6 @@
 ---
-title: "Team development with Azure Dev Spaces using .NET Core and Visual Studio"
+title: "Team development using .NET Core and Visual Studio"
 services: azure-dev-spaces
-
 ms.custom: vs-azure
 ms.workload: azure-vs
 author: DrEsteban
@@ -12,7 +11,7 @@ description: "Rapid Kubernetes development with containers and microservices on 
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s "
 ---
 
-# Team development with Azure Dev Spaces
+# Team development using .NET Core and Visual Studio with Azure Dev Spaces
 
 In this tutorial, you'll learn how a team of developers can simultaneously collaborate in the same Kubernetes cluster using Dev Spaces.
 
