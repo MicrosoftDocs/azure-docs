@@ -22,7 +22,7 @@ Learn more about standard vCPU quotas on the [Virtual machine vCPU quotas page](
 
 Learn more about increasing the regional vCPU limit for standard quota [here](https://docs.microsoft.com/en-us/azure/azure-supportability/regional-quota-requests). 
 
-Learn more about Low priority VM vCPU limits on the <> page and <> page. Learn more about **increasing Low priority VM vCPU limits** on the <> page.
+Learn more about **increasing Low priority VM vCPU limits** on [here](https://docs.microsoft.com/en-us/azure/azure-supportability/low-priority-quota).
 
 You can request an increase in **standard vCPU quota limits per VM Series** via **Help + Support** blade or the **Usages + Quota** blade in the portal.
 
