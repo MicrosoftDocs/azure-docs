@@ -56,59 +56,6 @@ To complete this article, you need the following resources and privileges:
 
 In this article, you create and configure the outbound forest trust from Azure AD DS using the Azure portal. To get started, first sign in to the [Azure portal](https://portal.azure.com).
 
-## Networking considerations
-
-The virtual network that hosts the Azure AD DS resource forest needs network connectivity to your on-premises Active Directory. Applications and services also need network connectivity to the virtual network hosting the Azure AD DS resource forest. Network connectivity to the Azure AD DS resource forest must be always on and stable otherwise users may fail to authenticate or access resources.
-
-Before you configure a forest trust in Azure AD DS, make sure your networking between Azure and on-premises environment meets the following requirements:
-
-* Use private IP addresses. Don't rely on DHCP with dynamic IP address assignment.
-* Avoid overlapping IP address spaces to allow virtual network peering and routing to successfully communicate between Azure and on-premises.
-* An Azure virtual network needs a gateway subnet to configure a site-to-site (S2S) VPN or ExpressRoute connection
-* Create subnets with enough IP addresses to support your scenario.
-* Make sure Azure AD DS has its own subnet, don't share this virtual network subnet with application VMs and services.
-* Peered virtual networks are NOT transitive.
-    * Azure virtual network peerings must be created between all virtual networks you want to use the Azure AD DS resource forest trust to the on-premises AD DS environment.
-* Provide continuous network connectivity to your on-premises Active Directory forest. Don't use on-demand connections.
-* Make sure there's continuous name resolution (DNS) between your Azure AD DS resource forest name and your on-premises Active Directory forest name.
-
-The following example diagram shows an Azure ExpressRoute connection from the *Gateway* subnet for the Azure AD DS virtual network to the on-premises datacenter. An Azure Site-to-Site VPN connection could be used instead of ExpressRoute:
-
-![Diagram of example ExpressRoute connectivity for Azure AD DS resource forest](./media/create-resource-forest-powershell/expressroute-connectivity.png)
-
-The hybrid network configuration is beyond the scope of this documentation, and may already exist in your environment. For details on specific scenarios, see the following articles:
-
-* [Azure Site-to-Site VPN](/vpn-gateway/vpn-gateway-about-vpngateways).
-* [Azure ExpressRoute Overview](/vpn-gateway/vpn-gateway-about-vpngateways).
-* [Connect AWS VPC to Azure using Site-to-Site VPN](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html)
-
-### Virtual Network
-
-Your Azure AD DS resource forest needs an Azure virtual network for network connectivity. The `New-AaddsForest` PowerShell cmdlet can create the needed virtual network for you, or you can provide the name of an existing subnet. If you create a virtual networking using the `New-AaddsForest` cmdlet, make sure the previous network considerations are included.
-
-### Subnets
-
-The virtual network for Azure AD DS should include a minimum of two or three subnets:
-
-| Purpose     | Description |
-|:------------|:------------|
-| Azure AD DS | This subnet exclusively hosts the Azure AD DS resource forest. Don't create your own VMs or attach other services to this subnet. |
-| Workload    | This subnet hosts your own Azure VMs for virtualized applications and resources. |
-| Gateway     | The subnet hosts the termination point for Azure Site-to-Site VPN or Azure ExpressRoute connection. In larger environments, this Site-to-Site VPN or ExpressRoute connection already exists in another virtual network. If so, use [Azure virtual network peering][network-peering] between this Azure AD DS virtual network and your Site-to-Site VPN or ExpressRoute virtual network.|
-
-## Choose an Azure AD DS forest name
-
-The Azure AD DS resource forest is a separate forest from your on-premises Active Directory. The Azure AD DS resource forest is only used to host resources and users that manage or connect to the forest in Azure. Users and groups are not replicated to the Azure AD DS resource forest from the on-premises AD DS. DNS resource records and zones also aren't replicated.
-
-To establish a trust requires network connectivity and name resolution. The resource forest works like traditional Active Directory - it locates domains and domain controllers using DNS. For this name resolution to work correctly, the Azure AD DS resource forest name must be different from your on-premises Active Directory forest, including any child domains and other trusted forest names.
-
-> [!IMPORTANT]
-> In public preview, secure LDAP over the Internet to the Azure AD DS domain isn't supported.
-
-It's recommended to prefix your existing forest name with either *aadds* or *rf* and then optionally add another label to the left of the domain for additional uniqueness.
-
-![Forest Name relationship](media/create-resource-forest-powershell/resource-forest-name-resolution.png)
-
 ## Deployment process
 
 It's a multi-part process to create an Azure AD DS resource forest and the trust relationship to an on-premises AD DS. The following high-level steps build your trusted, hybrid environment:
@@ -118,6 +65,8 @@ It's a multi-part process to create an Azure AD DS resource forest and the trust
 1. Create hybrid network connectivity using site-to-site VPN or Express Route.
 1. Create the Azure AD DS side of the trust relationship.
 1. Create the on-premises AD DS side of the trust relationship.
+
+Before you start, make sure you understand the [network considerations, forest naming, and DNS requirements][forest-planning]. You can't change the Azure AD DS forest name once it's deployed.
 
 ## Create the Azure AD service principal
 
@@ -164,7 +113,9 @@ To create an Azure AD DS resource forest, you use the `New-AaddsForest` cmdlet. 
     | Workload subnet name (optional)   | *-workloadSubnetName*             | Optional name of a subnet in the *aaddsVnetName* virtual network to create for your own application workloads. VMs and applications and also be connected to a peered Azure virtual network instead. |
     | Workload address range (optional) | *-workloadSubnetCIDRAddressRange* | Optional subnet address range in CIDR notation for application workload, such as *192.168.2.0/24*. Address range must be contained by the address range of the virtual network, and different from other subnets.|
 
-1. Create an Azure AD DS resource forest using the `New-AaaddsForest` cmdlet. The following example creates a forest named *rf.addscontoso.com* and creates a workload subnet. Provide your own parameter names and IP address ranges or existing virtual networks:
+1. Create an Azure AD DS resource forest using the `New-AaaddsForest` cmdlet. The following example creates a forest named *rf.addscontoso.com* and creates a workload subnet. Provide your own parameter names and IP address ranges or existing virtual networks.
+
+    Make sure you understand how to [choose an Azure AD DS forest name](plan-resource-forest.md#choose-an-azure-ad-ds-forest-name) as name resolution is a key component. You can't change the Azure AD DS forest name once it's deployed.
 
     ```azure-powershell
     New-AaddsForest `
@@ -186,6 +137,8 @@ To create an Azure AD DS resource forest, you use the `New-AaddsForest` cmdlet. 
 ## Configure and validate network settings
 
 As the Azure AD DS continues to deploy, configure and validate the hybrid network connectivity to the on-premises datacenter. You also need a management VM to use with Azure AD DS for regular maintenance. Some of the hybrid connectivity may already exist in your environment, or you may need to work with others in your team to configure the connections.
+
+Before you start, make sure you understand the [network considerations and recommendations](plan-resource-forest.md#network-considerations).
 
 1. Create the hybrid connectivity to your on-premises network to Azure using an Azure VPN or Azure ExpressRoute connection. The hybrid network configuration is beyond the scope of this documentation, and may already exist in your environment. For details on specific scenarios, see the following articles:
 
@@ -393,3 +346,4 @@ For more conceptual information about forest types in Azure AD DS, see [What are
 [network-peering]: ../virtual-network/virtual-network-peering-overview.md
 [New-AzureADServicePrincipal]: /powershell/module/AzureAD/New-AzureADServicePrincipal
 [Get-AzureRMSubscription]: /powershell/module/AzureRM.Profile/Get-AzureRmSubscription
+[forest-planning]: plan-resource-forest.md

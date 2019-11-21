@@ -47,6 +47,8 @@ To complete this tutorial, you need the following resources and privileges:
     >
     > You also need to use a minimum of *Enterprise* SKU for your managed domain. If needed, [change the SKU for a managed domain][howto-change-sku].
 
+Before you start, make sure you understand the [network considerations, forest naming, and DNS requirements][forest-planning]. You can't change the Azure AD DS forest name once it's deployed.
+
 ## Sign in to the Azure portal
 
 In this tutorial, you create and configure the outbound forest trust from Azure AD DS using the Azure portal. To get started, first sign in to the [Azure portal](https://portal.azure.com).
