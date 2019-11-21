@@ -1,12 +1,8 @@
 ---
 title: Create, build, & deploy smart contracts tutorial - Azure Blockchain Service
 description: Tutorial on how to use the Azure Blockchain Development Kit for Ethereum extension in Visual Studio Code to create, build, and deploy a smart contract on Azure Blockchain Service.
-services: azure-blockchain
-author: PatAltimore
-ms.author: patricka
 ms.date: 11/20/2019
 ms.topic: tutorial
-ms.service: azure-blockchain
 ms.reviewer: chrisseg
 
 #Customer intent: As a developer, I want to use Azure Blockchain Service so that I can execute smart contract functions on a consortium blockchain network.
@@ -39,7 +35,7 @@ You use Azure Blockchain Development Kit for Ethereum to:
 
 On Windows, an installed C++ compiler is required for the node-gyp module. You can use the MSBuild tools:
 
-* If Visual Studio 2017 is installed, configure npm to use the MSBuild tools using the command `npm config set msvs_version 2017 -g`
+* If Visual Studio 2017 is installed, configure npm to use the MSBuild tools with the command `npm config set msvs_version 2017 -g`
 * If Visual Studio 2019 is installed, set the MS build tools path for npm. For example, `npm config set msbuild_path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe"`
 * Otherwise, install the stand-alone VS Build tools using `npm install --global windows-build-tools` in an elevated *Run as administrator* command shell.
 

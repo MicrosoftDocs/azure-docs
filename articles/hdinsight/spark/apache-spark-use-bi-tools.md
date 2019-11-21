@@ -177,7 +177,7 @@ To delete a cluster, see [Delete an HDInsight cluster using your browser, PowerS
 
 ## Next steps
 
-In this tutorial, you learned how to use [Microsoft Power BI](https://powerbi.microsoft.com/) to visualize data in an Apache Spark cluster in [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/). Advance to the next article to see how the data you registered in Spark can be pulled into a BI analytics tool such as Power BI.
+In this tutorial, you learned how to use [Microsoft Power BI](https://powerbi.microsoft.com/) to visualize data in an Apache Spark cluster in [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/). Advance to the next article to see you can create a machine learning application.
 
 > [!div class="nextstepaction"]
-> [Run an Apache Spark streaming job](apache-spark-eventhub-streaming.md)
+> [Create a machine learning application](./apache-spark-ipython-notebook-machine-learning.md)
