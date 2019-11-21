@@ -302,7 +302,7 @@ In Solution Explorer, right-click on the `AADB2C.UserMigration.API`, select "Pub
 
 The preceding technical profile defines one input claim: `signInName` (send as email). On sign-in, the claim is sent to your RESTful endpoint.
 
-After you define the technical profile for your RESTful API, tell your Azure AD B2C policy to call the technical profile. For example, add a new `TechnicalProfile` to `TrustFrameworkExtensions.xml`:
+After you define the technical profile for your RESTful API, configure the existing `SelfAsserted-LocalAccountSignin-Email` technical profile to additionally call your REST API technical profile by overriding it within your *TrustFrameworkExtensions.xml* file:
 
 ```XML
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
