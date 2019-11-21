@@ -45,7 +45,7 @@ The prerequisite for this configuration is a configured Azure AD tenant using th
 On the Azure VPN - Properties page, configure sign-in settings.
 
 1. Set **Enabled for users to sign-in?** to **Yes**. This allows all users in the AD tenant to connect to the VPN successfully.
-2. To limit sign in to only users that have permissions to the Azure VPN, additionally set **User assignment required?** to **Yes**.
+2. Set **User assignment required?** to **Yes** if you want to limit sign-in to only users that have permissions to the Azure VPN.
 3. Save your changes.
 
    ![Permissions](./media/openvpn-azure-ad-mfa/user2.jpg)
