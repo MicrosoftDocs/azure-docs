@@ -656,6 +656,25 @@ description: Get started with the Speech Services.
                                 </a>
                             </li>
                             <li>
+                                <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&q=cognitive&type=&language=">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="https://docs.microsoft.com/media/logos/logo_octokitty.svg" style="width:140px" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>GitHub samples</h3>
+                                                    <p>For questions and issues, create an issue in the respective GitHub repository. You can even submit a pull request.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="releasenotes.md">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -668,6 +687,25 @@ description: Get started with the Speech Services.
                                                 <div class="cardText">
                                                     <h3>What's new?</h3>
                                                     <p>When developing a Speech Services solution learn what changes are happening to the SDKs and REST APIs with release notes.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://azure.microsoft.com/blog/topics/cognitive-services">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="https://docs.microsoft.com/media/common/i_blog.svg" style="width:140px" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure blog</h3>
+                                                    <p>News about Cognitive Services is often shared in the Azure blog.</p>
                                                 </div>
                                             </div>
                                         </div>
