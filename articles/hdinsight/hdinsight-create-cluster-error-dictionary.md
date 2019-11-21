@@ -131,7 +131,9 @@ Open the Azure portal, go to your Storage account, look under **Access Control (
 ## Scenario: InvalidNetworkSecurityGroupSecurityRules   
 
 ### Issue
-The security rules in the Network Security Group '/subscriptions/&LT;SubscriptionID&GT; /resourceGroups/&LT;Resource Group name&GT; default/providers/Microsoft.Network/networkSecurityGroups/&LT;Network Security Group Name configured with subnet '/subscriptions/&LT;SubscriptionID&GT; /resourceGroups/ &LT;Resource Group name&GT; RG-westeurope-vnet-tomtom-default/providers/Microsoft.Network/virtualNetworks/ &LT;Virtual Network Name&GT; /subnets/ &LT;Subnet Name&GT; does not allow required inbound and/or outbound connectivity. For more information, see [Plan a virtual network for Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment), or contact Microsoft Support.
+The security rules in the Network Security Group 
+`/subscriptions/<SubscriptionID>/resourceGroups/<Resource Group name>default/providers/Microsoft.Network/networkSecurityGroups/<Network Security Group Name>` configured with subnet `/subscriptions/<SubscriptionID>/resourceGroups/<Resource Group name>/providers/Microsoft.Network/virtualNetworks/<Virtual Network Name>/subnets/<Subnet Name>` 
+does not allow required inbound and/or outbound connectivity. For more information, see [Plan a virtual network for Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment), or contact Microsoft Support.
 
 ### Cause
 If you use network security groups (NSGs) or user-defined routes (UDRs) to control inbound traffic to your HDInsight cluster, you must make sure that your cluster can communicate with critical Azure health and management services.
