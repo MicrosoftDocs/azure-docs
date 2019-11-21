@@ -8,7 +8,7 @@ ms.author: dpalled
 manager: cshankar
 ms.workload: big-data
 ms.topic: overview
-ms.date: 10/10/2019
+ms.date: 11/20/2019
 ms.custom: seodec18
 ---
 
@@ -79,13 +79,16 @@ To get started, follow these steps.
 1. Upload reference data. This isn't an additional service.
 1. See your data in minutes with the Time Series Insights explorer.
 
-## Time Series Insights explorer
+## Explorer
 
-This diagram shows an example of time series insights data viewed through the Time Series Insights explorer.
+View, analyze, and discover trends in your data using the Azure Time Series Insights explorer.
 
-![Time Series Insights explorer](media/time-series-insights-explorer/explorer4.png)
+![Time Series Insights explorer](media/overview/time-series-insights-explorer-panel.png)
+
+Learn how to use the [Azure Time Series Insights explorer](time-series-insights-explorer.md) and draw insights from your data.
 
 ## Next steps
 
 - Explore the Azure Time Series Insights general availability [free demonstration environment](./time-series-quickstart.md).
+
 - Learn more about how to [plan your Time Series Insights](time-series-insights-environment-planning.md) environment.
