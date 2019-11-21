@@ -35,12 +35,11 @@ The following sections build on this article by describing the specific data gat
 
 Azure Storage collects the same kinds of monitoring data as other Azure resources which are described in [Monitoring data from Azure resources](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data-from-Azure-resources). See [Azure Storage monitoring data reference](monitor-service-reference.md) for a detailed reference of the logs and metrics created by Azure Storage.
 
-<!-- Fill in the table with the categories of resource logs available in your services diagnostic settings. Optionally, add specific examples of configuration for this service. For example, CLI and PowerShell commands for creating diagnostic setting.  -->
-
 ## Configuration
-Platform metrics and the Activity log are collected automatically, but you must create a diagnostic setting to collect resource logs or forward them outside of Azure Monitor. See [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/platform/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell.
 
-When you create a diagnostic setting, you specify which categories of logs to collect. The categories for [service-name] are listed in the following table:
+Platform metrics and the Activity log are collected automatically, but you must create a diagnostic setting to collect resource logs or forward them outside of Azure Monitor. See [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/platform/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell.
+
+When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure Storage are listed in the following table:
 
 | Category | Description |
 |:---|:---|
