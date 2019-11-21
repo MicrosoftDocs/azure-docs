@@ -66,13 +66,13 @@ The following examples represent prototypical filter definitions in several APIs
 
 ```http
 # Option 1:  Use $filter for GET
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=Rooms/any(room: room/BaseRate lt 150.0)&$select=HotelId, HotelName, Rooms/Description, Rooms/BaseRate
+GET https://[service name].search.windows.net/indexes/hotels/docs?api-version=2019-05-06&search=*&$filter=Rooms/any(room: room/BaseRate lt 150.0)&$select=HotelId, HotelName, Rooms/Description, Rooms/BaseRate
 
 # Option 2: Use filter for POST and pass it in the request body
 POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2019-05-06
 {
     "search": "*",
-    "filter": "Rooms/BaseRate lt 150.0",
+    "filter": "Rooms/any(room: room/BaseRate lt 150.0)",
     "select": "HotelId, HotelName, Rooms/Description, Rooms/BaseRate"
 }
 ```
