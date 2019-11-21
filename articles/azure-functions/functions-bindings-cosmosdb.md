@@ -136,14 +136,6 @@ Here's the JavaScript code:
     }
 ```
 
-# [Python](#tab/python)
-
-**TODO**
-
-# [Java](#tab/java)
-
-**TODO**
-
 ---
 
 ## Trigger - attributes
@@ -174,14 +166,6 @@ Attributes are not supported by C# Script.
 # [JavaScript](#tab/javascript)
 
 Attributes are not supported by JavaScript.
-
-# [Python](#tab/python)
-
-Attributes are not supported by Python.
-
-# [Java](#tab/java)
-
-**TODO**
 
 ---
 
@@ -1100,14 +1084,6 @@ Here's the JavaScript code:
     };
 ```
 
-# [Python](#tab/python)
-
-**TODO**
-
-# [Java](#tab/java)
-
-**TODO**
-
 ---
 
 ## Input - attributes
@@ -1125,14 +1101,6 @@ Attributes are not supported by C# Script.
 # [JavaScript](#tab/javascript)
 
 Attributes are not supported by JavaScript.
-
-# [Python](#tab/python)
-
-Attributes are not supported by Python.
-
-# [Java](#tab/java)
-
-**TODO**
 
 ---
 
@@ -1167,14 +1135,6 @@ When the function exits successfully, any changes made to the input document via
 # [JavaScript](#tab/javascript)
 
 Updates are not made automatically upon function exit. Instead, use `context.bindings.<documentName>In` and `context.bindings.<documentName>Out` to make updates. See the [input example](#input).
-
-# [Python](#tab/python)
-
-**TODO**
-
-# [Java](#tab/java)
-
-**TODO**
 
 ---
 
@@ -1451,14 +1411,6 @@ Here's the JavaScript code:
     };
 ```
 
-# [Python](#tab/python)
-
-**TODO**
-
-# [Java](#tab/java)
-
-**TODO**
-
 ---
 
 ## Output - attributes and annotations
@@ -1488,14 +1440,6 @@ Attributes are not supported by C# Script.
 # [JavaScript](#tab/javascript)
 
 Attributes are not supported by JavaScript.
-
-# [Python](#tab/python)
-
-Attributes are not supported by Python.
-
-# [Java](#tab/java)
-
-**TODO**
 
 ---
 
