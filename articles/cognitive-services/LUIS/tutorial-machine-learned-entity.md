@@ -69,7 +69,7 @@ There is further decomposition you can add such as creating subcomponents for to
 1. From the **Manage** section, on the **Versions** tab, select the version, then select **Clone** to clone the version, and name it `mach-learn`, then select **Done** to finish the clone process. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
 
     > [!TIP] 
-    > Cloning is a best practice before you modify your app. When you are finished with a version, export a version, as a .json or .lu file, and check that into your source control.
+    > Cloning a version into a new version is a best practice before you modify your app. When you finish a version, export the version (as a .json or .lu file), and check the file into your source control system.
 
 1. Select **Build** then **Intents** to see the intents, the main building blocks of a LUIS app.
 
@@ -129,11 +129,11 @@ To extract details about a pizza order, create a top level, machine-learned `Ord
     ![Make entity and subcomponents in all remaining example utterances.](media/tutorial-machine-learned-entity/entity-subentity-labeled-not-trained.png)
 
     > [!CAUTION]
-    > How do you treat implied data such as the letter `a` implying a single pizza? Or the lack of `pickup` and `delivery` to indicate where the pizza is expected? Or the lack of a size to indicate your default size or small or large? Consider treated implied data handling as part of your business rules in the client application. 
+    > How do you treat implied data such as the letter `a` implying a single pizza? Or the lack of `pickup` and `delivery` to indicate where the pizza is expected? Or the lack of a size to indicate your default size of small or large? Consider treating implied data handling as part of your business rules in the client application instead of or in addition to LUIS. 
 
 1. To train the app, select **Train**. Training applies the changes, such as the new entities and the labeled utterances, to the active model.
 
-1. After training, add a new example utterance to understand how well LUIS understands the machine-learned entity. 
+1. After training, add a new example utterance to the intent to see how well LUIS understands the machine-learned entity. 
 
     |Order example utterance|
     |--|
@@ -143,19 +143,19 @@ To extract details about a pizza order, create a top level, machine-learned `Ord
 
     ![New example utterance predicted with entity](media/tutorial-machine-learned-entity/new-example-utterance-predicted-with-entity.png)
 
-    The dotted link indicates the prediction. 
+    The dotted line indicates the prediction. 
 
-1. In change the prediction into a labeled entity, select the row, then select **Confirm entity predictions**.
+1. To change the prediction into a labeled entity, select the row, then select **Confirm entity predictions**.
 
     ![Accept prediction by selecting Confirm entity prediction.](media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance.png)
 
-    At this point, the machine-learned entity is working because it can find the entity within a new example utterance. As you add example utterances, if the entity is not predicted correctly, label the entity and the subcomponents. If the entity is predicted correctly, make sure the confirm the predictions. 
+    At this point, the machine-learned entity is working because it can find the entity within a new example utterance. As you add example utterances, if the entity is not predicted correctly, label the entity and the subcomponents. If the entity is predicted correctly, make sure to confirm the predictions. 
 
-## Add prebuilt number to app to help extract data
+## Add prebuilt number to help extract data
 
-The order information should also include how many of an item in the order, such as how many pizzas. To extract this data, a new machine-learned subcomponent needs to be added to `Order` and that component needs a constraint of a prebuilt number. By constraining the entity to a prebuilt number, the entity will find and extract numbers whether the text is a digit, `2`, or text, `two`.
+The order information should also include how many of an item is in the order, such as how many pizzas. To extract this data, a new machine-learned subcomponent needs to be added to `Order` and that component needs a constraint of a prebuilt number. By constraining the entity to a prebuilt number, the entity will find and extract numbers whether the text is a digit, `2`, or text, `two`.
 
-Begin by adding the prebuilt number to the app. 
+Begin by adding the prebuilt number entity to the app. 
 
 1. Select **Entities** from the left menu, then select **+ Add prebuilt entity**. 
 
@@ -171,6 +171,8 @@ The `Order` entity should have a `Quantity` subcomponent to determine how many o
 
 A constraint is applied as a text match, either with exact matching (such as a list entity) or through regular expressions (such as a regular expression entity or a prebuilt entity). 
 
+By using a constraint, only text that matches that constraint is extracted. 
+
 1. Select **Entities** then select the `Order` entity. 
 1. Select **+ Add Component** then enter the name `Quantity` then select Enter to add the new entity to the app.
 1. After the success notification, select the `Quantity` subcomponent then select the Constraint pencil.
@@ -178,14 +180,14 @@ A constraint is applied as a text match, either with exact matching (such as a l
 
     ![Create quantity entity with prebuilt number as constraint.](media/tutorial-machine-learned-entity/create-constraint-from-prebuilt-number.png)
 
-    The `Quantity` entity will only fire if a prebuilt number is found.
+    The `Quantity` entity is applied if and only if text matching the prebuilt number entity is found.
 
     The entity with the constraint is created but not yet applied to the example utterances.
 
     > [!NOTE]
     > A subcomponent can be nested within a subcomponent up to 5 levels. While this isn't shown in this article, it is available from the portal and the API.  
 
-## Label example utterance with subcomponent for quantity to teach LUIS about the entity
+## Label example utterance to teach LUIS about the entity
 
 1. Select **Intents** from the left-hand navigation then select the **OrderPizza** intent. The three numbers in the following utterances are labeled but are visually below the `Order` entity line. This lower level means the entities are found but are not considered apart of the `Order` entity.
 
