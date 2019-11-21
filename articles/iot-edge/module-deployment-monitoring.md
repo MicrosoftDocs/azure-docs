@@ -105,7 +105,7 @@ A deployment can be monitored to determine whether it applied successfully for a
 * **Unhealthy** shows the IoT Edge devices have reported back to the service that one or modules have not been deployed successfully. To further investigate the error, connect remotely to those devices and view the log files.
 * **Unknown** shows the IoT Edge devices that did not report any status pertaining this deployment. To further investigate, view service info and log files.
 
-## Layered deployment (Preview)
+## Layered deployment
 
 Layered deployments are automatic deployments that can be combined together to reduce the number of unique deployments that need to be created. Layered deployments are useful in scenarios where the same modules are reused in different combinations in many automatic deployments. 
 

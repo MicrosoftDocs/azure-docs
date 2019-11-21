@@ -107,7 +107,7 @@ Here's a basic deployment manifest with one module as an example:
 }
 ```
 
-## Layered deployment (Preview)
+## Layered deployment
 
 Layered deployments are a type of automatic deployment that can be stacked on top of each other. For more information about layered deployments, see [Understand IoT Edge automatic deployments for single devices or at scale](module-deployment-monitoring.md). 
 
@@ -150,6 +150,19 @@ Here's a basic layered deployment manifest with one module as an example:
   }
 }
 ```
+
+The previous example showed a layered deployment setting the `properties.desired` for a module. If this layered deployment targeted a device where the same module was already applied, it would overwrite any existing desired properties. In order to update, instead of overwrite, desired properties, you can define a new subsection. For example: 
+
+```json
+"SimulatedTEmperatureSensor": {
+  "properties.desired.layeredProperties": {
+    "SendData": true,
+    "SendInterval": 5
+  }
+}
+```
+
+For more information about configuring module twins in layered deployments, see [Layered deployment](module-deployment-monitoring.md#layered-deployment)
 
 ## Identify devices using tags
 

@@ -107,11 +107,19 @@ To add a module from Azure Stream Analytics, follow these steps:
 1. Choose your IoT **Edge job** from the drop-down menu.
 1. Select **Save** to add your module to the deployment.
 
+#### Configure module settings
+
+After you add a module to a deployment, you can select its name to open the **Update IoT Edge Module** page. On this page, you can edit the module settings, environment variables, create options, and module twin. If you added a module from the marketplace, it may already have some of these parameters filled in. 
+
+If you're creating a layered deployment, you may be configuring a module that exists in other deployments targeting the same devices. To update the module twin without overwriting other versions, open the **Module Twin Settings** tab. Create a new **Module Twin Property** with a unique name for a subsection within the module twin's desired properties, for example `properties.desired.settings`. If you define properties within just the `properties.desired` field, it will overwrite the desired properties for the module defined in any lower priority deployments. 
+
+For more information about module twin configuration in layered deployments, see [Layered deployment](module-deployment-monitoring.md#layered-deployment).
+
 Once you have all the modules for a deployment configured, select **Next: Routes** to move to step three.
 
 ### Step 3: Routes
 
-Routes define how modules communicate with each other within a deployment. By default the wizard gives you a route called **Route name** and defined as **FROM /* INTO $upstream**, which means that any messages output by any modules are sent to your IoT hub.  
+Routes define how modules communicate with each other within a deployment. By default the wizard gives you a route called **upstream** and defined as **FROM /messages/\* INTO $upstream**, which means that any messages output by any modules are sent to your IoT hub.  
 
 Add or update the routes with information from [Declare routes](module-composition.md#declare-routes), then select **Next** to continue to the review section.
 
@@ -141,6 +149,8 @@ Use the tags property from your devices to target the specific devices that shou
 Since multiple deployments may target the same device, you should give each deployment a priority number. If there's ever a conflict, the deployment with the highest priority (larger values indicate higher priority) wins. If two deployments have the same priority number, the one that was created most recently wins.
 
 If multiple deployments target the same device then only the one with the higher priority is applied. If multiple layered deployments target the same device then they are all applied. However, if any properties are duplicated, like if there are two routes with the same name, then the one from the higher priority layered deployment overwrites the rest. 
+
+Any layered deployment targeting a device must have a higher priority than the base deployment in order to be applied. 
 
 1. Enter a positive integer for the deployment **Priority**.
 1. Enter a **Target condition** to determine which devices will be targeted with this deployment. The condition is based on device twin tags or device twin reported properties and should match the expression format. For example, `tags.environment='test'` or `properties.reported.devicemodel='4000x'`.
