@@ -58,7 +58,7 @@ To save 60% of cost, we recommend storing your snapshots in Standard Storage, re
 To learn more about Advisor recommendations, see:
 * [Introduction to Advisor](advisor-overview.md)
 * [Get Started](advisor-get-started.md)
-* [Advisor Performance recommendations](advisor-cost-recommendations.md)
-* [Advisor High Availability recommendations](advisor-cost-recommendations.md)
-* [Advisor Security recommendations](advisor-cost-recommendations.md)
+* [Advisor Performance recommendations](advisor-performance-recommendations.md)
+* [Advisor High Availability recommendations](advisor-high-availability-recommendations.md)
+* [Advisor Security recommendations](advisor-security-recommendations.md)
 * [Advisor Operational Excellence recommendations](advisor-operational-excellence-recommendations.md)

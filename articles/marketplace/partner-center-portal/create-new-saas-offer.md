@@ -7,7 +7,7 @@ ms.author: v-chjen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/13/2019
+ms.date: 11/19/2019
 ---
 
 # Create a new SaaS offer
@@ -459,7 +459,7 @@ While SaaS offers use tenant IDs to define a private audience, other offer types
 
 ## Cloud Solution Provider (CSP) Reseller Audience
 
-Electing to make your offer available in the CSP program enables Cloud Solution Providers to sell your product as part of a bundled solution to their customers. For more information, see [Cloud Solution Provider (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers.md).
+Electing to make your offer available in the CSP program enables Cloud Solution Providers to sell your product as part of a bundled solution to their customers. For more information, see [Cloud Solution Providers](https://go.microsoft.com/fwlink/?linkid=2111109).
 
 ## Publish
 

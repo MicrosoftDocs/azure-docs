@@ -1,6 +1,6 @@
 ---
 title: Azure Activity Log event schema
-description: Understand the event schema for data emitted into the Activity Log
+description: Describes the event schema for each category in the Azure Activity log.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor

@@ -20,7 +20,7 @@ This quickstart uses the Go language to call the Bing News Search API. The resul
 ## Prerequisites
 * Install the [Go binaries](https://golang.org/dl/)
 * Install the go-spew library for it pretty printer to display results
-    * Install this libarary: `$ go get -u https://github.com/davecgh/go-spew`
+    * Install this library: `$ go get -u https://github.com/davecgh/go-spew`
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 

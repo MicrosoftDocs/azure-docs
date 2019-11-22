@@ -1,12 +1,9 @@
 ---
-title: Backing up files and folders with Azure Backup - common questions
+title: Backing up files and folders - common questions
 description: Addresses common questions about backing up files and folders with Azure Backup.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.author: dacurwin
+
 ---
 
 # Common questions about backing up files and folders

@@ -40,7 +40,7 @@ You can try some of these operations using the following examples:
 
 | | The Azure portal | Azure PowerShell |
 |---|---|---|
-| Change backup retention | [Single Database](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-azure-portal) <br/> [Managed Instance](sql-database-automated-backups.md#managed-instance-database) | [Single Database](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-powershell) <br/>[Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
+| Change backup retention | [Single Database](sql-database-automated-backups.md?tabs=managed-instance#change-pitr-backup-retention-period-using-azure-portal) <br/> [Managed Instance](sql-database-automated-backups.md?tabs=managed-instance#change-pitr-backup-retention-period-using-azure-portal) | [Single Database](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-powershell) <br/>[Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
 | Change Long-term backup retention | [Single database](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Managed Instance - N/A  | [Single Database](sql-database-long-term-backup-retention-configure.md#use-powershell-to-manage-long-term-backups)<br/>Managed Instance - N/A  |
 | Restore database from point-in-time | [Single database](sql-database-recovery-using-backups.md#point-in-time-restore) | [Single database](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
 | Restore deleted database | [Single database](sql-database-recovery-using-backups.md) | [Single database](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
@@ -78,6 +78,15 @@ For more information, see [Long-term backup retention](sql-database-long-term-re
 ## Storage costs
 For single databases and managed instances, a minimum backup storage amount equal to 100% of database size is provided at no extra charge. For elastic pools, a minimum backup storage amount equal to 100% of the allocated data storage for the pool is provided at no extra charge. Additional consumption of backup storage will be charged in GB/month. This additional consumption will depend on the workload and size of the individual databases.
 
+You can use Azure subscription cost analysis to determine your current spending on backup storage.
+
+![Backup storage cost analysis](./media/sql-database-automated-backup/check-backup-storage-cost-sql-mi.png)
+
+If you go to your subscription and open Cost Analysis blade, you can select meter subcategory **mi pitr backup storage** to see your current backup cost and charge forecast. You can also include other meter subcategories such as **managed instance general purpose - storage** or **managed instance general purpose - storage** to compare backup storage cost with other cost categories.
+
+> [!Note]
+> You can [change retention period to 7 days](#change-pitr-backup-retention-period-using-azure-portal) to reduce the backup storage cost.
+
 For more information about storage prices, see the [pricing](https://azure.microsoft.com/pricing/details/sql-database/single/) page. 
 
 ## Are backups encrypted
@@ -112,17 +121,19 @@ You can change the default PITR backup retention period using the Azure portal, 
 
 To change the PITR backup retention period using the Azure portal, navigate to the server object whose retention period you wish to change within the portal and then select the appropriate option based on which server object you're modifying.
 
-#### Single Azure SQL Database
+#### [Single database & Elastic pools](#tab/single-database)
 
 Change of PITR backup retention for single Azure SQL Databases is performed at the server level. Change made at the server level applies to databases on that server. To change PITR for Azure SQL Database server from Azure portal, navigate to the server overview blade, click on Manage Backups on the navigation menu, and then click on Configure retention at the navigation bar.
 
 ![Change PITR Azure portal](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
 
-#### Managed instance database
+#### [Managed Instance](#tab/managed-instance)
 
 Change of PITR backup retention for SQL Database managed instance is performed at an individual database level. To change PITR backup retention for an instance database from Azure portal, navigate to the individual database overview blade, and then click on Configure backup retention at the navigation bar.
 
 ![Change PITR Azure portal](./media/sql-database-automated-backup/configure-backup-retention-sqlmi.png)
+
+---
 
 ### Change PITR backup retention period using PowerShell
 
