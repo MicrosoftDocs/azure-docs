@@ -36,7 +36,12 @@ After your web app signs in users, it can call web APIs on behalf of the signed-
 
 ### Deep dive: ASP.NET Core web app tutorial
 
-Learn about other ways to sign in users with the ASP.NET Core tutorial: [ms-identity-aspnetcore-webapp-tutorial](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial). This sample is a progressive tutorial with production ready code for a web app including how to add sign in with accounts in:
+Learn about other ways to sign in users with this ASP.NET Core tutorial: 
+
+> [!div class="nextstepaction"]
+> [Enable your web apps to sign in users and call APIs with the Microsoft identity platform for developers](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) 
+
+This progressive tutorial has production-ready code for a web app, including how to add sign-in with accounts in:
 
 - Your organization
 - Multiple organizations
@@ -46,4 +51,7 @@ Learn about other ways to sign in users with the ASP.NET Core tutorial: [ms-iden
 
 ### Sample code: Java web app
 
-Learn more about the Java web app from the sample on GitHub: [A Java Web application that signs in users with the Microsoft identity platform and calls Microsoft Graph](https://github.com/Azure-Samples/ms-identity-java-webapp).
+Learn more about the Java web app from this sample on GitHub: 
+
+> [!div class="nextstepaction"]
+> [A Java Web application that signs in users with the Microsoft identity platform and calls Microsoft Graph](https://github.com/Azure-Samples/ms-identity-java-webapp)
