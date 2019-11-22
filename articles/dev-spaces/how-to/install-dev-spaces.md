@@ -1,5 +1,5 @@
 ---
-title: "Install Azure Dev Spaces on AKS and the client-side tooling"
+title: "Install Azure Dev Spaces on AKS & the client-side tooling"
 services: azure-dev-spaces
 ms.date: "07/24/2019"
 ms.topic: "conceptual"

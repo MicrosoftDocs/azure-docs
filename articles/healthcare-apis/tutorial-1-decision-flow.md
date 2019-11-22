@@ -35,4 +35,4 @@ In this tutorial, you've gone through the decision flow on how to set up Azure A
 You can now set up the development environment, and provision the FHIR service to create the first application.
 
 >[!div class="nextstepaction"]
->[Set up development environment and provision service](tutorial-2-setup-environment.md)
+>[Register a confidential client app](register-confidential-azure-ad-client-app.md)
