@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Language Understanding (LUIS) documentation
-summary: Learn how LUIS enables your applications to understand what a person wants in their own words.
+summary: Learn how Language Understanding enables your applications to understand what a person wants in their own words.
 
 metadata:
   ms.topic: landing-page
-  ms.date: 11/20/2019
+  ms.date: 11/22/2019
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
@@ -18,7 +18,7 @@ metadata:
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 landingContent:
-  - title: About LUIS
+  - title: About Language Understanding (LUIS)
     linkLists:
 
       - linkListType: overview
