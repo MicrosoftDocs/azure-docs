@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Analyze events from Azure Digital Twins setup'
+title: 'Tutorial: Analyze events in Time Series Insights - Azure Digital Twins| Microsoft Docs'
 description: Learn how to visualize and analyze events from your Azure Digital Twins spaces, with Azure Time Series Insights, by using the steps in this tutorial.
 services: digital-twins
 ms.author: alinast
