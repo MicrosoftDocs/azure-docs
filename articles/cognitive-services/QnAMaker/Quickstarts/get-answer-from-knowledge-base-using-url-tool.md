@@ -7,6 +7,7 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
+zone_pivot_groups: URL-test-interface
 ms.topic: quickstart
 ms.date: 11/21/2019
 ms.author: diberry
