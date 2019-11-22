@@ -32,11 +32,11 @@ Azure FarmBeats provides you with a robust and easy way to do the following:
 - Gain actionable insights by building AI/ML models on top of aggregated datasets.
 - Build or augment your digital agriculture solution by providing farm health advisories.
 
-Azure FarmBeat components are discussed in the following sections of this article.
+Azure FarmBeats components are discussed in the following sections of this article.
 
 ## Data hub
 
-An API layer, which enables aggregation, normalization, and contextualization of various agriculture datasets across providers. As of this preview, you can leverage two sensor providers [Davis Instruments](https://www.davisinstruments.com/product/enviromonitor-gateway/), [Teralytic](https://teralytic.com/), one satellite imagery provider [Sentinel-2](https://sentinel.esa.int/web/sentinel/home), and two drone imagery providers [senseFly](https://www.sensefly.com/) , [SlantRange](https://slantrange.com/). Data hub is designed as an API platform and we are working with many more providers to integrate with Azure FarmBeats, so you have more choice while building your solution.
+An API layer, which enables aggregation, normalization, and contextualization of various agriculture datasets across providers. As of this preview, you can leverage two sensor providers [Davis Instruments](https://www.davisinstruments.com/product/enviromonitor-gateway/), [Teralytic](https://teralytic.com/), one satellite imagery provider [Sentinel-2](https://sentinel.esa.int/web/sentinel/home), and three drone imagery providers [senseFly](https://www.sensefly.com/) , [SlantRange](https://slantrange.com/), [DJI] (https://dji.com/). Data hub is designed as an API platform and we are working with many more providers to integrate with Azure FarmBeats, so you have more choice while building your solution.
 
 ## Accelerator
 
