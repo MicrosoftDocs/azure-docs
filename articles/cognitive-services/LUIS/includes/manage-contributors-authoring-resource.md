@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 09/02/2018
+ms.date: 09/02/2019
 ms.author: diberry
 ---
 If your apps need to be authored by other people, you need to add the associated email addresses in the Azure portal's authoring resource.
