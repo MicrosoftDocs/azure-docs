@@ -38,7 +38,7 @@ For this tutorial, the FHIR service, Azure AD application, and Azure AD users ar
 
 ## Next steps
 
-In this tutorial, you set up all the prerequisits for the Azure API for FHIR.
+In this tutorial, you set up all the prerequisites for the Azure API for FHIR.
 
 Now you're ready to learn about application registration.
 
