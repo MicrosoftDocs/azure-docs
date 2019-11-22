@@ -61,7 +61,7 @@ The following XML sample will install the monthly release.
 
 ```xml
 <Configuration>
-  <Add OfficeClientEdition="64" Channel=”Monthly”>
+  <Add OfficeClientEdition="64" Channel="Monthly">
     <Product ID="O365ProPlusRetail">
       <Language ID="en-US" />
       <Language ID="MatchOS" />
