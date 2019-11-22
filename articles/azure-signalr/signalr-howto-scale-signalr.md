@@ -1,6 +1,6 @@
 ---
 title: Scale an instance of Azure SignalR Service
-description: Learn how to scale an Azure SignalR Service instance to add or reduce capacity, through Azure Portal or Azure CLI. 
+description: Learn how to scale an Azure SignalR Service instance to add or reduce capacity, through Azure portal or Azure CLI.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
@@ -22,7 +22,7 @@ For information about the pricing and capacities of individual SignalR Service, 
 > Your service might be unreachable before DNS gets updated. Generally it’s not recommended to change your pricing tier too often.
 
 
-## Scale on Azure Portal
+## Scale on Azure portal
 
 1. In your browser, open the [Azure portal](https://portal.azure.com).
 
