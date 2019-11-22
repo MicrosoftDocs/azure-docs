@@ -19,8 +19,8 @@ In order to scale up to 100 TiB using standard file shares, you must enable your
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- If you intend to use Azure CLI, make sure you [install the latest version](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
-- If you intend to use Azure PowerShell, make sure you [install the latest version](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-3.0.0).
+- If you intend to use Azure CLI, make sure you [install the latest version](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+- If you intend to use Azure PowerShell, make sure you [install the latest version](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0).
 
 ## Restrictions
 
@@ -61,7 +61,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ### CLI
 
-First, make sure you [install the latest version](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+First, make sure you [install the latest version](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 To create a storage account with large file shares enabled, replace `<yourStorageAccountName>`, `<yourResourceGroup>`, and `<yourDesiredRegion>` with your values, then use the following command:
 
@@ -72,7 +72,7 @@ az storage account create –name <yourStorageAccountName> -g <yourResourceGroup
 
 ### PowerShell
 
-First, make sure you [install the latest version](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-3.0.0).
+First, make sure you [install the latest version](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0).
 
 To create a storage account with large file shares enabled, replace `<yourStorageAccountName>`, `<yourResourceGroup>`, and `<yourDesiredRegion>` with your values, then use the following command:
 
@@ -96,7 +96,7 @@ You can also enable large file shares on existing accounts. If you do this, then
 
 You've now enabled large file shares on your storage account.
 
-If you receive the following error: "Large file shares are not available for the account yet." You can either wait some time, as your region is likely in the middle of completing roll out, or, if you have urgent needs, reach out to support.
+If you receive the following error: "Large file shares are not available for the account yet." You can either wait some time, as your region is likely in the middle of completing its roll out, or, if you have urgent needs, reach out to support.
 
 ### CLI
 
