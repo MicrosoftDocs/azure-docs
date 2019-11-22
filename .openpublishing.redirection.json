@@ -26303,7 +26303,7 @@
     },
     {
       "source_path": "articles/security-center/security-center-policies-overview.md",
-      "redirect_url": "/azure/security-center/tutorial-security-policy.md",
+      "redirect_url": "/azure/security-center/tutorial-security-policy",
       "redirect_document_id": false
     },
     {
