@@ -66,7 +66,7 @@ As blockchain is used in more enterprise scenarios, transactions per second (TPS
 
 ## Next steps
 
-Try a quickstart to use Azure Blockchain Development Kit for Ethereum to attach to a consortium on Azure Blockchain Service.
+Try a quickstart using Azure Blockchain Development Kit for Ethereum to attach to a consortium on Azure Blockchain Service.
 
 > [!div class="nextstepaction"]
 > [Use Visual Studio Code to connect to Azure Blockchain Service](connect-vscode.md)
