@@ -43,11 +43,11 @@ Create an unregistered dataset in memory for your local experiments, or register
 
 #### Types of datasets
 
-You can create a dataset from paths in datastores, pubic web urls, Azure Open Datasets and local files. Datasets provide you with the capability to do sampling, exploratory data analysis, and access data for machine learning experiments.  
+You can create a dataset from paths in datastores, public web urls, Azure Open Datasets, and local files. Datasets provide you with the capability to do sampling, exploratory data analysis, and access data for machine learning experiments.  
 
 There are two different types of datasets
 
-+ [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) represents data in a tabular format by parsing the provided file or list of files. This provides you with the ability to materialize the data into a Pandas or Spark DataFrame for further manipulation and cleansing. For a complete list of files you can create TabularDatasets from see the [TabularDatasetFactory class](https://aka.ms/tabulardataset-api-reference).
++ [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) represents data in a tabular format by parsing the provided file or list of files. This provides you with the ability to materialize the data into a Pandas or Spark DataFrame for further manipulation and cleansing. For a complete list of files you can create TabularDatasets from, see the [TabularDatasetFactory class](https://aka.ms/tabulardataset-api-reference).
 
 + [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) references single or multiple files in your datastores or public URLs. By this method, you can download or mount files of your choosing to your compute as a FileDataset object.
 
