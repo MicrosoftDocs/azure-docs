@@ -51,46 +51,46 @@ Some of the Weather service APIs return icon codes (iconCode) in the response, a
 
 | Icon Number |Icon| Day | Night | Text |
 |-------------|:----:|-----|-------|------|
-| 1           |![](./media/weather-services-concepts/Sunny.png)                      | Yes |  No    | Sunny|
-| 2           |![](./media/weather-services-concepts/MostlySunny.png)                | Yes |  No    | Mostly Sunny|
-| 3           |![](./media/weather-services-concepts/PartlySunny.png)                | Yes |  No    | Partly Sunny|
-| 4           |![](./media/weather-services-concepts/IntermittentClouds.png)         | Yes |  No    | Intermittent Clouds|
-| 5           |![](./media/weather-services-concepts/HazySunshine.png)               | Yes |  No    | Hazy Sunshine |
-| 6           |![](./media/weather-services-concepts/MostlyCloudy.png)               | Yes |  No    | Mostly Cloudy|
-| 7           |![](./media/weather-services-concepts/Cloudy.png)                     | Yes |  Yes   | Cloudy |
-| 8           |![](./media/weather-services-concepts/DrearyOvercast.png)             | Yes |  Yes   | Dreary (Overcast)|
-| 11           |![](./media/weather-services-concepts/Fog.png)                       | Yes |  Yes   | Fog|
-| 12           |![](./media/weather-services-concepts/Showers.png)                   | Yes |  Yes   | Showers|
-| 13           |![](./media/weather-services-concepts/MostlyCloudyShowers.png)       | Yes |  No    | Mostly Cloudy with Showers|
-| 14           |![](./media/weather-services-concepts/PartlySunnyShowers.png)        | Yes |  No    | Partly Sunny with Showers|
-| 15           |![](./media/weather-services-concepts/TStorms.png)                   | Yes |  Yes   | Thunderstorms|
-| 16           |![](./media/weather-services-concepts/MostlyCloudyTStorms.png)       | Yes |  No    | Mostly Cloudy with Thunderstorms|
-| 17           |![](./media/weather-services-concepts/PartlySunnyTStorms.png)        | Yes |  No    | Partly Sunny with Thunderstorms|
-| 18           |![](./media/weather-services-concepts/Rain.png)                      | Yes |  Yes   | Rain|
-| 19           |![](./media/weather-services-concepts/Flurries.png)                  | Yes |  Yes   | Flurries|
-| 20           |![](./media/weather-services-concepts/MostlyCloudyFlurries.png)      | Yes |  No    | Mostly Cloudy with Flurries|
-| 21           |![](./media/weather-services-concepts/PartlySunnyFlurries.png)       | Yes |  No    | Partly Sunny with Flurries|
-| 22           |![](./media/weather-services-concepts/Snow.png)                      | Yes |  Yes   | Snow|
-| 23           |![](./media/weather-services-concepts/MostlyCloudySnow.png)          | Yes |  No    | Mostly Cloudy with Snow|
-| 24           |![](./media/weather-services-concepts/Ice.png)                       | Yes |  Yes   | Ice |
-| 25           |![](./media/weather-services-concepts/Sleet.png)                     | Yes |  Yes   | Sleet|
-| 26           |![](./media/weather-services-concepts/FreezingRain.png)              | Yes |  Yes   | Freezing Rain|
-| 29           |![](./media/weather-services-concepts/RainSnow.png)                  | Yes |  Yes   | Rain and Snow|
-| 30           |![](./media/weather-services-concepts/Hot.png)                       | Yes |  Yes   | Hot|
-| 31           |![](./media/weather-services-concepts/Cold.png)                      | Yes |  Yes   | Cold|
-| 32           |![](./media/weather-services-concepts/Windy.png)                     | Yes |  Yes   | Windy|
-| 33           |![](./media/weather-services-concepts/ClearNight.png)                | No  |  Yes   | Clear|
-| 34           |![](./media/weather-services-concepts/MostlyClearNight.png)          | No  |  Yes   | Mostly Clear|
-| 35           |![](./media/weather-services-concepts/PartlyCloudyNight.png)         | No  |  Yes   | Partly Cloudy|
-| 36           |![](./media/weather-services-concepts/IntermittentCloudsNight.png)   | No  |  Yes   | Intermittent Clouds|
-| 37           |![](./media/weather-services-concepts/HazyMoonlight.png)             | No  |  Yes   | Hazy Moonlight|
-| 38           |![](./media/weather-services-concepts/MostlyCloudyNight.png)         | No  |  Yes   | Mostly Cloudy|
-| 39           |![](./media/weather-services-concepts/PartlyCloudyShowersNight.png)  | No  |  Yes   | Partly Cloudy with Showers|
-| 40           |![](./media/weather-services-concepts/MostlyCloudyShowersNight.png)  | No  |  Yes   | Mostly Cloudy with Showers|
-| 41           |![](./media/weather-services-concepts/PartlyCloudyTStormsNight.png)  | No  |  Yes   | Partly Cloudy with Thunderstorms|
-| 42           |![](./media/weather-services-concepts/MostlyCloudyTStormsNight.png)  | No  |  Yes   | Mostly Cloudy with Thunderstorms|
-| 43           |![](./media/weather-services-concepts/MostlyCloudyFlurriesNight.png) | No  |  Yes   | Mostly Cloudy with Flurries|
-| 44           |![](./media/weather-services-concepts/MostlyCloudySnow.png)          | No  |  Yes   | Mostly Cloudy with Snow|
+| 1           |![](./media/weather-services-concepts/sunny.png)                      | Yes |  No    | Sunny|
+| 2           |![](./media/weather-services-concepts/mostlysunny.png)                | Yes |  No    | Mostly Sunny|
+| 3           |![](./media/weather-services-concepts/partlysunny.png)                | Yes |  No    | Partly Sunny|
+| 4           |![](./media/weather-services-concepts/intermittentclouds.png)         | Yes |  No    | Intermittent Clouds|
+| 5           |![](./media/weather-services-concepts/hazysunshine.png)               | Yes |  No    | Hazy Sunshine |
+| 6           |![](./media/weather-services-concepts/mostlycloudy.png)               | Yes |  No    | Mostly Cloudy|
+| 7           |![](./media/weather-services-concepts/cloudy.png)                     | Yes |  Yes   | Cloudy |
+| 8           |![](./media/weather-services-concepts/drearyovercast.png)             | Yes |  Yes   | Dreary (Overcast)|
+| 11           |![](./media/weather-services-concepts/fog.png)                       | Yes |  Yes   | Fog|
+| 12           |![](./media/weather-services-concepts/showers.png)                   | Yes |  Yes   | Showers|
+| 13           |![](./media/weather-services-concepts/mostlycloudyshowers.png)       | Yes |  No    | Mostly Cloudy with Showers|
+| 14           |![](./media/weather-services-concepts/partlysunnyshowers.png)        | Yes |  No    | Partly Sunny with Showers|
+| 15           |![](./media/weather-services-concepts/tstorms.png)                   | Yes |  Yes   | Thunderstorms|
+| 16           |![](./media/weather-services-concepts/mostlycloudytstorms.png)       | Yes |  No    | Mostly Cloudy with Thunderstorms|
+| 17           |![](./media/weather-services-concepts/partlysunnytstorms.png)        | Yes |  No    | Partly Sunny with Thunderstorms|
+| 18           |![](./media/weather-services-concepts/rain.png)                      | Yes |  Yes   | Rain|
+| 19           |![](./media/weather-services-concepts/flurries.png)                  | Yes |  Yes   | Flurries|
+| 20           |![](./media/weather-services-concepts/mostlycloudyflurries.png)      | Yes |  No    | Mostly Cloudy with Flurries|
+| 21           |![](./media/weather-services-concepts/partlysunnyflurries.png)       | Yes |  No    | Partly Sunny with Flurries|
+| 22           |![](./media/weather-services-concepts/snow.png)                      | Yes |  Yes   | Snow|
+| 23           |![](./media/weather-services-concepts/mostlycloudysnow.png)          | Yes |  No    | Mostly Cloudy with Snow|
+| 24           |![](./media/weather-services-concepts/ice.png)                       | Yes |  Yes   | Ice |
+| 25           |![](./media/weather-services-concepts/sleet.png)                     | Yes |  Yes   | Sleet|
+| 26           |![](./media/weather-services-concepts/freezingrain.png)              | Yes |  Yes   | Freezing Rain|
+| 29           |![](./media/weather-services-concepts/rainsnow.png)                  | Yes |  Yes   | Rain and Snow|
+| 30           |![](./media/weather-services-concepts/hot.png)                       | Yes |  Yes   | Hot|
+| 31           |![](./media/weather-services-concepts/cold.png)                      | Yes |  Yes   | Cold|
+| 32           |![](./media/weather-services-concepts/windy.png)                     | Yes |  Yes   | Windy|
+| 33           |![](./media/weather-services-concepts/clearnight.png)                | No  |  Yes   | Clear|
+| 34           |![](./media/weather-services-concepts/mostlyclearnight.png)          | No  |  Yes   | Mostly Clear|
+| 35           |![](./media/weather-services-concepts/partlycloudynight.png)         | No  |  Yes   | Partly Cloudy|
+| 36           |![](./media/weather-services-concepts/intermittentcloudsNight.png)   | No  |  Yes   | Intermittent Clouds|
+| 37           |![](./media/weather-services-concepts/hazymoonlight.png)             | No  |  Yes   | Hazy Moonlight|
+| 38           |![](./media/weather-services-concepts/mostlycloudynight.png)         | No  |  Yes   | Mostly Cloudy|
+| 39           |![](./media/weather-services-concepts/partlycloudyshowersnight.png)  | No  |  Yes   | Partly Cloudy with Showers|
+| 40           |![](./media/weather-services-concepts/mostlycloudyshowersnight.png)  | No  |  Yes   | Mostly Cloudy with Showers|
+| 41           |![](./media/weather-services-concepts/partlycloudytstormsnight.png)  | No  |  Yes   | Partly Cloudy with Thunderstorms|
+| 42           |![](./media/weather-services-concepts/mostlycloudytstormsnight.png)  | No  |  Yes   | Mostly Cloudy with Thunderstorms|
+| 43           |![](./media/weather-services-concepts/mostlycloudyflurriesnight.png) | No  |  Yes   | Mostly Cloudy with Flurries|
+| 44           |![](./media/weather-services-concepts/mostlycloudysnow.png)          | No  |  Yes   | Mostly Cloudy with Snow|
 
 
 ## Radar and satellite imagery color scale
