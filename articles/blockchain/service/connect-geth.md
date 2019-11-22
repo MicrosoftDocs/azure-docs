@@ -1,15 +1,9 @@
 ---
 title: Use Geth to attach to Azure Blockchain Service
 description: Attach to a Geth instance on Azure Blockchain Service transaction node
-services: azure-blockchain
-keywords: 
-author: PatAltimore
-ms.author: patricka
 ms.date: 11/20/2019
 ms.topic: quickstart
-ms.service: azure-blockchain
 ms.reviewer: janders
-manager: femila
 #Customer intent: As a developer, I want to connect to my blockchain member transaction node so that I can perform actions on a blockchain.
 ---
 

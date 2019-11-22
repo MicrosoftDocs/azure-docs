@@ -1,15 +1,9 @@
 ---
 title: Use Truffle to connect to Azure Blockchain Service
 description: Connect to an Azure Blockchain Service network using Truffle
-services: azure-blockchain
-keywords: 
-author: PatAltimore
-ms.author: patricka
 ms.date: 11/20/2019
 ms.topic: quickstart
-ms.service: azure-blockchain
 ms.reviewer: janders
-manager: femila
 #Customer intent: As a developer, I want to connect to my blockchain member node so that I can perform actions on a blockchain.
 ---
 
