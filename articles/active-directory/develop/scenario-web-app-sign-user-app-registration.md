@@ -46,7 +46,7 @@ You can use these links to bootstrap the creation of your web application:
 1. If your account gives you access to more than one tenant, select your account in the upper-right corner. Then, set your portal session to the desired Azure Active Directory (Azure AD) tenant.
 1. In the left pane, select the **Azure Active Directory** service, and then select **App registrations** > **New registration**.
 
-### [ASP.NET Core](#tab/aspnetcore)
+# [ASP.NET Core](#tab/aspnetcore)
 
 1. When the **Register an application** page appears, enter your application's registration information:
    1. Choose the supported account types for your application. (See [Supported account types](./v2-supported-account-types.md).)
@@ -58,7 +58,7 @@ You can use these links to bootstrap the creation of your web application:
    1. Under **Implicit grant**, select **ID tokens**.
    1. Select **Save**.
 
-### [ASP.NET](#tab/aspnet)
+# [ASP.NET](#tab/aspnet)
 
 1. When the **Register an application page** appears, enter your application's registration information:
    1. Choose the supported account types for your application. (See [Supported account types](./v2-supported-account-types.md).)
@@ -69,7 +69,7 @@ You can use these links to bootstrap the creation of your web application:
 1. In the **Advanced settings** | **Implicit grant** section, select **ID tokens**. This sample requires the [implicit grant flow](v2-oauth2-implicit-grant-flow.md) to be enabled to sign in the user.
 1. Select **Save**.
 
-### [Java](#tab/java)
+# [Java](#tab/java)
 
 1. When the **Register an application page** appears, enter a display name for the application. For example, enter **java-webapp**. 
 1. Select **Accounts in any organizational directory
