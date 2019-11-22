@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create a skillset in the Azure portal'
 titleSuffix: Azure Cognitive Search
-description: Use the Import data wizard to add cognitive skills to an indexing pipeline. Cognitive skills include Optical Character Recognition (OCR) and natural language processing.
+description: In this portal quickstart, learn how to use the Import data wizard to add cognitive skills to an indexing pipeline in Azure Cognitive Search. Skills include Optical Character Recognition (OCR) and natural language processing.
 
 manager: nitinme
 author: HeidiSteen
@@ -147,7 +147,7 @@ Output is directed to a search index, and there is a mapping between name-value 
 
 Finally, you learned that can verify content by querying the index. In the end, what Azure Cognitive Search provides is a searchable index, which you can query using either the [simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) or [fully extended query syntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). An index containing enriched fields is like any other. If you want to incorporate standard or [custom analyzers](search-analyzers.md), [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [synonyms](search-synonyms.md), [faceted filters](search-filters-facets.md), geo-search, or any other Azure Cognitive Search feature, you can certainly do so.
 
-## Clean up
+## Clean up resources
 
 When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
 
@@ -155,12 +155,12 @@ You can find and manage resources in the portal, using the **All resources** or 
 
 If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
 
+> [!Tip]
+> If you want to repeat this exercise or try a different AI enrichment walkthrough, delete the indexer in the portal. Deleting the indexer resets the free daily transaction counter back to zero for Cognitive Services processing.
+
 ## Next steps
 
 You can create skillsets using the portal, .NET SDK, or REST API. To further your knowledge, try the REST API using Postman and more sample data.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Add structure to "unstructured content" with AI enrichment](cognitive-search-tutorial-blob.md)
-
-> [!Tip]
-> If you want to repeat this exercise or try a different AI enrichment walkthrough, delete the indexer in the portal. Deleting the indexer resets the free daily transaction counter back to zero for Cognitive Services processing.

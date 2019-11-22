@@ -1,16 +1,10 @@
 ---
 title: Deploy Azure Blockchain Workbench Preview
 description: How to deploy Azure Blockchain Workbench Preview
-services: azure-blockchain
-keywords: 
-author: PatAltimore
-ms.author: patricka
 ms.date: 11/19/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: brendal
-manager: femila
-#customer intent: As a developer, I want to deploy Azure Blockchain Workbench so that I can create a blockchain apps.
+#Customer intent: As a developer, I want to deploy Azure Blockchain Workbench so that I can create a blockchain apps.
 ---
 # Deploy Azure Blockchain Workbench Preview
 

@@ -22,8 +22,6 @@ Developer portal is an automatically generated, fully customizable website with 
 This article describes the differences between self-hosted and managed versions of the developer portal in API Management. It also explains its architecture and provides answers to frequently asked questions.
 
 > [!WARNING]
-> The new developer portal is currently being rolled out to API Management services.
-> If your service is newly created or is a Developer tier service, you should already have the latest version. Otherwise, you might experience problems (for example, with the publishing functionality). The feature rollout is expected to complete by Friday November 22nd, 2019.
 >
 > [Learn how to migrate from the preview version to the generally available version](#preview-to-ga) of the developer portal.
 
