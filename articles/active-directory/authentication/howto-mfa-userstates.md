@@ -1,12 +1,12 @@
 ---
-title: Azure Multi-Factor Authentication user states - Azure Active Directory
-description: Learn about user states in Azure Multi-Factor Authentication.
+title: Per-user Multi-Factor Authentication - Azure Active Directory
+description: Enable MFA by changing user states in Azure Multi-Factor Authentication.
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
