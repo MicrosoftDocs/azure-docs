@@ -19,27 +19,27 @@ As a CSP, you can create and manage Microsoft Azure IoT Central applications on 
 
 To get started, sign-in to your account on the Microsoft Partner Portal and select a customer for whom you want to create an Azure IoT Central application. Navigate to Service Management for the customer from the left nav.
 
-![Microsoft Partner Center, customer view](media/howto-create-application-csp/image1.png)
+![Microsoft Partner Center, customer view](media/howto-create-and-manage-applications-csp/image1.png)
 
 Azure IoT Central is listed as a service available to administer. Select the Azure IoT Central link on the page to create new applications or manage existing applications for this customer.
 
-![Azure IoT Central available to manage](media/howto-create-application-csp/image2.png)
+![Azure IoT Central available to manage](media/howto-create-and-manage-applications-csp/image2.png)
 
 You land on the Azure IoT Central Application Manager page. Azure IoT Central keeps context that you came from the Microsoft Partner Center and that you came to manage that particular customer. You see this acknowledged in the header of the Application Manager page. From here, you can either navigate to an existing application you had created earlier for this customer to manage or create a new application for the customer.
 
-![Create Manager for CSPs](media/howto-create-application-csp/image3.png)
+![Create Manager for CSPs](media/howto-create-and-manage-applications-csp/image3.png)
 
 To create an Azure IoT Central application, select **Build** in the left menu. Choose one of the idustry templates, or choose **Custom app** to create an application from scratch. This will load the Application Creation page. You must complete all the fields on this page and then choose **Create**. You find more information about each of the fields below.
 
-![Create Application Page for CSPs](media/howto-create-application-csp/image4.png)
+![Create Application Page for CSPs](media/howto-create-and-manage-applications-csp/image4.png)
 
-![Create Application Page for CSPs](media/howto-create-application-csp/image4-1.png)
+![Create Application Page for CSPs](media/howto-create-and-manage-applications-csp/image4-1.png)
 
 ## Payment plan
 
 You can only create Pay-As-You-Go applications as a CSP. To showcase Azure IoT Central to your customer, you can create a trial application separately. Learn more about Trial and Pay-As-You-Go applications on the [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/).
 
-## Application Name
+## Application name
 
 The name of your application is displayed on the **Application Manager** page and within each Azure IoT Central application. You can choose any name for your Azure IoT Central application. Choose a name that makes sense to you and to others in your organization.
 

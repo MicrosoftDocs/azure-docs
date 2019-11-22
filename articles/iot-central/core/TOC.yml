@@ -25,6 +25,10 @@
     items:
       - name: Prepare and connect an MXChip IoT DevKit
         href: howto-connect-devkit.md
+      - name: Prepare and connect a Rigado Cascade 500
+        href: howto-connect-rigado-cascade-500.md
+      - name: Prepare and connect a RuuviTag
+        href: howto-connect-ruuvi.md
   - name: Manage devices
     items:
       - name: Set up a device template
