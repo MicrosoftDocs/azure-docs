@@ -342,8 +342,8 @@
             href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: Azure CLI
             href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Determine encryption key model
-          href: ../common/storage-encryption-key-info-get.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Get information about encryption
+          href: ../common/storage-encryption-info-get.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Provide an encryption key on the request
         href: storage-blob-customer-provided-key.md
       - name: Configure client-side encryption

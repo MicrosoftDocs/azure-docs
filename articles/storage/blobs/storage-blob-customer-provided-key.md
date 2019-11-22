@@ -147,7 +147,7 @@ public static void UploadBlobWithClientKey(CloudBlobContainer container)
 
 ---
 
-## Check whether a blob or file is encrypted
+## Example: Check whether an object is encrypted with a customer-provided key
 
 # [.NET v12](#tab/dotnet12)
 

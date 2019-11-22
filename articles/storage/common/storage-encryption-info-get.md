@@ -23,18 +23,20 @@ Additionally, you can provide an encryption key at the level of an individual re
 
 For more information about encryption keys, see [Azure Storage encryption for data at rest](storage-service-encryption.md).
 
-## Determine the encryption model for the storage account
+## Check the encryption key model for the storage account
+
+To determine whether a storage account is using Microsoft-managed keys or customer-managed keys for encryption, use one of the following approaches.
 
 # [Azure portal](#tab/portal)
 
 To check the encryption model for the storage account by using the Azure portal, follow these steps:
 
 1. In the Azure portal, navigate to your storage account.
-2. Select the **Encryption** setting and note the setting.
+1. Select the **Encryption** setting and note the setting.
 
 The following image shows a storage account where customer-managed keys are in use for encryption:
 
-![Screenshot showing encryption key setting in Azure portal](media/storage-encryption-key-model-get/customer-managed-encryption-key-setting-portal.png)
+![Screenshot showing encryption key setting in Azure portal](media/storage-encryption-info-get/customer-managed-encryption-key-setting-portal.png)
 
 # [PowerShell](#tab/powershell)
 
@@ -64,7 +66,30 @@ If the value of the **keySource** property is `Microsoft.Storage`, then the acco
 
 ---
 
-## Check whether an object 
+## Check whether a blob is encrypted
+
+Every block blob, append blob, or page blob that was written to Azure Storage after October 20, 2017 is encrypted. Blobs created prior to this date continue to be encrypted by a background process. To determine whether a given blob has been encrypted, use one of the following approaches.
+
+# [Azure portal](#tab/portal)
+
+To check whether a blob has been encrypted, follow these steps:
+
+1. In the Azure portal, navigate to your storage account.
+1. Select **Containers** to navigate to a list of containers in the account.
+1. Locate the blob and display its **Overview** tab.
+1. View the **Server Encrypted** property. If **True**, as shown in the following image, then the blob is encrypted.
+
+    ![Screenshot showing how to check Server Encrypted property in Azure portal](media/storage-encryption-info-get/blob-encryption-property-portal.png)
+
+# [PowerShell](#tab/powershell)
+
+...
+
+# [Azure CLI](#tab/cli)
+
+...
+
+---
 
 ## Next steps
 
