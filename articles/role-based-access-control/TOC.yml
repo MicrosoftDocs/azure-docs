@@ -84,7 +84,7 @@
       href: custom-roles-rest.md
   - name: View activity logs
     href: change-history-report.md
-  - name: Elevate access to manage all subscriptions
+  - name: Elevate access
     href: elevate-access-global-admin.md
   - name: Classic administrators
     href: classic-administrators.md

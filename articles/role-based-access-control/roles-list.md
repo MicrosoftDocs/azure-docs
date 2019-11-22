@@ -17,15 +17,9 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ---
 
-# List roles using RBAC
+# List roles in RBAC
 
 [Role-based access control (RBAC)](overview.md) is the way that you manage access to Azure resources. This article describes how you list role assignments using the Azure portal. If you need to manage access to Azure Active Directory, see [View and assign administrator roles in Azure Active Directory](../active-directory/users-groups-roles/directory-manage-roles-portal.md).
-
-## Prerequisites
-
-To add and remove role assignments, you must have:
-
-- `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner)
 
 ## Azure Portal
 

@@ -24,10 +24,7 @@ ms.reviewer: bagovind
 
 ## Prerequisites
 
-To manage access, you need one of the following:
-
-* [PowerShell in Azure Cloud Shell](/azure/cloud-shell/overview)
-* [Azure PowerShell](/powershell/azure/install-az-ps)
+- [PowerShell in Azure Cloud Shell](/azure/cloud-shell/overview) or [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## Current subscription
 

@@ -22,10 +22,10 @@ ms.reviewer: bagovind
 
 ## Prerequisites
 
-To manage access, you need one of the following:
+To add and remove role assignments, you must have:
 
-* [Bash in Azure Cloud Shell](/azure/cloud-shell/overview)
-* [Azure CLI](/cli/azure)
+- `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner)
+- [Bash in Azure Cloud Shell](/azure/cloud-shell/overview) or [Azure CLI](/cli/azure)
 
 ## Get object IDs
 

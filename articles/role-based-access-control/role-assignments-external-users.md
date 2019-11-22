@@ -19,7 +19,7 @@ ms.reviewer: skwan
 ms.custom: it-pro
 
 ---
-# Manage access to Azure resources for external guest users using RBAC
+# Add or remove role assignments for external guest users using RBAC and Azure portal
 
 Role-based access control (RBAC) allows better security management for large organizations and for small and medium-sized businesses working with external collaborators, vendors, or freelancers that need access to specific resources in your environment, but not necessarily to the entire infrastructure or any billing-related scopes. You can use the capabilities in [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md) to collaborate with external guest users and you can use RBAC to grant just the permissions that guest users need in your environment.
 
@@ -175,7 +175,7 @@ If a guest user needs additional privileges in the directory, you can assign a d
 
 ### Guest user cannot browse users, groups, or service principals to assign roles
 
-Guest users have restricted directory permissions. Even if a guest user is an [Owner](built-in-roles.md#owner) at a scope, if they try to create a role assignment to grant someone else access, they cannot browse the list of users, groups, or service principals.
+Guest users have restricted directory permissions. Even if a guest user is an [Owner](built-in-roles.md#owner) at a scope, if they try to add a role assignment to grant someone else access, they cannot browse the list of users, groups, or service principals.
 
 ![Guest user cannot browse security principals to assign roles](./media/role-assignments-external-users/directory-no-browse.png)
 
