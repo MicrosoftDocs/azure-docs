@@ -122,7 +122,7 @@ If you repeat the patient search, you should now see the patient record:
 
 ## Next steps
 
-In this tutorial, you've accessed an FHIR API using postman. Read about the supported API features in Microsoft FHIR server for Azure.
+In this tutorial, you've accessed an FHIR API using postman. Next you can write your first sample application.
  
 >[!div class="nextstepaction"]
->[Supported FHIR features](fhir-features-supported.md)
+>[Write an app to connect to an Azure API for FHIR endpoint](tutorial-3-connect-to-endpoint.md)

@@ -24,8 +24,6 @@ The sample application has two parts:
 * Obtaining the access token for the service from Azure AD. 
 * Using the token to call the Azure API for Fast Healthcare Interoperability Resources (FHIR), and obtaining the list of patients.
 
-
-
 ## Create a skeleton of your web app
 
 We will use a Node.js express app to serve an index.html page that contains JS code. The app authenticates to Azure AD, and obtains the token for the Azure API for FHIR endpoint. Then it lists the patients in a table format.
@@ -210,3 +208,10 @@ If you're using Node.js:
 3. Select **Sign In** to start the sign-in, and then call the Azure API for FHIR.
 
 After you sign in, you should see all the patient resources listed.
+
+## Next steps
+
+In this tutorial, you've connected to an endpoint. Read about the supported API features in Microsoft FHIR server for Azure.
+ 
+>[!div class="nextstepaction"]
+>[Supported FHIR features](fhir-features-supported.md)
