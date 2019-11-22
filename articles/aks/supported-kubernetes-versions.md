@@ -45,6 +45,9 @@ series, you should upgrade to *1.12.15* as soon as you are able to ensure your c
 
 ## Kubernetes version support policy
 
+> [!NOTE]
+> Starting December 6th, 2019 AKS will move to supporting latest (N) - 2 versions of Kubernetes. This change is to conform to the upstream window of support for Kubernetes versions and ensure the latest and most secure versions are being used.
+
 AKS supports four minor versions of Kubernetes:
 
 * The current minor version that is released in AKS (N)
@@ -124,10 +127,16 @@ available in all regions.
 > deprecated/removed users are given 60 days to upgrade to a supported release. In the case of patch releases,
 > customers are given 30 days to upgrade to a supported release.
 
-Notifications are sent via:
+#### Notification channels for AKS changes
+
+AKS releases a weekly service update which summarizes new Kubernetes versions, service changes, and component updates that have been released on the service on [github](https://github.com/Azure/AKS/releases).
+
+These changes are rolled to all customers as part of regular maintenance that is offered as part of the managed service, some require explicit upgrades while others require no action.
+
+Notifications are also sent via:
 
 * [AKS Release notes](https://aka.ms/aks/releasenotes)
-* Azure portal Notifications
+* Azure portal notifications
 * [Azure update channel][azure-update-channel]
 
 ### Policy Exceptions
