@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Search for videos using the Bing Video Search REST API and PHP"
+title: "Quickstart: Search for videos using the REST API and PHP - Bing Video Search"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to send video search requests to the Bing Video Search REST API using PHP
 services: cognitive-services
