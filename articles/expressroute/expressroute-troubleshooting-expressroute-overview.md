@@ -231,7 +231,7 @@ See [Getting ARP tables in the Resource Manager deployment model][ARP] document,
 
 To get the routing table from MSEE on the *Primary* path for the *Private* routing context, use the following command:
 
-	Get-AzExpressRouteCircuitRouteTable -DevicePath Primary -ExpressRouteCircuitName ******* -PeeringType AzurePrivatePeering -ResourceGroupName ****
+	Get-AzExpressRouteCircuitRouteTable -DevicePath Primary -ExpressRouteCircuitName "Test-ER-Ckt" -PeeringType AzurePrivatePeering -ResourceGroupName "Test-ER-RG"
 
 An example response is:
 
@@ -272,7 +272,7 @@ The following example shows the response of the command for a peering that does 
 ## Confirm the traffic flow
 To get the combined primary and secondary path traffic statistics--bytes in and out--of a peering context, use the following command:
 
-	Get-AzureDedicatedCircuitStats -ServiceKey 97f85950-01dd-4d30-a73c-bf683b3a6e5c -AccessType Private
+	Get-AzExpressRouteCircuitStat -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt" -PeeringType AzurePrivatePeering
 
 A sample output of the command is:
 
