@@ -128,7 +128,7 @@ Follow the steps to change configuration, and select the hardware generation as 
 
 ### Hardware availability
 
-#### Gen4/Gen5
+#### <a name="gen4gen5-1"></a> Gen4/Gen5
 
 New Gen4 databases are no longer supported in the Australia East or Brazil South regions. 
 

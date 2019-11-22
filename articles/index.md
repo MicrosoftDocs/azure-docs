@@ -3908,7 +3908,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Security Information</h3>
-                                                    <p>Learn how Azure provides a secure infrastructure to build cloud solutions</p>
+                                                    <p>Learn how to secure your cloud solutions on Azure with our best practices and guidance</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5830,7 +5830,26 @@ featureFlags:
                     </li>
                     <li>
                         <a href="#security">Security</a>
-                        <ul id="security" class="cardsA">                            
+                        <ul id="security" class="cardsA">
+                            <li>
+                                <a href="/azure/security/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/SecurityCenter.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Security Information</h3>
+                                                    <p>Learn how to secure your cloud solutions on Azure with our best practices and guidance</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                             <li>
                                <a href="/azure/security-center/">
                                     <div class="cardSize">

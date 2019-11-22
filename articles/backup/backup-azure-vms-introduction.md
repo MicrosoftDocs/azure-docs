@@ -1,12 +1,8 @@
 ---
 title: About Azure VM backup
 description: In this article, learn how the Azure Backup service backs up Azure Virtual machines, and how to follow best practices.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.author: dacurwin
 ---
 
 # An overview of Azure VM backup

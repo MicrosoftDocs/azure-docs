@@ -50,8 +50,7 @@
     - name: Create workload classifier
       items:
       - name: T-SQL
-        href: quickstart-create-a-workload-classifier-tsql.md
-    items: 
+        href: quickstart-create-a-workload-classifier-tsql.md 
     - name: Create workload isolation
       items:
       - name: T-SQL

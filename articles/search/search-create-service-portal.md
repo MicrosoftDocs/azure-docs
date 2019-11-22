@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create an Azure Cognitive Search service in the portal'
+title: 'Quickstart: Create a search service in the portal'
 titleSuffix: Azure Cognitive Search
 description: Provision an AzureCognitive  Search resource in the Azure portal. Choose resource groups, regions, and SKU or pricing tier.
 

@@ -1,7 +1,7 @@
 ---
 title: "Connect to Bing News Search API with Connected Services in Visual Studio and C#"
 titleSuffix: Azure Cognitive Services
-description: Connect to Bing News Search from an ASP.NET Core web application.
+description: By using Bing News Search, you can enable apps and services to harness the power of an ad-free search engine scoped to the web.
 services: cognitive-services
 author: ghogen
 manager: nitinme

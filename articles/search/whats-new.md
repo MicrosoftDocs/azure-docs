@@ -1,5 +1,5 @@
 ---
-title: What's new in the service
+title: New feature announcements
 titleSuffix: Azure Cognitive Search
 description: Announcements of new and enhanced features, including a service rename of Azure Search to Azure Cognitive Search.
 

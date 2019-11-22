@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create a search index in C# using the .NET SDK'
+title: 'Quickstart: Create a search index in C# using .NET'
 titleSuffix: Azure Cognitive Search
 description: Explains how to create an index, load data, and run queries using C# and the Azure Cognitive Search .NET SDK.
 

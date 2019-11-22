@@ -1,9 +1,9 @@
 ---
-title: Search with Azure Maps | Microsoft Docs
-description: Search nearby point of interest using Azure Maps
+title: 'Tutorial: Search with Azure Maps'
+description: 'Tutorial: Search nearby point of interest using Azure Maps'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 03/07/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -11,7 +11,7 @@ manager: timlt
 ms.custom: mvc
 ---
 
-# Search nearby points of interest using Azure Maps
+# Tutorial: Search nearby points of interest using Azure Maps
 
 This tutorial shows how to set up an account with Azure Maps, then use the Maps APIs to search for a point of interest. In this tutorial, you learn how to:
 

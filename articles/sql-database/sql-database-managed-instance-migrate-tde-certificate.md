@@ -4,8 +4,8 @@ description: Migrate certificate protecting Database Encryption Key of a databas
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: 
-ms.devlang: 
+ms.custom:
+ms.devlang:
 ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
@@ -36,7 +36,7 @@ For an alternative option using fully managed service for seamless migration of 
 To complete the steps in this article, you need the following prerequisites:
 
 - [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) command-line tool installed on the on-premises server or other computer with access to the certificate exported as a file. Pvk2Pfx tool is part of the [Enterprise Windows Driver Kit](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk), a standalone self-contained command-line environment.
-- [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell) version 5.0 or higher installed.
+- [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell) version 5.0 or higher installed.
 - Azure PowerShell module [installed and updated](https://docs.microsoft.com/powershell/azure/install-az-ps).
 - [Az.Sql module](https://www.powershellgallery.com/packages/Az.Sql).
   Run the following commands in PowerShell to install/update the PowerShell module:

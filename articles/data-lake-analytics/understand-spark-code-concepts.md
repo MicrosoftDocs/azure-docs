@@ -138,13 +138,13 @@ In Spark, NULL indicates that the value is unknown. A Spark NULL value is differ
 
 This behavior is different from U-SQL, which follows C# semantics where `null` is different from any value but equal to itself.  
 
-Thus a SparkSQL `SELECT` statement that uses `WHERE column_name = NULL` returns zero rows even if there are NULL values in `column_name`, while in U-SQL, it would return the rows where `column_name` is set to `null`. Similarly, A Spark `SELECT` statement that uses `WHERE column_name != NULL` returns zero rows even if there are non-null values in `column_name`, while in U-SQL, it would return the rows that have non-null. Thus, if you want the U-SQL null-check semantics, you should use [isnull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnull)) and [isnotnull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnotnull) respectively (or their DSL equivalent).
+Thus a SparkSQL `SELECT` statement that uses `WHERE column_name = NULL` returns zero rows even if there are NULL values in `column_name`, while in U-SQL, it would return the rows where `column_name` is set to `null`. Similarly, A Spark `SELECT` statement that uses `WHERE column_name != NULL` returns zero rows even if there are non-null values in `column_name`, while in U-SQL, it would return the rows that have non-null. Thus, if you want the U-SQL null-check semantics, you should use [isnull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnull) and [isnotnull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnotnull) respectively (or their DSL equivalent).
 
 ## Transform U-SQL catalog objects
 
 One major difference is that U-SQL Scripts can make use of its catalog objects, many of which have no direct Spark equivalent.
 
-Spark does provide support for the Hive Meta store concepts, mainly databases, and tables, so you can map U-SQL databases and schemas to Hive databases, and U-SQL tables to Spark tables (see [Moving data stored in U-SQL tables](understand-spark-data-formats.md#move-data-stored-in-u-sql-tables)), but it has no support for views, table-valued functions (TVFs), stored procedures, U-SQL assemblies, external data sources etc.
+Spark does provide support for the Hive Meta store concepts, mainly databases, and tables, so you can map U-SQL databases and schemas to Hive databases, and U-SQL tables to Spark tables (see [Moving data stored in U-SQL tables](understand-spark-data-formats.md#move-data-stored-in-u-sql-tables), but it has no support for views, table-valued functions (TVFs), stored procedures, U-SQL assemblies, external data sources etc.
 
 The U-SQL code objects such as views, TVFs, stored procedures, and assemblies can be modeled through code functions and libraries in Spark and referenced using the host language's function and procedural abstraction mechanisms (for example, through importing Python modules or referencing Scala functions).
 
