@@ -19,5 +19,3 @@ In this quickstart you will use the [Speech SDK](~/articles/cognitive-services/s
 > * Create a ````SpeechRecognizer```` object using the ````SpeechConfig```` and ````AudioConfig```` objects from above.
 > * Using the ````SpeechRecognizer```` object, start the recognition process for a single utterance.
 > * Inspect the ````SpeechRecognitionResult```` returned.
-
-[!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]

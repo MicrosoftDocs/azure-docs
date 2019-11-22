@@ -17,4 +17,4 @@ The following chart shows the acceptable input audio format specifications.
 
 | Format | Codec | Bitrate | Sample Rate | Channels |
 |--------|-------|---------|-------------|----------|
-| WAV | PCM | 16-bit | 8 or 16 kHz | mono |
+| WAV | PCM | 16-bit | 8 or 16 kHz | 1 (mono) |
