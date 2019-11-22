@@ -162,7 +162,7 @@ Create a data factory by following the instructions in [this tutorial](../data-f
 
     1. In the **Name** box, enter **AzureStorageLinkedService**.
 
-    2. Under **Storage account name**, select the Azure Storage Account for your Azure subscription.
+    2. Under **Storage account name**, select the Azure storage account for your Azure subscription.
 
     3. Test the connection and then select **Finish**.
 
