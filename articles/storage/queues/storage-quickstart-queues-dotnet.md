@@ -134,7 +134,7 @@ After you add the environment variable, restart any running programs that will n
 
 ## Object model
 
-Azure Queue Storage is a service for storing large numbers of messages. A queue message can be up to 64 KB in size. A queue may contain millions of messages, up to the total capacity limit of a storage account. Queues are commonly used to create a backlog of work to process asynchronously. Queue storage offers three types of resources:
+Azure Queue storage is a service for storing large numbers of messages. A queue message can be up to 64 KB in size. A queue may contain millions of messages, up to the total capacity limit of a storage account. Queues are commonly used to create a backlog of work to process asynchronously. Queue storage offers three types of resources:
 
 * The storage account
 * A queue in the storage account
@@ -207,7 +207,7 @@ await queueClient.CreateAsync();
 
 ### Add messages to a queue
 
-The following code snippet asynchronously adds messages to queue by calling the [SendMessageAsync](/dotnet/api/azure.storage.queues.queueclient.sendmessageasync) method. It also saves a [SendReceipt](/dotnet/api/azure.storage.queues.models.sendreceipt) returned from a **SendMessageAsync** call. The receipt is used to update the message later in the program.
+The following code snippet asynchronously adds messages to queue by calling the [SendMessageAsync](/dotnet/api/azure.storage.queues.queueclient.sendmessageasync) method. It also saves a [SendReceipt](/dotnet/api/azure.storage.queues.models.sendreceipt) returned from a `SendMessageAsync` call. The receipt is used to update the message later in the program.
 
 Add this code to the end of the `Main` method:
 
@@ -224,7 +224,7 @@ Response<SendReceipt> receipt = await queueClient.SendMessageAsync("Third messag
 
 ### List messages in a queue
 
-List the messages in the queue by calling the [PeekMessagesAsync](/dotnet/api/azure.storage.queues.queueclient.peekmessagesasync) method. The **PeekMessagesAsync** method retrieves one or more messages from the front of the queue but does not alter the visibility of the message.
+List the messages in the queue by calling the [PeekMessagesAsync](/dotnet/api/azure.storage.queues.queueclient.peekmessagesasync) method. The `PeekMessagesAsync` method retrieves one or more messages from the front of the queue but does not alter the visibility of the message.
 
 Add this code to the end of the `Main` method:
 
@@ -243,7 +243,7 @@ foreach (PeekedMessage peekedMessage in peekedMessages.Value)
 
 ### Update a message in a queue
 
-Update the contents of a message by calling the [UpdateMessageAsync](/dotnet/api/azure.storage.queues.queueclient.updatemessageasync) method. The **UpdateMessageAsync** method can change a message's visibility timeout and contents. The message content must be a UTF-8 encoded string that is up to 64KB in size. In addition to the new content for the message, pass in the values from the **SendReceipt** that was saved earlier in the code. The **SendReceipt** values identify which message to update.
+Update the contents of a message by calling the [UpdateMessageAsync](/dotnet/api/azure.storage.queues.queueclient.updatemessageasync) method. The `UpdateMessageAsync` method can change a message's visibility timeout and contents. The message content must be a UTF-8 encoded string that is up to 64KB in size. In addition to the new content for the message, pass in the values from the `SendReceipt` that was saved earlier in the code. The `SendReceipt` values identify which message to update.
 
 ```csharp
 Console.WriteLine("\nUpdating the third message in the queue...");
