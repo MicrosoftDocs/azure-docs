@@ -210,4 +210,4 @@ When you start a scale operation, the system first kills all open sessions, roll
 
 ## Next steps
 
-To learn more about managing performance, see [Resource classes for workload management](resource-classes-for-workload-management.md) and [Memory and concurrency limits]memory-concurrency-limits.md).
+To learn more about managing performance, see [Resource classes for workload management](resource-classes-for-workload-management.md) and [Memory and concurrency limits](memory-concurrency-limits.md).

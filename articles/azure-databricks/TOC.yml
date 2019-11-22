@@ -561,7 +561,7 @@
       - name: Explain
         href: /azure/databricks/spark/latest/spark-sql/language-manual/explain
         maintainContext: true
-      - name: Fsck Repair Table  (Delta Lake on Azure    Databricks
+      - name: Fsck Repair Table  (Delta Lake on Azure Databricks)
         href: /azure/databricks/spark/latest/spark-sql/language-manual/fsck
         maintainContext: true
       - name: Functions
@@ -573,10 +573,10 @@
       - name: Load Data
         href: /azure/databricks/spark/latest/spark-sql/language-manual/load-data
         maintainContext: true
-      - name: Merge Into  (Delta Lake on AzureDatabricks
+      - name: Merge Into  (Delta Lake on Azure Databricks)
         href: /azure/databricks/spark/latest/spark-sql/language-manual/merge-into
         maintainContext: true
-      - name: Optimize  (Delta Lake on AzureDatabricks
+      - name: Optimize  (Delta Lake on Azure Databricks)
         href: /azure/databricks/spark/latest/spark-sql/language-manual/optimize
         maintainContext: true
       - name: Refresh Table
@@ -714,9 +714,9 @@
       - name: Advanced MLlib example
         href: /azure/databricks/applications/machine-learning/mllib/advanced-mllib
         maintainContext: true
-    - name: Auto ML
+    - name: AutoML
       items:
-        - name: Auto ML overview
+        - name: AutoML overview
           href: /azure/databricks/applications/machine-learning/automl/index
           maintainContext: true
         - name: Hyperopt
@@ -856,11 +856,20 @@
       - name: Tracking overview
         href: /azure/databricks/applications/mlflow/tracking
         maintainContext: true
-      - name: MLflow tracking examples
-        href: /azure/databricks/applications/mlflow/  tracking-examples
+      - name: Train a scikit-learn model
+        href: /azure/databricks/applications/mlflow/tracking-ex-scikit
+        maintainContext: true
+      - name: Train PyTorch model
+        href: /azure/databricks/applications/mlflow/tracking-ex-pytorch
+        maintainContext: true
+      - name: Train a PySpark model and save in MLeap formats
+        href: /azure/databricks/applications/mlflow/tracking-ex-pyspark
+        maintainContext: true
+      - name: Tracking ML model training data with Delta Lake
+        href: /azure/databricks/applications/mlflow/tracking-ex-delta
         maintainContext: true
       - name: Access tracking externally
-        href: /azure/databricks/applications/mlflow/  access-hosted-tracking-server
+        href: /azure/databricks/applications/mlflow/access-hosted-tracking-server
         maintainContext: true
     - name: Save, load, and deploy models
       items:
@@ -911,6 +920,9 @@
       - name: Tumor/Normal pipeline
         href: /azure/databricks/applications/genomics/secondary/tumor-normal-pipeline
         maintainContext: true
+      - name: Variant annotation using Pipe Transformer
+        href: /azure/databricks/applications/genomics/secondary/variant-annotation-pipe
+        maintainContext: true
       - name: Variant annotation methods
         href: /azure/databricks/applications/genomics/secondary/annotate-variants
         maintainContext: true
@@ -920,26 +932,6 @@
       - name: Vep pipeline
         href: /azure/databricks/applications/genomics/secondary/vep-pipeline
         maintainContext: true
-    - name: ETL
-      items:
-      - name: Genomics ETL overview
-        href: /azure/databricks/applications/genomics/etl/index
-        maintainContext: true 
-      - name: Variant IO with Apache Spark SQL
-        href: /azure/databricks/applications/genomics/etl/variant-data
-        maintainContext: true 
-      - name: Create Geomics Delta Lake
-        href: /azure/databricks/applications/genomics/etl/vcf2delta
-        maintainContext: true
-      - name: Variant quality control
-        href: /azure/databricks/applications/genomics/etl/variant-qc
-        maintainContext: true 
-      - name: Sample quality control
-        href: /azure/databricks/applications/genomics/etl/sample-qc
-        maintainContext: true
-      - name: Lift over
-        href: /azure/databricks/applications/genomics/etl/lift-over
-        maintainContext: true
     - name: Tertiary analysis
       items:
       - name: Tertiary analysis overview
@@ -947,18 +939,6 @@
         maintainContext: true 
       - name: Joint genotyping pipeline
         href: /azure/databricks/applications/genomics/tertiary/joint-genotyping-pipeline
-        maintainContext: true
-      - name: Parallelize command-line tools with Pipe Transformer
-        href: /azure/databricks/applications/genomics/tertiary/pipe-transformer
-        maintainContext: true 
-      - name: Variant normalization
-        href: /azure/databricks/applications/genomics/tertiary/variant-normalization
-        maintainContext: true
-      - name: Regression tests
-        href: /azure/databricks/applications/genomics/tertiary/regression-tests
-        maintainContext: true
-      - name: Python statistics libraries
-        href: /azure/databricks/applications/genomics/tertiary/pandas-udf
         maintainContext: true
       - name: SAIGE
         href: /azure/databricks/applications/genomics/tertiary/saige
@@ -1228,7 +1208,10 @@
         maintainContext: true
       - name: Failure to detect encoding in JSON
         href: /azure/databricks/kb/data-sources/json-unicode
-        maintainContext: true j
+        maintainContext: true
+      - name: Unable to read files in WASB 
+        href: /azure/databricks/kb/data-sources/wasb-check-blob-types
+        maintainContext: true
     - name: DBFS
       items:
       - name: Can't read objects stored in DBFS root
@@ -1273,7 +1256,7 @@
       - name: Set executor log level
         href: /azure/databricks/kb/execution/set-executor-log-level
         maintainContext: true 
-      - name: Seralized task is too large
+      - name: Serialized task is too large
         href: /azure/databricks/kb/execution/spark-serialized-task-is-too-large
         maintainContext: true
     - name: Jobs
@@ -1384,7 +1367,7 @@
       - name: Notebook autosave fails due to file size limits
         href: /azure/databricks/kb/notebooks/notebook-autosave
         maintainContext: true 
-      - name: Can't run notebook after cancelling streaming cell
+      - name: Can't run notebook after canceling streaming cell
         href: /azure/databricks/kb/notebooks/streaming-notebook-stuck
         maintainContext: true 
       - name: Troubleshoot cancel command
@@ -1409,7 +1392,7 @@
       - name: Command fails after installing Bokeh
         href: /azure/databricks/kb/python/python-cmd-fails-tornado-version
         maintainContext: true 
-      - name: Command cancelled due to library conflict
+      - name: Command canceled due to library conflict
         href: /azure/databricks/kb/python/python-command-cancelled
         maintainContext: true 
       - name: Command fails with AttributeError
@@ -1539,9 +1522,9 @@
     href: /azure/databricks/dev-tools/stack
     maintainContext: true
   - name: Azure Databricks REST API
-    href: /azure/databricks//rest/api/databricks
+    href: /rest/api/databricks
   - name: Resource Manager template
-    href: /azure/databricks//azure/templates/microsoft.databricks/workspaces  
+    href: /azure/templates/microsoft.databricks/workspaces  
 - name: Resources
   items:
   - name: Release notes
@@ -1550,6 +1533,9 @@
       items:
       - name: Platform release notes 
         href: /azure/databricks/release-notes/product/index
+        maintainContext: true
+      - name: November 2019
+        href: /azure/databricks/release-notes/product/2019/november
         maintainContext: true
       - name: October 2019
         href: /azure/databricks/release-notes/product/2019/october
@@ -1623,6 +1609,12 @@
           items:
           - name: Supported runtime releases
             href: /azure/databricks/release-notes/runtime/supported
+            maintainContext: true
+          - name: Databricks Runtime 6.2
+            href: /azure/databricks/release-notes/runtime/6.2
+            maintainContext: true
+          - name: Databricks Runtime 6.2 ML
+            href: /azure/databricks/release-notes/runtime/6.2ml
             maintainContext: true
           - name: Databricks Runtime 6.1
             href: /azure/databricks/release-notes/runtime/6.1
@@ -1725,7 +1717,9 @@
     href: https://azure.microsoft.com/roadmap/?category=analytics
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/databricks/
-  - name: Stack Overflow
+  - name: Ask a question - MSDN forum
+    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDatabricks
+  - name: Ask a question - Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-databricks
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/

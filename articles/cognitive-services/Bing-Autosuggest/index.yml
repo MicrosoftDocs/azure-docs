@@ -63,3 +63,5 @@ landingContent:
           url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-java-stable
         - text: Go SDK
           url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest
+        - text: Node.js SDK
+          url: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-autosuggest/?view=azure-node-latest

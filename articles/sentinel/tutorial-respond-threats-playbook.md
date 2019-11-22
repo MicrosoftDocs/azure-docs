@@ -1,6 +1,6 @@
 ---
-title: Run a playbook in Azure Sentinel| Microsoft Docs
-description: This article describes how to run a playbook in Azure Sentinel.
+title: 'Tutorial: Run a playbook in Azure Sentinel'
+description: 'Tutorial: This article describes how to run a playbook in Azure Sentinel.'
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 11/12/2019
 ms.author: rkarlin
 ---
 

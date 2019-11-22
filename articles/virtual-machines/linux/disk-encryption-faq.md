@@ -1,5 +1,5 @@
 ---
-title: FAQ - Azure Disk Encryption for Linux VMs | Microsoft Docs
+title: FAQ - Azure Disk Encryption for Linux VMs 
 description: This article provides answers to frequently asked questions about Microsoft Azure Disk Encryption for Linux IaaS VMs.
 author: msmbaldwin
 ms.service: security

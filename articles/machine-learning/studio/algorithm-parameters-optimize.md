@@ -1,6 +1,6 @@
 ---
 title: Optimize algorithms
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Explains how to choose the optimal parameter set for an algorithm in Azure Machine Learning Studio (classic).
 services: machine-learning
 ms.service: machine-learning

@@ -1,6 +1,6 @@
 ---
-title: 'Data modeling in Azure Time Series Insights Preview | Microsoft Docs'
-description: Understand data modeling in Azure Time Series Insights Preview.
+title: 'Data modeling in Preview environments - Azure Time Series Insights | Microsoft Docs'
+description: Learn about data modeling in Azure Time Series Insights Preview.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -71,7 +71,7 @@ To learn more about how to use the update, read [Azure Time Series Insights Prev
 
 1. Enter the hierarchy details, and select **Create**.
 
-    [![Hieararchy details and "Create" button](media/v2-update-how-to-tsm/portal-nine.png)](media/v2-update-how-to-tsm/portal-nine.png#lightbox)
+    [![Hierarchy details and "Create" button](media/v2-update-how-to-tsm/portal-nine.png)](media/v2-update-how-to-tsm/portal-nine.png#lightbox)
 
 ### Bulk upload one or more hierarchies
 

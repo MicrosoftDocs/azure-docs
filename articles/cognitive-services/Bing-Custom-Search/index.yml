@@ -64,7 +64,7 @@ landingContent:
         - text: Java - Custom Image Search
           url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingcustomimagesearch?view=azure-java-stable
         - text: Node.js 
-          url: https://docs.microsoft.com/javascript/api/azure-cognitiveservices-customsearch?view=azure-node-latest
+          url: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customsearch/?view=azure-node-latest
         - text: Azure PowerShell
           url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
         - text: Azure CLI

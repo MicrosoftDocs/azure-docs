@@ -1,5 +1,5 @@
 ---
-title: What is an Azure SQL Database single database 
+title: What is a single database
 description: Learn about single database in Azure SQL Database
 services: sql-database
 ms.service: sql-database

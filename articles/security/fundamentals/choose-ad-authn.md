@@ -2,8 +2,8 @@
 title: Choose the right authentication method for your Azure AD hybrid identity solution | Microsoft Docs
 description: This guide helps CEOs, CIOs, CISOs, Chief Identity Architects, Enterprise Architects, and Security and IT decision makers responsible for choosing an authentication method for their Azure AD hybrid identity solution in medium to large organizations.
 keywords:
-author: TerryLanfear
-ms.author: terrylan
+author: martincoetzer
+ms.author: martinco
 ms.date: 10/30/2019
 ms.topic: article
 ms.service: security

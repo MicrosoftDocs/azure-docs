@@ -1,5 +1,5 @@
 ---
-title: Authenticate with Azure Container Registry from Azure Container Instances
+title: Access Azure Container Registry from Container Instances
 description: Learn how to provide access to images in your private container registry from Azure Container Instances by using an Azure Active Directory service principal.
 services: container-registry
 author: dlepow

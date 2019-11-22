@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/01/2019
+ms.date: 11/16/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
@@ -235,47 +235,28 @@ $container = "<Enter your container name>"
 $container2 = "<Enter another container name>”
 $location = "<Enter the storage account location>"
 
-# Log in to the Azure Resource Manager account
-Login-AzAccount
+# Log in to Azure
+Connect-AzAccount
 Register-AzResourceProvider -ProviderNamespace "Microsoft.Storage"
 
 # Create your Azure resource group
 New-AzResourceGroup -Name $ResourceGroup -Location $location
 
 # Create your Azure storage account
-New-AzStorageAccount -ResourceGroupName $ResourceGroup -StorageAccountName `
+$account = New-AzStorageAccount -ResourceGroupName $ResourceGroup -StorageAccountName `
     $StorageAccount -SkuName Standard_LRS -Location $location -Kind StorageV2
 
-# Create a new container
-New-AzStorageContainer -ResourceGroupName $ResourceGroup `
-    -StorageAccountName $StorageAccount -Name $container
-
-# Create Container 2 with a storage account object
-$accountObject = Get-AzStorageAccount -ResourceGroupName $ResourceGroup `
-    -StorageAccountName $StorageAccount
-New-AzStorageContainer -StorageAccount $accountObject -Name $container2
+# Create a new container using the context
+New-AzStorageContainer -Name $container -Context $account.Context
 
 # Get a container
-Get-AzStorageContainer -ResourceGroupName $ResourceGroup `
-    -StorageAccountName $StorageAccount -Name $container
-
-# Get a container with an account object
-$containerObject = Get-AzStorageContainer -StorageAccount $accountObject -Name $container
+$container = Get-AzStorageContainer -Name $container -Context $account.Context
 
 # List containers
-Get-AzStorageContainer -ResourceGroupName $ResourceGroup `
-    -StorageAccountName $StorageAccount
+Get-AzStorageContainer -Context $account.Context
 
-# Remove a container (add -Force to dismiss the prompt)
-Remove-AzStorageContainer -ResourceGroupName $ResourceGroup `
-    -StorageAccountName $StorageAccount -Name $container2
-
-# Remove a container with an account object
-Remove-AzStorageContainer -StorageAccount $accountObject -Name $container2
-
-# Remove a container with a container object
-$containerObject2 = Get-AzStorageContainer -StorageAccount $accountObject -Name $container2
-Remove-AzStorageContainer -InputObject $containerObject2
+# Remove a container
+Remove-AzStorageContainer -Name $container -Context $account.Context
 ```
 
 Set and clear legal holds:

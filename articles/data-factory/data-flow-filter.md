@@ -32,7 +32,7 @@ Use the data flow expression builder to enter an expression for the filter condi
 
 ### Example
 
-The below example is a conditional split transformation named `FilterBefore1960` that takes in incoming stream `CleanData`. The filter condition is the expression `year <= 1960`.
+The below example is a filter transformation named `FilterBefore1960` that takes in incoming stream `CleanData`. The filter condition is the expression `year <= 1960`.
 
 In the Data Factory UX, this transformation looks like the below image:
 

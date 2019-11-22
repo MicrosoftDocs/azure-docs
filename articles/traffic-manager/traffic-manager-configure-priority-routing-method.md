@@ -1,10 +1,10 @@
 ---
-title: Configure priority traffic routing method using Azure Traffic Manager | Microsoft Docs
+title: Configure priority traffic routing - Azure Traffic Manager
 description: This article explains how to configure the priority traffic routing method in Traffic Manager
 services: traffic-manager
 documentationcenter: ''
 author: asudbring
-manager: twooley
+manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article

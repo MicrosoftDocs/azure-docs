@@ -8,6 +8,7 @@ manager: evansma
 editor: ''
 
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
@@ -24,10 +25,10 @@ Connect with customers directly by listing your offer in the marketplaces and ho
 
 Partner Center supports the following CRM systems for lead management. Select the link for setup instructions.
 
-- [Azure Blob](../commercial-marketplace-lead-management-instructions-azure-blob.md) – Provide contact email, container name, and storage account connection string. 
-- [Azure Table](../commercial-marketplace-lead-management-instructions-azure-table.md) – Provide contact email and storage account connection string. 
-- [Dynamics CRM Online](../commercial-marketplace-lead-management-instructions-dynamics.md) – Provide contact email, URL, and authentication mode (Office 365 or Azure Active Directory).
-- [Https Endpoint](../commercial-marketplace-lead-management-instructions-https.md) – Provide contact email and HTTPS endpoint URL. 
-- [Marketo](../commercial-marketplace-lead-management-instructions-marketo.md) – Provide contact email, form ID, Munchkin account ID, and server ID.
+- [Azure Blob](../commercial-marketplace-lead-management-instructions-azure-blob.md) - Provide contact email, container name, and storage account connection string. 
+- [Azure Table](../commercial-marketplace-lead-management-instructions-azure-table.md) - Provide contact email and storage account connection string. 
+- [Dynamics CRM Online](../commercial-marketplace-lead-management-instructions-dynamics.md) - Provide contact email, URL, and authentication mode (Office 365 or Azure Active Directory).
+- [Https Endpoint](../commercial-marketplace-lead-management-instructions-https.md) - Provide contact email and HTTPS endpoint URL. 
+- [Marketo](../commercial-marketplace-lead-management-instructions-marketo.md) - Provide contact email, form ID, Munchkin account ID, and server ID.
 - [Salesforce](../commercial-marketplace-lead-management-instructions-salesforce.md) -  Provide contact email and organization ID. 
 

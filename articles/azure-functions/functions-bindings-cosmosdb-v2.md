@@ -1,13 +1,8 @@
 ---
 title: Azure Cosmos DB bindings for Functions 2.x
 description: Understand how to use Azure Cosmos DB triggers and bindings in Azure Functions.
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
 
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
@@ -288,6 +283,10 @@ The trigger doesn't indicate whether a document was updated or inserted, it just
 
 The Azure Cosmos DB input binding uses the SQL API to retrieve one or more Azure Cosmos DB documents and passes them to the input parameter of the function. The document ID or query parameters can be determined based on the trigger that invokes the function.
 
+> [!NOTE]
+> If the collection is [partitioned](../cosmos-db/partition-data.md#logical-partitions), lookup operations need to also specify the partition key value.
+>
+
 ## Input - examples
 
 See the language-specific examples that read a single document by specifying an ID value:
@@ -320,6 +319,7 @@ namespace CosmosDBSamplesV2
     public class ToDoItem
     {
         public string Id { get; set; }
+        public string PartitionKey { get; set; }
         public string Description { get; set; }
     }
 }
@@ -329,7 +329,7 @@ namespace CosmosDBSamplesV2
 
 #### Queue trigger, look up ID from JSON (C#)
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a single document. The function is triggered by a queue message that contains a JSON object. The queue trigger parses the JSON into an object named `ToDoItemLookup`, which contains the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
+The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a single document. The function is triggered by a queue message that contains a JSON object. The queue trigger parses the JSON into an object named `ToDoItemLookup`, which contains the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
 
 ```cs
 namespace CosmosDBSamplesV2
@@ -337,6 +337,8 @@ namespace CosmosDBSamplesV2
     public class ToDoItemLookup
     {
         public string ToDoItemId { get; set; }
+
+        public string ToDoItemPartitionKeyValue { get; set; }
     }
 }
 ```
@@ -357,10 +359,11 @@ namespace CosmosDBSamplesV2
                 databaseName: "ToDoItems",
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection",
-                Id = "{ToDoItemId}")]ToDoItem toDoItem,
+                Id = "{ToDoItemId}",
+                PartitionKey = "{ToDoItemPartitionKeyValue}")]ToDoItem toDoItem,
             ILogger log)
         {
-            log.LogInformation($"C# Queue trigger function processed Id={toDoItemLookup?.ToDoItemId}");
+            log.LogInformation($"C# Queue trigger function processed Id={toDoItemLookup?.ToDoItemId} Key={toDoItemLookup?.ToDoItemPartitionKeyValue}");
 
             if (toDoItem == null)
             {
@@ -379,7 +382,7 @@ namespace CosmosDBSamplesV2
 
 #### HTTP trigger, look up ID from query string (C#)
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a single document. The function is triggered by an HTTP request that uses a query string to specify the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
+The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a single document. The function is triggered by an HTTP request that uses a query string to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
 
 >[!NOTE]
 >The HTTP query string parameter is case-sensitive.
@@ -405,7 +408,8 @@ namespace CosmosDBSamplesV2
                 databaseName: "ToDoItems",
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection",
-                Id = "{Query.id}")] ToDoItem toDoItem,
+                Id = "{Query.id}",
+                PartitionKey = "{Query.partitionKey}")] ToDoItem toDoItem,
             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
@@ -428,7 +432,7 @@ namespace CosmosDBSamplesV2
 
 #### HTTP trigger, look up ID from route data (C#)
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a single document. The function is triggered by an HTTP request that uses route data to specify the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
+The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves a single document. The function is triggered by an HTTP request that uses route data to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
 
 ```cs
 using Microsoft.AspNetCore.Http;
@@ -445,12 +449,13 @@ namespace CosmosDBSamplesV2
         [FunctionName("DocByIdFromRouteData")]
         public static IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post",
-                Route = "todoitems/{id}")]HttpRequest req,
+                Route = "todoitems/{partitionKey}/{id}")]HttpRequest req,
             [CosmosDB(
                 databaseName: "ToDoItems",
                 collectionName: "Items",
                 ConnectionStringSetting = "CosmosDBConnection",
-                Id = "{id}")] ToDoItem toDoItem,
+                Id = "{id}",
+                PartitionKey = "{partitionKey}")] ToDoItem toDoItem,
             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
@@ -477,6 +482,9 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 
 The example shows how to use a binding expression in the `SqlQuery` parameter. You can pass route data to the `SqlQuery` parameter as shown, but currently [you can't pass query string values](https://github.com/Azure/azure-functions-host/issues/2554#issuecomment-392084583).
 
+> [!NOTE]
+> If you need to query by just the ID, it is recommended to use a look up, like the [previous examples](#http-trigger-look-up-id-from-query-string-c), as it will consume less [request units](../cosmos-db/request-units.md). Point read operations (GET) are [more efficient](../cosmos-db/optimize-cost-queries.md) than queries by ID.
+>
 
 ```cs
 using Microsoft.AspNetCore.Http;
@@ -726,7 +734,7 @@ Here's the C# script code:
 
 #### HTTP trigger, look up ID from query string (C# script)
 
-The following example shows a [C# script function](functions-reference-csharp.md) that retrieves a single document. The function is triggered by an HTTP request that uses a query string to specify the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
+The following example shows a [C# script function](functions-reference-csharp.md) that retrieves a single document. The function is triggered by an HTTP request that uses a query string to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
 
 Here's the *function.json* file:
 
@@ -755,7 +763,8 @@ Here's the *function.json* file:
       "collectionName": "Items",
       "connectionStringSetting": "CosmosDBConnection",
       "direction": "in",
-      "Id": "{Query.id}"
+      "Id": "{Query.id}",
+      "PartitionKey" : "{Query.partitionKeyValue}"
     }
   ],
   "disabled": false
@@ -788,7 +797,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem,
 
 #### HTTP trigger, look up ID from route data (C# script)
 
-The following example shows a [C# script function](functions-reference-csharp.md) that retrieves a single document. The function is triggered by an HTTP request that uses route data to specify the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
+The following example shows a [C# script function](functions-reference-csharp.md) that retrieves a single document. The function is triggered by an HTTP request that uses route data to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
 
 Here's the *function.json* file:
 
@@ -804,7 +813,7 @@ Here's the *function.json* file:
         "get",
         "post"
       ],
-      "route":"todoitems/{id}"
+      "route":"todoitems/{partitionKeyValue}/{id}"
     },
     {
       "name": "$return",
@@ -818,7 +827,8 @@ Here's the *function.json* file:
       "collectionName": "Items",
       "connectionStringSetting": "CosmosDBConnection",
       "direction": "in",
-      "Id": "{id}"
+      "Id": "{id}",
+      "PartitionKey": "{partitionKeyValue}"
     }
   ],
   "disabled": false
@@ -1042,7 +1052,7 @@ Here's the JavaScript code:
 
 #### HTTP trigger, look up ID from query string (JavaScript)
 
-The following example shows a [JavaScript function](functions-reference-node.md) that retrieves a single document. The function is triggered by an HTTP request that uses a query string to specify the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
+The following example shows a [JavaScript function](functions-reference-node.md) that retrieves a single document. The function is triggered by an HTTP request that uses a query string to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
 
 Here's the *function.json* file:
 
@@ -1071,7 +1081,8 @@ Here's the *function.json* file:
       "collectionName": "Items",
       "connectionStringSetting": "CosmosDBConnection",
       "direction": "in",
-      "Id": "{Query.id}"
+      "Id": "{Query.id}",
+      "PartitionKey": "{Query.partitionKeyValue}"
     }
   ],
   "disabled": false
@@ -1100,7 +1111,7 @@ module.exports = function (context, req, toDoItem) {
 
 #### HTTP trigger, look up ID from route data (JavaScript)
 
-The following example shows a [JavaScript function](functions-reference-node.md) that retrieves a single document. The function is triggered by an HTTP request that uses a query string to specify the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
+The following example shows a [JavaScript function](functions-reference-node.md) that retrieves a single document. The function is triggered by an HTTP request that uses a query string to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
 
 Here's the *function.json* file:
 
@@ -1116,7 +1127,7 @@ Here's the *function.json* file:
         "get",
         "post"
       ],
-      "route":"todoitems/{id}"
+      "route":"todoitems/{partitionKeyValue}/{id}"
     },
     {
       "name": "$return",
@@ -1130,7 +1141,8 @@ Here's the *function.json* file:
       "collectionName": "Items",
       "connection": "CosmosDBConnection",
       "direction": "in",
-      "Id": "{id}"
+      "Id": "{id}",
+      "PartitionKey": "{partitionKeyValue}"
     }
   ],
   "disabled": false
@@ -1253,7 +1265,7 @@ def main(queuemsg: func.QueueMessage, documents: func.DocumentList) -> func.Docu
 
 #### HTTP trigger, look up ID from query string (Python)
 
-The following example shows a [Python function](functions-reference-python.md) that retrieves a single document. The function is triggered by an HTTP request that uses a query string to specify the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
+The following example shows a [Python function](functions-reference-python.md) that retrieves a single document. The function is triggered by an HTTP request that uses a query string to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
 
 Here's the *function.json* file:
 
@@ -1282,7 +1294,8 @@ Here's the *function.json* file:
       "collectionName": "Items",
       "connectionStringSetting": "CosmosDBConnection",
       "direction": "in",
-      "Id": "{Query.id}"
+      "Id": "{Query.id}",
+      "PartitionKey": "{Query.partitionKeyValue}"
     }
   ],
   "disabled": true,
@@ -1311,7 +1324,7 @@ def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
 
 #### HTTP trigger, look up ID from route data (Python)
 
-The following example shows a [Python function](functions-reference-python.md) that retrieves a single document. The function is triggered by an HTTP request that uses a query string to specify the ID to look up. That ID is used to retrieve a `ToDoItem` document from the specified database and collection.
+The following example shows a [Python function](functions-reference-python.md) that retrieves a single document. The function is triggered by an HTTP request that uses a query string to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
 
 Here's the *function.json* file:
 
@@ -1327,7 +1340,7 @@ Here's the *function.json* file:
         "get",
         "post"
       ],
-      "route":"todoitems/{id}"
+      "route":"todoitems/{partitionKeyValue}/{id}"
     },
     {
       "name": "$return",
@@ -1341,7 +1354,8 @@ Here's the *function.json* file:
       "collectionName": "Items",
       "connection": "CosmosDBConnection",
       "direction": "in",
-      "Id": "{id}"
+      "Id": "{id}",
+      "PartitionKey": "{partitionKeyValue}"
     }
   ],
   "disabled": false,
@@ -1486,7 +1500,7 @@ public class ToDoItem {
 
 #### HTTP trigger, look up ID from query string - String parameter (Java)
 
-The following example shows a Java function that retrieves a single document. The function is triggered by a HTTP request that uses a query string to specify the ID to look up. That ID is used to retrieve a document from the specified database and collection, in String form.
+The following example shows a Java function that retrieves a single document. The function is triggered by a HTTP request that uses a query string to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a document from the specified database and collection, in String form.
 
 ```java
 public class DocByIdFromQueryString {
@@ -1501,7 +1515,7 @@ public class DocByIdFromQueryString {
               databaseName = "ToDoList",
               collectionName = "Items",
               id = "{Query.id}",
-              partitionKey = "{Query.id}",
+              partitionKey = "{Query.partitionKeyValue}",
               connectionStringSetting = "Cosmos_DB_Connection_String")
             Optional<String> item,
             final ExecutionContext context) {
@@ -1532,7 +1546,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 
 #### HTTP trigger, look up ID from query string - POJO parameter (Java)
 
-The following example shows a Java function that retrieves a single document. The function is triggered by a HTTP request that uses a query string to specify the ID to look up. That ID is used to retrieve a document from the specified database and collection. The document is then converted to an instance of the ```ToDoItem``` POJO previously created, and passed as an argument to the function.
+The following example shows a Java function that retrieves a single document. The function is triggered by a HTTP request that uses a query string to specify the ID and partition key value to look up. That ID and partition key value used to retrieve a document from the specified database and collection. The document is then converted to an instance of the ```ToDoItem``` POJO previously created, and passed as an argument to the function.
 
 ```java
 public class DocByIdFromQueryStringPojo {
@@ -1547,7 +1561,7 @@ public class DocByIdFromQueryStringPojo {
               databaseName = "ToDoList",
               collectionName = "Items",
               id = "{Query.id}",
-              partitionKey = "{Query.id}",
+              partitionKey = "{Query.partitionKeyValue}",
               connectionStringSetting = "Cosmos_DB_Connection_String")
             ToDoItem item,
             final ExecutionContext context) {
@@ -1574,7 +1588,7 @@ public class DocByIdFromQueryStringPojo {
 
 #### HTTP trigger, look up ID from route data (Java)
 
-The following example shows a Java function that retrieves a single document. The function is triggered by a HTTP request that uses a route parameter to specify the ID to look up. That ID is used to retrieve a document from the specified database and collection, returning it as an ```Optional<String>```.
+The following example shows a Java function that retrieves a single document. The function is triggered by a HTTP request that uses a route parameter to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a document from the specified database and collection, returning it as an ```Optional<String>```.
 
 ```java
 public class DocByIdFromRoute {
@@ -1584,13 +1598,13 @@ public class DocByIdFromRoute {
             @HttpTrigger(name = "req",
               methods = {HttpMethod.GET, HttpMethod.POST},
               authLevel = AuthorizationLevel.ANONYMOUS,
-              route = "todoitems/{id}")
+              route = "todoitems/{partitionKeyValue}/{id}")
             HttpRequestMessage<Optional<String>> request,
             @CosmosDBInput(name = "database",
               databaseName = "ToDoList",
               collectionName = "Items",
               id = "{id}",
-              partitionKey = "{id}",
+              partitionKey = "{partitionKeyValue}",
               connectionStringSetting = "Cosmos_DB_Connection_String")
             Optional<String> item,
             final ExecutionContext context) {
@@ -1620,6 +1634,10 @@ public class DocByIdFromRoute {
 #### HTTP trigger, look up ID from route data, using SqlQuery (Java)
 
 The following example shows a Java function that retrieves a single document. The function is triggered by a HTTP request that uses a route parameter to specify the ID to look up. That ID is used to retrieve a document from the specified database and collection, converting the result set to a ```ToDoItem[]```, since many documents may be returned, depending on the query criteria.
+
+> [!NOTE]
+> If you need to query by just the ID, it is recommended to use a look up, like the [previous examples](#http-trigger-look-up-id-from-query-string---pojo-parameter-java), as it will consume less [request units](../cosmos-db/request-units.md). Point read operations (GET) are [more efficient](../cosmos-db/optimize-cost-queries.md) than queries by ID.
+>
 
 ```java
 public class DocByIdFromRouteSqlQuery {
@@ -1721,7 +1739,7 @@ The following table explains the binding configuration properties that you set i
 |**id**    | **Id** | The ID of the document to retrieve. This property supports [binding expressions](./functions-bindings-expressions-patterns.md). Don't set both the **id** and **sqlQuery** properties. If you don't set either one, the entire collection is retrieved. |
 |**sqlQuery**  |**SqlQuery**  | An Azure Cosmos DB SQL query used for retrieving multiple documents. The property supports runtime bindings, as in this example: `SELECT * FROM c where c.departmentId = {departmentId}`. Don't set both the **id** and **sqlQuery** properties. If you don't set either one, the entire collection is retrieved.|
 |**connectionStringSetting**     |**ConnectionStringSetting**|The name of the app setting containing your Azure Cosmos DB connection string.        |
-|**partitionKey**|**PartitionKey**|Specifies the partition key value for the lookup. May include binding parameters.|
+|**partitionKey**|**PartitionKey**|Specifies the partition key value for the lookup. May include binding parameters. It is required for lookups in [partitioned](../cosmos-db/partition-data.md#logical-partitions) collections.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

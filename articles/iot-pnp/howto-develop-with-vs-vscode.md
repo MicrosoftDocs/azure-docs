@@ -12,7 +12,7 @@ ms.custom: mvc
 # As a device or solution developer, I want to use Visual Studio and Visual Studio Code to author my device capability model (DCM) and interface, publish to model repository and generate skeleton C code to implement the device application.
 ---
 
-# Use Azure IoT Tools for Visual Studio Code
+# Use Visual Studio and Visual Studio Code to build IoT Plug and Play devices
 
 The Azure IoT Tools for Visual Studio Code provides an integrated environment to author device capability models (DCM) and interfaces, publish to model repositories, and generate skeleton C code to implement the device application.
 

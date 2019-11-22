@@ -24,9 +24,8 @@ See [About repository-scoped permissions](#about-repository-scoped-permissions),
 
 ## Preview limitations
 
-* This feature is only available in a **Premium** container registry. For information about registry service tiers, see [Azure Container Registry SKUs](container-registry-skus.md).
+* This feature is only available in a **Premium** container registry. For information about registry service tiers and limits, see [Azure Container Registry SKUs](container-registry-skus.md).
 * You can't currently assign repository-scoped permissions to an Azure Active Directory object such as a service principal or managed identity.
-* A registry allows a maximum of 20,000 scope maps and 20,000 tokens.
 
 ## Prerequisites
 

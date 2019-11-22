@@ -47,13 +47,15 @@ Maximum limits on storage, workloads, and quantities of indexes, documents, and 
 | Maximum indexes |3 |5 or 15 |50 |200 |200 |1000 per partition or 3000 per service |10 |10 |
 | Maximum simple fields per index |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
 | Maximum complex collection fields per index |40 |40 |40 |40 |40 |40 |40 |40 |
-| Maximum elements across all complex collections per document |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
+| Maximum elements across all complex collections per document&nbsp;<sup>2</sup> |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
 | Maximum depth of complex fields |10 |10 |10 |10 |10 |10 |10 |10 |
 | Maximum [suggesters](https://docs.microsoft.com/rest/api/searchservice/suggesters) per index |1 |1 |1 |1 |1 |1 |1 |1 |
 | Maximum [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per index |100 |100 |100 |100 |100 |100 |100 |100 |
 | Maximum functions per profile |8 |8 |8 |8 |8 |8 |8 |8 |
 
 <sup>1</sup> Basic services created before December 2017 have lower limits (5 instead of 15) on indexes. Basic tier is the only SKU with a lower limit of 100 fields per index.
+
+<sup>2</sup> Having a very large number of elements in complex collections per document currently causes high storage utilization. This is a known issue. In the meantime, a limit of 3000 is a safe upper bound for all service tiers. This limit is only enforced for indexing operations that utilize the earliest generally available (GA) API version that supports complex type fields (`2019-05-06`) onwards. To not break clients who might be using earlier preview API versions (that support complex type fields), we will not be enforcing this limit for indexing operations that use these preview API versions. Note that preview API versions are not meant to be used for production scenarios and we highly recommend customers move to the latest GA API version.
 
 <a name="document-limits"></a>
 
@@ -123,6 +125,9 @@ Maximum running times exist to provide balance and stability to the service as a
 <sup>4</sup> Maximum of 30 skills per skillset.
 
 <sup>5</sup> Cognitive search workloads and image analysis in Azure blob indexing have shorter running times than regular text indexing. Image analysis and natural language processing are computationally intensive and consume disproportionate amounts of available processing power. Running time was reduced to give other jobs in the queue an opportunity to run.  
+
+> [!NOTE]
+> As stated in the [Index limits](#index-limits), indexers will also enforce the upper limit of 3000 elements across all complex collections per document starting with the latest GA API version that supports complex types (`2019-05-06`) onwards. This means that if you've created your indexer with a prior API version, you will not be subject to this limit. To preserve maximum compatibility, an indexer that was created with a prior API version and then updated with an API version `2019-05-06` or later, will still be **excluded** from the limits. Customers should be aware of the adverse impact of having very large complex collections (as stated previously) and we highly recommend creating any new indexers with the latest GA API version.
 
 ## Synonym limits
 

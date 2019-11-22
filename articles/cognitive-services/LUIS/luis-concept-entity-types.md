@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/12/2019
 ms.author: diberry
 ---
 # Entities and their purpose in LUIS
@@ -85,11 +85,11 @@ Choose the entity based on how the data should be extracted and how it should be
 
 |Entity type|Purpose|
 |--|--|
-|[**Machine-learned**](#composite-entity)|Parent grouping of entities, regardless of entity type. Machine-learned entities learn from context in the utterance. This makes variation of placement in example utterances significant. |
-|[**List**](#list-entity)|List of items and their synonyms extracted with **exact text match**.|
-|[**Pattern.any**](#patternany-entity)|Entity where end of entity is difficult to determine. |
-|[**Prebuilt**](#prebuilt-entity)|Already trained to extract specific kind of data such as URL or email. Some of these prebuilt entities are defined in the open-source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) project. If your specific culture or entity isn't currently supported, contribute to the project.|
-|[**Regular Expression**](#regular-expression-entity)|Uses regular expression for **exact text match**.|
+|[**Machine-learned**](tutorial-machine-learned-entity.md)|Parent grouping of entities, regardless of entity type. Machine-learned entities learn from context in the utterance. This makes variation of placement in example utterances significant. |
+|[**List**](reference-entity-list.md)|List of items and their synonyms extracted with **exact text match**.|
+|[**Pattern.any**](reference-entity-pattern-any.md)|Entity where end of entity is difficult to determine. |
+|[**Prebuilt**](luis-reference-prebuilt-entities.md)|Already trained to extract specific kind of data such as URL or email. Some of these prebuilt entities are defined in the open-source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) project. If your specific culture or entity isn't currently supported, contribute to the project.|
+|[**Regular Expression**](reference-entity-regular-expression.md)|Uses regular expression for **exact text match**.|
 
 ### Entity role defines context
 

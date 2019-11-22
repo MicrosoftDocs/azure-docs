@@ -1,5 +1,5 @@
 ---
-title: 'Create and modify an ExpressRoute circuit - portal: Azure | Microsoft Docs'
+title: 'ExpressRoute: Create and modify a circuit: Azure portal'
 description: Create, provision, verify, update, delete, and deprovision an ExpressRoute circuit.
 services: expressroute
 author: cherylmc
@@ -8,8 +8,6 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 10/20/2018
 ms.author: cherylmc
-ms.reviewer: ganesr
-ms.custom: seodec18
 
 ---
 
