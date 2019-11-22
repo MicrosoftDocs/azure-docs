@@ -1,6 +1,6 @@
 ---
 title: Use Java for files & ACLs in Azure Data Lake Storage Gen2 (preview)
-description: Use Azure Storage libraries for Java to manage directories and file and directory access control lists (ACL) in storage accounts that have a hierarchical namespace.
+description: Use Azure Storage libraries for Java to manage directories and file and directory access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
 author: normesta
 ms.service: storage
 ms.date: 11/08/2019
@@ -12,12 +12,12 @@ ms.reviewer: prishet
 
 # Use Java for files & ACLs in Azure Data Lake Storage Gen2 (preview)
 
-This article shows you how to use Java to create and manage directories, files, and permissions in storage accounts that have a hierarchical namespace. 
+This article shows you how to use Java to create and manage directories, files, and permissions in storage accounts that has hierarchical namespace (HNS) enabled. 
 
 > [!IMPORTANT]
 > The Java library that is featured in this article is currently in public preview.
 
-[API reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.0-preview.6/index.html) | [Package (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake/12.0.0-preview.6/jar) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake) | [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md) | [Give Feedback](https://github.com/Azure/azure-sdk-for-java/issues)
+[Package (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake/12.0.0-preview.6/jar) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake) | [API reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.0-preview.6/index.html) | [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md) | [Give Feedback](https://github.com/Azure/azure-sdk-for-java/issues)
 
 ## Prerequisites
 

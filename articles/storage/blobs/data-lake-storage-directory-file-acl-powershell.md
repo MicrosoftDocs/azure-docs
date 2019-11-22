@@ -1,6 +1,6 @@
 ---
 title: Use PowerShell for files & ACLs in Azure Data Lake Storage Gen2 (preview)
-description: Use PowerShell cmdlets to manage directories and file and directory access control lists (ACL) in storage accounts that have a hierarchical namespace.
+description: Use PowerShell cmdlets to manage directories and file and directory access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
 services: storage
 author: normesta
 ms.service: storage
@@ -13,7 +13,7 @@ ms.reviewer: prishet
 
 # Use PowerShell for files & ACLs in Azure Data Lake Storage Gen2 (preview)
 
-This article shows you how to use PowerShell to create and manage directories, files, and permissions in storage accounts that have a hierarchical namespace. 
+This article shows you how to use PowerShell to create and manage directories, files, and permissions in storage accounts that has hierarchical namespace (HNS) enabled. 
 
 > [!IMPORTANT]
 > The PowerShell module that is featured in this article is currently in public preview.
@@ -361,6 +361,19 @@ $acl = New-AzDataLakeGen2ItemAclObject -AccessControlType group -Permission rw- 
 $acl = New-AzDataLakeGen2ItemAclObject -AccessControlType other -Permission "-wx" -InputObject $acl
 Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse | Update-AzDataLakeGen2Item -Acl $acl
 ```
+
+## Gen1 to Gen2 Mapping
+
+The following table shows how the cmdlets used for Data Lake Storage Gen1 map to the cmdlets for Data Lake Storage Gen2.
+
+|Data Lake Storage Gen1 cmdlet| Data Lake Storage Gen2 cmdlet|
+|--------|---------|
+|Get-AzDataLakeStoreChildItem|Get-AzDataLakeGen2ChildItem|
+|Get-AzDataLakeStoreItem <br>Get-AzDataLakeStoreItemAclEntry<br>Get-AzDataLakeStoreItemOwner<br>Get-AzDataLakeStoreItemPermission<br>Get-AzDataLakeStoreItemContent<br>New-AzDataLakeStoreItem|Get-AzDataLakeGen2Item|
+|Get-AzDataLakeStoreItemContent|New-AzDataLakeGen2Item|
+|Move-AzDataLakeStoreItem|Move-AzDataLakeGen2Item|
+|Remove-AzDataLakeStoreItem|Remove-AzDataLakeGen2Item|
+|Set-AzDataLakeStoreItemOwner <br>Set-AzDataLakeStoreItemPermission<br>Set-AzDataLakeStoreItemPermission<br>Set-AzDataLakeStoreItemAcl|Update-AzDataLakeGen2Item|
 
 ## See also
 
