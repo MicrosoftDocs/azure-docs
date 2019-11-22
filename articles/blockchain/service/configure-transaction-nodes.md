@@ -1,15 +1,9 @@
 ---
 title: Configure Azure Blockchain Service transaction nodes
 description: How to configure Azure Blockchain Service transaction nodes
-services: azure-blockchain
-keywords: 
-author: PatAltimore
-ms.author: patricka
 ms.date: 11/20/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: janders
-manager: femila
 #Customer intent: As a network operator, I want to use the Azure portal to create and configure transaction nodes.
 ---
 
