@@ -46,7 +46,7 @@ When a user requests access to a VM, Security Center checks that the user has [R
 | --- | --- |
 | Configure or edit a JIT policy for a VM | *Assign these actions to the role:*  <ul><li>On the scope of a subscription or Resource Group that is associated with the VM:<br/> ```Microsoft.Security/locations/jitNetworkAccessPolicies/write``` </li><li> On the scope of a subscription or Resource Group or VM: <br/>```Microsoft.Compute/virtualMachines/write```</li></ul> | 
 | ||
-|Request JIT access to a VM | *Assign these actions to the user:*  <ul><li>On the scope of a subscription or Resource Group that is associated with the VM:<br/>  ```Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action``` </li><li>  On the scope of a Subscription or Resource Group or VM:<br/> ```Microsoft.Compute/virtualMachines/read``` </li></ul>|
+|Request JIT access to a VM | *Assign these actions to the user:*  <ul><li>On the scope of a subscription or Resource Group that is associated with the VM:<br/>  ```Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action``` </li><li>On the scope of a subscription or Resource Group that is associated with the VM:<br/>  ```Microsoft.Security/locations/jitNetworkAccessPolicies/*/read``` </li><li>  On the scope of a Subscription or Resource Group or VM:<br/> ```Microsoft.Compute/virtualMachines/read``` </li><li>  On the scope of a Subscription or Resource Group or VM:<br/> ```Microsoft.Network/networkInterfaces/*/read``` </li></ul>|
 
 
 ## Configure JIT on a VM
