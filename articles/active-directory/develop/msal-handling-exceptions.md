@@ -44,7 +44,7 @@ There are three types of exceptions: `MsalClientException`, `MsalServiceExceptio
 
 ### MsalServiceException
 
-MsalServiceException exposes HTTP headers returned the requests to the STS. Access them via `MsalServiceException.headers()`
+`MsalServiceException` exposes HTTP headers returned in the requests to the STS. Access them via `MsalServiceException.headers()`
 
 ### MsalInteractionRequiredException
 
@@ -64,7 +64,7 @@ MSAL exposes a `reason` field, which you can use to provide a better user experi
 | `ConsentRequired`| User consent is missing, or has been revoked. |Call `acquireToken` with interactive parameters so that the user can give consent. |
 | `UserPasswordExpired` | User's password has expired. | Call `acquireToken` with interactive parameter so the user can reset their password |
 | `ConsentRequired` | User consent is missing, or has been revoked | Call `acquireToken` with interactive parameters so that the user can reset their password |
-| `None` |  further details are provided. The condition may be resolved by user interaction during the interactive authentication flow. | Call `acquireToken` with interactive parameters |
+| `None` |  Further details are provided. The condition may be resolved by user interaction during the interactive authentication flow. | Call `acquireToken` with interactive parameters |
 
 ### Code Example
 
