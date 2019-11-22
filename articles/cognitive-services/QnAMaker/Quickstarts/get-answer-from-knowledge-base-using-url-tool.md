@@ -17,19 +17,17 @@ ms.author: diberry
 
 ::: zone pivot="url-test-tool-curl"
 
-[!INCLUDE [Get answer using cURL](./includes/quickstart-test-tool-curl.md)]
+[!INCLUDE [Get answer using cURL](../../includes/quickstart-test-tool-curl.md)]
 
 ::: zone-end
 
 ::: zone pivot="url-test-tool-postman"
 
-[!INCLUDE [Get answer using Postman](./includes/quickstart-test-tool-Postman.md)]
+[!INCLUDE [Get answer using Postman](../../includes/quickstart-test-tool-Postman.md)]
 
 ::: zone-end
 
 ## Next steps
 
-The publish page also provides information to [generate an answer](get-answer-from-kb-using-postman.md) with Postman. 
-
 > [!div class="nextstepaction"]
-> [Use metadata while generating an answer](../How-to/metadata-generateanswer-usage.md)
+> [Use metadata while generating an answer](create-new-kb-csharp.md)

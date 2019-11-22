@@ -65,10 +65,3 @@ To generate an answer with Postman, complete the following steps:
 ## Use staging endpoint
 
 If you want to get an answer from the staging endpoint, append the URL with the `isTest` body property.
-
-## Next steps
-
-The publish page also provides information to [generate an answer](get-answer-from-kb-using-curl.md) with cURL. 
-
-> [!div class="nextstepaction"]
-> [Use metadata while generating an answer](../How-to/metadata-generateanswer-usage.md)
