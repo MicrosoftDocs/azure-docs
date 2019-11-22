@@ -1,5 +1,5 @@
 ---
-title: View tenant applications - Azure Active Directory
+title: Quickstart - View tenant applications using Azure Active Directory
 description: In this Quickstart, use the Azure portal to view the applications in your Azure Active Directory (Azure AD) tenant.
 services: active-directory
 documentationcenter: ''

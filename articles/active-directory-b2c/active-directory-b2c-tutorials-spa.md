@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Enable authentication in a single-page application - Azure Active Directory B2C'
+title: 'Tutorial - Enable authentication in a single-page application - Azure Active Directory B2C'
 description: In this tutorial, learn how to use Azure Active Directory B2C to provide user login for a single page application (JavaScript).
 services: active-directory-b2c
 author: mmacy

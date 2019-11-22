@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create an Azure private endpoint using Azure CLI'
+title: 'Quickstart - Create an Azure private endpoint using Azure CLI'
 description: Learn about Azure private endpoint in this Quickstart
 services: private-link
 author: asudbring

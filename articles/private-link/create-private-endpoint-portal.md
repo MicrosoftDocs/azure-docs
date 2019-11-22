@@ -1,6 +1,6 @@
 ﻿---
 
-title: 'Quickstart: Manage Private Endpoints in Azure'
+title: 'Quickstart - Manage Private Endpoints in Azure'
 description: Learn how to create a Private Endpoint using the Azure portal in this Quickstart
 services: private-link
 author: asudbring
