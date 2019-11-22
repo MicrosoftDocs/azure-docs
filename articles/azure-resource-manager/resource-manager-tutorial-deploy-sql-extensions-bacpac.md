@@ -33,41 +33,52 @@ To complete this article, you need:
     ```azurecli-interactive
     openssl rand -base64 32
     ```
+
     Azure Key Vault is designed to safeguard cryptographic keys and other secrets. For more information, see [Tutorial: Integrate Azure Key Vault in Resource Manager Template deployment](./resource-manager-tutorial-use-key-vault.md). We also recommend you to update your password every three months.
 
 ## Prepare a BACPAC file
 
 A BACPAC file is shared in [Github](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac). To create your own, see [Export an Azure SQL database to a BACPAC file](../sql-database/sql-database-export.md). If you choose to publish the file to your own location, you must update the template later in the tutorial.
 
-The BACPAC file must be stored in an Azure Storage account before it can be imported using Resource Manager template. There are several methods to upload a file to a storage account. The following PowerShell script is an example:
+The BACPAC file must be stored in an Azure Storage account before it can be imported using Resource Manager template.
 
-```azurepowershell
-$projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+1. Open the [Cloud shell](https://cloud.azure.com).
+1. Select **Upload/Download files**, and then select **Upload**.
+1. Specify the following URL:
 
-$resourceGroupName = "${projectName}rg"
-$storageAccountName = "${projectName}store"
-$containerName = "bacpacfiles"
-$bacpacFile = "./SQLDatabaseExtension.bacpac"
-$blobName = "SQLDatabaseExtension.bacpac"
+    ```url
+    https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac
+    ```
 
-New-AzResourceGroup -Name $resourceGroupName -Location $location
-$storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroupName `
-  -Name $storageAccountName `
-  -SkuName Standard_LRS `
-  -Location $location `
+1. Copy and paste the following PowerShell script into the shell window.
 
-New-AzStorageContainer -Name $containerName -Context $storageAccount.Context
+    ```azurepowershell
+    $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 
-Set-AzStorageBlobContent -File $bacpacFile -Container $containerName -Blob $blobName -Context $storageAccount.Context
+    $resourceGroupName = "${projectName}rg"
+    $storageAccountName = "${projectName}store"
+    $containerName = "bacpacfiles"
+    $bacpacFile = "$HOME/SQLDatabaseExtension.bacpac"
+    $blobName = "SQLDatabaseExtension.bacpac"
 
-Write-Host "The storage account key is $storageAccountKey."
-Write-Host "The BACPAC file URL is https://$storageAccountName.blob.core.windows.net/$containerName/$blobName."
-```
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    $storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroupName `
+      -Name $storageAccountName `
+      -SkuName Standard_LRS `
+      -Location $location `
+    $storageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName).Value[0]
 
-The script assumes the BACPAC file is in the current folder. Update **$bacpacFile** as needed.
+    New-AzStorageContainer -Name $containerName -Context $storageAccount.Context
 
-You need the storage account key and the BACPAC file URL in the template. The sample PowerShell script outputs the values.
+    Set-AzStorageBlobContent -File $bacpacFile -Container $containerName -Blob $blobName -Context $storageAccount.Context
+
+    Write-Host "The storage account key is $storageAccountKey."
+    Write-Host "The BACPAC file URL is https://$storageAccountName.blob.core.windows.net/$containerName/$blobName."
+    Write-Host "Press [ENTER] to continue ..."
+    ```
+
+1. Write down storage account key and the BACPAC file URL. You need these values when you deploy the template.
 
 ## Open a Quickstart template
 
@@ -102,7 +113,7 @@ The template used in this tutorial is stored in [Github](https://raw.githubuserc
         "description": "Specifies the key of the storage account where the BACPAC file is stored."
       }
     },
-    "bacpacUri": {
+    "bacpacUrl": {
       "type":"string",
       "metadata":{
         "description": "Specifies the URL of the BACPAC file."
@@ -114,7 +125,7 @@ The template used in this tutorial is stored in [Github](https://raw.githubuserc
 
 1. Add two additional resources to the template.
 
-    * To allow the SQL database extension to import BACPAC files, you need to allow access to Azure services. Add the following JSON to the SQL server definition:
+    * To allow the SQL database extension to import BACPAC files, you need to allow traffic from Azure services. Add the following firewall rule definition under the SQL server definition:
 
         ```json
         {
@@ -153,7 +164,7 @@ The template used in this tutorial is stored in [Github](https://raw.githubuserc
                 "storageUri": "[parameters('bacpacUrl')]",
                 "administratorLogin": "[variables('databaseServerAdminLogin')]",
                 "administratorLoginPassword": "[variables('databaseServerAdminLoginPassword')]",
-                "operationMode": "Import",
+                "operationMode": "Import"
               }
             }
         ]
@@ -166,9 +177,9 @@ The template used in this tutorial is stored in [Github](https://raw.githubuserc
         To understand the resource definition, see the [SQL Database extension reference](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases/extensions). The following are some important elements:
 
         * **dependsOn**: The extension resource must be created after the SQL database has been created.
-        * **storageKeyType**: The type of the storage key to use. The value can be either `StorageAccessKey` or `SharedAccessKey`. Use `StorageAccessKey` in this tutorial.
-        * **storageKey**: The storage key to use. If storage key type is SharedAccessKey, it must be preceded with a "?."
-        * **storageUri**: The storage uri to use. If you choose not to use the BACPAC file provided, you need to update the values.
+        * **storageKeyType**: Specify the type of the storage key to use. The value can be either `StorageAccessKey` or `SharedAccessKey`. Use `StorageAccessKey` in this tutorial.
+        * **storageKey**: Specify the key for the storage account where the BACPAC file is stored. If storage key type is SharedAccessKey, it must be preceded with a "?."
+        * **storageUri**: Specify the URL of the BACPAC file stored in a storage account.
         * **administratorLoginPassword**: The password of the SQL administrator. Use a generated password. See [Prerequisites](#prerequisites).
 
 ## Deploy the template
@@ -177,7 +188,7 @@ The template used in this tutorial is stored in [Github](https://raw.githubuserc
 
 Refer to the [Deploy the template](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) section for the deployment procedure. Use the following PowerShell deployment script instead:
 
-```azurepowershell
+```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 $adminUsername = Read-Host -Prompt "Enter the SQL admin username"
@@ -194,6 +205,8 @@ New-AzResourceGroupDeployment `
     -TemplateFile "$HOME/azuredeploy.json" `
     -storageAccountKey $storageAccountKey `
     -bacpacUrl $bacpacUrl
+
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 Use a generated password. See [Prerequisites](#prerequisites).
