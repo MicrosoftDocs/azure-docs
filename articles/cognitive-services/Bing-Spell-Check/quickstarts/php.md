@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Check spelling with the Bing Spell Check REST API and PHP"
+title: "Quickstart: Check spelling with the REST API and PHP - Bing Spell Check"
 titleSuffix: Azure Cognitive Services
 description: This simple PHP application sends a request to the Bing Spell Check API and returns a list of suggested corrections.
 services: cognitive-services
