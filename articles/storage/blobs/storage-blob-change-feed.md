@@ -115,6 +115,18 @@ To deploy the template by using PowerShell:
 
 ---
 
+## Consume the change feed
+
+The change feed produces several metadata and log files. These files are located in the **$blobchangefeed** container of the storage account. 
+
+> [!NOTE]
+> In the current release, the **$blobchangefeed** container is not visible in Azure Storage Explorer or the Azure portal. You currently cannot see the $blobchangefeed container when you call ListContainers API but you are able to call the ListBlobs API directly on the container to see the blobs.
+
+Your client applications can consume the change feed by using the blob change feed processor library that is provided with the Change feed processor SDK. 
+
+See [Process change feed logs in Azure Blob Storage](storage-blob-change-feed-how-to.md).
+
+
 ## Understand change feed organization
 
 <a id="segment-index"></a>
@@ -212,17 +224,6 @@ For a description of each property, see [Azure Event Grid event schema for Blob 
 > [!NOTE]
 > The change feed files for a segment don't immediately appear after a segment is created. The length of delay is within the normal interval of publishing latency of the change feed which is within a few minutes of the change.
 
-## Consume the change feed
-
-The change feed produces several metadata and log files. These files are located in the **$blobchangefeed** container of the storage account. 
-
-> [!NOTE]
-> In the current release, the **$blobchangefeed** container is not visible in Azure Storage Explorer or the Azure portal. You currently cannot see the $blobchangefeed container when you call ListContainers API but you are able to call the ListBlobs API directly on the container to see the blobs.
-
-Your client applications can consume the change feed by using the blob change feed processor library that is provided with the Change feed processor SDK. 
-
-See [Process change feed logs in Azure Blob Storage](storage-blob-change-feed-how-to.md).
-
 <a id="specifications"></a>
 
 ## Specifications
@@ -300,10 +301,12 @@ This section describes known issues and conditions in the current public preview
 ## FAQ
 
 ### What is the difference between Change feed and Storage Analytics logging?
-Change feed is optimized for application development as only successful blob creation, modification, and deletion events are recorded in the change feed log. Analytics logging records all successful and failed requests across all operations, including read and list operations. By leveraging change feed, you do not have to worry about filtering out the log noise on a transaction heavy account and focus only on the blob change events.
+Change feed is a solution which provides transactional log of successful mutations or changes to your account such as blob creation, modification, and deletions. Analytics logs have record of all read, list and write operations with successful and failed requests across all operations. So you do not have to filter out noise from the huge volume of read operations.
+
+In the change feed, all change events are guaranteed to be recorded and in order of changes per blob. However Analytics logs are best-effort and no ordering guranteed. So fundamentally it is designed for applications like indexing, backup and compliance-auditing which require certain guarantees.
 
 ### Should I use Change feed or Storage events?
-You can leverage both features as change feed and [Blob storage events](storage-blob-event-overview.md) are similar in nature, with the main difference being the latency, ordering, and storage of event records. Change feed writes records to the change feed log in bulk every few minutes while guaranteeing the order of blob change operations. Storage events are pushed in real time and might not be ordered. Change feed events are durably stored inside your storage account while storage events are transient and consumed by the event handler unless you explicitly store them.
+You can leverage both features as change feed and [Blob storage events](storage-blob-event-overview.md) provide the same information with the same delivery gurantee, with the main difference being the latency, ordering, and storage of event records. Change feed publishes records to the log within few minutes of the change. It also gurantees the order of change operations per blob. Storage events are pushed in real time and might not be ordered. Change feed events are also durably stored inside your storage account as read-only stable logs while storage events are transient and consumed by the event handler unless you explicitly store them. So any number of your applications can consume the logs at thier own convenience using standard blob apis. Also you can choose to store these logs for any desired retention period at standard blob pricing.
 
 ## Next steps
 
