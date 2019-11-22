@@ -332,7 +332,7 @@ The code for the `AccountController` is available from the ASP.NET core reposito
 - Calls `Signout()`, which lets the OpenID Connect middleware contact the Microsoft identity platform `logout` endpoint. The endpoint then:
 
   - Clears the session cookie from the browser.
-  - Calls back the logout URL. By default, the logout URL displays the signed-out view page [SignedOut.html](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Pages/Account/SignedOut.cshtml) also provided as part of ASP.NET Core.
+  - Calls back the logout URL. By default, the logout URL displays the signed-out view page [SignedOut.html](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Pages/Account/SignedOut.cshtml). This page is also provided as part of ASP.NET Core.
 
 # [ASP.NET](#tab/aspnet)
 

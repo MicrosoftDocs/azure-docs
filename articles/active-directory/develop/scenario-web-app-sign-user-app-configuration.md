@@ -280,9 +280,9 @@ public static IServiceCollection AddMicrosoftIdentityPlatformAuthentication(
       // accounts and any Microsoft personal accounts.
       // If you want to direct Azure AD to restrict the users who can sign in, change
       // the tenant value of the appsettings.json file in the following way:
-      // - Only work and school accounts => 'organizations'
+      // - Only work or school accounts => 'organizations'
       // - Only Microsoft personal accounts => 'consumers'
-      // - Work and school and personal accounts => 'common'
+      // - Work or school and personal accounts => 'common'
       // If you want to restrict the users who can sign in to only one tenant,
       // set the tenant value in the appsettings.json file to the tenant ID
       // or domain of this organization.
