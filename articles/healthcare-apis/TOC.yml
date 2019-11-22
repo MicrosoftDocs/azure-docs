@@ -32,10 +32,10 @@
     href: azure-api-for-fhir-additional-settings.md
   - name: 4. Get a token for Azure API for FHIR - CLI
     href: get-healthcare-apis-access-token-cli.md
-  - name: 5. Connect to endpoint
-    href: tutorial-3-connect-to-endpoint.md
-  - name: 6. Access FHIR API with Postman
+  - name: 5. Access FHIR API with Postman
     href: access-fhir-postman-tutorial.md
+  - name: 6. Connect to endpoint
+    href: tutorial-3-connect-to-endpoint.md
 - name: How-to guides
   expanded: false
   items:
