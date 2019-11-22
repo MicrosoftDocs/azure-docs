@@ -113,6 +113,8 @@ After you add a module to a deployment, you can select its name to open the **Up
 
 If you're creating a layered deployment, you may be configuring a module that exists in other deployments targeting the same devices. To update the module twin without overwriting other versions, open the **Module Twin Settings** tab. Create a new **Module Twin Property** with a unique name for a subsection within the module twin's desired properties, for example `properties.desired.settings`. If you define properties within just the `properties.desired` field, it will overwrite the desired properties for the module defined in any lower priority deployments. 
 
+![Set module twin property for layered deployment](./media/how-to-deploy-monitor/module-twin-property.png)
+
 For more information about module twin configuration in layered deployments, see [Layered deployment](module-deployment-monitoring.md#layered-deployment).
 
 Once you have all the modules for a deployment configured, select **Next: Routes** to move to step three.
