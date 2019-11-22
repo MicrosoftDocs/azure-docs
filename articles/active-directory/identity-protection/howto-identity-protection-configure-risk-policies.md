@@ -1,5 +1,5 @@
 ---
-title: How to configure and enable risk policies in Azure Active Directory Identity Protection
+title: Risk policies - Azure Active Directory Identity Protection
 description: Enable and configure risk policies in Azure Active Directory Identity Protection
 
 services: active-directory
