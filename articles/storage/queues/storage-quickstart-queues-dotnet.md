@@ -12,7 +12,7 @@ ms.topic: quickstart
 
 # Quickstart: Azure Queue storage client library v12 for .NET
 
-Get started with the Azure Queue storage client library version 12 for .NET. Azure Queue storage is Microsoft's object storage solution for the cloud. Follow steps to install the package and try out example code for basic tasks. Azure Queue storage is a service for storing large numbers of messages.
+Get started with the Azure Queue storage client library version 12 for .NET. Azure Queue storage is Microsoft's object storage solution for the cloud. Follow steps to install the package and try out example code for basic tasks. Azure Queue storage is a service for storing large numbers of messages for later retrieval and processing.
 
 > [!NOTE]
 > To get started with the previous SDK version, see [Quickstart: Use the Azure Storage SDK v11 for .NET to manage a queue](storage-quickstart-queues-dotnet-legacy.md).
@@ -297,7 +297,7 @@ Console.WriteLine("Done");
 
 ## Run the code
 
-This app creates an Azure Queue and adds three messages to the queue. The example then lists the messages in the queue, then retrieves and deletes them before finally deleting the queue, itself.
+This app creates an Azure queue and adds three messages to it. The example then lists the messages in the queue, then retrieves and deletes them, before finally deleting the queue.
 
 Navigate to your application directory, then build and run the application.
 
@@ -337,7 +337,7 @@ Deleting queue: quickstartqueues-bdeeaa05-a9c4-4c40-943b-7f7a700d3e55
 Done
 ```
 
-When the app pauses befire receiving messages, check your storage account in the [Azure portal](https://portal.azure.com). Verify the messages are in the queue.
+When the app pauses before receiving messages, check your storage account in the [Azure portal](https://portal.azure.com). Verify the messages are in the queue.
 
 After you've verified the messages, press the **Enter** key to receive and delete the messages. When prompted, press the **Enter** key again to delete the queue and finish the demo.
 
