@@ -19,12 +19,12 @@ In this article, learn about how to use Azure Machine Learning to manage the lif
 
 Azure Machine Learning provides the following MLOps capabilities:
 
-- **Create reproducible ML pipelines**. Pipelines allow you to define repeatable and reusable steps for your data preparation, training, and scoring processes
-- **Register, package, and deploy models from anywhere** and track associated metadata required to use the model
-- **Capture the governance data required for capturing the end to end ML lifecycle**, including who is publishing models, why changes are being made, and when models were deployed or used in production.
+- **Create reproducible ML pipelines**. Pipelines allow you to define repeatable and reusable steps for your data preparation, training, and scoring processes.
+- **Register, package, and deploy models from anywhere** and track associated metadata required to use the model.
+- **Capture the governance data required for capturing the end-to-end ML lifecycle**, including who is publishing models, why changes are being made, and when models were deployed or used in production.
 - **Notify and alert on events in the ML lifecycle** such as experiment completion, model registration, model deployment, and data drift detection.
 - **Monitor ML applications for operational and ML-related issues**. Compare model inputs between training and inference, explore model-specific metrics, and provide monitoring and alerts on your ML infrastructure.
-- **Automate the end to end ML lifecycle with Azure Machine Learning and Azure DevOps** to frequently update models, test new models, and continuously roll out new ML models alongside your other applications and services.
+- **Automate the end-to-end ML lifecycle with Azure Machine Learning and Azure DevOps** to frequently update models, test new models, and continuously roll out new ML models alongside your other applications and services.
 
 ## Create reproducible ML pipelines
 
@@ -83,7 +83,7 @@ You also provide the configuration of the target deployment platform. For exampl
 When the image is created, components required by Azure Machine Learning are also added. For example, assets needed to run the web service and interact with IoT Edge.
 
 #### Batch scoring
-Batch scoring is supported through ML pipelines. For more information, see [Batch predictions on big data](how-to-run-batch-predictions.md)
+Batch scoring is supported through ML pipelines. For more information, see [Batch predictions on big data](how-to-run-batch-predictions.md).
 
 #### Real-time web services
 
@@ -112,9 +112,9 @@ For more information, see [Deploy models](how-to-deploy-and-where.md).
 Microsoft Power BI supports using machine learning models for data analytics. For more information, see [Azure Machine Learning integration in Power BI (preview)](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 
 
-## Capture the governance data required for capturing the end to end ML lifecycle
+## Capture the governance data required for capturing the end-to-end ML lifecycle
 
-Azure ML gives you the capability to track the end to end audit trail of all of your ML assets. Specifically:
+Azure ML gives you the capability to track the end-to-end audit trail of all of your ML assets. Specifically:
 
 - Azure ML [integrates with Git](how-to-set-up-training-targets.md#gitintegration) to track information on which repository / branch / commit your code came from.
 - [Azure ML Datasets](how-to-create-register-datasets.md) help you track, profile, and version data. 
