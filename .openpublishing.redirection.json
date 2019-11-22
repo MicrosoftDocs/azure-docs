@@ -43766,6 +43766,11 @@
       "source_path": "articles/healthcare-apis/configure-cosmos-db.md",
       "redirect_url": "/azure/healthcare-apis/configure-database",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-bus-messaging/migrate-java-apps-wild-fly.md",
+      "redirect_url": "/azure/app-service/containers/configure-language-java#use-service-bus-as-a-message-broker",
+      "redirect_document_id": false
     }
   ]
 }
