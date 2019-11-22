@@ -12,34 +12,34 @@ ms.author: rohogue
 
 This article gives an overview of the steps needed to get an Avere vFXT for Azure cluster up and running.
 
-Several tasks are needed before and after you create the vFXT cluster from the Azure Marketplace. Having a clear sense of the start-to-finish process will help you scope the effort needed. 
+Several tasks are needed before and after you create the vFXT cluster from the Azure Marketplace. Having a clear sense of the start-to-finish process will help you scope the effort needed.
 
 ## Deployment steps
 
-After [planning your system](avere-vfxt-deploy-plan.md), you can begin to create your Avere vFXT cluster. 
+After [planning your system](avere-vfxt-deploy-plan.md), you can begin to create your Avere vFXT cluster.
 
-An Azure Resource Manager template in the Azure Marketplace collects the necessary information and automatically deploys the entire cluster. 
+An Azure Resource Manager template in the Azure Marketplace collects the necessary information and automatically deploys the entire cluster.
 
-After the vFXT cluster is up and running, you will want to know how to connect clients to it and, if necessary, how to move your data to the new Blob storage container.  
+After the vFXT cluster is up and running, you will want to know how to connect clients to it and, if necessary, how to move your data to the new Blob storage container.
 
 Here is an overview of all of the steps.
 
-1. Configure prerequisites 
+1. Configure prerequisites
 
    Before creating a VM, you must create a new subscription for the Avere vFXT project, configure subscription ownership, check quotas and request an increase if needed, and accept terms for using the Avere vFXT software. Read [Prepare to create the Avere vFXT](avere-vfxt-prereqs.md) for detailed instructions.
 
-1. Create the Avere vFXT cluster 
+1. Create the Avere vFXT cluster
 
    Use the Azure Marketplace to create the Avere vFXT for Azure cluster. A template collects the required information and executes scripts to create the final product.
 
-   Cluster creation involves these steps, which are all done by the marketplace template: 
+   Cluster creation involves these steps, which are all done by the marketplace template:
 
    * Creating new network infrastructure and resource groups, if needed
    * Creating a *cluster controller*  
 
      The cluster controller is a simple VM that resides in the same virtual network as the Avere vFXT cluster and has the custom software needed to create and manage the cluster. The controller creates the vFXT nodes and forms the cluster, and it also provides a command-line interface to manage the cluster during its lifetime.
 
-     If you create a new vnet during the deployment, your controller will have a public IP address. This means the controller can serve as a jump host for connecting to the cluster from outside the vnet.
+     If you create a new virtual network during the deployment, your controller will have a public IP address. This means the controller can serve as a jump host for connecting to the cluster from outside the subnet.
 
    * Creating the cluster node VMs
 
@@ -47,7 +47,7 @@ Here is an overview of all of the steps.
 
    * Optionally, creating a new Blob container and configuring it as back-end storage for the cluster
 
-1. Configure the cluster 
+1. Configure the cluster
 
    Connect to the Avere vFXT configuration interface (Avere Control Panel) to customize the cluster's settings. Opt in for support monitoring, and add your storage system if you are using an on-premises data center.
 
@@ -65,4 +65,4 @@ Here is an overview of all of the steps.
 
 ## Next steps
 
-Continue to [Prepare to create the Avere vFXT](avere-vfxt-prereqs.md) to complete the preliminary tasks for deploying the Avere vFXT for Azure. 
+Continue to [Prepare to create the Avere vFXT](avere-vfxt-prereqs.md) to complete the preliminary tasks for deploying the Avere vFXT for Azure.

@@ -10,8 +10,7 @@ ms.author: rohogue
 
 # Cluster tuning
 
-
-Most vFXT clusters can benefit from customized performance settings. These settings help the cluster to work best with your particular workflow, dataset, and tools. 
+Most vFXT clusters can benefit from customized performance settings. These settings help the cluster to work best with your particular workflow, dataset, and tools.
 
 This customization should be done alongside a support representative, because it usually involves configuring features that are not available from the Avere Control Panel.
 
@@ -29,9 +28,9 @@ This section explains some of the custom tuning that can be done.
 
 These changes might be recommended based on dataset qualities or workflow style.
 
-* If the workload is write-heavy, increase the size of the write cache from its default of 20%. 
-* If the dataset involves many small files, increase the cluster cache's file count limit. 
-* If the work involves copying or moving data between two repositories, adjust the number of threads used for moving data: 
+* If the workload is write-heavy, increase the size of the write cache from its default of 20%.
+* If the dataset involves many small files, increase the cluster cache's file count limit.
+* If the work involves copying or moving data between two repositories, adjust the number of threads used for moving data:
   * To increase speed, you might increase the number of parallel threads used.
   * If the back-end storage volume is becoming overloaded, you might need to decrease the number of parallel threads used.
 * If the cluster caches data for a core filer that uses NFSv4 ACLs, enable access mode caching to streamline file authorization for particular clients.
@@ -53,4 +52,4 @@ In a cloud bursting scenario or hybrid storage WAN optimization scenario (where 
 
 ## Help optimizing your Avere vFXT for Azure
 
-Use the procedure described in [Get help with your system](avere-vfxt-open-ticket.md) to contact support staff about these optimizations. 
+Use the procedure described in [Get help with your system](avere-vfxt-open-ticket.md) to contact support staff about these optimizations.

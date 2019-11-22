@@ -8,13 +8,13 @@
   items:  
   - name: Plan your Avere vFXT system
     href: avere-vfxt-deploy-plan.md
-  - name: Avere vFXT deployment overview 
+  - name: Avere vFXT deployment overview
     href: avere-vfxt-deploy-overview.md
 - name: How-to guides
   items:
   - name: Prepare to create the Avere vFXT
     href: avere-vfxt-prereqs.md
-  - name: Deploy the vFXT cluster   
+  - name: Deploy the vFXT cluster
     href: avere-vfxt-deploy.md
   - name: Access the cluster configuration tool
     href: avere-vfxt-cluster-gui.md
@@ -24,9 +24,9 @@
     href: avere-vfxt-add-storage.md
   - name: Mount the Avere vFXT cluster
     href: avere-vfxt-mount-clients.md
-  - name: Move data to the Avere vFXT cluster 
+  - name: Move data to the Avere vFXT cluster
     href: avere-vfxt-data-ingest.md
-  - name: Manage the Avere vFXT cluster 
+  - name: Manage the Avere vFXT cluster
     href: avere-vfxt-manage-cluster.md
   - name: Customize cluster tuning
     href: avere-vfxt-tuning.md
@@ -40,11 +40,11 @@
     href: avere-vfxt-faq.md
   - name: Additional documentation
     items: 
-    - name: Supplemental documentation  
+    - name: Supplemental documentation
       href: avere-vfxt-additional-resources.md
     - name: Avere cluster DNS configuration
       href: avere-vfxt-configure-dns.md
     - name: Authorize non-owners to deploy Avere vFXT
       href: avere-vfxt-non-owner.md
-  - name: Whitepapers   
+  - name: Whitepapers
     href: avere-vfxt-whitepapers.md 

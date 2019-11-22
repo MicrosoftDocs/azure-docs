@@ -31,8 +31,8 @@ These steps use the Avere Control Panel. Read [Access the vFXT cluster](avere-vf
 
 To add a core filer, choose one of the two main types of core filers:
 
-  * [NAS core filer](#nas-core-filer) - describes how to add a NAS core filer 
-  * [Azure Storage cloud core filer](#azure-storage-cloud-core-filer) - describes how to add an Azure Storage account as a cloud core filer
+* [NAS core filer](#nas-core-filer) - describes how to add a NAS core filer
+* [Azure Storage cloud core filer](#azure-storage-cloud-core-filer) - describes how to add an Azure Storage account as a cloud core filer
 
 ### NAS core filer
 
@@ -48,7 +48,7 @@ The following steps add a NAS core filer:
 
    ![Screenshot of the Add new core filer page with a cursor over the Create button](media/avere-vfxt-add-core-filer-start.png)
 
-1. Fill in the required information in the wizard: 
+1. Fill in the required information in the wizard:
 
    * Name your core filer.
    * Provide a fully qualified domain name (FQDN) if available. Otherwise, provide an IP address or hostname that resolves to your core filer.
@@ -56,7 +56,7 @@ The following steps add a NAS core filer:
 
      ![Screenshot of the Add new core filer page with the core filer name and its fully qualified domain name](media/avere-vfxt-add-core-filer.png)
   
-   * Click **Next** and choose a cache policy. 
+   * Click **Next** and choose a cache policy.
    * Click **Add Filer**.
    * For more detailed information, refer to [Adding a new NAS core filer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_nas.html) in the Avere cluster settings guide.
 
@@ -66,8 +66,8 @@ Next, proceed to [Create a junction](#create-a-junction).
 
 To use Azure Blob storage as your vFXT cluster's backend storage, you need an empty container to add as a core filer.
 
-> [!TIP] 
-> If you choose to create a blob container at the same time you create the Avere vFXT cluster, the deployment template or script creates a storage container, defines it as a core filer, and creates the namespace junction as part of the vFXT cluster creation. The template also creates a storage service endpoint inside the cluster's virtual network. 
+> [!TIP]
+> If you choose to create a blob container at the same time you create the Avere vFXT cluster, the deployment template or script creates a storage container, defines it as a core filer, and creates the namespace junction as part of the vFXT cluster creation. The template also creates a storage service endpoint inside the cluster's virtual network.
 
 Adding Blob storage to your cluster requires these tasks:
 
@@ -77,7 +77,7 @@ Adding Blob storage to your cluster requires these tasks:
 * Add the Blob container as a core filer for the vFXT cluster (steps 7-9)
 * Create a namespace junction that clients use to mount the core filer ([Create a junction](#create-a-junction), same for both hardware and cloud storage)
 
-To add Blob storage after creating the cluster, follow these steps. 
+To add Blob storage after creating the cluster, follow these steps.
 
 1. Create a general-purpose V2 storage account with these settings:
 
@@ -105,13 +105,13 @@ To add Blob storage after creating the cluster, follow these steps.
 
 1. Get the Azure Storage account key by clicking **Access keys** under **Settings**:
 
-   ![Azure portal GUI for copying the key](media/avere-vfxt-copy-storage-key.png) 
+   ![Azure portal GUI for copying the key](media/avere-vfxt-copy-storage-key.png)
 
 1. Open the Avere Control Panel for your cluster. Click **Settings**, then open **Cluster** > **Cloud Credentials** on the left navigation pane. On the Cloud Credentials page, click **Add Credential**.
 
    ![Click the Add Credential button on the Cloud Credentials configuration page](media/avere-vfxt-new-credential-button.png)
 
-1. Fill in the following information to create a credential for the cloud core filer: 
+1. Fill in the following information to create a credential for the cloud core filer:
 
    | Field | Value |
    | --- | --- |
@@ -119,32 +119,32 @@ To add Blob storage after creating the cluster, follow these steps.
    | Service type | (select Azure Storage Access Key) |
    | Tenant | storage account name |
    | Subscription | subscription ID |
-   | Storage Access Key | Azure storage account key (copied in the previous step) | 
+   | Storage Access Key | Azure storage account key (copied in the previous step) |
 
    Click **Submit**.
 
    ![Completed cloud credential form in Avere Control Panel](media/avere-vfxt-new-credential-submit.png)
 
-1. Next, create the core filer. In the left side of the Avere Control Panel, click **Core Filer** >  **Manage Core Filers**. 
+1. Next, create the core filer. In the left side of the Avere Control Panel, click **Core Filer** >  **Manage Core Filers**.
 
 1. Click the **Create** button on the **Manage Core Filers** settings page.
 
 1. Fill out the wizard:
 
-   * Select filer type **Cloud**. 
+   * Select filer type **Cloud**.
    * Name the new core filer and click **Next**.
    * Accept the default cache policy and continue to the third page.
-   * In **Service type**, choose **Azure storage**. 
+   * In **Service type**, choose **Azure storage**.
    * Choose the credential created earlier.
    * Set **Bucket contents** to **Empty**
    * Change **Certificate verification** to **Disabled**
-   * Change **Compression mode** to **None**  
+   * Change **Compression mode** to **None**
    * Click **Next**.
    * On the fourth page, enter the name of the container in **Bucket name** as *storage_account_name*/*container_name*.
    * Optionally, set **Encryption type** to **None**.  Azure Storage is encrypted by default.
    * Click **Add Filer**.
 
-   For more detailed information, read [Adding a new cloud core filer](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) in the Avere cluster configuration guide. 
+   For more detailed information, read [Adding a new cloud core filer](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) in the Avere cluster configuration guide.
 
 The page will refresh, or you can refresh the page to display your new core filer.
 
