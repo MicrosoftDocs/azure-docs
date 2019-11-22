@@ -199,11 +199,24 @@ Here's an example of a graph endpoint, with scope:
 
 ## [Java](#tab/java)
 
-To enable your MSAL for Java (MSAL4J) application for sovereign clouds, you must:
+- Register your application in a specific portal, depending on the cloud. For more information on how to choose the portal refer [App registration endpoints](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#app-registration-endpoints)
+- Use any of the [samples](https://github.com/AzureAD/microsoft-authentication-library-for-python/tree/dev/sample) from the repo with a few changes to the configuration, depending on the cloud, which are mentioned next.
+- Use a specific authority, depending on the cloud you registered the application in. For more information on authorities for different clouds, refer [Azure AD Authentication endpoints](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints).
 
-- Register your application in a specific portal, depending on the cloud
-- Use a specific authority, depending on the cloud in the config file for your application
-- To call the Microsoft Graph API requires a specific Graph endpoint URL, depending on the cloud.
+Here's an example authority:
+
+```json
+"authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
+```
+
+- If you intend to call Microsoft graph, it requires a specific Graph endpoint URL, depending on the cloud. To find Microsoft Graph endpoints for all the national clouds, refer to [Microsoft Graph and Graph Explorer service root endpoints](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+
+Here's an example of a graph endpoint, with scope:
+
+```json
+"endpoint" : "https://graph.microsoft.us/v1.0/me"
+"scope": "User.Read"
+```
 
 ---
 
