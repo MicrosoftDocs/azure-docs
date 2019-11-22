@@ -1,5 +1,5 @@
 ---
-title: Run Azure Container instances
+title: Deploy LUIS container on Azure Container instances
 titleSuffix: Azure Cognitive Services
 description: Deploy the LUIS container to an Azure Container instance, and test it in a web browser.
 services: cognitive-services

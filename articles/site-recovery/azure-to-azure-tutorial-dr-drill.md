@@ -1,17 +1,17 @@
 ---
-title: Run a disaster recovery drill for Azure VMs to a secondary Azure region with the Azure Site Recovery service
-description: Learn how to run a disaster recovery drill for Azure VMs to a secondary Azure region for Azure IaaS VMs using the Azure Site Recovery service.
+title: Run an Azure VM disaster recovery drill with Azure Site Recovery
+description: Learn how to run a disaster recovery drill to a secondary region for Azure VMs using the Azure Site Recovery service.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/21/2019
+ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: mvc
 ---
 
-# Run a disaster recovery drill for Azure VMs to a secondary Azure region
+# Run a disaster recovery drill to a secondary region for Azure VMs 
 
 The [Azure Site Recovery](site-recovery-overview.md) service contributes to your business continuity and disaster recovery (BCDR) strategy by keeping your business apps up and running available during planned and unplanned outages. Site Recovery manages and orchestrates disaster recovery of on-premises machines and Azure virtual machines (VMs), including replication, failover, and recovery.
 

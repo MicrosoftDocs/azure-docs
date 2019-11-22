@@ -176,7 +176,7 @@ The resulting dataset monitor will appear in the list. Select it to go to that m
 
 ### From Python SDK
 
-See the [Python SDK reference documentation on data drift](https://aka.ms/datadriftapi) for full details. 
+See the [Python SDK reference documentation on data drift](/python/api/azureml-datadrift/azureml.datadrift) for full details. 
 
 The following is an example of creation of a dataset monitor using the Python SDK
 

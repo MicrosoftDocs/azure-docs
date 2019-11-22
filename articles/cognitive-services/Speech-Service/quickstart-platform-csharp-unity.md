@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Speech SDK for C# Unity platform setup - Speech Service"
+title: 'Quickstart: Speech SDK for C# Unity platform setup - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Use this guide to set up your platform for C# Unity with the Speech Services SDK.
 services: cognitive-services

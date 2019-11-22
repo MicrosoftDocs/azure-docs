@@ -73,7 +73,7 @@ that offer versions that run in an ISE:
 
 * Azure Blob Storage, File Storage, and Table Storage
 * Azure Queues, Azure Service Bus, Azure Event Hubs, and IBM MQ
-* FTP and SFTP-SSH
+* File System, FTP, and SFTP-SSH
 * SQL Server, Azure SQL Data Warehouse, Azure Cosmos DB
 * AS2, X12, and EDIFACT
 

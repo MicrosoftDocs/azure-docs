@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Peering Service (Preview)
+title: Azure Peering Service Preview
 summary: Learn about Azure Peering Service
 
 metadata:
-  title: Azure Peering Service (Preview) documentation
+  title: Azure Peering Service Preview documentation
   description: Learn how to manage and deploy Peering Service connection
   services: peering-service
   ms.service: peering-service
@@ -28,7 +28,7 @@ landingContent:
             url: about.md
       - linkListType: concept
         links:
-          - text: Location and partners
+          - text: Locations and partners
             url: location-partners.md
           - text: Connections
             url: connection.md

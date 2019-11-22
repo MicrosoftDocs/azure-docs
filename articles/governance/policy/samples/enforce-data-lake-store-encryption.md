@@ -1,11 +1,8 @@
 ---
 title: Sample - Require encryption for Data Lake Store
 description: This sample policy definition requires Data Lake Store encryption to be enabled.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
+ms.topic: sample
 ---
 # Sample - Require Data Lake Store encryption
 

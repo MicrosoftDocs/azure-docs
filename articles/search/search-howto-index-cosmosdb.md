@@ -1,5 +1,5 @@
 ---
-title: Index an Azure Cosmos DB data source
+title: Search over Azure Cosmos DB data
 titleSuffix: Azure Cognitive Search
 description: Crawl an Azure Cosmos DB data source and ingest data in a full text searchable index in Azure Cognitive Search. Indexers automate data ingestion for selected data sources like Azure Cosmos DB.
 

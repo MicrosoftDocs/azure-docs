@@ -111,6 +111,7 @@ Here are step-by-step guides on how you can use Conditional Access to configure 
 - [Require MFA for Azure management](howto-conditional-access-policy-azure-management.md)
 - [Block legacy authentication](howto-conditional-access-policy-block-legacy.md)
 - [Require MFA for all users](howto-conditional-access-policy-all-users-mfa.md)
+- [Require Azure MFA registration](../identity-protection/howto-identity-protection-configure-mfa-policy.md) - Requires Azure AD Identity Protection
 
 ## Enabling security defaults
 

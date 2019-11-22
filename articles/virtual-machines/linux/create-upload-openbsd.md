@@ -1,5 +1,5 @@
 ---
-title: Create and upload an OpenBSD VM image to Azure | Microsoft Docs
+title: Create and upload an OpenBSD VM image to Azure 
 description: Learn how to create and upload a virtual hard disk (VHD) that contains the OpenBSD operating system to create an Azure virtual machine through Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''

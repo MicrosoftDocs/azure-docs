@@ -1,5 +1,5 @@
 ---
-title: Add scoring profiles to boost relevant documents in search results
+title: Boost search rank using scoring profiles
 titleSuffix: Azure Cognitive Search
 description: Boost search rank scores for Azure Cognitive Search results by adding scoring profiles.
 

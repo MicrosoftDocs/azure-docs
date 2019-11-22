@@ -69,7 +69,7 @@ Continue to use the V2 API prediction endpoint until the V4.7 of the Bot Framewo
 
 ## V2 API Deprecation 
 
-The V2 prediction API will not be deprecated for at least 9 months after the V3 preview, June 8rd, 2020. 
+The V2 prediction API will not be deprecated for at least 9 months after the V3 preview, June 8th, 2020. 
 
 ## Endpoint URL changes 
 

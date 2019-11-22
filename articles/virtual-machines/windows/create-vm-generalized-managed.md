@@ -1,5 +1,5 @@
 ---
-title: Create VM from a managed image in Azure | Microsoft Docs
+title: Create VM from a managed image in Azure 
 description: Create a Windows virtual machine from a generalized managed image using Azure PowerShell or the Azure portal, in the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''

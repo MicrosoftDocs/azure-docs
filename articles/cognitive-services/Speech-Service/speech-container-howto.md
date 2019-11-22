@@ -8,11 +8,11 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 11/21/2019
 ms.author: dapine
 ---
 
-# Install and run Speech Service containers
+# Install and run Speech Service containers (Preview)
 
 Containers enable you to run some of the Speech Service APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run a Speech container.
 
@@ -146,14 +146,14 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-t
 ```
 
 > [!IMPORTANT]
-> The `latest` tag pulls the `en-US` locale and `jessarus` voice. For additional locales see [Speech-to-text locales](#speech-to-text-locales).
+> The `latest` tag pulls the `en-US` locale. For additional locales see [Speech-to-text locales](#speech-to-text-locales).
 
 #### Speech-to-text locales
 
-All tags, except for `latest` are in the following format, where the `<culture>` indicates the locale container:
+All tags, except for `latest` are in the following format and are case-sensitive:
 
 ```
-<major>.<minor>.<patch>-<platform>-<culture>-<prerelease>
+<major>.<minor>.<patch>-<platform>-<locale>-<prerelease>
 ```
 
 The following tag is an example of the format:
@@ -162,7 +162,7 @@ The following tag is an example of the format:
 2.0.0-amd64-en-us-preview
 ```
 
-For all of the supported locales in the 2.0.0 version of the **speech-to-text** container, lease see the **Container support** column of the [Speech-to-text language support](language-support.md#speech-to-text) table.
+For all of the supported locales of the **speech-to-text** container, please see [Speech-to-text image tags](../containers/container-image-tags.md#speech-to-text).
 
 # [Custom Speech-to-text](#tab/cstt)
 
@@ -192,10 +192,10 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 
 #### Text-to-speech locales
 
-All tags, except for `latest` are in the following format, where the `<culture>` indicates the locale and the `<voice>` indicates the voice of the container:
+All tags, except for `latest` are in the following format and are case-sensitive:
 
 ```
-<major>.<minor>.<patch>-<platform>-<culture>-<voice>-<prerelease>
+<major>.<minor>.<patch>-<platform>-<locale>-<voice>-<prerelease>
 ```
 
 The following tag is an example of the format:
@@ -204,7 +204,7 @@ The following tag is an example of the format:
 1.3.0-amd64-en-us-jessarus-preview
 ```
 
-For all of the supported locales and corresponding voices in the 1.3.0 version of the **text-to-speech** container, please see the **Container support** column of the [standard voices language support](language-support.md#standard-voices) table.
+For all of the supported locales and corresponding voices of the **text-to-speech** container, please see [Text-to-speech image tags](../containers/container-image-tags.md#text-to-speech).
 
 > [!IMPORTANT]
 > When constructing a *Standard Text-to-speech* HTTP POST, the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) message requires a `voice` element with a `name` attribute. The value is the corresponding container locale and voice, also known as the ["short name"](language-support.md#standard-voices). For example, the `latest` tag would have a voice name of `en-US-JessaRUS`.
