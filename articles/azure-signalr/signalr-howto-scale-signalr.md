@@ -30,7 +30,7 @@ For information about the pricing and capacities of individual SignalR Service, 
    
 3. Choose your pricing tier, and then click **Select**. You need to set the unit count for **Standard** Tier.
    
-    ![Scale on Portal](./media/signalr-howto-scale/signalr_howto_scale.png)
+    ![Scale on Portal](./media/signalr-howto-scale/signalr-howto-scale.png)
 
 4. Click **Save**.
 
