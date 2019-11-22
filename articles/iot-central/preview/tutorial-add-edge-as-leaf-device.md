@@ -15,25 +15,25 @@ manager: peterpr
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-This tutorial shows you how to add and configure an Azure IoT Edge device to your Microsoft Azure IoT Central application. In this tutorial, we chose an IoT Edge enabled Linux VM from Azure Marketplace.
+This tutorial shows you how to add and configure an Azure IoT Edge device to your Azure IoT Central application. In this tutorial, we chose an IoT Edge-enabled Linux VM from Azure Marketplace.
 
 This tutorial is made up of two parts:
 
 * First, as an operator, you learn how to do cloud first provisioning of an IoT Edge device.
-* Then, you will learn how to do "device first" provisioning of an IoT Edge device.
+* Then, you learn how to do "device first" provisioning of an IoT Edge device.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Add a new IoT Edge device
-> * Configure the IoT Edge device to help provision by using SAS Key
+> * Configure the IoT Edge device to help provision by using a shared access signature (SAS) key
 > * View dashboards and module health in IoT Central
 > * Send commands to a module running on the IoT Edge device
 > * Set properties on a module running on the IoT Edge device
 
 ## Prerequisites
 
-To complete this tutorial, you need an Azure IoT Central application. Follow this quickstart to [Create an Azure IoT Central application](./quick-deploy-iot-central.md).
+To complete this tutorial, you need an Azure IoT Central application. Follow [this quickstart to create an Azure IoT Central application](./quick-deploy-iot-central.md).
 
 ## Enable Azure IoT Edge enrollment group
 From the **Administration** page, enable SAS keys for Azure IoT Edge enrollment group.
@@ -98,7 +98,7 @@ Press Enter, provide the user name and password as prompted, and then press Ente
 
 ![Screenshot of console](./media/tutorial-add-edge-as-leaf-device/cfconsolelogin.png)
 
-To run a command as administrator (user "root"), run the command: **sudo su –**
+To run a command as administrator (user "root"), enter: **sudo su –**
 
 ![Screenshot of console](./media/tutorial-add-edge-as-leaf-device/cfsudo.png)
 
