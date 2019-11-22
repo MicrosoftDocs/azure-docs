@@ -197,7 +197,7 @@ The following mountpoints are preconfigured:
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 - Volume size distribution is based off the database size in memory. Refer the [Overview and architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) section to learn what database sizes in memory are supported with multisid environment.
 
-## 3. Single node with DR (Normal)
+## 3. Single node with DR using storage replication
  
 This topology supports one node in a scale up configuration with one or multiple SIDs with the storage-based replication to the DR site for a primary SID. In the diagram, only single SID is depicted at the primary site, but multisid (MCOS) is supported as well.
 
@@ -238,7 +238,7 @@ The following mountpoints are preconfigured:
 - Boot volume for **SKU Type I class** is replicated to DR node.
 
 
-## 4. Single node with DR (Multipurpose)
+## 4. Single node with DR (Multipurpose) using storage replication
  
 This topology supports one node in a scale up configuration with one or multiple SIDs with the storage-based replication to the DR site for a primary SID. In the diagram, only single SID is depicted at the primary site, but multisid (MCOS) is supported as well. At the DR site, HLI unit is used for QA instance while production operations are running from the primary site. At the time of DR failover (or failover test), QA instance at DR site is taken down.
 
@@ -287,7 +287,7 @@ The following mountpoints are preconfigured:
 - At the DR: The data, logbackups, log, shared volumes for QA (marked as “QA Instance installation”) are configured for the QA instance installation.
 - Boot volume for **SKU Type I class** is replicated to DR node.
 
-## 5. HSR with STONITH
+## 5. HSR with STONITH for high availability
  
 This topology support two nodes for the HANA System Replication (HSR) configuration. This configuration is only supported for single HANA instances on a node. Means, MCOS scenarios are NOT supported.
 
@@ -336,7 +336,7 @@ The following mountpoints are preconfigured:
 - STONITH: An SBD is configured for the STONITH setup. However, a use of STONITH is optional.
 
 
-## 6. HSR with DR
+## 6. High availability with HSR and DR with storage replication
  
 This topology support two nodes for the HANA System Replication (HSR) configuration. Both the normal and multipurpose DR is supported. These configurations are only supported for single HANA instances on a node. Means, MCOS scenarios are NOT supported with these configurations.
 
@@ -513,7 +513,7 @@ The following mountpoints are preconfigured:
 ### Key considerations
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 
-## 10. Scale-out with DR
+## 10. Scale-out with DR using storage replication
  
 This topology supports multiple nodes in a scale-out with a DR. Both normal and multipurpose DR is supported. In the diagram, only the single purpose DR is depicted. You can request this topology with or without the standby node.
 
