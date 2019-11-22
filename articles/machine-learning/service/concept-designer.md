@@ -45,15 +45,7 @@ The designer gives you a visual canvas to build, test, and deploy machine learni
 
 ## Pipeline
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-Create an ML [pipeline](concept-azure-machine-learning-architecture.md#machine-learning-pipelines) from scratch, or use an existing sample pipeline as a template. Each time you run a pipeline, artifacts are stored in your workspace. Pipeline runs are grouped into [experiments](concept-azure-machine-learning-architecture.md#experiments).
-=======
 A [pipeline](concept-azure-machine-learning-architecture.md#ml-pipelines) consists of datasets and analytical modules, which you connect together. Pipelines have many uses: you can make a pipeline that trains a single model, or one that trains multiple models. You can create a pipeline that makes predictions in real time or in batch, or make a pipeline that only cleans data. Pipelines let you reuse your work and organize your projects.
->>>>>>> 2f5131b92fb4a078314ea5bf8c1a1fe95d84986c
-=======
-A [pipeline](concept-azure-machine-learning-architecture.md#ml-pipelines) consists of datasets and analytical modules, which you connect together. Pipelines have many uses: you can make a pipeline that trains a single model, or one that trains multiple models. You can create a pipeline that makes predictions in real time or in batch, or make a pipeline that only cleans data. Pipelines let you reuse your work and organize your projects.
->>>>>>> 0ed936ebadfcd0fd40e2bf135f30c24b84d5eb22
 
 ### Pipeline draft
 
