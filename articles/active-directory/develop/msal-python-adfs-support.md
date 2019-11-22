@@ -4,7 +4,7 @@ titleSuffix: Microsoft identity platform
 description: Learn about Active Directory Federation Services (AD FS) support in Microsoft Authentication Library for Python
 services: active-directory
 documentationcenter: dev-center-name
-author: abhidnya    
+author: abhidnya13    
 manager: henrikm
 editor: ''
 
@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/23/2019
-ms.author: Abhidnya.Patil
+ms.author: abpati
 ms.reviewer: navyasri.canumalla
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about AD FS support in MSAL for Python so I can decide if this platform meets my application development needs and requirements.
@@ -31,7 +31,11 @@ There are usually two ways of authenticating against AD FS:
 - MSAL Python talks to Azure Active Directory, which itself is federated with other identity providers. The federation happens through AD FS. MSAL Python connects to Azure AD, which signs in users that are managed in Azure AD (managed users) or users managed by another identity provider such as AD FS (federated users). MSAL Python doesn't  know that a user is federated. It simply talks to Azure AD. The [authority](msal-client-application-configuration.md#authority) you use in this case is the usual authority (authority host name + tenant, common, or organizations).
 - MSAL Python talks directly to an AD FS authority. This is only supported by AD FS 2019 and later.
 
-## Acquire a token interactively for a federated user
+## Connect to Active Directory federated with AD FS
+
+### Acquire a token interactively for a federated user
+
+The following applies whether you connect directly to Active Directory Federation Services (AD FS) or through Active Directory.
 
 When you call `acquire_token_by_authorization_code` or `acquire_token_by_device_flow`, the user experience is typically as follows:
 
@@ -43,17 +47,19 @@ The supported AD FS versions in this federated scenario are:
 - Active Directory Federation Services v3 (Windows Server 2012 R2)
 - Active Directory Federation Services v4 (AD FS 2016)
 
-### Connecting directly to AD FS
+### Acquire a token via username and password
 
-In this case the authority you'll want to use to build your application will be something like `https://somesite.contoso.com/adfs/`
+The following applies whether you connect directly to Active Directory Federation Services (AD FS) or through Active Directory.
+
+When you acquire a token using `acquire_token_by_username_password`, MSAL Python gets the identity provider to contact based on the username. MSAL Python get a [SAML 1.1 token](reference-saml-tokens.md) from the identity provider, which it then provides to Azure AD which returns the JSON Web Token (JWT).
+
+## Connecting directly to AD FS
+
+When you connect directory to AD FS, the authority you'll want to use to build your application will be something like `https://somesite.contoso.com/adfs/`
 
 MSAL Python supports ADFS 2019.
 
 It does not support a direct connection to ADFS 2016 or ADFS v2. If you need to support scenarios requiring a direct connection to ADFS 2016, use the latest version of ADAL Python. Once you have upgraded your on-premise system to ADFS 2019, you can use MSAL Python.
-
-## Acquire a token via username and password
-
-When you acquire a token using `acquire_token_by_username_password`, MSAL Python gets the identity provider to contact based on the username. MSAL Python get a [SAML 1.1 token](reference-saml-tokens.md) from the identity provider, which it then provides to Azure AD which returns the JSON Web Token (JWT).
 
 ## See also
 
