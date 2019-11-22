@@ -61,7 +61,7 @@ Use text-matching entities provide several ways to extract data:
 |--|--|
 |[List entity](#add-list-entities-for-exact-matches)|list of canonical names along with synonyms as alternative forms|
 |Regular expression entity|match text using a regular expression entity|
-|[Prebuilt entity](tutorial-machine-learned-entity.md#add-prebuilt-number-to-app-to-help-extract-data)|match common data types such as number, email, date|
+|[Prebuilt entity](tutorial-machine-learned-entity.md#add-prebuilt-number-to-help-extract-data)|match common data types such as number, email, date|
 |Prebuilt domain entity|match using selected subject domains|
 |[Pattern.any](#add-a-patternany-entity)| to match entities that may be easily confused with the surrounding text|  
 
@@ -174,14 +174,18 @@ LUIS does not allow you to change the type of the entity because it doesn't know
 
 ## Next steps
 
-Learn more about patterns:
+> [!div class="nextstepaction"] 
+> [Use prebuilt models](howto-add-prebuilt-models.md) 
 
-* [Patterns Concepts](luis-concept-patterns.md)
-* [Patterns Syntax](reference-pattern-syntax.md)
+Learn more about:
+* How to [train](luis-how-to-train.md)
+* How to [test](luis-interactive-test.md)
+* How to [publish](luis-how-to-publish-app.md)
+* Patterns:
+    * [Concepts](luis-concept-patterns.md)
+    * [Syntax](reference-pattern-syntax.md)
+* [Prebuilt entities GitHub repository](https://github.com/Microsoft/Recognizers-Text)
+* [Data Extraction concepts](luis-concept-data-extraction.md)
 
-For more information about prebuilt entities, see the [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) project. 
 
-For information about how the entity appears in the JSON endpoint query response, see [Data Extraction](luis-concept-data-extraction.md)
-
-Now that you have added intents, utterances and entities, you have a basic LUIS app. Learn how to [train](luis-how-to-train.md), [test](luis-interactive-test.md), and [publish](luis-how-to-publish-app.md) your app.
  

@@ -1,12 +1,12 @@
 ---
-title: How To - Require managed devices for cloud app access with Azure Active Directory Conditional Access | Microsoft Docs
+title: Conditional Access require managed device - Azure Active Directory
 description: Learn how to configure Azure Active Directory (Azure AD) device-based Conditional Access policies that require managed devices for cloud app access.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 06/14/2018
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
