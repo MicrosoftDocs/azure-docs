@@ -1,5 +1,5 @@
 ---
-title: Authenticate with a managed identity
+title: Authenticate with managed identity
 description: Provide access to images in your private container registry by using a user-assigned or system-assigned managed Azure identity.
 ms.topic: article
 ms.date: 01/16/2019
