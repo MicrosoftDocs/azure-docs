@@ -171,7 +171,7 @@ var signature = digest.toString('base64');
 ```
 
 > [!IMPORTANT]
-> You need to [republish the developer portal](./api-management-howto-developer-portal.md#publish) for the delegation changes to take effect.
+> You need to [republish the developer portal](api-management-howto-developer-portal-customize.md#publish) for the delegation changes to take effect.
 
 ## Next steps
 For more information on delegation, see the following video:
