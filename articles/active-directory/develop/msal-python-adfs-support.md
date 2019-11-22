@@ -28,12 +28,8 @@ Active Directory Federation Services (AD FS) in Windows Server enables you to ad
 
 There are usually two ways of authenticating against AD FS:
 
-- MSAL Python talks to Azure Active Directory, which itself is federated with other identity providers. The federation happens through AD FS.
+- MSAL Python talks to Azure Active Directory, which itself is federated with other identity providers. The federation happens through AD FS. MSAL Python connects to Azure AD, which signs in users that are managed in Azure AD (managed users) or users managed by another identity provider such as AD FS (federated users). MSAL Python doesn't  know that a user is federated. It simply talks to Azure AD. The [authority](msal-client-application-configuration.md#authority) you use in this case is the usual authority (authority host name + tenant, common, or organizations).
 - MSAL Python talks directly to an AD FS authority. This is only supported by AD FS 2019 and later.
-
-MSAL Python connects to Azure AD, which signs in users that are managed in Azure AD (managed users) or users managed by another identity provider such as AD FS (federated users). MSAL Python doesn't  know that a user is federated. It simply talks to Azure AD.
-
-The [authority](msal-client-application-configuration.md#authority) you use in this case is the usual authority (authority host name + tenant, common, or organizations).
 
 ## Acquire a token interactively for a federated user
 
