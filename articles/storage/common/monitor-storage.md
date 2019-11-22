@@ -44,7 +44,7 @@ Legacy metrics are available in parallel with Azure Monitor managed metrics. The
 
 Platform metrics and the Activity log are collected automatically, but you must create a diagnostic setting to collect resource logs or forward them outside of Azure Monitor. See [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/platform/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell.
 
-When you create a diagnostic setting, you'll need to choose the type of storage that you want to enable logs for (blob, queue, table, file) or you can choose the storage account to enable logs for them all. If you create the diagnostic setting in the Azure Portal, you can select the resource from a list. If you use PowerShell or the Azure CLI, you'll need to use the resource ID of the storage type. To find the resource ID for each type of storage, see [Resource ID for a storage account](monitor-storage-reference.md#resource-ids-storage-account).
+When you create a diagnostic setting, you'll need to choose the type of storage that you want to enable logs for (blob, queue, table, file) or you can choose the storage account to enable logs for them all. If you create the diagnostic setting in the Azure Portal, you can select the resource from a list. If you use PowerShell or the Azure CLI, you'll need to use the resource ID of the storage type. You can find the resource ID in the **Properties** page of your storage account in the Azure portal.
 
 You'll also have to specify which categories of operations to collect logs for. The categories for Azure Storage are listed in the following table:
 
@@ -58,6 +58,14 @@ You'll also have to specify which categories of operations to collect logs for. 
 
 You can analyze metrics for [service-name] with metrics from other Azure services using Metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../platform/metrics-getting-started.md) for details on using this tool. 
 
+The following example shows how to view **Transactions** at account level.
+
+![screenshot of accessing metrics in the Azure portal](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal.png)
+
+For metrics supporting dimensions, you can filter metric with the desired dimension value. The following example shows how to view **Transactions** at account level on a specific operation by selecting values for  **API Name** dimension.
+
+![screenshot of accessing metrics with dimension in the Azure portal](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal-with-dimension.png)
+
 Azure Storage supports following dimensions for metrics in Azure Monitor.
 
 | Dimension Name | Description |
@@ -70,16 +78,6 @@ Azure Storage supports following dimensions for metrics in Azure Monitor.
 | **Authentication** | Authentication type used in transactions. The available values include: <br/> <li>**AccountKey**: The transaction is authenticated with storage account key.</li> <li>**SAS**: The transaction is authenticated with shared access signatures.</li> <li>**OAuth**: The transaction is authenticated with OAuth access tokens.</li> <li>**Anonymous**: The transaction is requested anonymously. It doesn’t include preflight requests.</li> <li>**AnonymousPreflight**: The transaction is preflight request.</li> |
 
 For the metrics supporting dimensions, you need to specify the dimension value to see the corresponding metrics values. For example, if you look at  **Transactions** value for successful responses, you need to filter the **ResponseType** dimension with **Success**. Or if you look at **BlobCount** value for Block Blob, you need to filter the **BlobType** dimension with **BlockBlob**.
-
-### Access metrics in the Azure portal
-
-You can monitor metrics over time in the Azure portal. The following example shows how to view **Transactions** at account level.
-
-![screenshot of accessing metrics in the Azure portal](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal.png)
-
-For metrics supporting dimensions, you can filter metric with the desired dimension value. The following example shows how to view **Transactions** at account level on a specific operation by selecting values for  **API Name** dimension.
-
-![screenshot of accessing metrics with dimension in the Azure portal](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal-with-dimension.png)
 
 ### Access metrics with the REST API
 
