@@ -31,19 +31,17 @@ First, create a logic app and add an event grid trigger that monitors the resour
 
    ![Create logic app](./media/publish-iot-hub-events-to-logic-apps/select-logic-app.png)
 
-2. On the next screen, select **Create**. 
+1. On the next screen, select **Create**. 
 
-3.  Give your logic app a name that's unique in your subscription, then select the same subscription, resource group, and location as your IoT hub. 
+1. Give your logic app a name that's unique in your subscription, then select the same subscription, resource group, and location as your IoT hub. 
 
    ![Fields for create logic app](./media/publish-iot-hub-events-to-logic-apps/create-logic-app-fields.png)
 
-3. Select **Create**.
+1. Select **Create**.
 
-4. Once the resource is created, navigate to your logic app. To do this, select **Resource groups**, then select the resource group you created for this tutorial. Then find the logic app in the list of resources and select it. 
+1. Once the resource is created, navigate to your logic app. To do this, select **Resource groups**, then select the resource group you created for this tutorial. Then find the logic app in the list of resources and select it. 
 
-5. In the Logic Apps Designer, page down to see **Templates**. Choose **Blank Logic App** so that you can build your logic app from scratch.
-
-***ROBIN STOPPED HERE***
+1. In the Logic Apps Designer, page down to see **Templates**. Choose **Blank Logic App** so that you can build your logic app from scratch.
 
 ### Select a trigger
 
@@ -51,15 +49,15 @@ A trigger is a specific event that starts your logic app. For this tutorial, the
 
 1. In the connectors and triggers search bar, type **HTTP**.
 
-2. Select **Request - When an HTTP request is received** as the trigger. 
+1. Select **Request - When an HTTP request is received** as the trigger. 
 
    ![Select HTTP request trigger](./media/publish-iot-hub-events-to-logic-apps/http-request-trigger.png)
 
-3. Select **Use sample payload to generate schema**. 
+1. Select **Use sample payload to generate schema**. 
 
    ![Select HTTP request trigger](./media/publish-iot-hub-events-to-logic-apps/sample-payload.png)
 
-4. Paste the following sample JSON code into the text box, then select **Done**:
+1. Paste the following sample JSON code into the text box, then select **Done**:
 
    ```json
    [{
@@ -107,7 +105,7 @@ A trigger is a specific event that starts your logic app. For this tutorial, the
    }]
    ```
 
-5. You may receive a pop-up notification that says, **Remember to include a Content-Type header set to application/json in your request.** You can safely ignore this suggestion, and move on to the next section. 
+1. You may receive a pop-up notification that says, **Remember to include a Content-Type header set to application/json in your request.** You can safely ignore this suggestion, and move on to the next section. 
 
 ### Create an action
 
@@ -115,29 +113,29 @@ Actions are any steps that occur after the trigger starts the logic app workflow
 
 1. Select **New step**. This opens a window to **Choose an action**.
 
-2. Search for **Email**.
+1. Search for **Email**.
 
-3. Based on your email provider, find and select the matching connector. This tutorial uses **Office 365 Outlook**. The steps for other email providers are similar. 
+1. Based on your email provider, find and select the matching connector. This tutorial uses **Office 365 Outlook**. The steps for other email providers are similar. 
 
    ![Select email provider connector](./media/publish-iot-hub-events-to-logic-apps/o365-outlook.png)
 
-4. Select the **Send an email** action. 
+1. Select the **Send an email** action. 
 
-5. If prompted, sign in to your email account. 
+1. If prompted, sign in to your email account. 
 
-6. Build your email template. 
+1. Build your email template. 
 
    * **To**: Enter the email address to receive the notification emails. For this tutorial, use an email account that you can access for testing. 
 
    * **Subject**: Fill in the text for the subject. When you click on the Subject text box, you can select dynamic content to include. For example, this tutorial uses `IoT Hub alert: {event Type}`. If you can't see Dynamic content, select the **Add dynamic content** hyperlink -- this toggles it on and off.
 
-   * **Body**: Write the text for your email. Select JSON properties from the selector tool to include dynamic content based on event data. If you can't see the Dynamic content, select the **Add dynamic content** hypelink under the **Body** text box. If it doesn't show you the fields you want, click *more* in the Dynamic content screen to include the fields from the previous action.
+   * **Body**: Write the text for your email. Select JSON properties from the selector tool to include dynamic content based on event data. If you can't see the Dynamic content, select the **Add dynamic content** hyperlink under the **Body** text box. If it doesn't show you the fields you want, click *more* in the Dynamic content screen to include the fields from the previous action.
 
    Your email template may look like this example:
 
    ![Fill out email information](./media/publish-iot-hub-events-to-logic-apps/email-content.png)
 
-7. Save your logic app. 
+1. Save your logic app. 
 
 ### Copy the HTTP URL
 
@@ -145,11 +143,11 @@ Before you leave the Logic Apps Designer, copy the URL that your logic apps is l
 
 1. Expand the **When a HTTP request is received** trigger configuration box by clicking on it. 
 
-2. Copy the value of **HTTP POST URL** by selecting the copy button next to it. 
+1. Copy the value of **HTTP POST URL** by selecting the copy button next to it. 
 
    ![Copy the HTTP POST URL](./media/publish-iot-hub-events-to-logic-apps/copy-url.png)
 
-3. Save this URL so that you can refer to it in the next section. 
+1. Save this URL so that you can refer to it in the next section. 
 
 ## Configure subscription for IoT Hub events
 
@@ -173,11 +171,11 @@ In this section, you configure your IoT Hub to publish events as they occur.
 
        ![subscription event types](./media/publish-iot-hub-events-to-logic-apps/subscription-event-types.png)
 
-   * **Endpoint Details**: Select Endpoint Type as **Web Hook** and click on select endpoint and paste the URL that you copied from your logic app and confirm selection.
+   * **Endpoint Details**: Select Endpoint Type as **Web Hook** and select *select an endpoint* and paste the URL that you copied from your logic app and confirm selection.
 
      ![select endpoint url](./media/publish-iot-hub-events-to-logic-apps/endpoint-webhook.png)
 
-   When you're done, the form should look like the following example: 
+   When you're done, the pane should look like the following example: 
 
     ![Sample event subscription form](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
 
@@ -242,9 +240,9 @@ To delete all of the resources created in this tutorial, delete the resource gro
 
 1. Select **Resource groups**, then select the resource group you created for this tutorial.
 
-2. On the Resource group pane, select **Delete resource group**. You are prompted to enter the resource group name, and then you can delete it. All of resources contained are also removed.
+2. On the Resource group pane, select **Delete resource group**. You are prompted to enter the resource group name, and then you can delete it. All of the resources contained therein are also removed.
 
-If you don't want to remove all of the resources, you can mange them one by one. 
+If you don't want to remove all of the resources, you can manage them one by one. 
 
 If you don't want to lose the work on your logic app, disable it instead of deleting it. 
 
