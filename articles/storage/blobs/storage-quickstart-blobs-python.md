@@ -95,7 +95,7 @@ From the project directory:
 
 1. Save the new file as *blob-quickstart-v12.py* in the *blob-quickstart-v12* directory.
 
-[!INCLUDE [storage-quickstart-connection-string-include](../../../includes/storage-quickstart-credentials-include.md)]
+[!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
 ## Object model
 
