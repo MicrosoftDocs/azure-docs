@@ -113,7 +113,7 @@ Layered deployments have the same basic components as any automatic deployment. 
 
 The system runtime modules, edgeAgent and edgeHub, are not configured as part of a layered deployment. Any IoT Edge device targeted by a layered deployment needs a standard automatic deployment applied to it first to provide the base upon which layered deployments can be added. 
 
-An IoT Edge device can apply one and only on standard automatic deployment, but it can apply multiple layered automatic deployments. Any layered deployments targeting a device must have a higher priority than the automatic deployment for that device. 
+An IoT Edge device can apply one and only one standard automatic deployment, but it can apply multiple layered automatic deployments. Any layered deployments targeting a device must have a higher priority than the automatic deployment for that device. 
 
 ### Module twin configuration
 
