@@ -287,3 +287,19 @@ Output field mappings that reference non-existent/null data will produce warning
 
 ## Warning: The data change detection policy is configured to use key column 'X'
 [Data change detection policies](https://docs.microsoft.com/rest/api/searchservice/create-data-source#data-change-detection-policies) have specific requirements for the columns they use to detect change. One of these requirements is that this column is updated every time the source item is changed. Another requirement is that the new value for this column is greater than the previous value. Key columns don't fulfill this requirement because they don't change on every update. To work around this issue, select a different column for the change detection policy.
+
+<a name="document-text-appears-to-be-utf-16-encoded-but-is-missing-a-byte-order-mark"/>
+
+## Warning: Document text appears to be UTF-16 encoded, but is missing a byte order mark
+
+The [indexer parsing modes](https://docs.microsoft.com/rest/api/searchservice/create-indexer#blob-configuration-parameters) need to know how text is encoded before parsing it. The two most common ways of encoding text are UTF-16 and UTF-8. UTF-8 is a variable-length encoding where each character is between 1 byte and 4 bytes long. UTF-16 is a fixed-length encoding where each character is 2 bytes long. UTF-16 has two different variants, "big endian" and "little endian". Text encoding is determined by a "byte order mark", a series of bytes before the text.
+
+| Encoding | Byte Order Mark |
+| --- | --- |
+| UTF-16 Big Endian | 0xFE 0xFF |
+| UTF-16 Little Endian | 0xFF 0xFE |
+| UTF-8 | 0xEF 0xBB 0xBF |
+
+If no byte order mark is present, the text is assumed to be encoded as UTF-8.
+
+To work around this warning, determine what the text encoding for this blob is and add the appropriate byte order mark.

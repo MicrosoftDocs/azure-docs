@@ -67,7 +67,7 @@ Per **step 3**, separating your application's and your user credentials allows y
 1. Save the policy by selecting **OK**.
 
    > [!TIP]
-   > Read about [granting data access](./time-series-insights-data-access.md) to your Time Series Insights environment in Azure Active Directory.
+   > For advanced data access options, read [granting data access](./time-series-insights-data-access.md).
 
 ### Client app initialization
 

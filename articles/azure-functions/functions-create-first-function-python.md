@@ -4,7 +4,6 @@ description: Learn how to create your first Python function in Azure using the A
 ms.date: 11/07/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.devlang: python
 ---
 
 # Quickstart: Create an HTTP triggered Python function in Azure

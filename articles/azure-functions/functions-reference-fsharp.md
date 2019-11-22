@@ -4,7 +4,6 @@ description: Understand how to develop Azure Functions using F# script.
 author: sylvanc
 
 ms.assetid: e60226e5-2630-41d7-9e5b-9f9e5acc8e50
-ms.devlang: fsharp
 ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc

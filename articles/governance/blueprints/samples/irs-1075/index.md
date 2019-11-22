@@ -25,6 +25,7 @@ following articles to learn about the control mapping and how to deploy this sam
 
 > [!div class="nextstepaction"]
 > [IRS 1075 blueprint - Control mapping](./control-mapping.md)
+> [IRS 1075 blueprint - Deploy steps](./deploy.md)
 
 Additional articles about blueprints and how to use them:
 

@@ -1,12 +1,12 @@
 ---
-title: What are access controls in Azure Active Directory Conditional Access? | Microsoft Docs
+title: Access controls in Azure Active Directory Conditional Access
 description: Learn how access controls in Azure Active Directory Conditional Access work.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 06/15/2019
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
