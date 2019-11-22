@@ -89,17 +89,15 @@ Custom rules are always applied before rules in the Default Rule Set are evaluat
 
 
 ### Bot protection rule set (preview)
-A managed bot protection rule set can be enabled for your WAF to take custom actions on requests from known bot categories. There are three bot categories supported: Bad Bots, Good Bots, and Unknown Bots. Bot signatures are managed and dynamically updated by the WAF platform. Malicious IP addresses for Bad Bots are sourced from the Microsoft Threat Intelligence feed. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) powers Microsoft Threat Intelligence and is used by multiple services including Azure Security Center. Good Bots include validated search engines. Unknown categories include additional bot groups. You may set custom actions to block, allow, log, or redirect for different types of bots.
 
+A managed bot protection rule set can be enabled for your WAF to take custom actions on requests from known bot categories. There are three bot categories supported: Bad Bots, Good Bots, and Unknown Bots. Bot signatures are managed and dynamically updated by the WAF platform. Malicious IP addresses for Bad Bots are sourced from the Microsoft Threat Intelligence feed. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) powers Microsoft Threat Intelligence and is used by multiple services including Azure Security Center. Good Bots include validated search engines. Unknown categories include additional bot groups. You may set custom actions to block, allow, log, or redirect for different types of bots.
 
 ![Bot Protection Rule Set](../media/afds-overview/botprotect2.png)
 
-[!IMPORTANT] Bot protection rule set is currently in public preview and is provided with a preview service level agreement. Certain features may not be supported or may have constrained capabilities. See the Supplemental Terms of Use for Microsoft Azure Previews for details.
+> [!IMPORTANT]
+> The bot protection rule set is currently in public preview and is provided with a preview service level agreement. Certain features may not be supported or may have constrained capabilities. See the Supplemental Terms of Use for Microsoft Azure Previews for details.
 
 If bot protection is enabled, incoming requests that match bot rules are logged at the FrontdoorWebApplicationFirewallLog log. You may access WAF logs from a storage account, event hub, or log analytics.
-
-
-
 
 ## Configuration
 
