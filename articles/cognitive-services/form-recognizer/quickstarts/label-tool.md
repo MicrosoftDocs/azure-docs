@@ -31,6 +31,9 @@ There are two ways to get access to the sample labeling tool.
 * You can deploy an Azure web app and run it in your browser. Click the button below to deploy the sample labeling tool in your Azure subscription. (TBD)
 * You can run the labeling tool as a docker container. Use the following command to deploy the container to your device. (TBD)
 
+> [!NOTE]
+> You can also label documents and train models using the Form Recognizer REST API. To train and Analyze with the REST API, see [Train with labels using the REST API and Python](./python-labeled-data.md).
+
 ## Set up input data
 
 First, make sure all the training documents are of the same format. If you have forms in multiple formats, organize them into sub-folders based on common format. When you train, you'll need to direct the API to a sub-folder.
@@ -99,7 +102,10 @@ Next, you'll create labels and apply them to the text elements that you want the
 
 1. First, use the tags editor pane to create the tags (labels) you'd like to identify.
 1. In the main editor, click and drag to select one or multiple words from the highlighted text elements.
-1. Click on the tag you want to apply, or press corresponding keyboard key.
+
+    > [!NOTE]
+    > You cannot currently select text that spans across multiple pages.
+1. Click on the tag you want to apply, or press corresponding keyboard key. You can only apply one tag for each selected text element, and each tag can only be applied once per page.
 
     > [!TIP]
     > The number keys are assigned as hotkeys for the first ten tags. You can reorder your tags using the up and down arrow icons in the tag editor pane.
@@ -114,19 +120,24 @@ Follow the above steps to label 10 of your forms, and then move on to the next s
 Click the Train icon (the train car) on the left pane to open the Training page. Then click the **Train** button to begin training the model. Once the training process completes you'll see the following information:
 
 * **Model ID** - The ID of the model that was just created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you'll need it if you want to do prediction calls through the REST API.
-* **Model Accuracy** - The model's average accuracy. You can improve model accuracy by labeling additional forms and training again to create a new model. We recommend starting by labeling 10 forms and adding more forms as needed.
+* **Average Accuracy** - The model's average accuracy. You can improve model accuracy by labeling additional forms and training again to create a new model. We recommend starting by labeling 10 forms and adding more forms as needed.
 * The list of tags, and the estimated accuracy per tag.
-
-> [!NOTE]
-> You can also label and train using the Form Recognizer REST API. To train and Analyze with the REST API, see [Train with labels using the REST API and Python](./python-labeled-data.md).
 
 ![training view](../media/label-tool/train-screen.png)
 
+After training finishes, examine the **Average Accuracy** value. If it's low, you should add more input documents and repeat the steps above. The documents you've already labeled will remain in the project index.
+
+## Get training results
+
 ## Analyze a form
 
-Click on the Predict (rectangles) icon on the left to test your model. Upload a form document that you didn't use in the training process. Then click the **Predict** button on the right to get key/value predictions for the form. 
+Click on the Predict (rectangles) icon on the left to test your model. Upload a form document that you didn't use in the training process. Then click the **Predict** button on the right to get key/value predictions for the form. The tool will apply tags in bounding boxes and will report the confidence of each tag.
 
-Depending on the reported accuracy, you may want to do further training to improve the model. Add more input documents and repeat the steps above; the documents you've already labeled will remain in the project index.
+## Improve results
+
+Depending on the reported accuracy, you may want to do further training to improve the model. After you've done a prediction, examine the confidence values for each of the applied tags. If the average accuracy training value was high, but the confidence scores are low (or the results are inaccurate), you should add the file used for prediction into the training set, label it, and train again.
+
+The reported average accuracy, confidence scores, and actual accuracy can be inconsistent when the documents being analyzed are different from those used in training. Keep in mind that some documents look similar when viewed by people but can look distinct to the AI model. For example, you might train with a form type that has two variations, where the training set consists of 20% variation A and 80% variation B. During prediction, the confidence for documents of variation A are likely to be lower.
 
 ## Next steps
 
