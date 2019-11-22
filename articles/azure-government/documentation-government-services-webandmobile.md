@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 11/19/2019
+ms.date: 11/22/2019
 ms.author: gsacavdm
 ---
 # Azure Government Web + Mobile
@@ -22,9 +22,9 @@ This article outlines the web and mobile services for the Azure Government envir
 
 ## Azure Cognitive Search
 
-[Azure Cognitive Search](https://docs.microsoft.com/azure/search/) is generally available in Azure Government. For a self-directed exploration of search functionality using public data, visit the [Content Search and Intelligence](http://documentsearch.azurewebsites.net/home/) web site, select the dataset "US Court of Appeals District 1", and then choose one of the demo options.
+[Azure Cognitive Search](https://docs.microsoft.com/azure/search/) is generally available in Azure Government. For a self-directed exploration of search functionality using public government data, visit the [Content Search and Intelligence](http://documentsearch.azurewebsites.net/home/) web site, select the dataset "US Court of Appeals District 1", and then choose one of the demo options.
 
-Functionality that has proven popular in government search applications includes [cognitive skills](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro), useful for extracting structure and information from large undifferentiated text documents.
+Search features that have been widely adopted in government search applications include [cognitive skills](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro), useful for extracting structure and information from large undifferentiated text documents.
 
 Basic query syntax, formulating queries to search over large amounts of content, is also relevant to application developers. Azure Cognitive Search supports two syntaxes: [simple](https://docs.microsoft.com/azure/search/query-simple-syntax) and [full](https://docs.microsoft.com/azure/search/query-lucene-syntax). You can review [query expression examples](https://docs.microsoft.com/azure/search/search-query-simple-examples) for an orientation.
 
@@ -35,29 +35,17 @@ The endpoint for search services created in Azure Government is as follows:
 | ------------ | ------------ | ---------------- |
 | Azure Cognitive Search Service |\*.search.windows.net |\*.search.windows.us|
 
-All generally available and preview features in the public cloud is also available in Azure Government.
+All generally available and preview features in the public cloud are also available in Azure Government.
 
-<!-- ### Considerations
+### Considerations
+
 The following information identifies the Azure Government boundary for Azure Cognitive Search:
-
-EXAMPLE
 
 | Regulated/controlled data permitted | Regulated/controlled data not permitted |
 | ----------------------------------- | --------------------------------------- |
-| Data entered, stored, and processed within Azure Cognitive Search can contain export-controlled data. Binaries running within Azure App Service. Static authenticators, such as passwords and smartcard PINs for access to Azure platform components. Private keys of certificates used to manage Azure platform components. SQL connection strings. Other security information/secrets, such as certificates, encryption keys, master keys, and storage keys stored in Azure services. | Metadata is not permitted to contain export-controlled data. This metadata includes all configuration data entered when creating and maintaining your Azure App Service. Do not enter Regulated/controlled data into the following fields: Resource groups, Resource names, Resource tags|
-
-FROM NATI
-
-1.	Management APIs (none of the following is considered secured): 
-a.	The actual name of the search service (e.g. customers can use credit card numbers for their search service name)
-b.	The names of the Azure subscription and resource group containing the search service 
-c.	Resource tags (key-value strings a user can associate with its search service)
-2.	Data APIs:
-a.	Resource metadata, like index definitions, indexers, data sources, synonym-maps, skillsets. Note that some parts of these metadata are not secured like the names of created resources (e.g. index name, data source name) and certain parts of index metadata (e.g. field names, custom analyzers names, etc.), while other parts of metadata are secured, like data source’s connection strings and index definition’ encrypted index credentials, for example.
-b.	Indexed documents, including data from data sources that is indexed to the service
-c.	Search/query strings sent as part of the search API  
-d.	Http headers sent to Azure search REST API -->
-
+| All data stored and processed in Azure Cognitive Search can contain Azure Government-regulated data. | Azure Cognitive Search metadata is not permitted to contain export-controlled data. 
+This metadata includes all configuration data entered when creating and maintaining your service.  
+Do not enter regulated/controlled data into the following fields: Subscription name, Resource groups, Service name, Resource names, Resource tags, or any object you name or describe in Cognitive Search (indexes, indexers, data sources, synonym maps, and skillsets). Do not include sensitive data in HTTP headers sent to the REST API pr in search/query strings sent as part of the API.|
 
 ## App Services
 ### Variations
