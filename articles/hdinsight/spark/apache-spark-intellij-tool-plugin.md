@@ -331,8 +331,6 @@ Ensure you have satisfied the WINUTILS.EXE prerequisite.
 
 ### Spark Livy Interactive Session Console(Scala)
 
-It is only supported on IntelliJ 2018.2 and 2018.3.
-
 1. From the menu bar, navigate to **Run** > **Edit Configurations...**.
 
 2. From the **Run/Debug Configurations** window, in the left pane, navigate to **Apache Spark on HDInsight** > **[Spark on HDInsight] myApp**.
@@ -361,6 +359,25 @@ It is only supported on IntelliJ 2018.2 and 2018.3.
 It is convenient for you to foresee the script result by sending some code to the local console or Livy Interactive Session Console(Scala). You can highlight some code in the Scala file, then right-click **Send Selection To Spark Console**. The selected code will be sent to the console and be performed. The result will be displayed after the code in the console. The console will check the errors if existing.  
 
    ![Send Selection to Spark Console](./media/apache-spark-intellij-tool-plugin/send-selection-to-console.png)
+
+## Integrate with HDInsight Identity Broker (HIB) 
+
+### Connect to your HDInsight ESP cluster with HIB enabled
+You can follow the normal steps to sign in to Azure subscription to connect to your HDInsight ESP cluster with HIB enabled. After sign in, you will see the cluster list in Azure Explorer. For more instructions, see [Connect to your HDInsight cluster](#connect-to-your-hdinsight-cluster).
+
+### Run a Spark Scala application on an HDInsight ESP cluster with HIB enabled
+You can follow the normal steps to submit job to HDInsight ESP cluster with HIB enabled. Refer to [Run a Spark Scala application on an HDInsight Spark cluster](#run-a-spark-scala-application-on-an-hdinsight-spark-cluster) for more instructions.
+
+We upload the necessary files to a folder named with your sign in account, and you can see the upload path in the configuration file.
+
+   ![upload path in the configuration](./media/apache-spark-intellij-tool-plugin/upload-path-in-the-configuration.png)
+
+### Spark console
+You can run Spark Local Console(Scala) or run Spark Livy Interactive Session Console(Scala) on an HDInsight ESP cluster with HIB enabled. Refer to [Spark Console](#spark-console) for more instructions.
+
+   > [!NOTE]  
+   > For the ESP cluster with HIB enabled, link a cluster and debug Apache Spark applications remotely is not supported currently.
+
 
 ## Reader-only role
 
