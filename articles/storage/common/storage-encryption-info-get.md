@@ -41,7 +41,8 @@ The following image shows a storage account where customer-managed keys are in u
 To check the encryption model for the storage account by using PowerShell, call the [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) command, then check the **KeySource** property for the account.
 
 ```powershell
-$account = Get-AzStorageAccount -ResourceGroupName <resource-group> -Name <storage-account>
+$account = Get-AzStorageAccount -ResourceGroupName <resource-group> `
+    -Name <storage-account>
 $account.Encryption.KeySource
 ```
 
@@ -52,12 +53,18 @@ If the value of the **KeySource** property is `Microsoft.Storage`, then the acco
 To check the encryption model for the storage account by using Azure CLI, call the [az storage account show](/cli/azure/storage/account#az-storage-account-show) command, then check the **keySource** property for the account.
 
 ```azurecli-interactive
-key_source=$(az storage account show --name <storage-account> --resource-group <resource-group> --query encryption.keySource --output tsv)
+key_source=$(az storage account show \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --query encryption.keySource \
+    --output tsv)
 ```
 
 If the value of the **keySource** property is `Microsoft.Storage`, then the account is encrypted with Microsoft-managed keys. If the value of the **keySource** property is `Microsoft.Keyvault`, then the account is encrypted with customer-managed keys.
 
 ---
+
+## Check whether an object 
 
 ## Next steps
 
