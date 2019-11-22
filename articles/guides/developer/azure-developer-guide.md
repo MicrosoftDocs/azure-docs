@@ -26,7 +26,7 @@ Azure is a complete cloud platform that can host your existing applications and 
 
 By hosting your applications in Azure, you can start small and easily scale your application as your customer demand grows. Azure also offers the reliability that’s needed for high-availability applications, even including failover between different regions. The [Azure portal](https://portal.azure.com) lets you easily manage all your Azure services. You can also manage your services programmatically by using service-specific APIs and templates.
 
-**Who should read this guide**: This guide is an introduction to the Azure platform for application developers. It provides guidance and direction that you need to start building new applications in Azure or migrating existing applications to Azure.
+This guide is an introduction to the Azure platform for application developers. It provides guidance and direction that you need to start building new applications in Azure or migrating existing applications to Azure.
 
 ## Where do I start?
 
@@ -202,9 +202,9 @@ Whether it's provisioning VMs or publishing your web apps with continuous integr
 * Ansible
 * Azure DevOps
 
-> **Try it now:** [Try out several of the DevOps integrations](https://azure.microsoft.com/try/devops/).
-> 
 > **Get started**: To see DevOps options for an App Service app, see [Continuous Deployment to Azure App Service](../../app-service/deploy-continuous-deployment.md).
+> 
+> **Try it now:** [Try out several of the DevOps integrations](https://azure.microsoft.com/try/devops/).
 
 
 ## Azure regions
