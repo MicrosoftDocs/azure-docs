@@ -34,7 +34,7 @@ To understand costs associated with Azure Monitor, see [Usage and estimated cost
 
 ## Monitoring data from Azure Machine Learning
 
-Azure Machine Learning collects the same kinds of monitoring data as other Azure resources, which are described in [Monitoring data from Azure resources](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data-from-Azure-resources). See [Azure Machine Learning monitoring data reference](monitor-resource-reference.md) for a detailed reference of the logs and metrics created by Azure Machine Learning.
+Azure Machine Learning collects the same kinds of monitoring data as other Azure resources, which are described in [Monitoring data from Azure resources](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data). See [Azure Machine Learning monitoring data reference](monitor-resource-reference.md) for a detailed reference of the logs and metrics created by Azure Machine Learning.
 
 ## Analyzing metric data
 

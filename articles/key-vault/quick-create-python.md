@@ -49,7 +49,7 @@ pip install azure.identity
 
 ### Create a resource group and key vault
 
-This quickstart uses a pre-created Azure key vault. You can create a key vault by following the steps in the [Azure CLI quickstart](quick-create-cli.md), [Azure PowerShell quickstart](quick-create-powershell.md), or [Azure portal quickstart](quick-create-portal.md). Alternatively, you can simply run the Azure CLI commands below.
+This quickstart uses a pre-created Azure key vault. You can create a key vault by following the steps in the [Azure CLI quickstart](quick-create-cli.md), [Azure PowerShell quickstart](quick-create-powershell.md), or [Azure portal quickstart](quick-create-portal.md). Alternatively, you can run the Azure CLI commands below.
 
 > [!Important]
 > Each key vault must have a unique name. Replace <your-unique-keyvault-name> with the name of your key vault in the following examples.
@@ -62,7 +62,7 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 ### Create a service principal
 
-The simplest way to authenticate an cloud-based .NET application is with a managed identity; see [Use an App Service managed identity to access Azure Key Vault](managed-identity.md) for details. For the sake of simplicity however, this quickstarts creates a .NET console application. Authenticating a desktop application with Azure requires the use of a service principal and an access control policy.
+The simplest way to authenticate a cloud-based .NET application is with a managed identity; see [Use an App Service managed identity to access Azure Key Vault](managed-identity.md) for details. For the sake of simplicity however, this quickstart creates a .NET console application. Authenticating a desktop application with Azure requires the use of a service principal and an access control policy.
 
 Create a service principle using the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command:
 
@@ -99,7 +99,7 @@ az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-se
 
 #### Set environmental variables
 
-The DefaultAzureCredential method in our application relies on three environmental variables: `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, and `AZURE_TENANT_ID`. Set these variables to the clientId, clientSecret, and tenantId values you noted in the [Create a service principal](#create-a-service-principal) step using the `export VARNAME=VALUE` format. (This only sets the variables for your current shell and processes created from the shell; to permanently add these variables to your environment, edit your `/etc/environment ` file.) 
+The DefaultAzureCredential method in our application relies on three environmental variables: `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, and `AZURE_TENANT_ID`. Set these variables to the clientId, clientSecret, and tenantId values you noted in the [Create a service principal](#create-a-service-principal) step using the `export VARNAME=VALUE` format. (This method only sets the variables for your current shell and processes created from the shell; to permanently add these variables to your environment, edit your `/etc/environment ` file.) 
 
 You will also need to save your key vault name as an environment variable called `KEY_VAULT_NAME`.
 
@@ -143,7 +143,7 @@ client = SecretClient(vault_endpoint=KVUri, credential=credential)
 
 ### Save a secret
 
-Now that your application is authenticated, you can put a secret into your keyvault using the [client.SetSecret method](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync) This requires a name for the secret -- we're using "mySecret" in this sample.  
+Now that your application is authenticated, you can put a secret into your keyvault using the client.SetSecret method](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync) This requires a name for the secret -- we're using "mySecret" in this sample.  
 
 ```python
 client.set_secret(secretName, secretValue);

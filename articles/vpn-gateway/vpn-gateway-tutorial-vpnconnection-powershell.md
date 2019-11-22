@@ -1,5 +1,5 @@
 ---
-title: Create and Manage Azure S2S VPN connections using PowerShell | Microsoft Docs
+title: 'Azure VPN Gateway: Create and manage S2S VPN connections: Tutorial'
 description: Tutorial - Create and Manage S2S VPN connections with the Azure PowerShell module
 services: vpn-gateway
 author: yushwang

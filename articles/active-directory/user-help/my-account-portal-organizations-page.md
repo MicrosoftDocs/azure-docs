@@ -1,6 +1,6 @@
 ---
-title: Manage your organizations on the My Account portal - Azure AD
-description: How to view and leave your organizations from the Organizations page of the My Account portal.
+title: Manage your organizations from the My Account portal - Azure AD
+description: How to view and leave organizations connected to your work or school account from the Organizations page of the My Account portal.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -15,7 +15,7 @@ ms.author: lizross
 ms.collection: M365-identity-device-management
 ---
 
-# Manage your organizations from the My Account portal
+# Manage organizations connected to your work or school account from the Organizations page
 
 You can manage your organizations from the **Organizations** page of the **My Account** portal.
 

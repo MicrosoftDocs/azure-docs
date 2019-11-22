@@ -1,14 +1,7 @@
 ﻿---
-title: Deploy VM extensions - Azure Resource Manager templates
+title: Deploy VM extensions with template
 description: Learn how to deploy virtual machine extensions with Azure Resource Manager templates
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
@@ -33,7 +26,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* [Visual Studio Code](https://code.visualstudio.com/) with the Resource Manager Tools extension. See [Install the extension](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](./resource-manager-tools-vs-code.md).
 * To increase security, use a generated password for the virtual machine administrator account. Here is a sample for generating a password:
 
     ```azurecli-interactive

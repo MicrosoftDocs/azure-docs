@@ -1,5 +1,6 @@
 ---
-title: ADAL to MSAL migration guide for Java- Microsoft identity platform | Azure
+title: ADAL to MSAL migration guide for Java | Azure
+titleSuffix: Microsoft identity platform
 description: Learn how to migrate your Azure Active Directory Authentication Library (ADAL) Java app to the Microsoft Authentication Library (MSAL).
 services: active-directory
 author: sangonzal
@@ -64,7 +65,7 @@ The following table shows how ADAL4J functions map to the new MSAL4J functions:
 
 ADAL4J manipulated users. Although a user represents a single human or software agent, it can have one or more accounts in the Microsoft identity system. For example, a user may have several Azure AD, Azure AD B2C, or Microsoft personal accounts.
 
-MSAL4J defines the concept of Account via the `IAccount` interface. This is a breaking change from ADAL4J, but it is a good one because it captures the fact that that the same user can have several accounts, and perhaps even in different Azure AD directories. MSAL4J provides better information in guest scenarios because home account information is provided.
+MSAL4J defines the concept of Account via the `IAccount` interface. This is a breaking change from ADAL4J, but it is a good one because it captures the fact that the same user can have several accounts, and perhaps even in different Azure AD directories. MSAL4J provides better information in guest scenarios because home account information is provided.
 
 ## Cache persistence
 

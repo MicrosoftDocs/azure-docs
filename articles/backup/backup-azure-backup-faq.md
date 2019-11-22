@@ -1,13 +1,8 @@
 ---
-title: Answers to common questions about Azure Backup features
+title: Answers to common questions
 description: 'Answers to common questions about: Azure Backup features including Recovery Services vaults, what it can back up, how it works, encryption, and limits. '
-
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.author: dacurwin
 ---
 
 # Azure Backup - Frequently asked questions
@@ -92,6 +87,8 @@ Windows Storage Server 2012 R2 64 bit | Standard, Workgroup, Essential | With th
 Windows Storage Server 2012 64 bit | Standard, Workgroup | With the latest service packs/updates.
 Windows Server 2008 R2 SP1 64 bit | Standard, Enterprise, Datacenter, Foundation | With the latest updates.
 Windows Server 2008 64 bit | Standard, Enterprise, Datacenter | With latest updates.
+
+Azure Backup doesn't support 32-bit operating systems.
 
 For Azure VM Linux backups, Azure Backup supports [the list of distributions endorsed by Azure](../virtual-machines/linux/endorsed-distros.md), except Core OS Linux and 32-bit operating system. Other bring-your-own Linux distributions might work as long as the VM agent is available on the VM, and support for Python exists.
 

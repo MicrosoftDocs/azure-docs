@@ -109,4 +109,4 @@ The CLI uses the token created when you ran `az login` to authenticate your sess
 <!-- LINKS - Internal -->
 [az-acr-login]: /cli/azure/acr#az-acr-login
 [az-login]: /cli/azure/reference-index#az-login
-[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#[az-ad-sp-credential-reset]
+[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset

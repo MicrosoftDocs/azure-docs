@@ -4,7 +4,7 @@ description: Describes data sources and connectors supported for tabular 1200 an
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 11/14/2019
+ms.date: 11/22/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -14,19 +14,6 @@ ms.reviewer: minewiskan
 Data sources and connectors shown in Get Data or Import Wizard in Visual Studio are shown for both Azure Analysis Services and SQL Server Analysis Services. However, not all data sources and connectors shown are supported in Azure Analysis Services. The types of data sources you can connect to depend on many factors such as model compatibility level, available data connectors, authentication type, providers, and On-premises data gateway support. The following tables describe supported data sources for Azure Analysis Services.
 
 ## Azure data sources
-
-<!-- |Data source  |In-memory  |DirectQuery  |
-|---------|---------|---------|
-|Azure SQL Database <sup>[2](#azprovider)</sup>, <sup>[3](#azsqlmanaged)</sup>     |   Yes      |    Yes      |
-|Azure SQL Data Warehouse <sup>[2](#azprovider)</sup>     |   Yes      |   Yes       |
-|Azure Blob Storage <sup>[1](#tab1400a)</sup>     |   Yes       |    No      |
-|Azure Table Storage <sup>[1](#tab1400a)</sup>    |   Yes       |    No      |
-|Azure Cosmos DB <sup>[1](#tab1400a)</sup>     |  Yes        |  No        |
-|Azure Data Lake Store Gen1 <sup>[1](#tab1400a)</sup>      |   Yes       |    No      |
-|Azure Data Lake Store Gen2 <sup>[1](#tab1400a)</sup>, <sup>[5](#gen2)</sup>      |   Yes       |    No      |
-|Azure HDInsight HDFS<sup> [1](#tab1400a)</sup>     |     Yes     |   No       |
-|Azure HDInsight Spark<sup> [1](#tab1400a)</sup>, <sup>[4](#databricks)</sup>     |   Yes       |   No       |
-|||| -->
 
 |Data source  |In-memory  |DirectQuery  |Notes |
 |---------|---------|---------|---------|
@@ -49,40 +36,6 @@ Data sources and connectors shown in Get Data or Import Wizard in Visual Studio 
 <a name="gen2">5</a> - ADLS Gen2 connector is currently not supported, however, Azure Blob Storage connector can be used with an ADLS Gen2 data source.   
 
 ## Other data sources
-
-<!-- |Data source | In-memory | DirectQuery |
-|  --- | --- | --- |
-|Access Database     |  Yes | No |
-|Active Directory <sup>[6](#tab1400b)</sup>     |  Yes | No |
-|Analysis Services     |  Yes | No |
-|Analytics Platform System     |  Yes | No |
-|CSV file  |Yes | No |
-|Dynamics CRM<sup>[61](#tab1400b)</sup>     |  Yes | No |
-|Excel workbook     |  Yes | No |
-|Exchange <sup>[16](#tab1400b)</sup>     |  Yes | No |
-|Folder <sup>[6](#tab1400b)</sup>     |Yes | No |
-|IBM Informix <sup>[6](#tab1400b)</sup> |Yes | No |
-|JSON document <sup>[6](#tab1400b)</sup>     |  Yes | No |
-|Lines from binary <sup>[6](#tab1400b)</sup>     | Yes | No |
-|MySQL Database     | Yes | No |
-|OData Feed <sup>[6](#tab1400b)</sup>     |  Yes | No |
-|ODBC query     | Yes | No |
-|OLE DB     |   Yes | No |
-|Oracle  | Yes <sup>[9](#oracle)</sup> |Yes <sup>[9](#oracle)</sup> |
-|PostgreSQL Database<sup>[6](#tab1400b)</sup>    | Yes | No |
-|Salesforce Objects<sup>[6](#tab1400b)</sup> |  Yes | No |
-|Salesforce Reports<sup>[6](#tab1400b)</sup> |Yes | No |
-|SAP HANA <sup>[6](#tab1400b)</sup>    |  Yes | No |
-|SAP Business Warehouse<sup>[6](#tab1400b)</sup>    |  Yes | No |
-|SharePoint List <sup>[6](#tab1400b)</sup>, <sup>[11](#filesSP)</sup>     |   Yes | No |
-|SQL Server |Yes <sup>[7](#sqlim)</sup>  | Yes <sup>[8](#sqldq)</sup> |
-|SQL Server Data Warehouse |Yes <sup>[7](#sqlim)</sup>  | Yes <sup>[8](#sqldq)</sup> |
-|Sybase Database     |  Yes | No |
-|Teradata | Yes <sup>[10](#teradata)</sup> | Yes <sup>[10](#teradata)</sup> |
-|TXT file  |Yes | No |
-|XML table<sup>[6](#tab1400b)</sup>    |  Yes | No |
-| | | | -->
-
 
 |Data source | In-memory | DirectQuery |Notes   |
 |  --- | --- | --- | --- |
@@ -125,9 +78,7 @@ Data sources and connectors shown in Get Data or Import Wizard in Visual Studio 
 <a name="teradata">10</a> - For tabular 1200 models, or as a *provider* data source in a tabular 1400+ models, specify Teradata Data Provider for .NET.   
 <a name="filesSP">11</a> - Files in on-premises SharePoint are not supported.
 
-
 Connecting to on-premises data sources from an Azure Analysis Services server require an On-premises gateway. When using a gateway, 64-bit providers are required. 
-
 
 ## Understanding providers
 
@@ -164,9 +115,6 @@ For cloud data sources:
 ## OAuth credentials
 
 For tabular models at the 1400 and higher compatibility level, Azure SQL Database, Azure SQL Data Warehouse, Dynamics 365, and SharePoint List support OAuth credentials. Azure Analysis Services manages token refresh for OAuth data sources to avoid timeouts for long-running refresh operations. To generate valid tokens, set credentials by using SSMS.
-
-
-
 
 ## Next steps
 [On-premises gateway](analysis-services-gateway.md)   
