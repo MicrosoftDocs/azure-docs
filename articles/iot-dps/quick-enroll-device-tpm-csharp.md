@@ -1,13 +1,12 @@
 ---
-title: "Quickstart: Enroll TPM device to Azure Device Provisioning Service using C#"
-description: Azure Quickstart - Enroll TPM device to Azure IoT Hub Device Provisioning Service using C# service SDK. This quickstart uses individual enrollments.
+title: Enroll TPM device to Azure Device Provisioning Service using C#
+description: Quickstart - Enroll TPM device to Azure IoT Hub Device Provisioning Service using C# service SDK. This quickstart uses individual enrollments.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
 ---

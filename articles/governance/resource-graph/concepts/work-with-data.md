@@ -1,6 +1,6 @@
 ---
 title: Work with large data sets
-description: Understand how to get and control large data sets while working with Azure Resource Graph.
+description: Understand how to get, format, page, and skip records in large data sets while working with Azure Resource Graph.
 ms.date: 10/18/2019
 ms.topic: conceptual
 ---
