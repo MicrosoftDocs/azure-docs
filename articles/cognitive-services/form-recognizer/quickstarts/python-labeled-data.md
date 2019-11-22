@@ -209,7 +209,7 @@ while True:
         exit()
 ```
 
-When the training process is completed, you'll receive a `200 (Success)` response with JSON content like the following:
+When the training process is completed, you'll receive a `200 (Success)` response with JSON content like the following. The response has been shortened for simplicity.
 
 ```json
 { 
@@ -280,6 +280,215 @@ When the training process is completed, you'll receive a `200 (Success)` respons
 Copy the `"modelId"` value for use in the following steps.
 
 [!INCLUDE [analyze forms](../includes/python-custom-analyze.md)]
+
+When the process is completed, you'll receive a `200 (Success)` response with JSON content in the following format. The response has been shortened for simplicity.
+
+```json
+{ 
+	"analyzeResult":{ 
+	  "version":"2.0.0",
+	  "readResults":[ 
+		{ 
+		  "page":1,
+		  "language":"en",
+		  "angle":0,
+		  "width":8.5,
+		  "height":11,
+		  "unit":"inch",
+		  "lines":[ 
+			{ 
+			  "language":"en",
+			  "boundingBox":[ 
+				0.5375,
+				1.1349,
+				2.6064,
+				1.1349,
+				2.6064,
+				1.354,
+				0.5375,
+				1.354
+			  ],
+			  "text":"Contoso Suites",
+			  "words":[ 
+				{ 
+				  "boundingBox":[ 
+					0.5375,
+					1.1402,
+					1.6595,
+					1.1402,
+					1.6595,
+					1.354,
+					0.5375,
+					1.354
+				  ],
+				  "text":"Contoso",
+				  "confidence":1
+				},
+				{ 
+				  "boundingBox":[ 
+					1.758,
+					1.1349,
+					2.6064,
+					1.1349,
+					2.6064,
+					1.3534,
+					1.758,
+					1.3534
+				  ],
+				  "text":"Suites",
+				  "confidence":1
+				}
+			  ]
+            },
+            ...
+		  ]
+		}
+	  ],
+	  "pageResults":[ 
+		{ 
+		  "page":1,
+		  "tables":[ 
+			{ 
+			  "rows":2,
+			  "columns":6,
+			  "cells":[ 
+				{ 
+				  "rowIndex":0,
+				  "columnIndex":0,
+				  "text":"Invoice Number",
+				  "boundingBox":[ 
+					0.5075,
+					2.8088,
+					1.9061,
+					2.8088,
+					1.9061,
+					3.3219,
+					0.5075,
+					3.3219
+				  ],
+				  "elements":[ 
+					"#/readResults/0/lines/7/words/0",
+					"#/readResults/0/lines/7/words/1"
+				  ]
+				},
+				{ 
+				  "rowIndex":0,
+				  "columnIndex":1,
+				  "text":"Invoice Date",
+				  "boundingBox":[ 
+					1.9061,
+					2.8088,
+					3.3074,
+					2.8088,
+					3.3074,
+					3.3219,
+					1.9061,
+					3.3219
+				  ],
+				  "elements":[ 
+					"#/readResults/0/lines/8/words/0",
+					"#/readResults/0/lines/8/words/1"
+				  ]
+                },
+                ...		
+			  ]
+			}
+		  ]
+		}
+	  ],
+	  "documentResults":[ 
+		{ 
+		  "docType":"Analyze",
+		  "pageRange":[ 
+			1,
+			1
+		  ],
+		  "fields":{ 
+			"total":{ 
+			  "type":"string",
+			  "valueString":"$22,123.24",
+			  "text":"$22,123.24",
+			  "boundingBox":[ 
+				5.29,
+				3.41,
+				5.9750000000000009,
+				3.41,
+				5.9750000000000009,
+				3.54,
+				5.29,
+				3.54
+			  ],
+			  "page":1,
+			  "confidence":1,
+			  "elements":[ 
+				{ 
+				  "$ref":"#/analyzeResult/readResults/0/lines/15/words/0"
+				}
+			  ],
+			  "fieldName":"total"
+			},
+			"invoice #":{ 
+			  "type":"string",
+			  "valueString":"7689302",
+			  "text":"7689302",
+			  "boundingBox":[ 
+				0.54,
+				3.41,
+				1.065,
+				3.41,
+				1.065,
+				3.515,
+				0.54,
+				3.515
+			  ],
+			  "page":1,
+			  "confidence":1,
+			  "elements":[ 
+				{ 
+				  "$ref":"#/analyzeResult/readResults/0/lines/12/words/0"
+				}
+			  ],
+			  "fieldName":"invoice #"
+			},
+			"vat":{ 
+			  "type":"string",
+			  "valueString":"QR",
+			  "text":"QR",
+			  "boundingBox":[ 
+				6.2250000000000009,
+				3.41,
+				6.425,
+				3.41,
+				6.425,
+				3.52,
+				6.2250000000000009,
+				3.52
+			  ],
+			  "page":1,
+			  "confidence":0.9839357733726502,
+			  "elements":[ 
+				{ 
+				  "$ref":"#/analyzeResult/readResults/0/lines/16/words/0"
+				}
+			  ],
+			  "fieldName":"vat"
+            },
+            ...
+		  }
+		}
+	  ]
+	},
+	"status":"succeeded",
+	"createdDateTime":"2019-11-12T21:26:19+00:00",
+	"lastUpdatedDateTime":"2019-11-12T21:27:27.0488571+00:00"
+}
+```
+
+## Improve results
+
+Sometimes when you apply different labels within the same line of text, those fields are merged as one field by Analyze API. For example, in an address, you might label the city, state, and zip code as different fields, but during prediction those fields are not recognized separately.
+
+Currently, our backend algorithm does not support such scenario even when it is labeled properly, but we understand this scenario is essential for our customers. We are working on supporting this for future releases. Given the current version, we would recommend our users to label the three fields as one field to be extracted properly, and then apply some post-process on top of the extraction results.
 
 ## Next steps
 
