@@ -1,20 +1,16 @@
 ---
-title: "Quickstart: Use Postman to get answer from knowledge base - QnA Maker"
-titleSuffix: Azure Cognitive Services 
-description: This quickstart walks you through getting an answer from your knowledge base using Postman.
+title: include file
+description: include file 
 services: cognitive-services
 author: diberry
 manager: nitinme
-
 ms.service: cognitive-services
-ms.subservice: qna-maker
-ms.topic: quickstart
-ms.date: 01/01/2019
+ms.subservice: luis
+ms.topic: include
+ms.custom: include file
+ms.date: 11/20/2019
 ms.author: diberry
-#Customer intent: As an knowledge base manager new to the QnA Maker service, I want to get an answer from a published knowledge base using Postman. 
 ---
-
-# Quickstart: Get an answer from knowledge base using Postman
 
 This Postman-based quickstart walks you through getting an answer from your knowledge base.
 
