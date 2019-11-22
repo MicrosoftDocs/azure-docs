@@ -6,7 +6,7 @@ ms.topic: overview
 ---
 # View logged activity from service providers
 
-Customers can view logged activity including all actions taken by users in a managing tenant. More TK
+Customers can [view Azure Activity log](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview) data, including all actions taken by users in a managing tenant. [How to view the log](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview#view-the-activity-log) More TK based on notes
 
 ## Next steps
 
