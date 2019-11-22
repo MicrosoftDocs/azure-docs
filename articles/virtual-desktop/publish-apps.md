@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 11/22/2019
 ms.author: helohr
 ---
 # Publish apps in Windows Virtual Desktop
@@ -30,7 +30,7 @@ To publish a built-in app:
 
 ## Update app icons
 
-After you publish an app, it'll have the default icon instead of its regular icon picture. To change the icon to its regular icon, put the icon on a network share. Supported image formats are PNG, BMP, GIF, JPG, JPEG, and ICO.
+After you publish an app, it'll have the default Windows app icon instead of its regular icon picture. To change the icon to its regular icon, put the image of the icon you want on a network share. Supported image formats are PNG, BMP, GIF, JPG, JPEG, and ICO.
 
 ## Publish Microsoft Edge
 
