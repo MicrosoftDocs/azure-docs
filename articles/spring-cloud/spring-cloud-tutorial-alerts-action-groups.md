@@ -23,27 +23,21 @@ In addition to the Azure Spring requirements, this tutorial depends on the follo
 
 * An Azure resource to monitor, for example the database implemented in this article: [How to use Spring Data Apache Cassandra API with Azure Cosmos DB](https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
  
-The following procedures initialize both **Action Group** and **Alert** starting from the **Monitor Overview** page of the Azure portal.
+The following procedures initialize both **Action Group** and **Alert** starting from the **Alerts** option in the left navigation pane. (The procedure can also start from the **Monitor Overview** page of the Azure portal.) 
+
+Navigate from the Azure portal home page to **Resource Groups**.  Select a resource group.  
+
+From the resource group navigation pane, select **Alerts**, then select **Manage actions** .
+
+![Screenshot portal resource group page](media/alerts-action-groups/action-1-a.png)
 
 ## Set up Action Group
 
-The following procedure initializes an **Action Group**.
+To begin the procedure to initialize a new **Action Group**, select **+ Add action group**.
 
-1. Navigate to **Monitor - Alerts**, and then select **Alerts** from the left navigation pane.
+![Screenshot portal Add action group](media/alerts-action-groups/action-1.png)
 
-1. Select **Subscription** and **Resource group**.
-
-1. Select the resource you want to monitor from the drop-down list labeled **Resource**.
-
-1. Select the **Time range**.
-
- ![Screenshot Portal Monitor page](media/alerts-action-groups/alerts-1.png)
-
-1. Click **Manage actions** to navigate to the following UI.
-
-1. Click **+ Add action group**.
-
- ![Screenshot Portal Add action](media/alerts-action-groups/action-1.png)
+On the **Add action group** page:
 
  1. Specify an **Action group name** and **Short name**.
 
@@ -51,7 +45,7 @@ The following procedure initializes an **Action Group**.
 
  1. Specify **Action Name**.
 
- 1. Select **Action Type**.
+ 1. Select **Action Type**.  This will open another pane on the right to define the action that will be taken on activation.
 
  1. Define the action using the options in the right pane.  This case uses email notification.
 
@@ -63,11 +57,9 @@ The following procedure initializes an **Action Group**.
 
 ## Set up Alert 
 
-The previous steps created an **Action Group** that uses email. You could also use phone notification, webhooks, Azure function, etc. to send notification.  
+The previous steps created an **Action Group** that uses email. You could also use phone notification, webhooks, Azure functions, etc.  
 
-Next, we will configure an **Alert** to use the **Action Group**.  
-
-From the **Monitor Alerts** page, click **Manage Alert Rules**.
+To configure an **Alert**, navigate back to the **Alerts** page, and click **Manage Alert Rules**.
 
   ![Screenshot Portal define alert](media/alerts-action-groups/alerts-2.png)
 
@@ -90,6 +82,6 @@ Verify that the new alert rule is enabled.
   ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-5.png)
 
 ## Next steps
-* [Create and manage action groups in the Azure portal](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/action-groups)
+* [Create and manage action groups in the Azure portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
 * [SMS Alert Behavior in Action Groups](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-sms-behavior)
 * [Tutorial: Using Distributed Tracing with Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing)
