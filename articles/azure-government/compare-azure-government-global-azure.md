@@ -123,7 +123,7 @@ For the most current list of services, see the [Products available by region](ht
 * [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery)
 * [Scheduler](documentation-government-services-monitoringandmanagement.md#scheduler)
 * [Monitoring and Diagnostics](documentation-government-services-monitoringandmanagement.md#monitor)
-* [Azure Portal](documentation-government-services-monitoringandmanagement.md#azure-portal)
+* [Azure portal](documentation-government-services-monitoringandmanagement.md#azure-portal)
 * [Azure Resource Manager](documentation-government-services-monitoringandmanagement.md#azure-resource-manager)
 * [Azure Migrate](documentation-government-services-monitoringandmanagement.md#azure-migrate)
 

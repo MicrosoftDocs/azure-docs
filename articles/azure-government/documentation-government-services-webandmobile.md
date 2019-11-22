@@ -43,9 +43,7 @@ The following information identifies the Azure Government boundary for Azure Cog
 
 | Regulated/controlled data permitted | Regulated/controlled data not permitted |
 | ----------------------------------- | --------------------------------------- |
-| All data stored and processed in Azure Cognitive Search can contain Azure Government-regulated data. | Azure Cognitive Search metadata is not permitted to contain export-controlled data. 
-This metadata includes all configuration data entered when creating and maintaining your service.  
-Do not enter regulated/controlled data into the following fields: Subscription name, Resource groups, Service name, Resource names, Resource tags, or any object you name or describe in Cognitive Search (indexes, indexers, data sources, synonym maps, and skillsets). Do not include sensitive data in HTTP headers sent to the REST API pr in search/query strings sent as part of the API.|
+| All data stored and processed in Azure Cognitive Search can contain Azure Government-regulated data. | Azure Cognitive Search metadata is not permitted to contain export-controlled data. This metadata includes all configuration data entered when creating and maintaining your service. Do not enter regulated/controlled data into the following fields: Subscription name, Resource groups, Service name, Resource names, Resource tags, or any object you name or describe in Cognitive Search (indexes, indexers, data sources, synonym maps, and skillsets). Do not include sensitive data in HTTP headers sent to the REST API pr in search/query strings sent as part of the API.|
 
 ## App Services
 ### Variations
