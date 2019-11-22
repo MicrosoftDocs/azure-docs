@@ -140,8 +140,7 @@ Follow these steps to create a data factory client.
     string resourceGroup = "<your resource group to create the factory>";
 
     string region = "<location to create the data factory in, such as East US>";
-    string dataFactoryName = 
-        "<specify the name of a data factory to create. It must be globally unique.>";
+    string dataFactoryName = "<name of a data factory to create (must be globally unique)>";
 
     // Specify the source Azure Blob information
     string storageAccount = "<your storage account name to copy data>";
@@ -187,8 +186,8 @@ Factory dataFactory = new Factory
 {
     Location = region,
     Identity = new FactoryIdentity()
-
 };
+
 client.Factories.CreateOrUpdate(resourceGroup, dataFactoryName, dataFactory);
 Console.WriteLine(SafeJsonConvert.SerializeObject(dataFactory, client.SerializationSettings));
 
@@ -216,6 +215,7 @@ LinkedServiceResource storageLinkedService = new LinkedServiceResource(
         ConnectionString = new SecureString("DefaultEndpointsProtocol=https;AccountName=" + storageAccount + ";AccountKey=" + storageKey)
     }
 );
+
 client.LinkedServices.CreateOrUpdate(resourceGroup, dataFactoryName, storageLinkedServiceName, storageLinkedService);
 Console.WriteLine(SafeJsonConvert.SerializeObject(storageLinkedService, client.SerializationSettings));
 ```
@@ -234,6 +234,7 @@ LinkedServiceResource sqlDbLinkedService = new LinkedServiceResource(
         ConnectionString = new SecureString(azureSqlConnString)
     }
 );
+
 client.LinkedServices.CreateOrUpdate(resourceGroup, dataFactoryName, sqlDbLinkedServiceName, sqlDbLinkedService);
 Console.WriteLine(SafeJsonConvert.SerializeObject(sqlDbLinkedService, client.SerializationSettings));
 ```
@@ -258,28 +259,18 @@ Console.WriteLine("Creating dataset " + blobDatasetName + "...");
 DatasetResource blobDataset = new DatasetResource(
     new AzureBlobDataset
     {
-        LinkedServiceName = new LinkedServiceReference
-        {
-            ReferenceName = storageLinkedServiceName
-        },
+        LinkedServiceName = new LinkedServiceReference { ReferenceName = storageLinkedServiceName },
         FolderPath = inputBlobPath,
         FileName = inputBlobName,
         Format = new TextFormat { ColumnDelimiter = "|" },
         Structure = new List<DatasetDataElement>
         {
-            new DatasetDataElement
-            {
-                Name = "FirstName",
-                Type = "String"
-            },
-            new DatasetDataElement
-            {
-                Name = "LastName",
-                Type = "String"
-            }
+            new DatasetDataElement { Name = "FirstName", Type = "String" },
+            new DatasetDataElement { Name = "LastName", Type = "String" }
         }
     }
 );
+
 client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, blobDatasetName, blobDataset);
 Console.WriteLine(SafeJsonConvert.SerializeObject(blobDataset, client.SerializationSettings));
 ```
@@ -303,6 +294,7 @@ DatasetResource sqlDataset = new DatasetResource(
         TableName = azureSqlTableName
     }
 );
+
 client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, sqlDatasetName, sqlDataset);
 Console.WriteLine(SafeJsonConvert.SerializeObject(sqlDataset, client.SerializationSettings));
 ```
@@ -323,23 +315,18 @@ PipelineResource pipeline = new PipelineResource
             Name = "CopyFromBlobToSQL",
             Inputs = new List<DatasetReference>
             {
-                new DatasetReference()
-                {
-                    ReferenceName = blobDatasetName
-                }
+                new DatasetReference() { ReferenceName = blobDatasetName }
             },
             Outputs = new List<DatasetReference>
             {
-                new DatasetReference
-                {
-                    ReferenceName = sqlDatasetName
-                }
+                new DatasetReference { ReferenceName = sqlDatasetName }
             },
             Source = new BlobSource { },
             Sink = new SqlSink { }
         }
     }
 };
+
 client.Pipelines.CreateOrUpdate(resourceGroup, dataFactoryName, pipelineName, pipeline);
 Console.WriteLine(SafeJsonConvert.SerializeObject(pipeline, client.SerializationSettings));
 ```
