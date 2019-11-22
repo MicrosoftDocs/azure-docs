@@ -156,7 +156,7 @@ Learn more:
 
 ## Identity protection
 
-Azure AD Identity Protection is a security service that provides a consolidated view into risk events and potential vulnerabilities that affect your organization’s identities. Identity Protection takes advantage of existing Azure AD anomaly-detection capabilities, which are available through Azure AD Anomalous Activity reports. Identity Protection also introduces new risk event types that can detect anomalies in real time.
+Azure AD Identity Protection is a security service that provides a consolidated view into risk detections and potential vulnerabilities that affect your organization’s identities. Identity Protection takes advantage of existing Azure AD anomaly-detection capabilities, which are available through Azure AD Anomalous Activity reports. Identity Protection also introduces new risk detection types that can detect anomalies in real time.
 
 Learn more:
 

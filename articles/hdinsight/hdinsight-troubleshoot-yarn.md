@@ -1,9 +1,10 @@
 ---
 title: Troubleshoot YARN in Azure HDInsight
 description: Get answers to common questions about working with Apache Hadoop YARN and Azure HDInsight.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ---
@@ -28,27 +29,27 @@ In this example, two existing queues (**default** and **thriftsvr**) both are ch
 
 1. Select the **Ambari Views** icon, and then select the grid pattern. Next, select **YARN Queue Manager**.
 
-    ![Select the Ambari Views icon](media/hdinsight-troubleshoot-yarn/create-queue-1.png)
+    ![Apache Ambari dashboard YARN Queue Manager](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
 2. Select the **default** queue.
 
-    ![Select the default queue](media/hdinsight-troubleshoot-yarn/create-queue-2.png)
+    ![Apache Ambari YARN select default queue](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-2.png)
 3. For the **default** queue, change the **capacity** from 50% to 25%. For the **thriftsvr** queue, change the **capacity** to 25%.
 
-    ![Change the capacity to 25% for the default and thriftsvr queues](media/hdinsight-troubleshoot-yarn/create-queue-3.png)
+    ![Change the capacity to 25% for the default and thriftsvr queues](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png)
 4. To create a new queue, select **Add Queue**.
 
-    ![Select Add Queue](media/hdinsight-troubleshoot-yarn/create-queue-4.png)
+    ![Apache Ambari YARN dashboard Add Queue](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
 
 5. Name the new queue.
 
-    ![Name the queue Spark](media/hdinsight-troubleshoot-yarn/create-queue-5.png)  
+    ![Apache Ambari YARN dashboard name Queue](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-5.png)  
 
 6. Leave the **capacity** values at 50%, and then select the **Actions** button.
 
-    ![Select the Actions button](media/hdinsight-troubleshoot-yarn/create-queue-6.png)  
+    ![Apache Ambari YARN select action](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
 7. Select **Save and Refresh Queues**.
 
-    ![Select Save and Refresh Queues](media/hdinsight-troubleshoot-yarn/create-queue-7.png)  
+    ![Select Save and Refresh Queues](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png)  
 
 These changes are visible immediately on the YARN Scheduler UI.
 
@@ -58,7 +59,7 @@ These changes are visible immediately on the YARN Scheduler UI.
 
 ## How do I download YARN logs from a cluster?
 
-### Resolution steps 
+### Resolution steps
 
 1. Connect to the HDInsight cluster by using a Secure Shell (SSH) client. For more information, see [Additional reading](#additional-reading-2).
 

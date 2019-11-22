@@ -1,5 +1,5 @@
 ---
-title: Composite entity tutorial - LUIS
+title: "Tutorial: Composite entity tutorial - LUIS"
 titleSuffix: Azure Cognitive Services
 description: Add a composite entity to bundle extracted data of various types into a single containing entity. By bundling the data, the client application can easily extract related data in different data types.
 services: cognitive-services
@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 07/29/2019
+ms.date: 10/14/2019
 ms.author: diberry
 ---
 
@@ -23,6 +23,8 @@ The composite entity is a good fit for this type of data because the data:
 * Are related to each other. 
 * Use a variety of entity types.
 * Need to be grouped and processed by client app as a unit of information.
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **In this tutorial, you learn how to:**
 

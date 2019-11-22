@@ -1,13 +1,8 @@
 ---
-title: Create a policy for non-compliant resources with Azure CLI
-description: Use Azure CLI to create an Azure Policy assignment to identify non-compliant resources.
-author: DCtheGeek
-ms.author: dacoulte
+title: "Quickstart: New policy assignment with Azure CLI"
+description: In this quickstart, you use Azure CLI to create an Azure Policy assignment to identify non-compliant resources.
 ms.date: 01/23/2019
 ms.topic: quickstart
-ms.service: azure-policy
-manager: carmonm
-ms.custom: seodec18
 ---
 # Quickstart: Create a policy assignment to identify non-compliant resources with Azure CLI
 

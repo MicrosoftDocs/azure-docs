@@ -1,12 +1,12 @@
 ---
-title: Remote Desktop Gateway integration with Azure MFA NPS extension - Azure Active Directory
+title: Integrate RDG with Azure MFA NPS extension - Azure Active Directory
 description: Integrate your Remote Desktop Gateway infrastructure with Azure MFA using the Network Policy Server extension for Microsoft Azure
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -175,7 +175,7 @@ To use the script, provide the extension with your Azure AD Admin credentials an
 
 In this section, you configure the Remote Desktop Gateway connection authorization policies and other RADIUS settings.
 
-The authentication flow requires that RADIUS messages be exchanged between the Remote Desktop Gateway and the NPS server where the NPS Server is installed. This means that you must configure RADIUS client settings on both Remote Desktop Gateway and the NPS server where the NPS extension is installed.
+The authentication flow requires that RADIUS messages be exchanged between the Remote Desktop Gateway and the NPS server where the NPS extension is installed. This means that you must configure RADIUS client settings on both Remote Desktop Gateway and the NPS server where the NPS extension is installed.
 
 ### Configure Remote Desktop Gateway connection authorization policies to use central store
 

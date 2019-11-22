@@ -3,8 +3,8 @@ title: Find the request unit (RU) charge in Azure Cosmos DB
 description: Learn how to find the request unit (RU) charge for any operation executed against an Azure Cosmos container.
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: sample
-ms.date: 06/14/2019
+ms.topic: conceptual
+ms.date: 09/01/2019
 ms.author: thweiss
 ---
 # Find the request unit charge in Azure Cosmos DB
@@ -170,7 +170,7 @@ Currently, you can find the request charge in the Azure portal only for a query.
 
 1. [Create a new Azure Cosmos account](create-mongodb-dotnet.md#create-a-database-account) and feed it with data, or select an existing account that already contains data.
 
-1. Go to the **Data Explorer** pane, and then select the collection you want to work on.
+1. Go to the **Data Explorer** pane, and then select the container you want to work on.
 
 1. Select **New Query**.
 

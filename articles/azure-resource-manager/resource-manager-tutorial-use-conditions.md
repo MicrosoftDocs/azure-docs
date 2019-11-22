@@ -1,16 +1,7 @@
 ﻿---
-title: Use condition in Azure Resource Manager templates | Microsoft Docs
-description: Learn how to deploy Azure resources based on conditions.
-services: azure-resource-manager
-documentationcenter: ''
+title: Use condition in templates
+description: Learn how to deploy Azure resources based on conditions. Shows how to either deploy a new resource or use an existing resource.
 author: mumian
-manager: dougeby
-editor: tysonn
-
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 05/21/2019
 ms.topic: tutorial
 ms.author: jgao
@@ -34,7 +25,7 @@ This tutorial covers the following tasks:
 
 This tutorial only covers a basic scenario of using conditions. For more information, see:
 
-* [Template file structure: Condition](./resource-group-authoring-templates.md#condition).
+* [Template file structure: Condition](conditional-resource-deployment.md).
 * [Conditionally deploy a resource in an Azure Resource Manager template](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
 * [Template function: If](./resource-group-template-functions-logical.md#if).
 * [Comparison functions for Azure Resource Manager templates](./resource-group-template-functions-comparison.md)
@@ -45,7 +36,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* [Visual Studio Code](https://code.visualstudio.com/) with [Resource Manager Tools extension](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](./resource-manager-tools-vs-code.md).
 * To increase security, use a generated password for the virtual machine administrator account. Here is a sample for generating a password:
 
     ```azurecli-interactive

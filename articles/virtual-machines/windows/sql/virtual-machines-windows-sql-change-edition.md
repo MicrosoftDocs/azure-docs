@@ -1,5 +1,5 @@
 ---
-title: Perform an in-place upgrade of a SQL Server edition on an Azure VM| Microsoft Docs
+title: In-place upgrade of SQL Server edition
 description: Learn how to change the edition of your SQL Server VM in Azure. 
 services: virtual-machines-windows
 documentationcenter: na
@@ -7,13 +7,14 @@ author: MashaMSFT
 manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2019
 ms.author: mathoma
 ms.reviewer: jroth
+ms.custom: "seo-lt-2019"
 
 ---
 # Perform an in-place upgrade of a SQL Server edition on an Azure VM

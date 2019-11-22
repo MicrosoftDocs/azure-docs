@@ -1,5 +1,5 @@
 ---
-title: Configure software RAID on a virtual machine running Linux | Microsoft Docs
+title: Configure software RAID on a virtual machine running Linux 
 description: Learn how to use mdadm to configure RAID on Linux in Azure.
 services: virtual-machines-linux
 documentationcenter: na
@@ -12,7 +12,7 @@ ms.assetid: f3cb2786-bda6-4d2c-9aaf-2db80f490feb
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
+
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: rclaus

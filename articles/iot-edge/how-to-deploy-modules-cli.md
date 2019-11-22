@@ -23,7 +23,7 @@ This article shows how to create a JSON deployment manifest, then use that file 
 ## Prerequisites
 
 * An [IoT hub](../iot-hub/iot-hub-create-using-cli.md) in your Azure subscription.
-* An [IoT Edge device](how-to-register-device-cli.md) with the IoT Edge runtime installed.
+* An [IoT Edge device](how-to-register-device.md#register-with-the-azure-cli) with the IoT Edge runtime installed.
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) in your environment. At a minimum, your Azure CLI version must be 2.0.24 or above. Use `az --version` to validate. This version supports az extension commands and introduces the Knack command framework.
 * The [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
@@ -111,7 +111,7 @@ Use the following command to apply the configuration to an IoT Edge device:
    az iot edge set-modules --device-id [device id] --hub-name [hub name] --content [file path]
    ```
 
-The device id parameter is case-sensitive. The content parameter points to the deployment manifest file that you saved.
+The device ID parameter is case-sensitive. The content parameter points to the deployment manifest file that you saved.
 
    ![az iot edge set-modules output](./media/how-to-deploy-cli/set-modules.png)
 
@@ -125,7 +125,7 @@ View the modules on your IoT Edge device:
    az iot hub module-identity list --device-id [device id] --hub-name [hub name]
    ```
 
-The device id parameter is case-sensitive.
+The device ID parameter is case-sensitive.
 
    ![az iot hub module-identity list output](./media/how-to-deploy-cli/list-modules.png)
 

@@ -23,12 +23,6 @@ Azure Active Directory (Azure AD) simplifies how enterprises manage access to gr
 
 This article describes how to review your own access to a group or an application.
 
-## Prerequisites
-
-- Azure AD Premium P2
-
-For more information, see [Which users must have licenses?](access-reviews-overview.md#which-users-must-have-licenses).
-
 ## Open the access review
 
 The first step to perform an access review is to find and open the access review.

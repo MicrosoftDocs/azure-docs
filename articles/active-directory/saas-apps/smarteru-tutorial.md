@@ -218,7 +218,7 @@ To enable Azure AD users to sign in to SmarterU, they must be provisioned into S
 	d. Click **Save**.
 
 > [!NOTE]
-> You can use any other SmarterU user account creation tools or APIs provided by SmarterU to provision AAD user accounts.
+> You can use any other SmarterU user account creation tools or APIs provided by SmarterU to provision Azure AD user accounts.
 
 ### Test single sign-on
 

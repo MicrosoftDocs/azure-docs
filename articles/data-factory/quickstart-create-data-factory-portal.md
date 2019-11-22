@@ -1,5 +1,5 @@
 ---
-title: Create an Azure data factory using the Azure Data Factory UI | Microsoft Docs
+title: Create an Azure data factory using the Azure Data Factory UI 
 description: Create a data factory with a pipeline that copies data from one location in Azure Blob storage to another location.
 services: data-factory
 documentationcenter: ''
@@ -34,7 +34,10 @@ Watching this video helps you understand the Data Factory UI:
 
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 1. Go to the [Azure portal](https://portal.azure.com). 
-1. Select **Create a resource** on the left menu, select **Analytics**, and then select **Data Factory**. 
+1. From the Azure portal menu, select **Create a resource**.
+   
+   ![Select Create a resource from Azure portal menu](./media/doc-common-process/create-a-resource.png)
+1. Select **Analytics**, and then select **Data Factory**. 
    
    ![Data Factory selection in the "New" pane](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. On the **New data factory** page, enter **ADFTutorialDataFactory** for **Name**. 
@@ -66,7 +69,8 @@ Watching this video helps you understand the Data Factory UI:
 ## Create a linked service
 In this procedure, you create a linked service to link your Azure storage account to the data factory. The linked service has the connection information that the Data Factory service uses at runtime to connect to it.
 
-1. Select **Connections**, and then select the **New** button on the toolbar. 
+1. Select **Connections**, and then select the **New** button on the toolbar (**Connections** button is located
+at the bottom of the left column under **Factory Resources**). 
 
 1. On the **New Linked Service** page, select **Azure Blob Storage**, and then select **Continue**. 
 

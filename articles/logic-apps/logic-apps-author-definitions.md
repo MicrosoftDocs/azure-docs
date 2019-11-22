@@ -1,13 +1,12 @@
 ---
-title: Create, edit, or extend JSON for logic app definitions - Azure Logic Apps | Microsoft Docs
-description: Author and extend JSON for logic app definitions in Azure Logic Apps
+title: Create, edit, or extend logic app definitions - Azure Logic Apps
+description: How to write, edit, and extend logic app JSON definitions in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: klam, jehollan, LADocs
-ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
+ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 01/01/2018
 ---
@@ -26,7 +25,7 @@ understand without knowing much about code.
 When you want to automate creating and deploying logic apps, 
 you can include logic app definitions as 
 [Azure resources](../azure-resource-manager/resource-group-overview.md) 
-inside [Azure Resource Manager templates](../azure-resource-manager/resource-group-overview.md#template-deployment). 
+inside [Azure Resource Manager templates](../azure-resource-manager/template-deployment-overview.md). 
 To create, manage, and deploy logic apps, you can then use 
 [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), 
 [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md), 
@@ -78,7 +77,7 @@ project, that contains your logic app.
 
 2. Find and open your logic app's definition, 
 which by default, appears in an 
-[Resource Manager template](../azure-resource-manager/resource-group-overview.md#template-deployment), 
+[Resource Manager template](../azure-resource-manager/template-deployment-overview.md), 
 named **LogicApp.json**. 
 You can use and customize this template for 
 deployment to different environments.

@@ -1,6 +1,6 @@
 ---
-title: Set up maintenance notifications for your Windows VMs in Azure | Microsoft Docs
-description: Learn how to set up scheduled maintenance notifications for your Azure virtual machines.
+title: Monitor scheduled events for your Windows VMs in Azure 
+description: Learn how to monitor your Azure virtual machines for scheduled events.
 services: virtual-machines-windows
 documentationcenter: ''
 author: mysarn
@@ -13,7 +13,7 @@ ms.author: sarn
 ms.topic: conceptual
 ---
 
-# Set up notifications about maintenance affecting your VM
+# Monitoring Scheduled Events
 
 Updates are applied to different parts of Azure every day, to keep the services running on them secure, and up-to-date. In addition to planned updates, unplanned events may also occur. For example, if any hardware degradation or fault is detected, Azure services may need to perform unplanned maintenance. Using live migration, memory preserving updates and generally keeping a strict bar on the impact of updates, in most cases these events are almost transparent to customers, and they have no impact or at most cause a few seconds of virtual machine freeze. However, for some applications, even a few seconds of virtual machine freeze could cause an impact. Knowing in advance about upcoming Azure maintenance is important, to ensure the best experience for those applications. [Scheduled Events service](scheduled-events.md) provides you a programmatic interface to be notified about upcoming maintenance, and enables you to gracefully handle the maintenance. 
 
@@ -160,7 +160,7 @@ Once the events are pushed to Log Analytics, you can run the following [query](/
 1. Under **Actions**, select **Create action group**. The **Add action group** page will open.
 1. In **Action group name**, type *myActionGroup*.
 1. In **Short name**, type **myActionGroup**.
-1. In **Resource group**, select *myResourceGroupAvailability**.
+1. In **Resource group**, select **myResourceGroupAvailability**.
 1. Under Actions, in **ACTION NAME** type **Email**, and then select **Email/SMS/Push/Voice**. The **Email/SMS/Push/Voice** page will open.
 1. Select **Email**, type in your e-mail address, then select **OK**.
 1. In the **Add action group** page, select **OK**. 

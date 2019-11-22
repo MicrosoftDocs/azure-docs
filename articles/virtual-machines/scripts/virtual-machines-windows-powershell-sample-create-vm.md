@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell Script Sample - Create a Windows VM | Microsoft Docs
+title: Azure PowerShell Script Sample - Create a Windows VM 
 description: Azure PowerShell Script Sample - Create a Windows VM
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -10,7 +10,7 @@ tags: azure-service-management
 
 ms.assetid:
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
@@ -27,7 +27,7 @@ This script creates an Azure Virtual Machine running Windows Server 2016. After 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## Sample script
 

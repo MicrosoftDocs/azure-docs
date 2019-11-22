@@ -1,5 +1,5 @@
 ---
-title: Control Azure CDN caching behavior with query strings - standard tier | Microsoft Docs
+title: Control Azure CDN caching behavior with query strings - standard tier
 description: Azure CDN query string caching controls how files are cached when a web request contains a query string. This article describes query string caching in Azure CDN standard products.
 services: cdn
 documentationcenter: ''
