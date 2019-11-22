@@ -1,6 +1,5 @@
 ---
 title: "Running multiple dependent services using Java and VS Code"
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.date: 11/21/2018
 ms.topic: tutorial

@@ -36,6 +36,9 @@ ms.author: ramkris
 |**Get started**|[Get started with the bulk executor library .NET SDK](bulk-executor-dot-net.md)|
 | **Current supported framework**| Microsoft .NET Framework 4.5.2, 4.6.1 and .NET Standard 2.0 |
 
+> [!NOTE]
+> If you are using bulk executor, please see the latest version 3.x of the [.NET SDK](tutorial-sql-api-dotnet-bulk-import.md), which has bulk executor built into the SDK. 
+
 ## Release notes
 
 ### <a name="2.4.1-preview"/>2.4.1-preview

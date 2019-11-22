@@ -1,6 +1,5 @@
 ---
 title: "Business continuity and disaster recovery in Azure Dev Spaces"
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 
 author: "lisaguthrie"

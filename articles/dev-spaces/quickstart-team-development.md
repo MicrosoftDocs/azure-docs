@@ -1,6 +1,5 @@
 ---
 title: "Team development on Kubernetes using Azure Dev Spaces"
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.date: 04/25/2019
 ms.topic: quickstart

@@ -1,6 +1,5 @@
 ---
 title: "Introduction to Azure Dev Spaces"
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.date: 05/07/2019
 ms.topic: "overview"

@@ -1,6 +1,5 @@
 ---
 title: "Team development with Azure Dev Spaces using .NET Core and VS Code"
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.date: 07/09/2018
 ms.topic: tutorial

@@ -1,6 +1,5 @@
 ---
 title: "Create a Kubernetes Node.js development environment in the cloud with VS Code"
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.date: 09/26/2018
 ms.topic: tutorial

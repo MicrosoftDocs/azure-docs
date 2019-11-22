@@ -1,6 +1,5 @@
 ---
 title: "How to create a Kubernetes cluster enabled for Azure Dev Spaces using Azure Cloud Shell"
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.date: "10/04/2018"
 ms.topic: "conceptual"

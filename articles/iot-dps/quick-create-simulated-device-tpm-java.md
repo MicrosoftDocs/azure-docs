@@ -73,8 +73,9 @@ This article will demonstrate individual enrollments.
     private static final String globalEndpoint = "[Your Provisioning Service Global Endpoint here]";
     private static final ProvisioningDeviceClientTransportProtocol PROVISIONING_DEVICE_CLIENT_TRANSPORT_PROTOCOL = ProvisioningDeviceClientTransportProtocol.HTTPS;
     ```
+    Save the file.
 
-1. Build the project. Navigate to the target folder and execute the created .jar file.
+1. Use the following commands to build the project, navigate to the target folder, and execute the created .jar file. Replace the `version` placeholder with your version of Java.
 
     ```cmd/sh
     mvn clean install

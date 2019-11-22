@@ -1,6 +1,5 @@
 ---
 title: "Use Azure Dev Spaces to interact with Windows containers"
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.date: 07/25/2019
 ms.topic: "conceptual"
