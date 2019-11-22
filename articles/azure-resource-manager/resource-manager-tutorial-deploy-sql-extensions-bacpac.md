@@ -39,7 +39,7 @@ To complete this article, you need:
 
 A BACPAC file is shared in [Github](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac). To create your own, see [Export an Azure SQL database to a BACPAC file](../sql-database/sql-database-export.md). If you choose to publish the file to your own location, you must update the template later in the tutorial.
 
-The bacpac file must be stored in an Azure Storage account before it can be imported using Resource Manager template. There are several methods to upload a file to a storage account. The following PowerShell script is an example:
+The BACPAC file must be stored in an Azure Storage account before it can be imported using Resource Manager template. There are several methods to upload a file to a storage account. The following PowerShell script is an example:
 
 ```azurepowershell
 $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
@@ -62,12 +62,12 @@ New-AzStorageContainer -Name $containerName -Context $storageAccount.Context
 Set-AzStorageBlobContent -File $bacpacFile -Container $containerName -Blob $blobName -Context $storageAccount.Context
 
 Write-Host "The storage account key is $storageAccountKey."
-Write-Host "The bacpac file URL is https://$storageAccountName.blob.core.windows.net/$containerName/$blobName."
+Write-Host "The BACPAC file URL is https://$storageAccountName.blob.core.windows.net/$containerName/$blobName."
 ```
 
-The script assumes the bacpac file is in the current folder. Update **$bacpacFile** as needed.
+The script assumes the BACPAC file is in the current folder. Update **$bacpacFile** as needed.
 
-You need the storage account key and the bacpac file URL in the template. The sample PowerShell script outputs the values.
+You need the storage account key and the BACPAC file URL in the template. The sample PowerShell script outputs the values.
 
 ## Open a Quickstart template
 
@@ -93,22 +93,24 @@ The template used in this tutorial is stored in [Github](https://raw.githubuserc
 
 ## Edit the template
 
-1. Add two parameters to set the storage account key and the bacpac URL:
+1. Add two parameters to set the storage account key and the BACPAC URL:
 
     ```json
     "storageAccountKey": {
       "type":"string",
       "metadata":{
-        "description": "Specifies the key of the storage account where the bacpac file is stored."
+        "description": "Specifies the key of the storage account where the BACPAC file is stored."
       }
     },
     "bacpacUri": {
       "type":"string",
       "metadata":{
-        "description": "Specifies the URL of the pacbac file."
+        "description": "Specifies the URL of the BACPAC file."
       }
     }
     ```
+
+    See [Prepare a BACPAC file](#prepare-a-bacpac-file) about getting these two values.
 
 1. Add two additional resources to the template.
 
@@ -116,17 +118,17 @@ The template used in this tutorial is stored in [Github](https://raw.githubuserc
 
         ```json
         {
-            "type": "firewallrules",
-            "name": "AllowAllAzureIps",
-            "location": "[parameters('location')]",
-            "apiVersion": "2015-05-01-preview",
-            "dependsOn": [
-                "[variables('databaseServerName')]"
-            ],
-            "properties": {
-                "startIpAddress": "0.0.0.0",
-                "endIpAddress": "0.0.0.0"
-            }
+          "type": "firewallrules",
+          "apiVersion": "2015-05-01-preview",
+          "name": "AllowAllAzureIps",
+          "location": "[parameters('location')]",
+          "dependsOn": [
+            "[variables('databaseServerName')]"
+          ],
+          "properties": {
+            "startIpAddress": "0.0.0.0",
+            "endIpAddress": "0.0.0.0"
+          }
         }
         ```
 
@@ -147,8 +149,8 @@ The template used in this tutorial is stored in [Github](https://raw.githubuserc
               ],
               "properties": {
                 "storageKeyType": "StorageAccessKey",
-                "storageKey": "?",
-                "storageUri": "https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac",
+                "storageKey": "[parameters('storageAccountKey')]",
+                "storageUri": "[parameters('bacpacUrl')]",
                 "administratorLogin": "[variables('databaseServerAdminLogin')]",
                 "administratorLoginPassword": "[variables('databaseServerAdminLoginPassword')]",
                 "operationMode": "Import",
@@ -181,7 +183,7 @@ $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 $adminUsername = Read-Host -Prompt "Enter the SQL admin username"
 $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
 $storageAccountKey = Read-Host -Prompt "Enter the storage account key"
-$bacpacUrl = Read-Host -Prompt "Enter the URL of the bacpac file"
+$bacpacUrl = Read-Host -Prompt "Enter the URL of the BACPAC file"
 $resourceGroupName = "${projectName}rg"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
