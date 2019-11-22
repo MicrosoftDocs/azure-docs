@@ -1,16 +1,16 @@
 ﻿---
-title: Upgrade your big data analytics solutions from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2
-description: Upgrade your solution to use Azure Data Lake Storage Gen2
+title: Upgrade Azure Data Lake Storage from Gen1 to Gen2
+description: Upgrade Azure Data Lake Storage from Gen1 to Gen2.
 author: normesta
 ms.topic: conceptual
 ms.author: normesta
-ms.date: 11/01/2019
+ms.date: 11/19/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: rugopala
 ---
 
-# Upgrade your big data analytics solutions from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2
+# Upgrade Azure Data Lake Storage from Gen1 to Gen2
 
 If you're using Azure Data Lake Storage Gen1 in your big data analytics solutions, this guide helps you to upgrade those solutions to use Azure Data Lake Storage Gen2. You can use this document to assess the dependencies that your solution has on Data Lake Storage Gen1. This guide also shows you how to plan and perform the upgrade.
 
