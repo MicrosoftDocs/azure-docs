@@ -36,10 +36,18 @@
     href: conditional-access-azure-management.md
 - name: How-to guides
   items:
+  - name: List roles
+    href: roles-list.md
   - name: List role assignments
     items:
     - name: Portal
       href: role-assignments-list-portal.md
+    - name: PowerShell
+      href: role-assignments-list-powershell.md
+    - name: CLI
+      href: role-assignments-list-cli.md
+    - name: REST API
+      href: role-assignments-list-rest.md
   - name: Add or remove role assignments
     items:
     - name: Portal
