@@ -80,15 +80,15 @@
         - name: .NET Framework builder
           href: https://go.microsoft.com/fwlink/?linkid=2074663
         - name: Azure SDK for .Net
-          href: SDKs/azure-sdk-for-net.md
+          href: https://go.microsoft.com/fwlink/?linkid=2092056
         - name: Java Spring provider
           href: https://go.microsoft.com/fwlink/?linkid=2074659
         - name: Azure SDK for Java
-          href: sdks/azure-sdk-for-java.md
+          href: https://go.microsoft.com/fwlink/?linkid=2098196
         - name: Azure SDK for Python
-          href: SDKs/azure-sdk-for-python.md
+          href: https://go.microsoft.com/fwlink/?linkid=2103727
         - name: Azure SDK for JavaScript
-          href: SDKs/azure-sdk-for-js.md
+          href: https://go.microsoft.com/fwlink/?linkid=2103664
         - name: REST
           href: https://go.microsoft.com/fwlink/?linkid=2078296
     - name: Feature management

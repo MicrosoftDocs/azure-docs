@@ -80,12 +80,12 @@ sections:
           src: https://docs.microsoft.com/media/logos/logo_Python.svg
         title: Python
     rows:
-      - title: &#32;
+      - title: Configuration
         values:
-          - href: /azure/azure-app-configuration/sdks/azure-sdk-for-java
-          - href: /azure/azure-app-configuration/sdks/azure-sdk-for-js
-          - href: /azure/azure-app-configuration/sdks/azure-sdk-for-net
-          - href: /azure/azure-app-configuration/sdks/azure-sdk-for-python
+          - href: https://go.microsoft.com/fwlink/?linkid=2092056
+          - href: https://go.microsoft.com/fwlink/?linkid=2098196
+          - href: https://go.microsoft.com/fwlink/?linkid=2103664
+          - href: https://go.microsoft.com/fwlink/?linkid=2103727
 - title: Step-by-step tutorials
   items:
   - type: paragraph
