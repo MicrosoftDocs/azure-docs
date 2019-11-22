@@ -176,7 +176,7 @@ Before you start, make sure you understand the [network considerations and recom
 
 ## Create the forest trust
 
-The forest trust has two parts - the one-way outbound forest trust in the Azure AD DS resource forest, and the one-way inbound forest trust in the on-premises AD DS forest. You manually create both sides of this trust relationship. When both sides are created, users and resources can successfully authenticate using the forest trust.
+The forest trust has two parts - the one-way outbound forest trust in the Azure AD DS resource forest, and the one-way inbound forest trust in the on-premises AD DS forest. You manually create both sides of this trust relationship. When both sides are created, users and resources can successfully authenticate using the forest trust. An Azure AD DS resource forest supports up to five one-way outbound forest trusts to on-premises forests.
 
 ### Create the Azure AD DS side of the trust relationship
 
@@ -222,9 +222,9 @@ The on-premises AD DS domain needs an incoming forest trust for the Azure AD DS 
 To configure inbound trust on the on-premises AD DS domain, complete the following steps from a management workstation for the on-premises AD DS domain:
 
 1. Select **Start | Administrative Tools | Active Directory Domains and Trusts**
-1. Right-select domain, such as *onprem.contoso.com*, select **Properties**
+1. Right-select domain, such as *corp.contoso.com*, select **Properties**
 1. Choose **Trusts** tab, then **New Trust**
-1. Enter name on Azure AD DS domain name, such as *aadds.contoso.com*, then select **Next**
+1. Enter name on Azure AD DS domain name, such as *rf.aaddscontoso.com*, then select **Next**
 1. Select the option to create a **Forest trust**, then to create a **One way: incoming** trust.
 1. Choose to create the trust for **This domain only**. In the next step, you create the trust in the Azure portal for the Azure AD DS managed domain.
 1. Choose to use **Forest-wide authentication**, then enter and confirm a trust password. This same password is also entered in the Azure portal in the next section.
@@ -314,13 +314,72 @@ Using the Windows Server VM joined to the Azure AD DS resource forest, you can t
 #### Validate cross-forest authentication to a resource
 
 1. Sign in a Windows computer joined to your on-premises Active Directory using a user account from your on-premises Active Directory.
-1. Using **Windows Explorer**, connect to the share you created using the fully qualified host name and the share such as `\\fs1.aadds.contoso.com\CrossforestShare`.
+1. Using **Windows Explorer**, connect to the share you created using the fully qualified host name and the share such as `\\fs1.aaddscontoso.com\CrossforestShare`.
 1. To validate the write permission, right-select in the folder, choose **New**, then select **Text Document**. Use the default name **New Text Document**.
 
     If the write permissions are set correctly, a new text document is created. The following steps will then open, edit, and delete the file as appropriate.
 1. To validate the read permission, open **New Text Document**.
 1. To validate the modify permission, add text to the file and close **Notepad**. When prompted to save changes, choose **Save**.
 1. To validate the delete permission, right-select **New Text Document** and choose **Delete**. Choose **Yes** to confirm file deletion.
+
+## Update or remove outbound forest trust
+
+If you need to update an existing one-way outbound forest from Azure AD DS, you can use the `Get-AaddsResourceForestTrusts` and `Set-AaddsResourceForestTrust` scripts. These scripts help in scenarios where you want to update the forest trust friendly name or trust password. To remove a one-way outbound trust from Azure AD DS, you can use the `Remove-AaddsResourceForestTrust` script. You must manually remove the one-way inbound forest trust in the associated on-premises AD DS forest.
+
+### Update a forest trust
+
+In normal operation, the Azure AD DS forest and on-premises forest negotiate a regular password update process between themselves. This is part of the normal AD DS trust relationship security process. You don't need to manually rotate the trust password unless the trust relationship has experienced an issue and you want to manually reset to a known password. For more information, see [trusted domain object password changes](concepts-forest-trust.md#tdo-password-changes).
+
+The following example steps show you how to update an existing trust relationship if you need to manually reset the outbound trust password:
+
+1. Install the `Get-AaddsResourceForestTrusts` and `Set-AaddsResourceForestTrust` scripts from the [PowerShell Gallery][powershell-script]. These PowerShell scripts are digitally signed by the Azure AD engineering team.
+
+    ```powershell
+    Install-Script -Name Get-AaddsResourceForestTrusts,Set-AaddsResourceForestTrust
+    ```
+
+1. Before you can update an existing trust, first get the trust resource using the `Get-AaddsResourceForestTrusts` script. In the following example, the existing trust is assigned to an object named *existingTrust*. Specify your own Azure AD DS forest name and on-premises forest name to update:
+
+    ```powershell
+    $existingTrust = Get-AaddsResourceForestTrust `
+        -ManagedDomainFqdn "rf.aaddscontoso.com" `
+        -TrustFqdn "corp.contoso.com" `
+        -TrustFriendlyName "myAzureADDSTrust"
+    ```
+
+1. To update the existing trust password, use the `Set-AaddsResourceForestTrust` script. Specify the existing trust object from the previous step, then a new trust relationship password. No password complexity is enforced by PowerShell, so make sure you to generate and use a secure password for your environment.
+
+    ```powershell
+    Set-AaddsResourceForestTrust `
+        -Trust $existingTrust `
+        -TrustPassword <newComplexPassword>
+    ```
+
+### Delete a forest trust
+
+If you no longer need the one-way outbound forest trust from Azure AD DS to an on-premises AD DS forest, you can remove it. Make sure that no applications or services need to authenticate against the on-premises AD DS forest before you remove the trust. You must manually remove the one-way inbound trust in the on-premises AD DS forest, too.
+
+1. Install the `Remove-AaddsResourceForestTrust` script from the [PowerShell Gallery][powershell-script]. This PowerShell script is digitally signed by the Azure AD engineering team.
+
+    ```powershell
+    Install-Script -Name Remove-AaddsResourceForestTrust
+    ```
+
+1. Now remove the forest trust using the `Remove-AaddsResourceForestTrust` script. In the following example, the trust named *myAzureADDSTrust* between the Azure AD DS forest named *rf.aaddscontoso.com* and on-premises forest *corp.contoso.com* is removed. Specify your own Azure AD DS forest name and on-premises forest name to remove:
+
+    ```powershell
+    Remove-AaddsResourceForestTrust `
+        -ManagedDomainFqdn "rf.aaddscontoso.com" `
+        -TrustFqdn "corp.contoso.com" `
+        -TrustFriendlyName "myAzureADDSTrust"
+    ```
+
+To remove the one-way inbound trust from the on-premises AD DS forest, connect to a management computer with access to the on-premises AD DS forest and complete the following steps:
+
+1. Select **Start | Administrative Tools | Active Directory Domains and Trusts**
+1. Right-select domain, such as *corp.contoso.com*, select **Properties**
+1. Choose **Trusts** tab, then select the existing incoming trust from your Azure AD DS forest.
+1. Select **Remove**, then confirm that you wish to remove the incoming trust.
 
 ## Next steps
 
