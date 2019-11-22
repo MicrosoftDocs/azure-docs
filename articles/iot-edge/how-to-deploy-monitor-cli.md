@@ -111,7 +111,7 @@ Here's a basic deployment manifest with one module as an example:
 
 Layered deployments are a type of automatic deployment that can be stacked on top of each other. For more information about layered deployments, see [Understand IoT Edge automatic deployments for single devices or at scale](module-deployment-monitoring.md). 
 
-Layered deployments can be created and managed with the Azure CLI like any automatic deployment, with just a few differences. The same deployment commands in the Azure CLI work for layered deployments, but you use the `--layered` flag to identify a layered deployment. For example, to create a new layered deployment: 
+Layered deployments can be created and managed with the Azure CLI like any automatic deployment, with just a few differences. Once a layered deployment is created, same Azure CLI work for layered deployments the same as any deployment. To create a layered deployment, add the `--layered` flag to the create command. For example: 
 
 ```cli
 az iot edge deployment create --layered --deployment-id [deployment id] --content [file path]
@@ -191,8 +191,11 @@ Use the [az iot edge deployment create](https://docs.microsoft.com/cli/azure/ext
 az iot edge deployment create --deployment-id [deployment id] --hub-name [hub name] --content [file path] --labels "[labels]" --target-condition "[target query]" --priority [int]
 ```
 
+Use the same command with the `--layered` flag to create a layered deploymet.
+
 The deployment create command takes the following parameters: 
 
+* **--layered** - An optional flag to identify the deployment as a layered deployment.
 * **--deployment-id** - The name of the deployment that will be created in the IoT hub. Give your deployment a unique name that is up to 128 lowercase letters. Avoid spaces and the following invalid characters: `& ^ [ ] { } \ | " < > /`. Required parameter. 
 * **--content** - Filepath to the deployment manifest JSON. Required parameter. 
 * **--hub-name** - Name of the IoT hub in which the deployment will be created. The hub must be in the current subscription. Change your current subscription with the `az account set -s [subscription name]` command.
