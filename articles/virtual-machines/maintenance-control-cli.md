@@ -8,7 +8,7 @@ ms.service: virtual-machines
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/18/2019
+ms.date: 11/21/2019
 ms.author: cynthn
 ---
 
@@ -67,10 +67,12 @@ Copy the configuration ID from the output to use later.
 
 Using `--maintenanceScope host` ensures that the maintenance config is used for controlling updates to the host.
 
+If you try to create a configuration with the same name, but in a different location, you will get an error. Configuration names must be unique to your subscription.
+
 You can query for available maintenance configurations using `az maintenance configuration list`.
 
 ```azurecli-interactive
-az maintenance configuration list
+az maintenance configuration list --query "[].{Name:name, ID:id}" -o table 
 ```
 
 ## Assign the configuration
@@ -79,7 +81,7 @@ Use `az maintenance assignment create` to assign the configuration to your isola
 
 ### Isolated VM
 
-Apply the configuration to a VM using the ID of the configuration. Specify `--resource-type virtualMachines` and supply the name of the VM for `--resource-name`, and the resource group for to the VM in `--resource-group`, and the location of the VM for `--location). 
+Apply the configuration to a VM using the ID of the configuration. Specify `--resource-type virtualMachines` and supply the name of the VM for `--resource-name`, and the resource group for to the VM in `--resource-group`, and the location of the VM for `--location`. 
 
 ```azurecli-interactive
 az maintenance assignment create \
@@ -108,11 +110,39 @@ az maintenance assignment create \
    --maintenance-configuration-id "/subscriptions/1111abcd-1a11-1a2b-1a12-123456789abc/resourcegroups/myDhResourceGroup/providers/Microsoft.Maintenance/maintenanceConfigurations/myConfig" \
    -l eastus \
    --resource-parent-name myHostGroup \
-   --resource-parent-type hostGroups \
-   --resource-id /subscriptions/1111abcd-1a11-1a2b-1a12-123456789abc/re
-sourceGroups/myResourceGroup/providers/Microsoft.Compute/hostGroups/myHostGroup/hosts
-/myHost
+   --resource-parent-type hostGroups 
 ```
+
+## Check configuration
+
+You can verify that the configuration was applied correctly, or check to see what configuration is currently applied using `az maintenance assignment list`.
+
+### Isolated VM
+
+```azurecli-interactive
+az maintenance assignment list \
+   --provider-name Microsoft.Compute \
+   --resource-group myMaintenanceRG \
+   --resource-name myVM \
+   --resource-type virtualMachines \
+   --query "[].{resource:resourceGroup, configName:name}" \
+   --output table
+```
+
+### Dedicated host 
+
+```azurecli-interactive
+az maintenance assignment list \
+   --resource-group myDHResourceGroup \
+   --resource-name myHost \
+   --resource-type hosts \
+   --provider-name Microsoft.Compute \
+   --resource-parent-name myHostGroup \
+   --resource-parent-type hostGroups 
+   --query "[].{ResourceGroup:resourceGroup,configName:name}" \
+   -o table
+```
+
 
 ## Check for pending updates
 
@@ -186,14 +216,15 @@ You can check on the progress of the updates using `az maintenance applyupdate g
 
 ### Isolated VM
 
+Replace `myUpdateName` with the name of the update that was returned when you ran `az maintenance applyupdate create`.
+
 ```azurecli-interactive
 az maintenance applyupdate get \
-   --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \ 
    --resource-group myMaintenanceRG \
    --resource-name myVM \
    --resource-type virtualMachines \
    --provider-name Microsoft.Compute \
-   --apply-update-name default
+   --apply-update-name myUpdateName 
 ```
 
 ### Dedicated host
@@ -207,13 +238,15 @@ az maintenance applyupdate get \
    --provider-name Microsoft.Compute \
    --resource-parent-name myHostGroup \ 
    --resource-parent-type hostGroups \
-   --apply-update-name default
+   --apply-update-name default \
+   --query "{LastUpdate:lastUpdateTime, Name:name, ResourceGroup:resourceGroup, Status:status}" \
+   --output table
 ```
 
 
 ## Delete a maintenance configuration
 
-Use [az maintenance configuration delete]() to delete a maintenance configuration. Deleting the configuration removes the maintenance control from the associated resources.
+Use `az maintenance configuration delete` to delete a maintenance configuration. Deleting the configuration removes the maintenance control from the associated resources.
 
 ```azurecli-interactive
 az maintenance configuration delete \
