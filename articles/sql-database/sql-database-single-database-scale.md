@@ -22,7 +22,7 @@ After initially picking the number of vCores or DTUs, you can scale a single dat
 
 The following video shows dynamically changing the service tier and compute size to increase available DTUs for a single database.
 
-[!VIDEO [video](https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player)]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 
 > [!IMPORTANT]
 > Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
