@@ -54,7 +54,7 @@ IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standar
 // In this case " H264 Multiple Bitrate 1080p" preset is used. 
 ITask task = job.Tasks.AddNew("My encoding task", 
     processor, 
-    " H264 Multiple Bitrate 1080p", 
+    "H264 Multiple Bitrate 1080p", 
     TaskOptions.None); 
 ```
 

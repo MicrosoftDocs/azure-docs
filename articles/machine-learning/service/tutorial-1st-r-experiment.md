@@ -1,5 +1,9 @@
 ---
+<<<<<<< HEAD
 title: "Tutorial: Your first Machine Learning experiment with R"
+=======
+title: "Tutorial: Your first ML model with R"
+>>>>>>> 2f5131b92fb4a078314ea5bf8c1a1fe95d84986c
 titleSuffix: Azure Machine Learning
 description: In this tutorial, you learn the foundational design patterns in Azure Machine Learning, and train a logistic regression model model using R packages azuremlsdk and caret to predict likelihood of a fatality in an automobile accident. 
 services: machine-learning

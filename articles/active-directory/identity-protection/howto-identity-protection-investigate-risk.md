@@ -1,5 +1,5 @@
 ---
-title: How to investigate risks in Azure Active Directory Identity Protection
+title: Investigate risk Azure Active Directory Identity Protection
 description: Learn how to investigate risky users, detections, and sign-ins in Azure Active Directory Identity Protection
 
 services: active-directory

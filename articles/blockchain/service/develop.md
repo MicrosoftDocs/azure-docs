@@ -1,15 +1,9 @@
 ---
 title: Azure Blockchain Service development overview
 description: Introduction on developing solutions on Azure Blockchain Service.
-services: azure-blockchain
-keywords: 
-author: PatAltimore
-ms.author: patricka
 ms.date: 10/11/2019
 ms.topic: conceptual
-ms.service: azure-blockchain
-ms.reviewer: jackyhsu
-manager: femila
+ms.reviewer: janders
 #Customer intent: As a blockchain developer, I want to understand common development tools I can use with Azure Blockchain Service, so that I can get started developing blockchain applications using Azure.
 ---
 

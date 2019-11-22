@@ -194,7 +194,7 @@
       - name: "Predict flight delays"
         displayName: classification, studio
         href:  how-to-designer-sample-classification-flight-delay.md
-      - name: "Test classification"
+      - name: "Text classification"
         displayName: classification, studio
         href:  how-to-designer-sample-text-classification.md
     - name: Use estimators for ML
@@ -299,8 +299,8 @@
       displayName: score scoring asynchronous consume pipeline parallelrunstep inference
       href: how-to-run-batch-predictions.md
     - name: Use the designer for batch predictions
-      displayName: score scoring asynchronous consume pipeline parallelrunstep inference
-      href: how-to-run-batch-predictions-ui.md
+      displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
+      href: how-to-run-batch-predictions-designer.md
   - name: Monitor models
     items:
     - name: Collect & evaluate model data

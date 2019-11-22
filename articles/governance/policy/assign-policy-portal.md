@@ -1,6 +1,6 @@
 ---
-title: Create policy to audit resources with portal
-description: This article walks you through the steps to create a policy definition to identify non-compliant resources.
+title: "Quickstart: New policy assignment with portal"
+description: In this quickstart, you use Azure portal to create an Azure Policy assignment to identify non-compliant resources.
 ms.date: 12/06/2018
 ms.topic: quickstart
 ---
