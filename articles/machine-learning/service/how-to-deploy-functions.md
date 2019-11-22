@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: aashishb
-author: aashishb
+ms.author: vaidyas
+author: vaidyas
 ms.reviewer: larryfr
-ms.date: 08/27/2019
+ms.date: 11/22/2019
 
 
 ---
