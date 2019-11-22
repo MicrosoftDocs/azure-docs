@@ -1,6 +1,6 @@
 ---
 title: Public preview service limits - Azure Digital Twins | Microsoft Docs
-description: Learn about public preview service subscription, instance, and rate limits for Azure Digital Twins.
+description: Learn about public preview service, subscription, instance, and rate limits for Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
