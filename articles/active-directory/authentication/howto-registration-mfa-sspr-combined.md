@@ -1,12 +1,12 @@
 ---
-title: Get started with combined registration for Azure AD SSPR and Multi-Factor Authentication (preview) - Azure Active Directory
+title: Get started with combined registration - Azure Active Directory
 description: Enable combined Azure AD Multi-Factor Authentication and self-service password reset registration (preview)
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
