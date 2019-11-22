@@ -64,7 +64,7 @@ The path to the output data in the blob follows this syntax:
 
 - You need an Azure Kubernetes Service (AKS) cluster. For information on how to create one and deploy to it, see [How to deploy and where](how-to-deploy-and-where.md).
 
-- [Set up your environment](how-to-configure-environment.md) and install the [Monitoring SDK](https://aka.ms/aml-monitoring-sdk).
+- [Set up your environment](how-to-configure-environment.md) and install the [Azure Machine Learning Monitoring SDK](https://aka.ms/aml-monitoring-sdk).
 
 ## Enable data collection
 
