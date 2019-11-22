@@ -1,15 +1,9 @@
 ---
-title: Azure Blockchain Service Consortium
+title: Azure Blockchain Service consortium
 description: Understand how Azure Blockchain Service uses a private consortium
-services: azure-blockchain
-keywords: 
-author: PatAltimore
-ms.author: patricka
 ms.date: 10/14/2019
 ms.topic: conceptual
-ms.service: azure-blockchain
 ms.reviewer: zeyadr
-manager: femila
 #Customer intent: As a network operator, I want to understand how a consortium works in Azure Blockchain Service so I can manage participants in the consortium.
 ---
 
