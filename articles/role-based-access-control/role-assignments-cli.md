@@ -374,7 +374,7 @@ To grant access to a user at a subscription scope, use [az role assignment creat
 az role assignment create --role <role_name_or_id> --assignee <assignee> --subscription <subscription_name_or_id>
 ```
 
-The following example assigns the *Reader* role to to the *annm\@example.com* user at a subscription scope.
+The following example assigns the *Reader* role to the *annm\@example.com* user at a subscription scope.
 
 ```azurecli
 az role assignment create --role "Reader" --assignee annm@example.com --subscription 00000000-0000-0000-0000-000000000000
@@ -388,7 +388,7 @@ To grant access to a user at a management group scope, use [az role assignment c
 az role assignment create --role <role_name_or_id> --assignee <assignee> --scope /providers/Microsoft.Management/managementGroups/<group_id>
 ```
 
-The following example assigns the *Billing Reader* role to to the *alain\@example.com* user at a management group scope.
+The following example assigns the *Billing Reader* role to the *alain\@example.com* user at a management group scope.
 
 ```azurecli
 az role assignment create --role "Billing Reader" --assignee alain@example.com --scope /providers/Microsoft.Management/managementGroups/marketing-group
