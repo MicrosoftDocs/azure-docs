@@ -11,7 +11,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 11/22/2019
 ms.author: apimpm
 ---
 
@@ -61,7 +61,7 @@ The portal components can be logically divided into two categories: *code* and *
 
 *API Management content* includes entities such as APIs, Operations, Products, Subscriptions.
 
-The portal is based on an adapted fork of the [Paperbits framework](https://paperbits.io/). The original Paperbits functionality has been extended to provide API Management-specific widgets (e.g., a list of APIs, a list of Products) and a connector to API Management service for saving and retrieving content.
+The portal is based on an adapted fork of the [Paperbits framework](https://paperbits.io/). The original Paperbits functionality has been extended to provide API Management-specific widgets (for example, a list of APIs, a list of Products) and a connector to API Management service for saving and retrieving content.
 
 ## <a name="faq"></a> Frequently asked questions
 
@@ -105,9 +105,11 @@ The API is documented in [the GitHub repository's wiki section][2]. It can also 
 
 No.
 
-### Do I need to enable additional VNET connectivity for the managed portal dependencies?
+### Do I need to enable additional VNet connectivity for the new managed portal dependencies?
 
-No.
+In most cases - no.
+
+If your API Management service is in an internal VNet, your developer portal is only accessible from within the network. The management endpoint's host name must resolve to the internal VIP of the service from the machine you use to access the portal's administrative interface. Make sure the management endpoint is registered in the DNS. In case of misconfiguration, you will see an error: `Unable to start the portal. See if settings are specified correctly in the configuration (...)`.
 
 ### I have assigned a custom API Management domain and the portal hasn't updated
 
@@ -115,7 +117,7 @@ After you update the domain, you need to [republish the portal](./api-management
 
 ### I have added an identity provider and the portal hasn't updated
 
-After you an identity provider (for example, AAD, AAD B2C), you need to [republish the portal](./api-management-howto-developer-portal.md#publish) for the changes to take effect.
+After you configure an identity provider (for example, AAD, AAD B2C), you need to [republish the portal](./api-management-howto-developer-portal.md#publish) for the changes to take effect.
 
 ### I have set up delegation and the portal hasn't updated
 
@@ -123,7 +125,7 @@ After you set up delegation, you need to [republish the portal](./api-management
 
 ### My other API Management configuration changes hasn't been propagated in the developer portal
 
-Most configuration changes (for example, VNET, sign-in and product terms) require [republishing the portal](./api-management-howto-developer-portal.md#publish).
+Most configuration changes (for example, VNet, sign-in and product terms) require [republishing the portal](./api-management-howto-developer-portal.md#publish).
 
 ### I'm getting a CORS error when using the interactive console
 
@@ -161,6 +163,47 @@ The interactive console makes a client-side API request from the browser. You ca
 >
 > As a workaround you can pass the subscription key in a query parameter.
 
+### what permissions do I need to edit the developer portal?
+
+If you're seeing the `Oops. Something went wrong. Please try again later.` error when you open the portal in the administrative mode, you may be lacking the required permissions (RBAC). The permissions required to access the new portal's administrative interface are different from the permissions required for the legacy publisher and developer portals.
+
+The legacy portals required the permission `Microsoft.ApiManagement/service/getssotoken/action` at the service scope (`/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>`) to allow the user administrator access to the portals. The new portal requires the permission `Microsoft.ApiManagement/service/users/token/action` at the scope `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1`.
+
+You can use the following PowerShell script to create a role with the required permission (remember to change the `<subscription-id>` parameter): 
+
+```PowerShell
+#New Portals Admin Role 
+Import-Module Az 
+Connect-AzAccount 
+$contributorRole = Get-AzRoleDefinition "API Management Service Contributor" 
+$customRole = $contributorRole 
+$customRole.Id = $null
+$customRole.Name = "APIM New Portal Admin" 
+$customRole.Description = "This role gives the user ability to log in to the new Developer portal as administrator" 
+$customRole.Actions = "Microsoft.ApiManagement/service/users/token/action" 
+$customRole.IsCustom = $true 
+$customRole.AssignableScopes.Clear() 
+$customRole.AssignableScopes.Add('/subscriptions/<subscription-id>') 
+New-AzRoleDefinition -Role $customRole 
+```
+ 
+Once the role is created, it can be granted to any user from the **Access Control (IAM)** section in the Azure Portal. Assigning this role to a user from the Azure portal will assign the permission at the service scope. The user will be able to generate SAS tokens on behalf of *any* user in the service.
+
+At the minimum, this role needs to be assigned permissions at the "administrator" user scope of the service, which can be done via PowerShell. The following PowerShell command demonstrates how to assign the role to a user `user1` at the lowest scope to avoid granting unnecessary permissions to the user: 
+
+```PowerShell
+New-AzRoleAssignment -SignInName "user1@contoso.com" -RoleDefinitionName "APIM New Portal Admin" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1" 
+```
+
+After the permissions have been granted to a user, the user must sign out and sign in again to the Azure portal for the new permissions to take effect.
+
+### I'm seeing the `Unable to start the portal. See if settings are specified correctly (...)` error
+
+This error is shown when a `GET` call to `https://<management-endpoint-hostname>/subscriptions/xxx/resourceGroups/xxx/providers/Microsoft.ApiManagement/service/xxx/contentTypes/document/contentItems/configuration?api-version=2018-06-01-preview` fails. The call is issued from the browser by the administrative interface of the portal.
+
+If your API Management service is in a VNet - refer to the VNet connectivity question above.
+
+The call failure may also be caused by an SSL certificate, which is assigned to a custom domain and is not trusted by the browser. As a mitigation, you can remove the management endpoint custom domain - API Management will fall back to the default endpoint with a trusted certificate.
 
 ## Next steps
 
