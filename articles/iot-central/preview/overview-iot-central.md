@@ -120,7 +120,7 @@ As well as devices created using the [Azure IoT SDKs](https://github.com/Azure/a
 - Report module health to the cloud for remote monitoring.
 - Manage communication between downstream leaf devices and an IoT Edge device, between modules on an IoT Edge device, and between an IoT Edge device and the cloud.
 
-For more information, see [Azure IoT Edge devices and IoT Central](./concepts-architecture.md#azure-iot-edge-devices).
+For more information, see [Azure IoT Edge devices and IoT Central](../core/concepts-architecture.md#azure-iot-edge-devices).
 
 ## Manage your application
 

@@ -27,7 +27,7 @@ Devices exchange data with your Azure IoT Central application. A device can:
 
 In Azure IoT Central, the data that a device can exchange with your application is specified in a device template. For more information about device templates, see [Metadata management](#metadata-management).
 
-To learn more about how devices connect to your Azure IoT Central application, see [Device connectivity](overview-iot-central-get-connected.md).
+To learn more about how devices connect to your Azure IoT Central application, see [Device connectivity](../preview/overview-iot-central-get-connected.md).
 
 ## Azure IoT Edge devices
 
@@ -53,7 +53,7 @@ IoT Central enables the following capabilities to for IoT Edge devices:
   - Cloud properties that aren't stored on the IoT Edge device.
   - Customizations, dashboards, and forms that are part of your IoT Central application.
 
-  For more information, see the [Create an IoT Edge device template](./tutorial-define-edge-device-type.md) tutorial.
+  For more information, see the [Create an IoT Edge device template](../preview/tutorial-define-edge-device-type.md) tutorial.
 
 - The ability to provision IoT Edge devices at scale using Azure IoT device provisioning service
 - Rules and actions.
@@ -101,7 +101,7 @@ Azure IoT Central uses Azure IoT Hub as a cloud gateway that enables device conn
 
 To learn more about IoT Hub, see [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/).
 
-To learn more about device connectivity in Azure IoT Central, see [Device connectivity](overview-iot-central-get-connected.md).
+To learn more about device connectivity in Azure IoT Central, see [Device connectivity](../preview/overview-iot-central-get-connected.md).
 
 ## Data stores
 
@@ -120,7 +120,7 @@ The analytics service is responsible for generating the custom reporting data th
 
 ## Rules and actions
 
-[Rules and actions](tutorial-create-telemetry-rules.md) work closely together to automate tasks within the application. A builder can define rules based on device telemetry such as the temperature exceeding a defined threshold. Azure IoT Central uses a stream processor to determine when the rule conditions are met. When a rule condition is met, it triggers an action defined by the builder. For example, an action can send an email to notify an engineer that the temperature in a device is too high.
+[Rules and actions](../preview/tutorial-create-telemetry-rules.md) work closely together to automate tasks within the application. A builder can define rules based on device telemetry such as the temperature exceeding a defined threshold. Azure IoT Central uses a stream processor to determine when the rule conditions are met. When a rule condition is met, it triggers an action defined by the builder. For example, an action can send an email to notify an engineer that the temperature in a device is too high.
 
 ## Metadata management
 
@@ -139,7 +139,7 @@ An application can have one or more simulated and real devices based on each dev
 
 ## Data export
 
-In an Azure IoT Central application, you can [continuously export your data](howto-export-data.md) to your own Azure Event Hubs and Azure Service Bus instances. You can also periodically export your data to your Azure Blob storage account. IoT Central can export measurements, devices, and device templates.
+In an Azure IoT Central application, you can [continuously export your data](../preview/howto-export-data.md) to your own Azure Event Hubs and Azure Service Bus instances. You can also periodically export your data to your Azure Blob storage account. IoT Central can export measurements, devices, and device templates.
 
 ## Batch device updates
 
@@ -167,4 +167,4 @@ An operator can create personalized application dashboards. You can have several
 
 ## Next steps
 
-Now that you've learned about the architecture of Azure IoT Central, the suggested next step is to learn about [device connectivity](overview-iot-central-get-connected.md) in Azure IoT Central.
+Now that you've learned about the architecture of Azure IoT Central, the suggested next step is to learn about [device connectivity](../preview/overview-iot-central-get-connected.md) in Azure IoT Central.

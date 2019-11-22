@@ -24,7 +24,7 @@ In this example, you connect to RequestBin to get notified when rules fire using
 
 1. Create a new RequestBin and copy the **Bin URL**.
 
-1. Create a [telemetry rule](tutorial-create-telemetry-rules.md). Save the rule and add a new action.
+1. Create a [telemetry rule](../preview/tutorial-create-telemetry-rules.md). Save the rule and add a new action.
 
     ![Webhook creation screen](media/howto-create-webhooks/webhookcreate.png)
 
