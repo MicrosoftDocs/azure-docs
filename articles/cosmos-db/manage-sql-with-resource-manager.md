@@ -1,5 +1,5 @@
 ---
-title: Create and manage Azure Cosmos DB using Azure Resource Manager templates
+title: Create and manage Azure Cosmos DB with Azure Resource Manager templates
 description: Use Azure Resource Manager templates to create and configure Azure Cosmos DB for SQL (Core) API 
 author: TheovanKraay
 ms.service: cosmos-db
@@ -8,17 +8,12 @@ ms.date: 11/12/2019
 ms.author: thvankra
 ---
 
-# Manage Azure Cosmos DB SQL (Core) API resources using Azure Resource Manager templates
+# Manage Azure Cosmos DB SQL (Core) API resources with Azure Resource Manager templates
 
 In this article, you learn how to use Azure Resource Manager templates to help automate management of your Azure Cosmos DB accounts, databases, and containers.
 
-> [!NOTE]
-> This article only shows Azure Resource Manager template examples for SQL API accounts. For examples that use other API types, see:
->
-> * [Cassandra](manage-cassandra-with-resource-manager.md)
-> * [Gremlin](manage-gremlin-with-resource-manager.md)
-> * [MongoDB](manage-mongodb-with-resource-manager.md)
-> * [Table](manage-table-with-resource-manager.md) 
+This article only shows Azure Resource Manager template examples for SQL API accounts. You can also find template examples for [Cassandra](manage-cassandra-with-resource-manager.md), [Gremlin](manage-gremlin-with-resource-manager.md),
+[MongoDB](manage-mongodb-with-resource-manager.md), and [Table](manage-table-with-resource-manager.md) APIs.
 
 <a id="create-resource"></a>
 
@@ -132,7 +127,7 @@ The `az cosmosdb show` command shows the newly created Azure Cosmos account afte
 
 You can use an Azure Resource Manager template to create an Azure Cosmos DB container with a stored procedure, trigger, and user-defined function.
 
-Copy the template and deploy as described in the following sections.
+Copy the following example template and deploy it as described, either with [Powershell](#deploy-with-powershell) or [Azure CLI](#deploy-with-azure-cli).
 
 * Optionally, you can visit [Azure Quickstart Gallery](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-container-sprocs/) and deploy the template from the Azure portal.
 * You can also download the template to your local computer or create a new template and specify the local path with the `--template-file` parameter.
@@ -145,7 +140,7 @@ To use PowerShell to deploy the Azure Resource Manager template:
 
 1. **Copy** the script.
 1. Select **Try it** to open Azure Cloud Shell.
-1. Right-click the Azure Cloud Shell window, and then select **Paste**:
+1. Right-click the Azure Cloud Shell window, and then select **Paste**.
 
 ```azurepowershell-interactive
 
