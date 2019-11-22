@@ -113,19 +113,19 @@ If your API Management service is in an internal VNet, your developer portal is 
 
 ### I have assigned a custom API Management domain and the portal hasn't updated
 
-After you update the domain, you need to [republish the portal](api-management-howto-developer-portal.md#publish) for the changes to take effect.
+After you update the domain, you need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the changes to take effect.
 
 ### I have added an identity provider and the portal hasn't updated
 
-After you configure an identity provider (for example, AAD, AAD B2C), you need to [republish the portal](api-management-howto-developer-portal.md#publish) for the changes to take effect.
+After you configure an identity provider (for example, AAD, AAD B2C), you need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the changes to take effect.
 
 ### I have set up delegation and the portal hasn't updated
 
-After you set up delegation, you need to [republish the portal](api-management-howto-developer-portal.md#publish) for the changes to take effect.
+After you set up delegation, you need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the changes to take effect.
 
 ### My other API Management configuration changes hasn't been propagated in the developer portal
 
-Most configuration changes (for example, VNet, sign-in and product terms) require [republishing the portal](api-management-howto-developer-portal.md#publish).
+Most configuration changes (for example, VNet, sign-in and product terms) require [republishing the portal](api-management-howto-developer-portal-customize.md#publish).
 
 ### I'm getting a CORS error when using the interactive console
 
