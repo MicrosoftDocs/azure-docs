@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Data querying in Preview - Azure Time Series Insights | Microsoft Docs'
 description: Learn about Azure Time Series Insights Preview data querying.
 author: deepakpalled
@@ -71,3 +71,4 @@ The following Time Series Query APIs are available. These APIs are available on 
 - Learn more about [storage and ingress](./time-series-insights-update-storage-ingress.md) in Azure Time Series Insights Preview.
 - Read the Time Series Insights Preview [data modeling](./time-series-insights-update-tsm.md) article.
 - Discover [best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md).
+
