@@ -42,9 +42,9 @@ A BACPAC file is shared in [Github](https://github.com/Azure/azure-docs-json-sam
 
 The BACPAC file must be stored in an Azure Storage account before it can be imported using Resource Manager template.
 
-1. Open the [Cloud shell](https://cloud.azure.com).
+1. Open the [Cloud shell](https://shell.azure.com).
 1. Select **Upload/Download files**, and then select **Upload**.
-1. Specify the following URL:
+1. Specify the following URL and then select **Open**.
 
     ```url
     https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac
@@ -52,7 +52,7 @@ The BACPAC file must be stored in an Azure Storage account before it can be impo
 
 1. Copy and paste the following PowerShell script into the shell window.
 
-    ```azurepowershell
+    ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 
@@ -64,17 +64,21 @@ The BACPAC file must be stored in an Azure Storage account before it can be impo
 
     New-AzResourceGroup -Name $resourceGroupName -Location $location
     $storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroupName `
-      -Name $storageAccountName `
-      -SkuName Standard_LRS `
-      -Location $location `
-    $storageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName).Value[0]
+                                           -Name $storageAccountName `
+                                           -SkuName Standard_LRS `
+                                           -Location $location
+    $storageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName `
+                                                  -Name $storageAccountName).Value[0]
 
     New-AzStorageContainer -Name $containerName -Context $storageAccount.Context
 
-    Set-AzStorageBlobContent -File $bacpacFile -Container $containerName -Blob $blobName -Context $storageAccount.Context
+    Set-AzStorageBlobContent -File $bacpacFile `
+                             -Container $containerName `
+                             -Blob $blobName `
+                             -Context $storageAccount.Context
 
-    Write-Host "The storage account key is $storageAccountKey."
-    Write-Host "The BACPAC file URL is https://$storageAccountName.blob.core.windows.net/$containerName/$blobName."
+    Write-Host "The storage account key is $storageAccountKey"
+    Write-Host "The BACPAC file URL is https://$storageAccountName.blob.core.windows.net/$containerName/$blobName"
     Write-Host "Press [ENTER] to continue ..."
     ```
 
@@ -104,7 +108,7 @@ The template used in this tutorial is stored in [Github](https://raw.githubuserc
 
 ## Edit the template
 
-1. Add two parameters to set the storage account key and the BACPAC URL:
+1. Add two more parameters at the end of the **parameters** section to set the storage account key and the BACPAC URL:
 
     ```json
     "storageAccountKey": {
@@ -120,6 +124,8 @@ The template used in this tutorial is stored in [Github](https://raw.githubuserc
       }
     }
     ```
+
+    You need to add a comma after **adminPassword**. To format the JSON file from VS Code, press **[SHIFT]+[ALT]+F**.
 
     See [Prepare a BACPAC file](#prepare-a-bacpac-file) about getting these two values.
 
@@ -208,6 +214,8 @@ New-AzResourceGroupDeployment `
 
 Write-Host "Press [ENTER] to continue ..."
 ```
+
+Consider using the same project name as you used when you prepared the bacpac file, so all the resources are stored within the same resource group.  It is easier for managing resource, such as cleaning up the resources. If you use the same project name, you can either remove the **New-AzResourceGroup** command from the script, or answer y or n when you are asked whether you want to update the existing resource group.
 
 Use a generated password. See [Prerequisites](#prerequisites).
 
