@@ -61,23 +61,23 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ### CLI
 
-First, make sure you [install the latest version](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+First, make sure you [install the latest version](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), so that you can enable this feature.
 
 To create a storage account with large file shares enabled, replace `<yourStorageAccountName>`, `<yourResourceGroup>`, and `<yourDesiredRegion>` with your values, then use the following command:
 
 ```azurecli-interactive
-## This command, when used with the -enable-large-file-share parameter, creates a large file share enabled account. When this parameter is used, the resulting storage account will not support GZRS, GRS, or RA-GRS
+## This command creates a large file share enabled account, it will not support GZRS, GRS, or RA-GRS
 az storage account create –name <yourStorageAccountName> -g <yourResourceGroup> -l <yourDesiredRegion> –sku Standard_LRS --kind StorageV2 –enable-large-file-share
 ```
 
 ### PowerShell
 
-First, make sure you [install the latest version](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0).
+First, make sure you [install the latest version](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0), so that you can enable this feature.
 
 To create a storage account with large file shares enabled, replace `<yourStorageAccountName>`, `<yourResourceGroup>`, and `<yourDesiredRegion>` with your values, then use the following command:
 
 ```PowerShell
-## This command, when used with the -EnableLargeFileShare parameter, creates a large file share enabled account. When this parameter is used, the resulting storage account will not support GZRS, GRS, or RA-GRS
+## This command creates a large file share enabled account, it will not support GZRS, GRS, or RA-GRS
 New-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAccountName> -Location <yourDesiredRegion> -SkuName Standard_LRS -EnableLargeFileShare;
 ```
 
