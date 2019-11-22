@@ -1,5 +1,5 @@
 ---
-title: Configure authentication session management with Azure Active Directory Conditional Access
+title: Configure authentication session management - Azure Active Directory
 description: Customize Azure AD authentication session configuration including user sign in frequency and browser session persistence.
 
 services: active-directory
