@@ -44,7 +44,7 @@ Data sources and connectors shown in Get Data or Import Wizard in Visual Studio 
 |Analysis Services     |  Yes | No |  |
 |Analytics Platform System     |  Yes | No |  |
 |CSV file  |Yes | No |  |
-|Dynamics CRM     |  Yes | No | <sup>[6](#tab1400b)</sup> |
+|Dynamics 365     |  Yes | No | <sup>[6](#tab1400b)</sup> |
 |Excel workbook     |  Yes | No |  |
 |Exchange      |  Yes | No | <sup>[6](#tab1400b)</sup> |
 |Folder      |Yes | No | <sup>[6](#tab1400b)</sup> |
@@ -88,13 +88,13 @@ In tabular 1200 and lower data models, connections to any data source require a 
 
 ### Specifying a different provider
 
-For tabular 1200 models and tabular 1400 and higher data models in Azure Analysis Services, a different data provider may be required when connecting to certain data sources. Also when migrating an on-premises SQL Server Analysis Services tabular model to Azure Analysis Services, it may also be necessary to change the provider.
+For tabular 1200 models and tabular 1400 and higher models with provider data sources, a different data provider may be required. When migrating an on-premises SQL Server Analysis Services tabular model to Azure Analysis Services, it may also be necessary to change the provider.
 
 **To specify a provider in Visual Studio**
 
 1. In Visual Studio > **Tabular Model Explorer** > **Data Sources**, right-click a data source connection, and then click **Edit Data Source**.
 2. In **Edit Connection**, click **Advanced** to open the Advance properties window.
-3. In **Set Advanced Properties** > **Providers**, then select the appropriate provider.
+3. In **Set Advanced Properties** > **Providers**, select the appropriate provider.
 
 **To specify a provider directly in Model.bim**
 
