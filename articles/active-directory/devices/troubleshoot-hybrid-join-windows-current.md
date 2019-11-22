@@ -1,12 +1,12 @@
 ---
-title: Troubleshooting hybrid Azure Active Directory joined devices - Azure Active Directory
+title: Troubleshooting hybrid Azure Active Directory joined devices
 description: Troubleshooting hybrid Azure Active Directory joined Windows 10 and Windows Server 2016 devices.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: troubleshooting
-ms.date: 06/28/2019
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
