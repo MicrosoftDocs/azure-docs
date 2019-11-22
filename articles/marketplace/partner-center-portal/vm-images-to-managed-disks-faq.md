@@ -54,4 +54,4 @@ Updates to the VM images cannot be made during the move.
 
 ## Next steps
 
-Visit the [Azure Marketplace and AppSource Publisher guide](/azure/marketplace/marketplace-publishers-guide) page.
+Visit the [virtual machine offer publisher guide](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) page.
