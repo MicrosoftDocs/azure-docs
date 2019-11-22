@@ -26,6 +26,9 @@ The ASE outbound dependencies are almost entirely defined with FQDNs, which do n
 
 The solution to securing outbound addresses lies in use of a firewall device that can control outbound traffic based on domain names. Azure Firewall can restrict outbound HTTP and HTTPS traffic based on the FQDN of the destination.  
 
+> [!NOTE]
+> At this moment, we can't fully lockdown the outbound connection currently.
+
 ## System architecture
 
 Deploying an ASE with outbound traffic going through a firewall device requires changing routes on the ASE subnet. Routes operate at an IP level. If you are not careful in defining your routes, you can force TCP reply traffic to source from another address. When your reply address is different from the address traffic was sent to, the problem is called asymmetric routing and it will break TCP.

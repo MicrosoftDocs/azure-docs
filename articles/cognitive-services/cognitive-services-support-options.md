@@ -7,7 +7,7 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 11/22/2019
 ms.author: dapine
 ---
 
@@ -111,7 +111,7 @@ You might find the answer you need in the documentation, the samples, or answers
 
  - https://stackoverflow.com/questions/tagged/azure-cognitive-services
 
-### Scoped Search
+### Scoped search
 
 For faster results, scope your search to relevant sites such as Stack Overflow, Microsoft docs, or GitHub code samples. Use the `site:` query notation in your [favorite search engine](https://bing.com):
 
@@ -174,3 +174,8 @@ Detail the Cognitive Services offering that you're attempting to use, and provid
 </div>
 
 Reddit is community driven web content rating and discussion website, offering the latest details of [Azure Cognitive Services](https://www.reddit.com/r/AZURE/search/?q=Cognitive%20Services&restrict_sr=1). Registered members can submit content and others can vote on it - organically enabling the most relevant content will rise to the top.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [What are Azure Cognitive Services?](welcome.md)
