@@ -58,7 +58,7 @@ The path to the output data in the blob follows this syntax:
 - If you don't have an Azure subscription, create a
  [free account](https://aka.ms/AMLFree) before you begin.
 
-- A Machine Learning workspace, a local directory containing your scripts, and the Azure Machine Learning SDK for Python must be installed. To learn how to install them, see [How to configure a development environment](how-to-configure-environment.md).
+- A AzureMachine Learning workspace, a local directory containing your scripts, and the Azure Machine Learning SDK for Python must be installed. To learn how to install them, see [How to configure a development environment](how-to-configure-environment.md).
 
 - You need a trained machine-learning model to be deployed to Azure Kubernetes Service (AKS). If you don't have a model, see the [Train image classification model](tutorial-train-models-with-aml.md) tutorial.
 
@@ -68,7 +68,7 @@ The path to the output data in the blob follows this syntax:
 
 ## Enable data collection
 
-You can enable data collection regardless of the model you deploy through Machine Learning or other tools.
+You can enable data collection regardless of the model you deploy through Azure Machine Learning or other tools.
 
 To enable data collection, you need to:
 
@@ -80,7 +80,7 @@ To enable data collection, you need to:
    from azureml.monitoring import ModelDataCollector
    ```
 
-1. Declare your data collection variables in your **init** function:
+1. Declare your data collection variables in your `init` function:
 
     ```python
     global inputs_dc, prediction_dc
@@ -92,7 +92,7 @@ To enable data collection, you need to:
     
     The *Identifier* parameter is later used for building the folder structure in your blob. You can use it to differentiate raw data from processed data.
 
-1. Add the following lines of code to the **run**(*input_df*) function:
+1. Add the following lines of code to the `run(input_df)` function:
 
     ```python
     data = np.array(data)
@@ -117,7 +117,7 @@ To enable data collection, you need to:
 
 If you already have a service with the dependencies installed in your environment file and scoring file, enable data collection by following these steps:
 
-1. Go to [Azure Machine Learning Studio](https://ml.azure.com).
+1. Go to [Azure Machine Learning](https://ml.azure.com).
 
 1. Open your workspace.
 
@@ -135,11 +135,11 @@ If you already have a service with the dependencies installed in your environmen
 
 ## Disable data collection
 
-You can stop collecting data at any time. Use Python code or Machine Learning Studio to disable data collection.
+You can stop collecting data at any time. Use Python code or Azure Machine Learning to disable data collection.
 
-### Option 1 - Disable data collection in Azure Machine Learning Studio
+### Option 1 - Disable data collection in Azure Machine Learning
 
-1. Sign in to [Machine Learning Studio](https://ml.azure.com).
+1. Sign in to [Azure Machine Learning](https://ml.azure.com).
 
 1. Open your workspace.
 
@@ -153,7 +153,7 @@ You can stop collecting data at any time. Use Python code or Machine Learning St
 
 1. Select **Update** to apply the change.
 
-You can also access these settings in your workspace in [Machine Learning Studio](https://ml.azure.com).
+You can also access these settings in your workspace in [Azure Machine Learning](https://ml.azure.com).
 
 ### Option 2 - Use Python to disable data collection
 
@@ -168,7 +168,7 @@ You can choose a tool of your preference to analyze the data collected in your B
 
 ### Quickly access your blob data
 
-1. Sign in to [Machine Learning Studio](https://ml.azure.com).
+1. Sign in to [Azure Machine Learning](https://ml.azure.com).
 
 1. Open your workspace.
 
@@ -246,6 +246,6 @@ You can choose a tool of your preference to analyze the data collected in your B
 
 ## Example notebook
 
-The [How to use Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-data-collection-for-models-in-aks/enable-data-collection-for-models-in-aks.ipynb) notebook demonstrates the concepts in this article.
+The [How to use Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-data-collection-for-models-in-aks/enable-data-collection-for-models-in-aks.ipynb) notebook demonstrates the concepts in this article.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
