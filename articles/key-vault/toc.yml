@@ -17,8 +17,8 @@
     href: quick-create-python.md
   - name: Java
     href: quick-create-java.md
-  - name: JavaScript
-    href: quick-create-javascript.md
+  - name: Node.js
+    href: quick-create-node.md
   - name: .NET (SDK v4)
     href: quick-create-net.md
   - name: .NET (SDK v3)
