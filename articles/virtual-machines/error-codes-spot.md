@@ -26,8 +26,8 @@ Here are some possible error codes you could receive when using Spot VMs and sca
 > [!div class="mx-tdBreakAll"]
 > | Key | Message | Description |
 > |-----|---------|-------------|
-> | SkuNotAvailable | The requested tier for resource '<resource>' is currently not available in location '<location>' 
-for subscription '<subscriptionID>'. Please try another tier or deploy to a different location. | There is not enough Azure Spot capacity in this location to create your VM or scale set instance. |
+> | SkuNotAvailable | The requested tier for resource '\<resource\>' is currently not available in location '\<location\>' 
+for subscription '\<subscriptionID\>'. Please try another tier or deploy to a different location. | There is not enough Azure Spot capacity in this location to create your VM or scale set instance. |
 > | EvictionPolicyCanBeSetOnlyOnAzureSpotVirtualMachines  |  Eviction policy can be set only on Azure Spot Virtual Machines. | This VM is not a Spot VM, so you can't set the eviction policy. |
 > | AzureSpotVMNotSupportedInAvailabilitySet  |  Azure Spot Virtual Machine is not supported in Availability Set. | You need to choose to either use a Spot VM or use a VM in an availability set, you can't choose both. |
 > | AzureSpotFeatureNotEnabledForSubscription  |  Subscription not enabled with Azure Spot feature. | You need to have a subscription that supports Spot VMs. |
