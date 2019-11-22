@@ -175,6 +175,11 @@ This section is based on [Create a profile container for a host pool using a fil
 
 12. Create a value named **VHDLocations** with a **Multi-String** type and set its data value to the URI for the Azure NetApp Files share.
 
+13. Create a value named **DeleteLocalProfileWhenVHDShouldApply** with a DWORD value of 1 to avoid problems with existing local profiles before you sign in.
+
+>[!WARNING]
+>Be careful when creating the DeleteLocalProfileWhenVHDShouldApply value. When the FSLogix Profiles system determines a user should have an FSLogix profile, but a local profile already exists, Profile Container will permanently delete the local profile. The user will then be signed in with the new FSLogix profile.
+
 ## Assign users to session host
 
 1. Open **PowerShell ISE** as administrator and sign in to Windows Virtual Desktop.
