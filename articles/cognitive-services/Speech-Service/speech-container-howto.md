@@ -8,11 +8,11 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/15/2019
+ms.date: 11/21/2019
 ms.author: dapine
 ---
 
-# Install and run Speech Service containers
+# Install and run Speech Service containers (Preview)
 
 Containers enable you to run some of the Speech Service APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run a Speech container.
 
