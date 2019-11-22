@@ -1,5 +1,5 @@
 ---
-title: How to manage the local administrators group on Azure AD joined devices | Microsoft Docs
+title: How to manage local administrators on Azure AD joined devices
 description: Learn how to assign Azure roles to the local administrators group of a Windows device.
 
 services: active-directory

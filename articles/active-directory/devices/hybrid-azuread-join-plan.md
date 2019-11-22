@@ -1,5 +1,5 @@
 ---
-title: How to plan hybrid Azure Active Directory join implementation in Azure Active Directory (Azure AD) | Microsoft Docs
+title: Plan hybrid Azure Active Directory join - Azure Active Directory
 description: Learn how to configure hybrid Azure Active Directory joined devices.
 
 services: active-directory
