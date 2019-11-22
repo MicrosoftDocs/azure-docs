@@ -372,7 +372,7 @@ We upload the necessary files to a folder named with your sign in account, and y
 
    ![upload path in the configuration](./media/apache-spark-intellij-tool-plugin/upload-path-in-the-configuration.png)
 
-### Spark console
+### Spark console on an HDInsight ESP cluster with HIB enabled
 You can run Spark Local Console(Scala) or run Spark Livy Interactive Session Console(Scala) on an HDInsight ESP cluster with HIB enabled. Refer to [Spark Console](#spark-console) for more instructions.
 
    > [!NOTE]  
