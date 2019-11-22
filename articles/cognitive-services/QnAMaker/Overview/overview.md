@@ -82,7 +82,7 @@ QnA Maker provides authoring, training, and publishing along with collaboration 
 
 **Step 3**: Publish your knowledge base and test from your custom endpoint using [cURL or Postman](../Quickstarts/get-answer-from-knowledge-base-using-url-tool.md). 
 
-**Step 4**: From your client application, programmatically call your knowledge base's endpoint and read the JSON response show the best answer to the user.  
+**Step 4**: From your client application, programmatically call your knowledge base's endpoint. The client application processes the JSON response to show the best answer to the user.  
 
 ## Next steps
 QnA Maker provides everything you need to build, manage, and deploy your custom knowledge base. 
