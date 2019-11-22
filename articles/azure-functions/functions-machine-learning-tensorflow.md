@@ -3,7 +3,6 @@ title: Use Python and TensorFlow in Azure Functions to make machine learning inf
 description: This tutorial demonstrates how to apply TensorFlow machine learning models in Azure Functions
 author: anthonychu
 
-ms.devlang: python
 ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: antchu

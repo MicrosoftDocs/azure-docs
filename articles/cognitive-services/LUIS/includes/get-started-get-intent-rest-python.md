@@ -6,7 +6,7 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include 
-ms.date: 10/18/2019
+ms.date: 11/20/2019
 ms.author: diberry
 ---
 
@@ -14,16 +14,17 @@ ms.author: diberry
 
 * [Python 3.6](https://www.python.org/downloads/) or later.
 * [Visual Studio Code](https://code.visualstudio.com/)
+* Public app ID: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
 ## Get LUIS key
 
 [!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
 
-## Get intent  programmatically
+## Get intent from the prediction endpoint
 
-Use Python to query the prediction endpoint GET [API](https://aka.ms/luis-apim-v3-prediction) to get the prediction result.
+Use Python to query the [prediction endpoint](https://aka.ms/luis-apim-v3-prediction) and get a prediction result.
 
-1. Copy one of the following code snippets to a file called `predict.py`:
+1. Copy this code snippet into a file called `predict.py`:
 
     ```python
     ########### Python 3.6 #############
@@ -58,28 +59,28 @@ Use Python to query the prediction endpoint GET [API](https://aka.ms/luis-apim-v
 
 1. Replace the following values:
 
-    * `YOUR-KEY` with your starter key
-    * `YOUR-ENDPOINT` with your endpoint, for example, `westus2.api.cognitive.microsoft.com`
+    * `YOUR-KEY` with your starter key.
+    * `YOUR-ENDPOINT` with your endpoint. For example, `westus2.api.cognitive.microsoft.com`.
 
-1. Install dependencies with the following console command:
+1. Install the `requests` dependency. This is used to make HTTP requests:
 
     ```console
     pip install requests
     ```
 
-1. Run the script with the following console command:
+1. Run your script with this console command:
 
     ```console
     python predict.py
     ``` 
 
-1. Review prediction response in JSON format:
+1. Review the prediction response, which is returned as JSON:
 
     ```console
     {'query': 'turn on all lights', 'prediction': {'topIntent': 'HomeAutomation.TurnOn', 'intents': {'HomeAutomation.TurnOn': {'score': 0.5375382}, 'None': {'score': 0.08687421}, 'HomeAutomation.TurnOff': {'score': 0.0207554}}, 'entities': {'HomeAutomation.Operation': ['on'], '$instance': {'HomeAutomation.Operation': [{'type': 'HomeAutomation.Operation', 'text': 'on', 'startIndex': 5, 'length': 2, 'score': 0.724984169, 'modelTypeId': -1, 'modelType': 'Unknown', 'recognitionSources': ['model']}]}}}}
     ```
 
-    The JSON response formatted for readability: 
+    Here's the JSON response formatted for readability: 
 
     ```JSON
     {

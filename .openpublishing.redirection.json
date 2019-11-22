@@ -26477,6 +26477,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/hdinsight/spark/apache-spark-eventhub-streaming.md",
+      "redirect_url": "/azure/hdinsight/spark/apache-spark-ipython-notebook-machine-learning",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/hdinsight/storm/apache-storm-sensor-data-analysis.md",
       "redirect_url": "https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/",
       "redirect_document_id": false

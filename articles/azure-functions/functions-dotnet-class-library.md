@@ -2,7 +2,6 @@
 title: Azure Functions C# developer reference
 description: Understand how to develop Azure Functions using C#.
 
-ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 

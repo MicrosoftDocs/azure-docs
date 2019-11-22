@@ -1,15 +1,9 @@
 ---
 title: Manage Azure Blockchain Service using Azure CLI
-description: How to create and manage Azure Blockchain Service with Azure CLI
-services: azure-blockchain
-keywords: 
-author: PatAltimore
-ms.author: patricka
+description: How to manage Azure Blockchain Service with Azure CLI
 ms.date: 05/02/2019
 ms.topic: article
-ms.service: azure-blockchain
-ms.reviewer: seal
-manager: femila
+ms.reviewer: janders
 #Customer intent: As a network operator, I want to use CLI to configure transaction nodes.
 ---
 

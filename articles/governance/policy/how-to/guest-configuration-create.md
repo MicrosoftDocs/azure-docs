@@ -547,4 +547,4 @@ recent information.
 
 - Learn about auditing VMs with [Guest Configuration](../concepts/guest-configuration.md).
 - Understand how to [programmatically create policies](programmatically-create.md).
-- Learn how to [get compliance data](getting-compliance-data.md).
+- Learn how to [get compliance data](get-compliance-data.md).
