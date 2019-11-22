@@ -22,6 +22,9 @@ Enabling the BYOK feature is a one time setup process on your namespace.
 
 > [!NOTE]
 > The BYOK compatibility is supported by [Azure Service Bus Premium](service-bus-premium-messaging.md) tier. It cannot be enabled for standard tier Service Bus namespaces.
+>
+>
+> If [Virtual network (VNet) service endpoints](service-bus-service-endpoints.md) are configured on Azure Key Vault for your Service Bus namespace, BYOK will not be supported. 
 
 You can use Azure Key Vault to manage your keys and audit your key usage. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/key-vault-overview.md)
 
@@ -48,12 +51,12 @@ After you enable customer-managed keys, you need to associate the customer manag
 1. To turn on both soft delete and purge protection when creating a vault, use the [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) command.
 
     ```azurecli-interactive
-    az keyvault create --name ContosoVault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
+    az keyvault create --name contoso-SB-BYOK-keyvault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
     ```    
 1. To add purge protection to an existing vault (that already has soft delete enabled), use the [az keyvault update](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) command.
 
     ```azurecli-interactive
-    az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge-protection true
+    az keyvault update --name contoso-SB-BYOK-keyvault --resource-group ContosoRG --enable-purge-protection true
     ```
 1. Create keys by following these steps:
     1. To create a new key, select **Generate/Import** from the **Keys** menu under **Settings**.
@@ -67,11 +70,30 @@ After you enable customer-managed keys, you need to associate the customer manag
     1. You can now select this key to associate with the Service Bus namespace for encrypting from the drop-down list. 
 
         ![Select key from key vault](./media/configure-customer-managed-key/select-key-from-key-vault.png)
-
+        > [!NOTE]
+        > For redundancy, you can add up to 3 keys. In the event that one of the keys has expired, or is not accessible, the other keys will be used for encryption.
+        
     1. Fill in the details for the key and click **Select**. This will enable the encryption of data at rest on the namespace with a customer managed key. 
 
-> [!NOTE]
-> For preview, you can only select a single key. 
+
+> [!IMPORTANT]
+> If you are looking to use Customer managed key along with Geo diaster recovery, please review the below  - 
+>
+> To enable encryption at rest with customer managed key, an [access policy](../key-vault/key-vault-secure-your-key-vault.md) is setup for the Service Bus' managed identity on the specified Azure KeyVault. This ensures controlled access to the Azure KeyVault from the Azure Service Bus namespace.
+>
+> Due to this,
+> 
+>   * If [Geo disaster recovery](service-bus-geo-dr.md) is already enabled for the Service Bus namespace and you are looking to enable customer managed key, then 
+>     * Break the pairing
+>     * [Set up the access policy](../key-vault/managed-identity.md) for the managed identity for both the primary and secondary namespaces to the key vault.
+>     * Setup encryption on the primary namespace.
+>     * Re-pair the primary and secondary namespaces.
+> 
+>   * If you are looking to enable Geo-DR on a Service Bus namespace where customer managed key is already setup, then -
+>     * [Set up the access policy](../key-vault/managed-identity.md) for the managed identity for the secondary namespace to the key vault.
+>     * Pair the primary and secondary namespaces.
+>
+
 
 ## Rotate your encryption keys
 
@@ -85,93 +107,6 @@ Once the encryption key is revoked, the Service Bus service on the encrypted nam
 
 > [!NOTE]
 > If you delete an existing encryption key from your key vault and replace it with a new key on the Service Bus namespace, since the delete key is still valid (as it is cached) for up to an hour, your old data (which was encrypted with the old key) may still be accessible along with the new data, which is now accessible only using the new key. This behavior is by design in the preview version of the feature. 
-
-## Set up diagnostic logs 
-Setting diagnostic logs for BYOK enabled namespaces gives you the required information about the operations when a namespace is encrypted with customer-managed keys. These logs can be enabled and later stream to an event hub or analyzed through log analytics or streamed to storage to perform customized analytics. To learn more about diagnostic logs, see [Overview of Azure Diagnostic logs](../azure-monitor/platform/resource-logs-overview.md).
-
-## Enable user logs
-Follow these steps to enable logs for customer-managed keys.
-
-1. In the Azure portal, navigate to the namespace that has BYOK enabled.
-2. Select **Diagnostic settings** under **Monitoring**.
-
-    ![Select diagnostic settings](./media/configure-customer-managed-key/select-diagnostic-settings.png)
-3. Select **+Add diagnostic setting**. 
-
-    ![Select add diagnostic setting](./media/configure-customer-managed-key/select-add-diagnostic-setting.png)
-4. Provide a **name** and select where you want to stream the logs to.
-
-5. Select **CustomerManagedKeyUserLogs** and **Save**. This action enables the logs for BYOK on the namespace.
-
-    ![Select customer-managed key user logs option](./media/configure-customer-managed-key/select-customer-managed-key-user-logs.png)
-
-## Log schema 
-All logs are stored in JavaScript Object Notation (JSON) format. Each entry has string fields that use the format described in the following table. 
-
-| Name | Description |
-| ---- | ----------- | 
-| TaskName | Description of the task that failed. |
-| ActivityId | Internal ID that's used for tracking. |
-| category | Defines the classification of the task. For example, if the key from your key vault is being disabled, then it would be an information category or if a key can't be unwrapped, it could fall under error. |
-| resourceId | Azure Resource Manager resource ID |
-| keyVault | Full name of key vault. |
-| key | The key name that's used to encrypt the Service Bus namespace. |
-| version | The version of the key being used. |
-| operation | The operation that's performed on the key in your key vault. For example, disable/enable the key, wrap, or unwrap |
-| code | The code that's associated with the operation. Example: Error code, 404 means that key wasn't found. |
-| message | Any error message associated with the operation |
-
-Here's an example of the  log for a customer managed key:
-
-```json
-{
-   "TaskName": "CustomerManagedKeyUserLog",
-   "ActivityId": "11111111-1111-1111-1111-111111111111",
-   "category": "error"
-   "resourceId": "/SUBSCRIPTIONS/11111111-1111-1111-1111-11111111111/RESOURCEGROUPS/DEFAULT-EVENTHUB-CENTRALUS/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/FBETTATI-OPERA-EVENTHUB",
-   "keyVault": "https://mykeyvault.vault-int.azure-int.net",
-   "key": "mykey",
-   "version": "1111111111111111111111111111111",
-   "operation": "wrapKey",
-   "code": "404",
-   "message": "Key not found: ehbyok0/111111111111111111111111111111",
-}
-
-
-
-{
-   "TaskName": "CustomerManagedKeyUserLog",
-   "ActivityId": "11111111111111-1111-1111-1111111111111",
-   "category": "info"
-   "resourceId": "/SUBSCRIPTIONS/111111111-1111-1111-1111-11111111111/RESOURCEGROUPS/DEFAULT-EVENTHUB-CENTRALUS/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/FBETTATI-OPERA-EVENTHUB",
-   "keyVault": "https://mykeyvault.vault-int.azure-int.net",
-   "key": "mykey",
-   "version": "111111111111111111111111111111",
-   "operation": "disable" | "restore",
-   "code": "",
-   "message": "",
-}
-```
-
-## Troubleshoot
-As a best practice, always enable logs like shown in the previous section. It helps in tracking the activities when BYOK encryption is enabled. It also helps in scoping down the problems.
-
-Following are the common errors codes to look for when BYOK encryption is enabled.
-
-| Action | Error code |	Resulting state of data |
-| ------ | ---------- | ----------------------- | 
-| Remove wrap/unwrap permission from a key vault | 403 |	Inaccessible |
-| Remove AAD role membership from an AAD principal that granted the wrap/unwrap permission | 403 |	Inaccessible |
-| Delete an encryption key from the key vault | 404 | Inaccessible |
-| Delete the key vault | 404 | Inaccessible (assumes soft-delete is enabled, which is a required setting.) |
-| Changing the expiration period on the encryption key such that it's already expired | 403 |	Inaccessible  |
-| Changing the NBF (not before) such that key encryption key isn't active | 403 | Inaccessible  |
-| Selecting the **Allow MSFT Services** option for the key vault firewall or otherwise blocking network access to the key vault that has the encryption key | 403 | Inaccessible |
-| Moving the key vault to a different tenant | 404 | Inaccessible |  
-| Intermittent network issue or DNS/AAD/MSI outage |  | Accessible using cached data encryption key |
-
-> [!NOTE]
-> If virtual network (VNet) service endpoints are configured on Azure Key Vault for your Service Bus namespace, BYOK will not be supported. 
 
 ## Next steps
 See the following articles:
