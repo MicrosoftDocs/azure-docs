@@ -19,7 +19,7 @@
     href: quick-create-java.md
   - name: JavaScript
     href: quick-create-javascript.md
-    - name: .NET (SDK v4)
+  - name: .NET (SDK v4)
     href: quick-create-net.md
   - name: .NET (SDK v3)
     href: quick-create-net-v3.md

@@ -1,6 +1,6 @@
 ---
-title: Quickstart -  Azure Key Vault client library for Javascript (v4)
-description: Learn how to create, retrieve, and delete secrets from an Azure key vault using the Javascript client library
+title: Quickstart -  Azure Key Vault client library for Node.js (v4)
+description: Learn how to create, retrieve, and delete secrets from an Azure key vault using the Node.js client library
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 10/20/2019
@@ -9,11 +9,11 @@ ms.topic: quickstart
 
 ---
 
-# Quickstart: Azure Key Vault client library for Javascript (v4)
+# Quickstart: Azure Key Vault client library for Node.js (v4)
 
-Get started with the Azure Key Vault client library for Javascript. Follow the steps below to install the package and try out example code for basic tasks.
+Get started with the Azure Key Vault client library for Node.js. Follow the steps below to install the package and try out example code for basic tasks.
 
-Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. Use the Key Vault client library for Javascript to:
+Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. Use the Key Vault client library for Node.js to:
 
 - Increase security and control over keys and passwords.
 - Create and import encryption keys in minutes.
@@ -26,7 +26,7 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
 ## Prerequisites
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Python 2.7, 3.5.3, or later
+- Curent [Node.js] for your operating system.
 - [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure PowerShell](/powershell/azure/overview)
 
 This quickstart assumes you are running [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) in a Linux terminal window.
@@ -35,7 +35,7 @@ This quickstart assumes you are running [Azure CLI](/cli/azure/install-azure-cli
 
 ### Install the package
 
-From the console window, install the Azure Key Vault secrets library for Javascript.
+From the console window, install the Azure Key Vault secrets library for Node.js.
 
 ```shell
 npm install @azure/keyvault-secrets
@@ -115,7 +115,7 @@ export KEY_VAULT_NAME=<your-key-vault-name>
 
 ## Object model
 
-The Azure Key Vault client library for Javascript allows you to manage keys and related assets such as certificates and secrets. The code samples below will show you how to create a client, set a secret, retrieve a secret, and delete a secret.
+The Azure Key Vault client library for Node.js allows you to manage keys and related assets such as certificates and secrets. The code samples below will show you how to create a client, set a secret, retrieve a secret, and delete a secret.
 
 The entire console app is available at https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/key-vault-console-app.
 
