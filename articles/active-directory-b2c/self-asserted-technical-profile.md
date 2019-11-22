@@ -50,30 +50,64 @@ In a self-asserted technical profile, you can use the **InputClaims** and **Inpu
 
 ## Display claims
 
-The **DisplayClaims** element contains a list of claims to be presented to collect data from the user. To prepopulate the output claims with some values, use the input claims that were previously described. The element may also contain a default value. The order of the claims in **DisplayClaims** controls the order that Azure AD B2C renders the claims on the screen. To force the user to provide a value for a specific output claim, set the **Required** attribute of the **DisplayClaims** element to `true`.
+The display claims feature is currently in **preview**.
 
-The **ClaimType** element in the **DisplayClaims** collection needs to set the **UserInputType** element to any user input type supported by Azure AD B2C, such as `TextBox` or `DropdownSingleSelect`.
+The **DisplayClaims** element contains a list of claims to be presented on the screen for collecting data from the user. To prepopulate the values of output claims, use the input claims that were previously described. The element may also contain a default value.
+
+The order of the claims in **DisplayClaims** specifies the order in which Azure AD B2C renders the claims on the screen. To force the user to provide a value for a specific claim, set the **Required** attribute of the **DisplayClaim** element to `true`.
+
+The **ClaimType** element in the **DisplayClaims** collection needs to set the **UserInputType** element to any user input type supported by Azure AD B2C. For example, `TextBox` or `DropdownSingleSelect`.
+
+### Combine usage of display claims and output claims carefully
+
+If you specify one or more **DisplayClaim** elements in a self-asserted technical profile, you must use a DisplayClaim for *every* claim that you want to display on-screen and collect from the user. No output claims are displayed by a self-asserted technical profile that contains at least one display claim.
+
+Consider the following example in which an `age` claim is defined as an **output** claim in a base policy. Before adding any display claims to the self-asserted technical profile, the `age` claim is displayed on the screen for data collection from the user:
+
+```XML
+<TechnicalProfile Id="id">
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="age" />
+  </OutputClaims>
+</TechnicalProfile>
+```
+
+If a leaf policy that inherits that base subsequently specifies `officeNumber` as a **display** claim:
+
+```XML
+<TechnicalProfile Id="id">
+  <DisplayClaims>
+    <DisplayClaim ClaimTypeReferenceId="officeNumber" />
+  </DisplayClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="officeNumber" />
+  </OutputClaims>
+</TechnicalProfile>
+```
+
+The `age` claim in the base policy is no longer presented on the screen to the user - it's effectively "hidden." To display the `age` claim and collect the age value from the user, you must add an `age` **DisplayClaim**.
 
 ## Output claims
 
-The **OutputClaims** element contains a list of claims to be return to the next orchestration step. The **DefaultValue** attribute takes effect only if the claim has never been set before. But, if it has been set before in a previous orchestration step, even if the user leaves the value empty, the default value does not take effect. To force the use of a default value, set the **AlwaysUseDefaultValue** attribute to `true`.
+The **OutputClaims** element contains a list of claims to be returned to the next orchestration step. The **DefaultValue** attribute takes effect only if the claim has never been set. If it was set in a previous orchestration step, the default value does not take effect even if the user leaves the value empty. To force the use of a default value, set the **AlwaysUseDefaultValue** attribute to `true`.
 
 > [!NOTE]
 > In previous versions of the Identity Experience Framework (IEF), output claims were used to collect data from the user. To collect data from the user, use a **DisplayClaims** collection instead.
-
 
 The **OutputClaimsTransformations** element may contain a collection of **OutputClaimsTransformation** elements that are used to modify the output claims or generate new ones.
 
 ### When you should use output claims
 
-In a self-asserted technical profile, the output claims collection return the claims to the next orchestration step. There are four scenarios for output claims:
+In a self-asserted technical profile, the output claims collection returns the claims to the next orchestration step.
 
-- **Output the claims via output claims transformation**
-- **Setting a default value in an output claim** - Without collecting data from the user or returning the data from the validation technical profile. The `LocalAccountSignUpWithLogonEmail` self-asserted technical profile sets the **executed-SelfAsserted-Input** claim to `true`.
+You should use output claims when:
+
+- **Claims are output by output claims transformation**.
+- **Setting a default value in an output claim** without collecting data from the user or returning the data from the validation technical profile. The `LocalAccountSignUpWithLogonEmail` self-asserted technical profile sets the **executed-SelfAsserted-Input** claim to `true`.
 - **A validation technical profile returns the output claims** - Your technical profile may call a validation technical profile that returns some claims. You may want to bubble up the claims and return them to the next orchestration steps in the user journey. For example, when signing in with a local account, the self-asserted technical profile named `SelfAsserted-LocalAccountSignin-Email` calls the validation technical profile named `login-NonInteractive`. This technical profile validates the user credentials and also returns the user profile. Such as 'userPrincipalName', 'displayName', 'givenName' and 'surName'.
-- **A display control returns the output claims** - Your technical profile may have a reference to a [display control](display-controls.md). The display control returns some claims, such as the verified email address. You may want to bubble up the claims and return them to the next orchestration steps in the user journey.
+- **A display control returns the output claims** - Your technical profile may have a reference to a [display control](display-controls.md). The display control returns some claims, such as the verified email address. You may want to bubble up the claims and return them to the next orchestration steps in the user journey. The display control feature is currently in **preview**.
 
-The following example demonstrates the use of a self-asserted technical profile.
+The following example demonstrates the use of a self-asserted technical profile that uses both display claims and output claims.
 
 ```XML
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
