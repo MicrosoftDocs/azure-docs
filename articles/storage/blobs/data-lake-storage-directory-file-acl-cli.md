@@ -18,13 +18,13 @@ This article shows you how to use the [Azure Command-Line Interface (CLI)](https
 > [!IMPORTANT]
 > The the `storage-preview` extension that is featured in this article is currently in public preview.
 
-[Source code](https://github.com/Azure/azure-cli-extensions/tree/master/src) | [Sample](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview) | [Gen1 to Gen2 mapping](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2)
-
+[Sample](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#adls-gen2-support) | [Gen1 to Gen2 mapping](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2) | [Give feedback](https://github.com/Azure/azure-cli-extensions/issues) |
 ## Prerequisites
 
 > [!div class="checklist"]
 > * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 > * A storage account that has a hierarchical namespace. Follow [these](data-lake-storage-quickstart-create-account.md) instructions to create one.
+> * Azure CLI version `2.0.67` or higher.
 
 ## Install the storage CLI extension
 
@@ -293,7 +293,8 @@ az storage blob directory metadata show -c my-file-system -d my-directory --acco
 
 ## See also
 
-* [Source code](https://github.com/Azure/azure-cli-extensions/tree/master/src)
 * [Sample](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview)
 * [Gen1 to Gen2 mapping](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2)
+* [Give feedback](https://github.com/Azure/azure-cli-extensions/issues)
+* [Source code](https://github.com/Azure/azure-cli-extensions/tree/master/src)
 

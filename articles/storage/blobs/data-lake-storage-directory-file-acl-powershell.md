@@ -18,12 +18,15 @@ This article shows you how to use PowerShell to create and manage directories, f
 > [!IMPORTANT]
 > The PowerShell module that is featured in this article is currently in public preview.
 
+[Give feedback](https://github.com/Azure/azure-powershell/issues)
+
 ## Prerequisites
 
 > [!div class="checklist"]
 > * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-> * A storage account that has a hierarchical namespace. Follow [these](data-lake-storage-quickstart-create-account.md) instructions to create one.
+> * A storage account that has hierarchical namespace (HNS) enabled. Follow [these](data-lake-storage-quickstart-create-account.md) instructions to create one.
 > * .NET Framework is 4.7.2 or greater installed. See [Download .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
+> * PowerShell version `5.1` or higher.
 
 ## Install PowerShell modules
 
