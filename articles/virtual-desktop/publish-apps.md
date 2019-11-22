@@ -30,11 +30,11 @@ To publish a built-in app:
 
 ## Update app icons
 
-After you publish an app, it'll have the default Windows app icon instead of its regular icon picture. To change the icon to its regular icon, put the image of the icon you want on a network share. Supported image formats are PNG, BMP, GIF, JPG, JPEG, and ICO.
+After you publish an app, it will have the default Windows app icon instead of its regular icon picture. To change the icon to its regular icon, put the image of the icon you want on a network share. Supported image formats are PNG, BMP, GIF, JPG, JPEG, and ICO.
 
 ## Publish Microsoft Edge
 
-The process to publish Microsoft Edge is a little different from the standard apps. To publish Microsoft Edge with the default homepage, run this cmdlet:
+The process you use to publish Microsoft Edge is a little different from the publishing process for other apps. To publish Microsoft Edge with the default homepage, run this cmdlet:
 
 ```powershell
 New-RdsRemoteApp $tenant1 $pool1 $appgroup1 -Name $remoteapp3 -FriendlyName $remoteapp3 -FilePath "shell:Appsfolder\Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge" 
