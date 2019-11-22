@@ -20,7 +20,7 @@ Azure API for FHIR uses database to store its data. Performance of the underlyin
 
 Throughput must be provisioned to ensure that sufficient system resources are available for your database at all times. How many RUs you need for your application depends on operations you perform. Operations can range from simple read and writes to more complex queries.
 
-For more details on how to change the default settings, please refer to [configure database settings](configure.database.md).
+For more details on how to change the default settings, please refer to [configure database settings](configure-database.md).
 
 ## Find identity object IDs
 The fully managed Azure API for FHIR&reg; service is configured to allow access for only a pre-defined list of identity object IDs. When an application or user is trying to access the FHIR API, a bearer token must be presented. This bearer token will have certain claims (fields). In order to grant access to the FHIR API, the token must contain the right issuer (`iss`), audience (`aud`), and an object ID (`oid`) from a list of allowed object IDs. An identity object ID is either the object ID of a user or a service principal in Azure Active Directory.
