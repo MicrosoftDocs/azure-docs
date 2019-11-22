@@ -49,7 +49,7 @@ In ADAL4J, the `AuthenticationContext` class represents your connection to the S
 
 The following table shows how ADAL4J functions map to the new MSAL for Java functions:
 
-| ADAL4J method| MSAL for Java method|
+| ADAL4J method| MSAL4J method|
 |------|-------|
 |acquireToken(String resource, ClientCredential credential, AuthenticationCallback callback) | acquireToken(ClientCredentialParameters)|
 |acquireToken(String resource, ClientAssertion assertion, AuthenticationCallback callback)|acquireToken(ClientCredentialParameters)|
