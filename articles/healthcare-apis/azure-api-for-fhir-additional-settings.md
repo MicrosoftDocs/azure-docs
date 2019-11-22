@@ -28,7 +28,7 @@ The fully managed Azure API for FHIR&reg; service is configured to allow access 
 When you create a new Azure API for FHIR instance, you can configure a list of allowed object IDs. To configure this list, please see our how-to-guide to [find identity object IDs](find-identity-object-ids.md).
 
 ## Enable diagnostic logging
-You may want to enable diagnostic logging as part of your setup to be able to monitor your service and have accurate reporting for compliance purposes. For details on how to set up diagnostic logging, please see our [how-to-guide](enable.diagnostic-logging.md) on how to set up diagnostic logging, along with some sample queries. 
+You may want to enable diagnostic logging as part of your setup to be able to monitor your service and have accurate reporting for compliance purposes. For details on how to set up diagnostic logging, please see our [how-to-guide](enable-diagnostic-logging.md) on how to set up diagnostic logging, along with some sample queries. 
 
 ## Use custom headers to add data to audit logs
 In the Azure API for FHIR, you may want to include additional information in the logs, which comes from the calling system. To do including this information, you can leverage custom headers.
