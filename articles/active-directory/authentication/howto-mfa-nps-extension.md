@@ -1,12 +1,12 @@
 ---
-title: Use existing NPS servers to provide Azure MFA capabilities - Azure Active Directory
+title: Provide Azure MFA capabilities using NPS - Azure Active Directory
 description: Add cloud-based two-step verification capabilities to your existing authentication infrastructure
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo

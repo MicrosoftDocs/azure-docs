@@ -90,8 +90,6 @@ Security Center automatically discovers security solutions running in Azure but 
 
 Select **CONNECT** under a solution to integrate with Security Center and be notified of security alerts.
 
-![Discovered solutions](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
-
 ### Add data sources
 
 The **Add data sources** section includes other available data sources that can be connected. For instructions on adding data from any of these sources, click **ADD**.
