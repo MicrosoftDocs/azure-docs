@@ -11,7 +11,7 @@ author: matjazl
 ms.date: 10/13/2019
 ---
 
-# Tutorial: Write an application to connect to an Azure API for FHIR endpoint
+# Write an application to connect to an Azure API for FHIR endpoint
 
 In previous tutorials, you have set up your environment, created a service endpoint, and created an Azure Active Directory (Azure AD) application registration. In this tutorial, you will write your first sample application.
 
@@ -211,7 +211,7 @@ After you sign in, you should see all the patient resources listed.
 
 ## Next steps
 
-In this tutorial, you've connected to an endpoint. Read about the supported API features in Microsoft FHIR server for Azure.
+In this tutorial, you've connected to an endpoint. As a next step, you may want to interact directly with the FHIR server as you continue to build out this application. You can learn more details about this in the Access Azure API for FHIR with Postman tutorial
  
 >[!div class="nextstepaction"]
->[Supported FHIR features](fhir-features-supported.md)
+>[Access Azure API for FHIR with Postman](access-fhir-postman-tutorial.md)

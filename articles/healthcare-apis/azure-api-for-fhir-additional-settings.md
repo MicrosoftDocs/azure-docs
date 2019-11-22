@@ -46,7 +46,7 @@ To add this data to your audit logs, please see the [Use Custom HTTP headers to 
 
 In this tutorial, you set up additional settings for the Azure API for FHIR.
 
-Next we will walk through how to obtain an access token for the Azure API for FHIR using the Azure CLI.
+Next we will walk through writing an application to connect to the Azure API for FHIR endpoint
 
 >[!div class="nextstepaction"]
->[Obtain access token for Azure API for FHIR](get-healthcare-apis-access-token-cli.md)
+>[Write an application to connect to an Azure API for FHIR endpoint](tutorial-3-connect-to-endpoint.md)

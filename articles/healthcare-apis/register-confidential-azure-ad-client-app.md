@@ -70,7 +70,7 @@ Next add API permissions:
 
 In this article, you've learned how to register a confidential client application in Azure Active Directory. You are now ready to deploy the [Azure API for FHIR](fhir-paas-powershell-quickstart.md).
 
-Once you have deployed the Azure API for FHIR, we can review additional available settings.
+Once you have deployed the Azure API for FHIR, you can review additional available settings.
  
 >[!div class="nextstepaction"]
 >[Deploy Azure API for FHIR](fhir-paas-powershell-quickstart.md)
