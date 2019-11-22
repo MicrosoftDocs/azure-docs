@@ -171,11 +171,9 @@ Follow these steps to create a data factory client.
     // Authenticate and create a data factory management client
     var context = new AuthenticationContext("https://login.windows.net/" + tenantID);
     ClientCredential cc = new ClientCredential(applicationId, authenticationKey);
-    AuthenticationResult result = 
-        context.AcquireTokenAsync("https://management.azure.com/", cc).Result;
+    AuthenticationResult result = context.AcquireTokenAsync("https://management.azure.com/", cc).Result;
     ServiceClientCredentials cred = new TokenCredentials(result.AccessToken);
-    var client = new DataFactoryManagementClient(cred) 
-        { SubscriptionId = subscriptionId };
+    var client = new DataFactoryManagementClient(cred) { SubscriptionId = subscriptionId };
     ```
 
 ## Create a data factory
@@ -192,11 +190,9 @@ Factory dataFactory = new Factory
 
 };
 client.Factories.CreateOrUpdate(resourceGroup, dataFactoryName, dataFactory);
-Console.WriteLine(
-    SafeJsonConvert.SerializeObject(dataFactory, client.SerializationSettings));
+Console.WriteLine(SafeJsonConvert.SerializeObject(dataFactory, client.SerializationSettings));
 
-while (client.Factories.Get(resourceGroup, dataFactoryName).ProvisioningState 
-    == "PendingCreation")
+while (client.Factories.Get(resourceGroup, dataFactoryName).ProvisioningState == "PendingCreation")
 {
     System.Threading.Thread.Sleep(1000);
 }
@@ -217,15 +213,11 @@ Console.WriteLine("Creating linked service " + storageLinkedServiceName + "...")
 LinkedServiceResource storageLinkedService = new LinkedServiceResource(
     new AzureStorageLinkedService
     {
-        ConnectionString = new SecureString(
-                "DefaultEndpointsProtocol=https;AccountName=" + storageAccount + 
-                ";AccountKey=" + storageKey)
+        ConnectionString = new SecureString("DefaultEndpointsProtocol=https;AccountName=" + storageAccount + ";AccountKey=" + storageKey)
     }
 );
-client.LinkedServices.CreateOrUpdate(
-    resourceGroup, dataFactoryName, storageLinkedServiceName, storageLinkedService);
-Console.WriteLine(SafeJsonConvert.SerializeObject(
-    storageLinkedService, client.SerializationSettings));
+client.LinkedServices.CreateOrUpdate(resourceGroup, dataFactoryName, storageLinkedServiceName, storageLinkedService);
+Console.WriteLine(SafeJsonConvert.SerializeObject(storageLinkedService, client.SerializationSettings));
 ```
 
 ### Create an Azure SQL Database linked service
@@ -242,10 +234,8 @@ LinkedServiceResource sqlDbLinkedService = new LinkedServiceResource(
         ConnectionString = new SecureString(azureSqlConnString)
     }
 );
-client.LinkedServices.CreateOrUpdate(
-    resourceGroup, dataFactoryName, sqlDbLinkedServiceName, sqlDbLinkedService);
-Console.WriteLine(SafeJsonConvert.SerializeObject(
-    sqlDbLinkedService, client.SerializationSettings));
+client.LinkedServices.CreateOrUpdate(resourceGroup, dataFactoryName, sqlDbLinkedServiceName, sqlDbLinkedService);
+Console.WriteLine(SafeJsonConvert.SerializeObject(sqlDbLinkedService, client.SerializationSettings));
 ```
 
 ## Create datasets
@@ -290,10 +280,8 @@ DatasetResource blobDataset = new DatasetResource(
         }
     }
 );
-client.Datasets.CreateOrUpdate(
-    resourceGroup, dataFactoryName, blobDatasetName, blobDataset);
-Console.WriteLine(
-    SafeJsonConvert.SerializeObject(blobDataset, client.SerializationSettings));
+client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, blobDatasetName, blobDataset);
+Console.WriteLine(SafeJsonConvert.SerializeObject(blobDataset, client.SerializationSettings));
 ```
 
 ### Create a dataset for sink Azure SQL Database
@@ -315,10 +303,8 @@ DatasetResource sqlDataset = new DatasetResource(
         TableName = azureSqlTableName
     }
 );
-client.Datasets.CreateOrUpdate(
-    resourceGroup, dataFactoryName, sqlDatasetName, sqlDataset);
-Console.WriteLine(
-    SafeJsonConvert.SerializeObject(sqlDataset, client.SerializationSettings));
+client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, sqlDatasetName, sqlDataset);
+Console.WriteLine(SafeJsonConvert.SerializeObject(sqlDataset, client.SerializationSettings));
 ```
 
 ## Create a pipeline
@@ -354,10 +340,8 @@ PipelineResource pipeline = new PipelineResource
         }
     }
 };
-client.Pipelines.CreateOrUpdate(
-    resourceGroup, dataFactoryName, pipelineName, pipeline);
-Console.WriteLine(
-    SafeJsonConvert.SerializeObject(pipeline, client.SerializationSettings));
+client.Pipelines.CreateOrUpdate(resourceGroup, dataFactoryName, pipelineName, pipeline);
+Console.WriteLine(SafeJsonConvert.SerializeObject(pipeline, client.SerializationSettings));
 ```
 
 ## Create a pipeline run
@@ -367,9 +351,7 @@ Add the following code to the `Main` method that *triggers a pipeline run*.
 ```csharp
 // Create a pipeline run
 Console.WriteLine("Creating pipeline run...");
-CreateRunResponse runResponse = client.Pipelines.CreateRunWithHttpMessagesAsync(
-    resourceGroup, dataFactoryName, pipelineName
-).Result.Body;
+CreateRunResponse runResponse = client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName).Result.Body;
 Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 ```
 
@@ -385,8 +367,7 @@ Now insert the code to check pipeline run states and to get details about the co
     PipelineRun pipelineRun;
     while (true)
     {
-        pipelineRun = client.PipelineRuns.Get(
-            resourceGroup, dataFactoryName, runResponse.RunId);
+        pipelineRun = client.PipelineRuns.Get(resourceGroup, dataFactoryName, runResponse.RunId);
         Console.WriteLine("Status: " + pipelineRun.Status);
         if (pipelineRun.Status == "InProgress")
             System.Threading.Thread.Sleep(15000);
@@ -401,11 +382,9 @@ Now insert the code to check pipeline run states and to get details about the co
     // Check the copy activity run details
     Console.WriteLine("Checking copy activity run details...");
 
-    RunFilterParameters filterParams = new RunFilterParameters(
-        DateTime.UtcNow.AddMinutes(-10), DateTime.UtcNow.AddMinutes(10));
+    RunFilterParameters filterParams = new RunFilterParameters(DateTime.UtcNow.AddMinutes(-10), DateTime.UtcNow.AddMinutes(10));
 
-    ActivityRunsQueryResponse queryResponse = client.ActivityRuns.QueryByPipelineRun(
-        resourceGroup, dataFactoryName, runResponse.RunId, filterParams);
+    ActivityRunsQueryResponse queryResponse = client.ActivityRuns.QueryByPipelineRun(resourceGroup, dataFactoryName, runResponse.RunId, filterParams);
  
     if (pipelineRun.Status == "Succeeded")
     {
