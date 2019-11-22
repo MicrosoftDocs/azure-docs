@@ -20,12 +20,12 @@ The ``cp`` or ``copy`` commands that are commonly used to using to transfer data
 
 This article explains strategies for creating a multi-client, multi-threaded file copying system to move data to the Avere vFXT cluster. It explains file transfer concepts and decision points that can be used for efficient data copying using multiple clients and simple copy commands.
 
-It also explains some utilities that can help. The ``msrsync`` utility can be used to partially automate the process of dividing a dataset into buckets and using rsync commands. The ``parallelcp`` script is another utility that reads the source directory and issues copy commands automatically.
+It also explains some utilities that can help. The ``msrsync`` utility can be used to partially automate the process of dividing a dataset into buckets and using ``rsync`` commands. The ``parallelcp`` script is another utility that reads the source directory and issues copy commands automatically. Also, the ``rsync`` tool can be used in two phases to provide a quicker copy that still provides data consistency.
 
 Click the link to jump to a section:
 
 * [Manual copy example](#manual-copy-example) - A thorough explanation using copy commands
-* [Two-phase rsync example](#use-a-two-phase-rsync-process-to-populate-cloud-storage)
+* [Two-phase rsync example](#use-a-two-phase-rsync-process)
 * [Partially automated (msrsync) example](#use-the-msrsync-utility)
 * [Parallel copy example](#use-the-parallel-copy-script)
 
@@ -253,11 +253,11 @@ The above will give you *N* files, each with a copy command per line, that can b
 
 The goal is to run multiple threads of these scripts concurrently per client in parallel on multiple clients.
 
-## Use a two-phase rsync process to populate cloud storage
+## Use a two-phase rsync process
 
-The standard ``rsync`` utility does not work well for populating cloud storage through the Avere vFXT for Azure system because it uses a large number of file create and rename operations to ensure data integrity. However, you can safely use the ``--inplace`` option to skip the more careful copying procedure and follow that with a second run that checks file integrity.
+The standard ``rsync`` utility does not work well for populating cloud storage through the Avere vFXT for Azure system because it generates a large number of file create and rename operations to guarantee data integrity. However, you can safely use the ``--inplace`` option with ``rsync`` to skip the more careful copying procedure if you follow that with a second run that checks file integrity.
 
-A standard rsync copy operation creates a temporary file and fills it with data. If the data transfer completes successfully, the temporary file is renamed to the original filename. This method guarantees consistency even if the files are accessed during copy. But this method generates more write operations, which slows file movement through the cache.
+A standard ``rsync`` copy operation creates a temporary file and fills it with data. If the data transfer completes successfully, the temporary file is renamed to the original filename. This method guarantees consistency even if the files are accessed during copy. But this method generates more write operations, which slows file movement through the cache.
 
 The option ``--inplace`` writes the new file directly in its final location. Files are not guaranteed to be consistent during transfer, but that is not important if you are priming a storage system for use later.
 
@@ -279,14 +279,13 @@ The ``msrsync`` tool also can be used to move data to a backend core filer for t
 
 Preliminary testing using a four-core VM showed best efficiency when using 64 processes. Use the ``msrsync`` option ``-p`` to set the number of processes to 64.
 
-You also can use the ``--inplace`` argument with msrsync commands. If you use this option, consider running a second command (as with [rsync](#use-a-two-phase-rsync-process-to-populate-cloud-storage
-), described above) to ensure data integrity.
+You also can use the ``--inplace`` argument with ``msrsync`` commands. If you use this option, consider running a second command (as with [rsync](#use-a-two-phase-rsync-process), described above) to ensure data integrity.
 
 Note that ``msrsync`` can only write to and from local volumes. The source and destination must be accessible as local mounts in the cluster’s virtual network.
 
-To use msrsync to populate an Azure cloud volume with an Avere cluster, follow these instructions:
+To use ``msrsync`` to populate an Azure cloud volume with an Avere cluster, follow these instructions:
 
-1. Install msrsync and its prerequisites (rsync and Python 2.6 or later)
+1. Install ``msrsync`` and its prerequisites (rsync and Python 2.6 or later)
 1. Determine the total number of files and directories to be copied.
 
    For example, use the Avere utility ``prime.py`` with arguments ```prime.py --directory /path/to/some/directory``` (available by downloading url <https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py>).
@@ -301,21 +300,21 @@ To use msrsync to populate an Azure cloud volume with an Avere cluster, follow t
 
 1. Divide the number of items by 64 to determine the number of items per process. Use this number with the ``-f`` option to set the size of the buckets when you run the command.
 
-1. Issue the msrsync command to copy files:
+1. Issue the ``msrsync`` command to copy files:
 
    ```bash
-   msrsync -P --stats -p64 -f <ITEMS_DIV_64> --rsync "-ahv" <SOURCE_PATH> <DESTINATION_PATH>
+   msrsync -P --stats -p 64 -f <ITEMS_DIV_64> --rsync "-ahv" <SOURCE_PATH> <DESTINATION_PATH>
    ```
 
    If using ``--inplace``, add a second execution without the option to check that the data is correctly copied:
 
    ```bash
-   msrsync -P --stats -p64 -f <ITEMS_DIV_64> --rsync "-ahv --inplace" <SOURCE_PATH> <DESTINATION_PATH> && msrsync -P --stats -p64 -f <ITEMS_DIV_64> --rsync "-ahv" <SOURCE_PATH> <DESTINATION_PATH>
+   msrsync -P --stats -p 64 -f <ITEMS_DIV_64> --rsync "-ahv --inplace" <SOURCE_PATH> <DESTINATION_PATH> && msrsync -P --stats -p 64 -f <ITEMS_DIV_64> --rsync "-ahv" <SOURCE_PATH> <DESTINATION_PATH>
    ```
 
    For example, this command is designed to move 11,000 files in 64 processes from /test/source-repository to /mnt/vfxt/repository:
 
-   ``mrsync -P --stats -p64 -f 170 --rsync "-ahv --inplace" /test/source-repository/ /mnt/vfxt/repository && mrsync -P --stats -p64 -f 170 --rsync "-ahv --inplace" /test/source-repository/ /mnt/vfxt/repository``
+   ``msrsync -P --stats -p 64 -f 170 --rsync "-ahv --inplace" /test/source-repository/ /mnt/vfxt/repository && msrsync -P --stats -p 64 -f 170 --rsync "-ahv --inplace" /test/source-repository/ /mnt/vfxt/repository``
 
 ## Use the parallel copy script
 
