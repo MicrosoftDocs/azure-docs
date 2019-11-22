@@ -66,7 +66,7 @@ The entity palette offers an alternative to the previous labeling experience. It
     > [!div class="mx-imgBorder"]
     > ![Entity palette for machine-learned entity](media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png)
 
-## Labeling subcomponents of a multiple-level machine learned entity
+## Labeling subcomponents of a machine learned entity
 
 Subcomponents in entities are labeled exactly the same way as top level entities. When selecting text, the entities available in the pop-up window are relative to the context in which the text appears. For example, if you have a 5-level machine-learned entity, and you are selecting text that has been labeled with the 1st and 2nd levels (indicated by a labeled entity name under the example utterance), the entities available in the pop-up window are limited to the context of components of the 3rd level. To label the text with other entities, select **Label as another entity** option.
 
@@ -86,12 +86,14 @@ If you make a mistake while labeling, the entity palette is an easy tool that al
 For example:
 
 1. Pizza Type subcomponent spans "cheese pizza with" which includes an extra incorrect word -- "with"
-> [!div class="mx-imgBorder"]
-> ![Entity palette for machine-learned entity](media/label-utterances/edit-label-with-palette-1.png)
+
+    > [!div class="mx-imgBorder"]
+    > ![Entity palette for machine-learned entity](media/label-utterances/edit-label-with-palette-1.png)
 
 2. Use the entity palette to pick Pizza Type and brush over "cheese pizza". The outcome is that only cheese pizza is labeled as Pizza Type now.
-> [!div class="mx-imgBorder"]
-> ![Entity palette for machine-learned entity](media/label-utterances/edit-label-with-palette-2.png)
+
+    > [!div class="mx-imgBorder"]
+    > ![Entity palette for machine-learned entity](media/label-utterances/edit-label-with-palette-2.png)
 
 
 ## Labels for matching-text entities
