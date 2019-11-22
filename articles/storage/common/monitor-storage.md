@@ -35,61 +35,349 @@ The following sections build on this article by describing the specific data gat
 
 Azure Storage collects the same kinds of monitoring data as other Azure resources which are described in [Monitoring data from Azure resources](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data-from-Azure-resources). See [Azure Storage monitoring data reference](monitor-service-reference.md) for a detailed reference of the logs and metrics created by Azure Storage.
 
+Legacy metrics are available in parallel with Azure Monitor managed metrics. The support keeps the same until Azure Storage ends the service on legacy metrics. 
+
 ## Configuration
-
-Platform metrics and the Activity log are collected automatically, but you must create a diagnostic setting to collect resource logs or forward them outside of Azure Monitor. See [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/platform/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell.
-
-When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure Storage are listed in the following table:
-
-| Category | Description |
-|:---|:---|
-|  |  |
-|  |  |
-|  |  |
-
-<!-- Fill in the namespace and provide a bullet list of possible filters.  -->
-## Analyzing metric data
-You can analyze metrics for [service-name] with metrics from other Azure services using Metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../platform/metrics-getting-started.md) for details on using this tool. All metrics for [service-name] are in the namespace **<!-- Namespace -->**, and you can use the following filters:
-
--
--
-
-<!-- Fill in details on the tables that your service writes to.  -->
-## Analyzing log data
 
 > [!NOTE]
 > Azure Storage logs in Azure Monitor is in public preview, and is available for preview testing in all public cloud regions. To enroll in the preview, see [this page](https://www.microsoft.com).  This preview enables logs for blobs (including Azure Data Lake Storage Gen2), files, queues, tables, premium storage accounts in general-purpose v1 and general-purpose v2 storage accounts. Classic storage accounts are not supported.
 
-Data in Azure Monitor Logs is stored in tables which each table having its own set of unique properties. [service-name] stores data in the following tables.
+Platform metrics and the Activity log are collected automatically, but you must create a diagnostic setting to collect resource logs or forward them outside of Azure Monitor. See [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/platform/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell.
 
-| Table | Description |
+When you create a diagnostic setting, you'll need to choose the type of storage that you want to enable logs for (blob, queue, table, file) or you can choose the storage account to enable logs for them all. If you create the diagnostic setting in the Azure Portal, you can select the resource from a list. If you use PowerShell or the Azure CLI, you'll need to use the resource ID of the storage type. To find the resource ID for each type of storage, see [Resource ID for a storage account](monitor-storage-reference.md#resource-ids-storage-account).
+
+You'll also have to specify which categories of operations to collect logs for. The categories for Azure Storage are listed in the following table:
+
+| Category | Description |
 |:---|:---|
-|  |  |
-|  |  |  
+| StorageRead | Read operations on blobs.  |
+| StorageWrite | Write operations on blobs. |
+| StorageDelete | Delete operations on blobs. |
 
+## Analyzing metric data
 
-> [!IMPORTANT]
-> When you select **Logs** from the [service-name] menu, Log Analytics is opened with the query scope set to the current <!-- Service resource -->. This means that log queries will only include data from that resource. If you want to run a query that includes data from other databases or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope/) for details.l
+You can analyze metrics for [service-name] with metrics from other Azure services using Metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../platform/metrics-getting-started.md) for details on using this tool. 
 
-<!-- Add sample queries for your service. -->
-### Sample queries
-Following are queries that you can use to help you monitor your <!-- Service resource -->. 
+Azure Storage supports following dimensions for metrics in Azure Monitor.
 
-```Kusto
+| Dimension Name | Description |
+| ------------------- | ----------------- |
+| **BlobType** | The type of blob for Blob metrics only. The supported values are **BlockBlob**, **PageBlob**, and **Azure Data Lake Storage**. Append Blob is included in BlockBlob. |
+| **BlobTier** | Azure storage offers different access tiers, which allow you to store blob object data in the most cost-effective manner. See more in [Azure Storage blob tier](../blobs/storage-blob-storage-tiers.md). The supported values include: <br/> <li>**Hot**: Hot tier</li> <li>**Cool**: Cool tier</li> <li>**Archive**: Archive tier</li> <li>**Premium**: Premium tier for block blob</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: Tier types for premium page blob</li> <li>**Standard**: Tier type for standard page Blob</li> <li>**Untiered**: Tier type for general purpose v1 storage account</li> |
+| **GeoType** | Transaction from Primary or Secondary cluster. The available values include **Primary** and **Secondary**. It applies to Read Access Geo Redundant Storage(RA-GRS) when reading objects from secondary tenant. |
+| **ResponseType** | Transaction response type. The available values include: <br/><br/> <li>**ServerOtherError**: All other server-side errors except described ones </li> <li>**ServerBusyError**: Authenticated request that returned an HTTP 503 status code. </li> <li>**ServerTimeoutError**: Timed-out authenticated request that returned an HTTP 500 status code. The timeout occurred due to a server error. </li> <li>**AuthorizationError**: Authenticated request that failed due to unauthorized access of data or an authorization failure. </li> <li>**NetworkError**: Authenticated request that failed due to network errors. Most commonly occurs when a client prematurely closes a connection before timeout expiration. </li> <li>**ClientThrottlingError**: Client-side throttling error. </li> <li>**ClientTimeoutError**: Timed-out authenticated request that returned an HTTP 500 status code. If the client's network timeout or the request timeout is set to a lower value than expected by the storage service, it is an expected timeout. Otherwise, it is reported as a ServerTimeoutError. </li> <li>**ClientOtherError**: All other client-side errors except described ones. </li> <li>**Success**: Successful request</li> <li> **SuccessWithThrottling**: Successful request when a SMB client gets throttled in the first attempt(s) but succeeds after retries.</li> |
+| **ApiName** | The name of operation. For example: <br/> <li>**CreateContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> For all operation names, see [document](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
+| **Authentication** | Authentication type used in transactions. The available values include: <br/> <li>**AccountKey**: The transaction is authenticated with storage account key.</li> <li>**SAS**: The transaction is authenticated with shared access signatures.</li> <li>**OAuth**: The transaction is authenticated with OAuth access tokens.</li> <li>**Anonymous**: The transaction is requested anonymously. It doesn’t include preflight requests.</li> <li>**AnonymousPreflight**: The transaction is preflight request.</li> |
+
+For the metrics supporting dimensions, you need to specify the dimension value to see the corresponding metrics values. For example, if you look at  **Transactions** value for successful responses, you need to filter the **ResponseType** dimension with **Success**. Or if you look at **BlobCount** value for Block Blob, you need to filter the **BlobType** dimension with **BlockBlob**.
+
+### Access metrics in the Azure portal
+
+You can monitor metrics over time in the Azure portal. The following example shows how to view **Transactions** at account level.
+
+![screenshot of accessing metrics in the Azure portal](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal.png)
+
+For metrics supporting dimensions, you can filter metric with the desired dimension value. The following example shows how to view **Transactions** at account level on a specific operation by selecting values for  **API Name** dimension.
+
+![screenshot of accessing metrics with dimension in the Azure portal](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal-with-dimension.png)
+
+### Access metrics with the REST API
+
+Azure Monitor provides [REST APIs](/rest/api/monitor/) to read metric definition and values. This section shows you how to read the storage metrics. Resource ID is used in all REST APIS. For more information, please read Understanding resource ID for services in Storage.
+
+The following example shows how to use [ArmClient](https://github.com/projectkudu/ARMClient)  at the command line to simplify testing with the REST API.
+
+#### List account level metric definition with the REST API
+
+The following example shows how to list metric definition at account level:
+
+```
+# Login to Azure and enter your credentials when prompted.
+> armclient login
+
+> armclient GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/microsoft.insights/metricdefinitions?api-version=2018-01-01
 
 ```
 
-<!-- Fill in the table with metric and log alerts that would be valuable for your service. -->
-## Alerts
-The following table lists common and recommended alert rules for Azure Cosmos DB.
+If you want to list the metric definitions for blob, table, file, or queue, you must specify different resource IDs for each service with the API.
 
-| Alert type | Condition | Description |
-|:---|:---|:---|
-| | | |
-| | | |
+The response contains the metric definition in JSON format:
+
+```Json
+{
+  "value": [
+    {
+      "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/microsoft.insights/metricdefinitions/UsedCapacity",
+      "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}",
+      "category": "Capacity",
+      "name": {
+        "value": "UsedCapacity",
+        "localizedValue": "Used capacity"
+      },
+      "isDimensionRequired": false,
+      "unit": "Bytes",
+      "primaryAggregationType": "Average",
+      "metricAvailabilities": [
+        {
+          "timeGrain": "PT1M",
+          "retention": "P30D"
+        },
+        {
+          "timeGrain": "PT1H",
+          "retention": "P30D"
+        }
+      ]
+    },
+    ... next metric definition
+  ]
+}
+
+```
+
+#### Read account-level metric values with the REST API
+
+The following example shows how to read metric data at account level:
+
+```
+> armclient GET "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/microsoft.insights/metrics?metricnames=Availability&api-version=2018-01-01&aggregation=Average&interval=PT1H"
+
+```
+
+In above example, if you want to read metric values for blob, table, file, or queue, you must specify different resource IDs for each service with the API.
+
+The following response contains metric values in JSON format:
+
+```Json
+{
+  "cost": 0,
+  "timespan": "2017-09-07T17:27:41Z/2017-09-07T18:27:41Z",
+  "interval": "PT1H",
+  "value": [
+    {
+      "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/Microsoft.Insights/metrics/Availability",
+      "type": "Microsoft.Insights/metrics",
+      "name": {
+        "value": "Availability",
+        "localizedValue": "Availability"
+      },
+      "unit": "Percent",
+      "timeseries": [
+        {
+          "metadatavalues": [],
+          "data": [
+            {
+              "timeStamp": "2017-09-07T17:27:00Z",
+              "average": 100.0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+```
+
+### Access metrics with the .NET SDK
+
+Azure Monitor provides [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) to read metric definition and values. The [sample code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) shows how to use the SDK with different parameters. You need to use `0.18.0-preview` or later version for storage metrics. Resource ID is used in .NET SDK. For more information, please read Understanding resource ID for services in Storage.
+
+The following example shows how to use Azure Monitor .NET SDK to read storage metrics.
+
+#### List account level metric definition with the .NET SDK
+
+The following example shows how to list metric definition at account level:
+
+```csharp
+    public static async Task ListStorageMetricDefinition()
+    {
+        // Resource ID for storage account
+        var resourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}";
+        var subscriptionId = "{SubscriptionID}";
+        // How to identify Tenant ID, Application ID and Access Key: https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
+        var tenantId = "{TenantID}";
+        var applicationId = "{ApplicationID}";
+        var accessKey = "{AccessKey}";
+
+        // Using metrics in Azure Monitor is currently free. However, if you use additional solutions ingesting metrics data, you may be billed by these solutions. For example, you are billed by Azure Storage if you archive metrics data to an Azure Storage account. Or you are billed by Operation Management Suite (OMS) if you stream metrics data to OMS for advanced analysis.
+        MonitorManagementClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
+        IEnumerable<MetricDefinition> metricDefinitions = await readOnlyClient.MetricDefinitions.ListAsync(resourceUri: resourceId, cancellationToken: new CancellationToken());
+
+        foreach (var metricDefinition in metricDefinitions)
+        {
+            //Enumrate metric definition:
+            //    Id
+            //    ResourceId
+            //    Name
+            //    Unit
+            //    MetricAvailabilities
+            //    PrimaryAggregationType
+            //    Dimensions
+            //    IsDimensionRequired
+        }
+    }
+
+```
+
+If you want to list the metric definitions for blob, table, file, or queue, you must specify different resource IDs for each service with the API.
+
+#### Read metric values with the .NET SDK
+
+The following example shows how to read `UsedCapacity` data at account level:
+
+```csharp
+    public static async Task ReadStorageMetricValue()
+    {
+        // Resource ID for storage account
+        var resourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}";
+        var subscriptionId = "{SubscriptionID}";
+        // How to identify Tenant ID, Application ID and Access Key: https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
+        var tenantId = "{TenantID}";
+        var applicationId = "{ApplicationID}";
+        var accessKey = "{AccessKey}";
+
+        MonitorClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
+
+        Microsoft.Azure.Management.Monitor.Models.Response Response;
+
+        string startDate = DateTime.Now.AddHours(-3).ToUniversalTime().ToString("o");
+        string endDate = DateTime.Now.ToUniversalTime().ToString("o");
+        string timeSpan = startDate + "/" + endDate;
+
+        Response = await readOnlyClient.Metrics.ListAsync(
+            resourceUri: resourceId,
+            timespan: timeSpan,
+            interval: System.TimeSpan.FromHours(1),
+            metricnames: "UsedCapacity",
+
+            aggregation: "Average",
+            resultType: ResultType.Data,
+            cancellationToken: CancellationToken.None);
+
+        foreach (var metric in Response.Value)
+        {
+            //Enumrate metric value
+            //    Id
+            //    Name
+            //    Type
+            //    Unit
+            //    Timeseries
+            //        - Data
+            //        - Metadatavalues
+        }
+    }
+
+```
+
+In above example, if you want to read metric values for blob, table, file, or queue, you must specify different resource IDs for each service with the API.
+
+#### Read multi-dimensional metric values with the .NET SDK
+
+For multi-dimensional metrics, you need to define meta data filter if you want to read metric data on specific dimension value.
+
+The following example shows how to read metric data on the metric supporting multi-dimension:
+
+```csharp
+    public static async Task ReadStorageMetricValueTest()
+    {
+        // Resource ID for blob storage
+        var resourceId = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/blobServices/default";
+        var subscriptionId = "{SubscriptionID}";
+        // How to identify Tenant ID, Application ID and Access Key: https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/
+        var tenantId = "{TenantID}";
+        var applicationId = "{ApplicationID}";
+        var accessKey = "{AccessKey}";
+
+        MonitorManagementClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
+
+        Microsoft.Azure.Management.Monitor.Models.Response Response;
+
+        string startDate = DateTime.Now.AddHours(-3).ToUniversalTime().ToString("o");
+        string endDate = DateTime.Now.ToUniversalTime().ToString("o");
+        string timeSpan = startDate + "/" + endDate;
+        // It's applicable to define meta data filter when a metric support dimension
+        // More conditions can be added with the 'or' and 'and' operators, example: BlobType eq 'BlockBlob' or BlobType eq 'PageBlob'
+        ODataQuery<MetadataValue> odataFilterMetrics = new ODataQuery<MetadataValue>(
+            string.Format("BlobType eq '{0}'", "BlockBlob"));
+
+        Response = readOnlyClient.Metrics.List(
+                        resourceUri: resourceId,
+                        timespan: timeSpan,
+                        interval: System.TimeSpan.FromHours(1),
+                        metricnames: "BlobCapacity",
+                        odataQuery: odataFilterMetrics,
+                        aggregation: "Average",
+                        resultType: ResultType.Data);
+
+        foreach (var metric in Response.Value)
+        {
+            //Enumrate metric value
+            //    Id
+            //    Name
+            //    Type
+            //    Unit
+            //    Timeseries
+            //        - Data
+            //        - Metadatavalues
+        }
+    }
+
+```
+
+## Analyzing log data
+
+Data in Azure Monitor Logs is stored in tables which each table having its own set of unique properties. Azure Storage stores data in the following tables.
+
+| Table | Description |
+|:---|:---|
+| AzureDiagnostics | Common table used by multiple services to store Resource logs. Resource logs from Azure Storage can be identified with `PutSomethingHere`.   |
+| AzureActivity    | Common table that stores all records from the Activity log. 
+
+> [!IMPORTANT]
+> When you select **Logs** from the Azure Storage menu, Log Analytics is opened with the query scope set to the current storage resource. This means that log queries will only include data from that resource. If you want to run a query that includes data from other databases or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope/) for details.
+
+### Requests logged in logging
+
+Log entries are created only if there are requests made against the service endpoint. For example, if a storage account has activity in its blob endpoint but not in its table or queue endpoints, only logs pertaining to the blob service will be created.
+
+#### Logging authenticated requests
+
+ The following types of authenticated requests are logged:
+
+- Successful requests
+- Failed requests, including timeout, throttling, network, authorization, and other errors
+- Requests using a Shared Access Signature (SAS) or OAuth, including failed and successful requests
+- Requests to analytics data (classic log data in the **$logs** container, and class metric data in the **$metric** tables)
+
+  Requests made by the storage service itself, such as log creation or deletion, are not logged. A full list of the logged data is documented in the [Storage Logged Operations and Status Messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Storage Log Format](/rest/api/storageservices/storage-analytics-log-format) topics.
+
+#### Logging anonymous requests
+
+ The following types of anonymous requests are logged:
+
+- Successful requests
+- Server errors
+- Timeout errors for both client and server
+- Failed GET requests with error code 304 (Not Modified)
+
+  All other failed anonymous requests are not logged. A full list of the logged data is documented in the [Storage Logged Operations and Status Messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Storage Log Format](/rest/api/storageservices/storage-analytics-log-format) topics.
+
+## FAQ
+
+**Does new metrics support Classic Storage account?**
+
+No, new metrics in Azure Monitor only support Azure Resource Manager storage accounts. If you want to use metrics on Storage accounts, you need to migrate to Azure Resource Manager Storage account. See [Migrate to Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
+
+**Does Azure Storage support metrics for Managed Disks or Unmanaged Disks?**
+
+No, Azure Compute supports the metrics on disks. See [article](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/) for more details.
+
+**How to map and migrate classic metrics with new metrics?**
+
+You can find detailed mapping between classic metrics and new metrics in [Azure Storage metrics migration](./storage-metrics-migration.md).
 
 ## Next steps
 
-- See [[service-name] monitoring data reference](monitor-service-reference.md) for a reference of the logs and metrics created by Azure Cosmos DB.
-- See [Monitoring Azure resources with Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md) for details on monitoring Azure resources.
+- See [Azure Storage monitoring data reference](monitor-service-reference.md) for a reference of the logs and metrics created by Azure Cosmos DB.
+- See [Monitoring Azure resources with Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) for details on monitoring Azure resources.
 
