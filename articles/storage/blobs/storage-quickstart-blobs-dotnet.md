@@ -99,7 +99,7 @@ namespace BlobQuickstartV12
 }
 ```
 
-[!INCLUDE [storage-quickstart-connection-string-include](../../../includes/storage-quickstart-connection-string-include.md)]
+[!INCLUDE [storage-quickstart-connection-string-include](../../../includes/storage-quickstart-credentials-include.md)]
 
 ## Object model
 
