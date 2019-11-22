@@ -69,7 +69,7 @@ You can run a notebook direct from Azure Sentinel, or clone all the Azure Sentin
     > [!div class="mx-imgBorder"]
     > ![launch notebook](./media/notebooks/sentinel-azure-notebooks-nolaunch.png)
 
-3. Select the notebook you want to use, and then select **Launch Notebook (Preview)** to clone and configure the notebook into a new Azure Notebooks project that connects to your Azure Sentinel workspace. When the process is complete, the notebook opens within Azure Notebooks.
+3. Select the notebook you want to use, and then select **Launch Notebook (Preview)** to clone and configure the notebook into a new Azure Notebooks project that connects to your Azure Sentinel workspace. When the process is complete, the notebook opens within Azure Notebooks for you to run.
 
 ## Clone Azure Sentinel notebooks to a new Azure Notebooks project
 
