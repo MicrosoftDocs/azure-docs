@@ -46,7 +46,7 @@ Azure Disks and Azure Files are the supported volume types, accessed as NTFS vol
 
 ## Can I run Windows only clusters in AKS?
 
-The master nodes (the control plane) in an AKS cluster are hosted by AKS the service, you will not be exposed to the operating system of the nodes hosting the master components. All AKS cluster are created with a default first node pool, which is Linux based. This node pool contains system services, which are needed for the cluster to function. It's recommended to run at least two nodes in the first node pool to ensure reliability of your cluster and the ability to do cluster operations. The first Linux-based node pool can't be deleted unless the AKS cluster itself is deleted.
+The control plane in an AKS cluster are hosted by AKS the service, you will not be exposed to the operating system of the nodes hosting the control plane components. All AKS cluster are created with a default first node pool, which is Linux based. This node pool contains system services, which are needed for the cluster to function. It's recommended to run at least two nodes in the first node pool to ensure reliability of your cluster and the ability to do cluster operations. The first Linux-based node pool can't be deleted unless the AKS cluster itself is deleted.
 
 ## What network plug-ins are supported?
 

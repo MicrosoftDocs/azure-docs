@@ -202,9 +202,9 @@ For minor versions not supported by AKS, scaling in or out continues to work wit
 Yes. However, if the cluster is not on one of the versions supported by AKS, the cluster is out of the AKS support
 policies. Azure does not automatically upgrade your cluster or delete it.
 
-**What version does the master support if the agent cluster is not in one of the supported AKS versions?**
+**What version does the control plane support if the agent cluster is not in one of the supported AKS versions?**
 
-The master is automatically updated to the latest supported version.
+The control plane is automatically updated to the latest supported version.
 
 ## Next steps
 

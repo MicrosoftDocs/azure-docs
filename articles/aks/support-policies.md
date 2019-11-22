@@ -47,14 +47,14 @@ When a cluster is created, the customer defines the Kubernetes worker nodes that
 
 Because customer cluster nodes execute private code and store sensitive data, Microsoft Support can access them in only a limited way. Microsoft Support can't sign in to, execute commands in, or view logs for these nodes without express customer permission or assistance.
 
-Because worker nodes are sensitive, Microsoft takes great care to limit their background management. In many cases, your workload will continue to run even if the Kubernetes master nodes, etcd, and other Microsoft-managed components fail. Carelessly modified worker nodes can cause losses of data and workloads and can render the cluster unsupportable.
+Because worker nodes are sensitive, Microsoft takes great care to limit their background management. In many cases, your workload will continue to run even if the Kubernetes control plane nodes, etcd, and other Microsoft-managed components fail. Carelessly modified worker nodes can cause losses of data and workloads and can render the cluster unsupportable.
 
 ## AKS support coverage
 
 Microsoft provides technical support for the following:
 
 * Connectivity to all Kubernetes components that the Kubernetes service provides and supports, such as the API server.
-* Management, uptime, QoS, and operations of Kubernetes control plane services (Kubernetes master nodes, API server, etcd, and kube-dns, for example).
+* Management, uptime, QoS, and operations of Kubernetes control plane services (Kubernetes control plane nodes, API server, etcd, and kube-dns, for example).
 * Etcd. Support includes automated, transparent backups of all etcd data every 30 minutes for disaster planning and cluster state restoration. These backups aren't directly available to customers or users. They ensure data reliability and consistency.
 * Any integration points in the Azure cloud provider driver for Kubernetes. These include integrations into other Azure services such as load balancers, persistent volumes, or networking (Kubernetes and Azure CNI).
 * Questions or issues about customization of control plane components such as the Kubernetes API server, etcd, and kube-dns.
@@ -88,7 +88,7 @@ Microsoft and customers share responsibility for Kubernetes worker nodes where:
 * The worker nodes receive OS patches automatically.
 * Issues with the Kubernetes control plane components that run on the worker nodes are automatically remediated. Components include the following:
   * Kube-proxy
-  * Networking tunnels that provide communication paths to the Kubernetes master components
+  * Networking tunnels that provide communication paths to the Kubernetes control plane components
   * Kubelet
   * Docker or Moby daemon
 

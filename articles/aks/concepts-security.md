@@ -1,6 +1,6 @@
 ---
 title: Concepts - Security in Azure Kubernetes Services (AKS)
-description: Learn about security in Azure Kubernetes Service (AKS), including master and node communication, network policies, and Kubernetes secrets.
+description: Learn about security in Azure Kubernetes Service (AKS), including control plane and node communication, network policies, and Kubernetes secrets.
 services: container-service
 author: mlearned
 
@@ -16,15 +16,19 @@ To protect your customer data as you run application workloads in Azure Kubernet
 
 This article introduces the core concepts that secure your applications in AKS:
 
-- [Master components security](#master-security)
-- [Node security](#node-security)
-- [Cluster upgrades](#cluster-upgrades)
-- [Network security](#network-security)
-- [Kubernetes Secrets](#kubernetes-secrets)
+- [Security concepts for applications and clusters in Azure Kubernetes Service (AKS)](#security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks)
+  - [Control plane security](#control-plane-security)
+  - [Node security](#node-security)
+  - [Cluster upgrades](#cluster-upgrades)
+    - [Cordon and drain](#cordon-and-drain)
+  - [Network security](#network-security)
+    - [Azure network security groups](#azure-network-security-groups)
+  - [Kubernetes Secrets](#kubernetes-secrets)
+  - [Next steps](#next-steps)
 
-## Master security
+## Control plane security
 
-In AKS, the Kubernetes master components are part of the managed service provided by Microsoft. Each AKS cluster has their own single-tenanted, dedicated Kubernetes master to provide the API Server, Scheduler, etc. This master is managed and maintained by Microsoft.
+In AKS, the Kubernetes control plane components are part of the managed service provided by Microsoft. Each AKS cluster has their own single-tenanted, dedicated Kubernetes control plane to provide the API Server, Scheduler, etc. This control plane is managed and maintained by Microsoft.
 
 By default, the Kubernetes API server uses a public IP address and with fully qualified domain name (FQDN). You can control access to the API server using Kubernetes role-based access controls and Azure Active Directory. For more information, see [Azure AD integration with AKS][aks-aad].
 
@@ -44,7 +48,7 @@ Kubernetes environments, in AKS or elsewhere, currently aren't completely safe f
 
 ## Cluster upgrades
 
-For security and compliance, or to use the latest features, Azure provides tools to orchestrate the upgrade of an AKS cluster and components. This upgrade orchestration includes both the Kubernetes master and agent components. You can view a [list of available Kubernetes versions](supported-kubernetes-versions.md) for your AKS cluster. To start the upgrade process, you specify one of these available versions. Azure then safely cordons and drains each AKS node and performs the upgrade.
+For security and compliance, or to use the latest features, Azure provides tools to orchestrate the upgrade of an AKS cluster and components. This upgrade orchestration includes both the Kubernetes control plane and agent components. You can view a [list of available Kubernetes versions](supported-kubernetes-versions.md) for your AKS cluster. To start the upgrade process, you specify one of these available versions. Azure then safely cordons and drains each AKS node and performs the upgrade.
 
 ### Cordon and drain
 

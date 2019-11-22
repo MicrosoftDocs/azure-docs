@@ -1,6 +1,6 @@
 ﻿---
 title: Kubernetes on Azure tutorial - Deploy a cluster
-description: In this Azure Kubernetes Service (AKS) tutorial, you create an AKS cluster and use kubectl to connect to the Kubernetes master node.
+description: In this Azure Kubernetes Service (AKS) tutorial, you create an AKS cluster and use kubectl to connect to the Kubernetes control plane.
 services: container-service
 author: mlearned
 

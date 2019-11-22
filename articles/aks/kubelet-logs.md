@@ -14,7 +14,7 @@ ms.author: mlearned
 
 # Get kubelet logs from Azure Kubernetes Service (AKS) cluster nodes
 
-As part of operating an AKS cluster, you may need to review logs to troubleshoot a problem. Built-in to the Azure portal is the ability to view logs for the [AKS master components][aks-master-logs] or [containers in an AKS cluster][azure-container-logs]. Occasionally, you may need to get *kubelet* logs from an AKS node for troubleshooting purposes.
+As part of operating an AKS cluster, you may need to review logs to troubleshoot a problem. Built-in to the Azure portal is the ability to view logs for the [AKS control plane components][aks-control-plane-logs] or [containers in an AKS cluster][azure-container-logs]. Occasionally, you may need to get *kubelet* logs from an AKS node for troubleshooting purposes.
 
 This article shows you how you can use `journalctl` to view the *kubelet* logs on an AKS node.
 
@@ -62,12 +62,12 @@ I0508 12:28:58.344656    8672 kubelet_node_status.go:497] Using Node Hostname fr
 
 ## Next steps
 
-If you need additional troubleshooting information from the Kubernetes master, see [view Kubernetes master node logs in AKS][aks-master-logs].
+If you need additional troubleshooting information from the Kubernetes control plane, see [view Kubernetes control plane logs in AKS][aks-control-plane-logs].
 
 <!-- LINKS - internal -->
 [aks-ssh]: ssh.md
-[aks-master-logs]: view-master-logs.md
+[aks-control-plane-logs]: view-control-plane-logs.md
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
-[aks-master-logs]: view-master-logs.md
+[aks-control-plane-logs]: view-control-plane-logs.md
 [azure-container-logs]: ../azure-monitor/insights/container-insights-overview.md

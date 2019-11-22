@@ -151,7 +151,7 @@ az network nsg rule delete --resource-group $CLUSTER_RG --nsg-name $NSG_NAME --n
 
 ## Next steps
 
-If you need additional troubleshooting data, you can [view the Kubernetes master node logs][view-master-logs] or [Azure Monitor][azure-monitor-containers].
+If you need additional troubleshooting data, you can [view the Kubernetes control plane logs][view-control-plane-logs] or [Azure Monitor][azure-monitor-containers].
 
 <!-- EXTERNAL LINKS -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
@@ -166,4 +166,4 @@ If you need additional troubleshooting data, you can [view the Kubernetes master
 [azure-monitor-containers]: ../azure-monitor/insights/container-insights-overview.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [ssh-steps]: ssh.md
-[view-master-logs]: view-master-logs.md
+[view-control-plane-logs]: view-control-plane-logs.md
