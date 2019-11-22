@@ -7,7 +7,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/07/2019
+ms.date: 11/21/2019
 ms.custom: seodec18
 ---
 
@@ -41,7 +41,7 @@ Matchers are graph objects that determine what user-defined functions run for a 
 
 The following example matcher evaluates to true on any sensor telemetry event with `"Temperature"` as its data type value. You can create multiple matchers on a user-defined function by making an authenticated HTTP POST request to:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/matchers
 ```
 
@@ -76,7 +76,7 @@ Creating a user-defined function involves making a multipart HTTP request to the
 
 After the matchers are created, upload the function snippet with the following authenticated multipart HTTP POST request to:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/userdefinedfunctions
 ```
 
@@ -196,7 +196,7 @@ Create a role assignment for the user-defined function to run under. If no role 
 
 1. [Query the System API](./security-create-manage-role-assignments.md#retrieve-all-roles) for all roles to get the role ID you want to assign to your user-defined function. Do so by making an authenticated HTTP GET request to:
 
-    ```plaintext
+    ```URL
     YOUR_MANAGEMENT_API_URL/system/roles
     ```
    Keep the desired role ID. It will be passed as the JSON body attribute **roleId** (`YOUR_DESIRED_ROLE_IDENTIFIER`) below.
@@ -205,7 +205,7 @@ Create a role assignment for the user-defined function to run under. If no role 
 1. Find the value of **path** (`YOUR_ACCESS_CONTROL_PATH`) by querying your spaces with `fullpath`.
 1. Copy the returned `spacePaths` value. You'll use that below. Make an authenticated HTTP GET request to:
 
-    ```plaintext
+    ```URL
     YOUR_MANAGEMENT_API_URL/spaces?name=YOUR_SPACE_NAME&includes=fullpath
     ```
 
@@ -215,7 +215,7 @@ Create a role assignment for the user-defined function to run under. If no role 
 
 1. Paste the returned `spacePaths` value into **path** to create a user-defined function role assignment by making an authenticated HTTP POST request to:
 
-    ```plaintext
+    ```URL
     YOUR_MANAGEMENT_API_URL/roleassignments
     ```
     With JSON body:
@@ -233,7 +233,7 @@ Create a role assignment for the user-defined function to run under. If no role 
     | --- | --- |
     | YOUR_DESIRED_ROLE_IDENTIFIER | The identifier for the desired role |
     | YOUR_USER_DEFINED_FUNCTION_ID | The ID for the user-defined function you want to use |
-    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | The ID specifying the user-defined function type |
+    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | The ID specifying the user-defined function type (`UserDefinedFunctionId`) |
     | YOUR_ACCESS_CONTROL_PATH | The access control path |
 
 >[!TIP]
