@@ -200,7 +200,7 @@ Here's an example of a graph endpoint, with scope:
 ## [Java](#tab/java)
 
 - Register your application in a specific portal, depending on the cloud. For more information on how to choose the portal refer [App registration endpoints](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#app-registration-endpoints)
-- Use any of the [samples](https://github.com/AzureAD/microsoft-authentication-library-for-python/tree/dev/sample) from the repo with a few changes to the configuration, depending on the cloud, which are mentioned next.
+- Use any of the [samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/sample) from the repo with a few changes to the configuration, depending on the cloud, which are mentioned next.
 - Use a specific authority, depending on the cloud you registered the application in. For more information on authorities for different clouds, refer [Azure AD Authentication endpoints](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints).
 
 Here's an example authority:
