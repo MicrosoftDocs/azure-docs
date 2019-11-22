@@ -89,6 +89,8 @@ Portals are incompatible and you need to migrate the content manually.
 
 The new developer portal doesn't support *Applications* and *Issues*. If you have used *Issues* in the old portal and need them in the new one, post a comment in [a dedicated GitHub issue](https://github.com/Azure/api-management-developer-portal/issues/122).
 
+Authentication with OAuth in the interactive developer console is not yet supported. You can track the progress through [the GitHub issue](https://github.com/Azure/api-management-developer-portal/issues/208).
+
 ### Has the old portal been deprecated?
 
 The old developer and publisher portals are now *legacy* features - they will be receiving security updates only. New features will be implemented in the new developer portal only.
@@ -111,19 +113,19 @@ In most cases - no.
 
 If your API Management service is in an internal VNet, your developer portal is only accessible from within the network. The management endpoint's host name must resolve to the internal VIP of the service from the machine you use to access the portal's administrative interface. Make sure the management endpoint is registered in the DNS. In case of misconfiguration, you will see an error: `Unable to start the portal. See if settings are specified correctly in the configuration (...)`.
 
-### I have assigned a custom API Management domain and the portal hasn't updated
+### I have assigned a custom API Management domain and the published portal doesn't work
 
 After you update the domain, you need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the changes to take effect.
 
-### I have added an identity provider and the portal hasn't updated
+### I have added an identity provider and I can't see it in the portal
 
 After you configure an identity provider (for example, AAD, AAD B2C), you need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the changes to take effect.
 
-### I have set up delegation and the portal hasn't updated
+### I have set up delegation and the portal doesn't use it
 
 After you set up delegation, you need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the changes to take effect.
 
-### My other API Management configuration changes hasn't been propagated in the developer portal
+### My other API Management configuration changes haven't been propagated in the developer portal
 
 Most configuration changes (for example, VNet, sign-in and product terms) require [republishing the portal](api-management-howto-developer-portal-customize.md#publish).
 
@@ -163,13 +165,13 @@ The interactive console makes a client-side API request from the browser. You ca
 >
 > As a workaround you can pass the subscription key in a query parameter.
 
-### what permissions do I need to edit the developer portal?
+### What permissions do I need to edit the developer portal?
 
-If you're seeing the `Oops. Something went wrong. Please try again later.` error when you open the portal in the administrative mode, you may be lacking the required permissions (RBAC). The permissions required to access the new portal's administrative interface are different from the permissions required for the legacy publisher and developer portals.
+If you're seeing the `Oops. Something went wrong. Please try again later.` error when you open the portal in the administrative mode, you may be lacking the required permissions (RBAC).
 
 The legacy portals required the permission `Microsoft.ApiManagement/service/getssotoken/action` at the service scope (`/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>`) to allow the user administrator access to the portals. The new portal requires the permission `Microsoft.ApiManagement/service/users/token/action` at the scope `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1`.
 
-You can use the following PowerShell script to create a role with the required permission (remember to change the `<subscription-id>` parameter): 
+You can use the following PowerShell script to create a role with the required permission. Remember to change the `<subscription-id>` parameter. 
 
 ```PowerShell
 #New Portals Admin Role 
@@ -187,9 +189,7 @@ $customRole.AssignableScopes.Add('/subscriptions/<subscription-id>')
 New-AzRoleDefinition -Role $customRole 
 ```
  
-Once the role is created, it can be granted to any user from the **Access Control (IAM)** section in the Azure Portal. Assigning this role to a user from the Azure portal will assign the permission at the service scope. The user will be able to generate SAS tokens on behalf of *any* user in the service.
-
-At the minimum, this role needs to be assigned permissions at the "administrator" user scope of the service, which can be done via PowerShell. The following PowerShell command demonstrates how to assign the role to a user `user1` at the lowest scope to avoid granting unnecessary permissions to the user: 
+Once the role is created, it can be granted to any user from the **Access Control (IAM)** section in the Azure Portal. Assigning this role to a user will assign the permission at the service scope. The user will be able to generate SAS tokens on behalf of *any* user in the service. At the minimum, this role needs to be assigned to the administrator of the service. The following PowerShell command demonstrates how to assign the role to a user `user1` at the lowest scope to avoid granting unnecessary permissions to the user: 
 
 ```PowerShell
 New-AzRoleAssignment -SignInName "user1@contoso.com" -RoleDefinitionName "APIM New Portal Admin" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1" 
