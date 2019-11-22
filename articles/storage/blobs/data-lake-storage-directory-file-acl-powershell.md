@@ -1,5 +1,5 @@
 ---
-title: Manage files in Azure Data Lake Storage Gen2 - PowerShell (preview)
+title: Use PowerShell for files & ACLs in Azure Data Lake Storage Gen2 (preview)
 description: Use PowerShell cmdlets to manage directories and file and directory access control lists (ACL) in storage accounts that have a hierarchical namespace.
 services: storage
 author: normesta
@@ -11,7 +11,7 @@ ms.author: normesta
 ms.reviewer: prishet
 ---
 
-# Manage files in Azure Data Lake Storage Gen2 - PowerShell (preview)
+# Use PowerShell for files & ACLs in Azure Data Lake Storage Gen2 (preview)
 
 This article shows you how to use PowerShell to create and manage directories, files, and permissions in storage accounts that have a hierarchical namespace. 
 

@@ -1,5 +1,5 @@
 ---
-title: Manage files in Azure Data Lake Storage Gen2 - Azure CLI (Preview)
+title: Use Azure CLI for files & ACLs in Azure Data Lake Storage Gen2 (preview)
 description: Use the Azure CLI to manage directories and file and directory access control lists (ACL) in storage accounts that have a hierarchical namespace.
 services: storage
 author: normesta
@@ -11,14 +11,14 @@ ms.author: normesta
 ms.reviewer: prishet
 ---
 
-# Manage files in Azure Data Lake Storage Gen2 - Azure CLI (Preview)
+# Use Azure CLI for files & ACLs in Azure Data Lake Storage Gen2 (preview)
 
 This article shows you how to use the [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) to create and manage directories, files, and permissions in storage accounts that have a hierarchical namespace. 
 
 > [!IMPORTANT]
 > The the `storage-preview` extension that is featured in this article is currently in public preview.
 
-[Source code](https://github.com/Azure/azure-cli-extensions/tree/master/src) | [Sample](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview)
+[Source code](https://github.com/Azure/azure-cli-extensions/tree/master/src) | [Sample](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview) | [Gen1 to Gen2 mapping](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2)
 
 ## Prerequisites
 
@@ -293,7 +293,7 @@ az storage blob directory metadata show -c my-file-system -d my-directory --acco
 
 ## See also
 
-To learn more about working with Blob storage by using PowerShell, see [Using Azure PowerShell with Azure Storage](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
-
-To find a comprehensive list of Microsoft Azure PowerShell Storage cmdlets, see [Storage PowerShell cmdlets](/powershell/module/az.storage).
+* [Source code](https://github.com/Azure/azure-cli-extensions/tree/master/src)
+* [Sample](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview)
+* [Gen1 to Gen2 mapping](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2)
 

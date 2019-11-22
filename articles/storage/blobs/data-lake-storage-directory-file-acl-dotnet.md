@@ -1,5 +1,5 @@
 ---
-title: Manage files in Azure Data Lake Storage Gen2 - .NET (preview)
+title: Use Azure .NET for files & ACLs in Azure Data Lake Storage Gen2 (preview)
 description: Use the Azure Storage client library to manage directories and file and directory access control lists (ACL) in storage accounts that have a hierarchical namespace.
 author: normesta
 ms.service: storage
@@ -10,14 +10,14 @@ ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ---
 
-# Manage files in Azure Data Lake Storage Gen2 - .NET (preview)
+# Use NET for files & ACLs in Azure Data Lake Storage Gen2 (preview)
 
 This article shows you how to use .NET to create and manage directories, files, and permissions in storage accounts that have a hierarchical namespace. 
 
 > [!IMPORTANT]
 > The [Azure.Storage.Files.DataLake](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/12.0.0-preview.6) NuGet package that is featured in this article is currently in public preview.
 
-[API reference documentation](https://azure.github.io/azure-sdk-for-net/storage.html) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/12.0.0-preview.6) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples)
+[API reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.Storage.Files.DataLake/12.0.0-preview.6/api/index.html) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/12.0.0-preview.6) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples) | [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/GEN1_GEN2_MAPPING.md)
 
 ## Prerequisites
 
@@ -285,8 +285,8 @@ public async Task ListFilesInDirectory(DataLakeFileSystemClient fileSystemClient
 
 ## See also
 
-* [Mapping between Azure Data Lake Storage Gen1 and Azure Data Lake Storage Gen2 APIs](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/GEN1_GEN2_MAPPING.md)
-* [API reference documentation](https://azure.github.io/azure-sdk-for-net/storage.html)
+* [API reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.Storage.Files.DataLake/12.0.0-preview.6/api/index.html)
 * [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake)  
 * [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples)
+* [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/GEN1_GEN2_MAPPING.md)
 
