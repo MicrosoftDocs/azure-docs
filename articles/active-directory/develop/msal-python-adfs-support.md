@@ -24,7 +24,7 @@ ms.collection: M365-identity-device-management
 
 # Active Directory Federation Services support in MSAL for Python
 
-Active Directory Federation Services (AD FS) in Windows Server enables you to add OpenID Connect and OAuth 2.0 based authentication and authorization to your apps by using the Microsoft Authentication Library (MSAL) for Python . Using the MSAL for Python library, your app can authenticate users directly against AD FS. For more information about scenarios, see [AD FS Scenarios for Developers](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers).
+Active Directory Federation Services (AD FS) in Windows Server enables you to add OpenID Connect and OAuth 2.0 based authentication and authorization to your apps by using the Microsoft Authentication Library (MSAL) for Python. Using the MSAL for Python library, your app can authenticate users directly against AD FS. For more information about scenarios, see [AD FS Scenarios for Developers](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers).
 
 There are usually two ways of authenticating against AD FS:
 
@@ -57,4 +57,4 @@ When you acquire a token using `acquire_token_by_username_password`, MSAL Python
 
 ## See also
 
-- For the federated case, see [Configure Azure Active Directory sign in behavior for an application by using a Home Realm Discovery policy](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal)
+- For the federated case, see [Configure Azure Active Directory sign in behavior for an application by using a Home Realm Discovery policy](../manage-apps/configure-authentication-for-federated-users-portal.md)
