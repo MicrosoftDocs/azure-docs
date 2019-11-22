@@ -764,16 +764,16 @@
         href: /azure/databricks/applications/deep-learning/data-prep/ddl-data
         maintainContext: true
       - name: Load data using Petastorm
-        href: /azure/databricks//applications/deep-learning/data-prep/petastorm
+        href: /azure/databricks/applications/deep-learning/data-prep/petastorm
         maintainContext: true
       - name: Save DataFrames and Datasets to TFRecord files
-        href: /azure/databricks//applications/deep-learning/data-prep/dataset-to-tfrecords
+        href: /azure/databricks/applications/deep-learning/data-prep/dataset-to-tfrecords
         maintainContext: true
       - name: Load data from TFRecord files with TensorFlow
-        href: /azure/databricks//applications/deep-learning/data-prep/tfrecords-to-tensorflow
+        href: /azure/databricks/applications/deep-learning/data-prep/tfrecords-to-tensorflow
         maintainContext: true
       - name: Save data to TFRecord files with TensorFlow
-        href: /azure/databricks//applications/deep-learning/data-prep/tensorflow-to-tfrecords
+        href: /azure/databricks/applications/deep-learning/data-prep/tensorflow-to-tfrecords
         maintainContext: true
     - name: Single node training
       items:
@@ -1095,7 +1095,7 @@
   - name: Troubleshooting
     items:
     - name: Common questions
-      href: /azure/databricks//azure/azure-databricks/frequently-asked-questions-databricks
+      href: /azure/azure-databricks/frequently-asked-questions-databricks
       maintainContext: true
     - name: Administration
       items: 
