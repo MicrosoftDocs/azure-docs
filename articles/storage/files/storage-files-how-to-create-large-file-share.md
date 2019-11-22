@@ -66,7 +66,7 @@ First, make sure you [install the latest version](https://docs.microsoft.com/cli
 To create a storage account with large file shares enabled, replace `<yourStorageAccountName>`, `<yourResourceGroup>`, and `<yourDesiredRegion>` with your values, then use the following command:
 
 ```azurecli-interactive
-## This command creates a large file share enabled account, it will not support GZRS, GRS, or RA-GRS
+## This command, when used with the -enable-large-file-share parameter, creates a large file share enabled account. When this parameter is used, the resulting storage account will not support GZRS, GRS, or RA-GRS
 az storage account create –name <yourStorageAccountName> -g <yourResourceGroup> -l <yourDesiredRegion> –sku Standard_LRS --kind StorageV2 –enable-large-file-share
 ```
 
@@ -77,7 +77,7 @@ First, make sure you [install the latest version](https://docs.microsoft.com/pow
 To create a storage account with large file shares enabled, replace `<yourStorageAccountName>`, `<yourResourceGroup>`, and `<yourDesiredRegion>` with your values, then use the following command:
 
 ```PowerShell
-## This command creates a large file share enabled account, it will not support GZRS, GRS, or RA-GRS
+## This command, when used with the -EnableLargeFileShare parameter, creates a large file share enabled account. When this parameter is used, the resulting storage account will not support GZRS, GRS, or RA-GRS
 New-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAccountName> -Location <yourDesiredRegion> -SkuName Standard_LRS -EnableLargeFileShare;
 ```
 
