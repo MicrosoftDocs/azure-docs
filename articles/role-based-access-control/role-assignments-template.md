@@ -28,11 +28,11 @@ To assign a role, you need to specify the ID of the user, group, or application 
 To get the ID of a user, you can use the [Get-AzADUser](/powershell/module/az.resources/get-azaduser) or [az ad user show](/cli/azure/ad/user#az-ad-user-show) commands.
 
 ```azurepowershell
-$prinid = (Get-AzADUser -DisplayName "{name}").id
+$objectid = (Get-AzADUser -DisplayName "{name}").id
 ```
 
 ```azurecli
-prinid=$(az ad user show --id "{email}" --query objectId --output tsv)
+objectid=$(az ad user show --id "{email}" --query objectId --output tsv)
 ```
 
 ### Group
@@ -40,11 +40,11 @@ prinid=$(az ad user show --id "{email}" --query objectId --output tsv)
 To get the ID of a group, you can use the [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup) or [az ad group show](/cli/azure/ad/group#az-ad-group-show) commands.
 
 ```azurepowershell
-$prinid = (Get-AzADGroup -DisplayName "{name}").id
+$objectid = (Get-AzADGroup -DisplayName "{name}").id
 ```
 
 ```azurecli
-prinid=$(az ad group show --group "{name}" --query objectId --output tsv)
+objectid=$(az ad group show --group "{name}" --query objectId --output tsv)
 ```
 
 ### Application
@@ -52,11 +52,11 @@ prinid=$(az ad group show --group "{name}" --query objectId --output tsv)
 To get the ID of a service principal (identity used by an application), you can use the [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) or [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) commands. For a service principal, use the object ID and **not** the application ID.
 
 ```azurepowershell
-$prinid = (Get-AzADServicePrincipal -DisplayName "{name}").id
+$objectid = (Get-AzADServicePrincipal -DisplayName "{name}").id
 ```
 
 ```azurecli
-prinid=$(az ad sp list --display-name "{name}" --query [].objectId --output tsv)
+objectid=$(az ad sp list --display-name "{name}" --query [].objectId --output tsv)
 ```
 
 ## Create a role assignment at a resource group scope (without parameters)
@@ -169,21 +169,21 @@ To use the template, you must specify the following inputs:
 The scope of the role assignment is determined from the level of the deployment. Here are example [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) and [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) commands for how to start the deployment at a resource group scope.
 
 ```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json -principalId $prinid -builtInRoleType Reader
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json -principalId $objectid -builtInRoleType Reader
 ```
 
 ```azurecli
-az group deployment create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$prinid builtInRoleType=Reader
+az group deployment create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
 ```
 
 Here are example [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) and [az deployment create](/cli/azure/deployment#az-deployment-create) commands for how to start the deployment at a subscription scope and specify the location.
 
 ```azurepowershell
-New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $prinid -builtInRoleType Reader
+New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $objectid -builtInRoleType Reader
 ```
 
 ```azurecli
-az deployment create --location centralus --template-file rbac-test.json --parameters principalId=$prinid builtInRoleType=Reader
+az deployment create --location centralus --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
 ```
 
 ## Create a role assignment at a resource scope
@@ -271,11 +271,11 @@ To use the template, you must specify the following inputs:
 To deploy the previous template, you use the resource group commands. Here are example [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) and [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) commands for how to start the deployment at a resource scope.
 
 ```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json -principalId $prinid -builtInRoleType Contributor
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json -principalId $objectid -builtInRoleType Contributor
 ```
 
 ```azurecli
-az group deployment create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$prinid builtInRoleType=Contributor
+az group deployment create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Contributor
 ```
 
 The following shows an example of the Contributor role assignment to a user for a storage account after deploying the template.
