@@ -273,8 +273,6 @@
         href: ./spark/apache-spark-intellij-tool-failure-debug.md
       - name: Analyze data using BI tools
         href: ./spark/apache-spark-use-bi-tools.md
-      - name: Run a streaming job
-        href: ./spark/apache-spark-eventhub-streaming.md
       - name: Create a machine learning app
         href: ./spark/apache-spark-ipython-notebook-machine-learning.md
       - name: Create an Apache Spark app in IntelliJ

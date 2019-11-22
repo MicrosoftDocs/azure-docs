@@ -6,7 +6,7 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include 
-ms.date: 10/17/2019
+ms.date: 11/20/2019
 ms.author: diberry
 ---
 
@@ -14,7 +14,7 @@ ms.author: diberry
 
 * [.NET Core V2.2+](https://dotnet.microsoft.com/download)
 * [Visual Studio Code](https://code.visualstudio.com/)
-* Public app ID: df67dcdb-c37d-46af-88e1-8b97951ca1c2
+* Public app ID: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
 ## Get LUIS key
 
@@ -22,7 +22,7 @@ ms.author: diberry
 
 ## Get intent programmatically
 
-Use C# to query the prediction endpoint GET [API](https://aka.ms/luis-apim-v3-prediction) to get the prediction result. 
+Use C# (.NET Core) to query the [prediction endpoint](https://aka.ms/luis-apim-v3-prediction) and get a prediction result.
 
 1. Create a new console application targeting the C# language, with a project and folder name of `predict-with-rest`. 
 
@@ -30,12 +30,14 @@ Use C# to query the prediction endpoint GET [API](https://aka.ms/luis-apim-v3-pr
     dotnet new console -lang C# -n predict-with-rest
     ```
 
-1. Install required dependencies with the following dotnet CLI commands.
+1. Change to the `predict-with-rest` directory you just created, and install required dependencies with these commands:  
 
     ```console
+    cd predict-with-rest
     dotnet add package System.Net.Http
     ```
-1. Overwrite Program.cs with the following code:
+
+1. Open `Program.cs` in your favorite IDE or editor. Then overwrite `Program.cs` with the following code:
     
    ```csharp
     using System;
@@ -97,10 +99,10 @@ Use C# to query the prediction endpoint GET [API](https://aka.ms/luis-apim-v3-pr
 
 1. Replace the following values:
 
-    * `YOUR-KEY` with your starter key
-    * `YOUR-ENDPOINT` with your endpoint, for example, `westus2.api.cognitive.microsoft.com`
+    * `YOUR-KEY` with your starter key.
+    * `YOUR-ENDPOINT` with your endpoint. For example, `westus2.api.cognitive.microsoft.com`.
 
-1. Build the console application. 
+1. Build the console application with this command: 
 
     ```console
     dotnet build
@@ -112,7 +114,7 @@ Use C# to query the prediction endpoint GET [API](https://aka.ms/luis-apim-v3-pr
     dotnet run
     ```
 
-1. Review prediction response in JSON format:
+1. Review the prediction response, which is returned as JSON:
 
     ```console
     Hit ENTER to exit...

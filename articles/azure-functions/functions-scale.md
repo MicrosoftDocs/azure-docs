@@ -24,9 +24,6 @@ Premium plan provides additional features, such as premium compute instances, th
 
 App Service plan allows you to take advantage of dedicated infrastructure, which you manage. Your function app doesn't scale based on events, which means is never scales down to zero. (Requires that [Always on](#always-on) is enabled.)
 
-> [!NOTE]
-> You can switch between Consumption and Premium plans by changing the plan property of the function app resource.
-
 ## Hosting plan support
 
 Feature support falls into the following two categories:

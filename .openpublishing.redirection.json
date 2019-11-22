@@ -26303,7 +26303,7 @@
     },
     {
       "source_path": "articles/security-center/security-center-policies-overview.md",
-      "redirect_url": "/azure/security-center/tutorial-security-policy.md",
+      "redirect_url": "/azure/security-center/tutorial-security-policy",
       "redirect_document_id": false
     },
     {
@@ -26475,6 +26475,11 @@
       "source_path": "articles/hdinsight/hdinsight-apache-spark-overview.md",
       "redirect_url": "/azure/hdinsight/spark/apache-spark-overview",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/hdinsight/spark/apache-spark-eventhub-streaming.md",
+      "redirect_url": "/azure/hdinsight/spark/apache-spark-ipython-notebook-machine-learning",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/hdinsight/storm/apache-storm-sensor-data-analysis.md",
