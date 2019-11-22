@@ -9,7 +9,7 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/21/2019
 ms.custom: seodec18
 ---
 # Set up and use compute targets for model training 
@@ -26,7 +26,7 @@ In this article, you learn how to use various compute targets for model training
 
 
 >[!NOTE]
-> Code in this article was tested with Azure Machine Learning SDK version 1.0.39.
+> Code in this article was tested with Azure Machine Learning SDK version 1.0.74.
 
 ## Compute targets for training
 
@@ -99,9 +99,6 @@ You can create an Azure Machine Learning compute environment on demand when you 
 #### Run-based creation
 
 You can create Azure Machine Learning Compute as a compute target at run time. The compute is automatically created for your run. The compute is deleted automatically once the run completes. 
-
-> [!NOTE]
-> To specify the max number of nodes to use, you would normally set `node_count` to the number of nodes. There is currently (04/04/2019) a bug that prevents this from working. As a workaround, use the `amlcompute._cluster_max_node_count` property of the run configuration. For example, `run_config.amlcompute._cluster_max_node_count = 5`.
 
 > [!IMPORTANT]
 > Run-based creation of Azure Machine Learning compute is currently in Preview. Don't use run-based creation if you use automated hyperparameter tuning or automated machine learning. To use hyperparameter tuning or automated machine learning, create a [persistent compute](#persistent) target instead.

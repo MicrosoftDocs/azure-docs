@@ -51,7 +51,7 @@ The following table lists all other features and tools that are not yet supporte
 | **Azure Blob Storage lifecycle management policies** | All access tiers are supported. The archive access tier is currently in preview. The deletion of blob snapshots is not yet supported. |
 | **Azure Content Delivery Network (CDN)** | Not yet supported|
 | **Azure search** |Supported (Preview)|
-| **Azure Storage Explorer** | Version-specific support <br><br>Use only versions `1.6.0` through `1.10.0`. <br> Version `1.10.0` is available as a [free download](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-relnotes). Version `1.11.0` is not yet supported.|
+| **Azure Storage Explorer** | Version-specific support. <br><br>Use only versions `1.6.0` or higher. <br> There is currently a storage bug affecting version `1.11.0` that can result in authentication errors in certain scenarios. A fix for the storage bug is being rolled out, but as a workaround, we recommend that you use version `1.10.x` which is available as a [free download](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-relnotes). `1.10.x` is not affected by the storage bug.|
 | **Blob container ACLs** |Not yet supported|
 | **Blobfuse** |Not yet supported|
 | **Custom domains** |Not yet supported|
