@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Check spelling with the Bing Spell Check REST API and Python"
+title: "Quickstart: Check spelling with the REST API and Python - Bing Spell Check"
 titleSuffix: Azure Cognitive Services
 description: Get started using the Bing Spell Check REST API to check spelling and grammar.
 services: cognitive-services

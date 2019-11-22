@@ -1,5 +1,5 @@
 ---
-title: What is the location condition in Azure Active Directory Conditional Access? | Microsoft Docs
+title: Location condition in Azure Active Directory Conditional Access
 description: Learn how to use the location condition to control access to your cloud apps based on a user's network location.
 
 services: active-directory
@@ -7,7 +7,7 @@ ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
 ms.workload: identity
-ms.date: 04/12/2019
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
