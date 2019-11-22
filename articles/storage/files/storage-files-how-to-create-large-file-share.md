@@ -115,7 +115,7 @@ You can enable large file shares on your existing accounts. If you do this, then
 Replace `<yourStorageAccountName>` and `<yourResourceGroup>` in the following command, then use it to enable large file shares on your existing account:
 
 ```PowerShell
-Set-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAccountName> -EnableLargeFileShare -SkuName Standard_LRS
+Set-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAccountName> -EnableLargeFileShare
 ```
 
 ## Create a large file share
