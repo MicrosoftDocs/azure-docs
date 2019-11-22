@@ -56,6 +56,10 @@ You can analyze metrics for [service-name] with metrics from other Azure service
 
 <!-- Fill in details on the tables that your service writes to.  -->
 ## Analyzing log data
+
+> [!NOTE]
+> Azure Storage logs in Azure Monitor is in public preview, and is available for preview testing in all public cloud regions. To enroll in the preview, see [this page](https://www.microsoft.com).  This preview enables logs for blobs (including Azure Data Lake Storage Gen2), files, queues, tables, premium storage accounts in general-purpose v1 and general-purpose v2 storage accounts. Classic storage accounts are not supported.
+
 Data in Azure Monitor Logs is stored in tables which each table having its own set of unique properties. [service-name] stores data in the following tables.
 
 | Table | Description |
