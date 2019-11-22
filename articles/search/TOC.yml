@@ -247,7 +247,7 @@
         href: cognitive-search-create-custom-skill-example.md
       - name: Example - Containers
         href: https://go.microsoft.com/fwlink/?linkid=2089500 
-    - name: Troubleshooting tips
+    - name: Design tips
       href: cognitive-search-concept-troubleshooting.md
     - name: Documentation links
       href: cognitive-search-resources-documentation.md

@@ -1,20 +1,8 @@
 ---
-title: Azure SKU not available errors | Microsoft Docs
+title: SKU not available errors
 description: Describes how to troubleshoot the SKU not available error when deploying resources with Azure Resource Manager.
-services: azure-resource-manager
-documentationcenter: ''
-author: tfitzmac
-manager: timlt
-editor: ''
-
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/19/2018
-ms.author: tomfitz
-
 ---
 # Resolve errors for SKU not available
 

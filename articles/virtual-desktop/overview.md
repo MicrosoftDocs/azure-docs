@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 08/07/2019
+ms.date: 11/19/2019
 ms.author: helohr
 ---
 # What is Windows Virtual Desktop? 
@@ -119,7 +119,7 @@ Windows Virtual Desktop supports the following x64 operating system images:
 * Windows Server 2016
 * Windows Server 2012 R2
 
-Windows Virtual Desktop does not support x86 (32-bit) operating system images.
+Windows Virtual Desktop does not support x86 (32-bit), Windows 10 Enterprise N, or Windows 10 Enterprise KN operating system images.
 
 Available automation and deployment options depend on which OS and version you choose, as shown in the following table: 
 

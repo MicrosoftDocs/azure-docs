@@ -43,12 +43,12 @@ az iotcentral app create \
   --display-name "My Custom Display Name"
 ```
 
-These commands first create a resource group in the east US region for the application. The following table describes the parameters used with the **az iotcentral app create** command:
+These commands first create a resource group in the east US location for the application. The following table describes the parameters used with the **az iotcentral app create** command:
 
 | Parameter         | Description |
 | ----------------- | ----------- |
 | resource-group    | The resource group that contains the application. This resource group must already exist in your subscription. |
-| location          | By default, this command uses the location from the resource group. Currently, you can create an IoT Central application in the **East US**, **West US**, **North Europe**, or **West Europe** regions, or in the **Australia** or **Asia Pacific** geographies. |
+| location          | By default, this command uses the location from the resource group. Currently, you can create an IoT Central application in the **United States**, **Australia**, **Asia Pacific**, or in the **Europe** locations. |
 | name              | The name of the application in the Azure portal. |
 | subdomain         | The subdomain in the URL of the application. In the example, the application URL is https://mysubdomain.azureiotcentral.com. |
 | sku               | Currently, the only value is **S1** (standard tier). See [Azure IoT Central pricing](https://azure.microsoft.com/pricing/details/iot-central/). |
@@ -64,7 +64,7 @@ These commands first create a resource group in the east US region for the appli
 | iotc-devkit-sample@1.0.0 | Creates an application with device templates ready for you to connect an MXChip or Raspberry Pi device. Use this template if you're a device developer experimenting with any of these devices. |
 
 > [!NOTE]
-> The **Preview application** template is currently only available in the **North Europe** and **Central US** regions.
+> The **Preview application** template is currently only available in the **Europe** and **US** locations.
 
 ## View your applications
 

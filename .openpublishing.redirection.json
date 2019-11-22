@@ -533,6 +533,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/get-answer-from-kb-using-postman.md",
+      "redirect_url": "/azure/cognitive-services//QnAMaker/Quickstarts/get-answer-from-knowledge-base-using-url-tool",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/get-answer-from-kb-using-curl.md",
+      "redirect_url": "/azure/cognitive-services//QnAMaker/Quickstarts/get-answer-from-knowledge-base-using-url-tool",
+      "redirect_document_id": false
+    }, 
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-how-to-add-example-utterances.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities",
       "redirect_document_id": false
@@ -990,6 +1000,11 @@
     {
       "source_path": "articles/machine-learning/service/how-to-choose-a-dev-environment.md",
       "redirect_url": "/azure/machine-learning/service/how-to-configure-environment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/firewall/public-preview.md",
+      "redirect_url": "/azure/firewall/overview",
       "redirect_document_id": false
     },
     {
@@ -4780,6 +4795,16 @@
     {
       "source_path": "articles/app-service-mobile/app-service-mobile-xamarin-forms-blob-storage.md",
       "redirect_url": "/azure/app-service-mobile",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/application-gateway-backend-ssl.md",
+      "redirect_url": "/azure/application-gateway/ssl-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/tutorial-external-site-redirect-cli.md",
+      "redirect_url": "/azure/application-gateway/redirect-external-site-cli",
       "redirect_document_id": false
     },
     {
@@ -12356,6 +12381,21 @@
       "source_path": "articles/cosmos-db/documentdb-sdk-java.md",
       "redirect_url": "/azure/cosmos-db/sql-api-sdk-java",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/logging.md",
+      "redirect_url": "/azure/cosmos-db/monitor-cosmos-db",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/cosmos-db-azure-monitor-metrics.md",
+      "redirect_url": "/azure/cosmos-db/monitor-cosmos-db",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/monitor-accounts.md",
+      "redirect_url": "/azure/cosmos-db/monitor-cosmos-db",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-suite/iot-suite-v1-connecting-devices-linux.md",
@@ -26273,7 +26313,7 @@
     },
     {
       "source_path": "articles/security-center/security-center-policies-overview.md",
-      "redirect_url": "/azure/security-center/tutorial-security-policy.md",
+      "redirect_url": "/azure/security-center/tutorial-security-policy",
       "redirect_document_id": false
     },
     {
@@ -26445,6 +26485,11 @@
       "source_path": "articles/hdinsight/hdinsight-apache-spark-overview.md",
       "redirect_url": "/azure/hdinsight/spark/apache-spark-overview",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/hdinsight/spark/apache-spark-eventhub-streaming.md",
+      "redirect_url": "/azure/hdinsight/spark/apache-spark-ipython-notebook-machine-learning",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/hdinsight/storm/apache-storm-sensor-data-analysis.md",
