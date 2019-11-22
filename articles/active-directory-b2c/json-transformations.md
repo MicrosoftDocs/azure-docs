@@ -18,7 +18,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-This article provides examples for using the JSON claims transformations of the Identity Experience Framework  schema in Azure Active Directory B2C (Azure AD B2C). For more information, see [ClaimsTransformations](claimstransformations.md).
+This article provides examples for using the JSON claims transformations of the Identity Experience Framework schema in Azure Active Directory B2C (Azure AD B2C). For more information about claims transformations in general, see [ClaimsTransformations](claimstransformations.md).
 
 ## GenerateJson
 
@@ -50,18 +50,18 @@ The following example generates a JSON string based on the claim value of "name"
 
 ### Example
 
-The following claims transformation outputs a JSON string claim that will be the body of the request sent to SendGrid (a 3rd party email provider). The JSON object's structure is defined by the IDs in dot notation of the InputParameters and the TransformationClaimTypes of the InputClaims.  Numbers in the dot notation imply arrays. The values come from the InputClaims' values and the InputParameters' "Value" properties.
-
+The following claims transformation outputs a JSON string claim that will be the body of the request sent to SendGrid (a third-party email provider). The JSON object's structure is defined by the IDs in dot notation of the InputParameters and the TransformationClaimTypes of the InputClaims. Numbers in the dot notation imply arrays. The values come from the InputClaims' values and the InputParameters' "Value" properties.
 
 - Input claims :
   - **email**,  transformation claim type  **personalizations.0.to.0.email**: "john.doe@example.com"
   - **otp**, transformation claim type **personalizations.0.dynamic_template_data.otp** "346349"
 - Input parameter:
-    - **template_id**: "d-989077fbba9746e89f3f6411f596fb96"
-    - **from.email**: "service@contoso.com"
-    - **personalizations.0.subject** "Contoso account email verification code"
+  - **template_id**: "d-989077fbba9746e89f3f6411f596fb96"
+  - **from.email**: "service@contoso.com"
+  - **personalizations.0.subject** "Contoso account email verification code"
 - Output claims:
   - **extractedClaim**:
+
 ```JSON
 {
   "personalizations": [
@@ -84,7 +84,6 @@ The following claims transformation outputs a JSON string claim that will be the
   }
 }
 ```
-
 
 ## GetClaimFromJson
 
