@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 08/01/2019
+ms.date: 11/22/2019
 ms.author: diberry
 #customer intent: As a developer, I want to know how to use QnA Maker for my FAQs and product manuals so that I can enable conversational question and answer sessions for my customers.
 ---
@@ -77,7 +77,7 @@ QnA Maker provides authoring, training, and publishing along with collaboration 
 
 **Step 2**: Create a knowledge base in the [QnA Maker](https://www.qnamaker.ai) portal. Add [files and URLs](../concepts/data-sources-supported.md) to create the knowledge base.  
 
-**Step 3**: Publish your knowledge base and test from your custom endpoint using [cURL](../quickstarts/get-answer-from-kb-using-curl.md) or [Postman](../quickstarts/get-answer-from-kb-using-postman.md). 
+**Step 3**: Publish your knowledge base and test from your custom endpoint using [cURL or Postman](../Quickstarts/get-answer-from-knowledge-base-using-url-tool.md). 
 
 **Step 4**: From your client application, programmatically call your knowledge base's endpoint and read the JSON response show the best answer to the user.  
 
