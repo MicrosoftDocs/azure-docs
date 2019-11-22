@@ -46,7 +46,7 @@ series, you should upgrade to *1.12.15* as soon as you are able to ensure your c
 ## Kubernetes version support policy
 
 > [!NOTE]
-> Starting December 6th, 2019 AKS will move to supporting latest (N) - 2 versions of Kubernetes. This change is to conform to the upstream window of support for Kubernetes versions and ensure the latest and most secure versions are being used.
+> Starting December 9th, 2019 AKS will move to supporting latest (N) - 2 versions of Kubernetes. This change is to conform to the upstream window of support for Kubernetes versions and ensure the latest and most secure versions are being used. To learn more read the [announcement here](https://azure.microsoft.com/updates/azure-kubernetes-service-will-be-retiring-support-for-kubernetes-versions-1-11-and-1-12/).
 
 AKS supports four minor versions of Kubernetes:
 
