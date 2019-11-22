@@ -119,9 +119,9 @@ For example, create an outbound network security group rule with destination **A
 
 ## Next steps
 
-* Learn about [Azure best practices for network security](../security/azure-security-network-security-best-practices.md)
+* Learn about [Azure best practices for network security](../security/fundamentals/network-best-practices.md)
 
-* Learn more about [security groups](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview.md) in an Azure virtual network
+* Learn more about [security groups](/azure/virtual-network/security-overview) in an Azure virtual network
 
 
 

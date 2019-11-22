@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
 ---

@@ -1,5 +1,5 @@
 ---
-title: Overview of Azure Dedicated Hosts for virtual machines | Microsoft Docs
+title: Overview of Azure Dedicated Hosts for virtual machines 
 description: Learn more about how Azure Dedicated Hosts can be used for deploying virtual machines.
 services: virtual-machines-windows
 author: cynthn
@@ -17,6 +17,10 @@ ms.author: cynthn
 ---
 
 # Preview: Azure Dedicated Hosts
+
+Azure Dedicated Host is a service that provides physical servers - able to host one or more virtual machines - dedicated to one Azure subscription. Dedicated hosts are the same physical servers used in our data centers, provided as a resource. You can provision dedicated hosts within a region, availability zone, and fault domain. Then, you can place VMs directly into your provisioned hosts, in whatever configuration best meets your needs.
+
+[!INCLUDE [virtual-machines-common-dedicated-hosts-preview](../../../includes/virtual-machines-common-dedicated-hosts-preview.md)]
 
 [!INCLUDE [virtual-machines-common-dedicated-hosts](../../../includes/virtual-machines-common-dedicated-hosts.md)]
 

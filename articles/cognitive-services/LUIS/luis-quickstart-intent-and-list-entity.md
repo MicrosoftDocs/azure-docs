@@ -1,5 +1,5 @@
 ---
-title: Exact text match - LUIS
+title: "Tutorial: Exact text match - LUIS"
 titleSuffix: Azure Cognitive Services
 description: Get data that matches a predefined list of items. Each item on the list can have synonyms that also match exactly
 services: cognitive-services
@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 05/07/2019
+ms.date: 11/11/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the list entity. 
 ---
@@ -17,6 +17,8 @@ ms.author: diberry
 # Tutorial: Get exact text-matched data from an utterance
 
 In this tutorial, understand how to get entity data that matches a predefined list of items. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **In this tutorial, you learn how to:**
 
@@ -43,7 +45,7 @@ A list entity is a good choice for this type of data when:
 
 * The data values are a known set.
 * The set doesn't exceed the maximum LUIS [boundaries](luis-boundaries.md) for this entity type.
-* The text in the utterance is an exact match with a synonym or the canonical name. LUIS doesn't use the list beyond exact text matches. Stemming, plurals, and other variations are not resolved with just a list entity. To manage variations, consider using a [pattern](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance) with the optional text syntax. 
+* The text in the utterance is an exact match with a synonym or the canonical name. LUIS doesn't use the list beyond exact text matches. Stemming, plurals, and other variations are not resolved with just a list entity. To manage variations, consider using a [pattern](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance) with the optional text syntax. 
 
 ## Create a new app
 

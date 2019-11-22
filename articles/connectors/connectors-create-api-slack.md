@@ -36,7 +36,7 @@ review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
+[sign up for a free Azure account](https://azure.microsoft.com/free/). 
 
 * Your [Slack](https://slack.com/) account and user credentials
 

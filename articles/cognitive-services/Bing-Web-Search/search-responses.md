@@ -1,7 +1,7 @@
 ---
 title: Bing Web Search API response structure and answer types 
 titleSuffix: Azure Cognitive Services
-description: Learn about the answer types and responses used by the Bing Web Search API.
+description: When you send Bing Web Search a search request, it returns a `SearchResponse` object in the response body.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -118,7 +118,7 @@ The [relatedSearches](https://docs.microsoft.com/rest/api/cognitiveservices-bing
 
 Use the `displayText` query string and the `webSearchUrl` URL to create a hyperlink that takes the user to the Bing search results page for the related query. You could also use the `text` query string in your own Web Search API query and display the results yourself.
 
-For information about how to handle the highlighting markers in `displayText`, see [Hit Highlighting](./hit-highlighting.md).
+For information about how to handle the highlighting markers in `displayText`, see [Hit Highlighting](../bing-web-search/hit-highlighting.md).
 
 The following shows an example of the related queries usage in Bing.com.
 

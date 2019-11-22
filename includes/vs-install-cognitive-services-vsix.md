@@ -9,7 +9,7 @@ ms.topic: include
 ms.date: 03/01/2018
 ms.author: ghogen
 ms.custom: include file
-manager: douge
+manager: jillfra
 ---
 ## Install the Cognitive Services VSIX Extension
 

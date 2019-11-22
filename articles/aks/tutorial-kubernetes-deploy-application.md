@@ -100,20 +100,20 @@ kubectl get service azure-vote-front --watch
 Initially the *EXTERNAL-IP* for the *azure-vote-front* service is shown as *pending*:
 
 ```
-azure-vote-front   10.0.34.242   <pending>     80:30676/TCP   7s
+azure-vote-front   LoadBalancer   10.0.34.242   <pending>     80:30676/TCP   5s
 ```
 
 When the *EXTERNAL-IP* address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process. The following example output shows a valid public IP address assigned to the service:
 
 ```
-azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
+azure-vote-front   LoadBalancer   10.0.34.242   52.179.23.131   80:30676/TCP   67s
 ```
 
 To see the application in action, open a web browser to the external IP address of your service:
 
 ![Image of Kubernetes cluster on Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 
-If the application didn't load, it might be due to an authorization problem with your image registry. To view the status of your containers, use the `kubectl get pods` command. If the container images can't be pulled, see [allow access to Container Registry with a Kubernetes secret](https://docs.microsoft.com/azure/container-registry/container-registry-auth-aks#access-with-kubernetes-secret).
+If the application didn't load, it might be due to an authorization problem with your image registry. To view the status of your containers, use the `kubectl get pods` command. If the container images can't be pulled, see [Authenticate with Azure Container Registry from Azure Kubernetes Service](cluster-container-registry-integration.md).
 
 ## Next steps
 

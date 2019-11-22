@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 08/21/2019
 ms.author: alkohli
 ---
 # Azure Data Box Edge security and data protection
@@ -66,6 +66,8 @@ This section describes the Data Box Edge security features that protect in-trans
 ### Protect data at rest
 
 [!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-data-rest.md)]
+- BitLocker XTS-AES 256-bit encryption is used to protect local data.
+
 
 ### Protect data in flight
 

@@ -1,6 +1,6 @@
 ---
-title: Add your personal Microsoft accounts to the Microsoft Authenticator app - Azure Active Directory | Microsoft Docs
-description: How to add your personal Microsoft accounts, such as for Outlook.com or Xbox LIVE to the Microsoft Authenticator app for two-factor verification.
+title: Add a personal Microsoft account to the Microsoft Authenticator app - Azure AD
+description: Add personal Microsoft accounts, such as for Outlook.com or Xbox LIVE to the Microsoft Authenticator app to verify your identity while using two-factor verification.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -15,7 +15,7 @@ ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
 ---
 
-# Add your personal Microsoft accounts
+# Add personal Microsoft accounts to the Microsoft Authenticator app
 
 Add your personal Microsoft accounts, such as for Outlook.com and Xbox LIVE to the Microsoft Authenticator app for both the standard two-factor verification process and the passwordless phone sign-in method.
 
@@ -66,6 +66,6 @@ You can add your personal Microsoft account by first turning on two-factor verif
 
 - After you add your accounts to the app, you can sign in using the Authenticator app on your device. For more information, see [Sign in using the app](user-help-auth-app-sign-in.md).
 
-- If you're having trouble getting your verification code for your personal Microsoft account, see the **Troubleshooting verification code issues** section of the [Microsoft account security info & verification codes](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes) article.
+- If you're having trouble getting your verification code for your personal Microsoft account, see the **Troubleshooting verification code issues** section of the [Microsoft account security info & verification codes](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes) article.
 
 - For devices running iOS, you can also back up your account credentials and related app settings, such as the order of your accounts, to the cloud. For more information, see [Backup and recover with Microsoft Authenticator app](user-help-auth-app-backup-recovery.md).

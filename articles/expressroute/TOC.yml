@@ -44,6 +44,10 @@
     href: expressroute-erdirect-about.md
   - name: About ExpressRoute Global Reach
     href: expressroute-global-reach.md
+  - name: About ExpressRoute encryption
+    href: expressroute-about-encryption.md
+  - name: Connect Azure to public cloud
+    href: expressroute-connect-azure-to-public-cloud.md
   - name: Backend Connectivity Interoperability
     items:
     - name: Preface and Test Setup
@@ -56,8 +60,8 @@
       href: ../networking/connectivty-interoperability-data-plane.md?toc=%2fazure%2fexpressroute%2ftoc.json
   - name: Cross-network connectivity
     href: cross-network-connectivity.md
-  - name: Azure common security attributes
-    href: expressroute-security-attributes.md
+  - name: Built-in security controls
+    href: expressroute-security-controls.md
   - name: Designing for High Availability
     href: designing-for-high-availability-with-expressroute.md
   - name: Designing for Disaster Recovery
@@ -119,6 +123,8 @@
       href: expressroute-howto-erdirect.md
     - name: Azure CLI
       href: expressroute-howto-expressroute-direct-cli.md
+  - name: Configure MACsec for ExpressRoute Direct ports
+    href: expressroute-howto-macsec.md
   - name: Configure route filters for Microsoft peering
     items:
     - name: Azure portal

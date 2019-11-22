@@ -7,8 +7,8 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
-ms.date: 05/10/2019
+ms.topic: conceptual
+ms.date: 11/04/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -33,13 +33,26 @@ For the user query of `When is your birthday?`, each personality has a styled re
 |Enthusiastic|I'm a bot, so I don't have an age.|
 ||
 
-> [!NOTE]
-> Chit-chat support is currently available in English only. 
+
+## Language support
+
+Chit-chat data sets are supported in the following languages:
+
+|Language|
+|--|
+|Chinese|
+|English|
+|French|
+|Germany|
+|Italian|
+|Japanese|
+|Korean|
+|Portuguese|
+|Spanish|
+
 
 ## Add chit-chat during KB creation
 During knowledge base creation, after adding your source URLs and files, there is an option for adding chit-chat. Choose the personality that you want as your chit-chat base. If you do not want to add chit-chat, or if you already have chit-chat support in your data sources, choose **None**. 
-   
-![Add chit-chat during create](../media/qnamaker-how-to-chit-chat/create-kb-chit-chat.png)
 
 ## Add Chit-chat to an existing KB
 Select your KB, and navigate to the **Settings** page. There is a link to all the chit-chat datasets in the appropriate **.tsv** format. Download the personality you want, then upload it as a file source. Make sure not to edit the format or the metadata when you download and upload the file. 

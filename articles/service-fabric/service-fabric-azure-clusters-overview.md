@@ -100,12 +100,17 @@ For more information, read [Upgrading clusters](service-fabric-cluster-upgrade.m
 ## Supported operating systems
 You are able to create clusters on virtual machines running these operating systems:
 
-* Windows Server 2012 R2
-* Windows Server 2016 
-* Windows Server 1709
-* Windows Server 1803
-* Linux Ubuntu 16.04
-* Red Hat Enterprise Linux 7.4 (preview support)
+| Operating system | Earliest supported Service Fabric version |
+| --- | --- |
+| Windows Server 2012 R2 | All versions |
+| Windows Server 2016 | All versions |
+| Windows Server 1709 | 6.0 |
+| Windows Server 1803 | 6.4 |
+| Windows Server 1809 | 6.4.654.9590 |
+| Windows Server 2019 | 6.4.654.9590 |
+| Linux Ubuntu 16.04 | 6.0 |
+
+For additional information see [Supported Cluster Versions in Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-versions#supported-operating-systems)
 
 > [!NOTE]
 > If you decide to deploy Service Fabric on Windows Server 1709, please note that (1) it is not a long term servicing branch, so you may have to move versions in the future, and (2) if you deploy containers, containers built on Windows Server 2016 do not work on Windows Server 1709, and vice versa (you will have to rebuild them to deploy them).

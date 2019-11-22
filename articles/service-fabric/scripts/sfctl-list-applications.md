@@ -11,7 +11,6 @@ tags:
 ms.assetid: 
 ms.service: service-fabric
 ms.workload: multiple
-ms.devlang: na
 ms.topic: sample
 ms.date: 04/13/2018
 ms.author: atsenthi

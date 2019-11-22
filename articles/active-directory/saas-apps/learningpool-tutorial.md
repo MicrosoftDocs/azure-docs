@@ -9,6 +9,7 @@ ms.reviewer: barbkess
 
 ms.assetid: 51e8695f-31e1-4d09-8eb3-13241999d99f
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -115,7 +116,7 @@ To configure Azure AD single sign-on with Learningpool Act, perform the followin
 	> [!NOTE]
 	> The Identifier value is not real. Update this value with the actual Identifier. Contact [Learningpool Act Client support team](https://www.learningpool.com/support) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-5. Your Learningpool Act application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
+5. Your Learningpool Act application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
 
 	![image](common/edit-attribute.png)
 
@@ -224,7 +225,7 @@ There is no action item for you to configure user provisioning to Learningpool A
 Users need to be created by your [Learningpool Act support team](https://www.Learningpool.com/support).
 
 > [!NOTE]
-> You can use any other Learningpool Act user account creation tools or APIs provided by Learningpool Act to provision AAD user accounts.
+> You can use any other Learningpool Act user account creation tools or APIs provided by Learningpool Act to provision Azure AD user accounts.
 
 ### Test single sign-on
 

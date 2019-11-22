@@ -1,11 +1,11 @@
 ---
-title: Migrate on-premises Hyper-V VMs to Azure with Azure Migrate Server Migration | Microsoft Docs
-description: This article describes how to migrate on-premises Hyper-V VMs to Azure with Azure Migrate Server Migration
+title: Migrate Hyper-V VMs to Azure with Azure Migrate Server Migration 
+description: Learn how to migrate on-premises Hyper-V VMs to Azure with Azure Migrate Server Migration
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/09/2019
+ms.date: 11/18/2019
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -22,7 +22,7 @@ This tutorial is the third in a series that demonstrates how to assess and migra
 > [!div class="checklist"]
 > * Prepare Azure and your on-premises Hyper-V environment
 > * Set up the source environment, and deploy a replication appliance.
-> * Set up the target environmen..
+> * Set up the target environment.
 > * Enable replication.
 > * Run a test migration to make sure everything's working as expected.
 > * Run a full migration to Azure.
@@ -34,7 +34,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Before you begin this tutorial, you should:
 
-1. [Review](migrate-architecture.md) the Hyper-V migration architecture.
+1. [Review](hyper-v-migration-architecture.md) the Hyper-V migration architecture.
 2. [Complete the first tutorial](tutorial-prepare-hyper-v.md) in this series to set up Azure and Hyper-V for migration. In the first tutorial, you:
     - [Prepare Azure](tutorial-prepare-hyper-v.md#prepare-azure) for migration.
     - [Prepare the on-premises environment](tutorial-prepare-hyper-v.md#prepare-for-hyper-v-migration) for migration.
@@ -127,6 +127,9 @@ Install the downloaded setup file (AzureSiteRecoveryProvider.exe) on each releva
 ## Replicate Hyper-V VMs
 
 With discovery completed, you can begin replication of Hyper-V VMs to Azure.
+
+> [!NOTE]
+> You can replicate up to 10 machines together. If you need to replicate more, then replicate them simultaneously in batches of 10.
 
 1. In the Azure Migrate project > **Servers**, **Azure Migrate: Server Migration**, click **Replicate**.
 2. In **Replicate**, > **Source settings** > **Are your machines virtualized?**, select **Yes, with Hyper-V**. Then click **Next: Virtual machines**.

@@ -1,14 +1,14 @@
 ---
 title: "Quickstart: Language Understanding (LUIS) authoring client library for .NET"
 titleSuffix: Azure Cognitive Services 
-description: Get started with the Language Understanding (LUIS) client library for .NET. Follow these steps to install the package and try out the example code for basic tasks.  Language Understanding (LUIS) enables you to apply custom machine-learning intelligence to a user's conversational, natural language text to predict overall meaning, and pull out relevant, detailed information. 
+description: Get started with the LUIS client library for .NET. Follow these steps to install the package and try out the example code for basic tasks. 
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 07/17/2019
+ms.date: 08/30/2019
 ms.author: diberry
 ---
 # Quickstart: Language Understanding (LUIS) authoring client library for .NET
@@ -29,11 +29,51 @@ Use the Language Understanding (LUIS) authoring client library for .NET to:
 * Language Understanding (LUIS) portal account - [Create one for free](https://www.luis.ai)
 * The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 
+
 ## Setting up
 
-### Get your Language Understanding (LUIS) authoring key
+### Get your Language Understanding (LUIS) starter key
 
-Get your [authoring key](luis-how-to-account-settings.md), and [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `COGNITIVESERVICE_AUTHORING_KEY`.
+Get your [starter key](luis-how-to-azure-subscription.md#starter-key) by creating a LUIS authoring resource. Keep your key, and the region of the key for the next step.
+
+### Create an environment variable
+
+Using your key, and the region for the key, create two environment variables for authentication:
+
+* `COGNITIVESERVICE_AUTHORING_KEY` - The resource key for authenticating your requests.
+* `COGNITIVESERVICE_REGION` - The region associated with your key. For example `westus`.
+
+Use the instructions for your operating system.
+
+#### [Windows](#tab/windows)
+
+```console
+setx COGNITIVESERVICE_AUTHORING_KEY <replace-with-your-authoring-key>
+setx COGNITIVESERVICE_REGION <replace-with-your-authoring-region>
+```
+
+After you add the environment variable, restart the console window.
+
+#### [Linux](#tab/linux)
+
+```bash
+export COGNITIVESERVICE_AUTHORING_KEY=<replace-with-your-authoring-key>
+export COGNITIVESERVICE_REGION=<replace-with-your-authoring-region>
+```
+
+After you add the environment variable, run `source ~/.bashrc` from your console window to make the changes effective.
+
+#### [macOS](#tab/unix)
+
+Edit your `.bash_profile`, and add the environment variable:
+
+```bash
+export COGNITIVESERVICE_AUTHORING_KEY=<replace-with-your-authoring-key> 
+export COGNITIVESERVICE_REGION=<replace-with-your-authoring-region>
+```
+
+After you add the environment variable, run `source .bash_profile` from your console window to make the changes effective.
+***
 
 ### Create a new C# application
 
@@ -69,7 +109,7 @@ Create a new .NET Core application in your preferred editor or IDE.
 Within the application directory, install the Language Understanding (LUIS) authoring client library for .NET with the following command:
 
 ```console
-dotnet add package Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring -Version 3.0.0
+dotnet add package Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring --version 3.0.0
 ```
 
 If you're using the Visual Studio IDE, the client library is available as a downloadable NuGet package.
@@ -184,7 +224,7 @@ Publish the LUIS app using the [PublishAsync](https://docs.microsoft.com/dotnet/
 
 Run the application with the dotnet `run` command from your application directory.
 
-```dotnet
+```console
 dotnet run
 ```
 

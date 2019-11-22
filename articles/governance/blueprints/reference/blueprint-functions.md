@@ -1,12 +1,8 @@
 ---
 title: Azure Blueprints functions
-description: Describes the functions for use with Azure Blueprints definitions and assignments.
-author: DCtheGeek
-ms.author: dacoulte
+description: Describes the functions available for use with blueprint artifacts in Azure Blueprints definitions and assignments.
 ms.date: 04/15/2019
 ms.topic: reference
-ms.service: blueprints
-manager: carmonm
 ---
 # Functions for use with Azure Blueprints
 
@@ -395,7 +391,7 @@ as parameter _resourceName_ to the template artifact.
 
 ## Next steps
 
-- Learn about the [blueprint life-cycle](../concepts/lifecycle.md).
+- Learn about the [blueprint lifecycle](../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../concepts/parameters.md).
 - Learn to customize the [blueprint sequencing order](../concepts/sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](../concepts/resource-locking.md).

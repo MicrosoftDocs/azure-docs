@@ -3,10 +3,8 @@ title: Strengthen your security posture with Azure Security Center | Microsoft D
 description: This article helps you strengthen your security posture by monitoring your resources in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: 3bd5b122-1695-495f-ad9a-7c2a4cd1c808
 ms.service: security-center
 ms.devlang: na
@@ -14,7 +12,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
-ms.author: rkarlin
+ms.author: memildin
 
 ---
 # Strengthen your security posture with Azure Security Center
@@ -31,7 +29,7 @@ You can view the security state of your resources and any issues per resource ty
 - To monitor your network resources, such as virtual machines, network security groups and endpoints, and receive recommendations for improving their security, see [Protecting your network in Azure Security Center](security-center-network-recommendations.md) for more information. 
 - To monitor your data and storage resources, such as SQL servers and storage accounts, and receive recommendations for improving their security, see [Protecting Azure SQL service and data in Azure Security Center](security-center-sql-service-recommendations.md) for more information. 
 - To monitor your identity and access resources, including MFA and account permissions, and receive recommendations for improving their security, see [Monitor identity and access in Azure Security Center](security-center-identity-access.md) for more information. 
-- To monitor Just in Time access to your resources, see [Manage virtual machine access using just in time](security-center-just-in-time.md) for more information. 
+- To monitor just-in-time access to your resources, see [Manage virtual machine access using just-in-time](security-center-just-in-time.md) for more information. 
 
 
 For more information about how to apply recommendations, read [Implementing security recommendations in Azure Security Center](security-center-recommendations.md).

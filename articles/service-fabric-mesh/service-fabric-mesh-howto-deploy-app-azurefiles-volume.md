@@ -8,7 +8,6 @@ manager: chakdan
 editor: ''
 ms.assetid: 
 ms.service: service-fabric-mesh
-ms.devlang: azure-cli
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA

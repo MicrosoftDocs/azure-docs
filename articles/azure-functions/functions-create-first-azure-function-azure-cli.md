@@ -1,20 +1,13 @@
 ---
 title: Create your first function using the Azure CLI
 description: Learn how to create your first Azure Function for serverless execution using the Azure CLI and Azure Functions Core Tools.
-services: functions 
-keywords: 
-author: ggailey777
-ms.author: glenga
 ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
 ms.date: 11/13/2018
 ms.topic: quickstart
-ms.service: azure-functions
 ms.custom: mvc
-ms.devlang: azure-cli
-manager: jeconnoc
 ---
 
-# Create your first function from the command line
+# Quickstart: Create your first function from the command line using Azure CLI
 
 This quickstart topic walks you through how to create your first function from the command line or terminal. You use the Azure CLI to create a function app, which is the [serverless](https://azure.microsoft.com/solutions/serverless/) infrastructure that hosts your function. The function code project is generated from a template by using the [Azure Functions Core Tools](functions-run-local.md), which is also used to deploy the function app project to Azure.
 
@@ -26,39 +19,13 @@ Before running this sample, you must have the following:
 
 + Install [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 or later.
 
-+ Install the [Azure CLI]( /cli/azure/install-azure-cli). This article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. You can also use the [Azure Cloud Shell](https://shell.azure.com/bash).
++ Install the [Azure CLI](/cli/azure/install-azure-cli). This     article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. You can also use the [Azure Cloud Shell](https://shell.azure.com/bash).
 
 + An active Azure subscription.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Create the local function app project
-
-Run the following command from the command line to create a function app project in the `MyFunctionProj` folder of the current local directory. A GitHub repo is also created in `MyFunctionProj`.
-
-```bash
-func init MyFunctionProj
-```
-
-When prompted, select a worker runtime from the following language choices:
-
-+ `dotnet`: creates a .NET class library project (.csproj).
-+ `node`: creates a JavaScript project.
-
-When the command executes, you see something like the following output:
-
-```output
-Writing .gitignore
-Writing host.json
-Writing local.settings.json
-Initialized empty Git repository in C:/functions/MyFunctionProj/.git/
-```
-
-Use the following command to navigate to the new `MyFunctionProj` project folder.
-
-```bash
-cd MyFunctionProj
-```
+[!INCLUDE [functions-create-function-app-cli](../../includes/functions-create-function-app-cli.md)]
 
 ## Enable extension bundles
 

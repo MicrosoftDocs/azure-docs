@@ -7,7 +7,7 @@ manager: gwallace
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 09/30/2019
 ms.author: danlep
 ---
 
@@ -16,6 +16,9 @@ ms.author: danlep
 In an Azure container registry, you can lock an image version or a repository so that it can't be deleted or updated. To lock an image or a repository, update its attributes using the Azure CLI command [az acr repository update][az-acr-repository-update]. 
 
 This article requires that you run the Azure CLI in Azure Cloud Shell or locally (version 2.0.55 or later recommended). Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
+
+> [!IMPORTANT]
+> This article doesn't apply to locking an entire registry, for example, using **Settings > Locks** in the Azure portal, or `az lock` commands in the Azure CLI. Locking a registry resource doesn't prevent you from creating, updating, or deleting data in repositories. Locking a registry only affects management operations such as adding or deleting replications, or deleting the registry itself. More information in [Lock resources to prevent unexpected changes](../azure-resource-manager/resource-group-lock-resources.md).
 
 ## Scenarios
 

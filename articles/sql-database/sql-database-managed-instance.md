@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database managed instance overview | Microsoft Docs
+title: SQL managed instance overview
 description: This article describes Azure SQL Database managed instance.
 services: sql-database
 ms.service: sql-database
@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
-ms.date: 07/18/2019
+ms.date: 11/04/2019
 ---
 # What is Azure SQL Database managed instance?
 
@@ -40,7 +40,7 @@ Managed instance combines the best features that are available both in Azure SQL
 | --- | --- |
 |No hardware purchasing and management <br>No management overhead for managing underlying infrastructure <br>Quick provisioning and service scaling <br>Automated patching and version upgrade <br>Integration with other PaaS data services |99.99% uptime SLA  <br>Built in [high-availability](sql-database-high-availability.md) <br>Data protected with [automated backups](sql-database-automated-backups.md) <br>Customer configurable backup retention period <br>User-initiated [backups](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[Point in time database restore](sql-database-recovery-using-backups.md#point-in-time-restore) capability |
 |**Security and compliance** | **Management**|
-|Isolated environment ([VNet integration](sql-database-managed-instance-connectivity-architecture.md), single tenant service, dedicated compute and storage) <br>[Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD authentication](sql-database-aad-authentication.md), single sign-on support <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD server principals (logins)</a> (**public preview**) <br>Adheres to compliance standards same as Azure SQL database <br>[SQL auditing](sql-database-managed-instance-auditing.md) <br>[threat detection](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager API for automating service provisioning and scaling <br>Azure portal functionality for manual service provisioning and scaling <br>Data Migration Service
+|Isolated environment ([VNet integration](sql-database-managed-instance-connectivity-architecture.md), single tenant service, dedicated compute and storage) <br>[Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD authentication](sql-database-aad-authentication.md), single sign-on support <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD server principals (logins)</a>  <br>Adheres to compliance standards same as Azure SQL database <br>[SQL auditing](sql-database-managed-instance-auditing.md) <br>[Advanced Threat Protection](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager API for automating service provisioning and scaling <br>Azure portal functionality for manual service provisioning and scaling <br>Data Migration Service
 
 > [!IMPORTANT]
 > Azure SQL Database (all deployment options), has been certified against a number of compliance standards. For more information, see the [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) where you can find the most current list of SQL Database compliance certifications.
@@ -70,13 +70,13 @@ The [vCore-based purchasing model](sql-database-service-tiers-vcore.md) for mana
 
 In vCore model, you can choose between generations of hardware.
 
-- **Gen4** Logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4-GHz processors, attached SSD, physical cores, 7 GB RAM per core, and compute sizes between 8 and 24 vCores.
+- **Gen4** Logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4-GHz processors, attached SSD, physical cores, 7-GB RAM per core, and compute sizes between 8 and 24 vCores.
 - **Gen5** Logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3-GHz processors, fast NVMe SSD, hyper-threaded logical core, and compute sizes between 4 and 80 cores.
 
 Find more information about the difference between hardware generations in [managed instance resource limits](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
 
 > [!IMPORTANT]
-> New Gen4 databases are no longer supported in the AustraliaEast region.
+> New Gen4 databases are no longer supported in the Australia East or Brazil South regions.
 
 ## Managed instance service tiers
 
@@ -125,7 +125,7 @@ Subsequent operations on deployed managed instances might also have effects on i
 All management operations can be categorized as follows:
 
 - Instance deployment (new instance creation). 
-- Instance update (changing instance properties, such as vCores, reserved storage, etc).
+- Instance update (changing instance properties, such as vCores or reserved storage.
 - Instance deletion.
 
 Typically, operations on virtual clusters take the longest. Duration of the operations on virtual clusters vary – below are the values that you can typically expect, based on existing service telemetry data:
@@ -204,7 +204,7 @@ Azure SQL Database provides a set of advanced security features that can be used
 
 - [Managed instance auditing](sql-database-managed-instance-auditing.md) tracks database events and writes them to an audit log file placed in your Azure storage account. Auditing can help maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations.
 - Data encryption in motion - a managed instance secures your data by providing encryption for data in motion using Transport Layer Security. In addition to transport layer security, the managed instance deployment option offers protection of sensitive data in flight, at rest and during query processing with [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Always Encrypted is an industry-first that offers unparalleled data security against breaches involving the theft of critical data. For example, with Always Encrypted, credit card numbers are stored encrypted in the database always, even during query processing, allowing decryption at the point of use by authorized staff or applications that need to process that data.
-- [Threat detection](sql-database-managed-instance-threat-detection.md) complements [auditing](sql-database-managed-instance-auditing.md) by providing an additional layer of security intelligence built into the service that detects unusual and potentially harmful attempts to access or exploit databases. You are alerted about suspicious activities, potential vulnerabilities, and SQL injection attacks, as well as anomalous database access patterns. Threat detection alerts can be viewed from [Azure Security Center](https://azure.microsoft.com/services/security-center/) and provide details of suspicious activity and recommend action on how to investigate and mitigate the threat.  
+- [Advanced Threat Protection](sql-database-managed-instance-threat-detection.md) complements [auditing](sql-database-managed-instance-auditing.md) by providing an additional layer of security intelligence built into the service that detects unusual and potentially harmful attempts to access or exploit databases. You are alerted about suspicious activities, potential vulnerabilities, and SQL injection attacks, as well as anomalous database access patterns. Advanced Threat Protection alerts can be viewed from [Azure Security Center](https://azure.microsoft.com/services/security-center/) and provide details of suspicious activity and recommend action on how to investigate and mitigate the threat.  
 - [Dynamic data masking](/sql/relational-databases/security/dynamic-data-masking) limits sensitive data exposure by masking it to non-privileged users. Dynamic data masking helps prevent unauthorized access to sensitive data by enabling you to designate how much of the sensitive data to reveal with minimal impact on the application layer. It’s a policy-based security feature that hides the sensitive data in the result set of a query over designated database fields, while the data in the database is not changed.
 - [Row-level security](/sql/relational-databases/security/row-level-security) enables you to control access to rows in a database table based on the characteristics of the user executing a query (such as by group membership or execution context). Row-level security (RLS) simplifies the design and coding of security in your application. RLS enables you to implement restrictions on data row access. For example, ensuring that workers can access only the data rows that are pertinent to their department, or restricting a data access to only the relevant data.
 - [Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) encrypts managed instance data files, known as encrypting data at rest. TDE performs real-time I/O encryption and decryption of the data and log files. The encryption uses a database encryption key (DEK), which is stored in the database boot record for availability during recovery. You can protect all your databases in a managed instance with transparent data encryption. TDE is SQL Server’s proven encryption-at-rest technology that is required by many compliance standards to protect against theft of storage media.
@@ -215,7 +215,7 @@ Migration of an encrypted database to a managed instance is supported via the Az
 
 The managed instance deployment option supports traditional SQL server Database engine logins and logins integrated with Azure Active Directory (AAD). Azure AD server principals (logins) (**public preview**) are Azure cloud version of on-premises database logins that you are using in your on-premises environment. Azure AD server principals (logins) enable you to specify users and groups from your Azure Active Directory tenant as true instance-scoped principals, capable of performing any instance-level operation, including cross-database queries within the same managed instance.
 
-A new syntax is introduced to create Azure AD server principals (logins) (**public preview**), **FROM EXTERNAL PROVIDER**. For more information on the syntax, see <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>, and review the [Provision an Azure Active Directory administrator for your managed instance](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance) article.
+A new syntax is introduced to create Azure AD server principals (logins), **FROM EXTERNAL PROVIDER**. For more information on the syntax, see <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>, and review the [Provision an Azure Active Directory administrator for your managed instance](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance) article.
 
 ### Azure Active Directory integration and multi-factor authentication
 
@@ -273,7 +273,7 @@ The managed instance deployment option benefits from being always-up-to-date in 
 - Managed instance does not allow specifying full physical paths so all corresponding scenarios have to be supported differently: RESTORE DB does not support WITH MOVE, CREATE DB doesn’t allow physical paths, BULK INSERT works with Azure Blobs only, etc.
 - Managed instance supports [Azure AD authentication](sql-database-aad-authentication.md) as cloud alternative to Windows authentication.
 - Managed instance automatically manages XTP filegroup and files for databases containing In-Memory OLTP objects
-- Managed instance supports SQL Server Integration Services (SSIS) and can host SSIS catalog (SSISDB) that stores SSIS packages, but they are executed on a managed Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF), see [Create Azure-SSIS IR in ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). To compare the SSIS features in SQL Database, see [Compare Azure SQL Database single databases/elastic pools and managed instance](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance).
+- Managed instance supports SQL Server Integration Services (SSIS) and can host SSIS catalog (SSISDB) that stores SSIS packages, but they are executed on a managed Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF), see [Create Azure-SSIS IR in ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). To compare the SSIS features in SQL Database, see [Compare an Azure SQL Database single database, elastic pool, and managed instance](../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-a-sql-database-single-database-elastic-pool-and-managed-instance).
 
 ### Managed instance administration features
 

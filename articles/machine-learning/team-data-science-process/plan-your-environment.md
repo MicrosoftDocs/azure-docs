@@ -26,8 +26,6 @@ Answer key questions in the following areas to identify your scenario:
 * dataset quality
 * preferred tools and languages
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 ## Logistic questions: data locations and movement
 
 The logistic questions cover the following items:
@@ -63,7 +61,7 @@ Where does your data need to be for processing or modeling?
 For procedures and resources to ingest or load data into a variety of different storage and processing environments, see:
 
 * [Load data into storage environments for analytics](ingest-data.md)
-* [Import your training data into Azure Machine Learning Studio from various data sources](../studio/import-data.md)
+* [Import your training data into Azure Machine Learning Studio (classic) from various data sources](../studio/import-data.md)
 
 ### Does the data need to be moved on a regular schedule or modified during migration?
 
@@ -76,7 +74,7 @@ For further information, see [Move data from an on-premises SQL server to SQL Az
 
 ### How much of the data is to be moved to Azure?
 
-Extremely large datasets may exceed the storage capacity of certain environments. For an example, see the discussion of size limits for Machine Learning Studio in the next section. In such cases, you might use a sample of the data during the analysis. For details of how to down-sample a dataset in various Azure environments, see [Sample data in the Team Data Science Process](sample-data.md).
+Extremely large datasets may exceed the storage capacity of certain environments. For an example, see the discussion of size limits for Machine Learning Studio (classic) in the next section. In such cases, you might use a sample of the data during the analysis. For details of how to down-sample a dataset in various Azure environments, see [Sample data in the Team Data Science Process](sample-data.md).
 
 ## Data characteristics questions: type, format, and size
 
@@ -103,7 +101,7 @@ These questions are key to planning your storage and processing environments. Th
 * Medium: Greater than 2 GB and less than 10 GB
 * Large: Greater than 10 GB
 
-Take the Azure Machine Learning Studio environment for example:
+Take the Azure Machine Learning Studio (classic) environment for example:
 
 * For a list of the data formats and types supported by Azure Machine Learning Studio, see
   [Data formats and data types supported](../studio/import-data.md#supported-data-formats-and-data-types) section.

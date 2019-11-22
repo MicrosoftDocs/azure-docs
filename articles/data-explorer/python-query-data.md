@@ -1,21 +1,21 @@
 ---
-title: 'Quickstart: Query data using the Azure Data Explorer Python library'
-description: 'In this quickstart, you learn how to query data from Azure Data Explorer using Python.'
+title: 'Query data using the Azure Data Explorer Python library'
+description: 'In this article, you learn how to query data from Azure Data Explorer using Python.'
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 10/16/2018
+ms.topic: conceptual
+ms.date: 08/05/2019
 
 # Customer intent: As a Python developer, I want to query data so I can include it in my apps.
 ---
 
-# Quickstart: Query data using the Azure Data Explorer Python library
+# Query data using the Azure Data Explorer Python library
 
-Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer provides a [data client library for Python](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). This library enables you to query data from your code. In this quickstart, you connect to a table on the *help cluster* that we have set up to aid learning. You then query a table on that cluster and return the results.
+Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer provides a [data client library for Python](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). This library enables you to query data from your code. In this article, you connect to a table on the *help cluster* that we have set up to aid learning. You then query a table on that cluster and return the results.
 
-This quickstart is also available as an [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb).
+This article is also available as an [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb).
 
 ## Prerequisites
 
@@ -95,4 +95,4 @@ You should see the top ten results from the StormEvents table.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Ingest data using the Azure Data Explorer Python library](python-ingest-data.md)
+> [Ingest data using the Azure Data Explorer Python library](python-ingest-data.md)

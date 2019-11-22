@@ -192,7 +192,7 @@ includes this information about the content that your logic app wants to upload 
    | Endpoint response header field | Type | Required | Description |
    |--------------------------------|------|----------|-------------|
    | **x-ms-chunk-size** | Integer | No | The suggested chunk size in bytes |
-   | **Location** | String | No | The URL location where to send the HTTP PATCH messages |
+   | **Location** | String | Yes | The URL location where to send the HTTP PATCH messages |
    ||||
 
 3. Your logic app creates and sends follow-up HTTP PATCH messages - each with this information:
@@ -210,7 +210,13 @@ includes this information about the content that your logic app wants to upload 
      |||||
 
 4. After each PATCH request, the endpoint confirms the receipt 
-for each chunk by responding with the "200" status code.
+for each chunk by responding with the "200" status code and the following response headers:
+
+   | Endpoint response header field | Type | Required | Description |
+   |--------------------------------|------|----------|-------------|
+   | **Range** | String | Yes | The byte range for content that has been received by the endpoint, for example: "bytes=0-1023" |   
+   | **x-ms-chunk-size** | Integer | No | The suggested chunk size in bytes |
+   ||||
 
 For example, this action definition shows an HTTP POST 
 request for uploading chunked content to an endpoint. 

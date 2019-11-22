@@ -7,7 +7,7 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 6/21/2018
+ms.date: 06/21/2018
 ms.custom: seodec18
 ---
 # Understand Stream Analytics job monitoring and how to monitor queries

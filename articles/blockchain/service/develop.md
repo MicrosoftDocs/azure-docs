@@ -1,21 +1,15 @@
 ---
 title: Azure Blockchain Service development overview
 description: Introduction on developing solutions on Azure Blockchain Service.
-services: azure-blockchain
-keywords: 
-author: PatAltimore
-ms.author: patricka
-ms.date: 05/02/2019
-ms.topic: article
-ms.service: azure-blockchain
-ms.reviewer: jackyhsu
-manager: femila
+ms.date: 10/11/2019
+ms.topic: conceptual
+ms.reviewer: janders
 #Customer intent: As a blockchain developer, I want to understand common development tools I can use with Azure Blockchain Service, so that I can get started developing blockchain applications using Azure.
 ---
 
 # Azure Blockchain Service development overview
 
-With Azure Blockchain Service, you can create consortium blockchain networks to enable enterprise scenarios like asset tracking, digital token, loyalty and reward, supply chain financial, and provenance. This article is an introduction to Azure Blockchain Service development overview and key topics to implement blockchain for enterprise.
+With Azure Blockchain Service, you can create consortium blockchain networks to enable enterprise scenarios like asset tracking, digital token, loyalty and reward, supply chain financial, and provenance. This article is an introduction to Azure Blockchain Service development and key topics to implement blockchain for enterprise.
 
 ## Client connection to Azure Blockchain Service
 
@@ -54,7 +48,7 @@ See [Tutorial: Send a transaction using Azure Blockchain Service](send-transacti
 
 Block explorers are online blockchain browsers that display individual block content, transaction address data, and history. Basic block information is available through Azure Monitor in Azure Blockchain Service, however, if you need more detail information during development, block explorers can be useful.  There are popular open-source block explorers you can use. The following is a list of block explorers that work with Azure Blockchain Service:
 
-* [Azure Blockchain Service Explorer](https://web3labs.com/azure-offer) from Web3 Labs
+* [Epirus Azure Blockchain Service Explorer](https://azuremarketplace.microsoft.com/marketplace/apps/blk-technologies.azure-blockchain-explorer-template?tab=Overview) from Web3 Labs
 * [BlockScout](https://github.com/Azure-Samples/blockchain/blob/master/ledger/template/ethereum-on-azure/technology-samples/blockscout/README.md)
 
 ## TPS measurement

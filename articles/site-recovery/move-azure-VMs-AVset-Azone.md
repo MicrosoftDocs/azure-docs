@@ -1,6 +1,5 @@
 ---
-title: Move Azure IaaS VMs to another Azure region as zone-pinned VMs using the Azure Site Recovery service | Microsoft Docs
-description: Use Azure Site Recovery to move Azure IaaS VMs to another Azure region as zone-pinned VMs. 
+title: Move VMs to an Azure region with availability zones using Azure Site Recovery 
 services: site-recovery
 author: rajani-janaki-ram
 ms.service: site-recovery
@@ -63,8 +62,8 @@ In a scenario where your VMs are deployed as *single instance* into a specific r
      The following documents tell how to create the most commonly used network resources that are relevant to you, based on the source VM configuration.
 
     - [Network security groups](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-    - [Load balancers](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-    - [Public IP](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+    - [Load balancers](https://docs.microsoft.com/azure/load-balancer)
+    - [Public IP](../virtual-network/virtual-network-public-ip-address.md)
     
    For any other networking components, refer to the networking [documentation](https://docs.microsoft.com/azure/#pivot=products&panel=network).
 

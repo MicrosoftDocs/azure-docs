@@ -3,9 +3,7 @@ title: How to Use Twilio for Voice and SMS (.NET) | Microsoft Docs
 description: Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in .NET.
 services: ''
 documentationcenter: .net
-author: devinrader
-manager: twilio
-editor: ''
+author: georgewallace
 
 ms.assetid: 74d4f3c9-f1cb-4968-b744-36b32cd0e834
 ms.service: multiple
@@ -14,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/24/2015
-ms.author: MicrosoftHelp@twilio.com
+ms.author: gwallace
 
 ---
 # How to use Twilio for voice and SMS capabilities from Azure

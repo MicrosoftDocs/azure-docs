@@ -2,15 +2,17 @@
 title: Set up push notifications in Azure Notification Hubs | Microsoft Docs
 description: Learn how to set up Azure Notification Hubs in the Azure portal by using platform notification system (PNS) settings.
 services: notification-hubs
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 
 ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: quickstart
 ms.date: 02/14/2019
-ms.author: jowargo
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 02/14/2019
 ---
 
 # Set up push notifications in a notification hub in the Azure portal

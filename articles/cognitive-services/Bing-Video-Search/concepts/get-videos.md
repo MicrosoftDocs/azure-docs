@@ -1,13 +1,13 @@
 ---
-title: "Sending search requests to the Bing Video Search API"
+title: "Search for videos using the Bing Video Search API"
 titleSuffix: Azure Cognitive Services
-description: Learn about sending search queries to the Bing Video Search API.
+description: The Bing Video Search APIfinds and returns relevant videos from the web, it provides several features for intelligent and focused video retrieval on the web.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: aahi
 ---

@@ -1,13 +1,13 @@
 ---
 title: Suggesting search terms with the Bing Autosuggest API
 titleSuffix: Azure Cognitive Services
-description: Learn how to use the Bing Autosuggest API.
+description: This article discusses the concept of suggesting query terms using the Bing Autosuggest API and the impact of query length on relevance.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
 ---

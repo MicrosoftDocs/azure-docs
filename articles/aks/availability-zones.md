@@ -2,78 +2,38 @@
 title: Use Availability Zones in Azure Kubernetes Service (AKS)
 description: Learn how to create a cluster that distributes nodes across availability zones in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: article
 ms.date: 06/24/2019
-ms.author: iainfou
+ms.author: mlearned
 ---
 
-# Preview - Create an Azure Kubernetes Service (AKS) cluster that uses Availability Zones
+# Create an Azure Kubernetes Service (AKS) cluster that uses Availability Zones
 
 An Azure Kubernetes Service (AKS) cluster distributes resources such as the nodes and storage across logical sections of the underlying Azure compute infrastructure. This deployment model makes sure that the nodes run across separate update and fault domains in a single Azure datacenter. AKS clusters deployed with this default behavior provide a high level of availability to protect against a hardware failure or planned maintenance event.
 
 To provide a higher level of availability to your applications, AKS clusters can be distributed across availability zones. These zones are physically separate datacenters within a given region. When the cluster components are distributed across multiple zones, your AKS cluster is able to tolerate a failure in one of those zones. Your applications and management operations continue to be available even if one entire datacenter has a problem.
 
-This article shows you how to create an AKS cluster and distribute the node components across availability zones. This feature is currently in preview.
-
-> [!IMPORTANT]
-> AKS preview features are self-service, opt-in. They are provided to gather feedback and bugs from our community. In preview, these features aren't meant for production use. Features in public preview fall under 'best effort' support. Assistance from the AKS technical support teams is available during business hours Pacific timezone (PST) only. For additional information, please see the following support articles:
->
-> * [AKS Support Policies][aks-support-policies]
-> * [Azure Support FAQ][aks-faq]
+This article shows you how to create an AKS cluster and distribute the node components across availability zones.
 
 ## Before you begin
 
-You need the Azure CLI version 2.0.66 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
-
-### Install aks-preview CLI extension
-
-To create AKS clusters that use availability zones, you need the *aks-preview* CLI extension version 0.4.1 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command::
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
-
-### Register feature flags for your subscription
-
-To create an AKS cluster that availability zones, first enable some feature flags on your subscription. Clusters use a virtual machine scale set to manage the deployment and configuration of the Kubernetes nodes. The *standard* SKU of the Azure load balancer is also required to provide resiliency for the network components to route traffic into your cluster. Register the *AvailabilityZonePreview*, *AKSAzureStandardLoadBalancer*, and *VMSSPreview* feature flags using the [az feature register][az-feature-register] command as shown in the following example:
-
-> [!CAUTION]
-> When you register a feature on a subscription, you can't currently un-register that feature. After you enable some preview features, defaults may be used for all AKS clusters then created in the subscription. Don't enable preview features on production subscriptions. Use a separate subscription to test preview features and gather feedback.
-
-```azurecli-interactive
-az feature register --name AvailabilityZonePreview --namespace Microsoft.ContainerService
-az feature register --name AKSAzureStandardLoadBalancer --namespace Microsoft.ContainerService
-az feature register --name VMSSPreview --namespace Microsoft.ContainerService
-```
-
-It takes a few minutes for the status to show *Registered*. You can check on the registration status using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AvailabilityZonePreview')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSAzureStandardLoadBalancer')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
-```
-
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+You need the Azure CLI version 2.0.76 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## Limitations and region availability
 
 AKS clusters can currently be created using availability zones in the following regions:
 
+* Central US
 * East US 2
+* East US
+* France Central
+* Japan East
 * North Europe
 * Southeast Asia
+* UK South
 * West Europe
 * West US 2
 
@@ -86,7 +46,7 @@ The following limitations apply when you create an AKS cluster using availabilit
 * Clusters with availability zones enabled require use of Azure Standard Load Balancers for distribution across zones.
 * You must use Kubernetes version 1.13.5 or greater in order to deploy Standard Load Balancers.
 
-AKS clusters that use availability zones must use the Azure load balancer *standard* SKU. The default *basic* SKU of the Azure load balancer doesn't support distribution across availability zones. For more information and the limitations of the standard load balancer, see [Azure load balancer standard SKU preview limitations][standard-lb-limitations].
+AKS clusters that use availability zones must use the Azure load balancer *standard* SKU, which is the default value for the load balancer type. This load balancer type can only be defined at cluster create time. For more information and the limitations of the standard load balancer, see [Azure load balancer standard SKU limitations][standard-lb-limitations].
 
 ### Azure disks limitations
 
@@ -108,9 +68,9 @@ In a zone outage, the nodes can be rebalanced manually or using the cluster au
 
 ## Create an AKS cluster across availability zones
 
-When you create a cluster using the [az aks create][az-aks-create] command, the `--node-zones` parameter defines which zones agent nodes are deployed into. The AKS control plane components for your cluster are also spread across zones in the highest available configuration when you create a cluster specifying the `--node-zones` parameter.
+When you create a cluster using the [az aks create][az-aks-create] command, the `--zones` parameter defines which zones agent nodes are deployed into. The AKS control plane components for your cluster are also spread across zones in the highest available configuration when you define the `--zones` parameter at cluster creation time.
 
-If you don't define any zones for the default agent pool when you create an AKS cluster, the AKS control plane components for your cluster will not use availability zones. You can add additional node pools (currently in preview in AKS) using the [az aks nodepool add][az-aks-nodepool-add] command and specify `--node-zones` for those new agent nodes, however the control plane components remain without availability zone awareness. You can't change the zone awareness for a node pool or the AKS control plane components once they're deployed.
+If you don't define any zones for the default agent pool when you create an AKS cluster, the AKS control plane components for your cluster will not use availability zones. You can add additional node pools using the [az aks nodepool add][az-aks-nodepool-add] command and specify `--zones` for those new nodes, however the control plane components remain without availability zone awareness. You can't change the zone awareness for a node pool or the AKS control plane components once they're deployed.
 
 The following example creates an AKS cluster named *myAKSCluster* in the resource group named *myResourceGroup*. A total of *3* nodes are created - one agent in zone *1*, one in *2*, and then one in *3*. The AKS control plane components are also distributed across zones in the highest available configuration since they're defined as part of the cluster create process.
 
@@ -120,12 +80,11 @@ az group create --name myResourceGroup --location eastus2
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --kubernetes-version 1.13.5 \
     --generate-ssh-keys \
-    --enable-vmss \
+    --vm-set-type VirtualMachineScaleSets \
     --load-balancer-sku standard \
     --node-count 3 \
-    --node-zones 1 2 3
+    --zones 1 2 3
 ```
 
 It takes a few minutes to create the AKS cluster.

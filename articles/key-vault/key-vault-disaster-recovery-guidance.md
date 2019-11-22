@@ -2,21 +2,20 @@
 title: What to do in the event of an Azure service disruption that affects Azure Key Vault - Azure Key Vault | Microsoft Docs
 description: Learn what to do in the event of an Azure service disruption that affects Azure Key Vault.
 services: key-vault
-author: barclayn
-manager: barbkess
-editor: ''
+author: msmbaldwin
+manager: rkarlin
 
 ms.service: key-vault
-ms.topic: conceptual
-ms.date: 05/24/2019
-ms.author: barclayn
+ms.topic: tutorial
+ms.date: 08/12/2019
+ms.author: mbaldwin
 
 ---
 # Azure Key Vault availability and redundancy
 
 Azure Key Vault features multiple layers of redundancy to make sure that your keys and secrets remain available to your application even if individual components of the service fail.
 
-The contents of your key vault are replicated within the region and to a secondary region at least 150 miles away but within the same geography. This maintains high durability of your keys and secrets. See the [Azure paired regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) document for details on specific region pairs.
+The contents of your key vault are replicated within the region and to a secondary region at least 150 miles away but within the same geography. This maintains high durability of your keys and secrets. See the [Azure paired regions](../best-practices-availability-paired-regions.md) document for details on specific region pairs.
 
 If individual components within the key vault service fail, alternate components within the region step in to serve your request to make sure that there is no degradation of functionality. You do not need to take any action to trigger this. It happens automatically and will be transparent to you.
 

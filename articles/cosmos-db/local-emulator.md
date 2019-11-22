@@ -249,11 +249,11 @@ To view the list of options, type `CosmosDB.Emulator.exe /?` at the command prom
 |EnableTableEndpoint | Enables Azure Table API | CosmosDB.Emulator.exe /EnableTableEndpoint | |
 |TablePort | Port number to use for the Azure Table Endpoint. Default value is 8902. | CosmosDB.Emulator.exe /TablePort=\<port\> | \<port\>: Single port number|
 | KeyFile | Read authorization key from the specified file. Use the /GenKeyFile option to generate a keyfile | CosmosDB.Emulator.exe /KeyFile=\<file_name\> | \<file_name\>: Path to the file |
-| ResetDataPath | Recursively removes all the files in the specified path. If you don't specify a path, it defaults to %LOCALAPPDATA%\CosmosDbEmulator | CosmosDB.Emulator.exe /ResetDataPath[=\<path>] | \<path\>: File path  |
+| ResetDataPath | Recursively removes all the files in the specified path. If you don't specify a path, it defaults to %LOCALAPPDATA%\CosmosDbEmulator | CosmosDB.Emulator.exe /ResetDataPath=\<path> | \<path\>: File path  |
 | StartTraces  |  Start collecting debug trace logs. | CosmosDB.Emulator.exe /StartTraces | |
 | StopTraces     | Stop collecting debug trace logs. | CosmosDB.Emulator.exe /StopTraces  | |
 |FailOnSslCertificateNameMismatch | By default the Emulator regenerates its self-signed SSL certificate, if the certificate's SAN does not include the Emulator host's domain name, local IPv4 address, 'localhost', and '127.0.0.1'. With this option, the emulator will fail at startup instead. You should then use the /GenCert option to create and install a new self-signed SSL certificate. | CosmosDB.Emulator.exe /FailOnSslCertificateNameMismatch  | |
-| GenCert | Generate and install a new self-signed SSL certificate. optionally including a comma-separated list of additional DNS names for accessing the Emulator over the network. | CosmosDB.Emulator.exe /GenCert[ \<comma-separated list of additional dns-names\>] | |
+| GenCert | Generate and install a new self-signed SSL certificate. optionally including a comma-separated list of additional DNS names for accessing the Emulator over the network. | CosmosDB.Emulator.exe /GenCert=\<dns-names\> |\<dns-names\>: Optional comma-separated list of additional dns names  |
 | DirectPorts |Specifies the ports to use for direct connectivity. Defaults are 10251,10252,10253,10254. | CosmosDB.Emulator.exe /DirectPorts:\<directports\> | \<directports\>: Comma-delimited list of 4 ports |
 | Key |Authorization key for the emulator. Key must be the base-64 encoding of a 64-byte vector. | CosmosDB.Emulator.exe /Key:\<key\> | \<key\>: Key must be the base-64 encoding of a 64-byte vector|
 | EnableRateLimiting | Specifies that request rate limiting behavior is enabled. |CosmosDB.Emulator.exe /EnableRateLimiting | |
@@ -362,7 +362,7 @@ From the command-line:
 
 md %LOCALAPPDATA%\CosmosDBEmulator\bind-mount
 
-docker run --name azure-cosmosdb-emulator --memory 2GB --mount "type=bind,source=%LOCALAPPDATA%\CosmosDBEmulator\bind-mount,destination=C:\CosmosDB.Emulator\bind-mount" --interactive --tty -p 8081:8081 -p 8900:8900 -p 8901:8901 -p 8902:8902 -p 10250:10250 -p 10251:10251 -p 10252:10252 -p 10253:10253 -p 10254:10254 -p 10255:10255 -p 10256:10256 -p 10350:10350 mcr.microsoft.com/cosmosdb/windows/azure-cosmos-emulator --rm
+docker run --name azure-cosmosdb-emulator --memory 2GB --mount "type=bind,source=%LOCALAPPDATA%\CosmosDBEmulator\bind-mount,destination=C:\CosmosDB.Emulator\bind-mount" --interactive --tty -p 8081:8081 -p 8900:8900 -p 8901:8901 -p 8902:8902 -p 10250:10250 -p 10251:10251 -p 10252:10252 -p 10253:10253 -p 10254:10254 -p 10255:10255 -p 10256:10256 -p 10350:10350 mcr.microsoft.com/cosmosdb/windows/azure-cosmos-emulator
 ```
 
 > [!NOTE]
@@ -411,6 +411,24 @@ Closing the interactive shell once the emulator has been started will shut down 
 To open the Data Explorer, navigate to the following URL in your browser. The emulator endpoint is provided in the response message shown above.
 
     https://<emulator endpoint provided in response>/_explorer/index.html
+
+If you have a .NET client application running on a Linux docker container and if you are running Azure Cosmos emulator on a host machine, in this case you can’t connect to the Azure Cosmos account from the emulator. Because the app is not running on the host machine, the certificate registered on the Linux container that matches the emulator’s endpoint cannot be added. 
+
+As a workaround, you can disable the server’s SSL certificate validation from your client application by passing a `HttpClientHandler` instance as shown in the following .Net code sample. This workaround is only applicable if you are using the `Microsoft.Azure.DocumentDB` Nuget package, it isn't supported with the `Microsoft.Azure.Cosmos` Nuget package:
+ 
+ ```csharp
+var httpHandler = new HttpClientHandler()
+{
+    ServerCertificateCustomValidationCallback = (req,cert,chain,errors) => true
+};
+ 
+using (DocumentClient client = new DocumentClient(new Uri(strEndpoint), strKey, httpHandler))
+{
+    RunDatabaseDemo(client).GetAwaiter().GetResult();
+}
+```
+
+In addition to disabling the SSL certificate validation, it is important that you start the emulator with the `/allownetworkaccess` option and the emulator’s endpoint is accessible from the host IP address rather than `host.docker.internal` DNS.
 
 ## Running on Mac or Linux<a id="mac"></a>
 

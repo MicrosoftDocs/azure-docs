@@ -3,13 +3,13 @@ title: Samples for using Bing Speech | Microsoft Docs
 titlesuffix: Azure Cognitive Services
 description: Samples for using Microsoft Speech Service that converts spoken audio to text.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 # Bing Speech client samples

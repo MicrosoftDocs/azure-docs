@@ -15,6 +15,9 @@ IoT Hub metrics give you better data about the state of the Azure IoT resources 
 
 Metrics are enabled by default. You can view IoT Hub metrics from the Azure portal.
 
+> [!NOTE]
+> You can use IoT Hub metrics to view information about IoT Plug and Play devices connected to your IoT Hub. IoT Plug and Play devices are part of the [IoT Plug and Play public preview](../iot-pnp/overview-iot-plug-and-play.md).
+
 ## How to view IoT Hub metrics
 
 1. Create an IoT hub. You can find instructions on how to create an IoT hub in the [Send telemetry from a device to IoT Hub](quickstart-send-telemetry-dotnet.md) guide.
@@ -73,7 +76,7 @@ IoT Hub provides several metrics to give you an overview of the health of your h
 |c2d<br>.methods<br>.failure|Failed direct method invocations|Count|Total|The count of all failed direct method calls.|No Dimensions|
 |c2d<br>.methods<br>.requestSize|Request size of direct method invocations|Bytes|Average|The average, min, and max of all successful direct method requests.|No Dimensions|
 |c2d<br>.methods<br>.responseSize|Response size of direct method invocations|Bytes|Average|The average, min, and max of all successful direct method responses.|No Dimensions|
-|c2d<br>.twin<br>.read<br>.success|Successful twin reads from back end|Count|Total|The count of all successful back-end-initiated twin reads.|No Dimensions|
+|c2d<br>.twin<br>.read<br>.success|Successful twin reads from back end|Count|Total|The count of all successful back-end-initiated twin reads. This count doesn't include twin reads initiated from twin queries.|No Dimensions|
 |c2d<br>.twin<br>.read<br>.failure|Failed twin reads from back end|Count|Total|The count of all failed back-end-initiated twin reads.|No Dimensions|
 |c2d<br>.twin<br>.read<br>.size|Response size of twin reads from back end|Bytes|Average|The average, min, and max of all successful back-end-initiated twin reads.|No Dimensions|
 |c2d<br>.twin<br>.update<br>.success|Successful twin updates from back end|Count|Total|The count of all successful back-end-initiated twin updates.|No Dimensions|

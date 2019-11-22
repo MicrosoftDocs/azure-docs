@@ -1,5 +1,5 @@
 ---
-title: Restrict access to an Azure container registry from a virtual network
+title: Restrict access to Azure Container Registry with a virtual network
 description: Allow access to an Azure container registry only from resources in an Azure virtual network or from public IP address ranges.
 services: container-registry
 author: dlepow
@@ -50,7 +50,7 @@ If instead you need to set up access rules for resources to reach a container re
 
 ## About network rules for a container registry
 
-An Azure container registry by default accepts connections over the internet from hosts on any network. With a virtual network, you can allow only Azure resources such as an AKS cluster or Azure VM to securely access the registry, without crossing a network boundary. You can also configure network firewall rules to whitelist specific public internet IP address ranges. 
+An Azure container registry by default accepts connections over the internet from hosts on any network. With a virtual network, you can allow only Azure resources such as an AKS cluster or Azure VM to securely access the registry, without crossing a network boundary. You can also configure network firewall rules to allow only specific public internet IP address ranges. 
 
 To limit access to a registry, first change the default action of the registry so that it denies all network connections. Then, add network access rules. Clients granted access via the network rules must continue to [authenticate to the container registry](https://docs.microsoft.com/azure/container-registry/container-registry-authentication) and be authorized to access the data.
 

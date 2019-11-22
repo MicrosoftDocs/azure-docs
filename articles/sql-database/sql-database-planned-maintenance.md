@@ -1,5 +1,5 @@
 ---
-title: Planning for Azure maintenance events- Azure SQL Database | Microsoft Docs
+title: Planning for Azure maintenance events
 description: Learn how to prepare for planned maintenance events to your Azure SQL Database.
 services: sql-database
 ms.service: sql-database

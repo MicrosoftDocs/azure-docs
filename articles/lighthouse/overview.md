@@ -1,12 +1,8 @@
 ---
 title: What is Azure Lighthouse?
 description: Azure Lighthouse lets service providers deliver managed services for their customers with higher automation and efficiency at scale.
-author: JnHs
-ms.author: jenhayes
-ms.date: 07/11/2019
+ms.date: 11/11/2019
 ms.topic: overview
-ms.service: lighthouse
-manager: carmonm
 ---
 # What is Azure Lighthouse?
 
@@ -34,5 +30,7 @@ Azure Lighthouse includes multiple ways to help streamline customer engagement a
 - **Managed Services offers in Azure Marketplace**: Offer your services to customers through private or public offers, and have them automatically onboarded to Azure delegated resource management, as an alternate to onboarding using Azure Resource Manager templates. For more info, see [Managed services offers in Azure Marketplace](./concepts/managed-services-offers.md).
 - **Azure managed applications**: Package and ship applications that are easy for your customers to deploy and use in their own subscriptions. The application is deployed into a resource group that you access from your tenant, letting you manage the service as part of the overall Azure Lighthouse experience. For more info, see [Azure managed applications overview](https://docs.microsoft.com/azure/managed-applications/overview).
 
-> [!NOTE]
-> The capabilities described above are currently available in public clouds. For regional availability of individual services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
+## Next steps
+
+- Learn about [Azure delegated resource management](concepts/azure-delegated-resource-management.md).
+- Learn about [cross-tenant management experiences](concepts/cross-tenant-management-experience.md).

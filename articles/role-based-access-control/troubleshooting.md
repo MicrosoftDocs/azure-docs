@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 08/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
@@ -24,7 +24,7 @@ This article answers common questions about role-based access control (RBAC) for
 ## Problems with RBAC role assignments
 
 - If you are unable to add a role assignment in the Azure portal on **Access control (IAM)** because the **Add** > **Add role assignment** option is disabled or because you get the permissions error "The client with object id does not have authorization to perform action", check that you are currently signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleAssignments/write` permission such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator) at the scope you are trying to assign the role.
-- If you get the error message "No more role assignments can be created (code: RoleAssignmentLimitExceeded)" when you try to assign a role, try to reduce the number of role assignments by assigning roles to groups instead. Azure supports up to **2000** role assignments per subscription.
+- If you get the error message "No more role assignments can be created (code: RoleAssignmentLimitExceeded)" when you try to assign a role, try to reduce the number of role assignments by assigning roles to groups instead. Azure supports up to **2000** role assignments per subscription. This role assignments limit is fixed and cannot be increased.
 
 ## Problems with custom roles
 
@@ -49,7 +49,7 @@ This article answers common questions about role-based access control (RBAC) for
 - If you get the permissions error "The client with object id does not have authorization to perform action over scope (code: AuthorizationFailed)" when you try to create a resource, check that you are currently signed in with a user that is assigned a role that has write permission to the resource at the selected scope. For example, to manage virtual machines in a resource group, you should have the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role on the resource group (or parent scope). For a list of the permissions for each built-in role, see [Built-in roles for Azure resources](built-in-roles.md).
 - If you get the permissions error "You don't have permission to create a support request" when you try to create or update a support ticket, check that you are currently signed in with a user that is assigned a role that has the `Microsoft.Support/supportTickets/write` permission, such as [Support Request Contributor](built-in-roles.md#support-request-contributor).
 
-## Role assignments without a security principal
+## Role assignments with Unknown security principal
 
 When you list your role assignments using Azure PowerShell, you might see assignments with an empty `DisplayName` and an `ObjectType` set to Unknown. For example, [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) returns a role assignment that is similar to the following:
 
@@ -170,13 +170,15 @@ If you can't access any of these tiles, ask your administrator for Contributor a
 
 ## Azure Functions and write access
 
-Some features of [Azure Functions](../azure-functions/functions-overview.md) require write access. For example, if a user is assigned the Reader role, they will not be able to view the functions within a function app. The portal will display **(No access)**.
+Some features of [Azure Functions](../azure-functions/functions-overview.md) require write access. For example, if a user is assigned the [Reader](built-in-roles.md#reader) role, they will not be able to view the functions within a function app. The portal will display **(No access)**.
 
 ![Function apps no access](./media/troubleshooting/functionapps-noaccess.png)
 
-A reader can click the **Platform features** tab and then click **All settings** to view some settings related to a function app (similar to a web app), but they can't modify any of these settings.
+A reader can click the **Platform features** tab and then click **All settings** to view some settings related to a function app (similar to a web app), but they can't modify any of these settings. To access these features, you will need the [Contributor](built-in-roles.md#contributor) role.
 
 ## Next steps
-* [Manage access to Azure resources using RBAC and the Azure portal](role-assignments-portal.md)
-* [View activity logs for RBAC changes to Azure resources](change-history-report.md)
+
+- [Troubleshoot for guest users](role-assignments-external-users.md#troubleshoot)
+- [Manage access to Azure resources using RBAC and the Azure portal](role-assignments-portal.md)
+- [View activity logs for RBAC changes to Azure resources](change-history-report.md)
 

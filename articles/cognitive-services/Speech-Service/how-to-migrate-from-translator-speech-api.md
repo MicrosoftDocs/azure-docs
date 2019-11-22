@@ -14,7 +14,7 @@ ms.author: aahi
 
 # Migrate from the Translator Speech API to the Speech Service
 
-Use this article to migrate your applications from the Microsoft Translator Speech API to the [Speech Service](index.yml). This guide outlines the differences between the Translator Speech API and Speech Service, and suggests strategies for migrating your applications.
+Use this article to migrate your applications from the Microsoft Translator Speech API to the [Speech Service](index.md). This guide outlines the differences between the Translator Speech API and Speech Service, and suggests strategies for migrating your applications.
 
 > [!NOTE]
 > Your Translator Speech API subscription key won't be accepted by the Speech Service. You'll need to create a new Speech Services subscription.
@@ -30,7 +30,7 @@ Use this article to migrate your applications from the Microsoft Translator Spee
 | Connection time limit                             | 90 minutes                                               | Unlimited with the SDK. 10 minutes with a WebSockets connection.                                                                                                                                                                                                                                                                                   |
 | Auth key in header                                | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Multiple languages translated in a single request | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| SDKs available                                    | :heavy_minus_sign:                                              | :heavy_check_mark:                 | See the [Speech Services documentation](index.yml) for available SDKs.                                                                                                                                                    |
+| SDKs available                                    | :heavy_minus_sign:                                              | :heavy_check_mark:                 | See the [Speech Services documentation](index.md) for available SDKs.                                                                                                                                                    |
 | WebSockets connections                             | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Languages API                                     | :heavy_check_mark:                                              | :heavy_minus_sign:                 | The Speech Services supports the same range of languages described in the [Translator API languages reference](../translator-speech/languages-reference.md) article. |
 | Profanity Filter and Marker                       | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
@@ -44,7 +44,7 @@ Use this article to migrate your applications from the Microsoft Translator Spee
 
 ## Migration strategies
 
-If you or your organization have applications in development or production that use the Translator Speech API, you should update them to use the Speech Service. See the [Speech Service](index.yml) documentation for available SDKs, code samples, and tutorials. Consider the following when you are migrating:
+If you or your organization have applications in development or production that use the Translator Speech API, you should update them to use the Speech Service. See the [Speech Service](index.md) documentation for available SDKs, code samples, and tutorials. Consider the following when you are migrating:
 
 * The Speech Services don't offer a global endpoint. Determine if your application functions efficiently when it uses a single regional endpoint for all of its traffic. If not, use geolocation to determine the most efficient endpoint.
 
@@ -57,7 +57,7 @@ If you or your organization have applications in development or production that 
 ## Next steps
 
 * [Try out Speech Services for free](get-started.md)
-* [Quickstart: Recognize speech in a UWP app using the Speech SDK](quickstart-csharp-uwp.md)
+* [Quickstart: Recognize speech in a UWP app using the Speech SDK](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
 
 ## See also
 

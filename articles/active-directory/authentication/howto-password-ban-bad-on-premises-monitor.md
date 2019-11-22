@@ -1,17 +1,18 @@
 ---
-title: Monitoring and logging in Azure AD Password Protection - Azure Active Directory
+title: Password protection monitor and logging- Azure Active Directory
 description: Understand Azure AD Password Protection monitoring and logging
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
+
 ms.collection: M365-identity-device-management
 ---
 # Azure AD Password Protection monitoring and logging
@@ -265,7 +266,7 @@ The scope of the cmdlet’s query may be influenced using either the –Forest o
 
 If the HeartbeatUTC value gets stale, this may be a symptom that the Azure AD Password Protection DC Agent on that domain controller is not running, or has been uninstalled, or the machine was demoted and is no longer a domain controller.
 
-If the PasswordPolicyDateUTC value gets stale, this may be a symptom that the Azure AD Password Protection DC Agent on that machine has is not working properly.
+If the PasswordPolicyDateUTC value gets stale, this may be a symptom that the Azure AD Password Protection DC Agent on that machine is not working properly.
 
 ## DC agent newer version available
 

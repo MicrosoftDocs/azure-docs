@@ -1,10 +1,10 @@
 ---
-title: "PowerShell and CLI: Enable SQL TDE - with Azure Key Vault - Bring your own key - Azure SQL Database | Microsoft Docs"
+title: Enable SQL TDE with Azure Key Vault
 description: "Learn how to configure an Azure SQL Database and Data Warehouse to start using Transparent Data Encryption (TDE) for encryption-at-rest using PowerShell or CLI."
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: 
+ms.custom: seo-lt-2019
 ms.devlang: 
 ms.topic: conceptual
 author: aliceku
@@ -148,7 +148,7 @@ Use the [Get-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/g
    -ServerName <LogicalServerName> `
    -ResourceGroupName <SQLDatabaseResourceGroupName> `
    -DatabaseName <DatabaseName> `
-   -State "Disabled”
+   -State "Disabled"
    ```
  
 - Use the [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) cmdlet to return the list of Key Vault keys added to the server.

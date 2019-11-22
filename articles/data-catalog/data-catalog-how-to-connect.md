@@ -22,7 +22,7 @@ When using the default tile view, this menu is available on the each tile.
 
 When using the list view, the menu is available in the search bar at the top of the portal window.
 
- ![Opening a SQL Server Reporting Services report in Report Manager from the search bar](./media/data-catalog-how-to-connect/data-catalog-how-to-connect2.png)
+ ![Opening a SQL Server Reporting Services report in Report Manager](./media/data-catalog-how-to-connect/data-catalog-how-to-connect2.png)
 
 ## Supported Client Applications
 When using the “Open in…” menu for data sources in the Azure Data Catalog portal, the correct client application must be installed on the client computer.

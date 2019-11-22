@@ -36,7 +36,7 @@ Dedicated Event Hubs offers three compelling benefits for customers who need ent
 A Dedicated cluster guarantees capacity at full scale, and can ingress up to gigabytes of streaming data with fully durable storage and sub-second latency to accommodate any burst in traffic. 
 
 #### Inclusive and exclusive access to features 
-The Dedicated offering includes features like Capture at no additional cost, as well as exclusive access to upcoming features like BYOK. The service also manages load balancing, OS updates, security patches and partitioning for the customer, so that you can spend less time on infrastructure maintenance and more time on building client-side features.  
+The Dedicated offering includes features like Capture at no additional cost, as well as exclusive access to upcoming features like Bring Your Own Key (BYOK). The service also manages load balancing, OS updates, security patches and partitioning for the customer, so that you can spend less time on infrastructure maintenance and more time on building client-side features.  
 
 #### Cost Savings
 At high ingress volumes (>100 TUs), a cluster costs significantly less per hour than purchasing a comparable quantity of throughput units in the Standard offering.
@@ -53,7 +53,7 @@ The Event Hubs Dedicated offering is billed at a fixed monthly price, with a min
 | Event Hubs |  10 per namespace | 1000 per namespace |
 | Ingress events | Pay per million events | Included |
 | Message Size | 1 Million Bytes | 1 Million Bytes |
-| Partitions | 40 per namespace | 2000 per CU |
+| Partitions | 32 per Event Hub | 1024 per Event Hub |
 | Consumer groups | 20 per Event Hub | No limit per CU, 1000 per event hub |
 | Brokered connections | 1,000 included, 5,000 max | 100 K included and max |
 | Message Retention | 7 days, 84 GB included per TU | 90 days, 10 TB included per CU |

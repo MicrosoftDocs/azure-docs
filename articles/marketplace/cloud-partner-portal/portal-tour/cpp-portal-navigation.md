@@ -4,6 +4,7 @@ description: Explanation of the navigation within the Cloud Partner Portal for A
 services: Azure, Marketplace, Cloud Partner Portal, 
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: pabutler

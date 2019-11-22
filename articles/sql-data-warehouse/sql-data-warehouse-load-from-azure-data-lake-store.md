@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial Load from Azure Data Lake Storage to Azure SQL Data Warehouse | Microsoft Docs'
+title: 'Tutorial load data from Azure Data Lake Storage'
 description: Use PolyBase external tables to load data from Azure Data Lake Storage into Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
@@ -7,9 +7,10 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load-data
-ms.date: 07/26/2019
+ms.date: 08/08/2019
 ms.author: kevin
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # Load data from Azure Data Lake Storage to SQL Data Warehouse
@@ -54,6 +55,7 @@ CREATE MASTER KEY;
 
 CREATE DATABASE SCOPED CREDENTIAL ADLSCredential
 WITH
+    -- Always use the OAuth 2.0 authorization endpoint (v1)
     IDENTITY = '<client_id>@<OAuth_2.0_Token_EndPoint>',
     SECRET = '<key>'
 ;

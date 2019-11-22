@@ -1,5 +1,5 @@
 ---
-title: Time sync for Linux VMs in Azure | Microsoft Docs
+title: Time sync for Linux VMs in Azure 
 description: Time sync for Linux virtual machines.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -9,7 +9,7 @@ editor: tysonn
 tags: azure-resource-manager
 
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
@@ -141,6 +141,16 @@ For more information on Red Hat and NTP, see [Configure NTP](https://access.redh
 For more information on chrony, see [Using chrony](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sect-using_chrony).
 
 If both chrony and TimeSync sources are enabled simultaneously, you can mark one as **prefer** which sets the other source as a backup. Because NTP services do not update the clock for large skews except after a long period, the VMICTimeSync will recover the clock from paused VM events far more quickly than NTP-based tools alone.
+
+By default chronyd accelerates or slows the system clock to fix any time drift. If the drift becomes too big, chrony will fail to fix the drift. To overcome this the `makestep` parameter in **/etc/chrony.conf** can be changed to force a timesync if the drift exceeds the threshold specified.
+ ```bash
+makestep 1.0 -1
+```
+Here, chrony will force a time update if the drift is greater than 1 second. To apply the changes restart the chronyd service.
+
+```bash
+systemctl restart chronyd
+```
 
 
 ### systemd 

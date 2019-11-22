@@ -1,4 +1,4 @@
-- name: Azure Active Directory B2B Documentation
+- name: Azure Active Directory B2B documentation
   href: index.yml
   items:
   - name: Overview

@@ -319,9 +319,9 @@ Traffic Manager responds with the DNS name or IP address of the endpoint. To sup
 
 Typically, Traffic Manager is used to direct traffic to applications deployed in different regions. However, it can also be used where an application has more than one deployment in the same region. The Traffic Manager Azure endpoints do not permit more than one Web App endpoint from the same Azure region to be added to the same Traffic Manager profile.
 
-### How do I move my Traffic Manager profile’s Azure endpoints to a different resource group?
+### How do I move my Traffic Manager profile’s Azure endpoints to a different resource group or subscription?
 
-Azure endpoints that are associated with a Traffic Manager profile are tracked using their resource IDs. When an Azure resource that is being used as an endpoint (for example,  Public IP, Classic Cloud Service, WebApp, or another Traffic Manager profile used in a nested manner) is moved to a different resource group, its resource ID changes. In this scenario, currently, you must update the Traffic Manager profile by first deleting and then adding back the endpoints to the profile.
+Azure endpoints that are associated with a Traffic Manager profile are tracked using their resource IDs. When an Azure resource that is being used as an endpoint (for example,  Public IP, Classic Cloud Service, WebApp, or another Traffic Manager profile used in a nested manner) is moved to a different resource group or subscription, its resource ID changes. In this scenario, currently, you must update the Traffic Manager profile by first deleting and then adding back the endpoints to the profile.
 
 ## Traffic Manager endpoint monitoring
 
@@ -413,7 +413,10 @@ Yes. You can specify TCP as the monitoring protocol and Traffic Manager can init
 
 ### What specific responses are required from the endpoint when using TCP monitoring?
 
-When TCP monitoring is used, Traffic Manager starts a three-way TCP handshake by sending a SYN request to endpoint at the specified port. It then waits for a period of time (as specified in the timeout settings) for a response from the endpoint. If the endpoint responds to the SYN request with a SYN-ACK response within the timeout period specified in the monitoring settings, then that endpoint is considered healthy. If the SYN-ACK response is received, the Traffic Manager resets the connection by responding back with a RST.
+When TCP monitoring is used, Traffic Manager starts a three-way TCP handshake by sending a SYN request to endpoint at the specified port. It then waits for a SYN-ACK response from the endpoint for a period of time (specified in the timeout settings).
+
+- If a SYN-ACK response is received within the timeout period specified in the monitoring settings, then that endpoint is considered healthy. A FIN or FIN-ACK is the expected response from the Traffic Manager when it regularly terminates a socket.
+- If a SYN-ACK response is received after the specified timeout, the Traffic Manager will respond with an RST to reset the connection.
 
 ### How fast does Traffic Manager move my users away from an unhealthy endpoint?
 
