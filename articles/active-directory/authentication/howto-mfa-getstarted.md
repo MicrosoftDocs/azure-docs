@@ -1,12 +1,12 @@
 ---
-title: Plan and execute an Azure Multi-Factor Authentication deployment - Azure Active Directory
+title: Deploy Azure Multi-Factor Authentication - Azure Active Directory
 description: Microsoft Azure Multi-Factor Authentication deployment planning
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
