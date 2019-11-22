@@ -160,7 +160,7 @@ Passwords are *not* written back in any of the following situations:
    * Any administrator-initiated end-user password reset from the [Microsoft 365 admin center](https://admin.microsoft.com)
 
 > [!WARNING]
-> Use of the checkbox "User must change password at next logon" in on-premises Active Directory administrative tools like Active Directory Users and Computers or the Active Directory Administrative Center is not supported. When changing a password on-premises do not check this option.
+> Use of the checkbox "User must change password at next logon" in on-premises Active Directory administrative tools like Active Directory Users and Computers or the Active Directory Administrative Center is not supported when users have Azure AD joined devices. When changing a password on-premises do not check this option unless you have tested appropriately in your environment.
 
 ## Next steps
 
