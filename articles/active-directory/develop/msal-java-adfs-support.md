@@ -24,11 +24,11 @@ ms.collection: M365-identity-device-management
 
 # Active Directory Federation Services support in MSAL for Java
 
-Active Directory Federation Services (AD FS) in Windows Server enables you to add OpenID Connect and OAuth 2.0 based authentication and authorization to your Microsoft Authentication Library for Java (MSAL4J) app. Once integrated, your app can authenticate users in AD FS, federated through Azure AD. For more information about scenarios, see [AD FS Scenarios for Developers](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers).
+Active Directory Federation Services (AD FS) in Windows Server enables you to add OpenID Connect and OAuth 2.0 based authentication and authorization to your Microsoft Authentication Library for Java (MSAL for Java) app. Once integrated, your app can authenticate users in AD FS, federated through Azure AD. For more information about scenarios, see [AD FS Scenarios for Developers](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers).
 
-An app that uses MSAL4j will talk to Azure Active Directory (Azure AD), which then federates to AD FS.
+An app that uses MSAL for Java will talk to Azure Active Directory (Azure AD), which then federates to AD FS.
 
-MSAL4J connects to Azure AD, which signs in users that are managed in Azure AD (managed users) or users managed by another identity provider such as AD FS (federated users). MSAL4J doesn't  know that a user is federated. It simply talks to Azure AD.
+MSAL for Java connects to Azure AD, which signs in users that are managed in Azure AD (managed users) or users managed by another identity provider such as AD FS (federated users). MSAL for Java doesn't  know that a user is federated. It simply talks to Azure AD.
 
 The [authority](msal-client-application-configuration.md#authority) you use in this case is the usual authority (authority host name + tenant, common, or organizations).
 
@@ -46,7 +46,7 @@ The supported AD FS versions in this federated scenario are:
 
 ## Acquire a token via username and password
 
-When you acquire a token using `ConfidentialClientApplication.AcquireToken()` or `PublicClientApplication.AcquireToken()` with `IntegratedWindowsAuthenticationParameters` or `UsernamePasswordParameters`, MSAL4J gets the identity provider to contact based on the username. MSAL4J gets a [SAML 1.1 token](reference-saml-tokens.md) token from the identity provider, which it then provides to Azure AD which returns the JSON Web Token (JWT).
+When you acquire a token using `ConfidentialClientApplication.AcquireToken()` or `PublicClientApplication.AcquireToken()` with `IntegratedWindowsAuthenticationParameters` or `UsernamePasswordParameters`, MSAL for Java gets the identity provider to contact based on the username. MSAL for Java gets a [SAML 1.1 token](reference-saml-tokens.md) token from the identity provider, which it then provides to Azure AD which returns the JSON Web Token (JWT).
 
 ## See also
 

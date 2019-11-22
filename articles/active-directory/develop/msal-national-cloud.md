@@ -176,7 +176,7 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 
 ## [Java](#tab/java)
 
-To enable your MSAL for Java (MSAL4J) application for sovereign clouds, you must:
+To enable your MSAL for Java application for sovereign clouds, you must:
 
 - Register your application in a specific portal, depending on the cloud
 - Use a specific authority, depending on the cloud in the config file for your application
