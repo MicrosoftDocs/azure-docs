@@ -252,7 +252,7 @@ You can search through the published kb, using `isTest=false`, or in the test kb
 
 ## Next steps
 
-The **Publish** page also provides information to [generate an answer](get-answer-from-knowledge-base-using-url-tool.md) with Postman or cURL.
+The **Publish** page also provides information to [generate an answer](../Quickstarts/get-answer-from-knowledge-base-using-url-tool.md) with Postman or cURL.
 
 > [!div class="nextstepaction"]
 > [Create a knowledge base bot](../tutorials/integrate-qnamaker-luis.md)

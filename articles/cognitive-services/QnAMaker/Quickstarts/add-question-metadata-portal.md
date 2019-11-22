@@ -171,4 +171,4 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get answer with Postman or cURL](get-answer-from-kb-using-url-tool.md)
+> [Get answer with Postman or cURL](get-answer-from-knowledge-base-using-url-tool.md)
