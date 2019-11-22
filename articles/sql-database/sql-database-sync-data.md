@@ -184,7 +184,7 @@ Yes. You can sync between SQL Databases that belong to resource groups owned by 
 - If the subscriptions belong to the same tenant, and you have permission to all subscriptions, you can configure the sync group in the Azure portal.
 - Otherwise, you have to use PowerShell to add the sync members that belong to different subscriptions.
 
-### Can I use Data Sync to sync between SQL Databases that belong to different clouds (like Azure Public Cloud and Azure China)
+### Can I use Data Sync to sync between SQL Databases that belong to different clouds (like Azure Public Cloud and Azure China 21Vianet)
 
 Yes. You can sync between SQL Databases that belong to different clouds, you have to use PowerShell to add the sync members that belong to the different subscriptions.
 
