@@ -114,7 +114,7 @@ Some Azure Cognitive Services accept, and in some cases require, an authenticati
 * Speech Services: Text-to-speech REST API
 
 >[!NOTE]
-> QnA Maker also uses the Authorization header, but requires an endpoint key. For more information, see [QnA Maker: Get answer from knowledge base](./qnamaker/quickstarts/get-answer-from-kb-using-url-tool.md).
+> QnA Maker also uses the Authorization header, but requires an endpoint key. For more information, see [QnA Maker: Get answer from knowledge base](./qnamaker/quickstarts/get-answer-from-knowledge-base-using-url-tool.md).
 
 >[!WARNING]
 > The services that support authentication tokens may change over time, please check the API reference for a service before using this authentication method.

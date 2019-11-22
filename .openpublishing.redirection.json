@@ -533,6 +533,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/get-answer-from-kb-using-postman.md",
+      "redirect_url": "/azure/cognitive-services//QnAMaker/Quickstarts/get-answer-from-knowledge-base-using-url-tool",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/get-answer-from-kb-using-curl.md",
+      "redirect_url": "/azure/cognitive-services//QnAMaker/Quickstarts/get-answer-from-knowledge-base-using-url-tool",
+      "redirect_document_id": false
+    }, 
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-how-to-add-example-utterances.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities",
       "redirect_document_id": false
