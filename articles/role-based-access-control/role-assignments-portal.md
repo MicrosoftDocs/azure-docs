@@ -49,7 +49,7 @@ To be the most effective with the Access control (IAM) blade, it helps if you ca
 
 ## Add a role assignment
 
-In RBAC, to grant access, you assign a role to a user, group, service principal, or managed identity. Follow these steps to grant access at different scopes.
+In RBAC, to grant access, you assign a role to a user, group, service principal, or managed identity. Follow these steps to add a role assignment at different scopes.
 
 1. In the Azure portal, click **All services** and then select the scope. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
 
@@ -81,7 +81,7 @@ To make a user an administrator of an Azure subscription, assign them the [Owner
 
 1. In the Azure portal, click **All services** and then **Subscriptions**.
 
-1. Click the subscription where you want to grant access.
+1. Click the subscription where you want to add a role assignment.
 
 1. Click **Access control (IAM)**.
 

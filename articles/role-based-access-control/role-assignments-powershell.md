@@ -66,7 +66,7 @@ In RBAC, to grant access, you add a role assignment.
 
 ### User at a resource group scope
 
-In RBAC, to grant access, you add a role assignment. To add a role assignment for a user at a resource group scope, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
+To add a role assignment for a user at a resource group scope, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
 
 ```azurepowershell
 New-AzRoleAssignment -SignInName <email_or_userprincipalname> -RoleDefinitionName <role_name> -ResourceGroupName <resource_group_name>
@@ -125,7 +125,7 @@ CanDelegate        : False
 
 ### Group at a resource scope
 
-To grant access to a group at a resource scope, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). For information about how to get the object ID of the group, see [Get object IDs](#get-object-ids).
+To add a role assignment for a group at a resource scope, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). For information about how to get the object ID of the group, see [Get object IDs](#get-object-ids).
 
 ```azurepowershell
 New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -ResourceName <resource_name> -ResourceType <resource_type> -ParentResource <parent resource> -ResourceGroupName <resource_group_name>
@@ -156,7 +156,7 @@ CanDelegate        : False
 
 ### Application at a subscription scope
 
-To grant access to an application at a subscription scope, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). For information about how to get the object ID of the application, see [Get object IDs](#get-object-ids).
+To add a role assignment for an application at a subscription scope, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). For information about how to get the object ID of the application, see [Get object IDs](#get-object-ids).
 
 ```azurepowershell
 New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -Scope /subscriptions/<subscription_id>
@@ -178,7 +178,7 @@ CanDelegate        : False
 
 ### User at a management group scope
 
-To grant access to a user at a management group scope, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). To get the management group ID, you can find it on the **Management groups** blade in the Azure portal or you can use [Get-AzManagementGroup](/powershell/module/az.resources/get-azmanagementgroup).
+To add a role assignment for a user at a management group scope, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). To get the management group ID, you can find it on the **Management groups** blade in the Azure portal or you can use [Get-AzManagementGroup](/powershell/module/az.resources/get-azmanagementgroup).
 
 ```azurepowershell
 New-AzRoleAssignment -SignInName <email_or_userprincipalname> -RoleDefinitionName <role_name> -Scope /providers/Microsoft.Management/managementGroups/<group_id>

@@ -65,7 +65,7 @@ In RBAC, to grant access, you add a role assignment.
 
 ### Resource group (without parameters)
 
-In RBAC, to grant access, you add a role assignment. The following template shows a basic way to add a role assignment. Some values are specified within the template. The following template demonstrates:
+The following template shows a basic way to add a role assignment. Some values are specified within the template. The following template demonstrates:
 
 -  How to assign the [Reader](built-in-roles.md#reader) role to a user, group, or application at a resource group scope
 
