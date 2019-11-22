@@ -47,7 +47,7 @@ Some of the Weather service APIs allow user to specify if the data is returned e
 
 ## Weather icons
 
-Some of the Weather service APIs return icon codes (iconCode) in the response, a numeric value that can be used to define the logo. Please do not link directly to these images from your applications, the URLs can and will change.
+Some of the Weather service APIs return icon codes (iconCode) in the response, a numeric value that can be used to define the icon. Please do not link directly to these images from your applications, the URLs can and will change.
 
 | Icon Number |Icon| Day | Night | Text |
 |-------------|:----:|-----|-------|------|
@@ -61,17 +61,17 @@ Some of the Weather service APIs return icon codes (iconCode) in the response, a
 | 8           |![](./media/weather-services-concepts/DrearyOvercast.png)             | Yes |  Yes   | Dreary (Overcast)|
 | 11           |![](./media/weather-services-concepts/Fog.png)                       | Yes |  Yes   | Fog|
 | 12           |![](./media/weather-services-concepts/Showers.png)                   | Yes |  Yes   | Showers|
-| 13           |![](./media/weather-services-concepts/MostlyCloudyShowers.png)       | Yes |  No    | Mostly Cloudy w/ Showers|
-| 14           |![](./media/weather-services-concepts/PartlySunnyShowers.png)        | Yes |  No    | Partly Sunny w/ Showers|
-| 15           |![](./media/weather-services-concepts/TStorms.png)                   | Yes |  Yes   | T-Storms|
-| 16           |![](./media/weather-services-concepts/MostlyCloudyTStorms.png)       | Yes |  No    | Mostly Cloudy w/ T-Storms|
-| 17           |![](./media/weather-services-concepts/PartlySunnyTStorms.png)        | Yes |  No    | Partly Sunny w/ T-Storms||
+| 13           |![](./media/weather-services-concepts/MostlyCloudyShowers.png)       | Yes |  No    | Mostly Cloudy with Showers|
+| 14           |![](./media/weather-services-concepts/PartlySunnyShowers.png)        | Yes |  No    | Partly Sunny with Showers|
+| 15           |![](./media/weather-services-concepts/TStorms.png)                   | Yes |  Yes   | Thunderstorms|
+| 16           |![](./media/weather-services-concepts/MostlyCloudyTStorms.png)       | Yes |  No    | Mostly Cloudy with Thunderstorms|
+| 17           |![](./media/weather-services-concepts/PartlySunnyTStorms.png)        | Yes |  No    | Partly Sunny with Thunderstorms|
 | 18           |![](./media/weather-services-concepts/Rain.png)                      | Yes |  Yes   | Rain|
 | 19           |![](./media/weather-services-concepts/Flurries.png)                  | Yes |  Yes   | Flurries|
-| 20           |![](./media/weather-services-concepts/MostlyCloudyFlurries.png)      | Yes |  No    | Mostly Cloudy w/ Flurries|
-| 21           |![](./media/weather-services-concepts/PartlySunnyFlurries.png)       | Yes |  No    | Partly Sunny w/ Flurries|
+| 20           |![](./media/weather-services-concepts/MostlyCloudyFlurries.png)      | Yes |  No    | Mostly Cloudy with Flurries|
+| 21           |![](./media/weather-services-concepts/PartlySunnyFlurries.png)       | Yes |  No    | Partly Sunny with Flurries|
 | 22           |![](./media/weather-services-concepts/Snow.png)                      | Yes |  Yes   | Snow|
-| 23           |![](./media/weather-services-concepts/MostlyCloudySnow.png)          | Yes |  No    | Mostly Cloudy w/ Snow|
+| 23           |![](./media/weather-services-concepts/MostlyCloudySnow.png)          | Yes |  No    | Mostly Cloudy with Snow|
 | 24           |![](./media/weather-services-concepts/Ice.png)                       | Yes |  Yes   | Ice |
 | 25           |![](./media/weather-services-concepts/Sleet.png)                     | Yes |  Yes   | Sleet|
 | 26           |![](./media/weather-services-concepts/FreezingRain.png)              | Yes |  Yes   | Freezing Rain|
@@ -85,12 +85,12 @@ Some of the Weather service APIs return icon codes (iconCode) in the response, a
 | 36           |![](./media/weather-services-concepts/IntermittentCloudsNight.png)   | No  |  Yes   | Intermittent Clouds|
 | 37           |![](./media/weather-services-concepts/HazyMoonlight.png)             | No  |  Yes   | Hazy Moonlight|
 | 38           |![](./media/weather-services-concepts/MostlyCloudyNight.png)         | No  |  Yes   | Mostly Cloudy|
-| 39           |![](./media/weather-services-concepts/PartlyCloudyShowersNight.png)  | No  |  Yes   | Partly Cloudy w/ Showers|
-| 40           |![](./media/weather-services-concepts/MostlyCloudyShowersNight.png)  | No  |  Yes   | Mostly Cloudy w/ Showers|
-| 41           |![](./media/weather-services-concepts/PartlyCloudyTStormsNight.png)  | No  |  Yes   | Partly Cloudy w/ T-Storms|
-| 42           |![](./media/weather-services-concepts/MostlyCloudyTStormsNight.png)  | No  |  Yes   | Mostly Cloudy w/ T-Storms|
-| 43           |![](./media/weather-services-concepts/MostlyCloudyFlurriesNight.png) | No  |  Yes   | Mostly Cloudy w/ Flurries|
-| 44           |![](./media/weather-services-concepts/MostlyCloudySnow.png)          | No  |  Yes   | Mostly Cloudy w/ Snow|
+| 39           |![](./media/weather-services-concepts/PartlyCloudyShowersNight.png)  | No  |  Yes   | Partly Cloudy with Showers|
+| 40           |![](./media/weather-services-concepts/MostlyCloudyShowersNight.png)  | No  |  Yes   | Mostly Cloudy with Showers|
+| 41           |![](./media/weather-services-concepts/PartlyCloudyTStormsNight.png)  | No  |  Yes   | Partly Cloudy with Thunderstorms|
+| 42           |![](./media/weather-services-concepts/MostlyCloudyTStormsNight.png)  | No  |  Yes   | Mostly Cloudy with Thunderstorms|
+| 43           |![](./media/weather-services-concepts/MostlyCloudyFlurriesNight.png) | No  |  Yes   | Mostly Cloudy with Flurries|
+| 44           |![](./media/weather-services-concepts/MostlyCloudySnow.png)          | No  |  Yes   | Mostly Cloudy with Snow|
 
 
 ## Radar and satellite imagery color scale
