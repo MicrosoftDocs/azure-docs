@@ -281,7 +281,7 @@ Copy the `"modelId"` value for use in the following steps.
 
 [!INCLUDE [analyze forms](../includes/python-custom-analyze.md)]
 
-When the process is completed, you'll receive a `200 (Success)` response with JSON content in the following format. The response has been shortened for simplicity.
+When the process is completed, you'll receive a `200 (Success)` response with JSON content in the following format. The response has been shortened for simplicity. The main key/value associations are in the `"documentResults"` node. The Layout API results (the content and positions of all the text in the document) are in the `"readResults"` node.
 
 ```json
 { 
@@ -486,9 +486,15 @@ When the process is completed, you'll receive a `200 (Success)` response with JS
 
 ## Improve results
 
-Sometimes when you apply different labels within the same line of text, those fields are merged as one field by Analyze API. For example, in an address, you might label the city, state, and zip code as different fields, but during prediction those fields are not recognized separately.
+Examine the `"confidence"` values for each key/value result under the `"documentResults"` node. You should also look at the confidence scores in the `"readResults"` node, which correspond to the Layout operation. The confidence of the layout results does not affect the confidence of the key/value extraction results, so you should check both.
+* If the confidence scores for the Layout operation are low, try to improve the quality of your input documents (see [Input requirements](../overview.md#input-requirements)).
+* If the confidence scores for the key/value extraction operation are low, ensure that the documents being analyzed are of the same type as documents used in the training set. If the documents in the training set have variations in appearance, consider splitting them into different folders and training one model for each variation.
 
-Currently, our backend algorithm does not support such scenario even when it is labeled properly, but we understand this scenario is essential for our customers. We are working on supporting this for future releases. Given the current version, we would recommend our users to label the three fields as one field to be extracted properly, and then apply some post-process on top of the extraction results.
+### Avoid cluttered labels
+
+Sometimes when you apply different labels within the same line of text, the service may merge those labels into one field. For example, in an address, you might label the city, state, and zip code as different fields, but during prediction those fields are not recognized separately.
+
+We understand this scenario is essential for our customers, and we are working on improving this in the future. Currently, we recommend our users to label multiple cluttered fields as one field, and then separate the terms in a post-processing of the extraction results.
 
 ## Next steps
 

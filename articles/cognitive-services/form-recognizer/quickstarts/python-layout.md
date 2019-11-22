@@ -101,9 +101,9 @@ while True:
 
 ### Examine the response
 
-The script will print responses to the console until the **Analyze Layout** operation completes. Then, it will print the extracted data in JSON format. The `"readResults"` field contains every line of text with its respective bounding box placement on the page. The `"pageResults"` field shows every piece of text withing tables, each with its row-column coordinate.
+The script will print responses to the console until the **Analyze Layout** operation completes. Then, it will print the extracted data in JSON format. The `"readResults"` node contains every line of text with its respective bounding box placement on the page. The `"pageResults"` field shows every piece of text within tables, each with its row-column coordinate.
 
-See the following invoice image and its corresponding JSON output. The output has been shortened for readability.
+See the following invoice image and its corresponding JSON output. The output has been shortened for simplicity.
 
 > [!div class="mx-imgBorder"]
 > ![Contoso invoice document with a table](../media/contoso-invoice.png)
