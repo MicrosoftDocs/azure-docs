@@ -51,7 +51,7 @@ az resource update \
                      --resource-group <myResourceGroup> \
                      --name <myMemberName> \
                      --resource-type Microsoft.Blockchain/blockchainMembers \
-                     --set properties.password="<myStrongPassword>" \
+                     --set properties.password='<myStrongPassword>' \
                      --remove properties.consortiumManagementAccountAddress
 ```
 
@@ -93,7 +93,7 @@ az resource update \
                      --resource-group <myResourceGroup> \
                      --name <myMemberName>/transactionNodes/<myTransactionNode> \
                      --resource-type Microsoft.Blockchain/blockchainMembers \
-                     --set properties.password="<myStrongPassword>"
+                     --set properties.password='<myStrongPassword>'
 ```
 
 | Parameter | Description |
@@ -111,7 +111,7 @@ az resource update \
                      --resource-group <myResourceGroup> \
                      --name <myMemberName> \
                      --resource-type Microsoft.Blockchain/blockchainMembers \
-                     --set properties.consortiumManagementAccountPassword="<myConsortiumManagementAccountPassword>" \
+                     --set properties.consortiumManagementAccountPassword='<myConsortiumManagementAccountPassword>' \
                      --remove properties.consortiumManagementAccountAddress
 ```
 
@@ -190,7 +190,7 @@ az resource delete \
 | Parameter | Description |
 |---------|-------------|
 | **resource-group** | Resource group name where Azure Blockchain Service resources exist. |
-| **name** | Name of the Azure Blockchain Service blockchain member that also includes the new transaction node name to be deleted. |
+| **name** | Name of the Azure Blockchain Service blockchain member that also includes the transaction node name to be deleted. |
 
 ## Delete a blockchain member
 
@@ -231,7 +231,7 @@ Grant node access for Azure AD user to blockchain **member**:
 
 ```azurecli
 az role assignment create \
-                            --role "myRole" \
+                            --role 'myRole' \
                             --assignee user@contoso.com \
                             --scope /subscriptions/mySubscriptionId/resourceGroups/contosoResourceGroup/providers/Microsoft.Blockchain/blockchainMembers/contosoMember1
 ```
@@ -242,7 +242,7 @@ Grant node access for Azure AD user to blockchain **transaction node**:
 
 ```azurecli
 az role assignment create \
-                            --role "MyRole" \
+                            --role 'MyRole' \
                             --assignee user@contoso.com \
                             --scope /subscriptions/mySubscriptionId/resourceGroups/contosoResourceGroup/providers/Microsoft.Blockchain/blockchainMembers/contosoMember1/transactionNodes/contosoTransactionNode1
 ```
@@ -267,7 +267,7 @@ Grant node access for **application role**
 
 ```azurecli
 az role assignment create \
-                            --role "myRole" \
+                            --role 'myRole' \
                             --assignee-object-id 22222222-2222-2222-2222-222222222222 \
                             --scope /subscriptions/mySubscriptionId/resourceGroups/contosoResourceGroup/providers/Microsoft.Blockchain/blockchainMembers/contosoMember1
 ```
