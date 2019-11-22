@@ -45,7 +45,7 @@ The designer gives you a visual canvas to build, test, and deploy machine learni
 
 ## Pipeline
 
-A [pipeline](concept-azure-machine-learning-architecture.md#ml-pipelines) consists of datasets and analytical modules, which you connect together. Pipelines have many uses: you can make a pipeline that trains a single model, or one that trains multiple models. You can create a pipeline that makes predictions in real time or in batch, or make a pipeline that only cleans data. Pipelines let you reuse your work and organize your projects.
+A [pipeline](concept-azure-machine-learning-architecture.md#machine-learning-pipelines) consists of datasets and analytical modules, which you connect together. Pipelines have many uses: you can make a pipeline that trains a single model, or one that trains multiple models. You can create a pipeline that makes predictions in real time or in batch, or make a pipeline that only cleans data. Pipelines let you reuse your work and organize your projects.
 
 ### Pipeline draft
 
