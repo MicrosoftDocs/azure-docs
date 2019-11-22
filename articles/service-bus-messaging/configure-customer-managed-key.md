@@ -13,7 +13,7 @@ ms.author: aschhab
 ---
 
 # Configure customer-managed keys for encrypting Azure Service Bus data at rest by using the Azure portal
-Azure Service Bus provides encryption of data at rest with Azure Storage Service Encryption (Azure SSE). Service Bus relies on Azure Storage to store the data and by default, all the data that is stored with Azure Storage is encrypted using Microsoft-managed keys. 
+Azure Service Bus Premium provides encryption of data at rest with Azure Storage Service Encryption (Azure SSE). Service Bus Premium relies on Azure Storage to store the data and by default, all the data that is stored with Azure Storage is encrypted using Microsoft-managed keys. 
 
 ## Overview
 Azure Service Bus now supports the option of encrypting data at rest with either Microsoft-managed keys or customer-managed keys (Bring Your Own Key - BYOK). this feature enables you to create, rotate, disable, and revoke access to the customer-managed keys that are used for encrypting Azure Service Bus at rest.
@@ -21,10 +21,10 @@ Azure Service Bus now supports the option of encrypting data at rest with either
 Enabling the BYOK feature is a one time setup process on your namespace.
 
 > [!NOTE]
-> The BYOK compatibility is supported by [Azure Service Bus Premium](service-bus-premium-messaging.md) tier. It cannot be enabled for standard tier Service Bus namespaces.
->
->
-> If [Virtual network (VNet) service endpoints](service-bus-service-endpoints.md) are configured on Azure Key Vault for your Service Bus namespace, BYOK will not be supported. 
+> There are some caveats to the customer managed key for service side encryption. 
+>   * This feature is supported by [Azure Service Bus Premium](service-bus-premium-messaging.md) tier. It cannot be enabled for standard tier Service Bus namespaces.
+>   * The encryption can only be enabled for new or empty namespaces. If the namespace contains data, then the encryption operation will fail.
+>   * If [Virtual network (VNet) service endpoints](service-bus-service-endpoints.md) are configured on Azure Key Vault for your Service Bus namespace, BYOK will not be supported. 
 
 You can use Azure Key Vault to manage your keys and audit your key usage. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/key-vault-overview.md)
 
@@ -43,7 +43,7 @@ To enable customer-managed keys in the Azure portal, follow these steps:
     ![Enable customer managed key](./media/configure-customer-managed-key/enable-customer-managed-key.png)
 
 
-## Setup a key vault with keys
+## Set up a key vault with keys
 
 After you enable customer-managed keys, you need to associate the customer managed key with your Azure Service Bus namespace. Service Bus supports only Azure Key Vault. If you enable the **Encryption with customer-managed key** option in the previous section, you need to have the key imported into Azure Key Vault. Also, the keys must have **Soft Delete** and **Do Not Purge** configured for the key. These settings can be configured using [PowerShell](../key-vault/key-vault-soft-delete-powershell.md) or [CLI](../key-vault/key-vault-soft-delete-cli.md#enabling-purge-protection).
 
@@ -77,19 +77,19 @@ After you enable customer-managed keys, you need to associate the customer manag
 
 
 > [!IMPORTANT]
-> If you are looking to use Customer managed key along with Geo diaster recovery, please review the below  - 
+> If you are looking to use Customer managed key along with Geo disaster recovery, please review the below  - 
 >
-> To enable encryption at rest with customer managed key, an [access policy](../key-vault/key-vault-secure-your-key-vault.md) is setup for the Service Bus' managed identity on the specified Azure KeyVault. This ensures controlled access to the Azure KeyVault from the Azure Service Bus namespace.
+> To enable encryption at rest with customer managed key, an [access policy](../key-vault/key-vault-secure-your-key-vault.md) is set up for the Service Bus' managed identity on the specified Azure KeyVault. This ensures controlled access to the Azure KeyVault from the Azure Service Bus namespace.
 >
-> Due to this,
+> Due to this:
 > 
 >   * If [Geo disaster recovery](service-bus-geo-dr.md) is already enabled for the Service Bus namespace and you are looking to enable customer managed key, then 
 >     * Break the pairing
 >     * [Set up the access policy](../key-vault/managed-identity.md) for the managed identity for both the primary and secondary namespaces to the key vault.
->     * Setup encryption on the primary namespace.
+>     * Set up encryption on the primary namespace.
 >     * Re-pair the primary and secondary namespaces.
 > 
->   * If you are looking to enable Geo-DR on a Service Bus namespace where customer managed key is already setup, then -
+>   * If you are looking to enable Geo-DR on a Service Bus namespace where customer managed key is already set up, then -
 >     * [Set up the access policy](../key-vault/managed-identity.md) for the managed identity for the secondary namespace to the key vault.
 >     * Pair the primary and secondary namespaces.
 >
