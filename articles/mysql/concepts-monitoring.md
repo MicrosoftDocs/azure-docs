@@ -52,7 +52,7 @@ The [Performance Recommendations](concepts-performance-recommendations.md) featu
 You can view scheduled maintenance events for Azure Database for MySQL by using the **planned maintenance** event type. To learn how to create **service health alerts**, visit the [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications.md) article.
 
 > [!IMPORTANT]
-> The planned maintenance notifications is available in limited public preview for EAST US and UK South only.
+> The planned maintenance notifications is available in preview for EAST US and UK South only.
 
 ## Next steps
 - See [How to set up alerts](howto-alert-on-metric.md) for guidance on creating an alert on a metric.
