@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/24/2019
+ms.date: 11/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -21,7 +21,33 @@ ms.reviewer: bagovind
 
 [Role-based access control (RBAC)](overview.md) is the way that you manage access to Azure resources. This article describes how you list role assignments using the Azure portal. If you need to manage access to Azure Active Directory, see [View and assign administrator roles in Azure Active Directory](../active-directory/users-groups-roles/directory-manage-roles-portal.md).
 
-## List role assignments for a single user
+## List all role assignments for a user or group
+
+The easist way to see the roles assigned to a user or group in a subscription is to use the **Azure resources** pane.
+
+1. In the Azure portal, click **All services** and then select **Users** or **Groups**.
+
+1. Click the user or group you want list the role assignments for.
+
+1. Click **Azure resources**.
+
+    You see a list of roles assigned to the selected user or group at various scopes such as management group, subscription, resource group, or resource. This list includes all role assignments you have permission to read.
+
+    ![Azure resources for a user](./media/role-assignments-list-portal/azure-resources-user.png)    
+
+1. To change the subscription, click the **Subscriptions** list.
+
+## List all role assignments for a system-managed identity
+
+1. In the Azure portal, open a system-managed identity.
+
+    ![System-managed identity](./media/role-assignments-list-portal/managed-identity.png)
+
+1. Under **Role assignments**, click **Show the Azure RBAC roles assigned to this managed identity**.
+
+    You see a list of roles assigned to the selected system-managed identity at various scopes such as management group, subscription, resource group, or resource. This list includes all role assignments you have permission to read.
+
+## List role assignments for a user at a scope
 
 To list access for a user, group, service principal, or managed identity, you view their role assignments. Follow these steps to view the access for a single user, group, service principal, or managed identity at a particular scope.
 
