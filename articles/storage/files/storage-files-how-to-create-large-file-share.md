@@ -140,13 +140,14 @@ az storage share create --account-name <yourStorageAccountName> --account-key <y
 
 ### PowerShell
 
-Once you've enabled large file shares on your storage account, you can create file shares in that account with higher quotas. Replace `<YourStorageAccountConnectionString>` and `<YourStorageAccountFileShareName>` in the following command with your values, then you can use it to create a large file share:
+Once you've enabled large file shares on your storage account, you can create file shares in that account with higher quotas. Replace `<YourStorageAccountName>`, `<YourStorageAccountKey>`, and `<YourStorageAccountFileShareName>` in the following command with your values, then you can use it to create a large file share:
 
 ```PowerShell
 ##Config
-$connectionstring="<YourStorageAccountConnectionString>"
+$storageAccountName = "<YourStorageAccountName>"
+$storageAccountKey = "<YourStorageAccountKey>"
 $shareName="<YourStorageAccountFileShareName>"
-$ctx = New-AzStorageContext -ConnectionString $connectionstring
+$ctx = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 New-AzStorageShare -Name $shareName -Context $ctx
 ```
 
@@ -167,20 +168,21 @@ Once you've enabled large file shares on your storage account, you can expand ex
 Once you've enabled large file shares on your storage account, you can expand existing file shares in that account to the higher quotas. Replace `<yourStorageAccountName>`, `<yourStorageAccountKey>`, and `<yourFileShareName>` in the following command with your values, then you can use it to set the quota to the maximum size:
 
 ```azurecli-interactive
-az storage share update --account-name <yourStorageAccountName> --account-key <yourStorageAccountKey> --name <yourFileShareName> --quota 10240
+az storage share update --account-name <yourStorageAccountName> --account-key <yourStorageAccountKey> --name <yourFileShareName> --quota 102400
 ```
 
 ### PowerShell
 
-Once you've enabled large file shares on your storage account, you can expand existing file shares in that account to the higher quotas. Replace `<YourStorageAccountConnectionString>` and `<YourStorageAccountFileShareName>` in the following command with your values, then you can use it to set the quota to the maximum size:
+Once you've enabled large file shares on your storage account, you can expand existing file shares in that account to the higher quotas. Replace `<YourStorageAccountName>`, `<YourStorageAccountKey>`, and `<YourStorageAccountFileShareName>` in the following command with your values, then you can use it to set the quota to the maximum size:
 
 ```PowerShell
 ##Config
-$connectionstring="<YourStorageAccountConnectionString>"
+$storageAccountName = "<YourStorageAccountName>"
+$storageAccountKey = "<YourStorageAccountKey>"
 $shareName="<YourStorageAccountFileShareName>"
-$ctx = New-AzStorageContext -ConnectionString $connectionstring
+$ctx = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 # update quota
-Set-AzStorageShareQuota -ShareName $shareName -Context $ctx -Quota 10240
+Set-AzStorageShareQuota -ShareName $shareName -Context $ctx -Quota 102400
 ```
 
 ## Next steps
