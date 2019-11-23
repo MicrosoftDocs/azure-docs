@@ -377,7 +377,7 @@ The following table shows how the cmdlets used for Data Lake Storage Gen1 map to
 
 ## See also
 
-To learn more about working with Blob storage by using PowerShell, see [Using Azure PowerShell with Azure Storage](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
-
-To find a comprehensive list of Microsoft Azure PowerShell Storage cmdlets, see [Storage PowerShell cmdlets](/powershell/module/az.storage).
+* [Known capability gaps](#data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
+* [Using Azure PowerShell with Azure Storage](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+* [Storage PowerShell cmdlets](/powershell/module/az.storage).
 
