@@ -32,7 +32,7 @@ Managing Azure Active Directory requires the continuous execution of key operati
 | Maintain Azure AD Connect Servers | IAM Operations Team |
 | Regularly execute and triage IdFix Reports | IAM Operations Team |
 | Triage Azure AD Connect Health Alerts for Sync and AD FS | IAM Operations Team |
-| If not using Azure AD Connect, then customer has equivalent process and tools to monitor custom infrastructure | IAM Operations Team |
+| If not using Azure AD Connect Health, then customer has equivalent process and tools to monitor custom infrastructure | IAM Operations Team |
 | If not using AD FS, then customer has equivalent process and tools to monitor custom infrastructure | IAM Operations Team |
 | Monitor Hybrid Logs: Azure AD App Proxy Connectors | IAM Operations Team |
 | Monitor Hybrid Logs: Passthrough Authentication Agents | IAM Operations Team |
