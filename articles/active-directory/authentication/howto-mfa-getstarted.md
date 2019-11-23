@@ -1,12 +1,12 @@
 ---
-title: Plan and execute an Azure Multi-Factor Authentication deployment - Azure Active Directory
+title: Deploy Azure Multi-Factor Authentication - Azure Active Directory
 description: Microsoft Azure Multi-Factor Authentication deployment planning
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -205,6 +205,9 @@ function Set-MfaState {
 # Disable MFA for all users
 Get-MsolUser -All | Set-MfaState -State Disabled
 ```
+
+> [!NOTE]
+> We recently changed the behavior and PowerShell script above accordingly. Previously, the script saved off the MFA methods, disabled MFA, and restored the methods. This is no longer necessary now that the default behavior for disable doesn't clear the methods.
 
 ## Plan Conditional Access policies
 

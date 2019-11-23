@@ -1,5 +1,5 @@
 ---
-title: 'Modify an ExpressRoute circuit: PowerShell: Azure classic| Microsoft Docs'
+title: 'Azure ExpressRoute: Modify a circuit: PowerShell:classic'
 description: This article walks you through the steps to check the status, update, or delete and deprovision your ExpressRoute classic deployment model circuit.
 services: expressroute
 author: cherylmc

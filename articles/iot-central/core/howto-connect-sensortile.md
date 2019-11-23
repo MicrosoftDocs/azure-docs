@@ -1,5 +1,5 @@
 ---
-title: Connect a SensorTile.box device to your Azure IoT Central application | Microsoft Docs
+title: Connect a SensorTile.box device to your Azure IoT Central app | Microsoft Docs
 description: As a device developer, learn how to connect a SensorTile.box device to your Azure IoT Central application.
 author: sarahhubbard
 ms.author: sahubbar

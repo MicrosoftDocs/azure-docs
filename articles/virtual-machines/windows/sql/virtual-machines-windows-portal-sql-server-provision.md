@@ -1,5 +1,5 @@
 ---
-title: Provisioning guide for Windows SQL Server VMs in the Azure portal | Microsoft Docs
+title: Provision virtual machine with Azure portal
 description: This how-to guide describes your options for creating Windows SQL Server 2017 virtual machines in the Azure portal.
 services: virtual-machines-windows
 documentationcenter: na
@@ -15,6 +15,7 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
+ms.custom: "seo-lt-2019"
 ---
 # How to provision a Windows SQL Server virtual machine in the Azure portal
 

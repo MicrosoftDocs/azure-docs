@@ -354,14 +354,14 @@ You can manage IP network rules for storage accounts through the Azure portal, P
 
 ## Exceptions
 
-Network rules help to create a secure environment for connections between your applications and your data for most scenarios. However, some applications use services that cannot be uniquely isolated through virtual network or IP address rules. But such services must be granted to storage to enable full application functionality. In such situations, you can use the ***Allow trusted Microsoft services...*** setting to enable access to your data, logs, or analytics.
+Network rules help to create a secure environment for connections between your applications and your data for most scenarios. However, some applications depend on Azure services that cannot be uniquely isolated through virtual network or IP address rules. But such services must be granted to storage to enable full application functionality. In such situations, you can use the ***Allow trusted Microsoft services...*** setting to enable such services to access your data, logs, or analytics.
 
 ### Trusted Microsoft services
 
-Some Microsoft services operate from networks that can't be included in your network rules. You can grant a subset of such trusted Microsoft services access to the storage account, while maintaining network rules for other apps. These trusted services can then use strong authentication to connect to your storage account securely. We enable two types of trusted access for Microsoft services.
+Some Microsoft services operate from networks that can't be included in your network rules. You can grant a subset of such trusted Microsoft services access to the storage account, while maintaining network rules for other apps. These trusted services will then use strong authentication to connect to your storage account securely. We've enabled two modes of trusted access for Microsoft services.
 
 - Resources of some services, **when registered in your subscription**, can access your storage account **in the same subscription** for select operations, such as writing logs or backup.
-- Resources of some services can be granted explicit access to your storage account by [**assigning an RBAC role**](storage-auth-aad.md#assign-rbac-roles-for-access-rights) to the resource instance.
+- Resources of some services can be granted explicit access to your storage account by **assigning an RBAC role** to its system-assigned managed identity.
 
 
 When you enable the **Allow trusted Microsoft services...** setting, resources of the following services that are registered in the same subscription as your storage account are granted access for a limited set of operations as described:
@@ -379,15 +379,15 @@ When you enable the **Allow trusted Microsoft services...** setting, resources o
 | Azure Networking         | Microsoft.Network          | Store and analyze network traffic logs. [Learn more](/azure/network-watcher/network-watcher-packet-capture-overview). |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | Enable replication for disaster-recovery of Azure IaaS virtual machines when using firewall-enabled cache, source, or target storage accounts.  [Learn more](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
 
-The **Allow trusted Microsoft services...** setting enables a particular instance of the below services to access the storage account, if you explicitly assign an RBAC role to the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for that resource instance.
+The **Allow trusted Microsoft services...** setting also allows a particular instance of the below services to access the storage account, if you explicitly [assign an RBAC role](storage-auth-aad.md#assign-rbac-roles-for-access-rights) to the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for that resource instance. In this case, the scope of access for the instance corresponds to the RBAC role assigned to the managed identity.
 
 | Service                        | Resource Provider Name          | Purpose                            |
 | :----------------------------- | :------------------------------ | :--------------------------------- |
 | Azure Data Factory             | Microsoft.DataFactory/factories | Allows access to storage accounts through the ADF runtime. |
-| Azure Logic Apps               | Microsoft.Logic/workflows       | Enables logic apps to access storage accounts. [Learn more](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity.md). |
+| Azure Logic Apps               | Microsoft.Logic/workflows       | Enables logic apps to access storage accounts. [Learn more](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity). |
 | Azure Machine Learning Service | Microsoft.MachineLearningServices | Authorized Azure Machine Learning workspaces write experiment output, models, and logs to Blob storage. [Learn more](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
 | Azure SQL Data Warehouse       | Microsoft.Sql                   | Allows import and export of data from specific SQL Database instances using PolyBase. [Learn more](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
-| Azure Stream Analytics         | Microsoft.StreamAnalytics       | Allows data from a streaming job to be written to Blob storage. This feature is currently in preview. [Learn more](/azure/stream-analytics/blob-output-managed-identity.md). |
+| Azure Stream Analytics         | Microsoft.StreamAnalytics       | Allows data from a streaming job to be written to Blob storage. This feature is currently in preview. [Learn more](/azure/stream-analytics/blob-output-managed-identity). |
 
 
 ### Storage analytics data access

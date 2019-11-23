@@ -1,5 +1,5 @@
 ---
-title: Service administration for Azure Cognitive Search in the portal
+title: Service administration in the portal
 titleSuffix: Azure Cognitive Search
 description: Manage an Azure Cognitive Search service, a hosted cloud search service on Microsoft Azure, using the Azure portal.
 

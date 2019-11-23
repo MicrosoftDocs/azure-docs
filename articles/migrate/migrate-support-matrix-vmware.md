@@ -1,12 +1,11 @@
 ---
-title: Azure Migrate support matrix for VMware assessment and migration
-description: Summarizes support settings and limitations for assessment and migration of VMware VMs to Azure using the Azure Migrate service.
-services: backup
+title: Support for VMware assessment and migration in Azure Migrate
+description: Learn about support for VMware VM assessment/migration in Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ---
 
@@ -74,7 +73,13 @@ This table summarizes assessment support and limitations for VMware virtualizati
 
 ## Assessment-vCenter Server permissions
 
-For assessment, you need a read-only account for the vCenter Server.
+Azure Migrate needs to access the vCenter Server to discover VMs for assessment and agentless migration.
+
+- If you plan to discover applications or visualize dependency in an agentless manner, create a vCenter Server account with read-only access along with privileges enabled for **Virtual machines** > **Guest Operations**.
+
+  ![vCenter Server account privileges](./media/tutorial-prepare-vmware/vcenter-server-permissions.png)
+
+- If you are not planning to do application discovery and agentless dependency visualization, set up a read-only account for the vCenter Server.
 
 ## Assessment-appliance requirements
 
@@ -107,7 +112,7 @@ dc.services.visualstudio.com | Upload app logs used for internal monitoring.
 *.servicebus.windows.net | Communication between the appliance and the Azure Migrate service.
 *.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | Connect to Azure Migrate service URLs.
 *.blob.core.windows.net | Upload data to storage accounts.
-http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/download | Used for Azure Migrate appliance updates.
+https://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/download | Used for Azure Migrate appliance updates.
 
 ## Assessment-port requirements
 
@@ -210,7 +215,7 @@ dc.services.visualstudio.com | Upload app logs used for internal monitoring.
 *.servicebus.windows.net | Communication between the appliance and the Azure Migrate service.
 *.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | Connect to Azure Migrate service URLs.
 *.blob.core.windows.net | Upload data to storage accounts.
-http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/download | Used for Azure Migrate appliance updates.
+https://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/download | Used for Azure Migrate appliance updates.
 
 
 ## Agentless migration-port requirements
@@ -319,7 +324,7 @@ Download and install in Azure Migrate | When you install the appliance and are p
 **Independent disks** | Supported.
 **Passthrough disks** | Supported.
 **NFS** | NFS volumes mounted as volumes on the VMs won't be replicated.
-iSCSI targets | VMs with iSCSI targets aren't supported for agentless migration.
+**iSCSI targets** | VMs with iSCSI targets aren't supported for agentless migration.
 **Multipath IO** | Not supported.
 **Storage vMotion** | Supported
 **Teamed NICs** | Not supported.

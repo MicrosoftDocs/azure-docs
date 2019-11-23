@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Synthesize speech - Speech Service'
+title: 'Quickstart: Synthesize speech to a speaker - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you will use the Speech SDK to convert text to synthesized speech.
+description: In this quickstart, you will use the Speech SDK to convert text to synthesized speech and play the output on a speaker.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -13,7 +13,7 @@ ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
 ---
 
-# Quickstart: Synthesize speech by using the Speech SDK
+# Quickstart: Synthesize speech to a speaker
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/tts/header.md)]

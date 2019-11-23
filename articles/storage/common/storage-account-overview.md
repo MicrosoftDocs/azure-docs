@@ -26,6 +26,7 @@ To learn how to create an Azure storage account, see [Create a storage account](
 General-purpose v2 storage accounts support the latest Azure Storage features and incorporate all of the functionality of general-purpose v1 and Blob storage accounts. General-purpose v2 accounts deliver the lowest per-gigabyte capacity prices for Azure Storage, as well as industry-competitive transaction prices. General-purpose v2 storage accounts support these Azure Storage services:
 
 - Blobs (all types: Block, Append, Page)
+- Data Lake Gen2
 - Files
 - Disks
 - Queues

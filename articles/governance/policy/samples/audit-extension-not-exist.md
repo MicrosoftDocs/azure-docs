@@ -1,11 +1,8 @@
 ---
 title: Sample - Audit if extension does not exist 
 description: This sample policy definition audits if an extension is not deployed with a virtual machine.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
+ms.topic: sample
 ---
 # Sample - Audit if extension does not exist
 

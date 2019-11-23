@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory auth - Azure SQL | Microsoft Docs
+title: Azure Active Directory
 description: Learn about how to use Azure Active Directory for authentication with SQL Database, Managed Instance, and SQL Data Warehouse
 services: sql-database
 ms.service: sql-database
