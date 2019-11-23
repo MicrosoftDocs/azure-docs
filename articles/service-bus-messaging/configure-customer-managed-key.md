@@ -92,7 +92,6 @@ After you enable customer-managed keys, you need to associate the customer manag
 >   * If you are looking to enable Geo-DR on a Service Bus namespace where customer managed key is already set up, then -
 >     * [Set up the access policy](../key-vault/managed-identity.md) for the managed identity for the secondary namespace to the key vault.
 >     * Pair the primary and secondary namespaces.
->
 
 
 ## Rotate your encryption keys
