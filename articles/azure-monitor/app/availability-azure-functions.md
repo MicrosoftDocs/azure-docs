@@ -122,17 +122,6 @@ public async static Task Run(TimerInfo myTimer, ILogger log)
 
 ```
 
-On the right under view files, select **Add**. Call the new file **runAvailabilityTest.csx** with the following configuration.
-
-```C#
-public async static Task RunAvailbiltyTestAsync(ILogger log)
-{
-    // Add your business logic here.
-    throw new NotImplementedException();
-}
-
-```
-
 On the right under view files, select **Add**. Call the new file **function.proj** with the following configuration.
 
 ```C#
@@ -148,6 +137,17 @@ On the right under view files, select **Add**. Call the new file **function.proj
 ```
 
 ![On the right select, add. Name the file function.proj](media/availability-azure-functions/addfile.png)
+
+On the right under view files, select **Add**. Call the new file **runAvailabilityTest.csx** with the following configuration.
+
+```C#
+public async static Task RunAvailbiltyTestAsync(ILogger log)
+{
+    // Add your business logic here.
+    throw new NotImplementedException();
+}
+
+```
 
 ## Check availability
 
