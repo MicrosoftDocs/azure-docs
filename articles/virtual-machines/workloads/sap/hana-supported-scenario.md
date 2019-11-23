@@ -105,7 +105,7 @@ Storage is preconfigured based on the topology requested. The volume sizes and m
 
 In the architecture diagrams, following notations are used for the graphics:
 
-![Legends.PNG](media/hana-supported-scenario/Legends.PNG)
+[ ![Legends.PNG](media/hana-supported-scenario/Legends.png)](media/hana-supported-scenario/Legends.png#lightbox)
 
 The following list shows the supported scenarios:
 
@@ -597,7 +597,7 @@ The following mountpoints are preconfigured on both the HLI units (Primary and D
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 - For MCOS: Volume size distribution is based off the database size in memory. Refer the [Overview and architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) section to learn what database sizes in memory are supported with multisid environment.
 - Primary node get sync to DR node using HANA system replication. 
-- [Global Reach](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-global-reach) is used to link the ExpressRoute circuits together to make a private network between your regions network.
+- [Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) is used to link the ExpressRoute circuits together to make a private network between your regions network.
 
 
 
@@ -649,7 +649,7 @@ The following mountpoints are preconfigured:
 - At the DR: The volumes and mountpoints are configured (marked as “PROD Instance at DR site”) for the production HANA Instance installation at the DR HLI unit. 
 - At the DR: The data, logbackups, log, shared volumes for QA (marked as “QA Instance installation”) are configured for the QA instance installation.
 - Primary node get sync to DR node using HANA system replication. 
-- [Global Reach](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-global-reach) is used to link the ExpressRoute circuits together to make a private network between your regions network.
+- [Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) is used to link the ExpressRoute circuits together to make a private network between your regions network.
 
 ## 13. High availability and disaster recovery with HSR 
  
@@ -694,7 +694,7 @@ The following mountpoints are preconfigured:
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 - At the DR: The volumes and mountpoints are configured (marked as “PROD DR instance”) for the production HANA Instance installation at the DR HLI unit. 
 - Primary site node get sync to DR node using HANA system replication. 
-- [Global Reach](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-global-reach) is used to link the ExpressRoute circuits together to make a private network between your regions network.
+- [Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) is used to link the ExpressRoute circuits together to make a private network between your regions network.
 
 ## 14. High availability and disaster recovery with HSR (cost optimized)
  
@@ -743,7 +743,7 @@ The following mountpoints are preconfigured:
 - At the DR: The volumes and mountpoints are configured (marked as “PROD DR instance”) for the production HANA Instance installation at the DR HLI unit. 
 - At the DR: The data, logbackups, log, shared volumes for QA (marked as “QA Instance installation”) are configured for the QA instance installation.
 - Primary site node get sync to DR node using HANA system replication. 
-- [Global Reach](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-global-reach) is used to link the ExpressRoute circuits together to make a private network between your regions network.
+- [Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) is used to link the ExpressRoute circuits together to make a private network between your regions network.
 
 ## 15. Scale-out with DR using HSR
  
@@ -752,7 +752,7 @@ This topology supports multiple nodes in a scale-out with a DR. You can request 
 
 ### Architecture diagram  
 
-![scale-out-dr-hsr-15.png](media/hana-supported-scenario/scale-out-dr-hsr-15.png)
+[ ![scale-out-dr-hsr-15.png](media/hana-supported-scenario/scale-out-dr-hsr-15.png)](media/hana-supported-scenario/scale-out-dr-hsr-15.png#lightbox)
 
 
 ### Ethernet
@@ -790,7 +790,7 @@ The following mountpoints are preconfigured:
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 - At the DR: The volumes and mountpoints are configured for the production HANA Instance installation at the DR HLI unit. 
 - Primary site nodes get sync to DR nodes using HANA system replication. 
-- [Global Reach](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-global-reach) is used to link the ExpressRoute circuits together to make a private network between your regions network.
+- [Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) is used to link the ExpressRoute circuits together to make a private network between your regions network.
 
 
 ## Next steps
