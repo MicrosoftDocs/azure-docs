@@ -58,8 +58,6 @@ For details about using a national cloud with a particular programming language,
 
 ## [.NET](#tab/donet)
 
-## .NET
-
 You can use MSAL.NET to sign in users, acquire tokens, and call the Microsoft Graph API in national clouds.
 
 The following tutorials demonstrate how to build a .NET Core 2.2 MVC Web app. The app uses OpenID Connect to sign in users with a work and school account in an organization that belongs to a national cloud.
@@ -68,8 +66,6 @@ The following tutorials demonstrate how to build a .NET Core 2.2 MVC Web app. Th
 - To call the Microsoft Graph API, follow this tutorial: [Using the Microsoft identity platform to call the Microsoft Graph API from an An ASP.NET Core 2.x Web App, on behalf of a user signing-in using their work and school account in Microsoft National Cloud](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-4-Sovereign-Call-MSGraph#using-the-microsoft-identity-platform-to-call-the-microsoft-graph-api-from-an-an-aspnet-core-2x-web-app-on-behalf-of-a-user-signing-in-using-their-work-and-school-account-in-microsoft-national-cloud).
 
 ## [JavaScript](#tab/javascript)
-
-## JavaScript
 
 ### Step 1: Register your application
 
@@ -184,7 +180,6 @@ Here's an example of a graph endpoint, with scope:
 ```
 
 ## [Objective-C](#tab/objc)
-## MSAL for iOS and macOS
 
 MSAL for iOS and macOS can be used to acquire tokens in national clouds, but it requires additional configuration when creating `MSALPublicClientApplication`.
 
