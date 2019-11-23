@@ -96,7 +96,7 @@ The available access tiers are:
 
 * The **Hot** access tier. This tier is optimized for frequent access of objects in the storage account. Accessing data in the hot tier is most cost-effective, while storage costs are higher. New storage accounts are created in the hot tier by default.
 * The **Cool** access tier. This tier is optimized for storing large amounts of data that is infrequently accessed and stored for at least 30 days. Storing data in the cool tier is more cost-effective, but accessing that data may be more expensive than accessing data in the hot tier.
-* The **Archive** tier. This tier is available only for individual block blobs. The archive tier is optimized for data that can tolerate several hours of retrieval latency and that will remain in the Archive tier for at least 180 days. The archive tier is the most cost-effective option for storing data. However, accessing that data, is more expensive than accessing data in the hot or cool tiers.
+* The **Archive** tier. This tier is available only for individual block blobs. The archive tier is optimized for data that can tolerate several hours of retrieval latency and that will remain in the Archive tier for at least 180 days. The archive tier is the most cost-effective option for storing data. However, accessing that data is more expensive than accessing data in the hot or cool tiers.
 
 If there's a change in the usage pattern of your data, you can switch between these access tiers at any time. For more information about access tiers, see [Azure Blob storage: hot, cool, and archive access tiers](../blobs/storage-blob-storage-tiers.md).
 
@@ -135,7 +135,7 @@ You can also configure your storage account to use a custom domain for blobs. Fo
 
 By default, the data in your account is available only to you, the account owner. You have control over who may access your data and what permissions they have.
 
-Every request made against your storage account must be authorized. At the level of the service, the request must include a valid *Authorization* header. Specifically, this request includes all of the information necessary for the service to validate the request before executing it.
+Every request made against your storage account must be authorized. At the level of the service, the request must include a valid *Authorization* header. Specifically, this header includes all of the information necessary for the service to validate the request before executing it.
 
 You can grant access to the data in your storage account using any of the following approaches:
 
@@ -160,7 +160,7 @@ AzCopy is a Windows command-line utility designed for high-performance copying o
 
 ### Data movement library
 
-The Azure Storage data movement library for .NET is based on the core data movement framework that powers AzCopy. The library is designed for high-performance, reliable, and easy data transfer operations similar to AzCopy. You can use the data movement library to take advantage of AzCopy features natively. For more information, see [Azure Storage Data Movement Library for .Net](https://github.com/Azure/azure-storage-net-data-movement)
+The Azure Storage data movement library for .NET is based on the core data movement framework that powers AzCopy. The library is designed for high-performance, reliable, and easy data transfer operations similar to AzCopy. You can use the data movement library to take advantage of AzCopy features natively. For more information, see [Azure Storage Data Movement Library for .NET](https://github.com/Azure/azure-storage-net-data-movement)
 
 ### REST API or client library
 
@@ -170,12 +170,6 @@ For more information about the Azure Storage REST API, see [Azure Storage Servic
 
 > [!IMPORTANT]
 > Blobs encrypted using client-side encryption store encryption-related metadata with the blob. If you copy a blob that is encrypted with client-side encryption, ensure that the copy operation preserves the blob metadata, and especially the encryption-related metadata. If you copy a blob without the encryption metadata, the blob content cannot be retrieved again. For more information regarding encryption-related metadata, see [Azure Storage Client-Side Encryption](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
-
-### Azure Import/Export service
-
-If you have a large amount of data to import to your storage account, consider the Azure Import/Export service. You can use the Import/Export service to import large amounts of data to Azure Blob storage and Azure Files securely. You can do so by shipping disk drives to an Azure datacenter. 
-
-The Import/Export service can also be used to transfer data from Azure Blob storage to disk drives and ship to your on-premises sites. Data from one or more disk drives can be imported either to Azure Blob storage or Azure Files. For more information, see [What is Azure Import/Export service?](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
 
 ## Storage account billing
 
