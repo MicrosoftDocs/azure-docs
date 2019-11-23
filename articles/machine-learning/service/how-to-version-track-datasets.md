@@ -152,7 +152,7 @@ The following code uses the [`get_details()`](https://docs.microsoft.com/python/
 inputs = run.get_details()['inputDatasets']
 input_dataset = inputs[0]['dataset']
 
-# list the files referenced by train_dataset
+# list the files referenced by input_dataset
 input_dataset.to_path()
 ```
 
