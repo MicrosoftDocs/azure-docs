@@ -38,7 +38,7 @@ psexec \\<computer>-u user -s cmd
 >* The command must be run on a computer that's in the same virtual network.
 >* DIP or HostName can be used to replace \<computer>.
 >* The -s parameter makes sure that the command is invoked by using System Account (administrator permission).
->* PsExec uses TCP ports 135 and 445. Therefore, the two ports have to be open on the firewall.
+>* PsExec uses TCP ports 135 and 445. As a result, the two ports have to be open on the firewall.
 
 ## Run command
 
@@ -56,40 +56,40 @@ You can use the Custom Script Extension feature to run a custom script on the ta
 
 Upload your script to a storage account, and generate its own container. Then, run the following script in Azure PowerShell on a computer that has connectivity to the VM.
 
-### For V1 VMs
+### For classic deployment model VMs
 
 ```powershell
-#Setup the basic variables
+#Set up the basic variables.
 $subscriptionID = "<<SUBSCRIPTION ID>>" 
 $storageAccount = "<<STORAGE ACCOUNT>>" 
 $localScript = "<<FULL PATH OF THE PS1 FILE TO EXECUTE ON THE VM>>" 
 $blobName = "file.ps1" #Name you want for the blob in the storage
 $vmName = "<<VM NAME>>" 
-$vmCloudService = "<<CLOUD SERVICE>>" #Resource group/Cloud Service where the VM is hosted. I.E.: For "demo305.cloudapp.net" the cloud service is going to be demo305
+$vmCloudService = "<<CLOUD SERVICE>>" #Resource group/cloud service where the VM is hosted. For example, for "demo305.cloudapp.net" the cloud service is going to be demo305.
 
-#Setup the Azure Powershell module and ensure the access to the subscription
+#Set up the Azure Powershell module, and ensure the access to the subscription.
 Import-Module Azure
-Add-AzureAccount  #Ensure Login with account associated with subscription ID
+Add-AzureAccount  #Ensure login with the account associated with subscription ID
 Get-AzureSubscription -SubscriptionId $subscriptionID | Select-AzureSubscription
 
-#Setup the access to the storage account and upload the script
+#Set up the access to the storage account, and upload the script.
 $storageKey = (Get-AzureStorageKey -StorageAccountName $storageAccount).Primary
 $context = New-AzureStorageContext -StorageAccountName $storageAccount -StorageAccountKey $storageKey
 $container = "cse" + (Get-Date -Format yyyyMMddhhmmss)<
 New-AzureStorageContainer -Name $container -Permission Off -Context $context
 Set-AzureStorageBlobContent -File $localScript -Container $container -Blob $blobName  -Context $context
 
-#Push the script into the VM
+#Push the script into the VM.
 $vm = Get-AzureVM -ServiceName $vmCloudService -Name $vmName
 Set-AzureVMCustomScriptExtension "CustomScriptExtension" -VM $vm -StorageAccountName $storageAccount -StorageAccountKey $storagekey -ContainerName $container -FileName $blobName -Run $blobName | Update-AzureVM
 ```
 
-### For V2 VMs
+### For Azure Resource Manager VMs
 
  
 
 ```powershell
-#Setup the basic variables
+#Set up the basic variables.
 $subscriptionID = "<<SUBSCRIPTION ID>>"
 $storageAccount = "<<STORAGE ACCOUNT>>"
 $storageRG = "<<RESOURCE GROUP OF THE STORAGE ACCOUNT>>" 
@@ -99,18 +99,18 @@ $vmName = "<<VM NAME>>"
 $vmResourceGroup = "<<RESOURCE GROUP>>"
 $vmLocation = "<<DATACENTER>>" 
  
-#Setup the Azure Powershell module and ensure the access to the subscription
+#Set up the Azure Powershell module, and ensure the access to the subscription.
 Login-AzAccount #Ensure Login with account associated with subscription ID
 Get-AzSubscription -SubscriptionId $subscriptionID | Select-AzSubscription
 
-#Setup the access to the storage account and upload the script 
+#Set up the access to the storage account, and upload the script.
 $storageKey = (Get-AzStorageAccountKey -ResourceGroupName $storageRG -Name $storageAccount).Value[0]
 $context = New-AzureStorageContext -StorageAccountName $storageAccount -StorageAccountKey $storageKey
 $container = "cse" + (Get-Date -Format yyyyMMddhhmmss)
 New-AzureStorageContainer -Name $container -Permission Off -Context $context
 Set-AzureStorageBlobContent -File $localScript -Container $container -Blob $blobName  -Context $context
 
-#Push the script into the VM
+#Push the script into the VM.
 Set-AzVMCustomScriptExtension -Name "CustomScriptExtension" -ResourceGroupName $vmResourceGroup -VMName $vmName -Location $vmLocation -StorageAccountName $storageAccount -StorageAccountKey $storagekey -ContainerName $container -FileName $blobName -Run $blobName
 ```
 
