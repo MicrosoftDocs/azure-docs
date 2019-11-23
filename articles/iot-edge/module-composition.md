@@ -8,7 +8,6 @@ ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
 ---
 
 # Learn how to deploy modules and establish routes in IoT Edge
