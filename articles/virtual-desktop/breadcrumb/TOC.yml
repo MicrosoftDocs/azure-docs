@@ -5,3 +5,7 @@
   - name: Windows Virtual Desktop
     tocHref: /azure/virtual-desktop
     topicHref: /azure/virtual-desktop/index
+    items: 
+     - name: Reference
+       tocHref: /WindowsServerDocs/remote/remote-desktop-services/clients/rdp-files
+       topicHref: /azure/virtual-desktop/index
