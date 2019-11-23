@@ -131,7 +131,7 @@ If you have domain-joined Windows devices that aren’t registered in the cloud,
 
 If you are managing devices with MDM or Microsoft Intune, but not using device controls in your conditional access policies, then we recommend using [Require device to be marked as compliant](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices#require-device-to-be-marked-as-compliant) as a control in those policies.
 
-![A screenshot of grant in conditional access policy requiring device compliace](./media/active-directory-ops-guide/active-directory-ops-img7.png)
+![A screenshot of grant in conditional access policy requiring device compliance](./media/active-directory-ops-guide/active-directory-ops-img7.png)
 
 #### Device trust access policies recommended reading
 
