@@ -8,7 +8,6 @@ ms.date: 09/23/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
 ---
 
 # Authenticate a downstream device to Azure IoT Hub
