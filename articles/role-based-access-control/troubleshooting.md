@@ -51,7 +51,7 @@ This article answers common questions about role-based access control (RBAC) for
 
 ## Role assignments with Unknown security principal
 
-If you assign a role to a security principal (user, group, service principal, or managed identity) and then you later delete that security principal without removing the role assignment, the security principal type will be listed as **Unknown**. The following shows an example in the Azure portal. The security principal name is listed as **Identity deleted** and **Identity no longer exists**. 
+If you assign a role to a security principal (user, group, service principal, or managed identity) and then you later delete that security principal without removing the role assignment, the security principal type for the role assignment will be listed as **Unknown**. The following screenshot shows an example in the Azure portal. The security principal name is listed as **Identity deleted** and **Identity no longer exists**. 
 
 ![Web app resource group](./media/troubleshooting/unknown-security-principal.png)
 
@@ -69,7 +69,7 @@ ObjectType         : Unknown
 CanDelegate        : False
 ```
 
-Similarly, if you list this role assignments using Azure CLI, you will see an empty `principalName`. For example, [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) returns a role assignment that is similar to the following:
+Similarly, if you list this role assignment using Azure CLI, you will see an empty `principalName`. For example, [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list) returns a role assignment that is similar to the following:
 
 ```azurecli
 {
