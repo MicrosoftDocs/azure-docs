@@ -36,9 +36,7 @@ See the following section that matches the language you are using for more detai
 
 ## [.NET](#tab/dotnet)
 
-## .NET exceptions
-
-When processing exceptions, you can use the exception type itself and the `ErrorCode` member to distinguish between exceptions. `ErrorCode` values are constants of type [MsalError](/dotnet/api/microsoft.identity.client.msalerror?view=azure-dotnet).
+When processing .NET exceptions, you can use the exception type itself and the `ErrorCode` member to distinguish between exceptions. `ErrorCode` values are constants of type [MsalError](/dotnet/api/microsoft.identity.client.msalerror?view=azure-dotnet).
 
 You can also have a look at the fields of [MsalClientException](/dotnet/api/microsoft.identity.client.msalexception?view=azure-dotnet), [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet), and [MsalUIRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet).
 
@@ -233,8 +231,6 @@ myMSALObj.acquireTokenSilent(request).then(function (response) {
 
 ## [Python](#tab/python)
 
-## MSAL for Python error handling
-
 In MSAL for Python, most errors are conveyed as a return value from the API call. The error is represented as a dictionary containing the JSON response from the Microsoft identity platform.
 
 * A successful response contains the `"access_token"` key. The format of the response is defined by the OAuth2 protocol. For more information, see [5.1 Successful Response](https://tools.ietf.org/html/rfc6749#section-5.1)
@@ -246,7 +242,7 @@ In MSAL for Python, exceptions are rare because most errors are handled by retur
 
 ## [Java](#tab/java)
 
-There are three types of exceptions: `MsalClientException`, `MsalServiceException`, and `MsalInteractionRequiredException`; all which inherit from `MsalException`.
+In MSAL for Java, there are three types of exceptions: `MsalClientException`, `MsalServiceException`, and `MsalInteractionRequiredException`; all which inherit from `MsalException`.
 
 - `MsalClientException` is thrown when an error occurs that is local to the library or device.
 - `MsalServiceException` is thrown when the secure token service (STS) returns an error response or another networking error occurs.
@@ -302,9 +298,7 @@ MSAL exposes a `reason` field, which you can use to provide a better user experi
 
 ## [iOS/macOS](#tab/iosmacos)
 
-## MSAL for iOS and macOS errors
-
-The complete list of errors is listed in [MSALError enum](https://github.com/AzureAD/microsoft-authentication-library-for-objc/blob/master/MSAL/src/public/MSALError.h#L128).
+The complete list of MSAL for iOS and macOS errors is listed in [MSALError enum](https://github.com/AzureAD/microsoft-authentication-library-for-objc/blob/master/MSAL/src/public/MSALError.h#L128).
 
 All MSAL produced errors are returned with `MSALErrorDomain` domain.
 
