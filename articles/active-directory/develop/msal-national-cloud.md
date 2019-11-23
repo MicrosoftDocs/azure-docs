@@ -67,6 +67,8 @@ The following tutorials demonstrate how to build a .NET Core 2.2 MVC Web app. Th
 
 ## [JavaScript](#tab/javascript)
 
+To enable your MSAL.js application for sovereign clouds:
+
 ### Step 1: Register your application
 
 1. Sign in to the [Azure portal](https://portal.azure.us/).
@@ -137,7 +139,7 @@ In that code:
 
 ## [Python](#tab/python)
 
-To enable your MSAL Python application for sovereign clouds, you must:
+To enable your MSAL Python application for sovereign clouds:
 
 - Register your application in a specific portal, depending on the cloud. For more information on how to choose the portal refer [App registration endpoints](authentication-national-cloud.md#app-registration-endpoints)
 - Use any of the [samples](https://github.com/AzureAD/microsoft-authentication-library-for-python/tree/dev/sample) from the repo with a few changes to the configuration, depending on the cloud, which is mentioned next.
@@ -159,6 +161,8 @@ Here's an example of a graph endpoint, with scope:
 ```
 
 ## [Java](#tab/java)
+
+To enable your MSAL for Java application for sovereign clouds:
 
 - Register your application in a specific portal, depending on the cloud. For more information on how to choose the portal refer [App registration endpoints](authentication-national-cloud.md#app-registration-endpoints)
 - Use any of the [samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples) from the repo with a few changes to the configuration, depending on the cloud, which are mentioned next.
