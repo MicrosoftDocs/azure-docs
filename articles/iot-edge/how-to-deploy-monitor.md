@@ -9,7 +9,6 @@ ms.date: 06/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
 ---
 
 # Deploy and monitor IoT Edge modules at scale using the Azure portal
