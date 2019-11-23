@@ -14,7 +14,7 @@ ms.date: 11/22/2019
 
 To provide faster, more reliable storage and support for new marketplace features and capabilities, we’re moving marketplace VM images to managed disk storage.
 
-Starting on December 23, 2019, we’ll move VM images to managed disk storage in phases. In the first phase, we’ll only move images with no new deployments or running VMs in the previous 90 days. Before we move any of the images, we’ll send an email to let the publisher know which images will move and when they’ll be moved.
+Starting on January 2, 2020, we’ll move VM images to managed disk storage in phases. In the first phase, we’ll only move images with no new deployments or running VMs in the previous 90 days. Before we move any of the images, we’ll send an email to let the publisher know which images will move and when they’ll be moved.
 
 Publishers or consumers don’t need to take any action, and users won’t be affected. The marketplace offers will remain available and customers will still be able to deploy managed VMs from these images, during and after the move.
 
