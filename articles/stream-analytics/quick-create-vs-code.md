@@ -148,8 +148,7 @@ Follow the instructions in [Test query locally with sample data](vscode-local-ru
 
 ## Define a live input
 
-1. Right click the **Inputs** folder in your Stream Analytics project.
-Then select **ASA: Add Input** from the context menu.
+1. Right click the **Inputs** folder in your Stream Analytics project. Then select **ASA: Add Input** from the context menu.
 
     ![Add input from Inputs folder](./media/quick-create-vs-code/add-input-from-inputs-folder.png)
 

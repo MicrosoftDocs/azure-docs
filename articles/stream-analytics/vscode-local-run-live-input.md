@@ -1,6 +1,6 @@
 ---
-title: Test Azure Stream Analytics queries locally agaist live stream input with Visual Studio Code
-description: This article describes how to test queries locally against live stream input with Azure Stream Analytics Tools for Visual Studio Code.
+title: Test Azure Stream Analytics queries locally agaist live stream input using Visual Studio Code
+description: This article describes how to test queries locally against live stream input using Azure Stream Analytics Tools for Visual Studio Code.
 ms.service: stream-analytics
 author: su-jie
 ms.author: sujie
@@ -9,26 +9,25 @@ ms.topic: conceptual
 ---
 # Test Stream Analytics queries locally against live stream input Visual Studio Code
 
-You can use Azure Stream Analytics tools for Visual Studio Code to test your Stream Analytics jobs locally against live stream input, such as Event Hub, IoT Hub etc. The result will be ouput as JSON format to a local folder called **LocalRunOutputs** in your project.
+You can use Azure Stream Analytics tools for Visual Studio Code to test your Stream Analytics jobs locally against live stream input, such as Event Hub or IoT Hub. The results are output as JSON files to a folder in your project called **LocalRunOutputs**.
 
 ## Prerequisites
-* Install [.NET core SDK](https://dotnet.microsoft.com/download).
-* Restart Visual Studio Code.
 
-Use this [quickstart](quick-create-vs-code.md) to learn how to create a Stream Analytics job using Visual Studio Code. 
+* Install [.NET core SDK](https://dotnet.microsoft.com/download) and restart Visual Studio Code.
 
-## Define live stream input
+* Use this [quickstart](quick-create-vs-code.md) to learn how to create a Stream Analytics job using Visual Studio Code.
 
-1. Right click the **Inputs** folder in your Stream Analytics project.
-Then select **ASA: Add Input** from the context menu.
+## Define a live stream input
+
+1. Right-click the **Inputs** folder in your Stream Analytics project. Then select **ASA: Add Input** from the context menu.
 
     ![Add input from Inputs folder](./media/quick-create-vs-code/add-input-from-inputs-folder.png)
 
-    Or Select **Ctrl+Shift+P** to open the command palette and enter **ASA: Add Input**.
+    You can also select **Ctrl+Shift+P** to open the command palette and enter **ASA: Add Input**.
 
    ![Add Stream Analytics input in VS Code](./media/quick-create-vs-code/add-input.png)
 
-2. Choose input source type from dowp down list. [TODO: update the picture]
+2. Choose an input source type from dowp down list.
 
    ![Select IoT Hub as input option](./media/quick-create-vs-code/iot-hub.png)
 
@@ -46,7 +45,7 @@ Then select **ASA: Add Input** from the context menu.
 
 ## Preview input
 
-Click **Preview data** in your live input configuration file from the top line to make sure the input data is coming. Some input data will be fetched from IoTHub and shown in the preview window. Note that this may take a while.
+Select **Preview data** in your live input configuration file from the top line to make sure the input data is coming. Some input data is fetched from IoT Hub and shown in the preview window. Note that this may take a few seconds.
 
  ![Preview live input](./media/quick-create-vs-code/preview-live-input.png)
 
@@ -58,9 +57,9 @@ Return to your query editor, and select **Run locally**. Then select **Use live 
 
 ![Use live input](./media/vscode-local-run-live-input/run-locally-use-live-input.png)
 
-The result will be shown in the right window and refreshed every 3 seconds. You can click **Run** to test again. You can also click **Open in folder** to see the result files in file explorer and further open them with other tools. Note that the result files will be only available in JSON format.
+The result is shown in the right window and refreshed every 3 seconds. You can select **Run** to test again. You can also select **Open in folder** to see the result files in file explorer and open them with Visual Studio Code or other tools such as Excel. Note that the result files are only available in JSON format.
 
-The default time for the job to start creating output is set to **Now**, you can custom the time by clicking **Output start time** button in the result window.
+The default time for the job to start creating output is set to **Now**. You can custom the time by clicking **Output start time** button in the result window.
 
 ![View local run result](./media/vscode-local-run-live-input/vscode_livetesting.gif)
 
