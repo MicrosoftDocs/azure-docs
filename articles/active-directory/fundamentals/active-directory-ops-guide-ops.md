@@ -81,7 +81,7 @@ As you monitor the health of your environment, you must immediately address any 
 
 ### On-premises agents logs
 
-Some identity and access management services require on-premises agents to enable hybrid scenarios. Examples include password reset, pass-through authentication (PTA), Azure AD Application Proxy, and Azure MFA NPS extension. It is key that the operations team baseline and monitor the health of these components by archiving and analyzing the component agent logs using solutions such as System Center Operations Manager or SIEM. It is equally important your Infosec Operations team or help desk is understands how to troubleshoot patterns of errors.
+Some identity and access management services require on-premises agents to enable hybrid scenarios. Examples include password reset, pass-through authentication (PTA), Azure AD Application Proxy, and Azure MFA NPS extension. It is key that the operations team baseline and monitor the health of these components by archiving and analyzing the component agent logs using solutions such as System Center Operations Manager or SIEM. It is equally important your Infosec Operations team or help desk understand how to troubleshoot patterns of errors.
 
 #### On-premises agents logs recommended reading
 
