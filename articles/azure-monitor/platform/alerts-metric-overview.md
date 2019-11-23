@@ -144,11 +144,9 @@ The following types are only supported by classic metric alerts.
 
 - Microsoft.ClassicCompute/virtualMachines 
 - Microsoft.ClassicCompute/domainNames/slots/roles
-- Microsoft.CognitiveServices/accounts
 - Microsoft.ClassicStorage/storageAccounts
-- Microsoft.Devices/IotHubs 
-- Microsoft. Web/hostingEnvironments/multiRolePools 
-- Microsoft. Web/hostingEnvironments/workerPools
+- Microsoft.Web/hostingEnvironments/multiRolePools 
+- Microsoft.Web/hostingEnvironments/workerPools
 - Microsoft.SQL/Servers 
 
 ## Next steps
