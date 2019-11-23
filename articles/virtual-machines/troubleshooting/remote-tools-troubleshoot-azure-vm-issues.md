@@ -63,13 +63,13 @@ Upload your script to a storage account, and generate its own container. Then, r
 $subscriptionID = "<<SUBSCRIPTION ID>>" 
 $storageAccount = "<<STORAGE ACCOUNT>>" 
 $localScript = "<<FULL PATH OF THE PS1 FILE TO EXECUTE ON THE VM>>" 
-$blobName = "file.ps1" #Name you want for the blob in the storage
+$blobName = "file.ps1" #Name you want for the blob in the storage.
 $vmName = "<<VM NAME>>" 
-$vmCloudService = "<<CLOUD SERVICE>>" #Resource group/cloud service where the VM is hosted. For example, for "demo305.cloudapp.net" the cloud service is going to be demo305.
+$vmCloudService = "<<CLOUD SERVICE>>" #Resource group or cloud service where the VM is hosted. For example, for "demo305.cloudapp.net" the cloud service is going to be demo305.
 
-#Set up the Azure Powershell module, and ensure the access to the subscription.
+#Set up the Azure PowerShell module, and ensure the access to the subscription.
 Import-Module Azure
-Add-AzureAccount  #Ensure login with the account associated with subscription ID
+Add-AzureAccount  #Ensure login with the account associated with the subscription ID.
 Get-AzureSubscription -SubscriptionId $subscriptionID | Select-AzureSubscription
 
 #Set up the access to the storage account, and upload the script.
@@ -94,13 +94,13 @@ $subscriptionID = "<<SUBSCRIPTION ID>>"
 $storageAccount = "<<STORAGE ACCOUNT>>"
 $storageRG = "<<RESOURCE GROUP OF THE STORAGE ACCOUNT>>" 
 $localScript = "<<FULL PATH OF THE PS1 FILE TO EXECUTE ON THE VM>>" 
-$blobName = "file.ps1" #Name you want for blob in storage
+$blobName = "file.ps1" #Name you want for the blob in the storage.
 $vmName = "<<VM NAME>>" 
 $vmResourceGroup = "<<RESOURCE GROUP>>"
 $vmLocation = "<<DATACENTER>>" 
  
-#Set up the Azure Powershell module, and ensure the access to the subscription.
-Login-AzAccount #Ensure Login with account associated with subscription ID
+#Set up the Azure PowerShell module, and ensure the access to the subscription.
+Login-AzAccount #Ensure login with the account associated with the subscription ID.
 Get-AzSubscription -SubscriptionId $subscriptionID | Select-AzSubscription
 
 #Set up the access to the storage account, and upload the script.
