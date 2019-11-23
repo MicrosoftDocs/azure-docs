@@ -38,6 +38,7 @@ Managing Azure Active Directory requires the continuous execution of key operati
 | Design Catalogs and Access Packages for applications and resources based for employees in the organization | App Owners |
 | Define Security Policies to assign users to access packages | InfoSec team + App Owners |
 | If policies include approval workflows, regularly review workflow approvals | App Owners |
+| Review exceptions in security policies, such as conditional access policies, using access reviews | InfoSec Operations Team |
 
 As you review your list, you may find you need to either assign an owner for tasks that are missing an owner or adjust ownership for tasks with owners that aren’t aligned with the recommendations above.
 
@@ -52,12 +53,12 @@ There are changes that require special considerations when testing, from simple 
 
 | Scenario| Recommendation |
 |-|-|
-|Changing the authentication type from federated to PHS/PTA or vice-versa|Create a test domain in the same tenant, then create test accounts in the test domain.|
-|Rolling out a new CA policy or Identity Protection Policy|Create a new CA Policy and assign to test users.|
-|Onboarding a test environment of an application|Add the application to a production environment, hide it from the MyApps panel, and assign it to test users during the QA phase.|
-|Changing of sync rules|Perform the changes in a test Azure AD Connect with the same configuration that is currently in production and analyze CSExport Results. If satisfied, swap to production when ready.|
+|Changing the authentication type from federated to PHS/PTA or vice-versa| Use [staged rollout](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-staged-rollout) to test the impact of changing the authentication type.|
+|Rolling out a new conditional access (CA) policy or Identity Protection Policy|Create a new CA Policy and assign to test users.|
+|Onboarding a test environment of an application|Add the application to a production environment, hide it from the MyApps panel, and assign it to test users during the quality assurance (QA) phase.|
+|Changing of sync rules|Perform the changes in a test Azure AD Connect with the same configuration that is currently in production, also known as staging mode, and analyze CSExport Results. If satisfied, swap to production when ready.|
 |Changing of branding|Test in a separate test tenant.|
-|Rolling out a new feature|If the feature supports roll out to a target set of users, identify pilot users and build out.|
+|Rolling out a new feature|If the feature supports roll out to a target set of users, identify pilot users and build out. For example, self-service password reset and multi-factor authentication can target specific users or groups|
 |Cutover an application from an on-premises Identity provider (IdP), for example, Active Directory, to Azure AD|If the application supports multiple IdP configurations, for example, Salesforce, configure both and test Azure AD during a change window (in case the application introduces HRD page). If the application does not support multiple IdPs, schedule the testing during a change control window and program downtime.|
 |Update dynamic group rules|Create a parallel dynamic group with the new rule. Compare against the calculated outcome, for example, run PowerShell with the same condition.<br>If test pass, swap the places where the old group was used (if feasible).|
 |Migrate product licenses|Refer to [Change the license for a single user in a licensed group in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/licensing-groups-change-licenses).|
@@ -117,7 +118,7 @@ To be clear, if the EA portal authorization level is currently set to "mixed mod
 
 ## Entitlement Management
 
-Entitlement management (ELM) allows app owners to bundle resources and assign them to specific personas in the organization (both internal and external). ELM allows self-service sign up and delegation to business owners while keeping governance policies to grant access, set access durations, and allow approval workflows. Use Entitlement Management if you have Azure AD Premium P2 licenses.
+Entitlement management (EM) allows app owners to bundle resources and assign them to specific personas in the organization (both internal and external). EM allows self-service sign up and delegation to business owners while keeping governance policies to grant access, set access durations, and allow approval workflows. Use Entitlement Management if you have Azure AD Premium P2 licenses.
 
 ## Summary
 
