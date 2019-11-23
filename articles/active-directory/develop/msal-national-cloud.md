@@ -56,6 +56,17 @@ If you don't have an Azure Government subscription, create a [free account](http
 
 For details about using a national cloud with a particular programming language, choose the tab matching your language:
 
+## [.NET](#tab/donet)
+
+## .NET
+
+You can use MSAL.NET to sign in users, acquire tokens, and call the Microsoft Graph API in national clouds.
+
+The following tutorials demonstrate how to build a .NET Core 2.2 MVC Web app. The app uses OpenID Connect to sign in users with a work and school account in an organization that belongs to a national cloud.
+
+- To sign in users and acquire tokens, follow this tutorial: [Build an ASP.NET Core Web app signing-in users in sovereign clouds with the Microsoft identity platform](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-4-Sovereign#build-an-aspnet-core-web-app-signing-in-users-in-sovereign-clouds-with-the-microsoft-identity-platform).
+- To call the Microsoft Graph API, follow this tutorial: [Using the Microsoft identity platform to call the Microsoft Graph API from an An ASP.NET Core 2.x Web App, on behalf of a user signing-in using their work and school account in Microsoft National Cloud](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-4-Sovereign-Call-MSGraph#using-the-microsoft-identity-platform-to-call-the-microsoft-graph-api-from-an-an-aspnet-core-2x-web-app-on-behalf-of-a-user-signing-in-using-their-work-and-school-account-in-microsoft-national-cloud).
+
 ## [JavaScript](#tab/javascript)
 
 ## JavaScript
@@ -128,52 +139,6 @@ In that code:
 
    To find Microsoft Graph endpoints for all the national clouds, see [Microsoft Graph endpoints in national clouds](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
-## .NET
-
-You can use MSAL.NET to sign in users, acquire tokens, and call the  Microsoft Graph API in national clouds.
-
-The following tutorials demonstrate how to build a .NET Core 2.2 MVC Web app. The app uses OpenID Connect to sign in users with a work and school account in an organization that belongs to a national cloud.
-
-- To sign in users and acquire tokens, follow [this tutorial](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-4-Sovereign#build-an-aspnet-core-web-app-signing-in-users-in-sovereign-clouds-with-the-microsoft-identity-platform).
-- To call the Microsoft Graph API, follow [this tutorial](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-4-Sovereign-Call-MSGraph#using-the-microsoft-identity-platform-to-call-the-microsoft-graph-api-from-an-an-aspnet-core-2x-web-app-on-behalf-of-a-user-signing-in-using-their-work-and-school-account-in-microsoft-national-cloud).
-
-## [Objective-C](#tab/objc)
-## MSAL for iOS and macOS
-
-MSAL for iOS and macOS can be used to acquire tokens in national clouds, but it requires additional configuration when creating `MSALPublicClientApplication`.
-
-For instance, if you want your application to be a multi-tenant application in a national cloud (here US Government), you could write:
-
-```objc
-MSALAADAuthority *aadAuthority =
-                [[MSALAADAuthority alloc] initWithCloudInstance:MSALAzureUsGovernmentCloudInstance
-                                                   audienceType:MSALAzureADMultipleOrgsAudience
-                                                      rawTenant:nil
-                                                          error:nil];
-                                                          
-MSALPublicClientApplicationConfig *config =
-                [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<your-client-id-here>"
-                                                                redirectUri:@"<your-redirect-uri-here>"
-                                                                  authority:aadAuthority];
-                                                                  
-NSError *applicationError = nil;
-MSALPublicClientApplication *application =
-                [[MSALPublicClientApplication alloc] initWithConfiguration:config error:&applicationError];
-```
-
-## [Swift](#tab/swift)
-
-MSAL for iOS and macOS can be used to acquire tokens in national clouds, but it requires additional configuration when creating `MSALPublicClientApplication`.
-
-For instance, if you want your application to be a multi-tenant application in a national cloud (here US Government), you could write:
-
-```swift
-let authority = try? MSALAADAuthority(cloudInstance: .usGovernmentCloudInstance, audienceType: .azureADMultipleOrgsAudience, rawTenant: nil)
-        
-let config = MSALPublicClientApplicationConfig(clientId: "<your-client-id-here>", redirectUri: "<your-redirect-uri-here>", authority: authority)
-if let application = try? MSALPublicClientApplication(configuration: config) { /* Use application */}
-```
-
 ## [Python](#tab/python)
 
 To enable your MSAL Python application for sovereign clouds, you must:
@@ -216,6 +181,43 @@ Here's an example of a graph endpoint, with scope:
 ```json
 "endpoint" : "https://graph.microsoft.us/v1.0/me"
 "scope": "User.Read"
+```
+
+## [Objective-C](#tab/objc)
+## MSAL for iOS and macOS
+
+MSAL for iOS and macOS can be used to acquire tokens in national clouds, but it requires additional configuration when creating `MSALPublicClientApplication`.
+
+For instance, if you want your application to be a multi-tenant application in a national cloud (here US Government), you could write:
+
+```objc
+MSALAADAuthority *aadAuthority =
+                [[MSALAADAuthority alloc] initWithCloudInstance:MSALAzureUsGovernmentCloudInstance
+                                                   audienceType:MSALAzureADMultipleOrgsAudience
+                                                      rawTenant:nil
+                                                          error:nil];
+                                                          
+MSALPublicClientApplicationConfig *config =
+                [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<your-client-id-here>"
+                                                                redirectUri:@"<your-redirect-uri-here>"
+                                                                  authority:aadAuthority];
+                                                                  
+NSError *applicationError = nil;
+MSALPublicClientApplication *application =
+                [[MSALPublicClientApplication alloc] initWithConfiguration:config error:&applicationError];
+```
+
+## [Swift](#tab/swift)
+
+MSAL for iOS and macOS can be used to acquire tokens in national clouds, but it requires additional configuration when creating `MSALPublicClientApplication`.
+
+For instance, if you want your application to be a multi-tenant application in a national cloud (here US Government), you could write:
+
+```swift
+let authority = try? MSALAADAuthority(cloudInstance: .usGovernmentCloudInstance, audienceType: .azureADMultipleOrgsAudience, rawTenant: nil)
+        
+let config = MSALPublicClientApplicationConfig(clientId: "<your-client-id-here>", redirectUri: "<your-redirect-uri-here>", authority: authority)
+if let application = try? MSALPublicClientApplication(configuration: config) { /* Use application */}
 ```
 
 ---

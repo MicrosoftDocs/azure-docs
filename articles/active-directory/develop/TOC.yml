@@ -289,6 +289,8 @@
           href: msal-net-adfs-support.md
         - name: ADFS support in MSAL for Python
           href: msal-python-adfs-support.md
+        - name: ADFS support in MSAL for Java
+          href: msal-java-adfs-support.md
       - name: Integrate with Azure AD B2C
         items:
         - name: Android
