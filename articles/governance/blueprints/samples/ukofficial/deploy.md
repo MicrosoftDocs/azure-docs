@@ -2,7 +2,7 @@
 title: UK OFFICIAL & UK NHS blueprint samples - Deploy steps
 description: Deploy steps for the UK OFFICIAL and UK NHS blueprint samples including blueprint artifact parameter details.
 ms.date: 06/26/2019
-ms.topic: conceptual
+ms.topic: sample
 ---
 # Deploy the UK OFFICIAL and UK NHS blueprint samples
 
