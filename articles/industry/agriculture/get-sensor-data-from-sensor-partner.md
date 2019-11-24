@@ -59,7 +59,7 @@ Alternatively, you can generate the credentials by running this script from the 
     ./generateCredentials.ps1   
 
     ```
-7. Follow the onscreen instructions to capture the values. (API Endpoint, Tenant ID, Client ID, Client Secret and EventHub Connection String).
+7. Follow the onscreen instructions to capture the values. (API Endpoint, Tenant ID, Client ID, Client Secret and EventHub Connection String). The EventHub Connection String will be available as part of the API response in the swagger.
 
 **Integrate device data using the generated credentials**
 

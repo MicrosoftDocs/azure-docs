@@ -1,6 +1,6 @@
 ---
 title: Sample - Allowed ExpressRoute bandwidth
-description: This sample policy definition requires that ExpressRoute use a specified set of bandwidths.
+description: This sample policy definition requires that ExpressRoute use a specified set of bandwidths defined in a parameter.
 ms.date: 01/23/2019
 ms.topic: sample
 ---
