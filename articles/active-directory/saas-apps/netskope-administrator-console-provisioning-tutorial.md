@@ -97,7 +97,7 @@ Before configuring Netskope Administrator Console for automatic user provisionin
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Netskope Administrator Console based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Netskope Administrator Console , following the instructions provided in the [Netskope Administrator Console Single sign-on tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/netskope-cloud-security-tutorial). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
+> You may also choose to enable SAML-based single sign-on for Netskope Administrator Console by following the instructions provided in the [Netskope Administrator Console Single sign-on tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/netskope-cloud-security-tutorial). Single sign-on can be configured independently of automatic user provisioning, although these two features complement each other.
 
 > [!NOTE]
 > To learn more about Netskope Administrator Console's SCIM endpoint, refer [this](https://docs.google.com/document/d/1n9P_TL98_kd1sx5PAvZL2HS6MQAqkQqd-OSkWAAU6ck/edit#heading=h.prxq74iwdpon).
