@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 20/11/2019
+ms.date: 11/24/2019
 ms.author: vilibert
 ---
 
@@ -26,7 +26,7 @@ This troubleshooting guide is of benefit for scenarios where a Linux VM is not b
 Take a snapshot of the affected VM. 
 
 The snapshot will then be attached to a **rescue** VM. 
-Follow instructions [here](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/snapshot-copy-managed-disk#use-azure-portal) on how to take a **snapshot**.
+Follow instructions [here](https://docs.microsoft.com/azure/virtual-machines/linux/snapshot-copy-managed-disk#use-azure-portal) on how to take a **snapshot**.
 
 ## Create a rescue VM
 Usually a rescue VM of the same or similar Operating system version is recommended. Use the same **region** and **resource group** of the affected VM
@@ -213,7 +213,7 @@ If needed upgrade the **kernel**
 
 
 ## Example 3 - Enable Serial Console
-If access has not been possible to the Azure serial console, verify GRUB configuration parameters for your Linux VM and correct them. DEtailed information can be found [in this doc](https://docs.microsoft.com/en-gb/azure/virtual-machines/troubleshooting/serial-console-grub-proactive-configuration)
+If access has not been possible to the Azure serial console, verify GRUB configuration parameters for your Linux VM and correct them. DEtailed information can be found [in this doc](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-proactive-configuration)
 
 
 # Exit chroot and swap the OS disk
