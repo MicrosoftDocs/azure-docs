@@ -69,6 +69,10 @@ When you create a diagnostic setting, you specify which categories of logs to co
     { "time": "2019-10-11T02:33:24.2018744Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "PartitionKeyStatistics", "properties": {"subscriptionId": "<your_subscription_ID>","regionName": "West US 2","databaseName": "KustoQueryResults","collectionname": "CapacityMetrics","partitionkey": "["CapacityMetricsPartition.136"]","sizeKb": "2048270"}}
     ```
 
+* **PartitionKeyRUConsumption**: 
+
+* **ControlPlaceRequests**: 
+
 * **Metric Requests**: Select this option to collect metric data from Azure Cosmos DB to the destinations in the diagnostic setting. This is the same data collected automatically in Azure Metrics. Collect metric data with resource logs to analyze both kinds of data together and to send metric data outside of Azure Monitor.
 
 ## Analyzing metric data
@@ -178,6 +182,7 @@ Following are queries that you can use to help you monitor your Azure Cosmos dat
     AzureDiagnostics 
     | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
     | project TimeGenerated , duration_s 
+    | summarize count() by bin(TimeGenerated, 5s)
     | render timechart
     ```
     
