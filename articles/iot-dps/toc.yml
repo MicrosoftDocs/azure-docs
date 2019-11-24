@@ -7,26 +7,20 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Set up auto-provisioning - Azure CLI
-    href: quick-setup-auto-provision-cli.md
-  - name: Set up auto-provisioning - Portal
-    href: quick-setup-auto-provision.md
-  - name: Set up auto-provisioning - Template
-    href: quick-setup-auto-provision-rm.md
-  - name: Auto-provision a simulated device
+  - name: Create and set up Azure IoT Device Provisioning Service
     items:
-    - name: TPM attestation
+    - name: Azure Portal
+      href: quick-setup-auto-provision.md
+    - name: Azure CLI
+      href: quick-setup-auto-provision-cli.md
+    - name: Azure Resource Manager template
+      href: quick-setup-auto-provision-rm.md
+  - name: Create and provision a single simulated device 
+    items:
+    - name: Symmetric Key attestation
       items:
         - name: C
-          href: quick-create-simulated-device.md
-        - name: Java
-          href: quick-create-simulated-device-tpm-java.md
-        - name: C#
-          href: quick-create-simulated-device-tpm-csharp.md
-        - name: Node.js
-          href: quick-create-simulated-device-tpm-node.md
-        - name: Python
-          href: quick-create-simulated-device-tpm-python.md
+          href: quick-create-simulated-device-symm-key.md
     - name: X.509 attestation
       items:
         - name: C
@@ -39,24 +33,9 @@
           href: quick-create-simulated-device-x509-node.md
         - name: Python
           href: quick-create-simulated-device-x509-python.md
-    - name: Symmetric Key attestation
-      items:
-        - name: C
-          href: quick-create-simulated-device-symm-key.md
-
-  - name: Device enrollment using provisioning service APIs
+  - name: Create device enrollments using provisioning service APIs
     items:
-    - name: TPM attestation
-      items:
-        - name: Java
-          href: quick-enroll-device-tpm-java.md
-        - name: C#
-          href: quick-enroll-device-tpm-csharp.md
-        - name: Node.js
-          href: quick-enroll-device-tpm-node.md
-        - name: Python
-          href: quick-enroll-device-tpm-python.md
-    - name: X.509 attestation
+    - name: Group enrollment using X.509 Certificate Attestation
       items:
         - name: Java
           href: quick-enroll-device-x509-java.md
@@ -66,6 +45,16 @@
           href: quick-enroll-device-x509-node.md
         - name: Python
           href: quick-enroll-device-x509-python.md
+    - name: Individual device enrollment using TPM attestation
+      items:
+        - name: Java
+          href: quick-enroll-device-tpm-java.md
+        - name: C#
+          href: quick-enroll-device-tpm-csharp.md
+        - name: Node.js
+          href: quick-enroll-device-tpm-node.md
+        - name: Python
+          href: quick-enroll-device-tpm-python.md
 - name: Tutorials
   items:
   - name: 1 - Set up cloud resources
@@ -132,6 +121,20 @@
     - name: Windows
       href: ../iot-edge/how-to-auto-provision-simulated-device-windows.md
       maintainContext: true
+  - name: Provision TPM devices
+    item:
+      - name: Simulated
+      items:
+        - name: C
+          href: quick-create-simulated-device.md
+        - name: Java
+          href: quick-create-simulated-device-tpm-java.md
+        - name: C#
+          href: quick-create-simulated-device-tpm-csharp.md
+        - name: Node.js
+          href: quick-create-simulated-device-tpm-node.md
+        - name: Python
+          href: quick-create-simulated-device-tpm-python.md
   - name: Use attestation mechanisms with SDK
     href: use-hsm-with-sdk.md
   - name: Provision for multitenancy
