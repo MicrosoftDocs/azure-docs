@@ -78,6 +78,10 @@ In this section, you create a Python console app to simulate the device and rece
 5. Add the following code to initialize the client and wait to receive the cloud-to-device message:
 
     ```python
+    def iothub_client_init():
+        client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
+        return client
+    
     def iothub_client_sample_run():
         try:
             client = iothub_client_init()
