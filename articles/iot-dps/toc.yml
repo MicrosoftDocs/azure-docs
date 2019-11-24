@@ -21,7 +21,7 @@
       items:
         - name: C
           href: quick-create-simulated-device-symm-key.md
-    - name: X.509 attestation
+    - name: X.509 Certificate attestation
       items:
         - name: C
           href: quick-create-simulated-device-x509.md
