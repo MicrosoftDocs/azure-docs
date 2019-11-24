@@ -19,7 +19,7 @@ ms.author: vilibert
 
 # Troubleshooting a Linux VM when there is no access to the Azure serial console and the disk layout is using LVM (Logical Volume Manager)
 
-This troubleshooting guide is of benefit for scenarios where a Linux VM is not booting or ssh is not possible and the underlying file system layout is based upon LVM.
+This troubleshooting guide is of benefit for scenarios where a Linux VM is not booting,ssh is not possible and the underlying file system layout is configured with LVM (Logical Volume Manager).
 
 ## Take snapshot of the failing VM
 
@@ -44,8 +44,10 @@ Azure portal -> select the **rescue** VM -> **Disks**
 ![createdisk](./media/chroot-lvm/creatediskfromsnap.png)
 
 Populate the fields. 
-Assign a name to your new disk, select the same Resource Group as the snapshot, affected VM and Rescue VM.
-The **Source type** is **Snapshot** and the source is completed with the name of the **snapshot** you have just created.
+Assign a name to your new disk, select the same Resource Group as the snapshot, affected VM, and Rescue VM.
+
+The **Source type** is **Snapshot** .
+The **Source snapshot** is the name of the **snapshot** previously created.
 
 ![createdisk2](./media/chroot-lvm/creatediskfromsnap2.png)
 
@@ -57,11 +59,11 @@ Run the **fdisk -l** command to verify the snapshot disk has been attached and l
 
 `fdisk -l`
 
-In most scenarios the attached snapshot disk will be seen as **/dev/sdc** displaying 2 partitions **/dev/sdc1** and **/dev/sdc2**
+Most scenarios, the attached snapshot disk will be seen as **/dev/sdc** displaying two partitions **/dev/sdc1** and **/dev/sdc2**
 
 ![fdisk](./media/chroot-lvm/fdisk_output_sdc.png)
 
-The **\*** indicates a boot partition , both partitions are to be mounted.
+The **\*** indicates a boot partition, both partitions are to be mounted.
 
 Run the command **lsblk** to see the LVMs of the affected VM
 
@@ -70,7 +72,9 @@ Run the command **lsblk** to see the LVMs of the affected VM
 ![run lsblk](./media/chroot-lvm/lsblk_output_mounted.png)
 
 
-If the expected LVMs from the affected VM are not displayed, use the below commands to enable them and rerun **lsblk** ensure to have the LVMs from the attached disk visible.
+Verify if LVMs from the affected VM are displayed.
+If not, use the below commands to enable them and rerun **lsblk**.
+Ensure to have the LVMs from the attached disk visible before proceeding.
 
 ```
 vgscan --mknodes
@@ -80,7 +84,7 @@ mount –a
 lsblk
 ```
 
-Locate the path to mount the Logical Volume which contains the / (root)  partition. It has the configuration files such as /etc/default/grub
+Locate the path to mount the Logical Volume that contains the / (root)  partition. It has the configuration files such as /etc/default/grub
 
 In this example, taking the output from the previous **lsblk** command  **rootvg-rootlv** is the correct **root** LV to mount and can be used in the next command.
 
@@ -94,13 +98,13 @@ Proceed to mount this device on the directory /rescue
 
 `mount /dev/rootvg/rootlv /rescue`
 
-Mount the partition which has the **Boot flag** set on /rescue/boot
+Mount the partition that has the **Boot flag** set on /rescue/boot
 
 `
 mount /dev/sdc1 /rescue/boot
 `
 
-Verify the file system of the attached disk are now correctly mounted using the **lsblk** command
+Verify the file systems of the attached disk are now correctly mounted using the **lsblk** command
 
 
 ![run lsblk](./media/chroot-lvm/lsblk_output.png)
@@ -111,7 +115,7 @@ or the **df -Th** command
 
 ## Gaining chroot access
 
-Gain **chroot** access which will enable you to perform various fixes , slight variations exist for each Linux distribution.
+Gain **chroot** access, which will enable you to perform various fixes, slight variations exist for each Linux distribution.
 
 ```
  cd /rescue​
@@ -145,7 +149,7 @@ Execute the lsblk command and the /rescue is now / and /rescue/boot is /boot
 
 ## Example 1 - Configure the VM to boot from a different kernel
 
-A common scenario is force a VM to boot from a previous kernel as the current installed kernel may have become corrupt or an upgrade did not complete correctly.
+A common scenario is to force a VM to boot from a previous kernel as the current installed kernel may have become corrupt or an upgrade did not complete correctly.
 
 
 ```
@@ -186,7 +190,7 @@ The **grep** command lists the kernels that **grub.cfg** is aware of.
 A failed kernel upgrade can render the VM non-bootable.
 Mount all the Logical Volumes to allow packages to be removed or reinstalled
 
-Run the **lvs** command to verify which **LV** are available for mounting, every VM which has been migrated or comes from another Cloud Provider will vary in configuration.
+Run the **lvs** command to verify which **LVs** are available for mounting, every VM, which has been migrated or comes from another Cloud Provider will vary in configuration.
 
 Exit the **chroot** environment mount the required **LV**
 
@@ -214,7 +218,7 @@ If access has not been possible to the Azure serial console, verify GRUB configu
 
 # Exit chroot and swap the OS disk
 
-After repairing the issue proceed to unmount and detach the disk from the rescue VM allowing it to be swapped with the affected VM OS disk.
+After repairing the issue, proceed to unmount and detach the disk from the rescue VM allowing it to be swapped with the affected VM OS disk.
 
 ```
 exit
@@ -240,7 +244,7 @@ The disk will now become available allowing it to be swapped with the original O
 Navigate in the Azure portal to the failing VM and select **Disks** -> **Swap OS Disk**
 ![swapdisk](./media/chroot-lvm/swapdisk.png) 
 
-Complete the fields the **Choose disk** is the snapshot disk just detached in the previous step. The VM name is also required and select **OK**
+Complete the fields the **Choose disk** is the snapshot disk just detached in the previous step. The VM name of the affected VM is also required then select **OK**
 
 ![newosdisk](./media/chroot-lvm/newosdisk.png) 
 
