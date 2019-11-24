@@ -36,8 +36,6 @@ An indexing job can generate the following outputs:
 
 This article shows how to create indexing jobs to **Index an asset** and **Index multiple files**.
 
-For the latest Azure Media Indexer updates, see [Media Services blogs](#preset).
-
 ## Using configuration and manifest files for indexing tasks
 You can specify more details for your indexing tasks by using a task configuration. For example, you can specify which metadata to use for your media file. This metadata is used by the language engine to expand its vocabulary, and greatly improves the speech recognition accuracy.  You are also able to specify your desired output files.
 
@@ -264,7 +262,7 @@ In the case of an error, Azure Media Indexer should report back one of the follo
 | other |Internal errors |Please contact support team. indexer@microsoft.com |
 
 ## <a id="supported_languages"></a>Supported Languages
-Currently, the English and Spanish languages are supported. For more information, see [the v1.2 release blog post](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
+Currently, the English and Spanish languages are supported.  
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
