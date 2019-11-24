@@ -145,9 +145,9 @@ Commands can be used to install, remove and update software. Troubleshoot VMs in
 Execute the lsblk command and the /rescue is now / and /rescue/boot is /boot
 ![chrooted](./media/chroot-lvm/chrooted.png)
 
-# Perform Fixes
+## Perform Fixes
 
-## Example 1 - Configure the VM to boot from a different kernel
+### Example 1 - Configure the VM to boot from a different kernel
 
 A common scenario is to force a VM to boot from a previous kernel as the current installed kernel may have become corrupt or an upgrade did not complete correctly.
 
@@ -185,7 +185,7 @@ The **grep** command lists the kernels that **grub.cfg** is aware of.
 
 
 
-## Example 2 - Upgrade packages
+### Example 2 - Upgrade packages
 
 A failed kernel upgrade can render the VM non-bootable.
 Mount all the Logical Volumes to allow packages to be removed or reinstalled
@@ -212,11 +212,11 @@ If needed upgrade the **kernel**
 ![advanced](./media/chroot-lvm/rpm_remove_kernel.png)
 
 
-## Example 3 - Enable Serial Console
+### Example 3 - Enable Serial Console
 If access has not been possible to the Azure serial console, verify GRUB configuration parameters for your Linux VM and correct them. DEtailed information can be found [in this doc](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-proactive-configuration)
 
 
-# Exit chroot and swap the OS disk
+## Exit chroot and swap the OS disk
 
 After repairing the issue, proceed to unmount and detach the disk from the rescue VM allowing it to be swapped with the affected VM OS disk.
 
