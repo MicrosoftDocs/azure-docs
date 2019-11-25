@@ -18,7 +18,7 @@ ms.author: martinco
 This section of the [Azure AD operations reference guide](active-directory-ops-guide-intro.md) describes the checks and actions you should consider to secure and manage the lifecycle of identities and their assignments.
 
 > [!NOTE]
-> These recommendations are current as of the date of publishing but can change over time. Organizations should continuously evaluate their IAM practices as Microsoft products and services evolve over time.
+> These recommendations are current as of the date of publishing but can change over time. Organizations should continuously evaluate their identity practices as Microsoft products and services evolve over time.
 
 ## Key operational processes
 
