@@ -69,7 +69,7 @@ To change the default limit for run duration and storage retention, follow these
 
    > [!NOTE]
    > For logic apps in multi-tenant Azure, the default limit already is set to the maximum limit. You can only reduce this value.
-   > For logic apps in an integration service environment, you can increase the default limit to the maximum limit.
+   > For logic apps in an integration service environment, you can decrease or increase the default limit.
 
 <a name="looping-debatching-limits"></a>
 
