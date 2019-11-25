@@ -1,15 +1,11 @@
 ---
-title: Push OCI artifacts to private Azure container registry
+title: Push and pull OCI artifact
 description: Push and pull Open Container Initiative (OCI) artifacts using a private container registry in Azure 
-services: container-registry
 author: SteveLasker
 manager: gwallace
-
-ms.service: container-registry
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: stevelas
-ms.custom: 
 ---
 
 # Push and pull an OCI artifact using an Azure container registry
