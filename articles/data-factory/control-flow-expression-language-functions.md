@@ -277,6 +277,8 @@ These functions are useful inside conditions, they can be used to evaluate any t
 
 This section lists all the available functions in alphabetical order.
 
+<a name="add"></a>
+
 ### add
 
 Return the result from adding two numbers.
@@ -304,6 +306,8 @@ add(1, 1.5)
 ```
 
 And returns this result: `2.5`
+
+<a name="addDays"></a>
 
 ### addDays
 
@@ -345,6 +349,8 @@ addDays('2018-03-15T00:00:00Z', -5)
 
 And returns this result: `"2018-03-10T00:00:0000000Z"`
 
+<a name="addHours"></a>
+
 ### addHours
 
 Add a number of hours to a timestamp.
@@ -385,6 +391,8 @@ addHours('2018-03-15T15:00:00Z', -5)
 
 And returns this result: `"2018-03-15T10:00:0000000Z"`
 
+<a name="addMinutes"></a>
+
 ### addMinutes
 
 Add a number of minutes to a timestamp.
@@ -424,6 +432,9 @@ addMinutes('2018-03-15T00:20:00Z', -5)
 ```
 
 And returns this result: `"2018-03-15T00:15:00.0000000Z"`
+
+<a name="addSeconds"></a>
+
 ### addSeconds
 
 Add a number of seconds to a timestamp.
@@ -463,6 +474,8 @@ addSeconds('2018-03-15T00:00:30Z', -5)
 ```
 
 And returns this result: `"2018-03-15T00:00:25.0000000Z"`
+
+<a name="addToTime"></a>
 
 ### addToTime
 
@@ -505,6 +518,8 @@ addToTime('2018-01-01T00:00:00Z', 1, 'Day', 'D')
 ```
 
 And returns the result using the optional "D" format: `"Tuesday, January 2, 2018"`
+
+<a name="and"></a>
 
 ### and
 
@@ -558,6 +573,8 @@ And returns these results:
 * Second example: One expression is false, so returns `false`.
 * Third example: Both expressions are false, so returns `false`.
 
+<a name="array"></a>
+
 ### array
 
 Return an array from a single specified input.
@@ -587,6 +604,8 @@ array('hello')
 
 And returns this result: `["hello"]`
 
+<a name="base64"></a>
+
 ### base64
 
 Return the base64-encoded version for a string.
@@ -614,6 +633,8 @@ base64('hello')
 ```
 
 And returns this result: `"aGVsbG8="`
+
+<a name="base64ToBinary"></a>
 
 ### base64ToBinary
 
@@ -644,6 +665,8 @@ base64ToBinary('aGVsbG8=')
 And returns this result:
 
 `"0110000101000111010101100111001101100010010001110011100000111101"`
+
+<a name="base64ToString"></a>
 
 ### base64ToString
 
@@ -677,6 +700,8 @@ base64ToString('aGVsbG8=')
 
 And returns this result: `"hello"`
 
+<a name="binary"></a>
+
 ### binary
 
 Return the binary version for a string.
@@ -706,6 +731,8 @@ binary('hello')
 And returns this result:
 
 `"0110100001100101011011000110110001101111"`
+
+<a name="bool"></a>
 
 ### bool
 
@@ -738,6 +765,8 @@ And returns these results:
 
 * First example: `true`
 * Second example: `false`
+
+<a name="coalesce"></a>
 
 ### coalesce
 
@@ -775,6 +804,8 @@ And returns these results:
 * Second example: `"hello"`
 * Third example: `null`
 
+<a name="concat"></a>
+
 ### concat
 
 Combine two or more strings, and return the combined string.
@@ -802,6 +833,8 @@ concat('Hello', 'World')
 ```
 
 And returns this result: `"HelloWorld"`
+
+<a name="contains"></a>
 
 ### contains
 
@@ -850,6 +883,8 @@ the substring "universe" and returns false:
 contains('hello world', 'universe')
 ```
 
+<a name="convertFromUtc"></a>
+
 ### convertFromUtc
 
 Convert a timestamp from Universal Time Coordinated (UTC) to the target time zone.
@@ -889,6 +924,8 @@ convertFromUtc('2018-01-01T08:00:00.0000000Z', 'Pacific Standard Time', 'D')
 ```
 
 And returns this result: `"Monday, January 1, 2018"`
+
+<a name="convertTimeZone"></a>
 
 ### convertTimeZone
 
@@ -931,6 +968,8 @@ convertTimeZone('2018-01-01T80:00:00.0000000Z', 'UTC', 'Pacific Standard Time', 
 
 And returns this result: `"Monday, January 1, 2018"`
 
+<a name="convertToUtc"></a>
+
 ### convertToUtc
 
 Convert a timestamp from the source time zone to Universal Time Coordinated (UTC).
@@ -971,6 +1010,8 @@ convertToUtc('01/01/2018 00:00:00', 'Pacific Standard Time', 'D')
 
 And returns this result: `"Monday, January 1, 2018"`
 
+<a name="createArray"></a>
+
 ### createArray
 
 Return an array from multiple inputs.
@@ -1000,6 +1041,8 @@ createArray('h', 'e', 'l', 'l', 'o')
 
 And returns this result: `["h", "e", "l", "l", "o"]`
 
+<a name="dataUri"></a>
+
 ### dataUri
 
 Return a data uniform resource identifier (URI) for a string.
@@ -1027,6 +1070,8 @@ dataUri('hello')
 ```
 
 And returns this result: `"data:text/plain;charset=utf-8;base64,aGVsbG8="`
+
+<a name="dataUriToBinary"></a>
 
 ### dataUriToBinary
 
@@ -1064,6 +1109,8 @@ And returns this result:
 0100001111010111010101110100011001100010110100111000001110110110001001100001011100110110010
 10011011000110100001011000110000101000111010101100111001101100010010001110011100000111101"`
 
+<a name="dataUriToString"></a>
+
 ### dataUriToString
 
 Return the string version for a data uniform resource identifier (URI).
@@ -1091,6 +1138,8 @@ dataUriToString('data:text/plain;charset=utf-8;base64,aGVsbG8=')
 ```
 
 And returns this result: `"hello"`
+
+<a name="dayOfMonth"><
 
 ### dayOfMonth
 
@@ -1121,6 +1170,8 @@ dayOfMonth('2018-03-15T13:27:36Z')
 
 And returns this result: `15`
 
+<a name="dayOfWeek"></a>
+
 ### dayOfWeek
 
 Return the day of the week from a timestamp.
@@ -1149,6 +1200,8 @@ dayOfWeek('2018-03-15T13:27:36Z')
 
 And returns this result: `3`
 
+<a name="dayOfYear"></a>
+
 ### dayOfYear
 
 Return the day of the year from a timestamp.
@@ -1176,6 +1229,8 @@ dayOfYear('2018-03-15T13:27:36Z')
 ```
 
 And returns this result: `74`
+
+<a name="decodeBase64"></a>
 
 ### decodeBase64
 
@@ -1209,6 +1264,8 @@ decodeBase64('aGVsbG8=')
 ```
 
 And returns this result: `"hello"`
+
+<a name="decodeDataUri"></a>
 
 ### decodeDataUri
 
@@ -1247,6 +1304,8 @@ And returns this result:
 0100001111010111010101110100011001100010110100111000001110110110001001100001011100110110010
 10011011000110100001011000110000101000111010101100111001101100010010001110011100000111101"`
 
+<a name="decodeUriComponent"></a>
+
 ### decodeUriComponent
 
 Return a string that replaces escape characters with decoded versions.
@@ -1274,6 +1333,8 @@ decodeUriComponent('http%3A%2F%2Fcontoso.com')
 ```
 
 And returns this result: `"https://contoso.com"`
+
+<a name="div"></a>
 
 ### div
 
@@ -1305,6 +1366,8 @@ div(11, 5)
 ```
 
 And return this result: `2`
+
+<a name="encodeUriComponent"></a>
 
 ### encodeUriComponent
 
@@ -1338,6 +1401,8 @@ encodeUriComponent('https://contoso.com')
 ```
 
 And returns this result: `"http%3A%2F%2Fcontoso.com"`
+
+<a name="empty"></a>
 
 ### empty
 
@@ -1373,6 +1438,8 @@ And returns these results:
 
 * First example: Passes an empty string, so the function returns `true`.
 * Second example: Passes the string "abc", so the function returns `false`.
+
+<a name="endswith"></a>
 
 ### endsWith
 
@@ -1417,6 +1484,8 @@ endsWith('hello world', 'universe')
 
 And returns this result: `false`
 
+<a name="equals"></a>
+
 ### equals
 
 Check whether both values, expressions, or objects are equivalent.
@@ -1449,6 +1518,8 @@ And returns these results:
 
 * First example: Both values are equivalent, so the function returns `true`.
 * Second example: Both values aren't equivalent, so the function returns `false`.
+
+<a name="first"></a>
 
 ### first
 
@@ -1483,6 +1554,8 @@ And return these results:
 * First example: `"h"`
 * Second example: `0`
 
+<a name="float"></a>
+
 ### float
 
 Convert a string version for a floating-point
@@ -1512,6 +1585,8 @@ float('10.333')
 
 And returns this result: `10.333`
 
+<a name="formatDateTime"></a>
+
 ### formatDateTime
 
 Return a timestamp in the specified format.
@@ -1540,6 +1615,8 @@ formatDateTime('03/15/2018 12:00:00', 'yyyy-MM-ddTHH:mm:ss')
 ```
 
 And returns this result: `"2018-03-15T12:00:00"`
+
+<a name="getFutureTime"></a>
 
 ### getFutureTime
 
@@ -1583,6 +1660,8 @@ getFutureTime(5, 'Day', 'D')
 
 And returns this result: `"Tuesday, March 6, 2018"`
 
+<a name="getPastTime"></a>
+
 ### getPastTime
 
 Return the current timestamp minus the specified time units.
@@ -1625,6 +1704,8 @@ getPastTime(5, 'Day', 'D')
 
 And returns this result: `"Saturday, January 27, 2018"`
 
+<a name="greater"></a>
+
 ### greater
 
 Check whether the first value is greater than the second value.
@@ -1661,6 +1742,8 @@ And return these results:
 * First example: `true`
 * Second example: `false`
 
+<a name="greaterOrEquals"></a>
+
 ### greaterOrEquals
 
 Check whether the first value is greater than or equal to the second value.
@@ -1696,6 +1779,8 @@ And return these results:
 
 * First example: `true`
 * Second example: `false`
+
+<a name="guid"></a>
 
 ### guid
 
@@ -1735,6 +1820,8 @@ guid('P')
 
 And returns this result: `"(c2ecc88d-88c8-4096-912c-d6f2e2b138ce)"`
 
+<a name="if"></a>
+
 ### if
 
 Check whether an expression is true or false.
@@ -1765,6 +1852,8 @@ Otherwise, the example returns `"no"`:
 ```
 if(equals(1, 1), 'yes', 'no')
 ```
+
+<a name="indexof"></a>
 
 ### indexOf
 
@@ -1798,6 +1887,8 @@ indexOf('hello world', 'world')
 
 And returns this result: `6`
 
+<a name="int"></a>
+
 ### int
 
 Return the integer version for a string.
@@ -1825,6 +1916,8 @@ int('10')
 ```
 
 And returns this result: `10`
+
+<a name="json"></a>
 
 ### json
 
@@ -1894,6 +1987,8 @@ And returns this result:
 }
 ```
 
+<a name="intersection"></a>
+
 ### intersection
 
 Return a collection that has *only* the
@@ -1928,6 +2023,8 @@ intersection(createArray(1, 2, 3), createArray(101, 2, 1, 10), createArray(6, 8,
 
 And returns an array with *only* these items: `[1, 2]`
 
+<a name="join"></a>
+
 ### join
 
 Return a string that has all the items from an array
@@ -1958,6 +2055,8 @@ join(createArray('a', 'b', 'c'), '.')
 ```
 
 And returns this result: `"a.b.c"`
+
+<a name="last"></a>
 
 ### last
 
@@ -1991,6 +2090,8 @@ And returns these results:
 
 * First example: `"d"`
 * Second example: `3`
+
+<a name="lastindexof"></a>
 
 ### lastIndexOf
 
@@ -2026,6 +2127,8 @@ lastIndexOf('hello world', 'world')
 
 And returns this result: `6`
 
+<a name="length"></a>
+
 ### length
 
 Return the number of items in a collection.
@@ -2055,6 +2158,8 @@ length(createArray(0, 1, 2, 3))
 ```
 
 And return this result: `4`
+
+<a name="less"></a>
 
 ### less
 
@@ -2092,6 +2197,8 @@ And return these results:
 * First example: `true`
 * Second example: `false`
 
+<a name="lessOrEquals"></a>
+
 ### lessOrEquals
 
 Check whether the first value is less than or equal to the second value.
@@ -2128,6 +2235,8 @@ And return these results:
 * First example: `true`
 * Second example: `false`
 
+<a name="max"></a>
+
 ### max
 
 Return the highest value from a list or array with
@@ -2160,6 +2269,8 @@ max(createArray(1, 2, 3))
 
 And return this result: `3`
 
+<a name="min"></a>
+
 ### min
 
 Return the lowest value from a set of numbers or an array.
@@ -2191,6 +2302,8 @@ min(createArray(1, 2, 3))
 
 And return this result: `1`
 
+<a name="mod"></a>
+
 ### mod
 
 Return the remainder from dividing two numbers.
@@ -2220,6 +2333,8 @@ mod(3, 2)
 ```
 
 And return this result: `1`
+
+<a name="mul"></a>
 
 ### mul
 
@@ -2253,6 +2368,8 @@ And return these results:
 
 * First example: `2`
 * Second example `3`
+
+<a name="not"></a>
 
 ### not
 
@@ -2302,6 +2419,8 @@ And return these results:
 * First example: The expression is false, so the function returns `true`.
 * Second example: The expression is true, so the function returns `false`.
 
+<a name="or"></a>
+
 ### or
 
 Check whether at least one expression is true.
@@ -2350,6 +2469,8 @@ And return these results:
 * First example: At least one expression is true, so the function returns `true`.
 * Second example: Both expressions are false, so the function returns `false`.
 
+<a name="rand"></a>
+
 ### rand
 
 Return a random integer from a specified range,
@@ -2380,6 +2501,8 @@ rand(1, 5)
 
 And returns one of these numbers as the result: `1`, `2`, `3`, or `4`
 
+<a name="range"></a>
+
 ### range
 
 Return an integer array that starts from a specified integer.
@@ -2409,6 +2532,8 @@ range(1, 4)
 ```
 
 And returns this result: `[1, 2, 3, 4]`
+
+<a name="replace"></a>
 
 ### replace
 
@@ -2443,6 +2568,8 @@ replace('the old string', 'old', 'new')
 
 And returns this result: `"the new string"`
 
+<a name="skip"></a>
+
 ### skip
 
 Remove items from the front of a collection,
@@ -2473,6 +2600,8 @@ skip(createArray(0, 1, 2, 3), 1)
 ```
 
 And returns this array with the remaining items: `[1,2,3]`
+
+<a name="split"></a>
 
 ### split
 
@@ -2505,6 +2634,8 @@ split('a_b_c', '_')
 
 And returns this array as the result: `["a","b","c"]`
 
+<a name="startOfDay"></a>
+
 ### startOfDay
 
 Return the start of the day for a timestamp.
@@ -2533,6 +2664,8 @@ startOfDay('2018-03-15T13:30:30Z')
 ```
 
 And returns this result: `"2018-03-15T00:00:00.0000000Z"`
+
+<a name="startOfHour"></a>
 
 ### startOfHour
 
@@ -2563,6 +2696,8 @@ startOfHour('2018-03-15T13:30:30Z')
 
 And returns this result: `"2018-03-15T13:00:00.0000000Z"`
 
+<a name="startOfMonth"></a>
+
 ### startOfMonth
 
 Return the start of the month for a timestamp.
@@ -2591,6 +2726,8 @@ startOfMonth('2018-03-15T13:30:30Z')
 ```
 
 And returns this result: `"2018-03-01T00:00:00.0000000Z"`
+
+<a name="startswith"></a>
 
 ### startsWith
 
@@ -2635,6 +2772,8 @@ startsWith('hello world', 'greetings')
 
 And returns this result: `false`
 
+<a name="string"></a>
+
 ### string
 
 Return the string version for a value.
@@ -2675,6 +2814,8 @@ string( { "name": "Sophie Owen" } )
 
 And returns this result: `"{ \\"name\\": \\"Sophie Owen\\" }"`
 
+<a name="sub"></a>
+
 ### sub
 
 Return the result from subtracting the second number from the first number.
@@ -2703,6 +2844,8 @@ sub(10.3, .3)
 ```
 
 And returns this result: `10`
+
+<a name="substring"></a>
 
 ### substring
 
@@ -2736,6 +2879,8 @@ substring('hello world', 6, 5)
 ```
 
 And returns this result: `"world"`
+
+<a name="subtractFromTime"></a>
 
 ### subtractFromTime
 
@@ -2779,6 +2924,8 @@ subtractFromTime('2018-01-02T00:00:00Z', 1, 'Day', 'D')
 
 And returns this result using the optional "D" format: `"Monday, January, 1, 2018"`
 
+<a name="take"></a>
+
 ### take
 
 Return items from the front of a collection.
@@ -2814,6 +2961,8 @@ And return these results:
 * First example: `"abc"`
 * Second example: `[0, 1, 2]`
 
+<a name="ticks"></a>
+
 ### ticks
 
 Return the `ticks` property value for a specified timestamp.
@@ -2832,6 +2981,8 @@ ticks('<timestamp>')
 | ------------ | ---- | ----------- |
 | <*ticks-number*> | Integer | The number of ticks since the specified timestamp |
 ||||
+
+<a name="toLower"></a>
 
 ### toLower
 
@@ -2863,6 +3014,8 @@ toLower('Hello World')
 
 And returns this result: `"hello world"`
 
+<a name="toUpper"></a>
+
 ### toUpper
 
 Return a string in uppercase format. If a character
@@ -2893,6 +3046,8 @@ toUpper('Hello World')
 
 And returns this result: `"HELLO WORLD"`
 
+<a name="trim"></a>
+
 ### trim
 
 Remove leading and trailing whitespace from a string,
@@ -2922,6 +3077,8 @@ trim(' Hello World  ')
 ```
 
 And returns this result: `"Hello World"`
+
+<a name="union"></a>
 
 ### union
 
@@ -2955,6 +3112,8 @@ union(createArray(1, 2, 3), createArray(1, 2, 10, 101))
 
 And returns this result: `[1, 2, 3, 10, 101]`
 
+<a name="uriComponent"></a>
+
 ### uriComponent
 
 Return a uniform resource identifier (URI) encoded version for a
@@ -2986,6 +3145,8 @@ uriComponent('https://contoso.com')
 ```
 
 And returns this result: `"http%3A%2F%2Fcontoso.com"`
+
+<a name="uriComponentToBinary"></a>
 
 ### uriComponentToBinary
 
@@ -3020,6 +3181,8 @@ And returns this result:
 10011000110110111101101110011101000110111101110011011011
 110010111001100011011011110110110100100010"`
 
+<a name="uriComponentToString"></a>
+
 ### uriComponentToString
 
 Return the string version for a uniform resource identifier (URI) encoded string,
@@ -3048,6 +3211,8 @@ uriComponentToString('http%3A%2F%2Fcontoso.com')
 ```
 
 And returns this result: `"https://contoso.com"`
+
+<a name="utcNow"></a>
 
 ### utcNow
 
@@ -3090,6 +3255,8 @@ utcNow('D')
 ```
 
 And returns this result: `"Sunday, April 15, 2018"`
+
+<a name="xml"></a>
 
 ### xml
 
@@ -3147,6 +3314,8 @@ And returns this result XML:
   <city>Seattle</city>
 <person>
 ```
+
+<a name="xpath"></a>
 
 ### xpath
 
