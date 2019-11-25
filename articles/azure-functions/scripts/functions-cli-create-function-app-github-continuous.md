@@ -1,5 +1,5 @@
 ---
-title: Create a function in Azure that is deployed from GitHub | Microsoft Docs 
+title: Create a function app with GitHub deployment - Azure CLI
 description: Create a function app and deploy function code from a GitHub repository using Azure Functions.
 services: functions 
 ms.service: azure-functions

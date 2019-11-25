@@ -1,5 +1,5 @@
 ---
-title: Create an Azure Function that connects to an Azure Storage | Microsoft Docs
+title: Create a function app with Azure Storage | Microsoft Docs
 description: Azure CLI Script Sample - Create an Azure Function that connects to an Azure Storage
 services: functions
 documentationcenter: functions
@@ -13,7 +13,7 @@ ms.date: 04/20/2017
 ms.author: glenga
 ms.custom: mvc
 ---
-# Create a function app that connects to an Azure Storage account
+# Create a function app with a named Storage account connection - Azure CLI
 
 This Azure Functions sample script creates a function app and connects the function to an Azure Storage account. The created app setting that contains the connection can be used with a [storage trigger or binding](../functions-bindings-storage-blob.md). 
 

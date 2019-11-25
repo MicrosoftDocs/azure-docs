@@ -1,5 +1,5 @@
 ---
-title: Create an Azure Function that connects to an Azure Cosmos DB | Microsoft Docs
+title: Create a function app with Azure Cosmos DB - Azure CLI
 description: Azure CLI Script Sample - Create an Azure Function that connects to an Azure Cosmos DB
 services: functions
 documentationcenter: functions

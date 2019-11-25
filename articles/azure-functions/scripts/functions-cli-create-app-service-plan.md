@@ -1,5 +1,5 @@
 ---
-title: Azure CLI Script Sample - Create a Function App in an App Service plan | Microsoft Docs
+title: Create a Function App in an App Service plan - Azure CLI
 description: Azure CLI Script Sample - Create a Function App in an App Service plan
 services: functions
 documentationcenter: functions

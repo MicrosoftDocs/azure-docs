@@ -6,7 +6,7 @@ ms.topic: sample
 ms.date: 11/23/2019
 ---
 
-# Create a function app in a Premium plan
+# Create a function app in a Premium plan - Azure CLI
 
 This Azure Functions sample script creates a function app, which is a container for your functions. The function app that is created uses a [scalable Premium plan](../functions-premium-plan.md).
 

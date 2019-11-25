@@ -15,7 +15,7 @@ ms.author: glenga
 ms.custom: mvc
 ---
 
-# Create a function app for serverless code execution
+# Create a function app for serverless code execution - Azure CLI
 
 This Azure Functions sample script creates a function app, which is a container for your functions. The function app is created using the [consumption plan](../functions-scale.md#consumption-plan), which is ideal for event-driven serverless workloads.
 

@@ -15,7 +15,7 @@ ms.author: glenga
 ms.custom: mvc
 ---
 
-# Create a serverless Python function app in Azure 
+# Create a serverless Python function app - Azure CLI
 
 This Azure Functions sample script creates a function app, which is a container for your functions. The function app supports running Python functions on Python version 3.6. 
 
