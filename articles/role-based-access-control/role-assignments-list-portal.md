@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/22/2019
+ms.date: 11/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
 
 # List role assignments using RBAC and the Azure portal
 
-[Role-based access control (RBAC)](overview.md) is the way that you manage access to Azure resources. This article describes how you list role assignments using the Azure portal. If you need to manage access to Azure Active Directory, see [View and assign administrator roles in Azure Active Directory](../active-directory/users-groups-roles/directory-manage-roles-portal.md).
+[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] This article describes how to list role assignments using the Azure portal.
 
 ## List all role assignments for a user or group
 

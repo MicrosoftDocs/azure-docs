@@ -12,28 +12,30 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/24/2019
+ms.date: 11/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
 
 # Add or remove role assignments using RBAC and the Azure portal
 
-[Role-based access control (RBAC)](overview.md) is the way that you manage access to Azure resources. This article describes how you manage access using the Azure portal. If you need to manage access to Azure Active Directory, see [View and assign administrator roles in Azure Active Directory](../active-directory/users-groups-roles/directory-manage-roles-portal.md).
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] This article describes how to assign roles using the Azure portal.
+
+If you need to assign administrator roles in Azure Active Directory, see [View and assign administrator roles in Azure Active Directory](../active-directory/users-groups-roles/directory-manage-roles-portal.md).
 
 ## Prerequisites
 
-To add and remove role assignments, you must have:
+To add or remove role assignments, you must have:
 
 - `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner)
 
 ## Overview of Access control (IAM)
 
-**Access control (IAM)** is the blade that you use to manage access to Azure resources. It's also known as identity and access management and appears in several locations in the Azure portal. The following shows an example of the Access control (IAM) blade for a subscription.
+**Access control (IAM)** is the blade that you use to assign roles. It's also known as identity and access management and appears in several locations in the Azure portal. The following shows an example of the Access control (IAM) blade for a subscription.
 
 ![Access control (IAM) blade for a subscription](./media/role-assignments-portal/access-control-subscription.png)
 
-To be the most effective with the Access control (IAM) blade, it helps if you can answer the following three questions when you are trying to manage access:
+To be the most effective with the Access control (IAM) blade, it helps if you can answer the following three questions when you are trying to assign a role:
 
 1. **Who needs access?**
 
@@ -41,7 +43,7 @@ To be the most effective with the Access control (IAM) blade, it helps if you ca
 
 1. **What role do they need?**
 
-    Permissions are grouped together into roles. You can select from a list of several built-in roles.
+    Permissions are grouped together into roles. You can select from a list of several [built-in roles](built-in-roles.md) or you use your own custom roles.
 
 1. **Where do they need access?**
 
@@ -49,7 +51,7 @@ To be the most effective with the Access control (IAM) blade, it helps if you ca
 
 ## Add a role assignment
 
-In RBAC, to grant access, you assign a role to a user, group, service principal, or managed identity. Follow these steps to add a role assignment at different scopes.
+Follow these steps to assign a role at different scopes.
 
 1. In the Azure portal, click **All services** and then select the scope. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
 
@@ -75,9 +77,9 @@ In RBAC, to grant access, you assign a role to a user, group, service principal,
 
    After a few moments, the security principal is assigned the role at the selected scope.
 
-## Add a user as an administrator of a subscription
+## Assign a user as an administrator of a subscription
 
-To make a user an administrator of an Azure subscription, assign them the [Owner](built-in-roles.md#owner) role at the subscription scope. The Owner role gives the user full access to all resources in the subscription, including the right to delegate access to others. These steps are the same as any other role assignment.
+To make a user an administrator of an Azure subscription, assign them the [Owner](built-in-roles.md#owner) role at the subscription scope. The Owner role gives the user full access to all resources in the subscription, including the permission to grant access to others. These steps are the same as any other role assignment.
 
 1. In the Azure portal, click **All services** and then **Subscriptions**.
 

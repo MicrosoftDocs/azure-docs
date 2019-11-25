@@ -1,6 +1,6 @@
 ---
-title: Manage access to Azure resources using RBAC and the Azure portal | Microsoft Docs
-description: Learn how to manage access to Azure resources for users, groups, service principals, and managed identities using role-based access control (RBAC) and the Azure portal. This includes how to list access, grant access, and remove access.
+title: List roles in RBAC using Azure portal, Azure PowerShell, or Azure CLI | Microsoft Docs
+description: Learn how to list built-in and custom roles in RBAC using Azure portal, Azure PowerShell, or Azure CLI.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,20 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/24/2019
+ms.date: 11/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
 
 # List roles in RBAC
 
-[Role-based access control (RBAC)](overview.md) is the way that you manage access to Azure resources. This article describes how you list role assignments using the Azure portal. If you need to manage access to Azure Active Directory, see [View and assign administrator roles in Azure Active Directory](../active-directory/users-groups-roles/directory-manage-roles-portal.md).
+A role is a collection of permissions that can be performed, such as read, write, and delete. [Azure role-based access control (RBAC)](overview.md) has over 120 [built-in roles](built-in-roles.md) or you can create your own custom roles. This article describes how to list the built-in and custom roles that you can use to grant access to Azure resources.
+
+To see the list of administrator roles for Azure Active Directory, see [Administrator role permissions in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 ## Azure Portal
 
 ### List all roles
 
-A role definition is a collection of permissions that you use for role assignments. Azure has over 70 [built-in roles for Azure resources](built-in-roles.md). Follow these steps to view the available roles.
+Follow these steps to list the available roles in the Azure portal.
 
 1. In the Azure portal, click **All services** and then select any scope. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
 
@@ -43,7 +45,7 @@ A role definition is a collection of permissions that you use for role assignmen
 
 ### List all roles
 
-To list RBAC roles that are available for assignment and to inspect the operations to which they grant access, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
+To list all roles in Azure PowerShell, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
 ```azurepowershell
 Get-AzRoleDefinition | FT Name, Description
@@ -63,9 +65,9 @@ Automation Operator                               Automation Operators are able 
 ...
 ```
 
-### List a specific role
+### List a role
 
-To list a specific role, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
+To list the details of a specific role, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
 ```azurepowershell
 Get-AzRoleDefinition <role_name>
@@ -86,9 +88,9 @@ NotDataActions   : {}
 AssignableScopes : {/}
 ```
 
-### List a role definition in JSON format
+### List a role in JSON format
 
-To list a role definition in JSON format, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
+To list a role in JSON format, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
 ```azurepowershell
 Get-AzRoleDefinition <role_name> | ConvertTo-Json
@@ -120,9 +122,9 @@ PS C:\> Get-AzRoleDefinition "Contributor" | ConvertTo-Json
 }
 ```
 
-### List actions of a role
+### List permissions of a role
 
-To list the actions for a specific role, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
+To list the permissions for a specific role, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
 ```azurepowershell
 Get-AzRoleDefinition <role_name> | FL Actions, NotActions
@@ -160,7 +162,7 @@ Microsoft.Network/loadBalancers/backendAddressPools/join/action
 
 ### List all roles
 
-To list all available role definitions, use [az role definition list](/cli/azure/role/definition#az-role-definition-list):
+To list all roles in Azure CLI, use [az role definition list](/cli/azure/role/definition#az-role-definition-list).
 
 ```azurecli
 az role definition list
@@ -189,7 +191,7 @@ az role definition list --output json | jq '.[] | {"roleName":.roleName, "descri
 ...
 ```
 
-The following example lists all of the built-in role definitions:
+The following example lists all of the built-in roles.
 
 ```azurecli
 az role definition list --custom-role-only false --output json | jq '.[] | {"roleName":.roleName, "description":.description, "roleType":.roleType}'
@@ -215,9 +217,9 @@ az role definition list --custom-role-only false --output json | jq '.[] | {"rol
 ...
 ```
 
-### List a role definition
+### List a role
 
-To list a role definition, use [az role definition list](/cli/azure/role/definition#az-role-definition-list):
+To list details of a role, use [az role definition list](/cli/azure/role/definition#az-role-definition-list).
 
 ```azurecli
 az role definition list --name <role_name>
@@ -261,9 +263,9 @@ az role definition list --name "Contributor"
 ]
 ```
 
-### List actions of a role
+### List permissions of a role
 
-The following example lists just the *actions* and *notActions* of the *Contributor* role:
+The following example lists just the *actions* and *notActions* of the *Contributor* role.
 
 ```azurecli
 az role definition list --name "Contributor" --output json | jq '.[] | {"actions":.permissions[0].actions, "notActions":.permissions[0].notActions}'
@@ -282,7 +284,7 @@ az role definition list --name "Contributor" --output json | jq '.[] | {"actions
 }
 ```
 
-The following example lists just the actions of the *Virtual Machine Contributor* role:
+The following example lists just the actions of the *Virtual Machine Contributor* role.
 
 ```azurecli
 az role definition list --name "Virtual Machine Contributor" --output json | jq '.[] | .permissions[0].actions'

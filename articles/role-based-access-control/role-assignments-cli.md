@@ -16,13 +16,13 @@ ms.date: 11/21/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
-# Add or remove role assignments using RBAC and the Azure CLI
+# Add or remove role assignments using RBAC and Azure CLI
 
-[Role-based access control (RBAC)](overview.md) is the way that you manage access to Azure resources. This article describes how you manage access for users, groups, and applications using RBAC and Azure CLI.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] This article describes how to assign roles using Azure CLI.
 
 ## Prerequisites
 
-To add and remove role assignments, you must have:
+To add or remove role assignments, you must have:
 
 - `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner)
 - [Bash in Azure Cloud Shell](/azure/cloud-shell/overview) or [Azure CLI](/cli/azure)
