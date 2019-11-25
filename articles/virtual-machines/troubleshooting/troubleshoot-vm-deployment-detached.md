@@ -79,7 +79,7 @@ GET https://management.azure.com/subscriptions/11ceafd0-fa99-4f18-a6b7-ced6ad02e
 
 ### Step 2: Set the flag for failing disks to "true".
 
-Set the **toBeDetached** for failing disk to true in the payload returned in Step 1. Please Note: The API version specified for Get and Put calls needs to be `2019-03-01` or greater.
+Set the **toBeDetached** flag for failing disk to true in the payload returned in Step 1. Please Note: The API version specified for Get and Put calls needs to be `2019-03-01` or greater.
 
 **Sample Request Body**
 
