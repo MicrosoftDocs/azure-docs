@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Pilot cloud provisioning for an existing synced AD forest 
+title: Tutorial - Pilot Azure AD Connect cloud provisioning for an existing synced AD forest 
 description: tutorial.
 services: active-directory
 author: billmath

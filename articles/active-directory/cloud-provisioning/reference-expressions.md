@@ -1,5 +1,5 @@
 ---
-title: Cloud provisioning expressions and function reference
+title: Azure AD Connect cloud provisioning expressions and function reference
 description: reference
 services: active-directory
 author: billmath

@@ -38,9 +38,7 @@ These items can be verified in the Azure portal and on the local server that is 
 To verify the agent is being seen by Azure and is healthy follow these steps:
 
 1. Sign in to the Azure portal.
-2. On the left, select **Azure Active Directory**, click **Azure AD Connect** and in the center select **Manage provisioning (preview)**.</br>
-![Azure portal](media/how-to-cloud-prov-install/prov6.png)</br>
-
+2. On the left, select **Azure Active Directory**, click **Azure AD Connect** and in the center select **Manage provisioning (preview)**.
 3.  On the **Azure AD Provisioning (preview)** screen click **Review all agents**.
 ![Azure AD Provisioning](media/how-to-cloud-prov-install/prov7.png)</br>
  
@@ -71,8 +69,6 @@ If you receive an error message that states:
 
 **Service 'Microsfoft Azure AD Connect Provisioning Agent' failed to start.  Verify that you have sufficient privileges to start the system services.** 
 
- ![Services](media/how-to-cloud-prov-tshoot/tshoot2.png)
-
 This is typically caused by a group policy that prevented permissions from being applied to the local NT Service “Logon Account” created by the installer (NT SERVICE\AADConnectProvisioningAgent) These permissions are required to start the service.
 
 To resolve this, use the following steps:
@@ -88,8 +84,6 @@ To resolve this, use the following steps:
 You may get the following errors if you are attempting to register the agent.
 
  ![Services](media/how-to-cloud-prov-tshoot/tshoot4.png)
-
- ![Services](media/how-to-cloud-prov-tshoot/tshoot5.png)
 
 This is usually caused by the agent being unable to connect to the Hybrid Identity Service and requires configuring HTTP proxy.  To resolve this configure an outbound proxy. 
 

@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Integrate an existing forest and a new forest with a single Azure AD tenant
+title: Tutorial - Integrate an existing forest and a new forest with a single Azure AD tenant using Azure AD Connect cloud provisioning.
 description: tutorial.
 services: active-directory
 author: billmath

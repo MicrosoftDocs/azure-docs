@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Basic Active Directory and Azure environment.
+title: Tutorial - Basic Active Directory on-premises and Azure AD environment.
 services: active-directory
 author: billmath
 manager: daveba
