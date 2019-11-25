@@ -42,7 +42,7 @@ You deploy resources in the following order:
 **Tier 3**
 * Source control--depends on the web app.
 * MSDeploy site extension--depends on the web app.
-* Application Insights instance that targets the server farm--depends on the web app.
+* Azure Application Insights instance that targets the web app--depends on the web app.
 
 **Tier 4**
 * App Service certificate--depends on source control or MSDeploy if either is present. Otherwise, it depends on the web app.

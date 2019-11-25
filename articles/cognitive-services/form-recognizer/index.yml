@@ -4,7 +4,7 @@ title: Form Recognizer documentation # < 60 chars
 summary: Azure Form Recognizer is a cognitive service that uses machine learning technology to identify and extract key-value pairs and table data from form documents. It then outputs structured data that includes the relationships in the original file. Unsupervised learning allows the model to understand the layout and relationships between fields and entries without manual data labeling or intensive coding and maintenance.  # < 160 chars
 
 metadata:
-  title: Form Recognizer documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  title: Form Recognizer documentation - Quickstarts, Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Azure Form Recognizer is a cognitive service that uses machine learning technology to identify and extract key-value pairs and table data from form documents. It then outputs structured data that includes the relationships in the original file. Unsupervised learning allows the model to understand the layout and relationships between fields and entries without manual data labeling or intensive coding and maintenance. # Required; article description that is displayed in search results. < 160 chars.
   services: cognitive-services
   ms.service: cognitive-services #Required; service per approved list. service slug assigned to your service by ACOM.
@@ -84,5 +84,11 @@ landingContent:
           - text: Azure Command-Line Interface (CLI)
             url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
 
-
-      
+  - title: Help and feedback
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: UserVoice
+            url: https://go.microsoft.com/fwlink/?linkid=2090535
+          - text: Stack Overflow
+            url: https://go.microsoft.com/fwlink/?linkid=2087186

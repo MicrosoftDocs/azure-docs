@@ -98,7 +98,7 @@ In the code snippets using application builders, a number of `.With` methods can
 
 The modifiers you can set on a public client or confidential client application builder are:
 
-|Parameter | Description|
+|Modifier | Description|
 |--------- | --------- |
 |`.WithAuthority()` 7 overrides | Sets the application default authority to an Azure AD authority, with the possibility of choosing the Azure Cloud, the audience, the tenant (tenant ID or domain name), or providing directly the authority URI.|
 |`.WithAdfsAuthority(string)` | Sets the application default authority to be an ADFS authority.|
@@ -117,7 +117,7 @@ The modifiers you can set on a public client or confidential client application 
 
 The modifiers you can set on a public client application builder on Xamarin.iOS are:
 
-|Parameter | Description|
+|Modifier | Description|
 |--------- | --------- |
 |`.WithIosKeychainSecurityGroup()` | **Xamarin.iOS only**: Sets the iOS key chain security group (for the cache persistence).|
 
@@ -125,7 +125,7 @@ The modifiers you can set on a public client application builder on Xamarin.iOS 
 
 The modifiers you can set on a confidential client application builder are:
 
-|Parameter | Description|
+|Modifier | Description|
 |--------- | --------- |
 |`.WithCertificate(X509Certificate2 certificate)` | Sets the certificate identifying the application with Azure AD.|
 |`.WithClientSecret(string clientSecret)` | Sets the client secret (app password) identifying the application with Azure AD.|

@@ -1,14 +1,8 @@
 ---
 title: host.json reference for Azure Functions 2.x
 description: Reference documentation for the Azure Functions host.json file with the v2 runtime.
-services: functions
-author: ggailey777
-manager: jeconnoc
-keywords:
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/08/2018
-ms.author: glenga
 ---
 
 # host.json reference for Azure Functions 2.x  
@@ -46,6 +40,10 @@ The following sample *host.json* files have all possible options specified.
         "sendGrid": {},
         "serviceBus": {}
     },
+    "extensionBundle": {
+        "id": "Microsoft.Azure.Functions.ExtensionBundle",
+        "version": "[1.*, 2.0.0)"
+    },
     "functions": [ "QueueProcessor", "GitHubWebHook" ],
     "functionTimeout": "00:05:00",
     "healthMonitor": {
@@ -68,6 +66,9 @@ The following sample *host.json* files have all possible options specified.
             }
         }
     },
+    "managedDependency": {
+        "enabled": true
+    },
     "singleton": {
       "lockPeriod": "00:00:15",
       "listenerLockPeriod": "00:01:00",
@@ -75,10 +76,7 @@ The following sample *host.json* files have all possible options specified.
       "lockAcquisitionTimeout": "00:01:00",
       "lockAcquisitionPollingInterval": "00:00:03"
     },
-    "watchDirectories": [ "Shared", "Test" ],
-    "managedDependency": {
-        "enabled": true
-    }
+    "watchDirectories": [ "Shared", "Test" ]
 }
 ```
 
@@ -132,6 +130,12 @@ Configuration settings can be found in [Event Hub triggers and bindings](functio
 
 Property that returns an object that contains all of the binding-specific settings, such as [http](#http) and [eventHub](#eventhub).
 
+## extensionBundle 
+
+Extension bundles lets you add a compatible set of Functions binding extensions to your function app. To learn more, see [Extension bundles for local development](functions-bindings-register.md#extension-bundles).
+
+[!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
+
 ## functions
 
 A list of functions that the job host runs. An empty array means run all functions. Intended for use only when [running locally](functions-run-local.md). In function apps in Azure, you should instead follow the steps in [How to disable functions in Azure Functions](disable-function.md) to disable specific functions rather than using this setting.
@@ -145,9 +149,10 @@ A list of functions that the job host runs. An empty array means run all functio
 ## functionTimeout
 
 Indicates the timeout duration for all functions. It follows the timespan string format. In a serverless Consumption plan, the valid range is from 1 second to 10 minutes, and the default value is 5 minutes.  
-In a Dedicated (App Service) plan, there is no overall limit, and the default depends on the runtime version: 
-+ Version 1.x: the default is *null*, which indicates no timeout.   
-+ Version 2.x: the default value is 30 minutes. A value of `-1` indicates unbounded execution.
+
+In the Premium plan the valid range is from 1 second to 60 minutes, and the default value is 30 minutes.
+
+In a Dedicated (App Service) plan, there is no overall limit, and the default value is 30 minutes. A value of `-1` indicates unbounded execution, but keeping a fixed upper bound is recommended.
 
 ```json
 {
@@ -181,23 +186,7 @@ Configuration settings for [Host health monitor](https://github.com/Azure/azure-
 
 ## http
 
-Configuration settings can be found in [http triggers and bindings](functions-bindings-http-webhook.md).
-
-```json
-{
-    "extensions": {
-        "http": {
-            "routePrefix": "api",
-            "maxOutstandingRequests": 200,
-            "maxConcurrentRequests": 100,
-            "dynamicThrottlesEnabled": true
-        }
-    }
-}
-```
-
-
-[!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
+Configuration settings can be found in [http triggers and bindings](functions-bindings-http-webhook.md#hostjson-settings).
 
 ## logging
 
@@ -205,7 +194,7 @@ Controls the logging behaviors of the function app, including Application Insigh
 
 ```json
 "logging": {
-    "fileLoggingMode": "debugOnly",
+    "fileLoggingMode": "debugOnly"
     "logLevel": {
       "Function.MyFunction": "Information",
       "default": "None"
@@ -245,6 +234,18 @@ This setting is a child of [logging](#logging). It controls the console logging 
 |Property  |Default | Description |
 |---------|---------|---------| 
 |isEnabled|false|Enables or disables console logging.| 
+
+## managedDependency
+
+Managed dependency is a feature that is currently only supported with PowerShell based functions. It enables dependencies to be automatically managed by the service. When the `enabled` property is set to `true`, the `requirements.psd1` file is processed. Dependencies are updated when any minor versions are released. For more information, see [Managed dependency](functions-reference-powershell.md#dependency-management) in the PowerShell article.
+
+```json
+{
+    "managedDependency": {
+        "enabled": true
+    }
+}
+```
 
 ## queues
 
@@ -293,18 +294,6 @@ A set of [shared code directories](functions-reference-csharp.md#watched-directo
 ```json
 {
     "watchDirectories": [ "Shared" ]
-}
-```
-
-## managedDependency
-
-Managed dependency is a preview feature that is currently only supported with PowerShell based functions. It enables dependencies to be automatically managed by the service. When the enabled property is set to true, the [requirements.psd1](functions-reference-powershell.md#dependency-management) file will be processed. Dependencies will be updated when any minor versions are released.
-
-```json
-{
-    "managedDependency": {
-        "enabled": true
-    }
 }
 ```
 

@@ -1,13 +1,13 @@
 ---
 
-title: Add Google as an identity provider for B2B - Azure Active Directory | Microsoft Docs
+title: Add Google as an identity provider for B2B - Azure AD
 description: Federate with Google to enable guest users to sign in to your Azure AD apps with their own Gmail account
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 11/1/2019
 
 ms.author: mimart
 author: msmimart
@@ -17,17 +17,13 @@ ms.custom: "it-pro, seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
 ---
 
-# Add Google as an identity provider for B2B guest users (preview)
+# Add Google as an identity provider for B2B guest users
 
-|     |
-| --- |
-| Google federation is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
+By setting up federation with Google, you can allow invited users to sign in to your shared apps and resources with their own Gmail accounts, without having to create Microsoft accounts (MSAs). 
 
-By setting up federation with Google, you can allow invited users to sign in to your shared apps and resources with their own Gmail accounts, without having to create Microsoft Accounts (MSAs) or Azure AD accounts. Google federation is designed specifically for Gmail users. To federate with G Suite domains, use the [direct federation feature](direct-federation.md) instead.
 > [!NOTE]
-> Your Google guest users must sign in using a link that includes the tenant context (for example, `https://myapps.microsoft.com/?tenantid=<tenant id>` or `https://portal.azure.com/<tenant id>`, or in the case of a verified domain, `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`). Direct links to applications and resources also work as long as they include the tenant context. Guest users are currently unable to sign in using endpoints that have no tenant context. For example, using `https://myapps.microsoft.com`, `https://portal.azure.com`, or the Teams common endpoint will result in an error.
- 
+> Google federation is designed specifically for Gmail users. To federate with G Suite domains, use the [direct federation feature](direct-federation.md).
+
 ## What is the experience for the Google user?
 When you send an invitation to a Google Gmail user, the guest user should access your shared apps or resources using a link that includes the tenant context. Their experience varies depending on whether they're already signed in to Google:
   - If the guest user is not signed in to Google, they're prompted to sign in to Google.
@@ -36,6 +32,19 @@ When you send an invitation to a Google Gmail user, the guest user should access
 If the guest user sees a "header too long" error, they can try clearing their cookies, or they can open a private or incognito window and try signing in again.
 
 ![Screenshot showing the Google sign in page](media/google-federation/google-sign-in.png)
+
+## Limitations
+
+Teams fully supports Google guest users on all devices. Google users can sign in to Teams from a common endpoint like `https://teams.microsoft.com`.
+
+Other applications' common endpoints might not support Google users. Google guest users must sign in using a link that includes your tenant information. The following are examples:
+  * `https://myapps.microsoft.com/?tenantid=<your tenant id>`
+  * `https://portal.azure.com/<your tenant id>`
+  * `https://myapps.microsoft.com/<your verified domain>.onmicrosoft.com`
+
+   If Google guest users try to use a link such as `https://myapps.microsoft.com` or `https://portal.azure.com`, they'll get an error.
+
+You can also give Google guest users a direct link to an application or resource, as long as this link includes your tenant information, for example `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`. 
 
 ## Step 1: Configure a Google developer project
 First, create a new project in the Google Developers Console to obtain a client ID and a client secret that you can later add to Azure AD. 

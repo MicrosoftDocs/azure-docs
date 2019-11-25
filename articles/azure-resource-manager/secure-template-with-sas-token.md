@@ -1,13 +1,8 @@
 ---
-title: Securely deploy Azure Resource Manager template with SAS token
+title: Securely deploy template with SAS token
 description: Deploy resources to Azure with an Azure Resource Manager template that is protected by a SAS token. Shows Azure PowerShell and Azure CLI.
-services: azure-resource-manager
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.author: tomfitz
-
 ---
 # Deploy private Resource Manager template with SAS token
 

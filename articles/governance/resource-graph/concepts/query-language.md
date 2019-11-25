@@ -1,11 +1,8 @@
 ---
 title: Understand the query language
 description: Describes Resource Graph tables and the available Kusto data types, operators, and functions usable with Azure Resource Graph.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: conceptual
-ms.service: resource-graph
 ---
 # Understanding the Azure Resource Graph query language
 
@@ -139,6 +136,6 @@ query or the property name is interpreted incorrectly and doesn't provide the ex
 
 ## Next steps
 
-- See the language in use in [Starter queries](../samples/starter.md)
-- See advanced uses in [Advanced queries](../samples/advanced.md)
-- Learn to [explore resources](explore-resources.md)
+- See the language in use in [Starter queries](../samples/starter.md).
+- See advanced uses in [Advanced queries](../samples/advanced.md).
+- Learn more about how to [explore resources](explore-resources.md).

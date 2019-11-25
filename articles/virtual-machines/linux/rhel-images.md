@@ -1,5 +1,5 @@
 ---
-title: Red Hat Enterprise Linux images in Azure | Microsoft Docs
+title: Red Hat Enterprise Linux images in Azure 
 description: Learn about Red Hat Enterprise Linux images in Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''

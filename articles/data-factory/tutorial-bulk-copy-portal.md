@@ -1,5 +1,5 @@
 ---
-title: 'Copy data in bulk using Azure Data Factory | Microsoft Docs'
+title: 'Copy data in bulk using Azure Data Factory '
 description: 'Learn how to use Azure Data Factory and Copy Activity to copy data from a source data store to a destination data store in bulk.'
 services: data-factory
 documentationcenter: ''

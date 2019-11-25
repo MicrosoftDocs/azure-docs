@@ -125,6 +125,8 @@
   - name: Maintenance and updates
     href: ../virtual-machines/windows/maintenance-and-updates.md
     maintainContext: true
+  - name: Orchestration modes
+    href: orchestration-modes.md
   - name: Disk storage
     items:
     - name: Managed Disks

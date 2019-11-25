@@ -1,5 +1,5 @@
 ---
-title: Azure constrained vCPU sizes - Windows | Microsoft Docs
+title: Azure constrained vCPU sizes - Windows 
 description: Lists the Vm sizes that are capable of having a constrained vCPU count.
 services: virtual-machines-windows
 documentationcenter: ''

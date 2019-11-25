@@ -1,5 +1,5 @@
 ---
-title: "Customize setup for the Azure-SSIS integration runtime | Microsoft Docs"
+title: "Customize setup for the Azure-SSIS integration runtime "
 description: "This article describes how to use the custom setup interface for the Azure-SSIS integration runtime to install additional components or change settings"
 services: data-factory
 documentationcenter: ""

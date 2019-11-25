@@ -162,6 +162,10 @@ The following lists show supported and unsupported Docker Compose configuration 
 > [!NOTE]
 > Any other options not explicitly called out are ignored in Public Preview.
 
+## Configure VNet integration
+
+Using a custom container with VNet integration may require additional container configuration. See [Integrate your app with an Azure Virtual Network](../web-sites-integrate-with-vnet.md).
+
 ## Next steps
 
 > [!div class="nextstepaction"]

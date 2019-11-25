@@ -72,7 +72,7 @@ This built-in trigger registers a callback URL with the specified service and wa
 
 1. To add other available parameters, open the **Add new parameter** list, and select the parameters that you want.
 
-   For more information about authentication types available for HTTP Webhook, see [Authenticate HTTP triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+   For more information about authentication types available for HTTP Webhook, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 1. Continue building your logic app's workflow with actions that run when the trigger fires.
 
@@ -108,7 +108,7 @@ This built-in action registers a callback URL with the specified service, pauses
 
 1. To add other available parameters, open the **Add new parameter** list, and select the parameters that you want.
 
-   For more information about authentication types available for HTTP Webhook, see [Authenticate HTTP triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+   For more information about authentication types available for HTTP Webhook, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 1. When you're finished, remember to save your logic app. On the designer toolbar, select **Save**.
 

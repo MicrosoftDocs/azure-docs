@@ -30,9 +30,11 @@ Before you can block legacy authentication in your directory, you need to first 
 
 1. Navigate to the Azure portal > Azure Active Directory > Sign-ins.
 1. Add the Client App column if it is not shown by clicking on Columns > Client App.
-1. Filter by Client App > Other Clients and click Apply.
+1. Filter by Client App > check all the Other Client options presented and click Apply.
+1. Filter by Status > Success and click Apply. 
+1. Expand your date range if necessary using the Date filter.
 
-Filtering will only show you sign-in attempts that were made by legacy authentication protocols. Clicking on each individual sign-in attempt will show you additional details. The Client App field under the Basic Info tab will indicate which legacy authentication protocol was used. 
+Filtering will only show you successful sign-in attempts that were made by the selected legacy authentication protocols. Clicking on each individual sign-in attempt will show you additional details. The Client App column or the Client App field under the Basic Info tab after selecting an individual row of data will indicate which legacy authentication protocol was used. 
 These logs will indicate which users are still depending on legacy authentication and which applications are using legacy protocols to make authentication requests. For users that do not appear in these logs and are confirmed to not be using legacy authentication, implement a Conditional Access policy or enable the Baseline policy: block legacy authentication for these users only.
 
 ## Moving away from legacy authentication 

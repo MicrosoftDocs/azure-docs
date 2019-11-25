@@ -1,5 +1,5 @@
 ---
-title: Install and configure Terraform to provision Azure resources | Microsoft Docs
+title: Install and configure Terraform to provision Azure resources 
 description: Learn how to install and configure Terraform to create Azure resources
 services: virtual-machines-linux
 documentationcenter: virtual-machines

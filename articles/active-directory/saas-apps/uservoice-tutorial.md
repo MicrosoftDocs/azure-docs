@@ -235,7 +235,7 @@ To enable Azure AD users to sign in to UserVoice, they must be provisioned into 
     b. Click **Invite**.
 
 > [!NOTE]
-> You can use any other UserVoice user account creation tools or APIs provided by UserVoice to provision AAD user accounts.
+> You can use any other UserVoice user account creation tools or APIs provided by UserVoice to provision Azure AD user accounts.
 
 ### Test single sign-on 
 

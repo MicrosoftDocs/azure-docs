@@ -1,9 +1,9 @@
 ---
-title: Create a geofence using Azure Maps | Microsoft Docs
-description: Setup a geofence by using Azure Maps.
+title: 'Tutorial: Create a geofence using Azure Maps'
+description: 'Tutorial: Setup a geofence by using Azure Maps.'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/14/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -11,7 +11,7 @@ manager: timlt
 ms.custom: mvc
 ---
 
-# Set up a geofence by using Azure Maps
+# Tutorial: Set up a geofence by using Azure Maps
 
 This tutorial walks you through the basics steps to set up geofence by using Azure Maps. The scenario we address in this tutorial is help construction site managers monitor potential hazardous equipment moving beyond the designated construction areas. A construction site involves expensive equipment and regulations. It typically requires that the equipment stays inside the construction site and does not leave without permission.
 

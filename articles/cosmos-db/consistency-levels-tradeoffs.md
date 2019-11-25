@@ -58,6 +58,10 @@ The table below defines the relationship between consistency model and data dura
 
 *T* = The time interval *"T"* since the last update.
 
+## Strong consistency and multi-master
+
+Cosmos accounts configured for multi-master cannot be configured for strong consistency as it is not possible for a distributed system to provide an RPO of zero and an RTO of zero. Additionally, there are no write latency benefits for using strong consistency with multi-master as any write into any region must be replicated and committed to all configured regions within the account. This results in the same write latency as a single master account.
+
 ## Next steps
 
 Learn more about global distribution and general consistency tradeoffs in distributed systems. See the following articles:

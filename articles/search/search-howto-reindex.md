@@ -1,5 +1,5 @@
 ---
-title: Rebuild an Azure Cognitive Search index
+title: Rebuild a search index
 titleSuffix: Azure Cognitive Search
 description: Add new elements, update existing elements or documents, or delete obsolete documents in a full rebuild or partial incremental indexing to refresh an Azure Cognitive Search index.
 
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ---
 
-# How to rebuild an Azure Cognitive Search index
+# How to rebuild an index in Azure Cognitive Search
 
 This article explains how to rebuild an Azure Cognitive Search index, the circumstances under which rebuilds are required, and recommendations for mitigating the impact of rebuilds on ongoing query requests.
 
@@ -42,7 +42,7 @@ Any other modification can be made without impacting existing physical structure
 
 When you add a new field, existing indexed documents are given a null value for the new field. On a future data refresh, values from external source data replace the nulls added by Azure Cognitive Search. For more information on updating index content, see [Add, Update or Delete Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
-## Partial or incremental indexing
+## Partial indexing
 
 In Azure Cognitive Search, you cannot control indexing on a per-field basis, choosing to delete or recreate specific fields. Similarly, there is no built-in mechanism for [indexing documents based on criteria](https://stackoverflow.com/questions/40539019/azure-search-what-is-the-best-way-to-update-a-batch-of-documents). Any requirements you have for criteria-driven indexing have to be met through custom code.
 
