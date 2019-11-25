@@ -11,11 +11,11 @@ Azure Resource Manager enables you to view your deployment history and examine s
 
 For help with resolving particular deployment errors, see [Resolve common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
-## Get deployment
+## Get deployments
 
 To get details about a deployment from the deployment history use portal, PowerShell, Azure CLI, or REST API.
 
-#### [Browser](#tab/browser)
+# [Portal](#tab/azure-portal)
 
 1. Select the resource group you want to examine.
 
@@ -31,7 +31,7 @@ To get details about a deployment from the deployment history use portal, PowerS
 
     ![Deployment summary](./media/resource-manager-deployment-operations/show-correlation-id.png)
 
-#### [PowerShell](#tab/powershell)
+# [PowerShell](#tab/azure-powershell)
 
 To list all deployments for a resource group, use the [Get-AzResourceGroupDeployment](/powershell/module/az.resources/Get-AzResourceGroupDeployment) command.
 
@@ -39,7 +39,7 @@ To list all deployments for a resource group, use the [Get-AzResourceGroupDeploy
 Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup
 ```
 
-To get one deployment from a resource group, use the **DeploymentName** parameter.
+To get a specific deployment from a resource group, use the **DeploymentName** parameter.
 
 ```azurepowershell-interactive
 Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment
@@ -51,12 +51,18 @@ The correlation ID is used to track related events. It can be helpful when worki
 (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment).CorrelationId
 ```
 
-#### [Bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
-To get the overall status of a deployment, use the **azure group deployment show** command.
+To list the deployment for a resource group, use [az group deployment list](/cli/azure/group/deployment).
 
 ```azurecli-interactive
-az group deployment show -g ExampleGroup -n ExampleDeployment
+az group deployment list --resource-group ExampleGroup
+```
+
+To get a specific deployment, use the [azure group deployment show](/cli/azure/group/deployment).
+
+```azurecli-interactive
+az group deployment show --resource-group ExampleGroup --name ExampleDeployment
 ```
   
 The correlation ID is used to track related events, and can be helpful when working with technical support to troubleshoot a deployment.
@@ -65,7 +71,7 @@ The correlation ID is used to track related events, and can be helpful when work
 az group deployment show -g ExampleGroup -n ExampleDeployment --query properties.correlationId
 ```
 
-#### [HTTP](#tab/http)
+# [HTTP](#tab/http)
 
 The following example shows how to get information about a deployment. For documentation about the latest API version, see the [Deployments - Get](/rest/api/resources/deployments/get) operation.
 
@@ -96,7 +102,7 @@ In the response, note in particular the **provisioningState**, **correlationId**
 
 To get details about a deployment from the deployment history use portal, PowerShell, Azure CLI, or REST API.
 
-#### [Browser](#tab/browser)
+# [Portal](#tab/azure-portal)
 
 1. To see deployment operations, select **Operation details**.
 
@@ -106,8 +112,7 @@ To get details about a deployment from the deployment history use portal, PowerS
 
     ![Show operation details](./media/resource-manager-deployment-operations/show-operation-details.png)
 
-
-#### [PowerShell](#tab/powershell)
+# [PowerShell](#tab/azure-powershell)
 
 Each deployment includes multiple operations. Each operation represents a step in the deployment process. To discover what went wrong with a deployment, you usually need to see details about the deployment operations. You can see the status of the operations with **Get-AzResourceGroupDeploymentOperation**.
 
@@ -115,7 +120,7 @@ Each deployment includes multiple operations. Each operation represents a step i
 Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName azuredeploy
 ```
 
-#### [Bash](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
 To see the operations for a deployment, use:
 
@@ -123,7 +128,7 @@ To see the operations for a deployment, use:
 az group deployment operation list -g ExampleGroup -n ExampleDeployment
 ```
 
-#### [HTTP](#tab/http)
+# [HTTP](#tab/http)
 
 The following example shows how to get deployment operations. For documentation about the latest API version, see the [Deployment Operations - List](/rest/api/resources/deploymentoperations/list) operation.
 
@@ -159,19 +164,6 @@ The response includes request and/or response information based on what you spec
 ```
 
 ---
-
-## Portal
-
-
-1. If your deployment failed, you see an error message. Select the error message for more details.
-
-    ![View failed deployment](./media/resource-manager-deployment-operations/show-error.png)
-
-1. The detailed error message is displayed.
-
-    ![View error details](./media/resource-manager-deployment-operations/show-details.png)
-
-
 
 
 ## PowerShell
@@ -216,15 +208,6 @@ code           message                                                          
 DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
 ```
 
-Every deployment operation in Azure includes request and response content. During deployment, you can use **DeploymentDebugLogLevel** parameter to specify that the request and/or response are logged.
-
-You get that information from the log, and save it locally by using the following PowerShell commands:
-
-```powershell
-(Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.request | ConvertTo-Json |  Out-File -FilePath <PathToFile>
-
-(Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.response | ConvertTo-Json |  Out-File -FilePath <PathToFile>
-```
 
 ## Next steps
 
