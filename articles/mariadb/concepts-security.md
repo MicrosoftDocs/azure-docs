@@ -46,4 +46,4 @@ You can opt in to [Advanced Threat Protection](concepts-data-access-and-security
 
 
 ## Next steps
-- Enable firewall rules for [IPs](concepts-firewall-rules.md) or [virtual networks](concepts-data-access-and-security-vnet.md)
+- Enable firewall rules for [IPs](concepts-firewall-rules.md) or [virtual networks](concepts-data-access-security-vnet.md)
