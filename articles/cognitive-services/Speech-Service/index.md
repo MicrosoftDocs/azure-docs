@@ -596,21 +596,21 @@ description: Get started with the Speech Services.
                         </ul>
                     </li>
                     <li>
-                        <a href="#support">Support</a>
+                        <a href="#support">Get help and support</a>
                         <ul id="support" class="cardsC">
                             <li>
-                                <a href="https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview">
+                                <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&q=cognitive&type=&language=">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/logos/logo_azure.svg" style="width:140px" alt="" />
+                                                        <img src="https://docs.microsoft.com/media/logos/logo_octokitty.svg" style="width:140px" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure support</h3>
-                                                    <p>Explore the range of Azure support options and choose the plan that best fits your needs.</p>
+                                                    <h3>GitHub issues</h3>
+                                                    <p>Browse open issues and/or create new issues for the Speech SDK on GitHub.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -629,7 +629,7 @@ description: Get started with the Speech Services.
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Stack Overflow</h3>
-                                                    <p>	For immediate answers from the community, look to Stack Overflow as the preferred channel for development related questions.</p>
+                                                    <p>Ask questions, and get help from the Speech service community on Stack Overflow.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -648,32 +648,13 @@ description: Get started with the Speech Services.
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>UserVoice forum</h3>
-                                                    <p>Share your ideas for making Speech Services and the accompanying APIs work better for the applications you develop.</p>
+                                                    <p>Share your ideas, suggest enhancements, or request new features for the Speech service.</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
-                            </li>
-                            <li>
-                                <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&q=cognitive&type=&language=">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/logos/logo_octokitty.svg" style="width:140px" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>GitHub samples</h3>
-                                                    <p>For questions and issues, create an issue in the respective GitHub repository. You can even submit a pull request.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
+                            </li>                            
                             <li>
                                 <a href="releasenotes.md">
                                     <div class="cardSize">
@@ -686,32 +667,13 @@ description: Get started with the Speech Services.
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Release notes</h3>
-                                                    <p>When developing a Speech Services solution learn what changes are happening to the SDKs and REST APIs with release notes.</p>
+                                                    <p>View the Speech SDK release notes for features releases, enhancements, bug fixes, and known issues.</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
-                            </li>
-                            <li>
-                                <a href="https://azure.microsoft.com/blog/topics/cognitive-services">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/common/i_blog.svg" style="width:140px" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure blog</h3>
-                                                    <p>News about Cognitive Services is often shared in the Azure blog.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
+                            </li>                         
                         </ul>
                     </li>
                 </ul>
@@ -926,8 +888,51 @@ description: Get started with the Speech Services.
                 </ul>
             </li>
             <li>
-                <a href="#architecture">Architecture</a>
-                <ul id="architecture">
+                <a href="#scenarios">Scenarios & Deployment</a>
+                <ul id="scenarios">
+                    <li>
+                        <a href="#misc-architecture">Scenarios</a>
+                        <ul id="misc-architecture" class="cardsC">
+                            <li>
+                                <a href="call-center-transcription.md">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="https://docs.microsoft.com/media/illustrations/teams-voice-deployment.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Call center transcription</h3>
+                                                    <p>Learn how to use the appropriate technologies available from Speech Services for telephony data application scenarios.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="scenario-availability.md">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech_generic_programming_languages.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Scenario & feature availability</h3>
+                                                    <p>Learn scenario and feature availability by platform and programming language.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                     <li>
                         <a href="#deploy-architecture">Deployment</a>
                         <ul id="deploy-architecture" class="cardsC">
@@ -942,33 +947,14 @@ description: Get started with the Speech Services.
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Deploy Speech-to-text Docker container</h3>
-                                                    <p>Learn how to deploy speech recognition functionality as a container image.</p>
+                                                    <h3>Deploy Docker containers</h3>
+                                                    <p>Learn how to use the Speech service with containers.</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
-                            </li>
-                            <li>
-                                <a href="speech-container-howto.md?tabs=tts">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/illustrations/virtualization-containers-about.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Deploy Text-to-speech Docker container</h3>
-                                                    <p>Learn how to deploy speech synthesis functionality as a container image.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
+                            </li>                            
                             <li>
                                 <a href="speech-container-howto-on-premises.md">
                                     <div class="cardSize">
@@ -989,88 +975,26 @@ description: Get started with the Speech Services.
                                 </a>
                             </li>
                             <li>
-                                <a href="speech-container-howto.md?tabs=cstt">
+                                <a href="regions.md">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/illustrations/virtualization-containers-about.svg" alt="" />
+                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Deploy Custom Speech-to-text Docker container</h3>
-                                                    <p>Learn how to deploy custom model speech recognition functionality as a container image.</p>
+                                                    <h3>Supported regions</h3>
+                                                    <p>Learn where the Speech service is supported.</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
-                            </li>
-                            <li>
-                                <a href="speech-container-howto.md?tabs=ctts">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/illustrations/virtualization-containers-about.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Deploy Custom Text-to-speech Docker container</h3>
-                                                    <p>Learn how to deploy custom model speech synthesis functionality as a container image.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
+                            </li>                                    
                         </ul>
-                    </li>
-                    <li>
-                        <a href="#misc-architecture">Design Scenarios</a>
-                        <ul id="misc-architecture" class="cardsC">
-                            <li>
-                                <a href="call-center-transcription.md">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/illustrations/teams-voice-deployment.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Designing for telephony data with Speech Services</h3>
-                                                    <p>Learn how to use the appropriate technologies available from Speech Services for telephony data application scenarios.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://aka.ms/speech/va-overview">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/hubs/cortana/cortana-get-started-build-skill-language.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Designing Voice assistants</h3>
-                                                    <p>Learn how to create natural, human-like conversational interfaces for your applications and experiences with Voice assistants.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                    </li>                    
                 </ul>
             </li>
         </ul>
