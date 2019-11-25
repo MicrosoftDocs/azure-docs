@@ -109,9 +109,11 @@ In other words, it returns 0 in all cases except when the corresponding bits of 
 
 **Example:**  
  
- `BitAnd(&HF, &HF7)`  
+ `BitAnd(&HF, &HF7)`</br>
  Returns 7 because hexadecimal "F" AND "F7" evaluate to this value.
+
 ---
+
 ### CBool
 **Description:**  
 The CBool function returns a Boolean based on the evaluated expression
@@ -619,6 +621,7 @@ Takes a *source* string value and converts it to lower case using the culture ru
    | **culture** |Optional |String |The format for the culture name based on RFC 4646 is *languagecode2-country/regioncode2*, where *languagecode2* is the two-letter language code and *country/regioncode2* is the two-letter subculture code. Examples include ja-JP for Japanese (Japan) and en-US for English (United States). In cases where a two-letter language code is not available, a three-letter code derived from ISO 639-2 is used.|
 
 ---
+
 ### ToUpper
 **Function:**<br> 
 ToUpper(source, culture)
@@ -632,7 +635,9 @@ Takes a *source* string value and converts it to upper case using the culture ru
   | --- | --- | --- | --- |
   | **source** |Required |String |Usually name of the attribute from the source object. |
   | **culture** |Optional |String |The format for the culture name based on RFC 4646 is *languagecode2-country/regioncode2*, where *languagecode2* is the two-letter language code and *country/regioncode2* is the two-letter subculture code. Examples include ja-JP for Japanese (Japan) and en-US for English (United States). In cases where a two-letter language code is not available, a three-letter code derived from ISO 639-2 is used.|
+
 ---
+
 ### Trim
 **Description:**  
 The Trim function removes leading and trailing white spaces from a string.
