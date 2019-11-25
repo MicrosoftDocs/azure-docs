@@ -18,4 +18,3 @@ ms.custom: include file
 | [Audit Server level threat detection setting](../articles/governance/policy/samples/audit-sql-server-threat-detection-setting.md) | Audits SQL database security alert policies if those policies are not set to specified state. You specify a value that indicates whether threat detection is enabled or disabled.  |
 | [Audit SQL Server audit settings](../articles/governance/policy/samples/sql-server-audit.md) | Audits SQL server based on whether the audit settings are enabled. |
 | [Audit SQL Server Level Audit Setting](../articles/governance/policy/samples/audit-sql-server-audit-setting.md) | Audits SQL server audit settings if those settings do not match a specified setting. You specify a value that indicates whether audit settings should be enabled or disabled. |
-| [Require SQL Server version 12.0](../articles/governance/policy/samples/require-sql-12.md) | Requires SQL servers to use version 12.0.  |

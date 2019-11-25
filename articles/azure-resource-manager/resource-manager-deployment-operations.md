@@ -1,12 +1,9 @@
 ---
-title: Deployment history with Azure Resource Manager | Microsoft Docs
+title: Deployment history
 description: Describes how to view Azure Resource Manager deployment operations with the portal, PowerShell, Azure CLI, and REST API.
 tags: top-support-issue
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.author: tomfitz
 ---
 # View deployment history with Azure Resource Manager
 
@@ -166,7 +163,7 @@ az group deployment operation list -g ExampleGroup -n ExampleDeployment
 
 ## REST
 
-To get information about a deployment, use the [Get information about a template deployment](https://docs.microsoft.com/rest/api/resources/deployments) operation.
+The following example shows how to get information about a deployment. For documentation about the latest API version, see the [Deployments - Get](/rest/api/resources/deployments/get) operation.
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
@@ -189,7 +186,7 @@ In the response, note in particular the **provisioningState**, **correlationId**
 }
 ```
 
-To get information about deployments, use [List all template deployment operations](https://docs.microsoft.com/rest/api/resources/deployments). 
+The following example shows how to get deployment operations. For documentation about the latest API version, see the [Deployment Operations - List](/rest/api/resources/deploymentoperations/list) operation.
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}

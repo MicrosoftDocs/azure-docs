@@ -1,6 +1,6 @@
 ---
 title: Terminology for Azure Service Fabric Mesh | Microsoft Docs
-description: Learn about common terms for Azure Service Fabric Mesh.
+description: This article details the terminology used by Azure Service Fabric Mesh to help you better understand the terms used in the documentation.
 services: service-fabric-mesh
 keywords:  
 author: dkkapur
@@ -12,7 +12,7 @@ manager: timlt
 ---
 # Service Fabric Mesh terminology
 
-Azure Service Fabric Mesh is a fully managed service that enables developers to deploy microservices applications without managing virtual machines, storage, or networking. This article details the terminology used by Azure Service Fabric Mesh to understand the terms used in the documentation.
+Azure Service Fabric Mesh is a fully managed service that enables developers to deploy microservices applications without managing virtual machines, storage, or networking. This article details the terminology used by Azure Service Fabric Mesh to help you better understand the terms used in the documentation.
 
 ## Service Fabric
 

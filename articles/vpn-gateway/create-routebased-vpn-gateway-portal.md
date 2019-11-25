@@ -1,5 +1,6 @@
 ---
-title: 'Create a route-based VPN gateway: Azure portal | Microsoft Docs'
+title: 'Create a route-based VPN gateway: portal'
+titleSuffix: Azure VPN Gateway
 description: Create a route-based VPN Gateway using the Azure portal
 services: vpn-gateway
 author: cherylmc

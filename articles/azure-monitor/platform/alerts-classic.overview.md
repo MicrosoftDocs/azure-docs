@@ -1,12 +1,13 @@
 ---
 title: Overview of classic alerts in Microsoft Azure and Azure Monitor
 description: Classic alerts are being deprecated. Alerts enable you to monitor Azure resource metrics, events, or logs and be notified when a condition you specify is met.
-author: rboucher
-services: azure-monitor
-ms.service: azure-monitor
+ms.service:  azure-monitor
+ms.subservice: 
 ms.topic: conceptual
-ms.date: 05/19/2018
+author: rboucher
 ms.author: robb
+ms.date: 05/19/2018
+
 ---
 
 # What are classic alerts in Microsoft Azure?

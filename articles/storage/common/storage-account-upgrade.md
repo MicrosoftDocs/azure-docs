@@ -19,7 +19,7 @@ Upgrading to a General-purpose v2 storage account from your General-purpose v1 o
 > [!IMPORTANT]
 > Upgrading a General-purpose v1 or Blob storage account to General-purpose v2 is permanent and cannot be undone.
 
-## Upgrade using the Azure portal
+# [Portal](#tab/azure-portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Navigate to your storage account.
@@ -30,7 +30,7 @@ Upgrading to a General-purpose v2 storage account from your General-purpose v1 o
 
     ![Upgrade Account Kind](../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png)
 
-## Upgrade with PowerShell
+# [PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -41,8 +41,7 @@ Next, call the following command to upgrade the account, substituting the name o
 ```powershell
 Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2
 ```
-
-## Upgrade with Azure CLI
+# [Azure CLI](#tab/azure-cli)
 
 To upgrade a General-purpose v1 account to a General-purpose v2 account using Azure CLI, first install the latest version of Azure CLI. See [Install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) for information about installing the CLI.
 
@@ -51,6 +50,8 @@ Next, call the following command to upgrade the account, substituting the name o
 ```cli
 az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2
 ```
+
+---
 
 ## Specify an access tier for blob data
 

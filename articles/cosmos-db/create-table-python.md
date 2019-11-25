@@ -8,7 +8,7 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-
+ms.custom: seo-python-october2019
 
 ---
 # Quickstart: Build a Table API app with Python and Azure Cosmos DB
@@ -80,7 +80,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. In the [Azure portal](https://portal.azure.com/), select **Connection String**. 
 
-    ![View and copy the CONNECTION STRING in the Connection String pane](./media/create-table-python/connection-string.png)
+    ![View and copy the CONNECTION STRING in the Connection String settings](./media/create-table-python/view-and-copy-connection-string-in-connection-string-settings.png)
 
 2. Copy the ACCOUNT NAME using the button on the right side.
 
@@ -90,7 +90,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 5. Paste the PRIMARY KEY from the portal into the STORAGE_ACCOUNT_KEY value on line 20.
 
-3. Save the config.py file.
+6. Save the config.py file.
 
 ## Run the app
 

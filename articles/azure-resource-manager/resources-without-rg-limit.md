@@ -1,11 +1,8 @@
 ---
-title: Azure resources without 800 count limit
+title: Resources without 800 count limit
 description: Lists the Azure resource types that can have more than 800 instances in a resource group.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 7/30/2019
-ms.author: tomfitz
+ms.date: 11/07/2019
 ---
 
 # Resources not limited to 800 instances per resource group
@@ -27,7 +24,7 @@ For some resource types, you need to contact support to have the 800 instance li
 
 ## Microsoft.BotService
 
-* botServices - Contact support to extend the limit.
+* botServices - By default, limited to 800 instances. That limit can be increased by contacting support.
 
 ## Microsoft.Compute
 
@@ -35,6 +32,10 @@ For some resource types, you need to contact support to have the 800 instance li
 * images
 * snapshots
 * virtualMachines
+
+## Microsoft.ContainerInstance
+
+* containerGroups
 
 ## Microsoft.ContainerRegistry
 
@@ -65,8 +66,18 @@ For some resource types, you need to contact support to have the 800 instance li
 
 * services
 
+## Microsoft.EventHub
+
+* clusters
+* namespaces
+
+## Microsoft.Experimentation
+
+* experimentWorkspaces
+
 ## Microsoft.GuestConfiguration
 
+* configurationProfileAssignments
 * guestConfigurationAssignments
 * software
 * softwareUpdateProfile
@@ -76,6 +87,14 @@ For some resource types, you need to contact support to have the 800 instance li
 
 * integrationAccounts
 * workflows
+
+## Microsoft.NetApp
+
+* netAppAccounts
+* netAppAccounts/capacityPools
+* netAppAccounts/capacityPools/volumes
+* netAppAccounts/capacityPools/volumes/mountTargets
+* netAppAccounts/capacityPools/volumes/snapshots
 
 ## Microsoft.Network
 
@@ -111,7 +130,7 @@ For some resource types, you need to contact support to have the 800 instance li
 * privateDnsZones/virtualNetworkLinks
 * privateEndpoints
 * privateLinkServices
-* publicIPAddresses - Contact support to extend the limit.
+* publicIPAddresses - By default, limited to 800 instances. That limit can be increased by contacting support.
 * serviceEndpointPolicies
 * trafficmanagerprofiles
 * virtualNetworkTaps
@@ -122,11 +141,28 @@ For some resource types, you need to contact support to have the 800 instance li
 
 ## Microsoft.PowerBI
 
-* workspaceCollections - Contact support to extend the limit.
+* workspaceCollections - By default, limited to 800 instances. That limit can be increased by contacting support.
+
+## Microsoft.Relay
+
+* namespaces
 
 ## Microsoft.Scheduler
 
 * jobcollections
+
+## Microsoft.ServiceBus
+
+* namespaces
+
+## Microsoft.ServiceFabricMesh
+
+* applications
+* containerGroups
+* gateways
+* networks
+* secrets
+* volumes
 
 ## Microsoft.Storage
 

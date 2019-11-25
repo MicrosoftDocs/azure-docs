@@ -1,6 +1,6 @@
 ---
 title: Containerize an existing .NET app for Service Fabric Mesh | Microsoft Docs
-description: Add Mesh support to an existing .NET app 
+description: Add Service Fabric Mesh container orchestration support to ASP.NET and Console projects that use the full .NET framework.
 services: service-fabric-mesh
 keywords:  containerize service fabric mesh
 author: dkkapur

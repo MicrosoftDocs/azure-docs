@@ -22,22 +22,24 @@ In this quickstart, you'll learn how to get to the Azure portal and Azure Active
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-## Sign in to the Azure portal
-Sign in to your organization's [Azure portal](https://portal.azure.com/) using a Global administrator account.
-
-![Azure portal screen, with Azure AD option](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
-
 ## Create a new tenant for your organization
 After you sign in to the Azure portal, you can create a new tenant for your organization. Your new tenant represents your organization and helps you to manage a specific instance of Microsoft cloud services for your internal and external users.
 
 ### To create a new tenant
-1. Select **Create a resource**, select **Identity**, and then select **Azure Active Directory**.
+
+1. Sign in to your organization's [Azure portal](https://portal.azure.com/) using a Global administrator account.
+
+1. From the Azure portal menu, select **Create a resource**.  
+
+    ![Azure Active Directory Create resoure page](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
+
+1. Select **Identity**, and then select **Azure Active Directory**.
 
     The **Create directory** page appears.
 
     ![Azure Active Directory Create page](media/active-directory-access-create-new-tenant/azure-ad-create-new-tenant.png)
 
-2.  On the **Create directory** page, enter the following information:
+1.  On the **Create directory** page, enter the following information:
     
     - Type _Contoso_ into the **Organization name** box.
 
@@ -45,7 +47,7 @@ After you sign in to the Azure portal, you can create a new tenant for your orga
 
     - Leave the _United States_ option in the **Country or region** box.
 
-3. Select **Create**.
+1. Select **Create**.
 
 Your new tenant is created with the domain contoso.onmicrosoft.com.
 

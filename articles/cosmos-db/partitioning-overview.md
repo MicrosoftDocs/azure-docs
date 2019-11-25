@@ -1,8 +1,8 @@
 ---
 title: Partitioning in Azure Cosmos DB
 description: Overview of partitioning in Azure Cosmos DB.
-ms.author: rimman
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019

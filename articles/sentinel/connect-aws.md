@@ -1,6 +1,6 @@
 ---
-title: Connect Symantec AWS data to Azure Sentinel | Microsoft Docs
-description: Learn how to connect Symantec AWS data to Azure Sentinel.
+title: Connect AWS CloudTrail to Azure Sentinel | Microsoft Docs
+description: Learn how to connect AWS CloudTrail data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin

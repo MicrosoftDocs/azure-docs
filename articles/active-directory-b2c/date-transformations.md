@@ -25,8 +25,8 @@ Checks that one date and time claim (string data type) is later than a second da
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | leftOperand | string | First claim's type, which should be later than the second claim. |
-| inputClaim | rightOperand | string | Second claim's type, which should be earlier than the first claim. |
+| InputClaim | leftOperand | string | First claim's type, which should be later than the second claim. |
+| InputClaim | rightOperand | string | Second claim's type, which should be earlier than the first claim. |
 | InputParameter | AssertIfEqualTo | boolean | Specifies whether this assertion should pass if the left operand is equal to the right operand. |
 | InputParameter | AssertIfRightOperandIsNotPresent | boolean | Specifies whether this assertion should pass if the right operand is missing. |
 | InputParameter | TreatAsEqualIfWithinMillseconds | int | Specifies the number of milliseconds to allow between the two date times to consider the times equal (for example, to account for clock skew). |

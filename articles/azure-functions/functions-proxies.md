@@ -1,12 +1,8 @@
 ---
-title: Work with proxies in Azure Functions | Microsoft Docs
+title: Work with proxies in Azure Functions 
 description: Overview of how to use Azure Functions Proxies
-services: functions
 author: alexkarcher-msft
-manager: jeconnoc
 
-ms.assetid: 
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
