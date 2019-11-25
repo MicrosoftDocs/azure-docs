@@ -29,9 +29,10 @@ For a list that maps resource providers to Azure services, see [Resource provide
 To see all resource providers, and the registration status for your subscription:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **All services**.
+2. On the Azure portal menu, select **All services**.
 
-    ![select subscriptions](./media/resource-manager-supported-services/select-subscriptions.png)
+    ![select subscriptions](./media/resource-manager-supported-services/select-all-services.png)
+
 3. In the **All services** box, enter **subscription**, and then select **Subscriptions**.
 4. Select the subscription from the subscription list to view.
 5. Select **Resource providers** and view the list of available resource providers.
@@ -45,11 +46,11 @@ To see all resource providers, and the registration status for your subscription
 To see information for a particular resource provider:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **All services**.
-
-    ![select All services](./media/resource-manager-supported-services/more-services.png)
-
+2. On the Azure portal menu, select **All services**.
 3. In the **All services** box, enter **resource explorer**, and then select **Resource Explorer**.
+
+    ![select All services](./media/resource-manager-supported-services/select-resource-explorer.png)
+
 4. Expand **Providers** by selecting the right arrow.
 
     ![Select providers](./media/resource-manager-supported-services/select-providers.png)
