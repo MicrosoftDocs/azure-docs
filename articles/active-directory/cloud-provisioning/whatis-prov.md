@@ -56,7 +56,7 @@ The most common scenario would be, when a user in Active Directory (AD) is provi
 
 This has been accomplished by Azure AD Connect sync, Azure AD Connect cloud provisioning and Microsoft Identity Manger. 
  
-## Next Steps 
+## Next steps 
 
 - [What is Azure AD Connect cloud provisioning?](whatis-cloud-prov.md)
 - [Azure AD Connect cloud provisioning installation](how-to-cloud-prov-install.md)

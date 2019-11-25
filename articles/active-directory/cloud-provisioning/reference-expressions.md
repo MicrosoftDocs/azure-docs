@@ -14,14 +14,14 @@ ms.collection: M365-identity-device-management
 ---
 
 
-# Writing Expressions for Attribute Mappings in Azure Active Directory
+# Writing expressions for attribute mappings in Azure Active Directory
 When you configure cloud provisioning, one of the types of attribute mappings that you can specify is an expression mapping. 
 
 The expression mapping allows you to customize attributes using a script-like expression.  This allows you to transform the on-premises data into an new or different value.  For example, you may want to combine two attributes into a single attribute because this single attribute is used by one of your cloud applications.
 
 The following document will cover the script-like expressions that are used to transform the data.  This is only part of the process.  Next you will need to use this expression and place it in a web request to your tenant.  For more information on that see [Transformations](how-to-cloud-transformation.md)
 
-## Syntax Overview
+## Syntax overview
 The syntax for Expressions for Attribute Mappings is reminiscent of Visual Basic for Applications (VBA) functions.
 
 * The entire expression must be defined in terms of functions, which consist of a name followed by arguments in parentheses: <br>
@@ -34,7 +34,7 @@ The syntax for Expressions for Attribute Mappings is reminiscent of Visual Basic
   3. Other Functions. For example: FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
 * For string constants, if you need a backslash ( \ ) or quotation mark ( " ) in the string, it must be escaped with the backslash ( \ ) symbol. For example: "Company name: \\"Contoso\\""
 
-## List of Functions
+## List of functions
 | List of functions | Description |
 |-----|----|
 |[Append](#append)|Takes a source string value and appends the suffix to the end of it.|
@@ -800,7 +800,7 @@ Based on the user's first name, middle name and last name, you need to generate 
 * **OUTPUT**: "Jo.Smith@contoso.com" if the above two UPN values already exist in the directory
 
 
-## Next Steps 
+## Next steps 
 
 - [What is Azure AD Connect cloud provisioning?](whatis-cloud-prov.md)
 - [Transformations](how-to-cloud-transformation.md)

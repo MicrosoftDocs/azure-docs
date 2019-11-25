@@ -56,7 +56,7 @@ The following table provides a comparison between Azure AD Connect and Azure AD 
 | Allow advanced customization for attribute flows |● | |
 | Support for writeback (passwords, devices, groups) |● | |
 
-## Next Steps 
+## Next steps 
 
 - [What is Azure AD Connect cloud provisioning?](whatis-cloud-prov.md)
 - [Azure AD Connect cloud provisioning installation](how-to-cloud-prov-install.md)

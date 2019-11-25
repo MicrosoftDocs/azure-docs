@@ -82,7 +82,7 @@ If you want to delete a configuration you can do that by using the following ste
 >There is no confirmation prior to deleting a configuration so be sure that this is the action you want to take before clicking **Delete**.
 
 
-## Next Steps 
+## Next steps 
 
 - [cloud provisioning installation](how-to-cloud-prov-install.md)
 - [cloud provisioning pre-requisites](how-to-cloud-prov-prereq.md) 

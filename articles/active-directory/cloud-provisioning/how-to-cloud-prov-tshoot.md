@@ -14,7 +14,7 @@ ms.technology: identity-adfs
 Cloud provisioning touches many different things and has many different dependencies.  Naturally, this can give rise to various issues.  This document is designed to get you started on troubleshooting these issues.  This document will introduce you to the typical areas that you should focus on, how to gather additional information, and various techniques that can be used to track down problems.  
 
 
-  ##  Common Troubleshooting Areas
+  ##  Common troubleshooting areas
 
 |Name|Description|
 |-----|-----|
@@ -102,14 +102,14 @@ Replace the variables [proxy-server] and [proxy-port] with your proxy server nam
         </system.net>
     ```
 
-#### Agent registration fails with Security Error
+#### Agent registration fails with security error
 You may see the following error when installing the cloud provisioning agent.
 
 This is typically caused by the agent being unable to execute the PowerShell registration scripts due to local PowerShell execution policies.
 
 To resolve this, change the PowerShell execution policies on the server. You need to have Machine and User policies as "Undefined" or "RemoteSigned". If it is “Unrestricted” you will see this error.  For more information see [PowerShell execution policies](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6). 
 
-### Log Files
+### Log files
 By default, the agent emits very minimal error messages and stack trace information. You can find these trace logs in the folder: **C:\ProgramData\Microsoft\Azure AD Connect Provisioning Agent\Trace**
 
 Use the following steps to gather additional details for troubleshooting agent-related issues.
@@ -147,7 +147,7 @@ Use the following steps to gather additional details for troubleshooting agent-r
 ## Object synchronization issues
 The following section contains information on troubleshooting object synchronization.
 
-### Provisioning Logs
+### Provisioning logs
 In the Azure portal, provisioning logs can be used to help track down and troubleshoot object synchronization issues.  To view the logs, select **Logs**.
  ![Provisioning logs](media/how-to-cloud-prov-tshoot/provlog1.png)
 
@@ -183,7 +183,7 @@ By clicking on the status, you can see additional information about the quaranti
  
        `POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart`
 
-## Next Steps 
+## Next steps 
 
 - [What is Azure AD Connect cloud provisioning?](whatis-cloud-prov.md)
 - [Azure AD Connect cloud provisioning installation](how-to-cloud-prov-install.md)

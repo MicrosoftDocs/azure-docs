@@ -103,7 +103,7 @@ To do this task, simply follow the steps above and then edit the function that i
 For information on the syntax and examples of expressions, see [Writing Expressions for Attribute Mappings in Azure Active Directory](reference-expressions.md)
 
 
-## Next Steps 
+## Next steps 
 
 - [What is Azure AD Connect cloud provisioning?](whatis-cloud-prov.md)
 - [Expressions](reference-expressions.md)

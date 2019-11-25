@@ -208,7 +208,7 @@ Now that you have an Azure AD tenant, you will create a global administrator acc
 4. Once this has completed, open a new web browser and sign-in to myapps.microsoft.com using the new global administrator account and the temporary password.
 5. Change the password for the global administrator to something that you will remember.
 
-## Optional:  Additional Server and Forest
+## Optional:  Additional server and forest
 The following is an optional section that provides steps to creating an additional server and or forest.  This can be used in some of the more advanced tutorials such as [Pilot for Azure AD Connect to cloud provisioning](tutorial-pilot-aadc-aadccp.md).
 
 If you only need an additional server, you can stop after the - **Create the virtual machine** step and join the server to the existing domain that was created above.  

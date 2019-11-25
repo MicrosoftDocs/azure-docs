@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 ---
 
 
-# Understanding the Azure AD Schema
+# Understanding the Azure AD schema
 An object in Azure AD, like any directory, is a programmatic high-level data construct that represents such things as users, groups, and contacts.  When you create a new user or contact in Azure AD, you are creating a new instance of that object.  These instances can be differentiated based on their properties.
 
 Properties, in Azure AD are the elements responsible for storing information about an instance of an object in Azure AD.  
