@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 11/21/2019
+ms.date: 11/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -108,6 +108,7 @@ This function converts both parameters to the binary representation and sets a b
 In other words, it returns 0 in all cases except when the corresponding bits of both parameters are 1.
 
 **Example:**  
+ 
  `BitAnd(&HF, &HF7)`  
  Returns 7 because hexadecimal "F" AND "F7" evaluate to this value.
 ---
