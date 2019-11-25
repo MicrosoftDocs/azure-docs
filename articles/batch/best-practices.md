@@ -53,7 +53,7 @@ Pool lifetime can vary depending upon the method of allocation and options appli
     You should resize your pools to zero every few months to ensure you get the latest node agent updates and bug fixes. Your pool won't receive node agent updates unless it's recreated, or resized to 0 compute nodes. Before you recreate or resize your pool, it's recommended to download any node agent logs for debugging purposes, as discussed in the [Nodes](#nodes) section.
 
 - **Pool re-creation**  
-    On a similar note, it's not recommended to delete and re-create your pools on a daily basis. Instead, use an [autoscale](batch-automatic-scaling.md) formula to resize the pool to 0 compute nodes. An autoscale formula will resize your pool automatically and save costs by quickly releasing compute nodes.
+    On a similar note, it's not recommended to delete and re-create your pools on a daily basis. Instead, create a new pool, update your existing jobs to point to the new pool. Once all of the tasks have been moved to the new pool, then delete the old pool.
 
 - **Pool efficiency and billing**  
     Batch itself incurs no extra charges, but you do incur charges for the compute resources used. You're billed for every compute node in the pool, regardless of the state it's in. This includes any charges required for the node to run such as storage and networking costs. To learn more best practices, see [Cost analysis and budgets for Azure Batch](budget.md).
