@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub glossary of terms | Microsoft Docs
-description: Developer guide - a glossary of common terms relating to Azure IoT Hub.
+description: Developer guide - a glossary explaining some of the common terms used in the Azure IoT Hub articles.
 author: robinsh
 manager: philmea
 ms.author: robinsh

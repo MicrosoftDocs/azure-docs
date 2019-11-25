@@ -5,6 +5,7 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe 
 ms.service: marketplace 
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2019
 ---
@@ -28,7 +29,7 @@ Select your offer type:
 | **Offer type**    | **Description**  |
 | :------------------- | :-------------------|
 | Device | An offer that involves building or selling hardware from a device manufacturer. |
-| IP | Apps or other copyrightable material licensed for the customer’s use. For example: a CRM program that can be licensed and installed on-premises. |
+| IP | Apps or other copyrightable material licensed for the customer's use. For example: a CRM program that can be licensed and installed on-premises. |
 | Service | Hands-on expertise for a specific one-time project, often delivered via consultants. For example: setting up a customer database for a client (with the client assuming responsibility for operating the database after delivery). |
 | Managed Service | Hands-on expertise for a cloud-based project, usually on an ongoing basis. For example: Providing a platform and tools for running an online database, with ongoing management provided by the managed service provider. |
 
@@ -42,15 +43,15 @@ Solution areas help define the scenarios that your offer is designed to address.
 
 | **Documents**    | **Description**  |
 | :------------------- | :-------------------|
-| *Customer one-pager* | Customer-ready description of your offering. Microsoft sales teams may share this information with customers to help determine if your offering may be a good fit, and to ensure that it is customer ready. <br> <br> Use one of the relevant templates below: <br> <ul> <li> [Microsoft Azure one-pager template](https://aka.ms/Customer-One-Pager_MicrosoftAzure) </li> <li> [Microsoft Dynamics 365 one-pager template](https://aka.ms/Customer-One-Pager_MicrosoftDynamics365) </li> <li> [Office 365 one-pager template](https://aka.ms/Customer-One-Pager_MicrosoftOffice365) </li> <li> [Windows 10 one-pager template](https://aka.ms/Customer-One-Pager_Windows) </li> </ul>
+| *Customer one-pager* | Customer-ready description of your offering. Microsoft sales teams may share this information with customers to help determine if your offering may be a good fit, and to ensure that it is customer ready. <br> <br> Use one of the relevant templates available in Partner Center: <br> <ul> <li> Microsoft Azure one-pager template </li> <li> Microsoft Dynamics 365 one-pager template </li> <li> Office 365 one-pager template </li> <li> Windows 10 one-pager template </li> </ul>
  |
-| *Customer presentation* | Slide deck to pitch your solution and its value proposition. After ensuring that your offer is customer ready, Microsoft sales teams may share the presentation with customers to articulate the value that both companies bring when deploying a joint solution. The presentation should cover what your solution does, how it can help customers, what industries the solution is for, and how it compares to competing solutions. <br> <br> For more information, see [customer Presentation template](https://aka.ms/GTMServices_CustomerPresentation).|
-| *Customer case study* | This information shows a potential customer how you and Microsoft have successfully deployed this solution in prior cases. <br> <br> For more information, see [case study template](https://aka.ms/GTM_Case_Study_Template). |
+| *Customer presentation* | Slide deck to pitch your solution and its value proposition. After ensuring that your offer is customer ready, Microsoft sales teams may share the presentation with customers to articulate the value that both companies bring when deploying a joint solution. The presentation should cover what your solution does, how it can help customers, what industries the solution is for, and how it compares to competing solutions. <br> <br> Use the template available in Partner Center.|
+| *Customer case study* | This information shows a potential customer how you and Microsoft have successfully deployed this solution in prior cases. <br> <br> Use the template available in Partner Center. |
 | *Verifiable customer wins (optional)* | Specific examples of customer successes after your solution has been deployed. |
 | *Channel pitch deck (optional)* | A slide deck with information that will help channel resellers learn more about your solution and ready their sales teams to sell your offer. It typically includes an elevator pitch, information about target customers, questions to ask customers, talking points, and links to videos, documentation, and support information. |
 | *Reference architecture diagrams* | A document showing the model that represents the IP created by the partner, along with its relationship with Microsoft cloud services, and how it meets the technical requirements of the IP Co-sell program. |
 | *Other documents* | Optionally, you may upload up to five additional documents or videos to help Microsoft sales teams and channel resellers to learn more about your solution, organization, and/or differentiators. |
-| *External reference URL* | The link to your product’s site, where Microsoft sales teams and channel resellers can learn more about your solution. |
+| *External reference URL* | The link to your product's site, where Microsoft sales teams and channel resellers can learn more about your solution. |
 
 ## Contacts
 
@@ -67,14 +68,14 @@ You can also export your existing list of contacts of an offer, and then make ch
 
     | **Role**    | **Description**  |
     | :------------------- | :-------------------|
-    | *Partner marketing* | This role focuses on marketing your solution and collaborating on marketing efforts with Microsoft sales teams and channel resellers. The main point of contact for marketing engagements and offer listing content, such as product descriptions, images, and videos. |
-    | *Partner sales* | This role focuses on selling your solution and collaborating on sales with Microsoft sales teams and channel resellers. For co-sell solutions, indicate at least one partner sales contact per region in which you wish to be Co-sell Ready. The same partner sales contact may cover multiple regions. |
-    | *Partner technical sales* | Supports technical architecture and deployment considerations during the sales cycle, the post-sales integration, and deployment periods. |
-    | *Partner customer success manager* | Typically supports customers post-deployment, to help them get the most out of your solution and grow its footprint within the customer’s organization. |
+    | *:::no-loc text="Partner marketing":::* | This role focuses on marketing your solution and collaborating on marketing efforts with Microsoft sales teams and channel resellers. The main point of contact for marketing engagements and offer listing content, such as product descriptions, images, and videos. |
+    | *:::no-loc text="Partner sales":::* | This role focuses on selling your solution and collaborating on sales with Microsoft sales teams and channel resellers. For co-sell solutions, indicate at least one partner sales contact per region in which you wish to be Co-sell Ready. The same partner sales contact may cover multiple regions. |
+    | *:::no-loc text="Partner technical sales":::* | Supports technical architecture and deployment considerations during the sales cycle, the post-sales integration, and deployment periods. |
+    | *:::no-loc text="Partner customer success manager":::* | Typically supports customers post-deployment, to help them get the most out of your solution and grow its footprint within the customer's organization. |
 
-* *Countries/Regions (Required):*  When filling out the template, use the [two letter country/region codes as listed](./commercial-marketplace-co-sell-countries.md). If the contact covers all Countries/Regions, use the three letter code “OOO”. If a contact covers more than one Country/Region, enter each of the two letter codes separated by a comma (for example, enter “US, CA, FR” without quotation marks into the template).
+* *Countries/Regions (Required):*  When filling out the template, use the [two letter country/region codes as listed](./commercial-marketplace-co-sell-countries.md). If the contact covers all Countries/Regions, use the three letter code "OOO". If a contact covers more than one Country/Region, enter each of the two letter codes separated by a comma (for example, enter "US, CA, FR" without quotation marks into the template).
 
-    The countries/regions should reflect each contact’s territory. Microsoft sales teams and channel resellers will utilize this information for requesting information or collaborating on sales within the specific Country/Region.
+    The countries/regions should reflect each contact's territory. Microsoft sales teams and channel resellers will utilize this information for requesting information or collaborating on sales within the specific Country/Region.
 
 * *States/Provinces (Optional):*  When filling out the template, use the XX-XX format as listed in the [States/Provinces table](./commercial-marketplace-co-sell-states.md).
 

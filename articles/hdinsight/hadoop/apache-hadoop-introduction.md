@@ -4,12 +4,14 @@ description: An introduction to HDInsight, and the Apache Hadoop technology stac
 keywords: azure hadoop, hadoop azure, hadoop intro, hadoop introduction, hadoop technology stack, intro to hadoop, introduction to hadoop, what is a hadoop cluster, what is hadoop cluster, what is hadoop used for
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: overview
 ms.date: 08/15/2019
 #Customer intent: As a data analyst, I want understand what is Hadoop and how it is offered in Azure HDInsight so that I can decide on using HDInsight instead of on premises clusters.
 ---
+
 # What is Apache Hadoop in Azure HDInsight?
 
 [Apache Hadoop](https://hadoop.apache.org/) was the original open-source framework for distributed processing and analysis of big data sets on clusters. The Hadoop ecosystem includes related software and utilities, including Apache Hive, Apache HBase, Spark, Kafka, and many others.
@@ -26,9 +28,9 @@ Apache Hadoop MapReduce is a software framework for writing jobs that process va
 
 * **Reducer**: Consumes tuples emitted by the Mapper and performs a summary operation that creates a smaller, combined result from the Mapper data
 
-A basic word count MapReduce job example is illustrated in the following diagram:
+A basic word count MapReduce job example is illustrated in the following diagram:	
 
-![HDI.WordCountDiagram][image-hdi-wordcountdiagram]
+ ![HDI.WordCountDiagram](./media/apache-hadoop-introduction/hdi-word-count-diagram.gif)
 
 The output of this job is a count of how many times each word occurred in the text.
 
@@ -54,5 +56,3 @@ For examples of using Hadoop streaming with HDInsight, see the following documen
 ## Next steps
 
 * [Create Apache Hadoop cluster in HDInsight](apache-hadoop-linux-create-cluster-get-started-portal.md)
-
-[image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif

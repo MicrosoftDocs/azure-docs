@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Create a development pipeline in Azure with Jenkins | Microsoft Docs
+title: Tutorial - Create a development pipeline in Azure with Jenkins 
 description: Tutorial - In this tutorial, you learn how to create a Jenkins virtual machine in Azure that pulls from GitHub on each code commit and builds a new Docker container to run your app.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -32,7 +32,7 @@ To automate the build and test phase of application development, you can use a c
 > * Create a Docker image for your app
 > * Verify GitHub commits build new Docker image and updates running app
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+This tutorial uses the CLI within the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), which is constantly updated to the latest version. To open the Cloud Shell, select **Try it** from the top of any code block.
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 

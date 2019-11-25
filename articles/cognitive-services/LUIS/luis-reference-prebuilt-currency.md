@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 10/14/2019
 ms.author: diberry
 ---
 
@@ -21,108 +21,68 @@ Currency is managed from the [Recognizers-text](https://github.com/Microsoft/Rec
 
 ## Resolution for currency entity
 
-### API version 2.x
-
-The following example shows the resolution of the **builtin.currency** entity.
-
-```json
-{
-  "query": "search for items under $10.99",
-  "topScoringIntent": {
-    "intent": "SearchForItems",
-    "score": 0.926173568
-  },
-  "intents": [
-    {
-      "intent": "SearchForItems",
-      "score": 0.926173568
-    },
-    {
-      "intent": "None",
-      "score": 0.07376878
-    }
-  ],
-  "entities": [
-    {
-      "entity": "$10.99",
-      "type": "builtin.currency",
-      "startIndex": 23,
-      "endIndex": 28,
-      "resolution": {
-        "unit": "Dollar",
-        "value": "10.99"
-      }
-    }
-  ]
-}
-```
-
-
-
-### Preview API version 3.x
+#### [V3 response](#tab/V3)
 
 The following JSON is with the `verbose` parameter set to `false`:
 
 ```json
-{
-    "query": "search for items under $10.99",
-    "prediction": {
-        "normalizedQuery": "search for items under $10.99",
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.605889857
-            }
-        },
-        "entities": {
-            "money": [
-                {
-                    "number": 10.99,
-                    "unit": "Dollar"
-                }
-            ]
+"entities": {
+    "money": [
+        {
+            "number": 10.99,
+            "units": "Dollar"
         }
-    }
+    ]
 }
 ```
-
+#### [V3 verbose response](#tab/V3-verbose)
 The following JSON is with the `verbose` parameter set to `true`:
 
 ```json
-{
-    "query": "search for items under $10.99",
-    "prediction": {
-        "normalizedQuery": "search for items under $10.99",
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.605889857
-            }
-        },
-        "entities": {
-            "money": [
-                {
-                    "number": 10.99,
-                    "unit": "Dollar"
-                }
-            ],
-            "$instance": {
-                "money": [
-                    {
-                        "type": "builtin.currency",
-                        "text": "$10.99",
-                        "startIndex": 23,
-                        "length": 6,
-                        "modelTypeId": 2,
-                        "modelType": "Prebuilt Entity Extractor"
-                    }
-                ]
-            }
+"entities": {
+    "money": [
+        {
+            "number": 10.99,
+            "unit": "Dollar"
         }
+    ],
+    "$instance": {
+        "money": [
+            {
+                "type": "builtin.currency",
+                "text": "$10.99",
+                "startIndex": 23,
+                "length": 6,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor"
+            }
+        ]
     }
 }
 ```
 
+#### [V2 response](#tab/V2)
+
+The following example shows the resolution of the **builtin.currency** entity.
+
+```json
+"entities": [
+    {
+        "entity": "$10.99",
+        "type": "builtin.currency",
+        "startIndex": 23,
+        "endIndex": 28,
+        "resolution": {
+        "unit": "Dollar",
+        "value": "10.99"
+        }
+    }
+]
+```
+* * * 
+
 ## Next steps
+
+Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
 Learn about the [datetimeV2](luis-reference-prebuilt-datetimev2.md), [dimension](luis-reference-prebuilt-dimension.md), and [email](luis-reference-prebuilt-email.md) entities. 

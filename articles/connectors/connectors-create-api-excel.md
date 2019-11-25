@@ -70,6 +70,11 @@ logic app in the Logic App Designer, if not already open.
 1. In the search box, enter "excel" as your filter. Under the actions list, 
 select the action you want.
 
+   > [!NOTE]
+   > The Logic App Designer can't load tables that have 100 or more columns. 
+   > If possible, reduce the number of columns in the selected table so that 
+   > the designer can load the table.
+
 1. If prompted, sign in to your Office 365 account.
 
    Your credentials authorize your logic app to create a 

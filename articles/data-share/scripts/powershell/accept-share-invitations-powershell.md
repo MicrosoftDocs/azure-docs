@@ -39,8 +39,8 @@ This script uses the following commands:
 
 | Command | Notes |
 |---|---|
-| [Get-AzDataShareInvitation](/powershell/module/az.resources/get-azdatashareinvitation) | Get and list sent data share invitations. |
-| [New-AzDataShareSubscription](/powershell/module/az.resources/get-azdatashareinvitation) | Create a data share subscription. |
+| [Get-AzDataShareInvitation](/powershell/module/az.datashare/get-azdatashareinvitation?view=azps-2.6.0) | Get and list sent data share invitations. |
+| [New-AzDataShareSubscription](/powershell/module/az.datashare/get-azdatasharesubscription?view=azps-2.6.0) | Create a data share subscription. |
 |||
 
 ## Next steps

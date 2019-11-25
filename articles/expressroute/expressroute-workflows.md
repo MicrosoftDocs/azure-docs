@@ -1,14 +1,13 @@
 ---
-title: "Circuit configuration workflows - ExpressRoute: Azure| Microsoft Docs"
+title: 'Azure ExpressRoute: Circuit configuration workflows'
 description: This page shows the workflows for configuring ExpressRoute circuit and peerings
 services: expressroute
 author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 09/18/2018
 ms.author: cherylmc
-ms.custom: seodec18
 
 ---
 # ExpressRoute workflows for circuit provisioning and circuit states
@@ -25,7 +24,7 @@ The following figure and corresponding steps show the tasks you must follow in o
    
    * Enable Azure private peering - Enable this peering to connect to VMs / cloud services deployed within virtual networks.
 
-   * Enable Microsoft peering - Enable this to access Office 365 and Dynamics 365. Additionally, all Azure PaaS services are accessible through Microsoft peering.
+   * Enable Microsoft peering - Enable this to access Office 365. Additionally, all Azure PaaS services are accessible through Microsoft peering.
      
      > [!IMPORTANT]
      > You must ensure that you use a separate proxy / edge to connect to Microsoft than the one you use for the Internet. Using the same edge for both ExpressRoute and the Internet will cause asymmetric routing and cause connectivity outages for your network.

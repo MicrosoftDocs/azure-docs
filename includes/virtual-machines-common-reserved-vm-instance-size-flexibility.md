@@ -5,7 +5,7 @@ ms.service: virtual-machines-windows
 ms.topic: include 
 ms.date: 11-20-2018 
 ---
-# Virtual machine size flexibility with Reserved VM Instances
+
 
 With a reserved virtual machine instance that's optimized for instance size flexibility, the reservation you buy can apply to the virtual machines (VMs) sizes in the same instance size flexibility group. For example, if you buy a reservation for a VM size that's listed in the DSv2 Series, like Standard_DS5_v2, the reservation discount can apply to the other four sizes that are listed in that same instance size flexibility group:
 

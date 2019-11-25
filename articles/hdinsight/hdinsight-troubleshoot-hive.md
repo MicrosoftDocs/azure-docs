@@ -5,6 +5,7 @@ keywords: Azure HDInsight, Hive, FAQ, troubleshooting guide, common questions
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ---

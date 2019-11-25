@@ -4,6 +4,7 @@ description: Overview of the Approvals page in Cloud Partner Portal for Azure Ma
 services: Azure, Marketplace, Cloud Partner Portal, 
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pabutler

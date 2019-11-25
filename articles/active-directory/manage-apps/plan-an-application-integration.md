@@ -74,7 +74,7 @@ Each of your applications may have different authentication requirements. With A
 With Microsoft Azure AD Application Proxy, you can provide access to applications located inside your private network securely, from anywhere and on any device. After you have installed an application proxy connector within your environment, it can be easily configured with Azure AD.
 
 ### Integrating custom applications
-If you are writing a new application and want to assist developers in leveraging the power Azure AD, see [Guiding developers](../active-directory-applications-guiding-developers-for-lob-applications.md).
+If you are writing a new application and want to assist developers in leveraging the power of Azure AD, see [Guiding developers](../active-directory-applications-guiding-developers-for-lob-applications.md).
 
 If you want to add your custom application to the Azure Application Gallery, see [“Bring your own app” with Azure AD Self-Service SAML configuration](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/).
 

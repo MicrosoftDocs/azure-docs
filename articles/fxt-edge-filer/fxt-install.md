@@ -6,7 +6,7 @@ author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
-ms.author: v-erkell
+ms.author: rohogue
 ---
 
 # Tutorial: Install Azure FXT Edge Filer 

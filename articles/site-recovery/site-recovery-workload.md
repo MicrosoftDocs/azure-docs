@@ -1,17 +1,17 @@
 ---
-title: What workloads can you protect with Azure Site Recovery? | Microsoft Docs
+title: About disaster recovery for on-premises apps with Azure Site Recovery 
 description: Describes the workloads that can be protected using disaster recovery with the Azure Site Recovery service. 
 author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 10/10/2019
 ms.author: raynew
 
 ---
-# What workloads can you protect with Azure Site Recovery?
+# About disaster recovery for on-premises apps
 
-This article describes workloads and applications you can protect for disaster recovery with the [Azure Site Recovery](site-recovery-overview.md) service.
+This article describes on-premises workloads and apps you can protect for disaster recovery with the [Azure Site Recovery](site-recovery-overview.md) service.
 
 
 

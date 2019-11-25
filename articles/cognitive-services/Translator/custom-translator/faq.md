@@ -1,7 +1,7 @@
 ---
 title: Frequently Asked Questions - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: Provides answers to frequently asked questions about the Custom Translator.
+description: This article contains answers to frequently asked questions about the Azure Cognitive Services Custom Translator.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -12,7 +12,7 @@ ms.topic: reference
 #Customer intent: As a Custom Translator user, I want to review frequently asked questions.
 ---
 
-# Frequently asked questions
+# Custom Translator frequently asked questions
 
 This article contains answers to frequently asked questions about [Custom Translator](https://portal.customtranslator.azure.ai).
 

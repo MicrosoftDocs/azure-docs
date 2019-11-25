@@ -240,7 +240,7 @@ The .NET client automatically iterates through all the pages of query results in
 
 You can also explicitly control paging by creating `IDocumentQueryable` using the `IQueryable` object, then by reading the `ResponseContinuationToken` values and passing them back as `RequestContinuationToken` in `FeedOptions`. You can set `EnableScanInQuery` to enable scans when the query isn't supported by the configured indexing policy. For partitioned containers, you can use `PartitionKey` to run the query against a single partition, although Azure Cosmos DB can automatically extract this from the query text. You can use `EnableCrossPartitionQuery` to run queries against multiple partitions.
 
-For more .NET samples with queries, see the [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet) in GitHub.
+For more .NET samples with queries, see the [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmos-dotnet-v3) in GitHub.
 
 ## <a id="JavaScript-server-side-API"></a>JavaScript server-side API
 
@@ -283,5 +283,5 @@ The following example shows how to use `queryDocuments` in the JavaScript server
 ## Next steps
 
 - [Introduction to Azure Cosmos DB](introduction.md)
-- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Azure Cosmos DB consistency levels](consistency-levels.md)

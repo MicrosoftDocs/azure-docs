@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Machine PowerShell Samples | Microsoft Docs
+title: Azure Virtual Machine PowerShell Samples 
 description: Azure Virtual Machine PowerShell Samples
 services: virtual-machines-windows
 documentationcenter: virtual-machines

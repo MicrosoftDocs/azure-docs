@@ -3,10 +3,8 @@ title: What is Azure Security Center?| Microsoft Docs
 description: Learn about Azure Security Center, its key capabilities, and how it works.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: 45b9756b-6449-49ec-950b-5ed1e7c56daa
 ms.service: security-center
 ms.devlang: na
@@ -14,8 +12,8 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 6/06/2019
-ms.author: v-mohabe
+ms.date: 06/06/2019
+ms.author: memildin
 
 ---
 # What is Azure Security Center?
@@ -36,7 +34,7 @@ Azure Security Center addresses the three most urgent security challenges:
 To help you protect yourself against these challenges, Security Center provides
 you with the tools to:
 
--   **Strengthen security posture**: Security Center assesses your environment and enables you to understand the status of your resources, are they secure or not?
+-   **Strengthen security posture**: Security Center assesses your environment and enables you to understand the status of your resources, and whether they are secure.
 
 -   **Protect against threats**: Security Center assesses your workloads and raises threat prevention recommendations and threat detection alerts.
 

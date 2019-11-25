@@ -1,6 +1,6 @@
 ---
-title: Run a playbook in Azure Sentinel Preview| Microsoft Docs
-description: This article describes how to run a playbook in Azure Sentinel.
+title: 'Tutorial: Run a playbook in Azure Sentinel'
+description: 'Tutorial: This article describes how to run a playbook in Azure Sentinel.'
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -15,16 +15,13 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/21/2019
+ms.date: 11/12/2019
 ms.author: rkarlin
 ---
 
-# Tutorial: Set up automated threat responses in Azure Sentinel Preview
+# Tutorial: Set up automated threat responses in Azure Sentinel
 
-> [!IMPORTANT]
-> Azure Sentinel is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 This tutorial helps you to use security playbooks in Azure Sentinel to set automated threat responses to security-related issues detected by Azure Sentinel.
 
@@ -75,7 +72,9 @@ Follow these steps to create a new security playbook in Azure Sentinel:
 
 6. You are taken to the Logic App Designer where you can either build new or edit the template. For more information on creating a playbook with [Logic Apps](../logic-apps/logic-apps-create-logic-apps-from-templates.md).
 
-7. If you are creating a blank playbook, in the **Search all connectors and triggers** field, type *Azure Sentinel*, and select **When a response to an Azure Sentinel alert is triggered**. <br>After it is created, the new playbook appears in the **Playbooks** list. If it doesn’t appear, click **Refresh**. 
+7. If you are creating a blank playbook, in the **Search all connectors and triggers** field, type *Azure Sentinel*, and select **When a response to an Azure Sentinel alert is triggered**. <br>After it is created, the new playbook appears in the **Playbooks** list. If it doesn’t appear, click **Refresh**.
+
+1. Use the **Get entities** functions, which enable you to get the relevant entities from inside the **Entities** list, such as accounts, IP addresses and hosts. This will enable you to run actions on specific entities.
 
 7. Now you can define what happens when you trigger the playbook. You can add an action, logical condition, switch case conditions, or loops.
 
@@ -105,7 +104,7 @@ To automate responses:
 1. In the **Edit alert rule** page, under **Real-time automation**, choose the **Triggered playbook** you want to run when this alert rule is matched.
 1. Select **Save**.
 
-   ![real time automation](./media/tutorial-detect-threats/rt-configuration.png)
+   ![real-time automation](./media/tutorial-detect-threats/rt-configuration.png)
 
 
 

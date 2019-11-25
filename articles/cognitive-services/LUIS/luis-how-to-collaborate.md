@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 11/19/2019
 ms.author: diberry
 ---
 
@@ -49,8 +49,6 @@ An app has a single author, the owner, but can have many collaborators. To allow
 1. Select **Manage** from the top right menu, then select **Collaborators** in the left menu.
 
 1. Select **Add Collaborator** from the toolbar.
-
-    [![Add collaborator](./media/luis-how-to-collaborate/add-collaborator.png "Add collaborator")](./media/luis-how-to-collaborate/add-collaborator.png#lightbox)
 
 1. Enter the email address the collaborator uses to sign in to the LUIS portal.
 
@@ -94,6 +92,6 @@ Learn more about Azure active directory users and consent:
 ## Next steps
 
 * Learn [how to use versions](luis-how-to-manage-versions.md) to control your app life cycle.
-* Understand the concepts including the [authoring resource](/luis-concept-keys.md#authoring-key) and [contributors](luis-concept-keys.md#contributions-from-other-authors) on that resource.
+* Understand the concepts including the [authoring resource](luis-concept-keys.md#authoring-key) and [contributors](luis-concept-keys.md#contributions-from-other-authors) on that resource.
 * Learn [how to create](luis-how-to-azure-subscription.md) authoring and runtime resources
 * Migrate to the new [authoring resource](luis-migration-authoring.md) 

@@ -1,12 +1,12 @@
 ---
-title: Get started with combined registration for Azure AD SSPR and Multi-Factor Authentication (preview) - Azure Active Directory
+title: Get started with combined registration - Azure Active Directory
 description: Enable combined Azure AD Multi-Factor Authentication and self-service password reset registration (preview)
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -27,7 +27,7 @@ Before enabling the new experience, review the article [Combined security inform
 |     |
 
 > [!NOTE]
-> Organizations who enabled the previous preview for registering and managing security info should complete the steps below to enable the enhanced preview experience. For organizations who do not make the switch, on September 25, 2019, Microsoft will switch users of the previous preview for registering and managing security info to the enhanced experience. 
+> Organizations who enabled the previous preview for registering and managing security info should complete the steps below to enable the enhanced preview experience. For organizations who do not make the switch, on October 8, 2019, Microsoft will switch users of the previous preview for registering and managing security info to the enhanced experience. 
 > 
 > If you have not enabled any version of the preview your organization will not be impacted.
 

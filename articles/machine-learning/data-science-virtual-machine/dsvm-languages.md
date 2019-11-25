@@ -7,10 +7,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
 
-author: vijetajo
-ms.author: vijetaj
+author: gvashishtha
+ms.author: gopalv
 ms.topic: conceptual
-ms.date: 09/11/2017
+ms.date: 09/27/2019
 
 
 ---
@@ -46,6 +46,8 @@ The Data Science Virtual Machine (DSVM) comes with several pre-built languages a
     # To run Python 3.6
     activate 
     python --version 
+    ```
+    
 * Use in an IDE:
 
   Use Python Tools for Visual Studio (PTVS), installed in the Visual Studio Community edition. By default, the only environment that's set up automatically in PTVS is Python 3.6. 
@@ -61,18 +63,17 @@ The Data Science Virtual Machine (DSVM) comes with several pre-built languages a
 
   The default Python environments on the DSVM are global environments that are readable by all users. But only administrators can write and install global packages. To install packages to the global environment, activate to the root or python2 environment by using the `activate` command as an administrator. Then, you can use a package manager like `conda` or `pip` to install or update packages.
 
-## Python (Linux and Windows Server 2012 edition)
+## Python (Linux edition)
 
 |    |           |
 | ------------- | ------------- |
 | Language versions supported | Python 2.7 and 3.5 |
-| Supported DSVM editions      | Linux, Windows Server 2012    |
+| Supported DSVM editions      | Linux   |
 | How is it configured / installed on the DSVM?  | Two global `conda` environments are created: <br /> * `root` environment located at `/anaconda/` is Python 2.7. <br/> * `py35` environment located at `/anaconda/envs/py35`is Python 3.5.       |
 | Links to samples      | Sample Jupyter notebooks for Python are included.     |
 | Related tools on the DSVM      | PySpark, R, Julia      |
 ### How to use and run it    
 
-**Linux**
 * Run in a terminal:
 
   Open the terminal and do one of the following, depending on the version of Python you want to run:
@@ -99,34 +100,6 @@ The Data Science Virtual Machine (DSVM) comes with several pre-built languages a
 
   The default Python environments on the DSVM are global environments readable by all users. But only administrators can write and install global packages. To install packages to the global environment, activate to the root or py35 environment by using the `source activate` command as an administrator or as a user with sudo permissions. Then, you can use a package manager like `conda` or `pip` to install or update packages.
 
-**Windows 2012**
-* Run at a command prompt:
-
-  Open a command prompt and do one of the following, depending on the version of Python you want to run:
-
-     ```
-    # To run Python 2.7
-    activate 
-    python --version
-    
-    # To run Python 3.5
-    activate py35
-    python --version
-    
-    ```
-* Use in an IDE:
-
-  Use Python Tools for Visual Studio (PTVS) installed in the Visual Studio Community edition. The only environment that's set up automatically in PTVS is Python 2.7.
-    > [!NOTE]
-    > To point PTVS at Python 3.5, you need to create a custom environment in PTVS. To set this environment path in the Visual Studio Community edition, go to **Tools** -> **Python Tools** -> **Python Environments** and select **+ Custom**. Then, set the location to `c:\anaconda\envs\py35` and select _Auto Detect_.
-
-* Use in Jupyter:
-
-  Open Jupyter and select **New** to create a new notebook. You can set the kernel type as **Python [Conda Root]** for Python 2.7 and **Python [Conda env:py35]** for Python 3.5. 
-
-* Install Python packages:
-
-  The default Python environments on the DSVM are global environments that are readable by all users. But only administrators can write and install global packages. To install packages to the global environment, activate to the root or py35 environment by using the `activate` command as an administrator. Then, you can use a package manager like `conda` or `pip` to install or update packages.
 
 ## R
 

@@ -1,18 +1,13 @@
 ---
 title: Create performance alerts by using Azure Monitor for containers | Microsoft Docs
 description: This article describes how to use Azure Monitor for containers to create custom alerts based on log queries for memory and CPU utilization.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: 
-ms.assetid: 
-ms.service: azure-monitor
+ms.service:  azure-monitor
+ms.subservice: 
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/26/2019
+author: mgoedtel
 ms.author: magoedte
+ms.date: 04/26/2019
+
 ---
 
 # How to set up alerts for performance problems in Azure Monitor for containers
@@ -309,4 +304,4 @@ Follow these steps to create a log alert in Azure Monitor by using one of the lo
 ## Next steps
 
 - View [log query examples](container-insights-log-search.md#search-logs-to-analyze-data) to see pre-defined queries and examples to evaluate or customize for alerting, visualizing, or analyzing your clusters.
-- To learn more about Azure Monitor and how to monitor other aspects of your AKS cluster, see [View Azure Kubernetes Service health](container-insights-analyze.md).
+- To learn more about Azure Monitor and how to monitor other aspects of your Kubernetes cluster, see [View Kubernetes cluster performance](container-insights-analyze.md) and [View Kubernetes cluster health](container-insights-health.md).

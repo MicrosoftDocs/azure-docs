@@ -91,9 +91,3 @@ If you need to talk to someone, you can open a support request. If you are an Az
 * If you are not an Azure customer, you can also open a support request with Microsoft via [our commercial support](https://support.microsoft.com/en-us/gp/contactus81?Audience=Commercial).
 
 You can also try a [virtual agent](https://support.microsoft.com/contactus/?ws=support) to obtain support or ask questions.
-
-### Free chat support for a limited time
-
-You can also use our chat support, which is free for Microsoft Partners for a limited time. If your company is not a Microsoft Partner, you can enroll it for free and obtain other benefits by going [here](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx).
-
-After enrolling your company, you can start the chat request [here](https://aka.ms/devchat).

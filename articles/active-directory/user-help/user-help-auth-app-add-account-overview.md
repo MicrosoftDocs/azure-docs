@@ -1,6 +1,6 @@
 ---
-title: Overview about adding accounts to the Microsoft Authenticator app - Azure Active Directory | Microsoft Docs
-description: Overview about how to add your work and personal accounts to the Microsoft Authenticator app for two-factor verification.
+title: Overview about adding accounts to an authenticator app - Azure AD
+description: Links to content about how to add your work and personal accounts to the Microsoft Authenticator app for two-factor verification.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -39,7 +39,7 @@ You can turn on two-factor verification for many accounts that you use every day
 | Work or school accounts | The account your work or school organization gave you, for example alain@contoso.com. |
 | Personal accounts | The Microsoft and non-Microsoft accounts you've personally opened, such as for Outlook.com, Xbox LIVE, Google, Facebook, and more. |
 
-## In this section
+## Articles about how to add different accounts
 
 | Article |Description |
 | ------|------------|
