@@ -24,8 +24,8 @@ ms.custom: include file
 <!-- LINKS - Internal -->
 [basic-networking]: ../articles/aks/concepts-network.md#kubenet-basic-networking
 [advanced-networking]: ../articles/aks/concepts-network.md#azure-cni-advanced-networking
-[standard-load-balancer]: ../articles/load-balancer/load-balancer-standard-overview
-[node-pool]: ../articles/aks/use-multiple-node-pools
+[standard-load-balancer]: ../articles/load-balancer/load-balancer-standard-overview.md
+[node-pool]: ../articles/aks/use-multiple-node-pools.md
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
