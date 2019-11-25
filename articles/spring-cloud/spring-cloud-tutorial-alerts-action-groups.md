@@ -23,11 +23,7 @@ In addition to the Azure Spring requirements, this tutorial depends on the follo
 
 * An Azure resource to monitor, for example the database implemented in this article: [How to use Spring Data Apache Cassandra API with Azure Cosmos DB](https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
  
-The following procedures initialize both **Action Group** and **Alert** starting from the **Alerts** option in the left navigation pane. (The procedure can also start from the **Monitor Overview** page of the Azure portal.) 
-
-Navigate from the Azure portal home page to **Resource Groups**.  Select a resource group.  
-
-From the resource group navigation pane, select **Alerts**, then select **Manage actions** .
+The following procedures initialize both **Action Group** and **Alert** starting from the **Alerts** option in the left navigation pane of a Spring Cloud instance. (The procedure can also start from the **Monitor Overview** page of the Azure portal.) 
 
 ![Screenshot portal resource group page](media/alerts-action-groups/action-1-a.png)
 
