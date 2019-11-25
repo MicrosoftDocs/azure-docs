@@ -1,45 +1,41 @@
 ---
-title: How to use the Azure AD Graph API
-description: The Azure Active Directiory (Azure AD) PowerShell provides programmatic functionality to manage Azure AD B2C custom policies. This enables to create, read, update, and delete a custom policy.
+title: Manage Azure AD B2C custom policies with PowerShell
+description: "Use the Azure Active Directory (Azure AD) PowerShell cmdlet for programmatic management of your Azure AD B2C custom policies: create, read, update, and delete custom policies with PowerShell."
 author: mmacy
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 11/25/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
 
-# How to: Manage Azure AD B2C custom policies with Azure PowerShell
+# Manage Azure AD B2C custom policies with Azure PowerShell
 
-## What's new with managing custom policies?
+Whether you're doing one-off custom policy management in your Azure AD B2C tenant or adding it your CI/CD pipeline, PowerShell is a powerful tool you can use performing or automating management tasks.
 
-Up until recently, the only way to upload and download policies in the Azure AD B2C tenant was using Portal. Azure AD B2C is investing in programmatic access via Microsoft Graph for its assets. As a result there are multiple ways to upload and download policies now. Power Shell is another tool which is developer friendly and easy to use.
+In this article, you learn how to:
 
-Whether you are doing one off policy management to your Azure AD B2C tenant or adding this into your CI/CD pipeline, PowerShell can be a powerful tool to acheive easy programmatical tasks without the overhead of using a UX.
-
-In this How-to guide, you will learn how to do the following:
-
-1. List all custom policies in the tenant
-1. Download a specific policy in Azure AD B2C
-1. Update an existing policy by overwriting its content
-1. Upload a new policy to your Azure AD B2C tenant
-1. Deleting a custom policy from Azure AD B2C
+* List the custom policies in an Azure AD B2C tenant
+* Download a policy from a tenant
+* Update an existing policy by overwriting its content
+* Upload a new policy to your Azure AD B2C tenant
+* Delete a custom policy from Azure AD B2C
 
 ## Prerequisites
 
-* An Azure AD subscription with [Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) setup.
-* Installation of the [AzureADPreview](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) PowerShell module
-* An Azure AD admin credential with read/write permissions for custom policies: Global Admin,
+* [Azure AD B2C tenant](tutorial-create-tenant.md), and credentials for a user in the directory with the *Global Admin* role
+* [AzureADPreview](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) PowerShell module
 
 ## Getting Started
 
 ### Downloading the AzureADPreview module
 The Azure Ad Power Shell Preview module provides the functionality to interact with custom policies. This module provides other access to other Azure AD entities as well such as users. The module can be imported as shown below in your PowerShell console. Visit the [Azure Active Directory PowerShell for Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) for additional guidance.
 
-Not sure if you have the right version downloaded? It is easy to check. Start off by running
+Not sure if you have the right version downloaded? It is easy to check. Start by running:
+
 ```PowerShell
 PS C:\Users> Get-Module
 
@@ -58,15 +54,18 @@ If your computer has all the prerequisites for the installation, to install the 
 ```PowerShell
 Install-module AzureADPreview
 ```
-> Note that you cannot install both the preview version and the GA version on the same computer at the same time.
+
+You cannot install both the preview version and the GA version on the same computer.
 
 ### Connect to Azure AD B2C tenant
+
 Before you can run any of the cmdlets discussed in this article, you must first connect to your online service. To do so, run the cmdlet Connect-AzureAD at the Windows PowerShell command prompt. You will then be prompted for your credentials. If you want, you can supply your credentials in advance, for example:
 
 ```PowerShell
 $AzureAdCred = Get-Credential
 Connect-AzureAD -Credential $AzureAdCred
 ```
+
 The first command prompts for credentials and stores them as $AzureAdCred. The next command uses those credentials as $azureadcred to connect to the service.
 
 To connect to a specific environment of Azure Active Directory, use the AzureEnvironment parameter, as follows:
@@ -83,7 +82,7 @@ Programatically discovering custom policies allows an Azure AD B2C admin to revi
 ```PowerShell
 PS C:\> Get-AzureADMSTrustFrameworkPolicy
 Id
- — 
+ —
 B2C_1A_TrustFrameworkBase
 B2C_1A_TrustFrameworkExtensions
 B2C_1A_TrustFrameworkBase1
@@ -97,7 +96,7 @@ B2C_1A_signup_signin2
 ```
 
 
-## Download a specific policy in Azure AD B2C 
+## Download a specific policy in Azure AD B2C
 After reviewing the list of PolicyId's, you can target a specific policy and download the content. In this example, we will target policyId **B2C_1A_signup_signin**.
 
 `Get-AzureADMSTrustFrameworkPolicy [-Id <policyId>]  `
@@ -165,9 +164,9 @@ To maintain a clean operations lifecycle, it is recommended to remove unused cus
 PS C:\> Remove-AzureADMSTrustFrameworkPolicy -Id B2C_1A_signup_signin
 ```
 
-## Troubleshooting PowerShell commands 
+## Troubleshooting PowerShell commands
 When attempting to publish a custom policy to the Azure AD B2C tenant, there are several valid scenarios that can occur errors:
-* Improper XML format - this can be resolved with an online XML validator site or extension tools from your preferred XML editor. 
+* Improper XML format - this can be resolved with an online XML validator site or extension tools from your preferred XML editor.
 * Policy validation errors - this includes the chain of files the upload file refers to (the relying party policy file, the extensions file, and the base file).
 
 > For more information please refer to our walkthrough  [Troubleshoot Azure AD B2C custom policies and Identity Experience Framework](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-guide-troubleshooting-custom) documentation.
