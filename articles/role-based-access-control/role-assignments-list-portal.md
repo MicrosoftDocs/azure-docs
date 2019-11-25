@@ -75,17 +75,17 @@ To list access for a user, group, service principal, or managed identity, you li
 
 1. Click the **Check access** tab.
 
-    ![Access control - Check access tab](./media/role-assignments-portal/access-control-check-access.png)
+    ![Access control - Check access tab](./media/role-assignments-list-portal/access-control-check-access.png)
 
 1. In the **Find** list, select the type of security principal you want to check access for.
 
 1. In the search box, enter a string to search the directory for display names, email addresses, or object identifiers.
 
-    ![Check access select list](./media/role-assignments-portal/check-access-select.png)
+    ![Check access select list](./media/role-assignments-list-portal/check-access-select.png)
 
 1. Click the security principal to open the **assignments** pane.
 
-    ![assignments pane](./media/role-assignments-portal/check-access-assignments.png)
+    ![assignments pane](./media/role-assignments-list-portal/check-access-assignments.png)
 
     On this pane, you can see the roles assigned to the selected security principal and the scope. If there are any deny assignments at this scope or inherited to this scope, they will be listed.
 
@@ -99,7 +99,7 @@ To list access for a user, group, service principal, or managed identity, you li
 
 1. Click the **Role assignments** tab to view all the role assignments at this scope.
 
-   ![Access control - Role assignments tab](./media/role-assignments-portal/access-control-role-assignments.png)
+   ![Access control - Role assignments tab](./media/role-assignments-list-portal/access-control-role-assignments.png)
 
    On the Role assignments tab, you can see who has access at this scope. Notice that some roles are scoped to **This resource** while others are **(Inherited)** from another scope. Access is either assigned specifically to this resource or inherited from an assignment to the parent scope.
 
