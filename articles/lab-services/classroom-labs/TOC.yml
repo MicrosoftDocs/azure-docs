@@ -38,6 +38,10 @@
       href: class-type-shell-scripting-linux.md
     - name: Ethical hacking
       href: class-type-ethical-hacking.md
+    - name: Database management
+      href: class-type-database-management.md
+    - name: Python and Jupyter Notebooks
+      href: class-type-jupyter-notebook.md
   - name: Create and configure lab accounts (lab account owner)
     items:
     - name: Create and manage lab accounts

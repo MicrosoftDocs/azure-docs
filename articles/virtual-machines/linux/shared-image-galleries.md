@@ -1,5 +1,5 @@
 ---
-title: Share VM images with Shared Galleries | Microsoft Docs
+title: Share VM images with Shared Galleries 
 description: Learn how to use shared image galleries to share VM images across your organization.
 services: virtual-machines-linux
 documentationcenter: virtual-machines

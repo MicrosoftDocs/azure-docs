@@ -1,12 +1,8 @@
 ---
 title: Estimating Consumption plan costs in Azure Functions
 description: Learn how to better estimate the costs that you may incur when running your function app in a Consumption plan in Azure.
-author: ggailey777
-ms.author: glenga
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.service: azure-functions
-manager: gwallace
 # Customer intent: As a cloud developer, I want to understand the overall costs of running my code in Azure Functions so that I can make better architectural and business decisions.
 ---
 

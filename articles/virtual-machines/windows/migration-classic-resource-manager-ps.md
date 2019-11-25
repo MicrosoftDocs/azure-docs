@@ -1,5 +1,5 @@
 ﻿---
-title: Migrate to Resource Manager with PowerShell | Microsoft Docs
+title: Migrate to Resource Manager with PowerShell 
 description: This article walks through the platform-supported migration of IaaS resources such as virtual machines (VMs), virtual networks (VNETs), and storage accounts from classic to Azure Resource Manager (ARM) by using Azure PowerShell commands
 services: virtual-machines-windows
 documentationcenter: ''

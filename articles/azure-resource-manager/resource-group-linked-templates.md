@@ -1,11 +1,8 @@
 ---
-title: Link templates for Azure deployment | Microsoft Docs
+title: Link templates for deployment
 description: Describes how to use linked templates in an Azure Resource Manager template to create a modular template solution. Shows how to pass parameters values, specify a parameter file, and dynamically created URLs.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.author: tomfitz
 ---
 # Using linked and nested templates when deploying Azure resources
 

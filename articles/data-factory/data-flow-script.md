@@ -58,7 +58,7 @@ source(output(
 	),
 	allowSchemaDrift: true,
 	validateSchema: false) ~> source1
-<b>derive(upperCaseTitle = upper(title)) ~> deriveTransformationName</b>
+derive(upperCaseTitle = upper(title)) ~> deriveTransformationName
 source1 sink(allowSchemaDrift: true,
 	validateSchema: false) ~> sink1
 ```
@@ -72,7 +72,7 @@ source(output(
 	),
 	allowSchemaDrift: true,
 	validateSchema: false) ~> source1
-<b>source1</b> derive(upperCaseTitle = upper(title)) ~> deriveTransformationName
+source1 derive(upperCaseTitle = upper(title)) ~> deriveTransformationName
 source1 sink(allowSchemaDrift: true,
 	validateSchema: false) ~> sink1
 ```
@@ -87,7 +87,7 @@ source(output(
 	allowSchemaDrift: true,
 	validateSchema: false) ~> source1
 source1 derive(upperCaseTitle = upper(title)) ~> deriveTransformationName
-<b>deriveTransformationName</b> sink(allowSchemaDrift: true,
+deriveTransformationName sink(allowSchemaDrift: true,
 	validateSchema: false) ~> sink1
 ```
 
@@ -97,8 +97,8 @@ The DFS is composed of a series of connected transformations, including sources,
 Sources all have the same basic construction:
 ```
 source(
-  <i>source properties</i>
-) ~> <b>source_name</b>
+  source properties
+) ~> source_name
 ```
 
 For instance, a simple source with three columns (movieId, title, genres) would be:
@@ -114,9 +114,9 @@ source(output(
 
 All transformations other than sources have the same basic construction:
 ```
-<b>name_of_incoming_stream</b> transformation_type(
-  <i>properties</i>
-) ~> <b>new_stream_name</b>
+name_of_incoming_stream transformation_type(
+  properties
+) ~> new_stream_name
 ```
 
 For example, a simple derive transformation that takes a column (title) and overwrites it with an uppercase version would be as follows:

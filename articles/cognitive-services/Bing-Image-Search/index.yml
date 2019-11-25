@@ -5,7 +5,7 @@ metadata:
   document_id: ce69fd12-adf8-11e7-abc4-cec278b6b50a
   title: Bing Image Search API Documentation - Tutorials, quickstarts, API references
   titleSuffix: Azure Cognitive Services
-  description: Learn how to use the Bing Image Search API to search the web for images. 
+  description: The Bing Image Search API enables you to integrate Bing's image search capabilities in your applications.
   services: cognitive-services
   author: nitinme
   manager: nitinme

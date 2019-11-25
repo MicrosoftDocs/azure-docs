@@ -7,7 +7,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/30/2019
+ms.date: 11/20/2019
 ---
 
 # Role-based access control in Azure Digital Twins

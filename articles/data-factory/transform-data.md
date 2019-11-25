@@ -29,7 +29,7 @@ manager: craigg
 > * [.NET custom](transform-data-using-dotnet-custom-activity.md)
 
 ## Overview
-This article explains data transformation activities in Azure Data Factory that you can use to transform and processes your raw data into predictions and insights at scale. A transformation activity executes in a computing environment such as Azure Databricks or Azure HDInsight. It provides links to articles with detailed information on each transformation activity.
+This article explains data transformation activities in Azure Data Factory that you can use to transform and process your raw data into predictions and insights at scale. A transformation activity executes in a computing environment such as Azure Databricks or Azure HDInsight. It provides links to articles with detailed information on each transformation activity.
 
 Data Factory supports the following data transformation activities that can be added to [pipelines](concepts-pipelines-activities.md) either individually or chained with another activity.
 

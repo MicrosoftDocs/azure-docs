@@ -1,7 +1,7 @@
 ---
 title: Examples of Bing insights - Bing Visual Search
 titleSuffix: Azure Cognitive Services
-description: Shows examples of image insights shown on Bing.com.
+description: This article contains examples of how Bing Visual Search might use and display image insights on Bing.com.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme

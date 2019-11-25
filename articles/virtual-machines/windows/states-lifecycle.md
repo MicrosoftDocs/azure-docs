@@ -1,5 +1,5 @@
 ---
-title: Lifecycle and states of a Windows VM in Azure | Microsoft Docs
+title: Lifecycle and states of a Windows VM in Azure 
 description: Overview of the lifecycle of a Windows VM in Azure including descriptions of the various states a VM can be in at any time.
 services: virtual-machines-windows
 documentationcenter: ''
