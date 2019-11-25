@@ -46,10 +46,13 @@ var clientSecret = "xxxxxxxxxxxxxx";//Client secret
 var subscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
 
 var serviceCreds = await ApplicationTokenProvider.LoginSilentAsync(tenantId, clientId, clientSecret);
-var resourceManagementClient = new ResourceManagementClient(serviceCreds);
+var resourceManagementClient = new KustoManagementClient(serviceCreds){
+	SubscriptionId = subscriptionId
+};
 
 var leaderResourceGroupName = "testrg";
 var followerResourceGroupName = "followerResouceGroup";
+var leaderResourceGroup = "leaderResouceGroup";
 var leaderClusterName = "leader";
 var followerClusterName = "follower";
 var attachedDatabaseConfigurationName = "adc";
@@ -59,7 +62,7 @@ var location = "North Central US";
 
 AttachedDatabaseConfiguration attachedDatabaseConfigurationProperties = new AttachedDatabaseConfiguration()
 {
-	ClusterResourceId = $"/subscriptions/{subscriptionId}/resourceGroups/{followerResourceGroupName}/providers/Microsoft.Kusto/Clusters/{followerClusterName}",
+	ClusterResourceId = $"/subscriptions/{subscriptionId}/resourceGroups/{leaderResourceGroup}/providers/Microsoft.Kusto/Clusters/{leaderClusterName}",
 	DatabaseName = databaseName,
 	DefaultPrincipalsModificationKind = defaultPrincipalsModificationKind,
 	Location = location
@@ -196,7 +199,9 @@ var clientSecret = "xxxxxxxxxxxxxx";//Client secret
 var subscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
 
 var serviceCreds = await ApplicationTokenProvider.LoginSilentAsync(tenantId, clientId, clientSecret);
-var resourceManagementClient = new ResourceManagementClient(serviceCreds);
+var resourceManagementClient = new KustoManagementClient(serviceCreds){
+	SubscriptionId = subscriptionId
+};
 
 var followerResourceGroupName = "testrg";
 //The cluster and database that are created as part of the prerequisites
@@ -217,7 +222,9 @@ var clientSecret = "xxxxxxxxxxxxxx";//Client secret
 var subscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
 
 var serviceCreds = await ApplicationTokenProvider.LoginSilentAsync(tenantId, clientId, clientSecret);
-var resourceManagementClient = new ResourceManagementClient(serviceCreds);
+var resourceManagementClient = new KustoManagementClient(serviceCreds){
+	SubscriptionId = subscriptionId
+};
 
 var leaderResourceGroupName = "testrg";
 var followerResourceGroupName = "followerResouceGroup";
@@ -237,12 +244,12 @@ resourceManagementClient.Clusters.DetachFollowerDatabases(leaderResourceGroupNam
 
 ### Manage principals
 
-When attaching a database, specify the **default principals modification kind"**. The default is keeping the leader database collection of [authorized principals](/azure/kusto/management/access-control/index#authorization)
+When attaching a database, specify the **"default principals modification kind"**. The default is keeping the leader database collection of [authorized principals](/azure/kusto/management/access-control/index#authorization)
 
 |**Kind** |**Description**  |
 |---------|---------|
 |**Union**     |   The attached database principals will always include the original database principals plus additional new principals added to the follower database.      |
-|**Replace**   |    No inheritance of principals from the original database. New principals must be created for the attached database. At least one principal needs to be added to block principal inheritance.     |
+|**Replace**   |    No inheritance of principals from the original database. New principals must be created for the attached database.     |
 |**None**   |   The attached database principals include only the principals of the original database with no additional principals.      |
 
 For more information about using control commands to configure the authorized principals, see [Control commands for managing a follower cluster](/azure/kusto/management/cluster-follower).
