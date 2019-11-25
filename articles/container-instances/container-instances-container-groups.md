@@ -1,5 +1,5 @@
 ---
-title: Azure Container Instances container groups
+title: Introduction to container groups
 description: Learn about container groups in Azure Container Instances, a collection of instances that share a lifecycle and resources such as storage and network
 services: container-instances
 author: dlepow

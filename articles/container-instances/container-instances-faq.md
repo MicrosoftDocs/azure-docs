@@ -1,5 +1,5 @@
 ---
-title: Azure Container Instances - frequently asked questions
+title: Frequently asked questions
 description: Answers for frequently asked questions related to the Azure Container Instances service 
 services: container-instances
 author: dkkapur
