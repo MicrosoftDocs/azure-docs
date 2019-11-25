@@ -33,23 +33,39 @@ The easist way to see the roles assigned to a user or group in a subscription is
 
     You see a list of roles assigned to the selected user or group at various scopes such as management group, subscription, resource group, or resource. This list includes all role assignments you have permission to read.
 
-    ![Azure resources for a user](./media/role-assignments-list-portal/azure-resources-user.png)    
+    ![Role assignments for a user](./media/role-assignments-list-portal/azure-resources-user.png)    
 
 1. To change the subscription, click the **Subscriptions** list.
 
-## List all role assignments for a system-managed identity
+## List all role assignments for a system-assigned managed identity
 
-1. In the Azure portal, open a system-managed identity.
+1. In the Azure portal, open a system-assigned managed identity.
 
-    ![System-managed identity](./media/role-assignments-list-portal/managed-identity.png)
+1. In the left menu, click **Identity**.
+
+    ![System-assigned managed identity](./media/role-assignments-list-portal/identity-system-assigned.png)
 
 1. Under **Role assignments**, click **Show the Azure RBAC roles assigned to this managed identity**.
 
-    You see a list of roles assigned to the selected system-managed identity at various scopes such as management group, subscription, resource group, or resource. This list includes all role assignments you have permission to read.
+    You see a list of roles assigned to the selected system-assigned managed identity at various scopes such as management group, subscription, resource group, or resource. This list includes all role assignments you have permission to read.
+
+    ![Role assignments for a system-assigned managed identity](./media/role-assignments-list-portal/azure-resources-system-assigned.png)
+
+## List all role assignments for a user-assigned managed identity
+
+1. In the Azure portal, open a system-assigned managed identity.
+
+1. Click **Azure resources**.
+
+    You see a list of roles assigned to the selected user-assigned managed identity at various scopes such as management group, subscription, resource group, or resource. This list includes all role assignments you have permission to read.
+
+    ![Role assignments for a system-assigned managed identity](./media/role-assignments-list-portal/azure-resources-user-assigned.png)
+
+1. To change the subscription, click the **Subscriptions** list.
 
 ## List role assignments for a user at a scope
 
-To list access for a user, group, service principal, or managed identity, you view their role assignments. Follow these steps to view the access for a single user, group, service principal, or managed identity at a particular scope.
+To list access for a user, group, service principal, or managed identity, you list their role assignments. Follow these steps to list the role assignments for a single user, group, service principal, or managed identity at a particular scope.
 
 1. In the Azure portal, click **All services** and then select the scope. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
 

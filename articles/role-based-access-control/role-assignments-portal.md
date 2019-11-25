@@ -107,7 +107,7 @@ To make a user an administrator of an Azure subscription, assign them the [Owner
 
 ## Remove a role assignment
 
-In RBAC, to remove access, you remove a role assignment. Follow these steps to remove access.
+In RBAC, to remove access, you remove a role assignment. Follow these steps to remove a role assignment.
 
 1. Open **Access control (IAM)** at a scope, such as management group, subscription, resource group, or resource, where you want to remove access.
 
