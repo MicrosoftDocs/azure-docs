@@ -14,11 +14,11 @@ ms.date: 11/04/2019
 
 Labeling voluminous data in machine learning projects is often a headache. Projects that have a computer-vision component, such as image classification or object detection, generally require labels for thousands of images.
  
-Azure Machine Learning gives you a central place to create, manage, and monitor labeling projects. Use it to coordinate data, labels, and team members to efficiently manage labeling tasks. Machine Learning supports image classification, either multi-label or multi-class, and object identification together with bounded boxes.
+[Azure Machine Learning](https://ml.azure.com/) gives you a central place to create, manage, and monitor labeling projects. Use it to coordinate data, labels, and team members to efficiently manage labeling tasks. Machine Learning supports image classification, either multi-label or multi-class, and object identification together with bounded boxes.
 
 Machine Learning tracks progress and maintains the queue of incomplete labeling tasks. Labelers don't need an Azure account to participate. After they are authenticated with your Microsoft account or [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis), they can do as much labeling as their time allows.
 
-In [Machine Learning](https://ml.azure.com/), you start and stop the project, add and remove people and teams, and monitor progress. You can export labeled data in COCO format or as an Azure ML dataset.
+In Machine Learning, you start and stop the project, add and remove people and teams, and monitor progress. You can export labeled data in COCO format or as an Azure Machine Learning dataset.
 
 In this article, you'll learn how to:
 
@@ -34,7 +34,7 @@ In this article, you'll learn how to:
 * The data that you want to label, either in local files or in Azure storage.
 * The set of labels that you want to apply.
 * The instructions for labeling.
-* An [Azure subscription](https://aka.ms/AMLFree). If you don’t have an Azure subscription, create a free account before you begin.
+* An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLFree) before you begin.
 * A Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
 ## Create a labeling project
@@ -93,7 +93,7 @@ The data gets uploaded to the default blob store ("workspaceblobstore") of your 
 
 On the **Label classes** page, specify the set of classes to categorize your data. Do this carefully, because your labelers' accuracy and speed will be affected by their ability to choose among the classes. For instance, instead of spelling out the full genus and species for plants or animals, use a field code or abbreviate the genus.
 
-Enter one label per row. Use the **+** button to add a new row. If you have more than 3 or 4 labels but fewer than 10, you may want to prefix the names with numbers ("1: ", "2: ") to help labelers who use the number keys to speed their work.
+Enter one label per row. Use the **+** button to add a new row. If you have more than 3 or 4 labels but fewer than 10, you may want to prefix the names with numbers ("1: ", "2: ") so the labelers can use the number keys to speed their work.
 
 ## Describe the labeling task
 
@@ -109,7 +109,7 @@ It's important to clearly explain the labeling task. On the **Labeling instructi
 
 For bounding boxes, important questions include:
 
-* How is the bounding box defined for this task? Should it be entirely on interior of the object, or should it be on the exterior? Should it be cropped as closely as possible, or is some clearance acceptable?
+* How is the bounding box defined for this task? Should it be entirely on the interior of the object, or should it be on the exterior? Should it be cropped as closely as possible, or is some clearance acceptable?
 * What level of care and consistency do you expect the labelers to apply in defining bounding boxes?
 
 >[!NOTE]
@@ -123,7 +123,7 @@ After the labeling project is initialized, some aspects of the  project are immu
 
 By default, each labeling project that you create gets a new team with you as a member. But teams can also be shared between projects. And projects can have more than one team. To create a team, select **Add team** on the **Teams** page.
 
-You manage people on the **People** page. Add and remove people by email address. Each labeler has to authenticate through their Microsoft account or Azure Active Directory, if you use it.  
+You manage people on the **People** page. Add and remove people by email address. Each labeler has to authenticate through your Microsoft account or Azure Active Directory, if you use it.  
 
 After you add a person, you can assign them to one or more teams: Go to the **Teams** page, select the team, and then select **Assign people** or **Remove people**.
 
@@ -143,9 +143,9 @@ You can label data directly from the **Project details** page by selecting **Lab
 
 ## Export the labels
 
-You can export the label data for Machine Learning experimentation at any time. Image labels can be exported in [COCO format](http://cocodataset.org/#format-data) or as an Azure ML dataset. Use the **Export** button on the **Project details** page of your labeling project.
+You can export the label data for Machine Learning experimentation at any time. Image labels can be exported in [COCO format](http://cocodataset.org/#format-data) or as an Azure Machine Learning dataset. Use the **Export** button on the **Project details** page of your labeling project.
 
-The COCO file is created in the default blob store of the Azure ML workspace in a folder within *export/coco*. You can access the exported Azure ML dataset in the **Datasets** section of Machine Learning. The dataset details page also provides sample code to access your labels from Python.
+The COCO file is created in the default blob store of the Azure Machine Learning workspace in a folder within *export/coco*. You can access the exported Azure Machine Learning dataset in the **Datasets** section of Machine Learning. The dataset details page also provides sample code to access your labels from Python.
 
 ![Exported dataset](media/how-to-create-labeling-projects/exported-dataset.png)
 
