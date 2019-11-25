@@ -1,12 +1,12 @@
 ---
 title: Azure Cosmos DB Gremlin response headers
 description: Reference documentation for server response metadata that enables additional troubleshooting 
-author: olignat
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: reference
 ms.date: 09/03/2019
-ms.author: olignat
+author: luisbosquez
+ms.author: lbosq
 ---
 
 # Azure Cosmos DB Gremlin server response headers

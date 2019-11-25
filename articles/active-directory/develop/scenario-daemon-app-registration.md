@@ -33,7 +33,7 @@ Given that daemon applications only make sense in Azure AD tenants, when you cre
 
 ## Authentication - no Reply URI needed
 
-In the case where your confidential client application uses **only** the client credentials flow, the reply URL doesn't need to be registered. It's not needed either for the application configuration/construction. The client credentials flow doesn't use it.
+In the case where your confidential client application uses **only** the client credentials flow, the Reply URI doesn't need to be registered. It's not needed either for the application configuration/construction. The client credentials flow doesn't use it.
 
 ## API Permissions - app permissions and admin consent
 
@@ -42,7 +42,7 @@ A daemon application can only request application permissions to APIs (not deleg
 ![App permissions and admin consent](media/scenario-daemon-app/app-permissions-and-admin-consent.png)
 
 > [!NOTE]
-> The Web API that you want to call needs to define **application permissions (app roles)**, not delegated permissions. For details on how to expose such an API, see [Protected web API: App registration - when your web API is called by a daemon app](https://docs.microsoft.com/en-us/azure/active-directory/develop/scenario-protected-web-api-app-registration#if-your-web-api-is-called-by-a-daemon-app)
+> The Web API that you want to call needs to define **application permissions (app roles)**, not delegated permissions. For details on how to expose such an API, see [Protected web API: App registration - when your web API is called by a daemon app](scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-daemon-app)
 
 Daemon applications require have a tenant admin pre-consent to the application calling the web API. This consent is provided in the same **API Permission** page, by a tenant admin selecting **Grant admin consent to *our organization***
 

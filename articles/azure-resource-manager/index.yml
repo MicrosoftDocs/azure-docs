@@ -54,6 +54,8 @@ landingContent:
 
       - linkListType: tutorial
         links:
+          - text: Beginner tutorials
+            url: template-tutorial-create-first-template.md
           - text: Deploy multiple instances
             url: resource-manager-tutorial-create-multiple-instances.md
           - text: Set deployment order
@@ -82,7 +84,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure Quickstart templates
-            url: /resources/templates/
+            url: template-deployment-overview.md
   # Card
   - title: Deploy templates
     linkLists:

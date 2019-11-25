@@ -1,12 +1,8 @@
 ---
 title: Using return value from an Azure Function
 description: Learn to manage return values for Azure Functions
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
 
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 01/14/2019
 ms.author: cshoe
@@ -19,21 +15,14 @@ This article explains how return values work inside a function.
 In languages that have a return value, you can bind a function [output binding](./functions-triggers-bindings.md#binding-direction) to the return value:
 
 * In a C# class library, apply the output binding attribute to the method return value.
+* In Java, apply the output binding annotation to the function method.
 * In other languages, set the `name` property in *function.json* to `$return`.
 
 If there are multiple output bindings, use the return value for only one of them.
 
 In C# and C# script, alternative ways to send data to an output binding are `out` parameters and [collector objects](functions-reference-csharp.md#writing-multiple-output-values).
 
-See the language-specific example showing use of the return value:
-
-* [C#](#c-example)
-* [C# script (.csx)](#c-script-example)
-* [F#](#f-example)
-* [JavaScript](#javascript-example)
-* [Python](#python-example)
-
-## C# example
+# [C#](#tab/csharp)
 
 Here's C# code that uses the return value for an output binding, followed by an async example:
 
@@ -59,7 +48,7 @@ public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, ILogg
 }
 ```
 
-## C# script example
+# [C# Script](#tab/csharp-script)
 
 Here's the output binding in the *function.json* file:
 
@@ -92,7 +81,7 @@ public static Task<string> Run(WorkItem input, ILogger log)
 }
 ```
 
-## F# example
+# [F#](#tab/fsharp)
 
 Here's the output binding in the *function.json* file:
 
@@ -114,7 +103,7 @@ let Run(input: WorkItem, log: ILogger) =
     json
 ```
 
-## JavaScript example
+# [JavaScript](#tab/javascript)
 
 Here's the output binding in the *function.json* file:
 
@@ -137,7 +126,7 @@ module.exports = function (context, input) {
 }
 ```
 
-## Python example
+# [Python](#tab/python)
 
 Here's the output binding in the *function.json* file:
 
@@ -159,6 +148,26 @@ def main(input: azure.functions.InputStream) -> str:
         'content': input.read().decode('utf-8')
     })
 ```
+
+# [Java](#tab/java)
+
+Here's Java code that uses the return value for an output binding:
+
+```java
+@FunctionName("QueueTrigger")
+@StorageAccount("AzureWebJobsStorage")
+@BlobOutput(name = "output", path = "output-container/{id}")
+public static String run(
+  @QueueTrigger(name = "input", queueName = "inputqueue") WorkItem input,
+  final ExecutionContext context
+) {
+  String json = String.format("{ \"id\": \"%s\" }", input.id);
+  context.getLogger().info("Java processed queue message. Item=" + json);
+  return json;
+}
+```
+
+---
 
 ## Next steps
 

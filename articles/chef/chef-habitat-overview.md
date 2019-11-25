@@ -2,10 +2,6 @@
 title: Use Habitat to deploy your application to Azure
 description: Learn how to consistently deploy your application to Azure virtual machines and containers
 keywords: azure, chef, devops, virtual machines, overview, automate, habitat
-ms.service: virtual-machines-linux
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
 ---

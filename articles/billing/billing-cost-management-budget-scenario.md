@@ -7,9 +7,7 @@ author: bandersmsft
 manager: dougeby
 editor: ''
 tags: billing
-
-ms.assetid: db93f546-6b56-4b51-960d-1a5bf0274fc8
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
@@ -273,7 +271,7 @@ Action groups are the only endpoint that you will integrate with your budget. Yo
 When you create the action group, you will point to the Logic App that you created earlier in this tutorial.
 
 1.	If you are not already signed-in to the [Azure portal](https://portal.azure.com/), sign-in and select **All services** > **Monitor**.
-2.	Select **Actions groups** from the **Setting** section.
+2.	Select **Alerts** then select **Manage actions**.
 3.	Select **Add an action group** from the **Action groups** blade.
 4.	Add and verify the following items:
     - Action group name

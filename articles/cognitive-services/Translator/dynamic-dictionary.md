@@ -1,7 +1,7 @@
 ---
 title: Dynamic Dictionary - Translator Text API
 titleSuffix: Azure Cognitive Services
-description: How to use the dynamic dictionary feature of the Translator Text API.
+description: This article explains how to use the dynamic dictionary feature of the Azure Cognitive Services Translator Text API.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -18,7 +18,7 @@ If you already know the translation you want to apply to a word or a phrase, you
 
 **Syntax:**
 
-<mstrans:dictionary translation=”translation of phrase”>phrase</mstrans:dictionary>
+<mstrans:dictionary translation="translation of phrase">phrase</mstrans:dictionary>
 
 **Requirements:**
 

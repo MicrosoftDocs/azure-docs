@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 08/01/2019
+ms.date: 10/15/2019
 ms.author: aahi
 ---
 
@@ -21,7 +21,7 @@ Use the Anomaly Detector client library for Python to:
 * Detect anomalies throughout your time series dataset, as a batch request
 * Detect the anomaly status of the latest data point in your time series
 
-[Library reference documentation](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-anomalydetector) | [Package (PyPi)](https://pypi.org/project/azure-cognitiveservices-anomalydetector/) | [Samples](https://github.com/Azure-Samples/anomalydetector)
+[Library reference documentation](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-anomalydetector) | [Package (PyPi)](https://pypi.org/project/azure-cognitiveservices-anomalydetector/) | [Code samples](https://github.com/Azure-Samples/anomalydetector)
 
 ## Prerequisites
 
@@ -35,11 +35,9 @@ Use the Anomaly Detector client library for Python to:
 
 [!INCLUDE [anomaly-detector-resource-creation](../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
 
-After you get a key from your trial subscription or resource, [create an environment variable](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) for the key, named `ANOMALY_DETECTOR_KEY`.
-
 ### Create a new python application
 
- Create a new Python application in your preferred editor or IDE. Then import the following libraries.
+ Create a new Python file and import the following libraries.
 
 [!code-python[import declarations](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=imports)]
 
@@ -109,7 +107,7 @@ Call the Anomaly Detector API to determine if your latest data point is an anoma
 
 ## Run the application
 
-Run the application in your IDE, or in the command line with the `python` command and your file name.
+Run the application with the `python` command and your file name.
  
 ## Clean up resources
 

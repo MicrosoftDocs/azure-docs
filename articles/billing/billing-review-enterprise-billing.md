@@ -8,7 +8,7 @@ manager:
 editor: ''
 
 ms.assetid: 82D50B98-40F2-44B1-A445-4391EA9EBBAA
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -77,7 +77,7 @@ Status code 200 (OK) is returned for a successful response, which contains a lis
 }
 ```  
 
-This example is abbreviated; see [Get usage detail for a billing account](/rest/api/consumption/usagedetails/list#billingaccountusagedetailslist) for a complete description of each response field and error handling.
+This example is abbreviated; see [Get usage detail for a billing account](/rest/api/consumption/usagedetails/list#billingaccountusagedetailslist-legacy) for a complete description of each response field and error handling.
 
 ## Department billing 
 
@@ -133,7 +133,7 @@ The following example shows the output of the REST API for department `1234`.
 }
 ```  
 
-This example is abbreviated; see [Get usage detail for a department](/rest/api/consumption/usagedetails/list#departmentusagedetailslist) for a complete description of each response field and error handling.
+This example is abbreviated; see [Get usage detail for a department](/rest/api/consumption/usagedetails/list#departmentusagedetailslist-legacy) for a complete description of each response field and error handling.
 
 ## Enrollment account billing
 
@@ -186,7 +186,7 @@ The following example shows the output of the REST API for enterprise enrollment
 }
 ``` 
 
-This example is abbreviated; see [Get usage detail for an enrollment account](/rest/api/consumption/usagedetails/list#enrollmentaccountusagedetailslist) for a complete description of each response field and error handling.
+This example is abbreviated; see [Get usage detail for an enrollment account](/rest/api/consumption/usagedetails/list#enrollmentaccountusagedetailslist-legacy) for a complete description of each response field and error handling.
 
 ## Next steps 
 - Review [Enterprise reporting overview](https://docs.microsoft.com/azure/billing/billing-enterprise-api)

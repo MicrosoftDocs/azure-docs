@@ -1,5 +1,5 @@
 ---
-title: Move data from Cassandra using Data Factory | Microsoft Docs
+title: Move data from Cassandra using Data Factory 
 description: Learn about how to move data from an on-premises Cassandra database using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
