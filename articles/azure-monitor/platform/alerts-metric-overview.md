@@ -2,8 +2,8 @@
 
 title: Understand how metric alerts work in Azure Monitor.
 description: Get an overview of what you can do with metric alerts and how they work in Azure Monitor.
-author: snehithm
-ms.author: snmuvva
+author: rboucher
+ms.author: robb
 ms.date: 11/18/2019
 ms.topic: conceptual
 ms.service: azure-monitor
@@ -140,14 +140,6 @@ For metric alerts, typically you will get notified in under 5 minutes if you set
 
 You can find the full list of supported resource types in this [article](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
-The following types are only supported by classic metric alerts. 
-
-- Microsoft.ClassicCompute/virtualMachines 
-- Microsoft.ClassicCompute/domainNames/slots/roles
-- Microsoft.ClassicStorage/storageAccounts
-- Microsoft.Web/hostingEnvironments/multiRolePools 
-- Microsoft.Web/hostingEnvironments/workerPools
-- Microsoft.SQL/Servers 
 
 ## Next steps
 
