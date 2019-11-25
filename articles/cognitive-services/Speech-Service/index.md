@@ -596,7 +596,7 @@ description: Get started with the Speech Services.
                         </ul>
                     </li>
                     <li>
-                        <a href="#support">Get help and support</a>
+                        <a href="#support">Support</a>
                         <ul id="support" class="cardsC">
                             <li>
                                 <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&q=cognitive&type=&language=">
@@ -654,26 +654,7 @@ description: Get started with the Speech Services.
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
-                            <li>
-                                <a href="releasenotes.md">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/common/i_whats-new.svg" style="width:140px" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Release notes</h3>
-                                                    <p>View the Speech SDK release notes for features releases, enhancements, bug fixes, and known issues.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>                         
+                            </li>                                                    
                         </ul>
                     </li>
                 </ul>
@@ -888,11 +869,11 @@ description: Get started with the Speech Services.
                 </ul>
             </li>
             <li>
-                <a href="#scenarios">Scenarios & Deployment</a>
+                <a href="#scenarios">Scenarios</a>
                 <ul id="scenarios">
                     <li>
-                        <a href="#misc-architecture">Scenarios</a>
-                        <ul id="misc-architecture" class="cardsC">
+                        <a href="#use-cases">Use cases</a>
+                        <ul id="use-cases" class="cardsC">
                             <li>
                                 <a href="call-center-transcription.md">
                                     <div class="cardSize">
