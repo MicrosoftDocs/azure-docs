@@ -15,9 +15,9 @@ ms.author: glenga
 ms.custom: mvc
 ---
 
-# Create a function app for serverless code execution
+# Create a serverless Python function app in Azure 
 
-This Azure Functions sample script creates a function app, which is a container for your functions. The function app is created using the [consumption plan](../functions-scale.md#consumption-plan), which is ideal for event-driven serverless workloads.
+This Azure Functions sample script creates a function app, which is a container for your functions. The function app supports running Python functions on Python version 3.6.
 
 [!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
 

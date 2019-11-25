@@ -37,14 +37,14 @@ This script uses the following commands: Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Create a resource group with location |
-| [az storage accounts create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | Create a storage account |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | Creates a function app in the serverless [consumption plan](../functions-scale.md#consumption-plan). |
-| [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#az-cosmosdb-create) | Create an Azure Cosmos DB database. |
+| [az group create](/cli/azure/group#az-group-create) | Create a resource group with location |
+| [az storage accounts create](/cli/azure/storage/account#az-storage-account-create) | Create a storage account |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Creates a function app in the serverless [consumption plan](../functions-scale.md#consumption-plan). |
+| [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Create an Azure Cosmos DB database. |
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
 Additional Azure Functions CLI script samples can be found in the [Azure Functions documentation](../functions-cli-samples.md).
 
