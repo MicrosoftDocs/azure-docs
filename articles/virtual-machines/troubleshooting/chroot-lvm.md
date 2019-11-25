@@ -41,7 +41,7 @@ Attach a disk to the **rescue** VM made from the snapshot taken previously.
 
 Azure portal -> select the **rescue** VM -> **Disks** 
 
-![createdisk](./media/chroot-logical-volume-manager/createdisk-from-snap.png)
+![createdisk](./media/chroot-logical-volume-manager/create-disk-from-snap.png)
 
 Populate the fields. 
 Assign a name to your new disk, select the same Resource Group as the snapshot, affected VM, and Rescue VM.
@@ -49,7 +49,7 @@ Assign a name to your new disk, select the same Resource Group as the snapshot, 
 The **Source type** is **Snapshot** .
 The **Source snapshot** is the name of the **snapshot** previously created.
 
-![createdisk2](./media/chroot-logical-volume-manager/create-disk-fromsnap-2.png)
+![createdisk2](./media/chroot-logical-volume-manager/create-disk-from-snap-2.png)
 
 Create a mount point for the attached disk.
 
@@ -175,7 +175,7 @@ The **grep** command lists the kernels that **grub.cfg** is aware of.
 ![kernel_default](./media/chroot-logical-volume-manager/kernel-default.png)
 
 **grub2-set-default** is used to change to another kernel
-![grub2_set](./media/chroot-logical-volume-manager/grub2-set-default.png)
+![grub2_set](./media/chroot-logical-volume-manager/grub2_set_default.png)
 
 **grub2-editenv** list displays which kernel will be loaded at next boot
 ![new_kernel](./media/chroot-logical-volume-manager/kernel-new.png)
@@ -246,7 +246,7 @@ Navigate in the Azure portal to the failing VM and select **Disks** -> **Swap OS
 
 Complete the fields the **Choose disk** is the snapshot disk just detached in the previous step. The VM name of the affected VM is also required then select **OK**
 
-![newosdisk](./media/chroot-logical-volume-manager/newosdisk.png) 
+![newosdisk](./media/chroot-logical-volume-manager/new-osdisk.png) 
 
 If the VM is running the Disk Swap will shut it down, reboot the VM once the disk swap operation has completed.
 
