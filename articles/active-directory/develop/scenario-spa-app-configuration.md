@@ -50,7 +50,7 @@ const config = {
 // create UserAgentApplication instance
 const userAgentApplication = new UserAgentApplication(config);
 ```
-For more details on the configurable options, see [Initializing application with MSAL.js](msal-js-initializing-client-applications.md).
+For more information on the configurable options, see [Initializing application with MSAL.js](msal-js-initializing-client-applications.md).
 
 ### Angular
 

@@ -25,8 +25,8 @@ The pattern for acquiring tokens for APIs with MSAL.js is to first attempt a sil
 
 The silent token requests to Azure AD might fail for reasons like an expired Azure AD session or a password change. In that case, you can invoke one of the interactive methods (which will prompt the user) to acquire tokens:
 
-* [Pop-up window](#acquire-token-with-a-pop-up-window), by using `acquireTokenPopup`
-* [Redirect](#acquire-token-with-redirect), by using `acquireTokenRedirect`
+* [Pop-up window](#acquire-a-token-with-a-pop-up-window), by using `acquireTokenPopup`
+* [Redirect](#acquire-a-token-with-a-redirect), by using `acquireTokenRedirect`
 
 ## Choose between a pop-up or redirect experience
 

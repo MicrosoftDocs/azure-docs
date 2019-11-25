@@ -35,7 +35,7 @@ In the [Azure portal](https://go.microsoft.com/fwlink/?linkid=2083908), go to yo
 
 ## Enable the implicit flow
 
-On the same **Authentication** page, under **Advanced settings**, you must also enable **Implicit grant**. If your application is only performing sign-in of users and getting ID tokens, it's enough to select the **ID tokens** check box.
+On the same **Authentication** page, under **Advanced settings**, you must also enable **Implicit grant**. If your application is only signing in users and getting ID tokens, it's enough to select the **ID tokens** check box.
 
 If your application also needs to get access tokens to call APIs, make sure to select the **Access tokens** check box as well. For more information, see [ID tokens](./id-tokens.md) and [Access tokens](./access-tokens.md).
 

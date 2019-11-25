@@ -47,7 +47,7 @@ Use the acquired access token as a bearer in an HTTP request to call any web API
 
 ### Angular
 
-The MSAL Angular wrapper takes advantage of the HTTP interceptor to automatically acquire access tokens silently and attach them to the HTTP requests to APIs. For more information, see [Aquire a token to call an API](scenario-spa-acquire-token.md).
+The MSAL Angular wrapper takes advantage of the HTTP interceptor to automatically acquire access tokens silently and attach them to the HTTP requests to APIs. For more information, see [Acquire a token to call an API](scenario-spa-acquire-token.md).
 
 ## Next steps
 
