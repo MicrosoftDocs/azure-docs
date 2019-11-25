@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell Script Sample -  Create a managed disk from a VHD file in a storage account in same or different subscription | Microsoft Docs
+title: Azure PowerShell Script Sample -  Create a managed disk from a VHD file in a storage account in same or different subscription 
 description: Azure PowerShell Script Sample -  Create a managed disk from a VHD file in a storage account in same or different subscription
 services: virtual-machines-windows
 documentationcenter: storage

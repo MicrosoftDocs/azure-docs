@@ -1,18 +1,15 @@
 ---
-title: Azure Resource Manager template structure and syntax | Microsoft Docs
+title: Template structure and syntax
 description: Describes the structure and properties of Azure Resource Manager templates using declarative JSON syntax.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.author: tomfitz
 ---
 
 # Understand the structure and syntax of Azure Resource Manager templates
 
 This article describes the structure of an Azure Resource Manager template. It presents the different sections of a template and the properties that are available in those sections.
 
-This article is intended for users who have some familiarity with Resource Manager templates. It provides detailed information about the structure of the template. If you want an introduction to creating a template, see [Azure Resource Manager templates](template-deployment-overview.md).
+This article is intended for users who have some familiarity with Resource Manager templates. It provides detailed information about the structure of the template. For a step-by-step tutorial that guides you through the process of creating a template, see [Tutorial: Create and deploy your first Azure Resource Manager template](template-tutorial-create-first-template.md).
 
 ## Template format
 

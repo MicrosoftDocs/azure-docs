@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory Identity Protection notifications| Microsoft Docs
+title: Azure Active Directory Identity Protection notifications
 description: Learn how notifications support your investigation activities.
 
 services: active-directory

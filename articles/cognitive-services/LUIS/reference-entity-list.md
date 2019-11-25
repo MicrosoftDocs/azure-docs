@@ -26,7 +26,32 @@ A list entity isn't machine-learned. It is an exact text match. LUIS marks any m
 
 ![list entity](./media/luis-concept-entities/list-entity.png)
 
-## Example JSON
+## Example .json to import into list entity
+
+  You can import values into an existing list entity using the following .json format:
+
+  ```JSON
+  [
+      {
+          "canonicalForm": "Blue",
+          "list": [
+              "navy",
+              "royal",
+              "baby"
+          ]
+      },
+      {
+          "canonicalForm": "Green",
+          "list": [
+              "kelly",
+              "forest",
+              "avacado"
+          ]
+      }
+  ]  
+  ```
+
+## Example JSON response
 
 Suppose the app has a list, named `Cities`, allowing for variations of city names including city of airport (Sea-tac), airport code (SEA), postal zip code (98101), and phone area code (206).
 

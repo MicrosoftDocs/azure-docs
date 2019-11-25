@@ -1,13 +1,9 @@
 ---
-title: Troubleshoot backup errors with Azure virtual machines
+title: Troubleshoot backup errors with Azure VMs
 description: In this article, learn how to troubleshoot errors encountered with backup and restore of Azure virtual machines.
 ms.reviewer: srinathv
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.author: dacurwin
 ---
 
 # Troubleshooting backup failures on Azure virtual machines
@@ -45,7 +41,7 @@ Error message: Copying backed up data from vault timed out
 
 This could happen due to transient storage errors or insufficient storage account IOPS for backup service to transfer data to the vault within the timeout period. Configure VM backup using these [best practices](backup-azure-vms-introduction.md#best-practices) and retry the backup operation.
 
-## UserErrorVmNotInDesirableState - VM is not in a state that allows backups.
+## UserErrorVmNotInDesirableState - VM is not in a state that allows backups
 
 Error code: UserErrorVmNotInDesirableState <br/>
 Error message: VM is not in a state that allows backups.<br/>
@@ -156,7 +152,7 @@ The snapshot operation failed as the snapshot limit has exceeded for some of the
   * Ensure the value of **isanysnapshotfailed** is set as false in /etc/azure/vmbackup.conf
   * Schedule Azure Site Recovery at a different time, such that it does not conflict the backup operation.
 
-## ExtensionFailedTimeoutVMNetworkUnresponsive - Snapshot operation failed due to inadequate VM resources.
+## ExtensionFailedTimeoutVMNetworkUnresponsive - Snapshot operation failed due to inadequate VM resources
 
 Error code: ExtensionFailedTimeoutVMNetworkUnresponsive<br/>
 Error message: Snapshot operation failed due to inadequate VM resources.

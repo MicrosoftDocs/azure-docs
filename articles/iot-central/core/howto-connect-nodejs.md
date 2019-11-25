@@ -25,7 +25,9 @@ To complete the steps in this article, you need the following:
 
 ## Create a Device Template
 
-In your Azure IoT Central application, you need a device template with the following measurements, device properties, settings, and commands:
+In your Azure IoT Central application, you need a device template with the following measurements, device properties, settings, and commands.
+
+For more information about valid property names, see [Tags and properties format](../../iot-hub/iot-hub-devguide-device-twins.md#tags-and-properties-format).
 
 ### Telemetry measurements
 

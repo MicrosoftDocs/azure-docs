@@ -1,5 +1,5 @@
 ---
-title: 'About Azure Point-to-Site routing | Microsoft Docs'
+title: 'Azure VPN Gateway: About P2S routing'
 description: This article helps you understand how Point-to-Site VPN routing behaves.
 services: vpn-gateway
 author: cherylmc

@@ -1,5 +1,5 @@
 ---
-title:  Scale up partitions and replicas to add capacity for query and index workloads
+title:  Scale capacity for query and index workloads
 titleSuffix: Azure Cognitive Search
 description: Adjust partition and replica computer resources in Azure Cognitive Search, where each resource is priced in billable search units.
 

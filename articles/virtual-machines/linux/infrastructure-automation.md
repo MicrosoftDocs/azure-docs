@@ -1,5 +1,5 @@
 ---
-title: Use infrastructure automation tools for Linux VMs in Azure | Microsoft Docs
+title: Use infrastructure automation tools for Linux VMs in Azure 
 description: Learn how to use infrastructure automation tools such as Ansible, Chef, Puppet, Terraform, and Packer to create and manage Linux virtual machines in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines

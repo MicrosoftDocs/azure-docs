@@ -1,13 +1,9 @@
 ---
-title: Restore data in Azure to a Windows server - Azure Backup
+title: Restore data in Azure to a Windows server
 description: In this article, learn how to restore data stored in Azure to a Windows server or Windows computer with the Microsoft Azure Recovery Services (MARS) Agent.
 ms.reviewer: saurse
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.author: dacurwin
 ---
 # Restore files to Windows by using the Azure Resource Manager deployment model
 
