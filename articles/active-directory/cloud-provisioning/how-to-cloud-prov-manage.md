@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 
 # Azure AD Connect cloud provisioning new configuration
 
-Once you have installed the agent, you need to sign-in to the Azure portal and configure provisionign.  Use the following steps to enable the agent.
+Once you have installed the agent, you need to sign-in to the Azure portal and configure provisioning.  Use the following steps to enable the agent.
 
 ## Configure provisioning
 To configure provisioning, use the following steps:
