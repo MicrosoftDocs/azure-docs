@@ -86,7 +86,7 @@ ItemResponse<DeviceInformationItem> readResponse =
 
 ```
 
-For the complete sample, see the [.Net samples](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/CodeSamples) GitHub repository.
+For the complete sample, see the [.Net samples](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/NonPartitionContainerMigration) GitHub repository.
                       
 ## Migrate the documents
 
@@ -105,7 +105,7 @@ await migratedContainer.Items.ReadItemAsync<DeviceInformationItem>(
 
 ```
 
-For the complete sample on how to repartition the documents, see the [.Net samples](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/CodeSamples) GitHub repository. 
+For the complete sample on how to repartition the documents, see the [.Net samples](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/NonPartitionContainerMigration) GitHub repository. 
 
 ## Compatibility with SDKs
 
