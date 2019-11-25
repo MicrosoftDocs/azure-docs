@@ -1,5 +1,5 @@
 ---
-title: Test Azure Stream Analytics queries locally agaist live stream input using Visual Studio Code
+title: Test Azure Stream Analytics queries locally against live stream input using Visual Studio Code
 description: This article describes how to test queries locally against live stream input using Azure Stream Analytics Tools for Visual Studio Code.
 ms.service: stream-analytics
 author: su-jie
@@ -25,9 +25,9 @@ You can use Azure Stream Analytics tools for Visual Studio Code to test your Str
 
     You can also select **Ctrl+Shift+P** to open the command palette and enter **ASA: Add Input**.
 
-   ![Add Stream Analytics input in VS Code](./media/quick-create-vs-code/add-input.png)
+   ![Add Stream Analytics input in Visual Studio Code](./media/quick-create-vs-code/add-input.png)
 
-2. Choose an input source type from dowp down list.
+2. Choose an input source type from drop down list.
 
    ![Select IoT Hub as input option](./media/quick-create-vs-code/iot-hub.png)
 

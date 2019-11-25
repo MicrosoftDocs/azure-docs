@@ -140,7 +140,7 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
 
 ## Test the query locally with sample data
 
-Before running the query in the cloud, you can test your query locally with an existing local sample data file or data captured from live inputto verify the query logic.
+Before running the query in the cloud, you can test your query locally with an existing local sample data file or data captured from live input to verify the query logic.
 
 Follow the instructions in [Test query locally with sample data](vscode-local-run.md) for more details.
 
@@ -235,7 +235,7 @@ There are two ways to trigger script compilation:
 
 2. Select your subscription from the popup list.
 
-3. Select a job**. Then choose Create a new job.
+3. Select **Select a job**. Then choose **Create New Job**.
 
 4. Enter your job name, **myASAjob** and then follow the instructions to choose the resource group and location.
 
