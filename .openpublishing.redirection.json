@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/sql-database/sql-database-feature-restrictions.md",
+      "redirect_url": "/azure/sql-database",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/digital-twins/how-to-use-legacy-aad.md",
       "redirect_url": "/azure/digital-twins/quickstart-view-occupancy-dotnet#set-permissions-for-your-app",
       "redirect_document_id": false
