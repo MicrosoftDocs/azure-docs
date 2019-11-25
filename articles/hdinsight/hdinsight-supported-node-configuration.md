@@ -35,27 +35,29 @@ For more details on the specification of each VM type, see the following documen
 
 | Cluster type | Hadoop | HBase | Interactive Query | Storm | Spark | ML Server | Kafka |
 |---|---|---|---|---|---|---|---|
-| Head: default VM size | D12_v2 | D12_v2 | D13_v2 | A4_v2 | D12_v2 | D12_v2 | D3_v2 |
-| Head: recommended VM sizes | D13_v2,<br/>D14_v2,<br/>D5_v2 | D3_v2,<br/>D4_v2,<br/>D12_v2 | D13_v2,<br/>D14_v2 | A4_v2,<br/>A8_v2 | D12_v2,<br/>D13_v2,<br/>D14_v2 | D12_v2,<br/>D13_v2,<br/>D14_v2 | D3_v2,<br/>D4_v2,<br/>D12_v2 |
+| Head: default VM size | D12_v2 | D12_v2 | D13_v2 | A4_v2 | D12_v2, <br/>D13_v2* | D12_v2 | D3_v2 |
+| Head: minimum recommended VM sizes | D5_v2 | D3_v2 | D13_v2 | A4_v2 | D12_v2, <br/>D13_v2* | D12_v2 | D3_v2 |
 | Worker: default VM size | D4_v2 | D4_v2 | D14_v2 | D3_v2 | D13_v2 | D4_v2 | 4 D12_v2 with 2 S30 disks per broker |
-| Worker: recommended VM sizes | D5_v2,<br>D12_v2,<br/>D13_v2 | D3_v2,<br/>D4_v2,<br/>D13_v2 | D13_v2,<br/>D14_v2 | D3_v2<br/>D4_v2,<br/>D12_v2 | D12_v2,<br>D13_v2,<br>D14_v2 | D4_v2,<br/>D12_v2,<br>D13_v2,<br>D14_v2 | D3_v2,<br/>D4_v2,<br/>DS3_v2,<br/>DS4_v2 |
+| Worker: minimum recommended VM sizes | D5_v2 | D3_v2 | D13_v2 | D3_v2 | D12_v2 | D4_v2 | D3_v2 |
 | ZooKeeper: default VM size |  | A4_v2 | A4_v2 | A4_v2 |  | A2_v2 | A4_v2 |
-| ZooKeeper: recommended VM sizes |  | A4_v2, <br/>A8_v2, <br/>A2m_v2 | A4_v2,<br/>A8_v2,<br/>A2m_v2 | A4_v2,<br/>A2_v2,<br/>A8_v2 |  | A2_v2 | A4_v2,<br/> A8_v2,<br/>A2m_v2 |
+| ZooKeeper: minimum recommended VM sizes |  | A4_v2 | A4_v2 | A2_v2 |  | A2_v2 | A4_v2 |
 | ML Services: default VM size |  |  |  |  |  | D4_v2 |  |
-| ML Services: recommended VM size |  |  |  |  |  | D4_v2,<br/> D12_v2,<br/> D13_v2,<br/>D14_v2 |  |
+| ML Services: minimum recommended VM size |  |  |  |  |  | D4_v2 |  |
+
+* = VM Sizes for Spark Enterprise Security Package (ESP) clusters
 
 ### Brazil south and Japan west only
 
 | Cluster type | Hadoop | HBase | Interactive Query | Storm | Spark | ML Services |
 |---|---|---|---|---|---|---|
 | Head: default VM size | D12 | D12 | D13 | A4_v2 | D12 | D12 |
-| Head: recommended VM sizes | D5_v2,<br/> D13_v2,<br/> D14_v2 | D3_v2,<br/> D4_v2,<br/> D12_v2 | D13_v2,<br/> D14_v2 | A4_v2,<br/> A8_v2 | D12_v2,<br/> D13_v2,<br/> D14_v2 | D12_v2,<br/> D13_v2,<br/> D14_v2 |
+| Head: recommended VM sizes | D5_v2 | D3_v2 | D13_v2 | A4_v2 | D12_v2 | D12_v2 |
 | Worker: default VM size | D4 | D4 | D14 | D3 | D13 | D4 |
-| Worker: recommended VM sizes | D5_v2,<br/> D12_v2,<br/> D13_v2 | D3_v2,<br/> D4_v2,<br/> D13_v2 | D13_v2,<br/> D14_v2 | D3_v2,<br/> D4_v2,<br/> D12_v2 | D12_v2,<br/> D13_v2,<br/> D14_v2 | D4_v2,<br/> D12_v2,<br/> D13_v2,<br/> D14_v2 |
+| Worker: recommended VM sizes | D5_v2 | D3_v2 | D13_v2 | D3_v2 | D12_v2 | D4_v2 |
 | ZooKeeper: default VM size |  | A4_v2 | A4_v2 | A4_v2 |  | A2_v2 |
-| ZooKeeper: recommended VM sizes |  | A4_v2,<br/> A8_v2,<br/> A2m_v2 | A4_v2,<br/> A8_v2,<br/> A2m_v2 | A4_v2,<br/> A8_v2 |  | A2_v2 |
+| ZooKeeper: recommended VM sizes |  | A4_v2 | A4_v2 | A4_v2 |  | A2_v2 |
 | ML Services: default VM sizes |  |  |  |  |  | D4 |
-| ML Services: recommended VM sizes |  |  |  |  |  | D4_v2,<br/> D12_v2,<br/> D13_v2,<br/> D14_v2 |
+| ML Services: recommended VM sizes |  |  |  |  |  | D4_v2 |
 
 > [!NOTE]
 > - Head is known as *Nimbus* for the Storm cluster type.
