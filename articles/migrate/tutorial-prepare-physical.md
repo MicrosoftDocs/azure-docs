@@ -1,11 +1,11 @@
 ---
-title: Prepare physical servers for assessment with Azure Migrate Server Assessment
-description: Describes how to prepare for assessment and migration of physical servers to Azure using Azure Migrate Server Assessment.
+title: Prepare physical servers for assessment/migration with Azure Migrate
+description: Learn how to prepare for assessment/migration of physical servers with Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/07/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
 ---

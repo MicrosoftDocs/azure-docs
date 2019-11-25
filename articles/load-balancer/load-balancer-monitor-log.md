@@ -1,6 +1,6 @@
 ---
 title: Monitor operations, events, and counters for public Basic Load Balancer
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Learn how to enable alert events, and probe health status logging for public Basic Load Balancer
 services: load-balancer
 documentationcenter: na

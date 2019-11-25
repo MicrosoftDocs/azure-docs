@@ -54,7 +54,6 @@ Azure communicates a schedule for planned maintenance by sending an email to the
 
 Make sure you set the **Event type** as **Planned maintenance**, and **Services** as **Virtual Machine Scale Sets** and/or **Virtual Machines**.
 
-
 ## Start Maintenance on your VM from the portal
 
 While looking at the VM details, you will be able to see more maintenance-related details.  

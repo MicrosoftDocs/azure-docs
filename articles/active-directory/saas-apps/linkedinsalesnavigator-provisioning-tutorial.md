@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configure LinkedIn Sales Navigator for automatic user provisioning with Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: User provisioning - LinkedIn Sales Navigator, Azure AD'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to LinkedIn Sales Navigator.
 services: active-directory
 documentationcenter: ''

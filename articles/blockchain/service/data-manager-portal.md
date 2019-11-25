@@ -1,12 +1,8 @@
 ---
-title: Configure Blockchain Data Manager - Azure portal
-description: How to create and manage Blockchain Data Manager using the Azure portal.
-services: azure-blockchain
-author: PatAltimore
-ms.author: patricka
+title: Configure Blockchain Data Manager using Azure portal - Azure Blockchain Service
+description: Create and manage Blockchain Data Manager for Azure Blockchain Service using the Azure portal.
 ms.date: 11/04/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: chroyal
 #Customer intent: As a network operator, I want to use the Azure portal to configure Blockchain Data Manager.
 ---
@@ -165,7 +161,7 @@ Stop the Blockchain Manager instance when you want to stop capturing blockchain 
 
 ## Next steps
 
-Try creating a blockchain transaction message explorer using Blockchain Data Manager and Azure Cosmos DB.
+Try the next tutorial creating a blockchain transaction message explorer using Blockchain Data Manager and Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Use Blockchain Data Manager to send data to Azure Cosmos DB](data-manager-cosmosdb.md)
+> [Use Blockchain Data Manager to send data to Azure Cosmos DB](data-manager-cosmosdb.md)

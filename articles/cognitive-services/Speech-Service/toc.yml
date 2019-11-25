@@ -337,7 +337,7 @@
   - name: Scenarios
     items:
     - name: Call centers
-      href: get-started.md
+      href: call-center-transcription.md
       displayName: IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers
   - name: How-to guides
     items:
@@ -427,6 +427,33 @@
       href: https://aka.ms/csspeech/pythonref
     - name: Speech SDK Release notes
       href: releasenotes.md
+- name: Devices
+  exanded: false
+  items:
+  - name: Overview
+    items:
+    - name: About the Speech Devices SDK
+      href: speech-devices-sdk.md
+    - name: Get the Speech Devices SDK
+      href: get-speech-devices-sdk.md
+  - name: Hardware
+    items:
+    - name: Microphone array recommendations
+      href: speech-devices-sdk-microphone.md
+    - name: Roobo v1 kit
+      href: speech-devices-sdk-roobo-v1.md
+  - name: Quickstarts
+    items:
+    - name: Windows
+      href: speech-devices-sdk-windows-quickstart.md
+    - name: Linux
+      href: speech-devices-sdk-linux-quickstart.md
+    - name: Android
+      href: speech-devices-sdk-android-quickstart.md
+  - name: Resources
+    items:
+    - name: Troubleshoot the Speech Devices SDK
+      href: speech-devices-sdk-troubleshooting.md
 - name: Migration
   exanded: false
   items:
@@ -441,6 +468,8 @@
   items:
   - name: Support
     href: support.md
+  - name: Regions 
+    href: regions.md
   - name: Pricing and limits
     href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
   - name: Compliance
