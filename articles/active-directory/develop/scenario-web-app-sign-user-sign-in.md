@@ -19,7 +19,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Web app that signs in users: sign-in and sign-out
+# Web app that signs in users: Sign-in and sign-out
 
 Learn how to add sign-in to the code for your web app that signs in users. Then, learn how to let them sign out.
 
