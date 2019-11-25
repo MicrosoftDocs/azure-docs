@@ -42328,6 +42328,21 @@
     },
 
     {
+      "source_path": "articles/iot-central/preview/tutorial-add-edge-as-leaf-device.md",
+      "redirect_url": "/azure/iot-central/core/tutorial-add-edge-as-leaf-device/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/preview/tutorial-define-edge-device-type.md",
+      "redirect_url": "/azure/iot-central/core/tutorial-define-edge-device-type/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/preview/tutorial-define-iot-device-type.md",
+      "redirect_url": "/azure/iot-central/core/tutorial-define-iot-device-type/",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md",
       "redirect_url": "/azure/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2",
       "redirect_document_id": false
