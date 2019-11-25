@@ -27,16 +27,20 @@ The change feed in Azure Cosmos DB enables you to build efficient and scalable s
 
 This feature is currently supported by the following Azure Cosmos DB APIs and client SDKs.
 
-| **Client drivers** | **Azure CLI** | **SQL API** | **Cassandra API** | **Azure Cosmos DB's API for MongoDB** | **Gremlin API**|**Table API** |
+| **Client drivers** | **Azure CLI** | **SQL API** | **Azure Cosmos DB's API for Cassandra** | **Azure Cosmos DB's API for MongoDB** | **Gremlin API**|**Table API** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | NA | Yes | No | No | Yes | No |
-|Java|NA|Yes|No|No|Yes|No|
-|Python|NA|Yes|No|No|Yes|No|
-|Node/JS|NA|Yes|No|No|Yes|No|
+| .NET | NA | Yes | Yes | Yes | Yes | No |
+|Java|NA|Yes|Yes|Yes|Yes|No|
+|Python|NA|Yes|Yes|Yes|Yes|No|
+|Node/JS|NA|Yes|Yes|Yes|Yes|No|
 
 ## Change feed and different operations
 
 Today, you see all operations in the change feed. The functionality where you can control change feed, for specific operations such as updates only and not inserts is not yet available. You can add a “soft marker” on the item for updates and filter based on that when processing items in the change feed. Currently change feed doesn’t log deletes. Similar to the previous example, you can add a soft marker on the items that are being deleted, for example, you can add an attribute in the item called "deleted" and set it to "true" and set a TTL on the item, so that it can be automatically deleted. You can read the change feed for historic items (the most recent change corresponding to the item, it doesn't include the intermediate changes), for example, items that were added five years ago. If the item is not deleted you can read the change feed as far as the origin of your container.
+
+## Change feed in Azure Cosmos DB's APIs for Cassandra and MongoDB
+
+The Change Feed feature works differently for these APIs. For the MongoDB API, this is exposed via Change Streams. You can learn about how this feature works [here](mongodb-change-streams.md). For the Cassandra API, because Change Feed is not a feature available in native Cassandra databases, the Azure Cosmos DB Change Feed capability is exposed as a predicate that can be included in a CQL query. You can learn how this implementation works [here](cassandra-change-feed.md).
 
 ### Sort order of items in change feed
 
