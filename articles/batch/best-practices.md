@@ -106,9 +106,6 @@ Tasks are individual units of work that comprise a job. Tasks are submitted by t
 
 ### Task execution
 
-- **Task execution order**  
-    Tasks within a job don't have execution ordering guarantees that may be found in other scheduling systems (for example: `first in, first out` order). However, job priorities can be applied to order execution priority amongst jobs, which subsequently gives priority to the tasks in those jobs.
-
 - **Choosing your max tasks per node**  
     Batch supports oversubscribing tasks on nodes (running more tasks than a node has cores). It's up to you to ensure that your tasks "fit" into the nodes in your pool. For example, you may have a degraded experience if you attempt to schedule eight tasks that each consume 25% CPU usage onto one node (in a pool with `maxTasksPerNode = 8`).
 
