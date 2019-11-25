@@ -19,7 +19,7 @@ In this module, feature values are randomly shuffled, one column at a time. The 
 
 The scores that the module returns represent the *change* in the performance of a trained model, after permutation. Important features are usually more sensitive to the shuffling process, so they'll result in higher importance scores. 
 
-This article provides an overview of the permutation feature, its theoretical basis, and its applications in machine learning: [Permutation Feature Importance](http://blogs.technet.com/b/machinelearning/archive/2015/04/14/permutation-feature-importance.aspx).  
+This article provides an overview of the permutation feature, its theoretical basis, and its applications in machine learning: [Permutation Feature Importance](https://blogs.technet.com/b/machinelearning/archive/2015/04/14/permutation-feature-importance.aspx).  
 
 ## How to use Permutation Feature Importance
 

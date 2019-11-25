@@ -378,8 +378,6 @@
       href: storage-blob-event-quickstart.md
     - name: Process change feed logs
       href: storage-blob-change-feed-how-to.md
-    - name: Search Blob storage with Azure Search
-      href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Transfer data
       items:
       - name: AzCopy
@@ -451,7 +449,7 @@
       - name: Storage Resource Provider
         href: /java/api/overview/azure/storage/management
     - name: JavaScript (version 12.x)
-      href: /javascript/api/@azure/storage-blob/?view=azure-node-preview
+      href: /javascript/api/@azure/storage-blob/
     - name: Python (version 12.x)
       href: /python/api/azure-storage-blob/
     - name: REST
@@ -541,11 +539,11 @@
       items:
       - name: Microsoft.Azure.Storage.Common (version 11.x)
         href: https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/
-      - name: Azure.Storage.Common (version 12.x - preview)
+      - name: Azure.Storage.Common (version 12.x)
         href: https://www.nuget.org/packages/Azure.Storage.Common/
       - name: Microsoft.Azure.Storage.Blob (version 11.x)
         href: https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/
-      - name: Azure.Storage.Blob (version 12.x - preview)
+      - name: Azure.Storage.Blob (version 12.x)
         href: https://www.nuget.org/packages/Azure.Storage.Blobs/
       - name: Azure Configuration Manager
         href: https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/
@@ -559,7 +557,7 @@
         items:
         - name: Azure Storage client library
           items:
-          - name: Version 12.x (preview)
+          - name: Version 12.x
             href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage
           - name: Version 11.x and earlier
             href: https://github.com/Azure/azure-storage-net
@@ -569,19 +567,19 @@
           href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.Management.Storage
       - name: Java
         items:
-        - name: Azure Storage client library version 12.x (preview)
+        - name: Azure Storage client library version 12.x
           href: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage
         - name: Azure Storage client library version 8.x and earlier
           href: https://github.com/Azure/azure-storage-java
       - name: Node.js
         items:
-        - name: Azure Storage client library version 12.x (preview)
+        - name: Azure Storage client library version 12.x
           href: https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage
         - name: Azure Storage client library version 10.x
           href: https://github.com/Azure/azure-storage-node
       - name: Python
         items:
-        - name: Azure Storage client library version 12.x (preview)
+        - name: Azure Storage client library version 12.x
           href: https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage
         - name: Azure Storage client library version 2.1
           href: https://github.com/Azure/azure-storage-python
@@ -669,7 +667,21 @@
         href: ../blobs/data-lake-storage-explorer.md
       - name: Upgrade a storage account
         href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Ingest data
+    - name: Manage directories, files, and ACLs
+      items:
+      - name: .NET
+        href: data-lake-storage-directory-file-acl-dotnet.md
+      - name: Java
+        href: data-lake-storage-directory-file-acl-java.md
+      - name: Python
+        href: data-lake-storage-directory-file-acl-python.md
+      - name: PowerShell
+        href: data-lake-storage-directory-file-acl-powershell.md
+      - name: CLI
+        href: data-lake-storage-directory-file-acl-cli.md
+      - name: Storage Explorer
+        href: data-lake-storage-how-to-set-permissions-storage-explorer.md
+    - name: Transfer data
       items:
       - name: AzCopy
         items:
@@ -705,8 +717,7 @@
           href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Set file and directory-level permissions
         href: ../blobs/data-lake-storage-how-to-set-permissions-storage-explorer.md
-    - name: Optimize performance
-      href: ../blobs/data-lake-storage-use-power-bi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Optimize performance  
       items:
       - name: Overview
         href: ../blobs/data-lake-storage-performance-tuning-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -720,10 +731,16 @@
         href: ../blobs/data-lake-storage-performance-tuning-storm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Manage files (blobs)
       items:
-      - name: PowerShell
-        href: /powershell/module/azure.storage
-      - name: Azure CLI
-        href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Overview
+          href: ../blobs/data-lake-storage-performance-tuning-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Optimize Spark on HDInsight
+          href: ../blobs/data-lake-storage-performance-tuning-spark.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Optimize Hive on HDInsight
+          href: ../blobs/data-lake-storage-performance-tuning-hive.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Optimize MapReduce on HDInsight
+          href: ../blobs/data-lake-storage-performance-tuning-mapreduce.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Optimize Storm on HDInsight
+          href: ../blobs/data-lake-storage-performance-tuning-storm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Migrate data
       items:
       - name: Upgrade from Data Lake Storage Gen1
@@ -733,6 +750,7 @@
     - name: Use with Hadoop File System CLI
       href: ../blobs/data-lake-storage-use-hdfs-data-lake-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Use with Power BI
+      href: ../blobs/data-lake-storage-use-power-bi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Reference
     items:
     - name: PowerShell
@@ -756,7 +774,7 @@
       - name: Storage Resource Provider
         href: /java/api/overview/azure/storage/management
     - name: JavaScript (version 12.x)
-      href: /javascript/api/@azure/storage-blob/?view=azure-node-preview
+      href: /javascript/api/@azure/storage-blob/
     - name: Python (version 12.x)
       href: /python/api/azure-storage-blob/
     - name: REST

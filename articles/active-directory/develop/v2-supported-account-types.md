@@ -37,7 +37,7 @@ In the Microsoft Azure public Cloud, most types of apps can sign in users with a
   - With their work or school or personal Microsoft account.
   - With only personal Microsoft account.
     > [!NOTE]
-    > Currently the Microsoft identity platform supports personal Microsoft accounts only by registering an app for **work or school or Microsoft personal accounts**, and then, restrict sign-in in the code for the application by specifying an Azure AD authority, when building the application, such as `https://login.onmicrosoftonline.com/consumers`.
+    > Currently the Microsoft identity platform supports personal Microsoft accounts only by registering an app for **work or school or Microsoft personal accounts**, and then, restrict sign-in in the code for the application by specifying an Azure AD authority, when building the application, such as `https://login.microsoftonline.com/consumers`.
 
 - If you're writing a business to consumers application, you can also sign in users with their social identities, using Azure AD B2C.
 

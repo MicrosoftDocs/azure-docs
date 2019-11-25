@@ -1,11 +1,7 @@
 ---
 title: Durable Orchestrations - Azure Functions
 description: Introduction to the orchestration feature for Azure Durable Functions.
-services: functions
 author: cgillum
-manager: jeconnoc
-keywords:
-ms.service: azure-functions
 ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf

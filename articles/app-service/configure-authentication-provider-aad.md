@@ -26,7 +26,7 @@ ms.custom: fasttrack-edit
 This article shows you how to configure Azure App Service to use Azure Active Directory (Azure AD) as an authentication provider.
 
 > [!NOTE]
-> At this time, Azure App Service and Azure Functions are only supported by Azure AD v1.0. They're not supported by the [Microsoft identity platform v2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-overview), which includes Microsoft Authentication Libraries (MSAL).
+> At this time, Azure App Service and Azure Functions are only supported by Azure AD v1.0. They're not supported by the [Microsoft identity platform v2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-overview), which includes Microsoft Authentication Libraries (MSAL).
 
 Follow these best practices when setting up your app and authentication:
 

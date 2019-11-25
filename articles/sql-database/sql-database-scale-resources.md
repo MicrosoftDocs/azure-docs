@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database Scale Resources 
+title: Scale Resources
 description: This article explains how to scale your database by adding or removing allocated resources.
 services: sql-database
 ms.service: sql-database

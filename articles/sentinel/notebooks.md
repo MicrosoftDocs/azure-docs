@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 11/25/2019
 ms.author: rkarlin
 ---
 
@@ -58,18 +58,18 @@ To use the notebooks, you must have an Azure Notebooks account. For more informa
 > [!div class="mx-imgBorder"]
 >![Sign up for Azure Notebooks option](./media/notebooks/sentinel-azure-sign-up-azure-notebooks.png)
 
-## View available notebooks from Azure Sentinel
+You can run a notebook direct from Azure Sentinel, or clone all the Azure Sentinel notebooks to a new Azure Notebooks project.
+
+## Run a notebook from Azure Sentinel
  
 1. From the Azure portal, navigate to **Azure Sentinel** > **Threat management** > **Notebooks**, where you can see notebooks that Azure Sentinel provides. 
 
 2. Select individual notebooks to read their descriptions, required data types, and data sources. For example:
     
     > [!div class="mx-imgBorder"]
-    > ![launch notebook](./media/notebooks/sentinel-azure-notebooks-nolaunch.png)
+    > ![launch notebook](./media/notebooks/sentinel-azure-notebooks-launch.png)
 
-3. Select **Launch Notebook** to browse the notebooks on the [Azure Sentinel Community GitHub repository](https://github.com/Azure/Azure-Sentinel).
-
-Currently, you can't launch a notebook directly from Azure Sentinel. Instead, use the following procedure that steps you through cloning the notebooks on GitHub into an Azure Notebooks project.
+3. Select the notebook you want to use, and then select **Launch Notebook (Preview)** to clone and configure the notebook into a new Azure Notebooks project that connects to your Azure Sentinel workspace. When the process is complete, the notebook opens within Azure Notebooks for you to run.
 
 ## Clone Azure Sentinel notebooks to a new Azure Notebooks project
 

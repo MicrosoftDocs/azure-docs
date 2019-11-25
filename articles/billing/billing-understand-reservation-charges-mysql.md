@@ -3,7 +3,7 @@ title: How a reservation discount is applied to Azure Database for MySQL
 description: How a reservation discount is applied to Azure Database for MySQL
 author: kummanish
 ms.author: manishku
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na

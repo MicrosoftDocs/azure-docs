@@ -535,7 +535,7 @@ apply sampling to those items already sampled in the SDK itself.'
 
 *There are certain rare events I always want to see. How can I get them past the sampling module?*
 
-* The best way to achieve this is to write a custom [TelemetryInitializer](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer), which sets the `SamplingPercentage` to 100 on the telemetry item you want retained, as shown below. As initializers are guaranteed to be run before telemetry processors (including sampling), this ensures that all sampling techniques will ignore this item from any sampling considerations.
+* The best way to achieve this is to write a custom [TelemetryInitializer](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer), which sets the `SamplingPercentage` to 100 on the telemetry item you want retained, as shown below. As initializers are guaranteed to be run before telemetry processors (including sampling), this ensures that all sampling techniques will ignore this item from any sampling considerations.
 
 ```csharp
      public class MyTelemetryInitializer : ITelemetryInitializer

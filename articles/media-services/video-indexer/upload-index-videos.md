@@ -1,6 +1,6 @@
 ---
 title: Upload and index videos with Video Indexer
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: This topic demonstrates how to use APIs to upload and index your videos with Video Indexer.
 services: media-services
 author: Juliako

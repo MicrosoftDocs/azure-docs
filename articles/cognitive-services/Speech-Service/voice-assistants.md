@@ -34,6 +34,7 @@ The first step to creating a voice assistant is to decide what it should do. Azu
 We recommend [Direct Line Speech](direct-line-speech.md) as the best default choice if you aren't yet sure what you'd like your assistant to handle. It offers integration with a rich set of tools and authoring aids such as the [Virtual Assistant Solution and Enterprise Template](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview) and the [QnA Maker service](https://docs.microsoft.com/azure/cognitive-services/QnAMaker/Overview/overview) to build on common patterns and use your existing knowledge sources.
 
 [Custom Commands (Preview)](custom-commands.md) provides a streamlined authoring and hosting experience specifically tailored for natural language command and control scenarios.
+
    ![Comparison of assistant solutions](media/voice-assistants/assistant-solution-comparison.png "Comparison of assistant solutions")
 
 ## Core features

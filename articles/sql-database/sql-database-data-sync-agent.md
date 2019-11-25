@@ -1,5 +1,5 @@
 ---
-title: Data Sync Agent for Azure SQL Data Sync 
+title: Data Sync Agent for SQL Data Sync 
 description: Learn how to install and run the Data Sync Agent for Azure SQL Data Sync to sync data with on-premises SQL Server databases
 services: sql-database
 ms.service: sql-database

@@ -1,7 +1,7 @@
 ---
 title: 'C# Tutorial: Index multiple data sources'
 titleSuffix: Azure Cognitive Search
-description: Learn how to import data from multiple data sources into a single Azure Cognitive Search index.
+description: Learn how to import data from multiple data sources into a single Azure Cognitive Search index using indexers. This tutorial and sample code are in C#.
 
 manager: nitinme
 author: HeidiSteen
@@ -32,7 +32,7 @@ The following services, tools, and data are used in this quickstart.
 
 - [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial.
 
-- [Create an Azure Cosmos DB account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) for storing the sample hotel data.
+- [Create an Azure Cosmos DB account](https://docs.microsoft.com/azure/cosmos-db/create-cosmosdb-resources-portal) for storing the sample hotel data.
 
 - [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) for storing the sample JSON blob data.
 

@@ -5,6 +5,7 @@ services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 manager: pbutlerm  
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: pabutler

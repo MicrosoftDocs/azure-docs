@@ -1,13 +1,8 @@
 ---
 title: Use PowerShell to back up Windows Server to Azure
 description: In this article, learn how to use PowerShell for setting up Azure Backup on Windows Server or a Windows client, and managing backup and recovery.
-ms.reviewer: shivamg
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.author: dacurwin
 ---
 # Deploy and manage backup to Azure for Windows Server/Windows Client using PowerShell
 
@@ -541,9 +536,9 @@ IsExclude : True
 IsRecursive : True
 ```
 
-### Performing an ad hoc backup
+### Performing an on-demand backup
 
-Once a backup policy has been set, the backups will occur per the schedule. Triggering an ad hoc backup is also possible using the [Start-OBBackup](https://technet.microsoft.com/library/hh770426) cmdlet:
+Once a backup policy has been set, the backups will occur per the schedule. Triggering an on-demand backup is also possible using the [Start-OBBackup](https://technet.microsoft.com/library/hh770426) cmdlet:
 
 ```powershell
 Get-OBPolicy | Start-OBBackup

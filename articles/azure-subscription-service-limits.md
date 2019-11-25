@@ -6,7 +6,7 @@ author: rothja
 manager: jeffreyg
 tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
@@ -71,6 +71,7 @@ In the following list of limits, a new table reflects any differences in limits 
 * [Event Hubs](#event-hubs-limits)
 * [Front Door Service](#azure-front-door-service-limits)
 * [Identity Manager](#identity-manager-limits)
+* [IoT Central](#iot-central-limits)
 * [IoT Hub](#iot-hub-limits)
 * [IoT Hub Device Provisioning Service](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
@@ -125,7 +126,7 @@ For information about Resource Manager API read and write limits, see [Throttlin
 [!INCLUDE [azure-virtual-machines-limits](../includes/azure-virtual-machines-limits.md)]
 
 #### Virtual Machines limits - Azure Resource Manager
-The following limits apply when you use Azure Resource Manager and Azure resource groups. Limits that haven't changed with Azure Resource Manager aren't listed. See the previous table for those limits.
+The following limits apply when you use Azure Resource Manager and Azure resource groups.
 
 [!INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
 
@@ -324,6 +325,9 @@ To learn more about limits on a more granular level, such as document size, quer
 
 ### Service Bus limits
 [!INCLUDE [azure-servicebus-limits](../includes/service-bus-quotas-table.md)]
+
+### IoT Central limits
+[!INCLUDE [iot-central-limits](../includes/iot-central-limits.md)]
 
 ### IoT Hub limits
 [!INCLUDE [azure-iothub-limits](../includes/iot-hub-limits.md)]

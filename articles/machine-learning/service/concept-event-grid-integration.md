@@ -76,7 +76,7 @@ To learn more about how to apply filters, see [Filter events for Event Grid](htt
 Applications that handle Machine Learning events should follow a few recommended practices:
 
 > [!div class="checklist"]
-> * As multiple subscriptions can be configured to route events to the same event handler, it is important not to assume events are from a particular source, but to check the topic of the message to ensure that it comes from the storage account you are expecting.
+> * As multiple subscriptions can be configured to route events to the same event handler, it is important not to assume events are from a particular source, but to check the topic of the message to ensure that it comes from the machine learning workspace you are expecting.
 > * Similarly, check that the eventType is one you are prepared to process, and do not assume that all events you receive will be the types you expect.
 > * As messages can arrive out of order and after some delay, use the etag fields to understand if your information about objects is still up-to-date.  Also, use the sequencer fields to understand the order of events on any particular object.
 > * Ignore fields you don't understand. This practice will help keep you resilient to new features that might be added in the future.

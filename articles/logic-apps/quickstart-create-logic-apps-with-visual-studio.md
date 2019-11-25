@@ -11,7 +11,7 @@ ms.reviewer: klam, LADocs
 ms.manager: carmonm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/25/2019
+ms.date: 11/08/2019
 ---
 
 # Quickstart: Create automated tasks, processes, and workflows with Azure Logic Apps - Visual Studio
@@ -92,8 +92,7 @@ To get started, create an [Azure Resource Group project](../azure-resource-manag
 
    ![Select Logic App template](./media/quickstart-create-logic-apps-with-visual-studio/select-logic-app-template.png)
 
-   After Visual Studio creates your project, Solution Explorer opens and shows your solution. In your solution, the **LogicApp.json** file not only 
-   stores your logic app definition but is also an Azure Resource Manager template that you can use for deployment.
+   After Visual Studio creates your project, Solution Explorer opens and shows your solution. In your solution, the **LogicApp.json** file not only stores your logic app definition but is also an Azure Resource Manager template that you can use for deployment.
 
    ![Solution Explorer shows new logic app solution and deployment file](./media/quickstart-create-logic-apps-with-visual-studio/logic-app-solution-created.png)
 
@@ -108,8 +107,7 @@ When you have your Azure Resource Group project, create your logic app with the 
    > [!TIP]
    > If you don't have this command in Visual Studio 2019, check that you have the latest updates for Visual Studio.
 
-   Visual Studio prompts you for your Azure subscription and an Azure resource group for creating and deploying 
-   resources for your logic app and connections.
+   Visual Studio prompts you for your Azure subscription and an Azure resource group for creating and deploying resources for your logic app and connections.
 
 1. For **Subscription**, select your Azure subscription. For **Resource group**, select **Create New** to create another Azure resource group.
 
@@ -117,7 +115,7 @@ When you have your Azure Resource Group project, create your logic app with the 
 
    | Setting | Example value | Description |
    | ------- | ------------- | ----------- |
-   | **User profile list** | Fabrikam <br> sophia-owen@fabrikam.com | By default, the account that you used to sign in |
+   | User account | Fabrikam <br> sophia-owen@fabrikam.com | The account that you used when you signed in to Visual Studio |
    | **Subscription** | Pay-As-You-Go <br> (sophia-owen@fabrikam.com) | The name for your Azure subscription and associated account |
    | **Resource Group** | MyLogicApp-RG <br> (West US) | The Azure resource group and location for storing and deploying your logic app's resources |
    | **Location** | **Same as Resource Group** | The location type and specific location for deploying your logic app. The location type is either an Azure region or an existing [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment.md). <p>For this quickstart, keep the location type set to **Region** and the location set to **Same as Resource Group**. <p>**Note**: After you create your resource group project, you can [change the location type and the location](manage-logic-apps-with-visual-studio.md#change-location), but different location type affects your logic app in various ways. |
