@@ -120,4 +120,4 @@ In this quickstart, you used Truffle connect to an Azure Blockchain Service defa
 Try the next tutorial to use Azure Blockchain Development Kit for Ethereum to create, build, deploy, and execute a smart contract function via a transaction.
 
 > [!div class="nextstepaction"]
-> [Use Visual Studio Code to create, build, and deploy smart contracts](send-transaction.md)
+> [Create, build, and deploy smart contracts on Azure Blockchain Service](send-transaction.md)
