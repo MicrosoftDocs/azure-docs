@@ -1,7 +1,7 @@
 ---
 title: Change Feed in Azure Cosmos DB’s API for Cassandra
 description: Learn how to use change feed in Azure Cosmos DB’s API for Cassandra to get the changes made to your data.
-author: thvankra
+author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
