@@ -131,7 +131,7 @@ This table contains basic settings used for the dataset monitor.
 | Name | Name of the dataset monitor. | | No |
 | Baseline dataset | Tabular dataset that will be used as the baseline for comparison of the target dataset over time. | The baseline dataset must have features in common with the target dataset. Generally, the baseline should be set to a model's training dataset or a slice of the target dataset. | No |
 | Target dataset | Tabular dataset with timestamp column specified which will be analyzed for data drift. | The target dataset must have features in common with the baseline dataset, and should be a `timeseries` dataset, which new data is appended to. Historical data in the target dataset can be analyzed, or new data can be monitored. | No | 
-| Frequency | The frequency, which will be used to schedule the pipeline job and analyze historical data if running a backfill. Options include daily, weekly, or monthly. | Adjust this setting to include a comparable size of data to the baseline. | No | 
+| Frequency | The frequency that will be used to schedule the pipeline job and analyze historical data if running a backfill. Options include daily, weekly, or monthly. | Adjust this setting to include a comparable size of data to the baseline. | No | 
 | Features | List of features that will be analyzed for data drift over time. | Set to a model's output feature(s) to measure concept drift. Do not include features that naturally drift over time (month, year, index, etc.). You can backfill and existing data drift monitor after adjusting the list of features. | Yes | 
 | Compute target | Azure Machine Learning compute target to run the dataset monitor jobs. | | Yes | 
 
