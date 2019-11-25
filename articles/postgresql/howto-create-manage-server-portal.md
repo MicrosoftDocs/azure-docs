@@ -85,7 +85,7 @@ You can delete your server if you no longer need it.
 
 1. Select your server in the Azure portal. In the **Overview** window select **Delete**.
 
-    ![delete](./media/howto-create-manage-server-portal/delete.png)
+    ![delete](./media/howto-create-manage-server-portal/overview-delete.png)
 
 2. Type the name of the server into the input box to confirm that this is the server you want to delete.
 
