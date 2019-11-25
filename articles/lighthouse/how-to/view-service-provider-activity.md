@@ -8,9 +8,6 @@ ms.topic: conceptual
 
 Customers who have delegated subscriptions for Azure delegated resource management can [view Azure Activity log](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview) data, which shows all actions taken by users in the managing tenant. This gives customers full visibility into the actions that service providers are performing through Azure delegated resource management, as well as visibility into actions from users within the customer tenant.
 
-> [!NOTE]
-> While Azure delegated resource management can also be used [within an enterprise which has multiple Azure AD tenants of its own](enterprise.md) to simplify cross-tenant management.
-
 [How to view the log](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview#view-the-activity-log)You can filter by subscription
 
 > [!NOTE]
