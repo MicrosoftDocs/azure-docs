@@ -58,8 +58,6 @@
         href: configure-host-pool-load-balancing.md
   - name: Use Windows Virtual Desktop license
     href: apply-windows-license.md
-  - name: Create a profile container for a host pool using a file share
-    href: create-host-pools-user-profile.md
   - name: Customize session host image
     items:
       - name: Set up a master VHD image
