@@ -18,11 +18,11 @@ ms.custom: seodec18
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 >[!IMPORTANT]
-> This SDK will be retired soon. The SDK is still appropriate for developers who monitor data drift in models. But most developers should use the simplified [data monitoring with Application Insights](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights).
+> The Azure Machine Learning Monitoring SDK will be retired soon. The SDK is still appropriate for developers who monitor data drift in models. But most developers should use the simplified [data monitoring with Application Insights](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights).
 
 This article shows how to collect input model data from Azure Machine Learning. It also shows how to deploy the input data into Azure Kubernetes Cluster (AKS) and store the output data in Azure Blob storage.
 
-Once enabled, the data you collect helps you:
+Once collection is enabled, the data you collect helps you:
 
 * [Monitor data drifts](how-to-monitor-data-drift.md) as production data enters your model.
 
@@ -39,7 +39,7 @@ The following data can be collected:
 * Model predictions using production input data.
 
 >[!NOTE]
-> Preaggregation and precalculations on this data are not currently part of the service.
+> Preaggregation and precalculations on this data are not currently part of the collection service.
 
 The output is saved in Blob storage. Because the data is added to Blob storage, you can choose your favorite tool to run the analysis.
 
@@ -51,7 +51,7 @@ The path to the output data in the blob follows this syntax:
 ```
 
 >[!NOTE]
-> In versions of the SDK earlier than version 0.1.0a16, the `designation` argument is named `identifier`. If you developed your code with an earlier version, you need to update it accordingly.
+> In versions of the Azure Machine Learning SDK for Python earlier than version 0.1.0a16, the `designation` argument is named `identifier`. If you developed your code with an earlier version, you need to update it accordingly.
 
 ## Prerequisites
 
@@ -88,7 +88,7 @@ To enable data collection, you need to:
     prediction_dc = ModelDataCollector("best_model", designation="predictions", feature_names=["prediction1", "prediction2"])
     ```
 
-    *CorrelationId* is an optional parameter. You don't need to use it if your model doesn't require it. Use of *CorrelationId* does help you more easily map with other data, such as LoanNumber or CustomerId.
+    *CorrelationId* is an optional parameter. You don't need to use it if your model doesn't require it. Use of *CorrelationId* does help you more easily map with other data, such as *LoanNumber* or *CustomerId*.
     
     The *Identifier* parameter is later used for building the folder structure in your blob. You can use it to differentiate raw data from processed data.
 
@@ -113,7 +113,7 @@ To enable data collection, you need to:
     aks_config = AksWebservice.deploy_configuration(collect_model_data=True, enable_app_insights=True)
     ```
 
-1. To create a new image and deploy the service, see  [How to deploy and where](how-to-deploy-and-where.md).
+1. To create a new image and deploy the machine learning model, see  [How to deploy and where](how-to-deploy-and-where.md).
 
 If you already have a service with the dependencies installed in your environment file and scoring file, enable data collection by following these steps:
 
@@ -199,7 +199,7 @@ You can choose a tool of your preference to analyze the data collected in your B
 
 1. In the query editor, click under the **Name** column and add your storage account.
 
-1. Model path into the filter. If you want to look only into files from a specific year or month, just expand the filter path. For example, to look only into March data, use this filter path:
+1. Enter your model path into the filter. If you want to look only into files from a specific year or month, just expand the filter path. For example, to look only into March data, use this filter path:
 
    /modeldata/\<subscriptionid>/\<resourcegroupname>/\<workspacename>/\<webservicename>/\<modelname>/\<modelversion>/\<designation>/\<year>/3
 
