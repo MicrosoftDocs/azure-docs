@@ -43,7 +43,7 @@ You can scale from General Purpose to Memory Optimized and vice-versa. Changing 
 
 2. Change the **vCore** setting by moving the slider to your desired value.
 
-    ![scale-compute](./media/howto-create-manage-server-portal/scale-compute.png)
+    ![scale-compute](./media/howto-create-manage-server-portal/scaling-compute.png)
 
     > [!NOTE]
     > Scaling vCores causes a server restart.
@@ -57,7 +57,7 @@ You can scale from General Purpose to Memory Optimized and vice-versa. Changing 
 
 2. Change the **Storage** setting by moving the slider up to your desired value.
 
-    ![scale-storage](./media/howto-create-manage-server-portal/scale-storage.png)
+    ![scale-storage](./media/howto-create-manage-server-portal/scaling-storage.png)
 
     > [!NOTE]
     > Storage cannot be scaled down.
