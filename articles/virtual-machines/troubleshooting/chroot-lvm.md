@@ -49,7 +49,7 @@ Assign a name to your new disk, select the same Resource Group as the snapshot, 
 The **Source type** is **Snapshot** .
 The **Source snapshot** is the name of the **snapshot** previously created.
 
-![createdisk2](./media/chroot-logical-volume-manager/create-disk-from-snap-2.png)
+![create disk 2](./media/chroot-logical-volume-manager/create-disk-from-snap-2.png)
 
 Create a mount point for the attached disk.
 
@@ -61,7 +61,7 @@ Run the **fdisk -l** command to verify the snapshot disk has been attached and l
 
 Most scenarios, the attached snapshot disk will be seen as **/dev/sdc** displaying two partitions **/dev/sdc1** and **/dev/sdc2**
 
-![fdisk](./media/chroot-logical-volume-manager/fdisk-output-sdc.png)
+![Fdisk](./media/chroot-logical-volume-manager/fdisk-output-sdc.png)
 
 The **\*** indicates a boot partition, both partitions are to be mounted.
 
@@ -69,7 +69,7 @@ Run the command **lsblk** to see the LVMs of the affected VM
 
 `lsblk`
 
-![run lsblk](./media/chroot-logical-volume-manager/lsblk-output-mounted.png)
+![Run lsblk](./media/chroot-logical-volume-manager/lsblk-output-mounted.png)
 
 
 Verify if LVMs from the affected VM are displayed.
@@ -92,7 +92,7 @@ The output of the next command will show the path to mount for the **root** LV
 
 `pvdisplay -m | grep -i rootlv`
 
-![rootlv](./media/chroot-logical-volume-manager/locate-rootlv.png)
+![Rootlv](./media/chroot-logical-volume-manager/locate-rootlv.png)
 
 Proceed to mount this device on the directory /rescue
 
@@ -107,11 +107,11 @@ mount /dev/sdc1 /rescue/boot
 Verify the file systems of the attached disk are now correctly mounted using the **lsblk** command
 
 
-![run lsblk](./media/chroot-logical-volume-manager/lsblk-output.png)
+![Run lsblk](./media/chroot-logical-volume-manager/lsblk-output.png)
 
 or the **df -Th** command
 
-![df](./media/chroot-logical-volume-manager/df-output.png)
+![Df](./media/chroot-logical-volume-manager/df-output.png)
 
 ## Gaining chroot access
 
@@ -143,7 +143,7 @@ Commands can be used to install, remove and update software. Troubleshoot VMs in
 
 
 Execute the lsblk command and the /rescue is now / and /rescue/boot is /boot
-![chrooted](./media/chroot-logical-volume-manager/chrooted.png)
+![Chrooted](./media/chroot-logical-volume-manager/chrooted.png)
 
 ## Perform Fixes
 
@@ -169,19 +169,19 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 *walkthrough*
 
 The **grep** command lists the kernels that **grub.cfg** is aware of.
-![kernels](./media/chroot-logical-volume-manager/kernels.png)
+![Kernels](./media/chroot-logical-volume-manager/kernels.png)
 
 **grub2-editenv list** displays which kernel will be loaded at next boot
-![kernel_default](./media/chroot-logical-volume-manager/kernel-default.png)
+![Kernel default](./media/chroot-logical-volume-manager/kernel-default.png)
 
 **grub2-set-default** is used to change to another kernel
-![grub2_set](./media/chroot-logical-volume-manager/grub2_set_default.png)
+![Grub2 set](./media/chroot-logical-volume-manager/grub2-set-default.png)
 
 **grub2-editenv** list displays which kernel will be loaded at next boot
-![new_kernel](./media/chroot-logical-volume-manager/kernel-new.png)
+![New kernel](./media/chroot-logical-volume-manager/kernel-new.png)
 
 **grub2-mkconfig** rebuilds grub.cfg using the versions required
-![grub2_mkconfig](./media/chroot-logical-volume-manager/grub2-mkconfig.png)
+![Grub2 mkconfig](./media/chroot-logical-volume-manager/grub2-mkconfig.png)
 
 
 
@@ -194,7 +194,7 @@ Run the **lvs** command to verify which **LVs** are available for mounting, ever
 
 Exit the **chroot** environment mount the required **LV**
 
-![advanced](./media/chroot-logical-volume-manager/advanced.png)
+![Advanced](./media/chroot-logical-volume-manager/advanced.png)
 
 Now access the **chroot** environment again by running
 
@@ -202,14 +202,14 @@ Now access the **chroot** environment again by running
 
 All LVs should be visible as mounted partitions
 
-![advanced](./media/chroot-logical-volume-manager/chroot-all-mounts.png)
+![Advanced](./media/chroot-logical-volume-manager/chroot-all-mounts.png)
 
 Query the installed **kernel**
 
-![advanced](./media/chroot-logical-volume-manager/rpm-kernel.png)
+![Advanced](./media/chroot-logical-volume-manager/rpm-kernel.png)
 
 If needed upgrade the **kernel**
-![advanced](./media/chroot-logical-volume-manager/rpm-remove-kernel.png)
+![Advanced](./media/chroot-logical-volume-manager/rpm-remove-kernel.png)
 
 
 ### Example 3 - enable Serial Console
@@ -234,19 +234,19 @@ umount /rescue
 Detach the disk from the rescue VM and perform a Disk Swap.
 
 Select the VM from the portal **Disks** and select **detach**
-![detachdisk](./media/chroot-logical-volume-manager/detach-disk.png) 
+![Detach disk](./media/chroot-logical-volume-manager/detach-disk.png) 
 
 Save the changes
-![savedetach](./media/chroot-logical-volume-manager/save-detach.png) 
+![Save detach](./media/chroot-logical-volume-manager/save-detach.png) 
 
 The disk will now become available allowing it to be swapped with the original OS disk of the affected VM.
 
 Navigate in the Azure portal to the failing VM and select **Disks** -> **Swap OS Disk**
-![swapdisk](./media/chroot-logical-volume-manager/swap-disk.png) 
+![Swap disk](./media/chroot-logical-volume-manager/swap-disk.png) 
 
 Complete the fields the **Choose disk** is the snapshot disk just detached in the previous step. The VM name of the affected VM is also required then select **OK**
 
-![newosdisk](./media/chroot-logical-volume-manager/new-osdisk.png) 
+![New os disk](./media/chroot-logical-volume-manager/new-osdisk.png) 
 
 If the VM is running the Disk Swap will shut it down, reboot the VM once the disk swap operation has completed.
 
