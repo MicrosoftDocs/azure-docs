@@ -17,7 +17,10 @@ ms.custom: mvc
 
 # Create a serverless Python function app in Azure 
 
-This Azure Functions sample script creates a function app, which is a container for your functions. The function app supports running Python functions on Python version 3.6.
+This Azure Functions sample script creates a function app, which is a container for your functions. The function app supports running Python functions on Python version 3.6. 
+
+>[!NOTE]
+>Python version 3.7 is also supported by Azure Functions.
 
 [!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
 
