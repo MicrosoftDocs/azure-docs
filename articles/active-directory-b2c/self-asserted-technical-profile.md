@@ -64,8 +64,8 @@ In the display claims collection, you can include a reference to a [DisplayContr
 
 The following example `TechnicalProfile` illustrates the use of display claims with display controls.
 
-* The first display claim makes a reference to the `emailVerificationControl` display claim which collects and verifies the email address.
-* The fifth display claim makes a reference to the `phoneVerificationControl` display claim which collects and verifies a phone number.
+* The first display claim makes a reference to the `emailVerificationControl` display control which collects and verifies the email address.
+* The fifth display claim makes a reference to the `phoneVerificationControl` display control which collects and verifies a phone number.
 * The other display claims are ClaimTypes to be collected from the user.
 
 ```XML
