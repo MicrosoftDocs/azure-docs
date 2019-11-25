@@ -7,9 +7,8 @@ manager: philmea
 
 ms.author: xshi
 ms.date: 07/22/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.custom: seodec18
 ---
 # Use Visual Studio 2019 to develop and debug modules for Azure IoT Edge
 
