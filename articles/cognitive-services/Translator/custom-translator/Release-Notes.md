@@ -19,13 +19,10 @@ ms.author: moelghaz
 
 **Improvements / Changes**
 * Implemented a new wordbreaker which addressed the decompounding problem
-* 
-* 
 
 **Bug fixes**
-*	Fix for placeholder inconsistencies in V3 but not in V2
-*	Fix for Added space to variables and added space to tags
-*	Fix for Retrain all Tier 1 student models to fix bug in Factored Segmenter
+*	Fix for proper nouns being translated from Portuguese to random names in English
+*	Update documentation for CT training, tuning test data set minimum sentences-pair requirements 
 
 ## Language pair Release
 
