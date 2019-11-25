@@ -246,7 +246,7 @@ This container image has the following tags available:
 
 | Image Tags | Notes |
 |------------|:------|
-| `latest` | Container image with the `en-US` locale and `JessaRUS` voice. |
+| `latest` | Container image with the `en-US` locale and `en-US-JessaRUS` voice. |
 | `1.3.0-amd64-ar-eg-hoda-preview` | Container image with the `ar-EG` locale and `ar-EG-Hoda` voice. |
 | `1.3.0-amd64-ar-sa-naayf-preview` | Container image with the `ar-SA` locale and `ar-SA-Naayf` voice. |
 | `1.3.0-amd64-bg-bg-ivan-preview` | Container image with the `bg-BG` locale and `bg-BG-Ivan` voice. |

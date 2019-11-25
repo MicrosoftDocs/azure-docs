@@ -1,10 +1,10 @@
 ---
-title: Set up an appliance for Azure Migrate Server Assessment/Migration for Hyper-V VMs | Microsoft Docs
-description: Describes how to set up an appliance for discovery, assessment, and agentless migration of Hyper-V VMs using Azure Migrate Server Assessment/Migration.
+title: Set up an Azure Migrate appliance for Hyper-V
+description: Learn how to set up an Azure Migrate appliance to assess and migrate Hyper-V VMs.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 07/08/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ---
 
