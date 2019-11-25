@@ -36,7 +36,7 @@ To configure provisioning, use the following steps:
 ## Scoping provisioning to specific users and groups
 If you want to scope the agent to only synchronize specific users and groups, you can do this. You can scope using on-premises AD groups or Organizational Units. You cannot configure groups and Organizational Units within a configuration. 
 
-1.  Sign-in to the Azure AD portal.
+1.  In the Azure AD portal.
 2.  Click **Azure Active Directory**
 3.  Click **Azure AD Connect**
 4.  Select **Manage provisioning (Preview)**
@@ -56,7 +56,7 @@ If you want to scope the agent to only synchronize specific users and groups, yo
 
 ## Restart provisioning 
 If you do not want to wait for the next scheduled run, you can trigger the provisioning run using the restart provisioning button. 
-1.  Sign-in to the Azure AD portal.
+1.  In the Azure AD portal.
 2.  Click **Azure Active Directory**
 3.  Click **Azure AD Connect**
 4.  Select **Manage provisioning (Preview)**
@@ -68,7 +68,7 @@ If you do not want to wait for the next scheduled run, you can trigger the provi
 ## Removing a configuration
 If you want to delete a configuration you can do that by using the following steps.
 
-1.  Sign-in to the Azure AD portal.
+1.  In the Azure AD portal.
 2.  Click **Azure Active Directory**
 3.  Click **Azure AD Connect**
 4.  Select **Manage provisioning (Preview)**

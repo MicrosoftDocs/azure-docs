@@ -64,7 +64,7 @@ Azure AD Connect sync synchronizes changes occurring in your on-premises directo
   **Tag:** Leave this empty<br>
  ![Custom rule](media/how-to-cloud-custom-user-rule/user2.png)</br>
  
- 4.	On the **Scoping filter** page, enter the OU or security group that you want to pilot based off.  So for instance, to filter on OU, you can add a clause where if the DN endswith the OU portion of the name, this rule will be applied to them.  So, if DN ends with "OU=CPUsers,DC=contoso,DC=com.  Then click **Next**. 
+ 4.	On the **Scoping filter** page, enter the OU or security group that you want the pilot based off.  To filter on OU, add the OU portion of the distinguished name. This rule will be applied to all users who are in that OU.  So, if DN ends with "OU=CPUsers,DC=contoso,DC=com, you would add this filter.  Then click **Next**. 
 
  |Rule|Attribute|Operator|Value|
  |-----|----|----|-----|
@@ -125,7 +125,7 @@ Now, you will configure Azure AD Connect to exclude the pilot OU that was create
 ## Start the scheduler
 Azure AD Connect sync synchronizes changes occurring in your on-premises directory using a scheduler. Now that you have modified the rules, you can re-start the scheduler.  Use the following steps:
 
-1.  On the server that is running Azure AD Connect sync open PowerShell with Administrative Priviledges
+1.  On the server that is running Azure AD Connect sync open PowerShell with Administrative Privileges
 2.  Run `Set-ADSyncScheduler -SyncCycleEnabled $true`.
 3.  Run `Start-ADSyncSyncCycle`.  Hit Enter.  
 
