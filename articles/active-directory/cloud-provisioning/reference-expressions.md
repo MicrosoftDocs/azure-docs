@@ -108,8 +108,8 @@ This function converts both parameters to the binary representation and sets a b
 In other words, it returns 0 in all cases except when the corresponding bits of both parameters are 1.
 
 **Example:**  
-`BitAnd(&HF, &HF7)`  
-Returns 7 because hexadecimal "F" AND "F7" evaluate to this value.
+ `BitAnd(&HF, &HF7)`  
+ Returns 7 because hexadecimal "F" AND "F7" evaluate to this value.
 ---
 ### CBool
 **Description:**  
@@ -544,9 +544,9 @@ Returns a single appRoleAssignment from the list of all appRoleAssignments assig
 
 **Parameters:**<br> 
 
-   | Name | Required/ Repeating | Type | Notes |
-     --- | --- | --- | --- |
-   | **[appRoleAssignments]** |Required |String |**[appRoleAssignments]** object. |
+  | Name | Required/ Repeating | Type | Notes |
+  |--- | --- | --- | --- |
+  | **[appRoleAssignments]** |Required |String |**[appRoleAssignments]** object. |
 
 ---
 ### Split
@@ -627,10 +627,10 @@ Takes a *source* string value and converts it to upper case using the culture ru
 
 **Parameters:**<br> 
 
-   | Name | Required/ Repeating | Type | Notes |
-   | --- | --- | --- | --- |
-   | **source** |Required |String |Usually name of the attribute from the source object. |
-   | **culture** |Optional |String |The format for the culture name based on RFC 4646 is *languagecode2-country/regioncode2*, where *languagecode2* is the two-letter language code and *country/regioncode2* is the two-letter subculture code. Examples include ja-JP for Japanese (Japan) and en-US for English (United States). In cases where a two-letter language code is not available, a three-letter code derived from ISO 639-2 is used.|
+  | Name | Required/ Repeating | Type | Notes |
+  | --- | --- | --- | --- |
+  | **source** |Required |String |Usually name of the attribute from the source object. |
+  | **culture** |Optional |String |The format for the culture name based on RFC 4646 is *languagecode2-country/regioncode2*, where *languagecode2* is the two-letter language code and *country/regioncode2* is the two-letter subculture code. Examples include ja-JP for Japanese (Japan) and en-US for English (United States). In cases where a two-letter language code is not available, a three-letter code derived from ISO 639-2 is used.|
 ---
 ### Trim
 **Description:**  
