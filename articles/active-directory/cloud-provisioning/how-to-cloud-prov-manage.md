@@ -20,7 +20,7 @@ Once you have installed the agent, you need to sign-in to the Azure portal and c
 ## Configure provisioning
 To configure provisioning, use the following steps:
 
-1.  Sign-in to the Azure AD portal.
+1.  In the Azure AD portal.
 2.  Click **Azure Active Directory**
 3.  Click **Azure AD Connect**
 4.  Select **Manage provisioning (Preview)**

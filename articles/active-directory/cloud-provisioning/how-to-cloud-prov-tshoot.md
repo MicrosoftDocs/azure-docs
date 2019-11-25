@@ -75,7 +75,7 @@ To resolve this, use the following steps:
 1.  Log on to the server with an administrator account
 2.  Open **Services** by either navigating to it or by going to Start/Run/Services.msc.
 3.  Under **Services** double-click **Microsoft Azure AD Connect Provisioning Agent**
-4. On the **Log On** tab change the “Logon Account” to a domain admin and restart the service. 
+4. On the tab change the “Logon Account” to a domain admin and restart the service. 
 
  ![Services](media/how-to-cloud-prov-tshoot/tshoot3.png)
 

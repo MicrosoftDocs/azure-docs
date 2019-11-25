@@ -40,7 +40,7 @@ As a minimum, you should have [Azure AD connect](https://www.microsoft.com/downl
 ## Stop the scheduler
 Azure AD Connect sync synchronizes changes occurring in your on-premises directory using a scheduler. In order to modify and add custom rules, you want to disable the scheduler so that synchronizations will not run while you are working on this.  Use the following steps:
 
-1.  On the server that is running Azure AD Connect sync open PowerShell with Administrative Priviledges
+1.  On the server that is running Azure AD Connect sync open PowerShell with Administrative Privileges.
 2.  Run `Stop-ADSyncSyncCycle`.  Hit Enter.
 3.  Run `Set-ADSyncScheduler -SyncCycleEnabled $false`.
 
