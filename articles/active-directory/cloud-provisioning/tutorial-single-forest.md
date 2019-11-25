@@ -48,17 +48,17 @@ The following tutorial will walk you through creating a hybrid identity environm
 2. Download the Azure AD Connect provisioning agent [here](https://go.microsoft.com/fwlink/?linkid=2109037).
 3. Run the Azure AD Connect provisioning agent (AADConnectProvisioningAgent.Installer)
 3. On the splash screen, **Accept** the licensing terms and click **Install**.</br>
-![Welcome screen](media/how-to-cloud-prov-install/prov1.png)</br>
+![Welcome screen](media/how-to-cloud-prov-install/cloudprov1.png)</br>
 
 4. Once this operation completes, the configuration wizard will launch.  Sign in with your Azure AD global administrator account.  Note that if you have IE enhanced security enabled this will block the sign-in.  If this is the case, close the installation, disable IE enhanced security in Server Manager, and click the **AAD Connect Provisioning Agent Wizard** to restart the installation.
 5. On the **Connect Active Directory** screen, click **Add directory** and then sign in with your Active Directory domain administrator account.  NOTE: The domain administrator account should not have password change requirements. In case the password expires or changes, you will need to re-configure the agent with the new credentials. This operation will add your on-premises directory.  Click **Next**.</br>
-![Welcome screen](media/how-to-cloud-prov-install/prov3.png)</br>
+![Welcome screen](media/how-to-cloud-prov-install/cloudprov3.png)</br>
 
 6. On the **Configuration complete** screen, click **Confirm**.  This operation will register and restart the agent.</br>
-![Welcome screen](media/how-to-cloud-prov-install/prov4.png)</br>
+![Welcome screen](media/how-to-cloud-prov-install/cloudprov4.png)</br>
 
 7. Once this operation completes you should see a notice: **Your agent configuration was successfully verified.**  You can click **Exit**.</br>
-![Welcome screen](media/how-to-cloud-prov-install/prov5.png)</br>
+![Welcome screen](media/how-to-cloud-prov-install/cloudprov5.png)</br>
 8. If you still see the initial splash screen, click **Close**.
 
 
@@ -70,10 +70,10 @@ To verify the agent is being seen by Azure follow these steps:
 
 1. Sign in to the Azure portal.
 2. On the left, select **Azure Active Directory**, click **Azure AD Connect** and in the center select **Manage provisioning (preview)**.</br>
-![Azure portal](media/how-to-cloud-prov-install/prov6.png)</br>
+![Azure portal](media/how-to-cloud-prov-install/cloudprov6.png)</br>
 
 3.  On the **Azure AD Provisioning (preview)** screen click **Review all agents**.
-![Azure AD Provisioning](media/how-to-cloud-prov-install/prov7.png)</br>
+![Azure AD Provisioning](media/how-to-cloud-prov-install/cloudprov7.png)</br>
  
 4. On the **On-premises provisioning agents screen** you will see the agents you have installed.  Verify that the agent in question is there and is marked **active**.
 ![Provisioning agents](media/how-to-cloud-prov-install/verify1.png)</br>
