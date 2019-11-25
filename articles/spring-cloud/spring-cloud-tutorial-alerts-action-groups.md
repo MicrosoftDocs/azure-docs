@@ -25,6 +25,8 @@ In addition to the Azure Spring requirements, this tutorial depends on the follo
  
 The following procedures initialize both **Action Group** and **Alert** starting from the **Alerts** option in the left navigation pane of a Spring Cloud instance. (The procedure can also start from the **Monitor Overview** page of the Azure portal.) 
 
+Navigate from a resource group to your Spring Cloud instance. Select **Alerts** in the left pane, then select **Manage actions**:
+
 ![Screenshot portal resource group page](media/alerts-action-groups/action-1-a.png)
 
 ## Set up Action Group
