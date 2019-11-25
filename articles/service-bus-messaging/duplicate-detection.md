@@ -65,5 +65,7 @@ To learn more about Service Bus messaging, see the following topics:
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 * [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
+To learn more about how to design messages which can be safely retried and re-processed, see this [blog post about idempotence](https://particular.net/blog/what-does-idempotent-mean).
+
 [1]: ./media/duplicate-detection/create-queue.png
 [2]: ./media/duplicate-detection/queue-prop.png
