@@ -41,7 +41,7 @@ Attach a disk to the **rescue** VM made from the snapshot taken previously.
 
 Azure portal -> select the **rescue** VM -> **Disks** 
 
-![createdisk](./media/chroot-lvm/creatediskfromsnap.png)
+![createdisk](./media/chroot-lvm/createdisk-from-snap.png)
 
 Populate the fields. 
 Assign a name to your new disk, select the same Resource Group as the snapshot, affected VM, and Rescue VM.
@@ -69,7 +69,7 @@ Run the command **lsblk** to see the LVMs of the affected VM
 
 `lsblk`
 
-![run lsblk](./media/chroot-lvm/lsblk_output_mounted.png)
+![run lsblk](./media/chroot-lvm/lsblk-output-mounted.png)
 
 
 Verify if LVMs from the affected VM are displayed.
@@ -92,7 +92,7 @@ The output of the next command will show the path to mount for the **root** LV
 
 `pvdisplay -m | grep -i rootlv`
 
-![rootlv](./media/chroot-lvm/locate_rootlv.png)
+![rootlv](./media/chroot-lvm/locate-rootlv.png)
 
 Proceed to mount this device on the directory /rescue
 
@@ -107,11 +107,11 @@ mount /dev/sdc1 /rescue/boot
 Verify the file systems of the attached disk are now correctly mounted using the **lsblk** command
 
 
-![run lsblk](./media/chroot-lvm/lsblk_output.png)
+![run lsblk](./media/chroot-lvm/lsblk-output.png)
 
 or the **df -Th** command
 
-![df](./media/chroot-lvm/df_output.png)
+![df](./media/chroot-lvm/df-output.png)
 
 ## Gaining chroot access
 
@@ -147,7 +147,7 @@ Execute the lsblk command and the /rescue is now / and /rescue/boot is /boot
 
 ## Perform Fixes
 
-### Example 1 - Configure the VM to boot from a different kernel
+### Example 1 - configure the VM to boot from a different kernel
 
 A common scenario is to force a VM to boot from a previous kernel as the current installed kernel may have become corrupt or an upgrade did not complete correctly.
 
@@ -172,20 +172,20 @@ The **grep** command lists the kernels that **grub.cfg** is aware of.
 ![kernels](./media/chroot-lvm/kernels.png)
 
 **grub2-editenv list** displays which kernel will be loaded at next boot
-![kernel_default](./media/chroot-lvm/kernel_default.png)
+![kernel_default](./media/chroot-lvm/kernel-default.png)
 
 **grub2-set-default** is used to change to another kernel
-![grub2_set](./media/chroot-lvm/grub2_set_default.png)
+![grub2_set](./media/chroot-lvm/grub2-set-default.png)
 
 **grub2-editenv** list displays which kernel will be loaded at next boot
-![new_kernel](./media/chroot-lvm/kernel_new.png)
+![new_kernel](./media/chroot-lvm/kernel-new.png)
 
 **grub2-mkconfig** rebuilds grub.cfg using the versions required
-![grub2_mkconfig](./media/chroot-lvm/grub2_mkconfig.png)
+![grub2_mkconfig](./media/chroot-lvm/grub2-mkconfig.png)
 
 
 
-### Example 2 - Upgrade packages
+### Example 2 - upgrade packages
 
 A failed kernel upgrade can render the VM non-bootable.
 Mount all the Logical Volumes to allow packages to be removed or reinstalled
@@ -202,17 +202,17 @@ Now access the **chroot** environment again by running
 
 All LVs should be visible as mounted partitions
 
-![advanced](./media/chroot-lvm/chroot_all_mounts.png)
+![advanced](./media/chroot-lvm/chroot-all-mounts.png)
 
 Query the installed **kernel**
 
-![advanced](./media/chroot-lvm/rpm_kernel.png)
+![advanced](./media/chroot-lvm/rpm-kernel.png)
 
 If needed upgrade the **kernel**
-![advanced](./media/chroot-lvm/rpm_remove_kernel.png)
+![advanced](./media/chroot-lvm/rpm-remove-kernel.png)
 
 
-### Example 3 - Enable Serial Console
+### Example 3 - enable Serial Console
 If access has not been possible to the Azure serial console, verify GRUB configuration parameters for your Linux VM and correct them. DEtailed information can be found [in this doc](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-proactive-configuration)
 
 
@@ -234,15 +234,15 @@ umount /rescue
 Detach the disk from the rescue VM and perform a Disk Swap.
 
 Select the VM from the portal **Disks** and select **detach**
-![detachdisk](./media/chroot-lvm/detachdisk.png) 
+![detachdisk](./media/chroot-lvm/detach-disk.png) 
 
 Save the changes
-![savedetach](./media/chroot-lvm/savedetach.png) 
+![savedetach](./media/chroot-lvm/save-detach.png) 
 
 The disk will now become available allowing it to be swapped with the original OS disk of the affected VM.
 
 Navigate in the Azure portal to the failing VM and select **Disks** -> **Swap OS Disk**
-![swapdisk](./media/chroot-lvm/swapdisk.png) 
+![swapdisk](./media/chroot-lvm/swap-disk.png) 
 
 Complete the fields the **Choose disk** is the snapshot disk just detached in the previous step. The VM name of the affected VM is also required then select **OK**
 
