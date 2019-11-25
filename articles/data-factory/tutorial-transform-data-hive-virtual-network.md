@@ -1,5 +1,5 @@
 ﻿---
-title: 'Transform data using Hive in Azure Virtual Network | Microsoft Docs'
+title: 'Transform data using Hive in Azure Virtual Network '
 description: 'This tutorial provides step-by-step instructions for transforming data by using Hive activity in Azure Data Factory.'
 services: data-factory
 documentationcenter: ''

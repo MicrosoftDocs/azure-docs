@@ -1,14 +1,8 @@
 ---
-title: Automatically remove image resources in Azure Container Registry
+title: Purge tags and manifests
 description: Use a purge command to delete multiple tags and manifests from an Azure container registry based on age and a tag filter, and optionally schedule purge operations.
-services: container-registry
-author: dlepow
-manager: gwallace
-
-ms.service: container-registry
 ms.topic: article
 ms.date: 08/14/2019
-ms.author: danlep
 ---
 
 # Automatically purge images from an Azure container registry
@@ -53,7 +47,9 @@ For additional parameters, run `acr purge --help`.
 
 ### Run in an on-demand task
 
-The following example uses the [az acr run][az-acr-run] command to run the `purge` command on-demand. This example deletes all image tags and manifests in the `hello-world` repository in *myregistry* that were modified more than 1 day ago. The container command is passed using an environment variable. The task runs without a source context.
+The following example uses the [az acr run][az-acr-run] command to run the `acr purge` command on-demand. This example deletes all image tags and manifests in the `hello-world` repository in *myregistry* that were modified more than 1 day ago. The container command is passed using an environment variable. The task runs without a source context.
+
+In this and the following examples, the registry where the `acr purge` command runs is specified using the `$Registry` alias, which indicates the registry that runs the task.
 
 ```azurecli
 # Environment variable for container command line

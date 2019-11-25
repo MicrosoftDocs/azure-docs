@@ -12,9 +12,9 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
-ms.custom: aaddev 
+ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a web app that signs-in users using the Microsoft identity platform for developers.
 ms.collection: M365-identity-device-management
 ---
@@ -72,20 +72,27 @@ If you navigate to this link, you can create bootstrap the creation of your web 
 
 # [Java](#tab/java)
 
-4. When the **Register an application page** appears, enter a friendly name for the application, for example 'java-webapp', select "Accounts in any organizational directory 
-and personal Microsoft Accounts (e.g. Skype, Xbox, Outlook.com)" 
+4. When the **Register an application page** appears, enter a friendly name for the application, for example 'java-webapp', select "Accounts in any organizational directory
+and personal Microsoft Accounts (e.g. Skype, Xbox, Outlook.com)"
    and select 'Web app / API' as the *Application Type*.
 1. Click **Register** to register the application.
-1. On the left-hand menu, click on **Authentication**, and under *Redirect URIs*, select "Web". You will need to enter 
- two different redirect URIs: one for the signIn page, and one for the graph users page. For both, you should use the same
- host and port number, then followed by "/msal4jsample/secure/aad" for the sign-in page and 
- "msal4jsample/graph/users" for the users page.
-  By default, the sample uses: 
+1. On the left-hand menu, click on **Authentication**, and under *Redirect URIs*, select "Web". You will need to enter
+ two different redirect URIs: one for the signIn page, and one for the graph page. For both, you should use the same host and port number, then followed by "/msal4jsample/secure/aad" for the sign-in page and "msal4jsample/graph/me" for the user info page.
+ By default, the sample uses:
 
-    - `http://localhost:8080/msal4jsample/secure/aad`. 
-    - `http://localhost:8080/msal4jsample/graph/users`
+    - `http://localhost:8080/msal4jsample/secure/aad`.
+    - `http://localhost:8080/msal4jsample/graph/me`
 
-Click on **save**.
+    In the **Advanced settings** section, set **Logout URL** to `http://localhost:8080/msal4jsample/sign_out`.
+
+     Click on **save**.
+
+1. Select the **Certificates & secrets** from the menu and in the **Client secrets** section, click on **New client secret**:
+
+    - Type a key description
+    - Select a key duration **In 1 year**.
+    - The key value will display when you select **Add**.
+    - Copy the value of the key for later. This key value will not be displayed again, nor retrievable by any other means, so record it as soon as it is visible from the Azure portal.
 
 # [Python](#tab/python)
 
@@ -97,8 +104,14 @@ Click on **save**.
 1. On the app **Overview** page, find the **Application (client) ID** value and record it for later. You'll need it to configure the Visual Studio configuration file for this project.
 1. From the app's Overview page, select the **Authentication** section.
    - In the **Advanced settings** section set **Logout URL** to `http://localhost:5000/logout`
-1. Select **Save**.
 
+  Select **Save**.
+1. On the left hand menu, choose **Certificates & secrets** and click on **New client secret** in the **Client Secrets** section:
+
+      - Type a key description
+      - Select a key duration of **In 1 year**.
+      - When you click on **Add**, the key value will be displayed.
+      - Copy the value of the key. You will need it later.
 ---
 
 ## Register an app using PowerShell

@@ -10,13 +10,13 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/20/2019
+ms.date: 10/31/2019
 ms.author: iainfou
 
 ---
 # How objects and credentials are synchronized in an Azure AD Domain Services managed domain
 
-Objects and credentials in an Azure Active Directory Domain Services (AD DS) managed domain can either be created locally within the domain, or synchronized from an Azure Active Directory (AD) tenant. When you first deploy Azure AD DS, an automatic one-way synchronization is configured and started to replicate the objects from Azure AD. This one-way synchronization continues to run in the background to keep the Azure AD DS managed domain up-to-date with any changes from Azure AD.
+Objects and credentials in an Azure Active Directory Domain Services (AD DS) managed domain can either be created locally within the domain, or synchronized from an Azure Active Directory (Azure AD) tenant. When you first deploy Azure AD DS, an automatic one-way synchronization is configured and started to replicate the objects from Azure AD. This one-way synchronization continues to run in the background to keep the Azure AD DS managed domain up-to-date with any changes from Azure AD. No synchronization occurs from Azure AD DS back to Azure AD.
 
 In a hybrid environment, objects and credentials from an on-premises AD DS domain can be synchronized to Azure AD using Azure AD Connect. Once those objects are successfully synchronized to Azure AD, the automatic background sync then makes those objects and credentials available to applications using the Azure AD DS managed domain.
 
@@ -43,7 +43,9 @@ The following table lists some common attributes and how they're synchronized to
 | SID history for users and groups | On-premises primary user and group SID | The *SidHistory* attribute for users and groups in Azure AD DS is set to match the corresponding primary user or group SID in an on-premises AD DS environment. This feature helps make lift-and-shift of on-premises applications to Azure AD DS easier as you don't need to re-ACL resources. |
 
 > [!TIP]
-> **Sign in to the managed domain using the UPN format** The *SAMAccountName* attribute, such as `CONTOSO\driley`, may be auto-generated for some user accounts in an Azure AD DS managed domain. Users' auto-generated *SAMAccountName* may differ from their UPN prefix, so isn't always a reliable way to sign in. For example, if multiple users have the same *mailNickname* attribute or users have overly long UPN prefixes, the *SAMAccountName* for these users may be auto-generated. Use the UPN format, such as `driley@contoso.com`, to reliably sign in to an Azure AD DS managed domain.
+> **Sign in to the managed domain using the UPN format** The *SAMAccountName* attribute, such as `CONTOSO\driley`, may be auto-generated for some user accounts in an Azure AD DS managed domain. Users' auto-generated *SAMAccountName* may differ from their UPN prefix, so isn't always a reliable way to sign in.
+>
+> For example, if multiple users have the same *mailNickname* attribute or users have overly long UPN prefixes, the *SAMAccountName* for these users may be auto-generated. Use the UPN format, such as `driley@contoso.com`, to reliably sign in to an Azure AD DS managed domain.
 
 ### Attribute mapping for user accounts
 
@@ -108,7 +110,7 @@ As previously detailed, there's no synchronization from Azure AD DS back to Azur
 
 ## What isn't synchronized to Azure AD DS
 
-The following objects or attributes aren't synchronized to Azure AD or to Azure AD DS:
+The following objects or attributes aren't synchronized from an on-premises AD DS environment to Azure AD or Azure AD DS:
 
 * **Excluded attributes:** You can choose to exclude certain attributes from synchronizing to Azure AD from an on-premises AD DS environment using Azure AD Connect. These excluded attributes aren't then available in Azure AD DS.
 * **Group Policies:** Group Policies configured in an on-premises AD DS environment aren't synchronized to Azure AD DS.

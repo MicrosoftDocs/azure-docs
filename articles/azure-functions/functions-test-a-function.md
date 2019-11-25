@@ -1,13 +1,8 @@
 ---
 title: Testing Azure Functions
 description: Create automated tests for a C# Function in Visual Studio and JavaScript Function in VS Code
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture, testing
 
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
@@ -216,7 +211,7 @@ namespace Functions.Tests
         public async void Http_trigger_should_return_known_string()
         {
             var request = TestFactory.CreateHttpRequest("name", "Bill");
-            var response = (OkObjectResult)await HttpFunction.Run(request, logger);
+            var response = (OkObjectResult)await HttpTrigger.Run(request, logger);
             Assert.Equal("Hello, Bill", response.Value);
         }
 
@@ -225,7 +220,7 @@ namespace Functions.Tests
         public async void Http_trigger_should_return_known_string_from_member_data(string queryStringKey, string queryStringValue)
         {
             var request = TestFactory.CreateHttpRequest(queryStringKey, queryStringValue);
-            var response = (OkObjectResult)await HttpFunction.Run(request, logger);
+            var response = (OkObjectResult)await HttpTrigger.Run(request, logger);
             Assert.Equal($"Hello, {queryStringValue}", response.Value);
         }
 
@@ -305,7 +300,8 @@ module.exports = {
     IsPastDue: false
 };
 ```
-This module implements the `IsPastDue` property to stand is as a fake timer instance.
+
+This module implements the `IsPastDue` property to stand is as a fake timer instance. Timer configurations like NCRONTAB expressions are not required here as the test harness is simply calling the function directly to test the outcome.
 
 Next, use the VS Code Functions extension to [create a new JavaScript HTTP Function](/azure/javascript/tutorial-vscode-serverless-node-01) and name it *HttpTrigger*. Once the function is created, add a new file in the same folder named **index.test.js**, and add the following code:
 
@@ -359,7 +355,8 @@ To debug your tests, add the following configuration to your *launch.json* file:
   "type": "node",
   "request": "launch",
   "name": "Jest Tests",
-  "program": "${workspaceRoot}\\node_modules\\jest\\bin\\jest.js",
+  "disableOptimisticBPs": true,
+  "program": "${workspaceRoot}/node_modules/jest/bin/jest.js",
   "args": [
       "-i"
   ],

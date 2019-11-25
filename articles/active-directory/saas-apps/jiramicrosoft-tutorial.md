@@ -214,8 +214,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 	1. Enable **Force Azure Login** checkbox, if you wish to sign in through Azure AD credentials only.
 	
 	   > [!Note]
-	   >To enable the default login form for admin login on login page when force azure login is enabled, add the query parameter in the browser URL.
-	   > `https://<domain:port>/login.action?force_azure_login=false`
+	   > To enable the default login form for admin login on login page when force azure login is enabled, add the query parameter in the browser URL.
+	   > `https://<domain:port>/login.jsp?force_azure_login=false`
 
 	1. Click **Save** button to save the settings.
 

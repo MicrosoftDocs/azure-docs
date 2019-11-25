@@ -1,12 +1,8 @@
 ---
 title: Azure Functions SendGrid bindings
 description: Azure Functions SendGrid bindings reference.
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
 
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/29/2017
 ms.author: cshoe

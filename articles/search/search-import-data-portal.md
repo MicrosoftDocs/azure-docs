@@ -1,18 +1,18 @@
 ---
-title: Import data into a search index using Azure portal - Azure Search
+title: Import data into a search index using Azure portal
+titleSuffix: Azure Cognitive Search
 description: Learn how to use the Import Data wizard in the Azure portal to crawl Azure data from Cosmos DB, Blob storage, table storage, SQL Database, and SQL Server on Azure VMs.
+
 author: HeidiSteen
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 10/03/2019
 ms.author: heidist
-ms.custom: seodec2018
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
-# Import data wizard for Azure Search
+# Import data wizard for Azure Cognitive Search
 
-The Azure portal provides an **Import data** wizard on the Azure Search dashboard for prototyping and loading an index. This article covers advantages and limitations of using the wizard, inputs and outputs, and some usage information. For hands-on guidance in stepping through the wizard using built-in sample data, see the [Create an Azure Search index using the Azure portal](search-get-started-portal.md) quickstart.
+The Azure portal provides an **Import data** wizard on the Azure Cognitive Search dashboard for prototyping and loading an index. This article covers advantages and limitations of using the wizard, inputs and outputs, and some usage information. For hands-on guidance in stepping through the wizard using built-in sample data, see the [Create an Azure Cognitive Search index using the Azure portal](search-get-started-portal.md) quickstart.
 
 Operations that this wizard performs include:
 
@@ -28,7 +28,7 @@ The wizard outputs a number of objects that are saved to your search service, wh
 
 ## Advantages and limitations
 
-Before you write any code, you can use the wizard for prototyping and proof-of-concept testing. The wizard connects to external data sources, samples the data to create an initial index, and then imports the data as JSON documents into an index on Azure Search. 
+Before you write any code, you can use the wizard for prototyping and proof-of-concept testing. The wizard connects to external data sources, samples the data to create an initial index, and then imports the data as JSON documents into an index on Azure Cognitive Search. 
 
 Sampling is the process by which an index schema is inferred and it has some limitations. When the data source is created, the wizard picks a sample of documents to decide what columns are part of the data source. Not all files are read, as this could potentially take hours for very large data sources. Given a selection of documents, source metadata, such as field name or type, is used to create a fields collection in an index schema. Depending on the complexity of source data, you might need to edit the initial schema for accuracy, or extend it for completeness. You can make your changes inline on the index definition page.
 
@@ -50,7 +50,7 @@ Known limitations are summarized as follows:
 
 ## Data source input
 
-The **Import data** wizard connects to an external data source using the internal logic provided by Azure Search indexers, which are equipped to sample the source, read metadata, crack documents to read content and structure, and serialize contents as JSON for subsequent import to Azure Search.
+The **Import data** wizard connects to an external data source using the internal logic provided by Azure Cognitive Search indexers, which are equipped to sample the source, read metadata, crack documents to read content and structure, and serialize contents as JSON for subsequent import to Azure Cognitive Search.
 
 You can only import from a single table, database view, or equivalent data structure, however the structure can include hierarchical or nested substructures. For more information, see [How to model complex types](search-howto-complex-data-types.md).
 
@@ -58,10 +58,10 @@ You should create this single table or view before running the wizard, and it mu
 
 |  Selection | Description |
 | ---------- | ----------- |
-| **Existing data source** |If you already have indexers defined in your search service, you might have an existing data source definition that you can reuse. In Azure Search, data source objects are only used by indexers. You can create a data source object programmatically or through the **Import data** wizard, and reuse them as needed.|
-| **Samples**| Azure Search provides two built-in sample data sources that are used in tutorials and quickstarts: a real estate SQL database and a Hotels database hosted on Cosmos DB. For a walk through based on the Hotels sample, see the [Create an index in the Azure portal](search-get-started-portal.md) quickstart. |
+| **Existing data source** |If you already have indexers defined in your search service, you might have an existing data source definition that you can reuse. In Azure Cognitive Search, data source objects are only used by indexers. You can create a data source object programmatically or through the **Import data** wizard, and reuse them as needed.|
+| **Samples**| Azure Cognitive Search provides two built-in sample data sources that are used in tutorials and quickstarts: a real estate SQL database and a Hotels database hosted on Cosmos DB. For a walk through based on the Hotels sample, see the [Create an index in the Azure portal](search-get-started-portal.md) quickstart. |
 | [**Azure SQL Database**](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) |Service name, credentials for a database user with read permission, and a database name can be specified either on the page or via an ADO.NET connection string. Choose the connection string option to view or customize properties. <br/><br/>The table or view that provides the rowset must be specified on the page. This option appears after the connection succeeds, giving a drop-down list so that you can make a selection.|
-| **SQL Server on Azure VM** |Specify a fully qualified service name, user ID and password, and database as a connection string. To use this data source, you must have previously installed a certificate in the local store that encrypts the connection. For instructions, see [SQL VM connection to Azure Search](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>The table or view that provides the rowset must be specified on the page. This option appears after the connection succeeds, giving a drop-down list so that you can make a selection. |
+| **SQL Server on Azure VM** |Specify a fully qualified service name, user ID and password, and database as a connection string. To use this data source, you must have previously installed a certificate in the local store that encrypts the connection. For instructions, see [SQL VM connection to Azure Cognitive Search](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>The table or view that provides the rowset must be specified on the page. This option appears after the connection succeeds, giving a drop-down list so that you can make a selection. |
 | [**Azure Cosmos DB**](search-howto-index-cosmosdb.md)|Requirements include the account, database, and collection. All documents in the collection will be included in the index. You can define a query to flatten or filter the rowset, or leave the query blank. A query is not required in this wizard.|
 | [**Azure Blob Storage**](search-howto-indexing-azure-blob-storage.md) |Requirements include the storage account and a container. Optionally, if blob names follow a virtual naming convention for grouping purposes, you can specify the virtual directory portion of the name as a folder under container. See [Indexing Blob Storage](search-howto-indexing-azure-blob-storage.md) for more information. |
 | [**Azure Table Storage**](search-howto-indexing-azure-tables.md) |Requirements include the storage account and a table name. Optionally, you can specify a query to retrieve a subset of the tables. See [Indexing Table Storage](search-howto-indexing-azure-tables.md) for more information. |
@@ -88,7 +88,7 @@ The Import data wizard is started from the command bar on the service Overview p
 
    ![Import data command in portal](./media/search-import-data-portal/import-data-cmd2.png "Start the Import data wizard")
 
-You can also launch **Import data** from other Azure services, including Azure Cosmos DB, Azure SQL Database, and Azure Blob storage. Look for **Add Azure Search** in the left-navigation pane on the service overview page.
+You can also launch **Import data** from other Azure services, including Azure Cosmos DB, Azure SQL Database, and Azure Blob storage. Look for **Add Azure Cognitive Search** in the left-navigation pane on the service overview page.
 
 <a name="index-definition"></a>
 
@@ -98,7 +98,7 @@ The wizard generates an incomplete index, which will be populated with documents
 
 1. Is the field list complete? Add new fields that sampling missed, and remove any that don't add value to a search experience or that won't be used in a [filter expression](search-query-odata-filter.md) or [scoring profile](index-add-scoring-profiles.md).
 
-1. Is the data type appropriate for the incoming data? Azure Search supports the [entity data model (EDM) data types](https://docs.microsoft.com/rest/api/searchservice/supported-data-types). For Azure SQL data, there is [mapping chart](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#mapping-between-sql-and-azure-search-data-types) that lays out equivalent values. For more background, see [Field mappings and transformations](search-indexer-field-mappings.md).
+1. Is the data type appropriate for the incoming data? Azure Cognitive Search supports the [entity data model (EDM) data types](https://docs.microsoft.com/rest/api/searchservice/supported-data-types). For Azure SQL data, there is [mapping chart](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#TypeMapping) that lays out equivalent values. For more background, see [Field mappings and transformations](search-indexer-field-mappings.md).
 
 1. Do you have one field that can serve as the *key*? This field must be Edm.string and it must uniquely identify a document. For relational data, it might be mapped to a primary key. For blobs, it might be the `metadata-storage-path`. If field values include spaces or dashes, you must set the **Base-64 Encode Key** option in the **Create an Indexer** step, under **Advanced options**, to suppress the validation check for these characters.
 
@@ -128,4 +128,4 @@ The wizard generates an incomplete index, which will be populated with documents
 The best way to understand the benefits and limitations of the wizard is to step through it. The following quickstart guides you through each step.
 
 > [!div class="nextstepaction"]
-> [Create an Azure Search index using the Azure portal](search-get-started-portal.md)
+> [Create an Azure Cognitive Search index using the Azure portal](search-get-started-portal.md)

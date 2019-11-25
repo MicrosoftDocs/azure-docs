@@ -1,12 +1,12 @@
 ---
 title: Quickstart create a workspace #Required; update as needed page title displayed in search results. Include the brand.
 description: #Required; Add article description that is displayed in search results.
-services: sql-data-warehouse #Required for articles that deal with a service, we will use sql-data-warehouse for now and bulk update later once we have the  service slug assigned by ACOM.
+services: synapse-analytics 
 author: julieMSFT #Required; update with your GitHub user alias, with correct capitalization.
-ms.service: sql-data-warehouse #Required; we will use sql-data-warehouse for now and bulk update later once the service is added to the approved list.
+ms.service: synapse-analytics 
 ms.topic: quickstart #Required
-ms.subservice: design #Required will update once these are established.
-ms.date: 09/10/2019 #Update with current date; mm/dd/yyyy format.
+ms.subservice:  #leave blank
+ms.date: 10/17/2019 #Update with current date; mm/dd/yyyy format.
 ms.author: jrasnick #Required; update with your microsoft alias of author; optional team alias.
 ms.reviewer: jrasnick
 ---
@@ -17,7 +17,7 @@ ms.reviewer: jrasnick
 You only use quickstarts when you can get the service, technology, or functionality into the hands of new customers in less than 10 minutes.
 --->
 
-# Quickstart: Create a workspace> 
+# Quickstart: Create a workspace
 <!---Required:
 Starts with "quickstart: "
 Make the first word following "quickstart:" a verb.

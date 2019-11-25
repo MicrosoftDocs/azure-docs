@@ -1,5 +1,5 @@
 ---
-title: Create an Azure Stream Analytics cloud job in Visual Studio Code (Preview)
+title: Create an Azure Stream Analytics cloud job in Visual Studio Code
 description: This quickstart shows you how to get started by creating a Stream Analytics job, configuring inputs, outputs, and defining a query with Visual Studio Code.
 ms.service: stream-analytics
 author: mamccrea

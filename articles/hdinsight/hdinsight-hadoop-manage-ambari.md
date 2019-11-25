@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 10/11/2019
 ---
 
 # Manage HDInsight clusters by using the Apache Ambari Web UI
@@ -31,14 +31,14 @@ The Ambari Web UI is available on your HDInsight cluster at `https://CLUSTERNAME
 
 ## SSH tunnel (proxy)
 
-While Ambari for your cluster is accessible directly over the Internet, some links from the Ambari Web UI (such as to the JobTracker) are not exposed on the internet. To access these services, you must create an SSH tunnel. For more information, see [Use SSH Tunneling with HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
+While Ambari for your cluster is accessible directly over the Internet, some links from the Ambari Web UI (such as to the JobTracker) aren't exposed on the internet. To access these services, you must create an SSH tunnel. For more information, see [Use SSH Tunneling with HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
 
 ## Ambari Web UI
 
 > [!WARNING]  
 > Not all features of the Ambari Web UI are supported on HDInsight. For more information, see the [Unsupported operations](#unsupported-operations) section of this document.
 
-When connecting to the Ambari Web UI, you are prompted to authenticate to the page. Use the cluster admin user (default Admin) and password you used during cluster creation.
+When connecting to the Ambari Web UI, you're prompted to authenticate to the page. Use the cluster admin user (default Admin) and password you used during cluster creation.
 
 When the page opens, note the bar at the top. This bar contains the following information and controls:
 
@@ -77,7 +77,7 @@ You can manage the groups by using the **Actions** menu and selecting **Manage A
 
 ![Apache Ambari manage alert groups](./media/hdinsight-hadoop-manage-ambari/ambari-manage-alerts.png)
 
-You can also manage alerting methods, and create alert notifications from the **Actions** menu by selecting __Manage Alert Notifications__. Any current notifications are displayed. You can also create notifications from here. Notifications can be sent via **EMAIL** or **SNMP** when specific alert/severity combinations occur. For example, you can send an email message when any of the alerts in the **YARN Default** group is set to **Critical**.
+You can also manage alerting methods, and create alert notifications from the **Actions** menu by selecting __Manage Notifications__. Any current notifications are displayed. You can also create notifications from here. Notifications can be sent via **EMAIL** or **SNMP** when specific alert/severity combinations occur. For example, you can send an email message when any of the alerts in the **YARN Default** group is set to **Critical**.
 
 ![Apache Ambari create alert notification](./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png)
 
@@ -93,7 +93,7 @@ The **Heatmaps** tab displays metrics as colored heatmaps, going from green to r
 
 ![Apache Ambari dashboard with heatmaps](./media/hdinsight-hadoop-manage-ambari/hdi-heatmap-dashboard.png)
 
-For more information on the nodes within the cluster, select **Hosts**. Then select the specific node you are interested in.
+For more information on the nodes within the cluster, select **Hosts**. Then select the specific node you're interested in.
 
 ![Apache Ambari host summary details](./media/hdinsight-hadoop-manage-ambari/ambari-host-details1.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Using stored procedures in Azure SQL Data Warehouse | Microsoft Docs
+title: Using stored procedures
 description: Tips for implementing stored procedures in Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
 author: XiaoyuMSFT 
@@ -10,6 +10,7 @@ ms.subservice: development
 ms.date: 04/02/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # Using stored procedures in SQL Data Warehouse

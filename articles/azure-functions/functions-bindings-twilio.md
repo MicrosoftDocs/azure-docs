@@ -1,13 +1,8 @@
 ---
 title: Azure Functions Twilio binding
 description: Understand how to use Twilio bindings with Azure Functions.
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
 
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 07/09/2018
 ms.author: cshoe

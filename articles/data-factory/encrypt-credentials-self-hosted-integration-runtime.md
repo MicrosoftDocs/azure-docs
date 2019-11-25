@@ -1,5 +1,5 @@
 ---
-title: Encrypt credentials in Azure Data Factory | Microsoft Docs
+title: Encrypt credentials in Azure Data Factory 
 description: Learn how to encrypt and store credentials for your on-premises data stores on a machine with self-hosted integration runtime. 
 services: data-factory
 documentationcenter: ''

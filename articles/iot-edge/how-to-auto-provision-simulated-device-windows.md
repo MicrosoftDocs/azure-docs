@@ -15,6 +15,8 @@ ms.custom: seodec18
 
 Azure IoT Edge devices can be auto-provisioned using the [Device Provisioning Service](../iot-dps/index.yml) just like devices that are not edge-enabled. If you're unfamiliar with the process of auto-provisioning, review the [auto-provisioning concepts](../iot-dps/concepts-auto-provisioning.md) before continuing.
 
+DPS supports symmetric key attestation for IoT Edge devices in both individual enrollment and group enrollment. For group enrollment, if you check “is IoT Edge device” option to be true in symmetric key attestation, all the devices that are registered under that enrollment group will be marked as IoT Edge devices. 
+
 This article shows you how to test auto-provisioning on a simulated IoT Edge device with the following steps:
 
 * Create an instance of IoT Hub Device Provisioning Service (DPS).

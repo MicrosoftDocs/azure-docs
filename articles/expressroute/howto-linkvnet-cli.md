@@ -1,5 +1,5 @@
 ---
-title: 'Link a virtual network to an ExpressRoute circuit: CLI: Azure| Microsoft Docs'
+title: 'Azure ExpressRoute: Link a VNet to circuit: CLI'
 description: This article shows you how to link virtual networks (VNets) to ExpressRoute circuits by using the Resource Manager deployment model and CLI.
 services: expressroute
 author: cherylmc
@@ -8,8 +8,6 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: cherylmc
-ms.reviewer: anzaman
-ms.custom: seodec18
 
 ---
 # Connect a virtual network to an ExpressRoute circuit using CLI

@@ -1,5 +1,5 @@
 ---
-title: Fault tolerance of copy activity in Azure Data Factory | Microsoft Docs
+title: Fault tolerance of copy activity in Azure Data Factory 
 description: 'Learn about how to add fault tolerance to copy activity in Azure Data Factory by skipping the incompatible rows.'
 services: data-factory
 documentationcenter: ''

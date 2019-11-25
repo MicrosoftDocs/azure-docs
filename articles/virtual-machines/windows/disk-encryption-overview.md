@@ -13,7 +13,7 @@ ms.custom: seodec18
 
 # Azure Disk Encryption for Windows VMs 
 
-Azure Disk Encryption helps protect and safeguard your data to meet your organizational security and compliance commitments. It uses the [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) feature of Windows to provide volume encryption for the OS and data disks of Azure virtual machines (VMs), and is integrated with [Azure Key Vault](../../key-vault/index.yml) to help you control and manage the disk encryption keys and secrets. 
+Azure Disk Encryption helps protect and safeguard your data to meet your organizational security and compliance commitments. It uses the [Bitlocker](https://en.wikipedia.org/wiki/BitLocker) feature of Windows to provide volume encryption for the OS and data disks of Azure virtual machines (VMs), and is integrated with [Azure Key Vault](../../key-vault/index.yml) to help you control and manage the disk encryption keys and secrets. 
 
 If you use [Azure Security Center](../../security-center/index.yml), you're alerted if you have VMs that aren't encrypted. The alerts show as High Severity and the recommendation is to encrypt these VMs.
 
@@ -29,7 +29,7 @@ You can learn the fundamentals of Azure Disk Encryption for Windows in just a fe
 
 ### Supported VM sizes
 
-Windows VMs are available in a [range of sizes](sizes-general.md). Azure Disk Encryption is not available on [Basic, A-series VMs](/pricing/details/virtual-machines/series/), or on virtual machines with a less than 2 GB of memory.
+Windows VMs are available in a [range of sizes](sizes-general.md). Azure Disk Encryption is not available on [Basic, A-series VMs](https://azure.microsoft.com/pricing/details/virtual-machines/series/), or on virtual machines with a less than 2 GB of memory.
 
 Azure Disk Encryption is also available for VMs with premium storage.
 

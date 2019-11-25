@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Automate container image builds on base image update - Azure Container Registry Tasks
+title: Tutorial - Trigger image build on base image update - Azure Container Registry
 description: In this tutorial, you learn how to configure an Azure Container Registry Task to automatically trigger container image builds in the cloud when a base image is updated.
 services: container-registry
 author: dlepow
@@ -271,10 +271,10 @@ az ad sp delete --id http://$ACR_NAME-pull
 
 ## Next steps
 
-In this tutorial, you learned how to use a task to automatically trigger container image builds when the image's base image has been updated. Now, move on to learning about authentication for your container registry.
+In this tutorial, you learned how to use a task to automatically trigger container image builds when the image's base image has been updated. Now, move on to the next tutorial to learn how to trigger tasks on a defined schedule.
 
 > [!div class="nextstepaction"]
-> [Authentication in Azure Container Registry](container-registry-authentication.md)
+> [Run a task on a schedule](container-registry-tasks-scheduled.md)
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/
