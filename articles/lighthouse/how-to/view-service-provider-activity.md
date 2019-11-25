@@ -7,18 +7,18 @@ ms.topic: conceptual
 
 # View actions performed by service providers
 
-Customers who have delegated subscriptions for Azure delegated resource management can [view Azure Activity log](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview) data to see all actions taken, including those initiated by users in the managing tenant. This gives customers full visibility into the actions that service providers are performing through Azure delegated resource management, as well as visibility into actions from users within the customer tenant.
+Customers who have delegated subscriptions for Azure delegated resource management can [view Azure Activity log](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview) data to see all actions taken, including those initiated by service providers. This gives customers full visibility into the actions that service providers are performing through Azure delegated resource management, as well as seeing actions performed by users within the customer's own Azure Active Directory (Azure AD) tenant.
 
-You can [view the activity log](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview#view-the-activity-log) for all resources from the Monitor menu in the Azure portal. Select a specific subscription to show only results for that subscription (or you can navigate to that subscription in the Azure portal and then select **Activity log** in its menu). for a particular resource from the Activity Log option in that resource's menu. You can also [view and retrieve activity log events](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view) programmatically.
+You can [view the activity log](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview#view-the-activity-log) for all resources from the **Monitor** menu in the Azure portal. Near the top of the screen, you can select a specific subscription to show only results for that subscription (or navigate directly to that subscription in the Azure portal, then select **Activity log** in its menu). You can also [view and retrieve activity log events](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view) programmatically.
 
 > [!NOTE]
-> Users in a managing tenant can view activity log results for a subscription in a customer tenant if they were granted the [Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) role (or another built-in role which includes Reader access) when that subscription was onboarded for Azure delegated resource management.
+> Users in a service provider's tenant can view activity log results for a delegated subscription in a customer tenant if they were granted the [Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) role (or another built-in role which includes Reader access) when that subscription was onboarded for Azure delegated resource management.
 
-While there is no ability to filter results based on whether actions were taken by users in the customer's tenant or in the managing tenant, the **Event initiated by** column will show which user performed an action. This provides visibility into actions taken by users in the service provider's tenant.
+In the activity log, you'll see the name of the operation and its status, along with the date and time it was performed. The **Event initiated by** column shows which user performed the operation, whether it was a user in a service provider's tenant acting through Azure delegated resource management, or a user in the customer's own tenant.
 
 ## Set up alerts for critical operations
 
-You can create [activity log alerts](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-alerts) to be notified when critical operations are performed. These alerts will include operations performed by users in the managing tenant as well as in the customer tenant. For more info, see [Create and manage activity log alerts](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
+You can create [activity log alerts](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-alerts) to be notified when critical operations are performed. These alerts will include operations performed by users in any managing tenants as well as those in the customer's own tenant. For more info, see [Create and manage activity log alerts](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
 
 ## Next steps
 
