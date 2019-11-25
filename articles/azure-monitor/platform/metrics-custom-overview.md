@@ -52,7 +52,7 @@ This property captures what Azure region the resource you're emitting metrics fo
 Each data point sent to Azure Monitor must be marked with a timestamp. This timestamp captures the DateTime at which the metric value is measured or collected. Azure Monitor accepts metric data with timestamps as far as 20 minutes in the past and 5 minutes in the future. The timestamp must be in ISO 8601 format.
 
 ### Namespace
-Namespaces are a way to categorize or group similar metrics together. By using namespaces, you can achieve isolation between groups of metrics that might collect different insights or performance indicators. For example, you might have a namespace called **ContosoMemoryMetrics** that tracks memory-use metrics which profile your app. Another namespace called **ContosoAppTransaction** might track all metrics about user transactions in your application.
+Namespaces are a way to categorize or group similar metrics together. By using namespaces, you can achieve isolation between groups of metrics that might collect different insights or performance indicators. For example, you might have a namespace called **contosomemorymetrics** that tracks memory-use metrics which profile your app. Another namespace called **contosoapptransaction** might track all metrics about user transactions in your application.
 
 ### Name
 **Name** is the name of the metric that's being reported. Usually, the name is descriptive enough to help identify what's measured. An example is a metric that measures the number of memory bytes used on a given VM. It might have a metric name like **Memory Bytes In Use**.

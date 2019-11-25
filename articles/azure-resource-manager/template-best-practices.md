@@ -1,11 +1,8 @@
 ---
-title: Best practices for Azure Resource Manager templates
+title: Best practices for templates
 description: Describes recommended approaches for authoring Azure Resource Manager templates. Offers suggestions to avoid common problems when using templates. 
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.author: tomfitz
 ---
 # Azure Resource Manager template best practices
 

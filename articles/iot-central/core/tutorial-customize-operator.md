@@ -1,9 +1,9 @@
 ---
-title: Customize the operator's views in Azure IoT Central | Microsoft Docs
-description: As a builder, customize the operator's views in your Azure IoT Central application.
+title: "Tutorial: Customize the operator's views in Azure IoT Central"
+description: "Tutorial: As a builder, customize the operator's views in your Azure IoT Central application."
 author: sandeeppujar
 ms.author: sandeepu
-ms.date: 07/09/2019
+ms.date: 11/13/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central

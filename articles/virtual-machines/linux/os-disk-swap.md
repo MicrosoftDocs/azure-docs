@@ -1,5 +1,5 @@
 ---
-title: Swap OS disk for an Azure VM using CLI | Microsoft Docs'
+title: Swap OS disk for an Azure VM using CLI '
 description: Change the operating system disk used by an Azure virtual machine using the CLI.
 services: virtual-machines-linux
 documentationcenter: ''

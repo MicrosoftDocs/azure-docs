@@ -1,7 +1,7 @@
 ---
 title:  "Clean Missing Data: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Clean Missing Data module in Azure Machine Learning service to remove, replace, or infer missing values.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Clean Missing Data module in Azure Machine Learning to remove, replace, or infer missing values.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
+ms.date: 10/22/2019
 ---
 
 # Clean Missing Data module
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to remove, replace, or infer missing values. 
 
@@ -129,8 +129,8 @@ If you need to repeat cleaning operations often, we recommend that you save your
   
 2.  Add the dataset you want to clean, and connect the dataset to the right-hand input port.  
   
-3.  Expand the **Transforms** group in the left-hand pane of the interface. Locate the saved transformation and drag it into the pipeline.  
-  
+3.  Expand the **Transforms** group in the left-hand pane of the designer. Locate the saved transformation and drag it into the pipeline.  
+
 4.  Connect the saved transformation to the left input port of [Apply Transformation](./apply-transformation.md). 
 
     When you apply a saved transformation, you cannot select the columns to which the transformation are applied. That is because the transformation has been already defined and applies automatically to the columns specified in the original operation.
@@ -141,4 +141,4 @@ If you need to repeat cleaning operations often, we recommend that you save your
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

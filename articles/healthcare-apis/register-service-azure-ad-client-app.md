@@ -1,6 +1,6 @@
 ---
-title: Register a service application in Azure Active Directory - Azure API for FHIR
-description: This article explains how to register a service application in Azure Active Directory.
+title: Register a service app in Azure AD - Azure API for FHIR
+description: Learn how to register a service client application in Azure Active Directory that can be used to authenticate and obtain tokens. 
 services: healthcare-apis
 author: hansenms
 ms.service: healthcare-apis

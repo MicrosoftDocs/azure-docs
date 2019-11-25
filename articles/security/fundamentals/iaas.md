@@ -4,7 +4,7 @@ description: " The migration of workloads to Azure IaaS brings opportunities to 
 services: security
 documentationcenter: na
 author: barclayn
-manager: MBaldwin
+manager: rkarlin
 editor: TomSh
 
 ms.assetid: 02c5b7d2-a77f-4e7f-9a1e-40247c57e7e2
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/26/2019
+ms.date: 10/28/2019
 ms.author: barclayn
 ---
 
@@ -24,13 +24,6 @@ This article describes security best practices for VMs and operating systems.
 The best practices are based on a consensus of opinion, and they work with current Azure platform capabilities and feature sets. Because opinions and technologies can change over time,  this article will be updated to reflect those changes.
 
 In most infrastructure as a service (IaaS) scenarios, [Azure virtual machines (VMs)](/azure/virtual-machines/) are the main workload for organizations that use cloud computing. This fact is evident in [hybrid scenarios](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) where organizations want to slowly migrate workloads to the cloud. In such scenarios, follow the [general security considerations for IaaS](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx), and apply security best practices to all your VMs.
-
-## Shared responsibility
-Your responsibility for security is based on the type of cloud service. The following chart summarizes the balance of responsibility for both Microsoft and you:
-
-![Areas of responsibility](./media/iaas/sec-cloudstack-new.png)
-
-Security requirements vary depending on a number of factors including different types of workloads. Not one of these best practices can by itself secure your systems. Like anything else in security, you have to choose the appropriate options and see how the solutions can complement each other by filling gaps.
 
 ## Protect VMs by using authentication and access control
 The first step in protecting your VMs is to ensure that only authorized users can set up new VMs and access VMs.
@@ -71,7 +64,7 @@ If your VM runs critical applications that need to have high availability, we st
 An availability set is a logical grouping that you can use in Azure to ensure that the VM resources you place within it are isolated from each other when they’re deployed in an Azure datacenter. Azure ensures that the VMs you place in an availability set run across multiple physical servers, compute racks, storage units, and network switches. If a hardware or Azure software failure occurs, only a subset of your VMs are affected, and your overall application continues to be available to your customers. Availability sets are an essential capability when you want to build reliable cloud solutions.
 
 ## Protect against malware
-You should install antimalware protection to help identify and remove viruses, spyware, and other malicious software. You can install [Microsoft Antimalware](antimalware.md) or a Microsoft partner’s endpoint protection solution ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/search/result.aspx?q=Windows+defender+endpoint+protection), and [System Center Endpoint Protection](https://www.microsoft.com/search/result.aspx?q=System+Center+endpoint+protection)).
+You should install antimalware protection to help identify and remove viruses, spyware, and other malicious software. You can install [Microsoft Antimalware](antimalware.md) or a Microsoft partner’s endpoint protection solution ([Trend Micro](https://help.deepsecurity.trendmicro.com/Welcome.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/windows/comprehensive-security), and [System Center Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection)).
 
 Microsoft Antimalware includes features like real-time protection, scheduled scanning, malware remediation, signature updates, engine updates, samples reporting, and exclusion event collection. For environments that are hosted separately from your production environment, you can use an antimalware extension to help protect your VMs and cloud services.
 

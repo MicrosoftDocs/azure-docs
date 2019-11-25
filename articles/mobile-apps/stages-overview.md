@@ -30,6 +30,6 @@ Developers creating mobile and cloud-focused applications can take advantage of 
 
 ## Additional services
 There are many Azure services that can be consumed depending on the type and nature of application being built.
-  - Azure Search for searching all types of internal data, with fast querying.
+  - Azure Cognitive Search for searching all types of internal data, with fast querying.
   - Azure Cognitive Services to use Artificial Intelligence in your application.
   - Azure SignalR to enable real-time communication in your application.

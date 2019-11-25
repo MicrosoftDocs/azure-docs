@@ -7,22 +7,12 @@ ms.author: jzim
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 11/04/2019
 ---
 
 # Azure Red Hat OpenShift FAQ
 
 This article addresses frequently asked questions (FAQs) about Microsoft Azure Red Hat OpenShift.
-
-## How do I get started?
-
-Before you can use Azure Red Hat OpenShift, you'll need to purchase a minimum of 4 Azure Red Hat OpenShift reserved application nodes.
-
-If you are an Azure customer,[purchase Azure Red Hat OpenShift reserved instances](https://aka.ms/openshift/buy) through the Azure portal. After purchasing, your subscription will be activated within 24 hours, after which you'll be able to provision clusters.
-
-If you are not an Azure customer, [contact sales](https://aka.ms/openshift/contact-sales) and fill out the sales form at the bottom of the page to start the process.
-
-Refer to the [Azure Red Hat OpenShift pricing page](https://aka.ms/openshift/pricing) for more information.
 
 ## Which Azure regions are supported?
 

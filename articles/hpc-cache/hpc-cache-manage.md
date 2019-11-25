@@ -1,10 +1,10 @@
 ---
-title: Manage and update Azure HPC Cache (Preview)
+title: Manage and update Azure HPC Cache
 description: How to manage and update Azure HPC Cache using the Azure portal 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/18/2019
 ms.author: rohogue
 ---
 
@@ -14,7 +14,7 @@ The cache overview page in the Azure portal shows project details, cache status,
 
 To open the overview page, select your cache resource in the Azure portal. For example, load the **All resources** page and click the cache name.
 
-![screenshot of an Azure HPC Cache instance's Overview page](media/hpc-cache-overview.png) <!-- placeholder is identical to hpc-cache-new-overview.png; replace with better image (showing graphs, full sidebar) when available -->
+![screenshot of an Azure HPC Cache instance's Overview page](media/hpc-cache-overview.png)
 
 The buttons at the top of the page can help you manage the cache:
 
@@ -32,15 +32,17 @@ The **Flush** button on the overview page tells the cache to immediately write a
 > [!NOTE]
 > During the flush process, the cache can't serve client requests. Cache access is suspended and resumes after the operation finishes.
 
+![screenshot of the top buttons with Flush highlighted and a pop-up message describing the flush action and asking 'do you want to continue?' with Yes (default) and No buttons](media/hpc-cache-flush.png)
+
 When you start the cache flush operation, the cache stops accepting client requests, and the cache status on the overview page changes to **Flushing**.
 
-Data in the cache is saved to the appropriate storage targets. The process can take a few minutes or it can take an hour or more, depending on how much data has been written to the cache recently.
+Data in the cache is saved to the appropriate storage targets. Depending on how much data needs to be flushed, the process can take a few minutes or over an hour.
 
 After all the data is saved to storage targets, the cache automatically starts taking client requests again. The cache status returns to **Healthy**.
 
 ## Upgrade cache software
 
-If a new software version is available, the **Upgrade** button becomes active. You also might see a message at the top of the page about updating software.
+If a new software version is available, the **Upgrade** button becomes active. You also should see a message at the top of the page about updating software.
 
 ![screenshot of the top row of buttons with the Upgrade button enabled](media/hpc-cache-upgrade-button.png)
 
@@ -48,7 +50,7 @@ Client access is not interrupted during a software upgrade, but cache performanc
 
 The software update can take several hours. Caches configured with higher throughput take longer to upgrade than caches with smaller peak throughput values.
 
-When a software upgrade is available, you have several days to apply it manually. The end date is listed in the upgrade message. If you don't upgrade during that time, Azure automatically applies the update to your cache. The timing of the automatic upgrade is not configurable. If you are concerned about impacting cache performance, you should upgrade the software yourself before the time period expires.
+When a software upgrade is available, you will have a week or so to apply it manually. The end date is listed in the upgrade message. If you don't upgrade during that time, Azure automatically applies the update to your cache. The timing of the automatic upgrade is not configurable. If you are concerned about the cache performance impact, you should upgrade the software yourself before the time period expires.
 
 Click the **Upgrade** button to begin the software update. The cache status changes to **Upgrading** until the operation completes.
 

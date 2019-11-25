@@ -1,5 +1,5 @@
 ---
-title: 'Restore a backup to Azure SQL Database Managed Instance | Microsoft Docs'
+title: Restore a backup to managed instance
 description: Restore a database backup to an Azure SQL Database Managed Instance using SSMS. 
 services: sql-database
 ms.service: sql-database

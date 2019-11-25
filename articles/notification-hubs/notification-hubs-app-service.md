@@ -24,11 +24,6 @@ ms.lastreviewed: 01/04/2019
 
 To facilitate a seamless and unifying experience across Azure services, [App Service Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) has built-in support for push notifications using Notification Hubs. [App Service Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) offers a highly scalable, globally available mobile application development platform for Enterprise Developers and System Integrators that brings a rich set of capabilities to mobile developers.
 
-Visual Studio App Center delivers a more modern mobile solution for developers today. It supports end to end and integrated services central to mobile app development. Developers can use **Build**, **Test** and **Distribute** services to set up continuous integration and delivery pipeline. Once the app is deployed, developers can monitor the status and usage of their app using the **Analytics** and **Diagnostics** services, and engage with users using the **Push** service. Developers can also leverage **Auth** to authenticate their users and **Data** service to persist and sync app data in the cloud.
-
-> [!NOTE]
-> If you are looking to integrate cloud services in your mobile application, sign up with [App Center](https://appcenter.ms/signup?utm_source=NotificationHubs&utm_medium=Azure&utm_campaign=docs) today.
-
 Mobile Apps developers can utilize Notification Hubs with the following workflow:
 
 1. Retrieve device PNS handle

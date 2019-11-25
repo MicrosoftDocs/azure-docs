@@ -1,5 +1,5 @@
 ---
-title: Copy activity performance and scalability guide in Azure Data Factory | Microsoft Docs
+title: Copy activity performance and scalability guide in Azure Data Factory 
 description: Learn about key factors that affect the performance of data movement in Azure Data Factory when you use the copy activity.
 services: data-factory
 documentationcenter: ''

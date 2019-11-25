@@ -8,9 +8,10 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 11/04/2019
 ms.author: erhopf
 ---
+
 
 # Get started with Custom Voice
 
@@ -31,6 +32,13 @@ The diagram below highlights the steps to create a custom voice model using the 
 3.	[Train your model](how-to-custom-voice-create-voice.md#build-your-custom-voice-model) – Use your data to create a custom text-to-speech voice model. You can train a model in different languages. After training, test your model, and if you're satisfied with the result, you can deploy the model.
 
 4.	[Deploy your model](how-to-custom-voice-create-voice.md#create-and-use-a-custom-voice-endpoint) - Create a custom endpoint for your text-to-speech voice model, and use it for speech synthesis in your products, tools, and applications.
+
+## Custom Neural voices
+
+The neural voice customization capability is currently in public preview, limited to selected customers. Fill out this [application form](https://go.microsoft.com/fwlink/?linkid=2108737) to get started.
+
+> [!NOTE]
+> As part of Microsoft's commitment to designing responsible AI, our intent is to protect the rights of individuals and society, and foster transparent human-computer interactions. For this reason, Custom Neural Voice is not generally available to all customers. You may gain access to the technology only after your applications are reviewed and you have committed to using it in alignment with our ethics principles. Learn more about our [application gating process](https://aka.ms/custom-neural-gating-overview).
 
 ## Set up your Azure account
 

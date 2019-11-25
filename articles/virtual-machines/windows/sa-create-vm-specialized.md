@@ -1,5 +1,5 @@
 ---
-title: Create VM from a specialized disk in Azure | Microsoft Docs
+title: Create VM from a specialized disk in Azure 
 description: Create a new VM by attaching a specialized unmanaged disk, in the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -27,7 +27,7 @@ You have two options:
 * [Upload a VHD](sa-create-vm-specialized.md#option-1-upload-a-specialized-vhd)
 * [Copy the VHD of an existing Azure VM](sa-create-vm-specialized.md#option-2-copy-the-vhd-from-an-existing-azure-vm)
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 
 ## Option 1: Upload a specialized VHD

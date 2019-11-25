@@ -6,7 +6,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 11/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -35,7 +35,7 @@ These features should be taken into consideration prior to switching to cloud au
 
 -   You have decided to move to either Password Hash Sync + Seamless SSO **(Option A),** or Pass-through Authentication + Seamless SSO **(Option B).** Although seamless SSO is optional, we recommend enabling seamless SSO to achieve a silent sign-in experience for users using domain joined machines from inside corporate network.
 
--   You have configured all the appropriate tenant branding and conditional access policies you need for users who are being migrated over to cloud authentication.
+-   You have configured all the appropriate tenant branding and Conditional Access policies you need for users who are being migrated over to cloud authentication.
 
 -   If you plan to use Azure Multi-Factor Authentication, we recommend you use [converged registration for Self-service Password Reset (SSPR) and Azure MFA](../authentication/concept-registration-mfa-sspr-combined.md) to get your users to register their authentication methods once.
 
@@ -113,18 +113,18 @@ Enable Seamless SSO on the AD forests using PowerShell. If you have more than 
 
 2. Navigate to the %programfiles%\\Microsoft Azure Active Directory Connect folder.
 
-3. Import the Seamless SSO PowerShell module using this command: `Import-Module .\\AzureADSSO.psd1`.
+3. Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
 
 4. Run PowerShell as an Administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a dialog box where you can enter your tenant's Global Administrator credentials.
 
-5. Call `Get-AzureADSSOStatus \| ConvertFrom-Json`. This command provides you the list of AD forests (look at the \"Domains\" list) on which this feature has been enabled. By default, it is set to false at the tenant level.
+5. Call `Get-AzureADSSOStatus | ConvertFrom-Json`. This command provides you the list of AD forests (look at the \"Domains\" list) on which this feature has been enabled. By default, it is set to false at the tenant level.
 
    > **Example:**
    > ![Example of the Windows PowerShell output](./media/how-to-connect-staged-rollout/sr3.png)
 
-6. Call `\$creds = Get-Credential`. When prompted, enter the Domain Administrator credentials for the intended AD forest.
+6. Call `$creds = Get-Credential`. When prompted, enter the Domain Administrator credentials for the intended AD forest.
 
-7. Call `Enable-AzureADSSOForest -OnPremCredentials \$creds`. This command creates the AZUREADSSOACC computer account from the on-premises domain controller for this specific Active Directory forest that is required for Seamless SSO.
+7. Call `Enable-AzureADSSOForest -OnPremCredentials $creds`. This command creates the AZUREADSSOACC computer account from the on-premises domain controller for this specific Active Directory forest that is required for Seamless SSO.
 
 8. Seamless SSO requires URLs to be in the intranet zone. Please refer to the [seamless single sign-on quickstart](how-to-connect-sso-quick-start.md#step-3-roll-out-the-feature) to deploy those URL's using Group Policies.
 
@@ -236,7 +236,7 @@ Here is how you can track user sign-ins still happening on AD FS for selected st
 
 -   **Q: Can we use PowerShell to perform staged rollout?**
 
--   A: Yes, Please find the documentation to use PowerShell to perform staged rollout here.
+-   A: Yes, Please find the documentation to use PowerShell to perform staged rollout [here](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
 
 ## Next Steps
 - [AzureAD 2.0 preview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )

@@ -6,8 +6,8 @@ ms.author: nandab
 ms.date: 10/22/2019
 ms.topic: overview
 ms.service: iot-central
+ms.subservice: iot-central-retail
 services: iot-central
-ms.custom: [iot-p0-scenario]
 ---
 
 # Building retail solutions with Azure IoT Central
@@ -147,4 +147,4 @@ To get started building a retail solution:
 * Learn how to deploy [connected logistics solution template](./tutorial-iot-central-connected-logistics-pnp.md)
 * Learn how to deploy [digital distribution center template](./tutorial-iot-central-digital-distribution-center-pnp.md)
 * Learn how to deploy [smart inventory management template](./tutorial-iot-central-smart-inventory-management-pnp.md)
-* Learn more about IoT Central refer to [IoT Central overview](../core/overview-iot-central-pnp.md)
+* Learn more about IoT Central refer to [IoT Central overview](../preview/overview-iot-central.md)

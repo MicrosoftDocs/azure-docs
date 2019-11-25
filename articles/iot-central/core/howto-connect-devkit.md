@@ -114,7 +114,7 @@ Shake the device to send a reported property. The device sends a random number a
 
 You can view the telemetry measurements and reported property values, and configure settings in Azure IoT Central:
 
-1. Use **Device Explorer** to navigate to the **Measurements** page for the real MXChip device you added:
+1. Use **Devices** to navigate to the **Measurements** page for the real MXChip device you added:
 
     ![Navigate to real device](media/howto-connect-devkit/realdevicenew.png)
 

@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure Time Series Insights Documentation
-summary: Learn how to run Azure IoT analytics in the cloud with fully managed event processing. Analyze data from applications, sensors, devices, and more in real time.
+summary: Learn how to run Azure IoT analytics in the cloud with fully managed event processing using quickstarts, tutorials, JavaScript samples, and REST API documentation. Analyze data from applications, sensors, devices, and more in real time.
 
 metadata:
   title: Azure Time Series Insights Documentation - Quickstarts, Tutorials, API Reference | Microsoft Docs
-  description: Learn how to run Azure IoT analytics in the cloud with fully managed event processing. Analyze data from applications, sensors, devices, and more in real time.
+  description: Learn how to run Azure IoT analytics in the cloud with fully managed event processing using quickstarts, tutorials, JavaScript samples, and REST API documentation.
   services: time-series-insights
   ms.service: time-series-insights
   ms.subservice: time-series-insights
@@ -14,7 +14,6 @@ metadata:
   author: KingdomOfEnds
   ms.author: v-adgera
   ms.date: 10/21/2019
-
 
 landingContent:
 

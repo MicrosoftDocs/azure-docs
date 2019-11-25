@@ -1,11 +1,11 @@
 ---
-title: Support matrix for disaster recovery of on-premises Hyper-V VMs to Azure 
+title: Support for disaster recovery of Hyper-V VMs to Azure with Azure Site Recovery
 description: Summarizes the supported components and requirements for Hyper-V VM disaster recovery to Azure with Azure Site Recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ---
 
@@ -15,15 +15,13 @@ ms.author: raynew
 
 This article summarizes the supported components and settings for disaster recovery of on-premises Hyper-V VMs to Azure by using [Azure Site Recovery](site-recovery-overview.md).
 
-> [!WARNING]
-> Please note that ASR support for using SCVMM configuration into account will soon be deprecated, and hence we recommend you to read the [deprecation](scvmm-site-recovery-deprecation.md) details before proceeding.
 
 
 ## Supported scenarios
 
 **Scenario** | **Details**
 --- | ---
-Hyper-V with Virtual Machine Manager <br> **This scenario is in the path of deprecation.** <br>| You can perform disaster recovery to Azure for VMs running on Hyper-V hosts that are managed in the System Center Virtual Machine Manager fabric.<br/><br/> You can deploy this scenario in the Azure portal or by using PowerShell.<br/><br/> When Hyper-V hosts are managed by Virtual Machine Manager, you also can perform disaster recovery to a secondary on-premises site. To learn more about this scenario, read [this tutorial](hyper-v-vmm-disaster-recovery.md).
+Hyper-V with Virtual Machine Manager <br> <br>| You can perform disaster recovery to Azure for VMs running on Hyper-V hosts that are managed in the System Center Virtual Machine Manager fabric.<br/><br/> You can deploy this scenario in the Azure portal or by using PowerShell.<br/><br/> When Hyper-V hosts are managed by Virtual Machine Manager, you also can perform disaster recovery to a secondary on-premises site. To learn more about this scenario, read [this tutorial](hyper-v-vmm-disaster-recovery.md).
 Hyper-V without Virtual Machine Manager | You can perform disaster recovery to Azure for VMs running on Hyper-V hosts that aren't managed by Virtual Machine Manager.<br/><br/> You can deploy this scenario in the Azure portal or by using PowerShell.
 
 ## On-premises servers
@@ -92,7 +90,7 @@ Accelerated Networking | No | No
 NFS | NA | NA
 SMB 3.0 | Yes | Yes
 SAN (ISCSI) | Yes | Yes
-Multi-path (MPIO). Tested with:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4<br/><br/> EMC PowerPath DSM for CLARiiON | Yes | Yes
+Multi-path (MPIO). Tested with:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON | Yes | Yes
 
 ## Hyper-V VM guest storage
 
@@ -101,7 +99,7 @@ Multi-path (MPIO). Tested with:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4<br
 VMDK | NA | NA
 VHD/VHDX | Yes | Yes
 Generation 2 VM | Yes | Yes
-EFI/UEFI| Yes | Yes
+EFI/UEFI<br></br>The migrated VM in Azure will be automatically converted to a BIOS boot VM. The VM should be running Windows Server 2012 and later only. The OS disk should have up to five partitions or fewer and the size of OS disk should be less than 300 GB.| Yes | Yes
 Shared cluster disk | No | No
 Encrypted disk | No | No
 NFS | NA | NA
@@ -128,6 +126,7 @@ Cool storage | No | No
 Hot storage| No | No
 Block blobs | No | No
 Encryption at rest (SSE)| Yes | Yes
+Encryption at rest (CMK)| No | No
 Premium storage | Yes | Yes
 Import/export service | No | No
 Azure storage accounts with firewall enabled | Yes. For target storage and cache. | Yes. For target storage and cache.

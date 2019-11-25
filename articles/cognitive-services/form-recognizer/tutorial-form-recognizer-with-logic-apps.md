@@ -57,7 +57,7 @@ You use this container to upload sample data that is required to train the model
 
 Download the sample data available at [GitHub](https://go.microsoft.com/fwlink/?linkid=2090451). Extract the data to a local folder and upload the contents of the **/Train** folder to the **formrecocontainer** that you created earlier. Follow the instructions at [Upload a block blob](../../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob) to upload data to a container.
 
-Copy the URL of the container. You will need this later in this tutorial. If you created the storage account and the container with the same names as listed in this tutorial, the URL will be *https://formrecostorage.blob.core.windows.net/formrecocontainer/*.
+Copy the URL of the container. You will need this later in this tutorial. If you created the storage account and the container with the same names as listed in this tutorial, the URL will be *https:\//formrecostorage.blob.core.windows.net/formrecocontainer/*.
 
 ## Create a Form Recognizer resource
 

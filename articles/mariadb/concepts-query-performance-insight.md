@@ -5,14 +5,11 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 11/04/2019
 ---
 # Query Performance Insight in Azure Database for MariaDB
 
 **Applies to:** Azure Database for MariaDB 10.2
-
-> [!IMPORTANT]
-> Query Performance Insight is in preview.
 
 Query Performance Insight helps you to quickly identify what your longest running queries are, how they change over time, and what waits are affecting them.
 

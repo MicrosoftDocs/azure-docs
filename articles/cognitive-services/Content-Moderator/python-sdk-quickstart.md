@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Content Moderator client library for Python | Microsoft Docs"
 titleSuffix: Azure Cognitive Services
-description: Get started with the Content Moderator client library for Python.
+description: Learn how to get started with the Azure Cognitive Services Content Moderator client library for Python.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
