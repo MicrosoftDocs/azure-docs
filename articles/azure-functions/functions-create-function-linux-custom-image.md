@@ -27,7 +27,6 @@ In this tutorial, you learn how to:
 > * Enable continuous deployment.
 > * Enable SSH connections to the container.
 > * Add a Queue storage output binding. 
-> * Add Application Insights monitoring.
 
 The following steps are supported on a Mac, Windows, or Linux computer. 
 
