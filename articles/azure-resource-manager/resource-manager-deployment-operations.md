@@ -11,7 +11,7 @@ Azure Resource Manager enables you to view your deployment history and examine s
 
 For help with resolving particular deployment errors, see [Resolve common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
-## Get deployments
+## Get deployments and correlation ID
 
 To get details about a deployment from the deployment history use portal, PowerShell, Azure CLI, or REST API.
 
@@ -39,7 +39,7 @@ To list all deployments for a resource group, use the [Get-AzResourceGroupDeploy
 Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup
 ```
 
-To get a specific deployment from a resource group, use the **DeploymentName** parameter.
+To get a specific deployment from a resource group, add the **DeploymentName** parameter.
 
 ```azurepowershell-interactive
 Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment
@@ -65,21 +65,27 @@ To get a specific deployment, use the [azure group deployment show](/cli/azure/g
 az group deployment show --resource-group ExampleGroup --name ExampleDeployment
 ```
   
-The correlation ID is used to track related events, and can be helpful when working with technical support to troubleshoot a deployment.
+The correlation ID is used to track related events. It can be helpful when working with technical support to troubleshoot a deployment. To get the correlation ID, use:
 
 ```azurecli-interactive
-az group deployment show -g ExampleGroup -n ExampleDeployment --query properties.correlationId
+az group deployment show --resource-group ExampleGroup --name ExampleDeployment --query properties.correlationId
 ```
 
 # [HTTP](#tab/http)
 
-The following example shows how to get information about a deployment. For documentation about the latest API version, see the [Deployments - Get](/rest/api/resources/deployments/get) operation.
+To list the deployments for a resource group, use the [Deployments - List By Resource Group](/rest/api/resources/deployments/listbyresourcegroup) operation.
+
+```
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/?api-version={api-version}
+```
+
+To get a specific deployment. use the [Deployments - Get](/rest/api/resources/deployments/get) operation.
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
 ```
 
-In the response, note in particular the **provisioningState**, **correlationId**, and **error** elements. The **correlationId** is used to track related events, and can be helpful when working with technical support to troubleshoot a deployment.
+The response includes the correlation ID, which is used to track related events. It can be helpful when working with technical support to troubleshoot a deployment.
 
 ```json
 { 
@@ -104,13 +110,13 @@ To get details about a deployment from the deployment history use portal, PowerS
 
 # [Portal](#tab/azure-portal)
 
-1. To see deployment operations, select **Operation details**.
+1. On the summary for a deployment, select **Operation details**.
 
-    ![Select deployment operations](./media/resource-manager-deployment-operations/select-deployment-operations.png)
+    ![Select deployment operations](./media/resource-manager-deployment-operations/get-operation-details.png)
 
 1. You see the details for that step of the deployment.
 
-    ![Show operation details](./media/resource-manager-deployment-operations/show-operation-details.png)
+    ![Show operation details](./media/resource-manager-deployment-operations/see-operation-details.png)
 
 # [PowerShell](#tab/azure-powershell)
 
