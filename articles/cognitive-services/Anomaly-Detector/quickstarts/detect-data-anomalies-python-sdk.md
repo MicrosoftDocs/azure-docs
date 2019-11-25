@@ -110,4 +110,4 @@ Call the Anomaly Detector API to determine if your latest data point is an anoma
 
 Run the application with the `python` command and your file name.
  
-[!INCLUDE [anomaly-detector-next-steps](../includes/quickstart-cleanup-and-next-steps.md)]
+[!INCLUDE [anomaly-detector-next-steps](../includes/quickstart-cleanup-next-steps.md)]

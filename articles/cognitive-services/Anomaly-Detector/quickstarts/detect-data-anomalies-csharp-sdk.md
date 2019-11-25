@@ -133,4 +133,4 @@ Run the application with the dotnet `run` command from your application director
 dotnet run
 ```
 
-[!INCLUDE [anomaly-detector-next-steps](../includes/quickstart-cleanup-and-next-steps.md)]
+[!INCLUDE [anomaly-detector-next-steps](../includes/quickstart-cleanup-next-steps.md)]

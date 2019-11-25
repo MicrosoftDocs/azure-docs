@@ -123,4 +123,4 @@ Run the application with the `node` command on your quickstart file.
 node index.js
 ```
 
-[!INCLUDE [anomaly-detector-next-steps](../includes/quickstart-cleanup-and-next-steps.md)]
+[!INCLUDE [anomaly-detector-next-steps](../includes/quickstart-cleanup-next-steps.md)]
