@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/15/2019
+ms.date: 11/25/2019
 ms.author: mimart
 ms.reviewer: arvinh
 
@@ -77,7 +77,6 @@ Applications in the Azure AD gallery support one of two provisioning modes:
 * **Manual** provisioning means there is no automatic Azure AD provisioning connector for the app yet. User accounts must be created manually, for example by adding users directly into the app's administrative portal, or uploading a spreadsheet with user account detail. Consult the documentation provided by the app, or contact the app developer to determine what mechanisms are available.
 
 * **Automatic** means that an Azure AD provisioning connector has been developed for this application. You should follow the setup tutorial specific to setting up provisioning for the application. App tutorials can be found at [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
-
 
 In the Azure AD gallery, applications that support automatic provisioning are designated by a **Provisioning** icon. Switch to the new gallery preview experience to see these icons (in the banner at the top of the **Add an application page**, select the link that says **Click here to try out the new and improved app gallery**).
 
