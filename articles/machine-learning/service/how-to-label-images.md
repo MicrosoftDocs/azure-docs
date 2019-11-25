@@ -29,7 +29,7 @@ After your project administrator creates a labeling project in Azure Machine Lea
 
 ## Sign in to the project's labeling portal
 
-Go to the labeling portal URL that's provided by the project administrator. Sign in by using the email account that the administrator used to add you to the team. For most users, it will be their Microsoft account. If the labeling project uses Azure Active Directory, that's how you'll sign in.
+Go to the labeling portal URL that's provided by the project administrator. Sign in by using the email account that the administrator used to add you to the team. For most users, it will be your Microsoft account. If the labeling project uses Azure Active Directory, that's how you'll sign in.
 
 ## Understand the labeling task
 
@@ -41,7 +41,7 @@ Go to **View detailed instructions**. These instructions are specific to your pr
 
 In all image-labeling tasks, you choose an appropriate tag or tags from a set that's specified by the project administrator. You can select the first nine tags by using the number keys on your keyboard.  
 
-In image-classification tasks, you can choose to see multiple images simultaneously. Use the icons above the image area to select the layouts. To select all the displayed images simultaneously, use the **Select all** button. To select individual images, use the circular selection button in the upper-right corner of the image. You must select at least one image to apply a tag. If you select multiple images, any tag that you select will be applied to all the selected images.
+In image-classification tasks, you can choose to view multiple images simultaneously. Use the icons above the image area to select the layouts. To select all the displayed images simultaneously, use the **Select all** button. To select individual images, use the circular selection button in the upper-right corner of the image. You must select at least one image to apply a tag. If you select multiple images, any tag that you select will be applied to all the selected images.
 
 Here, we've chosen a two-by-two layout and are about to apply the tag "Mammal" to the images of the bear and orca. The image of the shark was already tagged as "Cartilaginous fish", and the iguana hasn't been tagged yet.
 
@@ -72,7 +72,7 @@ Select the image that you want to label and then select the tag. The tag is appl
 
 ![Animation shows multilabel flow](media/how-to-label-images/multilabel.gif)
 
-To correct a mistake, click the "**X**" to clear an individual tag or select the images and then choose the tag, which clears the tag from all the selected images. This scenario is shown here, where clicking on "Land" will clear that tag from the two selected images.
+To correct a mistake, click the "**X**" to clear an individual tag or select the images and then choose the tag, which clears the tag from all the selected images. This scenario is shown here. Clicking on "Land" will clear that tag from the two selected images.
 
 ![A screenshot shows multiple deselections](media/how-to-label-images/multiple-deselection.png)
 

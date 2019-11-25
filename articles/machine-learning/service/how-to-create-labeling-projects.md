@@ -152,4 +152,4 @@ The COCO file is created in the default blob store of the Azure ML workspace in 
 ## Next steps
 
 * Label images for [image classification or object detection](how-to-label-images.md)
-* Learn more about [Azure Machine Learning and ML Studio](../compare-azure-ml-to-studio-classic.md)
+* Learn more about [Azure Machine Learning and ML Studio (Classic)](../compare-azure-ml-to-studio-classic.md)
