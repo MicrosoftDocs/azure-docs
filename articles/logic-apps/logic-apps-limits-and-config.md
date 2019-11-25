@@ -48,8 +48,8 @@ Here are the limits for a single logic app run:
 
 | Name | Multi-tenant limit | Integration service environment limit | Notes |
 |------|--------------------|---------------------------------------|-------|
-| Run duration | 90 days | 365 days | To change the default limit, see [change run duration](#change-duration). |
-| Storage retention | 90 days from the run's start time | 365 days | To change the default limit, see [change storage retention](#change-retention). |
+| Run duration | 90 days | 366 days | To change the default limit, see [change run duration](#change-duration). |
+| Storage retention | 90 days from the run's start time | 366 days | To change the default limit, see [change storage retention](#change-retention). |
 | Minimum recurrence interval | 1 second | 1 second ||
 | Maximum recurrence interval | 500 days | 500 days ||
 |||||
@@ -59,18 +59,17 @@ Here are the limits for a single logic app run:
 
 ### Change run duration and storage retention
 
-To change the default limit for run duration and storage retention, 
-follow these steps. If you need to go above the maximum limit, 
-[contact the Logic Apps team](mailto://logicappsemail@microsoft.com) 
-for help with your requirements.
+To change the default limit for run duration and storage retention, follow these steps. To increase the maximum limit, [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) for help with your requirements.
 
-1. In the Azure portal, on your logic app's menu, 
-choose **Workflow settings**.
+1. In the Azure portal, on your logic app's menu, select **Workflow settings**.
 
-2. Under **Runtime options**, from the **Run history retention in days** list, 
-choose **Custom**.
+1. Under **Runtime options**, from the **Run history retention in days** list, select **Custom**.
 
-3. Enter or drag the slider for the number of days you want.
+1. Enter or drag the slider for the number of days that you want. 
+
+   > [!NOTE]
+   > For logic apps in multi-tenant Azure, the 90-day default limit is the same as the maximum limit. You can only decrease this value.
+   > For logic apps in an integration service environment, you can decreause or increase the 90-day default limit.
 
 <a name="looping-debatching-limits"></a>
 
