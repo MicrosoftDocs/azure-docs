@@ -77,4 +77,4 @@ You can use the Log Analytics advanced role-based access control across the data
 ## Next steps
 In this document, you learned how to work with roles for Azure Sentinel users and what each role enables users to do.
 
-* [Azure Security Blog](https://blogs.msdn.com/b/azuresecurity/). Find blog posts about Azure security and compliance.
+* [Azure Sentinel Blog](https://aka.ms/azuresentinelblog). Find blog posts about Azure security and compliance.
