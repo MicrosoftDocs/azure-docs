@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 11/25/2019
 ---
 
 # Security in Azure Database for MySQL - Single Server
