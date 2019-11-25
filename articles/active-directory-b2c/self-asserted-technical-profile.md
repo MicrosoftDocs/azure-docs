@@ -58,6 +58,32 @@ The order of the claims in **DisplayClaims** specifies the order in which Azure 
 
 The **ClaimType** element in the **DisplayClaims** collection needs to set the **UserInputType** element to any user input type supported by Azure AD B2C. For example, `TextBox` or `DropdownSingleSelect`.
 
+### Add a reference to a DisplayControl
+
+In the display claims collection, you can include a reference to a [DisplayControl](display-controls.md) that you've created. A display control is a user interface element that has special functionality and interacts with the Azure AD B2C back-end service. It allows the user to perform actions on the page that invoke a validation technical profile at the back end. For example, verifying an email address, phone number, or customer loyalty number.
+
+The following example `TechnicalProfile` illustrates the use of display claims with display controls.
+
+* The first display claim makes a reference to the `emailVerificationControl` display claim which collects and verifies the email address.
+* The fifth display claim makes a reference to the `phoneVerificationControl` display claim which collects and verifies a phone number.
+* The other display claims are ClaimTypes to be collected from the user.
+
+```XML
+<TechnicalProfile Id="Id">
+  <DisplayClaims>
+    <DisplayClaim DisplayControlReferenceId="emailVerificationControl" />
+    <DisplayClaim ClaimTypeReferenceId="displayName" Required="true" />
+    <DisplayClaim ClaimTypeReferenceId="givenName" Required="true" />
+    <DisplayClaim ClaimTypeReferenceId="surName" Required="true" />
+    <DisplayClaim DisplayControlReferenceId="phoneVerificationControl" />
+    <DisplayClaim ClaimTypeReferenceId="newPassword" Required="true" />
+    <DisplayClaim ClaimTypeReferenceId="reenterPassword" Required="true" />
+  </DisplayClaims>
+</TechnicalProfile>
+```
+
+As mentioned, a display claim with a reference to a display control may run its own validation, for example verifying the email address. In addition, the self-asserted page supports using a validation technical profile to validate the entire page, including any user input (claim types or display controls), before moving on to the next orchestration step.
+
 ### Combine usage of display claims and output claims carefully
 
 If you specify one or more **DisplayClaim** elements in a self-asserted technical profile, you must use a DisplayClaim for *every* claim that you want to display on-screen and collect from the user. No output claims are displayed by a self-asserted technical profile that contains at least one display claim.
