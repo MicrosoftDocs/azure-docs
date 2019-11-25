@@ -12,9 +12,6 @@ ms.subservice: logs
 
 # Azure Storage monitoring data reference
 
-> [!NOTE]
-> Azure Storage logs in Azure Monitor is in public preview, and is available for preview testing in all public cloud regions. To enroll in the preview, see [this page](https://www.microsoft.com).  This preview enables logs for blobs (including Azure Data Lake Storage Gen2), files, queues, tables, premium storage accounts in general-purpose v1 and general-purpose v2 storage accounts. Classic storage accounts are not supported.
-
 See [Monitoring Azure Storage](monitor-service.md) for details on collecting and analyzing monitoring data for Azure Storage.
 
 ## Resource logs
@@ -24,11 +21,9 @@ See [Monitoring Azure Storage](monitor-service.md) for details on collecting and
 
 The following table lists the properties for Azure Storage resource logs when they're collected in Azure Monitor Logs or Azure Storage. The properties describe the operation, the service, and the type of authorization that was used to perform the operation.
 
-### AzureDiagnostics table
-
 The following table lists the properties for Azure Storage resource logs when they're collected in Azure Monitor Logs or Azure Storage. The properties describe the operation, the service, and the type of authorization that was used to perform the operation.
 
-#### Fields that describe the operation
+### Fields that describe the operation
 
 The following table contains properties that describe the operation.
 
@@ -49,7 +44,7 @@ The following table contains properties that describe the operation.
 |**protocol**|The protocol that is used in the operation. For example: `HTTP`, `HTTPS`, `SMB`, or `NFS`|
 | **uri** | Uniform resource identifier that is requested. For example: http://myaccountname.blob.core.windows.net/cont1/blobname?timeout=10. |
 
-#### Fields that describe how the operation was authenticated
+### Fields that describe how the operation was authenticated
 
 The following table contains properties that describe the operation.
 
@@ -70,7 +65,7 @@ The following table contains properties that describe the operation.
 |**requester / upn** | The User Principal Name (UPN) of requestor. For example: `someone@contoso.com`. |
 |**requester / userName** | This field is reserved for internal use only.|
 
-#### Fields that describe the service
+### Fields that describe the service
 
 The following table contains properties that describe the operation.
 
@@ -106,23 +101,23 @@ The following table contains properties that describe the operation.
 |**smbCommandMajor	uint32** | Value in the **SMB2_HEADER.Command**. Currently, this is a number between 0 and 18 inclusive. For example: `0x6` |
 |**smbCommandMinor** | The subclass of **SmbCommandMajor**, where appropriate. For example: `DirectoryCloseAndDelete` |
 
-### Metrics
+## Metrics
 
 The following tables list the platform metrics collected for Azure Storage. 
 
-#### Capacity metrics
+### Capacity metrics
 
 Capacity metrics values are sent to Azure Monitor every hour. The values are refreshed daily. The time grain defines the time interval for which metrics values are presented. The supported time grain for all capacity metrics is one hour (PT1H).
 
 Azure Storage provides the following capacity metrics in Azure Monitor.
 
-##### Account Level
+#### Account Level
 
 | Metric | Description |
 | ------------------- | ----------------- |
 | UsedCapacity | The amount of storage used by the storage account. For standard storage accounts, it's the sum of capacity used by blob, table, file, and queue. For premium storage accounts and Blob storage accounts, it is the same as BlobCapacity. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024 |
 
-##### Blob storage
+#### Blob storage
 
 | Metric | Description |
 | ------------------- | ----------------- |
@@ -131,7 +126,7 @@ Azure Storage provides the following capacity metrics in Azure Monitor.
 | ContainerCount    | The number of containers in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
 | IndexCapacity     | The amount of storage used by ADLS Gen2 Hierarchical Index <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024 |
 
-##### Table storage
+#### Table storage
 
 | Metric | Description |
 | ------------------- | ----------------- |
@@ -139,7 +134,7 @@ Azure Storage provides the following capacity metrics in Azure Monitor.
 | TableCount   | The number of tables in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
 | TableEntityCount | The number of table entities in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
 
-##### Queue storage
+#### Queue storage
 
 | Metric | Description |
 | ------------------- | ----------------- |
@@ -147,7 +142,7 @@ Azure Storage provides the following capacity metrics in Azure Monitor.
 | QueueCount   | The number of queues in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
 | QueueMessageCount | The number of unexpired queue messages in the storage account. <br/><br/>Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
 
-##### File storage
+#### File storage
 
 | Metric | Description |
 | ------------------- | ----------------- |
@@ -155,7 +150,7 @@ Azure Storage provides the following capacity metrics in Azure Monitor.
 | FileCount   | The number of files in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
 | FileShareCount | The number of file shares in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
 
-#### Transaction metrics
+### Transaction metrics
 
 Transaction metrics are emitted on every request to a storage account from Azure Storage to Azure Monitor. In the case of no activity on your storage account, there will be no data on transaction metrics in the period. All transaction metrics are available at both account and service level (Blob storage, Table storage, Azure Files, and Queue storage). The time grain defines the time interval that metric values are presented. The supported time grains for all transaction metrics are PT1H and PT1M.
 
