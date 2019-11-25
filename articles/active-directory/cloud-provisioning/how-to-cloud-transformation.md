@@ -31,59 +31,59 @@ To add a custom attribute mapping, use the following procedure.
 ![](media/how-to-cloud-prov-transformation/transform1.png)</br>
 3. Locate the code for **ExtensionAttribute3** under the user object.
 
-```
-                        {
-                            "defaultValue": null,
-                            "exportMissingReferences": false,
-                            "flowBehavior": "FlowWhenChanged",
-                            "flowType": "Always",
-                            "matchingPriority": 0,
-                            "targetAttributeName": "ExtensionAttribute3",
-                            "source": {
-                                "expression": "Trim([extensionAttribute3])",
-                                "name": "Trim",
-                                "type": "Function",
-                                "parameters": [
-                                    {
-                                        "key": "source",
-                                        "value": {
-                                            "expression": "[extensionAttribute3]",
-                                            "name": "extensionAttribute3",
-                                            "type": "Attribute",
-                                            "parameters": []
+    ```
+                            {
+                                "defaultValue": null,
+                                "exportMissingReferences": false,
+                                "flowBehavior": "FlowWhenChanged",
+                                "flowType": "Always",
+                                "matchingPriority": 0,
+                                "targetAttributeName": "ExtensionAttribute3",
+                                "source": {
+                                    "expression": "Trim([extensionAttribute3])",
+                                    "name": "Trim",
+                                    "type": "Function",
+                                    "parameters": [
+                                        {
+                                            "key": "source",
+                                            "value": {
+                                                "expression": "[extensionAttribute3]",
+                                                "name": "extensionAttribute3",
+                                                "type": "Attribute",
+                                                "parameters": []
+                                            }
                                         }
-                                    }
-                                ]
-                            }
-                        },
-```
+                                    ]
+                                }
+                            },
+    ```
  4.  Edit the code so that the company attribute is mapped to ExtensionAttribute3.
-```
-                        {
-                            "defaultValue": null,
-                            "exportMissingReferences": false,
-                            "flowBehavior": "FlowWhenChanged",
-                            "flowType": "Always",
-                            "matchingPriority": 0,
-                            "targetAttributeName": "ExtensionAttribute3",
-                            "source": {
-                                "expression": "Trim([company])",
-                                "name": "Trim",
-                                "type": "Function",
-                                "parameters": [
-                                    {
-                                        "key": "source",
-                                        "value": {
-                                            "expression": "[company]",
-                                            "name": "company",
-                                            "type": "Attribute",
-                                            "parameters": []
+    ```
+                            {
+                                "defaultValue": null,
+                                "exportMissingReferences": false,
+                                "flowBehavior": "FlowWhenChanged",
+                                "flowType": "Always",
+                                "matchingPriority": 0,
+                                "targetAttributeName": "ExtensionAttribute3",
+                                "source": {
+                                    "expression": "Trim([company])",
+                                    "name": "Trim",
+                                    "type": "Function",
+                                    "parameters": [
+                                        {
+                                            "key": "source",
+                                            "value": {
+                                                "expression": "[company]",
+                                                "name": "company",
+                                                "type": "Attribute",
+                                                "parameters": []
+                                            }
                                         }
-                                    }
-                                ]
-                            }
-                        },
-```
+                                    ]
+                                }
+                            },
+    ```
  5. Copy the schema back into Graph Explorer, change the Request Type to PUT and **Run Query**.  
 ![](media/how-to-cloud-prov-transformation/transform2.png)</br>
  6.  Now, in the Azure portal, navigate to the cloud provisioning configuration and **Restart Provisioning**.

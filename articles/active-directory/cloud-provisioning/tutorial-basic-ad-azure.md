@@ -40,30 +40,30 @@ The first thing that you need to do, in order to get our hybrid identity environ
 1. Open up the PowerShell ISE as Administrator.
 2. Run the following script.
 
-```powershell
-#Declare variables
-$VMName = 'DC1'
-$Switch = 'External'
-$InstallMedia = 'D:\ISO\en_windows_server_2016_updated_feb_2018_x64_dvd_11636692.iso'
-$Path = 'D:\VM'
-$VHDPath = 'D:\VM\DC1\DC1.vhdx'
-$VHDSize = '64424509440'
+    ```powershell
+    #Declare variables
+    $VMName = 'DC1'
+    $Switch = 'External'
+    $InstallMedia = 'D:\ISO\en_windows_server_2016_updated_feb_2018_x64_dvd_11636692.iso'
+    $Path = 'D:\VM'
+    $VHDPath = 'D:\VM\DC1\DC1.vhdx'
+    $VHDSize = '64424509440'
 
-#Create New Virtual Machine
-New-VM -Name $VMName -MemoryStartupBytes 16GB -BootDevice VHD -Path $Path -NewVHDPath $VHDPath -NewVHDSizeBytes $VHDSize  -Generation 2 -Switch $Switch  
+    #Create New Virtual Machine
+    New-VM -Name $VMName -MemoryStartupBytes 16GB -BootDevice VHD -Path $Path -NewVHDPath $VHDPath -NewVHDSizeBytes $VHDSize  -Generation 2 -Switch $Switch  
 
-#Set the memory to be non-dynamic
-Set-VMMemory $VMName -DynamicMemoryEnabled $false
+    #Set the memory to be non-dynamic
+    Set-VMMemory $VMName -DynamicMemoryEnabled $false
 
-#Add DVD Drive to Virtual Machine
-Add-VMDvdDrive -VMName $VMName -ControllerNumber 0 -ControllerLocation 1 -Path $InstallMedia
+    #Add DVD Drive to Virtual Machine
+    Add-VMDvdDrive -VMName $VMName -ControllerNumber 0 -ControllerLocation 1 -Path $InstallMedia
 
-#Mount Installation Media
-$DVDDrive = Get-VMDvdDrive -VMName $VMName
+    #Mount Installation Media
+    $DVDDrive = Get-VMDvdDrive -VMName $VMName
 
-#Configure Virtual Machine to Boot from DVD
-Set-VMFirmware -VMName $VMName -FirstBootDevice $DVDDrive 
-```
+    #Configure Virtual Machine to Boot from DVD
+    Set-VMFirmware -VMName $VMName -FirstBootDevice $DVDDrive 
+    ```
 
 ## Complete the operating system deployment
 In order to finish building the virtual machine, you need to finish the operating system installation.
@@ -85,35 +85,35 @@ Now that you have a virtual machine up, you need to do a few things prior to ins
 1. Open up the PowerShell ISE as Administrator.
 2. Run the following script.
 
-```powershell
-#Declare variables
-$ipaddress = "10.0.1.117" 
-$ipprefix = "24" 
-$ipgw = "10.0.1.1" 
-$ipdns = "10.0.1.117"
-$ipdns2 = "8.8.8.8" 
-$ipif = (Get-NetAdapter).ifIndex 
-$featureLogPath = "c:\poshlog\featurelog.txt" 
-$newname = "DC1"
-$addsTools = "RSAT-AD-Tools" 
+    ```powershell
+    #Declare variables
+    $ipaddress = "10.0.1.117" 
+    $ipprefix = "24" 
+    $ipgw = "10.0.1.1" 
+    $ipdns = "10.0.1.117"
+    $ipdns2 = "8.8.8.8" 
+    $ipif = (Get-NetAdapter).ifIndex 
+    $featureLogPath = "c:\poshlog\featurelog.txt" 
+    $newname = "DC1"
+    $addsTools = "RSAT-AD-Tools" 
 
-#Set static IP address
-New-NetIPAddress -IPAddress $ipaddress -PrefixLength $ipprefix -InterfaceIndex $ipif -DefaultGateway $ipgw 
+    #Set static IP address
+    New-NetIPAddress -IPAddress $ipaddress -PrefixLength $ipprefix -InterfaceIndex $ipif -DefaultGateway $ipgw 
 
-# Set the DNS servers
-Set-DnsClientServerAddress -InterfaceIndex $ipif -ServerAddresses ($ipdns, $ipdns2)
+    # Set the DNS servers
+    Set-DnsClientServerAddress -InterfaceIndex $ipif -ServerAddresses ($ipdns, $ipdns2)
 
-#Rename the computer 
-Rename-Computer -NewName $newname -force 
+    #Rename the computer 
+    Rename-Computer -NewName $newname -force 
 
-#Install features 
-New-Item $featureLogPath -ItemType file -Force 
-Add-WindowsFeature $addsTools 
-Get-WindowsFeature | Where installed >>$featureLogPath 
+    #Install features 
+    New-Item $featureLogPath -ItemType file -Force 
+    Add-WindowsFeature $addsTools 
+    Get-WindowsFeature | Where installed >>$featureLogPath 
 
-#Restart the computer 
-Restart-Computer
-```
+    #Restart the computer 
+    Restart-Computer
+    ```
 
 ## Create a Windows Server AD environment
 Now that you have the VM created and it has been renamed and has a static IP address, you can go ahead and install and configure Active Directory Domain Services.  Do the following:
@@ -121,30 +121,30 @@ Now that you have the VM created and it has been renamed and has a static IP add
 1. Open up the PowerShell ISE as Administrator.
 2. Run the following script.
 
-```powershell 
-#Declare variables
-$DatabasePath = "c:\windows\NTDS"
-$DomainMode = "WinThreshold"
-$DomainName = "contoso.com"
-$DomaninNetBIOSName = "CONTOSO"
-$ForestMode = "WinThreshold"
-$LogPath = "c:\windows\NTDS"
-$SysVolPath = "c:\windows\SYSVOL"
-$featureLogPath = "c:\poshlog\featurelog.txt" 
-$Password = "Pass1w0rd"
-$SecureString = ConvertTo-SecureString $Password -AsPlainText -Force
+    ```powershell 
+    #Declare variables
+    $DatabasePath = "c:\windows\NTDS"
+    $DomainMode = "WinThreshold"
+    $DomainName = "contoso.com"
+    $DomaninNetBIOSName = "CONTOSO"
+    $ForestMode = "WinThreshold"
+    $LogPath = "c:\windows\NTDS"
+    $SysVolPath = "c:\windows\SYSVOL"
+    $featureLogPath = "c:\poshlog\featurelog.txt" 
+    $Password = "Pass1w0rd"
+    $SecureString = ConvertTo-SecureString $Password -AsPlainText -Force
 
-#Install AD DS, DNS and GPMC 
-start-job -Name addFeature -ScriptBlock { 
-Add-WindowsFeature -Name "ad-domain-services" -IncludeAllSubFeature -IncludeManagementTools 
-Add-WindowsFeature -Name "dns" -IncludeAllSubFeature -IncludeManagementTools 
-Add-WindowsFeature -Name "gpmc" -IncludeAllSubFeature -IncludeManagementTools } 
-Wait-Job -Name addFeature 
-Get-WindowsFeature | Where installed >>$featureLogPath
+    #Install AD DS, DNS and GPMC 
+    start-job -Name addFeature -ScriptBlock { 
+    Add-WindowsFeature -Name "ad-domain-services" -IncludeAllSubFeature -IncludeManagementTools 
+    Add-WindowsFeature -Name "dns" -IncludeAllSubFeature -IncludeManagementTools 
+    Add-WindowsFeature -Name "gpmc" -IncludeAllSubFeature -IncludeManagementTools } 
+    Wait-Job -Name addFeature 
+    Get-WindowsFeature | Where installed >>$featureLogPath
 
-#Create New AD Forest
-Install-ADDSForest -CreateDnsDelegation:$false -DatabasePath $DatabasePath -DomainMode $DomainMode -DomainName $DomainName -SafeModeAdministratorPassword $SecureString -DomainNetbiosName $DomainNetBIOSName -ForestMode $ForestMode -InstallDns:$true -LogPath $LogPath -NoRebootOnCompletion:$false -SysvolPath $SysVolPath -Force:$true
-```
+    #Create New AD Forest
+    Install-ADDSForest -CreateDnsDelegation:$false -DatabasePath $DatabasePath -DomainMode $DomainMode -DomainName $DomainName -SafeModeAdministratorPassword $SecureString -DomainNetbiosName $DomainNetBIOSName -ForestMode $ForestMode -InstallDns:$true -LogPath $LogPath -NoRebootOnCompletion:$false -SysvolPath $SysVolPath -Force:$true
+    ```
 
 ## Create a Windows Server AD user
 Now that you have our Active Directory environment, you need to a test account.  This account will be created in our on-premises AD environment and then synchronized to Azure AD.  Do the following:
@@ -152,38 +152,38 @@ Now that you have our Active Directory environment, you need to a test account. 
 1. Open up the PowerShell ISE as Administrator.
 2. Run the following script.
 
-```powershell 
-# Filename:    4_CreateUser.ps1
-# Description: Creates a user in Active Directory.  This is part of
-#              the Azure AD Connect password hash sync tutorial.
-#
-# DISCLAIMER:
-# Copyright (c) Microsoft Corporation. All rights reserved. This 
-# script is made available to you without any express, implied or 
-# statutory warranty, not even the implied warranty of 
-# merchantability or fitness for a particular purpose, or the 
-# warranty of title or non-infringement. The entire risk of the 
-# use or the results from the use of this script remains with you.
-#
-#
-#
-#
-#Declare variables
-$Givenname = "Allie"
-$Surname = "McCray"
-$Displayname = "Allie McCray"
-$Name = "amccray"
-$Password = "Pass1w0rd"
-$Identity = "CN=ammccray,CN=Users,DC=contoso,DC=com"
-$SecureString = ConvertTo-SecureString $Password -AsPlainText -Force
+    ```powershell 
+    # Filename:    4_CreateUser.ps1
+    # Description: Creates a user in Active Directory.  This is part of
+    #              the Azure AD Connect password hash sync tutorial.
+    #
+    # DISCLAIMER:
+    # Copyright (c) Microsoft Corporation. All rights reserved. This 
+    # script is made available to you without any express, implied or 
+    # statutory warranty, not even the implied warranty of 
+    # merchantability or fitness for a particular purpose, or the 
+    # warranty of title or non-infringement. The entire risk of the 
+    # use or the results from the use of this script remains with you.
+    #
+    #
+    #
+    #
+    #Declare variables
+    $Givenname = "Allie"
+    $Surname = "McCray"
+    $Displayname = "Allie McCray"
+    $Name = "amccray"
+    $Password = "Pass1w0rd"
+    $Identity = "CN=ammccray,CN=Users,DC=contoso,DC=com"
+    $SecureString = ConvertTo-SecureString $Password -AsPlainText -Force
 
 
-#Create the user
-New-ADUser -Name $Name -GivenName $Givenname -Surname $Surname -DisplayName $Displayname -AccountPassword $SecureString
+    #Create the user
+    New-ADUser -Name $Name -GivenName $Givenname -Surname $Surname -DisplayName $Displayname -AccountPassword $SecureString
 
-#Set the password to never expire
-Set-ADUser -Identity $Identity -PasswordNeverExpires $true -ChangePasswordAtLogon $false -Enabled $true
-```
+    #Set the password to never expire
+    Set-ADUser -Identity $Identity -PasswordNeverExpires $true -ChangePasswordAtLogon $false -Enabled $true
+    ```
 
 
 ## Create an Azure AD tenant
@@ -218,39 +218,39 @@ If you only need an additional server, you can stop after the - **Create the vir
 1. Open up the PowerShell ISE as Administrator.
 2. Run the following script.
 
-```powershell
-# Filename:    1_CreateVM_CP.ps1
-# Description: Creates a VM to be used in the tutorial.
-#
-# DISCLAIMER:
-# Copyright (c) Microsoft Corporation. All rights reserved. #This script is made available to you without any express, implied or statutory warranty, not even the implied warranty of merchantability or fitness for a particular purpose, or the warranty of title or non-infringement. The entire risk of the use or the results from the use of this script remains with you.
-#
-#
-#
-#
-#Declare variables
-$VMName = 'CP1'
-$Switch = 'External'
-$InstallMedia = 'D:\ISO\en_windows_server_2016_updated_feb_2018_x64_dvd_11636692.iso'
-$Path = 'D:\VM'
-$VHDPath = 'D:\VM\CP1\CP1.vhdx'
-$VHDSize = '64424509440'
+    ```powershell
+    # Filename:    1_CreateVM_CP.ps1
+    # Description: Creates a VM to be used in the tutorial.
+    #
+    # DISCLAIMER:
+    # Copyright (c) Microsoft Corporation. All rights reserved. #This script is made available to you without any express, implied or statutory warranty, not even the implied warranty of merchantability or fitness for a particular purpose, or the warranty of title or non-infringement. The entire risk of the use or the results from the use of this script remains with you.
+    #
+    #
+    #
+    #
+    #Declare variables
+    $VMName = 'CP1'
+    $Switch = 'External'
+    $InstallMedia = 'D:\ISO\en_windows_server_2016_updated_feb_2018_x64_dvd_11636692.iso'
+    $Path = 'D:\VM'
+    $VHDPath = 'D:\VM\CP1\CP1.vhdx'
+    $VHDSize = '64424509440'
 
-#Create New Virtual Machine
-New-VM -Name $VMName -MemoryStartupBytes 16GB -BootDevice VHD -Path $Path -NewVHDPath $VHDPath -NewVHDSizeBytes $VHDSize  -Generation 2 -Switch $Switch  
+    #Create New Virtual Machine
+    New-VM -Name $VMName -MemoryStartupBytes 16GB -BootDevice VHD -Path $Path -NewVHDPath $VHDPath -NewVHDSizeBytes $VHDSize  -Generation 2 -Switch $Switch  
 
-#Set the memory to be non-dynamic
-Set-VMMemory $VMName -DynamicMemoryEnabled $false
+    #Set the memory to be non-dynamic
+    Set-VMMemory $VMName -DynamicMemoryEnabled $false
 
-#Add DVD Drive to Virtual Machine
-Add-VMDvdDrive -VMName $VMName -ControllerNumber 0 -ControllerLocation 1 -Path $InstallMedia
+    #Add DVD Drive to Virtual Machine
+    Add-VMDvdDrive -VMName $VMName -ControllerNumber 0 -ControllerLocation 1 -Path $InstallMedia
 
-#Mount Installation Media
-$DVDDrive = Get-VMDvdDrive -VMName $VMName
+    #Mount Installation Media
+    $DVDDrive = Get-VMDvdDrive -VMName $VMName
 
-#Configure Virtual Machine to Boot from DVD
-Set-VMFirmware -VMName $VMName -FirstBootDevice $DVDDrive
-```
+    #Configure Virtual Machine to Boot from DVD
+    Set-VMFirmware -VMName $VMName -FirstBootDevice $DVDDrive
+    ```
 
 ### Complete the operating system deployment
 In order to finish building the virtual machine, you need to finish the operating system installation.
@@ -272,95 +272,95 @@ Now that you have a virtual machine up, you need to do a few things prior to ins
 1. Open up the PowerShell ISE as Administrator.
 2. Run the following script.
 
-```powershell
-# Filename:    2_ADPrep_CP.ps1
-# Description: Prepares your environment for Active Directory.  This is part of
-#              the Azure AD Connect password hash sync tutorial.
-#
-# DISCLAIMER:
-# Copyright (c) Microsoft Corporation. All rights reserved. This 
-# script is made available to you without any express, implied or 
-# statutory warranty, not even the implied warranty of 
-# merchantability or fitness for a particular purpose, or the 
-# warranty of title or non-infringement. The entire risk of the 
-# use or the results from the use of this script remains with you.
-#
-#
-#
-#
-#Declare variables
-$ipaddress = "10.0.1.118" 
-$ipprefix = "24" 
-$ipgw = "10.0.1.1" 
-$ipdns = "10.0.1.118"
-$ipdns2 = "8.8.8.8" 
-$ipif = (Get-NetAdapter).ifIndex 
-$featureLogPath = "c:\poshlog\featurelog.txt" 
-$newname = "CP1"
-$addsTools = "RSAT-AD-Tools" 
+    ```powershell
+    # Filename:    2_ADPrep_CP.ps1
+    # Description: Prepares your environment for Active Directory.  This is part of
+    #              the Azure AD Connect password hash sync tutorial.
+    #
+    # DISCLAIMER:
+    # Copyright (c) Microsoft Corporation. All rights reserved. This 
+    # script is made available to you without any express, implied or 
+    # statutory warranty, not even the implied warranty of 
+    # merchantability or fitness for a particular purpose, or the 
+    # warranty of title or non-infringement. The entire risk of the 
+    # use or the results from the use of this script remains with you.
+    #
+    #
+    #
+    #
+    #Declare variables
+    $ipaddress = "10.0.1.118" 
+    $ipprefix = "24" 
+    $ipgw = "10.0.1.1" 
+    $ipdns = "10.0.1.118"
+    $ipdns2 = "8.8.8.8" 
+    $ipif = (Get-NetAdapter).ifIndex 
+    $featureLogPath = "c:\poshlog\featurelog.txt" 
+    $newname = "CP1"
+    $addsTools = "RSAT-AD-Tools" 
 
-#Set static IP address
-New-NetIPAddress -IPAddress $ipaddress -PrefixLength $ipprefix -InterfaceIndex $ipif -DefaultGateway $ipgw 
+    #Set static IP address
+    New-NetIPAddress -IPAddress $ipaddress -PrefixLength $ipprefix -InterfaceIndex $ipif -DefaultGateway $ipgw 
 
-#Set the DNS servers
-Set-DnsClientServerAddress -InterfaceIndex $ipif -ServerAddresses ($ipdns, $ipdns2)
+    #Set the DNS servers
+    Set-DnsClientServerAddress -InterfaceIndex $ipif -ServerAddresses ($ipdns, $ipdns2)
 
-#Rename the computer 
-Rename-Computer -NewName $newname -force 
+    #Rename the computer 
+    Rename-Computer -NewName $newname -force 
 
-#Install features 
-New-Item $featureLogPath -ItemType file -Force 
-Add-WindowsFeature $addsTools 
-Get-WindowsFeature | Where installed >>$featureLogPath 
+    #Install features 
+    New-Item $featureLogPath -ItemType file -Force 
+    Add-WindowsFeature $addsTools 
+    Get-WindowsFeature | Where installed >>$featureLogPath 
 
-#Restart the computer 
-Restart-Computer
-```
+    #Restart the computer 
+    Restart-Computer
+    ```
 ### Create a Windows Server AD environment
 Now that you have the VM created and it has been renamed and has a static IP address, you can go ahead and install and configure Active Directory Domain Services.  Do the following:
 
 1. Open up the PowerShell ISE as Administrator.
 2. Run the following script.
 
-```powershell
-# Filename:    3_InstallAD_CP.ps1
-# Description: Creates an on-premises AD envrionment.  This is part of
-#              the Azure AD Connect password hash sync tutorial.
-#
-# DISCLAIMER:
-# Copyright (c) Microsoft Corporation. All rights reserved. This 
-# script is made available to you without any express, implied or 
-# statutory warranty, not even the implied warranty of 
-# merchantability or fitness for a particular purpose, or the 
-# warranty of title or non-infringement. The entire risk of the 
-# use or the results from the use of this script remains with you.
-#
-#
-#
-#
-#Declare variables
-$DatabasePath = "c:\windows\NTDS"
-$DomainMode = "WinThreshold"
-$DomainName = "fabrikam.com"
-$DomaninNetBIOSName = "FABRIKAM"
-$ForestMode = "WinThreshold"
-$LogPath = "c:\windows\NTDS"
-$SysVolPath = "c:\windows\SYSVOL"
-$featureLogPath = "c:\poshlog\featurelog.txt" 
-$Password = "Pass1w0rd"
-$SecureString = ConvertTo-SecureString $Password -AsPlainText -Force
+    ```powershell
+    # Filename:    3_InstallAD_CP.ps1
+    # Description: Creates an on-premises AD envrionment.  This is part of
+    #              the Azure AD Connect password hash sync tutorial.
+    #
+    # DISCLAIMER:
+    # Copyright (c) Microsoft Corporation. All rights reserved. This 
+    # script is made available to you without any express, implied or 
+    # statutory warranty, not even the implied warranty of 
+    # merchantability or fitness for a particular purpose, or the 
+    # warranty of title or non-infringement. The entire risk of the 
+    # use or the results from the use of this script remains with you.
+    #
+    #
+    #
+    #
+    #Declare variables
+    $DatabasePath = "c:\windows\NTDS"
+    $DomainMode = "WinThreshold"
+    $DomainName = "fabrikam.com"
+    $DomaninNetBIOSName = "FABRIKAM"
+    $ForestMode = "WinThreshold"
+    $LogPath = "c:\windows\NTDS"
+    $SysVolPath = "c:\windows\SYSVOL"
+    $featureLogPath = "c:\poshlog\featurelog.txt" 
+    $Password = "Pass1w0rd"
+    $SecureString = ConvertTo-SecureString $Password -AsPlainText -Force
 
-#Install AD DS, DNS and GPMC 
-start-job -Name addFeature -ScriptBlock { 
-Add-WindowsFeature -Name "ad-domain-services" -IncludeAllSubFeature -IncludeManagementTools 
-Add-WindowsFeature -Name "dns" -IncludeAllSubFeature -IncludeManagementTools 
-Add-WindowsFeature -Name "gpmc" -IncludeAllSubFeature -IncludeManagementTools } 
-Wait-Job -Name addFeature 
-Get-WindowsFeature | Where installed >>$featureLogPath
+    #Install AD DS, DNS and GPMC 
+    start-job -Name addFeature -ScriptBlock { 
+    Add-WindowsFeature -Name "ad-domain-services" -IncludeAllSubFeature -IncludeManagementTools 
+    Add-WindowsFeature -Name "dns" -IncludeAllSubFeature -IncludeManagementTools 
+    Add-WindowsFeature -Name "gpmc" -IncludeAllSubFeature -IncludeManagementTools } 
+    Wait-Job -Name addFeature 
+    Get-WindowsFeature | Where installed >>$featureLogPath
 
-#Create New AD Forest
-Install-ADDSForest -CreateDnsDelegation:$false -DatabasePath $DatabasePath -DomainMode $DomainMode -DomainName $DomainName -SafeModeAdministratorPassword $SecureString -DomainNetbiosName $DomainNetBIOSName -ForestMode $ForestMode -InstallDns:$true -LogPath $LogPath -NoRebootOnCompletion:$false -SysvolPath $SysVolPath -Force:$true
-```
+    #Create New AD Forest
+    Install-ADDSForest -CreateDnsDelegation:$false -DatabasePath $DatabasePath -DomainMode $DomainMode -DomainName $DomainName -SafeModeAdministratorPassword $SecureString -DomainNetbiosName $DomainNetBIOSName -ForestMode $ForestMode -InstallDns:$true -LogPath $LogPath -NoRebootOnCompletion:$false -SysvolPath $SysVolPath -Force:$true
+    ```
 
 ### Create a Windows Server AD user
 Now that you have our Active Directory environment, you need to a test account.  This account will be created in our on-premises AD environment and then synchronized to Azure AD.  Do the following:
@@ -368,38 +368,38 @@ Now that you have our Active Directory environment, you need to a test account. 
 1. Open up the PowerShell ISE as Administrator.
 2. Run the following script.
 
-```powershell 
-# Filename:    4_CreateUser_CP.ps1
-# Description: Creates a user in Active Directory.  This is part of
-#              the Azure AD Connect password hash sync tutorial.
-#
-# DISCLAIMER:
-# Copyright (c) Microsoft Corporation. All rights reserved. This 
-# script is made available to you without any express, implied or 
-# statutory warranty, not even the implied warranty of 
-# merchantability or fitness for a particular purpose, or the 
-# warranty of title or non-infringement. The entire risk of the 
-# use or the results from the use of this script remains with you.
-#
-#
-#
-#
-#Declare variables
-$Givenname = "Anna"
-$Surname = "Ringdal"
-$Displayname = "Anna Ringdal"
-$Name = "aringdal"
-$Password = "Pass1w0rd"
-$Identity = "CN=aringdal,CN=Users,DC=fabrikam,DC=com"
-$SecureString = ConvertTo-SecureString $Password -AsPlainText -Force
+    ```powershell 
+    # Filename:    4_CreateUser_CP.ps1
+    # Description: Creates a user in Active Directory.  This is part of
+    #              the Azure AD Connect password hash sync tutorial.
+    #
+    # DISCLAIMER:
+    # Copyright (c) Microsoft Corporation. All rights reserved. This 
+    # script is made available to you without any express, implied or 
+    # statutory warranty, not even the implied warranty of 
+    # merchantability or fitness for a particular purpose, or the 
+    # warranty of title or non-infringement. The entire risk of the 
+    # use or the results from the use of this script remains with you.
+    #
+    #
+    #
+    #
+    #Declare variables
+    $Givenname = "Anna"
+    $Surname = "Ringdal"
+    $Displayname = "Anna Ringdal"
+    $Name = "aringdal"
+    $Password = "Pass1w0rd"
+    $Identity = "CN=aringdal,CN=Users,DC=fabrikam,DC=com"
+    $SecureString = ConvertTo-SecureString $Password -AsPlainText -Force
 
 
-#Create the user
-New-ADUser -Name $Name -GivenName $Givenname -Surname $Surname -DisplayName $Displayname -AccountPassword $SecureString
+    #Create the user
+    New-ADUser -Name $Name -GivenName $Givenname -Surname $Surname -DisplayName $Displayname -AccountPassword $SecureString
 
-#Set the password to never expire
-Set-ADUser -Identity $Identity -PasswordNeverExpires $true -ChangePasswordAtLogon $false -Enabled $true
-```
+    #Set the password to never expire
+    Set-ADUser -Identity $Identity -PasswordNeverExpires $true -ChangePasswordAtLogon $false -Enabled $true
+    ```
 
 ## Conclusion
 Now you have an environment that can be used for existing tutorials and to test additional features cloud provisioning provides.

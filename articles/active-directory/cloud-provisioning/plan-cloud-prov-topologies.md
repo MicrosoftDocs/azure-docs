@@ -55,4 +55,3 @@ The simplest topology is a single on-premises forest, with one or multiple domai
 ## Next steps
 - [What is Azure AD Connect cloud provisioning?](whatis-cloud-prov.md)
 
-- 

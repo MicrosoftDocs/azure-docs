@@ -44,15 +44,15 @@ There is no supported way to disable auto upgrade.
 
 By default, cloud provisioning uses ms-ds-consistency-GUID with a fallback to ObjectGUID as source anchor. There is no supported way to change the source anchor.
 
-**Q. I see new service principals with the AD domain name(s) when using cloud provisioning. Is it expected?
+**Q. I see new service principals with the AD domain name(s) when using cloud provisioning. Is it expected?**
 
 Yes, cloud provisioning creates a service principal for the provisioning configuration with the domain name as the service principal name. Do not make any changes to the service principal configuration.
 
-**Q. What happens when a synced user is required to change password on next logon?
+**Q. What happens when a synced user is required to change password on next logon?**
 
 If password hash sync is enabled in cloud provisioning and the synced user is required to change password on next logon in on-premises AD, cloud provisioning does not provisioned the to be changed password hash to Azure AD. Once the user changes the password, the user password hash is provisioned from AD to Azure AD.
 
-**Q. Does cloud provisioning support writeback of ms-ds-consistencyGUID for any object?
+**Q. Does cloud provisioning support writeback of ms-ds-consistencyGUID for any object?**
 
 No, cloud provisioning does not support writeback of ms-ds-consistencyGUID for any object (including user objects). 
 

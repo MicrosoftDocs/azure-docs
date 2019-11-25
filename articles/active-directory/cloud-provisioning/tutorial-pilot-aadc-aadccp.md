@@ -51,6 +51,7 @@ Azure AD Connect sync synchronizes changes occurring in your on-premises directo
  
  2. Select **Inbound** from the drop-down list for Direction and click on **Add new rule**.
  ![Custom rule](media/how-to-cloud-custom-user-rule/user1.png)</br>
+ 
  3. On the **Description** page, enter the following and click **Next**:
 
   **Name:** Give the rule a meaningful name<br>
@@ -62,18 +63,19 @@ Azure AD Connect sync synchronizes changes occurring in your on-premises directo
   **Precedence:** Provide a value that is unique in the system<br>
   **Tag:** Leave this empty<br>
  ![Custom rule](media/how-to-cloud-custom-user-rule/user2.png)</br>
- 3.	On the **Scoping filter** page, enter the OU or security group that you want to pilot based off.  So for instance, to filter on OU, you can add a clause where if the DN endswith the OU portion of the name, this rule will be applied to them.  So, if DN ends with "OU=CPUsers,DC=contoso,DC=com.  Then click **Next**. 
-
-|Rule|Attribute|Operator|Value|
-|-----|----|----|-----|
-|Scoping OU|DN|ENDSWITH|Distinguished name of the OU.|
-|Scoping group||ISMEMBEROF|Distinguished name of the security group.|
-
-![Custom rule](media/how-to-cloud-custom-user-rule/user3.png)</br>
  
- 4.	On the **Join** rules page, click **Next**.
- 5. On the **Transformations** page, add a Constant transformation: flow True to cloudNoFlow attribute. Click **Add**.
-![Custom rule](media/how-to-cloud-custom-user-rule/user4.png)</br>
+ 4.	On the **Scoping filter** page, enter the OU or security group that you want to pilot based off.  So for instance, to filter on OU, you can add a clause where if the DN endswith the OU portion of the name, this rule will be applied to them.  So, if DN ends with "OU=CPUsers,DC=contoso,DC=com.  Then click **Next**. 
+
+ |Rule|Attribute|Operator|Value|
+ |-----|----|----|-----|
+ |Scoping OU|DN|ENDSWITH|Distinguished name of the OU.|
+ |Scoping group||ISMEMBEROF|Distinguished name of the security group.|
+
+ ![Custom rule](media/how-to-cloud-custom-user-rule/user3.png)</br>
+ 
+ 5.	On the **Join** rules page, click **Next**.
+ 6. On the **Transformations** page, add a Constant transformation: flow True to cloudNoFlow attribute. Click **Add**.
+ ![Custom rule](media/how-to-cloud-custom-user-rule/user4.png)</br>
 
 Same steps need to be followed for all object types (user, group and contact).
 
@@ -99,8 +101,9 @@ Same steps need to be followed for all object types (user, group and contact).
  
  3. On the **Scoping filter** page, choose **cloudNoFlow** equal **True**. Then click **Next**.
  ![Custom rule](media/how-to-cloud-custom-user-rule/user7.png)</br>
- 5. On the **Join** rules page, click **Next**.
- 6. On the **Transformations** page, click **Add**.
+ 
+ 4. On the **Join** rules page, click **Next**.
+ 5. On the **Transformations** page, click **Add**.
 
 Same steps need to be followed for all object types (user, group and contact).
 
@@ -131,32 +134,32 @@ Azure AD Connect sync synchronizes changes occurring in your on-premises directo
 2. Download the Azure AD Connect cloud provisioning agent [here](https://go.microsoft.com/fwlink/?linkid=2109037).
 3. Run the Azure AD Connect cloud provisioning (AADConnectProvisioningAgent.Installer)
 3. On the splash screen, **Accept** the licensing terms and click **Install**.</br>
-![Welcome screen](media/how-to-cloud-prov-install/prov1.png)</br>
+![Welcome screen](media/how-to-cloud-prov-install/cloudprov1.png)</br>
 
 4. Once this operation completes, the configuration wizard will launch.  Sign in with your Azure AD global administrator account.
 5. On the **Connect Active Directory** screen, click **Add directory** and then sign in with your Active Directory administrator account.  This operation will add your on-premises directory.  Click **Next**.</br>
-![Welcome screen](media/how-to-cloud-prov-install/prov3.png)</br>
+![Welcome screen](media/how-to-cloud-prov-install/cloudprov3.png)</br>
 
 6. On the **Configuration complete** screen, click **Confirm**.  This operation will register and restart the agent.</br>
-![Welcome screen](media/how-to-cloud-prov-install/prov4.png)</br>
+![Welcome screen](media/how-to-cloud-prov-install/cloudprov4.png)</br>
 
 7. Once this operation completes you should see a notice **Your was successfully verified.**  You can click **Exit**.</br>
-![Welcome screen](media/how-to-cloud-prov-install/prov5.png)</br>
+![Welcome screen](media/how-to-cloud-prov-install/cloudprov5.png)</br>
 8. If you still see the initial splash screen, click **Close**.1. Sign in to the server you will use with enterprise admin permissions.
 2. Download the Azure AD Connect cloud provisioning agent [here](https://go.microsoft.com/fwlink/?linkid=2109037).
 3. Run the Azure AD Connect cloud provisioning (AADConnectProvisioningAgent.Installer)
 3. On the splash screen, **Accept** the licensing terms and click **Install**.</br>
-![Welcome screen](media/how-to-cloud-prov-install/prov1.png)</br>
+![Welcome screen](media/how-to-cloud-prov-install/cloudprov1.png)</br>
 
 4. Once this operation completes, the configuration wizard will launch.  Sign in with your Azure AD global administrator account.
 5. On the **Connect Active Directory** screen, click **Add directory** and then sign in with your Active Directory administrator account.  This operation will add your on-premises directory.  Click **Next**.</br>
-![Welcome screen](media/how-to-cloud-prov-install/prov3.png)</br>
+![Welcome screen](media/how-to-cloud-prov-install/cloudprov3.png)</br>
 
 6. On the **Configuration complete** screen, click **Confirm**.  This operation will register and restart the agent.</br>
-![Welcome screen](media/how-to-cloud-prov-install/prov4.png)</br>
+![Welcome screen](media/how-to-cloud-prov-install/cloudprov4.png)</br>
 
 7. Once this operation completes you should see a notice **Your was successfully verified.**  You can click **Exit**.</br>
-![Welcome screen](media/how-to-cloud-prov-install/prov5.png)</br>
+![Welcome screen](media/how-to-cloud-prov-install/cloudprov5.png)</br>
 8. If you still see the initial splash screen, click **Close**.
 
 ## Verify agent installation
@@ -167,10 +170,10 @@ To verify the agent is being seen by Azure follow these steps:
 
 1. Sign in to the Azure portal.
 2. On the left, select **Azure Active Directory**, click **Azure AD Connect** and in the center select **Manage provisioning (preview)**.</br>
-![Azure portal](media/how-to-cloud-prov-install/prov6.png)</br>
+![Azure portal](media/how-to-cloud-prov-install/cloudprov6.png)</br>
 
 3.  On the **Azure AD Provisioning (preview)** screen click **Review all agents**.
-![Azure AD Provisioning](media/how-to-cloud-prov-install/prov7.png)</br>
+![Azure AD Provisioning](media/how-to-cloud-prov-install/cloudprov7.png)</br>
  
 4. On the **On-premises provisioning agents screen** you will see the agents you have installed.  Verify that the agent in question is there and is marked **Disabled**.  The agent is disabled by default
 ![Provisioning agents](media/how-to-cloud-prov-install/verify1.png)</br>

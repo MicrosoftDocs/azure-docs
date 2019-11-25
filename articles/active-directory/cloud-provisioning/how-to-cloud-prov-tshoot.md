@@ -40,10 +40,10 @@ To verify the agent is being seen by Azure and is healthy follow these steps:
 1. Sign in to the Azure portal.
 2. On the left, select **Azure Active Directory**, click **Azure AD Connect** and in the center select **Manage provisioning (preview)**.
 3.  On the **Azure AD Provisioning (preview)** screen click **Review all agents**.
-![Azure AD Provisioning](media/how-to-cloud-prov-install/prov7.png)</br>
+ ![Azure AD Provisioning](media/how-to-cloud-prov-install/cloudprov7.png)</br>
  
 4. On the **On-premises provisioning agents screen** you will see the agents you have installed.  Verify that the agent in question is there and is marked **Healthy**.
-![Provisioning agents](media/how-to-cloud-prov-install/prov8.png)</br>
+ ![Provisioning agents](media/how-to-cloud-prov-install/cloudprov8.png)</br>
 
 ### Verify the port
 To verify the Azure is listening on port 443 and that your agent can communicate with it, you can use the following tool:
@@ -51,15 +51,14 @@ To verify the Azure is listening on port 443 and that your agent can communicate
 https://aadap-portcheck.connectorporttest.msappproxy.net/ 
 
 This test will verify that your agents are able to communicate with Azure over port 443.  Open a browser and navigate to the above URL from the server where the agent is installed.
-![Services](media/how-to-cloud-prov-install/verify2.png)
+ ![Services](media/how-to-cloud-prov-install/verify2.png)
 
 ### On the local server
 To verify that the agent is running follow these steps:
 
 2.  On the server with the agent installed, open **Services** by either navigating to it or by going to Start/Run/Services.msc.
-3.  
-4.  Under **Services**, make sure **Microsoft Azure AD Connect Agent Updater** and **Microsoft Azure AD Connect Provisioning Agent** are there and the status is **Running**.
-![Services](media/how-to-cloud-prov-tshoot/tshoot1.png)
+3.  Under **Services**, make sure **Microsoft Azure AD Connect Agent Updater** and **Microsoft Azure AD Connect Provisioning Agent** are there and the status is **Running**.
+ ![Services](media/how-to-cloud-prov-tshoot/tshoot1.png)
 
 ### Common agent installation issues
 The following are some common agent installation issues and what the typical resolution is.
@@ -91,22 +90,20 @@ The Provisioning Agent supports use of outbound proxy. You can configure it by e
 Add the following lines into it, towards the end of the file just before the closing `</configuration>` tag.
 Replace the variables [proxy-server] and [proxy-port] with your proxy server name and port values.
 
-```xml
-    <system.net>
-          <defaultProxy enabled="true" useDefaultCredentials="true">
-             <proxy
-                usesystemdefault="true"
-                proxyaddress="http://[proxy-server]:[proxy-port]"
-                bypassonlocal="true"
-             />
-         </defaultProxy>
-    </system.net>
-```
+    ```xml
+        <system.net>
+            <defaultProxy enabled="true" useDefaultCredentials="true">
+                <proxy
+                    usesystemdefault="true"
+                    proxyaddress="http://[proxy-server]:[proxy-port]"
+                    bypassonlocal="true"
+                />
+            </defaultProxy>
+        </system.net>
+    ```
 
 #### Agent registration fails with Security Error
 You may see the following error when installing the cloud provisioning agent.
-
- ![Services](media/how-to-cloud-prov-tshoot/tshoot6.png)
 
 This is typically caused by the agent being unable to execute the PowerShell registration scripts due to local PowerShell execution policies.
 
@@ -144,9 +141,9 @@ Use the following steps to gather additional details for troubleshooting agent-r
       ```
 4. Start the service **Microsoft Azure AD Connect Provisioning Agent**
 5. You can use the following command to tail the file and debug issues: 
-```
-Get-Content “C:/ProgramData/Microsoft/Azure AD Connect Provisioning Agent/Trace/ProvAgentTrace.log” -Wait
-```
+    ```
+    Get-Content “C:/ProgramData/Microsoft/Azure AD Connect Provisioning Agent/Trace/ProvAgentTrace.log” -Wait
+    ```
 ## Object synchronization issues
 The following section contains information on troubleshooting object synchronization.
 
@@ -192,4 +189,4 @@ By clicking on the status, you can see additional information about the quaranti
 - [Azure AD Connect cloud provisioning installation](how-to-cloud-prov-install.md)
 - [Azure AD Connect cloud provisioning pre-requisites](how-to-cloud-prov-prereq.md) 
 - [What is Azure AD Connect cloud provisioning?](whatis-cloud-prov.md) 
-- 
+
