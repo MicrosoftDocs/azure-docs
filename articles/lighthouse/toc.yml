@@ -57,9 +57,9 @@
     - name: View and manage service providers 
       displayName: customer, update
       href: ./how-to/view-manage-service-providers.md
-    - name: View logged activity
-      displayName: monitor
-      href: ./how-to/view-logged-activity.md
+    - name: View service provider activity
+      displayName: monitor, log
+      href: ./how-to/view-service-provider-activity.md
 - name: Reference
   items:
   - name: Azure CLI
