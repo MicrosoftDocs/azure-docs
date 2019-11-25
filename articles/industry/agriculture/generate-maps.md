@@ -53,7 +53,7 @@ Follow these steps.
 
     ![Select Sensor Placement](./media/get-sensor-data-from-sensor-partner/create-maps-drop-down-1.png)
 
-3. After you select **Sensor Placement**, the Sensor Placement window displays.
+3. After you select **Sensor Placement**, the **Sensor Placement** window displays.
 
     ![Sensor Placement window](./media/get-sensor-data-from-sensor-partner/sensor-placement-1.png)
 
@@ -177,7 +177,7 @@ Follow these steps.
 
     ![Select Soil Moisture from the drop-down menu](./media/get-sensor-data-from-sensor-partner/create-maps-drop-down-soil-moisture-1.png)
 
-3. After you select **Soil Moisture**, the Soil Moisture window displays.
+3. After you select **Soil Moisture**, the **Soil Moisture** window displays.
 
     ![Soil Moisture window](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
 

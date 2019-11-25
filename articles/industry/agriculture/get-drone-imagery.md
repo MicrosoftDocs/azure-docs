@@ -25,23 +25,23 @@ Integrating drone imagery data with Azure FarmBeats helps you get orthomosaic da
 ## Enable drone imagery integration with FarmBeats 
 
 Provide the following information to your device provider to enable integration with FarmBeats: 
- - API Endpoint 
+ - API endpoint 
  - Tenant ID 
  - Client ID 
  - Client secret 
 
 Follow these steps.
 
-1. Download this [script](https://aka.ms/farmbeatspartnerscript) and extract it on your local drive. Two files are inside this zip file. 
-2. Sign in to the [Azure portal](https://portal.azure.com/) and open Azure Cloud Shell. This option is available on the upper-right bar of the portal.
+1. Download this [script](https://aka.ms/farmbeatspartnerscript), and extract it to your local drive. Two files are inside the zip file. 
+2. Sign in to the [Azure portal](https://portal.azure.com/) and open Azure Cloud Shell. This option is available on the toolbar in the upper-right corner of the portal.
 
     ![Open Azure Cloud Shell on upper-right bar of the portal](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-3. Ensure the environment is set to **PowerShell**.
+3. Make sure the environment is set to **PowerShell**.
 
     ![PowerShell setting](./media/get-drone-imagery-from-drone-partner/power-shell-new-1.png)
 
-4. Upload the two files that you downloaded from step 1 in your Cloud Shell. 
+4. Upload the two files that you downloaded from step 1 in your Cloud Shell instance. 
 
     ![Upload files](./media/get-drone-imagery-from-drone-partner/power-shell-two-1.png)
 
