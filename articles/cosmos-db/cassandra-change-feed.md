@@ -79,7 +79,7 @@ public void ChangeFeedPull()
 }
 ```
 
-In order to get the changes to single row (by primary key), you can simple add the primary key in the query predicates. Here, we are tracking the row where user_id = 1
+In order to get the changes to single row (by primary key), you can add the primary key in the query. Here, we are tracking the row where user_id = 1
 
 ```C#
     IStatement changeFeedQueryStatement = new SimpleStatement(
