@@ -78,7 +78,7 @@ MSAL exposes a `Classification` field, which you can read to provide a better us
 | AcquireTokenSilentFailed | MSAL SDK doesn't have enough information to fetch a token from the cache. This can be because no tokens are in the cache or an account wasn't found. The error message has more details.  | Call AcquireTokenInteractively(). |
 | None    | No further details are provided. Condition may be resolved by user interaction during the interactive authentication flow. | Call AcquireTokenInteractively(). |
 
-## .NET Code example
+## .NET code example
 
 ```csharp
 AuthenticationResult res;
@@ -158,7 +158,7 @@ By extending the error class, you have access to the following properties:
 - `AuthError.message`:  Same as the `errorMessage`.
 - `AuthError.stack`: Stack trace for thrown errors.
 
-### Error Types
+### Error types
 
 The following error types are available:
 
@@ -317,8 +317,6 @@ For example, `MSALInternalErrorBrokerResponseNotReceived` means that user didn't
 
 The following Objective-C sample code demonstrates best practices for handling some common error conditions:
 
-**Objective-C**:
-
 ```objc
     MSALInteractiveTokenParameters *interactiveParameters = ...;
     MSALSilentTokenParameters *silentParameters = ...;
@@ -423,8 +421,6 @@ The following Objective-C sample code demonstrates best practices for handling s
      [application acquireTokenWithParameters:interactiveParameters
                              completionBlock:completionBlock];
 ```
-
-**Swift**:
 
 ```swift
     let interactiveParameters: MSALInteractiveTokenParameters = ...
