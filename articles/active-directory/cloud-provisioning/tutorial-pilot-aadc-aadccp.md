@@ -54,24 +54,24 @@ Azure AD Connect sync synchronizes changes occurring in your on-premises directo
  
  3. On the **Description** page, enter the following and click **Next**:
 
-  **Name:** Give the rule a meaningful name<br>
-  **Description:** Add a meaningful description<br> 
-  **Connected System:** Choose the AD connector that you are writing the custom sync rule for<br>
-  **Connected System Object Type:** User<br>
-  **Metaverse Object Type:** Person<br>
-  **Link Type:** Join<br>
-  **Precedence:** Provide a value that is unique in the system<br>
-  **Tag:** Leave this empty<br>
- ![Custom rule](media/how-to-cloud-custom-user-rule/user2.png)</br>
+    **Name:** Give the rule a meaningful name<br>
+    **Description:** Add a meaningful description<br> 
+    **Connected System:** Choose the AD connector that you are writing the custom sync rule for<br>
+    **Connected System Object Type:** User<br>
+    **Metaverse Object Type:** Person<br>
+    **Link Type:** Join<br>
+    **Precedence:** Provide a value that is unique in the system<br>
+    **Tag:** Leave this empty<br>
+    ![Custom rule](media/how-to-cloud-custom-user-rule/user2.png)</br>
  
  4.	On the **Scoping filter** page, enter the OU or security group that you want the pilot based off.  To filter on OU, add the OU portion of the distinguished name. This rule will be applied to all users who are in that OU.  So, if DN ends with "OU=CPUsers,DC=contoso,DC=com, you would add this filter.  Then click **Next**. 
 
- |Rule|Attribute|Operator|Value|
- |-----|----|----|-----|
- |Scoping OU|DN|ENDSWITH|Distinguished name of the OU.|
- |Scoping group||ISMEMBEROF|Distinguished name of the security group.|
+    |Rule|Attribute|Operator|Value|
+    |-----|----|----|-----|
+    |Scoping OU|DN|ENDSWITH|Distinguished name of the OU.|
+    |Scoping group||ISMEMBEROF|Distinguished name of the security group.|
 
- ![Custom rule](media/how-to-cloud-custom-user-rule/user3.png)</br>
+    ![Custom rule](media/how-to-cloud-custom-user-rule/user3.png)</br>
  
  5.	On the **Join** rules page, click **Next**.
  6. On the **Transformations** page, add a Constant transformation: flow True to cloudNoFlow attribute. Click **Add**.
@@ -81,23 +81,21 @@ Same steps need to be followed for all object types (user, group and contact).
 
 ## Create custom user outbound rule
 
- 1. Select **Outbound** from the drop-down list for Direction and click on **Add 
- 
- rule**.
+ 1. Select **Outbound** from the drop-down list for Direction and click on **Add rule**.
  ![Custom rule](media/how-to-cloud-custom-user-rule/user5.png)</br>
  
  2. On the **Description** page, enter the following and click **Next**:
 
-  **Name:** Give the rule a meaningful name<br>
-  **Description:** Add a meaningful description<br> 
-  **Connected System:** Choose the AD connector that you are writing the custom sync rule for<br>
-  **Connected System Object Type:** User<br>
-  **Metaverse Object Type:** Person<br>
-  **Link Type:** JoinNoFlow<br>
-  **Precedence:** Provide a value that is unique in the system<br>
-  **Tag:** Leave this empty<br>
- 
- ![Custom rule](media/how-to-cloud-custom-user-rule/user6.png)</br>
+    **Name:** Give the rule a meaningful name<br>
+    **Description:** Add a meaningful description<br> 
+    **Connected System:** Choose the AD connector that you are writing the custom sync rule for<br>
+    **Connected System Object Type:** User<br>
+    **Metaverse Object Type:** Person<br>
+    **Link Type:** JoinNoFlow<br>
+    **Precedence:** Provide a value that is unique in the system<br>
+    **Tag:** Leave this empty<br>
+    
+    ![Custom rule](media/how-to-cloud-custom-user-rule/user6.png)</br>
  
  3. On the **Scoping filter** page, choose **cloudNoFlow** equal **True**. Then click **Next**.
  ![Custom rule](media/how-to-cloud-custom-user-rule/user7.png)</br>

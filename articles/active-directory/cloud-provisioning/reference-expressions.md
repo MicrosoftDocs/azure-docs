@@ -84,10 +84,10 @@ Takes a source string value and appends the suffix to the end of it.
 
 **Parameters:**<br> 
 
-| Name | Required/ Repeating | Type | Notes |
-| --- | --- | --- | --- |
-| **source** |Required |String |Usually name of the attribute from the source object. |
-| **suffix** |Required |String |The string that you want to append to the end of the source value. |
+   | Name | Required/ Repeating | Type | Notes |
+   | --- | --- | --- | --- |
+   | **source** |Required |String |Usually name of the attribute from the source object. |
+   | **suffix** |Required |String |The string that you want to append to the end of the source value. |
 
 ---
 ### BitAnd
@@ -246,11 +246,11 @@ Takes a date string from one format and converts it into a different format.
 
 **Parameters:**<br> 
 
-| Name | Required/ Repeating | Type | Notes |
-| --- | --- | --- | --- |
-| **source** |Required |String |Usually name of the attribute from the source object. |
-| **inputFormat** |Required |String |Expected format of the source value. For supported formats, see [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
-| **outputFormat** |Required |String |Format of the output date. |
+   | Name | Required/ Repeating | Type | Notes |
+   | --- | --- | --- | --- |
+   | **source** |Required |String |Usually name of the attribute from the source object. |
+   | **inputFormat** |Required |String |Expected format of the source value. For supported formats, see [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+   | **outputFormat** |Required |String |Format of the output date. |
 
 ---
 ### Guid
@@ -390,10 +390,10 @@ If one of the source values is a multi-value attribute, then every value in that
 
 **Parameters:**<br> 
 
-| Name | Required/ Repeating | Type | Notes |
-| --- | --- | --- | --- |
-| **separator** |Required |String |String used to separate source values when they are concatenated into one string. Can be "" if no separator is required. |
-| **source1  … sourceN** |Required, variable-number of times |String |String values to be joined together. |
+   | Name | Required/ Repeating | Type | Notes |
+   | --- | --- | --- | --- |
+   | **separator** |Required |String |String used to separate source values when they are concatenated into one string. Can be "" if no separator is required. |
+   | **source1  … sourceN** |Required, variable-number of times |String |String values to be joined together. |
 
 ---
 ### Left
@@ -429,11 +429,11 @@ Returns a substring of the source value. A substring is a string that contains o
 
 **Parameters:**<br> 
 
-| Name | Required/ Repeating | Type | Notes |
-| --- | --- | --- | --- |
-| **source** |Required |String |Usually name of the attribute. |
-| **start** |Required |integer |Index in the **source** string where substring should start. First character in the string will have index of 1, second character will have index 2, and so on. |
-| **length** |Required |integer |Length of the substring. If length ends outside the **source** string, function will return substring from **start** index till end of **source** string. |
+   | Name | Required/ Repeating | Type | Notes |
+   | --- | --- | --- | --- |
+   | **source** |Required |String |Usually name of the attribute. |
+   | **start** |Required |integer |Index in the **source** string where substring should start. First character in the string will have index of 1, second character will have index 2, and so on. |
+   | **length** |Required |integer |Length of the substring. If length ends outside the **source** string, function will return substring from **start** index till end of **source** string. |
 
 ---
 ### NormalizeDiacritics
@@ -445,9 +445,9 @@ Requires one string argument. Returns the string, but with any diacritical chara
 
 **Parameters:**<br> 
 
-| Name | Required/ Repeating | Type | Notes |
-| --- | --- | --- | --- |
-| **source** |Required |String | Usually a first name or last name attribute. |
+   | Name | Required/ Repeating | Type | Notes |
+   | --- | --- | --- | --- |
+   | **source** |Required |String | Usually a first name or last name attribute. |
 
 ---
 ### Not
@@ -459,9 +459,9 @@ Flips the boolean value of the **source**. If **source** value is "*True*", retu
 
 **Parameters:**<br> 
 
-| Name | Required/ Repeating | Type | Notes |
-| --- | --- | --- | --- |
-| **source** |Required |Boolean String |Expected **source** values are "True" or "False". |
+   | Name | Required/ Repeating | Type | Notes |
+   | --- | --- | --- | --- |
+   | **source** |Required |Boolean String |Expected **source** values are "True" or "False". |
 
 ---
 ### RemoveDuplicates
@@ -502,15 +502,15 @@ Replaces values within a string. It works differently depending on the parameter
 
 **Parameters:**<br> 
 
-| Name | Required/ Repeating | Type | Notes |
-| --- | --- | --- | --- |
-| **source** |Required |String |Usually name of the attribute from the **source** object. |
-| **oldValue** |Optional |String |Value to be replaced in **source** or **template**. |
-| **regexPattern** |Optional |String |Regex pattern for the value to be replaced in **source**. Or, when **replacementPropertyName** is used, pattern to extract value from **replacementPropertyName**. |
-| **regexGroupName** |Optional |String |Name of the group inside **regexPattern**. Only when  **replacementPropertyName** is used, we will extract value of this group as **replacementValue** from **replacementPropertyName**. |
-| **replacementValue** |Optional |String |New value to replace old one with. |
-| **replacementAttributeName** |Optional |String |Name of the attribute to be used for replacement value |
-| **template** |Optional |String |When **template** value is provided, we will look for **oldValue** inside the template and replace it with **source** value. |
+   | Name | Required/ Repeating | Type | Notes |
+   | --- | --- | --- | --- |
+   | **source** |Required |String |Usually name of the attribute from the **source** object. |
+   | **oldValue** |Optional |String |Value to be replaced in **source** or **template**. |
+   | **regexPattern** |Optional |String |Regex pattern for the value to be replaced in **source**. Or, when **replacementPropertyName** is used, pattern to extract value from **replacementPropertyName**. |
+   | **regexGroupName** |Optional |String |Name of the group inside **regexPattern**. Only when  **replacementPropertyName** is used, we will extract value of this group as **replacementValue** from **replacementPropertyName**. |
+   | **replacementValue** |Optional |String |New value to replace old one with. |
+   | **replacementAttributeName** |Optional |String |Name of the attribute to be used for replacement value |
+   | **template** |Optional |String |When **template** value is provided, we will look for **oldValue** inside the template and replace it with **source** value. |
 
 ---
 ### SelectUniqueValue
@@ -529,9 +529,9 @@ Requires a minimum of two arguments, which are unique value generation rules def
 
 **Parameters:**<br> 
 
-| Name | Required/ Repeating | Type | Notes |
-| --- | --- | --- | --- |
-| **uniqueValueRule1  … uniqueValueRuleN** |At least 2 are required, no upper bound |String | List of unique value generation rules to evaluate. |
+   | Name | Required/ Repeating | Type | Notes |
+   | --- | --- | --- | --- |
+   | **uniqueValueRule1  … uniqueValueRuleN** |At least 2 are required, no upper bound |String | List of unique value generation rules to evaluate. |
 
 
 ---
@@ -544,9 +544,9 @@ Returns a single appRoleAssignment from the list of all appRoleAssignments assig
 
 **Parameters:**<br> 
 
-| Name | Required/ Repeating | Type | Notes |
-| --- | --- | --- | --- |
-| **[appRoleAssignments]** |Required |String |**[appRoleAssignments]** object. |
+   | Name | Required/ Repeating | Type | Notes |
+     --- | --- | --- | --- |
+   | **[appRoleAssignments]** |Required |String |**[appRoleAssignments]** object. |
 
 ---
 ### Split
@@ -558,10 +558,10 @@ Splits a string into a multi-valued array, using the specified delimiter charact
 
 **Parameters:**<br> 
 
-| Name | Required/ Repeating | Type | Notes |
-| --- | --- | --- | --- |
-| **source** |Required |String |**source** value to update. |
-| **delimiter** |Required |String |Specifies the character that will be used to split the string (example: ",") |
+   | Name | Required/ Repeating | Type | Notes |
+   | --- | --- | --- | --- |
+   | **source** |Required |String |**source** value to update. |
+   | **delimiter** |Required |String |Specifies the character that will be used to split the string (example: ",") |
 
 ---
 ### StringFromSid
@@ -581,9 +581,9 @@ Removes all space (" ") characters from the source string.
 
 **Parameters:**<br> 
 
-| Name | Required/ Repeating | Type | Notes |
-| --- | --- | --- | --- |
-| **source** |Required |String |**source** value to update. |
+   | Name | Required/ Repeating | Type | Notes |
+   | --- | --- | --- | --- |
+   | **source** |Required |String |**source** value to update. |
 
 ---
 ### Switch
@@ -595,12 +595,12 @@ When **source** value matches a **key**, returns **value** for that **key**. If 
 
 **Parameters:**<br> 
 
-| Name | Required/ Repeating | Type | Notes |
-| --- | --- | --- | --- |
-| **source** |Required |String |**Source** value to update. |
-| **defaultValue** |Optional |String |Default value to be used when source doesn't match any keys. Can be empty string (""). |
-| **key** |Required |String |**Key** to compare **source** value with. |
-| **value** |Required |String |Replacement value for the **source** matching the key. |
+   | Name | Required/ Repeating | Type | Notes |
+   | --- | --- | --- | --- |
+   | **source** |Required |String |**Source** value to update. |
+   | **defaultValue** |Optional |String |Default value to be used when source doesn't match any keys. Can be empty string (""). |
+   | **key** |Required |String |**Key** to compare **source** value with. |
+   | **value** |Required |String |Replacement value for the **source** matching the key. |
 
 ---
 ### ToLower
@@ -612,10 +612,10 @@ Takes a *source* string value and converts it to lower case using the culture ru
 
 **Parameters:**<br> 
 
-| Name | Required/ Repeating | Type | Notes |
-| --- | --- | --- | --- |
-| **source** |Required |String |Usually name of the attribute from the source object |
-| **culture** |Optional |String |The format for the culture name based on RFC 4646 is *languagecode2-country/regioncode2*, where *languagecode2* is the two-letter language code and *country/regioncode2* is the two-letter subculture code. Examples include ja-JP for Japanese (Japan) and en-US for English (United States). In cases where a two-letter language code is not available, a three-letter code derived from ISO 639-2 is used.|
+   | Name | Required/ Repeating | Type | Notes |
+   | --- | --- | --- | --- |
+   | **source** |Required |String |Usually name of the attribute from the source object |
+   | **culture** |Optional |String |The format for the culture name based on RFC 4646 is *languagecode2-country/regioncode2*, where *languagecode2* is the two-letter language code and *country/regioncode2* is the two-letter subculture code. Examples include ja-JP for Japanese (Japan) and en-US for English (United States). In cases where a two-letter language code is not available, a three-letter code derived from ISO 639-2 is used.|
 
 ---
 ### ToUpper
@@ -627,10 +627,10 @@ Takes a *source* string value and converts it to upper case using the culture ru
 
 **Parameters:**<br> 
 
-| Name | Required/ Repeating | Type | Notes |
-| --- | --- | --- | --- |
-| **source** |Required |String |Usually name of the attribute from the source object. |
-| **culture** |Optional |String |The format for the culture name based on RFC 4646 is *languagecode2-country/regioncode2*, where *languagecode2* is the two-letter language code and *country/regioncode2* is the two-letter subculture code. Examples include ja-JP for Japanese (Japan) and en-US for English (United States). In cases where a two-letter language code is not available, a three-letter code derived from ISO 639-2 is used.|
+   | Name | Required/ Repeating | Type | Notes |
+   | --- | --- | --- | --- |
+   | **source** |Required |String |Usually name of the attribute from the source object. |
+   | **culture** |Optional |String |The format for the culture name based on RFC 4646 is *languagecode2-country/regioncode2*, where *languagecode2* is the two-letter language code and *country/regioncode2* is the two-letter subculture code. Examples include ja-JP for Japanese (Japan) and en-US for English (United States). In cases where a two-letter language code is not available, a three-letter code derived from ISO 639-2 is used.|
 ---
 ### Trim
 **Description:**  
