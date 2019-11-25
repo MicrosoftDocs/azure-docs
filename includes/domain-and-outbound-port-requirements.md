@@ -14,5 +14,5 @@ ms.author: abnarain
 | `*.frontend.clouddatahub.net` | 443            | Required by the self-hosted integration runtime to connect to the Data Factory service. |
 | `download.microsoft.com`    | 443            | Required by the self-hosted integration runtime for downloading the updates. If you have disabled auto-update, you can skip configuring this domain. |
 | `*.core.windows.net`          | 443            | Used by the self-hosted integration runtime to connect to the Azure storage account when you use the [staged copy](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#staged-copy) feature. |
-| `*.database.windows.net`      | 1433           | (Optional) Required when you copy from or to Azure SQL Database or Azure SQL Data Warehouse. Use the staged-copy feature to copy data to SQL Database or SQL Data Warehouse without opening port 1433. |
-| `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | (Optional) Required when you copy from or to Azure Data Lake Store. |
+| `*.database.windows.net`      | 1433           | Required only when you copy from or to Azure SQL Database or Azure SQL Data Warehouse. Otherwise, use of this domain is optional. Use the staged-copy feature to copy data to SQL Database or SQL Data Warehouse without opening port 1433. |
+| `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | Required only when you copy from or to Azure Data Lake Store. Otherwise, use of these domains is optional. |
