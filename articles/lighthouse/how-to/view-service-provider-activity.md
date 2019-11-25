@@ -20,7 +20,7 @@ In the activity log, you'll see the name of the operation and its status, along 
 
 ## Set up alerts for critical operations
 
-To stay aware of critical operations that service providers (or users in your own tenant) are peforming, we recommend creating [activity log alerts](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-alerts). These alerts will include actions taken by users in the customer's own tenant and in any managing tenants.
+To stay aware of critical operations that service providers (or users in your own tenant) are performing, we recommend creating [activity log alerts](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-alerts). These alerts will include actions taken by users in the customer's own tenant and in any managing tenants.
 
 For more info, see [Create and manage activity log alerts](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
 
