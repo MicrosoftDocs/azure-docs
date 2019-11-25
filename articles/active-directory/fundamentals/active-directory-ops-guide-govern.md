@@ -78,7 +78,7 @@ Over time, users may accumulate access to resources as they move throughout diff
 
 ### Access reviews to external identities
 
-It is crucial to keep access to external identities constrained only to resources that are needed, during the time that is needed. Establish a regular automated access review process for all external identities and application access using Azure AD [access reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview). If a process already exists on-premises, consider using Azure AD access reviews. You should also regularly review whether each external identity should be in your directory in the first place.
+It is crucial to keep access to external identities constrained only to resources that are needed, during the time that is needed. Establish a regular automated access review process for all external identities and application access using Azure AD [access reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview). If a process already exists on-premises, consider using Azure AD access reviews. Once an application is retired or no longer used, consider removing all the external identities that had access to the application.
 
 > [!NOTE]
 > Each user who interacts with access reviews must have a paid Azure AD Premium P2 license.
@@ -118,7 +118,10 @@ To be clear, if the EA portal authorization level is currently set to "mixed mod
 
 ## Entitlement Management
 
-[Entitlement management (EM)](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) allows app owners to bundle resources and assign them to specific personas in the organization (both internal and external). EM allows self-service sign up and delegation to business owners while keeping governance policies to grant access, set access durations, and allow approval workflows. Use Entitlement Management if you have Azure AD Premium P2 licenses.
+[Entitlement management (EM)](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) allows app owners to bundle resources and assign them to specific personas in the organization (both internal and external). EM allows self-service sign up and delegation to business owners while keeping governance policies to grant access, set access durations, and allow approval workflows. 
+
+> [!NOTE]
+> Entitlement Management requires Azure AD Premium P2 licenses.
 
 ## Summary
 
