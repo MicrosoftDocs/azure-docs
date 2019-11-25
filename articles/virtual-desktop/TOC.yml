@@ -70,7 +70,7 @@
     href: customize-feed-for-virtual-desktop-users.md
   - name: Deploy the diagnostics tool
     href: deploy-diagnostics.md
-  - name: Publish apps
+  - name: Publish built-in apps
     href: publish-apps.md
   - name: Set up MSIX app attach
     href: app-attach.md

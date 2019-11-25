@@ -1,15 +1,15 @@
 ---
-title: Publish apps in Windows Virtual Desktop - Azure
+title: Publish built-in apps in Windows Virtual Desktop - Azure
 description: How to publish modern apps in Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 11/25/2019
 ms.author: helohr
 ---
-# Publish apps in Windows Virtual Desktop
+# Publish built-in apps in Windows Virtual Desktop
 
 This article will tell you how to publish apps in your Windows Virtual Desktop environment.
 
