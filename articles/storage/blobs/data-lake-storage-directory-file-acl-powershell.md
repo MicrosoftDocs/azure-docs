@@ -18,7 +18,7 @@ This article shows you how to use PowerShell to create and manage directories, f
 > [!IMPORTANT]
 > The PowerShell module that is featured in this article is currently in public preview.
 
-[Give feedback](https://github.com/Azure/azure-powershell/issues) | [Gen1 to Gen2 mapping](#gen1-gen2-map)
+[Gen1 to Gen2 mapping](#gen1-gen2-map) | [Give feedback](https://github.com/Azure/azure-powershell/issues)
 
 ## Prerequisites
 
