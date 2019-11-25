@@ -132,7 +132,7 @@ Although rare, a task can be retried internally due to failures on the compute n
 ## Nodes
 
 - **Start tasks should be idempotent**  
-    Similar to other tasks, the node start task should be idempotent as it will be re-run every time the node boots.
+    Similar to other tasks, the node start task should be idempotent as it will be re-run every time the node boots. An idempotent task is simply one that produces a consistent result when run multiple times.
 
 - **Manage long running services via the operating system services interface**  
     Sometimes there is a need to run another agent alongside the Batch agent in the node, e.g., to gather telemetry from the node and report it. We recommend that these agents be deployed as OS services, such as a Windows service or a Linux `systemd` service.  
