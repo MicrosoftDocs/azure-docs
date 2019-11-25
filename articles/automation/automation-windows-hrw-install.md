@@ -25,7 +25,7 @@ The minimum requirements for a Windows Hybrid Runbook Worker are:
 
 * Windows Server 2012 or later.
 * Windows PowerShell 5.1 or later ([download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)).
-* .NET Framework 4.6 or later.
+* .NET Framework 4.6.2 or later.
 * Two cores.
 * 4 GB of RAM.
 * Port 443 (outbound).
