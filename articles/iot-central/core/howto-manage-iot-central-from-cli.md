@@ -55,7 +55,7 @@ These commands first create a resource group in the east US location for the app
 | template          | The application template to use. For more information, see the following table: |
 | display-name      | The name of the application as displayed in the UI. |
 
-**Application templates with general available features**
+**Application templates with generally available features**
 
 | Template name            | Description |
 | ------------------------ | ----------- |

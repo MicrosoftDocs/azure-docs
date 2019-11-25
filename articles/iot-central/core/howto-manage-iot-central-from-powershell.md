@@ -68,7 +68,7 @@ The script first creates a resource group in the east US location for the applic
 |Template          | The application template to use. For more information, see the following table: |
 |DisplayName       |The name of the application as displayed in the UI. |
 
-**Application templates with general available features**
+**Application templates with generally available features**
 
 | Template name            | Description |
 | ------------------------ | ----------- |

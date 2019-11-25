@@ -47,7 +47,7 @@ Currently, the application templates that use _public preview_ features are:
 - Healthcare > Continuous patient monitoring
 
 > [!NOTE]
-> The **Custom app > Custom application** template is currently  available in the **United States**, **Australia**, **Asia Pacific**, or in the **Europe** locations, while other templates are currently available only in **Europe** and **US** locations.
+> The **Custom application, Sample Contoso, Sample Devkits** templates are currently  available in the **United States**, **Australia**, **Asia Pacific**, or in the **Europe** locations, while other templates are currently available only in **Europe** and **US** locations.
 
 ## Industry focused templates
 
