@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Create a custom policy definition"
 description: In this tutorial, you craft a custom policy definition for Azure Policy to enforce custom business rules on your Azure resources.
-ms.date: 11/21/2019
+ms.date: 11/25/2019
 ms.topic: tutorial
 ---
 # Tutorial: Create a custom policy definition
@@ -527,6 +527,19 @@ The completed definition can be used to create a new policy. Portal and each SDK
 PowerShell, and REST API) accept the definition in different ways, so review the commands for each
 to validate correct usage. Then assign it, using the parameterized effect, to appropriate resources
 to manage the security of your storage accounts.
+
+## Clean up resources
+
+If you're done working with resources from this tutorial, use the following steps to delete any of
+the assignments or definitions created above:
+
+1. Select **Definitions** (or **Assignments** if you're trying to delete an assignment) under
+   **Authoring** in the left side of the Azure Policy page.
+
+1. Search for the new initiative or policy definition (or assignment) you want to remove.
+
+1. Right-click the row or select the ellipses at the end of the definition (or assignment), and
+   select **Delete definition** (or **Delete assignment**).
 
 ## Review
 
