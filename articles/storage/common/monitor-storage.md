@@ -54,7 +54,7 @@ You'll also have to specify which categories of operations to collect logs for. 
 
 ## Analyzing metric data
 
-You can analyze metrics for Azure storage with metrics from other Azure services by using Metrics explorer. Open Metrics explorer by choosing **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../../platform/metrics-getting-started.md) for details on using this tool. 
+You can analyze metrics for Azure storage with metrics from other Azure services by using Metrics explorer. Open Metrics explorer by choosing **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md) for details on using this tool. 
 
 The following example shows how to view **Transactions** at account level.
 

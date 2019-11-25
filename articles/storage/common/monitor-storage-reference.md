@@ -21,8 +21,6 @@ See [Monitoring Azure Storage](monitor-storage.md) for details on collecting and
 
 The following table lists the properties for Azure Storage resource logs when they're collected in Azure Monitor Logs or Azure Storage. The properties describe the operation, the service, and the type of authorization that was used to perform the operation.
 
-The following table lists the properties for Azure Storage resource logs when they're collected in Azure Monitor Logs or Azure Storage. The properties describe the operation, the service, and the type of authorization that was used to perform the operation.
-
 ### Fields that describe the operation
 
 The following table contains properties that describe the operation.
