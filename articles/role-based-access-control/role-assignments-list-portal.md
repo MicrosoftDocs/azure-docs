@@ -21,9 +21,9 @@ ms.reviewer: bagovind
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] This article describes how to list role assignments using the Azure portal.
 
-## List all role assignments for a user or group
+## List role assignments for a user or group
 
-The easist way to see the roles assigned to a user or group in a subscription is to use the **Azure resources** pane.
+The easiest way to see the roles assigned to a user or group in a subscription is to use the **Azure resources** pane.
 
 1. In the Azure portal, click **All services** and then select **Users** or **Groups**.
 
@@ -37,7 +37,7 @@ The easist way to see the roles assigned to a user or group in a subscription is
 
 1. To change the subscription, click the **Subscriptions** list.
 
-## List all role assignments for a system-assigned managed identity
+## List role assignments for a system-assigned managed identity
 
 1. In the Azure portal, open a system-assigned managed identity.
 
@@ -51,7 +51,7 @@ The easist way to see the roles assigned to a user or group in a subscription is
 
     ![Role assignments for a system-assigned managed identity](./media/role-assignments-list-portal/azure-resources-system-assigned.png)
 
-## List all role assignments for a user-assigned managed identity
+## List role assignments for a user-assigned managed identity
 
 1. In the Azure portal, open a system-assigned managed identity.
 
@@ -89,7 +89,7 @@ To list access for a user, group, service principal, or managed identity, you li
 
     On this pane, you can see the roles assigned to the selected security principal and the scope. If there are any deny assignments at this scope or inherited to this scope, they will be listed.
 
-## List all role assignments at a scope
+## List role assignments at a scope
 
 1. In the Azure portal, click **All services** and then select the scope. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
 

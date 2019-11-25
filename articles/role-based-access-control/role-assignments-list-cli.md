@@ -24,7 +24,7 @@ ms.reviewer: bagovind
 
 - [Bash in Azure Cloud Shell](/azure/cloud-shell/overview) or [Azure CLI](/cli/azure)
 
-## User
+## List role assignments for a user
 
 To list the role assignments for a specific user, use [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list):
 
@@ -53,7 +53,7 @@ az role assignment list --all --assignee patlong@contoso.com --output json | jq 
 }
 ```
 
-## Resource group
+## List role assignments for a resource group
 
 To list the role assignments that exist at a resource group scope, use [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list):
 
@@ -82,7 +82,7 @@ az role assignment list --resource-group pharma-sales --output json | jq '.[] | 
 ...
 ```
 
-## Subscription
+## List role assignments for a subscription
 
 To list all role assignments at a subscription scope, use [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list). To get the subscription ID, you can find it on the **Subscriptions** blade in the Azure portal or you can use [az account list](/cli/azure/account#az-account-list).
 
@@ -94,7 +94,7 @@ az role assignment list --subscription <subscription_name_or_id>
 az role assignment list --subscription 00000000-0000-0000-0000-000000000000 --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
 ```
 
-## Management group
+## List role assignments for a management group
 
 To list all role assignments at a management group scope, use [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list). To get the management group ID, you can find it on the **Management groups** blade in the Azure portal or you can use [az account management-group list](/cli/azure/ext/managementgroups/account/management-group#ext-managementgroups-az-account-management-group-list).
 

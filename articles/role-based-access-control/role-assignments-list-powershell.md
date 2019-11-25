@@ -26,7 +26,7 @@ ms.reviewer: bagovind
 
 - [PowerShell in Azure Cloud Shell](/azure/cloud-shell/overview) or [Azure PowerShell](/powershell/azure/install-az-ps)
 
-## Current subscription
+## List role assignments for the current subscription
 
 The easiest way to get a list of all the role assignments in the current subscription (including inherited role assignments from root and management groups) is to use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) without any parameters.
 
@@ -60,7 +60,7 @@ CanDelegate        : False
 ...
 ```
 
-## Subscription
+## List role assignments for a subscription
 
 To list all role assignments at a subscription scope, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment). To get the subscription ID, you can find it on the **Subscriptions** blade in the Azure portal or you can use [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription).
 
@@ -72,7 +72,7 @@ Get-AzRoleAssignment -Scope /subscriptions/<subscription_id>
 PS C:\> Get-AzRoleAssignment -Scope /subscriptions/00000000-0000-0000-0000-000000000000
 ```
 
-## User
+## List role assignments for a user
 
 To list all the roles that are assigned to a specified user, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
 
@@ -98,7 +98,7 @@ Get-AzRoleAssignment -SignInName <email_or_userprincipalname> -ExpandPrincipalGr
 Get-AzRoleAssignment -SignInName isabella@example.com -ExpandPrincipalGroups | FL DisplayName, RoleDefinitionName, Scope
 ```
 
-## Resource group
+## List role assignments for a resource group
 
 To list all role assignments at a resource group scope, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
 
@@ -122,7 +122,7 @@ RoleDefinitionName : Virtual Machine Contributor
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
 ```
 
-## Management group
+## List role assignments for a management group
 
 To list all role assignments at a management group scope, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment). To get the management group ID, you can find it on the **Management groups** blade in the Azure portal or you can use [Get-AzManagementGroup](/powershell/module/az.resources/get-azmanagementgroup).
 
@@ -134,7 +134,7 @@ Get-AzRoleAssignment -Scope /providers/Microsoft.Management/managementGroups/<gr
 PS C:\> Get-AzRoleAssignment -Scope /providers/Microsoft.Management/managementGroups/marketing-group
 ```
 
-## Classic service administrator and co-administrators
+## List role assignments for classic service administrator and co-administrators
 
 To list role assignments for the classic subscription administrator and co-administrators, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
 
