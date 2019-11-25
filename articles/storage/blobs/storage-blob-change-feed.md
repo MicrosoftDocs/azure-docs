@@ -296,16 +296,18 @@ This section describes known issues and conditions in the current public preview
 - You can't yet manage the lifetime of change feed log files by setting time-based retention policy on them and you cannot delete the blobs 
 - The `url` property of the log file is currently always empty.
 - The `LastConsumable` property of the segments.json file does not list the very first segment that the change feed finalizes. This issue occurs only after the first segment is finalized. All subsequent segments after the first hour are accurately captured in the `LastConsumable` property.
-- You currently cannot see the **$blobchangefeed** container when you call ListContainers API and the container does not show up on Azure Portal or Storage Explorer
-- Storage accounts that have previously initated an [account failover](../common/storage-disaster-recovery-guidance.md) may have issues with the log file not appearing. Any future account failovers may also impact the log file during preview.
+- You currently cannot see the **$blobchangefeed** container when you call ListContainers API and the container does not show up on Azure portal or Storage Explorer
+- Storage accounts that have previously initiated an [account failover](../common/storage-disaster-recovery-guidance.md) may have issues with the log file not appearing. Any future account failovers may also impact the log file during preview.
 
 ## FAQ
 
 ### What is the difference between Change feed and Storage Analytics logging?
-Change feed is optimized for application development as only successful blob creation, modification, and deletion events are recorded in the change feed log. Analytics logging records all successful and failed requests across all operations, including read and list operations. By leveraging change feed, you do not have to worry about filtering out the log noise on a transaction heavy account and focus only on the blob change events.
+Analytics logs have records of all read, write, list, and delete operations with successful and failed requests across all operations. Analytics logs are best-effort and no ordering is guranteed.
+
+Change feed is a solution which provides transactional log of successful mutations or changes to your account such as blob creation, modification, and deletions. All change feed events are guaranteed to be recorded and displayed in order of successful changes per blob, thus you do not have to filter out noise from a huge volume of read operations or failed requests. Change feed is fundamentally designed and optimized for application development which require certain guarantees.
 
 ### Should I use Change feed or Storage events?
-You can leverage both features as change feed and [Blob storage events](storage-blob-event-overview.md) are similar in nature, with the main difference being the latency, ordering, and storage of event records. Change feed writes records to the change feed log in bulk every few minutes while guaranteeing the order of blob change operations. Storage events are pushed in real time and might not be ordered. Change feed events are durably stored inside your storage account while storage events are transient and consumed by the event handler unless you explicitly store them.
+You can leverage both features as Change feed and [Blob storage events](storage-blob-event-overview.md) provide the same information with the same delivery gurantee, with the main difference being the latency, ordering, and storage of event records. Change feed publishes records to the log within few minutes of the change and also gurantees the order of change operations per blob. Storage events are pushed in real time and might not be ordered. Change feed events are durably stored inside your storage account as read-only stable logs with your own defined retention, while storage events are transient to be consumed by the event handler unless you explicitly store them. With Change feed, any number of your applications can consume the logs at their own convenience using blob APIs or SDKs. 
 
 ## Next steps
 
