@@ -9,9 +9,9 @@ ms.date: 09/10/2019
 ms.author: euang
 
 ---
-# Use Apache Spark MLlib to build a machine learning application and analyze a dataset
+# Use Apache Spark to build a machine learning application and analyze a dataset
 
-Learn how to use Apache Spark [MLlib](https://spark.apache.org/mllib/) to create a machine learning application to do simple predictive analysis on an Azure open dataset. Spark's built-in machine learning libraries, this example uses *classification* through logistic regression. 
+Learn how to use Apache Spark [MLlib](https://spark.apache.org/mllib/) to create a machine learning application to do simple predictive analysis on an Azure open dataset. Spark's built-in machine learning libraries, this example uses *classification* through logistic regression.
 
 MLlib is a core Spark library that provides many utilities useful for machine learning tasks, including utilities that are suitable for:
 
@@ -46,21 +46,20 @@ In the steps below, you develop a model to predict whether a particular trip wil
 2. Import the types required for this application. Copy and paste the following code into an empty cell, and then press **SHIFT + ENTER**, or run the cell by using the blue play icon to the left of the code.
 
     ```python
-    import numpy as np
-    import matplotlib.pyplot as plt
     import matplotlib.pyplot as plt
     from datetime import datetime
     from dateutil import parser
-    from sklearn.metrics import roc_curve,auc
     from pyspark.sql.functions import unix_timestamp
     from pyspark.ml import Pipeline
+    from pyspark.ml import PipelineModel
+    from pyspark.ml.feature import RFormula
     from pyspark.ml.feature import OneHotEncoder, StringIndexer, VectorIndexer
     from pyspark.ml.classification import LogisticRegression
-    from pyspark.ml.feature import RFormula
     from pyspark.mllib.evaluation import BinaryClassificationMetrics
+    from pyspark.ml.evaluation import BinaryClassificationEvaluator
     ```
 
-    Because of the PySpark kernel, you do not need to create any contexts explicitly. The Spark context is automatically created for you when you run the first code cell. 
+    Because of the PySpark kernel, you do not need to create any contexts explicitly. The Spark context is automatically created for you when you run the first code cell.
 
 ## Construct the input dataframe
 
@@ -87,7 +86,7 @@ Because the raw data is in a Parquet format, you can use the Spark context to pu
 
     ```python
     # Create an ingestion filter
-    start_date = '2018-05-01 12:34:56'
+    start_date = '2018-05-01 00:00:00'
     end_date = '2018-05-08 00:00:00'
 
     filtered_df = df.filter('tpepPickupDateTime > "' + start_date + '" and tpepPickupDateTime < "' + end_date + '"')
@@ -100,40 +99,71 @@ Because the raw data is in a Parquet format, you can use the Spark context to pu
     sampled_taxi_df = filtered_df.sample(True, 0.001, seed=1234)
     ```
 
-4. It is now possible to look at the data to see what was read, it is normally better to do review data with a subset rather than the full set depending on the size of the dataset. The code below offers two different ways to view the data, the former being basic and the later providing a much richer grid experience as well as the capability to visualize the data graphically.
+4. It is now possible to look at the data to see what was read, it is normally better to review data with a subset rather than the full set depending on the size of the dataset. The code below offers two different ways to view the data, the former being basic and the later providing a much richer grid experience as well as the capability to visualize the data graphically.
 
     ```python
     sampled_taxi_df.show(5)
     display(sampled_taxi_df.show(5))
     ```
 
-![Basic grid results view](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-top5-basic.png)
-![Advanced grid results view](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-top5-better.png)
-
 5. Depending on the dataset size generated above and your need to experiment/run the notebook many times it may be advisable to cache the dataset locally in the workspace. There are three ways to do perform explicit caching:
     * Save the dataframe locally as a file
     * Save the dataframe as a temporary table or view
     * Save the dataframe as a permanent table
 
-Examples are included of the first 2 of these approaches below. The write and load lines should be uncommented out or commented depending on whether you are writing to the file cache or reading from the file cache. This cache will be persisted between sessions and Spark instance restarts.
+Examples are included of the first 2 of these approaches below. The write and load lines should be uncommented out depending on whether you are writing to the file cache or reading from the file cache. This cache will be persisted between sessions and Spark instance restarts.
 
 Creating a temp table or view provides different access paths to the data but only lasts for the duration of the Spark instance session.
 
-    ```Python
-    # As the data read from remote storage takes the longest cache the filtered, downsampled results locally in the workspace
-    # Save the data once per filter change and write the data out then comment out the write call and uncomment the load call
-    sampled_taxi_df.write.mode('overwrite').save('sampledNYCTaxi', format='parquet')
-    
-    #sampled_taxi_df = spark.read.load('sampledNYCTaxi')
-    
-    # Creating a temp table allows easier manipulation during the session, they are not persisted between sessions, 
-    # for that write the data to storage like above.
-    sampled_taxi_df.createOrReplaceTempView("nytaxi")
-    ```
+```Python
+# As the data read from remote storage takes the longest cache the filtered, downsampled results locally in the workspace
+# Save the data once per filter change and write the data out then comment out the write call and uncomment the load call
+
+# Temp location for cache
+#adls_outputpath = "abfss://default@euangarcadiatesting.dfs.core.windows.net/tmp/"
+
+#sampled_taxi_df.write.mode('overwrite').save(adls_outputpath + 'sampledNYCTaxi', format='parquet')
+
+#sampled_taxi_df = spark.read.load('sampledNYCTaxi')
+
+# Creating a temp table allows easier manipulation during the session, they are not persisted between sessions,
+# for that write the data to storage like above.
+sampled_taxi_df.createOrReplaceTempView("nytaxi")
+```
 
 ## Understand the data
 
 Normally you would go through a phase of exploratory data analysis (EDA) at this point to develop an understanding of the data. The code below shows three different visualizations of the data related to tips that lead to conclusions about the state and quality of the data.
+
+```python
+#The charting package needs a Pandas dataframe or numpy array do the conversion
+sampled_taxi_pd_df = sampled_taxi_df.toPandas()
+
+# Look at tips by amount count histogram
+ax1 = sampled_taxi_pd_df['tipAmount'].plot(kind='hist', bins=25, facecolor='lightblue')
+ax1.set_title('Tip amount distribution')
+ax1.set_xlabel('Tip Amount ($)')
+ax1.set_ylabel('Counts')
+plt.suptitle('')
+plt.show()
+
+# How many passengers tip'd by various amounts
+ax2 = sampled_taxi_pd_df.boxplot(column=['tipAmount'], by=['passengerCount'])
+ax2.set_title('Tip amount by Passenger count')
+ax2.set_xlabel('Passenger count') 
+ax2.set_ylabel('Tip Amount ($)')
+plt.suptitle('')
+plt.show()
+
+# Look at the relationship between fare and tip amounts
+ax = sampled_taxi_pd_df.plot(kind='scatter', x= 'fareAmount', y = 'tipAmount', c='blue', alpha = 0.10, s=2.5*(sampled_taxi_pd_df['passengerCount']))
+ax.set_title('Tip amount by Fare amount')
+ax.set_xlabel('Fare Amount ($)')
+ax.set_ylabel('Tip Amount ($)')
+plt.axis([-2, 80, -2, 20])
+plt.suptitle('')
+plt.show()
+```
 
 ![Histogram](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-histogram.png)
 ![Box Whisker Plot](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-eda-box-whisker.png)
@@ -153,9 +183,9 @@ In the code below four classes of operations are performed:
     ```python
     # Create a new dataframe that has only the columns that are needed or that are needed to create features, create features and apply filters.
     sqlStatementSelect = """
-    SELECT 
+    SELECT
         totalAmount, fareAmount, tipAmount, paymentType, rateCodeId, passengerCount, tripDistance, tpepPickupDateTime, tpepDropoffDateTime,
-        hour(tpepPickupDateTime) as pickupHour, 
+        hour(tpepPickupDateTime) as pickupHour,
         date_format(tpepPickupDateTime, 'EEEE') as weekdayString,
         unix_timestamp(tpepDropoffDateTime) - unix_timestamp(tpepPickupDateTime) as tripTimeSecs,
         CASE
@@ -163,116 +193,152 @@ In the code below four classes of operations are performed:
             ELSE 0
         END as tipped """
     sqlStatementFrom = """
-    FROM 
-        nytaxi 
-    """ 
+    FROM
+        nytaxi
+    """
     sqlStatementWhere = """
-    WHERE 
-        passengerCount > 0 AND passengerCount < 8 AND 
-        tipAmount >= 0  AND tipAmount <= 25 AND 
-        fareAmount >= 1 AND fareAmount <= 250 AND 
-        tipAmount < fareAmount AND 
-        tripDistance > 0 AND tripDistance <= 100 AND 
-        rateCodeId <= 5 AND 
+    WHERE
+        passengerCount > 0 AND passengerCount < 8 AND
+        tipAmount >= 0  AND tipAmount <= 25 AND
+        fareAmount >= 1 AND fareAmount <= 250 AND
+        tipAmount < fareAmount AND
+        tripDistance > 0 AND tripDistance <= 100 AND
+        rateCodeId <= 5 AND
         paymentType in ('1','2')
     """
     taxi_df = spark.sql(sqlStatementSelect + sqlStatementFrom + sqlStatementWhere)
-    
+
     # Once again cache in a temp table
     taxi_df.createOrReplaceTempView("nytaxi_filtered")
     ```
 
+If you do not wish to mix Spark SQL and PySpark then this version is completely PySpark
+
+```Python
+taxi_df = sampled_taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'paymentType', 'rateCodeId', 'passengerCount'\
+                                , 'tripDistance', 'tpepPickupDateTime', 'tpepDropoffDateTime'\
+                                , date_format('tpepPickupDateTime', 'hh').alias('pickupHour')\
+                                , date_format('tpepPickupDateTime', 'EEEE').alias('weekdayString')\
+                                , (unix_timestamp(col('tpepDropoffDateTime')) - unix_timestamp(col('tpepPickupDateTime'))).alias('tripTimeSecs')\
+                                , (when(col('tipAmount') > 0, 1).otherwise(0)).alias('tipped')
+                                )\
+                        .filter((sampled_taxi_df.passengerCount > 0) & (sampled_taxi_df.passengerCount < 8)\
+                                & (sampled_taxi_df.tipAmount >= 0) & (sampled_taxi_df.tipAmount <= 25)\
+                                & (sampled_taxi_df.fareAmount >= 1) & (sampled_taxi_df.fareAmount <= 250)\
+                                & (sampled_taxi_df.tipAmount < sampled_taxi_df.fareAmount)\
+                                & (sampled_taxi_df.tripDistance > 0) & (sampled_taxi_df.tripDistance <= 100)\
+                                & (sampled_taxi_df.rateCodeId <= 5)
+                                & (sampled_taxi_df.paymentType.isin({"1", "2"}))
+                                )
+```
+
 A second pass is then made over the data to add the final features
 
-    ```python
-    # Complete the column reduction, filtering and featurisation
-    sqlStatement2Select = """ 
-    SELECT totalAmount, fareAmount, tipAmount, paymentType, passengerCount, tripDistance, weekdayString, pickupHour, tripTimeSecs, tipped,
-        CASE
-         WHEN (pickupHour <= 6 OR pickupHour >= 20) THEN "Night" 
-         WHEN (pickupHour >= 7 AND pickupHour <= 10) THEN "AMRush" 
-         WHEN (pickupHour >= 11 AND pickupHour <= 15) THEN "Afternoon"
-         WHEN (pickupHour >= 16 AND pickupHour <= 19) THEN "PMRush"
-        END as trafficTimeBins"""
-    sqlStatement2From = """
-    FROM 
-        nytaxi_filtered
-    """
-    sqlStatement2Where = """
-    WHERE
-        tripTimeSecs >= 30 AND tripTimeSecs < 7200
-    """
-    taxi_featurised_df = spark.sql(sqlStatement2Select + sqlStatement2From + sqlStatement2Where)
-    
-    # Cache again
-    taxi_featurised_df.createOrReplaceTempView("nytaxi_featurised")
-    ```
+```python
+# Complete the column reduction, filtering and featurisation
+sqlStatement2Select = """
+SELECT totalAmount, fareAmount, tipAmount, paymentType, passengerCount, tripDistance, weekdayString, pickupHour, tripTimeSecs, tipped,
+    CASE
+        WHEN (pickupHour <= 6 OR pickupHour >= 20) THEN "Night" 
+        WHEN (pickupHour >= 7 AND pickupHour <= 10) THEN "AMRush" 
+        WHEN (pickupHour >= 11 AND pickupHour <= 15) THEN "Afternoon"
+        WHEN (pickupHour >= 16 AND pickupHour <= 19) THEN "PMRush"
+    END as trafficTimeBins"""
+sqlStatement2From = """
+FROM
+    nytaxi_filtered
+"""
+sqlStatement2Where = """
+WHERE
+    tripTimeSecs >= 30 AND tripTimeSecs < 7200
+"""
+taxi_featurised_df = spark.sql(sqlStatement2Select + sqlStatement2From + sqlStatement2Where)
+
+# Cache again
+taxi_featurised_df.createOrReplaceTempView("nytaxi_featurised")
+```
+
+Once again here is the pure PySpark version
+
+```Python
+taxi_featurised_df = taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'paymentType', 'passengerCount'\
+                                                , 'tripDistance', 'weekdayString', 'pickupHour','tripTimeSecs','tipped'\
+                                                , when((taxi_df.pickupHour <= 6) | (taxi_df.pickupHour >= 20),"Night")\
+                                                .when((taxi_df.pickupHour >= 7) & (taxi_df.pickupHour <= 10), "AMRush")\
+                                                .when((taxi_df.pickupHour >= 11) & (taxi_df.pickupHour <= 15), "Afternoon")\
+                                                .when((taxi_df.pickupHour >= 16) & (taxi_df.pickupHour <= 19), "PMRush")\
+                                                .otherwise(0).alias('trafficTimeBins')
+                                              )\
+                                       .filter((taxi_df.tripTimeSecs >= 30) & (taxi_df.tripTimeSecs <= 7200))
+```
 
 ## Create a logistic regression model from the input dataframe
 
 The final task is to convert the labeled data into a format that can be analyzed by logistic regression. The input to a logistic regression algorithm needs to be a set of *label-feature vector pairs*, where the "feature vector" is a vector of numbers representing the input point. So, we need to convert the categorical columns into numbers. The `trafficTimeBins` and `weekdayString` columns need converted into integer representations. There are multiple approaches to performing the conversion, however for this example the approach that is being taken is OneHotEncoding, a common approach.
 
-    ```python
-    # The sample uses an algorithm that only works with numeric features convert them so they can be consumed
-    sI1 = StringIndexer(inputCol="trafficTimeBins", outputCol="trafficTimeBinsIndex") 
-    en1 = OneHotEncoder(dropLast=False, inputCol="trafficTimeBinsIndex", outputCol="trafficTimeBinsVec")
-    sI2 = StringIndexer(inputCol="weekdayString", outputCol="weekdayIndex")
-    en2 = OneHotEncoder(dropLast=False, inputCol="weekdayIndex", outputCol="weekdayVec")
-    
-    # Create a new dataframe that has had the encodings applied
-    encoded_final_df = Pipeline(stages=[sI1, en1, sI2, en2]).fit(taxi_featurised_df).transform(taxi_featurised_df)
-    ```
+```python
+# The sample uses an algorithm that only works with numeric features convert them so they can be consumed
+sI1 = StringIndexer(inputCol="trafficTimeBins", outputCol="trafficTimeBinsIndex") 
+en1 = OneHotEncoder(dropLast=False, inputCol="trafficTimeBinsIndex", outputCol="trafficTimeBinsVec")
+sI2 = StringIndexer(inputCol="weekdayString", outputCol="weekdayIndex")
+en2 = OneHotEncoder(dropLast=False, inputCol="weekdayIndex", outputCol="weekdayVec")
+
+# Create a new dataframe that has had the encodings applied
+encoded_final_df = Pipeline(stages=[sI1, en1, sI2, en2]).fit(taxi_featurised_df).transform(taxi_featurised_df)
+```
+
 This results in a new dataframe with the columns all in the right format to train a model.
 
 ## Train a logistic regression model
 
 The first task is to split the dataset into a training set and a testing or validation set. The split here is arbitrary and you should play around with different split settings to see if they impact the model.
 
-    ```python
-    #Decide on the split between training and testing data from the dataframe 
-    trainingFraction = 0.7
-    testingFraction = (1-trainingFraction)
-    seed = 1234
+```python
+#Decide on the split between training and testing data from the dataframe
+trainingFraction = 0.7
+testingFraction = (1-trainingFraction)
+seed = 1234
 
-    # Split the dataframe into test and training dataframes
-    train_data_df, test_data_df = encoded_final_df.randomSplit([trainingFraction, testingFraction], seed=seed)
-    ```
+# Split the dataframe into test and training dataframes
+train_data_df, test_data_df = encoded_final_df.randomSplit([trainingFraction, testingFraction], seed=seed)
+```
+
 Now that there are two dataframes the next task is to create the model formula and run it against the training dataframe, then validate against the testing data frame. You should experiment with different versions of the model formula to see the impact of different combinations.
 
-    ```python
-    ## Create a new LR object for the model
-    logReg = LogisticRegression(maxIter=10, regParam=0.3, labelCol = 'tipped')
-    
-    ## The formula for the model
-    classFormula = RFormula(formula="tipped ~ pickupHour + weekdayVec + passengerCount + tripTimeSecs + tripDistance + fareAmount + paymentType+ trafficTimeBinsVec")
-    
-    ## Undertake training and create an LR model
-    lrModel = Pipeline(stages=[classFormula, logReg]).fit(train_data_df)
-    
-    ## Saving the model is optional but its another form of inter session cache
-    datestamp = datetime.now().strftime('%m-%d-%Y-%s')
-    fileName = "lrModel_" + datestamp
-    logRegDirfilename = fileName
-    lrModel.save(logRegDirfilename)
-    
-    ## Predict tip 1/0 (yes/no) on the test dataset, evaluation using AUROC
-    predictions = lrModel.transform(test_data_df)
-    predictionAndLabels = predictions.select("label","prediction").rdd
-    metrics = BinaryClassificationMetrics(predictionAndLabels)
-    print("Area under ROC = %s" % metrics.areaUnderROC)
-    ```
+```python
+## Create a new LR object for the model
+logReg = LogisticRegression(maxIter=10, regParam=0.3, labelCol = 'tipped')
+
+## The formula for the model
+classFormula = RFormula(formula="tipped ~ pickupHour + weekdayVec + passengerCount + tripTimeSecs + tripDistance + fareAmount + paymentType+ trafficTimeBinsVec")
+
+## Undertake training and create an LR model
+lrModel = Pipeline(stages=[classFormula, logReg]).fit(train_data_df)
+
+## Saving the model is optional but its another form of inter session cache
+datestamp = datetime.now().strftime('%m-%d-%Y-%s')
+fileName = "lrModel_" + datestamp
+logRegDirfilename = fileName
+lrModel.save(logRegDirfilename)
+
+## Predict tip 1/0 (yes/no) on the test dataset, evaluation using AUROC
+predictions = lrModel.transform(test_data_df)
+predictionAndLabels = predictions.select("label","prediction").rdd
+metrics = BinaryClassificationMetrics(predictionAndLabels)
+print("Area under ROC = %s" % metrics.areaUnderROC)
+```
 
 The output from this cell is
 
-    ```shell
-    Area under ROC = 0.9779470729751403
-    ```
+```shell
+Area under ROC = 0.9779470729751403
+```
 
 ## Create a visual representation of the prediction
 
 You can now construct a final visualization to help you reason about the results of this test. An [ROC Curve](https://en.wikipedia.org/wiki/Receiver_operating_characteristic) is one way to review the result.
 
-![Synapse Analytics on Azure portal](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-nyctaxi-roc.png "ROC Curve for Logistic Regression tip model")
+![ROC Curve for Logistic Regression tip model](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-mllib-nyctaxi-roc.png "ROC Curve for Logistic Regression tip model")
 
 ## Shut down the Spark instance
 
@@ -282,6 +348,7 @@ After you have finished running the application, you should shut down the notebo
 
 * [Overview: Apache Spark on Azure Synapse Analytics](apache-spark-overview.md)
 
+<!---
 ### Scenarios
 
 > [!IMPORTANT]
@@ -301,3 +368,4 @@ After you have finished running the application, you should shut down the notebo
 
 > [!IMPORTANT]
 > TODO Need to rewrite this section
+--->
