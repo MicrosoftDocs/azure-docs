@@ -1,18 +1,16 @@
 ---
-title: "Quickstart: Use cURL to get answer from knowledge base - QnA Maker"
-titleSuffix: Azure Cognitive Services
-description: This quickstart walks you through getting an answer from your knowledge base using cURL.
+title: include file
+description: include file 
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: qna-maker
-ms.topic: quickstart
-ms.date: 10/01/2019
+ms.subservice: luis
+ms.topic: include
+ms.custom: include file
+ms.date: 11/20/2019
 ms.author: diberry
 ---
-
-# Quickstart: Get answer from knowledge base using cURL
 
 This cURL-based quickstart walks you through getting an answer from your knowledge base.
 
@@ -70,9 +68,4 @@ If you want to get an answer from the staging endpoint, use the `isTest` body pr
 isTest:true
 ```
 
-## Next steps
 
-The publish page also provides information to [generate an answer](get-answer-from-kb-using-postman.md) with Postman. 
-
-> [!div class="nextstepaction"]
-> [Use metadata while generating an answer](../How-to/metadata-generateanswer-usage.md)
