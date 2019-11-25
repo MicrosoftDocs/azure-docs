@@ -66,7 +66,7 @@ The following list are common attributes and how they are synchronized to Azure 
 ## Viewing the schema
 In order to view the schema and verify it, do the following steps:
 
-1.  Navigate to [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer).
+1.  Navigate to [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 2.  Sign in with your global administrator account
 3.  On the left, click **modify permissions** and ensure that **Directory.ReadWrite.All** is Consented.
 4.  Run the following query: https://graph.microsoft.com/beta/serviceprincipals/.  This query will return a list of service principals.
