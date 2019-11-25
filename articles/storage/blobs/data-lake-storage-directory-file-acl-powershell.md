@@ -6,7 +6,7 @@ author: normesta
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.topic: conceptual
-ms.date: 11/06/2019
+ms.date: 11/24/2019
 ms.author: normesta
 ms.reviewer: prishet
 ---
