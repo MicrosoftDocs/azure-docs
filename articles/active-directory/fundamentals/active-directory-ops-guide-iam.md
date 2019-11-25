@@ -53,7 +53,7 @@ Microsoft recommends you have a good baseline and understanding of the issues in
 
 To enable all hybrid experiences, device-based security posture, and integration with Azure AD, it is required that you synchronize user accounts that your employees use to login to their desktops.
 
-If you don’t synchronize the forest users log into, then you should immediately remediate the synchronization to come from the proper forest.
+If you don’t synchronize the forest users log into, then you should change the synchronization to come from the proper forest.
 
 #### Synchronization scope and object filtering
 
