@@ -107,7 +107,7 @@ Start by creating an application registration that your PowerShell scripts can u
 
 1. Sign in to your Azure DevOps organization and navigate to your project.
 1. In your project, navigate to the **Releases** page under **Pipelines**. Then choose the action to create a new pipeline.
-  - Select **New** then Select **New release pipeline**
+    - Select **New** then Select **New release pipeline**
 1. Select **Empty Job** at the top of navigation pane to choose a template.
 1. In the next screen, enter a name for the stage such as 'DeployCustomPolicies' and close window.
 1. Select **Add an artifact** to the pipeline. For this guide, follow prompts and choose your repo.
@@ -136,7 +136,7 @@ Start by creating an application registration that your PowerShell scripts can u
         - **Script Path:** Click on the "..." icon and Navigate to the 'DeployToB2C.ps1' file. Select this file.
         - **Arguments:** <br/>
         -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -PolicyId B2C_1A_TrustFrameworkBase -PathToFile $(System.DefaultWorkingDirectory)/B2CAssets/TrustFrameworkBase.xml <br/>
-            > [!NOTE] PolicyId is not the filename and instead is a value stored with the XML policy. This is located at the beginning of policy file. See Example:
+            PolicyId is not the filename and instead is a value stored with the XML policy. This is located at the beginning of policy file. See Example:
             ```xml
             <TrustFrameworkPolicy
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -149,12 +149,11 @@ Start by creating an application registration that your PowerShell scripts can u
             ```
 1. Save the Agent job.
 
+This example uploads only one policy. Update the **Arguments** for each **Agent job** between the different policies. Specifically, the '-PolicyId' and '-PathToFile' parameters.
 
-This sample uploads only one policy.
-> [!NOTE] Remember to update the **Arguments** for each **Agent job** between the different policies. Specifically, the '-PolicyId' and '-PathToFile' parameters. <br/> <br/>
-> Try running one Agent job successfully before creating new ones.
+Try running one Agent job successfully before creating new ones.
 
-When running the agents and uploading the policy files, ensure they are in this order:
+When running the agents and uploading the policy files, ensure they're uploaded in this order:
 
 1. *TrustFrameworkBase.xml*
 1. *TrustFrameworkExtensions.xml*
@@ -162,10 +161,7 @@ When running the agents and uploading the policy files, ensure they are in this 
 1. *ProfileEdit.xml*
 1. *PasswordReset.xml*
 
-    > [!NOTE]
-    > The Identity Experience Framework will enforce this as the file structure is built on a hierarchical chain.
-
-
+The Identity Experience Framework enforces this order as the file structure is built on a hierarchical chain.
 
 ## Test your new pipeline
 
