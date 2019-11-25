@@ -11,10 +11,10 @@ ms.date: 11/20/2019
 ms.author: erhopf
 ---
 
-## Audio input format
+## Supported audio input format
 
-The following chart shows the acceptable input audio format specifications.
+The Speech SDK uses the following format specification for audio input.
 
 | Format | Codec | Bitrate | Sample Rate | Channels |
 |--------|-------|---------|-------------|----------|
-| WAV | PCM | 16-bit | 8 or 16 kHz | 1 (mono) |
+| WAV | PCM | 16-bit | 8 kHz or 16 kHz | 1 (mono) |
