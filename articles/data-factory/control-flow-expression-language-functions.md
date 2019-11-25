@@ -3174,31 +3174,6 @@ xpath('<xml>', '<xpath>')
 
 *Example 1*
 
-This example finds nodes that match the `<name></name>` node
-in the specified arguments, and returns an array with those node values:
-
-`xpath(xml(parameters('items')), '/produce/item/name')`
-
-Here are the arguments:
-
-* The "items" string, which contains this XML:
-
-  `"<?xml version="1.0"?> <produce> <item> <name>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
-
-  The example uses the [parameters()](#parameters) function to get
-  the XML string from the "items" argument, but must also convert
-  the string to XML format by using the [xml()](#xml) function.
-
-* This XPath expression, which is passed as a string:
-
-  `"/produce/item/name"`
-
-Here is the result array with the nodes that match `<name></name`:
-
-`[ <name>Gala</name>, <name>Honeycrisp</name> ]`
-
-*Example 2*
-
 Following on Example 1, this example finds nodes that match the
 `<count></count>` node and adds those node values with the `sum()` function:
 
@@ -3206,7 +3181,7 @@ Following on Example 1, this example finds nodes that match the
 
 And returns this result: `30`
 
-*Example 3*
+*Example 2*
 
 For this example, both expressions find nodes that match the
 `<location></location>` node, in the specified arguments,
@@ -3241,7 +3216,7 @@ Here is the result node that matches the `<location></location>` node:
 <location xmlns="https://contoso.com">Paris</location>
 ```
 
-*Example 4*
+*Example 3*
 
 Following on Example 3, this example finds the value in the
 `<location></location>` node:
