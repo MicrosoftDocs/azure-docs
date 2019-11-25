@@ -265,7 +265,7 @@ Open _config/database.php_ and add the _sslmode_ and _options_ parameters to `co
 'mysql' => [
     ...
     'sslmode' => env('DB_SSLMODE', 'prefer'),
-    'options' => (env('MYSQL_SSL')) ? [
+    'options' => (env('MYSQL_SSL') && extension_loaded('pdo_mysql')) ? [
         PDO::MYSQL_ATTR_SSL_KEY    => '/ssl/BaltimoreCyberTrustRoot.crt.pem',
     ] : []
 ],
