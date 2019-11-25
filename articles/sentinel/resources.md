@@ -34,7 +34,7 @@ The following supported operations can be audited.
 
 |Operation name|	Resource type|
 |----|----|
-||Create or update workbook	|Microsoft.Insights/workbooks|
+|Create or update workbook	|Microsoft.Insights/workbooks|
 |Delete Workbook	|Microsoft.Insights/workbooks|
 |Set Workflow	|Microsoft.Logic/workflows|
 |Delete Workflow	|Microsoft.Logic/workflows|
