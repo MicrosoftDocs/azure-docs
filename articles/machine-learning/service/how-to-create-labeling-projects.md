@@ -133,7 +133,7 @@ To send an email to the team, select the team to bring up the **Team details** p
 
 After you initialize the project, Azure will begin running it. Select the project on the main **Labeling** page to go to **Project details**. The **Dashboard** tab shows the progress of the labeling task.
 
-On the **Data** tab, you can see your dataset and review labeled data. If you see incorrectly labeled data, **Select** it and choose **Reject**, which will remove the labels and put the data back into the unlabeled queue.
+On the **Data** tab, you can see your dataset and review labeled data. If you see incorrectly labeled data, select it and choose **Reject**, which will remove the labels and put the data back into the unlabeled queue.
 
 Use the **Team** tab to assign or unassign teams to the project.
 
