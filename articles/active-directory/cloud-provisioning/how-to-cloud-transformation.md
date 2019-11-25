@@ -86,7 +86,7 @@ To add a custom attribute mapping, use the following procedure.
 ```
  5. Copy the schema back into Graph Explorer, change the Request Type to PUT and **Run Query**.  
 ![](media/how-to-cloud-prov-transformation/transform2.png)</br>
- 6.  Now, in the Azure Portal, navigate to the cloud provisioning configuration and **Restart Provisioning**.
+ 6.  Now, in the Azure portal, navigate to the cloud provisioning configuration and **Restart Provisioning**.
 ![](media/how-to-cloud-prov-transformation/transform3.png)</br>
  7.  After a little while, verify the attributes are being populated by running the following query in Graph Explorer.
  ```

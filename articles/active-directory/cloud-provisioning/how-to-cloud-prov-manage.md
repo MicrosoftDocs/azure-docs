@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect cloud provisioning new agent configuration'
-description: This topic describes step-by-step how to install cloud provisioning.
+description: This topic describes how to install cloud provisioning.
 services: active-directory
 author: billmath
 manager: daveba
@@ -28,7 +28,8 @@ To configure provisioning, use the following steps:
 
 5.  Click on **New configuration**.
 6.  On the configuration screen, the on-premises domain is pre-populated
-8. Enter a **Notification email**. This email will be notified when provisioning is not healthy.  
+8. Enter a **Notification email**. This email will be notified 
+9. when provisioning is not healthy.  
 9. Move the selector to **Enable** and click **Save**.
 ![](media/tutorial-single-forest/newconfig2.png)
 
