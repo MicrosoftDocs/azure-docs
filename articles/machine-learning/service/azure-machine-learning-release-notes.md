@@ -29,7 +29,13 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + [Contrib features below] 
 
 + **Breaking changes**
-  + [Reference upcoming breaking changes and old API support drop date]
+  + Azureml-Train-AutoML upgrade issues
+    + Upgrading to azureml-train-automl>=1.0.76 from azureml-train-automl<1.0.76 can cause partial installations, causing some automl imports to fail. To resolve this, you can run the setup script found at https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/automl_setup.cmd. Or if you are using pip directly you can:
+      + "pip install --upgrade azureml-train-automl"
+      + "pip install --ignore-installed azureml-train-automl-client"
+    + or you can uninstall the old version before upgrading
+      + "pip uninstall azureml-train-automl"
+      + "pip install azureml-train-automl"
 
 + **Bug fixes and improvements**
   + **azureml-automl-runtime**
