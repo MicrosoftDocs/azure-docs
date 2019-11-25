@@ -83,7 +83,7 @@ New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 
 ## Create an Azure AD DS resource forest
 
-To create an Azure AD DS resource forest, you use the `New-AaddsForest` cmdlet. This cmdlet is part of a wider set of cmdlets that support creating and managing Azure AD DS resource forests, including create the one-way bound forest in a following section. These cmdlets are available from the [PowerShell Gallery](https://www.powershellgallery.com/).
+To create an Azure AD DS resource forest, you use the `New-AzureAaddsForest` script. This script is part of a wider set of commands that support creating and managing Azure AD DS resource forests, including create the one-way bound forest in a following section. These scripts are available from the [PowerShell Gallery](https://www.powershellgallery.com/).
 
 1. First, create a resource group using the [New-AzResourceGroup][New-AzResourceGroup] cmdlet. In the following example, the resource group is named *myResourceGroup* and is created in the *westus* region. Use your own name and desired region:
 
@@ -93,19 +93,19 @@ To create an Azure AD DS resource forest, you use the `New-AaddsForest` cmdlet. 
       -Location "WestUS"
     ```
 
-1. Review the following parameters needed for the `New-AaddsForest` cmdlet. Make sure you also have the prerequisite **Azure PowerShell** and **Azure AD PowerShell** modules. Make sure you have planned the virtual network requirements to provide application and on-premises connectivity.
+1. Review the following parameters needed for the `New-AzureAaddsForest` script. Make sure you also have the prerequisite **Azure PowerShell** and **Azure AD PowerShell** modules. Make sure you have planned the virtual network requirements to provide application and on-premises connectivity.
 
-    | Name                         | Cmdlet parameter          | Description |
+    | Name                         | Script parameter          | Description |
     |:-----------------------------|---------------------------|:------------|
     | Subscription                 | *-azureSubscriptionId*    | Subscription ID used for Azure AD DS billing. You can get the list of subscriptions using the [Get-AzureRMSubscription][Get-AzureRMSubscription] cmdlet. |
     | Resource Group               | *-aaddsResourceGroupName* | Name of the resource group for the Azure AD DS instance and associated resources. |
     | Location                     | *-aaddsLocation*          | The Azure region to host your Azure AD DS instance. For available regions, see [supported regions for Azure AD DS.](https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds&regions=all) |
-    | Azure AD DS administrator    | *-aaddsAdminUser*         | The user principal name of the first Azure AD DS administrator. This account must be an existing cloud user account in your Azure Active Directory. The user, and the user running the cmdlet, is added to the *AAD DC Administrators* group. |
+    | Azure AD DS administrator    | *-aaddsAdminUser*         | The user principal name of the first Azure AD DS administrator. This account must be an existing cloud user account in your Azure Active Directory. The user, and the user running the script, is added to the *AAD DC Administrators* group. |
     | Azure AD DS domain name      | *-aaddsDomainName*        | The FQDN of the Azure AD DS instance, based on the previous guidance on how to choose a forest name. |
 
-    The `New-AaddsForest` cmdlet can create the Azure virtual network and Azure AD DS subnet if these resources don't already exist. The cmdlet can optionally create the workload subnets, when specified:
+    The `New-AzureAaddsForest` script can create the Azure virtual network and Azure AD DS subnet if these resources don't already exist. The script can optionally create the workload subnets, when specified:
 
-    | Name                              | Cmdlet parameter                  | Description |
+    | Name                              | Script parameter                  | Description |
     |:----------------------------------|:----------------------------------|:------------|
     | Virtual network name              | *-aaddsVnetName*                  | Name of the virtual network for the Azure AD DS instance.|
     | Address space                     | *-aaddsVnetCIDRAddressSpace*      | Virtual network's address range in CIDR notation (if creating the virtual network).|
@@ -114,12 +114,12 @@ To create an Azure AD DS resource forest, you use the `New-AaddsForest` cmdlet. 
     | Workload subnet name (optional)   | *-workloadSubnetName*             | Optional name of a subnet in the *aaddsVnetName* virtual network to create for your own application workloads. VMs and applications and also be connected to a peered Azure virtual network instead. |
     | Workload address range (optional) | *-workloadSubnetCIDRAddressRange* | Optional subnet address range in CIDR notation for application workload, such as *192.168.2.0/24*. Address range must be contained by the address range of the virtual network, and different from other subnets.|
 
-1. Create an Azure AD DS resource forest using the `New-AaaddsForest` cmdlet. The following example creates a forest named *rf.addscontoso.com* and creates a workload subnet. Provide your own parameter names and IP address ranges or existing virtual networks.
+1. Create an Azure AD DS resource forest using the `New-AzureAaaddsForest` script. The following example creates a forest named *rf.addscontoso.com* and creates a workload subnet. Provide your own parameter names and IP address ranges or existing virtual networks.
 
     Make sure you understand how to [choose an Azure AD DS forest name](plan-resource-forest.md#choose-an-azure-ad-ds-forest-name) as name resolution is a key component. You can't change the Azure AD DS forest name once it's deployed.
 
     ```azure-powershell
-    New-AaddsForest `
+    New-AzureAaddsForest `
         -azureSubscriptionId <subscriptionId> `
         -aaddsResourceGroupName "myResourceGroup" `
         -aaddsLocation "WestUS" `
@@ -133,7 +133,7 @@ To create an Azure AD DS resource forest, you use the `New-AaddsForest` cmdlet. 
         -workloadSubnetCIDRAddressRange "192.168.2.0/24"
     ```
 
-    It takes quite some time to create the Azure AD DS resource forest and supporting resources. Allow the cmdlet to complete. Continue on to the next section to configure your on-premises network connectivity while the Azure AD resource forest provisions in the background.
+    It takes quite some time to create the Azure AD DS resource forest and supporting resources. Allow the script to complete. Continue on to the next section to configure your on-premises network connectivity while the Azure AD resource forest provisions in the background.
 
 ## Configure and validate network settings
 
@@ -180,9 +180,9 @@ The forest trust has two parts - the one-way outbound forest trust in the Azure 
 
 ### Create the Azure AD DS side of the trust relationship
 
-Use the `Add-AaddsResourceForestTrust` cmdlet to create the Azure AD DS side of the trust relationship. Provide the cmdlet the following information:
+Use the `Add-AaddsResourceForestTrust` script to create the Azure AD DS side of the trust relationship. Provide the script the following information:
 
-| Name                               | Cmdlet parameter     | Description |
+| Name                               | Script parameter     | Description |
 |:-----------------------------------|:---------------------|:------------|
 | Azure AD DS domain name            | *-ManagedDomainFqdn* | FQDN of the managed domain, such as *rf.aaddscontoso.com* |
 | On-premises AD DS domain name      | *-TrustFqdn*         | The FQDN of the trusted forest, such as *corp.contoso.com* |
