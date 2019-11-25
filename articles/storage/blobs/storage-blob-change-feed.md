@@ -35,17 +35,17 @@ Change feed support is well-suited for scenarios that process data based on obje
 
 ## Enable and disable the change feed
 
-You have to enable the change feed on your storage account to begin capturing changes. Disable the change feed to stop capturing changes. You can enable and disable changes by using Azure Resource Manager templates on Portal or Powershell.
+You must enable the change feed on your storage account to begin capturing and recording changes. Disable the change feed to stop capturing changes. You can enable and disable changes by using Azure Resource Manager templates on Portal or Powershell.
 
 Here's a few things to keep in mind when you enable the change feed.
 
-- There's only one change feed for the blob service in each storage account stored in the **$blobchangefeed** container.
+- There's only one change feed for the blob service in each storage account and is stored in the **$blobchangefeed** container.
 
-- Changes are captured only at the blob service level.
+- Create, Update, and Delete changes are captured only at the blob service level.
 
 - The change feed captures *all* of the changes for all of the available events that occur on the account. Client applications can filter out event types as required. (See the [conditions](#conditions) of the current release).
 
-- Only GPv2 and Blob storage accounts can enable Change feed. GPv1 storage accounts, Premium BlockBlobStorage accounts, and hierarchical namespace enabled accounts are not currently supported.
+- Only GPv2 and Blob storage accounts can enable Change feed. Premium BlockBlobStorage accounts, and hierarchical namespace enabled accounts are not currently supported. GPv1 storage accounts are not supported but can be upgraded to GPv2 with no downtime, see [Upgrade to a GPv2 storage account](../common/storage-account-upgrade.md) for more information.
 
 > [!IMPORTANT]
 > The change feed is in public preview, and is available in the **westcentralus** and **westus2** regions. See the [conditions](#conditions) section of this article. To enroll in the preview, see the [Register your subscription](#register) section of this article. You must register your subscription before you can enable change feed on your storage accounts.
@@ -132,7 +132,7 @@ See [Process change feed logs in Azure Blob Storage](storage-blob-change-feed-ho
 
 ### Segments
 
-The change feed is a log of changes which are organized into **hourly** *segments* but appended to and updated every few minutes. These segments are created only when there are blob change events that occur in that hour. This enables your client application to consume changes that occur within specific ranges of time without having to search through the entire log. To learn more, see the [Specifications](#specifications).
+The change feed is a log of changes that are organized into **hourly** *segments* but appended to and updated every few minutes. These segments are created only when there are blob change events that occur in that hour. This enables your client application to consume changes that occur within specific ranges of time without having to search through the entire log. To learn more, see the [Specifications](#specifications).
 
 An available hourly segment of the change feed is described in a manifest file that specifies the paths to the change feed files for that segment. The listing of the `$blobchangefeed/idx/segments/` virtual directory shows these segments ordered by time. The path of the segment describes the start of the hourly time-range that the segment represents. You can use that list to filter out the segments of logs that are interest to you.
 
@@ -241,7 +241,7 @@ For a description of each property, see [Azure Event Grid event schema for Blob 
 
 - The time represented by the segment is **approximate** with bounds of 15 minutes. So to ensure consumption of all records within a specified time, consume the consecutive previous and next hour segment.
 
-- Each segment can have a different number of `chunkFilePaths`. This is due to internal partitioning of the log stream to manage publishing throughput. The log files in each `chunkFilePath` are guaranteed to contain mutually exclusive blobs, and can be consumed and processed in parallel without violating the ordering of modifications per blob during the iteration.
+- Each segment can have a different number of `chunkFilePaths` due to internal partitioning of the log stream to manage publishing throughput. The log files in each `chunkFilePath` are guaranteed to contain mutually exclusive blobs, and can be consumed and processed in parallel without violating the ordering of modifications per blob during the iteration.
 
 - The Segments start out in `Publishing` status. Once the appending of the records to the segment is complete, it will be `Finalized`. Log files in any segment that is dated after the date of the `LastConsumable` property in the `$blobchangefeed/meta/Segments.json` file, should not be consumed by your application. Here's an example of the `LastConsumable`property in a `$blobchangefeed/meta/Segments.json` file:
 
@@ -304,7 +304,7 @@ This section describes known issues and conditions in the current public preview
 ### What is the difference between Change feed and Storage Analytics logging?
 Analytics logs have records of all read, write, list, and delete operations with successful and failed requests across all operations. Analytics logs are best-effort and no ordering is guaranteed.
 
-Change feed is a solution which provides transactional log of successful mutations or changes to your account such as blob creation, modification, and deletions. All change feed events are guaranteed to be recorded and displayed in order of successful changes per blob, thus you do not have to filter out noise from a huge volume of read operations or failed requests. Change feed is fundamentally designed and optimized for application development which require certain guarantees.
+Change feed is a solution that provides transactional log of successful mutations or changes to your account such as blob creation, modification, and deletions. Change feed guarantees all events to be recorded and displayed in the order of successful changes per blob, thus you do not have to filter out noise from a huge volume of read operations or failed requests. Change feed is fundamentally designed and optimized for application development that require certain guarantees.
 
 ### Should I use Change feed or Storage events?
 You can leverage both features as Change feed and [Blob storage events](storage-blob-event-overview.md) provide the same information with the same delivery reliability guarantee, with the main difference being the latency, ordering, and storage of event records. Change feed publishes records to the log within few minutes of the change and also guarantees the order of change operations per blob. Storage events are pushed in real time and might not be ordered. Change feed events are durably stored inside your storage account as read-only stable logs with your own defined retention, while storage events are transient to be consumed by the event handler unless you explicitly store them. With Change feed, any number of your applications can consume the logs at their own convenience using blob APIs or SDKs. 
