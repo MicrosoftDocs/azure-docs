@@ -36,7 +36,7 @@ The following sections build on this article by describing the specific data gat
 
 ## Monitoring data from Azure Storage
 
-Azure Storage collects the same kinds of monitoring data as other Azure resources which are described in [Monitoring data from Azure resources](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data-from-Azure-resources). See [Azure Storage monitoring data reference](monitor-service-reference.md) for a detailed reference of the logs and metrics created by Azure Storage.
+Azure Storage collects the same kinds of monitoring data as other Azure resources which are described in [Monitoring data from Azure resources](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). See [Azure Storage monitoring data reference](monitor-storage-reference.md) for a detailed reference of the logs and metrics created by Azure Storage.
 
 ## Configuration
 
@@ -54,7 +54,7 @@ You'll also have to specify which categories of operations to collect logs for. 
 
 ## Analyzing metric data
 
-You can analyze metrics for Azure storage with metrics from other Azure services by using Metrics explorer. Open Metrics explorer by choosing **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../platform/metrics-getting-started.md) for details on using this tool. 
+You can analyze metrics for Azure storage with metrics from other Azure services by using Metrics explorer. Open Metrics explorer by choosing **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../../platform/metrics-getting-started.md) for details on using this tool. 
 
 The following example shows how to view **Transactions** at account level.
 
@@ -64,18 +64,7 @@ For metrics supporting dimensions, you can filter metric with the desired dimens
 
 ![screenshot of accessing metrics with dimension in the Azure portal](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal-with-dimension.png)
 
-Azure Storage supports following dimensions for metrics in Azure Monitor.
-
-| Dimension Name | Description |
-| ------------------- | ----------------- |
-| **BlobType** | The type of blob for Blob metrics only. The supported values are **BlockBlob**, **PageBlob**, and **Azure Data Lake Storage**. Append Blob is included in BlockBlob. |
-| **BlobTier** | Azure storage offers different access tiers, which allow you to store blob object data in the most cost-effective manner. See more in [Azure Storage blob tier](../blobs/storage-blob-storage-tiers.md). The supported values include: <br/> <li>**Hot**: Hot tier</li> <li>**Cool**: Cool tier</li> <li>**Archive**: Archive tier</li> <li>**Premium**: Premium tier for block blob</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: Tier types for premium page blob</li> <li>**Standard**: Tier type for standard page Blob</li> <li>**Untiered**: Tier type for general purpose v1 storage account</li> |
-| **GeoType** | Transaction from Primary or Secondary cluster. The available values include **Primary** and **Secondary**. It applies to Read Access Geo Redundant Storage(RA-GRS) when reading objects from secondary tenant. |
-| **ResponseType** | Transaction response type. The available values include: <br/><br/> <li>**ServerOtherError**: All other server-side errors except described ones </li> <li>**ServerBusyError**: Authenticated request that returned an HTTP 503 status code. </li> <li>**ServerTimeoutError**: Timed-out authenticated request that returned an HTTP 500 status code. The timeout occurred due to a server error. </li> <li>**AuthorizationError**: Authenticated request that failed due to unauthorized access of data or an authorization failure. </li> <li>**NetworkError**: Authenticated request that failed due to network errors. Most commonly occurs when a client prematurely closes a connection before timeout expiration. </li> <li>**ClientThrottlingError**: Client-side throttling error. </li> <li>**ClientTimeoutError**: Timed-out authenticated request that returned an HTTP 500 status code. If the client's network timeout or the request timeout is set to a lower value than expected by the storage service, it is an expected timeout. Otherwise, it is reported as a ServerTimeoutError. </li> <li>**ClientOtherError**: All other client-side errors except described ones. </li> <li>**Success**: Successful request</li> <li> **SuccessWithThrottling**: Successful request when a SMB client gets throttled in the first attempt(s) but succeeds after retries.</li> |
-| **ApiName** | The name of operation. For example: <br/> <li>**CreateContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> For all operation names, see [document](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
-| **Authentication** | Authentication type used in transactions. The available values include: <br/> <li>**AccountKey**: The transaction is authenticated with storage account key.</li> <li>**SAS**: The transaction is authenticated with shared access signatures.</li> <li>**OAuth**: The transaction is authenticated with OAuth access tokens.</li> <li>**Anonymous**: The transaction is requested anonymously. It doesn’t include preflight requests.</li> <li>**AnonymousPreflight**: The transaction is preflight request.</li> |
-
-For the metrics supporting dimensions, you need to specify the dimension value to see the corresponding metrics values. For example, if you look at  **Transactions** value for successful responses, you need to filter the **ResponseType** dimension with **Success**. Or if you look at **BlobCount** value for Block Blob, you need to filter the **BlobType** dimension with **BlockBlob**.
+For a complete list of the dimensions that Azure Storage supports, see [Metrics Dimensions](monitor-storage-reference.md#metrics-dimensions).
 
 ### Access metrics with the REST API
 
@@ -327,7 +316,9 @@ Data in Azure Monitor Logs is stored in tables with each table having its own se
 | Table | Description |
 |:---|:---|
 | AzureDiagnostics | Common table used by multiple services to store Resource logs. Resource logs from Azure Storage can be identified with `PutSomethingHere`.   |
-| AzureActivity    | Common table that stores all records from the Activity log. 
+| AzureActivity    | Common table that stores all records from the Activity log.
+
+See [Azure Storage monitoring data reference](monitor-storage-reference.md) for a detailed reference of the fields that appear in these logs.
 
 > [!IMPORTANT]
 > When you select **Logs** from the Azure Storage menu, Log Analytics opens with the query scope set to the current storage resource. This means that log queries will only include data from that resource. If you want to run a query that includes data from other databases or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope/) for details.
@@ -378,6 +369,6 @@ You can find detailed mapping between classic metrics and new metrics in [Azure 
 
 ## Next steps
 
-- See [Azure Storage monitoring data reference](monitor-service-reference.md) for a reference of the logs and metrics created by Azure Cosmos DB.
+- See [Azure Storage monitoring data reference](monitor-storage-reference.md) for a reference of the logs and metrics created by Azure Cosmos DB.
 - See [Monitoring Azure resources with Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) for details on monitoring Azure resources.
 
