@@ -281,7 +281,7 @@ Preliminary testing using a four-core VM showed best efficiency when using 64 pr
 
 You also can use the ``--inplace`` argument with ``msrsync`` commands. If you use this option, consider running a second command (as with [rsync](#use-a-two-phase-rsync-process), described above) to ensure data integrity.
 
-Note that ``msrsync`` can only write to and from local volumes. The source and destination must be accessible as local mounts in the cluster’s virtual network.
+``msrsync`` can only write to and from local volumes. The source and destination must be accessible as local mounts in the cluster’s virtual network.
 
 To use ``msrsync`` to populate an Azure cloud volume with an Avere cluster, follow these instructions:
 
@@ -290,7 +290,7 @@ To use ``msrsync`` to populate an Azure cloud volume with an Avere cluster, foll
 
    For example, use the Avere utility ``prime.py`` with arguments ```prime.py --directory /path/to/some/directory``` (available by downloading url <https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py>).
 
-   If not using ``prime.py``, you can calculate the number of items with the Gnu ``find`` tool as follows:
+   If not using ``prime.py``, you can calculate the number of items with the GNU ``find`` tool as follows:
 
    ```bash
    find <path> -type f |wc -l         # (counts files)
