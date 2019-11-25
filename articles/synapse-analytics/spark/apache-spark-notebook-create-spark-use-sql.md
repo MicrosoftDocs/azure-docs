@@ -18,7 +18,7 @@ Learn how to create Apache Spark pool in Azure Synapse Analytics, and how to run
 
 In this quickstart, you use the Synapse Analytics tools to create a Spark pool and then connect to a Spark pool created from that template. <!---For more information on using Data Lake Storage Gen2, see the following article:--->
 
-<!--- TODO: >> [!IMPORTANT]
+<!---
 > TODO Need a link to a Gen 2 Storage in Synapse Analytics article
 --->
 > [!IMPORTANT]  
@@ -26,96 +26,106 @@ In this quickstart, you use the Synapse Analytics tools to create a Spark pool a
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-## Create a Synapse Analytics Spark pool
+## Create a Synapse Analytics Apache Spark pool
 
 <!---If you do not already have a Synapse Analytics workspace created, go to
 
-> [!IMPORTANT]
 > TODO Need a link to a create a workspace article
 --->
 
-1. In the Azure portal, select the correct Synapse Analytics workspace. 
+1. In the Azure portal, select the correct Azure Synapse Analytics workspace.
 
-    ![Synapse Analytics on Azure portal](./media/apache-spark-notebook-create-spark-use-sql/create-spark-pool-template.png "Synapse Analytics on Azure portal")
-2. From the toolbar, select **New Spark pool**
+    ![Synapse Analytics on Azure portal](./media/apache-spark-notebook-create-spark-use-sql/create-spark-pool-portal.png "Synapse Analytics on Azure portal")
+2. From the toolbar, select **New Apache Spark pool**
 3. Under **Basics**, provide the following values:
+
+    ![Create Synapse Analytics Apache Spark pool basic configurations](./media/apache-spark-notebook-create-spark-use-sql/azure-portal-create-spark-pool-basics.png "Create Apache Spark pool in Synapse Analytics the Basic configurations")
+
     |Property  |Description  |
     |---------|---------|
-    |**Spark pool name**     | Give a name to your Synapse Analytics Spark pool. The pool name used for this quickstart is **myspark201911**.|
-    |**Node size**     | From the drop-down, select a node size to be used for all the nodes in the pool. 
+    |**Apache Spark pool name**     | Give a name to your Synapse Analytics Spark pool. The pool name used for this quickstart is **mysynapasespark**.|
+    |**Node size**     | From the drop-down, select a node size to be used for all the nodes in the pool.
     |**Autoscale**| If enabled, your Spark pool will automatically scale up and down based on the amount of activity|
     |**Number of nodes**| This sets the minimum and maximum node count for pool. If auto scale is enabled, the pool node count will not grow to be greater than the maximum|
-    ![Create Synapse Analytics Spark pool template basic configurations](./media/apache-spark-notebook-create-spark-use-sql/azure-portal-create-spark-pool-template-basics.png "Create Spark pool in Synapse Analytics the Basic configurations")
 
     Select **Next** to continue to the **Additional settings** page.
 4. Under **Additional Settings**, provide the following values:
+
+    ![Create Synapse Analytics Spark pool configurations](./media/apache-spark-notebook-create-spark-use-sql/create-spark-pool-additional.png "Create Spark pool in Synapse Analytics the additional settings")
+
     |Property  |Description  |
     |---------|---------|
-    **Autopause**| If enabled, the Spark pools created from this template will automatically pause after a specified amount of idle time.
-    **Number of minutes idle**| The amount of time before a pool will autopause
+    |**Autopause**| If enabled, the Spark pools created from this template will automatically pause after a specified amount of idle time|
+    |**Number of minutes idle**| The amount of time before a pool will autopause|
+    |**Packages**| Add additional Python libraries. For more information see [Adding additional Python libraries](apache-spark-azure-portal-add-libraries.md)|
 
-     ![Create Synapse Analytics Spark pool configurations](./media/apache-spark-notebook-create-spark-use-sql/create-spark-pool-template-additional.png "Create Spark pool in Synapse Analytics the additional settings")
+     Select **Next** to continue to the **Tags** page.
 
-     Select **Next** to continue to the **Tags** page. 
 5. Select **Next** to continue to the **Summary** page.
 
-6. On **Summary**, select **Create**. Creation of Spark pool template should be fast, in the order of seconds.
+6. On **Summary**, select **Create**. Creation of a Spark pool should be fast, in the order of seconds.
 
-If you have problems creating Synapse Analytics Spark pools, it could be permissions-related. For more information, see...?
-> [!IMPORTANT]
-> TODO: Need an article here about permissions to create, edit, delete Spark pools
+At this point there are no resources running, you have simply created metadata about the Spark instances you want to create.
+
+![Apache Spark pool on Azure Synapse Analytics](./media/apache-spark-notebook-create-spark-use-sql/create-spark-pool-portal2.png "Apache Spark pool on Azure Synapse Analytics with new pool after creation")
+
+Once an Apache Spark pool has been created it can not be edited, it must be deleted and recreated
 
 ## Create a notebook
 
 A Notebook is an interactive environment that supports various programming languages. The notebook allows you to interact with your data, combine code with markdown text and perform simple visualizations,
 
 1. From the Azure portal view for the Synapse Analytics workspace you want to use, select launch workspace.
-2. Once Synapse Analytics Studio has launched select **Analyze** then hover over the **Notebooks** entry. Select the ellipsis **...**
+2. Once Synapse Analytics Studio has launched select **Develop** then hover over the **Notebooks** entry. Select the ellipsis **...**
 3. From there select **Create Notebook**
 
    A new notebook is created and opened with an automatically generated name.
 
 4. Rename the notebook, selecting it in the navigation view, selecting the ellipsis and then selecting **Rename**.
 
-   The notebook can be named anything you want, ours is named "Seattle Safety".
+   The notebook can be named anything you want, ours is named "Getting Start with Spark".
 
 5. Press **Publish All** on the toolbar.
 
 6. If there is only one Spark pool in your workspace, then it will be selected by default. Use the drop-down to select the correct Spark pool if none is selected.
 
-7. The default language will be "Pyspark", we are going to use a mix of Pyspark and Spark SQL so the default choice is fine.
+7. The default language will be "Pyspark", you are going to use a mix of Pyspark and Spark SQL so the default choice is fine.
 
-8. We are going to use the [Seattle Safety Data](https://azure.microsoft.com/en-us/services/open-datasets/catalog/seattle-safety-data/) from the Azure Open Datasets portfolio.
-
-> [!IMPORTANT]
-> There may be additional charges associated with using one of these datasets.
-
-9. Retrieve the data from Azure Open Datasets and save it to a temporary table in Spark. Enter the following code in the first cell of the "Seattle Safety" notebook to ingest the data:
+8. You are going to create a very simple Spark DataFrame object that you are then going to manipulate. In this case you will create it from code, there will be 3 rows and 3 columns:
 
 ```Python
-from azureml.opendatasets import SeattleSafety
-
-from datetime import datetime
-from dateutil import parser
-
-
-end_date = parser.parse('2016-01-01')
-start_date = parser.parse('2015-05-01')
-safety_df = SeattleSafety(start_date=start_date, end_date=end_date)
-safety_df = safety.to_spark_dataframe()
-safety_df.registerTempTable("seattlesafety")
+new_rows = [('CA',22, 45000),("WA",35,65000) ,("WA",50,85000)]
+demo_df = spark.createDataFrame(new_rows, ['state', 'age', 'salary'])
+demo_df.show()
 ```
 
-10. Now run the cell, running the cell can be accomplished by,
+9. Now run the cell, running the cell can be accomplished by,
     a. Pressing **SHIFT + ENTER**
     b. Pressing the blue play icon to the left of the cell
     c. Selecting the **Run all** button on the toolbar
 
-11. If the pool instance is not already running, it will be automatically started. You can see the status of the pool instance below the cell you are running and also on the status panel at the bottom of the notebook. Depending on the size of pool, starting should take 2-5 minutes.
+10. If the Spark pool instance is not already running, it will be automatically started. You can see the status of the Spark pool instance below the cell you are running and also on the status panel at the bottom of the notebook. Depending on the size of pool, starting should take 2-5 minutes.
 
-Once the code has finished running, there will be information below the cell on how long it took to run. In the output cell, you should see the activity steps of the code and a job status view.
+Once the code has finished running, there will be information below the cell on how long it took to run and its execution. In the output cell, you should see the output.
 
- ![Output from executing a cell](./media/apache-spark-notebook-create-spark-use-sql/load-datasets-output-cell.png "Output from the Spark job to load the Open datasets data ")
+ ![Output from executing a cell](./media/apache-spark-notebook-create-spark-use-sql/run-cell-with-output.png "Output from the Spark job ")
+
+ 11. The data now exists in a DataFrame from there you can use the data in many different ways. You are going to need it in different formats for the rest of this quickstart.
+
+ Enter the code below in another cell and run it, this will create a Spark table, a CSV and a Parquet file all with copies of the data:
+
+ ```Python
+demo_df.createOrReplaceTempView('demo_df')
+demo_df.write.csv('demo_df', mode='overwrite')
+demo_df.write.parquet('abfss://<<TheNameOfAStorageAccountFileSystem>>@<<TheNameOfAStorageAccount>>.dfs.core.windows.net/demodata/demo_df', mode='overwrite')
+ ```
+
+If you use the storage explorer it is possible to see the impact of the 2 different ways of writing a file used above. When no file system is specified then the default is used, in this case "default>user>trusted-service-user>demo_df". When the file system is specified then the data is saved there.
+
+Notice in both the "csv" and "parquet" format write operations a directory is created with many partitioned files.
+
+![Storage explorer view of the output](./media/apache-spark-notebook-create-spark-use-sql/spark-get-started-default-storage.png "Storage explorer view of the output ")
+![Storage explorer view of the output](./media/apache-spark-notebook-create-spark-use-sql/spark-get-started-default-storage2.png "Storage explorer view of the output ")
 
 ## Run Spark SQL statements
 
@@ -128,37 +138,48 @@ SQL (Structured Query Language) is the most common and widely used language for 
     SHOW TABLES
     ```
 
-    When you use a Notebook with your Synapse Analytics Spark pool, you get a preset `sqlContext` that you can use to run queries using Spark SQL. `%%sql` tells the Notebook to use the preset `sqlContext` to run the query. The query retrieves the top 10 rows from a system table that comes with all Synapse Analytics Spark pools by default. It takes about 30 seconds to get the results. The output looks like: 
+    When you use a Notebook with your Synapse Analytics Spark pool, you get a preset `sqlContext` that you can use to run queries using Spark SQL. `%%sql` tells the Notebook to use the preset `sqlContext` to run the query. The query retrieves the top 10 rows from a system table that comes with all Synapse Analytics Spark pools by default. 
 
-    ![Query in Synapse Analytics Spark](./media/apache-spark-notebook-create-spark-use-sql/spark-get-started-query.png "Query in Synapse Analytics Spark")
-
-    Every time you run a query in a notebook, the status directly under the cell shows that the query is running. The play icon to the left of the cell will also change to a stop icon.
-
-2. Run another query to see the data in `seattlesafety`.
+2. Run another query to see the data in `demo_df`.
 
     ```sql
     %%sql
-    SELECT * FROM seattlesafety LIMIT 10
+    SELECT * FROM demo_df
     ```
 
     The code will produce two output cells, one that contains data results the other, which shows the job view.
 
     By default the results view shows a grid, but there is a view switcher underneath the grid that allows the view to switch between grid and graph views.
 
-    ![Query output in Synapse Analytics Spark](./media/apache-spark-notebook-create-spark-use-sql/spark-get-started-query-chart-output.png "Query output in Synapse Analytics Spark")
+    ![Query output in Synapse Analytics Spark](./media/apache-spark-notebook-create-spark-use-sql/spark-get-started-query.png "Query output in Synapse Analytics Spark")
 
-3. Select **chart option** from the view switcher.
-4. In the **keys** list drag "category" in and remove any other fields.
-5. In the values list, make sure "status" is the only field there.
-6. Change the **Aggregation** to "COUNT".
-7. For **Display Type** select "Bar chart".
-8. Select **Apply**.
+3. In the **View** switcher, select **Chart**
+4. Select the **View options** icon from the far right hand side.
+5. In the **Chart type** field, select "bar chart".
+6. In the **X axis column** field select "state".
+7. In the **Y axis column** field select "salary".
+8. In the **Aggregation** field, select to "AVG".
+9. Select **Apply**.
+
+![Chart output in Synapse Analytics Spark](./media/apache-spark-notebook-create-spark-use-sql/spark-get-started-query-chart-output.png "Chart output in Synapse Analytics Spark")
+
+10. It is possible to get the same experience of running SQL but without having to switch languages, you can do this by replacing the SQL cell above with this PySpark cell, the output experience is the same because the **display** command is used:
+
+    ```python
+    display(spark.sql('SELECT * FROM demo_df'))
+    ```
+
+11. Each of the cells that executed above had the option to go to **History Server** and **Monitoring**, clicking the links will take to different parts of the USer Experience.
+<!---If you want more information then go here and here
+
+> TODO Need a link to Spark Monitoring and Spark History Server
+--->
 
 ## Clean up resources
 
-Synapse Analytics saves your data in Azure Storage or Azure Data Lake Storage. You can safely let a Spark instance shut down when it is not in use. You are charged for an Synapse Analytics Spark pool as long as it is running, even when it is not in use. Since the charges for the pool are many times more than the charges for storage, it makes economic sense to let Spark instances shut down when they are not in use. If you plan to work on the tutorial listed in [Next steps](#next-steps) immediately, you might want to keep the Spark instance.
+Synapse Analytics saves your data in Azure Data Lake Storage. You can safely let a Spark instance shut down when it is not in use. You are charged for a Synapse Analytics Spark pool as long as it is running, even when it is not in use. Since the charges for the pool are many times more than the charges for storage, it makes economic sense to let Spark instances shut down when they are not in use. 
 
-To ensure the Spark instance is shut down, end any connected sessions(notebooks), the pool will then shut down then the **idle time** specified in the Spark pool is reached.
+To ensure the Spark instance is shut down, end any connected sessions(notebooks), the pool will then shut down then the **idle time** specified in the Spark pool is reached. You can also select **end session** from the status bar at the bottom of the notebook.
 
 ## Next steps
 
