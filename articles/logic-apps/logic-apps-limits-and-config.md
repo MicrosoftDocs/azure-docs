@@ -48,8 +48,8 @@ Here are the limits for a single logic app run:
 
 | Name | Multi-tenant limit | Integration service environment limit | Notes |
 |------|--------------------|---------------------------------------|-------|
-| Run duration | 90 days | 365 days | To change the default limit, see [change run duration](#change-duration). |
-| Storage retention | 90 days from the run's start time | 365 days | To change the default limit, see [change storage retention](#change-retention). |
+| Run duration | 90 days | 366 days | To change the default limit, see [change run duration](#change-duration). |
+| Storage retention | 90 days from the run's start time | 366 days | To change the default limit, see [change storage retention](#change-retention). |
 | Minimum recurrence interval | 1 second | 1 second ||
 | Maximum recurrence interval | 500 days | 500 days ||
 |||||
@@ -68,8 +68,8 @@ To change the default limit for run duration and storage retention, follow these
 1. Enter or drag the slider for the number of days that you want. 
 
    > [!NOTE]
-   > For logic apps in multi-tenant Azure, the default limit already is set to the maximum limit. You can only reduce this value.
-   > For logic apps in an integration service environment, you can decrease or increase the default limit.
+   > For logic apps in multi-tenant Azure, the 90-day default limit is the same as the maximum limit. You can only decrease this value.
+   > For logic apps in an integration service environment, you can decreause or increase the 90-day default limit.
 
 <a name="looping-debatching-limits"></a>
 
