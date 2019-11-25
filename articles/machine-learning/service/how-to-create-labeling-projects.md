@@ -14,20 +14,20 @@ ms.date: 11/04/2019
 
 Labeling voluminous data in machine learning projects is often a headache. Projects that have a computer-vision component, such as image classification or object detection, generally require labels for thousands of images.
  
-Azure Machine Learning Studio gives you a central place to create, manage, and monitor labeling projects. Use it to coordinate data, labels, and team members to efficiently manage labeling tasks. Machine Learning Studio supports image classification, either multi-label or multi-class, and object identification by using bounded boxes.
+Azure Machine Learning gives you a central place to create, manage, and monitor labeling projects. Use it to coordinate data, labels, and team members to efficiently manage labeling tasks. Machine Learning supports image classification, either multi-label or multi-class, and object identification together with bounded boxes.
 
-Machine Learning Studio tracks progress and maintains the queue of incomplete labeling tasks. Labelers don't need an Azure account to participate. After they are authenticated with their Microsoft account or [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis), they can do as much labeling as their time allows.
+Machine Learning tracks progress and maintains the queue of incomplete labeling tasks. Labelers don't need an Azure account to participate. After they are authenticated with your Microsoft account or [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis), they can do as much labeling as their time allows.
 
-In [Machine Learning Studio](https://ml.azure.com/), you start and stop the project, add and remove people and teams, and monitor progress. You can export labeled data in COCO format or as an Azure ML dataset.
+In [Machine Learning](https://ml.azure.com/), you start and stop the project, add and remove people and teams, and monitor progress. You can export labeled data in COCO format or as an Azure ML dataset.
 
 In this article, you'll learn how to:
 
 > [!div class="checklist"]
-> * Create a project.
-> * Specify the project's data and structure.
-> * Manage the teams and people who work on the project.
-> * Run and monitor the project.
-> * Export the labels.
+> * Create a project
+> * Specify the project's data and structure
+> * Manage the teams and people who work on the project
+> * Run and monitor the project
+> * Export the labels
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ In this article, you'll learn how to:
 * The set of labels that you want to apply.
 * The instructions for labeling.
 * An [Azure subscription](https://aka.ms/AMLFree). If you don’t have an Azure subscription, create a free account before you begin.
-* An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* A Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
 ## Create a labeling project
 
@@ -47,9 +47,9 @@ To create a project, select **Add project**. Give the project an appropriate nam
 
 ![Labeling project creation wizard](media/how-to-create-labeling-projects/labeling-creation-wizard.png)
 
-* Choose **Image Classification Multi-label** for projects when you want to apply *one or more* labels from a set of classes to images. For instance, a photo of a dog might be labeled with both *dog* and *daytime*.
-* Choose **Image Classification Multi-class** for projects when you want to apply only a *single class* from a set of classes to images.
-* Choose **Object Identification (Bounding Box)** for projects when you want to assign a class to objects within images *and* specify a bounding box around the object.
+* Choose **Image Classification Multi-label** for projects when you want to apply *one or more* labels from a set of classes to an image. For instance, a photo of a dog might be labeled with both *dog* and *daytime*.
+* Choose **Image Classification Multi-class** for projects when you want to apply only a *single class* from a set of classes to an image.
+* Choose **Object Identification (Bounding Box)** for projects when you want to assign a class and a bounding box to each object within an image.
 
 Select **Next** when you're ready to continue.
 
@@ -87,11 +87,11 @@ To directly upload your data:
 1. Select **Next**.
 1. Confirm the details. Select **Back** to modify the settings or **Create** to create the dataset.
 
-The data gets uploaded to the default blob store ("workspaceblobstore") of your Azure Machine Learning workspace.
+The data gets uploaded to the default blob store ("workspaceblobstore") of your Machine Learning workspace.
 
 ## Specify label classes
 
-On the **Label classes** page, specify the set of classes to categorize your data. Do this carefully, because your labelers' accuracy and speed will be affected by their ability to choose among the classes. For instance, instead of spelling out the full genus and species for plants or animals, use field codes or abbreviate the genera.
+On the **Label classes** page, specify the set of classes to categorize your data. Do this carefully, because your labelers' accuracy and speed will be affected by their ability to choose among the classes. For instance, instead of spelling out the full genus and species for plants or animals, use a field code or abbreviate the genus.
 
 Enter one label per row. Use the **+** button to add a new row. If you have more than 3 or 4 labels but fewer than 10, you may want to prefix the names with numbers ("1: ", "2: ") to help labelers who use the number keys to speed their work.
 
@@ -105,7 +105,7 @@ It's important to clearly explain the labeling task. On the **Labeling instructi
 * What confidence threshold should they apply to a label? Do you want their "best guess" if they aren't certain?
 * What should they do with partially occluded or overlapping objects of interest?
 * What should they do if an object of interest is clipped by the edge of the image?
-* What should they do if they think they made a mistake?
+* What should they do after they submit a label if they think they made a mistake?
 
 For bounding boxes, important questions include:
 
@@ -131,7 +131,7 @@ To send an email to the team, select the team to bring up the **Team details** p
 
 ## Run and monitor the project
 
-After you initial the project, Azure will begin running it. Select the project on the main **Labeling** page to go to **Project details**. The **Dashboard** tab shows the progress of the labeling task.
+After you initialize the project, Azure will begin running it. Select the project on the main **Labeling** page to go to **Project details**. The **Dashboard** tab shows the progress of the labeling task.
 
 On the **Data** tab, you can see your dataset and review labeled data. If you see incorrectly labeled data, **Select** it and choose **Reject**, which will remove the labels and put the data back into the unlabeled queue.
 
@@ -143,7 +143,7 @@ You can label data directly from the **Project details** page by selecting **Lab
 
 ## Export the labels
 
-You can export the label data for machine learning experimentation at any time. Image labels can be exported in [COCO format](http://cocodataset.org/#format-data) or as an Azure ML dataset. Use the **Export** button on the **Project details** page of your labeling project.
+You can export the label data for Machine Learning experimentation at any time. Image labels can be exported in [COCO format](http://cocodataset.org/#format-data) or as an Azure ML dataset. Use the **Export** button on the **Project details** page of your labeling project.
 
 The COCO file is created in the default blob store of the Azure ML workspace in a folder within *export/coco*. You can access the exported Azure ML dataset in the **Datasets** section of Machine Learning. The dataset details page also provides sample code to access your labels from Python.
 

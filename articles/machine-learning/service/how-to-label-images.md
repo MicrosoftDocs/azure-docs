@@ -1,5 +1,5 @@
 ---
-title: How to use the Azure Machine Learning Studio data labeling tool
+title: How to use the Azure Machine Learning data labeling tool
 title.suffix: Azure Machine Learning
 description: This article teaches you how to use the data tagging tools in an Azure Machine Learning labeling project.
 author: lobrien
@@ -12,7 +12,7 @@ ms.date: 11/04/2019
 
 # How to tag images in a labeling project
 
-After your project administrator creates a labeling project in Azure Machine Learning Studio, you can use the labeling tool to rapidly prepare data for a machine learning project. This article describes:
+After your project administrator creates a labeling project in Azure Machine Learning, you can use the labeling tool to rapidly prepare data for a Machine Learning project. This article describes:
 
 > [!div class="checklist"]
 > * How to access your labeling projects.
@@ -41,7 +41,7 @@ Go to **View detailed instructions**. These instructions are specific to your pr
 
 In all image-labeling tasks, you choose an appropriate tag or tags from a set that's specified by the project administrator. You can select the first nine tags by using the number keys on your keyboard.  
 
-You can use image-classification tasks to present multiple images simultaneously. Use the icons above the image area to select the layouts. To select all the displayed images simultaneously, use the **Select all** button. To select individual images, use the circular selection button in the upper-right corner of the image. You must select at least one image to apply a tag. If you select multiple images, any tag that you select will be applied to all the selected images.
+In image-classification tasks, you can choose to see multiple images simultaneously. Use the icons above the image area to select the layouts. To select all the displayed images simultaneously, use the **Select all** button. To select individual images, use the circular selection button in the upper-right corner of the image. You must select at least one image to apply a tag. If you select multiple images, any tag that you select will be applied to all the selected images.
 
 Here, we've chosen a two-by-two layout and are about to apply the tag "Mammal" to the images of the bear and orca. The image of the shark was already tagged as "Cartilaginous fish", and the iguana hasn't been tagged yet.
 
@@ -64,7 +64,7 @@ If you realize that you made a mistake after you assign a tag to an image, you c
 
 If you're working on a project of type "Image Classification Multi-Label," you'll apply one *or more* tags to an image. To see the project-specific directions, select **Instructions** and go to **View detailed instructions**.
 
-Select the image that you want to label and then select the tag. The tag is applied it to all the selected images, and then the images are deselected. To apply more tags, you must reselect the images. The following animation shows multi-label tagging:
+Select the image that you want to label and then select the tag. The tag is applied to all the selected images, and then the images are deselected. To apply more tags, you must reselect the images. The following animation shows multi-label tagging:
 
 1. **Select all** is used to apply the "Ocean" tag.
 1. A single image is selected and tagged "Closeup."
@@ -72,15 +72,15 @@ Select the image that you want to label and then select the tag. The tag is appl
 
 ![Animation shows multilabel flow](media/how-to-label-images/multilabel.gif)
 
-To correct a mistake, click the "**X**" to clear an individual tag or select the images and then choose the tag, which clears the tag from all the selected images. In this scenario, clicking  "Land" will clear that tag from the two selected images.
+To correct a mistake, click the "**X**" to clear an individual tag or select the images and then choose the tag, which clears the tag from all the selected images. This scenario is shown here, where clicking on "Land" will clear that tag from the two selected images.
 
 ![A screenshot shows multiple deselections](media/how-to-label-images/multiple-deselection.png)
 
 Azure will only enable the **Submit** button after you've applied at least one tag to each image. Press **Submit** to save your work.
 
-## Use bounding boxes for object detection
+## Tag images and specify bounding boxes for object detection
 
-If your project is of type "Object Identification (Bounding Boxes)," you'll specify one or more bounding boxes in the image and apply a tag to each box. Images can have multiple bounding boxes, each with a single tag. Use **View detailed instructions** to determine if you should add multiple bounding boxes in your project.
+If your project is of type "Object Identification (Bounding Boxes)," you'll specify one or more bounding boxes in the image and apply a tag to each box. Images can have multiple bounding boxes, each with a single tag. Use **View detailed instructions** to determine if multiple bounding boxes are used in your project.
 
 1. Select a tag for the bounding box that you plan to create.
 1. Select the **Rectangular box** tool ![Rectangular box tool](media/how-to-label-images/rectangular-box-tool.png) or select "R."
