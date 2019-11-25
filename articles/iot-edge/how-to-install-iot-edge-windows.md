@@ -10,7 +10,6 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: kgremban
-ms.custom: seodec18
 ---
 # Install the Azure IoT Edge runtime on Windows
 
