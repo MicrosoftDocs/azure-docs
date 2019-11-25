@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 20/11/2019
+ms.date: 11/24/2019
 ms.author: vilibert
 ---
 
@@ -26,7 +26,7 @@ This troubleshooting guide is of benefit for scenarios where a Linux VM is not b
 Take a snapshot of the affected VM. 
 
 The snapshot will then be attached to a **rescue** VM. 
-Follow instructions [here](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/snapshot-copy-managed-disk#use-azure-portal) on how to take a **snapshot**.
+Follow instructions [here](https://docs.microsoft.com/azure/virtual-machines/linux/snapshot-copy-managed-disk#use-azure-portal) on how to take a **snapshot**.
 
 ## Create a rescue VM
 Usually a rescue VM of the same or similar Operating system version is recommended. Use the same **region** and **resource group** of the affected VM
@@ -145,9 +145,9 @@ Commands can be used to install, remove and update software. Troubleshoot VMs in
 Execute the lsblk command and the /rescue is now / and /rescue/boot is /boot
 ![chrooted](./media/chroot-lvm/chrooted.png)
 
-# Perform Fixes
+## Perform Fixes
 
-## Example 1 - Configure the VM to boot from a different kernel
+### Example 1 - Configure the VM to boot from a different kernel
 
 A common scenario is to force a VM to boot from a previous kernel as the current installed kernel may have become corrupt or an upgrade did not complete correctly.
 
@@ -185,7 +185,7 @@ The **grep** command lists the kernels that **grub.cfg** is aware of.
 
 
 
-## Example 2 - Upgrade packages
+### Example 2 - Upgrade packages
 
 A failed kernel upgrade can render the VM non-bootable.
 Mount all the Logical Volumes to allow packages to be removed or reinstalled
@@ -212,11 +212,11 @@ If needed upgrade the **kernel**
 ![advanced](./media/chroot-lvm/rpm_remove_kernel.png)
 
 
-## Example 3 - Enable Serial Console
-If access has not been possible to the Azure serial console, verify GRUB configuration parameters for your Linux VM and correct them. DEtailed information can be found [in this doc](https://docs.microsoft.com/en-gb/azure/virtual-machines/troubleshooting/serial-console-grub-proactive-configuration)
+### Example 3 - Enable Serial Console
+If access has not been possible to the Azure serial console, verify GRUB configuration parameters for your Linux VM and correct them. DEtailed information can be found [in this doc](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-proactive-configuration)
 
 
-# Exit chroot and swap the OS disk
+## Exit chroot and swap the OS disk
 
 After repairing the issue, proceed to unmount and detach the disk from the rescue VM allowing it to be swapped with the affected VM OS disk.
 
