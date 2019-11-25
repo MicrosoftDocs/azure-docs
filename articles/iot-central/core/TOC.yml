@@ -4,6 +4,12 @@
   items:
   - name: What is Azure IoT Central
     href: overview-iot-central.md
+  - name: Get connected
+    href: overview-iot-central-get-connected.md
+  - name: Stay connected
+    href: overview-iot-central-stay-connected.md
+  - name: Transform
+    href: overview-iot-central-transform.md
   - name: IoT Solution options
     href: overview-iot-options.md
   - name: Tour of the UI
@@ -13,6 +19,20 @@
   items:
   - name: Create a new application
     href: quick-deploy-iot-central.md
+  - name: Create a device
+    href: quick-create-pnp-device.md
+  - name: Configure rules
+    href: quick-configure-rules.md
+  - name: Monitor a device
+    href: quick-monitor-devices.md
+- name: Tutorials
+  items:
+  - name: Connect a device
+    href: tutorial-connect-pnp-device.md
+  - name: Create rules
+    href: tutorial-create-telemetry-rules.md
+  - name: Use device groups
+    href: tutorial-use-device-groups.md
 - name: Concepts
   items:
   - name: Architecture
