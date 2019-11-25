@@ -1,6 +1,6 @@
 ---
-title: Manage access to Azure resources using RBAC and the Azure portal | Microsoft Docs
-description: Learn how to manage access to Azure resources for users, groups, service principals, and managed identities using role-based access control (RBAC) and the Azure portal. This includes how to list access, grant access, and remove access.
+title: Add or remove role assignments using Azure RBAC and the Azure portal
+description: Learn how to grant access to Azure resources for users, groups, service principals, or managed identities using Azure role-based access control (RBAC) and the Azure portal.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/24/2019
+ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
 
-# Add or remove role assignments using RBAC and the Azure portal
+# Add or remove role assignments using Azure RBAC and the Azure portal
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] This article describes how to assign roles using the Azure portal.
 
@@ -129,7 +129,7 @@ In RBAC, to remove access, you remove a role assignment. Follow these steps to r
 
 ## Next steps
 
-* [Tutorial: Grant a user access to Azure resources using RBAC and the Azure portal](quickstart-assign-role-user-portal.md)
-* [Tutorial: Grant a user access to Azure resources using RBAC and Azure PowerShell](tutorial-role-assignments-user-powershell.md)
-* [Troubleshoot RBAC for Azure resources](troubleshooting.md)
-* [Organize your resources with Azure management groups](../governance/management-groups/overview.md)
+- [List role assignments using Azure RBAC and the Azure portal](role-assignments-list-portal.md)
+- [Tutorial: Grant a user access to Azure resources using RBAC and the Azure portal](quickstart-assign-role-user-portal.md)
+- [Troubleshoot RBAC for Azure resources](troubleshooting.md)
+- [Organize your resources with Azure management groups](../governance/management-groups/overview.md)

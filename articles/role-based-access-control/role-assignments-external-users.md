@@ -1,6 +1,6 @@
 ---
-title: Manage access to Azure resources for external guest users using RBAC | Microsoft Docs
-description: Learn how to manage access to Azure resources for users external to an organization using role-based access control (RBAC).
+title: Add or remove role assignments for external guest users using Azure RBAC and the Azure portal
+description: Learn how to grant access to Azure resources for users external to an organization using Azure role-based access control (RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,15 +13,15 @@ ms.devlang:
 ms.topic: conceptual
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 11/24/2019
+ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
 
 ---
-# Add or remove role assignments for external guest users using RBAC and the Azure portal
+# Add or remove role assignments for external guest users using Azure RBAC and the Azure portal
 
-Role-based access control (RBAC) allows better security management for large organizations and for small and medium-sized businesses working with external collaborators, vendors, or freelancers that need access to specific resources in your environment, but not necessarily to the entire infrastructure or any billing-related scopes. You can use the capabilities in [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md) to collaborate with external guest users and you can use RBAC to grant just the permissions that guest users need in your environment.
+[Azure role-based access control (RBAC)](overview.md) allows better security management for large organizations and for small and medium-sized businesses working with external collaborators, vendors, or freelancers that need access to specific resources in your environment, but not necessarily to the entire infrastructure or any billing-related scopes. You can use the capabilities in [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md) to collaborate with external guest users and you can use RBAC to grant just the permissions that guest users need in your environment.
 
 ## Prerequisites
 

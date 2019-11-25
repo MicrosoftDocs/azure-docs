@@ -1,6 +1,6 @@
 ---
-title: List roles in RBAC using Azure portal, Azure PowerShell, or Azure CLI | Microsoft Docs
-description: Learn how to list built-in and custom roles in RBAC using Azure portal, Azure PowerShell, or Azure CLI.
+title: List roles in Azure RBAC using Azure portal, Azure PowerShell, or Azure CLI | Microsoft Docs
+description: Learn how to list built-in and custom roles in Azure RBAC using Azure portal, Azure PowerShell, or Azure CLI.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/24/2019
+ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
 
-# List roles in RBAC
+# List roles in Azure RBAC
 
 A role is a collection of permissions that can be performed, such as read, write, and delete. [Azure role-based access control (RBAC)](overview.md) has over 120 [built-in roles](built-in-roles.md) or you can create your own custom roles. This article describes how to list the built-in and custom roles that you can use to grant access to Azure resources.
 
@@ -310,7 +310,7 @@ az role definition list --name "Virtual Machine Contributor" --output json | jq 
 
 ## Next steps
 
-* [Tutorial: Grant a user access to Azure resources using RBAC and the Azure portal](quickstart-assign-role-user-portal.md)
-* [Tutorial: Grant a user access to Azure resources using RBAC and Azure PowerShell](tutorial-role-assignments-user-powershell.md)
-* [Troubleshoot RBAC for Azure resources](troubleshooting.md)
-* [Organize your resources with Azure management groups](../governance/management-groups/overview.md)
+- [Built-in roles for Azure resources](built-in-roles.md)
+- [Custom roles for Azure resources](custom-roles.md)
+- [List role assignments using Azure RBAC and the Azure portal](role-assignments-list-portal.md)
+- [Add or remove role assignments using Azure RBAC and the Azure portal](role-assignments-portal.md)

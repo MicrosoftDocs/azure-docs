@@ -1,6 +1,6 @@
 ---
-title: Manage access to Azure resources using RBAC and Azure PowerShell | Microsoft Docs
-description: Learn how to manage access to Azure resources for users, groups, and applications using role-based access control (RBAC) and Azure PowerShell. This includes how to list access, grant access, and remove access.
+title: List role assignments using Azure RBAC and Azure PowerShell
+description: Learn how to determine what resources users, groups, service principals, or managed identities have access to using Azure role-based access control (RBAC) and Azure PowerShell.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/24/2019
+ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
-# List role assignments using RBAC and Azure PowerShell
+# List role assignments using Azure RBAC and Azure PowerShell
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] This article describes how to list role assignments using Azure PowerShell.
 
@@ -144,6 +144,4 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 ## Next steps
 
-- [Tutorial: Grant a group access to Azure resources using RBAC and Azure PowerShell](tutorial-role-assignments-group-powershell.md)
-- [Tutorial: Create a custom role for Azure resources using Azure PowerShell](tutorial-custom-role-powershell.md)
-- [Manage resources with Azure PowerShell](../azure-resource-manager/manage-resources-powershell.md)
+- [Add or remove role assignments using Azure RBAC and Azure PowerShell](role-assignments-powershell.md)

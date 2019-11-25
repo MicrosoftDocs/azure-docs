@@ -1,6 +1,6 @@
 ---
-title: Manage access to Azure resources using RBAC and Azure CLI | Microsoft Docs
-description: Learn how to manage access to Azure resources for users, groups, and applications using role-based access control (RBAC) and Azure CLI. This includes how to list access, grant access, and remove access.
+title: List role assignments using Azure RBAC and Azure CLI
+description: Learn how to determine what resources users, groups, service principals, or managed identities have access to using Azure role-based access control (RBAC) and Azure CLI.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/24/2019
+ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
-# List role assignments using RBAC and Azure CLI
+# List role assignments using Azure RBAC and Azure CLI
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] This article describes how to list role assignments using Azure CLI.
 
@@ -108,5 +108,4 @@ az role assignment list --scope /providers/Microsoft.Management/managementGroups
 
 ## Next steps
 
-- [Tutorial: Create a custom role for Azure resources using Azure CLI](tutorial-custom-role-cli.md)
-- [Use the Azure CLI to manage Azure resources and resource groups](../azure-resource-manager/cli-azure-resource-manager.md)
+- [Add or remove role assignments using Azure RBAC and Azure CLI](role-assignments-cli.md)

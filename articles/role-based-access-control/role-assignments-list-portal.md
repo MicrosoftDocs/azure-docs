@@ -1,6 +1,6 @@
 ---
-title: Manage access to Azure resources using RBAC and the Azure portal | Microsoft Docs
-description: Learn how to manage access to Azure resources for users, groups, service principals, and managed identities using role-based access control (RBAC) and the Azure portal. This includes how to list access, grant access, and remove access.
+title: List role assignments using Azure RBAC and the Azure portal
+description: Learn how to determine what resources users, groups, service principals, or managed identities have access to using Azure role-based access control (RBAC) and the Azure portal.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/24/2019
+ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
 
-# List role assignments using RBAC and the Azure portal
+# List role assignments using Azure RBAC and the Azure portal
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] This article describes how to list role assignments using the Azure portal.
 
@@ -105,7 +105,5 @@ To list access for a user, group, service principal, or managed identity, you li
 
 ## Next steps
 
-* [Tutorial: Grant a user access to Azure resources using RBAC and the Azure portal](quickstart-assign-role-user-portal.md)
-* [Tutorial: Grant a user access to Azure resources using RBAC and Azure PowerShell](tutorial-role-assignments-user-powershell.md)
-* [Troubleshoot RBAC for Azure resources](troubleshooting.md)
-* [Organize your resources with Azure management groups](../governance/management-groups/overview.md)
+- [Add or remove role assignments using Azure RBAC and the Azure portal](role-assignments-portal.md)
+- [Troubleshoot RBAC for Azure resources](troubleshooting.md)
