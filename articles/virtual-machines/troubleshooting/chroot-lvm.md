@@ -41,7 +41,7 @@ Attach a disk to the **rescue** VM made from the snapshot taken previously.
 
 Azure portal -> select the **rescue** VM -> **Disks** 
 
-![createdisk](./media/chroot-logical-volume-manager/create-disk-from-snap.png)
+![Create disk](./media/chroot-logical-volume-manager/create-disk-from-snap.png)
 
 Populate the fields. 
 Assign a name to your new disk, select the same Resource Group as the snapshot, affected VM, and Rescue VM.
