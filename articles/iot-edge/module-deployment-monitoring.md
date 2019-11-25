@@ -84,7 +84,14 @@ Labels are string key/value pairs that you can use to filter and group deploymen
 
 ### Metrics
 
-By default, all deployment report two metrics: how many devices meet the target condition for this deployment, and how many devices have applied the deployment. Additionally, you can define your own custom metrics to help monitor and manage the deployment. 
+By default, all deployments report on four metrics:
+
+* **Targeted** shows the IoT Edge devices that match the Deployment targeting condition.
+* **Applied** shows the targeted IoT Edge devices that are not targeted by another deployment of higher priority.
+* **Reporting Success** shows the IoT Edge devices that have reported back to the service that the modules have been deployed successfully. 
+* **Reporting Failure** shows the IoT Edge devices that have reported back to the service that one or modules have not been deployed successfully. To further investigate the error, connect remotely to those devices and view the log files.
+
+Additionally, you can define your own custom metrics to help monitor and manage the deployment. 
 
 Metrics provide summary counts of the various states that devices may report back as a result of applying a deployment configuration. Metrics can query the [edgeHub module twin reported properties](module-edgeagent-edgehub.md#edgehub-reported-properties), like the last desired status or last connect time. For example: 
 
@@ -94,16 +101,6 @@ SELECT deviceId FROM devices
 ```
 
 Adding your own metrics is optional, and doesn't impact the actual configuration of IoT Edge devices. 
-
-### Deployment status
-
-A deployment can be monitored to determine whether it applied successfully for any targeted IoT Edge device.  A targeted Edge device will appear in one or more of the following status categories: 
-
-* **Target** shows the IoT Edge devices that match the Deployment targeting condition.
-* **Actual** shows the targeted IoT Edge devices that are not targeted by another deployment of higher priority.
-* **Healthy** shows the IoT Edge devices that have reported back to the service that the modules have been deployed successfully. 
-* **Unhealthy** shows the IoT Edge devices have reported back to the service that one or modules have not been deployed successfully. To further investigate the error, connect remotely to those devices and view the log files.
-* **Unknown** shows the IoT Edge devices that did not report any status pertaining this deployment. To further investigate, view service info and log files.
 
 ## Layered deployment
 
