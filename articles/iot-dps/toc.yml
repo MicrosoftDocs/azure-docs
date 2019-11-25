@@ -122,7 +122,7 @@
       href: ../iot-edge/how-to-auto-provision-simulated-device-windows.md
       maintainContext: true
   - name: Provision Simulated TPM devices
-    item:
+    items:
     - name: C
       href: quick-create-simulated-device.md
     - name: Java
