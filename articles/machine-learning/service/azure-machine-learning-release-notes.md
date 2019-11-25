@@ -22,12 +22,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 
 ### Azure Machine Learning SDK for Python v1.0.76
 
-+ **New features**
-  + [Insert new features below. Reference articles and/or doc pages]
-  
-  + **Preview features**
-    + [Contrib features below] 
-
 + **Breaking changes**
   + Azureml-Train-AutoML upgrade issues
     + Upgrading to azureml-train-automl>=1.0.76 from azureml-train-automl<1.0.76 can cause partial installations, causing some automl imports to fail. To resolve this, you can run the setup script found at https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/automl_setup.cmd. Or if you are using pip directly you can:
