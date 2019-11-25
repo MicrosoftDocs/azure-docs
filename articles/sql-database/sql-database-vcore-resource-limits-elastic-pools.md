@@ -238,7 +238,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 
 |Compute size|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
-|Compute generation|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
+|Compute generation|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|4|6|8|10|12|14|
 |Memory (GB)|20.4|30.6|40.8|51|61.2|71.4|
 |Max number DBs per pool|100|100|100|100|100|100|
