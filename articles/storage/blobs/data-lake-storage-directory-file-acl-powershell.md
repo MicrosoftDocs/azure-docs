@@ -18,7 +18,7 @@ This article shows you how to use PowerShell to create and manage directories, f
 > [!IMPORTANT]
 > The PowerShell module that is featured in this article is currently in public preview.
 
-[Give feedback](https://github.com/Azure/azure-powershell/issues)
+[Gen1 to Gen2 mapping](#gen1-gen2-map) | [Give feedback](https://github.com/Azure/azure-powershell/issues)
 
 ## Prerequisites
 
@@ -361,6 +361,7 @@ $acl = New-AzDataLakeGen2ItemAclObject -AccessControlType group -Permission rw- 
 $acl = New-AzDataLakeGen2ItemAclObject -AccessControlType other -Permission "-wx" -InputObject $acl
 Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse | Update-AzDataLakeGen2Item -Acl $acl
 ```
+<a id="gen1-gen2-map" />
 
 ## Gen1 to Gen2 Mapping
 
