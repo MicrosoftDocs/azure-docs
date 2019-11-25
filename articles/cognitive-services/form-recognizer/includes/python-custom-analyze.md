@@ -49,7 +49,7 @@ Next, you'll use your newly trained model to analyze a document and extract key-
 1. Open a command prompt window.
 1. At the prompt, use the `python` command to run the sample. For example, `python form-recognizer-analyze.py`.
 
-When you call the **Analyze Form** API, you'll receive a `201 (Success)` response with a **Location** header. The value of this header is an ID you'll use to track the results of the Analyze operation. The script above prints the value of this header to the console.
+When you call the **Analyze Form** API, you'll receive a `201 (Success)` response with an **Operation-Location** header. The value of this header is an ID you'll use to track the results of the Analyze operation. The script above prints the value of this header to the console.
 
 ## Get the Analyze results
 

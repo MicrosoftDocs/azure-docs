@@ -28,14 +28,13 @@ All of the APIs for training and using custom models have been renamed, and some
 
 * The process of training a model is now asynchronous. You initiate training through the **/custom/models** API call. This call returns an operation ID, which you can pass into **custom/models/{modelID}** to return the training results.
 * Key/value extraction is now initiated by the **/custom/models/{modelID}/analyze** API call. This call returns an operation ID, which you can pass into **custom/models/{modelID}/analyzeResults/{resultID}** to return the extraction results.
-* Operation IDs are now found in the **Location** header of HTTP responses, not the **Operation-Location** header.
+* Operation IDs for the Train operation are now found in the **Location** header of HTTP responses, not the **Operation-Location** header.
 
 ### Receipt API changes
 
 The APIs for reading sales receipts have been renamed.
 
 * Receipt data extraction is now initiated by the **/prebuilt/receipt/analyze** API call. This call returns an operation ID, which you can pass into **/prebuilt/receipt/analyzeResults/{resultID}** to return the extraction results.
-* Operation IDs are now found in the **Location** header of HTTP responses, not the **Operation-Location** header.
 
 ### Output format changes
 

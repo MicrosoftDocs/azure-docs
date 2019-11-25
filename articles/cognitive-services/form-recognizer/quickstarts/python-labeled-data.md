@@ -55,7 +55,7 @@ All of these files should occupy the same sub-folder and be in the following for
 
 You need OCR result files in order for the service to consider the corresponding input files for labeled training. To obtain OCR results for a given source form, follow the steps below:
 
-* Call the **/formrecognizer/v2.0-preview/readLayout/asyncAnalyze** API on the read Layout container with the input file as part of the request body. Save the ID found in the response's **Location** header.
+* Call the **/formrecognizer/v2.0-preview/readLayout/asyncAnalyze** API on the read Layout container with the input file as part of the request body. Save the ID found in the response's **Operation-Location** header.
 * Call the **/formrecognizer/v2.0-preview/readLayout/asyncAnalyzeOperations/{id}** API, using operation ID from the previous step.
 * Get the response and write the contents to a file. For each source form, the corresponding OCR file should have the original file name appended with `.ocr.json`. The OCR JSON output should have the following format: 
 
@@ -209,7 +209,7 @@ while True:
         exit()
 ```
 
-When the training process is completed, you'll receive a `200 (Success)` response with JSON content like the following. The response has been shortened for simplicity.
+When the training process is completed, you'll receive a `201 (Success)` response with JSON content like the following. The response has been shortened for simplicity.
 
 ```json
 { 
@@ -281,7 +281,7 @@ Copy the `"modelId"` value for use in the following steps.
 
 [!INCLUDE [analyze forms](../includes/python-custom-analyze.md)]
 
-When the process is completed, you'll receive a `200 (Success)` response with JSON content in the following format. The response has been shortened for simplicity. The main key/value associations are in the `"documentResults"` node. The Layout API results (the content and positions of all the text in the document) are in the `"readResults"` node.
+When the process is completed, you'll receive a `202 (Success)` response with JSON content in the following format. The response has been shortened for simplicity. The main key/value associations are in the `"documentResults"` node. The Layout API results (the content and positions of all the text in the document) are in the `"readResults"` node.
 
 ```json
 { 
