@@ -1,21 +1,21 @@
 ---
-title: Manage Azure Database for MariaDB - Azure portal
-description: Learn how to manage an Azure Database for MariaDB server from the Azure portal.
-author: ajlam
-ms.author: andrela
-ms.service: mariadb
+title: Manage Azure Database for PostgreSQL - Azure portal
+description: Learn how to manage an Azure Database for PostgreSQL server from the Azure portal.
+author: rachel-msft
+ms.author: raagyema
+ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/25/2019
+ms.date: 11/20/2019
 ---
 
-# Manage an Azure Database for MariaDB server using the Azure portal
-This article shows you how to manage your Azure Database for MariaDB servers. Management tasks include compute and storage scaling, admin password reset, and viewing server details.
+# Manage an Azure Database for PostgreSQL server using the Azure portal
+This article shows you how to manage your Azure Database for PostgreSQL servers. Management tasks include compute and storage scaling, admin password reset, and viewing server details.
 
 ## Sign in
 Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a server
-Visit the [quickstart](quickstart-create-mariadb-server-database-using-azure-portal.md) to learn how to create and get started with an Azure Database for MariaDB server.
+Visit the [quickstart](quickstart-create-server-database-portal.md) to learn how to create and get started with an Azure Database for PostgreSQL server.
 
 ## Scale compute and storage
 
@@ -99,4 +99,4 @@ You can delete your server if you no longer need it.
 
 ## Next steps
 - Learn about [backups and server restore](howto-restore-server-portal.md)
-- Learn about [tuning and monitoring options in Azure Database for MariaDB](concepts-monitoring.md)
+- Learn about [tuning and monitoring options in Azure Database for PostgreSQL](concepts-monitoring.md)
