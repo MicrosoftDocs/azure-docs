@@ -65,7 +65,11 @@ To change the default limit for run duration and storage retention, follow these
 
 1. Under **Runtime options**, from the **Run history retention in days** list, select **Custom**.
 
-1. Enter or drag the slider for the number of days that you want. You can only reduce the number of days in the Azure portal.
+1. Enter or drag the slider for the number of days that you want. 
+
+   > [!NOTE]
+   > For logic apps in multi-tenant Azure, the default limit already is set to the maximum limit. You can only reduce this value.
+   > For logic apps in an integration service environment, you can increase the default limit to the maximum limit.
 
 <a name="looping-debatching-limits"></a>
 
