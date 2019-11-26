@@ -46,6 +46,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/windows/maintenance-and-updates.md",
+      "redirect_url": "/azure/virtual-machines/maintenance-and-updates?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/maintenance-and-updates.md",
+      "redirect_url": "/azure/virtual-machines/maintenance-and-updates?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/maintenance-notifications.md",
+      "redirect_url": "/azure/virtual-machines/maintenance-notifications?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/maintenance-notifications.md",
+      "redirect_url": "/azure/virtual-machines/maintenance-notifications?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-load-data.md",
       "redirect_url": "/azure/machine-learning/service/how-to-create-register-datasets",
       "redirect_document_id": false
@@ -541,17 +561,17 @@
       "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/get-answer-from-kb-using-postman.md",
       "redirect_url": "/azure/cognitive-services//QnAMaker/Quickstarts/get-answer-from-knowledge-base-using-url-tool",
       "redirect_document_id": false
-    },  
+    },
     {
       "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/get-answer-from-kb-using-curl.md",
       "redirect_url": "/azure/cognitive-services//QnAMaker/Quickstarts/get-answer-from-knowledge-base-using-url-tool",
       "redirect_document_id": false
-    }, 
+    },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-how-to-add-example-utterances.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-add-entities",
       "redirect_document_id": false
-    },  
+    },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-tutorial-prebuilt-intents-entities.md",
       "redirect_url": "/azure/cognitive-services/LUIS/tutorial-machine-learned-entity",
@@ -43780,6 +43800,41 @@
     {
       "source_path": "articles/healthcare-apis/configure-cosmos-db.md",
       "redirect_url": "/azure/healthcare-apis/configure-database",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-azure-media-clipper-portal.md",
+      "redirect_url": "/azure/media-services/latest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-azure-media-clipper-getting-started.md",
+      "redirect_url": "/azure/media-services/latest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-azure-media-clipper-load-assets.md",
+      "redirect_url": "/azure/media-services/latest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-azure-media-clipper-keyboard-shortcuts.md",
+      "redirect_url": "/azure/media-services/latest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-azure-media-clipper-localization.md",
+      "redirect_url": "/azure/media-services/latest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-azure-media-clipper-submit-job.md",
+      "redirect_url": "/azure/media-services/latest",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/media-services/previous/media-services-azure-media-clipper-overview.md",
+      "redirect_url": "/azure/media-services/latest",
       "redirect_document_id": false
     }
   ]
