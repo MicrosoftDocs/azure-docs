@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Deploy a machine learning model with the designer'
 titleSuffix: Azure Machine Learning
-description: Learn how to build a predictive analytics solution in Azure Machine Learning designer (preview). Train, score, and deploy a machine learning model by using drag-and-drop modules.
+description: This tutorial shows you how to build a predictive analytics solution in Azure Machine Learning designer (preview). Train, score, and deploy a machine learning model by using drag-and-drop modules.
 
 author: peterclu
 ms.author: peterlu
@@ -37,7 +37,7 @@ To deploy your pipeline, you must first convert the training pipeline into a rea
 
     Your pipeline should now look like this: 
 
-   ![Screenshot showing the expected configuration of the pipeline after preparing it for deployment](./media/ui-tutorial-automobile-price-deploy/real-time-inference-pipeline.png)
+   ![Screenshot showing the expected configuration of the pipeline after preparing it for deployment](./media/tutorial-designer-automobile-price-deploy/real-time-inference-pipeline.png)
 
     When you select **Create inference pipeline**, several things happen:
     
@@ -66,7 +66,7 @@ In the dialog box that appears, you can select from any existing Azure Kubernete
 
 1. On the navigation ribbon, select **Inference Clusters** > **+ New**.
 
-    ![Screenshot showing how to get to the new inference cluster pane](./media/ui-tutorial-automobile-price-deploy/new-inference-cluster.png)
+    ![Screenshot showing how to get to the new inference cluster pane](./media/tutorial-designer-automobile-price-deploy/new-inference-cluster.png)
 
 1. In the inference cluster pane, configure a new Kubernetes Service.
 
@@ -92,7 +92,7 @@ After your AKS service has finished provisioning, return to the real-time infere
 
 1. Select **Deploy**.
 
-    ![Screenshot showing how to set up a new real-time endpoint](./media/ui-tutorial-automobile-price-deploy/setup-endpoint.png)
+    ![Screenshot showing how to set up a new real-time endpoint](./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png)
 
     A success notification above the canvas appears after deployment finishes. It might take a few minutes.
 
@@ -102,7 +102,7 @@ After deployment finishes, you can test your real-time endpoint by going to the 
 
 1. On the **Endpoints** page, select the endpoint you deployed.
 
-    ![Screenshot showing the real-time endpoints tab with the recently created endpoint highlighted](./media/ui-tutorial-automobile-price-deploy/endpoints.png)
+    ![Screenshot showing the real-time endpoints tab with the recently created endpoint highlighted](./media/tutorial-designer-automobile-price-deploy/endpoints.png)
 
 1. Select **Test**.
 
@@ -110,7 +110,7 @@ After deployment finishes, you can test your real-time endpoint by going to the 
 
     The portal submits a test request to the endpoint and shows the results. Although a price value is generated for the input data, it isn't used to generate the prediction value.
 
-    ![Screenshot showing how to test the real-time endpoint with the scored label for price highlighted](./media/ui-tutorial-automobile-price-deploy/test-endpoint.png)
+    ![Screenshot showing how to test the real-time endpoint with the scored label for price highlighted](./media/tutorial-designer-automobile-price-deploy/test-endpoint.png)
 
 ## Clean up resources
 

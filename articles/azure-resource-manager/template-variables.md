@@ -1,11 +1,8 @@
 ---
-title: Variables in Azure Resource Manager templates
+title: Variables in templates
 description: Describes how to define variables in an Azure Resource Manager template. 
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/05/2019
-ms.author: tomfitz
 ---
 # Variables in Azure Resource Manager template
 

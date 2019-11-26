@@ -1,13 +1,8 @@
 ---
-title: Azure Backup - Use PowerShell to back up DPM workloads
+title: Use PowerShell to back up DPM workloads
 description: Learn how to deploy and manage Azure Backup for Data Protection Manager (DPM) using PowerShell
-ms.reviewer: adigan
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 01/23/2017
-ms.author: dacurwin
 ---
 # Deploy and manage backup to Azure for Data Protection Manager (DPM) servers using PowerShell
 
@@ -100,7 +95,6 @@ SubscriptionId    : 1234-567f-8910-abc
 Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
 
-
 ## Installing the Azure Backup agent on a DPM Server
 
 Before you install the Azure Backup agent, you need to have the installer downloaded and present on the Windows Server. You can get the latest version of the installer from the [Microsoft Download Center](https://aka.ms/azurebackup_agent) or from the Recovery Services vault's Dashboard page. Save the installer to an easily accessible location like *C:\Downloads\*.
@@ -119,7 +113,7 @@ The agent shows up in the list of installed programs. To see the list of install
 
 ### Installation options
 
-To see all the options available via the commandline, use the following command:
+To see all the options available via the command line, use the following command:
 
 ```powershell
 MARSAgentInstaller.exe /?

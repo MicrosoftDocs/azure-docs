@@ -1,6 +1,6 @@
 ---
 title: Sample - Allowed resource types
-description: This sample policy definition ensures only approved resource types are deployed.
+description: This sample policy definition ensures only approved resource types defined in a parameter are deployed.
 ms.date: 01/23/2019
 ms.topic: sample
 ---

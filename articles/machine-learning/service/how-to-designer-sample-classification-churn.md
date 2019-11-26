@@ -1,7 +1,7 @@
 ---
-title: 'Designer: Classify, predict churn'
+title: 'Designer: Predict churn example'
 titleSuffix: Azure Machine Learning
-description: This designer (preview) sample pipeline shows binary classifier prediction of churn, a common task for customer relationship management (CRM).
+description: Follow this classification example to predict churn with Azure Machine Learning designer & boosted decision trees. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,7 +12,10 @@ ms.reviewer: sgilley
 ms.date: 11/04/2019
 ---
 
-# Sample 5 - Classification: Predict churn
+# Use boosted decision tree to predict churn with Azure Machine Learning designer
+
+**Designer (preview) sample 5**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Learn how to build a complex machine learning pipeline without writing a single line of code using the designer (preview).
@@ -23,7 +26,7 @@ Because you're trying to answer the question "Which one?" this is called a class
 
 Here's the completed graph for this pipeline:
 
-![Pipeline graph](./media/how-to-ui-sample-classification-predict-churn/pipeline-graph.png)
+![Pipeline graph](./media/how-to-designer-sample-classification-predict-churn/pipeline-graph.png)
 
 ## Prerequisites
 
@@ -43,11 +46,11 @@ First, some simple data processing.
 
 - The raw dataset has many missing values. Use the **Clean Missing Data** module to replace the missing values with 0.
 
-    ![Clean the dataset](./media/how-to-ui-sample-classification-predict-churn/cleaned-dataset.png)
+    ![Clean the dataset](./media/how-to-designer-sample-classification-predict-churn/cleaned-dataset.png)
 
 - The features and the corresponding churn are in different datasets. Use the **Add Columns** module to append the label columns to the feature columns. The first column, **Col1**, is the label column. From the visualization result we can see the dataset is unbalanced. There way more negative (-1) examples than positive examples (+1). We will use **SMOTE** module to increase underrepresented cases later.
 
-    ![Add the column dataset](./media/how-to-ui-sample-classification-predict-churn/added-column1.png)
+    ![Add the column dataset](./media/how-to-designer-sample-classification-predict-churn/added-column1.png)
 
 
 
@@ -61,7 +64,7 @@ First, some simple data processing.
 
 Visualize the output of the **Evaluate Model** module to see the performance of the model on the test set. 
 
-![Evaluate the results](./media/how-to-ui-sample-classification-predict-churn/evaluate-result.png)
+![Evaluate the results](./media/how-to-designer-sample-classification-predict-churn/evaluate-result.png)
 
  You can move the **Threshold** slider and see the metrics change for the binary classification task. 
 
