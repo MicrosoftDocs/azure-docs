@@ -60,7 +60,7 @@ You can create a Livestream session from an existing hunting query, or create yo
     1. Select the **Livestream** tab
     2. Select **Go to Livestream**.
     
-4. On the **Livestream** blade:
+4. On the **Livestream** pane:
     
     - If you started Livestream from a query, review the query and make any changes you want to make.
     - If you started Livestream from scratch, create your query. 
@@ -93,7 +93,7 @@ Because Livestream notifications for new events use Azure portal notifications, 
 
 ![Azure portal notification for Livestream](./media/livestream/notification.png)
 
-Select the notification to open the **Livestream** blade.
+Select the notification to open the **Livestream** pane.
  
 ## Elevate a Livestream session to an alert
 
