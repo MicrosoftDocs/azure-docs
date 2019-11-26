@@ -23,7 +23,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Custom token cache serialization in MSAL for Java (MSAL4J)
+# Custom token cache serialization in MSAL for Java
 
 To persist the token cache between instances of your application, you will need to customize the serialization. The Java classes and interfaces involved in token cache serialization are the following:
 

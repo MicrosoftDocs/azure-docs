@@ -2,7 +2,7 @@
 title: Azure delegated resource management
 description: Managed services offers allow service providers to sell resource management offers to customers in Azure Marketplace.
 ms.date: 07/11/2019
-ms.topic: overview
+ms.topic: conceptual
 ---
 
 # Azure delegated resource management
