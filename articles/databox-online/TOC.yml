@@ -131,7 +131,7 @@
     - name: General availability (GA)
       href: data-box-gateway-release-notes.md
 
-      - name: Data Box Gateway
+- name: Data Box Gateway
   items:
   - name: Overview
     items:
