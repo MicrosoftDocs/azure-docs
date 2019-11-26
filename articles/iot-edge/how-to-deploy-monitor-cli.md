@@ -47,13 +47,7 @@ Here's a basic deployment manifest with one module as an example:
             "settings": {
               "minDockerVersion": "v1.25",
               "loggingOptions": "",
-              "registryCredentials": {
-                "registryName": {
-                  "username": "",
-                  "password": "",
-                  "address": ""
-                }
-              }
+              "registryCredentials": {}
             }
           },
           "systemModules": {
@@ -70,7 +64,7 @@ Here's a basic deployment manifest with one module as an example:
               "restartPolicy": "always",
               "settings": {
                 "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-                "createOptions": "{}"
+                "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
               }
             }
           },
@@ -92,7 +86,7 @@ Here's a basic deployment manifest with one module as an example:
         "properties.desired": {
           "schemaVersion": "1.0",
           "routes": {
-            "route": "FROM /* INTO $upstream"
+            "upstream": "FROM /messages/* INTO $upstream"
           },
           "storeAndForwardConfiguration": {
             "timeToLiveSecs": 7200
@@ -100,7 +94,10 @@ Here's a basic deployment manifest with one module as an example:
         }
       },
       "SimulatedTemperatureSensor": {
-        "properties.desired": {}
+        "properties.desired": {
+          "SendData": true,
+          "SendInterval": 5
+        }
       }
     }
   }
@@ -111,13 +108,9 @@ Here's a basic deployment manifest with one module as an example:
 
 Layered deployments are a type of automatic deployment that can be stacked on top of each other. For more information about layered deployments, see [Understand IoT Edge automatic deployments for single devices or at scale](module-deployment-monitoring.md). 
 
-Layered deployments can be created and managed with the Azure CLI like any automatic deployment, with just a few differences. Once a layered deployment is created, same Azure CLI work for layered deployments the same as any deployment. To create a layered deployment, add the `--layered` flag to the create command. For example: 
+Layered deployments can be created and managed with the Azure CLI like any automatic deployment, with just a few differences. Once a layered deployment is created, same Azure CLI work for layered deployments the same as any deployment. To create a layered deployment, add the `--layered` flag to the create command. 
 
-```cli
-az iot edge deployment create --layered --deployment-id [deployment id] --content [file path]
-```
-
-The second difference is in the construction of the deployment manifest. Layered deployment always require that a standard automatic deployment be on a device before a layered deployment can be applied. The baseline automatic deployment is responsible for the required components of every IoT Edge deployment, like the system runtime modules. For that reason, a layered deployment manifest doesn't contain any of that information. 
+The second difference is in the construction of the deployment manifest. While standard automatic deployment must contain the system runtime modules in addition to any user modules, layered deployments can only contain user modules. Instead, layered deployments need a standard automatic deployment be on a device as well, to supply the required components of every IoT Edge device, like the system runtime modules. 
 
 Here's a basic layered deployment manifest with one module as an example: 
 
