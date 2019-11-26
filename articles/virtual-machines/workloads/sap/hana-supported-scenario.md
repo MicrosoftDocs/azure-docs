@@ -566,7 +566,7 @@ This topology supports one node in a scale up configuration with one SID with th
 
 ### Architecture diagram  
 
-![single-node-hsr-dr-11.png](media/hana-supported-scenario/single-node-hsr-dr-11.png)
+![single-node-hsr-dr-111.png](media/hana-supported-scenario/single-node-hsr-dr-111.png)
 
 ### Ethernet
 The following network interfaces are preconfigured:
@@ -607,7 +607,7 @@ The following mountpoints are preconfigured on both the HLI units (Primary and D
 
 ### Architecture diagram  
 
-![single-node-hsr-dr-cost-optimized-12.png](media/hana-supported-scenario/single-node-hsr-dr-cost-optimized-12.png)
+![single-node-hsr-dr-cost-optimized-121.png](media/hana-supported-scenario/single-node-hsr-dr-cost-optimized-121.png)
 
 ### Ethernet
 The following network interfaces are preconfigured:
@@ -657,7 +657,7 @@ The following mountpoints are preconfigured:
 
 ### Architecture diagram  
 
-![hana-system-replication-dr-13.png](media/hana-supported-scenario/hana-system-replication-dr-13.png)
+![hana-system-replication-dr-131.png](media/hana-supported-scenario/hana-system-replication-dr-131.png)
 
 ### Ethernet
 The following network interfaces are preconfigured:
@@ -702,7 +702,7 @@ The following mountpoints are preconfigured:
 
 ### Architecture diagram  
 
-![hana-system-replication-dr-cost-optimized-14.png](media/hana-supported-scenario/hana-system-replication-dr-cost-optimized-14.png)
+![hana-system-replication-dr-cost-optimized-141.png](media/hana-supported-scenario/hana-system-replication-dr-cost-optimized-141.png)
 
 ### Ethernet
 The following network interfaces are preconfigured:
@@ -752,7 +752,7 @@ This topology supports multiple nodes in a scale-out with a DR. You can request 
 
 ### Architecture diagram  
 
-[ ![scale-out-dr-hsr-15.png](media/hana-supported-scenario/scale-out-dr-hsr-15.png)](media/hana-supported-scenario/scale-out-dr-hsr-15.png#lightbox)
+[ ![scale-out-dr-hsr-151.png](media/hana-supported-scenario/scale-out-dr-hsr-151.png)](media/hana-supported-scenario/scale-out-dr-hsr-151.png#lightbox)
 
 
 ### Ethernet
