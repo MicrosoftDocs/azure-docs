@@ -1,11 +1,11 @@
 ---
-title: Create a function in Azure that is deployed from Azure DevOps | Microsoft Docs 
+title: Create a function app with DevOps deployment - Azure CLI
 description: Create a Function App and deploy function code from Azure DevOps
 ms.date: 07/03/2018
 ms.topic: sample
 ms.custom: mvc
 ---
-# Create a function app with DevOps deployment - Azure CLI
+# Create a function in Azure that is deployed from Azure DevOps
 
 This topic shows you how to use Azure Functions to create a [serverless](https://azure.microsoft.com/solutions/serverless/) function app using the [consumption plan](../functions-scale.md#consumption-plan). The function app, which is a container for your functions, is continuously deployed from an Azure DevOps repository. 
 
