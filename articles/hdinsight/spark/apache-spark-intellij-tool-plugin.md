@@ -376,7 +376,7 @@ We upload the necessary files to a folder named with your sign in account, and y
 You can run Spark Local Console(Scala) or run Spark Livy Interactive Session Console(Scala) on an HDInsight ESP cluster with Id Broker (HIB). Refer to [Spark Console](#spark-console) for more instructions.
 
    > [!NOTE]  
-   > For the HDInsight ESP cluster with Id Broker (HIB), link a cluster and debug Apache Spark applications remotely is not supported currently.
+   > For the HDInsight ESP cluster with Id Broker (HIB), [link a cluster](#link-a-cluster) and [debug Apache Spark applications remotely](#debug-apache-spark-applications-locally-or-remotely-on-an-hdinsight-cluster) is not supported currently.
 
 
 ## Reader-only role
