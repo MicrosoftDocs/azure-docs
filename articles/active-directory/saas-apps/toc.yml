@@ -510,6 +510,8 @@
         href: fluxxlabs-tutorial.md
       - name: FM&#58Systems
         href: fm-systems-tutorial.md
+      - name: Foko Retail
+        href: foko-retail-tutorial.md
       - name: Folloze
         href: folloze-tutorial.md
       - name: Foodee
@@ -934,6 +936,8 @@
         href: officespace-tutorial.md
       - name: ON24 Virtual Environment SAML Connection
         href: on24-tutorial.md
+      - name: OneDesk
+        href: onedesk-tutorial.md
       - name: Oneteam
         href: oneteam-tutorial.md
       - name: OneTrust Privacy Management Software
@@ -1064,6 +1068,8 @@
       items:
       - name: Qlik Sense Enterprise
         href: qliksense-enterprise-tutorial.md
+      - name: Qmarkets Idea & Innovation Management
+        href: qmarkets-idea-innovation-management-tutorial.md
       - name: QPrism
         href: qprism-tutorial.md
       - name: Qualtrics
@@ -1410,6 +1416,8 @@
         href: visitorg-tutorial.md
       - name: Visitly
         href: visitly-tutorial.md
+      - name: Visma
+        href: visma-tutorial.md
       - name: Vocoli
         href: vocoli-tutorial.md
       - name: Vodeclic
@@ -1591,6 +1599,8 @@
         href: github-provisioning-tutorial.md
       - name: GoToMeeting
         href: citrixgotomeeting-provisioning-tutorial.md
+      - name: Infor CloudSuite
+        href: infor-cloudsuite-provisioning-tutorial.md
       - name: Ideo
         href: ideo-provisioning-tutorial.md
       - name: Insight4GRC
@@ -1707,6 +1717,8 @@
         href: zscaler-beta-provisioning-tutorial.md
       - name: Zscaler One
         href: zscaler-one-provisioning-tutorial.md
+      - name: Zscaler Private Access
+        href: zscaler-private-access-provisioning-tutorial.md
       - name: Zscaler Two
         href: zscaler-two-provisioning-tutorial.md
       - name: Zscaler Three

@@ -1,6 +1,5 @@
 ---
 title: "How to manage secrets when working with an Azure Dev Space"
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.date: "05/11/2018"
 ms.topic: "conceptual"

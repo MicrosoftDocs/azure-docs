@@ -6,7 +6,7 @@ ms.author: kgremban
 ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: "mvc, seodec18"
+ms.custom: mvc
 ---
 
 # Tutorial: Deploy Azure Stream Analytics as an IoT Edge module
