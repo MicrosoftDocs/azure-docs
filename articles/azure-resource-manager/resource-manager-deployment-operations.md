@@ -3,7 +3,7 @@ title: Deployment history
 description: Describes how to view Azure Resource Manager deployment operations with the portal, PowerShell, Azure CLI, and REST API.
 tags: top-support-issue
 ms.topic: conceptual
-ms.date: 11/25/2019
+ms.date: 11/26/2019
 ---
 # View deployment history with Azure Resource Manager
 
@@ -53,13 +53,13 @@ To get the correlation ID, use:
 
 # [Azure CLI](#tab/azure-cli)
 
-To list the deployment for a resource group, use [az group deployment list](/cli/azure/group/deployment).
+To list the deployment for a resource group, use [az group deployment list](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-list).
 
 ```azurecli-interactive
 az group deployment list --resource-group ExampleGroup
 ```
 
-To get a specific deployment, use the [azure group deployment show](/cli/azure/group/deployment).
+To get a specific deployment, use the [az group deployment show](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-show).
 
 ```azurecli-interactive
 az group deployment show --resource-group ExampleGroup --name ExampleDeployment
@@ -105,7 +105,7 @@ The response includes the correlation ID.
 
 ## Get deployment operations and error message
 
-Each deployment can include multiple operations. Each operation represents a step in the deployment process. To see more details about a deployment, view the deployment operations. When a deployment fails, the deployment operations include an error message.
+Each deployment can include multiple operations. To see more details about a deployment, view the deployment operations. When a deployment fails, the deployment operations include an error message.
 
 # [Portal](#tab/azure-portal)
 
@@ -139,7 +139,7 @@ To get the status message of failed operations, use the following command:
 
 # [Azure CLI](#tab/azure-cli)
 
-To view the deployment operations for deployment to a resource group, use the [az group deployment operation list](/cli/azure/group/deployment/operation) command.
+To view the deployment operations for deployment to a resource group, use the [az group deployment operation list](/cli/azure/group/deployment/operation?view=azure-cli-latest#az-group-deployment-operation-list) command.
 
 ```azurecli-interactive
 az group deployment operation list --resource-group ExampleGroup --name ExampleDeployment
