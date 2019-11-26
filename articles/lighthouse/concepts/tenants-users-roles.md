@@ -2,7 +2,7 @@
 title: Tenants, roles, and users in Azure Lighthouse scenarios
 description: Understand the concepts of Azure Active Directory tenants, users, and roles, as well as how they can be used in Azure Lighthouse scenarios.
 ms.date: 11/05/2019
-ms.topic: overview
+ms.topic: conceptual
 ---
 
 # Tenants, roles, and users in Azure Lighthouse scenarios

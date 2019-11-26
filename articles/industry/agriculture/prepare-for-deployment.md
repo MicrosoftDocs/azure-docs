@@ -54,40 +54,34 @@ To create an Azure FarmBeats offer in Azure Marketplace, do the following:
 
 1. Sign in to the Azure portal, select your account at the top right, and then switch to the Azure Active Directory (Azure AD) tenant where you want to deploy Azure FarmBeats.
 1. Azure FarmBeats is available in Azure Marketplace. On the **Azure Marketplace** page, select **Get it Now**.
-1. Select **Create**, and then do the following:
+1. Select **Create**.  
 
-    a. Enter a subscription name.  
-    b. Enter an existing resource group name (empty resource group only), or create a new resource group for deploying Azure FarmBeats. Make a note of this resource group to use in subsequent sections.  
-    c. Enter the region where you want to install Azure FarmBeats. Azure FarmBeats is currently supported in the following regions: Central US, West Europe, East US 2, North Europe, West US, Southeast Asia, East US, Australia East, West US 2.
-1. Select **OK**.  
-   The **Terms of use** page appears. Review the standard Azure Marketplace terms, or select the **Terms of use** link to review document.
-1. Select **Close**, select the **I agree** check box, and then select **Create**.  
-   You've now successfully signed the Microsoft Software License Terms (“license terms”) agreement for Azure FarmBeats in Azure Marketplace.  
-
-To continue with the deployment, follow the instructions in the next sections.
+> [!NOTE]
+> Completion of the offer in Azure Marketplace is only a part of the setup. To complete the deployment of Azure FarmBeats in your Azure subscription, follow the instructions in the next sections.
 
 ## Prepare
 
 Before you can deploy Azure FarmBeats, you need the following permissions:
 
 - **Tenant**: Read access
-- **Subscription**: contributor or owner
-- **Resource group**: owner
+- **Subscription**: Contributor or owner
+- **Resource group**: Owner
 
 ## Before you begin
 
-Before you begin the deployment, ensure that the following prerequisites are in place:
+Before you start the deployment, ensure that the following prerequisites are in place:
 
 - An Azure Sentinel account
 - An Azure AD app registration
 
 ## Create an Azure Sentinel account    
 
-An account with Azure Sentinel helps you to download the Sentinel satellite imagery from their official website to your device. Follow these steps to create a free account:
+An account with Azure Sentinel helps you to download the Sentinel satellite imagery from their official website to your device. To create a free account, do the following:
 
-Go to the [Sentinel account registration page] https://scihub.copernicus.eu/dhus/#/self-registration. On the registration form, provide your first name, last name, username, password, and email address.
+1. Go to the [Sentinel account registration page](https://scihub.copernicus.eu/dhus/#/self-registration). 
+1. On the registration form, provide your first name, last name, username, password, and email address.
 
-A verification email will be sent to the registered email address for confirmation. Select the link and confirm. Your registration process is complete.
+A verification email will be sent to the registered email address for confirmation. Select the link to confirm your email address. Your registration process is complete.
 
 ## Create an Azure AD app registration
 
