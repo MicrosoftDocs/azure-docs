@@ -1,18 +1,24 @@
 ---
-title: include file
-description: include file
+title: Use the portal for maintenance notifications for Azure VMs
+description: View maintenance notifications for virtual machines running in Azure, and start self-service maintenance, using the portal.
 services: virtual-machines
 author: shants123
+tags: azure-service-management,azure-resource-manager
+
+
 ms.service: virtual-machines
-ms.topic: include
-ms.date: 07/02/2018
+ms.workload: infrastructure-services
+ms.topic: article
+ms.date: 11/19/2019
 ms.author: shants
-ms.custom: include file
+
 ---
 
-## View VMs scheduled for maintenance in the portal
+# Handling planned maintenance notifications using the portal
 
-Once a planned maintenance wave is scheduled, you can observe the list of virtual machines that are impacted by the upcoming maintenance wave. 
+**This article applies to virtual machines running both Linux and Windows.**
+
+Once a [planned maintenance](maintenance-notifications.md) wave is scheduled, you can check for a list of virtual machines that are impacted. 
 
 You can use the Azure portal and look for VMs scheduled for maintenance.
 
@@ -20,11 +26,11 @@ You can use the Azure portal and look for VMs scheduled for maintenance.
 
 2. In the left navigation, click **Virtual Machines**.
 
-3. In the Virtual Machines pane, click the **Columns** button to open the list of available columns.
+3. In the Virtual Machines pane, select **Edit columns** button to open the list of available columns.
 
 4. Select and add the following columns:
 
-   **Maintenance**: Shows the maintenance status for the VM. The following are the potential values:
+   **Maintenance status**: Shows the maintenance status for the VM. The following are the potential values:
 	  
       | Value | Description |
 	  |-------|-------------|
@@ -44,11 +50,10 @@ You can use the Azure portal and look for VMs scheduled for maintenance.
 
 ## Notification and alerts in the portal
 
-Azure communicates a schedule for planned maintenance by sending an email to the subscription owners group. You can add additional recipients and channels to this communication by creating Azure activity log alerts. For more information, see [Create activity log alerts on service notifications](../articles/azure-monitor/platform/alerts-activity-log-service-notifications.md).
+Azure communicates a schedule for planned maintenance by sending an email to the subscription owner and co-owners group. You can add additional recipients and channels to this communication by creating Azure activity log alerts. For more information, see [Create activity log alerts on service notifications](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
-Make sure you set the **Event type** as **Planned maintenance** and **Services** as **Virtual Machine Scale Sets** and/or **Virtual Machines**
-	
-	
+Make sure you set the **Event type** as **Planned maintenance**, and **Services** as **Virtual Machine Scale Sets** and/or **Virtual Machines**.
+
 ## Start Maintenance on your VM from the portal
 
 While looking at the VM details, you will be able to see more maintenance-related details.  
@@ -60,3 +65,8 @@ Click on the maintenance notification to see the maintenance page with more deta
 Once you start maintenance, your virtual machine will be maintained and the maintenance status will be updated to reflect the result within few minutes.
 
 If you missed the self-service window, you will still be able to see the window when your VM will be maintained by Azure. 
+
+
+## Next steps
+
+You can also handle planned maintenance using the [Azure CLI](maintenance-notifications-cli.md) or [PowerShell](maintenance-notifications-powershell.md).
