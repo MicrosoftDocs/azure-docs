@@ -38,7 +38,9 @@ Choosing a service tier depends primarily on business continuity, storage, and p
 |||||
 
 > [!IMPORTANT]
-> The Basic, Standard S0, S1 and S2 tiers provide less than one vCore (CPU).  For CPU-intensive workloads, a service tier of S3 or greater is recommended. 
+> The Basic, Standard S0, S1 and S2 service tiers provide less than one vCore (CPU).  For CPU-intensive workloads, a service tier of S3 or greater is recommended. 
+>
+>Regarding data storage, the Basic, Standard S0, and S1 service tiers are placed on Standard Page Blobs. Standard Page Blobs use hard disk drive (HDD)-based storage media and are best suited for development, testing, and other infrequently accessed workloads that are less sensitive to performance variability.
 >
 
 > [!NOTE]
