@@ -1,5 +1,5 @@
 ---
-title: Recover Linux VM using chroot on LVM configured VMs
+title: Recover Linux VMs using chroot where LVM (Logical Volume Manager) is used - Azure VMs
 description: Recovery of Linux VMs with LVMs. 
 services: virtual-machines-linux
 documentationcenter: ''
@@ -105,7 +105,6 @@ mount /dev/sdc1 /rescue/boot
 `
 
 Verify the file systems of the attached disk are now correctly mounted using the **lsblk** command
-
 
 ![Run lsblk](./media/chroot-logical-volume-manager/lsblk-output.png)
 
