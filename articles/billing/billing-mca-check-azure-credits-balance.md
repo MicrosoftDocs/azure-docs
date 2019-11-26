@@ -33,7 +33,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
     ![Screenshot that shows search in portal for cost management + billing](./media/billing-mca-check-azure-credits-balance/list-of-scopes.png)
 
- > [!NOTE]
+    > [!NOTE]
     >
     > Azure portal remembers the last billing scope that you access and displays the scope the next time you come to Cost Management + Billing page. You won't see the billing scopes page if you have visited Cost Management + Billing earlier. If so, check that you are in the [right scope](#check-access-to-a-microsoft-customer-agreement). If not, [switch the scope](billing-view-all-accounts.md#switch-billing-scope-in-the-azure-portal) to select the billing account for a Microsoft Customer Agreement.
 
@@ -44,6 +44,8 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 4. The Azure credits page has the following sections:
     
    #### Balance
+   
+   The balance section display a summary of your Azure credit balance.
 
    ![Screenshot of credit balance for a billing profile](./media/billing-mca-check-azure-credits-balance/mca-credit-balance.png)
 
@@ -55,6 +57,8 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
    When your estimated balance drops to 0, you are charged for all your usage, including for products that are eligible for credits.
 
    #### Credits list
+   
+   The credits list section displays the list of Azure credits.
 
    ![Screenshot of credits lists for a Billing profile](./media/billing-mca-check-azure-credits-balance/mca-credits-list.png)
 
@@ -69,6 +73,8 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
    #### Transactions
 
+   The transactions section displays all transactions that affected the credits balance.
+
    ![Screenshot of credit transactions for a billing profile](./media/billing-mca-check-azure-credits-balance/mca-credits-transactions.png)
     
    | Term | Definition |
@@ -78,11 +84,11 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
    | Amount| The amount of transaction |
    | Balance | The balance after the transaction |
 
-  > [!NOTE]
+    > [!NOTE]
     >
     > If you don't see Azure credits in the payment methods page, either you don't have credits or you have not selected the right scope. Select the billing profile which has credits or its billing account. To learn how to change scopes, see [Switch billing scopes in the Azure portal](billing-view-all-accounts.md#switch-billing-scope-in-the-azure-portal).
 
-5. If you are viewing Azure credits at the billing account scope and the billing account has more than one billing profiles, the Azure credits page will show a table with credits summary for each billing profile. Select a billing profile from the list and then select payment methods to view credits details for the selected billing profile.
+5. If you are viewing Azure credits at the billing account scope and the billing account has more than one billing profiles, the Azure credits page will show a table with a summary of Azure credits for each billing profile. Select a billing profile from the list, select payment methods and then Azure credits to view details for a billing profile.
 
     ![Screenshot of credit list for a billing account](./media/billing-mca-check-azure-credits-balance/mca-account-credit-list.png)
 

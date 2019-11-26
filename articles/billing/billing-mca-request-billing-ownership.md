@@ -34,7 +34,7 @@ To request the billing ownership, you must be an **invoice section owner** or **
 
     ![Screenshot that shows search in portal for cost management + billing](./media/billing-mca-check-azure-credits-balance/list-of-scopes.png)
 
- > [!NOTE]
+    > [!NOTE]
     >
     > Azure portal remembers the last billing scope that you access and displays the scope the next time you come to Cost Management + Billing page. You won't see the billing scopes page if you have visited Cost Management + Billing earlier. If so, check that you are in the [right scope](#check-access-to-a-microsoft-customer-agreement). If not, [switch the scope](billing-view-all-accounts.md#switch-billing-scope-in-the-azure-portal) to select the billing account for a Microsoft Customer Agreement.
 
@@ -42,7 +42,7 @@ To request the billing ownership, you must be an **invoice section owner** or **
    
    ![Screenshot that shows selecting billing profiles](./media/billing-mca-request-billing-ownership/mca-select-profiles.png)     
 
-> [!Note]
+    > [!Note]
     >
     > If you don't see Billing profiles, you are not in the right billing scope. You need to select a billing account for a Microsoft Customer Agreement and then select Billing profiles. To learn how to change scopes, see [Switch billing scopes in the Azure portal](billing-view-all-accounts.md#switch-billing-scope-in-the-azure-portal).
 
@@ -80,9 +80,7 @@ To request the billing ownership, you must be an **invoice section owner** or **
 
 3. In the billing scopes page, select the billing account for which the transfer request was sent.
 
-    ![Screenshot that shows search in portal for cost management + billing](./media/billing-mca-check-azure-credits-balance/list-of-scopes.png)
-
- > [!NOTE]
+    > [!NOTE]
     >
     > Azure portal remembers the last billing scope that you access and displays the scope the next time you come to Cost Management + Billing page. You won't see the billing scopes page if you have visited Cost Management + Billing earlier. If so, check that you are in the [right scope](#check-access-to-a-microsoft-customer-agreement). If not, [switch the scope](billing-view-all-accounts.md#switch-billing-scope-in-the-azure-portal) to select the billing account for a Microsoft Customer Agreement.
 
@@ -90,7 +88,7 @@ To request the billing ownership, you must be an **invoice section owner** or **
    
    ![Screenshot that shows selecting billing profiles](./media/billing-mca-request-billing-ownership/mca-select-profiles.png)     
 
-> [!Note]
+    > [!Note]
     >
     > If you don't see Billing profiles, you are not in the right billing scope. You need to select a billing account for a Microsoft Customer Agreement and then select Billing profiles. To learn how to change scopes, see [Switch billing scopes in the Azure portal](billing-view-all-accounts.md#switch-billing-scope-in-the-azure-portal).
 
