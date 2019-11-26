@@ -6,14 +6,14 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include 
-ms.date: 10/17/2019
+ms.date: 11/20/2019
 ms.author: diberry
 ---
 ## Prerequisites
 
 * [JDK SE](https://aka.ms/azure-jdks)  (Java Development Kit, Standard Edition)
 * [Visual Studio Code](https://code.visualstudio.com/) or your favorite IDE
-* Public app ID: df67dcdb-c37d-46af-88e1-8b97951ca1c2
+* Public app ID: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
 ## Get LUIS key
 
@@ -21,7 +21,7 @@ ms.author: diberry
 
 ## Get intent programmatically
 
-Use Java to query the prediction endpoint GET [API](https://aka.ms/luis-apim-v3-prediction) to get the prediction result.
+Use Java to query the [prediction endpoint](https://aka.ms/luis-apim-v3-prediction) and get a prediction result.
 
 1. Make a subdirectory named `lib` and copy in the following java libs:
 
@@ -30,7 +30,6 @@ Use Java to query the prediction endpoint GET [API](https://aka.ms/luis-apim-v3-
     * [httpcore-4.4.6.jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/httpcore-4.4.6.jar)
 
 1. Copy the following code to create a class in a file named `Predict.java`:
-
 
     ```java
     import java.io.*;
@@ -102,10 +101,10 @@ Use Java to query the prediction endpoint GET [API](https://aka.ms/luis-apim-v3-
 1. Replace the following values:
 
     * `YOUR-KEY` with your starter key
-    * `YOUR-ENDPOINT` with your endpoint, for example, `westus2.api.cognitive.microsoft.com`
+    * `YOUR-ENDPOINT` with your endpoint. For example, `westus2.api.cognitive.microsoft.com`.
 
 
-1. Compile the java program from a command line: 
+1. Compile the java program from the command line: 
 
     ```console
     javac -cp ":lib/*" Predict.java
@@ -117,7 +116,7 @@ Use Java to query the prediction endpoint GET [API](https://aka.ms/luis-apim-v3-
     java -cp ":lib/*" Predict
     ```
 
-1. Review prediction response in JSON format:
+1. Review the prediction response, which is returned as JSON:
 
     ```console
     {'query': 'turn on all lights', 'prediction': {'topIntent': 'HomeAutomation.TurnOn', 'intents': {'HomeAutomation.TurnOn': {'score': 0.5375382}, 'None': {'score': 0.08687421}, 'HomeAutomation.TurnOff': {'score': 0.0207554}}, 'entities': {'HomeAutomation.Operation': ['on'], '$instance': {'HomeAutomation.Operation': [{'type': 'HomeAutomation.Operation', 'text': 'on', 'startIndex': 5, 'length': 2, 'score': 0.724984169, 'modelTypeId': -1, 'modelType': 'Unknown', 'recognitionSources': ['model']}]}}}}
@@ -177,4 +176,4 @@ When you are finished with this quickstart, delete the file from the file system
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Add utterances and train with Java](../luis-get-started-java-add-utterance.md)
+> [Add utterances and train with Java](../get-started-get-model-rest-apis.md)

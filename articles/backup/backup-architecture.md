@@ -1,12 +1,8 @@
 ---
-title: Azure Backup architecture
+title: Architecture Overview 
 description: Provides an overview of the architecture, components, and processes used by the Azure Backup service.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.author: dacurwin
 ---
 
 # Azure Backup architecture and components
@@ -91,7 +87,7 @@ Storage consumption, recovery time objective (RTO), and network consumption vari
 
 The following table summarizes the supported features for the different types of backup:
 
-**Feature** | **On-premises Windows Server machines (direct)** | **Azure VMs** | **Machines or apps with DPM/MABS**
+**Feature** | **Direct Backup of Files and Folders (using MARS Agent)** | **Azure VM Backup** | **Machines or apps with DPM/MABS**
 --- | --- | --- | ---
 Back up to vault | ![Yes][green] | ![Yes][green] | ![Yes][green]
 Back up to DPM/MABS disk, then to Azure | | | ![Yes][green]
@@ -101,7 +97,7 @@ Back up deduplicated disks | | | ![Partially][yellow]<br/><br/> For DPM/MABS ser
 
 ![Table key](./media/backup-architecture/table-key.png)
 
-## Architecture: Direct backup of Azure VMs
+## Architecture: Built-in Azure VM Backup
 
 1. When you enable backup for an Azure VM, a backup runs according to the schedule you specify.
 1. During the first backup, a backup extension is installed on the VM if the VM is running.

@@ -44,15 +44,15 @@ After getting a key and endpoint for your resource, [create environment variable
 
 Create a new .NET Core application in your preferred editor or IDE. 
 
-In a console window (such as cmd, PowerShell, or Bash), use the dotnet `new` command to create a new console app with the name `qna-maker-quickstart`. This command creates a simple "Hello World" C# project with a single source file: `Program.cs`. 
+In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `qna-maker-quickstart`. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*. 
 
-```console
+```dotnetcli
 dotnet new console -n qna-maker-quickstart
 ```
 
 Change your directory to the newly created app folder. You can build the application with:
 
-```console
+```dotnetcli
 dotnet build
 ```
 
@@ -70,7 +70,7 @@ Build succeeded.
 
 Within the application directory, install the QnA Maker client library for .NET with the following command:
 
-```console
+```dotnetcli
 dotnet add package Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker --version 1.0.0
 ```
 
@@ -184,11 +184,11 @@ The _loop_ and _Task.Delay_ in the following code block are used to simulate ret
 
 ## Run the application
 
-Run the application with the dotnet `run` command from your application directory.
+Run the application with the `dotnet run` command from your application directory.
 
 All of the code snippets in this article are [available](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py) and can be run as a single file.
 
-```console
+```dotnetcli
 dotnet run
 ```
 

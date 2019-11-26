@@ -105,9 +105,9 @@ The chart enables you to display time series instances as lines. You can collaps
 
 1. **Chart type**: Controls which data elements are available for visualization.
 
-1. **Interval size**: The Interval size slider tool enables you to zoom in and out of intervals over the same time span. This provides more precise control of movement between large slices of time that show smooth trends down to slices as small as the millisecond, allowing you to see granular, high-resolution cuts of your data. The slider’s default starting point is set as the most optimal view of the data from your selection; balancing resolution, query speed, and granularity. .
+1. **Interval size**: The Interval size slider tool enables you to zoom in and out of intervals over the same time span. This provides more precise control of movement between large slices of time that show smooth trends down to slices as small as the millisecond, allowing you to see granular, high-resolution cuts of your data. The slider’s default starting point is set as the most optimal view of the data from your selection; balancing resolution, query speed, and granularity.
 
-1. **Zoom and pan**: Click this control to zoom & pan the chart.
+1. **Zoom and pan**: Click this control to zoom and pan the chart.
 
 1. **Y-axis control**: Cycles through the available y-axis view options:
 

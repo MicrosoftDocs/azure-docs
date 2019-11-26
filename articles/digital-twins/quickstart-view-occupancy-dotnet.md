@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Find available rooms - Azure Digital Twins'
+title: 'Quickstart: Find available rooms - Azure Digital Twins | Microsoft Docs'
 description: In this quickstart, you run two .NET Core sample applications to send simulated motion and carbon dioxide telemetry to a space in Azure Digital Twins. The goal is to find available rooms with fresh air from Management APIs after computed processing in the cloud.
 ms.author: alinast
 author: alinamstanciu
@@ -72,7 +72,7 @@ The spatial graph is provisioned by using the [provisionSample.yaml](https://git
 1. Run `dotnet run ProvisionSample`.
 
     >[!NOTE]
-    >The Device Login Azure CLI tool is used to authenticate the user to Azure AD. The user must enter a given code to authenticate by using [the Microsoft login](https://microsoft.com/devicelogin) page. After code is entered, follow the steps to authenticate. The user must authenticate when the tool is running.
+    >The Device Login Azure CLI tool is used to authenticate the user to Azure AD. The user must enter a given code to authenticate by using [the Microsoft login](https://microsoft.com/devicelogin) page. After the code is entered, follow the steps to authenticate. The user must authenticate when the tool is running.
 
     >[!TIP]
     > When you run this step, make sure your variables were copied properly if the following error message appears:
