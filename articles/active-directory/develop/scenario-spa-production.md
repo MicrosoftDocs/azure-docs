@@ -33,7 +33,7 @@ Test your integration by following the [Microsoft identity platform integration 
 
 ## Next steps
 
-Deep dive of the quickstart sample, which explains the code for how to sign in users and get an access token to call the MS Graph API by using MSAL.js:
+Deep dive of the quickstart sample, which explains the code for how to sign in users and get an access token to call the Microsoft Graph API by using MSAL.js:
 
 > [!div class="nextstepaction"]
 > [JavaScript SPA tutorial](./tutorial-v2-javascript-spa.md)

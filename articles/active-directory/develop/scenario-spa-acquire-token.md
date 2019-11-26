@@ -34,7 +34,7 @@ The silent token requests to Azure AD might fail for reasons like an expired Azu
 
 * If you don't want users to move away from your main application page during authentication, we recommended the pop-up method. Because the authentication redirect happens in a pop-up window, the state of the main application is preserved.
 
-* If users have browser constraints or policies where pop-ups windows are disabled, you can use the redirect method. Use the redirect method with the Internet Explorer browser, because there are [known issues pop-up windows on Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser).
+* If users have browser constraints or policies where pop-ups windows are disabled, you can use the redirect method. Use the redirect method with the Internet Explorer browser, because there are [known issues with pop-up windows on Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser).
 
 You can set the API scopes that you want the access token to include when it's building the access token request. Note that all requested scopes might not be granted in the access token. That depends on the user's consent.
 
