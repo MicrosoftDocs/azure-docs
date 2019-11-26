@@ -47,7 +47,7 @@ The following table describes the limits for the Azure Stack Edge device.
 
 ## Azure object size limits
 
-[!INCLUDE [azure-stack-edge-gateway-storage-object-limits](../../includes/azure-stack-edge-r-series-gateway-storage-object-limits.md)]
+[!INCLUDE [azure-stack-edge-gateway-storage-object-limits](../../includes/azure-stack-edge-gateway-storage-object-limits.md)]
 
 ## Next steps
 
