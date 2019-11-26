@@ -44,7 +44,14 @@ Unmanaged VM disks are not supported in accounts that have a hierarchical namesp
 
 ## API Scope for Data Lake Storage Client Library for SDK, Powershell and CLI
 
-The following capabilities are currently not supported in data lake client library for PowerShell, Azure CLI, Java, Python and the .NET SDK: `RecursiveACL`, `setExpiry`, `Concat` and `ConcurrentAppend`.
+### Filesystem Support in SDKs
+
+- .NET, Java and Python are in public preview. Other SDKs are not currently supported.
+- Get and Set ACLs operations are not currently recursive.
+
+### Filesystem Support in PowerShell and Azure CLI
+
+Get and Set ACLs operations are not currently recursive.
 
 ## Support for other Blob Storage features
 

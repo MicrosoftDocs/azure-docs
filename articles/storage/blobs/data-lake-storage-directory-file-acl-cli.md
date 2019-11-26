@@ -296,6 +296,6 @@ az storage blob directory metadata show -c my-file-system -d my-directory --acco
 * [Sample](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview)
 * [Gen1 to Gen2 mapping](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2)
 * [Give feedback](https://github.com/Azure/azure-cli-extensions/issues)
-* [Known capability gaps](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
+* [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [Source code](https://github.com/Azure/azure-cli-extensions/tree/master/src)
 
