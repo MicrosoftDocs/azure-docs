@@ -61,7 +61,7 @@ The result is shown in the right window and refreshed every 3 seconds. You can s
 
 The default time for the job to start creating output is set to **Now**. You can custom the time by clicking **Output start time** button in the result window.
 
-![View local run result](./media/vscode-local-run-live-input/vscode_livetesting.gif)
+![View local run result](./media/vscode-local-run-live-input/vscode-livetesting.gif)
 
 ## Next steps
 

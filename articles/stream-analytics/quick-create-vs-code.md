@@ -144,7 +144,7 @@ Before running the query in the cloud, you can test your query locally with an e
 
 Follow the instructions in [Test query locally with sample data](vscode-local-run.md) for more details.
 
- ![Test with sample data in VS Code](./media/vscode-local-run/localrun_localinput.gif)
+ ![Test with sample data in VS Code](./media/vscode-local-run/localrun-localinput.gif)
 
 ## Define a live input
 
