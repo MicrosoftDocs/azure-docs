@@ -185,7 +185,7 @@ model = Model.register(model_path="models/",
 The script *must contain* two functions:
 - `init()`: Use this function for any costly or common preparation for later inference. For example, use it to load the model into a global object.
 -  `run(mini_batch)`: The function will run for each `mini_batch` instance.
-    -  `mini_batch`: Batch inference will invoke run method and pass either a list or Pandas DataFrame as an argument to the method. Each entry in min_batch will be - a filepath if input is a FileDataset, a Pandas DataFrame if input is a TabularDataset.
+    -  `mini_batch`: Batch inference will invoke run method and pass either a list or Pandas DataFrame as an argument to the method. Each entry in min_batch will be - a file path if input is a FileDataset, a Pandas DataFrame if input is a TabularDataset.
     -  `response`: run() method should return a Pandas DataFrame or an array. For append_row output_action, these returned elements are appended into the common output file. For summary_only, the contents of the elements are ignored. For all output actions, each returned output element indicates one successful inference of input element in the input mini-batch. User should make sure that enough data is included in inference result to map input to inference. Inference output will be written in output file and not guaranteed to be in order, user should use some key in the output to map it to input.
 
 ```python
@@ -231,6 +231,15 @@ def run(mini_batch):
         resultList.append("{}: {}".format(os.path.basename(image), best_result))
 
     return resultList
+```
+
+### How to access other files in `init()` or `run()` functions
+
+If you have another file or folder in the same directory as your inference script you can reference it by finding the current working directory.
+
+```python
+script_dir = os.path.realpath(os.path.join(__file__, '..',))
+file_path = os.path.join(script_dir, "<file_name>")
 ```
 
 ## Build and run the batch inference pipeline
@@ -344,6 +353,8 @@ pipeline_run.wait_for_completion(show_output=True)
 ## Next steps
 
 To see this process working end to end, try the [batch inference notebook](https://aka.ms/batch-inference-notebooks). 
+
+For debugging and troubleshooting guidance for ParallelRunStep, see the [how-to guide](how-to-debug-batch-predictions.md).
 
 For debugging and troubleshooting guidance for pipelines, see the [how-to guide](how-to-debug-pipelines.md).
 
