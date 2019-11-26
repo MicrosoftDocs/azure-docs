@@ -86,6 +86,7 @@ For continuation *C* and end *E* flow states, byte and packet counts are aggrega
 The text that follows is an example of a flow log. As you can see, there are multiple records that follow the property list described in the preceding section.
 
 ## NSG Flow Logging Considerations
+**Storage account region**: The storage account used for storing NSG Flow Logs must be in the same region as the NSG.
 
 **Enable NSG Flow Logging on all NSGs attached to a resource**: Flow logging in Azure is configured on the NSG resource. A flow will only be associated to one NSG Rule. In scenarios where multiple NSGs are utilized, we recommend that NSG flow logging is enabled on all NSGs applied a resource's subnet or network interface to ensure that all traffic is recorded. See [how traffic is evaluated](../virtual-network/security-overview.md#how-traffic-is-evaluated) for more information on Network Security Groups. 
 
