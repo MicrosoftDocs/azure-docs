@@ -84,6 +84,8 @@ The following table shows the requirements for JSON content:
 ||||
 
 ## Authentication
+> [!NOTE]
+> Web Activity only supports None and MSI authentication mode when a data factory has Git enabled.
 
 ### None
 If authentication is not required, do not include the "authentication" property.
