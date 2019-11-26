@@ -13,7 +13,7 @@ ms.author: erhopf
 
 ## Supported audio input format
 
-The Speech SDK uses the following format specification for audio input.
+The Speech SDK uses the following format for audio input.
 
 | Format | Codec | Bitrate | Sample Rate | Channels |
 |--------|-------|---------|-------------|----------|
