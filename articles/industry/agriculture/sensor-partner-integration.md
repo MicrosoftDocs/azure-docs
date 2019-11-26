@@ -11,11 +11,11 @@ ms.author: v-umha
 
 This article provides information about the Azure FarmBeats Translator component, which enables sensor partner integration.
 
-Using this component, partners can develop sensors that integrate with FarmBeats to use the API and send your device data and telemetry to the FarmBeats data hub. Data is visualized by using the FarmBeats Accelerator. Data can be used for data fusion and for building machine language/artificial intelligence models.
+Using this component, partners can develop sensors that integrate with FarmBeats to use the API and send customer device data and telemetry to the FarmBeats data hub. Data is visualized by using the FarmBeats Accelerator. Data can be used for data fusion and for building machine learning/artificial intelligence models.
 
 ## Link FarmBeats account
 
-After you've purchased and deployed devices or sensors, they can access the device data and telemetry on device partners, software as a service (SaaS) portal. Device partners enable you to link their account to their FarmBeats instance on Azure. The following credentials are required to fill in by the you or your system integrator:
+After you've purchased and deployed devices or sensors, you can access the device data and telemetry on your device partners' software as a service (SaaS) portal. Device partners enable you to link your account to your FarmBeats instance on Azure. The following credentials must be filled in by you or your system integrator:
 
    - Display name (an optional field for users to define a name for this integration)
    - API endpoint
@@ -30,14 +30,14 @@ After you've purchased and deployed devices or sensors, they can access the devi
 
 ## Unlink FarmBeats
 
-You have the ability to unlink an existing FarmBeats integration. Unlinking FarmBeats shouldn't delete any device or sensor metadata that was created in the your data hub. Unlinking does the following:
+You have the ability to unlink an existing FarmBeats integration. Unlinking FarmBeats shouldn't delete any device or sensor metadata that was created in your data hub. Unlinking does the following:
 
    - Stops telemetry flow.
    - Deletes and erases the integration credentials on the device partner.
 
 ## Edit FarmBeats integration
 
-You can edit the FarmBeats integration settings, if the client secret or connection string changes. In this case, you can edit only the following fields:
+You can edit the FarmBeats integration settings if the client secret or connection string changes. In this case, you can edit only the following fields:
 
    - Display name (if applicable)
    - Client secret (should be displayed in "2x8***********" format or the Show/Hide feature rather than clear text)
@@ -55,19 +55,19 @@ Sensor data integration capabilities of FarmBeats are exposed via the REST API. 
 
 **Telemetry ingestion**
 
-The telemetry data is mapped to a canonical message that's published on Azure EventHub for processing. Azure EventHub is a service that enables real-time data (telemetry) ingestion from connected devices and applications.
+The telemetry data is mapped to a canonical message that's published on Azure Event Hubs for processing. Azure Event Hubs is a service that enables real-time data (telemetry) ingestion from connected devices and applications.
 
 **API development**
 
-The APIs contain Swagger technical documentation. For more information on the APIs and their corresponding requests or responses, see [Swagger](https://aka.ms/FarmBeatsDatahubSwagger)
+The APIs contain Swagger technical documentation. For more information on the APIs and their corresponding requests or responses, see [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
 **Authentication**
 
-FarmBeats uses Microsoft Azure Active Directory Authentication. Azure App Service provides built-in authentication and authorization support.
+FarmBeats uses Microsoft Azure Active Directory authentication. Azure App Service provides built-in authentication and authorization support.
 
 For more information, see [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).
 
-FarmBeats Datahub uses bearer authentication, which needs the following credentials:
+The FarmBeats data hub uses bearer authentication, which needs the following credentials:
    - Client ID
    - Client secret
    - Tenant ID
@@ -78,7 +78,7 @@ Using these credentials, the caller can request an access token. The token nee
 headers = {"Authorization": "Bearer " + access_token, …} 
 ```
 
-The following sample Python code gives the access token, which can be used for subsequent API calls to FarmBeats: 
+The following sample Python code gives the access token, which can be used for subsequent API calls to FarmBeats.
 
 ```python
 import azure 
@@ -102,7 +102,7 @@ access_token = token_response.get('accessToken') 
 
 **HTTP request headers**
 
-Here are the most common request headers that need to be specified when you make an API call to FarmBeats Datahub.
+Here are the most common request headers that need to be specified when you make an API call to the FarmBeats data hub.
 
 
 **Header** | **Description and example**
@@ -117,7 +117,7 @@ To make a REST API request, you combine the HTTP (GET, POST, or PUT) method, the
 
 Optionally, you can include query parameters on GET calls to filter, limit the size of, and sort the data in the responses.
 
-The following sample request is to get the list of devices:
+The following sample request is to get the list of devices.
 
 ```bash
 curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>"
@@ -136,66 +136,66 @@ JSON is a common language-independent data format that provides a simple text re
 
 ## Metadata specifications
 
-FarmBeats Datahub has the following APIs that enable device partners to create and manage device or sensor metadata.  
+The FarmBeats data hub has the following APIs that enable device partners to create and manage device or sensor metadata. 
 
-- /**DeviceModel**: Device model corresponds to the metadata of the device, such as the manufacturer and the type of the device, which is either gateway or node.  
+- /**DeviceModel**: DeviceModel corresponds to the metadata of the device, such as the manufacturer and the type of the device, which is either gateway or node. 
 - /**Device**: Device corresponds to a physical device present on the farm.
-- /**SensorModel**: Sensor model corresponds to the metadata of the sensor, such as the manufacturer, the type of the sensor, which is either analog or digital, and the sensor measure, such as ambient temperature and pressure.
+- /**SensorModel**: SensorModel corresponds to the metadata of the sensor, such as the manufacturer, the type of the sensor, which is either analog or digital, and the sensor measure, such as ambient temperature and pressure.
 - /**Sensor**: Sensor corresponds to a physical sensor that records values. A sensor is typically connected to a device with a device ID.
 
-  **Device Model**| **DeviceModel corresponds to the metadata of the device, such as the manufacturer and the type of the device, which is either gateway or node.**
+  **DeviceModel**| DeviceModel corresponds to the metadata of the device, such as the manufacturer and the type of the device, which is either gateway or node.
   --- | ---
-  Type (Node, Gateway)  | 1 Star |
+  Type (node, gateway)  | 1 Star |
   Manufacturer  | 2 Star |
-  ProductCode  | Device product code Or model name/number. For example, EnviroMonitor#6800 |
-  Ports  | Port name and type (digital/analog)  |
-  Name  | Name to identify resource. For example, model name/product name |
-  Description  | Provide a meaningful description of the model |
-  Properties  | Additional properties from the manufacturer |
-  **Device** | **Device corresponds to a physical device present in the farm. Each device has a unique device ID** |
+  ProductCode  | Device product code or model name or number. For example, EnviroMonitor#6800. |
+  Ports  | Port name and type (digital or analog).  |
+  Name  | Name to identify resource. For example, model name or product name. |
+  Description  | Provide a meaningful description of the model. |
+  Properties  | Additional properties from the manufacturer. |
+  **Device** | Device corresponds to a physical device present in the farm. Each device has a unique device ID. |
 DeviceModelId  |ID of the associated device model. |
 HardwareId   |Unique ID for the device, such as a MAC address.  |
 reportingInterval |Reporting interval in seconds. |
-Location    |Device latitude (-90 to +90)/longitude (-180 to 180)/elevation (in meters) |
+Location    |Device latitude (-90 to +90)/longitude (-180 to 180)/elevation (in meters). |
 ParentDeviceId | ID of the parent device to which this device is connected. For example, if a node is connected to a gateway, the node has parentDeviceID as the gateway. |
   Name  | Name to identify the resource. Device partners need to send a name that's consistent with the device name on the device partner side. If the device name is user defined on the device partner side, the same user-defined name should be propagated to FarmBeats.  |
   Description  | Provide a meaningful description.  |
   Properties  |Additional properties from the manufacturer.  |
-  **Sensor Model** | SensorModel corresponds to the metadata of the sensor, such as the manufacturer, the type of the sensor, which is either analog or digital, and the sensor measure, such as ambient temperature and pressure. |
+  **SensorModel** | SensorModel corresponds to the metadata of the sensor, such as the manufacturer, the type of the sensor, which is either analog or digital, and the sensor measure, such as ambient temperature and pressure. |
   Type (analog, digital)  |Mention analog or digital sensor.|
-  manufacturer  | name of manufacturer |
+  Manufacturer  | Name of manufacturer. |
   ProductCode  | Product code or model name or number. For example, RS-CO2-N01.  |
-  SensorMeasures > Name  | Name of the sensor measure. Only lowercase is supported. For measure from different depths, specify the depth. For example, soil_moisture_15cm. This name has to be consistent with the telemetry data. |
+  SensorMeasures > Name  | Name of the sensor measure. Only lowercase is supported. For measurements from different depths, specify the depth. For example, soil_moisture_15cm. This name has to be consistent with the telemetry data. |
   sensorMeasures > DataType  | Telemetry data type. Currently, double is supported. |
   sensorMeasures > Type  | Measurement type of the sensor telemetry data. Following are the system-defined types: AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, Pressure, RainGauge, RelativeHumidity, Salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. To add more, refer to the /ExtendedType API.
   sensorMeasures > Unit | Unit of sensor telemetry data. Following are the system-defined units: NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentage, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, and InchesPerHour. To add more, refer to the /ExtendedType API.
   SensorMeasures > aggregationType  | Either none, average, maximum, minimum, or StandardDeviation.
-  SensorMeasures > depth  | The depth of the sensor in centimeters. For example, the measure of moisture 10 cm under the ground.
-  sensorMeasures > description  | Provide a meaningful description of the measure.
-  name  | Name to identify resource. For example, the model name or product name.
-  description  | Provide a meaningful description of the model.
-  properties  | Additional properties from the manufacturer.
-  **Sensor**  |
+  SensorMeasures > depth  | The depth of the sensor in centimeters. For example, the measurement of moisture 10 cm under the ground.
+  sensorMeasures > description  | Provide a meaningful description of the measurement.
+  Name  | Name to identify resource. For example, the model name or product name.
+  Description  | Provide a meaningful description of the model.
+  Properties  | Additional properties from the manufacturer.
+  **Sensor**  | Sensor corresponds to a physical sensor that records values. A sensor is typically connected to a device with a device ID. |
   hardwareId  | Unique ID for the sensor set by the manufacturer.
   sensorModelId  | ID of the associated sensor model.
-  location  | Sensor latitude (-90 to +90)/longitude (-180 to 180)/elevation (in meters)
-  port > name  |Name and type of the port that the sensor is connected to on the device. This needs to be same name as defined in the device model.
+  Location  | Sensor latitude (-90 to +90)/longitude (-180 to 180)/elevation (in meters).
+  port > name  |Name and type of the port that the sensor is connected to on the device. This needs to be the same name as defined in the device model.
   deviceId  | ID of the device that the sensor is connected to.
-  name  | Name to identify the resource. For example, the sensor name or product name and model number or product code.
-  description  | Provide a meaningful description.
-  properties  | Additional properties from the manufacturer.
+  Name  | Name to identify the resource. For example, the sensor name or product name and model number or product code.
+  Description  | Provide a meaningful description.
+  Properties  | Additional properties from the manufacturer.
 
  For information on each of the objects and their properties, see [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
  > [!NOTE]
- > The APIs return unique IDs for each instance created. This ID needs to be retained by the translator for device management and metadata sync.
+ > The APIs return unique IDs for each instance created. This ID needs to be retained by the Translator for device management and metadata sync.
 
 
 **Metadata sync**
 
-The Translator should send updates on the metadata. For example, of update scenarios are – change of device or sensor name, change of device or sensor location.
+The Translator should send updates on the metadata. For example, update scenarios are change of device or sensor name and change of device or sensor location.
 
-The Translator should have the ability to add new devices or sensors that were installed by the user post linking of FarmBeats. Similarly, if a device or sensor was updated by the user, the same should be updated in FarmBeats for the corresponding device or sensor. Typical scenarios that require updating a device or sensor could be a change in a device location or the addition of sensors in a node.
+The Translator should have the ability to add new devices or sensors that were installed by the user post linking of FarmBeats. Similarly, if a device or sensor was updated by the user, the same should be updated in FarmBeats for the corresponding device or sensor. Typical scenarios that require updating a device or sensor are a change in a device location or the addition of sensors in a node.
 
 
 > [!NOTE]
@@ -203,19 +203,19 @@ The Translator should have the ability to add new devices or sensors that were i
 >
 > To update metadata, it's mandatory to call /Get/{id} on the device or sensor, update the changed properties, and then do a /Put/{id} so that any properties set by the user aren't lost.
 
-### Add new types/unit
+### Add new types and units
 
-FarmBeats supports adding new sensor measure types and units. For more information about /ExtendedType API, [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
+FarmBeats supports adding new sensor measure types and units. For more information about the /ExtendedType API, see [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
 
 ## Telemetry specifications
 
-The telemetry data is mapped to a canonical message that is published on Azure Event Hub for processing. Azure EventHub is a service that enables real-time data (telemetry) ingestion from connected devices and applications.
+The telemetry data is mapped to a canonical message that's published on Azure Event Hubs for processing. Azure Event Hubs is a service that enables real-time data (telemetry) ingestion from connected devices and applications.
 
 ## Send telemetry data to FarmBeats
 
-To send telemetry data to FarmBeats, you will need to create a client that sends messages to an Event Hub in FarmBeats. For more information about telemetry data, see [sending telemetry to event hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send).
+To send telemetry data to FarmBeats, create a client that sends messages to an event hub in FarmBeats. For more information about telemetry data, see [Sending telemetry to an event hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send).
 
-Here's a sample Python code that sends telemetry as a client to a specified EventHub instance:
+Here's a sample Python code that sends telemetry as a client to a specified event hub.
 
 ```python
 import azure
@@ -258,9 +258,9 @@ The canonical message format is as follows:
  ]
 }
 ```
-All key names in the telemetry json should be lowercase. For example, deviceid, sensordata etc.
+All key names in the telemetry JSON should be lowercase. Examples are deviceid and sensordata.
 
-For example, Telemetry message:
+For example, here's a telemetry message.
 
 
 ```json
@@ -300,23 +300,23 @@ For example, Telemetry message:
 
 ```
 
-## Troubleshoot and error management
+## Troubleshooting and error management
 
 **Troubleshoot option or support**
 
-In the event that you're unable to receive device data or telemetry in the FarmBeats instance specified, the device partner should provide support and a mechanism to troubleshoot the same.
+If you're unable to receive device data or telemetry in the FarmBeats instance specified, the device partner should provide support and a mechanism for troubleshooting.
 
 **Telemetry data retention**
 
-The telemetry data should also be retained for a predefined time period so that it can be useful in debugging or resending the telemetry in the event of error or data loss.
+The telemetry data should also be retained for a predefined time period so that it can be useful in debugging or resending the telemetry if an error or data loss occurs.
 
 **Error management or error notification**
 
-In the event of an error that affects the device or sensor metadata, or the data integration or telemetry data flow in the device partner system, the same should be notified to you. A mechanism to resolve any errors should also be designed and implemented.
+If an error affects the device or sensor metadata or the data integration or telemetry data flow in the device partner system, you should receive a notification. A mechanism to resolve any errors should also be designed and implemented.
 
 **Connection checklist**
 
-Device manufacturers or partners can use the following sanity test checklist to ensure that the credentials provided by the customer are accurate:
+Device manufacturers or partners can use the following checklist to ensure that the credentials provided by the customer are accurate:
 
    - Check to see whether an access token is received with the credentials that were provided.
    - Check to see whether an API call succeeds with the access token that was received.
