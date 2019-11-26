@@ -134,19 +134,19 @@ As part of the installation, create an *input.json* file, as shown here:
 
 This file is your input file to Azure Cloud Shell. It contains the parameters whose values are used during the installation. All parameters in the JSON file need to be replaced with appropriate values or removed. It they're removed, the installer will prompt you during installation.
 
-Review the parameters before you prepare the file.
+Before you prepare the file, review the parameters in the following table:
 
 |Command | Description|
 |--- | ---|
-|sku  | Provides a choice to download either or both of the components of Azure FarmBeats. It specifies which components to download. To install only Datahub, use “onlydatabhub”. To install Datahub and Accelerator, use “both”.|
+|sku  | Provides a choice to download either or both of the components of Azure FarmBeats. It specifies which components to download. To install only Datahub, use "onlydatabhub". To install Datahub and Accelerator, use "both".|
 |subscriptionId | Specifies the subscription for installing Azure FarmBeats.|
-|datahubResourceGroup| The resource group name for Datahub resources.|
+|datahubResourceGroup| The resource group name for your Datahub resources.|
 |location |The location where you want to create the resources.|
-|acceleratorWebsiteName |The unique URL prefix to name your Datahub.|
-|acceleratorResourceGroup  | The Unique URL prefix to name your accelerator website.|
+|acceleratorWebsiteName |The unique URL prefix to name your Datahub instance.|
+|acceleratorResourceGroup  | The unique URL prefix to name your Accelerator website.|
 |datahubWebsiteName  | The unique URL prefix to name your Datahub website. |
-|sentinelUsername | The user name to sign into (for example, `https://scihub.copernicus.eu/dhus/#/self-registration`).|
-|notificationEmailAddress  | The email address to receive the notifications for any alerts that you configure within Datahub.|
+|sentinelUsername | The username to sign in with (for example, `https://scihub.copernicus.eu/dhus/#/self-registration`).|
+|notificationEmailAddress  | The email address to receive the notifications for any alerts that you configure within your Datahub instance.|
 |updateIfExists| (Optional) A parameter to include within the *input.json* file only if you want to upgrade an existing Azure FarmBeats instance. For an upgrade, other details, such as the resource group names and locations, need to be the same.|
 |aadAppClientId | (Optional) A parameter to include within the *input.json* file only if the Azure AD app already exists.  |
 |aadAppClientSecret  | (Optional) A parameter to include within the *input.json* file only if the Azure AD app already exists.|
