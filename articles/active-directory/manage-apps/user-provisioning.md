@@ -92,46 +92,6 @@ For pre-integrated applications listed in the gallery, step-by-step guidance is 
 
 For other applications that support SCIM 2.0, follow the steps in the article [SCIM user provisioning with Azure Active Directory](use-scim-to-provision-users-and-groups.md).
 
-## Frequently asked questions
-
-
-### How do I troubleshoot issues with user provisioning?
-
-For scenario-based guidance on how to troubleshoot automatic user provisioning, see [Problems configuring and provisioning users to an application](application-provisioning-config-problem.md).
-
-### What are the best practices for rolling out automatic user provisioning?
-
-> [!VIDEO https://www.youtube.com/embed/MAy8s5WSe3A]
-
-For an example step-by-step deployment plan for outbound user provisioning to an application, see the [Identity Deployment Guide for User Provisioning](https://aka.ms/deploymentplans/userprovisioning).
-
-### Does automatic user provisioning to SaaS apps work with B2B users in Azure AD?
-
-Yes, it's possible to use the Azure AD user provisioning service to provision B2B (or guest) users in Azure AD to SaaS applications.
-
-However, for B2B users to sign in to the SaaS application using Azure AD, the SaaS application must have its SAML-based single sign-on capability configured in a specific way. For more information on how to configure SaaS applications to support sign-ins from B2B users, see [Configure SaaS apps for B2B collaboration]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps).
-
-### Does automatic user provisioning to SaaS apps work with dynamic groups in Azure AD?
-
-Yes. When configured to "sync only assigned users and groups", the Azure AD user provisioning service can provision or de-provision users in a SaaS application based on whether they're members of a [dynamic group](../users-groups-roles/groups-create-rule.md). Dynamic groups also work with the "sync all users and groups" option.
-
-However, usage of dynamic groups can impact the overall performance of end-to-end user provisioning from the Azure AD to SaaS applications. When using dynamic groups, keep these caveats and recommendations in mind:
-
-- How fast a user in a dynamic group is provisioned or deprovisioned in a SaaS application depends on how fast the dynamic group can evaluate membership changes. For information on how to check the processing status of a dynamic group, see [Check processing status for a membership rule](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule).
-
-- When using dynamic groups, the rules must be carefully considered with user provisioning and de-provisioning in mind, as a loss of membership results in a deprovisioning event.
-
-### Does automatic user provisioning to SaaS apps work with nested groups in Azure AD?
-
-No. When configured to "sync only assigned users and groups", the Azure AD user provisioning service isn't able to read or provision users that are in nested groups. It's only able to read and provision users that are immediate members of the explicitly assigned group.
-
-This is a limitation of "group-based assignments to applications", which also affects single sign-on and is described in [Using a group to manage access to SaaS applications](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps ).
-
-As a workaround, you should explicitly assign (or otherwise [scope in](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)) the groups that contain the users who need to be provisioned.
-
-### Is provisioning between Azure AD and a target application using an encrypted channel?
-
-Yes. We use HTTPS SSL encryption for the server target.
 
 ## Related articles
 

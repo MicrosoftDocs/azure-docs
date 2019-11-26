@@ -237,14 +237,12 @@
           href: Customize-application-attributes.md
         - name: Write expressions for attribute mappings
           href: functions-for-customizing-application-data.md
-      - name: Use scoping filters to include or exclude users
+      - name: Include or exclude users and groups from scope
         items:
         - name: Scoping users or groups to be provisioned 
           href: define-conditional-rules-for-provisioning-user-accounts.md
         - name: Skip deletion for out-of-scope users
           href: skip-out-of-scope-deletions.md
-      - name: Automate configuration using MS Graph
-        href: application-provisioning-configure-api.md
       - name: Monitor and report on provisioning
         items:
         - name: Monitor provisioning status and performance
@@ -253,6 +251,8 @@
           href: check-status-user-account-provisioning.md
         - name: Export and import your configuration
           href: export-import-provisioning-configuration.md  
+      - name: Automate configuration using MS Graph
+        href: application-provisioning-configure-api.md
       - name: Troubleshoot user provisioning
         items:
         - name: Troubleshoot app provisioning
