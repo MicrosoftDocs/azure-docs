@@ -120,7 +120,7 @@ When you define a custom role, you choose the set of permissions that a user is 
 | Name | Dependencies |
 | ---- | -------- |
 | Read instance | None <br/> Other dependencies: View device templates, device groups, device instances |
-| Manage instnace | None |
+| Manage instance | None |
 | Read global | None   |
 | Manage global | Read Global |
 | Full Control | Read instance, Manage instance, Read global, Manage global. <br/> Other dependencies: View device templates, device groups, device instances |
