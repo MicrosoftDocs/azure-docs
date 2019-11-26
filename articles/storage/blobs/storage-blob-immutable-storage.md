@@ -16,7 +16,7 @@ ms.subservice: blobs
 
 Immutable storage for Azure Blob storage enables users to store business-critical data objects in a WORM (Write Once, Read Many) state. This state makes the data non-erasable and non-modifiable for a user-specified interval. For the duration of the retention interval, blobs can be created and read, but cannot be modified or deleted. Immutable storage is available for general-purpose v2 and Blob storage accounts in all Azure regions.
 
-For information about how to set and clear legal holds or create a time-based retention policy, see [Set and manage immutability policies for Blob storage](storage-blob-immutability-policies-manage.md).
+For information about how to set and clear legal holds or create a time-based retention policy using the Azure portal, PowerShell, or Azure CLI, see [Set and manage immutability policies for Blob storage](storage-blob-immutability-policies-manage.md).
 
 ## About immutable Blob storage
 
@@ -61,13 +61,20 @@ For example, suppose that a user creates a time-based retention policy with a re
 
 An unlocked time-based retention policy is recommended only for feature testing and a policy must be locked in order to be compliant with SEC 17a-4(f) and other regulatory compliance. Once a time-based retention policy is locked, the policy cannot be removed and a maximum of five increases to the effective retention period is allowed. For more information on how to set and lock time-based retention policies, see [Set and manage immutability policies for Blob storage](storage-blob-immutability-policies-manage.md).
 
+The following limits apply to retention policies:
+
+- For a storage account, the maximum number of containers with locked time-based immutable policies is 1,000.
+- The minimum retention interval is one day. The maximum is 146,000 days (400 years).
+- For a container, the maximum number of edits to extend a retention interval for locked time-based immutable policies is 5.
+- For a container, a maximum of seven time-based retention policy audit logs are retained for a locked policy.
+
 ### Legal holds
 
 When you set a legal hold, all existing and new blobs stay in the immutable state until the legal hold is cleared. For more information on how to set and clear legal holds, see [Set and manage immutability policies for Blob storage](storage-blob-immutability-policies-manage.md).
 
 A container can have both a legal hold and a time-based retention policy at the same time. All blobs in that container stay in the immutable state until all legal holds are cleared, even if their effective retention period has expired. Conversely, a blob stays in an immutable state until the effective retention period expires, even though all legal holds have been cleared.
 
-The following table shows the types of blob operations that are disabled for the different immutable scenarios. For more information, see the [Azure Blob Service API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api) documentation.
+The following table shows the types of Blob storage operations that are disabled for the different immutable scenarios. For more information, see the [Azure Blob Service REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api) documentation.
 
 |Scenario  |Blob state  |Blob operations not allowed  |
 |---------|---------|---------|
@@ -78,16 +85,7 @@ The following table shows the types of blob operations that are disabled for the
 
 <sup>1</sup> The application allows these operations to create a new blob once. All subsequent overwrite operations on an existing blob path in an immutable container are not allowed.
 
-## Supported values
-
-### Time-based retention
-
-- For a storage account, the maximum number of containers with locked time-based immutable policies is 1,000.
-- The minimum retention interval is one day. The maximum is 146,000 days (400 years).
-- For a container, the maximum number of edits to extend a retention interval for locked time-based immutable policies is 5.
-- For a container, a maximum of seven time-based retention policy audit logs are retained for a locked policy.
-
-### Legal hold
+The following limits apply to legal holds:
 
 - For a storage account, the maximum number of containers with a legal hold setting is 1,000.
 - For a container, the maximum number of legal hold tags is 10.
@@ -96,7 +94,7 @@ The following table shows the types of blob operations that are disabled for the
 
 ## Pricing
 
-There is no additional charge for using this feature. Immutable data is priced in the same way as regular, mutable data. For pricing details on Azure Blob storage, see the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
+There is no additional charge for using this feature. Immutable data is priced in the same way as mutable data. For pricing details on Azure Blob storage, see the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## FAQ
 
