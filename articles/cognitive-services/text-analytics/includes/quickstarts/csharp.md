@@ -27,7 +27,7 @@ ms.author: aahi
 
 ### Create a new .NET Core application
 
-Using Visual Studio, create a new .NET Core console app. This will create a simple "Hello World" project with a single C# source file: *program.cs*. 
+Using the Visual Studio IDE, create a new .NET Core console app. This will create a simple "Hello World" project with a single C# source file: *program.cs*. 
 
 Open the *program.cs* file and add the following `using` directives:
 
