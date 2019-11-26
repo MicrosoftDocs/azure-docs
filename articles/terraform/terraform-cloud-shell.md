@@ -1,9 +1,6 @@
 ---
 title: Tutorial - Configure Azure Cloud Shell for Terraform
 description: Use Terraform with Azure Cloud Shell to simplify authentication and template configuration.
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/26/2019
 ---

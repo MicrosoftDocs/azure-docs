@@ -1,14 +1,8 @@
 ---
-title: Troubleshooting Azure Container Instances
-description: Learn how to troubleshoot issues with Azure Container Instances
-services: container-instances
-author: dlepow
-manager: gwallace
-
-ms.service: container-instances
+title: Troubleshoot common issues
+description: Learn how to troubleshoot common issues when your deploy, run, or manage Azure Container Instances
 ms.topic: article
 ms.date: 09/25/2019
-ms.author: danlep
 ms.custom: mvc
 ---
 
@@ -228,7 +222,7 @@ If you want to confirm that Azure Container Instances can listen on the port you
 Learn how to [retrieve container logs and events](container-instances-get-logs.md) to help debug your containers.
 
 <!-- LINKS - External -->
-[azure-name-restrictions]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#resource-naming
+[azure-name-restrictions]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources
 [windows-sac-overview]: https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview
 [docker-multi-stage-builds]: https://docs.docker.com/engine/userguide/eng-image/multistage-build/
 [docker-hub-windows-core]: https://hub.docker.com/_/microsoft-windows-servercore

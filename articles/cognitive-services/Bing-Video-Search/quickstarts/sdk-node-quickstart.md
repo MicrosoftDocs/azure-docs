@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Search for videos using the Bing Video Search SDK for Node.js"
+title: "Quickstart: Search for videos using the SDK for Node.js - Bing Video Search"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to send video search requests using the Bing Video Search SDK for Node.js
 services: cognitive-services

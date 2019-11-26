@@ -1,12 +1,8 @@
 ---
-title: Azure Resource Manager templates overview
+title: Templates overview
 description: Describes the benefits using Azure Resource Manager templates for deployment of resources.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/25/2019
-ms.author: tomfitz
-
 ---
 # Azure Resource Manager templates overview
 

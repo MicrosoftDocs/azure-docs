@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Run the Speech Devices SDK on Windows - Speech Service"
+title: 'Quickstart: Run the Speech Devices SDK on Windows'
 titleSuffix: Azure Cognitive Services
 description: Prerequisites and instructions for getting started with a Windows Speech Devices SDK.
 services: cognitive-services
@@ -101,22 +101,21 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
     private static String LuisAppId = "<enter your LUIS AppId>";
    ```
 
-    If you are using conversation transcription, your speech key and region information are also needed in `Cts.java`:
+   If you are using conversation transcription, your speech key and region information are also needed in `Cts.java`:
 
    ```java
     private static final String CTSKey = "<Conversation Transcription Service Key>";
     private static final String CTSRegion="<Conversation Transcription Service Region>";// Region may be "centralus" or "eastasia"
-    ```
+   ```
 
 1. The default keyword (keyword) is "Computer". You can also try one of the other provided keywords, like "Machine" or "Assistant". The resource files for these alternate keywords are in the Speech Devices SDK, in the keyword folder. For example, `C:\SDSDK\JRE-Sample-Release\keyword\Computer` contains the files used for the keyword "Computer".
 
-   > [!TIP]
-   > You can also [create a custom keyword](speech-devices-sdk-create-kws.md).
+    > [!TIP]
+    > You can also [create a custom keyword](speech-devices-sdk-create-kws.md).
 
     To use a new keyword, update the following line in `FunctionsList.java`, and copy the keyword to your app. For example, to use the keyword 'Machine' from the keyword package `machine.zip`:
 
    * Copy the `kws.table` file from the zip package into the project folder **target/classes**.
-
    * Update the `FunctionsList.java` with the keyword name:
 
      ```java
@@ -139,23 +138,23 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
 
 ## Create and run a standalone application
 
-1. In the **Package explorer**, right-click your project. Choose **Export**. 
+1. In the **Package explorer**, right-click your project. Choose **Export**.
 
 1. The **Export** window appears. Expand **Java** and select **Runnable JAR file** and then select **Next**.
 
-   ![Screenshot of the Export window](media/speech-devices-sdk/eclipse-export-windows.png) 
+   ![Screenshot of the Export window](media/speech-devices-sdk/eclipse-export-windows.png)
 
 1. The **Runnable JAR File Export** window appears. Choose an **Export destination** for the application, and then select **Finish**.
- 
+
    ![Screenshot of Runnable JAR File Export](media/speech-devices-sdk/eclipse-export-jar-windows.png)
 
-1. Please put `kws.table`, `participants.properties`, `unimic_runtime.dll`, `pma.dll` and `Microsoft.CognitiveServices.Speech.extension.pma.dll`  in the destination folder chosen above as these files are needed by the application.
+1. Please put `kws.table`, `participants.properties`, `unimic_runtime.dll`, `pma.dll` and `Microsoft.CognitiveServices.Speech.extension.pma.dll` in the destination folder chosen above as these files are needed by the application.
 
 1. To run the standalone application
 
-     ```powershell
-     java -jar SpeechDemo.jar
-     ```
+   ```powershell
+   java -jar SpeechDemo.jar
+   ```
 
 ## Next steps
 

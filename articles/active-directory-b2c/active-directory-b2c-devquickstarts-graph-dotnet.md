@@ -273,11 +273,11 @@ Inspect the `B2CGraphClient.SendGraphPatchRequest()` method for details on how t
 
 ### Search users
 
-You can search for users in your B2C tenant in following ways:
+You can search for users in your B2C tenant in the following ways:
 
 * Reference the user's **object ID**.
 * Reference their sign-in identifer, the `signInNames` property.
-* Reference any of the valid OData parameters, e.g. givenName, surname, displayName etc.
+* Reference any of the valid OData parameters. For example, 'givenName', 'surname', 'displayName' etc.
 
 Run one of the following commands to search for a user:
 

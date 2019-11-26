@@ -1,5 +1,5 @@
 ---
-title: Index CSV blobs using delimitedText parsing mode (preview)
+title: Search over CSV blobs 
 titleSuffix: Azure Cognitive Search
 description: Extract and import CSV from Azure Blob storage using the delimitedText parsing mode, currently in public preview.
 

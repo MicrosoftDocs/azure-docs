@@ -1,12 +1,8 @@
 ---
 title: Publish a managed services offer to Azure Marketplace
 description: Learn how to publish a managed service offer that onboards customers to Azure delegated resource management.
-author: JnHs
-ms.author: jenhayes
-ms.service: lighthouse
-ms.date: 11/11/2019
-ms.topic: overview
-manager: carmonm
+ms.date: 11/15/2019
+ms.topic: conceptual
 ---
 
 # Publish a managed services offer to Azure Marketplace
@@ -98,14 +94,14 @@ Complete the following fields in the **Overview** section:
 |**Summary**     | Brief purpose or function of your offer. This is usually displayed under the title. Maximum length of 100 characters.        |
 |**Long Summary**     | A longer summary of the purpose or function of your offer. Maximum length of 256 characters.        |
 |**Description**     | More information about your offer. This field has a maximum length of 3000 characters and supports simple HTML formatting. You must include the words "managed service" or "managed services" somewhere in your description.       |
-|**Marketing Identifier**     | A unique URL-friendly identifier. it will be used in Marketplace URLs for this offer. For example, if your publisher ID is *contoso* and your marketing identifier is *sampleApp*, the URL for your offer in Azure Marketplace will be *https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp*.        |
+|**Marketing Identifier**     | A unique URL-friendly identifier. This identifier can only contain lowercase alphanumeric characters and dashes. It will be used in Marketplace URLs for this offer. For example, if your publisher ID is *contoso* and your marketing identifier is *sampleApp*, the URL for your offer in Azure Marketplace will be *https://azuremarketplace.microsoft.com/marketplace/apps/contoso-sampleApp*.        |
 |**Preview Subscription IDs**     | Add one to 100 subscription identifiers. The customers associated with these subscriptions will be able to view the offer in Azure Marketplace before it goes live. We suggest including your own subscriptions here so you can preview how your offer appears in the Azure Marketplace before making it available to customers.  (Microsoft support and engineering teams will also be able to view your offer during this preview period.)   |
 |**Useful Links**     | URLs related to your offer, such as documentation, release notes, FAQs, etc.        |
 |**Suggested Categories (Max 5)**     | One or more categories (up to five) which apply to your offer. These categories help customers discover your offer in Azure Marketplace and the Azure portal.        |
 
 In the **Marketing Artifacts** section, you can upload logos and other assets to be shown with your offer. You can optionally upload screenshots or links to videos that can help customers understand your offer.
 
-Four logo sizes are required: **Small (40x40)**, **Medium (90x90)**, **Large (115x115)**, and **Wide (255x155)**. Follow these guidelines for your logos:
+Four logo sizes are required: **Small (40x40)**, **Medium (90x90)**, **Large (115x115)**, and **Wide (255x115)**. Follow these guidelines for your logos:
 
 - The Azure design has a simple color palette. Limit the number of primary and secondary colors on your logo.
 - The theme colors of the portal are white and black. Don't use these colors as the background color for your logo. Use a color that makes your logo prominent in the portal. We recommend simple primary colors.
@@ -135,6 +131,8 @@ Once you've added this info, select **Save.**
 ## Publish your offer
 
 Once you've completed all of the sections, your next step is to publish the offer to Azure Marketplace. Select the **Publish** button to initiate the process of making your offer live. For more about this process, see [Publish Azure Marketplace and AppSource offers](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-publish-offer).
+
+You can [publish an updated version of your offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-update-offer) at any time. For example, you may want to add a new role definition to a previously-published offer. When you do so, customers who have already added the offer will see an icon in the [**Service providers**](view-manage-service-providers.md) page in the Azure portal that lets them know an update is available. Each customer will be able to [review the changes](view-manage-service-providers.md#update-service-provider-offers) and decide whether they want to update to the new version. 
 
 ## The customer onboarding process
 

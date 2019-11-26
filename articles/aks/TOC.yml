@@ -216,6 +216,8 @@
     - name: Use Kubernetes RBAC with Azure AD integration
       href: azure-ad-rbac.md
       maintainContext: true
+    - name: Rotate certificates
+      href: certificate-rotation.md
   - name: Monitoring and logging
     items:
     - name: Azure Monitor for containers

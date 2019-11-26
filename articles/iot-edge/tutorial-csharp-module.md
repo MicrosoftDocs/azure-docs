@@ -10,7 +10,7 @@ ms.author: kgremban
 ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: "mvc, seodec18"
+ms.custom: mvc
 
 ---
 
