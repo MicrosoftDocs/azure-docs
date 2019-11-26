@@ -15,7 +15,7 @@ ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 Resource Manager supports two types of vCPU quotas for virtual machines. **Pay-as-you-go VMs and Reserved VM Instances** use standard quota. **Low priority VMs** use Low priority quota. 
 Standard vCPU quota for pay-as-you-go and Reserved VM Instances is enforced at two tiers for each subscription in each region
 
-The first tier is the **Total Regional vCPUs limit** (across all VM Series), and the second tier is the **per VM Series vCPUs limit** (such as the Dv3-series vCPUs). Any time a new VM is to be deployed, the sum of new and existing vCPUs usage for that VM Series must not exceed the vCPU quota approved for that particular VM Series. Further, the total new and existing vCPU count deployed across all VM Series should not exceed the Total Regional vCPUs quota approved for the subscription. If either of those quotas are exceeded, the VM deployment will not be allowed.
+The first tier is the **Total Regional vCPUs limit** (across all VM Series), and the second tier is the **per VM Series vCPUs limit** (such as the Dv3-series vCPUs). Anytime a new VM is to be deployed, the sum of new and existing vCPUs usage for that VM Series must not exceed the vCPU quota approved for that particular VM Series. Further, the total new and existing vCPU count deployed across all VM Series should not exceed the Total Regional vCPUs quota approved for the subscription. If either of those quotas are exceeded, the VM deployment will not be allowed.
 You can request an increase of the vCPUs quota limit for the VM series from Azure portal. An increase in the VM Series quota automatically increases the Total Regional vCPUs limit by the same amount. 
 
 Learn more about standard vCPU quotas on the [Virtual machine vCPU quotas page](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) and [Azure subscription and service limits page](https://docs.microsoft.com/azure/azure-supportability/classic-deployment-model-quota-increase-requests). 
@@ -40,15 +40,15 @@ You can also request Quota for multiple regions through a single support case. R
 
      ![New support request](./media/resource-manager-core-quotas-request/newsupportrequest.png)
 
-3. In the Issue type dropdown, choose **Service and subscription limits (quotas)**.
+3. In the Issue type drop-down, choose **Service and subscription limits (quotas)**.
 
-   ![Issue type dropdown](./media/resource-manager-core-quotas-request/issuetypedropdown.png)
+   ![Issue type drop-down](./media/resource-manager-core-quotas-request/issuetypedropdown.png)
 
 4. Select the subscription that needs an increased quota.
 
    ![Select subscription newSR](./media/resource-manager-core-quotas-request/select-subscription-sr.png)
    
-5. Select **Compute -VM (cores-vCPUs) subscription  limit increases** in **quota type** dropdown. 
+5. Select **Compute -VM (cores-vCPUs) subscription  limit increases** in **quota type** drop-down. 
 
    ![Select quota type](./media/resource-manager-core-quotas-request/select-quota-type.png)
 
@@ -68,11 +68,11 @@ You can also request Quota for multiple regions through a single support case. R
 
    ![SKU Family](./media/resource-manager-core-quotas-request/1-9.png)
 
-10. Enter the new limits you would like on the subscription. To remove a line, uncheck the SKU from the SKU family dropdown or click the discard "x" icon. 
+10. Enter the new limits you would like on the subscription. To remove a line, uncheck the SKU from the SKU family drop-down or click the discard "x" icon. 
 
    ![New Limits](./media/resource-manager-core-quotas-request/1-10.png)
 
-11. To request Quota for more than one location you can check on another **location** from the drop down and select appropriate VM Type. This step will pre-load SKU families selected for earlier **location** against the new location and you can simply enter the new limits you would like.
+11. To request Quota for more than one location you can check on another **location** from the drop-down and select appropriate VM Type. This step preloads SKU families selected for earlier **location** against the new location and you can simply enter the new limits you would like.
 
    ![Multiple locations](./media/resource-manager-core-quotas-request/1-11.png)
    
@@ -117,12 +117,12 @@ You can also **request Quota for multiple regions** through a single support cas
 
    ![SKU series selected](./media/resource-manager-core-quotas-request/1-1-8.png)
 
-9. Enter the new limits you would like on the subscription. To remove a line, uncheck the SKU from the SKU family dropdown or click the discard "x" icon. 
+9. Enter the new limits you would like on the subscription. To remove a line, uncheck the SKU from the SKU family drop-down or click the discard "x" icon. 
 
    ![SKU new quota request](./media/resource-manager-core-quotas-request/1-1-9.png)
    
 
-10. To request Quota for more than one location you can check on another **location** from the drop down and select appropriate VM Type. This step will pre-load SKU families selected for earlier **location** against the new location and you can simply enter the new limits you would like.
+10. To request Quota for more than one location you can check on another **location** from the drop-down and select appropriate VM Type. This step preloads SKU families selected for earlier **location** against the new location and you can simply enter the new limits you would like.
    
     ![SKU new quota request](./media/resource-manager-core-quotas-request/1-1-10.png)
  
