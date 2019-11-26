@@ -1,21 +1,21 @@
 ---
 title: Azure Monitor for containers Frequently Asked Questions | Microsoft Docs
 description: Azure Monitor for containers is a solution that monitors the health of your AKS clusters and Container Instances in Azure. This article answers common questions.
-services:  azure-monitor
-author: mgoedtel
-manager: carmonm
-editor: tysonn
 ms.service:  azure-monitor
-ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 08/02/2019
+ms.subservice: 
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-
+ms.date: 10/15/2019
 ---
 
 # Azure Monitor for containers Frequently Asked Questions
 
 This Microsoft FAQ is a list of commonly asked questions about Azure Monitor for containers. If you have any additional questions about the solution, go to the [discussion forum](https://feedback.azure.com/forums/34192--general-feedback) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
+
+## Can I view metrics collected in Grafana?
+
+Azure Monitor for containers supports viewing metrics stored in your Log Analytics workspace in Grafana dashboards. We have provided a template that you can download from Grafana's [dashboard repository](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker) to get you started and  reference to help you learn how to query additional data from your monitored clusters to visualize in custom Grafana dashbaords. 
 
 ## Can I monitor my AKS-engine cluster with Azure Monitor for containers?
 
@@ -29,7 +29,7 @@ If you are unable to see any data in the Log Analytics workspace at a certain ti
 
 The ContainerInventory table contains information about both stopped and running containers. The table is populated by a workflow inside the agent that queries the docker for all the containers (running and stopped), and forwards that data the Log Analytics workspace.
  
-## How do I resolve **Missing Subscription registration** error?
+## How do I resolve *Missing Subscription registration* error?
 
 If you receive the error **Missing Subscription registration for Microsoft.OperationsManagement**, you can resolve it by registering the resource provider **Microsoft.OperationsManagement** in the subscription where the workspace is defined. The documentation for how to do this can be found [here](../../azure-resource-manager/resource-manager-register-provider-errors.md).
 
@@ -67,21 +67,19 @@ LogEntry : ({“Hello": "This example has multiple lines:","Docker/Moby": "will 
 
 ```
 
-For a detailed look at the issue, review the following [github link](https://github.com/moby/moby/issues/22920).
+For a detailed look at the issue, review the following [GitHub link](https://github.com/moby/moby/issues/22920).
 
 ## How do I resolve Azure AD errors when I enable live logs? 
 
-You may see the following error: **The reply url specified in the request does not match the reply urls configured for the application: '<application ID\>'**. The solution to solve it can be found in the article [How to view container logs real time with Azure Monitor for containers](container-insights-live-logs.md#configure-aks-with-azure-active-directory). 
+You may see the following error: **The reply url specified in the request does not match the reply urls configured for the application: '<application ID\>'**. The solution to solve it can be found in the article [How to view container data in real time with Azure Monitor for containers](container-insights-livedata-setup.md#configure-ad-integrated-authentication). 
 
 ## Why can't I upgrade cluster after onboarding?
 
 If after you enable Azure Monitor for containers for an AKS cluster, you delete the Log Analytics workspace the cluster was sending its data to, when attempting to upgrade the cluster it will fail. To work around this, you will have to disable monitoring and then re-enable it referencing a different valid workspace in your subscription. When you try to perform the cluster upgrade again, it should process and complete successfully.  
 
 ## Which ports and domains do I need to open/whitelist for the agent?
-- *.ods.opinsights.azure.com   443
-- *.oms.opinsights.azure.com   443
-- *.blob.core.windows.net      443
-- dc.services.visualstudio.com 443
+
+See the [Network firewall requirements](container-insights-onboard.md#network-firewall-requirements) for the proxy and firewall configuration information required for the containerized agent with Azure, Azure US Government, and Azure China clouds.
 
 ## Next steps
 

@@ -1,13 +1,13 @@
 ---
 title: Search for GIF images using the Bing Image Search API
 titleSuffix: Azure Cognitive Services
-description: Use the Bing Image Search API to search for .gif images across the web.
+description: The Bing Image Search API enables you to also search across the entire Web for the most relevant .gif images.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: aahi
 ms.custom: seodec2018

@@ -19,7 +19,7 @@ ms.author: stemi
 ---
 # Department of Defense (DoD) in Azure Government
 ## Overview
-Azure Government is used by Department of Defense (DoD) entities to deploy a broad range of workloads and solutions, including those workloads covered by<a href="https://iasecontent.disa.mil/cloud/SRG/index.html"> The DoD Cloud Computing Security Requirements Guide, Version 1, Release 2</a> at Impact Level 4 (L4), and Impact Level 5 (L5).
+Azure Government is used by Department of Defense (DoD) entities to deploy a broad range of workloads and solutions, including those workloads covered by<a href="https://dl.dod.cyber.mil/wp-content/uploads/cloud/pdf/Cloud_Computing_SRG_v1r3_Revision_History.pdf"> The DoD Cloud Computing Security Requirements Guide, Version 1, Release 3</a> at Impact Level 4 (L4), and Impact Level 5 (L5).
 
 Azure Government is the first and only hyperscale commercial cloud service to be awarded an Information Impact Level 5 DoD Provisional Authorization by the Defense Information Systems Agency. In addition, Azure Government regions dedicated to US Department of Defense customer workloads are now generally available.
 
@@ -109,7 +109,7 @@ Azure is an evergreen service where new services and capabilities are being adde
 
 <a href="https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA"> Microsoft Trust Center - DoD web page </a>
 
-<a href="https://iasecontent.disa.mil/cloud/SRG/index.html"> The DoD Cloud Computing Security Requirements Guide, Version 1, Release 2 </a>
+<a href="https://dl.dod.cyber.mil/wp-content/uploads/cloud/SRG/index.html"> The DoD Cloud Computing Security Requirements Guide, Version 1, Release 2 </a>
 
 <a href="https://azure.microsoft.com/offers/azure-government/"> Azure Government Reseller Channels
 

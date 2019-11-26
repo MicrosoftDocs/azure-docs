@@ -1,11 +1,12 @@
 ---
 title: Local HDFS stuck in safe mode on Azure HDInsight cluster
-description: Local HDFS stuck in safe mode on Azure HDInsight cluster
+description: Troubleshoot local Apache HDFS stuck in safe mode on Apache cluster in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 08/02/2019
+ms.reviewer: jasonh
+ms.date: 08/14/2019
 ---
 
 # Scenario: Local HDFS stuck in safe mode on Azure HDInsight cluster
@@ -14,9 +15,9 @@ This article describes troubleshooting steps and possible resolutions for issues
 
 ## Issue
 
-Local HDFS stuck in safe mode on Azure HDInsight cluster. You receive an error message similar as follows:
+The local Apache Hadoop Distributed File System (HDFS) is stuck in safe mode on the HDInsight cluster. You receive an error message similar as follows:
 
-```
+```output
 hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
 17/04/05 16:20:52 WARN retry.RetryInvocationHandler: Exception while invoking ClientNamenodeProtocolTranslatorPB.mkdirs over hn0-spark2.2oyzcdm4sfjuzjmj5dnmvscjpg.dx.internal.cloudapp.net/10.0.0.22:8020. Not retrying because try once and fail.
 org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.hdfs.server.namenode.SafeModeException): Cannot create directory /temp. Name node is in safe mode.
@@ -28,7 +29,7 @@ mkdir: Cannot create directory /temp. Name node is in safe mode.
 
 ## Cause
 
-HDInsight cluster has been scaled down to very few nodes below or close to HDFS replication factor.
+The HDInsight cluster has been scaled down to very few nodes below, or number of nodes is close to the HDFS replication factor.
 
 ## Resolution
 
@@ -56,6 +57,6 @@ If you didn't see your problem or are unable to solve your issue, visit one of t
 
 * Get answers from Azure experts through [Azure Community Support](https://azure.microsoft.com/support/community/).
 
-* Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
+* Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience. Connecting the Azure community to the right resources: answers, support, and experts.
 
-* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, please review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).
+* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).

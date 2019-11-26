@@ -183,6 +183,10 @@ We don’t recommend application usage where you create a receiver with epoch an
 - If there are one or more receivers created with no epoch, and a new receiver is created with epoch e1, all the old receivers get disconnected.
 
 
+> [!NOTE]
+> We recommend using different consumer groups for applications that use epochs and for those that do not use epochs to avoid errors. 
+
+
 ## Next steps
 
 Now that you're familiar with the Event Processor Host, see the following articles to learn more about Event Hubs:

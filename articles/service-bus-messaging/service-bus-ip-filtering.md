@@ -43,12 +43,10 @@ IP filter rules are applied in order and the first rule that matches the IP addr
 > Trusted Microsoft services are not supported when IP Filtering (Firewall rules) are implemented, and will be made available soon.
 >
 > Common Azure scenarios that don't work with IP Filtering (note that the list is **NOT** exhaustive) -
-> - Azure Monitor
 > - Azure Stream Analytics
 > - Integration with Azure Event Grid
 > - Azure IoT Hub Routes
 > - Azure IoT Device Explorer
-> - Azure Data Explorer
 >
 > The below Microsoft services are required to be on a virtual network
 > - Azure App Service

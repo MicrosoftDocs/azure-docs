@@ -1,5 +1,5 @@
 ---
-title: Set up disaster recovery to Azure for Hyper-V VMs using PowerShell and Azure Resource Manager | Microsoft Docs
+title: Hyper-V VM disaster recovery using Azure Site Recovery and PowerShell
 description: Automate disaster recovery of Hyper-V VMs to Azure with the Azure Site Recovery service using PowerShell and Azure Resource Manager.
 author: sujayt
 manager: rochakm
@@ -140,10 +140,13 @@ Before you start, note that the storage account specified should be in the same 
         $protectionContainer = Get-AsrProtectionContainer
 3. Associate the protection container with the replication policy, as follows:
 
-     $Policy = Get-AsrPolicy -FriendlyName $PolicyName
-     $associationJob  = New-AsrProtectionContainerMapping -Name $mappingName -Policy $Policy -PrimaryProtectionContainer $protectionContainer[0]
-
+        $Policy = Get-AsrPolicy -FriendlyName $PolicyName
+        $associationJob  = New-AsrProtectionContainerMapping -Name $mappingName -Policy $Policy -PrimaryProtectionContainer $protectionContainer[0]
 4. Wait for the association job to complete successfully.
+
+5. Retrieve the protection container mapping.
+
+        $ProtectionContainerMapping = Get-ASRProtectionContainerMapping -ProtectionContainer $protectionContainer
 
 ## Step 7: Enable VM protection
 
@@ -153,8 +156,8 @@ Before you start, note that the storage account specified should be in the same 
         $ProtectableItem = Get-AsrProtectableItem -ProtectionContainer $protectionContainer -FriendlyName $VMFriendlyName
 2. Protect the VM. If the VM you are protecting has more than one disk attached to it, specify the operating system disk by using the *OSDiskName* parameter.
 
-        $Ostype = "Windows"                                 # "Windows" or "Linux"
-        $DRjob = New-AsrReplicationProtectedItem -ProtectableItem $VM -Name $VM.Name -ProtectionContainerMapping $ProtectionContainerMapping -RecoveryAzureStorageAccountId $StorageAccountID -OSDiskName $OSDiskNameList[$i] -OS Windows -RecoveryResourceGroupId
+        $OSType = "Windows"                                 # "Windows" or "Linux"
+        $DRjob = New-AsrReplicationProtectedItem -ProtectableItem $VM -Name $VM.Name -ProtectionContainerMapping $ProtectionContainerMapping -RecoveryAzureStorageAccountId $StorageAccountID -OSDiskName $OSDiskNameList[$i] -OS $OSType -RecoveryResourceGroupId $ResourceGroupID
 
 3. Wait for the VMs to reach a protected state after the initial replication. This can take a while, depending on factors such as the amount of data to be replicated, and the available upstream bandwidth to Azure. When a protected state is in place, the job State and StateDescription are updated as follows:
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Kinect known issues and troubleshooting
-description: Known issues and troubleshooting Azure Kinect device
+description: Learn about some of the known issues and troubleshooting tips when using the Sensor SDK with Azure Kinect DK.
 author: tesych
 ms.author: tesych
 ms.prod: kinect-dk
@@ -47,6 +47,31 @@ For more information, see below clip from header file:
 *    all else  - log all messages to stdout
 *
 * K4A_LOG_LEVEL =
+*    'c'  - log all messages of level 'critical' criticality
+*    'e'  - log all messages of level 'error' or higher criticality
+*    'w'  - log all messages of level 'warning' or higher criticality
+*    'i'  - log all messages of level 'info' or higher criticality
+*    't'  - log all messages of level 'trace' or higher criticality
+*    DEFAULT - log all message of level 'error' or higher criticality
+*/
+```
+
+Logging for the Body Tracking SDK K4ABT.dll is similar except that users should modify a different set of environment variable names:
+
+```console
+/**
+* environment variables
+* K4ABT_ENABLE_LOG_TO_A_FILE =
+*    0    - completely disable logging to a file
+*    log\custom.log - log all messages to the path and file specified - must end in '.log' to
+*                     be considered a valid entry
+*    ** When enabled this takes precedence over the value of K4A_ENABLE_LOG_TO_STDOUT
+*
+* K4ABT_ENABLE_LOG_TO_STDOUT =
+*    0    - disable logging to stdout
+*    all else  - log all messages to stdout
+*
+* K4ABT_LOG_LEVEL =
 *    'c'  - log all messages of level 'critical' criticality
 *    'e'  - log all messages of level 'error' or higher criticality
 *    'w'  - log all messages of level 'warning' or higher criticality

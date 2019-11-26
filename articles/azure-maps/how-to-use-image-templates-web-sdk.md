@@ -204,7 +204,10 @@ See the following articles for more code samples where image templates can be us
 > [Add a symbol layer](map-add-pin.md)
 
 > [!div class="nextstepaction"]
-> [Add a shape](map-add-shape.md)
+> [Add a line layer](map-add-line-layer.md)
+
+> [!div class="nextstepaction"]
+> [Add a polygon layer](map-add-shape.md)
 
 > [!div class="nextstepaction"]
 > [Add HTML Makers](map-add-bubble-layer.md)

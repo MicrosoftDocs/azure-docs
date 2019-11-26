@@ -5,7 +5,7 @@ keywords: azure subscription disabled
 author: bandersmsft
 manager: amberb
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -56,5 +56,5 @@ For other subscription types, [contact support](https://portal.azure.com/?#blade
 
 If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-# Next steps
+## Next steps
 - Learn how to [Monitor and manage billing activity for Azure](billing-getting-started.md).

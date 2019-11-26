@@ -1,16 +1,7 @@
 ﻿---
-title: Use condition in Azure Resource Manager templates | Microsoft Docs
-description: Learn how to deploy Azure resources based on conditions.
-services: azure-resource-manager
-documentationcenter: ''
+title: Use condition in templates
+description: Learn how to deploy Azure resources based on conditions. Shows how to either deploy a new resource or use an existing resource.
 author: mumian
-manager: dougeby
-editor: tysonn
-
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 05/21/2019
 ms.topic: tutorial
 ms.author: jgao
@@ -34,7 +25,7 @@ This tutorial covers the following tasks:
 
 This tutorial only covers a basic scenario of using conditions. For more information, see:
 
-* [Template file structure: Condition](./resource-group-authoring-templates.md#condition).
+* [Template file structure: Condition](conditional-resource-deployment.md).
 * [Conditionally deploy a resource in an Azure Resource Manager template](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
 * [Template function: If](./resource-group-template-functions-logical.md#if).
 * [Comparison functions for Azure Resource Manager templates](./resource-group-template-functions-comparison.md)
@@ -45,7 +36,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* [Visual Studio Code](https://code.visualstudio.com/) with [Resource Manager Tools extension](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create Azure Resource Manager templates](./resource-manager-tools-vs-code.md).
 * To increase security, use a generated password for the virtual machine administrator account. Here is a sample for generating a password:
 
     ```azurecli-interactive
@@ -82,7 +73,7 @@ Azure QuickStart Templates is a repository for Resource Manager templates. Inste
 Make two changes to the existing template:
 
 * Add a storage account name parameter. Users can specify either a new storage account name or an existing storage account name.
-* Add a new parameter called **newOrExisting**. The deployment uses this parameter to determine where to create a new storage account or use an existing storage account.
+* Add a new parameter called **newOrExisting**. The deployment uses this parameter to determine whether to create a new storage account or use an existing storage account.
 
 Here is the procedure to make the changes:
 
@@ -134,7 +125,7 @@ Here is the procedure to make the changes:
 
 ## Deploy the template
 
-Follow the instructions in [Deploy the template](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) to open the Cloud shell and upload the revised template, and then run the follow PowerShell script to deploy the template.
+Follow the instructions in [Deploy the template](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) to open the Cloud shell and upload the revised template, and then run the following PowerShell script to deploy the template.
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
@@ -159,7 +150,7 @@ New-AzResourceGroupDeployment `
 > [!NOTE]
 > The deployment fails if **newOrExisting** is **new**, but the storage account with the storage account name specified already exists.
 
-Try making another deployment with **newOrExisting** set to "existing" and specify an exiting storage account. To create a storage account beforehand, see [Create a storage account](../storage/common/storage-quickstart-create-account.md).
+Try making another deployment with **newOrExisting** set to "existing" and specify an existing storage account. To create a storage account beforehand, see [Create a storage account](../storage/common/storage-quickstart-create-account.md).
 
 ## Clean up resources
 

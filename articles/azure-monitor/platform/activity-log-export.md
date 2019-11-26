@@ -11,6 +11,10 @@ ms.subservice: logs
 ---
 
 # Export Azure Activity log to storage or Azure Event Hubs
+
+> [!NOTE]
+> You can now collect the Activity log into a Log Analytics workspace using a diagnostic setting similar to how you collect resource logs. See [Collect and analyze Azure activity logs in Log Analytics workspace in Azure Monitor](activity-log-collect.md).
+
 The [Azure Activity Log](activity-logs-overview.md) provides insight into subscription-level events that have occurred in your Azure subscription. In addition to viewing the Activity log in the Azure portal or copying it to a Log Analytics workspace where it can be analyzed with other data collected by Azure Monitor, you can create a log profile to archive the Activity log to an Azure storage account or stream it to an Event Hub.
 
 ## Archive Activity Log
@@ -50,16 +54,14 @@ The log profile defines the following.
 
 **Which regions (locations) should be exported.** You should include all locations since many events in the Activity Log are global events.
 
-**How long the Activity Log should be retained in a Storage Account.** A retention of zero days means logs are kept forever. Otherwise, the value can be any number of days between 1 and 2147483647.
+**How long the Activity Log should be retained in a Storage Account.** A retention of zero days means logs are kept forever. Otherwise, the value can be any number of days between 1 and 365.
 
 If retention policies are set, but storing logs in a storage account is disabled, then retention policies have no effect. Retention policies are applied per-day, so at the end of a day (UTC), logs from the day that is now beyond the retention policy are deleted. For example, if you had a retention policy of one day, at the beginning of the day today the logs from the day before yesterday would be deleted. The delete process begins at midnight UTC, but note that it can take up to 24 hours for the logs to be deleted from your storage account.
 
 
+> [!IMPORTANT]
+> You may receive an error when creating a log profile if the Microsoft.Insights resource provider isn't registered. See [Azure resource providers and types](../../azure-resource-manager/resource-manager-supported-services.md) to register this provider.
 
-> [!WARNING]
-> The format of the log data in the storage account changed to JSON Lines on Nov. 1st, 2018. [See this article for a description of the impact and how to update your tooling to handle the new format.](diagnostic-logs-append-blobs.md)
->
->
 
 ### Create log profile using the Azure portal
 
@@ -110,7 +112,7 @@ If a log profile already exists, you first need to remove the existing log profi
     | StorageAccountId |No |Resource ID of the Storage Account where the Activity Log should be saved. |
     | serviceBusRuleId |No |Service Bus Rule ID for the Service Bus namespace you would like to have event hubs created in. This is a string with the format: `{service bus resource ID}/authorizationrules/{key name}`. |
     | Location |Yes |Comma-separated list of regions for which you would like to collect Activity Log events. |
-    | RetentionInDays |Yes |Number of days for which events should be retained in the storage account, between 1 and 2147483647. A value of zero stores the logs indefinitely. |
+    | RetentionInDays |Yes |Number of days for which events should be retained in the storage account, between 1 and 365. A value of zero stores the logs indefinitely. |
     | Category |No |Comma-separated list of event categories that should be collected. Possible values are _Write_, _Delete_, and _Action_. |
 
 ### Example script
@@ -152,7 +154,7 @@ If a log profile already exists, you first need to remove the existing log profi
     | name |Yes |Name of your log profile. |
     | storage-account-id |Yes |Resource ID of the Storage Account to which Activity Logs should be saved. |
     | locations |Yes |Space-separated list of regions for which you would like to collect Activity Log events. You can view a list of all regions for your subscription using `az account list-locations --query [].name`. |
-    | days |Yes |Number of days for which events should be retained, between 1 and 365. A value of zero will store the logs indefinitely (forever).  If zero, then the enabled parameter should be set to true. |
+    | days |Yes |Number of days for which events should be retained, between 1 and 365. A value of zero will store the logs indefinitely (forever).  If zero, then the enabled parameter should be set to false. |
     |enabled | Yes |True or False.  Used to enable or disable the retention policy.  If True, then the days parameter must be a value greater than 0.
     | categories |Yes |Space-separated list of event categories that should be collected. Possible values are Write, Delete, and Action. |
 
@@ -160,6 +162,9 @@ If a log profile already exists, you first need to remove the existing log profi
 
 ## Activity log schema
 Whether sent to Azure storage or Event Hub, the Activity log data will be written to JSON with the following format.
+
+
+> The format of Activity log data written to a storage account changed to JSON Lines on Nov. 1st, 2018. See [Prepare for format change to Azure Monitor diagnostic logs archived to a storage account](diagnostic-logs-append-blobs.md) for details on this format change.
 
 ``` JSON
 {

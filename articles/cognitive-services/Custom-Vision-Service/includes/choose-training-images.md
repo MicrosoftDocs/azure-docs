@@ -19,6 +19,6 @@ In order to train your model effectively, use images with visual variety. Select
 * type
 
 Additionally, make sure all of your training images meet the following criteria:
-* .jpg, .png, or .bmp format
+* .jpg, .png, .bmp, or .gif format
 * no greater than 6MB in size (4MB for prediction images)
 * no less than 256 pixels on the shortest edge; any images shorter than this will be automatically scaled up by the Custom Vision Service

@@ -1,18 +1,10 @@
 ---
-title: JavaScript developer reference for Azure Functions | Microsoft Docs
+title: JavaScript developer reference for Azure Functions 
 description: Understand how to develop functions by using JavaScript.
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
-keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture
 
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
-ms.service: azure-functions
-ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
-ms.author: glenga
 
 ---
 # Azure Functions JavaScript developer guide
@@ -417,7 +409,7 @@ The following table shows the Node.js version used by each major version of the 
 | Functions version | Node.js version | 
 |---|---|
 | 1.x | 6.11.2 (locked by the runtime) |
-| 2.x  | _Active LTS_ and _Maintenance LTS_ Node.js versions (8.11.1 and 10.14.1 recommended). Set the version by using the WEBSITE_NODE_DEFAULT_VERSION [app setting](functions-how-to-use-azure-function-app-settings.md#settings).|
+| 2.x  | _Active LTS_ and _Maintenance LTS_ Node.js versions (~10 recommended). Target the version in Azure by setting the WEBSITE_NODE_DEFAULT_VERSION [app setting](functions-how-to-use-azure-function-app-settings.md#settings) to `~10`.|
 
 You can see the current version that the runtime is using by checking the above app setting or by printing `process.version` from any function.
 
@@ -580,20 +572,44 @@ When you deploy your function app to Azure using the **Deploy to function app...
 
 ### Azure Functions Core Tools
 
+There are several ways in which a TypeScript project differs from a JavaScript project when using the Core Tools.
+
+#### Create project
+
 To create a TypeScript function app project using Core Tools, you must specify the TypeScript language option when you create your function app. You can do this in one of the following ways:
 
 - Run the `func init` command, select `node` as your language stack, and then select `typescript`.
 
 - Run the `func init --worker-runtime typescript` command.
 
-To run your function app code locally using Core Tools, use the `npm start` command, instead of `func host start`. The `npm start` command is equivalent to the following commands:
+#### Run local
+
+To run your function app code locally using Core Tools, use the following commands instead of `func host start`: 
+
+```command
+npm install
+npm start
+```
+
+The `npm start` command is equivalent to the following commands:
 
 - `npm run build`
 - `func extensions install`
 - `tsc`
 - `func start`
 
-Before you use the [`func azure functionapp publish`] command to deploy to Azure, you must first run the `npm run build:production` command. This command creates a production-ready build of JavaScript files from the TypeScript source files that can be deployed using [`func azure functionapp publish`].
+#### Publish to Azure
+
+Before you use the [`func azure functionapp publish`] command to deploy to Azure, you create a production-ready build of JavaScript files from the TypeScript source files. 
+
+The following commands prepare and publish your TypeScript project using Core Tools: 
+
+```command
+npm run build:production 
+func azure functionapp publish <APP_NAME>
+```
+
+In this command, replace `<APP_NAME>` with the name of your function app.
 
 ## Considerations for JavaScript functions
 
@@ -649,8 +665,9 @@ const util = require('util');
 const readFileAsync = util.promisify(fs.readFile);
 
 module.exports = async function (context) {
+    let data;
     try {
-        const data = await readFileAsync('./hello.txt');
+        data = await readFileAsync('./hello.txt');
     } catch (err) {
         context.log.error('ERROR', err);
         // This rethrown exception will be handled by the Functions Runtime and will only fail the individual invocation

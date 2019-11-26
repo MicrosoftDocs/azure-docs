@@ -1,5 +1,5 @@
 ---
-title: Collation - Azure SQL Data Warehouse | Microsoft Docs
+title: Collation 
 description: Collation types supported in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: antvgski 
@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: anvang
 ms.reviewer: jrasnick
+ms.custom: seo-lt-2019
 ---
 
 # Database collation support for Azure SQL Data Warehouse
@@ -21,7 +22,7 @@ To change the default collation, you simple update to the Collation field in the
 
 For example, if you wanted to change the default collation to case sensitive, you would simply rename the Collation from SQL_Latin1_General_CP1_CI_AS to SQL_Latin1_General_CP1_CS_AS. 
 
-#List of unsupported collation types
+## List of unsupported collation types
 *	Japanese_Bushu_Kakusu_140_BIN
 *	Japanese_Bushu_Kakusu_140_BIN2
 *	Japanese_Bushu_Kakusu_140_CI_AI_VSS

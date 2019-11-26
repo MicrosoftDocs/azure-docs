@@ -1,5 +1,5 @@
 ---
-title: Sign in to your accounts using the Microsoft Authenticator app - Azure Active Directory | Microsoft Docs
+title: Sign in using the Microsoft Authenticator app - Azure AD
 description: Use the Microsoft Authenticator app to sign in to your work or school account or your personal Microsoft and non-Microsoft accounts, using either two-factor verification or phone sign-in.
 services: active-directory
 author: eross-msft
@@ -118,7 +118,7 @@ For the steps necessary to sign in to your work or school or your personal accou
 
 ## Next steps
 
-- If you're having trouble getting your verification code for your personal Microsoft account, see the **Troubleshooting verification code issues** section of the [Microsoft account security info & verification codes](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes) article.
+- If you're having trouble getting your verification code for your personal Microsoft account, see the **Troubleshooting verification code issues** section of the [Microsoft account security info & verification codes](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes) article.
 
 - If you have more general questions about the app, see the [Microsoft Authenticator FAQs](user-help-auth-app-faq.md)
 

@@ -29,7 +29,7 @@ Policies are enforced for business-to-business (B2B) collaboration users. Howeve
 
 Yes. A SharePoint Online policy also applies to OneDrive for Business.
 
-## Why can’t I set a policy on client apps, like Word or Outlook?
+## Why can’t I set a policy directly on client apps, like Word or Outlook?
 
 A Conditional Access policy sets requirements for accessing a service. It's enforced when authentication to that service occurs. The policy is not set directly on a client application. Instead, it is applied when a client calls a service. For example, a policy set on SharePoint applies to clients calling SharePoint. A policy set on Exchange applies to Outlook.
 

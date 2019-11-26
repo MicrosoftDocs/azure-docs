@@ -95,7 +95,7 @@ In the search box, find and select your integration account.
    [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 2. In the Logic App Designer, add the 
-   [Request trigger](../connectors/connectors-native-reqres.md#use-the-http-request-trigger) 
+   [Request trigger](../connectors/connectors-native-reqres.md#add-request) 
    to your logic app.
 
 3. Under the trigger, choose **New step**. 

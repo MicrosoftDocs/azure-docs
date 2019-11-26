@@ -1,20 +1,22 @@
 ---
 title: Automated ML remote compute targets
-titleSuffix: Azure Machine Learning service
-description: Learn how to build models using automated machine learning on an Azure Machine Learning remote compute target with Azure Machine Learning service
+titleSuffix: Azure Machine Learning
+description: Learn how to build models using automated machine learning on an Azure Machine Learning remote compute target with Azure Machine Learning
 services: machine-learning
-author: nacharya1
-ms.author: nilesha
+author: cartacioS
+ms.author: sacartac
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 7/12/2019
+ms.date: 11/04/2019
 
 #Customer intent: As a professional data scientist, I can use automated machine learning (automated ML) functionality to build a model on an Azure Machine Learning remote compute target.
 ---
 # Train models with automated machine learning in the cloud
+
+[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In Azure Machine Learning, you train your model on different types of compute resources that you manage. The compute target could be a local computer or a resource in the cloud.
 
@@ -47,7 +49,6 @@ provisioning_config = AmlCompute.provisioning_configuration(vm_size="STANDARD_D2
                                                             # for GPU, use "STANDARD_NC6"
                                                             # vm_priority = 'lowpriority', # optional
                                                             max_nodes=6)
-
 compute_target = ComputeTarget.create(
     ws, amlcompute_cluster_name, provisioning_config)
 
@@ -64,35 +65,41 @@ Cluster name restrictions include:
 + Cannot include any of the following characters:
   `\` ~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \\\\ | ; : \' \\" , < > / ?.`
 
-## Access data using get_data() function
+## Access data using TabularDataset function
 
-Provide the remote resource access to your training data. For automated machine learning experiments running on remote compute, the data needs to be fetched using a `get_data()` function.
+Defined training_data as  `TabularDataset`and the label , which are passed to Automated ML in the AutoMLConfig. `from_delimited_files` by default sets the `infer_column_types` to true, which will infer the columns type automatically. 
 
-To provide access, you must:
-+ Create a get_data.py file containing a `get_data()` function
-+ Place that file in a directory accessible as an absolute path
-
-You can encapsulate code to read data from a blob storage or local disk in the get_data.py file. In the following code sample, the data comes from the sklearn package.
+If you do wish to manually set the column types, you can set the `set_column_types` argument to manually set the type of each columns. In the following code sample, the data comes from the sklearn package.
 
 ```python
+from sklearn import datasets
+from azureml.core.dataset import Dataset
+from scipy import sparse
+import numpy as np
+import pandas as pd
+import os
+
 # Create a project_folder if it doesn't exist
+if not os.path.isdir('data'):
+    os.mkdir('data')
+    
 if not os.path.exists(project_folder):
     os.makedirs(project_folder)
 
-#Write the get_data file.
-%%writefile $project_folder/get_data.py
+X = pd.DataFrame(data_train.data[100:,:])
+y = pd.DataFrame(data_train.target[100:])
 
-from sklearn import datasets
-from scipy import sparse
-import numpy as np
+# merge X and y
+label = "digit"
+X[label] = y
 
-def get_data():
+training_data = X
 
-    digits = datasets.load_digits()
-    X_digits = digits.data[10:,:]
-    y_digits = digits.target[10:]
+training_data.to_csv('data/digits.csv')
+ds = ws.get_default_datastore()
+ds.upload(src_dir='./data', target_path='digitsdata', overwrite=True, show_progress=True)
 
-    return { "X" : X_digits, "y" : y_digits }
+training_data = Dataset.Tabular.from_delimited_files(path=ds.path('digitsdata/digits.csv'))
 ```
 
 ## Create run configuration
@@ -109,14 +116,13 @@ run_config.environment.docker.enabled = True
 run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
 
 dependencies = CondaDependencies.create(
-    pip_packages=["scikit-learn", "scipy", "numpy"])
+    pip_packages=["scikit-learn", "scipy", "numpy==1.16.2"])
 run_config.environment.python.conda_dependencies = dependencies
 ```
 
 See this [sample notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb) for an additional example of this design pattern.
 
 ## Configure experiment
-
 Specify the settings for `AutoMLConfig`.  (See a [full list of parameters](how-to-configure-auto-train.md#configure-experiment) and their possible values.)
 
 ```python
@@ -126,39 +132,21 @@ import logging
 
 automl_settings = {
     "name": "AutoML_Demo_Experiment_{0}".format(time.time()),
+    "experiment_timeout_minutes" : 20,
+    "enable_early_stopping" : True,
     "iteration_timeout_minutes": 10,
-    "iterations": 20,
     "n_cross_validations": 5,
     "primary_metric": 'AUC_weighted',
-    "preprocess": False,
     "max_concurrent_iterations": 10,
-    "verbosity": logging.INFO
 }
 
 automl_config = AutoMLConfig(task='classification',
                              debug_log='automl_errors.log',
                              path=project_folder,
                              compute_target=compute_target,
-                             run_configuration=run_config,
-                             data_script=project_folder + "/get_data.py",
+                             training_data=training_data,
+                             label_column_name=label,
                              **automl_settings,
-                             )
-```
-
-### Enable model explanations
-
-Set the optional `model_explainability` parameter in the `AutoMLConfig` constructor. Additionally, a validation dataframe object must be passed as a parameter `X_valid` to use the model explainability feature.
-
-```python
-automl_config = AutoMLConfig(task='classification',
-                             debug_log='automl_errors.log',
-                             path=project_folder,
-                             compute_target=compute_target,
-                             run_configuration=run_config,
-                             data_script=project_folder + "/get_data.py",
-                             **automl_settings,
-                             model_explainability=True,
-                             X_valid=X_test
                              )
 ```
 
@@ -230,59 +218,13 @@ remote_run.get_portal_url()
 
 The same information is available in your workspace.  To learn more about these results, see [Understand automated machine learning results](how-to-understand-automated-ml.md).
 
-### View logs
-
-Find logs on the DSVM under `/tmp/azureml_run/{iterationid}/azureml-logs`.
-
-## <a name="explain"></a> Best model explanation
-
-Retrieving model explanation data allows you to see detailed information about the models to increase transparency into what's running on the back-end. In this example, you run model explanations only for the best fit model. If you run for all models in the pipeline, it will result in significant run time. Model explanation information includes:
-
-* shap_values: The explanation information generated by shap lib.
-* expected_values: The expected value of the model applied to set of X_train data.
-* overall_summary: The model level feature importance values sorted in descending order.
-* overall_imp: The feature names sorted in the same order as in overall_summary.
-* per_class_summary: The class level feature importance values sorted in descending order. Only available for the classification case.
-* per_class_imp: The feature names sorted in the same order as in per_class_summary. Only available for the classification case.
-
-Use the following code to select the best pipeline from your iterations. The `get_output` method returns the best run and the fitted model for the last fit invocation.
-
-```python
-best_run, fitted_model = remote_run.get_output()
-```
-
-Import the `retrieve_model_explanation` function and run on the best model.
-
-```python
-from azureml.train.automl.automlexplainer import retrieve_model_explanation
-
-shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
-    retrieve_model_explanation(best_run)
-```
-
-Print results for the `best_run` explanation variables you want to view.
-
-```python
-print(overall_summary)
-print(overall_imp)
-print(per_class_summary)
-print(per_class_imp)
-```
-
-Printing the `best_run` explanation summary variables results in the following output.
-
-![Model explainability console output](./media/how-to-auto-train-remote/expl-print.png)
-
-You can also visualize feature importance through the widget UI as well as the web UI on Azure portal inside your workspace.
-
-![Model explainability UI](./media/how-to-auto-train-remote/model-exp.png)
-
 ## Example
 
-The [how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb) notebook demonstrates concepts in this article.
+The following [notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression/auto-ml-regression.ipynb) demonstrates concepts in this article.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## Next steps
 
-Learn [how to configure settings for automatic training](how-to-configure-auto-train.md).
+* Learn [how to configure settings for automatic training](how-to-configure-auto-train.md).
+* See the [how-to](how-to-machine-learning-interpretability-automl.md) on enabling model interpretability features in automated ML experiments.

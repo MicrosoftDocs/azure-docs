@@ -11,7 +11,6 @@ ms.assetid: 78eb1e49-4fcd-49e7-b3c7-f1906f0f22e3
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: ccompy
@@ -71,12 +70,12 @@ To get started with App Service Environments, see [How To Create An App Service 
 
 <!--Links-->
 [WhatisASE]: app-service-app-service-environment-intro.md
-[ScaleWebapp]: ../web-sites-scale.md
+[ScaleWebapp]: ../manage-scale-up.md
 [HowtoCreateASE]: app-service-web-how-to-create-an-app-service-environment.md
 [HowtoConfigureASE]: app-service-web-configure-an-app-service-environment.md
 [CreateWebappinASE]: app-service-web-how-to-create-a-web-app-in-an-ase.md
 [Appserviceplans]: ../overview-hosting-plans.md
 [AppServicePricing]: https://azure.microsoft.com/pricing/details/app-service/ 
 [ASEAutoscale]: app-service-environment-auto-scale.md
-[AppScale]: ../web-sites-scale.md
+[AppScale]: ../manage-scale-up.md
 [AppWarmup]: https://ruslany.net/2015/09/how-to-warm-up-azure-web-app-during-deployment-slots-swap/

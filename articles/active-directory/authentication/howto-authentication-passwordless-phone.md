@@ -1,12 +1,12 @@
 ---
-title: Enable passwordless sign-in with the Microsoft Authenticator app (preview) - Azure Active Directory
+title: Passwordless sign-in with the Microsoft Authenticator app - Azure Active Directory
 description: Enable passwordless sign-in to Azure AD using the Microsoft Authenticator app (preview)
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -43,7 +43,7 @@ Registration features for passwordless authentication methods rely on the combin
 ### Enable passwordless phone sign-in authentication methods
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
-1. Browse to **Azure Active Directory** > **Authentication methods** > **Authentication method policy (Preview)**
+1. Search for and select *Azure Active Directory*. Select **Security** > **Authentication methods** > **Authentication method policy (Preview)**
 1. Under **Passwordless phone sign-in**, choose the following options
    1. **Enable** - Yes or No
    1. **Target** - All users or Select users
@@ -89,7 +89,7 @@ End users who are enabled for MFA through an organization’s on-premises Azure 
 
 ### Device registration
 
-One of the prerequisites to create this new, strong credential, is that the device must also registered within the Azure AD tenant to an individual user. Due to current device registration restrictions, a device can only be registered in a single tenant. This limit means that only one work or school account in the Microsoft Authenticator app can be enabled for phone sign-in.
+One of the prerequisites to create this new strong credential, is that the device, where the Microsoft Authenticator app is installed, must also be registered within the Azure AD tenant to an individual user. Due to current device registration restrictions, a device can only be registered in a single tenant. This limit means that only one work or school account in the Microsoft Authenticator app can be enabled for phone sign-in.
 
 > [!NOTE]
 > Device registration is not the same as device management or "MDM." It only associates a device ID and a user ID together in the Azure AD directory.  

@@ -31,11 +31,11 @@ When you deploy a scale set into one or more zones as of API version *2017-12-01
 
 With max spreading, you only see one fault domain in the scale set VM instance view and in the instance metadata regardless of how many fault domains the VMs are spread across. The spreading within each zone is implicit.
 
-To use max spreading, set *platformFaultDomainCount* to *1*. To use static five fault domain spreading, set *platformFaultDomainCount* to *5*. In API version *2017-12-01*, *platformFaultDomainCount* defaults to *1* for single-zone and cross-zone scale sets. Currently, only static five fault domain spreading is supported for regional scale sets.
+To use max spreading, set *platformFaultDomainCount* to *1*. To use static five fault domain spreading, set *platformFaultDomainCount* to *5*. In API version *2017-12-01*, *platformFaultDomainCount* defaults to *1* for single-zone and cross-zone scale sets. Currently, only static five fault domain spreading is supported for regional (non-zonal) scale sets.
 
 ### Placement groups
 
-When you deploy a scale set, you also have the option to deploy with a single [placement group](./virtual-machine-scale-sets-placement-groups.md) per Availability Zone, or with multiple per zone. For regional scale sets, the choice is to have a single placement group in the region or to have multiple in the region. For most workloads, we recommend multiple placement groups, which allows for greater scale. In API version *2017-12-01*, scale sets default to multiple placement groups for single-zone and cross-zone scale sets, but they default to single placement group for regional scale sets.
+When you deploy a scale set, you also have the option to deploy with a single [placement group](./virtual-machine-scale-sets-placement-groups.md) per Availability Zone, or with multiple per zone. For regional (non-zonal) scale sets, the choice is to have a single placement group in the region or to have multiple in the region. For most workloads, we recommend multiple placement groups, which allows for greater scale. In API version *2017-12-01*, scale sets default to multiple placement groups for single-zone and cross-zone scale sets, but they default to single placement group for regional (non-zonal) scale sets.
 
 > [!NOTE]
 > If you use max spreading, you must use multiple placement groups.

@@ -1,18 +1,15 @@
 ---
-title: Move Azure resources to a new subscription or resource group | Microsoft Docs
+title: Move resources to a new subscription or resource group
 description: Use Azure Resource Manager to move resources to a new resource group or subscription.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/09/2019
-ms.author: tomfitz
+ms.date: 11/08/2019
 ---
 
 # Move resources to a new resource group or subscription
 
 This article shows you how to move Azure resources to either another Azure subscription or another resource group under the same subscription. You can use the Azure portal, Azure PowerShell, Azure CLI, or the REST API to move resources.
 
-Both the source group and the target group are locked during the move operation. Write and delete operations are blocked on the resource groups until the move completes. This lock means you can't add, update, or delete resources in the resource groups, but it doesn't mean the resources are frozen. For example, if you move a SQL Server and its database to a new resource group, an application that uses the database experiences no downtime. It can still read and write to the database.
+Both the source group and the target group are locked during the move operation. Write and delete operations are blocked on the resource groups until the move completes. This lock means you can't add, update, or delete resources in the resource groups. It doesn't mean the resources are frozen. For example, if you move a SQL Server and its database to a new resource group, an application that uses the database experiences no downtime. It can still read and write to the database. The lock can last for a maximum of four hours, but most moves complete in much less time.
 
 Moving a resource only moves it to a new resource group or subscription. It doesn't change the location of the resource.
 
@@ -27,9 +24,9 @@ There are some important steps to do before moving a resource. By verifying thes
    * [App Services move guidance](./move-limitations/app-service-move-limitations.md)
    * [Azure DevOps Services move guidance](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
    * [Classic deployment model move guidance](./move-limitations/classic-model-move-limitations.md) - Classic Compute, Classic Storage, Classic Virtual Networks, and Cloud Services
+   * [Networking move guidance](./move-limitations/networking-move-limitations.md)
    * [Recovery Services move guidance](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
    * [Virtual Machines move guidance](./move-limitations/virtual-machines-move-limitations.md)
-   * [Virtual Networks move guidance](./move-limitations/virtual-network-move-limitations.md)
 
 1. The source and destination subscriptions must be active. If you have trouble enabling an account that has been disabled, [create an Azure support request](../azure-supportability/how-to-create-azure-support-request.md). Select **Subscription Management** for the issue type.
 
@@ -88,6 +85,24 @@ There are some important steps to do before moving a resource. By verifying thes
    * **Microsoft.Resources/subscriptions/resourceGroups/write** on the destination resource group.
 
 1. Before moving the resources, check the subscription quotas for the subscription you're moving the resources to. If moving the resources means the subscription will exceed its limits, you need to review whether you can request an increase in the quota. For a list of limits and how to request an increase, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
+
+1. **For a move across subscriptions, the resource and its dependent resources must be located in the same resource group and they must be moved together.** For example, a VM with managed disks would require the VM and the managed disks to be moved together, along with other dependent resources.
+
+   If you're moving a resource to a new subscription, check to see whether the resource has any dependent resources, and whether they're located in the same resource group. If the resources aren't in the same resource group, check to see whether the resources can be consolidated into the same resource group. If so, bring all these resources into the same resource group by using a move operation across resource groups.
+
+   For more information, see [Scenario for move across subscriptions](#scenario-for-move-across-subscriptions).
+
+## Scenario for move across subscriptions
+
+Moving resources from one subscription to another is a three-step process:
+
+![cross-subscription move scenario](./media/resource-group-move-resources/cross-subscription-move-scenario.png)
+
+For illustration purposes, we have only one dependent resource.
+
+* Step 1: If dependent resources are distributed across different resource groups, first move them into one resource group.
+* Step 2: Move the resource and dependent resources together from the source subscription to the target subscription.
+* Step 3: Optionally, redistribute the dependent resources to different resource groups within the target subscription. 
 
 ## Validate move
 
@@ -210,6 +225,51 @@ In the request body, you specify the target resource group and the resources to 
 ```
 
 If you get an error, see [Troubleshoot moving Azure resources to new resource group or subscription](troubleshoot-move.md).
+
+## Frequently asked questions
+
+**Question: My resource move operation, which usually takes a few minutes, has been running for almost an hour. Is there something wrong?**
+
+Moving a resource is a complex operation that has different phases. It can involve more than just the resource provider of the resource you're trying to move. Because of the dependencies between resource providers, Azure Resource Manager allows 4 hours for the operation to complete. This time period gives resource providers a chance to recover from transient issues. If your move request is within the 4-hour period, the operation keeps trying to complete and may still succeed. The source and destination resource groups are locked during this time to avoid consistency issues.
+
+**Question: Why is my resource group locked for 4 hours during resource move?**
+
+The 4-hour window is the maximum time allowed for resource move. To prevent modifications on the resources being moved, both the source and destination resource groups are locked for the duration of the resource move.
+
+There are two phases in a move request. In the first phase, the resource is moved. In the second phase, notifications are sent to other resource providers that are dependent on the resource being moved. A resource group can be locked for the entire 4-hour window when a resource provider fails either phase. During the allowed time, Resource Manager retries the failed step.
+
+If a resource can't be moved within the 4-hour window, Resource Manager unlocks both resource groups. Resources that were successfully moved are in the destination resource group. Resources that failed to move are left the source resource group.
+
+**Question: What are the implications of the source and destination resource groups being locked during the resource move?**
+
+The lock prevents you from deleting either resource group, creating a new resource in either resource group, or deleting any of the resources involved in the move.
+
+The following image shows an error message from the Azure portal when a user tries to delete a resource group that is part of an ongoing move.
+
+![Move error message attempting to delete](./media/resource-group-move-resources/move-error-delete.png)
+
+**Question: What does the error code "MissingMoveDependentResources" mean?**
+
+When moving a resource, its dependent resources must either exist in the destination resource group or subscription, or be included in the move request. You get the MissingMoveDependentResources error code when a dependent resource doesn't meet this requirement. The error message has details about the dependent resource that needs to be included in the move request.
+
+For example, moving a virtual machine could require moving seven resource types with three different resource providers. Those resource providers and types are:
+
+* Microsoft.Compute
+   * virtualMachines
+   * disks
+* Microsoft.Network
+  * networkInterfaces
+  * publicIPAddresses
+  * networkSecurityGroups
+  * virtualNetworks
+* Microsoft.Storage
+  * storageAccounts
+
+Another common example involves moving a virtual network. You may have to move several other resources associated with that virtual network. The move request could require moving public IP addresses, route tables, virtual network gateways, network security groups, and others.
+
+**Question: Why can’t I move some resources in Azure?**
+
+Currently, not all resources in Azure support move. For a list of resources that support move, see [Move operation support for resources](move-support-resources.md).
 
 ## Next steps
 

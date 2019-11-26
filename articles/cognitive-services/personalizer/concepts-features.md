@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 06/24/2019
+ms.date: 10/14/2019
 ms.author: diberry
 ---
 
@@ -20,7 +20,7 @@ Personalizer uses **features**, which is information about the **current context
 
 For example, you may have a **feature** about:
 
-* The _user_ such as a `UserID`. 
+* The _user persona_ such as a `Sports_Shopper`. This should not be an individual user ID. 
 * The _content_ such as if a video is a `Documentary`, a `Movie`, or a `TV Series`, or whether a retail item is available in store.
 * The _current_ period of time such as which day of the week it is.
 
@@ -65,7 +65,9 @@ You can name feature namespaces following your own conventions as long as they a
 
 
 In the following JSON, `user`, `state`, and `device` are feature namespaces. 
-Public Preview Note: Currently we strongly recommend using names for feature namespaces that are UTF-8 based and start with different letters. For example, `user`, `state`, and `device` start with `u`, `s`, and `d`. Currently having namespaces with same first characters could result in collisions in indexes used for machine learning.
+
+> [!Note]
+> Currently we strongly recommend using names for feature namespaces that are UTF-8 based and start with different letters. For example, `user`, `state`, and `device` start with `u`, `s`, and `d`. Currently having namespaces with same first characters could result in collisions in indexes used for machine learning.
 
 JSON objects can include nested JSON objects and simple property/values. An array can be included only if the array items are numbers. 
 
@@ -93,6 +95,13 @@ JSON objects can include nested JSON objects and simple property/values. An arra
     ]
 }
 ```
+
+### Restrictions in character sets for namespaces
+
+The string you use for naming the namespace must follow some restrictions: 
+* It can't be unicode.
+* You can use some of the printable symbols with codes < 256 for the namespace names. 
+* You can't use symbols with codes < 32 (not printable), 32 (space), 58 (colon), 124 (pipe), and 126–140.
 
 ## How to make feature sets more effective for Personalizer
 
@@ -146,7 +155,7 @@ You can use several other [Azure Cognitive Services](https://www.microsoft.com/c
 
 Each action:
 
-* Has an ID.
+* Has an _event_ ID. If you already have an event ID, you should submit that. If you do not have an event ID, do not send one, Personalizer creates one for you and returns it in the response of the Rank request. The ID is associated with the Rank event, not the user. If you create an ID, a GUID works best. 
 * Has a list of features.
 * The list of features can be large (hundreds) but we recommend evaluating feature effectiveness to remove features that aren't contributing to getting rewards. 
 * The features in the **actions** may or may not have any correlation with features in the **context** used by Personalizer.

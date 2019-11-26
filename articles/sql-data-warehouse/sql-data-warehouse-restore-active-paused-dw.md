@@ -1,5 +1,5 @@
 ---
-title: Restore an existing Azure SQL Data Warehouse | Microsoft Docs
+title: Restore an existing data warehouse 
 description: How-to guide for restoring an existing Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: anumjs
@@ -10,6 +10,7 @@ ms.subservice: manage
 ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
 
 # Restore an existing Azure SQL Data Warehouse
@@ -84,7 +85,7 @@ $RestoredDatabase.status
 ## Restore an existing data warehouse through the Azure portal
 
 1. Sign in to the [Azure portal][Azure portal].
-2. Navigate to the SQL data warehouse that you want to restore from.
+2. Navigate to the SQL Data Warehouse that you want to restore from.
 3. At the top of the Overview blade, select **Restore**.
 
     ![ Restore Overview](./media/sql-data-warehouse-restore-active-paused-dw/restoring-01.png)

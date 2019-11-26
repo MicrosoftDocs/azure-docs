@@ -55,7 +55,7 @@ When an identity associated with an application running on a VM attempts to acce
 ### Enable Azure AD Domain Service authentication for SMB access
 You can enable Azure AD Domain Service authentication for Azure Files on your new and existing storage accounts created after September 24, 2018. 
 
-Before enabling this feature, verify that Azure AD Domain Services has been deployed for the primary Azure AD tenant with which your storage account is associated. If you have not yet set up Azure AD Domain Services, follow the step-by-step guidance provided in [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/create-instance.md).
+Before enabling this feature, verify that Azure AD Domain Services has been deployed for the primary Azure AD tenant with which your storage account is associated. If you have not yet set up Azure AD Domain Services, follow the step-by-step guidance provided in [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/tutorial-create-instance.md).
 
 Azure AD Domain Services deployment generally takes 10 to 15 minutes. After Azure AD Domain Services has been deployed, you can enable Azure AD authentication over SMB for Azure Files. For more information, see [Enable Azure Active Directory Domain Service authentication over SMB for Azure Files](storage-files-active-directory-enable.md). 
 

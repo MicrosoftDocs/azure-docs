@@ -56,8 +56,8 @@ For information on how to configure service health notification alerts by using 
 
     ![The "Add activity log alert" dialog box](media/alerts-activity-log-service-notifications/activity-log-alert-new-ux.png)
 
-> [!NOTE]
-> This subscription is used to save the activity log alert. The alert resource is deployed to this subscription and monitors events in the activity log for it.
+    > [!NOTE]
+    > This subscription is used to save the activity log alert. The alert resource is deployed to this subscription and monitors events in the activity log for it.
 
 1. Choose the **Event types** you want to be alerted for: *Service issue*, *Planned maintenance*, and *Health advisories* 
 
@@ -85,7 +85,6 @@ Learn how to [Configure webhook notifications for existing problem management sy
 
 >[!NOTE]
 >The action group defined in these steps is reusable as an existing action group for all future alert definitions.
->
 >
 
 ## Alert with existing action group using Azure portal

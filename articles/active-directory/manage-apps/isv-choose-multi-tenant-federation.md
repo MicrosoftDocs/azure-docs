@@ -1,5 +1,5 @@
 ---
-title: Choose the right federation protocol for your multi-tenant application
+title: Choose right federation protocol for multi-tenant application
 description: Guidance for independent software vendors on integrating with Azure Active Directory
 services: active-directory
 author: barbaraselden
@@ -67,7 +67,7 @@ For information on how to register your application and implement these protocol
 
 Security Assertion Markup Language (SAML) is usually used for web applications. See [How Azure uses the SAML protocol](../develop/active-directory-saml-protocol-reference.md) for an overview. 
 
-Web Services Federation (WSFed) is an [industry standard](http://docs.oasis-open.org/wsfed/federation/v1.2/ws-federation.html) generally used for web applications that are developed using the .Net platform.
+Web Services Federation (WSFed) is an [industry standard](https://docs.oasis-open.org/wsfed/federation/v1.2/ws-federation.html) generally used for web applications that are developed using the .Net platform.
 
 ### Benefits
 
@@ -75,7 +75,7 @@ SAML 2.0 is a mature standard and most technology platforms support open-source 
 
 ### Trade-offs
 
-When using SAML 2.0 or WSFed protocols for mobile applications, certain conditional access policies including Multi-factor Authentication (MFA) will have a degraded experience. Additionally, if you want to access the Microsoft Graph, you will need to implement authorization through OAuth 2.0 to generate necessary tokens. 
+When using SAML 2.0 or WSFed protocols for mobile applications, certain Conditional Access policies including Multi-factor Authentication (MFA) will have a degraded experience. Additionally, if you want to access the Microsoft Graph, you will need to implement authorization through OAuth 2.0 to generate necessary tokens. 
 
 ### Implementation
 

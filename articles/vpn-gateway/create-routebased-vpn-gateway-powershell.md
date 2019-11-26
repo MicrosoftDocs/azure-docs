@@ -1,5 +1,5 @@
 ﻿---
-title: 'Create a route-based Azure VPN gateway: PowerShell | Microsoft Docs'
+title: 'Azure VPN Gateway: Create route-based gateway: PowerShell'
 description: Quickly create a route-based VPN Gateway using PowerShell
 services: vpn-gateway
 author: cherylmc
@@ -75,7 +75,7 @@ Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0
 Set the subnet configuration for the virtual network using the [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork) cmdlet.
 
 ```azurepowershell-interactive
-$virtualNetwork | Set-AzVirtualNetwork
+$vnet | Set-AzVirtualNetwork
 ```
 
 ## <a name="PublicIP"></a>Request a public IP address

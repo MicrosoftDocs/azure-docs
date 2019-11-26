@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 08/19/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -31,7 +31,7 @@ Azure AD self-service password reset is licensed per user, to maintain complianc
 * Self-Service Password Reset for cloud users
    * I am a **cloud-only user** and have forgotten my password.
       * I would like to **reset** my password to something I know.
-   * This functionality is included in Azure AD Premium P1 or P2, or Microsoft 365 Business.
+   * This functionality is included in Azure AD Premium P1 or P2, Microsoft 365 Business, or Office 365.
 
 * Self-Service Password Reset/Change/Unlock **with on-premises writeback**
    * I am a **hybrid user** my on-premises Active Directory user account is synchronized with my Azure AD account using Azure AD Connect. I would like to change my password, have forgotten my password, or been locked out.

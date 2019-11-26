@@ -1,25 +1,22 @@
 ---
 title: Recover data from an Azure Backup Server
 description: Recover the data you've protected to a Recovery Services vault from any Azure Backup Server registered to that vault.
-ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.author: dacurwin
 ---
 # Recover data from Azure Backup Server
+
 You can use Azure Backup Server to recover the data you've backed up to a Recovery Services vault. The process for doing so is integrated into the Azure Backup Server management console, and is similar to the recovery workflow for other Azure Backup components.
 
 > [!NOTE]
-> This article is applicable for [System Center Data Protection Manager 2012 R2 with UR7 or later](https://support.microsoft.com/en-us/kb/3065246), combined with the [latest Azure Backup agent](https://aka.ms/azurebackup_agent).
+> This article is applicable for [System Center Data Protection Manager 2012 R2 with UR7 or later](https://support.microsoft.com/kb/3065246), combined with the [latest Azure Backup agent](https://aka.ms/azurebackup_agent).
 >
 >
 
 To recover data from an Azure Backup Server:
 
-1. From the **Recovery** tab of the Azure Backup Server management console, click **'Add External DPM'** (at the top left of the screen).   
+1. From the **Recovery** tab of the Azure Backup Server management console, click **'Add External DPM'** (at the top left of the screen).
+
     ![Add External DPM](./media/backup-azure-alternate-dpm-server/add-external-dpm.png)
 2. Download new **vault credentials** from the vault associated with the **Azure Backup Server** where the data is being recovered, choose the Azure Backup Server from the list of Azure Backup Servers registered with the Recovery Services vault, and provide the **encryption passphrase** associated with the server whose data is being recovered.
 
@@ -39,7 +36,7 @@ To recover data from an Azure Backup Server:
     A list of files and folders appears in the bottom pane, which can be browsed and recovered to any location.
 
     ![External DPM Server Recovery Points](./media/backup-azure-alternate-dpm-server/external-dpm-recoverypoint.png)
-5. Right click the appropriate item and click **Recover**.
+5. Right-click the appropriate item and click **Recover**.
 
     ![External DPM recovery](./media/backup-azure-alternate-dpm-server/recover.png)
 6. Review the **Recover Selection**. Verify the data and time of the backup copy being recovered, as well as the source from which the backup copy was created. If the selection is incorrect, click **Cancel** to navigate back to recovery tab to select appropriate recovery point. If the selection is correct, click **Next**.
@@ -51,7 +48,7 @@ To recover data from an Azure Backup Server:
 8. Choose the option related to **create copy**, **Skip**, or **Overwrite**.
 
    * **Create copy** - creates a copy of the file if there is a name collision.
-   * **Skip** - if there is a name collision, does not recover the file which leaves the original file.
+   * **Skip** - if there is a name collision, does not recover the file, which leaves the original file.
    * **Overwrite** - if there is a name collision, overwrites the existing copy of the file.
 
      Choose the appropriate option to **Restore security**. You can apply the security settings of the destination computer where the data is being recovered or the security settings that were applicable to product at the time the recovery point was created.
@@ -73,7 +70,8 @@ To recover data from an Azure Backup Server:
 
     ![Clear External DPM](./media/backup-azure-alternate-dpm-server/clear-external-dpm.png)
 
-## Troubleshooting Error Messages
+## Troubleshooting error messages
+
 | No. | Error Message | Troubleshooting steps |
 |:---:|:--- |:--- |
 | 1. |This server is not registered to the vault specified by the vault credential. |**Cause:** This error appears when the vault credential file selected does not belong to the Recovery Services vault associated with Azure Backup Server on which the recovery is attempted. <br> **Resolution:** Download the vault credential file from the Recovery Services vault to which the Azure Backup Server is registered. |
@@ -85,5 +83,5 @@ To recover data from an Azure Backup Server:
 
 Read the other FAQs:
 
-- [Common questions](backup-azure-vm-backup-faq.md) about Azure VM backups
-- [Common questions](backup-azure-file-folder-backup-faq.md) about the Azure Backup agent
+* [Common questions](backup-azure-vm-backup-faq.md) about Azure VM backups
+* [Common questions](backup-azure-file-folder-backup-faq.md) about the Azure Backup agent

@@ -19,6 +19,8 @@
     href: signalr-quickstart-azure-functions-csharp.md
   - name: Azure Functions - Java
     href: signalr-quickstart-azure-functions-java.md
+  - name: Azure Functions - Python
+    href: signalr-quickstart-azure-functions-python.md
   - name: REST API
     href: signalr-quickstart-rest-api.md
 
@@ -64,6 +66,8 @@
   items:
   - name: Scale
     items:
+    - name: Single instance
+      href: signalr-howto-scale-signalr.md
     - name: Multiple instances
       href: signalr-howto-scale-multi-instances.md
   - name: Secure

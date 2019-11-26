@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell Script Sample - Azure Monitor logs | Microsoft Docs
+title: Azure PowerShell Script Sample - Azure Monitor logs 
 description: Azure PowerShell Script Sample - Azure Monitor logs
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -10,7 +10,7 @@ tags: azure-service-management
 
 ms.assetid:
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -27,7 +27,7 @@ This script creates an Azure Virtual Machine, installs the Log Analytics agent, 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## Sample script
 

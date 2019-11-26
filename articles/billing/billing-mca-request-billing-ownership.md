@@ -5,7 +5,7 @@ author: amberbhargava
 manager: amberb
 editor: banders
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -24,7 +24,7 @@ To request the billing ownership, you must be an **invoice section owner** or **
 
 ## Request billing ownership
 
-1. Sign in to the [Azure portal](http://portal.azure.com) as an invoice section owner or contributor for a billing account for Microsoft Customer Agreement.
+1. Sign in to the [Azure portal](https://portal.azure.com) as an invoice section owner or contributor for a billing account for Microsoft Customer Agreement.
 
 2. Search for **Cost Management + Billing**.
 

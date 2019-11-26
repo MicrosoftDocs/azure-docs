@@ -55,7 +55,7 @@ Once your storage account resource has been created, navigate to it.
 ### Create a premium file share
 
 1. In the left menu for the storage account, scroll to the **File service** section, then select **Files**.
-1. Select **+File share** to create a premium file share.
+1. Select **File share** to create a premium file share.
 1. Enter a name and a desired quota for your file share, then select **Create**.
 
 > [!NOTE]
@@ -71,7 +71,7 @@ If you would like to clean up the resources created in this article, you can sim
 
 ### Create an account using PowerShell
 
-First, install the latest version of the [PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget) module.
+First, install the latest version of the [PowerShellGet](/powershell/scripting/gallery/installing-psget) module.
 
 Then, upgrade your powershell module, sign in to your Azure subscription, create a resource group, and then create a storage account.
 

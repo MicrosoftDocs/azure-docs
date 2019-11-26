@@ -1,5 +1,5 @@
 ---
-title: High availability with data management gateway in Azure Data Factory | Microsoft Docs
+title: High availability with data management gateway in Azure Data Factory 
 description: This article explains how you can scale out a data management gateway by adding more nodes and scale up by increasing number of concurrent jobs that can run on a node.    
 services: data-factory
 documentationcenter: ''

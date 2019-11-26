@@ -176,7 +176,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  How long are the email and SMS one-time passcodes valid?**
 
-  > **A:** The session lifetime for password reset is 15 minutes. From the start of the password reset operation, the user has 15 minutes to reset their password. The email and SMS one-time passcode are invalid after this time period expires.
+  > **A:** The session lifetime for password reset is 15 minutes. From the start of the password reset operation, the user has 15 minutes to reset their password. The email and SMS one-time passcode are valid for 5 minutes during the password reset session.
   >
   >
 * **Q:  Can I block users from resetting their password?**

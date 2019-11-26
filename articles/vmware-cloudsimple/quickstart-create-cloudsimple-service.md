@@ -1,15 +1,16 @@
 ---
 title: Azure VMware Solution by CloudSimple Quickstart - Create service 
-description: Learn how to create the CloudSimple service, provision nodes, and reserve nodes  
+description: Learn how to create the CloudSimple service, purchase nodes, and reserve nodes  
 author: sharaths-cs 
 ms.author: dikamath 
-ms.date: 04/10/2019 
+ms.date: 08/16/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 
 ms.reviewer: cynthn 
 manager: dikamath 
 ---
-# Quickstart - Create service
+
+# Quickstart - Create Azure VMware Solution by CloudSimple service
 
 To get started, create the Azure VMware Solution by CloudSimple in the Azure portal.
 
@@ -21,7 +22,9 @@ To add the CloudSimple service, you must create a gateway subnet. The gateway su
 
 ## Before you begin
 
-Allocate a /28 CIDR block for gateway subnet.  A gateway subnet is required per CloudSimple service and is unique to the region in which it's created. The gateway subnet is used for edge network services and requires a /28 CIDR block. The gateway subnet address space must be unique. It must not overlap with any network that communicates with the CloudSimple environment.  The networks that communicate with CloudSimple include on-premises networks and Azure virtual networks. 
+Allocate a /28 CIDR block for gateway subnet.  A gateway subnet is required per CloudSimple service and is unique to the region in which it's created. The gateway subnet is used for Azure VMware Solution by CloudSimple edge network services and requires a /28 CIDR block. The gateway subnet address space must be unique. It must not overlap with any network that communicates with the CloudSimple environment.  The networks that communicate with CloudSimple include on-premises networks and Azure virtual networks.
+
+Review [Networking Prerequisites](cloudsimple-network-checklist.md). 
 
 ## Sign in to Azure
 
@@ -69,7 +72,7 @@ To set up pay-as-you go capacity for a CloudSimple Private Cloud environment, fi
 7. Enter the prefix to identify the nodes.
 8. Select the location for the node resources.
 9. Select the dedicated location to host the node resources.
-10. Select the node type. You can choose the [CS28 or CS36 option](cloudsimple-node.md). The latter option includes the maximum compute and memory capacity.
+10. Select the [node type](cloudsimple-node.md).
 11. Select the number of nodes to provision.
 12. Select **Review + Create**.
 13. Review the settings. To modify any settings, click **Previous**.
