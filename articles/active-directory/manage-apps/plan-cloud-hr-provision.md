@@ -389,10 +389,6 @@ For more information, see [how to analyze the Azure AD activity logs with your A
 
 The Azure AD Connect provisioning agent installed on the Windows server creates logs in the Windows event log that may contain personal data depending on your Cloud HR app to AD attribute mappings. To comply with user privacy obligations, you can set up a Windows scheduled task to clear the event log and ensure that no data is retained beyond 48 hours.
 
-The Azure AD provisioning service falls into the **data processor** category of GDPR classification. As a data processor pipeline, the service provides data processing services to key partners and end consumers. It does not generate user data and has no independent control over what personal data is collected and how it is used. Data retrieval, aggregation, analysis, and reporting in Azure AD provisioning service are based on existing enterprise data.
-
-[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
-
 Azure AD provisioning service does not generate reports, perform analytics, or provide insights beyond 30 days. Therefore, Azure AD provisioning service does not store, process, or retain any data beyond 30 days. 
 
 ### Troubleshoot
