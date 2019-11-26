@@ -37,7 +37,7 @@ The following diagram provides a visual demonstration of this recommended data a
 
 ## Access data in storage
 
-To access your data in your storage account, Azure Machine Learning offers datastores and datasets. Datastores provide a layer of abstraction over your storage service, this aids in security and ease of access to your storage, since connection information is kept in the datastore and not exposed in scripts. Datasets point to the specific file or files in your underlying storage that you want to use for your machine learning experiment. Together these offer a secure, scalable and reproducible data delivery workflow for your machine learning tasks.
+To access your data in your storage account, Azure Machine Learning offers datastores and datasets. Datastores provide a layer of abstraction over your storage service, this aids in security and ease of access to your storage, since connection information is kept in the datastore and not exposed in scripts. Datasets point to the specific file or files in your underlying storage that you want to use for your machine learning experiment. Together these offer a secure, scalable, and reproducible data delivery workflow for your machine learning tasks.
 
 ### Datastores
 
@@ -56,6 +56,7 @@ The following articles demonstrate additional datasets capabilities.
 + [Create and register datasets](how-to-create-register-datasets.md) to your workspace to share and reuse it across different experiments without data ingestion complexities.
 + [Version and track](how-to-version-track-datasets.md) dataset lineage.
 + [Monitor your dataset](how-to-monitor-datasets.md) to help with data drift detection.
++ See the [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) and [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py) class reference documentation for available data exploration methods. 
 
 #### Types of datasets
 
