@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
-ms.date: 11/13/2019
+ms.date: 11/27/2019
 ---
 
 # Connect to Azure virtual networks from Azure Logic Apps by using an integration service environment (ISE)

@@ -8,12 +8,12 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
-ms.date: 11/13/2019
+ms.date: 11/27/2019
 ---
 
 # Set up access for multiple integration service environments in Azure Logic Apps
 
-When you work with Azure Logic Apps, you can set up an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) for hosting logic apps that need access to resources in an [Azure virtual network](../virtual-network/virtual-networks-overview.md). If you have multiple ISEs and your virtual network uses [Azure Firewall](../firewall/overview.md) or a [network virtual appliance](../virtual-network/virtual-networks-overview.md#filter-network-traffic), you can route outbound access through that firewall by using a single, predictable, and public IP address to communicate with destination systems. That way, all the ISEs in your virtual network can use this IP address, and you don't have to set up additional firewall openings at the destination for each ISE.
+When you work with Azure Logic Apps, you can set up an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) for hosting logic apps that need access to resources in an [Azure virtual network](../virtual-network/virtual-networks-overview.md). If you have multiple ISE instances that need access to other endpoints that have IP restrictions, deploy an [Azure Firewall](../firewall/overview.md) or a [network virtual appliance](../virtual-network/virtual-networks-overview.md#filter-network-traffic) into your virtual network and route outbound traffic through that firewall or network virtual appliance. You can then have all the ISE instances in your virtual network use a single, predictable, and public IP address to communicate with destination systems. That way, you don't have to set up additional firewall openings at the destination systems for each ISE. This topic shows how to route outbound traffic through an Azure Firewall, but you can apply similar concepts to a virtual network virtual appliance such as a third-party firewall from the Azure Marketplace.
 
 ## Prerequisites
 
