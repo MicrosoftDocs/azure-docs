@@ -37,6 +37,10 @@ The following tables show the resources available for a single database at each 
 | Max concurrent sessions | 300 |
 |||
 
+> [!IMPORTANT]
+> The Basic service tier provides less than one vCore (CPU).  For CPU-intensive workloads, a service tier of S3 or greater is recommended. 
+>
+
 ### Standard service tier
 
 | **Compute size** | **S0** | **S1** | **S2** | **S3** |
@@ -48,6 +52,10 @@ The following tables show the resources available for a single database at each 
 | Max concurrent workers (requests)| 60 | 90 | 120 | 200 |
 | Max concurrent sessions |600 | 900 | 1200 | 2400 |
 ||||||
+
+> [!IMPORTANT]
+> The Standard S0, S1 and S2 tiers provide less than one vCore (CPU).  For CPU-intensive workloads, a service tier of S3 or greater is recommended. 
+>
 
 ### Standard service tier (continued)
 
