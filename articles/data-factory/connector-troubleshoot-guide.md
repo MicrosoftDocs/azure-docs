@@ -1,4 +1,3 @@
-
 ---
 title: Troubleshoot Azure Data Factory Connectors
 description: Learn how to troubleshoot connector issues in Azure Data Factory. 
@@ -6,7 +5,7 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 11/25/2019
+ms.date: 11/26/2019
 ms.author: jingwang
 ms.reviewer: craigg
 ---
@@ -168,11 +167,11 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 
 - **Cause**: If the error message contains "SqlException", SQL database throws the error indicating some specific operation failed.
 
-- **Recommendation**:  Please search by SQL error code in this reference doc for more details: https://docs.microsoft.com/en-us/sql/relational-databases/errors-events/database-engine-events-and-errors. If you need further help, please contact Azure SQL support.
+- **Recommendation**:  Please search by SQL error code in this reference doc for more details: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors. If you need further help, please contact Azure SQL support.
 
 - **Cause**: If the error message contains "Client with IP address '...' is not allowed to access the server", and you are trying to connect to Azure SQL database, usually it is caused by Azure SQL database firewall issue.
 
-- **Recommendation**:  In Azure SQL Server firewall configuration, enable "Allow Azure services and resources to access this server" option. Reference doc: https://docs.microsoft.com/en-us/azure/sql-database/sql-database-firewall-configure.
+- **Recommendation**:  In Azure SQL Server firewall configuration, enable "Allow Azure services and resources to access this server" option. Reference doc: https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure.
 
 
 ### Error code:  SqlOperationFailed
@@ -181,7 +180,7 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 
 - **Cause**: If the error message contains "SqlException", SQL database throws the error indicating some specific operation failed.
 
-- **Recommendation**:  Please search by SQL error code in this reference doc for more details: https://docs.microsoft.com/en-us/sql/relational-databases/errors-events/database-engine-events-and-errors. If you need further help, please contact Azure SQL support.
+- **Recommendation**:  Please search by SQL error code in this reference doc for more details: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors. If you need further help, please contact Azure SQL support.
 
 - **Cause**: If the error message contains "PdwManagedToNativeInteropException", usually it's caused by mismatch between source and sink column sizes.
 
@@ -189,7 +188,7 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 
 - **Cause**: If the error message contains "InvalidOperationException", usually it's caused by invalid input data.
 
-- **Recommendation**:  To identify which row encounters the problem, please enable fault tolerance feature on copy activity, which can redirect problematic row(s) to a storage for further investigation. Reference doc: https://docs.microsoft.com/en-us/azure/data-factory/copy-activity-fault-tolerance.
+- **Recommendation**:  To identify which row encounters the problem, please enable fault tolerance feature on copy activity, which can redirect problematic row(s) to a storage for further investigation. Reference doc: https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance.
 
 
 ### Error code:  SqlUnauthorizedAccess
@@ -283,7 +282,7 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 
 - **Cause**: SQL Bulk Copy failed due to received an invalid column length from the bcp client.
 
-- **Recommendation**:  To identify which row encounters the problem, please enable fault tolerance feature on copy activity, which can redirect problematic row(s) to a storage for further investigation. Reference doc: https://docs.microsoft.com/en-us/azure/data-factory/copy-activity-fault-tolerance.
+- **Recommendation**:  To identify which row encounters the problem, please enable fault tolerance feature on copy activity, which can redirect problematic row(s) to a storage for further investigation. Reference doc: https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance.
 
 
 ### Error code:  SqlConnectionIsClosed
@@ -379,7 +378,7 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 
 - **Cause**: Blob storage operation hit problem.
 
-- **Recommendation**:  Please check the error in details. Please refer to blob help document: https://docs.microsoft.com/en-us/rest/api/storageservices/blob-service-error-codes. Contact storage team if need help.
+- **Recommendation**:  Please check the error in details. Please refer to blob help document: https://docs.microsoft.com/rest/api/storageservices/blob-service-error-codes. Contact storage team if need help.
 
 
 
@@ -395,7 +394,7 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 
 - **Cause**: When the error message contains 'Forbidden', the service principal or managed identity you use may not have enough permission to access the ADLS Gen2.
 
-- **Recommendation**:  Please refer to the help document: https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication.
+- **Recommendation**:  Please refer to the help document: https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication.
 
 - **Cause**: When the error message contains 'InternalServerError', the error is returned by ADLS Gen2.
 
