@@ -42251,6 +42251,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/iot-central/preview/howto-monitor-devices-azure-cli.md",
+      "redirect_url": "/azure/iot-central/core/howto-monitor-devices-azure-cli/",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/iot-central/preview/howto-run-a-job.md",
       "redirect_url": "/azure/iot-central/core/howto-run-a-job/",
       "redirect_document_id": true

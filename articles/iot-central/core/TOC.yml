@@ -41,6 +41,8 @@
         href: howto-version-device-template.md
   - name: Monitoring and analytics
     items:
+      - name: Monitor devices
+        href: howto-monitor-devices-azure-cli.md
       - name: Analyze your device data
         href: howto-create-analytics.md 
   - name: Actions and extensibility
