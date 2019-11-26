@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 In a mobile-first, cloud-first world, users can access your organization's resources from anywhere using different kinds of devices and apps. As a result, just focusing on who can access a resource is no longer enough. You can control who has access and identify where the user is and what device is being used and much more.
 
-To provide this control, **Azure Active Directory (AD) Conditional Access** allows you to specify the conditions any user must meet for access to an application, such as Multi-Factor Authentication (MFA). Using Conditional Access policies controls how authorized users (users that have been granted access to a cloud app) access cloud apps under specific conditions. Refer to [What is Conditional Access in Azure Active Directory](overview.md#conditional-access-policies) for more information.
+To provide this control, **Azure Active Directory (AD) Conditional Access** allows you to specify the conditions any user must meet for access to an application, such as Multi-Factor Authentication (MFA). Using Conditional Access policies controls how authorized users (users that have been granted access to a cloud app) access cloud apps under specific conditions. Refer to [What is Conditional Access in Azure Active Directory](overview.md) for more information.
 
 ## Key benefits
 
@@ -66,7 +66,6 @@ Follow the links below to get an overview of how Azure AD Conditional Access fun
 
 Additionally, refer to the following links for guidance to protect access to all services that are integrated with Azure Active Directory.
 
-* [What is baseline protection (preview)?](baseline-protection.md) Baseline protection ensures that you have at least the baseline level of security enabled in your Azure Active Directory environment.
 * [Identity and device access configurations](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations). Describes how to configure secure access to cloud services through Enterprise Mobility + Security products by implementing a recommended environment and configuration, including a prescribed set of Conditional Access policies and related capabilities.
 * [Azure Active Directory Conditional Access settings reference](technical-reference.md). Learn:
    * What apps use conditional access?
@@ -102,7 +101,7 @@ Refer to the following Conditional Access courses and more on [Pluralsight.com](
 * O'Reilly- [Implementing Azure Solutions - Second Edition.](https://www.oreilly.com/library/view/implementing-azure-solutions/9781789343045/b7ead3db-eb1c-4ace-897e-86ee25ea86be.xhtml)
    * "Get up and running with Azure services and learn how to implement them in your organization. Azure AD Conditional Access is covered in the chapter [Deploying and Synchronizing Azure Active Directory](https://learning.oreilly.com/library/view/implementing-azure-solutions/9781789343045/02ca8bba-08cf-4691-a7d0-1b96e286e7ea.xhtml)."
 
-* Wiley- [Mastering Microsoft Azure Infrastructure Services](https://www.wiley.com/Mastering+Microsoft+Azure+Infrastructure+Services-p-9781119003298)
+* Wiley- [Microsoft Azure Infrastructure Services for Architects: Designing Cloud Solutions](https://www.wiley.com/Microsoft+Azure+Infrastructure+Services+for+Architects%3A+Designing+Cloud+Solutions-p-9781119596547)
    * "Here's everything you need to understand, evaluate, deploy, and maintain environments that utilize Microsoft Azure."
 
 ## White papers

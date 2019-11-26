@@ -25,7 +25,7 @@ Sign in to Azure at https://portal.azure.com
 
 1. Click the **Create a resource** button found on the upper left-hand corner of Azure.
 
-1. Select **Management Tools**, and then select **Automation**.
+1. Select **IT & Management Tools**, and then select **Automation**.
 
 1. Enter the account information. For **Create Azure Run As account**, choose **Yes** so that the artifacts to simplify authentication to Azure are enabled automatically. It is important to note, that when creating an Automation Account, the name cannot be changed after it is chosen. *Automation Account names are unique per region and resource group. Names for Automation Accounts that were deleted may not be immediately available.* One Automation Account can manage resources across all regions and subscriptions for a given tenant. When complete, click **Create**, to start the Automation account deployment.
 

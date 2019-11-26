@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery - Setup and test disaster recovery for Azure virtual machines using Azure PowerShell  | Microsoft Docs
+title: Disaster recovery for Azure VMs using Azure PowerShell and Azure Site Recovery 
 description: Learn how to set up disaster recovery for Azure virtual machines with Azure Site Recovery using Azure PowerShell.
 services: site-recovery
 author: sujayt

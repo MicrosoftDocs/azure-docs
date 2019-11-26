@@ -5,11 +5,10 @@ keywords: billing invoice,invoice download,azure invoice,azure usage
 services: 'billing'
 documentationcenter: ''
 author: genlin
-manager: adpick
+manager: dcscontentpm
 editor: ''
 tags: billing
-
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na

@@ -1,15 +1,10 @@
 ---
 title: Azure Blockchain Workbench Preview overview
 description: Overview of Azure Blockchain Workbench Preview and its capabilities.
-services: azure-blockchain
-keywords: 
-author: PatAltimore
-ms.author: patricka
 ms.date: 09/05/2019
 ms.topic: overview
-ms.service: azure-blockchain
 ms.reviewer: brendal
-manager: femila
+#Customer intent: As an developer or administrator, I want to understand what Azure Blockchain Workbench is and its capabilities.
 ---
 # What is Azure Blockchain Workbench?
 

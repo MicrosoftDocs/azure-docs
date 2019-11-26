@@ -1,17 +1,15 @@
----
-title: Delegate application administrator creation and management permissions - Azure Active Directory | Microsoft Docs
+﻿---
+title: Delegate application admin management perms - Azure AD | Microsoft Docs
 description: Grant permissions for application access management in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
-
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -61,8 +59,8 @@ In some cases, enterprise applications created from the application gallery incl
 
 1. Sign in to [your Azure AD organization](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that eligible for the Application administrator or Cloud application administrator for the organization.
 1. On the [App registrations page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) for the organization, select an app to open the Overview page for the app.
-1. Select **Owners** to see the list of the owners for the app.
-1. Select **Add** to select one or more owners to add to the app.
+1. Select **Owners** to see the list of the owners for the app.
+1. Select **Add** to select one or more owners to add to the app.
 
 > [!IMPORTANT]
 > Users and service principals can be owners of application registrations. Only users can be owners of enterprise applications. Groups cannot be assigned as owners of either.

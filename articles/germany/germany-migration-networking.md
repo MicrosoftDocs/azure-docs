@@ -100,7 +100,7 @@ You can collect information about your current gateway configuration by using th
 
 For more information:
 
-- Refresh your knowledge by completing the [Application Gateway tutorials](https://docs.microsoft.com/azure/application-gateway/#step-by-step-tutorials).
+- Refresh your knowledge by completing the [Application Gateway tutorials](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-portal).
 - Learn how to [create an application gateway](../application-gateway/quick-create-portal.md).
 - Review the [Get-AzApplicationGateway](/powershell/module/az.network/get-azapplicationgateway) PowerShell cmdlets.
 

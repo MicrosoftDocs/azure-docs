@@ -1,11 +1,11 @@
 ---
 title: Integrate Azure Firewall with Azure Standard Load Balancer
-description: Learn how to integrate Azure Firewall with Azure Standard Load Balancer
+description: You can integrate an Azure Firewall into a virtual network with an Azure Standard Load Balancer (either public or internal).
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 4/1/2019
+ms.date: 11/19/2019
 ms.author: victorh
 ---
 

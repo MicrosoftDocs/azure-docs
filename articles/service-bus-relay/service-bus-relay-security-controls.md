@@ -3,13 +3,11 @@ title: Security controls for Azure Service Bus Relay
 description: A checklist of security controls for evaluating Azure Service Bus Relay
 services: service-bus-relay
 ms.service: service-bus-relay
-documentationcenter: ''
-author: msmbaldwin
-manager: barbkess
+author: spelluru
 
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.author: mbaldwin
+ms.date: 09/23/2019
+ms.author: spelluru
 
 ---
 # Security controls for Azure Service Bus Relay
@@ -20,43 +18,43 @@ This article documents the security controls built into Azure Service Bus Relay.
 
 ## Network
 
-| Security control | Yes/No | Notes |
-|---|---|--|
-| Service endpoint support| No |  |
-| Network isolation and firewalling support| No |  |
-| Forced tunneling support| N/A | Relay is the TLS tunnel  |
+| Security control | Yes/No | Notes | Documentation |
+|---|---|--|--|
+| Service endpoint support| No |  |   |
+| Network isolation and firewalling support| No |  |   |
+| Forced tunneling support| N/A | Relay is the TLS tunnel  |   |
 
 ## Monitoring & logging
 
-| Security control | Yes/No | Notes|
-|---|---|--|
-| Azure monitoring support (Log analytics, App insights, etc.)| Yes | |
-| Control and management plane logging and audit| Yes | Through [Azure Resource Manager](../azure-resource-manager/index.yml). |
-| Data plane logging and audit| Yes | Connection success / failure and errors and logged.  |
+| Security control | Yes/No | Notes| Documentation |
+|---|---|--|--|
+| Azure monitoring support (Log analytics, App insights, etc.)| Yes | |   |
+| Control and management plane logging and audit| Yes | Through [Azure Resource Manager](../azure-resource-manager/index.yml). |   |
+| Data plane logging and audit| Yes | Connection success / failure and errors and logged.  |   |
 
 ## Identity
 
-| Security control | Yes/No | Notes|
-|---|---|--|
-| Authentication| Yes | Via SAS. |
-| Authorization|  Yes | Via SAS. |
+| Security control | Yes/No | Notes| Documentation |
+|---|---|--|--|
+| Authentication| Yes | Via SAS. | [Azure Relay authentication and authorization](relay-authentication-and-authorization.md) |
+| Authorization|  Yes | Via SAS. | [Azure Relay authentication and authorization](relay-authentication-and-authorization.md) |
 
 ## Data protection
 
-| Security control | Yes/No | Notes |
-|---|---|--|
-| Server-side encryption at rest: Microsoft-managed keys |  N/A | Relay is a web socket and does not persist data. |
-| Server-side encryption at rest: customer-managed keys (BYOK) | No | Uses Microsoft TLS certs only.  |
-| Column level encryption (Azure Data Services)| N/A | |
-| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| Yes | Service requires TLS. |
+| Security control | Yes/No | Notes | Documentation |
+|---|---|--|--|
+| Server-side encryption at rest: Microsoft-managed keys |  N/A | Relay is a web socket and does not persist data. |   |
+| Server-side encryption at rest: customer-managed keys (BYOK) | No | Uses Microsoft TLS certs only.  |   |
+| Column level encryption (Azure Data Services)| N/A | |   |
+| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| Yes | Service requires TLS. |   |
 | API calls encrypted| Yes | HTTPS. |
 
 
 ## Configuration management
 
-| Security control | Yes/No | Notes|
-|---|---|--|
-| Configuration management support (versioning of configuration, etc.)| Yes | Through [Azure Resource Manager](../azure-resource-manager/index.yml).|
+| Security control | Yes/No | Notes| Documentation |
+|---|---|--|--|
+| Configuration management support (versioning of configuration, etc.)| Yes | Through [Azure Resource Manager](../azure-resource-manager/index.yml).|   |
 
 ## Next steps
 

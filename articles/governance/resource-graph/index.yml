@@ -39,6 +39,8 @@ landingContent:
             url: ./first-query-powershell.md
           - text: First query (CLI)
             url: ./first-query-azurecli.md
+          - text: Share queries (portal)
+            url: ./tutorials/create-share-query.md
       - linkListType: concept
         links:
           - text: Explore with Resource Graph
@@ -101,3 +103,5 @@ landingContent:
             url: /javascript/api/@azure/arm-resourcegraph
           - text: Python
             url: /python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph
+          - text: REST
+            url: /rest/api/azure-resourcegraph/

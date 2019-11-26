@@ -1,13 +1,8 @@
 ---
-title: About repositories and images in Azure Container Registry
+title: About repositories & images
 description: Introduction to key concepts of Azure container registries, repositories, and container images.
-services: container-registry
-author: dlepow
-
-ms.service: container-registry
 ms.topic: article
-ms.date: 07/01/2019
-ms.author: danlep
+ms.date: 09/10/2019
 ---
 
 # About registries, repositories, and images
@@ -90,7 +85,7 @@ Each container image or artifact pushed to a container registry is associated wi
 az acr repository show-manifests --name <acrName> --repository <repositoryName>
 ```
 
-For example, list the manifest digests for the "acr-helloworld" repository:
+For example, list the manifests for the "acr-helloworld" repository:
 
 ```console
 $ az acr repository show-manifests --name myregistry --repository acr-helloworld
@@ -133,8 +128,7 @@ $ docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea
 ```
 
 > [!IMPORTANT]
-> If you repeatedly push modified images with identical tags, you might create orphaned images--images that are untagged, but still consume space in your registry. Untagged images are not shown in the Azure CLI or in the Azure portal when you list or view images by tag. However, their layers still exist and consume space in your registry. For information about freeing space used by untagged images, see [Delete container images in Azure Container Registry](container-registry-delete.md).
-
+> If you repeatedly push modified images with identical tags, you might create orphaned images--images that are untagged, but still consume space in your registry. Untagged images are not shown in the Azure CLI or in the Azure portal when you list or view images by tag. However, their layers still exist and consume space in your registry. Deleting an untagged image frees registry space when the manifest is the only one, or the last one, pointing to a particular layer. For information about freeing space used by untagged images, see [Delete container images in Azure Container Registry](container-registry-delete.md).
 
 ## Next steps
 

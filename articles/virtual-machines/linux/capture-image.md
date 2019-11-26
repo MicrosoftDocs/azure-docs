@@ -1,5 +1,5 @@
 ---
-title: Capture an image of a Linux VM in Azure using Azure CLI | Microsoft Docs
+title: Capture an image of a Linux VM in Azure using Azure CLI 
 description: Capture an image of an Azure VM to use for mass deployments by using the Azure CLI.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -27,8 +27,6 @@ To create multiple copies of a virtual machine (VM) for use in Azure, capture an
 To create a copy of your existing Linux VM for backup or debugging, or to upload a specialized Linux VHD from an on-premises VM, see [Upload and create a Linux VM from custom disk image](upload-vhd.md).  
 
 You can use the **Azure VM Image Builder (Public Preview)** service to build your custom image, no need to learn any tools, or setup build pipelines, simply providing an image configuration, and the Image Builder will create the Image. For more information, see [Getting Started with Azure VM Image Builder](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
-
-Additonally, use **Packer** to create your custom configuration. For more information, see [How to use Packer to create Linux virtual machine images in Azure](build-image-with-packer.md).
 
 You'll need the following items before creating an image:
 

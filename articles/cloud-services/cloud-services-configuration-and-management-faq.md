@@ -4,7 +4,7 @@ description: This article lists the frequently asked questions about configurati
 services: cloud-services
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
@@ -201,7 +201,7 @@ These steps could be automated via a startup task, so that whenever a new PaaS i
 Once this has been done, you can verify whether the HTTP/2 has been enabled or not by using one of the following methods:
 
 - Enable Protocol version in IIS logs and look into the IIS logs. It will show HTTP/2 in the logs. 
-- Enable F12 Developer Tool in Internet Explorer/Microsoft Edge and switch to the Network tab to verify the protocol. 
+- Enable F12 Developer Tool in Internet Explorer or Microsoft Edge and switch to the Network tab to verify the protocol. 
 
 For more information, see [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2).
 
@@ -307,9 +307,9 @@ As described [here](https://technet.microsoft.com/library/ee790567.aspx), the $s
 |Value|Meaning|
 ------|------
 |0|No SNI|
-|1|SNI Enabled |
-|2 |Non SNI binding which uses Central Certificate Store|
-|3|SNI binding which uses Central Certificate store |
+|1|SNI Enabled|
+|2|Non SNI binding which uses Central Certificate Store|
+|3|SNI binding which uses Central Certificate store|
  
 **Method 2: Use code**
 
@@ -319,8 +319,8 @@ The SNI binding could also be configured via code in the role startup as describ
     //<code snip> 
                     var serverManager = new ServerManager(); 
                     var site = serverManager.Sites[0]; 
-                    var binding = site.Bindings.Add(“:443:www.test1.com”, newCert.GetCertHash(), “My”); 
-                    binding.SetAttributeValue(“sslFlags”, 1); //enables the SNI 
+                    var binding = site.Bindings.Add(":443:www.test1.com", newCert.GetCertHash(), "My"); 
+                    binding.SetAttributeValue("sslFlags", 1); //enables the SNI 
                     serverManager.CommitChanges(); 
     //</code snip> 
     

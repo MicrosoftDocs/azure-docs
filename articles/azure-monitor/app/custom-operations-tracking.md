@@ -1,17 +1,14 @@
 ---
 title: Track custom operations with Azure Application Insights .NET SDK | Microsoft Docs
 description: Tracking custom operations with Azure Application Insights .NET SDK
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 06/30/2017
-ms.reviewer: sergkanz
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 06/30/2017
+
+ms.reviewer: sergkanz
 ---
 
 # Track custom operations with Application Insights .NET SDK
@@ -350,7 +347,7 @@ When you instrument message deletion, make sure you set the operation (correlati
 
 ### Dependency Types
 
-Application Insights uses dependency type to cusomize UI experiences. For queues it recognizes following types of `DependencyTelemetry` that improve [Transaction diagnostics experience](/azure-monitor/app/transaction-diagnostics):
+Application Insights uses dependency type to cusomize UI experiences. For queues it recognizes following types of `DependencyTelemetry` that improve [Transaction diagnostics experience](/azure/azure-monitor/app/transaction-diagnostics):
 - `Azure queue` for Azure Storage Queues
 - `Azure Event Hubs` for Azure Event Hubs
 - `Azure Service Bus` for Azure Service Bus

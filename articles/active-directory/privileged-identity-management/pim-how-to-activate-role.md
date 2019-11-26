@@ -22,15 +22,15 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) simplifie
 
 If you have been made eligible for an administrative role, that means you can activate that role when you need to perform privileged actions. For example, if you occasionally manage Office 365 features, your organization's privileged role administrators may not make you a permanent Global Administrator, since that role impacts other services, too. Instead, they make you eligible for Azure AD roles such as Exchange Online Administrator. You can request to activate that role when you need its privileges, and then you'll have administrator control for a predetermined time period.
 
-This article is for administrators who need to activate their Azure AD role in PIM.
+This article is for administrators who need to activate their Azure AD role in Privileged Identity Management.
 
 ## Activate a role
 
-When you need to take on an Azure AD role, you can request activation by using the **My roles** navigation option in PIM.
+When you need to take on an Azure AD role, you can request activation by using the **My roles** navigation option in Privileged Identity Management.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. Open **Azure AD Privileged Identity Management**. For information about how to add the PIM tile to your dashboard, see [Start using PIM](pim-getting-started.md).
+1. Open **Azure AD Privileged Identity Management**. For information about how to add the Privileged Identity Management tile to your dashboard, see [Start using Privileged Identity Management](pim-getting-started.md).
 
 1. Click **Azure AD roles**.
 
@@ -124,14 +124,14 @@ If you do not require activation of a role that requires approval, you can cance
 
 ### Permissions are not granted after activating a role
 
-When you activate a role in PIM, the activation may not instantly propagate to all portals that require the privileged role. Sometimes, even if the change is propagated, web caching in a portal may result in the change not taking effect immediately. If your activation is delayed, here is what you should do.
+When you activate a role in Privileged Identity Management, the activation may not instantly propagate to all portals that require the privileged role. Sometimes, even if the change is propagated, web caching in a portal may result in the change not taking effect immediately. If your activation is delayed, here is what you should do.
 
 1. Sign out of the Azure portal and then sign back in.
 
     When you activate an Azure AD role, you will see the stages of your activation. Once all the stages are complete, you will see a **Sign out** link. You can use this link to sign out. This will solve most cases for activation delay.
 
-1. In PIM, verify that you are listed as the member of the role.
+1. In Privileged Identity Management, verify that you are listed as the member of the role.
 
 ## Next steps
 
-- [Activate my Azure resource roles in PIM](pim-resource-roles-activate-your-roles.md)
+- [Activate my Azure resource roles in Privileged Identity Management](pim-resource-roles-activate-your-roles.md)

@@ -1,12 +1,10 @@
 ---
-title: Azure Security Center Tutorial - Respond to security incidents | Microsoft Docs
+title: Incident response tutorial - Azure Security Center
 description: Azure Security Center Tutorial - Respond to security incidents
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: 181e3695-cbb8-4b4e-96e9-c4396754862f
 ms.service: security-center
 ms.devlang: na
@@ -15,7 +13,7 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
-ms.author: rkarlin
+ms.author: memildin
 ---
 
 # Tutorial: Respond to security incidents
@@ -63,7 +61,7 @@ Security Center provides a unified view of all security alerts. Security alerts 
 
 1. On the Security Center main menu under **DETECTION**, select **Security alerts**:
 
-   ![Security alerts](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)  
+   ![Security alerts](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)
 
 2. In the list of alerts, click on a security incident, which is a collection of alerts, to learn more about this incident. **Security incident detected** opens.
 

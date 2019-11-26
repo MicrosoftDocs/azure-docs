@@ -21,18 +21,22 @@ Azure Active Directory (Azure AD) supports bulk user create and delete operation
 
 ## To bulk restore users
 
-1. [Sign in to your Azure AD organization](https://aad.portal.azure.com) with an account that is a User administrator in the organization.
+1. [Sign in to your Azure AD organization](https://aad.portal.azure.com) with an account that is a User administrator in the Azure AD organization.
 1. In Azure AD, select **Users** > **Deleted**.
 1. On the **Deleted users** page, select **Bulk restore** to upload a valid CSV file of properties of the users to restore.
 
    ![Select the bulk restore command on the Deleted users page](./media/users-bulk-restore/bulk-restore.png)
 
-1. When you finish editing the CSV file or if you have one of your own ready to upload, select the file under **Upload your CSV file** to be validated.
+1. Open the CSV file and add a line for each user you want to restore. The only required value is **ObjectID**. Then save the file.
 
    ![Select a local CSV file in which you list the users you want to add](./media/users-bulk-restore/upload-button.png)
 
-1. When the file contents are validated, fix the file info and re-submit the file if there are errors. Submitting a valid file starts the data upload job automatically.
-1. After the CSV file passes validation, select **Submit** to start the Azure batch job that restores the users. If there are errors, you can download and view the results file on the Bulk operation results page. The file contains the reason for each error.
+1. On the **Bulk restore (Preview)** page, under **Upload your csv file**, browse to the file. When you select the file and click **Submit**, validation of the CSV file starts.
+1. When the file contents are validated, you’ll see **File uploaded successfully**. If there are errors, you must fix them before you can submit the job.
+1. When your file passes validation, select **Submit** to start the Azure bulk operation that restores the users.
+1. When the restore operation completes, you'll see a notification that the bulk operation succeeded.
+
+If there are errors, you can download and view the results file on the **Bulk operation results** page. The file contains the reason for each error.
 
 ## Check status
 

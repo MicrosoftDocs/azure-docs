@@ -51,7 +51,7 @@ Azure Scheduler is being deprecated. Use Azure Logic Apps to create scheduling j
 
 For more information:
 
-- Become familiar with features in Azure Logic Apps by completing the [Logic Apps tutorials](https://docs.microsoft.com/azure/logic-apps/#step-by-step-tutorials).
+- Become familiar with features in Azure Logic Apps by completing the [Logic Apps tutorials](https://docs.microsoft.com/azure/logic-apps/tutorial-build-schedule-recurring-logic-app-workflow).
 - Review the [Logic Apps overview](../logic-apps/logic-apps-overview.md).
 
 ## Network Watcher
@@ -73,9 +73,9 @@ For more information about Site Recovery and to learn how to migrate VMs from Az
 
 Refresh your knowledge by completing these step-by-step tutorials:
 
-- [Azure-to-Azure disaster recovery](https://docs.microsoft.com/azure/site-recovery/#azure-to-azure)
-- [VMware-to-Azure disaster recovery](https://docs.microsoft.com/azure/site-recovery/#vmware)
-- [Hyper-V-to-Azure disaster recovery](https://docs.microsoft.com/azure/site-recovery/#hyper-v)
+- [Azure-to-Azure disaster recovery](../site-recovery/azure-to-azure-about-networking.md)
+- [VMware-to-Azure disaster recovery](../site-recovery/site-recovery-deployment-planner.md)
+- [Hyper-V-to-Azure disaster recovery](../site-recovery/hyper-v-deployment-planner-overview.md)
 
 ## Azure policies
 

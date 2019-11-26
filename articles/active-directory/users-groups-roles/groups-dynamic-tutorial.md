@@ -1,17 +1,15 @@
 ---
-title: Dynamic group membership add remove users - tutorial - Azure Active Directory 
+title: Add users to a dynamic group - tutorial - Azure AD | Microsoft Docs
 description: In this tutorial, you use groups with user membership rules to add or remove users automatically
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
-
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: "it-pro;seo-update-azuread-jan"
@@ -46,15 +44,26 @@ First, you'll create a group for your guest users who all are from a single part
    ![select command to start a new group](./media/groups-dynamic-tutorial/new-group.png)
 3. On the **Group** blade:
   
-   * Select **Security** as the group type
-   * Enter `Guest users Contoso` as the name and description for the group
-   * Change **Membership type** to **Dynamic User**
-   * Select **Add dynamic query**
-  
-4. Select **Advanced rule**, and in the **Advanced rule** box, enter:
-   `(user.userType -eq "Guest") -and (user.companyName -eq "Contoso")`
-5. Select **Add query** to close the blade.
-6. On the **Group** blade, select **Create** to create the group.
+   * Select **Security** as the group type.
+   * Enter `Guest users Contoso` as the name and description for the group.
+   * Change **Membership type** to **Dynamic User**.
+   
+4. Select **Owners** and in the **Add Owners** blade search for any desired owners. Click on the desired owners to add to the selection.
+5. Click **Select** to close the **Add Owners** blade.  
+6. Select **Edit dynamic query** in the **Dynamic user members** box.
+7. On the **Dynamic membership rules** blade:
+
+   * In the **Property** field, click on the existing value and select **userType**. 
+   * Verify that the **Operator** field has **Equals** selected.  
+   * Select the **Value** field and enter **Guest**. 
+   * Click the **Add Expression** hyperlink to add another line.
+   * In the **And/Or** field, select **And**.
+   * In the **Property** field, select **companyName**.
+   * Verify that the **Operator** field has **Equals** selected.
+   * In the **Value** field, enter **Contoso**.
+   * Click **Save** to close the **Dynamic membership rules** blade.
+   
+8. On the **Group** blade, select **Create** to create the group.
 
 ## Assign licenses
 

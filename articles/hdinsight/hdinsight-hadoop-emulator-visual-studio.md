@@ -1,14 +1,13 @@
 ---
-title: Data Lake tools for Visual Studio with Hortonworks Sandbox - Azure HDInsight 
+title: Data Lake tools for Visual Studio & Hortonworks - Azure HDInsight
 description: Learn how to use the Azure Data Lake tools for Visual Studio with the Hortonworks sandbox running in a local VM. With these tools, you can create and run Hive and Pig jobs on the sandbox, and view job output and history.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
-
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.author: hrasheed
 ---
 
 # Use the Azure Data Lake tools for Visual Studio with the Hortonworks Sandbox
@@ -37,7 +36,7 @@ Make sure that the Hortonworks Sandbox is running. Then follow the steps in the 
 
 2. From **Server Explorer**, right-click the **HDInsight** entry, and then select **Connect to HDInsight Emulator**.
 
-    ![Screenshot of Server Explorer, with Connect to HDInsight Emulator highlighted](./media/hdinsight-hadoop-emulator-visual-studio/connect-hdinsight-emulator.png)
+    ![Server Explorer, with Connect to HDInsight Emulator highlighted](./media/hdinsight-hadoop-emulator-visual-studio/connect-hdinsight-emulator.png)
 
 3. From the **Connect to HDInsight Emulator** dialog box, enter the password that you configured for Ambari.
 
@@ -108,7 +107,7 @@ Hive provides a SQL-like query language (HiveQL) for working with structured dat
     > [!NOTE]  
     > The information is the same that is available from the **Job Log** link after a job has finished.
 
-    ![Screenshot of output log](./media/hdinsight-hadoop-emulator-visual-studio/hiveserver2-output-box.png)
+    ![Screenshot of HiveServer2 output](./media/hdinsight-hadoop-emulator-visual-studio/hiveserver2-output-box.png)
 
 ## Create a Hive project
 
@@ -118,7 +117,7 @@ You can also create a project that contains multiple Hive scripts. Use a project
 
 2. From the list of projects, expand **Templates**, expand **Azure Data Lake**, and then select **HIVE (HDInsight)**. From the list of templates, select **Hive Sample**. Enter a name and location, and then select **OK**.
 
-    ![Screenshot of New Project window, with Azure Data Lake, HIVE, Hive Sample, and OK highlighted](./media/hdinsight-hadoop-emulator-visual-studio/new-apache-hive-project.png)
+    ![New Project window, with Azure Data Lake, Hive Sample, and OK](./media/hdinsight-hadoop-emulator-visual-studio/new-apache-hive-project.png)
 
 The **Hive Sample** project contains two scripts, **WebLogAnalysis.hql** and **SensorDataAnalysis.hql**. You can submit these scripts by using the same **Submit** button at the top of the window.
 
@@ -175,7 +174,7 @@ Data Lake tools also allow you to easily view information about jobs that have b
 
 2. Expanding a table displays the columns for that table. To quickly view the data, right-click a table, and select **View Top 100 Rows**.
 
-    ![Screenshot of Server Explorer, with table expanded and View Top 100 Rows selected](./media/hdinsight-hadoop-emulator-visual-studio/hdi-view-top-100-rows.png)
+    ![Server Explorer, with table expanded and View Top 100 Rows selected](./media/hdinsight-hadoop-emulator-visual-studio/hdi-view-top-100-rows.png)
 
 ### Database and table properties
 

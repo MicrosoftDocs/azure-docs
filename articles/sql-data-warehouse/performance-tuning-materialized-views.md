@@ -1,5 +1,5 @@
 ---
-title: Performance tuning with Azure SQL Data Warehouse materialized views | Microsoft Docs
+title: Performance tuning with materialized views 
 description: Recommendations and considerations you should know as you use materialized views to improve your query performance. 
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,6 +10,7 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
+ms.custom: seo-lt-2019
 ---
 
 # Performance tuning with materialized views 
@@ -44,7 +45,7 @@ A properly designed materialized view can provide following benefits:
 
 - The optimizer in Azure SQL Data Warehouse can automatically use deployed materialized views to improve query execution plans.  This process is transparent to users providing faster query performance and doesn't require queries to make direct reference to the materialized views. 
 
-- Require low maintenance on the views.  A materialized view stores data in two places, a clustered columnstore index for the initial data at the view creation time and a delta store for the incremental data changes.  All data changes from the base tables are automatically added to the delta store in a synchronous manner.  A background process (tuple mover) periodically moves the data from the delta store to the view's columnstore index.  This design allows querying materialized views to return the same data as directly querying the base tables. 
+- Require low maintenance on the views.  All incremental data changes from the base tables are automatically added to the materialized views in a synchronous manner.  This design allows querying materialized views to return the same data as directly querying the base tables. 
 - The data in a materialized view can be distributed differently from the base tables.  
 - Data in materialized views gets the same high availability and resiliency benefits as data in regular tables.  
  
@@ -79,19 +80,21 @@ Here is the general guidance on using materialized views to improve query perfor
 
 **Design for your workload**
 
-- Before you begin to create materialized views, it's important to have a deep understanding of your workload in terms of query patterns, importance, frequency, and the size of resulting data.  
+Before you begin to create materialized views, it's important to have a deep understanding of your workload in terms of query patterns, importance, frequency, and the size of resulting data.  
 
-- Users can run EXPLAIN WITH_RECOMMENDATIONS <SQL_statement> for the materialized views recommended by the query optimizer.  Since these recommendations are query-specific, a materialized view that benefits a single query may not be optimal for other queries in the same workload.  Evaluate these recommendations with your workload needs in mind.  The ideal materialized views are those that benefit the workload's performance.  
+Users can run EXPLAIN WITH_RECOMMENDATIONS <SQL_statement> for the materialized views recommended by the query optimizer.  Since these recommendations are query-specific, a materialized view that benefits a single query may not be optimal for other queries in the same workload.  Evaluate these recommendations with your workload needs in mind.  The ideal materialized views are those that benefit the workload's performance.  
 
 **Be aware of the tradeoff between faster queries and the cost** 
 
-- For each materialized view, there's a storage cost and a cost for the view maintenance by the tuple mover. There is one tuple mover per Azure SQL Data Warehouse server instance.  When there are too many materialized views, the tuple mover's workload will increase and the performance of queries that leverage materialized views could degrade if tuple mover can't move data to index segments fast enough.  Users should check if the cost incurred from all materialized views can be offset by the query performance gain.  Run this query for the list of materialized view in a database: 
+For each materialized view, there's a data storage cost and a cost for maintaining the view.  As data changes in base tables, the size of the materialized view increases and its physical structure also changes.  To avoid query performance degradation, each materialized view is maintained separately by the data warehouse engine.  The maintenance workload gets higher when the number of materialized views and base table changes increase.   Users should check if the cost incurred from all materialized views can be offset by the query performance gain.  
+
+You can run this query for the list of materialized view in a database: 
 
 ```sql
 SELECT V.name as materialized_view, V.object_id 
 FROM sys.views V 
 JOIN sys.indexes I ON V.object_id= I.object_id AND I.index_id < 2;
-```
+``` 
 
 Options to reduce the number of materialized views: 
 
@@ -129,7 +132,7 @@ The data warehouse optimizer can automatically use deployed materialized views t
 
 **Monitor materialized views** 
 
-A materialized view is stored in the data warehouse just like a table with clustered columnstore index (CCI).  Reading data from a materialized view includes scanning the index and applying changes from the delta store.  When the number of rows in the delta store is too high, resolving a query from a materialized view can take longer than directly querying the base tables.  To avoid query performance degradation,  it’s a good practice to run [DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?view=azure-sqldw-latest) to monitor the view’s overhead_ratio (total_rows / base_view_row).  If the overhead_ratio is too high, consider to rebuild the materialized view so all rows in the delta store are moved to the columnstore index.  
+A materialized view is stored in the data warehouse just like a table with clustered columnstore index (CCI).  Reading data from a materialized view includes scanning the CCI index segments and applying any incremental changes from base tables. When the number of incremental changes is too high, resolving a query from a materialized view can take longer than directly querying the base tables.  To avoid query performance degradation,  it’s a good practice to run [DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?view=azure-sqldw-latest) to monitor the view’s overhead_ratio (total_rows / max(1, base_view_row)).  Users should REBUILD the materialized view if its overhead_ratio is too high. 
 
 **Materialized view and result set caching**
 

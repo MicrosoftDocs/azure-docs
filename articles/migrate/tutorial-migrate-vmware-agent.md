@@ -1,11 +1,11 @@
 ---
-title: Migrate on-premises VMware VMs to Azure with agent-based Azure Migrate Server Migration  | Microsoft Docs
-description: This article describes how to perform an agent-based migration of on-premises machines to Azure with Azure Migrate Server Migration
+title: Migrate VMware VMs with agent-based Azure Migrate Server Migration
+description: Learn how to run an agent-based migration of VMware VMs with Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -421,7 +421,19 @@ After you've verified that the test migration works as expected, you can migrate
 
 ## Post-migration best practices
 
-- For increased resilience:
+- On-premises
+    - Move app traffic over to the app running on the migrated Azure VM instance.
+    - Remove the on-premises VMs from your local VM inventory.
+    - Remove the on-premises VMs from local backups.
+    - Update any internal documentation to show the new location and IP address of the Azure VMs.
+- Tweak Azure VM settings after migration:
+    - The [Azure VM agent](../virtual-machines/extensions/agent-windows.md) manages VM interaction with the Azure Fabric Controller. It's required for some Azure services, such as Azure Backup, Site Recovery, and Azure Security. When migrating VMare VMs with agent-based migration, the Mobility Service installer installs Azure VM agent on Windows machines. On Linux VMs, we recommend that you install the agent after migration.
+    - Manually uninstall the Mobility service from the Azure VM after migration.
+    - Manually uninstall VMware tools after migration.
+- In Azure:
+    - Perform any post-migration app tweaks, such as updating database connection strings, and web server configurations.
+    - Perform final application and migration acceptance testing on the migrated application now running in Azure.
+- Business continuity/disaster recovery
     - Keep data secure by backing up Azure VMs using the Azure Backup service. [Learn more](../backup/quick-backup-vm-portal.md).
     - Keep workloads running and continuously available by replicating Azure VMs to a secondary region with Site Recovery. [Learn more](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - For increased security:
@@ -430,9 +442,11 @@ After you've verified that the test migration works as expected, you can migrate
     - Deploy [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview) to help secure disks, and keep data safe from theft and unauthorized access.
     - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - For monitoring and management:
--  Consider deploying [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/overview) to monitor resource usage and spending.
+    - Consider deploying [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/overview) to monitor resource usage and spending.
 
 
-## Next steps
+
+
+ ## Next steps
 
 Investigate the [cloud migration journey](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/migrate) in the Azure Cloud Adoption Framework.

@@ -158,7 +158,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 	h. Click **Save**
 
 	> [!NOTE]
-	> Customer have to upload any certificate in the Tableau Server SAML SSO configuration and it will get ignored in the SSO flow. If you need help configuring SAML on Tableau Server then please refer to this article [Configure SAML](https://help.tableau.com/current/server/en-gb/saml_config_steps_tsm_ui.htm).
+	> Customer have to upload any certificate in the Tableau Server SAML SSO configuration and it will get ignored in the SSO flow. If you need help configuring SAML on Tableau Server then please refer to this article [Configure SAML](https://help.tableau.com/current/online/en-us/saml_config_azure_ad.htm).
 
 ### Create Tableau Server test user
 

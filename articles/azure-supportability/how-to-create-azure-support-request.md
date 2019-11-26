@@ -1,131 +1,120 @@
 ---
 title: How to create an Azure support request | Microsoft Docs
-description: How to create an Azure support request.
+description: Customers who need assistance can use the Azure portal to find self-service solutions and to create and manage support requests.
 services: Azure Supportability
-documentationcenter: ''
 author: ganganarayanan
 manager: scotthit
-editor: ''
-
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.service: azure-supportability
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
-ms.author: gangan
-
+ms.date: 11/13/2019
+ms.author: kfollis
 ---
 # How to create an Azure support request
-## Summary
-Azure customers can create and manage support requests in the Azure portal, [https://portal.azure.com](https://portal.azure.com).
+
+## Overview
+
+Azure customers can create and manage support requests in the [Azure portal](https://portal.azure.com).
 
 > [!NOTE]
-> Azure portal for Commerical use is [https://portal.azure.com](https://portal.azure.com)
-> Azure portal for Germany is [https://portal.microsoftazure.de](https://portal.microsoftazure.de)   
-> Azure portal for the United States government is [https://portal.azure.us](https://portal.azure.us)
-
+> The Azure portal URL is specific to the Azure cloud where your organization is deployed. 
+>* Azure portal for commercial use is: [https://portal.azure.com](https://portal.azure.com)
+>* Azure portal for Germany is: [https://portal.microsoftazure.de](https://portal.microsoftazure.de)
+>* Azure portal for the United States government is: [https://portal.azure.us](https://portal.azure.us)
+>
+>
 
 Based on customer feedback, we’ve updated the support request experience to focus on three main goals:
 
-* **Streamlined**: Reduce clicks and blades to make the process of submitting a support request simple.
-* **Integrated**: When you’re troubleshooting an issue with an Azure resource, it should be easy to open a support request for that resource without switching context.
-* **Efficient**: Gather the key information your support engineer needs to efficiently resolve your issue.
+* **Streamlined**: Make support and troubleshooting easy to find and simplify how you submit a support request.
+* **Integrated**: You can easily open a support request when you’re troubleshooting an issue with an Azure resource, without switching context.
+* **Efficient**: Gather the key information your support agent needs to efficiently resolve your issue.
 
 ## Getting started
-You can create a support request from the top navigation menu or directly from a resource blade.
 
-**From the top navigation bar**
+You can get to **Help + support** in the Azure portal. It's available from the global header or from the resource menu for a service.
 
-![Help and Support](./media/how-to-create-azure-support-request/HelpandSupport.png)
+### Go to Help + support from the global header
 
-From the Help and Support page, select "New support request"
+To start a support request from anywhere in the Azure portal:
 
-![New Support Request](./media/how-to-create-azure-support-request/NewSupportRequest.png)
+1. Select the **?** in the global header. Then select **Help + support**.
 
-**From a resource blade**
+   ![Help and Support](./media/how-to-create-azure-support-request/helpandsupportnewlower.png)
 
-![In context](./media/how-to-create-azure-support-request/Incontext.png)
+2. Select **+ New support request**. Follow the prompts to provide us with information about your problem. We'll suggest some possible solutions, gather details about the issue, and help you submit and track the support request.
 
-## Basics
+   ![New Support Request](./media/how-to-create-azure-support-request/newsupportrequest2lower.png)
+
+### Go to Help + support from a resource menu
+
+To start a support request in the context of the resource, you're currently working with:
+
+1. From the resource menu, in the **Support + Troubleshooting** section, select **New support request**.
+
+   ![In context](./media/how-to-create-azure-support-request/incontext2lower.png)
+
+2. Follow the prompts to provide us with information about the problem you're having. When you start the support request process from the resource, some options are pre-selected for you.
+
+## Create a support request
+
+We'll walk you through some steps to gather information about your problem and help you solve it. Each step is described in the following sections.
+
+### Basics
+
 The first step of the support request process gathers basic information about your issue and your support plan.
 
-Let’s take an example: You’re facing technical difficulties with your virtual machine and suspect a network connectivity issue.
-Selecting the service ("Virtual Machine running Windows") and the resource (the name of your virtual machine) in the first step of the wizard starts the process of getting help for this issue.
+On the **Basics** tab of **New support request**, use the selectors to start to tell us about the problem. First, you'll identify some general categories for the issue type and choose the related subscription. Selecting the service (for example, "Virtual Machine running Windows") and the resource (the name of your virtual machine) is the next step to get help. Briefly describe the problem in your own words, then **Select problem type** to get more specific.
 
-![Basics blade](./media/how-to-create-azure-support-request/Basics.png)
+![Basics blade](./media/how-to-create-azure-support-request/basics2lower.png)
 
 > [!NOTE]
 > Azure provides unlimited support for subscription management (things like billing, quota adjustments, and account transfers). For technical support, you need a support plan. [Learn more about support plans](https://azure.microsoft.com/support/plans).
 >
 >
 
-## Problem
-The second step of the wizard gathers additional details about the issue. Providing accurate details in this step allows us to route your case to the best support engineer for the issue and to begin diagnosing the issue as soon as possible.
+### Solutions
 
-![Problem blade](./media/how-to-create-azure-support-request/Problem01.png)
+After gathering basic information, we next show you solutions to try on your own. In some cases, we may even run a quick diagnostic. Solutions are written by Azure engineers and will solve most common problems.
 
-Continuing with the virtual machine connectivity example from above, you would fill out this form to indicate a network connectivity issue, and you would provide further details about the issue, including the approximate time when you experienced the issue.
+### Details
 
-![Problem blade 2](./media/how-to-create-azure-support-request/Problem02.png)
+Next, we collect additional details about the problem. Providing thorough and detailed information in this step helps us route your support request to the right agent and lets them begin diagnosing the issue.
 
-## Related Help
-Based on problem type and the category you select, we provide a solution that can help resolve your issue.
+It's a good idea to let us know when the problem started and any steps to reproduce it. You may also choose to upload a file, such as a log file or output from diagnostics.
 
-![Related help](./media/how-to-create-azure-support-request/RelatedHelp.png)
+After we have all the information about the problem you're having, you can choose how to get support. In the **Support method** section of the **Details** tab, select the severity of impact. Provide your preferred contact method, a good time to contact you, and your support language.
 
-We also provide contextual self-help solutions based on the textual description of your issue.
+Next, complete the **Contact info** section so we know how to contact you.
 
-![Related help 2](./media/how-to-create-azure-support-request/RelatedHelp02.png)
+### Review + create
 
-If the recommended solutions do not help, you can continue through the process to create a support request.
+Complete all required information on each tab, then select **Review + create**. Check the details that you'll send to Support. Go back to any tab to make a change if needed. When you're satisfied the support request is complete, select **Create**.
 
-![Problem blade 3](./media/how-to-create-azure-support-request/Problem03.png)
-
-## Contact Information
-The last step of the wizard confirms your contact options and contact information so we know how to reach you.
-
-![Contact Information](./media/how-to-create-azure-support-request/ContactInformation.png)
-
-Depending on the severity of your issue, you may be asked to indicate if you would like us to contact you during business hours or if you would prefer a 24x7 response, which means we may contact you at any time.
-
-![Contact Information 24x7](./media/how-to-create-azure-support-request/ContactInformation-2.png)
+A support agent will contact you using the method you indicated. Consult [Support scope and responsiveness](https://azure.microsoft.com/support/plans/response/) for information about initial response time.
 
 ## All support requests
-After you create the support request, you can view the details from the **All support requests** page.
 
-**From the top navigation bar**
+You can view the details and status of support requests by going to **Help + support** >  **All support requests**.
 
-![Help and Support](./media/how-to-create-azure-support-request/HelpandSupport.png)
+![All support requests](./media/how-to-create-azure-support-request/allrequestslower.png)
 
-From the Help and Support page, select "All support requests" from the left menu.
+On this page, you can filter support requests by Subscription, created date (UTC), and status. Additionally, you can sort and search for support requests on this page.
 
-![All Support Request link](./media/how-to-create-azure-support-request/AllSupportRequest-link.png)
+Select a support request to view details, including severity and the expected time it will take for a support agent to respond.
 
-On the **All support requests** page, you can view all support requests and their status.
-
-![All Support Request](./media/how-to-create-azure-support-request/AllSupportRequest.png)
-
-The support requests page, provides customers to filter cases by Subscription, Created date (UTC) and status.
-Additionally, you can sort and search for support requests on this page.
-
-Select the support request to view details, including severity and the expected time it will take for a support engineer to respond.
-![VID](./media/how-to-create-azure-support-request/VID.png)
-
-If you want to change the severity of the request, click the **Business impact** tile. In the preceding example, the request is currently set to Severity C.
-
-Clicking the tile shows you the list of severities you can assign to an open support request.
+If you want to change the severity of the request, select  **Business impact**. A list of severities available to assign is shown.
 
 > [!NOTE]
 > The maximum severity level depends on your support plan. [Learn more about support plans](https://azure.microsoft.com/support/plans).
 >
 >
+To learn more about self-help support options in Azure, watch this video:
 
-![VID-2](./media/how-to-create-azure-support-request/VID-2.png)
+> [!VIDEO https://www.youtube.com/embed/gNhzR5FE9DY]
 
-## Feedback
-We are always open to feedback and suggestions! Please send us your [suggestions](https://feedback.azure.com/forums/266794-support-feedback). Additionally, you can engage with us via [Twitter](https://twitter.com/azuresupport) or the [MSDN forums](https://social.msdn.microsoft.com/Forums/azure).
-
-## Learn more
-[Azure Support FAQ](https://azure.microsoft.com/support/faq)
+## Next steps
+* [Send us your feedback and suggestions](https://feedback.azure.com/forums/266794-support-feedback)
+* Engage with us on [Twitter](https://twitter.com/azuresupport)
+* Get help from your peers in the [MSDN forums](https://social.msdn.microsoft.com/Forums/azure)
+* Learn more in [Azure Support FAQ](https://azure.microsoft.com/support/faq)
