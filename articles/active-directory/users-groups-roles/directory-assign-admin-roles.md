@@ -323,6 +323,10 @@ Users with this role have global permissions within Microsoft Power BI, when the
 > [!NOTE]
 > In Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell, this role is identified as "Power BI Service Administrator ". It is "Power BI Administrator" in the [Azure portal](https://portal.azure.com).
 
+### [Power Platform Administrator](#power-platform-administrator-permissions)
+
+Users in this role can create and manage all aspects of environments, PowerApps, Flows, Data Loss Prevention policies. Additionally, users with this role have the ability to manage support tickets and monitor service health.
+
 ### [Privileged Authentication Administrator](#privileged-authentication-administrator-permissions)
 
 Users with this role can set or reset non-password credentials for all users, including global administrators, and can update passwords for all users. Privileged Authentication Administrators can force users to re-register against existing non-password credential (e.g. MFA, FIDO) and revoke ‘remember MFA on the device’, prompting for MFA on the next login of all users.
@@ -1346,6 +1350,26 @@ Can manage all aspects of the Power BI product.
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.dynamics365/allEntities/allTasks | Manage all aspects of Dynamics 365. |
+| microsoft.flow/allEntities/allTasks | Manage all aspects of Microsoft Flow. |
+| microsoft.powerApps/allEntities/allTasks | Manage all aspects of PowerApps. |
+| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+
+### Power Platform Administrator permissions
+
+Can create and manage all aspects of Microsoft Dynamics 365, PowerApps and Microsoft Flow. 
+
+> [!NOTE]
+> This role has additional permissions outside of Azure Active Directory. For more information, see role description above.
+>
+>
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.powerApps.powerBI/allEntities/allTasks | Manage all aspects of Power BI. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
@@ -1704,6 +1728,7 @@ Partner Tier1 Support | Partner tier1 support | 4ba39ca4-527c-499a-b93d-d9b492c5
 Partner Tier2 Support | Partner tier2 support | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
 Password Administrator | Password administrator | 966707d0-3269-4727-9be2-8c3a10f19b9d
 Power BI Service Administrator | Power BI administrator | a9ea8996-122f-4c74-9520-8edcd192826c
+Power Platform Administrator | Power platform administrator | 11648597-926c-4cf3-9c36-bcebb0ba8dcc
 Privileged Authentication Administrator | Privileged authentication administrator | 7be44c8a-adaf-4e2a-84d6-ab2649e08a13
 Privileged Role Administrator | Privileged role administrator | e8611ab8-c189-46e8-94e1-60213ab1f814
 Reports Reader | Reports reader | 4a5d8f65-41da-4de4-8968-e035b65339cf
