@@ -527,9 +527,9 @@ The **Admins** tab shows the current set of admins and provides you the ability 
 
 ### Validators
 
-Selecting the **Validators** tab  displays the current deployed parity nodes for the instance and their current status (Node type).  Each consortium member has a different set of validators in this list, since this view represents the current deployed consortium member.  If this is a newly deployed instance and you haven't added your validators, you get the option to **Add Validators**.  Adding validators automatically chooses a regionally balanced set of parity nodes and assigns them to your validator set.  If you have deployed more nodes than the allowed capacity, the remaining nodes become transaction nodes on the network.
+Selecting the **Validators** tab displays the current deployed parity nodes for the instance and their current status (Node type). Each consortium member has a different set of validators in this list, since this view represents the current deployed consortium member. If this is a newly deployed instance and you haven't added your validators, you get the option to **Add Validators**. Adding validators automatically chooses a regionally balanced set of parity nodes and assigns them to your validator set. If you have deployed more nodes than the allowed capacity, the remaining nodes become transaction nodes on the network.
 
-The address of each validator is automatically assigned via the [identity store](#identity-store) in Azure.  If a node goes down, it relinquishes its identity, allowing another node in your deployment to take its place.  This ensures that your consensus participation is highly available.
+The address of each validator is automatically assigned via the [identity store](#identity-store) in Azure.  If a node goes down, it relinquishes its identity, allowing another node in your deployment to take its place. This ensures that your consensus participation is highly available.
 
 ![Validators](./media/ethereum-poa-deployment/governance-dapp-validators.png)
 
@@ -555,7 +555,7 @@ WebAssembly support is already enabled for you on newly deployed PoA networks. I
 
 ### I notice there are many transactions on the network that I didn't send. Where are these coming from?
 
-It is insecure to unlock the [personal API](https://web3js.readthedocs.io/en/v1.2.0/web3-eth-personal.html). Bots listen for unlocked Ethereum accounts and attempt to drain the funds. The bot assumes these accounts contain real-ether and attempt to be the first to siphon the balance. Do not enable the personal API on the network. Instead pre-sign the transactions either manually using a wallet like MetaMask or programmatically as outlined in the section [Programmatically Interacting with a Smart Contract](#programmatically-interacting-with-a-smart-contract).
+It is insecure to unlock the [personal API](https://web3js.readthedocs.io/en/v1.2.0/web3-eth-personal.html). Bots listen for unlocked Ethereum accounts and attempt to drain the funds. The bot assumes these accounts contain real-ether and attempt to be the first to siphon the balance. Do not enable the personal API on the network. Instead pre-sign the transactions either manually using a wallet like MetaMask or programmatically.
 
 ### How to SSH onto a VM?
 
