@@ -82,6 +82,11 @@ The recovery time objective (RTO)  is a measure of how long it takes to perform 
 
 You can migrate any existing storage account to GZRS or RA-GZRS. Migrating from an existing ZRS account to GZRS or RA-GZRS is straightforward, while migrating from an LRS, GRS, or RA-GRS account is more involved. The following sections describe how to migrate in either case.
 
+**Known limitations**
+
+- Archive tier is not currently supported on (RA-)GZRS accounts. See [Azure Blob storage: hot, cool, and archive access tiers](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) for more details.
+- Managed disks do not support (RA-)GZRS. You can store snapshots and images for Standard SSD Managed Disks on Standard HDD storage and [choose between LRS and ZRS options](https://azure.microsoft.com/pricing/details/managed-disks/).
+
 ### Migrating from a ZRS account
 
 To convert an existing ZRS account to RA-GZRS, use the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) cmdlet to change the SKU for the account. Remember to replace the placeholder values with your own values:
