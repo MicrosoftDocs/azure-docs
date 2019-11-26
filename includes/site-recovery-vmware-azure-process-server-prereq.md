@@ -1,3 +1,10 @@
+---
+author: rayne-wiselman
+ms.service: site-recovery
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: raynew
+---
 This article assumes that
 
 1. A **Site to Site VPN** or an **Express Route** connection between your on-premises network and the Azure Virtual Network has already been established.

@@ -1,3 +1,10 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+---
 #### To create a cloud appliance
 
 1. In the Azure portal, go to the **StorSimple Device Manager** service.

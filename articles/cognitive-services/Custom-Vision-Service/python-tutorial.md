@@ -1,76 +1,73 @@
 ---
-title: Custom Vision API Python tutorial | Microsoft Docs
-description: Explore a basic Windows app that uses the Custom Vision API in Microsoft Cognitive Services. Create a project, add tags, upload images, train your project, and make a prediction using the default endpoint.
+title: "Quickstart: Create an image classification project with the Custom Vision SDK for Python"
+titleSuffix: Azure Cognitive Services
+description: Create a project, add tags, upload images, train your project, and make a prediction using the Python SDK.
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: nitinme
 
 ms.service: cognitive-services
-ms.technology: custom vision service
-ms.topic: article
-ms.date: 12/22/2017
+ms.subservice: custom-vision
+ms.topic: quickstart
+ms.date: 08/08/2019
 ms.author: areddish
 ---
 
-# Custom Vision API Python tutorial
-Explore a basic Python script that uses the Computer Vision API to create a project. After it's created, you can add tags, upload images, train the project, obtain the project's default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this open-source example as a template for building your own app by using the Custom Vision API.
+# Quickstart: Create an image classification project with the Custom Vision Python SDK
+
+This article provides information and sample code to help you get started using the Custom Vision SDK with Python to build an image classification model. After it's created, you can add tags, upload images, train the project, obtain the project's published prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Python application. If you wish to go through the process of building and using a classification model _without_ code, see the [browser-based guidance](getting-started-build-a-classifier.md) instead.
 
 ## Prerequisites
 
-To use the tutorial, you need to do the following:
+- [Python 2.7+ or 3.5+](https://www.python.org/downloads/)
+- [pip](https://pip.pypa.io/en/stable/installing/) tool
+- [!INCLUDE [create-resources](includes/create-resources.md)]
 
-- Install either Python 2.7+ or Python 3.5+.
-- Install pip.
-- Install Git.
+## Install the Custom Vision SDK
 
-### Platform requirements
-This example has been developed for Python.
+To install the Custom Vision service SDK for Python, run the following command in PowerShell:
 
-### Get the Custom Vision SDK
-
-To build this example, you need to install the Preview Python SDK for the Custom Vision API from GitHub as follows:
-
-```
-pip install "git+https://github.com/Azure/azure-sdk-for-python#egg=azure-cognitiveservices-vision-customvision&subdirectory=azure-cognitiveservices-vision-customvision"
+```powershell
+pip install azure-cognitiveservices-vision-customvision
 ```
 
-If you encounter a *Filename too long* error, make sure you have longpath support in Git enabled:
+[!INCLUDE [get-keys](includes/get-keys.md)]
 
-```
-git config --system core.longpaths true
-```
+[!INCLUDE [python-get-images](includes/python-get-images.md)]
 
-## Step 1: Prepare the keys and images needed for the example
+## Add the code
 
-You can find Custom Vision Service on the [Custom Vision site](https://customvision.ai).
+Create a new file called *sample.py* in your preferred project directory.
 
-Obtain your training and prediction key by signing in to Custom Vision Service and going to your account settings.
+### Create the Custom Vision service project
 
-This example uses the images from [this sample](https://github.com/Microsoft/Cognitive-CustomVision-Windows/tree/master/Samples/Images). 
+Add the following code to your script to create a new Custom Vision service project. Insert your subscription keys in the appropriate definitions. Also, get your Endpoint URL from the Settings page of the Custom Vision website.
 
-
-## Step 2: Create a Custom Vision Service project
-
-To create a new Custom Vision Service project, create a sample.py script file and add the following contents:
+See the [create_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.custom_vision_training_client.customvisiontrainingclient?view=azure-python#create-project-name--description-none--domain-id-none--classification-type-none--target-export-platforms-none--custom-headers-none--raw-false----operation-config- ) method to specify other options when you create your project (explained in the [Build a classifier](getting-started-build-a-classifier.md) web portal guide).  
 
 ```Python
-from azure.cognitiveservices.vision.customvision.training import training_api
-from azure.cognitiveservices.vision.customvision.training.models import ImageUrlCreateEntry
+from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
+from azure.cognitiveservices.vision.customvision.training.models import ImageFileCreateEntry
+
+ENDPOINT = "<your API endpoint>"
 
 # Replace with a valid key
 training_key = "<your training key>"
 prediction_key = "<your prediction key>"
+prediction_resource_id = "<your prediction resource id>"
 
-trainer = training_api.TrainingApi(training_key)
+publish_iteration_name = "classifyModel"
+
+trainer = CustomVisionTrainingClient(training_key, endpoint=ENDPOINT)
 
 # Create a new project
 print ("Creating project...")
-project = trainer.create_project("My Project")
+project = trainer.create_project("My New Project")
 ```
 
-## Step 3: Add tags to your project
+### Create tags in the project
 
-To add tags to your project, insert the following code to create two tags:
+To create classification tags to your project, add the following code to the end of *sample.py*:
 
 ```Python
 # Make two tags in the new project
@@ -78,94 +75,105 @@ hemlock_tag = trainer.create_tag(project.id, "Hemlock")
 cherry_tag = trainer.create_tag(project.id, "Japanese Cherry")
 ```
 
-## Step 4: Upload images to the project
+### Upload and tag images
 
-To add the sample images to the project, insert the following code after the tag creation. This uploads the image with the corresponding tag:
+To add the sample images to the project, insert the following code after the tag creation. This code uploads each image with its corresponding tag. You can upload up to 64 images in a single batch.
+
+> [!NOTE]
+> You'll need to change the path to the images based on where you downloaded the Cognitive Services Python SDK Samples project earlier.
 
 ```Python
-base_image_url = "https://raw.githubusercontent.com/Microsoft/Cognitive-CustomVision-Windows/master/Samples/"
+base_image_url = "<path to project>"
 
-print ("Adding images...")
-for image_num in range(1,10):
-    image_url = base_image_url + "Images/Hemlock/hemlock_{}.jpg".format(image_num)
-    trainer.create_images_from_urls(project.id, [ ImageUrlCreateEntry(image_url, [ hemlock_tag.id ] ) ])
+print("Adding images...")
 
-for image_num in range(1,10):
-    image_url = base_image_url + "Images/Japanese Cherry/japanese_cherry_{}.jpg".format(image_num)
-    trainer.create_images_from_urls(project.id, [ ImageUrlCreateEntry(image_url, [ cherry_tag.id ] ) ])
+image_list = []
 
+for image_num in range(1, 11):
+    file_name = "hemlock_{}.jpg".format(image_num)
+    with open(base_image_url + "images/Hemlock/" + file_name, "rb") as image_contents:
+        image_list.append(ImageFileCreateEntry(name=file_name, contents=image_contents.read(), tag_ids=[hemlock_tag.id]))
 
-# Alternatively, if the images were on disk in a folder called Images alongside the sample.py, then
-# they can be added by using the following:
-#
-#import os
-#hemlock_dir = "Images\\Hemlock"
-#for image in os.listdir(os.fsencode("Images\\Hemlock")):
-#    with open(hemlock_dir + "\\" + os.fsdecode(image), mode="rb") as img_data: 
-#        trainer.create_images_from_data(project.id, img_data.read(), [ hemlock_tag.id ])
-#
-#cherry_dir = "Images\\Japanese Cherry"
-#for image in os.listdir(os.fsencode("Images\\Japanese Cherry")):
-#    with open(cherry_dir + "\\" + os.fsdecode(image), mode="rb") as img_data: 
-#        trainer.create_images_from_data(project.id, img_data.read(), [ cherry_tag.id ])
+for image_num in range(1, 11):
+    file_name = "japanese_cherry_{}.jpg".format(image_num)
+    with open(base_image_url + "images/Japanese Cherry/" + file_name, "rb") as image_contents:
+        image_list.append(ImageFileCreateEntry(name=file_name, contents=image_contents.read(), tag_ids=[cherry_tag.id]))
+
+upload_result = trainer.create_images_from_files(project.id, images=image_list)
+if not upload_result.is_batch_successful:
+    print("Image batch upload failed.")
+    for image in upload_result.images:
+        print("Image status: ", image.status)
+    exit(-1)
 ```
 
-## Step 5: Train the project
+### Train the classifier and publish
 
-Now that you've added tags and images to the project, you can train it: 
-
-1. Insert the following code. This creates the first iteration in the project. 
-2. Mark this iteration as the default iteration.
+This code creates the first iteration in the project and then publishes that iteration to the prediction endpoint. The name given to the published iteration can be used to send prediction requests. An iteration is not available in the prediction endpoint until it is published.
 
 ```Python
 import time
 
 print ("Training...")
 iteration = trainer.train_project(project.id)
-while (iteration.status == "Training"):
+while (iteration.status != "Completed"):
     iteration = trainer.get_iteration(project.id, iteration.id)
     print ("Training status: " + iteration.status)
     time.sleep(1)
 
-# The iteration is now trained. Make it the default project endpoint
-trainer.update_iteration(project.id, iteration.id, is_default=True)
+# The iteration is now trained. Publish it to the project endpoint
+trainer.publish_iteration(project.id, iteration.id, publish_iteration_name, prediction_resource_id)
 print ("Done!")
 ```
 
-## Step 6: Get and use the default prediction endpoint
+### Get and use the published iteration on the prediction endpoint
 
-You're now ready to use the model for prediction: 
+To send an image to the prediction endpoint and retrieve the prediction, add the following code to the end of the file:
 
-1. Obtain the endpoint associated with the default iteration. 
-2. Send a test image to the project using that endpoint.
-
-```Python
-from azure.cognitiveservices.vision.customvision.prediction import prediction_endpoint
-from azure.cognitiveservices.vision.customvision.prediction.prediction_endpoint import models
+```python
+from azure.cognitiveservices.vision.customvision.prediction import CustomVisionPredictionClient
 
 # Now there is a trained endpoint that can be used to make a prediction
+predictor = CustomVisionPredictionClient(prediction_key, endpoint=ENDPOINT)
 
-predictor = prediction_endpoint.PredictionEndpoint(prediction_key)
+with open(base_image_url + "images/Test/test_image.jpg", "rb") as image_contents:
+    results = predictor.classify_image(
+        project.id, publish_iteration_name, image_contents.read())
 
-test_img_url = base_image_url + "Images/Test/test_image.jpg"
-results = predictor.predict_image_url(project.id, iteration.id, url=test_img_url)
-
-# Alternatively, if the images were on disk in a folder called Images alongside the sample.py, then
-# they can be added by using the following.
-#
-# Open the sample image and get back the prediction results.
-# with open("Images\\test\\test_image.jpg", mode="rb") as test_data:
-#     results = predictor.predict_image(project.id, test_data.read(), iteration.id)
-
-# Display the results.
-for prediction in results.predictions:
-    print ("\t" + prediction.tag + ": {0:.2f}%".format(prediction.probability * 100))
+    # Display the results.
+    for prediction in results.predictions:
+        print("\t" + prediction.tag_name +
+              ": {0:.2f}%".format(prediction.probability * 100))
 ```
 
-## Step 7: Run the example
+## Run the application
 
-Build and run the solution. The prediction results appear on the console.
+Run *sample.py*.
 
-```
+```powershell
 python sample.py
 ```
+
+The output of the application should be similar to the following text:
+
+```console
+Creating project...
+Adding images...
+Training...
+Training status: Training
+Training status: Completed
+Done!
+        Hemlock: 93.53%
+        Japanese Cherry: 0.01%
+```
+
+You can then verify that the test image (found in **<base_image_url>/Images/Test/**) is tagged appropriately. You can also go back to the [Custom Vision website](https://customvision.ai) and see the current state of your newly created project.
+
+[!INCLUDE [clean-ic-project](includes/clean-ic-project.md)]
+
+## Next steps
+
+Now you have seen how every step of the image classification process can be done in code. This sample executes a single training iteration, but often you will need to train and test your model multiple times in order to make it more accurate.
+
+> [!div class="nextstepaction"]
+> [Test and retrain a model](test-your-model.md)

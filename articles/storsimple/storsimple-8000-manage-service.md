@@ -13,11 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2017
+ms.date: 05/09/2018
 ms.author: alkohli
 
 ---
 # Deploy the StorSimple Device Manager service for StorSimple 8000 series devices
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
 ## Overview
 
@@ -26,8 +28,9 @@ The StorSimple Device Manager service runs in Microsoft Azure and connects to mu
 This tutorial describes the steps required for the creation, deletion, migration of the service and the management of the service registration key. The information contained in this article is applicable only to StorSimple 8000 series devices. For more information on StorSimple Virtual Arrays, go to [deploy a StorSimple Device Manager service for your StorSimple Virtual Array](storsimple-virtual-array-manage-service.md).
 
 > [!NOTE]
-> All classic StorSimple device managers were automatically moved to the new Azure portal. If you have any questions, see [FAQ: Move to Azure portal](storsimple-8000-move-azure-portal-faq.md). The Azure Service Management (ASM) PowerShell cmdlets are not supported after the move to the new Azure portal. Update the scripts to manage your devices, and then go to the [Use Azure Resource Manager SDK-based scripts to manage StorSimple devices](storsimple-8000-automation-azurerm-scripts.md) for more information. 
-> The new Azure portal supports devices running Update 5.0 or later. If your device is not up to date, install Update 5 immediately. For more information, go to [Install Update 5](storsimple-8000-install-update-5.md). If you're using a StorSimple Cloud Appliance (8010/8020), you cannot update a cloud appliance. Use the latest version of software to create a new cloud appliance with Update 5.0,  and then fail over to the new cloud appliance created. All devices running Update 4.0 or earlier will experience [reduced management functionality](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-5.0). 
+> -  The Azure portal supports devices running Update 5.0 or later. If your device is not up to date, install Update 5 immediately. For more information, go to [Install Update 5](storsimple-8000-install-update-5.md). 
+> - If you're using a StorSimple Cloud Appliance (8010/8020), you cannot update a cloud appliance. Use the latest version of software to create a new cloud appliance with Update 5.0,  and then fail over to the new cloud appliance created. 
+> - All devices running Update 4.0 or earlier will experience reduced management functionality. 
 
 ## Create a service
 To create a StorSimple Device Manager service, you need to have:
@@ -36,11 +39,7 @@ To create a StorSimple Device Manager service, you need to have:
 * An active Microsoft Azure storage account
 * The billing information that is used for access management
 
-Only the subscriptions with an Enterprise Agreement are allowed. Microsoft Sponsorship subscriptions that were allowed in the Azure classic portal are not supported in the Azure portal. You will see the following message when using an unsupported subscription:
-
-![Subscription not valid](./media/storsimple-8000-manage-service/subscription-not-valid.jpg)
-
-You can also choose to generate a default storage account when you create the service.
+Only the subscriptions with an Enterprise Agreement are allowed. You can also choose to generate a default storage account when you create the service.
 
 A single service can manage multiple devices. However, a device cannot span multiple services. A large enterprise can have multiple service instances to work with different subscriptions, organizations, or even deployment locations. 
 
@@ -147,8 +146,7 @@ This step is performed in the Windows PowerShell for StorSimple interface on the
 
 > [!NOTE]
 > No operations can be performed in the Azure portal of your StorSimple Manager service until the key rollover is completed.
-> 
-> 
+
 
 If you are using the device serial console to connect to the Windows PowerShell interface, perform the following steps.
 

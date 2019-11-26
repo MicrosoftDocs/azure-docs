@@ -1,3 +1,10 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+---
 In this step, you manually create the availability group listener in Failover Cluster Manager and SQL Server Management Studio.
 
 1. Open Failover Cluster Manager from the node that hosts the primary replica.

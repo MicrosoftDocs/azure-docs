@@ -1,58 +1,68 @@
----
-title: Quickstart - Create your first Azure Container Instances container with PowerShell
-description: Get started with Azure Container Instances by creating a Windows container instance with PowerShell.
+﻿---
+title: Quickstart - Deploy Docker container to container instance - PowerShell
+description: In this quickstart, you use Azure PowerShell to quickly deploy a containerized web app that runs in an isolated Azure container instance
 services: container-instances
-author: mmacy
-manager: timlt
+author: dlepow
+manager: gwallace
 
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 01/02/2018
-ms.author: marsma
-ms.custom: mvc
+ms.date: 03/21/2019
+ms.custom: "seodec18, mvc"
 ---
 
-# Create your first container in Azure Container Instances
+# Quickstart: Deploy a container instance in Azure using Azure PowerShell
 
-Azure Container Instances makes it easy to create and manage Docker containers in Azure, without having to provision virtual machines or adopt a higher-level service.
+Use Azure Container Instances to run serverless Docker containers in Azure with simplicity and speed. Deploy an application to a container instance on-demand when you don't need a full container orchestration platform like Azure Kubernetes Service.
 
-In this quickstart, you create a Windows container in Azure and expose it to the internet with a public IP address. This operation is completed in a single command. Within just a few moments, you can see the running application in your browser:
+In this quickstart, you use Azure PowerShell to deploy an isolated Windows container and make its application available with a fully qualified domain name (FQDN). A few seconds after you execute a single deployment command, you can browse to the application running in the container:
 
-![App deployed using Azure Container Instances viewed in browser][qs-powershell-01]
+![App deployed to Azure Container Instances viewed in browser][qs-powershell-01]
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Create a resource group
 
-Create an Azure resource group with [New-AzureRmResourceGroup][New-AzureRmResourceGroup]. A resource group is a logical container into which Azure resources are deployed and managed.
+Azure container instances, like all Azure resources, must be deployed into a resource group. Resource groups allow you to organize and manage related Azure resources.
+
+First, create a resource group named *myResourceGroup* in the *eastus* location with the following [New-AzResourceGroup][New-AzResourceGroup] command:
 
  ```azurepowershell-interactive
-New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
 ## Create a container
 
-You can create a container by providing a name, a Docker image, and an Azure resource group to the [New-AzureRmContainerGroup][New-AzureRmContainerGroup] cmdlet. You can optionally expose the container to the internet with a public IP address. In this case, we'll use a Nano Server container running Internet Information Services (IIS).
+Now that you have a resource group, you can run a container in Azure. To create a container instance with Azure PowerShell, provide a resource group name, container instance name, and Docker container image to the [New-AzContainerGroup][New-AzContainerGroup] cmdlet. In this quickstart, you use the public `mcr.microsoft.com/windows/servercore/iis:nanoserver` image. This image packages Microsoft Internet Information Services (IIS) to run in Nano Server.
+
+You can expose your containers to the internet by specifying one or more ports to open, a DNS name label, or both. In this quickstart, you deploy a container with a DNS name label so that IIS is publicly reachable.
+
+Execute a command similar to the following to start a container instance. Set a `-DnsNameLabel` value that's unique within the Azure region where you create the instance. If you receive a "DNS name label not available" error message, try a different DNS name label.
 
  ```azurepowershell-interactive
-New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -IpAddressType Public
+New-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image mcr.microsoft.com/windows/servercore/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win
 ```
 
-Within a few seconds, you'll get a response to your request. Initially, the container is in the **Creating** state, but it should start within a minute or two. You can check the status using the [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup] cmdlet:
+Within a few seconds, you should receive a response from Azure. The container's `ProvisioningState` is initially **Creating**, but should move to **Succeeded** within a minute or two. Check the deployment state with the [Get-AzContainerGroup][Get-AzContainerGroup] cmdlet:
 
  ```azurepowershell-interactive
-Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
+Get-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
 ```
 
-The container's provisioning state and IP address appear in the cmdlet's output:
+The container's provisioning state, fully qualified domain name (FQDN), and IP address appear in the cmdlet's output:
 
-```
+```console
+PS Azure:\> Get-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
+
+
 ResourceGroupName        : myResourceGroup
-Id                       : /subscriptions/12345678-1234-1234-1234-12345678abcd/resourceGroups/myResourceGroup/providers/Microsoft.ContainerInstance/containerGroups/mycontainer
+Id                       : /subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.ContainerInstance/containerGroups/mycontainer
 Name                     : mycontainer
 Type                     : Microsoft.ContainerInstance/containerGroups
 Location                 : eastus
@@ -60,28 +70,32 @@ Tags                     :
 ProvisioningState        : Creating
 Containers               : {mycontainer}
 ImageRegistryCredentials :
-RestartPolicy            :
-IpAddress                : 40.71.248.73
+RestartPolicy            : Always
+IpAddress                : 52.226.19.87
+DnsNameLabel             : aci-demo-win
+Fqdn                     : aci-demo-win.eastus.azurecontainer.io
 Ports                    : {80}
 OsType                   : Windows
 Volumes                  :
+State                    : Pending
+Events                   : {}
 ```
 
-Once the container **ProvisioningState** moves to `Succeeded`, you can reach it in your browser using the IP address provided.
+Once the container's `ProvisioningState` is **Succeeded**, navigate to its `Fqdn` in your browser. If you see a web page similar to the following, congratulations! You've successfully deployed an application running in a Docker container to Azure.
 
 ![IIS deployed using Azure Container Instances viewed in browser][qs-powershell-01]
 
-## Delete the container
+## Clean up resources
 
-When you are done with the container, you can remove it using the [Remove-AzureRmContainerGroup][Remove-AzureRmContainerGroup] cmdlet:
+When you're done with the container, remove it with the [Remove-AzContainerGroup][Remove-AzContainerGroup] cmdlet:
 
  ```azurepowershell-interactive
-Remove-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
+Remove-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
 ```
 
 ## Next steps
 
-In this quickstart, you started a pre-built Windows container in Azure Container Instances. If you'd like to try building a container yourself and deploying it to Azure Container Instances using the Azure Container Registry, continue to the Azure Container Instances tutorial.
+In this quickstart, you created an Azure container instance from an image in the public Docker Hub registry. If you'd like to build a container image and deploy it from a private Azure container registry, continue to the Azure Container Instances tutorial.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances tutorial](./container-instances-tutorial-prepare-app.md)
@@ -90,7 +104,7 @@ In this quickstart, you started a pre-built Windows container in Azure Container
 [qs-powershell-01]: ./media/container-instances-quickstart-powershell/qs-powershell-01.png
 
 <!-- LINKS -->
-[New-AzureRmResourceGroup]: /powershell/module/azurerm.resources/new-azurermresourcegroup
-[New-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/new-azurermcontainergroup
-[Get-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/get-azurermcontainergroup
-[Remove-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/remove-azurermcontainergroup
+[New-AzResourceGroup]: /powershell/module/az.resources/new-Azresourcegroup
+[New-AzContainerGroup]: /powershell/module/az.containerinstance/new-Azcontainergroup
+[Get-AzContainerGroup]: /powershell/module/az.containerinstance/get-Azcontainergroup
+[Remove-AzContainerGroup]: /powershell/module/az.containerinstance/remove-Azcontainergroup

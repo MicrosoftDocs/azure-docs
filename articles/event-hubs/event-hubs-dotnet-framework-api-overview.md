@@ -2,27 +2,22 @@
 title: Overview of the Azure Event Hubs .NET Framework APIs | Microsoft Docs
 description: A summary of some of the key Event Hubs .NET Framework client APIs.
 services: event-hubs
-documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
-editor: ''
 
-ms.assetid: 7f3b6cc0-9600-417f-9e80-2345411bd036
 ms.service: event-hubs
 ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/19/2017
-ms.author: sethm
+ms.date: 08/16/2018
+ms.author: shvija
 
 ---
 
 # Event Hubs .NET Framework API overview
 
-This article summarizes some of the key Event Hubs .NET Framework client APIs. There are two categories: management and run-time APIs. Run-time APIs consist of all operations needed to send and receive a message. Management operations enable you to manage an Event Hubs entity state by creating, updating, and deleting entities.
+This article summarizes some of the key Azure Event Hubs [.NET Framework client APIs](https://www.nuget.org/packages/WindowsAzure.ServiceBus/). There are two categories: management and run-time APIs. Run-time APIs consist of all operations needed to send and receive a message. Management operations enable you to manage an Event Hubs entity state by creating, updating, and deleting entities.
 
-[Monitoring scenarios](event-hubs-metrics-azure-monitor.md) span both management and run-time. For detailed reference documentation on the .NET APIs, see the [Service Bus .NET](/dotnet/api/microsoft.servicebus.messaging) and [EventProcessorHost API](/dotnet/api/microsoft.azure.eventhubs.processor) references.
+[Monitoring scenarios](event-hubs-metrics-azure-monitor.md) span both management and run-time. For detailed reference documentation on the .NET APIs, see the [.NET Framework](/dotnet/api/microsoft.servicebus.messaging.eventhubclient), [.NET Standard](/dotnet/api/microsoft.azure.eventhubs), and [EventProcessorHost API](/dotnet/api/microsoft.azure.eventhubs.processor) references.
 
 ## Management APIs
 
@@ -177,6 +172,7 @@ public class SimpleEventProcessor : IEventProcessor
 ```
 
 ## Next steps
+
 To learn more about Event Hubs scenarios, visit these links:
 
 * [What is Azure Event Hubs?](event-hubs-what-is-event-hubs.md)

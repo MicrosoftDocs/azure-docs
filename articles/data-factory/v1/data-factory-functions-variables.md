@@ -1,30 +1,25 @@
 ---
-title: Data Factory Functions and System Variables | Microsoft Docs
+title: Data Factory Functions and System Variables 
 description: Provides a list of Azure Data Factory functions and system variables
 documentationcenter: ''
-author: sharonlo101
-manager: jhubbard
-editor: monicar
-services: data-factory
-
-ms.assetid: b6b3c2ae-b0e8-4e28-90d8-daf20421660d
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-
-robots: noindex
 ---
+
 # Azure Data Factory - Functions and System Variables
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [System variables in Data Factory version 2](../control-flow-system-variables.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [System variables in Data Factory](../control-flow-system-variables.md).
 
 This article provides information about functions and variables supported by Azure Data Factory.
 
 ## Data Factory system variables
+
 | Variable Name | Description | Object Scope | JSON Scope and Use Cases |
 | --- | --- | --- | --- |
 | WindowStart |Start of time interval for current activity run window |activity |<ol><li>Specify data selection queries. See connector articles referenced in the [Data Movement Activities](data-factory-data-movement-activities.md) article.</li> |
@@ -56,7 +51,7 @@ You can use functions in data factory along with system variables for the follow
 
 1. Specifying data selection queries (see connector articles referenced by the [Data Movement Activities](data-factory-data-movement-activities.md) article.
    
-   The syntax to invoke a data factory function is: **$$<function>** for data selection queries and other properties in the activity and datasets.  
+   The syntax to invoke a data factory function is: **$$\<function>** for data selection queries and other properties in the activity and datasets.  
 2. Specifying input dependencies with data factory functions in activity inputs collection.
    
     $$ is not needed for specifying input dependency expressions.     
@@ -151,7 +146,7 @@ In the following example, the DateTime parameter for the Stored Procedure Activi
             {
                 "type": "SqlServerStoredProcedure",
                 "typeProperties": {
-                    "storedProcedureName": "sp_sample",
+                    "storedProcedureName": "usp_sample",
                     "storedProcedureParameters": {
                         "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
                     }

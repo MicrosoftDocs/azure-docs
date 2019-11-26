@@ -1,3 +1,10 @@
+---
+author: SnehaGunda
+ms.service: cosmos-db
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: sngun
+---
 **1. How will customers be notified of the retiring SDK?**
 
 Microsoft will provide 12 month advance notification to the end of support of the retiring SDK in order to facilitate a smooth transition to a supported SDK. Further, customers will be notified through various communication channels – Azure Management Portal, Developer Center, blog post, and direct communication to assigned service administrators.

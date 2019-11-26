@@ -1,35 +1,22 @@
 ---
-title: Azure Resource Manager template functions - deployment | Microsoft Docs
+title: Template functions - deployment
 description: Describes the functions to use in an Azure Resource Manager template to retrieve deployment information.
-services: azure-resource-manager
-documentationcenter: na
-author: tfitzmac
-manager: timlt
-editor: tysonn
-
-ms.assetid: 
-ms.service: azure-resource-manager
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/05/2017
-ms.author: tomfitz
-
+ms.topic: conceptual
+ms.date: 11/19/2019
 ---
 # Deployment functions for Azure Resource Manager templates 
 
 Resource Manager provides the following functions for getting values from sections of the template and values related to the deployment:
 
 * [deployment](#deployment)
+* [environment](#environment)
 * [parameters](#parameters)
 * [variables](#variables)
 
 To get values from resources, resource groups, or subscriptions, see [Resource functions](resource-group-template-functions-resource.md).
 
-<a id="deployment" />
-
 ## deployment
+
 `deployment()`
 
 Returns information about the current deployment operation.
@@ -82,6 +69,8 @@ When the object is passed as a link, such as when using the **-TemplateUri** par
 }
 ```
 
+When you [deploy to an Azure subscription](deploy-to-subscription.md), instead of a resource group, the return object includes a `location` property. The location property is included when deploying either a local template or an external template.
+
 ### Remarks
 
 You can use deployment() to link to another template based on the URI of the parent template.
@@ -91,6 +80,8 @@ You can use deployment() to link to another template based on the URI of the par
     "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"  
 }
 ```  
+
+If you redeploy a template from the deployment history in the portal, the template is deployed as a local file. The `templateLink` property isn't returned in the deployment function. If your template relies on `templateLink` to construct a link to another template, don't use the portal to redeploy. Instead, use the commands you used to originally deploy the template.
 
 ### Example
 
@@ -134,21 +125,108 @@ The preceding example returns the following object:
 }
 ```
 
-To deploy this example template with Azure CLI, use:
+For a subscription-level template that uses the deployment function, see [subscription deployment function](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json). It's deployed with either `az deployment create` or `New-AzDeployment` commands.
 
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/deployment.json
+## environment
+
+`environment()`
+
+Returns information about the Azure environment used for deployment.
+
+### Return value
+
+This function returns properties for the current Azure environment.
+
+```json
+{
+  "name": "",
+  "gallery": "",
+  "graph": "",
+  "portal": "",
+  "graphAudience": "",
+  "activeDirectoryDataLake": "",
+  "batch": "",
+  "media": "",
+  "sqlManagement": "",
+  "vmImageAliasDoc": "",
+  "resourceManager": "",
+  "authentication": {
+    "loginEndpoint": "",
+    "audiences": [
+      "",
+      ""
+    ],
+    "tenant": "",
+    "identityProvider": ""
+  },
+  "suffixes": {
+    "acrLoginServer": "",
+    "azureDatalakeAnalyticsCatalogAndJob": "",
+    "azureDatalakeStoreFileSystem": "",
+    "azureFrontDoorEndpointSuffix": "",
+    "keyvaultDns": "",
+    "sqlServerHostname": "",
+    "storage": ""
+  }
+}
 ```
 
-To deploy this example template with PowerShell, use:
+### Example
 
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/deployment.json
+The following example template returns the environment object.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "environmentOutput": {
+            "value": "[environment()]",
+            "type" : "object"
+        }
+    }
+}
 ```
 
-<a id="parameters" />
+The preceding example returns the following object when deployed to global Azure:
+
+```json
+{
+  "name": "AzureCloud",
+  "gallery": "https://gallery.azure.com/",
+  "graph": "https://graph.windows.net/",
+  "portal": "https://portal.azure.com",
+  "graphAudience": "https://graph.windows.net/",
+  "activeDirectoryDataLake": "https://datalake.azure.net/",
+  "batch": "https://batch.core.windows.net/",
+  "media": "https://rest.media.azure.net",
+  "sqlManagement": "https://management.core.windows.net:8443/",
+  "vmImageAliasDoc": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json",
+  "resourceManager": "https://management.azure.com/",
+  "authentication": {
+    "loginEndpoint": "https://login.windows.net/",
+    "audiences": [
+      "https://management.core.windows.net/",
+      "https://management.azure.com/"
+    ],
+    "tenant": "common",
+    "identityProvider": "AAD"
+  },
+  "suffixes": {
+    "acrLoginServer": ".azurecr.io",
+    "azureDatalakeAnalyticsCatalogAndJob": "azuredatalakeanalytics.net",
+    "azureDatalakeStoreFileSystem": "azuredatalakestore.net",
+    "azureFrontDoorEndpointSuffix": "azurefd.net",
+    "keyvaultDns": ".vault.azure.net",
+    "sqlServerHostname": ".database.windows.net",
+    "storage": "core.windows.net"
+  }
+}
+```
 
 ## parameters
+
 `parameters(parameterName)`
 
 Returns a parameter value. The specified parameter name must be defined in the parameters section of the template.
@@ -250,21 +328,10 @@ The output from the preceding example with the default values is:
 | arrayOutput | Array | [1, 2, 3] |
 | crossOutput | String | option 1 |
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/parameters.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/parameters.json
-```
-
-<a id="variables" />
+For more information about using parameters, see [Parameters in Azure Resource Manager template](template-parameters.md).
 
 ## variables
+
 `variables(variableName)`
 
 Returns the value of variable. The specified variable name must be defined in the variables section of the template.
@@ -352,21 +419,11 @@ The output from the preceding example with the default values is:
 | exampleOutput3 | String | myVariable |
 | exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/variables.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/variables.json
-```
+For more information about using variables, see [Variables in Azure Resource Manager template](template-variables.md).
 
 ## Next steps
 * For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
-* To merge multiple templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
+* To merge several templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
 * To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
-* To see how to deploy the template you have created, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md).
+* To see how to deploy the template you've created, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md).
 

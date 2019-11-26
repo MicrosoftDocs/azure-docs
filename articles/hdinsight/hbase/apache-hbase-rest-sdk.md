@@ -1,26 +1,19 @@
 ---
-title: Use the HBase .NET SDK - Azure HDInsight | Microsoft Docs
+title: Use the HBase .NET SDK - Azure HDInsight 
 description: Use the HBase .NET SDK to create and delete tables, and to read and write data.
-services: hdinsight
-documentationcenter: ''
-tags: azure-portal
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
+ms.reviewer: jasonh
 
-ms.assetid: 
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/13/2017
 ms.author: ashishth
 ---
-# Use the HBase .NET SDK
 
-[HBase](apache-hbase-overview.md) provides two primary choices to work with your data: [Hive queries, and calls to HBase's RESTful API](apache-hbase-tutorial-get-started-linux.md). You can work directly with the REST API using the `curl` command or a similar utility.
+# Use the .NET SDK for Apache HBase
+
+[Apache HBase](apache-hbase-overview.md) provides two primary choices to work with your data: [Apache Hive queries, and calls to HBase's RESTful API](apache-hbase-tutorial-get-started-linux.md). You can work directly with the REST API using the `curl` command or a similar utility.
 
 For C# and .NET applications, the [Microsoft HBase REST Client Library for .NET](https://www.nuget.org/packages/Microsoft.HBase.Client/) provides a client library on top of the HBase REST API.
 
@@ -39,7 +32,7 @@ var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdins
 client = new HBaseClient(credentials);
 ```
 
-Replace CLUSTERNAME with your HDInsight HBase cluster name, and USERNAME and PASSWORD with the Hadoop credentials specified on cluster creation. The default Hadoop user name is **admin**.
+Replace CLUSTERNAME with your HDInsight HBase cluster name, and USERNAME and PASSWORD with the Apache Hadoop credentials specified on cluster creation. The default Hadoop user name is **admin**.
 
 ## Create a new table
 
@@ -115,9 +108,9 @@ set.rows.Add(row);
 await client.StoreCellsAsync("RestSDKTable", set);
 ```
 
-HBase implements BigTable, so the data format looks like the following:
+HBase implements [Cloud BigTable](https://cloud.google.com/bigtable/), so the data format looks like the following:
 
-![User with Cluster User role](./media/apache-hbase-rest-sdk/table.png)
+![Apache HBase sample data output](./media/apache-hbase-rest-sdk/hdinsight-table-roles.png)
 
 ## Select data
 
@@ -191,4 +184,4 @@ finally
 ## Next steps
 
 * [Get started with an Apache HBase example in HDInsight](apache-hbase-tutorial-get-started-linux.md)
-* Build an end-to-end application with [Analyze real-time Twitter sentiment with HBase](../hdinsight-hbase-analyze-twitter-sentiment.md)
+* Build an end-to-end application with [Analyze real-time Twitter sentiment with Apache HBase](../hdinsight-hbase-analyze-twitter-sentiment.md)

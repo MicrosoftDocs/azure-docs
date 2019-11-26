@@ -1,22 +1,16 @@
 ---
-title: How to use Queue storage from Ruby | Microsoft Docs
+title: How to use Queue storage from Ruby - Azure Storage
 description: Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Ruby.
-services: storage
-documentationcenter: ruby
-author: tamram
-manager: timlt
-editor: 'tysonn'
+author: mhopkins-msft
 
-ms.assetid: 59c2d81b-db9c-46ee-ade2-2f0caae6b1e6
-ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: ruby
-ms.topic: article
+ms.author: mhopkins
 ms.date: 12/08/2016
-ms.author: tamram
-
+ms.service: storage
+ms.subservice: queues
+ms.topic: conceptual
+ms.reviewer: cbrooks
 ---
+
 # How to use Queue storage from Ruby
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
@@ -158,7 +152,7 @@ azure_queue_service.delete_queue("test-queue")
 ## Next Steps
 Now that you've learned the basics of queue storage, follow these links to learn about more complex storage tasks.
 
-* Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
+* Visit the [Azure Storage Team Blog](https://blogs.msdn.com/b/windowsazurestorage/)
 * Visit the [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub
 
-For a comparison between the Azure Queue Service discussed in this article and Azure Service Bus Queues discussed in the [How to use Service Bus Queues](/develop/ruby/how-to-guides/service-bus-queues/) article, see [Azure Queues and Service Bus Queues - Compared and Contrasted](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+For a comparison between the Azure Queue Service discussed in this article and Azure Service Bus Queues discussed in the [How to use Service Bus Queues](https://azure.microsoft.com/develop/ruby/how-to-guides/service-bus-queues/) article, see [Azure Queues and Service Bus Queues - Compared and Contrasted](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)

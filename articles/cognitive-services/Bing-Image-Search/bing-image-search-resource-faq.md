@@ -1,30 +1,30 @@
 ---
-title: Frequently Asked Questions (FAQ) about Bing Image Search API on Azure | Microsoft Docs
-description: Get answers to common questions about Microsoft Cognitive Services Bing Image Search API on Azure.
+title: Frequently asked questions (FAQ) - Bing Image Search API
+titleSuffix: Azure Cognitive Services
+description: Find answers to commonly asked questions about concepts, code, and scenarios related to the Bing Image Search API.
 services: cognitive-services
-author: jerrykindall
-manager: jhubbard
-
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.technology: bing-image-search
-ms.topic: article
-ms.date: 10/06/2017
-ms.author: v-jerkin
+ms.subservice: bing-image-search
+ms.topic: conceptual
+ms.date: 03/04/2019
+ms.author: aahi
 ---
 
-# Frequently asked questions (FAQ) about Bing Image Search API (Cognitive Services)
- 
+# Frequently asked questions (FAQ) about the Bing Image Search API
+
 Find answers to commonly asked questions about concepts, code, and scenarios related to the Bing Image Search API for Microsoft Cognitive Services on Azure.
 
 ## Response headers in JavaScript
 
 The following headers may occur in responses from the Bing Image Search API.
 
-|||
-|-|-|
-|`X-MSEdge-ClientID`|The unique ID that Bing has assigned to the user|
-|`BingAPIs-Market`|The market that was used to fulfill the request|
-|`BingAPIs-TraceId`|The log entry on the Bing API server for this request (for support)|
+| `Attribute`         | `Description` |
+| ------------------- | ------------- |
+| `X-MSEdge-ClientID` |The unique ID that Bing has assigned to the user |
+| `BingAPIs-Market`   |The market that was used to fulfill the request |
+| `BingAPIs-TraceId`  |The log entry on the Bing API server for this request (for support) |
 
 It is particularly important to persist the client ID and return it with subsequent requests. When you do this, the search will use past context in ranking search results and also provide a consistent user experience.
 
@@ -48,9 +48,9 @@ Leave the command window open while you use the tutorial app; closing the window
 
 ## Response headers in production
 
-The CORS proxy approach described in the previous answer is appropriate for development, testing, and learning. 
+The CORS proxy approach described in the previous answer is appropriate for development, testing, and learning.
 
-In a production environment, however, you should host a server-side script on the same domain as the Web page that uses the Bing Web Search API. This script should actually do the API calls upon request from the Web page JavaScript and pass all results, including headers, back to the client. Since the two resources (page and script) share an origin, CORS does not come into play and the special headers are acessible to the JavaScript on the Web page. 
+In a production environment, however, you should host a server-side script on the same domain as the Web page that uses the Bing Web Search API. This script should actually do the API calls upon request from the Web page JavaScript and pass all results, including headers, back to the client. Since the two resources (page and script) share an origin, CORS does not come into play and the special headers are accessible to the JavaScript on the Web page.
 
 This approach also protects your API key from exposure to the public, since only the server-side script needs it. The script can use another method (such as the HTTP referrer) to make sure the request is authorized.
 
@@ -60,4 +60,4 @@ Is your question about a missing feature or functionality? Consider requesting o
 
 ## See also
 
- [Stack Overflow: Cognitive Services](http://stackoverflow.com/questions/tagged/bing-api)
+ [Stack Overflow: Cognitive Services](https://stackoverflow.com/questions/tagged/bing-api)

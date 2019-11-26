@@ -1,3 +1,10 @@
+---
+author: rayne-wiselman
+ms.service: site-recovery
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: raynew
+---
 
 1. Sign in to the [Azure portal](https://portal.azure.com) > **Recovery Services**.
 2. Click **Create a resource** > **Monitoring + Management** > **Backup and Site Recovery**.

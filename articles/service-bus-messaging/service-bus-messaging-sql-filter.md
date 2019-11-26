@@ -3,7 +3,7 @@ title: Azure Service Bus SQLFilter syntax reference | Microsoft Docs
 description: Details about SQLFilter grammar.
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/05/2018
-ms.author: sethm
+ms.date: 09/05/2018
+ms.author: spelluru
 
 ---
 
@@ -220,29 +220,29 @@ Consider the following [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sq
   
 ### Property evaluation semantics  
   
--   An attempt to evaluate a non-existent system property throws a [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception) exception.  
+- An attempt to evaluate a non-existent system property throws a [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception) exception.  
   
--   A property that does not exist is internally evaluated as **unknown**.  
+- A property that does not exist is internally evaluated as **unknown**.  
   
- Unknown evaluation in arithmetic operators:  
+  Unknown evaluation in arithmetic operators:  
   
--   For binary operators, if either the left and/or right side of operands is evaluated as **unknown**, then the result is **unknown**.  
+- For binary operators, if either the left and/or right side of operands is evaluated as **unknown**, then the result is **unknown**.  
   
--   For unary operators, if an operand is evaluated as **unknown**, then the result is **unknown**.  
+- For unary operators, if an operand is evaluated as **unknown**, then the result is **unknown**.  
   
- Unknown evaluation in binary comparison operators:  
+  Unknown evaluation in binary comparison operators:  
   
--   If either the left and/or right side of operands is evaluated as **unknown**, then the result is **unknown**.  
+- If either the left and/or right side of operands is evaluated as **unknown**, then the result is **unknown**.  
   
- Unknown evaluation in `[NOT] LIKE`:  
+  Unknown evaluation in `[NOT] LIKE`:  
   
--   If any operand is evaluated as **unknown**, then the result is **unknown**.  
+- If any operand is evaluated as **unknown**, then the result is **unknown**.  
   
- Unknown evaluation in `[NOT] IN`:  
+  Unknown evaluation in `[NOT] IN`:  
   
--   If the left operand is evaluated as **unknown**, then the result is **unknown**.  
+- If the left operand is evaluated as **unknown**, then the result is **unknown**.  
   
- Unknown evaluation in **AND** operator:  
+  Unknown evaluation in **AND** operator:  
   
 ```  
 +---+---+---+---+  
@@ -279,5 +279,5 @@ Consider the following [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sq
 ## Next steps
 
 - [SQLFilter class (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
-- [SQLFilter class (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.filters.sqlfilter)
+- [SQLFilter class (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.sqlfilter)
 - [SQLRuleAction class](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)

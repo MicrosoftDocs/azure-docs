@@ -1,5 +1,5 @@
 ---
-title: 'Modify the local network gateway IP address prefixes and the VPN Gateway IP address| Azure| CLI| Microsoft Docs'
+title: 'VPN Gateway: Modify gateway IP address settings: Azure CLI'
 description: This article walks you through changing IP address prefixes for your local network gateway using the Azure CLI.
 services: vpn-gateway
 documentationcenter: na
@@ -31,7 +31,7 @@ Sometimes the settings for your local network gateway Address Prefix or Gateway 
 
 ## <a name="before"></a>Before you begin
 
-Install the latest version of the CLI commands (2.0 or later). For information about installing the CLI commands, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Install the latest version of the CLI commands (2.0 or later). For information about installing the CLI commands, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 [!INCLUDE [CLI-login](../../includes/vpn-gateway-cli-login-include.md)]
 

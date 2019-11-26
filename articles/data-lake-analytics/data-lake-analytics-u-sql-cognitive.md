@@ -1,84 +1,30 @@
 ---
-title: Using U-SQL Cognitive capabilities in Azure Data Lake Analytics | Microsoft Docs
-description: 'Learn how to use the intelligence of Cognitive capabilities in U-SQL'
+title: U-SQL Cognitive capabilities in Azure Data Lake Analytics
+description: Learn how to use the intelligence of Cognitive capabilities in U-SQL. This code samples help you get started.
 services: data-lake-analytics
-documentationcenter: ''
 author: saveenr
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 019c1d53-4e61-4cad-9b2c-7a60307cbe19
-ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 12/05/2016
 ms.author: saveenr
 
+ms.reviewer: jasonwhowell
+ms.assetid: 019c1d53-4e61-4cad-9b2c-7a60307cbe19
+ms.service: data-lake-analytics
+ms.topic: conceptual
+ms.date: 06/05/2018
 ---
-
-# Tutorial: Get started with the Cognitive capabilities of U-SQL
+# Get started with the Cognitive capabilities of U-SQL
 
 ## Overview
 Cognitive capabilities for U-SQL enable developers to use put intelligence in their big data programs. 
 
-The following cognitive capabilities are available:
-* Imaging: Detect faces
-* Imaging: Detect emotion
-* Imaging: Detect objects (tagging)
-* Imaging: OCR (optical character recognition)
-* Text: Key Phrase Extraction
-* Text: Sentiment Analysis
+The following samples using cognitive capabilities are available:
+* Imaging: [Detect faces](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
+* Imaging: [Detect emotion](https://github.com/Azure-Samples/usql-cognitive-imaging-emotion-detection-hello-world)
+* Imaging: [Detect objects (tagging)](https://github.com/Azure-Samples/usql-cognitive-imaging-object-tagging-hello-world)
+* Imaging: [OCR (optical character recognition)](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
+* Text: [Key Phrase Extraction & Sentiment Analysis](https://github.com/Azure-Samples/usql-cognitive-text-hello-world)
 
-## How to use Cognitive in your U-SQL script
-
-The overall process is simple:
-
-* Use the REFERENCE ASSEMBLY statement to enable the cognitive features for the U-SQL Script
-* Use the PROCESS on an input Rowset using a Cognitive UDO, to generate an output RowSet
-
-### Detecting objects in images
-
-The following example shows how to use the cognitive capabilities to detect objects in images.
-
-```
-REFERENCE ASSEMBLY ImageCommon;
-REFERENCE ASSEMBLY FaceSdk;
-REFERENCE ASSEMBLY ImageEmotion;
-REFERENCE ASSEMBLY ImageTagging;
-REFERENCE ASSEMBLY ImageOcr;
-
-// Get the image data
-
-@imgs =
-    EXTRACT 
-        FileName string, 
-        ImgData byte[]
-    FROM @"/usqlext/samples/cognition/{FileName}.jpg"
-    USING new Cognition.Vision.ImageExtractor();
-
-//  Extract the number of objects on each image and tag them 
-
-@tags =
-    PROCESS @imgs 
-    PRODUCE FileName,
-            NumObjects int,
-            Tags SQL.MAP<string, float?>
-    READONLY FileName
-    USING new Cognition.Vision.ImageTagger();
-
-@tags_serialized =
-    SELECT FileName,
-           NumObjects,
-           String.Join(";", Tags.Select(x => String.Format("{0}:{1}", x.Key, x.Value))) AS TagsString
-    FROM @tags;
-
-OUTPUT @tags_serialized
-    TO "/tags.csv"
-    USING Outputters.Csv();
-```
-For more examples, look at the **U-SQL/Cognitive Samples** in the **Next steps** section.
+## Registering Cognitive Extensions in U-SQL
+Before you begin, follow the steps in this article to register Cognitive Extensions in U-SQL: [Registering Cognitive Extensions in U-SQL](/u-sql/objects-and-extensions/cognitive-capabilities-in#registeringExtensions).
 
 ## Next steps
 * [U-SQL/Cognitive Samples](https://github.com/Azure-Samples?utf8=✓&q=usql%20cognitive)

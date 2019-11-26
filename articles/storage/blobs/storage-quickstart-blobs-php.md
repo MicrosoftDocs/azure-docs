@@ -1,16 +1,13 @@
 ---
-title:  Azure Quickstart - Transfer objects to/from Azure Blob storage using PHP | Microsoft Docs 
+title: Azure Quickstart - Create a blob in object storage using PHP | Microsoft Docs 
 description: Quickly learn to transfer objects to/from Azure Blob storage using PHP
-services: storage
-author: roygara
-manager: jeconnoc
+author: mhopkins-msft
 
+ms.author: mhopkins
+ms.date: 11/14/2018
 ms.service: storage
-ms.tgt_pltfrm: na
-ms.devlang: php
+ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 03/09/2018
-ms.author: rogarana
 ---
 
 #  Transfer objects to/from Azure Blob storage using PHP
@@ -18,14 +15,12 @@ In this quickstart, you learn how to use PHP to upload, download, and list block
 
 ## Prerequisites
 
-To complete this quickstart: 
-* Install [PHP](http://php.net/downloads.php)
-* Install [the Azure SDK for PHP](https://github.com/Azure/azure-storage-php)
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
+Make sure you have the following additional prerequisites installed:
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+* [PHP](https://php.net/downloads.php)
+* [Azure Storage SDK for PHP](https://github.com/Azure/azure-storage-php)
 
 ## Download the sample application
 The [sample application](https://github.com/Azure-Samples/storage-blobs-php-quickstart.git) used in this quickstart is a basic PHP application.  
@@ -38,17 +33,19 @@ git clone https://github.com/Azure-Samples/storage-blobs-php-quickstart.git
 
 This command clones the repository to your local git folder. To open the PHP sample application, look for the storage-blobs-php-quickstart folder, and open the phpqs.php file.  
 
+[!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
+
 ## Configure your storage connection string
 In the application, you must provide your storage account name and account key to create the **BlobRestProxy** instance for your application. It is recommended to store these identifiers within an environment variable on the local machine running the application. Use one of the following examples depending on your Operating System to create the environment variable. Replace the **youraccountname** and **youraccountkey** values with your account name and key.
 
-# [Linux] (#tab/linux)
+# [Linux](#tab/linux)
 
 ```bash
 export ACCOUNT_NAME=<youraccountname>
 export ACCOUNT_KEY=<youraccountkey>
 ```
 
-# [Windows] (#tab/windows)
+# [Windows](#tab/windows)
 
 ```cmd
 setx ACCOUNT_NAME=<youraccountname>
@@ -72,7 +69,7 @@ This is the content of the blob uploaded: Hello Azure!
 ```
 When you press the button displayed, the sample program deletes the storage container and the files. Before you continue, check your server's folder for the two files. You can open them and see they are identical.
 
-You can also use a tool such as the [Azure Storage Explorer](http://storageexplorer.com) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information. 
+You can also use a tool such as the [Azure Storage Explorer](https://storageexplorer.com) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information. 
 
 After you've verified the files, hit any key to finish the demo and delete the test files. Now that you know what the sample does, open the example.rb file to look at the code. 
 
@@ -123,7 +120,7 @@ Blob storage supports block blobs, append blobs, and page blobs. Block blobs are
 
 To upload a file to a blob, get the full path of the file by joining the directory name and the file name on your local drive. You can then upload the file to the specified path using the **createBlockBlob()** method. 
 
-The sample code takes a local file and uploads it to Azure. The file is stored as as **myfile** and the name of the blob as **fileToUpload** in the code. The following example uploads the file to your container called **quickstartblobs**.
+The sample code takes a local file and uploads it to Azure. The file is stored as **myfile** and the name of the blob as **fileToUpload** in the code. The following example uploads the file to your container called **quickstartblobs**.
 
 ```PHP
     $myfile = fopen("HelloWorld.txt", "w") or die("Unable to open file!");
@@ -194,12 +191,19 @@ If you no longer need the blobs uploaded in this quickstart, you can delete the 
     unlink($fileToUpload);   
 ```
 
+## Resources for developing PHP applications with blobs
+
+See these additional resources for PHP development with Blob storage:
+
+- View, download, and install the [PHP client library source code](https://github.com/Azure/azure-storage-php) for Azure Storage on GitHub.
+- Explore [Blob storage samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=php&term=blob) written using the PHP client library.
+
 ## Next steps
  
-In this quickstart, you learned how to transfer files between a local disk and Azure blob storage using PHP. To learn more about working with blob storage, continue to the Blob storage How-to.
+In this quickstart, you learned how to transfer files between a local disk and Azure blob storage using PHP. To learn more about working with PHP, continue to our PHP Developer center.
 
 > [!div class="nextstepaction"]
-> [Blob Storage Operations How-To](./storage-php-how-to-use-blobs.md)
+> [PHP Developer Center](https://azure.microsoft.com/develop/php/)
 
 
 For more information about the Storage Explorer and Blobs, see [Manage Azure Blob storage resources with Storage Explorer](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

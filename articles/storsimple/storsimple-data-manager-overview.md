@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure StorSimple Data Manager overview | Microsoft Docs
-description: Provides an overview of the StorSimple Data Manager serivce
+description: Provides an overview of the StorSimple Data Manager service
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
@@ -13,8 +13,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/26/2018
-ms.author: vidarmsft
+ms.date: 05/21/2018
+ms.author: alkohli
 ---
 
 # StorSimple Data Manager solution overview
@@ -64,7 +64,9 @@ We recommend that:
  - Your source storage account (the one associated with your StorSimple device) and target storage account (where you want the data in native format) be in the same Azure region.
  - You bring up your Data Manager and job definition in the region that contains the StorSimple storage account. If this is not possible, bring up the Data Manager in the nearest Azure region and then create the Job Definition in the same region as your StorSimple storage account. 
 
-    If your StorSimple storage account is not in the 26 regions that support job definition creation, we recommend that you do not run StorSimple Data Manager as you see long latencies and potentially high egress charges.
+    If your StorSimple storage account is not in the 26 regions that support job definition creation, we recommend that you do not run StorSimple Data Manager as you see long latencies and potential egress charges.
+    
+Microsoft strives to ensure that Azure services are always available in all regions. However, unplanned service outages may occur for short periods in a certain region. In such cases, you can bring up a Data Manager and job definition in a region that is not affected by the outage, and run the transformation job. You might encounter some additional latency in such a scenario, but this can be your recovery strategy in the rare event of a regional outage.
 
 ## Security considerations
 
@@ -77,6 +79,18 @@ This key is used by the compute resources to perform the transformation. These c
 If your Data Manager region is different from your job definition region, it is important that you understand what data/metadata resides in each of these regions. The following diagram illustrates the effect of having different regions for Data Manager and job definition.
 
 ![Service and job definition in different regions](./media/storsimple-data-manager-overview/data-manager-job-different-regions.png)
+
+## Managing personal information
+
+The StorSimple Data Manager does not collect or display any personal information. For more information, review the Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trustcenter).
+
+## Known Limitations
+
+The service currently has the following limitations:
+- The StorSimple Data Manager currently does not work with volumes that are bitlocker encrypted. You will see job failures if you try to run the service with an encrypted drive.
+- Some metadata of files (including ACLs) will not be retained in the transformed data.
+- This service works only with NTFS volumes.
+- File path lengths need to be less than 256 characters else the job will fail.
 
 ## Next steps
 

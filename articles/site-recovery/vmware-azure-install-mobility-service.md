@@ -1,124 +1,66 @@
 ---
-title: Install Mobility Service (VMware or physical to Azure) | Microsoft Docs
-description: Learn how to install the Mobility Service agent to protect your on-premises VMware VMs and physical servers with Azure Site Recovery.
-services: site-recovery
-author: AnoopVasudavan
-manager: gauravd
+title: Prepare source machines to install the Mobility Service through push installation for disaster recovery of VMware VMs and physical servers to Azure | Microsoft Docs
+description: Learn how to prepare your server to install Mobility agent through push installation for disaster recovery of VMware VMs and physical servers to Azure using the  Azure Site Recovery service.
+author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/05/2018
-ms.author: anoopkv
+ms.topic: conceptual
+ms.date: 03/25/2019
+ms.author: ramamill
 ---
 
-# Install the Mobility service 
+# Prepare source machine for push installation of mobility agent
 
-Azure Site Recovery Mobility Service is installed on VMware VMs and physical servers that you want to replicate to Azure. The service captures data writes on a computer and then forwards them to the process server. Deploy Mobility Service to every computer (VMware VM or physical server) that you want to replicate to Azure. You can deploy the Mobility Service on the servers and VMware VMs you want to protect using the following methods:
+When you set up disaster recovery for VMware VMs and physical servers using [Azure Site Recovery](site-recovery-overview.md), you install the [Site Recovery Mobility service](vmware-physical-mobility-service-overview.md) on each on-premises VMware VM and physical server.  The Mobility service captures data writes on the machine, and forwards them to the Site Recovery process server.
 
+## Install on Windows machine
 
-* [Install using software deployment tools like System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md)
-* [Install with Azure Automation and Desired State Configuration (Automation DSC)](vmware-azure-mobility-deploy-automation-dsc.md)
-* [Install manually from the UI](vmware-azure-install-mobility-service.md#install-mobility-service-manually-by-using-the-gui)
-* [Install manually from a command prompt](vmware-azure-install-mobility-service.md#install-mobility-service-manually-at-a-command-prompt)
-* [Install using the Site Recovery push installation](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery)
+On each Windows machine you want to protect, do the following:
 
+1. Ensure that there's network connectivity between the machine and the process server. If you haven't set up a separate process server, then by default it's running on the configuration server.
+1. Create an account that the process server can use to access the computer. The account should have administrator rights, either local or domain. Use this account only for the push installation and for agent updates.
+2. If you don't use a domain account, disable Remote User Access control on the local computer as follows:
+    - Under  HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System registry key, add a new DWORD: **LocalAccountTokenFilterPolicy**. Set the value to **1**.
+    -  To do this at a command prompt, run the following command:  
+   `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d
+3. In Windows Firewall on the machine you want to protect, select **Allow an app or feature through Firewall**. Enable **File and Printer Sharing** and **Windows Management Instrumentation (WMI)**. For computers that belong to a domain, you can configure the firewall settings by using a Group Policy object (GPO).
 
->[!IMPORTANT]
-> Beginning with version 9.7.0.0, on Windows VMs, the Mobility Service installer also installs the latest available [Azure VM agent](../virtual-machines/windows/extensions-features.md#azure-vm-agent). When a computer fails over to Azure, the computer meets the agent installation prerequisite for using any VM extension.
+   ![Firewall settings](./media/vmware-azure-install-mobility-service/mobility1.png)
 
-## Prerequisites
-Complete these prerequisite steps before you manually install Mobility Service on your server:
-1. Sign in to your configuration server, and then open a command prompt window as an administrator.
-2. Change the directory to the bin folder, and then create a passphrase file.
+4. Add the account that you created in CSPSConfigtool. To do this, sign in to your configuration server.
+5. Open **cspsconfigtool.exe**. It's available as a shortcut on the desktop and in the %ProgramData%\ASR\home\svsystems\bin folder.
+6. On the **Manage Accounts** tab, select **Add Account**.
+7. Add the account you created.
+8. Enter the credentials you use when you enable replication for a computer.
 
-    ```
-    cd %ProgramData%\ASR\home\svsystems\bin
-    genpassphrase.exe -v > MobSvc.passphrase
-    ```
-3. Store the passphrase file in a secure location. You use the file during Mobility Service installation.
-4. Mobility Service installers for all supported operating systems are in the %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository folder.
+## Install on Linux machine
 
-### Mobility Service installer-to-operating system mapping
+On each Linux machine that you want to protect, do the following:
 
-| Installer file template name| Operating system |
-|---|--|
-|Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 SP1 (64-bit) </br> Windows Server 2012 (64-bit) </br> Windows Server 2012 R2 (64-bit) </br> Windows Server 2016 (64-bit) |
-|Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz| Red Hat Enterprise Linux (RHEL) 6.4, 6.5, 6.6, 6.7, 6.8, 6.9 (64-bit only) </br> CentOS 6.4, 6.5, 6.6, 6.7, 6.8, 6.9 (64-bit only) |
-|Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.1, 7.2, 7.3 (64-bit only) </br> CentOS 7.0, 7.1, 7.2, 7.3 (64-bit only) |
-|Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 (64-bit only)|
-|Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4 (64-bit only)|
-|Microsoft-ASR\_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5 (64-bit only)|
-|Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz | Ubuntu Linux 14.04 (64-bit only)|
-|Microsoft-ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Ubuntu Linux 16.04 LTS server (64-bit only)|
-|Microsoft-ASR_UA\*DEBIAN7-64\*release.tar.gz | Debian 7 (64-bit only)|
-|Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8 (64-bit only)|
+1. Ensure that there's network connectivity between the Linux machine and the process server.
+2. Create an account that the process server can use to access the computer. The account should be a **root** user on the source Linux server. Use this account only for the push installation and for updates.
+3. Check that the /etc/hosts file on the source Linux server has entries that map the local hostname to IP addresses associated with all network adapters.
+4. Install the latest openssh, openssh-server, and openssl packages on the computer that you want to replicate.
+5. Ensure that Secure Shell (SSH) is enabled and running on port 22.
+4. Enable SFTP subsystem and password authentication in the sshd_config file. To do this, sign in as **root**.
+5. In the **/etc/ssh/sshd_config** file, find the line that begins with **PasswordAuthentication**.
+6. Uncomment the line, and change the value to **yes**.
+7. Find the line that begins with **Subsystem**, and uncomment the line.
 
+      ![Linux](./media/vmware-azure-install-mobility-service/mobility2.png)
 
-## Install Mobility Service manually by using the GUI
+8. Restart the **sshd** service.
+9. Add the account that you created in CSPSConfigtool. To do this, sign in to your configuration server.
+10. Open **cspsconfigtool.exe**. It's available as a shortcut on the desktop and in the %ProgramData%\home\svsystems\bin folder.
+11. On the **Manage Accounts** tab, select **Add Account**.
+12. Add the account you created.
+13. Enter the credentials you use when you enable replication for a computer.
 
->[!IMPORTANT]
-> If you use a configuration server to replicate Azure IaaS virtual machines from one Azure subscription/region to another, use the command-line-based installation method.
+## Anti-virus on replicated machines
 
-[!INCLUDE [site-recovery-install-mob-svc-gui](../../includes/site-recovery-install-mob-svc-gui.md)]
+If machines you want to replicate have active anti-virus software running, make sure you exclude the Mobility service installation folder from anti-virus operations (*C:\ProgramData\ASR\agent*). This ensures that replication works as expected.
 
-## Install Mobility Service manually at a command prompt
+## Next steps
 
-### Command-line installation on a Windows computer
-[!INCLUDE [site-recovery-install-mob-svc-win-cmd](../../includes/site-recovery-install-mob-svc-win-cmd.md)]
-
-### Command-line installation on a Linux computer
-[!INCLUDE [site-recovery-install-mob-svc-lin-cmd](../../includes/site-recovery-install-mob-svc-lin-cmd.md)]
+After the Mobility Service is installed, in the Azure portal, select **+ Replicate** to start protecting these VMs. Learn more about enabling replication for [VMware VMs](vmware-azure-enable-replication.md) and [physical servers](physical-azure-disaster-recovery.md#enable-replication).
 
 
-## Install Mobility Service by push installation from Azure Site Recovery
-You can do a push installation of Mobility Service by using Site Recovery. All target computers must meet the following prerequisites.
-
-[!INCLUDE [site-recovery-prepare-push-install-mob-svc-win](../../includes/site-recovery-prepare-push-install-mob-svc-win.md)]
-
-[!INCLUDE [site-recovery-prepare-push-install-mob-svc-lin](../../includes/site-recovery-prepare-push-install-mob-svc-lin.md)]
-
-
-> [!NOTE]
-After Mobility Service is installed, in the Azure portal, select **+ Replicate** to start protecting these VMs.
-
-## Update Mobility Service
-
-> [!WARNING]
-> Ensure that the configuration server, scale-out process servers, and any master target servers that are a part of your deployment are updated before you start updating Mobility Service on the protected servers.
-
-1. On the Azure portal, browse to the *name of your vault* > **Replicated items** view.
-2. If the configuration server was already updated to the latest version, you see a notification that reads "New Site recovery replication agent update is available. Click to install."
-
-     ![Replicated items window](.\media\vmware-azure-install-mobility-service\replicated-item-notif.png)
-3. Select the notification to open the virtual machine selection page.
-4. Select the virtual machines you want to upgrade mobility service on, and select **OK**.
-
-     ![Replicated items VM list](.\media\vmware-azure-install-mobility-service\update-okpng.png)
-
-The Update Mobility Service job starts for each of the selected virtual machines.
-
-> [!NOTE]
-> [Read more](vmware-azure-manage-configuration-server.md) on how to update the password for the account used to install Mobility Service.
-
-## Uninstall Mobility Service on a Windows Server computer
-Use one of the following methods to uninstall Mobility Service on a Windows Server computer.
-
-### Uninstall by using the GUI
-1. In Control Panel, select **Programs**.
-2. Select **Microsoft Azure Site Recovery Mobility Service/Master Target server**, and then select **Uninstall**.
-
-### Uninstall at a command prompt
-1. Open a command prompt window as an administrator.
-2. To uninstall Mobility Service, run the following command:
-
-    ```
-    MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
-    ```
-
-## Uninstall Mobility Service on a Linux computer
-1. On your Linux server, sign in as a **root** user.
-2. In a terminal, go to /user/local/ASR.
-3. To uninstall Mobility Service, run the following command:
-
-    ```
-    uninstall.sh -Y
-    ```

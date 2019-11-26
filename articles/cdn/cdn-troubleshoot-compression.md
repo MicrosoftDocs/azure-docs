@@ -8,7 +8,7 @@ manager: erikre
 editor: ''
 
 ms.assetid: a6624e65-1a77-4486-b473-8d720ce28f8b
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -26,7 +26,7 @@ If you need more help at any point in this article, you can contact the Azure ex
 Compression for your endpoint is enabled, but files are being returned uncompressed.
 
 > [!TIP]
-> To check whether your files are being returned compressed, you need to use a tool like [Fiddler](http://www.telerik.com/fiddler) or your browser's [developer tools](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/).  Check the HTTP response headers returned with your cached CDN content.  If there is a header named `Content-Encoding` with a value of **gzip**, **bzip2**, or **deflate**, your content is compressed.
+> To check whether your files are being returned compressed, you need to use a tool like [Fiddler](https://www.telerik.com/fiddler) or your browser's [developer tools](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/).  Check the HTTP response headers returned with your cached CDN content.  If there is a header named `Content-Encoding` with a value of **gzip**, **bzip2**, or **deflate**, your content is compressed.
 > 
 > ![Content-Encoding header](./media/cdn-troubleshoot-compression/cdn-content-header.png)
 > 
@@ -58,9 +58,9 @@ First, we should do a quick sanity check on the request.  You can use your brows
 
 ![CDN request headers](./media/cdn-troubleshoot-compression/cdn-request-headers.png)
 
-### Verify compression settings (Standard CDN profile)
+### Verify compression settings (standard CDN profiles)
 > [!NOTE]
-> This step only applies if your CDN profile is an **Azure CDN Standard from Verizon** or **Azure CDN Standard from Akamai** profile. 
+> This step applies only if your CDN profile is an **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Verizon**, or **Azure CDN Standard from Akamai** profile. 
 > 
 > 
 
@@ -71,9 +71,9 @@ Navigate to your endpoint in the [Azure portal](https://portal.azure.com) and cl
 
 ![CDN compression settings](./media/cdn-troubleshoot-compression/cdn-compression-settings.png)
 
-### Verify compression settings (Premium CDN profile)
+### Verify compression settings (Premium CDN profiles)
 > [!NOTE]
-> This step only applies if your CDN profile is an **Azure CDN Premium from Verizon** profile.
+> This step applies only if your CDN profile is an **Azure CDN Premium from Verizon** profile.
 > 
 > 
 
@@ -85,9 +85,9 @@ Navigate to your endpoint in the [Azure portal](https://portal.azure.com) and cl
 
 ![CDN premium compression settings](./media/cdn-troubleshoot-compression/cdn-compression-settings-premium.png)
 
-### Verify the content is cached
+### Verify the content is cached (Verizon CDN profiles)
 > [!NOTE]
-> This step only applies if your CDN profile is an **Azure CDN from Verizon** profile (Standard or Premium).
+> This step applies only if your CDN profile is an **Azure CDN Standard from Verizon** or **Azure CDN Premium from Verizon** profile.
 > 
 > 
 
@@ -98,9 +98,9 @@ Using your browser's developer tools, check the response headers to ensure the f
 
 ![CDN response headers](./media/cdn-troubleshoot-compression/cdn-response-headers.png)
 
-### Verify the file meets the size requirements
+### Verify the file meets the size requirements (Verizon CDN profiles)
 > [!NOTE]
-> This step only applies if your CDN profile is an **Azure CDN from Verizon** profile (Standard or Premium).
+> This step applies only if your CDN profile is an **Azure CDN Standard from Verizon** or **Azure CDN Premium from Verizon** profile.
 > 
 > 
 
@@ -112,6 +112,6 @@ To be eligible for compression, a file must meet the following size requirements
 ### Check the request at the origin server for a **Via** header
 The **Via** HTTP header indicates to the web server that the request is being passed by a proxy server.  Microsoft IIS web servers by default do not compress responses when the request contains a **Via** header.  To override this behavior, perform the following:
 
-* **IIS 6**: [Set HcNoCompressionForProxies="FALSE" in the IIS Metabase properties](https://msdn.microsoft.com/library/ms525390.aspx)
-* **IIS 7 and up**: [Set both **noCompressionForHttp10** and **noCompressionForProxies** to False in the server configuration](http://www.iis.net/configreference/system.webserver/httpcompression)
+* **IIS 6**: [Set HcNoCompressionForProxies="FALSE" in the IIS Metabase properties](/previous-versions/iis/6.0-sdk/ms525390(v=vs.90))
+* **IIS 7 and up**: [Set both **noCompressionForHttp10** and **noCompressionForProxies** to False in the server configuration](https://www.iis.net/configreference/system.webserver/httpcompression)
 

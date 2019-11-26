@@ -1,17 +1,16 @@
 ---
-title: About network mapping for Hyper-V VM (with VMM) replication to Azure with Site Recovery | Microsoft Docs
-description: Describes how to set up network mapping for replication of Hyper-V VMs managed in VMM clouds, with Azure Site Recovery.
-services: site-recovery
+title: About Hyper-V (with VMM) network mapping with Site Recovery 
+description: Describes how to set up network mapping for disaster recovery of Hyper-V VMs (managed in VMM clouds) to Azure, with Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 02/22/2018
+ms.topic: conceptual
+ms.date: 11/14/2019
 ms.author: raynew
 ---
 
 
-# Prepare network mapping for Hyper-V VM replication to Azure
+# Prepare network mapping for Hyper-V VM disaster recovery to Azure
 
 
 This article helps you to understand and prepare for network mapping when you replicate Hyper-V VMs in System Center Virtual Machine Manager (VMM) clouds to Azure, or to a secondary site, using the [Azure Site Recovery](site-recovery-overview.md) service.
@@ -20,8 +19,8 @@ This article helps you to understand and prepare for network mapping when you re
 ## Prepare network mapping for replication to Azure
 
 When you're replicating to Azure, network mapping maps between VM networks on a source VMM server, and target Azure virtual networks. Mapping does the following:
-    -  **Network connection**—Ensures that replicated Azure VMs are connected to the mapped network. All machines which fail over on the same network can connect to each other, even if they failed over in different recovery plans.
-    - **Network gateway**—If a network gateway is set up on the target Azure network, VMs can connect to other on-premises virtual machines.
+-  **Network connection**—Ensures that replicated Azure VMs are connected to the mapped network. All machines which fail over on the same network can connect to each other, even if they failed over in different recovery plans.
+- **Network gateway**—If a network gateway is set up on the target Azure network, VMs can connect to other on-premises virtual machines.
 
 Network mapping works as follows:
 
@@ -55,7 +54,7 @@ Here’s an example to illustrate this mechanism. Let’s take an organization w
 New York | VMM-NewYork| VMNetwork1-NewYork | Mapped to VMNetwork1-Chicago
  |  | VMNetwork2-NewYork | Not mapped
 Chicago | VMM-Chicago| VMNetwork1-Chicago | Mapped to VMNetwork1-NewYork
- | | VMNetwork1-Chicago | Not mapped
+ | | VMNetwork2-Chicago | Not mapped
 
 In this example:
 

@@ -1,23 +1,18 @@
 ---
-title: Secure a database in SQL Data Warehouse | Microsoft Docs
+title: Secure a database
 description: Tips for securing a database in Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
-documentationcenter: NA
-author: ronortloff
-manager: jhubbard
-editor: ''
-
-ms.assetid: 8fa2f5ca-4cf5-4418-99a2-4dc745799850
+author: julieMSFT
+manager: craigg
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: security
-ms.date: 12/14/2017
-ms.author: rortloff;barbkess
-
+ms.topic: conceptual
+ms.subservice: security
+ms.date: 04/17/2018
+ms.author: jrasnick
+ms.reviewer: igorstan
+ms.custom: seo-lt-2019
 ---
+
 # Secure a database in SQL Data Warehouse
 > [!div class="op_single_selector"]
 > * [Security Overview](sql-data-warehouse-overview-manage-security.md)

@@ -4,13 +4,13 @@ description: Update the older Java applications which used to use the Service Fa
 services: service-fabric
 documentationcenter: java
 author: rapatchi
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
 ms.devlang: java
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2017
@@ -23,17 +23,17 @@ We have recently moved Service Fabric Java binaries from the Service Fabric Java
 ## Prerequisites
 1. First you need to uninstall the existing Java SDK.
 
-  ```bash
-  sudo dpkg -r servicefabricsdkjava
-  ```
+   ```bash
+   sudo dpkg -r servicefabricsdkjava
+   ```
 2. Install the latest Service Fabric CLI following the steps mentioned [here](service-fabric-cli.md).
 
 3. To build and work on the Service Fabric Java applications, you need to ensure that you have JDK 1.8 and Gradle installed. If not yet installed, you can run the following to install JDK 1.8 (openjdk-8-jdk) and Gradle -
 
- ```bash
- sudo apt-get install openjdk-8-jdk-headless
- sudo apt-get install gradle
- ```
+   ```bash
+   sudo apt-get install openjdk-8-jdk-headless
+   sudo apt-get install gradle
+   ```
 4. Update the install/uninstall scripts of your application to use the new Service Fabric CLI following the steps mentioned [here](service-fabric-application-lifecycle-sfctl.md). You can refer to our getting-started [examples](https://github.com/Azure-Samples/service-fabric-java-getting-started) for reference.
 
 >[!TIP]
@@ -49,8 +49,8 @@ Service Fabric Reliable Actor support for your application.
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-actors-preview</artifactId>
-      <version>0.10.0</version>
+      <artifactId>sf-actors</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -59,7 +59,7 @@ Service Fabric Reliable Actor support for your application.
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-actors-preview:0.10.0'
+      compile 'com.microsoft.servicefabric:sf-actors:1.0.0'
   }
   ```
 
@@ -70,8 +70,8 @@ Service Fabric Stateless Service support for your application.
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-services-preview</artifactId>
-      <version>0.10.0</version>
+      <artifactId>sf-services</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -80,7 +80,7 @@ Service Fabric Stateless Service support for your application.
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-services-preview:0.10.0'
+      compile 'com.microsoft.servicefabric:sf-services:1.0.0'
   }
   ```
 
@@ -92,8 +92,8 @@ Transport layer support for Service Fabric Java application. You do not need to 
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-transport-preview</artifactId>
-      <version>0.10.0</version>
+      <artifactId>sf-transport</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -102,7 +102,7 @@ Transport layer support for Service Fabric Java application. You do not need to 
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-transport-preview:0.10.0'
+      compile 'com.microsoft.servicefabric:sf-transport:1.0.0'
   }
   ```
 
@@ -113,8 +113,8 @@ System level support for Service Fabric, which talks to native Service Fabric ru
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-preview</artifactId>
-      <version>0.10.0</version>
+      <artifactId>sf</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -123,7 +123,7 @@ System level support for Service Fabric, which talks to native Service Fabric ru
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-preview:0.10.0'
+      compile 'com.microsoft.servicefabric:sf:1.0.0'
   }
   ```
 
@@ -175,15 +175,15 @@ configurations {
 
 dependencies {
     compile project(':Interface')
-    azuresf ('com.microsoft.servicefabric:sf-services-preview:0.10.0')
+    azuresf ('com.microsoft.servicefabric:sf-services:1.0.0')
     compile fileTree(dir: 'lib', include: '*.jar')
 }
 
 task explodeDeps(type: Copy, dependsOn:configurations.azuresf) { task ->
-    configurations.azuresf.filter { it.toString().contains("native-preview") }.each{
+    configurations.azuresf.filter { it.toString().contains("native") }.each{
         from zipTree(it)
     }
-    configurations.azuresf.filter { !it.toString().contains("native-preview") }.each {
+    configurations.azuresf.filter { !it.toString().contains("native") }.each {
         from it
     }
     into "lib"
@@ -216,7 +216,7 @@ task copyDeps <<{
     }
 }
 ```
-In general, to get an overall idea about how the build script would look like for a Service Fabric stateless Java service, you can refer to any sample from our getting-started examples. Here is the [build.gradle](https://github.com/Azure-Samples/service-fabric-java-getting-started/blob/master/Services/EchoServer/EchoServer1.0/EchoServerService/build.gradle) for the EchoServer sample.
+In general, to get an overall idea about how the build script would look like for a Service Fabric stateless Java service, you can refer to any sample from our getting-started examples. Here is the [build.gradle](https://github.com/Azure-Samples/service-fabric-java-getting-started/blob/master/reliable-services-actor-sample/build.gradle) for the EchoServer sample.
 
 ## Migrating Service Fabric Actor Service
 
@@ -248,15 +248,15 @@ configurations {
 }
 
 dependencies {
-    azuresf ('com.microsoft.servicefabric:sf-actors-preview:0.10.0')
+    azuresf ('com.microsoft.servicefabric:sf-actors:1.0.0')
     compile fileTree(dir: 'lib', include: '*.jar')
 }
 
 task explodeDeps(type: Copy, dependsOn:configurations.azuresf) { task ->
-    configurations.azuresf.filter { it.toString().contains("native-preview") }.each{
+    configurations.azuresf.filter { it.toString().contains("native") }.each{
         from zipTree(it)
     }
-    configurations.azuresf.filter { !it.toString().contains("native-preview") }.each {
+    configurations.azuresf.filter { !it.toString().contains("native") }.each {
         from it
     }
     into "lib"
@@ -321,15 +321,15 @@ configurations {
 
 dependencies {
     compile project(':MyactorInterface')
-    azuresf ('com.microsoft.servicefabric:sf-actors-preview:0.10.0')
+    azuresf ('com.microsoft.servicefabric:sf-actors:1.0.0')
     compile fileTree(dir: 'lib', include: '*.jar')
 }
 
 task explodeDeps(type: Copy, dependsOn:configurations.azuresf) { task ->
-    configurations.azuresf.filter { it.toString().contains("native-preview") }.each{
+    configurations.azuresf.filter { it.toString().contains("native") }.each{
         from zipTree(it)
     }
-    configurations.azuresf.filter { !it.toString().contains("native-preview") }.each {
+    configurations.azuresf.filter { !it.toString().contains("native") }.each {
         from it
     }
     into "lib"
@@ -421,15 +421,15 @@ configurations {
 
 dependencies {
     compile project(':MyactorInterface')
-    azuresf ('com.microsoft.servicefabric:sf-actors-preview:0.10.0')
+    azuresf ('com.microsoft.servicefabric:sf-actors:1.0.0')
     compile fileTree(dir: 'lib', include: '*.jar')
 }
 
 task explodeDeps(type: Copy, dependsOn:configurations.azuresf) { task ->
-    configurations.azuresf.filter { it.toString().contains("native-preview") }.each{
+    configurations.azuresf.filter { it.toString().contains("native") }.each{
         from zipTree(it)
     }
-    configurations.azuresf.filter { !it.toString().contains("native-preview") }.each {
+    configurations.azuresf.filter { !it.toString().contains("native") }.each {
         from it
     }
     into "lib"

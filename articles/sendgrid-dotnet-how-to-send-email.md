@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2017
-ms.author: dx@sendgrid.com
+ms.author: erikre
+ms.reviewer: dx@sendgrid.com
 
 ---
 # How to Send Email Using SendGrid with Azure
@@ -47,7 +48,7 @@ SendGrid's [C# library][sendgrid-csharp] GitHub repo.
 The [SendGrid NuGet package](https://www.nuget.org/packages/Sendgrid) is the easiest way to get the SendGrid API and to configure your application with all dependencies. NuGet is a Visual Studio extension included with Microsoft Visual Studio 2015 and above that makes it easy to install and update libraries and tools.
 
 > [!NOTE]
-> To install NuGet if you are running a version of Visual Studio earlier than Visual Studio 2015, visit [http://www.nuget.org](http://www.nuget.org), and click the **Install NuGet** button.
+> To install NuGet if you are running a version of Visual Studio earlier than Visual Studio 2015, visit [https://www.nuget.org](https://www.nuget.org), and click the **Install NuGet** button.
 >
 >
 

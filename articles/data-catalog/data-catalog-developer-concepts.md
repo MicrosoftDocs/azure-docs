@@ -1,22 +1,11 @@
 ---
-title: Data Catalog developer concepts | Microsoft Docs
+title: Azure Data Catalog developer concepts
 description: Introduction to the key concepts in Azure Data Catalog conceptual model, as exposed through the Catalog REST API.
-services: data-catalog
-documentationcenter: ''
-author: spelluru
-manager: jhubbard
-editor: ''
-tags: ''
-
-ms.assetid: 89de9137-a0a4-40d1-9f8d-625acad31619
+author: JasonWHowell
+ms.author: jasonh
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
-ms.date: 01/18/2018
-ms.author: spelluru
-
+ms.topic: conceptual
+ms.date: 08/01/2019
 ---
 # Azure Data Catalog developer concepts
 Microsoft **Azure Data Catalog** is a fully managed cloud service that provides capabilities for data source discovery and for crowdsourcing data source metadata. Developers can use the service via its REST APIs. Understanding the concepts implemented in the service is important for developers to successfully integrate with **Azure Data Catalog**.
@@ -24,7 +13,7 @@ Microsoft **Azure Data Catalog** is a fully managed cloud service that provides 
 ## Key concepts
 The **Azure Data Catalog** conceptual model is based on four key concepts: The **Catalog**, **Users**, **Assets**, and **Annotations**.
 
-![concept][1]
+![Azure Data Catalog conceptual model illustration](./media/data-catalog-developer-concepts/concept2.png)
 
 *Figure 1 - Azure Data Catalog simplified conceptual model*
 
@@ -177,10 +166,10 @@ Common types can be used as the types for properties, but are not Items.
 <tr><td></td><td>objectType</td><td>string</td><td>Describes the type of object in the data source. For example: Table, View for SQL Server.</td></tr>
 
 <tr><td>DataSourceLocation</td><td></td><td></td><td></td></tr>
-<tr><td></td><td>protocol</td><td>string</td><td>Required. Describes a protocol used to communicate with the data source. For example: "tds" for SQl Server, "oracle" for Oracle, etc. Refer to [Data source reference specification - DSL Structure](data-catalog-dsr.md) for the list of currently supported protocols.</td></tr>
-<tr><td></td><td>address</td><td>Dictionary<string, object></td><td>Required. Address is a set of data specific to the protocol that is used to identify the data source being referenced. The address data scoped to a particular protocol, meaning it is meaningless without knowing the protocol.</td></tr>
+<tr><td></td><td>protocol</td><td>string</td><td>Required. Describes a protocol used to communicate with the data source. For example: "tds" for SQl Server, "oracle" for Oracle, etc. Refer to <a href="https://docs.microsoft.com/azure/data-catalog/data-catalog-dsr">Data source reference specification - DSL Structure</a> for the list of currently supported protocols.</td></tr>
+<tr><td></td><td>address</td><td>Dictionary&lt;string, object&gt;</td><td>Required. Address is a set of data specific to the protocol that is used to identify the data source being referenced. The address data scoped to a particular protocol, meaning it is meaningless without knowing the protocol.</td></tr>
 <tr><td></td><td>authentication</td><td>string</td><td>Optional. The authentication scheme used to communicate with the data source. For example: windows, oauth, etc.</td></tr>
-<tr><td></td><td>connectionProperties</td><td>Dictionary<string, object></td><td>Optional. Additional information on how to connect to a data source.</td></tr>
+<tr><td></td><td>connectionProperties</td><td>Dictionary&lt;string, object&gt;</td><td>Optional. Additional information on how to connect to a data source.</td></tr>
 
 <tr><td>SecurityPrincipal</td><td></td><td></td><td>The backend does not perform any validation of provided properties against AAD during publishing.</td></tr>
 <tr><td></td><td>upn</td><td>string</td><td>Unique email address of user. Must be specified if objectId is not provided or in the context of "lastRegisteredBy" property, otherwise optional.</td></tr>
@@ -296,7 +285,7 @@ By default any authenticated user has **Read** right for any item in the catalog
 ### Examples
 **Set Contributor to &lt;Everyone&gt; when publishing an item.**
 Special security principal &lt;Everyone&gt; has objectId "00000000-0000-0000-0000-000000000201".
-  **POST** https://api.azuredatacatalog.com/catalogs/default/views/tables/?api-version=2016-03-30
+  **POST** https:\//api.azuredatacatalog.com/catalogs/default/views/tables/?api-version=2016-03-30
 
 > [!NOTE]
 > Some HTTP client implementations may automatically reissue requests in response to a 302 from the server, but typically strip Authorization headers from the request. Since the Authorization header is required to make requests to Azure Data Catalog, you must ensure the Authorization header is still provided when reissuing a request to a redirect location specified by Azure Data Catalog. The following sample code demonstrates it using the .NET HttpWebRequest object.
@@ -304,7 +293,7 @@ Special security principal &lt;Everyone&gt; has objectId "00000000-0000-0000-000
 > 
 
 **Body**
-
+```json
     {
         "roles": [
             {
@@ -317,9 +306,11 @@ Special security principal &lt;Everyone&gt; has objectId "00000000-0000-0000-000
             }
         ]
     }
+```
 
-  **Assign owners and restrict visibility for an existing root item**: **PUT** https://api.azuredatacatalog.com/catalogs/default/views/tables/042297b0...1be45ecd462a?api-version=2016-03-30
+  **Assign owners and restrict visibility for an existing root item**: **PUT** https:\//api.azuredatacatalog.com/catalogs/default/views/tables/042297b0...1be45ecd462a?api-version=2016-03-30
 
+```json
     {
         "roles": [
             {
@@ -361,11 +352,8 @@ Special security principal &lt;Everyone&gt; has objectId "00000000-0000-0000-000
             }
         ]
     }
+```
 
 > [!NOTE]
 > In PUT it’s not required to specify an item payload in the body: PUT can be used to update just roles and/or permissions.
 > 
-> 
-
-<!--Image references-->
-[1]: ./media/data-catalog-developer-concepts/concept2.png

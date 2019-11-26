@@ -1,10 +1,10 @@
 ---
-title: Configure private IP addresses for VMs - Azure portal | Microsoft Docs
+title: Configure private IP addresses for VMs - Azure portal
 description: Learn how to configure private IP addresses for virtual machines using the Azure portal.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: tysonn
 tags: azure-resource-manager
 
@@ -15,8 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2016
-ms.author: jdial
-ms.custom: H1Hack27Feb2017
+ms.author: kumud
 
 ---
 # Configure private IP addresses for a virtual machine using the Azure portal
@@ -45,7 +44,7 @@ You cannot set a static private IP address during the creation of a VM in the Re
 
 To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*, follow these steps:
 
-1. From a browser, navigate to http://portal.azure.com and, if necessary, sign in with your Azure account.
+1. From a browser, navigate to https://portal.azure.com and, if necessary, sign in with your Azure account.
 2. Click **Create a resource** > **Compute** > **Windows Server 2012 R2 Datacenter**, notice that the **Select a deployment model** list already shows **Resource Manager**, and then click **Create**, as seen in the following figure.
    
     ![Create VM in Azure portal](./media/virtual-networks-static-ip-arm-pportal/figure01.png)
@@ -70,6 +69,8 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
    
     ![Create VM in Azure portal](./media/virtual-networks-static-ip-arm-pportal/figure06.png)
 
+It’s recommended that you do not statically assign the private IP assigned to the Azure virtual machine within the operating system of a VM, unless necessary, such as when [assigning multiple IP addresses to a Windows VM](virtual-network-multiple-ip-addresses-portal.md). If you do manually set the private IP address within the operating system, ensure that it is the same address as the private IP address assigned to the Azure [network interface](virtual-network-network-interface-addresses.md#change-ip-address-settings), or you can lose connectivity to the virtual machine. Learn more about [private IP address](virtual-network-network-interface-addresses.md#private) settings. You should never manually assign the public IP address assigned to an Azure virtual machine within the virtual machine's operating system.
+
 ## How to retrieve static private IP address information for a VM
 To view the static private IP address information for the VM created with the steps above, execute the following steps.
 
@@ -93,13 +94,18 @@ To add a static private IP address to the VM created using the steps above, foll
 > 
 > 
 
+It’s recommended that you do not statically assign the private IP assigned to the Azure virtual machine within the operating system of a VM, unless necessary, such as when [assigning multiple IP addresses to a Windows VM](virtual-network-multiple-ip-addresses-portal.md). If you do manually set the private IP address within the operating system, ensure that it is the same address as the private IP address assigned to the Azure [network interface](virtual-network-network-interface-addresses.md#change-ip-address-settings), or you can lose connectivity to the virtual machine. Learn more about [private IP address](virtual-network-network-interface-addresses.md#private) settings. You should never manually assign the public IP address assigned to an Azure virtual machine within the virtual machine's operating system.
+
 ## How to remove a static private IP address from a VM
 To remove the static private IP address from the VM created above, complete the following step:
 
 From the **IP addresses** pane shown above, click **Dynamic** under **Assignment**, and then click **Save**.
 
+## Set IP addresses within the operating system
+
+It’s recommended that you do not statically assign the private IP assigned to the Azure virtual machine within the operating system of a VM, unless necessary, such as when [assigning multiple IP addresses to a Windows VM](virtual-network-multiple-ip-addresses-portal.md). If you do manually set the private IP address within the operating system, ensure that it is the same address as the private IP address assigned to the Azure [network interface](virtual-network-network-interface-addresses.md#change-ip-address-settings), or you can lose connectivity to the virtual machine. Learn more about [private IP address](virtual-network-network-interface-addresses.md#private) settings. You should never manually assign the public IP address assigned to an Azure virtual machine within the virtual machine's operating system.
+
 ## Next steps
-* Learn about [reserved public IP](virtual-networks-reserved-public-ip.md) addresses.
-* Learn about [instance-level public IP (ILPIP)](virtual-networks-instance-level-public-ip.md) addresses.
-* Consult the [Reserved IP REST APIs](https://msdn.microsoft.com/library/azure/dn722420.aspx).
+
+Learn about managing [IP address settings](virtual-network-network-interface-addresses.md).
 

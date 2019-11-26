@@ -1,3 +1,10 @@
+---
+author: clemensv
+ms.service: service-bus-relay
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: clemensv
+---
 Ensure that you have already [created a Relay namespace][namespace-how-to].
 
 1. Sign in to the [Azure portal](https://portal.azure.com).

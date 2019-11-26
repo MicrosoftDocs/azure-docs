@@ -3,18 +3,19 @@ title: Automated Patching for SQL Server VMs (Classic) | Microsoft Docs
 description: Explains the Automated Patching feature for SQL Server Virtual Machines running in Azure using the classic deployment mode.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-service-management
 ms.assetid: 737b2f65-08b9-4f54-b867-e987730265a8
 ms.service: virtual-machines-sql
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/07/2018
-ms.author: jroth
+ms.author: mathoma
+ms.reviewer: jroth
 ---
 # Automated Patching for SQL Server in Azure Virtual Machines (Classic)
 > [!div class="op_single_selector"]
@@ -80,7 +81,7 @@ Based on this example, the following table describes the practical effect on the
 | --- | --- |
 | **DayOfWeek** |Patches installed every Thursday. |
 | **MaintenanceWindowStartingHour** |Begin updates at 11:00am. |
-| **MaintenanceWindowsDuration** |Patches must be installed within 120 minutes. Based on the start time, they must complete by 1:00pm. |
+| **MaintenanceWindowDuration** |Patches must be installed within 120 minutes. Based on the start time, they must complete by 1:00pm. |
 | **PatchCategory** |The only possible setting for this parameter is “Important”. |
 
 It could take several minutes to install and configure the SQL Server IaaS Agent.

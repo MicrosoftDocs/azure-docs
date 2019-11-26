@@ -1,0 +1,108 @@
+### YamlMime:Landing
+
+title: VPN Gateway documentation # < 60 chars
+summary: Learn how to configure, create, and manage an Azure VPN gateway. Create encrypted cross-premises connections to your virtual network from on-premises locations, or create encrypted connections between VNets. # < 160 chars
+
+metadata:
+  title: VPN Gateway documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Learn how to configure, create, and manage an Azure VPN gateway.  # Required; article description that is displayed in search results. < 160 chars.
+  services: vpn-gateway
+  ms.service: vpn-gateway #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.topic: landing-page # Required
+  author: cherylmc #Required; your GitHub user alias, with correct capitalization.
+  ms.author: cherylmc #Required; microsoft alias of author; optional team alias.
+  ms.date: 08/28/2019 #Required; mm/dd/yyyy format.
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About VPN Gateway
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is VPN Gateway?
+            url: vpn-gateway-about-vpngateways.md
+      - linkListType: concept
+        links:
+          - text: Point-to-site connections
+            url: point-to-site-about.md
+          - text: BGP
+            url: vpn-gateway-bgp-overview.md
+          - text: Zone-redundant gateways
+            url: about-zone-redundant-vnet-gateways.md
+          - text: VPN Gateway FAQ
+            url: vpn-gateway-vpn-faq.md
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create a VPN gateway
+            url: create-routebased-vpn-gateway-portal.md
+          - text: Create a site-to-site connection
+            url: vpn-gateway-howto-site-to-site-resource-manager-portal.md
+          - text: Create a point-to-site connection
+            url: vpn-gateway-howto-point-to-site-resource-manager-portal.md
+      - linkListType: tutorial
+        links:
+          - text: Create and manage a VPN gateway
+            url: vpn-gateway-tutorial-create-gateway-powershell.md
+          - text: Create and manage a site-to-site connection
+            url: vpn-gateway-tutorial-vpnconnection-powershell.md
+  # Card
+  - title: VPN devices
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: VPN devices for site-to-site connections
+            url: vpn-gateway-about-vpn-devices.md
+      - linkListType: how-to-guide
+        links:
+          - text: Configure VPN devices
+            url: vpn-gateway-3rdparty-device-config-overview.md
+          - text: Download device configuration scripts
+            url: vpn-gateway-download-vpndevicescript.md
+  # Card
+  - title: Manage
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Gateway configuration settings
+            url: vpn-gateway-about-vpn-gateway-settings.md
+          - text: Point-to-site routing
+            url: vpn-gateway-about-point-to-site-routing.md
+          - text: Gateway SKUs
+            url: vpn-gateway-about-vpn-gateway-settings.md#gwsku
+      - linkListType: how-to-guide
+        links:
+          - text: Verify a VPN gateway
+            url: vpn-gateway-verify-connection-resource-manager.md
+          - text: Delete a VPN gateway
+            url: vpn-gateway-delete-vnet-gateway-portal.md
+          - text: Modify a local network gateway
+            url: vpn-gateway-modify-local-network-gateway-portal.md
+  # Card
+  - title: Security and monitoring
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Security controls
+            url: vpn-gateway-security-controls.md
+      - linkListType: how-to-guide
+        links:
+          - text: Monitoring and alerts
+            url: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
+  # Card
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure CLI
+            url: /cli/azure/network/vnet-gateway
+          - text: Azure PowerShell
+            url: /powershell/module/az.network#vpn
+          - text: REST
+            url: /rest/api/network-gateway

@@ -3,19 +3,19 @@ title: Automate management tasks on SQL VMs (Classic) | Microsoft Docs
 description: This topic describes how to manage the SQL Server agent extension, which automates specific SQL Server administration tasks. These include Automated Backup, Automated Patching, and Azure Key Vault Integration. This topic uses the classic deployment mode.
 services: virtual-machines-windows
 documentationcenter: ''
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-service-management
 ms.assetid: a9bda2e7-cdba-427c-bc30-77cde4376f3a
 ms.service: virtual-machines-sql
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 03/07/2018
-ms.author: jroth
-ms.custom: H1Hack27Feb2017
+ms.date: 07/12/2018
+ms.author: mathoma
+ms.reviewer: jroth
 ---
 # Automate management tasks on Azure Virtual Machines with the SQL Server Agent Extension (Classic)
 > [!div class="op_single_selector"]
@@ -75,8 +75,9 @@ If you update to the latest version of the SQL IaaS Agent Extension, you must re
 
 > [!NOTE]
 > Classic virtual machines do not have an option to install and configure the SQL IaaS Agent Extension through the portal.
-> 
-> 
+
+> [!NOTE]
+> The SQL Server IaaS Agent Extension is only supported on [SQL Server VM gallery images](../sql/virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms) (pay-as-you-go or bring-your-own-license). It is not supported if you manually install SQL Server on an OS-only Windows Server virtual machine or if you deploy a customized SQL Server VM VHD. In these cases, it might be possible to install and manage the extension manually by using PowerShell, but it is strongly recommended to instead install a SQL Server VM gallery image and then customize it.
 
 ## Status
 One way to verify that the extension is installed is to view the agent status in the Azure Portal. Select a virtual machine listed in the virtual machine blade, and then click on **Extensions**. You should see the **SQLIaaSAgent** extension listed.

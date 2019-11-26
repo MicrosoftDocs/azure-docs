@@ -1,23 +1,26 @@
 ---
-title: Search the web for trending videos | Microsoft Docs
-description: Shows how to use the Bing Video Search API to search the web for trending videos.
+title: Search the web for trending videos using the Bing Video Search API
+titleSuffix: Azure Cognitive Services
+description: Learn how to use the Bing Video Search API to search the web for trending videos.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-
-ms.assetid: 897A28A3-0980-484E-814F-FFE1D5C885E6
+manager: nitinme
 ms.service: cognitive-services
-ms.technology: bing-video-search
-ms.topic: article
-ms.date: 04/15/2017
+ms.subservice: bing-video-search
+ms.topic: conceptual
+ms.date: 01/31/2019
 ms.author: scottwhi
 ---
 
-# Get trending videos  
+# Get trending videos with the Bing Video Search API 
 
-To get today's trending videos, send the following GET request:  
+The Bing Video Search API enables you to find today's trending videos from across the web, and in different categories. 
+
+## GET request
+
+To get today's trending videos from the Bing Video Search API, send the following GET request:  
   
-```
+```cURL
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/trending?mkt=en-us HTTP/1.1
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)  
@@ -26,6 +29,8 @@ X-Search-Location: lat:47.60357;long:-122.3295;re:100
 X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
 Host: api.cognitive.microsoft.com  
 ```
+
+## Market support
 
 The following markets support trending videos.  
  
@@ -43,10 +48,11 @@ The following markets support trending videos.
 -   en-ZA (English, South Africa)  
 -   zh-CN (Chinese, China)
 
-  
-The following example shows a response that contains trending videos.  
+## Example JSON response  
 
-```  
+The following example shows an API response that contains trending videos, which are listed by category and subcategory. The response also contains banner videos, which are the most popular trending videos, and can come from one or more categories.  
+
+```json
 {  
     "_type" : "TrendingVideos",  
     "bannerTiles" : [
@@ -108,8 +114,9 @@ The following example shows a response that contains trending videos.
     ]  
 }  
   
-```  
-The response contains a list of videos by category and subcategory. For example, if the list of categories contained a Music Videos category and one of its subcategories was Top, you could create a Top Music Videos category in your user experience. You could then use the `thumbnailUrl`, `displayText`, and `webSearchUrl` fields to create a clickable tile under each category (for example, Top Music Videos). When the user clicks the tile, they're taken to Bing's video browser where the video is played.
+```
 
-The response also contains banner videos, which are the most popular trending videos. The banner videos may come from one or more of the categories.  
-  
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Get video insights](video-insights.md)

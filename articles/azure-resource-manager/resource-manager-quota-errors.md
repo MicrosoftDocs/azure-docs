@@ -1,24 +1,14 @@
 ---
-title: Azure quota errors | Microsoft Docs
-description: Describes how to resolve resource qouta errors.
-services: azure-resource-manager,azure-portal
-documentationcenter: ''
-author: tfitzmac
-manager: timlt
-editor: ''
-
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: support-article
+title: Quota errors
+description: Describes how to resolve resource quota errors when deploying resources with Azure Resource Manager.
+ms.topic: troubleshooting
 ms.date: 03/09/2018
-ms.author: tomfitz
-
 ---
 # Resolve errors for resource quotas
 
 This article describes quota errors you may encounter when deploying resources.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Symptom
 
@@ -72,10 +62,10 @@ Which returns:
 
 ### PowerShell
 
-For PowerShell, use the **Get-AzureRmVMUsage** command to find virtual machine quotas.
+For PowerShell, use the **Get-AzVMUsage** command to find virtual machine quotas.
 
 ```powershell
-Get-AzureRmVMUsage -Location "South Central US"
+Get-AzVMUsage -Location "South Central US"
 ```
 
 Which returns:

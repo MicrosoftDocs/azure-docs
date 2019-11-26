@@ -1,28 +1,31 @@
 ---
-title: Azure Managed Application PasswordBox UI element | Microsoft Docs
-description: Describes the Microsoft.Common.PasswordBox UI element for Azure Managed Applications
-services: azure-resource-manager
+title: Azure PasswordBox UI element | Microsoft Docs
+description: Describes the Microsoft.Common.PasswordBox UI element for Azure portal. Enables users to provide a secret value when deploying managed applications.
+services: managed-applications
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
 
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 06/27/2018
 ms.author: tomfitz
 
 ---
 # Microsoft.Common.PasswordBox UI element
-A control that can be used to provide and confirm a password. You use this element when [creating an Azure Managed Application](publish-service-catalog-app.md).
+
+A control that can be used to provide and confirm a password.
 
 ## UI sample
+
 ![Microsoft.Common.PasswordBox](./media/managed-application-elements/microsoft.common.passwordbox.png)
 
 ## Schema
+
 ```json
 {
   "name": "element1",
@@ -34,8 +37,8 @@ A control that can be used to provide and confirm a password. You use this eleme
   "toolTip": "",
   "constraints": {
     "required": true,
-    "regex": "",
-    "validationMessage": ""
+    "regex": "^[a-zA-Z0-9]{8,}$",
+    "validationMessage": "Password must be at least 8 characters long, contain only numbers and letters"
   },
   "options": {
     "hideConfirmation": false
@@ -44,18 +47,19 @@ A control that can be used to provide and confirm a password. You use this eleme
 }
 ```
 
-## Remarks
-- This element doesn't support the `defaultValue` property.
-- For implementation details of `constraints`, see [Microsoft.Common.TextBox](microsoft-common-textbox.md).
-- If `options.hideConfirmation` is set to **true**, the second text box for
-confirming the user's password is hidden. The default value is **false**.
-
 ## Sample output
+
 ```json
 "p4ssw0rd"
 ```
 
+## Remarks
+
+- This element doesn't support the `defaultValue` property.
+- For implementation details of `constraints`, see [Microsoft.Common.TextBox](microsoft-common-textbox.md).
+- If `options.hideConfirmation` is set to **true**, the second text box for confirming the user's password is hidden. The default value is **false**.
+
 ## Next steps
-* For an introduction to managed applications, see [Azure Managed Application overview](overview.md).
+
 * For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).
 * For a description of common properties in UI elements, see [CreateUiDefinition elements](create-uidefinition-elements.md).

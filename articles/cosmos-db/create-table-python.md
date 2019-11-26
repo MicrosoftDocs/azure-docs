@@ -1,24 +1,24 @@
 ---
-title: 'Quickstart: Table API with Python - Azure Cosmos DB | Microsoft Docs'
+title: 'Quickstart: Table API with Python - Azure Cosmos DB'
 description: This quickstart shows how to use the Azure Cosmos DB Table API to create an application with the Azure portal and Python
-services: cosmos-db
-documentationcenter: ''
-author: mimig1
-manager: jhubbard
-editor: ''
-
-ms.assetid: 
+author: SnehaGunda
 ms.service: cosmos-db
-ms.workload: 
-ms.tgt_pltfrm: na
+ms.subservice: cosmosdb-table
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/16/2017
-ms.author: mimig
-ms.custom: mvc
+ms.date: 04/10/2018
+ms.author: sngun
+ms.custom: seo-python-october2019
 
 ---
 # Quickstart: Build a Table API app with Python and Azure Cosmos DB
+
+> [!div class="op_single_selector"]
+> * [.NET](create-table-dotnet.md)
+> * [Java](create-table-java.md)
+> * [Node.js](create-table-nodejs.md)
+> * [Python](create-table-python.md)
+> 
 
 This quickstart shows how to use Python and the Azure Cosmos DB [Table API](table-introduction.md) to build an app by cloning an example from GitHub. This quickstart also shows you how to create an Azure Cosmos DB account and how to use Data Explorer to create tables and entities in the web-based Azure portal.
 
@@ -31,9 +31,8 @@ Azure Cosmos DB is Microsoft’s globally distributed multi-model database servi
 
 In addition:
 
-* If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
-* Python Tools for Visual Studio from [GitHub](http://microsoft.github.io/PTVS/). This tutorial uses Python Tools for VS 2015.
-* Python 2.7 from [python.org](https://www.python.org/downloads/release/python-2712/)
+* If you don’t already have Visual Studio 2019 installed, you can download and use the **free** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you select the **Azure development** and **Python development** workloads during the Visual Studio setup.
+* Also select the Python 2 option in the **Python development** workload, or download Python 2.7 from [python.org](https://www.python.org/downloads/release/python-2712/).
 
 ## Create a database account
 
@@ -49,28 +48,25 @@ In addition:
 
 ## Add sample data
 
-You can now add data to your new table using Data Explorer.
-
-1. In Data Explorer, expand **sample-table**, click **Entities**, and then click **Add Entity**.
-
-   ![Create new entities in Data Explorer in the Azure portal](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-document.png)
-2. Now add data to the PartitionKey value box and RowKey value boxes, and click **Add Entity**.
-
-   ![Set the Partition Key and Row Key for a new entity](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-entity.png)
-  
-    You can now add more entities to your table, edit your entities, or query your data in Data Explorer. Data Explorer is also where you can scale your throughput and add stored procedures, user defined functions, and triggers to your table.
+[!INCLUDE [cosmos-db-create-table-add-sample-data](../../includes/cosmos-db-create-table-add-sample-data.md)]
 
 ## Clone the sample application
 
-Now let's clone a Table app from github, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+Now let's clone a Table app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
-1. Open a git terminal window, such as git bash, and use the `cd` command to change to a folder to install the sample app. 
+1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
+
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Open a git terminal window, such as git bash, and use the `cd` command to change to the new folder to install the sample app.
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer. 
+3. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer. 
 
     ```bash
     git clone https://github.com/Azure-Samples/storage-python-getting-started.git
@@ -82,9 +78,9 @@ Now let's clone a Table app from github, set the connection string, and run it. 
 
 Now go back to the Azure portal to get your connection string information and copy it into the app. This enables your app to communicate with your hosted database. 
 
-1. In the [Azure portal](http://portal.azure.com/), click **Connection String**. 
+1. In the [Azure portal](https://portal.azure.com/), select **Connection String**. 
 
-    ![View and copy the CONNECTION STRING in the Connection String pane](./media/create-table-python/connection-string.png)
+    ![View and copy the CONNECTION STRING in the Connection String settings](./media/create-table-python/view-and-copy-connection-string-in-connection-string-settings.png)
 
 2. Copy the ACCOUNT NAME using the button on the right side.
 
@@ -94,13 +90,13 @@ Now go back to the Azure portal to get your connection string information and co
 
 5. Paste the PRIMARY KEY from the portal into the STORAGE_ACCOUNT_KEY value on line 20.
 
-3. Save the config.py file.
+6. Save the config.py file.
 
 ## Run the app
 
 1. In Visual Studio, right-click on the project in **Solution Explorer**, select the current Python environment, then right click.
 
-2. Select Install Python Package, then type in **azure-storage-table**
+2. Select Install Python Package, then enter **azure-storage-table**
 
 3. Run F5 to run the application. Your app displays in your browser. 
 

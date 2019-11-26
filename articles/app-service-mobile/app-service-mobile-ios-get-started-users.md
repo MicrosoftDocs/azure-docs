@@ -3,7 +3,7 @@ title: Add Authentication on iOS with Azure Mobile Apps
 description: Learn how to use Azure Mobile Apps to authenticate users of your iOS app through a variety of identity providers, including AAD, Google, Facebook, Twitter, and Microsoft.
 services: app-service\mobile
 documentationcenter: ios
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 
@@ -13,12 +13,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: crdun
-
+ms.date: 06/25/2019
+ms.author: emalani
 ---
 # Add authentication to your iOS app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
+
+> [!NOTE]
+> Visual Studio App Center supports end to end and integrated services central to mobile app development. Developers can use **Build**, **Test** and **Distribute** services to set up Continuous Integration and Delivery pipeline. Once the app is deployed, developers can monitor the status and usage of their app using the **Analytics** and **Diagnostics** services, and engage with users using the **Push** service. Developers can also leverage **Auth** to authenticate their users and **Data** service to persist and sync app data in the cloud.
+>
+> If you are looking to integrate cloud services in your mobile application, sign up with [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) today.
 
 In this tutorial, you add authentication to the [iOS quick start] project using a supported identity provider. This tutorial is based on the [iOS quick start] tutorial, which you must complete first.
 
@@ -120,7 +124,7 @@ backend as an unauthenticated user, but the *TodoItem* table now requires authen
     ```
 
    Add this code directly before the line reading `#pragma mark - Core Data stack`.  Replace the
-   _appname_ wih the urlScheme value that you used in step 1.
+   _appname_ with the urlScheme value that you used in step 1.
 
 5. Open the `AppName-Info.plist` file (replacing AppName with the name of your app), and add the following code:
 
@@ -208,7 +212,7 @@ backend as an unauthenticated user, but the *TodoItem* table now requires authen
     }
     ```
 
-    Replace the _appname_ wih the urlScheme value that you used in step 1.
+    Replace the _appname_ with the urlScheme value that you used in step 1.
 
 4. Open the `AppName-Info.plist` file (replacing AppName with the name of your app), and add the following code:
 

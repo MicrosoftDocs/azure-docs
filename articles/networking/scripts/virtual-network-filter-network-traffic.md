@@ -3,19 +3,14 @@ title: Azure CLI script sample - Filter VM network traffic | Microsoft Docs
 description: Azure CLI script sample - Filter inbound and outbound VM network traffic.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: timlt
-editor: tysonn
-tags:
-
-ms.assetid:
+author: KumudD
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 07/07/2017
-ms.author: jdial
+ms.author: kumud
 
 ---
 
@@ -46,16 +41,16 @@ This script uses the following commands to create a resource group, virtual netw
 
 | Command | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) | Creates an Azure virtual network and front-end subnet. |
-| [az network subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) | Creates a back-end subnet. |
-| [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) | Associates NSGs to subnets. |
-| [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) | Creates a public IP address to access the VM from the Internet. |
-| [az network nic create](/cli/azure/network/nic#az_network_nic_create) | Creates virtual network interfaces and attaches them to the virtual network's front-end and back-end subnets. |
-| [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) | Creates network security groups (NSG) that are associated to the front-end and back-end subnets. |
-| [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) |Creates NSG rules that allow or block specific ports to specific subnets. |
-| [az vm create](/cli/azure/vm#az_vm_create) | Creates virtual machines and attaches a NIC to each VM. This command also specifies the virtual machine image to use and administrative credentials. |
-| [az group delete](/cli/azure/group#az_group_delete) | Deletes a resource group and all resources it contains. |
+| [az group create](/cli/azure/group) | Creates a resource group in which all resources are stored. |
+| [az network vnet create](/cli/azure/network/vnet) | Creates an Azure virtual network and front-end subnet. |
+| [az network subnet create](/cli/azure/network/vnet/subnet) | Creates a back-end subnet. |
+| [az network vnet subnet update](/cli/azure/network/vnet/subnet) | Associates NSGs to subnets. |
+| [az network public-ip create](/cli/azure/network/public-ip) | Creates a public IP address to access the VM from the Internet. |
+| [az network nic create](/cli/azure/network/nic) | Creates virtual network interfaces and attaches them to the virtual network's front-end and back-end subnets. |
+| [az network nsg create](/cli/azure/network/nsg) | Creates network security groups (NSG) that are associated to the front-end and back-end subnets. |
+| [az network nsg rule create](/cli/azure/network/nsg/rule) |Creates NSG rules that allow or block specific ports to specific subnets. |
+| [az vm create](/cli/azure/vm) | Creates virtual machines and attaches a NIC to each VM. This command also specifies the virtual machine image to use and administrative credentials. |
+| [az group delete](/cli/azure/group) | Deletes a resource group and all resources it contains. |
 
 ## Next steps
 

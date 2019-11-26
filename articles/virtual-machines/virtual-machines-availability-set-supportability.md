@@ -4,7 +4,7 @@ description: Supportability of adding Azure VMs to an existing availability set.
 services: virtual-machines-linux
 documentationcenter: ''
 author: Deland-Han
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 
 ms.assetid: 
@@ -13,7 +13,7 @@ ms.workload: virtual-machines
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/03/2017
+ms.date: 06/15/2018
 ms.author: delhan
 
 ---
@@ -34,4 +34,4 @@ Series & Availability Set|Second VM|A|Av2|D|Dv2|Dv3|
 
 All other series could not be in the same availability set because they require a specific hardware.
 
-A8/A9 VM size can't be mixed due to requirment on dedicated RDMA backend network.
+A8/A9 VM size can't be mixed due to requirement on dedicated RDMA backend network.

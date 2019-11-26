@@ -1,0 +1,65 @@
+### YamlMime:Landing
+
+title: Azure Firewall documentation
+summary: Learn how to deploy Azure Firewall, a cloud-based network security service.
+
+metadata:
+  title: Azure Firewall documentation
+  description: Learn how to deploy Azure Firewall, a cloud-based network security service.
+  services: firewall
+  ms.service: firewall
+  ms.topic: landing-page
+  author: vhorne
+  ms.author: victorh
+  ms.date: 08/30/2019
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: Learn about Azure Firewall
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Firewall?
+            url: overview.md
+      - linkListType: concept
+        links:
+          - text: Azure Firewall rule processing logic
+            url: rule-processing.md
+          - text: Frequently asked questions
+            url: firewall-faq.md
+       
+  # Card
+  - title: Deploy an Azure Firewall
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Deploy using the Azure portal
+            url: tutorial-firewall-deploy-portal.md
+          - text: Deploy in a hybrid network
+            url: tutorial-hybrid-portal.md
+          - text: Filter inbound traffic
+            url: tutorial-firewall-dnat.md
+
+  # Card
+  - title: Integrate with Load Balancer
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Integrate Azure Firewall with Azure Standard Load Balancer
+            url: integrate-lb.md
+
+# Card
+  - title: Monitor Azure Firewall
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Azure Firewall logs and metrics
+            url: logs-and-metrics.md
+      - linkListType: tutorial
+        links:
+          - text: Monitor Azure Firewall logs and metrics
+            url: tutorial-diagnostics.md

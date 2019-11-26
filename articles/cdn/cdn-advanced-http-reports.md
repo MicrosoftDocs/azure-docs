@@ -8,7 +8,7 @@ manager: erikre
 editor: ''
 
 ms.assetid: ef90adc1-580e-4955-8ff1-bde3f3cafc5d
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -38,30 +38,30 @@ This document explains advanced HTTP reporting in Microsoft Azure CDN. These rep
 ## Geography Reports (Map-Based)
 There are five reports that take advantage of a map to indicate the regions from which your content is being requested. These reports are World Map, United States Map, Canada Map, Europe Map, and Asia Pacific Map.
 
-Each map-based report ranks geographic entities (i.e., countries, states, and provinces) according to the percentage of hits that originated from that region. Additionally, a map is provided to help you visualize the locations from which your content is being requested. It is able to do so by color-coding each region according to the amount of demand experienced in that region. Lighter shaded regions indicate lower demand for your content, while darker regions indicate higher levels of demand for your content.
+Each map-based report ranks geographic entities (i.e., countries/regions, a map is provided to help you visualize the locations from which your content is being requested. It is able to do so by color-coding each region according to the amount of demand experienced in that region. Lighter shaded regions indicate lower demand for your content, while darker regions indicate higher levels of demand for your content.
 
-Detailed traffic and bandwidth information for each region is provided directly below the map. This allows you to view the total number of hits, the percentage of hits, the total amount of data transferred (in gigabytes), and the percentage of data transferred for each region. View a description for each of these metrics. Finally, when you hover over a region (i.e., country, state, or province), the name and the percentage of hits that occurred in the region will be displayed as a tooltip.
+Detailed traffic and bandwidth information for each region is provided directly below the map. This allows you to view the total number of hits, the percentage of hits, the total amount of data transferred (in gigabytes), and the percentage of data transferred for each region. View a description for each of these metrics. Finally, when you hover over a region (i.e., country/region, state, or province), the name and the percentage of hits that occurred in the region will be displayed as a tooltip.
 
 A brief description is provided below for each type of map-based geography report.
 
 | Report Name | Description |
 | --- | --- |
-| World Map |This report allows you to view the worldwide demand for your CDN content. Each country is color-coded on the world map to indicate the percentage of hits that originated from that region. |
+| World Map |This report allows you to view the worldwide demand for your CDN content. Each country/region is color-coded on the world map to indicate the percentage of hits that originated from that region. |
 | United States Map |This report allows you to view the demand for your CDN content in the United States. Each state is color-coded on this map to indicate the percentage of hits that originated from that region. |
 | Canada Map |This report allows you to view the demand for your CDN content in Canada. Each province is color-coded on this map to indicate the percentage of hits that originated from that region. |
-| Europe Map |This report allows you to view the demand for your CDN content in Europe. Each country is color-coded on this map to indicate the percentage of hits that originated from that region. |
-| Asia Pacific Map |This report allows you to view the demand for your CDN content in Asia. Each country is color-coded on this map to indicate the percentage of hits that originated from that region. |
+| Europe Map |This report allows you to view the demand for your CDN content in Europe. Each country/region is color-coded on this map to indicate the percentage of hits that originated from that region. |
+| Asia Pacific Map |This report allows you to view the demand for your CDN content in Asia. Each country/region is color-coded on this map to indicate the percentage of hits that originated from that region. |
 
 ## Geography Reports (Bar Charts)
-There are two additional reports that provide statistical information according to geography, which are Top Cities and Top Countries. These reports rank cities and countries, respectively, according to the number of hits that originated from those regions. Upon generating this type of report, a bar chart will indicate the top 10 cities or countries that requested content over a specific platform. This bar chart allows you to quickly assess the regions that generate the highest number of requests for your content.
+There are two additional reports that provide statistical information according to geography, which are Top Cities and Top Countries. These reports rank cities and countries/regions, respectively, according to the number of hits that originated from those countries/regions. Upon generating this type of report, a bar chart will indicate the top 10 cities or countries/regions that requested content over a specific platform. This bar chart allows you to quickly assess the regions that generate the highest number of requests for your content.
 
 The left-hand side of the graph (y-axis) indicates how many hits occurred in the specified region. Directly below the graph (x-axis), you will find a label for each of the top 10 regions.
 
 ### Using the bar charts
 * If you hover over a bar, the name and the total number of hits that occurred in the region will be displayed as a tooltip.
-* The tooltip for the Top Cities report identifies a city by its name, state/province, and country abbreviation.
-* If the city or region (i.e., state/province) from which a request originated could not be determined, then it will indicate that they are unknown. If the country is unknown, then two question marks (i.e., ??) will be displayed.
-* A report may include metrics for "Europe" or the "Asia/Pacific Region." Those items are not meant to provide statistical information on all IP addresses in those regions. Rather, they only apply to requests that originate from IP addresses that are spread out over Europe or Asia/Pacific instead of to a specific city or country.
+* The tooltip for the Top Cities report identifies a city by its name, state/province, and country/region abbreviation.
+* If the city or region (i.e., state/province) from which a request originated could not be determined, then it will indicate that they are unknown. If the country/region is unknown, then two question marks (i.e., ??) will be displayed.
+* A report may include metrics for "Europe" or the "Asia/Pacific Region." Those items are not meant to provide statistical information on all IP addresses in those regions. Rather, they only apply to requests that originate from IP addresses that are spread out over Europe or Asia/Pacific instead of to a specific city or country/region.
 
 The data that was used to generate the bar chart can be viewed below it. There you will find the total number of hits, the percentage of hits, the amount of data transferred (in gigabytes), and the percentage of data transferred for the top 250 regions. View a description for each of these metrics.
 
@@ -70,7 +70,7 @@ A brief description is provided for both types of reports below.
 | Report Name | Description |
 | --- | --- |
 | Top Cities |This report ranks cities according to the number of hits that originated from that region. |
-| Top Countries |This report ranks countries according to the number of hits that originated from that region. |
+| Top Countries |This report ranks countries/regions according to the number of hits that originated from that country/region. |
 
 ## Daily Summary
 The Daily Summary report allows you to view the total number of hits and data transferred over a particular platform on a daily basis. This information can be used to quickly discern CDN activity patterns. For example, this report can help you detect which days experienced higher or lower than expected traffic.

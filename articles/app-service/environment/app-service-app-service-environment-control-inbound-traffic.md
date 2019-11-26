@@ -1,5 +1,5 @@
 ---
-title: How To Control Inbound Traffic to an App Service Environment
+title: Control inbound traffic to App Service environment - Azure
 description: Learn about how to configure network security rules to control inbound traffic to an App Service Environment.
 services: app-service
 documentationcenter: ''
@@ -11,10 +11,10 @@ ms.assetid: 4cc82439-8791-48a4-9485-de6d8e1d1a08
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: stefsch
+ms.custom: seodec18
 
 ---
 # How To Control Inbound Traffic to an App Service Environment

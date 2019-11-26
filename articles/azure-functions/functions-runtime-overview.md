@@ -1,24 +1,17 @@
 ---
-title: Azure Functions Runtime Overview | Microsoft Docs
+title: Azure Functions Runtime Overview 
 description: Overview of the Azure Functions Runtime Preview
-services: functions
-documentationcenter: ''
 author: apwestgarth
-manager: stefsch
-editor: ''
 
-ms.assetid:
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
 ---
-# Azure Functions Runtime Overview
+# Azure Functions Runtime Overview (preview)
 
-The Azure Functions Runtime provides a new way for you to take advantage of the simplicity and flexibility of the Azure Functions programming model on-premises. Built on the same open source roots as Azure Functions, Azure Functions Runtime is deployed on-premises to provide a nearly identical development experience as the cloud service.
+[!INCLUDE [intro](../../includes/functions-runtime-preview-note.md)]
+
+The Azure Functions Runtime (preview) provides a new way for you to take advantage of the simplicity and flexibility of the Azure Functions programming model on-premises. Built on the same open source roots as Azure Functions, Azure Functions Runtime is deployed on-premises to provide a nearly identical development experience as the cloud service.
 
 ![Azure Functions Runtime Preview Portal][1]
 

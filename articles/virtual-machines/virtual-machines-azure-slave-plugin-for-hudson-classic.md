@@ -184,7 +184,7 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 <!-- URL List -->
 
 [Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
-[subscription profile]: http://go.microsoft.com/fwlink/?LinkID=396395
+[subscription profile]: https://go.microsoft.com/fwlink/?LinkID=396395
 
 <!-- IMG List -->
 

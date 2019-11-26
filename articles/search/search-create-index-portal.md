@@ -1,82 +1,63 @@
 ---
-title: "Create an index (portal - Azure Search) | Microsoft Docs"
-description: Create an index using the Azure Portal.
-services: search
-manager: jhubbard
-author: heidisteen
-documentationcenter: ''
+title: Create a search index in Azure portal
+titleSuffix: Azure Cognitive Search
+description: Learn how to create an index for Azure Cognitive Search using a built-in portal index designer.
 
-ms.assetid: 
-ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.date: 06/20/2017
+manager: nitinme
+author: HeidiSteen
 ms.author: heidist
-
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
-# Create an Azure Search index using the Azure Portal
-> [!div class="op_single_selector"]
-> * [Overview](search-what-is-an-index.md)
-> * [Portal](search-create-index-portal.md)
-> * [.NET](search-create-index-dotnet.md)
-> * [REST](search-create-index-rest-api.md)
-> 
-> 
 
-Use the built-in index designer in Azure portal to prototype or create a [search index](search-what-is-an-index.md) to run on your Azure Search service. 
+# Create an Azure Cognitive Search index in the portal
 
-## Prerequisites
+Azure Cognitive Search includes a built-in index designer in the portal useful for prototypes or creating a [search index](search-what-is-an-index.md) hosted on your Azure Cognitive Search service. The tool is used for schema construction. When you save the definition, an empty index becomes fully expressed in Azure Cognitive Search. How you load it with searchable content is up to you.
 
-This article assumes an [Azure subscription](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) and [Azure Search service](search-create-service-portal.md).  
+The index designer is only one approach for creating an index. Alternatively, you can both create and load an index using the [Import data wizard](search-get-started-portal.md). The wizard only works with indexes that it creates itself. Programmatically, you can create an index using the [.NET](search-create-index-dotnet.md) or [REST](search-create-index-rest-api.md) APIs.
 
-## Find your search service
-1. Sign in to the Azure portal page and review the [search services for your subscription](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
-2. Select your Azure Search service.
+## Start index designer
 
-## Name the index
+1. Sign in to the [Azure portal](https://portal.azure.com) and open the service dashboard. You can click **All services** in the jump bar to search for existing "search services" in the current subscription. 
 
-1. Click the **Add index** button in the command bar at the top of the page.
-2. Name your Azure Search index. 
+2. Click the **Add index** link in the command bar at the top of the page.
+
+   ![Add index link in the command bar](media/search-create-index-portal/add-index.png "Add index link in the command bar")
+
+3. Name your Azure Cognitive Search index. Index names are referenced in indexing and query operations. The index name becomes part of the endpoint URL used on connections to the index and for sending HTTP requests in the Azure Cognitive Search REST API.
+
    * Start with a letter.
    * Use only lowercase letters, digits, or dashes ("-").
    * Limit the name to 60 characters.
 
-  The index name becomes part of the endpoint URL used on connections to the index and for sending HTTP requests in the Azure Search REST API.
+## Add fields
 
-## Define the fields of your index
+Index composition includes a *Fields collection* that defines the searchable data in your index. Altogether, the fields collection specifies the structure of documents that you upload separately. A Fields collection includes required and optional fields, named and typed, with index attributes that determine how the field can be used.
 
-Index composition includes a *Fields collection* that defines the searchable data in your index. More specifically, it specifies the structure of documents that you upload separately. The Fields collection includes required and optional fields, named and typed, with index attributes to determine how the field can be used.
+1. Add fields to fully specify the documents you will upload, setting a [data type](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) for each one. For example, if documents consist of a *hotel-id*, *hotel-name*, *address*, *city*, and *region*, create a corresponding field for each one in the index. Review the [design guidance in the section below](#design) for help with setting attributes.
 
-1. In the **Add Index** blade, click **Fields >** to slide open the field definition blade. 
+1. If incoming data is hierarchical in nature, your schema should include [complex types](search-howto-complex-data-types.md) to represent the nested structures. The built-in sample data set, Hotels, illustrates complex types using an Address (contains multiple sub-fields) that has a one-to-one relationship with each hotel, and a Rooms complex collection, where multiple rooms are associated with each hotel. 
 
-2. Accept the generated *key* field of type Edm.String. By default, the field is named *id* but you can rename it as long as the string satisfies [naming rules](https://docs.microsoft.com/rest/api/searchservice/Naming-rules). A key field is mandatory for every Azure Search index and it must be a string.
+1. Specify a *key* field of type Edm.String. A key field is mandatory for every Azure Cognitive Search index and it must be a string. Values for this field must uniquely identify each document. By default, the field is named *id* but you can rename it as long as the string satisfies [naming rules](https://docs.microsoft.com/rest/api/searchservice/Naming-rules). For example, if your fields collection includes *hotel-id*, you would choose that for your key. 
 
-3. Add fields to fully specify the documents you will upload. If documents consist of an *id*, *hotel name*, *address*, *city*, and *region*, create a corresponding field for each one in the index. Review the [design guidance in the section below](#design) for help in setting attributes.
+1. Set attributes on each field. The index designer excludes any attributes that are invalid for the data type, but doesn't suggest what to include. Review the guidance in the next section to understand what the attributes are for.
 
-4. Optionally, add any fields that are used internally in filter expressions. Attributes on the field can be set to exclude fields from search operations.
+    Azure Cognitive Search API documentation includes code examples featuring a simple *hotels* index. In the screenshot below, you can see the index definition, including the French language analyzer specified during index definition, which you can recreate as a practice exercise in the portal.
 
-5. When finished, click **OK** to save and create the index.
+    ![Hotels demo index](media/search-create-index-portal/field-definitions.png "Hotels demo index")
 
-## Tips for adding fields
-
-Creating an index in the portal is keyboard intensive. Minimize steps by following this workflow:
-
-1. First, build the field list by entering names and setting data types.
-
-2. Next, use the check boxes at the top of each attribute to bulk enable the setting for all fields, and then selectively clear boxes for the few fields that don't require it. For example, string fields are typically searchable. As such, you might click **Retrievable** and **Searchable** to both return the values of the field in search results, as well as allow full text search on the field. 
+1. When finished, click **Create** to save and create the index.
 
 <a name="design"></a>
-## Design guidance for setting attributes
+
+## Set attributes
 
 Although you can add new fields at any time, existing field definitions are locked in for the lifetime of the index. For this reason, developers typically use the portal for creating simple indexes, testing ideas, or using the portal pages to look up a setting. Frequent iteration over an index design is more efficient if you follow a code-based approach so that you can rebuild the index easily.
 
-Analyzers and suggesters are associated with fields before the index is saved. Be sure to click through each tabbed page to add language analyzers or suggesters to your index definition.
+Analyzers and suggesters are associated with fields before the index is saved. Be sure to add language analyzers or suggesters to your index definition while you are creating it.
 
-String fields are often marked as **Searchable** and **Retrievable**.
-
-Fields used to narrow search results include **Sortable**, **Filterable**, and **Facetable**.
+String fields are often marked as **Searchable** and **Retrievable**. Fields used to narrow search results include **Sortable**, **Filterable**, and **Facetable**.
 
 Field attributes determine how a field is used, such as whether it is used in full text search, faceted navigation, sort operations, and so forth. The following table describes each attribute.
 
@@ -89,19 +70,11 @@ Field attributes determine how a field is used, such as whether it is used in fu
 |**key**|Unique identifier for documents within the index. Exactly one field must be chosen as the key field and it must be of type `Edm.String`.|  
 |**retrievable**|Determines whether the field can be returned in a search result. This is useful when you want to use a field (such as *profit margin*) as a filter, sorting, or scoring mechanism, but do not want the field to be visible to the end user. This attribute must be `true` for `key` fields.|  
 
-## Create the hotels index used in example API sections
-
-Azure Search API documentation includes code examples featuring a simple *hotels* index. In the screenshots below, you can see the index definition, including the French language analyzer specified during index definition, which you can recreate as a practice exercise in the portal.
-
-![](./media/search-create-index-portal/field-definitions.png)
-
-![](./media/search-create-index-portal/set-analyzer.png)
-
 ## Next steps
 
-After creating an Azure Search index, you can move to the next step: [upload searchable data into the index](search-what-is-data-import.md).
+After creating an Azure Cognitive Search index, you can move to the next step: [upload searchable data into the index](search-what-is-data-import.md).
 
-Alternatively, you could also take a deeper look at indexes. In addition to the Fields collection, an index also specifies analyzers, suggesters, scoring profiles, and CORS settings. The portal provides tabbed pages for defining the most common elements: Fields, analyzers, and suggesters. To create or modify other elements, you can use the REST API or .NET SDK.
+Alternatively, you could also take a [deeper look at indexes](search-what-is-an-index.md). In addition to the Fields collection, an index also specifies analyzers, suggesters, scoring profiles, and CORS settings. The portal provides tabbed pages for defining the most common elements: Fields, analyzers, and suggesters. To create or modify other elements, you can use the REST API or .NET SDK.
 
 ## See also
 

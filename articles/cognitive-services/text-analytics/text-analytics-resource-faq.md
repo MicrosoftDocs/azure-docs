@@ -1,19 +1,19 @@
 ---
-title: Frequently Asked Questions (FAQ) about Azure Text Analytics API | Microsoft Docs
-description: Get answers to common questions about Microsoft Cognitive Services Text Analytics API on Azure.
+title: Frequently Asked Questions about the Text Analytics API
+titleSuffix: Azure Cognitive Services
+description: Find answers to commonly asked questions about concepts, code, and scenarios related to the Text Analytics API for Azure Cognitive Services.
 services: cognitive-services
-author: HeidiSteen
-manager: cgronlun
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
-ms.technology: text-analytics
-ms.topic: article
-ms.date: 3/07/2018
-ms.author: heidist
+ms.subservice: text-analytics
+ms.topic: conceptual
+ms.date: 02/13/2019
+ms.author: aahi
 ---
+# Frequently Asked Questions (FAQ) about the Text Analytics Cognitive Service
 
-# Frequently Asked Questions (FAQ) about Text Analytics API (Cognitive Services)
- 
  Find answers to commonly asked questions about concepts, code, and scenarios related to the Text Analytics API for Microsoft Cognitive Services on Azure.
 
 ## Can Text Analytics identify sarcasm?
@@ -34,7 +34,7 @@ To help us prioritize which languages to work on next, vote for specific languag
 
 ## Why does key phrase extraction return some words but not others?
 
-Key phrase extraction eliminates non-essential words and standalone adjectives. Adjective-noun combinations, such as "spectacular views" or "foggy weather" are returned together. 
+Key phrase extraction eliminates non-essential words and standalone adjectives. Adjective-noun combinations, such as "spectacular views" or "foggy weather" are returned together.
 
 Generally, output consists of nouns and objects of the sentence. Output is listed in order of importance, with the first phrase being the most important. Importance is measured by the number of times a particular concept is mentioned, or the relation of that element to other elements in the text.
 
@@ -44,9 +44,9 @@ Improvements to models and algorithms are announced if the change is major, or q
 
 ## Next steps
 
-Is your question about a missing feature or functionality? Consider requesting or voting for it on our [User Voice web site](https://cognitive.uservoice.com/).
+Is your question about a missing feature or functionality? Consider requesting or voting for it on our [UserVoice web site](https://cognitive.uservoice.com/forums/555922-text-analytics).
 
 ## See also
 
  [StackOverflow: Text Analytics API](https://stackoverflow.com/questions/tagged/text-analytics-api)   
- [StackOverflow: Cognitive Services](http://stackoverflow.com/questions/tagged/microsoft-cognitive)
+ [StackOverflow: Cognitive Services](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

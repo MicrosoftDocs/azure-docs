@@ -1,22 +1,16 @@
 ---
 title: Microsoft Graph bindings for Azure Functions
 description: Understand how to use Microsoft Graph triggers and bindings in Azure Functions.
-services: functions
-author: mattchenderson
-manager: cfowler
-editor: ''
+author: craigshoemaker
 
-ms.service: functions
-ms.tgt_pltfrm: na
-ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/20/2017
-ms.author: mahender
+ms.author: cshoe
 ---
 
 # Microsoft Graph bindings for Azure Functions
 
-This article explains how to configure and work with Microsoft Graph triggers and bindings in Azure Functions. With these, you can use Azure Functions to work with data, insights, and events from the [Microsoft Graph](https://graph.microsoft.io).
+This article explains how to configure and work with Microsoft Graph triggers and bindings in Azure Functions. With these, you can use Azure Functions to work with data, insights, and events from the [Microsoft Graph](https://developer.microsoft.com/graph).
 
 The Microsoft Graph extension provides the following bindings:
 - An [auth token input binding](#token-input) allows you to interact with any Microsoft Graph API.
@@ -30,7 +24,13 @@ The Microsoft Graph extension provides the following bindings:
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!Note]
-> Microsoft Graph bindings are currently in preview.
+> Microsoft Graph bindings are currently in preview for Azure Functions version 2.x. They are not supported in Functions version 1.x.
+
+## Packages
+
+The auth token input binding is provided in the [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/) NuGet package. The other Microsoft Graph bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/) package. Source code for the packages is in the [azure-functions-microsoftgraph-extension](https://github.com/Azure/azure-functions-microsoftgraph-extension/) GitHub repository.
+
+[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## Setting up the extensions
 
@@ -51,13 +51,11 @@ In both cases, a warning will appear which specifies the extension to be install
 > [!Note] 
 > The in-portal installation process can take up to 10 minutes on a consumption plan.
 
-If you are using Visual Studio, you can get the extensions by installing these NuGet packages:
-- [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/)
-- [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/)
+If you are using Visual Studio, you can get the extensions by installing [the NuGet packages that are listed earlier in this article](#packages).
 
 ### Configuring Authentication / Authorization
 
-The bindings outlined in this article require an identity to be used. This allows the Microsoft Graph to enforce permissions and audit interactions. The identity can be a user accessing your application or the application itself. To configure this identity, set up [App Service Authentication / Authorization](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview) with Azure Active Directory. You will also need to request any resource permissions your functions require.
+The bindings outlined in this article require an identity to be used. This allows the Microsoft Graph to enforce permissions and audit interactions. The identity can be a user accessing your application or the application itself. To configure this identity, set up [App Service Authentication / Authorization](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) with Azure Active Directory. You will also need to request any resource permissions your functions require.
 
 > [!Note] 
 > The Microsoft Graph extension only supports Azure AD authentication. Users need to log in with a work or school account.
@@ -121,9 +119,10 @@ The C# script code uses the token to make an HTTP call to the Microsoft Graph an
 ```csharp
 using System.Net; 
 using System.Net.Http; 
-using System.Net.Http.Headers; 
+using System.Net.Http.Headers;
+using Microsoft.Extensions.Logging; 
 
-public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, string graphToken, TraceWriter log)
+public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, string graphToken, ILogger log)
 {
     HttpClient client = new HttpClient();
     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", graphToken);
@@ -196,7 +195,7 @@ module.exports = function (context, req) {
 
 ### Auth token - attributes
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [Token](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/TokenBinding/TokenAttribute.cs) attribute, which is defined in NuGet package [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/).
+In [C# class libraries](functions-dotnet-class-library.md), use the [Token](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/TokenBinding/TokenAttribute.cs) attribute.
 
 ### Auth token - configuration
 
@@ -219,7 +218,8 @@ The binding itself does not require any Azure AD permissions, but depending on h
 
 The token is always presented to code as a string.
 
-
+> [!Note]
+> When developing locally with either of `userFromId`, `userFromToken` or `userFromRequest` options, required token can be [obtained manually](https://github.com/Azure/azure-functions-microsoftgraph-extension/issues/54#issuecomment-392865857) and specified in `X-MS-TOKEN-AAD-ID-TOKEN` request header from a calling client application.
 
 
 <a name="excel-input"></a>
@@ -277,9 +277,10 @@ The following C# script code reads the contents of the specified table and retur
 ```csharp
 using System.Net;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Primitives; 
+using Microsoft.Extensions.Primitives;
+using Microsoft.Extensions.Logging;
 
-public static IActionResult Run(HttpRequest req, string[][] excelTableData, TraceWriter log)
+public static IActionResult Run(HttpRequest req, string[][] excelTableData, ILogger log)
 {
     return new OkObjectResult(excelTableData);
 }
@@ -329,7 +330,7 @@ module.exports = function (context, req) {
 
 ### Excel input - attributes
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs) attribute, which is defined in NuGet package [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+In [C# class libraries](functions-dotnet-class-library.md), use the [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs) attribute.
 
 ### Excel input - configuration
 
@@ -351,6 +352,7 @@ The following table explains the binding configuration properties that you set i
 ### Excel input - usage
 
 This binding requires the following Azure AD permissions:
+
 |Resource|Permission|
 |--------|--------|
 |Microsoft Graph|Read user files|
@@ -427,8 +429,9 @@ The C# script code adds a new row to the table (assumed to be single-column) bas
 ```csharp
 using System.Net;
 using System.Text;
+using Microsoft.Extensions.Logging;
 
-public static async Task Run(HttpRequest req, IAsyncCollector<object> newExcelRow, TraceWriter log)
+public static async Task Run(HttpRequest req, IAsyncCollector<object> newExcelRow, ILogger log)
 {
     string input = req.Query
         .FirstOrDefault(q => string.Compare(q.Key, "text", true) == 0)
@@ -489,7 +492,7 @@ module.exports = function (context, req) {
 
 ### Excel output - attributes
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs) attribute, which is defined in NuGet package [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+In [C# class libraries](functions-dotnet-class-library.md), use the [Excel](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/ExcelAttribute.cs) attribute.
 
 ### Excel output - configuration
 
@@ -512,6 +515,7 @@ The following table explains the binding configuration properties that you set i
 ### Excel output - usage
 
 This binding requires the following Azure AD permissions:
+
 |Resource|Permission|
 |--------|--------|
 |Microsoft Graph|Have full access to user files|
@@ -581,10 +585,11 @@ The C# script code reads the file specified in the query string and logs its len
 
 ```csharp
 using System.Net;
+using Microsoft.Extensions.Logging;
 
-public static void Run(HttpRequestMessage req, Stream myOneDriveFile, TraceWriter log)
+public static void Run(HttpRequestMessage req, Stream myOneDriveFile, ILogger log)
 {
-    log.Info(myOneDriveFile.Length.ToString());
+    log.LogInformation(myOneDriveFile.Length.ToString());
 }
 ```
 
@@ -633,7 +638,7 @@ module.exports = function (context, req) {
 
 ### File input - attributes
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs) attribute, which is defined in NuGet package [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+In [C# class libraries](functions-dotnet-class-library.md), use the [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs) attribute.
 
 ### File input - configuration
 
@@ -653,6 +658,7 @@ The following table explains the binding configuration properties that you set i
 ### File input - usage
 
 This binding requires the following Azure AD permissions:
+
 |Resource|Permission|
 |--------|--------|
 |Microsoft Graph|Read user files|
@@ -724,13 +730,15 @@ The C# script code gets text from the query string and writes it to a text file 
 ```csharp
 using System.Net;
 using System.Text;
+using Microsoft.Extensions.Logging;
 
-public static async Task Run(HttpRequest req, TraceWriter log, Stream myOneDriveFile)
+public static async Task Run(HttpRequest req, ILogger log, Stream myOneDriveFile)
 {
     string data = req.Query
         .FirstOrDefault(q => string.Compare(q.Key, "text", true) == 0)
         .Value;
     await myOneDriveFile.WriteAsync(Encoding.UTF8.GetBytes(data), 0, data.Length);
+    myOneDriveFile.Close();
     return;
 }
 ```
@@ -778,7 +786,7 @@ module.exports = function (context, req) {
 
 ### File output - attributes
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs) attribute, which is defined in NuGet package [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+In [C# class libraries](functions-dotnet-class-library.md), use the [OneDrive](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OneDriveAttribute.cs) attribute.
 
 ### File output - configuration
 
@@ -798,6 +806,7 @@ The following table explains the binding configuration properties that you set i
 #### File output - usage
 
 This binding requires the following Azure AD permissions:
+
 |Resource|Permission|
 |--------|--------|
 |Microsoft Graph|Have full access to user files|
@@ -822,7 +831,7 @@ This section contains the following subsections:
 * [Example](#outlook-output---example)
 * [Attributes](#outlook-output---attributes)
 * [Configuration](#outlook-output---configuration)
-* [Usage](#outlook-outnput---usage)
+* [Usage](#outlook-output---usage)
 
 ### Outlook output - example
 
@@ -860,8 +869,9 @@ The C# script code sends a mail from the caller to a recipient specified in the 
 
 ```csharp
 using System.Net;
+using Microsoft.Extensions.Logging;
 
-public static void Run(HttpRequest req, out Message message, TraceWriter log)
+public static void Run(HttpRequest req, out Message message, ILogger log)
 { 
     string emailAddress = req.Query["to"];
     message = new Message(){
@@ -927,7 +937,7 @@ module.exports = function (context, req) {
 
 ### Outlook output - attributes
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [Outlook](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OutlookAttribute.cs) attribute, which is defined in NuGet package [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+In [C# class libraries](functions-dotnet-class-library.md), use the [Outlook](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/OutlookAttribute.cs) attribute.
 
 ### Outlook output - configuration
 
@@ -946,6 +956,7 @@ The following table explains the binding configuration properties that you set i
 ### Outlook output - usage
 
 This binding requires the following Azure AD permissions:
+
 |Resource|Permission|
 |--------|--------|
 |Microsoft Graph|Send mail as user|
@@ -968,7 +979,7 @@ Webhooks allow you to react to events in the Microsoft Graph. To support webhook
 - A [Microsoft Graph webhook subscription input binding](#webhook-input) allows you to list existing subscriptions and optionally refresh them.
 - A [Microsoft Graph webhook subscription output binding](#webhook-output) allows you to create or delete webhook subscriptions.
 
-The bindings themselves do not require any Azure AD permissions, but you need to request permissions relevant to the resource type you wish to react to. For a list of which permissions are needed for each resource type, see [subscription permissions](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/subscription_post_subscriptions#permissions).
+The bindings themselves do not require any Azure AD permissions, but you need to request permissions relevant to the resource type you wish to react to. For a list of which permissions are needed for each resource type, see [subscription permissions](https://docs.microsoft.com/graph/api/subscription-post-subscriptions?view=graph-rest-1.0).
 
 For more information about webhooks, see [Working with webhooks in Microsoft Graph].
 
@@ -1020,14 +1031,15 @@ The C# script code reacts to incoming mail messages and logs the body of those s
 #r "Microsoft.Graph"
 using Microsoft.Graph;
 using System.Net;
+using Microsoft.Extensions.Logging;
 
-public static async Task Run(Message msg, TraceWriter log)  
+public static async Task Run(Message msg, ILogger log)  
 {
-    log.Info("Microsoft Graph webhook trigger function processed a request.");
+    log.LogInformation("Microsoft Graph webhook trigger function processed a request.");
 
     // Testable by sending oneself an email with the subject "Azure Functions" and some text body
     if (msg.Subject.Contains("Azure Functions") && msg.From.Equals(msg.Sender)) {
-        log.Info($"Processed email: {msg.BodyPreview}");
+        log.LogInformation($"Processed email: {msg.BodyPreview}");
     }
 }
 ```
@@ -1068,11 +1080,11 @@ module.exports = function (context) {
 
 ### Webhook trigger - attributes
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [GraphWebHookTrigger](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookTriggerAttribute.cs) attribute, which is defined in NuGet package [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+In [C# class libraries](functions-dotnet-class-library.md), use the [GraphWebhookTrigger](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebhookTriggerAttribute.cs) attribute.
 
 ### Webhook trigger - configuration
 
-The following table explains the binding configuration properties that you set in the *function.json* file and the `GraphWebHookTrigger` attribute.
+The following table explains the binding configuration properties that you set in the *function.json* file and the `GraphWebhookTrigger` attribute.
 
 |function.json property | Attribute property |Description|
 |---------|---------|----------------------|
@@ -1153,13 +1165,14 @@ The C# script code gets the subscriptions and deletes them:
 
 ```csharp
 using System.Net;
+using Microsoft.Extensions.Logging;
 
-public static async Task Run(HttpRequest req, string[] existingSubscriptions, IAsyncCollector<string> subscriptionsToDelete, TraceWriter log)
+public static async Task Run(HttpRequest req, string[] existingSubscriptions, IAsyncCollector<string> subscriptionsToDelete, ILogger log)
 {
-    log.Info("C# HTTP trigger function processed a request.");
+    log.LogInformation("C# HTTP trigger function processed a request.");
     foreach (var subscription in existingSubscriptions)
     {
-        log.Info($"Deleting subscription {subscription}");
+        log.LogInformation($"Deleting subscription {subscription}");
         await subscriptionsToDelete.AddAsync(subscription);
     }
 }
@@ -1219,11 +1232,11 @@ module.exports = function (context, req) {
 
 ### Webhook input - attributes
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs) attribute, which is defined in NuGet package [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+In [C# class libraries](functions-dotnet-class-library.md), use the [GraphWebhookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebhookSubscriptionAttribute.cs) attribute.
 
 ### Webhook input - configuration
 
-The following table explains the binding configuration properties that you set in the *function.json* file and the `GraphWebHookSubscription` attribute.
+The following table explains the binding configuration properties that you set in the *function.json* file and the `GraphWebhookSubscription` attribute.
 
 |function.json property | Attribute property |Description|
 |---------|---------|----------------------|
@@ -1277,11 +1290,11 @@ The *function.json* file defines an HTTP trigger with a subscription output bind
       "direction": "in"
     },
     {
-      "type": "graphwebhook",
+      "type": "graphWebhookSubscription",
       "name": "clientState",
       "direction": "out",
       "action": "create",
-      "listen": "me/mailFolders('Inbox')/messages",
+      "subscriptionResource": "me/mailFolders('Inbox')/messages",
       "changeTypes": [
         "created"
       ],
@@ -1302,10 +1315,11 @@ The C# script code registers a webhook that will notify this function app when t
 ```csharp
 using System;
 using System.Net;
+using Microsoft.Extensions.Logging;
 
-public static HttpResponseMessage run(HttpRequestMessage req, out string clientState, TraceWriter log)
+public static HttpResponseMessage run(HttpRequestMessage req, out string clientState, ILogger log)
 {
-  log.Info("C# HTTP trigger function processed a request.");
+  log.LogInformation("C# HTTP trigger function processed a request.");
 	clientState = Guid.NewGuid().ToString();
 	return new HttpResponseMessage(HttpStatusCode.OK);
 }
@@ -1326,11 +1340,11 @@ The *function.json* file defines an HTTP trigger with a subscription output bind
       "direction": "in"
     },
     {
-      "type": "graphwebhook",
+      "type": "graphWebhookSubscription",
       "name": "clientState",
       "direction": "out",
       "action": "create",
-      "listen": "me/mailFolders('Inbox')/messages",
+      "subscriptionResource": "me/mailFolders('Inbox')/messages",
       "changeTypes": [
         "created"
       ],
@@ -1359,11 +1373,11 @@ module.exports = function (context, req) {
 
 ### Webhook output - attributes
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs) attribute, which is defined in NuGet package [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/).
+In [C# class libraries](functions-dotnet-class-library.md), use the [GraphWebhookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebhookSubscriptionAttribute.cs) attribute.
 
 ### Webhook output - configuration
 
-The following table explains the binding configuration properties that you set in the *function.json* file and the `GraphWebHookSubscription` attribute.
+The following table explains the binding configuration properties that you set in the *function.json* file and the `GraphWebhookSubscription` attribute.
 
 |function.json property | Attribute property |Description|
 |---------|---------|----------------------|
@@ -1404,7 +1418,7 @@ This section contains an example for each of these approaches:
 See the language-specific example:
 
 * [C# script (.csx)](#app-identity-refresh---c-script-example)
-* [JavaScript](#app-identity-refresh---javascript-example)
+* JavaScript
 
 ### App identity refresh - C# script example
 
@@ -1442,15 +1456,16 @@ The C# script code refreshes the subscriptions:
 
 ```csharp
 using System;
+using Microsoft.Extensions.Logging;
 
-public static void Run(TimerInfo myTimer, string[] existingSubscriptions, ICollector<string> subscriptionsToRefresh, TraceWriter log)
+public static void Run(TimerInfo myTimer, string[] existingSubscriptions, ICollector<string> subscriptionsToRefresh, ILogger log)
 {
     // This template uses application permissions and requires consent from an Azure Active Directory admin.
     // See https://go.microsoft.com/fwlink/?linkid=858780
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+    log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
     foreach (var subscription in existingSubscriptions)
     {
-      log.Info($"Refreshing subscription {subscription}");
+      log.LogInformation($"Refreshing subscription {subscription}");
       subscriptionsToRefresh.Add(subscription);
     }
 }
@@ -1498,8 +1513,8 @@ module.exports = function (context) {
     const existing = context.bindings.existingSubscriptions;
     var toRefresh = [];
     for (var i = 0; i < existing.length; i++) {
-        context.log(`Deleting subscription ${existing[i]}`);
-        todelete.push(existing[i]);
+        context.log(`Refreshing subscription ${existing[i]}`);
+        toRefresh.push(existing[i]);
     }
     context.bindings.subscriptionsToRefresh = toRefresh;
     context.done();
@@ -1535,10 +1550,11 @@ The C# script code refreshes the subscriptions and creates the output binding in
 
 ```csharp
 using System;
+using Microsoft.Extensions.Logging;
 
-public static async Task Run(TimerInfo myTimer, UserSubscription[] existingSubscriptions, IBinder binder, TraceWriter log)
+public static async Task Run(TimerInfo myTimer, UserSubscription[] existingSubscriptions, IBinder binder, ILogger log)
 {
-  log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+  log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
 	foreach (var subscription in existingSubscriptions)
 	{
         // binding in code to allow dynamic identity
@@ -1550,7 +1566,7 @@ public static async Task Run(TimerInfo myTimer, UserSubscription[] existingSubsc
             }
         ))
         {
-    		log.Info($"Refreshing subscription {subscription}");
+    		log.LogInformation($"Refreshing subscription {subscription}");
             await subscriptionsToRefresh.AddAsync(subscription);
         }
 

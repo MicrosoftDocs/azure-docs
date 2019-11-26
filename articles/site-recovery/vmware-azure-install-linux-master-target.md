@@ -1,23 +1,24 @@
 ---
-title: Install a Linux master target server for failover from Azure to on-premises| Microsoft Docs
-description: Before reprotecting a Linux virtual machine, you need a Linux master target server. Learn how to install one.
+title: Install a master target server for Linux VM failback with Azure Site Recovery
+description: Learn how to set up a Linux master target server for failback to an on-premises site during disaster recovery of VMware VMs to Azure using Azure Site Recovery.
+author: mayurigupta13
 services: site-recovery
-documentationcenter: ''
-author: nsoneji
-manager: gauravd
+manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/05/2018
-ms.author: nisoneji
-
+ms.topic: conceptual
+ms.date: 03/06/2019
+ms.author: mayg
 ---
-# Install a Linux master target server
+
+
+# Install a Linux master target server for failback
 After you fail over your virtual machines to Azure, you can fail back the virtual machines to the on-premises site. To fail back, you need to reprotect the virtual machine from Azure to the on-premises site. For this process, you need an on-premises master target server to receive the traffic. 
 
 If your protected virtual machine is a Windows virtual machine, then you need a Windows master target. For a Linux virtual machine, you need a Linux master target. Read the following steps to learn how to create and install a Linux master target.
 
 > [!IMPORTANT]
 > Starting with release of the 9.10.0 master target server, the latest master target server can be only installed on an Ubuntu 16.04 server. New installations aren't allowed on  CentOS6.6 servers. However, you can continue to upgrade your old master target servers by using the 9.10.0 version.
+> Master target server on LVM is not supported.
 
 ## Overview
 This article provides instructions for how to install a Linux master target.
@@ -37,11 +38,11 @@ Post comments or questions at the end of this article or on the [Azure Recovery 
 
 Create the master target in accordance with the following sizing guidelines:
 - **RAM**: 6 GB or more
-- **OS disk size**: 100 GB or more (to install CentOS6.6)
+- **OS disk size**: 100 GB or more (to install OS)
 - **Additional disk size for retention drive**: 1 TB
 - **CPU cores**: 4 cores or more
 
-The following supported Ubuntu kernels are supported.
+The following Ubuntu kernels are supported.
 
 
 |Kernel Series  |Support up to  |
@@ -58,7 +59,7 @@ The following supported Ubuntu kernels are supported.
 Take the following the steps to install the Ubuntu 16.04.2 64-bit
 operating system.
 
-1.   Go to the [download link](https://www.ubuntu.com/download/server/thank-you?version=16.04.2&architecture=amd64), choose the closest mirror anddownload an Ubuntu 16.04.2 minimal 64-bit ISO.
+1.   Go to the [download link](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), choose the closest mirror and download an Ubuntu 16.04.2 minimal 64-bit ISO.
 Keep an Ubuntu 16.04.2 minimal 64-bit ISO in the DVD drive and start the system.
 
 1.  Select **English** as your preferred language, and then select **Enter**.
@@ -79,7 +80,7 @@ Keep an Ubuntu 16.04.2 minimal 64-bit ISO in the DVD drive and start the system.
 1. Select **No** (the default option), and then select **Enter**.
 
      ![Configure the keyboard](./media/vmware-azure-install-linux-master-target/image5.png)
-1. Select **English (US)** as the country of origin for the keyboard, and then select **Enter**.
+1. Select **English (US)** as the country/region of origin for the keyboard, and then select **Enter**.
 
 1. Select **English (US)** as the keyboard layout, and then select **Enter**.
 
@@ -109,24 +110,31 @@ Keep an Ubuntu 16.04.2 minimal 64-bit ISO in the DVD drive and start the system.
 
 1.  Select **Yes** to write the changes to disk, and then select **Enter**.
 
-1.  In the configure proxy selection, select the default option, select **Continue**, and then select **Enter**.
+    ![Select the default option](./media/vmware-azure-install-linux-master-target/image16-ubuntu.png)
 
-     ![Select the default option](./media/vmware-azure-install-linux-master-target/image17.png)
+1.  In the configure proxy selection, select the default option, select **Continue**, and then select **Enter**.
+     
+     ![Select how to manage upgrades](./media/vmware-azure-install-linux-master-target/image17-ubuntu.png)
 
 1.  Select **No automatic updates** option in the selection for managing upgrades on your system, and then select **Enter**.
 
-     ![Select how to manage upgrades](./media/vmware-azure-install-linux-master-target/image18.png)
+     ![Select how to manage upgrades](./media/vmware-azure-install-linux-master-target/image18-ubuntu.png)
 
     > [!WARNING]
     > Because the Azure Site Recovery master target server requires a very specific version of the Ubuntu, you need to ensure that the kernel upgrades are disabled for the virtual machine. If they are enabled, then any regular upgrades cause the master target server to malfunction. Make sure you select the **No automatic updates** option.
 
 1.  Select default options. If you want openSSH for SSH connect, select the **OpenSSH server** option, and then select **Continue**.
 
-    ![Select software](./media/vmware-azure-install-linux-master-target/image19.png)
+    ![Select software](./media/vmware-azure-install-linux-master-target/image19-ubuntu.png)
 
-1. In the selction for installing the GRUB boot loader, Select **Yes**, and then select **Enter**.
+1. In the selection for installing the GRUB boot loader, Select **Yes**, and then select **Enter**.
+     
+    ![GRUB boot installer](./media/vmware-azure-install-linux-master-target/image20.png)
+
 
 1. Select the appropriate device for the boot loader installation (preferably **/dev/sda**), and then select **Enter**.
+     
+    ![Select appropriate device](./media/vmware-azure-install-linux-master-target/image21.png)
 
 1. Select **Continue**, and then select **Enter** to finish the installation.
 
@@ -151,21 +159,21 @@ To get the ID for each SCSI hard disk in a Linux virtual machine, the **disk.Ena
 
 4. In the left pane, select **Advanced** > **General**, and then select the **Configuration Parameters** button on the lower-right part of the screen.
 
-	![Options tab](./media/vmware-azure-install-linux-master-target/image20.png)
+    ![Open configuration parameter](./media/vmware-azure-install-linux-master-target/image24-ubuntu.png) 
 
-	The **Configuration Parameters** option is not available when the machine is running. To make this tab active, shut down the virtual machine.
+    The **Configuration Parameters** option is not available when the machine is running. To make this tab active, shut down the virtual machine.
 
 5. See whether a row with **disk.EnableUUID** already exists.
 
-	- If the value exists and is set to **False**, change the value to **True**. (The values are not case-sensitive.)
+   - If the value exists and is set to **False**, change the value to **True**. (The values are not case-sensitive.)
 
-	- If the value exists and is set to **True**, select **Cancel**.
+   - If the value exists and is set to **True**, select **Cancel**.
 
-	- If the value does not exist, select **Add Row**.
+   - If the value does not exist, select **Add Row**.
 
-	- In the name column, add **disk.EnableUUID**, and then set the value to **TRUE**.
+   - In the name column, add **disk.EnableUUID**, and then set the value to **TRUE**.
 
-	![Checking whether disk.EnableUUID already exists](./media/vmware-azure-install-linux-master-target/image21.png)
+     ![Checking whether disk.EnableUUID already exists](./media/vmware-azure-install-linux-master-target/image25.png)
 
 #### Disable kernel upgrades
 
@@ -174,7 +182,7 @@ Azure Site Recovery master target server requires a specific version of the Ubun
 #### Download and install additional packages
 
 > [!NOTE]
-> Make sure that you have Internet connectivity to download and install additional packages. If you don't have Internet connectivity, you need to manually find these RPM packages and install them.
+> Make sure that you have Internet connectivity to download and install additional packages. If you don't have Internet connectivity, you need to manually find these Deb packages and install them.
 
  `apt-get install -y multipath-tools lsscsi python-pyasn1 lvm2 kpartx`
 
@@ -203,12 +211,11 @@ To download it using Linux, type:
 
 ### Apply custom configuration changes
 
-To apply custom configuration changes, use the following steps:
-
+To apply custom configuration changes, use the following steps as a ROOT user:
 
 1. Run the following command to untar the binary.
 
-	`tar -zxvf latestlinuxmobsvc.tar.gz`
+	`tar -xvf latestlinuxmobsvc.tar.gz`
 
     ![Screenshot of the command to run](./media/vmware-azure-install-linux-master-target/image16.png)
 
@@ -230,18 +237,13 @@ Use the following steps to create a retention disk:
 
 1. Attach a new 1-TB disk to the Linux master target virtual machine, and then start the machine.
 
-2. Use the **multipath -ll** command to learn the multipath ID of the retention disk.
-	
-  	 `multipath -ll`
+2. Use the **multipath -ll** command to learn the multipath ID of the retention disk: **multipath -ll**
 
-		![The multipath ID of the retention disk](./media/vmware-azure-install-linux-master-target/media/image22.png)
+    ![Multipath ID](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. Format the drive, and then create a file system on the new drive.
-
+3. Format the drive, and then create a file system on the new drive: **mkfs.ext4 /dev/mapper/\<Retention disk's multipath id>**.
 	
-	`mkfs.ext4 /dev/mapper/<Retention disk's multipath id>`
-	
-	![Creating a file system on the drive](./media/vmware-azure-install-linux-master-target/media/image23.png)
+    ![File system](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
 4. After you create the file system, mount the retention disk.
 
@@ -249,7 +251,6 @@ Use the following steps to create a retention disk:
     mkdir /mnt/retention
     mount /dev/mapper/<Retention disk's multipath id> /mnt/retention
     ```
-	![Mounting the retention disk](./media/vmware-azure-install-linux-master-target/image24.png)
 
 5. Create the **fstab** entry to mount the retention drive every time the system starts.
 	
@@ -257,7 +258,7 @@ Use the following steps to create a retention disk:
 	
 	Select **Insert** to begin editing the file. Create a new line, and then insert the following text. Edit the disk multipath ID based on the highlighted multipath ID from the previous command.
 
-	**/dev/mapper/<Retention disks multipath id> /mnt/retention ext4 rw 0 0**
+	**/dev/mapper/\<Retention disks multipath id> /mnt/retention ext4 rw 0 0**
 
 	Select **Esc**, and then type **:wq** (write and quit) to close the editor window.
 
@@ -281,16 +282,15 @@ Use the following steps to create a retention disk:
 
 2. Note down the configuration server's IP address. Run the following command to install the master target server and register the server with the configuration server.
 
- 	```
-	./install -q -d /usr/local/ASR -r MT -v VmWare
+    ```
 	/usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
-	```
+    ```
 
 	Example: 
 	
-	```
+    ```
 	/usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
-	```
+    ```
 
 Wait until the script finishes. If the master target registers successfully, the master target is listed on the **Site Recovery Infrastructure** page of the portal.
 
@@ -299,9 +299,9 @@ Wait until the script finishes. If the master target registers successfully, the
 
 1. Run the following command to install the master target. For the agent role, choose **master target**.
 
-	```
+    ```
 	./install
-	```
+    ```
 
 2. Choose the default location for installation, and then select **Enter** to continue.
 
@@ -313,22 +313,22 @@ After the installation has finished, register the configuration server by using 
 
 2. Run the following command to install the master target server and register the server with the configuration server.
 
-	```
+    ```
 	./install -q -d /usr/local/ASR -r MT -v VmWare
 	/usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
-	```
+    ```
 	Example: 
 
-	```
+    ```
 	/usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
-	```
+    ```
 
      Wait until the script finishes. If the master target is registered successfully, the master target is listed on the **Site Recovery Infrastructure** page of the portal.
 
 
-### Install VMware tools on the master target server
+### Install VMware tools / open-vm-tools on the master target server
 
-You need to install VMware tools on the master target so that it can discover the data stores. If the tools are not installed, the reprotect screen isn't listed in the data stores. After installation of the VMware tools, you need to restart.
+You need to install VMware tools or open-vm-tools on the master target so that it can discover the data stores. If the tools are not installed, the reprotect screen isn't listed in the data stores. After installation of the VMware tools, you need to restart.
 
 ### Upgrade the master target server
 

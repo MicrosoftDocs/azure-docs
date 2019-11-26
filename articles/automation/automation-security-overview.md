@@ -1,21 +1,15 @@
 ---
-title: Intro to authentication in Azure Automation | Microsoft Docs
+title: Intro to authentication in Azure Automation
 description: This article provides an overview of Automation security and the different authentication methods available for Automation Accounts in Azure Automation.
-services: automation
-documentationcenter: ''
-author: georgewallace
-manager: jwhit
-editor: tysonn
 keywords: automation security, secure automation; automation authentication
-
-ms.assetid: 4a6bc2f5-c5a2-4dfb-b10d-7950d750dee8
+services: automation
 ms.service: automation
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/01/2017
-ms.author: magoedte
+ms.subservice: process-automation
+author: bobbytreed
+ms.author: robreed
+ms.date: 03/19/2018
+ms.topic: conceptual
+manager: carmonm
 ROBOTS: NOINDEX
 ---
 # Introduction to authentication in Azure Automation  
@@ -49,3 +43,4 @@ The following table summarizes the different authentication methods for each env
 | Azure Classic Run As Account |Azure classic |[Authenticate Runbooks with Azure Run As account](automation-sec-configure-azure-runas-account.md) |
 | Windows Authentication |On-Premises Datacenter |[Authenticate Runbooks for Hybrid Runbook Workers](automation-hybrid-runbook-worker.md) |
 | AWS Credentials |Amazon Web Services |[Authenticate Runbooks with Amazon Web Services (AWS)](automation-config-aws-account.md) |
+

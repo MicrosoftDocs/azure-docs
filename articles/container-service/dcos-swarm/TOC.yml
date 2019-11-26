@@ -7,9 +7,9 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Docker Swarm Linux
-    href: container-service-swarm-walkthrough.md
-  - name: DC/OS Linux
+  - name: Docker Swarm
+    href: container-service-swarm-mode-walkthrough.md
+  - name: DC/OS
     href: container-service-dcos-quickstart.md
 - name: Tutorials
   items:
@@ -27,10 +27,6 @@
     href: container-service-security.md
 - name: How-to guides
   items:
-  - name: Create an ACS cluster
-    href: container-service-create-acs-cluster-cli.md
-  - name: Connect with an ACS cluster
-    href: container-service-connect.md
   - name: Scale an ACS cluster
     href: container-service-scale.md
   - name: DC/OS
@@ -65,16 +61,16 @@
       href: container-service-swarm-mode-walkthrough.md
     - name: Docker and Docker Compose
       href: container-service-docker-swarm.md
-    - name: CI/CD with Docker Swarm and VSTS
+    - name: CI/CD with Docker Swarm and Azure DevOps
       href: container-service-docker-swarm-setup-ci-cd.md
-    - name: CI/CD with Docker Swarm (ACS Engine) and VSTS 
+    - name: CI/CD with Docker Swarm (ACS Engine) and Azure DevOps
       href: container-service-docker-swarm-mode-setup-ci-cd-acs-engine.md
 - name: Reference
   items:
   - name: Azure CLI
     href: /cli/azure/acs
   - name: PowerShell
-    href: /powershell/module/azurerm.compute
+    href: /powershell/module/az.compute
   - name: REST
     href: /rest/api/container-service
 - name: Resources
@@ -90,6 +86,6 @@
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-container-service
+    href: https://stackoverflow.com/questions/tagged/azure-container-service
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest

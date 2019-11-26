@@ -1,6 +1,6 @@
 ---
-title: Create an ASP.NET Core web app in Azure | Microsoft Docs
-description: Learn how to run web apps in Azure App Service by deploying the default ASP.NET Core web app.
+title: Create C# ASP.NET Core web app - Azure App Service | Microsoft Docs
+description: Learn how to run web apps in Azure App Service by deploying the default C# ASP.NET Core web app.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -11,181 +11,146 @@ ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/18/2018
+ms.date: 08/30/2019
 ms.author: cephalin
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, vs-azure
+ms.custom: seodec18
+
 ---
 # Create an ASP.NET Core web app in Azure
 
 > [!NOTE]
-> This article deploys an app to App Service on Windows. To deploy to App Service on _Linux_, see [Create a .NET Core web app in App Service on Linux](./containers/quickstart-dotnetcore.md). 
->
-> If you're looking for steps for an ASP.NET Framework app, see [Create an ASP.NET Framework web app in Azure](app-service-web-get-started-dotnet-framework.md). 
+> This article deploys an app to App Service on Windows. To deploy to App Service on _Linux_, see [Create a .NET Core web app in App Service on Linux](./containers/quickstart-dotnetcore.md).
 >
 
-[Azure Web Apps](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to deploy your first ASP.NET Core web app to Azure Web Apps. When you're finished, you'll have a resource group that consists of an App Service plan and an Azure web app with a deployed web application. You can [watch a video](#video) that demonstrates how to perform these steps entirely from within Visual Studio 2017.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.
+
+This quickstart shows how to deploy your first ASP.NET Core web app to Azure App Service. When you're finished, you'll have a resource group that consists of an App Service plan and an App Service app with a deployed web application.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
-To complete this tutorial:
+To complete this tutorial, install <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> with the **ASP.NET and web development** workload.
 
-* Install <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> with the following workloads:
-    - **ASP.NET and web development**
-    - **Azure development**
+If you've installed Visual Studio 2019 already:
 
-    ![ASP.NET and web development and Azure development (under Web & Cloud)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
+- Install the latest updates in Visual Studio by selecting **Help** > **Check for Updates**.
+- Add the workload by selecting **Tools** > **Get Tools and Features**.
 
 ## Create an ASP.NET Core web app
 
-In Visual Studio, create a project by selecting **File > New > Project**. 
+Create an ASP.NET Core web app by following these steps:
 
-In the **New Project** dialog, select **Visual C# > Web > ASP.NET Core Web Application**.
+1. Open Visual Studio and then select **Create a new project**.
 
-Name the application _myFirstAzureWebApp_, then select **Create new Git repository**, and then select **OK**.
-   
-![New Project dialog box](./media/app-service-web-get-started-dotnet/new-project.png)
+1. In **Create a new project**, find and choose **ASP.NET Core Web Application** for C#, then select **Next**.
 
-You can deploy any type of ASP.NET Core web app to Azure. For this quickstart, select the **Web Application** template, and make sure authentication is set to **No Authentication**.
-      
-Select **OK**.
+1. In **Configure your new project**, name the application _myFirstAzureWebApp_, and then select **Create**.
 
-![New ASP.NET Project dialog box](./media/app-service-web-get-started-dotnet/razor-pages-aspnet-dialog.png)
+   ![Configure your web app project](./media/app-service-web-get-started-dotnet/configure-web-app-project.png)
 
-Once the ASP.NET Core project is created, the ASP.NET Core welcome page is displayed, providing numerous links to resources to help you get started. 
+1. For this quickstart, choose the **Web Application** template. Make sure authentication is set to **No Authentication** and no other option is selected. Select **Create**.
 
-![Welcome Page](./media/app-service-web-get-started-dotnet/aspnet-core-welcome-page.png)
+   ![Select ASP.NET Core Razor Pages for this tutorial](./media/app-service-web-get-started-dotnet/aspnet-razor-pages-app.png)
 
-From the menu, select **Debug > Start without Debugging** to run the web app locally.
+    You can deploy any type of ASP.NET Core web app to Azure.
 
-![Run app locally](./media/app-service-web-get-started-dotnet/razor-web-app-running-locally.png)
+1. From the Visual Studio menu, select **Debug** > **Start Without Debugging** to run the web app locally.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+   ![Run app locally](./media/app-service-web-get-started-dotnet/razor-web-app-running-locally.png)
 
-[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
+## Publish your web app
 
-[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
+1. In **Solution Explorer**, right-click the **myFirstAzureWebApp** project and select **Publish**.
 
-[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
+1. Choose **App Service** and then select **Publish**.
 
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
+   ![Publish from project overview page](./media/app-service-web-get-started-dotnet/publish-app-vs2019.png)
 
-![Empty web app page](media/app-service-web-get-started-html/app-service-web-service-created.png)
+1. In **App Service Create new**, your options depend on whether you're signed in to Azure already and whether you have a Visual Studio account linked to an Azure account. Select either **Add an account** or **Sign in** to sign in to your Azure subscription. If you're already signed in, select the account you want.
 
-## Push to Azure from Visual Studio
+   > [!NOTE]
+   > If you're already signed in, don't select **Create** yet.
+   >
 
-Back in Visual Studio, from the **View** menu, click **Team Explorer**. The **Team Explorer** is displayed.
+   ![Sign in to Azure](./media/app-service-web-get-started-dotnet/sign-in-azure-vs2019.png)
 
-In the **Home** view, click **Settings** > **Repository Settings**.
+   [!INCLUDE [resource group intro text](../../includes/resource-group.md)]
 
-![Team Explorer home view](./media/app-service-web-get-started-dotnet/team-explorer.png)
+1. For **Resource group**, select **New**.
 
-In the **Remotes** section of the **Repository Settings**, select **Add**. The **Add Remote** dialog box is displayed.
+1. In **New resource group name**, enter *myResourceGroup* and select **OK**.
 
-Set the **Name** field to _Azure_, and then set the **Fetch** field to the URL that you saved from [Create a web app](#create-a-web-app). Click **Save**.
+   [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-![Team Explorer home view](./media/app-service-web-get-started-dotnet/team-explorer-set-remote.png)
+1. For the **Hosting Plan**, select **New**.
 
-This setting is equivalent to the Git command `git remote add Azure <URL>`.
+1. In the **Configure Hosting Plan** dialog, enter the values from the following table, and then select **OK**.
 
-Click the **Home** button at the top.
+   | Setting | Suggested Value | Description |
+   |-|-|-|
+   |App Service Plan| myAppServicePlan | Name of the App Service plan. |
+   | Location | West Europe | The datacenter where the web app is hosted. |
+   | Size | Free | [Pricing tier](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) determines hosting features. |
 
-Select **Settings** > **Global Settings**. Confirm that the name and email address are set. Select **Update** if necessary.
+   ![Create App Service plan](./media/app-service-web-get-started-dotnet/app-service-plan-vs2019.png)
 
-Visual Studio already committed all the files into the Git repository when it created the project. All you need to do now is to push the files to Azure.
+1. In **Name**, enter a unique app name that includes only the valid characters are `a-z`, `A-Z`, `0-9`, and `-`. You can accept the automatically generated unique name. The URL of the web app is `http://<app_name>.azurewebsites.net`, where `<app_name>` is your app name.
 
-Click the **Home** button at the top. Select **Sync** > **Actions** > **Open Command Prompt**. 
+   ![Configure app name](./media/app-service-web-get-started-dotnet/web-app-name-vs2019.png)
 
-Enter the following command in the command window, and enter the deployment password when prompted:
+1. Select **Create** to start creating the Azure resources.
 
-```
-git push Azure master
-```
-
-This command may take a few minutes to run. While running, it displays information similar to the following example:
-
-```
-Counting objects: 4, done.
-Delta compression using up to 8 threads.
-Compressing objects: 100% (4/4), done.
-Writing objects: 100% (4/4), 349 bytes | 349.00 KiB/s, done.
-Total 4 (delta 3), reused 0 (delta 0)
-remote: Updating branch 'master'.
-remote: Updating submodules.
-remote: Preparing deployment for commit id '9e20345e9c'.
-remote: Generating deployment script.
-remote: Project file path: .\myFirstAzureWebApp\myFirstAzureWebApp.csproj
-remote: Solution file path: .\myFirstAzureWebApp.sln
-remote: Generated deployment script files
-remote: Running deployment command...
-remote: Handling ASP.NET Core Web Application deployment.
-remote:   Restoring packages for D:\home\site\repository\myFirstAzureWebApp\myFirstAzureWebApp.csproj...
-remote:   Restoring packages for D:\home\site\repository\myFirstAzureWebApp\myFirstAzureWebApp.csproj...
-...
-remote: Finished successfully.
-remote: Running post deployment command(s)...
-remote: Deployment successful.
-To https://<app_name>.scm.azurewebsites.net/<app_name>.git
- * [new branch]      master -> master
-```
-
-## Browse to the app
-
-In a browser, navigate to the Azure web app URL: `http://<app_name>.azurewebsites.net`.
-
-The page is running as an Azure App Service web app.
+Once the wizard completes, it publishes the ASP.NET Core web app to Azure, and then launches the app in the default browser.
 
 ![Published ASP.NET web app in Azure](./media/app-service-web-get-started-dotnet/web-app-running-live.png)
 
-Congratulations, your ASP.NET Core web app is running live in Azure App Service.
+The app name specified in the **App Service Create new** page is used as the URL prefix in the format `http://<app_name>.azurewebsites.net`.
+
+**Congratulations!** Your ASP.NET Core web app is running live in Azure App Service.
 
 ## Update the app and redeploy
 
-From the **Solution Explorer**, open _Pages/Index.cshtml_.
+1. In **Solution Explorer**, under your project, open **Pages** > **Index.cshtml**.
 
-Find the `<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">` HTML tag near the top, and replace the entire element with the following code:
+1. Replace the two `<div>` tags with the following code:
 
-```HTML
-<div class="jumbotron">
-    <h1>ASP.NET in Azure!</h1>
-    <p class="lead">This is a simple app that we’ve built that demonstrates how to deploy a .NET app to Azure App Service.</p>
-</div>
-```
+   ```HTML
+   <div class="jumbotron">
+       <h1>ASP.NET in Azure!</h1>
+       <p class="lead">This is a simple app that we’ve built that demonstrates how to deploy a .NET app to Azure App Service.</p>
+   </div>
+   ```
 
-From the **Solution Explorer**, right-click _Pages/Index.cshtml_ and click **Commit**. Enter a commit message for your change and click **Commit All**.
+1. To redeploy to Azure, right-click the **myFirstAzureWebApp** project in **Solution Explorer** and select **Publish**.
 
-Back in the command prompt window, push the code changes to Azure.
+1. In the **Publish** summary page, select **Publish**.
 
-```bash
-git push Azure master
-```
+   ![Visual Studio publishing summary page](./media/app-service-web-get-started-dotnet/publish-summary-page-vs2019.png)
 
-When deployment completes, navigate to `http://<app_name>.azurewebsites.net` again.
+When publishing completes, Visual Studio launches a browser to the URL of the web app.
 
 ![Updated ASP.NET web app in Azure](./media/app-service-web-get-started-dotnet/web-app-running-live-updated.png)
 
-## Manage the Azure web app
+## Manage the Azure app
 
-Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the web app.
+To manage the web app, go to the [Azure portal](https://portal.azure.com), and search for and select **App Services**.
 
-From the left menu, select **App Services**, and then select the name of your Azure web app.
+![Select App Services](./media/app-service-web-get-started-dotnet/app-services.png)
 
-![Portal navigation to Azure web app](./media/app-service-web-get-started-dotnet/access-portal.png)
+On the **App Services** page, select the name of your web app.
 
-You see your web app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete. 
+![Portal navigation to Azure app](./media/app-service-web-get-started-dotnet/access-portal-vs2019.png)
 
-![App Service page in Azure portal](./media/app-service-web-get-started-dotnet/web-app-blade.png)
+You see your web app's Overview page. Here, you can do basic management like browse, stop, start, restart, and delete.
 
-The left menu provides different pages for configuring your app. 
+![App Service in Azure portal](./media/app-service-web-get-started-dotnet/web-app-general-vs2019.png)
+
+The left menu provides different pages for configuring your app.
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
-
-## Video
-
-> [!VIDEO https://www.youtube-nocookie.com/embed/AEfG9PWPAxg]
 
 ## Next steps
 

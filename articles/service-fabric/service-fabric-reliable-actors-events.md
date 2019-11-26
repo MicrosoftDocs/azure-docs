@@ -1,16 +1,16 @@
 ---
-title: Events in actor-based Azure microservices| Microsoft Docs
+title: Events in actor-based Azure Service Fabric actors| Microsoft Docs
 description: Introduction to events for Service Fabric Reliable Actors.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: aa01b0f7-8f88-403a-bfe1-5aba00312c24
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/06/2017
@@ -110,4 +110,4 @@ event.gameScoreUpdated(Id.getUUIDId(), score);
 * [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [C# Sample code](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [C# .NET Core Sample code](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started)
-* [Java Sample code](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Java Sample code](https://github.com/Azure-Samples/service-fabric-java-getting-started)

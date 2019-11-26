@@ -1,22 +1,18 @@
 ---
-title: "Quickstart: Scale out compute in Azure SQL Data Warehouse - Azure portal | Microsoft Docs"
-description: Azure portal tasks to manage compute power. Scale compute resources by adjusting DWUs. Or, pause and resume compute resources to save costs.
+title: 'Quickstart: Scale compute - Azure portal '
+description: Scale compute in Azure SQL Data Warehouse in the Azure portal. Scale out compute for better performance, or scale back compute to save costs. 
 services: sql-data-warehouse
-documentationcenter: NA
-author: hirokib
-manager: jhubbard
-editor: ''
-
+author: Antvgski
+manager: craigg
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 01/31/2018
-ms.author: elbutter;barbkess
-
+ms.topic: quickstart
+ms.subservice: implement
+ms.date: 04/17/2018
+ms.author: anvang
+ms.reviewer: jrasnick
+ms.custom: seo-lt-2019
 ---
+
 # Quickstart: Scale compute in Azure SQL Data Warehouse in the Azure portal
 
 Scale compute in Azure SQL Data Warehouse in the Azure portal. [Scale out compute](sql-data-warehouse-manage-compute-overview.md) for better performance, or scale back compute to save costs. 
@@ -29,16 +25,19 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Before you begin
 
-You can scale a data warehouse that you already have, or use [Quickstart: create and Connect - portal](create-data-warehouse-portal.md) to create a data warehouse named **mySampleDataWarehouse**.  This quickstart scales **mySampleDataWarehouse**.
+You can scale a data warehouse that you already have, or use [Quickstart: create and connect - portal](create-data-warehouse-portal.md) to create a data warehouse named **mySampleDataWarehouse**.  This quickstart scales **mySampleDataWarehouse**.
+
+>[!Note]
+>Your data warehouse must be online to scale. 
 
 ## Scale compute
 
-In SQL Data Warehouse, you can increase or decrease compute resources by adjusting data warehouse units. The [Create and Connect - portal](create-data-warehouse-portal.md) created **mySampleDataWarehouse** and initialized it with 400 DWUs. The following steps adjust the DWUs for **mySampleDataWarehouse**.
+SQL Data Warehouse compute resources can be scaled by increasing or decreasing data warehouse units. The [create and connect - portal] quickstart(create-data-warehouse-portal.md) created **mySampleDataWarehouse** and initialized it with 400 DWUs. The following steps adjust the DWUs for **mySampleDataWarehouse**.
 
 To change data warehouse units:
 
-1. Click **SQL databases** in the left page of the Azure portal.
-2. Select **mySampleDataWarehouse** from the **SQL databases** page. The data warehouse opens.
+1. Click **SQL data warehouses** in the left page of the Azure portal.
+2. Select **mySampleDataWarehouse** from the **SQL data warehouses** page. The data warehouse opens.
 3. Click **Scale**.
 
     ![Click Scale](media/quickstart-scale-compute-portal/click-scale.png)
@@ -54,7 +53,7 @@ To change data warehouse units:
 
 
 ## Next steps
-You have now learned how to scale compute for your data warehouse. To learn more about Azure SQL Data Warehouse, continue to the tutorial for loading data.
+You've now learned to scale compute for your data warehouse. To learn more about Azure SQL Data Warehouse, continue to the tutorial for loading data.
 
 > [!div class="nextstepaction"]
->[Load data into a SQL data warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+>[Load data into a SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)

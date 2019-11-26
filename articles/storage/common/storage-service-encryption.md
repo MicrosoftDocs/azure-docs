@@ -1,103 +1,200 @@
 ---
-title: Azure Storage Service Encryption for Data at Rest | Microsoft Docs
-description: Use the Azure Storage Service Encryption feature to encrypt Azure Blob storage on the service side when storing the data, and decrypt it when retrieving the data.
+title: Azure Storage encryption for data at rest | Microsoft Docs
+description: Azure Storage protects your data by automatically encrypting it before persisting it to the cloud. You can rely on Microsoft-managed keys for the encryption of your storage account, or you can manage encryption with your own keys.
 services: storage
-author: lakasa
-manager: jeconnoc
+author: tamram
 
 ms.service: storage
-ms.topic: article
-ms.date: 03/06/2018
-ms.author: lakasa
-
+ms.date: 10/02/2019
+ms.topic: conceptual
+ms.author: tamram
+ms.reviewer: cbrooks
+ms.subservice: common
 ---
-# Azure Storage Service Encryption for Data at Rest
 
-Azure Storage Service Encryption for Data at Rest helps you protect your data to meet your organizational security and compliance commitments. With this feature, Azure Storage automatically encrypts your data before persisting it to Azure Storage, and decrypts the data before retrieval. The handling of encryption, encryption at rest, decryption, and key management in Storage Service Encryption is transparent to users. All data written to Azure Storage is encrypted through 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available.
+# Azure Storage encryption for data at rest
 
-Storage Service Encryption is enabled for all new and existing storage accounts and cannot be disabled. Because your data is secured by default, you don't need to modify your code or applications to take advantage of Storage Service Encryption.
+Azure Storage automatically encrypts your data when persisting it to the cloud. Encryption protects your data and to help you to meet your organizational security and compliance commitments. Data in Azure Storage is encrypted and decrypted transparently using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available, and is FIPS 140-2 compliant. Azure Storage encryption is similar to BitLocker encryption on Windows.
 
-The feature automatically encrypts data in:
+Azure Storage encryption is enabled for all new storage accounts and cannot be disabled. Because your data is secured by default, you don't need to modify your code or applications to take advantage of Azure Storage encryption.
 
-- Both performance tiers (Standard and Premium).
-- Both deployment models (Azure Resource Manager and classic).
-- All of the Azure Storage services (Blob storage, Queue storage, Table storage, and Azure Files). 
+Storage accounts are encrypted regardless of their performance tier (standard or premium) or deployment model (Azure Resource Manager or classic). All Azure Storage redundancy options support encryption, and all copies of a storage account are encrypted. All Azure Storage resources are encrypted, including blobs, disks, files, queues, and tables. All object metadata is also encrypted.
 
-Storage Service Encryption does not affect Azure Storage performance.
+Encryption does not affect Azure Storage performance. There is no additional cost for Azure Storage encryption.
 
-You can use Microsoft-managed encryption keys with Storage Service Encryption, or you can use your own encryption keys. For more information about using your own keys, see [Storage Service Encryption using customer-managed keys in Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
+For more information about the cryptographic modules underlying Azure Storage encryption, see [Cryptography API: Next Generation](https://docs.microsoft.com/windows/desktop/seccng/cng-portal).
 
-## View encryption settings in the Azure portal
+## About encryption key management
 
-To view settings for Storage Service Encryption, sign in to the [Azure portal](https://portal.azure.com) and select a storage account. In the **SETTINGS** pane, select the **Encryption** setting.
+You can rely on Microsoft-managed keys for the encryption of your storage account, or you can manage encryption with your own keys. If you choose to manage encryption with your own keys, you have two options:
 
-![Portal screenshot showing the Encryption setting](./media/storage-service-encryption/image1.png)
+- You can specify a *customer-managed key* to use for encrypting and decrypting all data in the storage account. A customer-managed key is used to encrypt all data in all services in your storage account.
+- You can specify a *customer-provided key* on Blob storage operations. A client making a read or write request against Blob storage can include an encryption key on the request for granular control over how blob data is encrypted and decrypted.
 
-## FAQ for Storage Service Encryption
+The following table compares key management options for Azure Storage encryption.
 
-**Q: I have a classic storage account. Can I enable Storage Service Encryption on it?**
+|                                        |    Microsoft-managed keys                             |    Customer-managed keys                                                                                                                        |    Customer-provided keys                                                          |
+|----------------------------------------|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
+|    Encryption/decryption operations    |    Azure                                              |    Azure                                                                                                                                        |    Azure                                                                         |
+|    Azure Storage services supported    |    All                                                |    Blob storage, Azure Files                                                                                                               |    Blob storage                                                                  |
+|    Key storage                         |    Microsoft key store    |    Azure Key Vault                                                                                                                              |    Azure Key Vault or any other key store                                                                 |
+|    Key rotation responsibility         |    Microsoft                                          |    Customer                                                                                                                                     |    Customer                                                                      |
+|    Key usage                           |    Microsoft                                          |    Azure portal, Storage Resource Provider REST API, Azure Storage management libraries, PowerShell, CLI        |    Azure Storage REST API (Blob storage), Azure Storage client libraries    |
+|    Key access                          |    Microsoft only                                     |    Microsoft, Customer                                                                                                                    |    Customer only                                                                 |
 
-A: Storage Service Encryption is enabled by default for all storage accounts (classic and Resource Manager).
+The following sections describe each of the options for key management in greater detail.
 
-**Q: How can I encrypt data in my classic storage account?**
+## Microsoft-managed keys
 
-A: With encryption enabled by default, Azure Storage automatically encrypts your new data. 
+By default, your storage account uses Microsoft-managed encryption keys. You can see the encryption settings for your storage account in the **Encryption** section of the [Azure portal](https://portal.azure.com), as shown in the following image.
 
-**Q: I have a Resource Manager storage account. Can I enable Storage Service Encryption on it?**
+![View account encrypted with Microsoft-managed keys](media/storage-service-encryption/encryption-microsoft-managed-keys.png)
 
-A: Storage Service Encryption is enabled by default on all existing Resource Manager storage accounts. This is supported for Blob storage, Table storage, Queue storage, and Azure Files. 
+## Customer-managed keys
 
-**Q: How do I encrypt the data in a Resource Manager storage account?**
+You can choose to manage Azure Storage encryption at the level of the storage account with your own keys. When you specify a customer-managed key at the level of the storage account, that key is used to encrypt and decrypt all data in the storage account, including blob, queue, file, and table data.  Customer-managed keys offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data.
 
-A: Storage Service Encryption is enabled by default for all storage accounts--classic and Resource Manager. However, existing data is not encrypted. To encrypt existing data, you can copy it to another name or another container and then remove the unencrypted versions. 
+You must use Azure Key Vault to store your customer-managed keys. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. The storage account and the key vault must be in the same region, but they can be in different subscriptions. For more information about Azure Key Vault, see [What is Azure Key Vault?](../../key-vault/key-vault-overview.md).
 
-**Q: Can I create storage accounts with Storage Service Encryption enabled by using Azure PowerShell and Azure CLI?**
+This diagram shows how Azure Storage uses Azure Active Directory and Azure Key Vault to make requests using the customer-managed key:
 
-A: Storage Service Encryption is enabled by default at the time of creating any storage account (classic or Resource Manager). You can verify account properties by using both Azure PowerShell and Azure CLI.
+![Diagram showing how customer-managed keys work in Azure Storage](media/storage-service-encryption/encryption-customer-managed-keys-diagram.png)
 
-**Q: How much more does Azure Storage cost if Storage Service Encryption is enabled?**
+The following list explains the numbered steps in the diagram:
 
-A: There is no additional cost.
+1. An Azure Key Vault admin grants permissions to encryption keys to the managed identity that's associated with the storage account.
+2. An Azure Storage admin configures encryption with a customer-managed key for the storage account.
+3. Azure Storage uses the managed identity that's associated with the storage account to authenticate access to Azure Key Vault via Azure Active Directory.
+4. Azure Storage wraps the account encryption key with the customer key in Azure Key Vault.
+5. For read/write operations, Azure Storage sends requests to Azure Key Vault to wrap and unwrap the account encryption key to perform encryption and decryption operations.
 
-**Q: Who manages the encryption keys?**
+To revoke access to customer-managed keys on the storage account, see [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) and [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). Revoking access effectively blocks access to all data in the storage account, as the encryption key is inaccessible by Azure Storage.
 
-A: Microsoft manages the keys.
+Customer-managed keys are also available for Azure managed disks as a public preview, customer-managed keys work a bit differently for managed disks than the rest of storage. For details, see our [article on the subject](../../virtual-machines/linux/disk-encryption.md#customer-managed-keys-public-preview).
 
-**Q: Can I use my own encryption keys?**
+To learn how to use customer-managed keys with Azure Storage, see one of these articles:
 
-A: Not at this time.
+- [Configure customer-managed keys for Azure Storage encryption from the Azure portal](storage-encryption-keys-portal.md)
+- [Configure customer-managed keys for Azure Storage encryption from PowerShell](storage-encryption-keys-powershell.md)
+- [Use customer-managed keys with Azure Storage encryption from Azure CLI](storage-encryption-keys-cli.md)
 
-**Q: Can I revoke access to the encryption keys?**
+> [!IMPORTANT]
+> Customer-managed keys rely on managed identities for Azure resources, a feature of Azure Active Directory (Azure AD). When you configure customer-managed keys in the Azure portal, a managed identity is automatically assigned to your storage account under the covers. If you subsequently move the subscription, resource group, or storage account from one Azure AD directory to another, the managed identity associated with the storage account is not transferred to the new tenant, so customer-managed keys may no longer work. For more information, see **Transferring a subscription between Azure AD directories** in [FAQs and known issues with managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).  
 
-A: Not at this time. Microsoft fully manages the keys.
+## Customer-provided keys (preview)
 
-**Q: Is Storage Service Encryption enabled by default when I create a storage account?**
+Clients making requests against Azure Blob storage have the option to provide an encryption key on an individual request. Including the encryption key on the request provides granular control over encryption settings for Blob storage operations. Customer-provided keys (preview) can be stored in Azure Key Vault or in another key store.
 
-A: Yes, Storage Service Encryption (using Microsoft-managed keys) is enabled by default for all storage accounts--Azure Resource Manager and classic. It's enabled for all services as well--Blob storage, Table storage, Queue storage, and Azure Files.
+### Encrypting read and write operations
 
-**Q: How is this different from Azure Disk Encryption?**
+When a client application provides an encryption key on the request, Azure Storage performs encryption and decryption transparently while reading and writing blob data. A SHA-256 hash of the encryption key is written alongside a blob's contents and is used to verify that all subsequent operations against the blob use the same encryption key. Azure Storage does not store or manage the encryption key that the client sends with the request. The key is securely discarded as soon as the encryption or decryption process is complete.
 
-A: Azure Disk Encryption is used to encrypt OS and data disks in IaaS VMs. For more information, see the [Storage security guide](../storage-security-guide.md).
+When a client creates or updates a blob using a customer-provided key, then subsequent read and write requests for that blob must also provide the key. If the key is not provided on a request for a blob that has already been encrypted with a customer-provided key, then the request fails with error code 409 (Conflict).
 
-**Q: What if I enable Azure Disk Encryption on my data disks?**
+If the client application sends an encryption key on the request, and the storage account is also encrypted using a Microsoft-managed key or a customer-managed key, then Azure Storage uses the key provided on the request for encryption and decryption.
 
-A: This will work seamlessly. Both methods will encrypt your data.
+To send the encryption key as part of the request, a client must establish a secure connection to Azure Storage using HTTPS.
 
-**Q: My storage account is set up to be replicated geo-redundantly. With Storage Service Encryption, will my redundant copy also be encrypted?**
+Each blob snapshot can have its own encryption key.
 
-A: Yes, all copies of the storage account are encrypted. All redundancy options are supported--locally redundant storage, zone-redundant storage, geo-redundant storage, and read-access geo-redundant storage.
+### Request headers for specifying customer-provided keys
 
-**Q: Can I disable encryption on my storage account?**
+For REST calls, clients can use the following headers to securely pass encryption key information on a request to Blob storage:
 
-A: Encryption is enabled by default, and there is no provision to disable encryption for your storage account. 
+|Request Header | Description |
+|---------------|-------------|
+|`x-ms-encryption-key` |Required for both write and read requests. A Base64-encoded AES-256 encryption key value. |
+|`x-ms-encryption-key-sha256`| Required for both write and read requests. The Base64-encoded SHA256 of the encryption key. |
+|`x-ms-encryption-algorithm` | Required for write requests, optional for read requests. Specifies the algorithm to use when encrypting data using the given key. Must be AES256. |
 
-**Q: Is Storage Service Encryption permitted only in specific regions?**
+Specifying encryption keys on the request is optional. However, if you specify one of the headers listed above for a write operation, then you must specify all of them.
 
-A: Storage Service Encryption is available in all regions for all services. 
+### Blob storage operations supporting customer-provided keys
 
-**Q: How do I contact someone if I have any problems or want to provide feedback?**
+The following Blob storage operations support sending customer-provided encryption keys on a request:
 
-A: Contact [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com) for any problems or feedback related to Storage Service Encryption.
+- [Put Blob](/rest/api/storageservices/put-blob)
+- [Put Block List](/rest/api/storageservices/put-block-list)
+- [Put Block](/rest/api/storageservices/put-block)
+- [Put Block from URL](/rest/api/storageservices/put-block-from-url)
+- [Put Page](/rest/api/storageservices/put-page)
+- [Put Page from URL](/rest/api/storageservices/put-page-from-url)
+- [Append Block](/rest/api/storageservices/append-block)
+- [Set Blob Properties](/rest/api/storageservices/set-blob-properties)
+- [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata)
+- [Get Blob](/rest/api/storageservices/get-blob)
+- [Get Blob Properties](/rest/api/storageservices/get-blob-properties)
+- [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata)
+- [Snapshot Blob](/rest/api/storageservices/snapshot-blob)
+
+### Rotate customer-provided keys
+
+To rotate an encryption key passed on the request, download the blob and re-upload it with the new encryption key.
+
+> [!IMPORTANT]
+> The Azure portal cannot be used to read from or write to a container or blob that is encrypted with a key provided on the request.
+>
+> Be sure to protect the encryption key that you provide on a request to Blob storage in a secure key store like Azure Key Vault. If you attempt a write operation on a container or blob without the encryption key, the operation will fail, and you will lose access to the object.
+
+### Example: Use a customer-provided key to upload a blob in .NET
+
+The following example creates a customer-provided key and uses that key to upload a blob. The code uploads a block, then commits the block list to write the blob to Azure Storage. The key is provided on the [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions) object by setting the [CustomerProvidedKey](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.customerprovidedkey) property.
+
+The key is created with the [AesCryptoServiceProvider](/dotnet/api/system.security.cryptography.aescryptoserviceprovider) class. To create an instance of this class in your code, add a `using` statement that references the `System.Security.Cryptography` namespace:
+
+```csharp
+public static void UploadBlobWithClientKey(CloudBlobContainer container)
+{
+    // Create a new key using the Advanced Encryption Standard (AES) algorithm.
+    AesCryptoServiceProvider keyAes = new AesCryptoServiceProvider();
+
+    // Specify the key as an option on the request.
+    BlobCustomerProvidedKey customerProvidedKey = new BlobCustomerProvidedKey(keyAes.Key);
+    var options = new BlobRequestOptions
+    {
+        CustomerProvidedKey = customerProvidedKey
+    };
+
+    string blobName = "sample-blob-" + Guid.NewGuid();
+    CloudBlockBlob blockBlob = container.GetBlockBlobReference(blobName);
+
+    try
+    {
+        // Create an array of random bytes.
+        byte[] buffer = new byte[1024];
+        Random rnd = new Random();
+        rnd.NextBytes(buffer);
+
+        using (MemoryStream sourceStream = new MemoryStream(buffer))
+        {
+            // Write the array of random bytes to a block.
+            int blockNumber = 1;
+            string blockId = Convert.ToBase64String(Encoding.ASCII.GetBytes(string.Format("BlockId{0}",
+                blockNumber.ToString("0000000"))));
+
+            // Write the block to Azure Storage.
+            blockBlob.PutBlock(blockId, sourceStream, null, null, options, null);
+
+            // Commit the block list to write the blob.
+            blockBlob.PutBlockList(new List<string>() { blockId }, null, options, null);
+        }
+    }
+    catch (StorageException e)
+    {
+        Console.WriteLine(e.Message);
+        Console.ReadLine();
+        throw;
+    }
+}
+```
+
+## Azure Storage encryption versus disk encryption
+
+Azure Storage encryption encrypts the page blobs that back Azure virtual machine disks. Additionally, all Azure virtual machine disks, including local temp disks, may optionally be encrypted with [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md). Azure Disk Encryption uses industry-standard [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) on Windows and [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) on Linux to provide operating system-based encryption solutions that are integrated with Azure Key Vault.
 
 ## Next steps
-Azure Storage provides a comprehensive set of security capabilities that together help developers build secure applications. For more information, see the [Storage security guide](../storage-security-guide.md).
+
+- [What is Azure Key Vault?](../../key-vault/key-vault-overview.md)
+- [Configure customer-managed keys for Azure Storage encryption from the Azure portal](storage-encryption-keys-portal.md)
+- [Configure customer-managed keys for Azure Storage encryption from PowerShell](storage-encryption-keys-powershell.md)
+- [Configure customer-managed keys for Azure Storage encryption from Azure CLI](storage-encryption-keys-cli.md)

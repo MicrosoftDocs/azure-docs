@@ -1,134 +1,154 @@
 ---
-title: Connect virtual networks with virtual network peering - Azure portal | Microsoft Docs
-description: Learn how to connect virtual networks with virtual network peering.
+title: Connect virtual networks with virtual network peering - tutorial - Azure portal | Microsoft Docs
+description: In this tutorial, you learn how to connect virtual networks with virtual network peering, using the Azure portal.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
 
 ms.assetid: 
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic:
+ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/06/2018
-ms.author: jdial
-ms.custom:
+ms.date: 08/16/2018
+ms.author: kumud
+ms.custom: 
 ---
 
-# Connect virtual networks with virtual network peering using the Azure portal
+# Tutorial: Connect virtual networks with virtual network peering using the Azure portal
 
-You can connect virtual networks to each other with virtual network peering. Once virtual networks are peered, resources in both virtual networks are able to communicate with each other, with the same latency and bandwidth as if the resources were in the same virtual network. This article covers creation and peering of two virtual networks. You learn how to:
+You can connect virtual networks to each other with virtual network peering. These virtual networks can be in the same region or different regions (also known as Global VNet peering). Once virtual networks are peered, resources in both virtual networks are able to communicate with each other, with the same latency and bandwidth as if the resources were in the same virtual network. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create two virtual networks
-> * Create a peering between virtual networks
-> * Test peering
+> * Connect two virtual networks with a virtual network peering
+> * Deploy a virtual machine (VM) into each virtual network
+> * Communicate between VMs
+
+If you prefer, you can complete this tutorial using the [Azure CLI](tutorial-connect-virtual-networks-cli.md) or [Azure PowerShell](tutorial-connect-virtual-networks-powershell.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Log in to Azure 
 
-Log in to the Azure portal at http://portal.azure.com.
+Log in to the Azure portal at https://portal.azure.com.
 
 ## Create virtual networks
 
-1. Select **+ Create a resource** on the upper, left corner of the Azure portal.
+1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
 2. Select **Networking**, and then select **Virtual network**.
-3. As shown in the following picture, enter *myVirtualNetwork1* for **Name**, *10.0.0.0/16* for **Address space**, **myResourceGroup** for **Resource group**, *Subnet1* for Subnet **Name**, 10.0.0.0/24 for Subnet **Address range**, select a **Location** and your **Subscription**, accept the remaining defaults, and then select **Create**:
+3. On the **Basics** page, enter or select the following information and accept the defaults for the remaining settings:
 
-    ![Create a virtual network](./media/tutorial-connect-virtual-networks-portal/create-virtual-network.png)
+    |Setting|Value|
+    |---|---|
+    |Subscription| Select your subscription.|
+    |Resource group| Select **Create new** and enter *myResourceGroup*.|
+    |Region| Select **East US**.|
+    |Name|myVirtualNetwork1|
 
-4. Complete steps 1-3 again, with the following changes:
-    - **Name**: *myVirtualNetwork2*
-    - **Resource group**: Select **Use existing** and then select **myResourceGroup**.
-    - **Address space**: *10.1.0.0/16*
-    - **Subnet Address range**: *10.1.0.0/24*
+4. On the **IP Addresses** page, enter 10.0.0.0/16 for the **Address Space** field. Click the **Add subnet** button below and enter Subnet1 for **Subnet Name** and 10.0.0.0/24 for **Subnet Address range**.
+   
+5. Complete steps 1-3 again, with the following changes:
 
-    The address prefix for the *myVirtualNetwork2* virtual network does not overlap with the address space of the *myVirtualNetwork1* virtual network. You cannot peer virtual networks with overlapping address spaces.
+    |Setting|Value|
+    |---|---|
+    |Name|myVirtualNetwork2|
+    |Address space|10.1.0.0/16|
+    |Resource group| Select **Use existing** and then select **myResourceGroup**.|
+    |Subnet Address range|10.1.0.0/24|
 
 ## Peer virtual networks
 
 1. In the Search box at the top of the Azure portal, begin typing *MyVirtualNetwork1*. When **myVirtualNetwork1** appears in the search results, select it.
-2. Select **Peerings**, under **SETTINGS**, and then select **+ Add**, as shown in the following picture:
+2. Select **Peerings**, under **Settings**, and then select **Add**, as shown in the following picture:
 
     ![Create peering](./media/tutorial-connect-virtual-networks-portal/create-peering.png)
 
-3. Enter or select the information shown in the following picture, then select **OK**. To select the *myVirtualNetwork2* virtual network, select **Virtual network**, then select *myVirtualNetwork2*.
+3. Enter, or select, the following information, accept the defaults for the remaining settings, and then select **OK**.
 
-    ![Peering settings](./media/tutorial-connect-virtual-networks-portal/peering-settings.png)
+    |Setting|Value|
+    |---|---|
+    |Name of the peering from myVirtualNetwork1 to remote virtual network|myVirtualNetwork1-myVirtualNetwork2 - When the page first loads, you'll see the phrase "remote virtual network" here. After you choose the remote virtual network, the phrase "remote virtual network" will be replaced with the name of the remote virtual network.|
+    |Subscription| Select your subscription.|
+    |Virtual network|myVirtualNetwork2 - To select the *myVirtualNetwork2* virtual network, select **Virtual network**, then select **myVirtualNetwork2 (myResourceGroup)**. You can select a virtual network in the same region or in a different region.|
+    |Name of the peering from myVirtualNetwork2 to myVirtualNetwork1|myVirtualNetwork2-myVirtualNetwork1|
 
-    The **PEERING STATUS** is *Initiated*, as shown in the following picture:
+    ![Peering settings](./media/tutorial-connect-virtual-networks-portal/peering-settings-bidirectional.png)
 
-    ![Peering status](./media/tutorial-connect-virtual-networks-portal/peering-status.png)
+    The **PEERING STATUS** is *Connected*, as shown in the following picture:
+
+    ![Peering status](./media/tutorial-connect-virtual-networks-portal/peering-status-connected.png)
 
     If you don't see the status, refresh your browser.
 
-4. Search for the *myVirtualNetwork2* virtual network. When it's returned in the search results, select it.
-5. Complete steps 1-3 again, with the following changes, and then select **OK**:
-    - **Name**: *myVirtualNetwork2-myVirtualNetwork1*
-    - **Virtual network**: *myVirtualNetwork1*
+## Create virtual machines
 
-    The **PEERING STATUS** is *Connected*. Azure also changed the peering status for the *myVirtualNetwork2-myVirtualNetwork1* peering from *Initiated* to *Connected.* Virtual network peering is not fully established until the peering status for both virtual networks is *Connected.* 
+Create a VM in each virtual network so that you can communicate between them in a later step.
 
-Peerings are between two virtual networks, but are not transitive. So, for example, if you also wanted to peer *myVirtualNetwork2* to *myVirtualNetwork3*, you need to create an additional peering between virtual networks *myVirtualNetwork2* and *myVirtualNetwork3*. Even though *myVirtualNetwork1* is peered with *myVirtualNetwork2*, resources within *myVirtualNetwork1* could only access resources in *myVirtualNetwork3* if *myVirtualNetwork1* was also peered with *myVirtualNetwork3*. 
+### Create the first VM
 
-Before peering production virtual networks, it's recommended that you thoroughly familiarize yourself with the [peering overview](virtual-network-peering-overview.md), [managing peering](virtual-network-manage-peering.md), and [virtual network limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Though this article illustrates a peering between two virtual networks in the same subscription and location, you can also peer virtual networks in [different regions](#register) and [different Azure subscriptions](create-peering-different-subscriptions.md#portal). You can also create [hub and spoke network designs](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) with peering.
-
-## Test peering
-
-To test network communication between virtual machines in different virtual networks through a peering, deploy a virtual machine to each subnet and then communicate between the virtual machines. 
-
-### Create virtual machines
-
-Create a virtual machine in each virtual network so you can validate communication between them in a later step.
-
-### Create virtual machines
-
-1. Select **+ Create a resource** on the upper, left corner of the Azure portal.
+1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
 2. Select **Compute**, and then select **Windows Server 2016 Datacenter**. You can select a different operating system, but the remaining steps assume you selected **Windows Server 2016 Datacenter**. 
-3. Select or enter the following information for **Basics**, then select **OK**:
-    - **Name**: *myVm1*
-    - **Resource group**: Select **Use existing** and then select *myResourceGroup*.
-    - **Location**: Select *East US*.
+3. Enter, or select, the following information for **Basics**, accept the defaults for the remaining settings, and then select **Create**:
 
-    The **User name** and **Password** you enter are used in a later step. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm). The **Location** and **Subscription** selected must be the same as the location and subscription the virtual network is in. It's not required that you select the same resource group that the virtual network was created in, but the same resource group is selected for this article.
-4. Select a VM size under **Choose a size**.
-5. Select or enter the following information for **Settings**, then select **OK**:
-    - **Virtual network**: Ensure that **myVirtualNetwork1** is selected. If not, select **Virtual network** and then select **myVirtualNetwork1** under **Choose virtual network**.
-    - **Subnet**: Ensure that **Subnet1** is selected. If not, select **Subnet** and then select **Subnet1** under **Choose subnet**, as shown in the following picture:
+    |Setting|Value|
+    |---|---|
+    |Resource group| Select **Use existing** and then select **myResourceGroup**.|
+    |Name|myVm1|
+    |Location| Select **East US**.|
+    |User name| Enter a user name of your choosing.|
+    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+   
+4. Select a VM size for the **Size** option.
+5. Select the following values for under **Networking**:
+
+    |Setting|Value|
+    |---|---|
+    |Virtual network| myVirtualNetwork1 - If it's not already selected, select **Virtual network** and then select **myVirtualNetwork1**.|
+    |Subnet| Subnet1 - If it's not already selected, select **Subnet** and then select **Subnet1**.|
     
-        ![Virtual machine settings](./media/tutorial-connect-virtual-networks-portal/virtual-machine-settings.png)
- 
-6. Under **Create** in the **Summary**, select **Create** to start the virtual machine deployment.
-7. Complete steps 1-6 again, but enter *myVm2* for the **Name** of the virtual machine and select *myVirtualNetwork2* for **Virtual network**.
 
-Azure assigned *10.0.0.4* as the private IP address of the *myVm1* virtual machine, and 10.1.0.4 to the *myVm2* virtual machine, because they were the first available IP addresses in *Subnet1* of the *myVirtualNetwork1* and *myVirtualNetwork2* virtual networks, respectively.
+    ![Virtual machine settings](./media/tutorial-connect-virtual-networks-portal/virtual-machine-settings.png)
+   
+6. Select **Networking**. Choose **Allow selected ports** for the **Public inbound ports** option. Choose **RDP** for the **Select inbound ports** option below this. 
 
-The virtual machines take a few minutes to create. Do not continue with the remaining steps until both virtual machines are created.
+7. Select the **Review + Create** button in the lower, left-hand corner to start the VM deployment.
 
-### Test virtual machine communication
+### Create the second VM
+
+Complete steps 1-6 again, with the following changes:
+
+|Setting|Value|
+|---|---|
+|Name | myVm2|
+|Virtual network | myVirtualNetwork2|
+
+The VMs take a few minutes to create. Do not continue with the remaining steps until both VMs are created.
+
+## Communicate between VMs
 
 1. In the *Search* box at the top of the portal, begin typing *myVm1*. When **myVm1** appears in the search results, select it.
-2. Create a remote desktop connection to the *myVm1* virtual machine by selecting **Connect**, as shown in the following picture:
+2. Create a remote desktop connection to the *myVm1* VM by selecting **Connect**, as shown in the following picture:
 
     ![Connect to virtual machine](./media/tutorial-connect-virtual-networks-portal/connect-to-virtual-machine.png)  
 
 3. To connect to the VM, open the downloaded RDP file. If prompted, select **Connect**.
-4. Enter the user name and password you specified when creating the virtual machine (you may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the virtual machine), then select **OK**.
+4. Enter the user name and password you specified when creating the VM (you may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the VM), then select **OK**.
 5. You may receive a certificate warning during the sign-in process. Select **Yes** to proceed with the connection.
-6. In a later step, ping is used to communicate with the *myVm2* virtual machine from the *myVmWeb* virtual machine. Ping uses ICMP, which is denied through the Windows Firewall, by default. Enable ICMP through the Windows firewall by entering the following command from a command prompt:
+6. In a later step, ping is used to communicate with the *myVm2* VM from the *myVm1* VM. Ping uses the Internet Control Message Protocol (ICMP), which is denied through the Windows Firewall, by default. On the *myVm1* VM, enable ICMP through the Windows firewall, so that you can ping this VM from *myVm2* in a later step, using PowerShell:
 
+    ```powershell
+    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
     ```
-    netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
-    ```
+    
+    Though ping is used to communicate between VMs in this tutorial, allowing ICMP through the Windows Firewall for production deployments is not recommended.
 
-    Though ping is used in this article for testing, allowing ICMP through the Windows Firewall for production deployments is not recommended.
-
-7. To connect to the *myVm2* virtual machine, enter the following command from a command prompt on the *myVm1* virtual machine:
+7. To connect to the *myVm2* VM, enter the following command from a command prompt on the *myVm1* VM:
 
     ```
     mstsc /v:10.1.0.4
@@ -140,8 +160,6 @@ The virtual machines take a few minutes to create. Do not continue with the rema
     ping 10.0.0.4
     ```
     
-    You receive four replies. If you ping by the virtual machine's name (*myVm1*), instead of its IP address, ping fails, because *myVm1* is an unknown host name. Azure's default name resolution works between virtual machines in the same virtual network, but not between virtual machines in different virtual networks. To resolve names across virtual networks, you must [deploy your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md) or use [Azure DNS private domains](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-
 9. Disconnect your RDP sessions to both *myVm1* and *myVm2*.
 
 ## Clean up resources
@@ -152,15 +170,8 @@ When no longer needed, delete the resource group and all resources it contains:
 2. Select **Delete resource group**.
 3. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME:** and select **Delete**.
 
-**<a name="register"></a>Register for the global virtual network peering preview**
-
-Peering virtual networks in the same region is generally available. Peering virtual networks in different regions is currently in preview. See [Virtual network updates](https://azure.microsoft.com/updates/?product=virtual-network) for available regions. To peer virtual networks across regions, you must first register for the preview. You can't register using the portal, but you can register using [PowerShell](tutorial-connect-virtual-networks-powershell.md#register) or the [Azure CLI](tutorial-connect-virtual-networks-cli.md#register). If you attempt to peer virtual networks in different regions before registering for the capability, peering fails.
-
 ## Next steps
 
-In this article, you learned how to connect two networks with virtual network peering.
+In this tutorial, you learned how to connect two networks in the same Azure region, with virtual network peering. You can also peer virtual networks in different [supported regions](virtual-network-manage-peering.md#cross-region) and in [different Azure subscriptions](create-peering-different-subscriptions.md#portal), as well as create [hub and spoke network designs](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) with peering. To learn more about virtual network peering, see [Virtual network peering overview](virtual-network-peering-overview.md) and [Manage virtual network peerings](virtual-network-manage-peering.md).
 
-Continue to connect your own computer to a virtual network through a VPN, and interact with resources in a virtual network, or in peered virtual networks.
-
-> [!div class="nextstepaction"]
-> [Connect your computer to a virtual network](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+To connect your own computer to a virtual network through a VPN, and interact with resources in a virtual network, or in peered virtual networks, see [Connect your computer to a virtual network](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

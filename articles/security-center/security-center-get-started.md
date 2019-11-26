@@ -1,12 +1,10 @@
 ---
-title: Azure Security Center Quickstart - Onboard your Azure subscription to Security Center Standard | Microsoft Docs
+title: Upgrade to Standard tier - Azure Security Center
 description: This quickstart shows you how to upgrade to Security Center's Standard pricing tier for additional security.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
-manager: MBaldwin
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -14,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
-ms.author: terrylan
+ms.date: 12/3/2018
+ms.author: memildin
 
 ---
 # Quickstart: Onboard your Azure subscription to Security Center Standard
-Azure Security Center provides unified security management and threat protection across your hybrid cloud workloads. While the Free tier offers limited security for your Azure resources only, the Standard tier extends these capabilities to on-premises and other clouds. Security Center Standard helps you find and fix security vulnerabilities, apply access and application controls to block malicious activity, detect threats using analytics and intelligence, and respond quickly when under attack. You can try Security Center Standard at no cost for the first 60 days.
+Azure Security Center provides unified security management and threat protection across your hybrid cloud workloads. While the Free tier offers limited security for your Azure resources only, the Standard tier extends these capabilities to on-premises and other clouds. Security Center Standard helps you find and fix security vulnerabilities, apply access and application controls to block malicious activity, detect threats using analytics and intelligence, and respond quickly when under attack. You can try Security Center Standard at no cost. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
 In this article, you upgrade to the Standard tier for added security and install the Microsoft Monitoring Agent on your virtual machines to monitor for security vulnerabilities and threats.
 
@@ -33,7 +31,7 @@ To upgrade a subscription to the Standard tier, you must be assigned the role of
 1. Sign into the [Azure portal](https://azure.microsoft.com/features/azure-portal/).
 2. On the **Microsoft Azure** menu, select **Security Center**. **Security Center - Overview** opens.
 
- ![Security Center overview][2]
+   ![Security Center overview][2]
 
 **Security Center – Overview** provides a unified view into the security posture of your hybrid cloud workloads, enabling you to discover and assess the security of your workloads and to identify and mitigate risk. Security Center automatically enables any of your Azure subscriptions not previously onboarded by you or another subscription user to the Free tier.
 
@@ -42,27 +40,25 @@ You can view and filter the list of subscriptions by clicking the **Subscription
 Within minutes of launching Security Center the first time, you may see:
 
 - **Recommendations** for ways to improve the security of your Azure subscriptions. Clicking the **Recommendations** tile will launch a prioritized list.
-- An inventory of **Compute**, **Networking**, **Storage & data**, and **Applications** resources that are now being assessed by Security Center along with the security posture of each.
+- An inventory of **Compute & apps**, **Networking**, **Data security**, and **Identity & access** resources that are now being assessed by Security Center along with the security posture of each.
 
 To take full advantage of Security Center, you need to complete the steps below to upgrade to the Standard tier and install the Microsoft Monitoring Agent.
 
 ## Upgrade to the Standard tier
-For the purpose of the Security Center quickstarts and tutorials you must upgrade to the Standard tier. Your first 60 days are free, and you can return to the Free tier any time.
+For the purpose of the Security Center quickstarts and tutorials you must upgrade to the Standard tier. There's a free trial of Security Center Standard. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/). 
 
-1. Under the Security Center main menu, select **Onboarding to advanced security**.
+1. Under the Security Center main menu, select **Getting started**.
+ 
+   ![Get started][4]
 
-2. Under **Onboarding to advanced security**, Security Center lists subscriptions and workspaces eligible for onboarding. Select a subscription from the list.
+2. Under **Upgrade**, Security Center lists subscriptions and workspaces eligible for onboarding. 
+   - You can click on the expandable **Apply your trial** to see a list of all subscriptions and workspaces with their trial eligibility status.
+   -	You can upgrade subscriptions and workspaces that are not eligible for trial.
+   -	You can select eligible workspaces and subscriptions to start your trial.
+3. Click **Start trial** to start your trial on the selected subscriptions.
 
-  ![Select a subscription][4]
 
-3. **Security policy** provides information on the resource groups contained in the subscription. **Pricing** also opens.
-4. Under **Pricing**, select **Standard** to upgrade from Free to Standard and click **Save**.
-
-  ![Select Standard][5]
-
-Now that you’ve upgraded to the Standard tier, you have access to additional Security Center features, including **adaptive application controls**, **just in time VM access**, **security alerts**, **threat intelligence**, **automation playbooks**, and more. Note that security alerts will only appear when Security Center detects malicious activity.
-
-  ![Security alerts][7]
+  ![Security alerts][9]
 
 ## Automate data collection
 Security Center collects data from your Azure VMs and non-Azure computers to monitor for security vulnerabilities and threats. Data is collected using the Microsoft Monitoring Agent, which reads various security-related configurations and event logs from the machine and copies the data to your workspace for analysis. By default, Security Center will create a new workspace for you.
@@ -71,12 +67,11 @@ When automatic provisioning is enabled, Security Center installs the Microsoft M
 
 To enable automatic provisioning of the Microsoft Monitoring Agent:
 
-1. Under the Security Center main menu, select **Security Policy**.
-2. Select the subscription.
-3. Under **Security policy**, select **Data Collection**.
-4. Under **Data Collection**, select **On** to enable automatic provisioning.
-5. Select **Save**.
-
+1. Under the Security Center main menu, select **Pricing & settings**.
+2. On the row of the subscription, click on the subscription on which you'd like to change the settings.
+3. In the **Data Collection** tab, set **Auto provisioning** to **On**.
+4. Select **Save**.
+---
   ![Enable automatic provisioning][6]
 
 With this new insight into your Azure VMs, Security Center can provide additional Recommendations related to system update status, OS security configurations, endpoint protection, as well as generate additional Security alerts.
@@ -86,17 +81,16 @@ With this new insight into your Azure VMs, Security Center can provide additiona
 ## Clean up resources
 Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, continue running the Standard tier and keep automatic provisioning enabled. If you do not plan to continue or wish to return to the Free tier:
 
-1. Return to the Security Center main menu and select **Security Policy**.
-2. Select the subscription or policy that you want to return to Free. **Security policy** opens.
-3. Under **POLICY COMPONENTS**, select **Pricing tier**.
-4. Select **Free** to change subscription from Standard tier to Free tier.
+1. Return to the Security Center main menu and select **Pricing & settings**.
+2. Click on the subscription that you want to change to the free tier.
+3. Select **Pricing tier** and select **Free** to change subscription from Standard tier to Free tier.
 5. Select **Save**.
 
 If you wish to disable automatic provisioning:
 
-1. Return to the Security Center main menu and select **Security policy**.
-2. Select the subscription that you wish to disable automatic provisioning.
-3. Under **Security policy – Data Collection**, select **Off** under **Onboarding** to disable automatic provisioning.
+1. Return to the Security Center main menu and select **Pricing & settings**.
+2. Clean on the subscription that you want to disable automatic provisioning on.
+3. In the **Data Collection** tab, set **Auto provisioning** to **Off**.
 4. Select **Save**.
 
 >[!NOTE]
@@ -111,8 +105,9 @@ In this quickstart you upgraded to Standard tier and provisioned the Microsoft M
 
 <!--Image references-->
 [2]: ./media/security-center-get-started/overview.png
-[4]: ./media/security-center-get-started/onboarding.png
+[4]: ./media/security-center-get-started/get-started.png
 [5]: ./media/security-center-get-started/pricing.png
 [6]: ./media/security-center-get-started/enable-automatic-provisioning.png
 [7]: ./media/security-center-get-started/security-alerts.png
 [8]: ./media/security-center-get-started/recommendations.png
+[9]: ./media/security-center-get-started/select-subscription.png

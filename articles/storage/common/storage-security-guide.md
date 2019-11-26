@@ -1,48 +1,59 @@
 ---
 title: Azure Storage security guide | Microsoft Docs
-description: Details the many methods of securing Azure Storage, including but not limited to RBAC, Storage Service Encryption, Client-side Encryption, SMB 3.0, and Azure Disk Encryption.
+description: Details methods for securing Azure Storage accounts, including management plane security, authorization, network security, encryption, etc.
 services: storage
 author: tamram
-manager: jeconnoc
 
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/21/2019
 ms.author: tamram
+ms.reviewer: cbrooks
+ms.subservice: common
 ---
 
 # Azure Storage security guide
 
-## Overview
+Azure Storage provides a comprehensive set of security capabilities that together enable organizations to build and deploy secure applications:
 
-Azure Storage provides a comprehensive set of security capabilities that together enable developers to build secure applications:
+- All data (including metadata) written to Azure Storage is automatically encrypted using [Storage Service Encryption (SSE)](storage-service-encryption.md). For more information, see [Announcing Default Encryption for Azure Blobs, Files, Tables, and Queues Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
+- Azure Active Directory (Azure AD) and Role-Based Access Control (RBAC) are supported for both resource management operations and data plane operations:   
+    - You can assign RBAC roles scoped to the storage account to security principals and use Azure AD to authorize resource management operations such as key management.
+    - Azure AD integration is supported for blob and queue data operations. RBAC roles can be scoped to a subscription, resource group, storage account, individual container or queue. Roles can be assigned to a security principal or a managed identity for Azure resources. For more information, see [Authenticate access to Azure Storage using Azure Active Directory](storage-auth-aad.md).
+- Data can be secured in transit between an application and Azure using [Client-Side Encryption](../storage-client-side-encryption.md), HTTPS, or SMB 3.0.  
+- OS and data disks used by Azure virtual machines can be encrypted using [Azure Disk Encryption](../../security/fundamentals/encryption-overview.md).
+- Delegated access to the data objects in Azure Storage can be granted using a shared access signature. For more information, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md).
+- Network-layer security between your application components and storage can be enabled using the storage firewall, service endpoints or private endpoints.
 
-- All data written to Azure Storage is automatically encrypted using [Storage Service Encryption (SSE)](storage-service-encryption.md). For more information, see [Announcing Default Encryption for Azure Blobs, Files, Table and Queue Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
-- The storage account itself can be secured using Role-Based Access Control and Azure Active Directory. 
-- Data can be secured in transit between an application and Azure by using [Client-Side Encryption](../storage-client-side-encryption.md), HTTPS, or SMB 3.0.  
-- OS and data disks used by Azure virtual machines can be encrypted using [Azure Disk Encryption](../../security/azure-security-disk-encryption.md). 
-- Delegated access to the data objects in Azure Storage can be granted using [Shared Access Signatures](../storage-dotnet-shared-access-signature-part-1.md).
+This article provides an overview of each of these security features that can be used with Azure Storage. Links are provided to articles provide additional details on each capability.
 
-This article provides an overview of each of these security features that can be used with Azure Storage. Links are provided to articles that will give details of each feature so you can easily do further investigation on each topic.
+Here are the areas covered in this article:
 
-Here are the topics to be covered in this article:
+* [Management Plane Security](#management-plane-security) – Securing resource-level access to your Storage Account
 
-* [Management Plane Security](#management-plane-security) – Securing your Storage Account
+  The management plane consists of the operations used to manage your storage account. This section covers the Azure Resource Manager deployment model and how to use Role-Based Access Control (RBAC) to control access to your storage accounts. It also addresses managing your storage account keys and how to regenerate them.
 
-  The management plane consists of the resources used to manage your storage account. This section covers the Azure Resource Manager deployment model and how to use Role-Based Access Control (RBAC) to control access to your storage accounts. It also addresses managing your storage account keys and how to regenerate them.
-* [Data Plane Security](#data-plane-security) – Securing Access to Your Data
+* [Network Security](#network-security) - Securing network-level access to your Storage Account
 
-  In this section, we'll look at allowing access to the actual data objects in your Storage account, such as blobs, files, queues, and tables, using Shared Access Signatures and Stored Access Policies. We will cover both service-level SAS and account-level SAS. We'll also see how to limit access to a specific IP address (or range of IP addresses), how to limit the protocol used to HTTPS, and how to revoke a Shared Access Signature without waiting for it to expire.
+  This section covers how you can secure the network-level access to the storage services endpoints. It discusses how you can use the storage firewall to allow access to your data from specific virtual networks or IP address ranges. It also covers the use of service endpoints and private endpoints with storage accounts.
+
+* [Authorization](#authorization) – Authorizing access to your data
+
+  This section describes access to the data objects in your Storage account, such as blobs, files, queues, and tables, using Shared Access Signatures and Stored Access Policies. We will cover both service-level SAS and account-level SAS. We'll also see how to limit access to a specific IP address (or range of IP addresses), how to limit the protocol used to HTTPS, and how to revoke a Shared Access Signature without waiting for it to expire.
+
 * [Encryption in Transit](#encryption-in-transit)
 
-  This section discusses how to secure data when you transfer it into or out of Azure Storage. We'll talk about the recommended use of HTTPS and the encryption used by SMB 3.0 for Azure File shares. We will also take a look at Client-side Encryption, which enables you to encrypt the data before it is transferred into Storage in a client application, and to decrypt the data after it is transferred out of Storage.
+  This section discusses how to secure data when you transfer it into or out of Azure Storage. We'll talk about the recommended use of HTTPS and the encryption used by SMB 3.0 for Azure file shares. We will also discuss Client-side Encryption, which enables you to encrypt data before transfer into Storage, and to decrypt the data after it is transferred out of Storage.
+
 * [Encryption at Rest](#encryption-at-rest)
 
   We will talk about Storage Service Encryption (SSE), which is now automatically enabled for new and existing storage accounts. We will also look at how you can use Azure Disk Encryption and explore the basic differences and cases of Disk Encryption versus SSE versus Client-Side Encryption. We will briefly look at FIPS compliance for U.S. Government computers.
+
 * Using [Storage Analytics](#storage-analytics) to audit access of Azure Storage
 
   This section discusses how to find information in the storage analytics logs for a request. We'll take a look at real storage analytics log data and see how to discern whether a request is made with the Storage account key, with a Shared Access signature, or anonymously, and whether it succeeded or failed.
-* [Enabling Browser-Based Clients using CORS](#Cross-Origin-Resource-Sharing-CORS)
+
+* [Enabling Browser-Based Clients using CORS](#cross-origin-resource-sharing-cors)
 
   This section talks about how to allow cross-origin resource sharing (CORS). We'll talk about cross-domain access, and how to handle it with the CORS capabilities built into Azure Storage.
 
@@ -82,43 +93,41 @@ Here are the main points that you need to know about using RBAC to access the ma
 * You can create a report of who granted/revoked what kind of access to/from whom and on what scope using PowerShell or the Azure CLI.
 
 #### Resources
-* [Azure Active Directory Role-based Access Control](../../active-directory/role-based-access-control-configure.md)
+* [Azure Active Directory Role-based Access Control](../../role-based-access-control/role-assignments-portal.md)
 
   This article explains the Azure Active Directory Role-based Access Control and how it works.
-* [RBAC: Built in Roles](../../active-directory/role-based-access-built-in-roles.md)
+* [RBAC: Built in Roles](../../role-based-access-control/built-in-roles.md)
 
   This article details all of the built-in roles available in RBAC.
 * [Understanding Resource Manager deployment and classic deployment](../../azure-resource-manager/resource-manager-deployment-model.md)
 
   This article explains the Resource Manager deployment and classic deployment models, and explains the benefits of using the Resource Manager and resource groups. It explains how the Azure Compute, Network, and Storage Providers work under the Resource Manager model.
-* [Managing Role-Based Access Control with the REST API](../../active-directory/role-based-access-control-manage-access-rest.md)
+* [Managing Role-Based Access Control with the REST API](../../role-based-access-control/role-assignments-rest.md)
 
   This article shows how to use the REST API to manage RBAC.
 * [Azure Storage Resource Provider REST API Reference](https://msdn.microsoft.com/library/azure/mt163683.aspx)
 
   This API reference describes the APIs you can use to manage your storage account programmatically.
-* [Developer's guide to auth with Azure Resource Manager API](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/)
 
-  This article shows how to authenticate using the Resource Manager APIs.
 * [Role-Based Access Control for Microsoft Azure from Ignite](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
 
   This is a link to a video on Channel 9 from the 2015 MS Ignite conference. In this session, they talk about access management and reporting capabilities in Azure, and explore best practices around securing access to Azure subscriptions using Azure Active Directory.
 
 ### Managing Your Storage Account Keys
-Storage account keys are 512-bit strings created by Azure that, along with the storage account name, can be used to access the data objects stored in the storage account, for example, blobs, entities within a table, queue messages, and files on an Azure File share. Controlling access to the storage account keys controls access to the data plane for that storage account.
+Storage account keys are 512-bit strings created by Azure that, along with the storage account name, can be used to access the data objects stored in the storage account, for example, blobs, entities within a table, queue messages, and files on an Azure file share. Controlling access to the storage account keys controls access to the data plane for that storage account.
 
-Each storage account has two keys referred to as "Key 1" and "Key 2" in the [Azure portal](http://portal.azure.com/) and in the PowerShell cmdlets. These can be regenerated manually using one of several methods, including, but not limited to using the [Azure portal](https://portal.azure.com/), PowerShell, the Azure CLI, or programmatically using the .NET Storage Client Library or the Azure Storage Services REST API.
+Each storage account has two keys referred to as "Key 1" and "Key 2" in the [Azure portal](https://portal.azure.com/) and in the PowerShell cmdlets. These can be regenerated manually using one of several methods, including, but not limited to using the [Azure portal](https://portal.azure.com/), PowerShell, the Azure CLI, or programmatically using the .NET Storage Client Library or the Azure Storage Services REST API.
 
-There are any number of reasons to regenerate your storage account keys.
+There are various reasons to regenerate your storage account keys.
 
-* You might regenerate them on a regular basis for security reasons.
-* You would regenerate your storage account keys if someone managed to hack into an application and retrieve the key that was hardcoded or saved in a configuration file, giving them full access to your storage account.
-* Another case for key regeneration is if your team is using a Storage Explorer application that retains the storage account key, and one of the team members leaves. The application would continue to work, giving them access to your storage account after they're gone. This is actually the primary reason they created account-level Shared Access Signatures – you can use an account-level SAS instead of storing the access keys in a configuration file.
+* You may regenerate them periodically for security.
+* You might regenerate your storage account keys if your application or network security is compromised.
+* Another instance for key regeneration is when team members with access to the keys leave. Shared Access Signatures were designed primarily to address this scenario – you should share an account-level SAS connection string or token, instead of sharing access keys, with most individuals or applications.
 
 #### Key regeneration plan
-You don't want to just regenerate the key you are using without some planning. If you do that, you could cut off all access to that storage account, which can cause major disruption. This is why there are two keys. You should regenerate one key at a time.
+You should not regenerate an access key in use without planning. Abrupt key regeneration can block access to a storage account for existing applications, causing major disruption. Azure Storage accounts provide two keys, so that you can regenerate one key at a time.
 
-Before you regenerate your keys, be sure you have a list of all of your applications that are dependent on the storage account, as well as any other services you are using in Azure. For example, if you are using Azure Media Services that are dependent on your storage account, you must resync the access keys with your media service after you regenerate the key. If you are using any applications such as a storage explorer, you will need to provide the new keys to those applications as well. If you have VMs whose VHD files are stored in the storage account, they will not be affected by regenerating the storage account keys.
+Before you regenerate your keys, be sure you have a list of all applications dependent on the storage account, as well as any other services you are using in Azure. For example, if you are using Azure Media Services use your storage account, you must resync the access keys with your media service after you regenerate the key. If you are using an application such as a storage explorer, you will need to provide new keys to those applications as well. If you have VMs whose VHD files are stored in the storage account, they will not be affected by regenerating the storage account keys.
 
 You can regenerate your keys in the Azure portal. Once keys are regenerated, they can take up to 10 minutes to be synchronized across Storage Services.
 
@@ -132,37 +141,58 @@ If you are currently using Key 2, you can use the same process, but reverse the 
 
 You can migrate over a couple of days, changing each application to use the new key and publishing it. After all of them are done, you should then go back and regenerate the old key so it no longer works.
 
-Another option is to put the storage account key in an [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) as a secret and have your applications retrieve the key from there. Then when you regenerate the key and update the Azure Key Vault, the applications will not need to be redeployed because they will pick up the new key from the Azure Key Vault automatically. Note that you can have the application read the key each time you need it, or you can cache it in memory and if it fails when using it, retrieve the key again from the Azure Key Vault.
+Another option is to put the storage account key in an [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) as a secret and have your applications retrieve the key from there. Then when you regenerate the key and update the Azure Key Vault, the applications will not need to be redeployed because they will pick up the new key from the Azure Key Vault automatically. You can have the application read the key each time it needs it, or the application can cache it in memory and if it fails when using it, retrieve the key again from the Azure Key Vault.
 
-Using Azure Key Vault also adds another level of security for your storage keys. If you use this method, you will never have the storage key hardcoded in a configuration file, which removes that avenue of somebody getting access to the keys without specific permission.
+Using Azure Key Vault also adds another level of security for your storage keys. Using the Key Vault, enables you to avoid writing storage keys in application configuration files. It also prevents exposure of keys to everyone with access to those configuration files.
 
-Another advantage of using Azure Key Vault is you can also control access to your keys using Azure Active Directory. This means you can grant access to the handful of applications that need to retrieve the keys from Azure Key Vault, and know that other applications will not be able to access the keys without granting them permission specifically.
+Azure Key Vault also has the advantage of using Azure AD to control access to your keys. You can grant access to the specific applications that need to retrieve the keys from Key Vault, without exposing them to other applications that do not need access to the keys.
 
-Note: it is recommended to use only one of the keys in all of your applications at the same time. If you use Key 1 in some places and Key 2 in others, you will not be able to rotate your keys without some application losing access.
+> [!NOTE]
+> Microsoft recommends using only one of the keys in all of your applications at the same time. If you use Key 1 in some places and Key 2 in others, you will not be able to rotate your keys without some application losing access.
 
 #### Resources
-* [About Azure Storage Accounts](storage-create-storage-account.md#regenerate-storage-access-keys)
 
-  This article gives an overview of storage accounts and discusses viewing, copying, and regenerating storage access keys.
+* [Manage storage account settings in the Azure portal](storage-account-manage.md)
 * [Azure Storage Resource Provider REST API Reference](https://msdn.microsoft.com/library/mt163683.aspx)
 
-  This article contains links to specific articles about retrieving the storage account keys and regenerating the storage account keys for an Azure Account using the REST API. Note: This is for  Resource Manager storage accounts.
-* [Operations on storage accounts](https://msdn.microsoft.com/library/ee460790.aspx)
+## Network Security
+Network Security enables you to restrict access to the data in an Azure Storage Account from select networks. You can use the Azure Storage firewall to restrict access to clients from specific public IP address ranges, select virtual networks (VNets) on Azure, or to specific Azure resources. You also have the option to create a Private Endpoint for your storage account in the VNet that needs access, and blocking all access through the public endpoint.
 
-  This article in the Storage Service Manager REST API Reference contains links to specific articles on retrieving and regenerating the storage account keys using the REST API. Note: This is for the Classic storage accounts.
-* [Say goodbye to key management – manage access to Azure Storage data using Azure AD](http://www.dushyantgill.com/blog/2015/04/26/say-goodbye-to-key-management-manage-access-to-azure-storage-data-using-azure-ad/)
+You can configure the network access rules for your storage account through the [Firewalls and Virtual Networks](storage-network-security.md) tab in the Azure portal. Using the storage firewall, you can deny access for public internet traffic, and grant access to select clients based on the configured network rules.
 
-  This article shows how to use Active Directory to control access to your Azure Storage keys in Azure Key Vault. It also shows how to use an Azure Automation job to regenerate the keys on an hourly basis.
+You can also use [Private Endpoints](../../private-link/private-endpoint-overview.md) to privately and securely connect to a storage account from a VNet using [Private Links](../../private-link/private-link-overview.md).
 
-## Data Plane Security
+Storage firewall rules only apply to the public endpoint for the storage account. The subnet that hosts a private endpoint for a storage account gets implicit access to the account when you approve the creation of that private endpoint.
+
+> [!NOTE]
+> The storage firewall rules are not applicable to storage management operations conducted through the Azure portal and the Azure Storage Management API.
+
+### Access rules for public IP address ranges
+The Azure Storage firewall can be used to restrict access to a storage account from specific public IP address ranges. You can use IP address rules to restrict access to specific internet-based services communicating on a fixed public IP endpoint, or to select on-premises networks.
+
+### Access rules for Azure virtual networks
+Storage accounts, by default, accept connections from clients on any network. You can restrict the client access to the data in a storage account to selected networks using the storage firewall. [Service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) enable routing of traffic from an Azure virtual network to the storage account. 
+
+### Granting access to specific trusted resource instances
+You can allow a [subset of Azure trusted services](storage-network-security.md#trusted-microsoft-services) to access the storage account through the firewall with strong authentication based on the service resource type, or a resource instance.
+
+For the services that support resource instance-based access through the storage firewall, only the selected instance can access the data in the storage account. In this case, the service must support resource-instance authentication using system-assigned [managed identities](../../active-directory/managed-identities-azure-resources/overview.md).
+
+### Using private endpoints for securing connections
+Azure Storage supports private endpoints, which enable secure access of storage account from an Azure virtual network. Private endpoints assign a private IP address from your VNet's address space to the storage service. When using private endpoints, the storage connection string redirects traffic destined for the storage account to the private IP address. The connection between the private endpoint and the storage account uses a private link. Using private endpoints you can block exfiltration of data from your VNet.
+
+On-premises networks connected over VPN or [ExpressRoutes](../../expressroute/expressroute-locations.md) private peering and other peered virtual networks can also access the storage account over the private endpoint. Private endpoint for your storage accounts can be created in a VNet in any region, enabling a secure global reach. You may also create private endpoints for storage accounts in other [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) tenants.
+
+## Authorization
 Data Plane Security refers to the methods used to secure the data objects stored in Azure Storage – the blobs, queues, tables, and files. We've seen methods to encrypt the data and security during transit of the data, but how do you go about controlling access to the objects?
 
-There are two methods for authorizing access to the data objects themselves. These include controlling access to the storage account keys and using Shared Access Signatures to grant access to specific data objects for a specific amount of time.
+You have three options for authorizing access to data objects in Azure Storage, including:
+
+- Using Azure AD to authorize access to containers and queues. Azure AD provides advantages over other approaches to authorization, including removing the need to store secrets in your code. For more information, see [Authenticate access to Azure Storage using Azure Active Directory](storage-auth-aad.md). 
+- Using your storage account keys to authorize access via Shared Key. Authorizing via Shared Key requires storing your storage account keys in your application, so Microsoft recommends using Azure AD instead where possible.
+- Using Shared Access Signatures to grant controlled permissions to specific data objects for a specific amount of time.
 
 In addition, for Blob Storage, you can allow public access to your blobs by setting the access level for the container that holds the blobs accordingly. If you set access for a container to Blob or Container, it will allow public read access for the blobs in that container. This means anyone with a URL pointing to a blob in that container can open it in a browser without using a Shared Access Signature or having the storage account keys.
-
-In addition to limiting access through authorization, you can also use [Firewalls and Virtual Networks](storage-network-security.md) to limit access to the storage account based on network rules.  This approach enables you deny access to public internet traffic, and to grant access only to specific Azure Virtual Networks or public internet IP address ranges.
-
 
 ### Storage Account Keys
 Storage account keys are 512-bit strings created by Azure that, along with the storage account name, can be used to access the data objects stored in the storage account.
@@ -202,7 +232,7 @@ http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
 &sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D (signature used for the authentication of the SAS)
 ```
 
-#### How the Shared Access Signature is authenticated by the Azure Storage Service
+#### How the Shared Access Signature is authorized by the Azure Storage Service
 When the storage service receives the request, it takes the input query parameters and creates a signature using the same method as the calling program. It then compares the two signatures. If they agree, then the storage service can check the storage service version to make sure it's valid, verify that the current date and time are within the specified window, make sure the access requested corresponds to the request made, etc.
 
 For example, with our URL above, if the URL was pointing to a file instead of a blob, this request would fail because it specifies that the Shared Access Signature is for a blob. If the REST command being called was to update a blob, it would fail because the Shared Access Signature specifies that only read access is permitted.
@@ -238,10 +268,9 @@ For more detailed information on using Shared Access Signatures and Stored Acces
     This article provides examples of using a service-level SAS with blobs, queue messages, table ranges, and files.
   * [Constructing a service SAS](https://msdn.microsoft.com/library/dn140255.aspx)
   * [Constructing an account SAS](https://msdn.microsoft.com/library/mt584140.aspx)
-* These are tutorials for using the .NET client library to create Shared Access Signatures and Stored Access Policies.
 
+* This is a tutorial for using the .NET client library to create Shared Access Signatures and Stored Access Policies.
   * [Using Shared Access Signatures (SAS)](../storage-dotnet-shared-access-signature-part-1.md)
-  * [Shared Access Signatures, Part 2: Create and Use a SAS with the Blob Service](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 
     This article includes an explanation of the SAS model, examples of Shared Access Signatures, and recommendations for the best practice use of SAS. Also discussed is the revocation of the permission granted.
 
@@ -260,22 +289,10 @@ To have a secure communication channel, you should always use HTTPS when calling
 
 You can enforce the use of HTTPS when calling the REST APIs to access objects in storage accounts by enabling [Secure transfer required](../storage-require-secure-transfer.md) for the storage account. Connections using HTTP will be refused once this is enabled.
 
-### Using encryption during transit with Azure File shares
-Azure Files supports HTTPS when using the REST API, but is more commonly used as an SMB file share attached to a VM. SMB 2.1 does not support encryption, so connections are only allowed within the same region in Azure. However, SMB 3.0 supports encryption, and it's available in Windows Server 2012 R2, Windows 8, Windows 8.1, and Windows 10, allowing both cross-region access and access on the desktop.
+### Using encryption during transit with Azure file shares
+[Azure Files](../files/storage-files-introduction.md) supports encryption via SMB 3.0 and with HTTPS when using the File REST API. When mounting outside of the Azure region the Azure file share is located in, such as on-premises or in another Azure region, SMB 3.0 with encryption is always required. SMB 2.1 does not support encryption, so by default connections are only allowed within the same region in Azure, but SMB 3.0 with encryption can be enforced by [requiring secure transfer](../storage-require-secure-transfer.md) for the storage account.
 
-While Azure File shares can be used with Unix, the Linux SMB client does not yet support encryption, so access is only allowed within an Azure region. Encryption support for Linux is on the roadmap of Linux developers responsible for SMB functionality. When they add encryption, you will have the same ability for accessing an Azure File share on Linux as you do for Windows.
-
-You can enforce the use of encryption with the Azure Files service by enabling [Secure transfer required](../storage-require-secure-transfer.md) for the storage account. If using the REST APIs, HTTPs is required. For SMB, only SMB connections that support encryption will connect successfully.
-
-#### Resources
-* [Azure Files Introduction](../files/storage-files-introduction.md)
-* [Get started with Azure Files on Windows](../files/storage-how-to-use-files-windows.md)
-
-  This article gives an overview of Azure File shares and how to mount and use them on Windows.
-
-* [How to use Azure Files with Linux](../files/storage-how-to-use-files-linux.md)
-
-  This article shows how to mount an Azure File share on a Linux system and upload/download files.
+SMB 3.0 with encryption is available in [all supported Windows and Windows Server operating systems](../files/storage-how-to-use-files-windows.md) except Windows 7 and Windows Server 2008 R2, which only support SMB 2.1. SMB 3.0 is also supported on [macOS](../files/storage-how-to-use-files-mac.md) and on distributions of [Linux](../files/storage-how-to-use-files-linux.md) using Linux kernel 4.11 and above. Encryption support for SMB 3.0 has also been backported to older versions of the Linux kernel by several Linux distributions, consult [Understanding SMB client requirements](../files/storage-how-to-use-files-linux.md#smb-client-reqs).
 
 ### Using Client-side encryption to secure data that you send to storage
 Another option that helps you ensure that your data is secure while being transferred between a client application and Storage is Client-side Encryption. The data is encrypted before being transferred into Azure Storage. When retrieving the data from Azure Storage, the data is decrypted after it is received on the client side. Even though the data is encrypted going across the wire, we recommend that you also use HTTPS, as it has data integrity checks built in which help mitigate network errors affecting the integrity of the data.
@@ -291,7 +308,7 @@ While you can use Client-side Encryption to encrypt the data in transit (which i
 
 SSE is enabled for all storage accounts and cannot be disabled. SSE automatically encrypts your data when writing it to Azure Storage. When you read data from Azure Storage, it is decrypted by Azure Storage before being returned. SSE enables you to secure your data without having to modify code or add code to any applications.
 
-The keys used for SSE are managed by Microsoft. Microsoft generates the keys originally, and manages their secure storage as well as their regular rotation, as defined by internal Microsoft policy. Customer-managed keys will eventually be available, along with a migration path from Microsoft-managed keys to customer-managed keys.
+You can use either Microsoft-managed keys or your own custom keys. Microsoft generates managed keys and handles their secure storage as well as their regular rotation, as defined by internal Microsoft policy. For more information about using custom keys, see [Storage Service Encryption using customer-managed keys in Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
 
 SSE automatically encrypts data in all performance tiers (Standard and Premium), all deployment models (Azure Resource Manager and Classic), and all of the Azure Storage services (Blob, Queue, Table, and File). 
 
@@ -315,7 +332,7 @@ For the encryption itself, you can generate and manage your own encryption keys.
   This article gives an explanation of client-side encryption, and provides examples of using the storage client library to encrypt and decrypt resources from the four storage services. It also talks about Azure Key Vault.
 
 ### Using Azure Disk Encryption to encrypt disks used by your virtual machines
-Azure Disk Encryption is a new feature. This feature allows you to encrypt the OS disks and Data disks used by an IaaS Virtual Machine. For Windows, the drives are encrypted using industry-standard BitLocker encryption technology. For Linux, the disks are encrypted using the DM-Crypt technology. This is integrated with Azure Key Vault to allow you to control and manage the disk encryption keys.
+Azure Disk Encryption allows you to encrypt the OS disks and Data disks used by an IaaS Virtual Machine. For Windows, the drives are encrypted using industry-standard BitLocker encryption technology. For Linux, the disks are encrypted using the DM-Crypt technology. This is integrated with Azure Key Vault to allow you to control and manage the disk encryption keys.
 
 The solution supports the following scenarios for IaaS VMs when they are enabled in Microsoft Azure:
 
@@ -348,13 +365,13 @@ The solution does not support the following scenarios, features, and technology 
 This feature ensures that all data on your virtual machine disks is encrypted at rest in Azure Storage.
 
 #### Resources
-* [Azure Disk Encryption for Windows and Linux IaaS VMs](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)
+* [Azure Disk Encryption for Windows and Linux IaaS VMs](../../security/fundamentals/encryption-overview.md)
 
 ### Comparison of Azure Disk Encryption, SSE, and Client-Side Encryption
 
 #### IaaS VMs and their VHD files
 
-For data disks used by IaaS VMs, Azure Disk Encryption is recommended. If you create a VM using an image from the Azure Marketplace, Azure performs a [shallow copy](https://en.wikipedia.org/wiki/Object_copying) of the image to your storage account in Azure Storage, and it is not encrypted even if you have SSE enabled. After it creates the VM and starts updating the image, SSE will start encrypting the data. For this reason, it's best to use Azure Disk Encryption on VMs created from images in the Azure Marketplace if you want them fully encrypted.
+For data disks used by IaaS VMs, Azure Disk Encryption is recommended. If you create a VM with unmanaged disks using an image from the Azure Marketplace, Azure performs a [shallow copy](https://en.wikipedia.org/wiki/Object_copying) of the image to your storage account in Azure Storage, and it is not encrypted even if you have SSE enabled. After it creates the VM and starts updating the image, SSE will start encrypting the data. For this reason, it's best to use Azure Disk Encryption on VMs with unmanaged disks created from images in the Azure Marketplace if you want them fully encrypted. If you create a VM with Managed Disks, SSE encrypts all the data by default using platform managed keys. 
 
 If you bring a pre-encrypted VM into Azure from on-premises, you will be able to upload the encryption keys to Azure Key Vault, and continue using the encryption for that VM that you were using on-premises. Azure Disk Encryption is enabled to handle this scenario.
 
@@ -409,11 +426,11 @@ There is an article listed in the resources below that provides the list of the 
 
 ![Snapshot of fields in a log file](./media/storage-security-guide/image3.png)
 
-We're interested in the entries for GetBlob, and how they are authenticated, so we need to look for entries with operation-type "Get-Blob", and check the request-status (fourth</sup> column) and the authorization-type (eighth</sup> column).
+We're interested in the entries for GetBlob, and how they are authorized, so we need to look for entries with operation-type "Get-Blob", and check the request-status (fourth</sup> column) and the authorization-type (eighth</sup> column).
 
-For example, in the first few rows in the listing above, the request-status is "Success" and the authorization-type is "authenticated". This means the request was validated using the storage account key.
+For example, in the first few rows in the listing above, the request-status is "Success" and the authorization-type is "authenticated". This means the request was authorized using the storage account key.
 
-#### How are my blobs being authenticated?
+#### How is access to my blobs being authorized?
 We have three cases that we are interested in.
 
 1. The blob is public and it is accessed using a URL without a Shared Access Signature. In this case, the request-status is "AnonymousSuccess" and the authorization-type is "anonymous".
@@ -492,7 +509,7 @@ For more information about CORS and how to enable it, check out these resources.
 * [Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services on MSDN](https://msdn.microsoft.com/library/azure/dn535601.aspx)
 
   This is the reference documentation for CORS support for the Azure Storage Services. This has links to articles applying to each storage service, and shows an example and explains each element in the CORS file.
-* [Microsoft Azure Storage: Introducing CORS](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
+* [Microsoft Azure Storage: Introducing CORS](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
 
   This is a link to the initial blog article announcing CORS and showing how to use it.
 
@@ -503,15 +520,14 @@ For more information about CORS and how to enable it, check out these resources.
 
    If you can use HTTPS, which provides transport level security, then using MD5 checking is redundant and unnecessary.
 
-   For more information, please check out the [Azure Blob MD5 Overview](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx).
+   For more information, please check out the [Azure Blob MD5 Overview](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx).
 2. **What about FIPS-Compliance for the U.S. Government?**
 
    The United States Federal Information Processing Standard (FIPS) defines cryptographic algorithms approved for use by U.S. Federal government computer systems for the protection of sensitive data. Enabling FIPS mode on a Windows server or desktop tells the OS that only FIPS-validated cryptographic algorithms should be used. If an application uses non-compliant algorithms, the applications will break. With.NET Framework versions 4.5.2 or higher, the application automatically switches the cryptography algorithms to use FIPS-compliant algorithms when the computer is in FIPS mode.
 
    Microsoft leaves it up to each customer to decide whether to enable FIPS mode. We believe there is no compelling reason for customers who are not subject to government regulations to enable FIPS mode by default.
 
-   **Resources**
-
+### Resources
 * [Why We're Not Recommending "FIPS Mode" Anymore](https://blogs.technet.microsoft.com/secguide/2014/04/07/why-were-not-recommending-fips-mode-anymore/)
 
   This blog article gives an overview of FIPS and explains why they don't enable FIPS mode by default.

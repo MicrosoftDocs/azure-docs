@@ -1,6 +1,6 @@
 ---
 title: Azure CLI script sample - Deploy a managed application | Microsoft Docs
-description: Azure CLI Script Sample - Deploy a managed application definition
+description: Provides Azure CLI sample script that deploys an Azure Managed Application definition to the subscription.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -35,7 +35,7 @@ This script uses the following command to deploy the managed application. Each c
 
 | Command | Notes |
 |---|---|
-| [az managedapp create](https://docs.microsoft.com/cli/azure/managedapp#az_managedapp_create) | Create a managed application. Provide the definition ID and parameters for the template. |
+| [az managedapp create](https://docs.microsoft.com/cli/azure/managedapp#az-managedapp-create) | Create a managed application. Provide the definition ID and parameters for the template. |
 
 
 ## Next steps

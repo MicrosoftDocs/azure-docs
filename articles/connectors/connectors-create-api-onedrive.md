@@ -1,23 +1,21 @@
 ---
-title: Add the OneDrive connector in your Logic Apps | Microsoft Docs
-description: Overview of the OneDrive connector with REST API parameters
-services: logic-apps
-documentationcenter: ''
+# required metadata
+title: Connect to OneDrive - Azure Logic Apps | Microsoft Docs
+description: Upload and manage files with OneDrive REST APIs and Azure Logic Apps 
 author: ecfan
-manager: anneta
-editor: ''
-tags: connectors
-
-ms.assetid: 47a8582a-1b1a-4fc3-beb5-97c60c4306fe
-ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+manager: jeconnoc
+ms.author: estfan
 ms.date: 10/18/2016
-ms.author: estfan; ladocs
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
 
+# optional metadata
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
 ---
+
 # Get started with the OneDrive connector
 Connect to OneDrive to manage your files, including upload, get, delete files, and more. 
 

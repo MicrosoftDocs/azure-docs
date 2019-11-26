@@ -1,13 +1,36 @@
-You open a port, or create an endpoint, to a virtual machine (VM) in Azure by creating a network filter on a subnet or VM network interface. You place these filters, which control both inbound and outbound traffic, on a Network Security Group attached to the resource that receives the traffic.
+---
+ title: include file
+ description: include file
+ services: virtual-machines-windows
+ author: cynthn
+ ms.service: virtual-machines-windows
+ ms.topic: include
+ ms.date: 09/12/2018
+ ms.author: cynthn
+ ms.custom: include file
 
-Let's use a common example of web traffic on port 80. Once you have a VM that is configured to serve web requests on the standard TCP port 80 (remember to start the appropriate services and open any OS firewall rules on the VM as well), you:
+---
 
-1. Create a Network Security Group.
-2. Create an inbound rule allowing traffic with:
-   * the destination port range of "80"
-   * the source port range of "*" (allowing any source port)
-   * a priority value of less 65,500 (to be higher in priority than the default catch-all deny inbound rule)
-3. Associate the Network Security Group with the VM network interface or subnet.
+You open a port, or create an endpoint, to a virtual machine (VM) in Azure by creating a network filter on a subnet or a VM network interface. You place these filters, which control both inbound and outbound traffic, on a network security group attached to the resource that receives the traffic.
 
-You can create complex network configurations to secure your environment using Network Security Groups and rules. Our example uses only one or two rules that allow HTTP traffic or remote management. For more information, see the following ['More Information'](#more-information-on-network-security-groups) section or [What is a Network Security Group?](../articles/virtual-network/virtual-networks-nsg.md)
+The example in this article demonstrates how to create a network filter that uses the standard TCP port 80 (it's assumed you've already started the appropriate services and opened any OS firewall rules on the VM).
+
+After you've created a VM that's configured to serve web requests on the standard TCP port 80, you can:
+
+1. Create a network security group.
+
+2. Create an inbound security rule allowing traffic and assign values to the following settings:
+
+   - **Destination port ranges**: 80
+
+   - **Source port ranges**: * (allows any source port)
+
+   - **Priority value**: Enter a value that is less than 65,500 and higher in priority than the default catch-all deny inbound rule.
+
+3. Associate the network security group with the VM network interface or subnet.
+
+Although this example uses a simple rule to allow HTTP traffic, you can also use network security groups and rules to create more complex network configurations. 
+
+
+
 

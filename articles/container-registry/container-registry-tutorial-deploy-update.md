@@ -1,18 +1,12 @@
 ---
-title: Azure Container Registry tutorial - Push an updated image to regional deployments
-description: Push a modified Docker image to your geo-replicated Azure contain registry, then see the changes automatically deployed to web apps running in multiple regions. Part three of a three-part series.
-services: container-registry
-author: mmacy
-manager: timlt
-
-ms.service: container-registry
+title: Tutorial - Push update to geo-replicated registry
+description: Push an updated Docker image to your geo-replicated Azure container registry, then see the changes automatically deployed to web apps running in multiple regions. Part three of a three-part series.
 ms.topic: tutorial
-ms.date: 10/24/2017
-ms.author: marsma
-ms.custom: mvc
+ms.date: 04/30/2018
+ms.custom: "seodec18, mvc"
 ---
 
-# Push an updated image to regional deployments
+# Tutorial: Push an updated container image to a geo-replicated container registry for regional web app deployments
 
 This is part three in a three-part tutorial series. In the [previous tutorial](container-registry-tutorial-deploy-app.md), geo-replication was configured for two different regional Web App deployments. In this tutorial, you first modify the application, then build a new container image and push it to your geo-replicated registry. Finally, you view the change, deployed automatically by Azure Container Registry webhooks, in both Web App instances.
 
@@ -67,7 +61,7 @@ Your modified `Index.cshtml` should look similar to:
 
 ## Rebuild the image
 
-Now that you've updated the web application, rebuild its container image. As before, use the fully qualified image name, including the login server URL, for the tag:
+Now that you've updated the web application, rebuild its container image. As before, use the fully qualified image name, including the login server's fully qualified domain name (FQDN), for the tag:
 
 ```bash
 docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.io/acr-helloworld:v1
@@ -75,15 +69,16 @@ docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.io/acr-hellowo
 
 ## Push image to Azure Container Registry
 
-Now, push the updated *acr-helloworld* container image to your geo-replicated registry. Here, you're executing a single `docker push` command to deploy the updated image to the registry replicas in both the *West US* and *East US* regions.
+Next, push the updated *acr-helloworld* container image to your geo-replicated registry. Here, you're executing a single `docker push` command to deploy the updated image to the registry replicas in both the *West US* and *East US* regions.
 
 ```bash
 docker push <acrName>.azurecr.io/acr-helloworld:v1
 ```
 
-Output should appear similar to the following:
+Your `docker push` output should be similar to the following:
 
-```bash
+```console
+$ docker push uniqueregistryname.azurecr.io/acr-helloworld:v1
 The push refers to a repository [uniqueregistryname.azurecr.io/acr-helloworld]
 5b9454e91555: Pushed
 d6803756744a: Layer already exists
@@ -123,19 +118,17 @@ Verify that the updated container image was also deployed to the *East US* deplo
 
 ![Browser view of modified web app running in East US region][deployed-app-eastus-modified]
 
-With a single `docker push`, you've updated both regional Web App deployments, and Azure Container Registry served the container images from network-close repositories.
+With a single `docker push`, you've automatically updated the web application running in both regional Web App deployments. And, Azure Container Registry served the container images from the repositories located closest to each deployment.
 
 ## Next steps
 
-In this tutorial, you updated and pushed a new version of the web application container to your geo-replicated registry. Webhooks in Azure Container Registry notified Web Apps for Containers of the update, which triggered a local pull from the registry replicas.
+In this tutorial, you updated and pushed a new version of the web application container to your geo-replicated registry. Webhooks in Azure Container Registry notified Web Apps for Containers of the update, which triggered a local pull from the nearest registry replica.
 
-In this, the final tutorial in the series, you:
+### ACR Build: Automated image build and patch
 
-> [!div class="checklist"]
-> * Updated the web application HTML
-> * Built and tagged the Docker image
-> * Pushed the change to Azure Container Registry
-> * Viewed the updated app in two different regions
+In addition to geo-replication, ACR Build is another feature of Azure Container Registry that can help optimize your container deployment pipeline. Start with the ACR Build overview to get an idea of its capabilities:
+
+[Automate OS and framework patching with ACR Build](container-registry-tasks-overview.md)
 
 <!-- IMAGES -->
 [deployed-app-eastus-modified]: ./media/container-registry-tutorial-deploy-update/deployed-app-eastus-modified.png

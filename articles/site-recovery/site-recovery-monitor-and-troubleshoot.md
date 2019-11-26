@@ -1,244 +1,179 @@
 ---
-title: Monitor and troubleshoot Azure Site Recovery | Microsoft Docs
+title: Monitor Azure Site Recovery | Microsoft Docs
 description: Monitor and troubleshoot Azure Site Recovery replication issues and operations using the portal 
-services: site-recovery
-documentationcenter: ''
-author: bsiva
-manager: abhemraj
-editor: raynew
-
-ms.assetid: 
+author: raynew
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 02/22/2018
-ms.author: bsiva
-
+ms.topic: conceptual
+ms.date: 07/30/2019
+ms.author: raynew 
 ---
 
-# Monitoring and troubleshooting Azure Site Recovery
+# Monitor Site Recovery
 
-In this article, you learn how to use Azure Site Recovery's in built monitoring features for monitoring and troubleshooting. Learn how to:
-> [!div class="checklist"]
-> - Use the Azure Site Recovery dashboard (vault overview page)
-> - Monitor and troubleshoot replication issues
-> - Monitor Azure Site Recovery Jobs/Operations
-> - Subscribe to email notifications
+In this article, learn how to monitor Azure [Site Recovery](site-recovery-overview.md), using Site Recovery inbuilt monitoring.  You can monitor:
 
-## Using the Azure Site Recovery dashboard
-
-The Azure Site Recovery dashboard on the vault overview page consolidates all monitoring information for the vault in a single location. Start at the vault dashboard and dive deeper to get more details by navigating through the parts of the dashboard. The major parts of the Azure Site Recovery dashboard are as follows:
-
-### 1. Switch between Azure Backup and Azure Site Recovery dashboards
-
-The toggle switch at the top of the overview page lets you switch between the dashboard pages for Site Recovery and Backup. This selection, once made, is remembered and defaulted to the next time you open the overview page for the vault. Select the Site Recovery option to see the Site Recovery dashboard. 
-
-The various parts of the Azure Site Recovery dashboard page automatically refresh every 10 minutes, so that the dashboard reflects the latest available information.
-
-![Monitoring features in the Azure Site Recovery overview page](media/site-recovery-monitor-and-troubleshoot/site-recovery-overview-page.png)
-
-### 2. Replicated Items
-
-The replicated items section of the dashboard presents an overview of the replication health of protected servers in the vault. 
-
-<table>
-<tr>
-    <td>Healthy</td>
-    <td>Replication is progressing normally for these servers and no error or warning symptoms have been detected.</td>
-</tr>
-<tr>
-    <td>Warning </td>
-    <td>One or more warning symptoms that may impact replication or indicate that replication isn't progressing normally has been detected for these servers.</td>
-</tr>
-<tr>
-    <td>Critical</td>
-    <td>One or more critical replication error symptoms have been detected for these servers. These error symptoms are typically indicators that replication is either stuck, or is not progressing as fast as the data change rate for these servers.</td>
-</tr>
-<tr>
-    <td>Not applicable</td>
-    <td>Servers that aren't currently expected to be replicating, such as servers that have been failed over.</td>
-</tr>
-</table>
-
-To see a list of protected servers filtered by replication health, click the replication health description next to the donut. The view all link near the section title is a shortcut to the replicated items page for the vault. Use the view all link to see the list of all servers in the vault.
-
-### 3. Failover test success
-
-The failover test success section of the dashboard presents a break-up of virtual machines in the vault based on test failover status. 
-
-<table>
-<tr>
-    <td>Test recommended</td>
-    <td>Virtual machines that have not had a successful test failover since the time they reached a protected state.</td>
-</tr>
-<tr>
-    <td>Performed successfully</td>
-    <td>Virtual machines that have had one or more successful test failovers.</td>
-</tr>
-<tr>
-    <td>Not applicable</td>
-    <td>Virtual machines that are not currently eligible for a test failover. Examples are: Failed over servers, servers for which initial replication is in progress, servers for which a failover is in progress, servers for which a test failover is already in progress.</td>
-</tr>
-</table>
-
-Click the test failover status next to the donut, so see the list of protected servers based on their test failover status.
- 
-> [!IMPORTANT]
-> As a best practice, it is recommended that you perform a test failover on your protected servers at least once every six months. Performing a test failover is a non disruptive way to test failover of your servers and applications to an isolated environment, and helps you evaluate your business continuity preparedness.
-
- A test failover operation on a server or a recovery plan is considered successful only after both the test failover operation and the cleanup test failover operation have completed successfully.
-
-### 4. Configuration issues
-
-The Configuration issues section shows a list of issues that may impact your ability to successfully failover virtual machines. The classes of issues listed in this section are:
- - **Missing configurations:** Protected servers missing necessary configurations such as a recovery network or a recovery resource group.
- - **Missing resources:** Configured target/recovery resources not found or not available in the subscription. For example, the resource was deleted or was migrated to a different subscription or resource group. The following target/recovery configurations are monitored for availability: target resource group, target virtual network and subnet, log/target storage account, target availability set, target IP address.
- - **Subscription quota:** The available subscription resource quota balance is compared against the balance required to be able to failover all virtual machines in the vault. If the available balance is found insufficient, insufficient quota balance is reported. Quotas for the following Azure resources are monitored: Virtual machine core count, virtual machine family core count, network interface card (NIC) count.
- - **Software updates:** The availability of new software updates, expiring software versions.
-
-Configuration issues (other than availability of software updates), are detected by a periodic validator operation that runs every 12 hours by default. You can force the validator operation to run immediately by clicking the refresh icon next to the *Configuration issues* section heading.
-
-Click the links to get more details about the listed issues and virtual machines impacted by them. For issues impacting specific virtual machines, you can get more details by clicking the **needs attention** link under the target configurations column for the virtual machine. The details include recommendations on how you can remediate the detected issues.
-
-### 5. Error Summary
-
-The error summary section, shows the currently active replication error symptoms that may impact replication of servers in the vault, along with the number of impacted entities due to each error.
-
-The replication error symptoms for servers in a critical or warning replication health state can be seen in the error summary table. 
-
-- Errors impacting on-premises infrastructure components such as the non-receipt of a heartbeat from the Azure Site Recovery Provider running on the on-premises Configuration Server, VMM server, or Hyper-V host are listed at the beginning of the error summary section
-- Replication error symptoms impacting protected servers is listed next. The error summary table entries are sorted by decreasing order of the error severity and then by decreasing order of the count of impacted servers.
- 
-
-> [!NOTE]
-> 
->  Multiple replication error symptoms may be observed on a single server. If there are multiple error symptoms on a single server each error symptom would count that server in the list of its impacted servers. Once the underlying issue resulting in an error symptom is fixed, replication parameters improve and the error is cleared from the virtual machine.
->
-> > [!TIP]
-> The count of impacted servers is a useful way to understand if a single underlying issue may be impacting multiple servers. For example, a network glitch may potentially impact all servers replicating from an on-premises site to Azure. This view quickly conveys that fixing that one underlying issue will fix replication for multiple servers.
->
-
-### 6. Infrastructure view
-
-The infrastructure view provides a scenario wise visual representation of the infrastructural components involved in replication. It also visually depicts the health of the connectivity between the various servers and between the servers and the Azure services involved in replication. 
-
-A green line indicates that connection is healthy, while a red line with the overlaid error icon indicates the existence of one or more error symptoms impacting connectivity between the components involved. Hovering the mouse pointer over the error icon on the line shows the error and the number of impacted entities. 
-
-Clicking the error icon shows a filtered list of impacted entities for the error(s).
-
-![Site Recovery infrastructure view (vault)](media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
-
-> [!TIP]
-> Ensure that the on-premises infrastructure components (Configuration Server, additional process servers, replicating VMware virtual machines, Hyper-V hosts, VMM servers) are running the latest version of Azure Site Recovery software. To be able to use all the features of the infrastructure view, you need to be running [Update rollup 22](https://support.microsoft.com/help/4072852) or later for Azure Site Recovery
-
-To use the infrastructure view, select the appropriate replication scenario (Azure virtual machines, VMware virtual machines/physical server, or Hyper-V) depending on your source environment. The infrastructure view presented in the vault overview page is an aggregated view for the vault. You can drill down further into the individual components by clicking on the boxes.
-
-An infrastructure view scoped to the context of a single replicating machine is available on the replicated item overview page. To go to the overview page for a replicating server, go to replicated items from the vault menu and select the server to see the details for.
-
-### Infrastructure view - FAQ
-
-**Q.** Why am I not seeing the infrastructure view for my VM? </br>
-**A.** The infrastructure view feature is only available for virtual machines that are replicating to Azure. The feature is currently not available for virtual machines that are replicating between on-premises sites.
-
-**Q.** Why is the count of virtual machines in the vault infrastructure view different from the total count shown in the replicated items donut?</br>
-**A.** The vault infrastructure view is scoped by replication scenarios. Only virtual machines participating in the currently selected replication scenario are included in the count of virtual machines shown in the infrastructure view. Also, for the selected scenario, only virtual machines that are currently configured to replicate to Azure are included in the count of virtual machines shown in the infrastructure view (For for example: failed over virtual machines, virtual machines replicating back to an on-premise site are not included in the infrastructure view.)
-
-**Q.** Why is the count of replicated items shown in the essentials drawer on the overview page different from the total count of replicated items shown in the donut chart on the dashboard?</br>
-**A.** Only those virtual machines for which initial replication has completed are included in the count shown in the essentials drawer. The replicated items donut total includes all virtual machines in the vault including servers for which initial replication is currently in progress.
-
-**Q.** Which replication scenarios is the infrastructure view available for? </br>
-**A.**
->[!div class="mx-tdBreakAll"]
->|Replication Scenario  | VM State  | Infrastructure view available  |
->|---------|---------|---------|
->|Virtual machines replicating between two on-premises sites     | -        | No      |
->|All     | Failed over         |  No       |
->|Virtual machines replicating between two Azure regions     | Initial replication in progress or Protected         | Yes         |
->|VMware virtual machines replicating to Azure     | Initial replication in progress or Protected        | Yes        |
->|VMware virtual machines replicating to Azure     | Failed over virtual machines being replicated back to an on-premises VMware Site         | No        |
->|Hyper-V virtual machines replicating to Azure     | Initial replication in progress or Protected        | Yes       |
->|Hyper-V virtual machines replicating to Azure     | Failed over/ Failback in progress        |  No       |
+- The health and status of machines replicated by Site Recovery
+- Test failover status of machines.
+- Issues and errors affecting configuration and replication.
+- Infrastructure components such as on-premises servers.
 
 
-### 7. Recovery Plans
+## Before you start
 
-The Recovery plans section shows the count of recovery plans in the vault. Click the number to see the list of recovery plans, create new recovery plans, or edit existing ones. 
+You might want to review [common monitoring questions](monitoring-common-questions.md) before you start.
 
-### 8. Jobs
+## Monitor in the dashboard
 
-Azure Site Recovery jobs track the status of Azure Site Recovery operations. Most operations in Azure Site Recovery are executed asynchronously, with a tracking job being used to track progress of the operation.  To learn how to monitor the status of an operation, see the [Monitor Azure Site Recovery Jobs/Operations](#monitor-azure-site-recovery-jobsoperations) section.
+1. In the vault, click **Overview**. The Recovery Services dashboard consolidates all monitoring information for the vault in a single location. There are pages for both Site Recovery and the Azure Backup service, and you can switch between them.
 
-This Jobs section of the dashboard gives the following information:
+    ![Site Recovery dashboard](./media/site-recovery-monitor-and-troubleshoot/dashboard.png)
 
-<table>
-<tr>
-    <td>Failed</td>
-    <td>Failed Azure Site Recovery jobs in the last 24 hours</td>
-</tr>
-<tr>
-    <td>In Progress</td>
-    <td>Azure Site Recovery jobs that are currently in progress</td>
-</tr>
-<tr>
-    <td>Waiting for input</td>
-    <td>Azure Site Recovery jobs that are currently paused waiting for an input from the user.</td>
-</tr>
-</table>
+2. From the dashboard, drill down into different areas. 
 
-The View All link next to the section heading is a shortcut to go to the jobs list page.
+    ![Site Recovery dashboard](./media/site-recovery-monitor-and-troubleshoot/site-recovery-overview-page.png).
 
-## Monitor and troubleshoot replication issues
+3. In **Replicated items**, click **View All** to see all the servers in the vault.
+4. Click the status details in each section to drill down.
+5. In **Infrastructure view**, sort monitoring information by the type of machines you're replicating.
 
-In addition to the information available in the vault dashboard page, you can get additional details and troubleshooting information in the virtual machines list page and the virtual machine details page. You can view the list of protected virtual machines in the vault by selecting the **Replicated items** option from the vault menu. Alternately, you can get to a filtered list of the protected items by clicking any of the scoped shortcuts available on the vault dashboard page.
+## Monitor replicated items
 
-![Site Recovery replicated items list view](media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-list-view.png)
+In **Replicated items**, monitor the health of all machines in the vault that have replication enabled.
 
-The filter option on the replicated items list page lets you apply various filters such as replication health, and replication policy. 
+**State** | **Details**
+--- | ---
+Healthy | Replication is progressing normally. No error or warning symptoms are detected.
+Warning | One or more warning symptoms that might impact replication are detected.
+Critical | One or more critical replication error symptoms have been detected.<br/><br/> These error symptoms are typically indicators that replication stuck, or not progressing as fast as the data change rate.
+Not applicable | Servers that aren't currently expected to be replicating. This might include machines that have been failed over.
 
-The column selector option lets you specify additional columns to be shown such as RPO, target configuration issues, and replication errors. You can initiate operations on a virtual machine, or view errors impacting the virtual machine by right-clicking on a particular row of the list of machines.
+## Monitor test failovers
 
-To drill down further, select a virtual machine by clicking on it. This opens the virtual machine details page. The overview page under virtual machine details contains a dashboard where you'll find additional information pertaining to the machine. 
+In **Failover test success**, monitor the failover status for machines in the vault.
 
-On the overview page for the replicating machine, you'll find:
-- RPO (recovery point objective): Current RPO for the virtual machine and the time at which the RPO was last computed.
-- Latest available recovery points for the machine
-- Configuration issues if any that may impact the failover readiness of the machine. Click the link to get more details.
-- Error details: List of replication error symptoms currently observed on the machine along with possible causes and recommended remediations
-- Events: A chronological list of recent events impacting the machine. While error details shows the currently observable error symptoms on the machine, events is a historical record of various events that may have impacted the machine including error symptoms that may have previously been noticed for the machine.
-- Infrastructure view for machines replicating to Azure
+- We recommend that you run a test failover on replicated machines at least once every six months. It's a way to check that failover is working as expected, without disrupting your production environment. 
+- A test failover is considered successful only after the failover and post-failover cleanup have completed successfully.
 
-![Site Recovery replicated item details/overview](media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
+**State** | **Details**
+--- | ---
+Test recommended | Machines that haven't had a test failover since protection was enabled.
+Performed successfully | Machines with or more successful test failovers.
+Not applicable | Machines that aren't currently eligible for a test failover. For example, machines that are failed over, have initial replication/test failover/failover in progress.
 
-The action menu at the top of the page provides options to perform various operations such as test failover on the virtual machine. The error details button on the action menu lets you see all currently active errors including replication errors, configuration issues, and configuration best practices based warnings for the virtual machine.
+## Monitor configuration issues
 
-> [!TIP]
-> How is RPO or recovery point objective different from the latest available recovery point?
-> 
->Azure Site Recovery uses a multi step asynchronous process to replicate virtual machines to Azure. In the penultimate step of replication, recent changes on the virtual machine along with metadata are copied into a log/cache storage account. Once these changes along with the tag to identify a recoverable point has been written to the storage account in the target region, Azure Site Recovery has the information necessary to generate a recoverable point for the virtual machine. At this point, the RPO has been met for the changes uploaded to the storage account thus far. In other words, the RPO for the virtual machine at this point expressed in units of time, is equal to amount of time elapsed from the timestamp corresponding to the recoverable point.
->
->The Azure Site Recovery service, operating in the background, picks the uploaded data from the storage account and applies them onto the replica disks created for the virtual machine. It then generates a recovery point and makes this point available for recovery at failover. The latest available recovery point indicates the timestamp corresponding to the latest recovery point that has already been processed and applied to the replica disks.
->> [!WARNING]
-> A skewed clock or incorrect system time on the replicating source machine or the on-premises infrastructure servers will skew the computed RPO value. To ensure accurate reporting of RPO values ensure that the system clock on the servers involved in replication is accurate. 
->
+In **Configuration issues**, monitor any issues that might impact your ability to fail over successfully.
 
-## Monitor Azure Site Recovery Jobs/Operations
+- Configuration issues (except for software update availability), are detected by a periodic validator operation that runs every 12 hours by default. You can force the validator operation to run immediately by clicking the refresh icon next to the **Configuration issues** section heading.
+- Click the links to get more details. For issues impacting specific machines, click **needs attention** in the **Target configurations** column. Details include remediation recommendations.
 
-Azure Site Recovery executes the operations you specify asynchronously. Examples of operations you can perform are enable replication, create recovery plan, test failover, update replication settings etc. Every such operation has a corresponding Job that is created to track and audit the operation. The job object has all the necessary information required for you to track the state and the progress of the operation. You can track the status of the various Site Recovery operations for the vault from the Jobs page. 
+**State** | **Details**
+--- | ---
+Missing configurations | A necessary setting is missing, such as a recovery network or a resource group.
+Missing resources | A specified resource can't be found or isn't available in the subscription. For example, the resource was deleted or migrated. Monitored resources included the target resource group, target VNet/subnet, log/target storage account, target availability set, target IP address.
+Subscription quota |  The available subscription resource quota balance is compared against the balance needed to fail over all of the machines in the vault.<br/><br/> If there aren't enough resources, an insufficient quota balance is reported.<br/><br/> Quotas are monitoring for VM core count, VM family core count, network interface card (NIC) count.
+Software updates | The availability of new software updates, and information about expiring software versions.
 
-To see the list of Site Recovery jobs for the vault go the **Monitoring and Reports** section of the vault menu and select Jobs > Site Recovery Jobs. Select a job from the list of jobs on the page by clicking on it to get more details on the specified job. If a job hasn't completed successfully or has errors, you can see more information on the error and possible remediation by clicking the error details button at the top of job details page (also accessible from the Jobs list page by right-clicking on the unsuccessful job.) You can use the filter option from the action menu on the top of the jobs list page to filter the list based on a specific criteria, and use the export button to export details of the selected jobs to excel. You can also access the jobs list view from the shortcut available on the Site Recovery dashboard page. 
 
- For operations that you perform from the Azure portal, the created job and its current status can also be tracked from the notifications section (the bell icon on the top right) of the Azure portal.
+## Monitor errors
+
+In **Error summary**, monitor currently active error symptoms that might impact replication of servers in the vault, and monitor the number of impacted machines.
+
+- Errors impacting on-premises infrastructure components are shown are the beginning of the section. For example, non-receipt of a heartbeat from the Azure Site Recovery Provider on the on-premises configuration server, or Hyper-V host.
+- Next, replication error symptoms impacting replicated servers are shown.
+- The table entries are sorted by decreasing order of the error severity, and then by decreasing count order of the impacted machines.
+- The impacted server count is a useful way to understand whether a single underlying issue might impact multiple machines. For example, a network glitch could potentially impact all machines that replicate to Azure. 
+- Multiple replication errors can occur on a single server. In this case, each error symptom counts that server in the list of its impacted servers. After the issue is fixed, replication parameters improve, and the error is cleared from the machine.
+
+## Monitor the infrastructure.
+
+In **Infrastructure view**, monitor the infrastructure components involved in replication, and connectivity health between servers and the Azure services.
+
+- A green line indicates that connection is healthy.
+- A red line with the overlaid error icon indicates the existence of one or more error symptoms that impact connectivity.
+-  Hover the mouse pointer over the error icon to show the error and the number of impacted entities. Click the icon for a filtered list of impacted entities.
+
+    ![Site Recovery infrastructure view (vault)](./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
+
+### Tips for monitoring the infrastructure
+
+- Make sure that the on-premises infrastructure components (configuration server, process servers, VMM servers, Hyper-V hosts, VMware machines) are running the latest versions of the Site Recovery Provider and/or agents.
+- To use all the features in the infrastructure view, you should be running [Update rollup 22](https://support.microsoft.com/help/4072852) for these components.
+- To use the infrastructure view, select the appropriate replication scenario in your environment. You can drill down in the view for more details. The following table shows which scenarios are represented.
+
+    **Scenario** | **State**  | **View available?**
+    --- |--- | ---
+    **Replication between on-premises sites** | All states | No 
+    **Azure VM replication between Azure regions**  | Replication enabled/initial replication in progress | Yes
+    **Azure VM replication between Azure regions** | Failed over/fail back | No   
+    **VMware replication to Azure** | Replication enabled/initial replication in progress | Yes     
+    **VMware replication to Azure** | Failed over/failed back | No      
+    **Hyper-V replication to Azure** | Failed over/failed back | No
+
+- To see the infrastructure view for a single replicating machine, in the vault menu, click **Replicated items**, and select a server.  
+
+
+
+
+## Monitor recovery plans
+
+In **Recovery plans**, monitor the number of plans, create new plans, and modify existing ones.  
+
+## Monitor jobs
+
+In **Jobs**, monitor the status of Site Recovery operations.
+
+- Most operations in Azure Site Recovery are executed asynchronously, with a tracking job being created and used to track progress of the operation. 
+- The job object has all the information you need to track the state and the progress of the operation. 
+
+Monitor jobs as follows:
+
+1. In the dashboard > **Jobs** section, you can see a summary of jobs that have completed, are in progress, or waiting for input, in the last 24 hours. You can click on any state to get more information about the relevant jobs.
+2. Click **View all** to see all jobs in the last 24 hours.
+
+    > [!NOTE]
+    > You can also access job information from the vault menu > **Site Recovery Jobs**. 
+
+2. In the **Site Recovery Jobs** list, a list of jobs is displayed. On the top menu you can get error details for a specific jobs, filter the jobs list based on specific criteria, and export selected job details to Excel.
+3. You can drill into a job by clicking it. 
+
+## Monitor virtual machines
+
+In **Replicated items**, get a list of replicated machines. 
+    ![Site Recovery replicated items list view](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-list-view.png)
+
+2. You can view and filter information. On the action menu at the top, you can perform actions for a particular machine, including running a test failover, or viewing specific errors.
+3. Click **Columns** to show additional columns,  For example to show RPO, target configuration issues, and replication errors.
+4. Click **Filter** to view information based on specific parameters such as replication health, or a particular replication policy.
+5. Right-click a machine to initiate operations such as test failover for it, or to view specific error details associated with it.
+6. Click a machine to drill into more details for it. Details include:
+   - **Replication information**: Current status and health of the machine.
+   - **RPO** (recovery point objective): Current RPO for the virtual machine and the time at which the RPO was last computed.
+   - **Recovery points**: Latest available recovery points for the machine.
+   - **Failover readiness**: Indicates whether a test failover was run for the machine, the agent version running on the machine (for machines running the Mobility service), and any configuration issues.
+   - **Errors**: List of replication error symptoms currently observed on the machine, and possible causes/actions.
+   - **Events**: A chronological list of recent events impacting the machine. Error details shows the currently observable error symptoms, while events is a historical record of issues that have impacted the machine.
+   - **Infrastructure view**: Shows state of infrastructure for the scenario when machines are replicating to Azure.
+
+     ![Site Recovery replicated item details/overview](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
 
 ## Subscribe to email notifications
 
-The in-built email notification feature lets you subscribe to receive email notifications for critical events. If subscribed, email notifications are sent for the following events:
-- Replication health of a replicating machine degrading to critical.
-- No connectivity between the on-premises infrastructure components and the Azure Site Recovery service. Connectivity to the Site Recovery service from the on-premises infrastructure components such as the Configuration Server (VMware) or System Center Virtual Machine Manager(Hyper-V) registered to the vault is detected using a heartbeat mechanism.
-- Failover operation failures if any.
+You can subscribe to receive email notifications for these critical events:
+ 
+- Critical state for replicated machine.
+- No connectivity between the on-premises infrastructure components and Site Recovery service. Connectivity between Site Recovery and on-premises servers registered in a vault is detected using a heartbeat mechanism.
+- Failover failures.
 
-To subscribe to receive email notifications for Azure Site Recovery, go the **Monitoring and Reports** section of the vault menu and:
-1. Select Alerts and Events > Site Recovery Events.
-2. Select "Email notifications" from the menu on top of the events page that is opened.
-3. Use the email notification wizard to turn on or off email notifications and to select recipients for the notifications. You may specify that all subscription admins be sent notifications, and/or provide a list of email addresses to send notifications to. 
+Subscribe as follows:
+
+In the vault > **Monitoring** section, click **Site Recovery Events**.
+1. Click **Email notifications**.
+1. In **Email notification**, turn on notifications and specify who to send to. You can send to all subscription admins be sent notifications, and optionally specific email addresses.
+
+    ![Email notifications](./media/site-recovery-monitor-and-troubleshoot/email.png)
+
+## Next steps
+
+[Learn about](monitor-log-analytics.md) monitoring Site Recovery with Azure Monitor.

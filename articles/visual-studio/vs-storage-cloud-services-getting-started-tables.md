@@ -1,21 +1,18 @@
 ---
-title: Get started with table storage and Visual Studio connected services (cloud services) | Microsoft Docs
+title: Get started with table storage using Visual Studio (cloud services) 
 description: How to get started using Azure Table storage in a cloud service project in Visual Studio after connecting to a storage account using Visual Studio connected services
 services: storage
-documentationcenter: ''
-author: kraigb
-manager: ghogen
-editor: ''
-
+author: ghogen
+manager: jillfra
 ms.assetid: a3a11ed8-ba7f-4193-912b-e555f5b72184
-ms.service: storage
-ms.workload: web
-ms.tgt_pltfrm: vs-getting-started
-ms.devlang: na
-ms.topic: article
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.custom: vs-azure
+ms.workload: azure-vs
+ms.topic: conceptual
 ms.date: 12/02/2016
-ms.author: kraigb
-
+ms.author: ghogen
+ROBOTS: NOINDEX,NOFOLLOW
 ---
 # Getting started with Azure table storage and Visual Studio connected services (cloud services projects)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -27,12 +24,12 @@ The Azure Table storage service enables you to store large amounts of structured
 
 To get started, you first need to create a table in your storage account. We'll show you how to create an Azure table in code, and also how to perform basic table and entity operations, such as adding, modifying, reading and reading table entities. The samples are written in C\# code and use the [Microsoft Azure Storage client library for .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
-**NOTE:** Some of the APIs that perform calls out to Azure storage are asynchronous. See [Asynchronous programming with Async and Await](http://msdn.microsoft.com/library/hh191443.aspx) for more information. The code below assumes async programming methods are being used.
+**NOTE:** Some of the APIs that perform calls out to Azure storage are asynchronous. See [Asynchronous programming with Async and Await](https://msdn.microsoft.com/library/hh191443.aspx) for more information. The code below assumes async programming methods are being used.
 
 * See [Get started with Azure Table storage using .NET](../storage/storage-dotnet-how-to-use-tables.md) for more information on programmatically manipulating tables.
 * See [Storage documentation](https://azure.microsoft.com/documentation/services/storage/) for general information about Azure Storage.
 * See [Cloud Services documentation](https://azure.microsoft.com/documentation/services/cloud-services/) for general information about Azure cloud services.
-* See [ASP.NET](http://www.asp.net) for more information about programming ASP.NET applications.
+* See [ASP.NET](https://www.asp.net) for more information about programming ASP.NET applications.
 
 ## Access tables in code
 To access tables in cloud service projects, you need to include the following items to any C# source files that access Azure table storage.
