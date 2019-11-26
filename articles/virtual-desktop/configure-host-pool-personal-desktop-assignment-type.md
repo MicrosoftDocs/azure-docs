@@ -6,7 +6,7 @@ author: HeidiLohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 11/26/2019
 ms.author: helohr
 ---
 # Configure the personal desktop host pool assignment type
