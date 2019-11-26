@@ -29,7 +29,7 @@ Azure AD uses this integration to enable the following cloud HR application (app
 > [!NOTE]
 > This deployment plan guides how to deploy your cloud HR app workflows with Azure AD user provisioning. For information on deploying automatic user provisioning to SaaS apps, refer to [Plan an automatic user provisioning deployment](https://aka.ms/deploymentplans/provisioning).
 
-## Enabled HR Scenarios
+## Enabled HR scenarios
 
 The Azure AD user provisioning service enables automation of the following HR-based identity lifecycle management scenarios:
 
@@ -166,10 +166,10 @@ The Azure AD Connect provisioning agent deployment topology depends on the numbe
 
 Based on your decision, choose one of the deployment scenarios:
 
-- [Single Cloud HR app tenant -\> Target single/multiple AD child domains in a trusted forest](#single-cloud-hr-app-tenant-singlemultiple-target-ad-child-domains-in-a-trusted-forest)
-- [Single Cloud HR app tenant -\> Target multiple child domains in a disjoint AD forest](#single-cloud-hr-app-tenant-disjoint-ad-forest)
+- [Single cloud HR app tenant -> target single or multiple AD child domains in a trusted forest](#Single cloud HR app tenant -> single or multiple target AD child domains in a trusted forest)
+- [Single cloud HR app tenant -> target multiple child domains in a disjoint AD forest](#Single cloud HR app tenant -> disjoint AD forest)
 
-### Single Cloud HR app tenant -\> Single/Multiple target AD child domains in a trusted forest
+### Single Cloud HR app tenant -> single or multiple target AD child domains in a trusted forest
 
 We recommend the following production configuration:
 
@@ -181,7 +181,7 @@ We recommend the following production configuration:
 
 ![Flow to on-premises agents](./media/plan-cloudhr-provisioning/plan-cloudhr-provisioning-img4.png)
 
-### Single Cloud HR app tenant -> Disjoint AD forest
+### Single cloud HR app tenant -> disjoint AD forest
 
 This scenario involves provisioning users from the cloud HR app to domains in disjoint AD forests.
 
@@ -340,7 +340,7 @@ Once you have configured the cloud HR app to Azure AD user provisioning, you wil
 |HR rehires an employee into a new role.|Behavior depends on how the cloud HR app is configured to generate Employee IDs:</br>- If the old employee ID is reused for rehires, then the connector will enable the existing AD account for the user.</br>- If rehires get a new employee ID, then the connector will create a new AD account for the user.|
 |HR converts the employee to contract worker or vice versa|A new AD account is created for the new persona and the old account gets disabled on the conversion effective date.|
 
-Use the results above to determine how to transition your automatic user provisioning implementation into production based on your [established timelines](#_Timelines).
+Use the results above to determine how to transition your automatic user provisioning implementation into production based on your [established timelines](#Plan Cloud HR application to Azure Active Directory user provisioning).
 
 > [!TIP]
 > We recommend using techniques such as data reduction and data scrubbing when refreshing the test environment with production data to remove/mask sensitive PII (Personally Identifiable Information) data to comply with privacy and security standards.
@@ -385,7 +385,7 @@ You can install the [Log analytics views for Azure AD activity logs](https://doc
 
 For more information, see [how to analyze the Azure AD activity logs with your Azure Monitor logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics)
 
-### Manage Personal data
+### Manage personal data
 
 The Azure AD Connect provisioning agent installed on the Windows server creates logs in the Windows event log that may contain personal data depending on your Cloud HR app to AD attribute mappings. To comply with user privacy obligations, you can set up a Windows scheduled task to clear the event log and ensure that no data is retained beyond 48 hours.
 
