@@ -16,6 +16,8 @@ ms.subservice: blobs
 
 Immutable storage for Azure Blob storage enables users to store business-critical data objects in a WORM (Write Once, Read Many) state. This state makes the data non-erasable and non-modifiable for a user-specified interval. For the duration of the retention interval, blobs can be created and read, but cannot be modified or deleted. Immutable storage is available for general-purpose v2 and Blob storage accounts in all Azure regions.
 
+For information about how to set and clear legal holds or create a time-based retention policy, see [Set and manage immutability policies for Blob storage](storage-blob-immutability-policies-manage.md).
+
 ## About immutable Blob storage
 
 Immutable storage helps healthcare organization, financial institutions, and related industries&mdash;particularly broker-dealer organizations&mdash;to store data securely. Immutable storage can also be leveraged in any scenario to protect critical data against modification or deletion.
@@ -55,12 +57,7 @@ When a time-based retention policy is applied on a container, all blobs in the c
 
 For new blobs, the effective retention period is equal to the user-specified retention interval. Because users can extend the retention interval, immutable storage uses the most recent value of the user-specified retention interval to calculate the effective retention period.
 
-> [!TIP]
-> **Example:** A user creates a time-based retention policy with a retention interval of five years.
->
-> The existing blob in that container, _testblob1_, was created one year ago. The effective retention period for _testblob1_ is four years.
->
-> A new blob, _testblob2_, is now uploaded to the container. The effective retention period for this new blob is five years.
+For example, suppose that a user creates a time-based retention policy with a retention interval of five years. An existing blob in that container, _testblob1_, was created one year ago. The effective retention period for _testblob1_ is four years. When a new blob, _testblob2_, is uploaded to the container, the effective retention period for the new blob is five years.
 
 An unlocked time-based retention policy is recommended only for feature testing and a policy must be locked in order to be compliant with SEC 17a-4(f) and other regulatory compliance. Once a time-based retention policy is locked, the policy cannot be removed and a maximum of five increases to the effective retention period is allowed. For more information on how to set and lock time-based retention policies, see [Set and manage immutability policies for Blob storage](storage-blob-immutability-policies-manage.md).
 
@@ -100,15 +97,6 @@ The following table shows the types of blob operations that are disabled for the
 ## Pricing
 
 There is no additional charge for using this feature. Immutable data is priced in the same way as regular, mutable data. For pricing details on Azure Blob storage, see the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
-
-## Client libraries
-
-The following client libraries support immutable storage for Azure Blob storage:
-
-- [.NET management library](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/)
-- [Node.js management library](https://www.npmjs.com/package/azure-arm-storage)
-- [Python management library](https://pypi.org/project/azure-mgmt-storage/)
-- [Java management library](https://mvnrepository.com/artifact/com.microsoft.azure/azure-mgmt-storage)
 
 ## FAQ
 
