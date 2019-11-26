@@ -21,7 +21,7 @@ ms.custom: seodec18
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) provides
 built-in monitoring functionality for web apps, mobile back ends, and API apps in the [Azure portal](https://portal.azure.com).
 
-In the Azure portal, you can review *quotas* and *metrics* for an app, review the App Service plan, and automatically set up *alerts* and *scaling* that are based on the metrics.
+In the Azure portal, you can review *quotas* and *metrics* for an app and App Service plan, and set up *alerts* and *auto-scaling* that are based metrics.
 
 ## Understand quotas
 
@@ -45,7 +45,7 @@ Quotas for Free or Shared apps are:
 | **Filesystem** | The total amount of storage allowed. |
 
 The only quota applicable to apps that are hosted in *Basic*, *Standard*, and
-*Premium* plans is Filesystem.
+*Premium* is Filesystem.
 
 For more information about the specific quotas, limits, and features available to the various App Service SKUs, see [Azure Subscription service limits](../azure-subscription-service-limits.md#app-service-limits).
 
@@ -94,7 +94,7 @@ For an app, the available metrics are:
 | **Http 4xx** | The count of requests resulting in an HTTP status code ≥ 400 but < 500. |
 | **Http Server Errors** | The count of requests resulting in an HTTP status code ≥ 500 but < 600. |
 | **IO Other Bytes Per Second** | The rate at which the app process is issuing bytes to I/O operations that do not involve data, such as control operations.|
-| **IO Other Operations Per Second** | The rate at which the app process is issuing I/O operations that are neither read nor write operations.|
+| **IO Other Operations Per Second** | The rate at which the app process is issuing I/O operations that are not read or write operations.|
 | **IO Read Bytes Per Second** | The rate at which the app process is reading bytes from I/O operations.|
 | **IO Read Operations Per Second** | The rate at which the app process is issuing read I/O operations.|
 | **IO Write Bytes Per Second** | The rate at which the app process is writing bytes to I/O operations.|
