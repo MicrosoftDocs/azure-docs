@@ -65,7 +65,7 @@ There are changes that require special considerations when testing, from simple 
 |Change AD FS rules such as Authorization, Issuance, MFA|Use group claim to target subset of users.|
 |Change AD FS authentication experience or similar farm-wide changes|Create a parallel farm with same host name, implement config changes, test from clients using HOSTS file, NLB routing rules, or similar routing.<br>If the target platform does not support HOSTS files (for example mobile devices), control change.|
 
-## Access Reviews
+## Access reviews
 
 ### Access reviews to applications
 
@@ -116,7 +116,7 @@ To be clear, if the EA portal authorization level is currently set to "mixed mod
 
 - [Administrator role permissions in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)
 
-## Entitlement Management
+## Entitlement management
 
 [Entitlement management (EM)](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) allows app owners to bundle resources and assign them to specific personas in the organization (both internal and external). EM allows self-service sign up and delegation to business owners while keeping governance policies to grant access, set access durations, and allow approval workflows. 
 
@@ -127,14 +127,14 @@ To be clear, if the EA portal authorization level is currently set to "mixed mod
 
 There are eight aspects to a secure Identity governance. This list will help you identify the actions you should take to assess and attest the access granted to non-privileged and privileged identities, audit, and control changes to the environment.
 
-1. Assign owners to key tasks.
-2. Implement a testing strategy.
-3. Use Azure AD Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments.
-4. Establish a regular, automated access review process for all types of external identities and application access.
-5. Establish an access review process to review and manage admin access on a regular basis and provide just-in-time privileged access to Azure AD and Azure resources.
-6. Provision emergency accounts to be prepared to manage Azure AD for unexpected outages.
-7. Lock down access to the Azure EA portal.
-8. Implement Entitlement Management to provide governed access to a collection of resources.
+- Assign owners to key tasks.
+- Implement a testing strategy.
+- Use Azure AD Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments.
+- Establish a regular, automated access review process for all types of external identities and application access.
+- Establish an access review process to review and manage admin access on a regular basis and provide just-in-time privileged access to Azure AD and Azure resources.
+- Provision emergency accounts to be prepared to manage Azure AD for unexpected outages.
+- Lock down access to the Azure EA portal.
+- Implement Entitlement Management to provide governed access to a collection of resources.
 
 ## Next steps
 
