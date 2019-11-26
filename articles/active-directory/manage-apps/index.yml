@@ -52,22 +52,20 @@ landingContent:
             url: user-provisioning.md
           - text: How provisioning works
             url: how-provisioning-works.md
-      - linkListType: concept
+      - linkListType: tutorial
+        links:
+          - text: SaaS apps provisioning tutorials
+            url: /azure/active-directory/saas-apps/
+      - linkListType: how-to-guide
         links:
           - text: Building an app? Use SCIM for automatic provisioning
             url: use-scim-to-provision-users-and-groups.md
           - text: Adding a gallery app? Configure provisioning to the app
             url: configure-automatic-user-provisioning-portal.md
-      - linkListType: how-to-guide
-        links:
           - text: Customize attribute mappings
             url: customize-application-attributes.md
           - text: Use scoping filters
             url: define-conditional-rules-for-provisioning-user-accounts.md
-          - text: Check provisioning status
-            url: application-provisioning-when-will-provisioning-finish-specific-user.md
-          - text: Write expressions for attribute mappings
-            url: functions-for-customizing-application-data.md
   - title: Publish on-premises apps with Application Proxy
     linkLists:
       - linkListType: overview
