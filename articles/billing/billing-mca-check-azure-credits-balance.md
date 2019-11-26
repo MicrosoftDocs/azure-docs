@@ -29,6 +29,14 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
     ![Screenshot that shows search in portal for cost management + billing](./media/billing-mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
 
+3. In the billing scopes page, select the billing account for which you want to track the credit balance. The billing account should be of type **Microsoft Customer Agreement**.
+
+    ![Screenshot that shows search in portal for cost management + billing](./media/billing-mca-check-azure-credits-balance/list-of-scopes.png)
+
+ > [!NOTE]
+    >
+    > Azure portal remembers the last billing scope that you access and displays the scope the next time you come to Cost Management + Billing page. You won't see the billing scopes page if you have visited Cost Management + Billing earlier. If so, check that you are in the [right scope](#check-access-to-a-microsoft-customer-agreement). If not, [switch the scope](billing-view-all-accounts.md#switch-billing-scope-in-the-azure-portal) to select the billing account for a Microsoft Customer Agreement.
+
 3. Select **Payment methods** from the left-hand side and then select **Azure credits**.
 
    ![Screenshot of credit balance for a billing profile](./media/billing-mca-check-azure-credits-balance/mca-payment-methods.png)
@@ -44,6 +52,8 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
    | Estimated balance  | Estimated amount of credits you have after considering all billed and pending transactions |
    | Current balance    | Amount of credits as of your last invoice. It doesn't include any pending transactions |
 
+   When your estimated balance drops to 0, you are charged for all your usage, including for products that are eligible for credits.
+
    #### Credits list
 
    ![Screenshot of credits lists for a Billing profile](./media/billing-mca-check-azure-credits-balance/mca-credits-list.png)
@@ -57,8 +67,6 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
    | Original amount | The original amount of credit |
    | Status | The current status of credit. Status can be active, used, expired, or expiring |
 
-   When your estimated balance drops to 0, you are charged for all your usage, including for products that are eligible for credits.
-
    #### Transactions
 
    ![Screenshot of credit transactions for a billing profile](./media/billing-mca-check-azure-credits-balance/mca-credits-transactions.png)
@@ -70,7 +78,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
    | Amount| The amount of transaction |
    | Balance | The balance after the transaction |
 
-    > [!NOTE]
+  > [!NOTE]
     >
     > If you don't see Azure credits in the payment methods page, either you don't have credits or you have not selected the right scope. Select the billing profile which has credits or its billing account. To learn how to change scopes, see [Switch billing scopes in the Azure portal](billing-view-all-accounts.md#switch-billing-scope-in-the-azure-portal).
 
