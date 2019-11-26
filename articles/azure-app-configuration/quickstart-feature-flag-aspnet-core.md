@@ -82,8 +82,8 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
 1. Add reference to the `Microsoft.Azure.AppConfiguration.AspNetCore` and the `Microsoft.FeatureManagement.AspNetCore` NuGet packages by running the following commands:
 
     ```
-    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009470001-12
-    dotnet add package Microsoft.FeatureManagement.AspNetCore --version 1.0.0-preview-009000001-1251
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version {tbd}
+    dotnet add package Microsoft.FeatureManagement.AspNetCore --version {tbd}
     ```
 
 1. Run the following command to restore packages for your project:
