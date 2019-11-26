@@ -1,16 +1,17 @@
 ---
-title: Create a serverless function app using the Azure CLI
-description: Create a function app for serverless execution in Azure using the Azure CLI
+title: Create a serverless Python function app - Azure CLI
+description: Create a serverless Python function app using the Azure CLI
 ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
 ms.topic: sample
-ms.date: 07/03/2018
-ms.author: glenga
-ms.custom: mvc
+ms.date: 11/23/2019
 ---
 
-# Create a function app for serverless code execution 
+# Create a serverless Python function app using Azure CLI
 
-This Azure Functions sample script creates a function app, which is a container for your functions. The function app is created using the [consumption plan](../functions-scale.md#consumption-plan), which is ideal for event-driven serverless workloads.
+This Azure Functions sample script creates a function app, which is a container for your functions. 
+
+>[!NOTE]
+>The function app created runs on Python version 3.6. Python version 3.7 is also supported by Azure Functions.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -22,7 +23,7 @@ If you choose to install and use the CLI locally, this article requires that you
 
 This script creates an Azure Function app using the [consumption plan](../functions-scale.md#consumption-plan).
 
-[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-consumption/create-function-app-consumption.sh "Create an Azure Function on a consumption plan")]
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-consumption-python/create-function-app-consumption-python.sh "Create an Azure Function on a consumption plan")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 

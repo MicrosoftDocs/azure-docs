@@ -1,14 +1,14 @@
 ---
-title: Create a Function App in an App Service plan - Azure CLI
-description: Azure CLI Script Sample - Create a Function App in an App Service plan
-ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
+title: Create a function app in a Premium plan - Azure CLI
+description: Create a function app in a scalable Premium plan in Azure using the Azure CLI
+ms.service: azure-functions
 ms.topic: sample
-ms.date: 07/03/2018
-ms.custom: mvc
+ms.date: 11/23/2019
 ---
-# Create a Function App in an App Service plan
 
-This Azure Functions sample script creates a function app, which is a container for your functions. The function app that is created uses a dedicated App Service plan, which means your server resources are always on.
+# Create a function app in a Premium plan - Azure CLI
+
+This Azure Functions sample script creates a function app, which is a container for your functions. The function app that is created uses a [scalable Premium plan](../functions-premium-plan.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -18,9 +18,9 @@ If you choose to install and use the CLI locally, this article requires the Azur
 
 ## Sample script
 
-This script creates an Azure Function app using a dedicated [App Service plan](../functions-scale.md#app-service-plan).
+This script creates a function app using a [Premium plan](../functions-premium-plan.md).
 
-[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-app-service-plan/create-function-app-app-service-plan.sh "Create an Azure Function on an App Service plan")]
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-premium-plan/create-function-app-premium-plan.sh "Create an Azure Function on an App Service plan")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
