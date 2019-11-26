@@ -60,7 +60,7 @@ To learn more about other partners, see [Business Intelligence partners][bi_part
 [10]: ./media/sql-data-warehouse-partner-data-integration/segment_logo.png
 [11]: ./media/sql-data-warehouse-partner-data-integration/skyvia_logo.png
 [12]: ./media/sql-data-warehouse-partner-data-integration/talend_logo.png
-{13}: ./media/sql-data-warehouse-partner-data-integration/timextender_logo.png
+[13]: ./media/sql-data-warehouse-partner-data-integration/timextender_logo.png
 [14]: ./media/sql-data-warehouse-partner-data-integration/trifacta_logo.png
 [15]: ./media/sql-data-warehouse-partner-data-integration/wherescape_logo.png
 [16]: ./media/sql-data-warehouse-partner-data-integration/streamsets_logo.png
