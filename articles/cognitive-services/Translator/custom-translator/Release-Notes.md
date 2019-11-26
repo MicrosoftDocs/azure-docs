@@ -18,10 +18,10 @@ ms.author: moelghaz
 ## Custom Translator: 2019-Oct & 2019-Nov releases
 
 **Improvements / Changes**
-* Improved the compounding of translations in applicable languages
+* Improved the compounding of translations in English-Dutch
 *	We now display the training price as users select training documents so users know beforehand how much each training will cost
 *	We now allow underscores in the project label 
-*	We allow for right click and open in new tab for projects/ documents/ etc. (this was actually a big user request/ pain point)
+*	We allow for right click and open in new tab for projects/ documents/ etc.
 
 **Bug fixes**
 *	Fixed instances of the incorrect translation of names to Portuguese
