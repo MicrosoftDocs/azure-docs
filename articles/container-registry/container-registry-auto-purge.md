@@ -1,14 +1,8 @@
 ---
-title: Automatically remove image resources in Azure Container Registry
+title: Purge tags and manifests
 description: Use a purge command to delete multiple tags and manifests from an Azure container registry based on age and a tag filter, and optionally schedule purge operations.
-services: container-registry
-author: dlepow
-manager: gwallace
-
-ms.service: container-registry
 ms.topic: article
 ms.date: 08/14/2019
-ms.author: danlep
 ---
 
 # Automatically purge images from an Azure container registry
