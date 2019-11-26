@@ -72,7 +72,7 @@ secret "containerpreview" created
 To verify that the secret has been created, execute the [`kubectl get`][kubectl-get] with the `secrets` flag.
 
 ```console
-kuberctl get secrets
+kubectl get secrets
 ```
 
 Executing the `kubectl get secrets` prints all the configured secrets.

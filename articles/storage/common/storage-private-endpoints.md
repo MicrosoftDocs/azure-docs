@@ -57,16 +57,16 @@ For more detailed information on creating a private endpoint for your storage ac
 
 ### Connecting to Private Endpoints
 
-Clients on a VNet using the private endpoint should use the same connection string for the storage account, as clients connecting to the public endpoint. When you create a private endpoint, we rely upon DNS resolution to automatically route the connections from the VNet to the storage account over a private link.
+Clients on a VNet using the private endpoint should use the same connection string for the storage account, as clients connecting to the public endpoint. We rely upon DNS resolution to automatically route the connections from the VNet to the storage account over a private link.
 
 > [!IMPORTANT]
-> Use the same connection string to connect to the storage account over private endpoints, as you'd use otherwise. Please don't connect to the storage account using its '*privatelink*' subdomain URL.
+> Use the same connection string to connect to the storage account using private endpoints, as you'd use otherwise. Please don't connect to the storage account using its '*privatelink*' subdomain URL.
 
-By default, we create a [private DNS zone](../../dns/private-dns-overview.md) attached to the VNet, with the necessary updates for the private endpoints. However, if you're using your own DNS server, you may need to make additional changes to your DNS configuration. The section on [DNS changes](#dns-changes-for-private-endpoints) below describes the updates required for private endpoints.
+We create a [private DNS zone](../../dns/private-dns-overview.md) attached to the VNet with the necessary updates for the private endpoints, by default. However, if you're using your own DNS server, you may need to make additional changes to your DNS configuration. The section on [DNS changes](#dns-changes-for-private-endpoints) below describes the updates required for private endpoints.
 
-### DNS changes for Private Endpoints
+## DNS changes for Private Endpoints
 
-When you create a private endpoint, we update the DNS CNAME resource record for that storage endpoint to an alias in a subdomain with the prefix '*privatelink*'. By default, we also create a [private DNS zone](../../dns/private-dns-overview.md) attached to the VNet. This private DNS zone corresponds to the subdomain with the prefix '*privatelink*', and contains the DNS A resource records for the private endpoints.
+The DNS CNAME resource record for a storage account with a private endpoint is updated to an alias in a subdomain with the prefix '*privatelink*'. By default, we also create a [private DNS zone](../../dns/private-dns-overview.md) attached to the VNet that corresponds to the subdomain with the prefix '*privatelink*', and contains the DNS A resource records for the private endpoints.
 
 When you resolve the storage endpoint URL from outside the VNet with the private endpoint, it resolves to the public endpoint of the storage service. When resolved from the VNet hosting the private endpoint, the storage endpoint URL resolves to the private endpoint's IP address.
 
@@ -89,8 +89,10 @@ The DNS resource records for StorageAccountA, when resolved by a client in the V
 
 This approach enables access to the storage account **using the same connection string** for clients on the VNet hosting the private endpoints, as well as clients outside the VNet.
 
+If you are using a custom DNS server on your network, clients must be able to resolve the FQDN for the storage account endpoint to the private endpoint IP address. For this, you must configure your DNS server to delegate your private link subdomain to the private DNS zone for the VNet, or configure the A records for '*StorageAccountA.privatelink.blob.core.windows.net*' with the private endpoint IP address. 
+
 > [!TIP]
-> When using a custom or on-premises DNS server, you should configure DNS resource records for private endpoints in a DNS zone corresponding to the 'privatelink' subdomain of the storage service.
+> When using a custom or on-premises DNS server, you should configure your DNS server to resolve the storage account name in the 'privatelink' subdomain to the private endpoint IP address. You can do this by delegating the 'privatelink' subdomain to the private DNS zone of the VNet, or configuring the DNS zone on your DNS server and adding the DNS A records.
 
 The recommended DNS zone names for private endpoints for storage services are:
 
