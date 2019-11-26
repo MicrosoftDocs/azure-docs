@@ -47,7 +47,7 @@ As you review your list, you may find you need to either assign an owner for tas
 - [Assigning administrator roles in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal)
 - [Governance in Azure](https://docs.microsoft.com/azure/security/governance-in-azure)
 
-## Hybrid Management
+## Hybrid management
 
 ### Recent versions of on-premises components
 
@@ -62,7 +62,7 @@ These components include:
 
 Unless one has been established, you should define a process to upgrade these components and rely on the automatic upgrade feature whenever possible. If you find components that are six or more months behind, you should upgrade as soon as possible.
 
-#### Hybrid recommended reading
+#### Hybrid management recommended reading
 
 - [Azure AD Connect: Automatic upgrade](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 - [Understand Azure AD Application Proxy connectors | Automatic updates](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#automatic-updates)
@@ -104,11 +104,11 @@ Adopting best practices can help the optimal operation of on-premises agents. Co
 - [Understand Azure AD Application Proxy connectors](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors)
 - [Azure AD Pass-through Authentication - quickstart](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start#step-5-ensure-high-availability)
 
-## Management at Scale
+## Management at scale
 
-### Identity Secure Score
+### Identity secure score
 
-The [Identity Secure Score](https://docs.microsoft.com/azure/active-directory/fundamentals/identity-secure-score) provides a quantifiable measure of the security posture of your organization. It is key to constantly review and address findings reported and strive to have the highest score possible. The score helps you to:
+The [identity secure score](https://docs.microsoft.com/azure/active-directory/fundamentals/identity-secure-score) provides a quantifiable measure of the security posture of your organization. It is key to constantly review and address findings reported and strive to have the highest score possible. The score helps you to:
 
 - Objectively measure your identity security posture
 - Plan identity security improvements
@@ -145,7 +145,7 @@ Refer to the following table to learn the type of notifications that are sent an
 
 - [Change your organization's address, technical contact, and more - Office 365](https://docs.microsoft.com/office365/admin/manage/change-address-contact-and-more)
 
-## Operational Surface Area
+## Operational surface area
 
 ### AD FS lockdown
 
@@ -171,10 +171,14 @@ Lock down access to on-premises identity components such as Azure AD Connect, AD
 
 There are seven aspects to a secure Identity infrastructure. This list will help you find the actions you should take to optimize the operations for Azure Active Directory (Azure AD).
 
-1. Assign owners to key tasks.
-2. Automate the upgrade process for on-premises hybrid components.
-3. Deploy Azure AD Connect Health for monitoring and reporting of Azure AD Connect and AD FS.
-4. Monitor the health of on-premises hybrid components by archiving and analyzing the component agent logs using System Center Operations Manager or a SIEM solution.
-5. Implement security improvements by measuring your security posture with Identity Secure Score.
-6. Lock down AD FS.
-7. Lock down access to machines with on-premises identity components.
+- Assign owners to key tasks.
+- Automate the upgrade process for on-premises hybrid components.
+- Deploy Azure AD Connect Health for monitoring and reporting of Azure AD Connect and AD FS.
+- Monitor the health of on-premises hybrid components by archiving and analyzing the component agent logs using System Center Operations Manager or a SIEM solution.
+- Implement security improvements by measuring your security posture with Identity Secure Score.
+- Lock down AD FS.
+- Lock down access to machines with on-premises identity components.
+
+## Next steps
+
+Refer to the [Azure AD deployment plans](active-directory-deployment-plans.md) for implementation details on any capabilities you haven't deployed.
