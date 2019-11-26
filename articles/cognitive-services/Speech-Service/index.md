@@ -124,7 +124,7 @@ description: Get started with the Speech Services.
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Read the docs</h3>
-                                                    <p>Learn more about the Speech service and how to add speech recognition to your apps, tools, and products. Includes concepts, tutorials, and reference.</p>
+                                                    <p>Learn how to add speech recognition to your apps, tools, and products. Includes concepts, tutorials, API reference, and release notes.</p>
                                                 </div>
                                             </div>
                                         </div>
