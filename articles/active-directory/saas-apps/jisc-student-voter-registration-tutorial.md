@@ -92,12 +92,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Jisc Student Voter Registration Domain and URLs single sign-on information](common/sp-identifier.png)
 
-	In the **Sign-on URL** text box, type a URL using one of the following pattern:
-    
-	| | |
-	|-|-|
-	| `https://www.studentvoterregistration.ac.uk/consent`|
-	| `https://www.dev.studentvoterregistration.ac.uk/consent`|
+	In the **Sign-on URL** text box, type a URL:
+	`https://www.studentvoterregistration.ac.uk/consent`
 
 	> [!Note]
 	> If the **Identifier** value does not get auto polulated, then please fill in the value manually according to your requirement. The Sign-on URL value is not real. Update this value with the actual Sign-on URL. Contact [Jisc Student Voter Registration Client support team](mailto:studentvote@jisc.ac.uk) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
