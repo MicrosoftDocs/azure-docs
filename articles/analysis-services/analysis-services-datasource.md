@@ -91,7 +91,11 @@ To enable provider data sources, in Visual Studio, click **Tools** > **Options**
 
 ![Enable legacy data sources](media/analysis-services-datasource/aas-enable-legacy-datasources.png)
 
-With legacy data sources enabled, just like with tabular 1200 model projects, use **Table Import Wizard** to connect to a data source. Specify data provider in **Advanced Properties**.
+With legacy data sources enabled, in **Tabular Model Explorer**, right-click **Data Sources** > **Import From Data Source (Legacy)**.
+
+![Legacy data sources in Tabular Model Explorer](media/analysis-services-datasource/aas-import-legacy-datasources.png)
+
+Just like with tabular 1200 model projects, use **Table Import Wizard** to connect to a data source. On the connect page, click **Advanced**. You can specify data provider and other connection settings in **Set Advanced Properties**.
 
 ![Legacy data sources Advanced properties](media/analysis-services-datasource/aas-import-legacy-advanced.png)
 
