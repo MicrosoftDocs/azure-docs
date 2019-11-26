@@ -6,7 +6,7 @@ ms.topic: sample
 ms.date: 11/23/2019
 ---
 
-# Create a serverless Python function app - Azure CLI
+# Create a serverless Python function app
 
 This Azure Functions sample script creates a function app, which is a container for your functions. 
 
