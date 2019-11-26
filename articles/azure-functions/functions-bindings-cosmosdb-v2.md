@@ -1,13 +1,8 @@
 ---
 title: Azure Cosmos DB bindings for Functions 2.x
 description: Understand how to use Azure Cosmos DB triggers and bindings in Azure Functions.
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
 
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe

@@ -1,11 +1,7 @@
 ---
 title: Function types in the Durable Functions extension of Azure Functions
 description: Learn about the types of functions and roles that support function-to-function communication in a Durable Functions orchestration in Azure Functions.
-services: functions
 author: cgillum
-manager: jeconnoc
-keywords:
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: azfuncdf
