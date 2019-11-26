@@ -1,19 +1,17 @@
 ---
-title: Assign custom roles with resource scope using Azure PowerShell - Azure Active Directory | Microsoft Docs
+title: Assign custom roles using Azure PowerShell - Azure AD | Microsoft Docs
 description: Manage members of an Azure AD administrator custom role with Azure PowerShell.
 services: active-directory
 author: curtand
-manager: mtillman
-
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/05/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-
 ms.collection: M365-identity-device-management
 ---
 # Assign custom roles with resource scope using PowerShell in Azure Active Directory

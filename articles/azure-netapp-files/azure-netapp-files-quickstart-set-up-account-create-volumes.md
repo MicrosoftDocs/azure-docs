@@ -106,7 +106,7 @@ This how-to article requires the Azure PowerShell module Az version 2.6.0 or lat
     ``` 
 
     > [!NOTE]
-    > Please refer to [Products available by region](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=netapp&regions=all) for a list of supported regions.
+    > Please refer to [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all) for a list of supported regions.
     > To obtain the region name that is supported by our command line tools, please use `Get-AzLocation | select Location`
     >
 
@@ -133,7 +133,7 @@ This how-to article requires the Azure PowerShell module Az version 2.6.0 or lat
     ``` 
 
     > [!NOTE]
-    > Please refer to [Products available by region](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=netapp&regions=all) for a list of supported regions.
+    > Please refer to [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all) for a list of supported regions.
     > To obtain the region name that is supported by our command line tools, please use `az account list-locations -query "[].{Region:name}" --out table`
     >
 

@@ -16,4 +16,4 @@
 | IOPS per disk | Up to 120 | Up to 120 | Up to 120 | Up to 120 | Up to 240 | Up to 500 | Up to 500 | Up to 500 | Up to 500 | Up to 500 | Up to 500 | Up to 2,000 | Up to 4,000 | Up to 6,000 |
 | Throughput per disk |  Up to 25 MiB/sec | Up to 25 MiB/sec | Up to 25 MiB/sec | Up to 25 MiB/sec |  Up to 50 MiB/sec  |  Up to 60 MiB/sec | Up to 60 MiB/sec | Up to 60 MiB/sec | Up to 60 MiB/sec | Up to 60 MiB/sec | Up to 60 MiB/sec| Up to 400 MiB/sec |  Up to 600 MiB/sec | Up to 750 MiB/sec |
 
-\*Denotes a disk size that is currently in preview, for regional availability information refer [here](https://docs.microsoft.com/azure/virtual-machines/linux/faq-for-disks#premium-disks-managed-and-unmanaged).
+\*Denotes a disk size that is currently in preview, for regional availability information see [New disk sizes: Managed and unmanaged](https://docs.microsoft.com/azure/virtual-machines/linux/faq-for-disks#new-disk-sizes-managed-and-unmanaged).

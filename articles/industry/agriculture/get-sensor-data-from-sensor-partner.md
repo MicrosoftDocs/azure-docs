@@ -56,10 +56,10 @@ Alternatively, you can generate the credentials by running this script from the 
 
     ```azurepowershell-interactive 
 
-    PS> ./generateCredentials.ps1   
+    ./generateCredentials.ps1   
 
     ```
-7. Follow the onscreen instructions to capture the values. (API Endpoint, Tenant ID, Client ID, Client Secret and EventHub Connection String).
+7. Follow the onscreen instructions to capture the values. (API Endpoint, Tenant ID, Client ID, Client Secret and EventHub Connection String). The EventHub Connection String will be available as part of the API response in the swagger.
 
 **Integrate device data using the generated credentials**
 
@@ -82,7 +82,7 @@ Use the following section to view the devices and sensors in your farm.
 Currently FarmBeats supports the following devices:
 
 - **Node**: a device to which one or more sensors are attached to.
-- **Gateway**: a device to which one or more sensors are attached to.
+- **Gateway**: a device to which one or more nodes are attached to.
 
 Use the following steps:
 

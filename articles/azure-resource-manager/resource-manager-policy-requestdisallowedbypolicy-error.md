@@ -1,20 +1,10 @@
 ---
-title: RequestDisallowedByPolicy error with Azure resource policy | Microsoft Docs
+title: RequestDisallowedByPolicy error
 description: Describes the cause of the RequestDisallowedByPolicy error when deploying resources with Azure Resource Manager.
-services: azure-resource-manager
-documentationcenter: ''
 author: genlin
-manager: dcscontentpm
-editor: ''
-
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-
 ---
 # RequestDisallowedByPolicy error with Azure resource policy
 

@@ -41,7 +41,7 @@ To reduce the memory footprint of the agent, whenever the agent collects an iden
 
 Events are considered identical only when the following conditions are met: 
 
-* ProcessCreate events - when **commandLine**, **executable**, **username, and **userid** are identical
+* ProcessCreate events - when **commandLine**, **executable**, **username**, and **userid** are identical
 * ConnectionCreate events - when **commandLine**, **userId**, **direction**, **local address**, **remote address**, **protocol, and **destination port** are identical
 * ProcessTerminate events - when **executable** and **exit status** are identical
 

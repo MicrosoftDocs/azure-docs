@@ -28,7 +28,7 @@ In this quickstart, you incorporate Azure App Configuration into a .NET Framewor
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
 - [.NET Framework 4.7.2](https://dotnet.microsoft.com/download)
 
-## Create an app configuration store
+## Create an App Configuration store
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
@@ -48,7 +48,7 @@ In this quickstart, you incorporate Azure App Configuration into a .NET Framewor
 
 1. In **Configure your new project**, enter a project name. Under **Framework**, select **.NET Framework 4.7.1** or higher. Click **Create**.
 
-## Connect to an app configuration store
+## Connect to an App Configuration store
 
 1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search and add the following NuGet packages to your project. If you can't find them, select the **Include prerelease** check box.
 
@@ -78,7 +78,7 @@ In this quickstart, you incorporate Azure App Configuration into a .NET Framewor
     </appSettings>
     ```
 
-   The connection string of your app configuration store is read from the environment variable `ConnectionString`. Add the `Environment` configuration builder before the `MyConfigStore` in the `configBuilders` property of the `appSettings` section.
+   The connection string of your App Configuration store is read from the environment variable `ConnectionString`. Add the `Environment` configuration builder before the `MyConfigStore` in the `configBuilders` property of the `appSettings` section.
 
 1. Open *Program.cs*, and update the `Main` method to use App Configuration by calling `ConfigurationManager`.
 
@@ -93,7 +93,7 @@ In this quickstart, you incorporate Azure App Configuration into a .NET Framewor
 
 ## Build and run the app locally
 
-1. Set an environment variable named **ConnectionString** to the connection string of your app configuration store. If you use the Windows command prompt, run the following command:
+1. Set an environment variable named **ConnectionString** to the connection string of your App Configuration store. If you use the Windows command prompt, run the following command:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
@@ -109,7 +109,7 @@ In this quickstart, you incorporate Azure App Configuration into a .NET Framewor
 
 ## Next steps
 
-In this quickstart, you created a new app configuration store and used it with a .NET Framework console app. To learn more about how to use App Configuration, continue to the next tutorial that demonstrates authentication.
+In this quickstart, you created a new App Configuration store and used it with a .NET Framework console app. The value `AppSettings` of `ConfiguratoinManager` won't change after the application is started. The App Configuration .NET Standard configuration provider library, however can also be used in a .NET Framework app. To learn how to enable your .NET Framework app to dynamically refresh configuration settings, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)
+> [Enable dynamic configuration](./enable-dynamic-configuration-dotnet.md)

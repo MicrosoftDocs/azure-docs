@@ -1,5 +1,5 @@
 ---
-title: How to manage a user-assigned managed identity using the Azure portal
+title: Manage a user-assigned managed identity in the Azure portal - Azure AD
 description: Step by step instructions on how to create, list, delete and assign a role to a user-assigned managed identity.
 services: active-directory
 documentationcenter: 

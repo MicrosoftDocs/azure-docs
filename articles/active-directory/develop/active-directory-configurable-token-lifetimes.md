@@ -49,11 +49,11 @@ Clients use access tokens to access a protected resource. An access token can be
 
 ### SAML tokens
 
-SAML tokens are used by many web based SAAS applications, and are obtained using Azure Active Directory's SAML2 protocol endpoint.  They are also consumed by applications using WS-Federation.    The default lifetime of the token is 1 hour. After  From and applications perspective the validity period of the token is specified by the NotOnOrAfter value of the <conditions …>    element in the token.  After the token validity period the client must initiate a new authentication request, which will often be satisfied without interactive sign in as a result of the Single Sign On (SSO) Session token.
+SAML tokens are used by many web based SAAS applications, and are obtained using Azure Active Directory's SAML2 protocol endpoint. They are also consumed by applications using WS-Federation. The default lifetime of the token is 1 hour. From an application's perspective, the validity period of the token is specified by the NotOnOrAfter value of the `<conditions …>` element in the token. After the validity period of the token has ended, the client must initiate a new authentication request, which will often be satisfied without interactive sign in as a result of the Single Sign On (SSO) Session token.
 
-The value of NotOnOrAfter can be changed using the AccessTokenLifetime parameter in a TokenLifetimePolicy.  It will be set to the lifetime configured in the policy if any, plus a clock skew factor of five minutes.
+The value of NotOnOrAfter can be changed using the `AccessTokenLifetime` parameter in a `TokenLifetimePolicy`. It will be set to the lifetime configured in the policy if any, plus a clock skew factor of five minutes.
 
-Note that the subject confirmation NotOnOrAfter specified in the <SubjectConfirmationData> element is not affected by the Token Lifetime configuration. 
+Note that the subject confirmation NotOnOrAfter specified in the `<SubjectConfirmationData>` element is not affected by the Token Lifetime configuration. 
 
 ### Refresh tokens
 

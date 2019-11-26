@@ -1,9 +1,9 @@
 ---
-title: Create a smart meter analytics app with IoT Central | Microsoft Docs
-description: Learn how to create a smart meter monitoring application using Azure IoT Central application templates.
+title: 'Tutorial: Create a smart meter analytics app with IoT Central'
+description: 'Tutorial: Learn how to create a smart meter monitoring application using Azure IoT Central application templates.'
 author: op-ravi
 ms.author: omravi
-ms.date: 10/23/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central

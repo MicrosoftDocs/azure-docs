@@ -1,5 +1,5 @@
 ---
-title: 'Reset circuit peering - ExpressRoute:  Azure | Microsoft Docs'
+title: 'Azure ExpressRoute: Reset circuit peering'
 description: How to disable and enable ExpressRoute circuit peerings.
 services: expressroute
 author:  charwen
@@ -8,7 +8,6 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: charwen
-ms.custom: seodec18
 ---
 
 # Reset ExpressRoute circuit peerings
