@@ -99,7 +99,7 @@ Here are details of the application's parameters and properties:
 | Property                                                    | Description                                                  | Required |
 | ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
 | **RegisterNewNode** "`<AuthenticationKey>`"                     | Register a self-hosted integration runtime node with the specified authentication key. | No       |
-| **EnableRemoteAccess** "`<port>`" ["`<thumbprint>`"]            | Enable remote access on the current node to set up a high-availability cluster. Or enable setting credentials directly against the self-hosted IR without going through the Azure Data Factory service. You do the latter by using the **New-AzDataFactoryV2LinkedServiceEncryptedCredential** cmdlet from a remote machine in the same network. | No       |
+| **EnableRemoteAccess** "`<port>`" ["`<thumbprint>`"]            | Enable remote access on the current node to set up a high-availability cluster. Or enable setting credentials directly against the self-hosted IR without going through Azure Data Factory. You do the latter by using the **New-AzDataFactoryV2LinkedServiceEncryptedCredential** cmdlet from a remote machine in the same network. | No       |
 | **EnableRemoteAccessInContainer** "`<port>`" ["`<thumbprint>`"] | Enable remote access to the current node when the node runs in a container. | No       |
 | **DisableRemoteAccess**                                         | Disable remote access to the current node. Remote access is needed for multinode setup. The **New-AzDataFactoryV2LinkedServiceEncryptedCredential** PowerShell cmdlet still works even when remote access is disabled. This behavior is true as long as the cmdlet is executed on the same machine as the self-hosted IR node. | No       |
 | **Key** "`<AuthenticationKey>`"                                 | Overwrite or update the previous authentication key. Be careful with this action. Your previous self-hosted IR node can go offline if the key is of a new integration runtime. | No       |
@@ -218,7 +218,7 @@ When processor usage is high and available memory is low on the self-hosted IR, 
 
 #### Scale up
 
-When the processor and available RAM aren't well utilized, but the execution of concurrent jobs reaches the processor and RAM limits, scale up by increasing the number of concurrent jobs that a node can run. You might also want to scale up when activities time out because the self-hosted IR is overloaded. As shown in the following image, you can increase the maximum capacity for a node:  
+When the processor and available RAM aren't well utilized, but the execution of concurrent jobs reaches a node's limits, scale up by increasing the number of concurrent jobs that a node can run. You might also want to scale up when activities time out because the self-hosted IR is overloaded. As shown in the following image, you can increase the maximum capacity for a node:  
 
 ![Increase the number of concurrent jobs that can run on a node](media/create-self-hosted-integration-runtime/scale-up-self-hosted-IR.png)
 
@@ -228,7 +228,7 @@ Here are the requirements for the TLS/SSL certificate that you use to secure com
 
 - The certificate must be a publicly trusted X509 v3 certificate. We recommend that you use certificates that are issued by a public partner certification authority (CA).
 - Each integration runtime node must trust this certificate.
-- We don't recommend Subject Alternative Name (SAN) certificates because only the last SAN item is used. All others are SAN items ignored because of current limitations. For example, if you have a SAN certificate whose SANs are **node1.domain.contoso.com** and **node2.domain.contoso.com**, you can use this certificate only on a machine whose fully qualified domain name (FQDN) is **node2.domain.contoso.com**.
+- We don't recommend Subject Alternative Name (SAN) certificates because only the last SAN item is used. All others SAN items are ignored. For example, if you have a SAN certificate whose SANs are **node1.domain.contoso.com** and **node2.domain.contoso.com**, you can use this certificate only on a machine whose fully qualified domain name (FQDN) is **node2.domain.contoso.com**.
 - The certificate can use any key size supported by Windows Server 2012 R2 for SSL certificates.
 - Certificates that use CNG keys aren't supported.  
 
