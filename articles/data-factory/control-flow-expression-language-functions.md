@@ -1139,7 +1139,7 @@ dataUriToString('data:text/plain;charset=utf-8;base64,aGVsbG8=')
 
 And returns this result: `"hello"`
 
-<a name="dayOfMonth"><
+<a name="dayOfMonth"></a>
 
 ### dayOfMonth
 
