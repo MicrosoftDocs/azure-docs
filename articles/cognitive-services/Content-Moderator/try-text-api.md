@@ -59,9 +59,7 @@ For **Content-Type**, select the type of content you want to screen. For this ex
 In the **Request body** box, enter some text. The following example shows an intentional typo in the text.
 
 ```
-Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
-These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300.
-Also, 999-99-9999 looks like a social security number (SSN).
+Is this a grabage or crap email abcdef@abcd.com, phone: 4255550111, IP: 255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555. These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300. Also, 999-99-9999 looks like a social security number (SSN).
 ```
 
 ## Analyze the response
@@ -72,8 +70,8 @@ The following response shows the various insights from the API. It contains pote
 > The machine-assisted 'Classification' feature is in preview and supports English only.
 
 ```json
-{"OriginalText":"Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.\r\nThese are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300.\r\nAlso, 544-56-7788 looks like a social security number (SSN).",
-"NormalizedText":"Is this a grabage or crap email abcdef@ abcd. com, phone: 6657789887, IP: 255. 255. 255. 255, 1 Microsoft Way, Redmond, WA 98052. \r\nThese are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300. \r\nAlso, 544- 56- 7788 looks like a social security number ( SSN) .",
+{"OriginalText":"Is this a grabage or crap email abcdef@abcd.com, phone: 4255550111, IP: 255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555.\r\nThese are all UK phone numbers: +44 123 456 7890 or 0234 567 8901 or 0456 789 0123.\r\nAlso, 999-99-9999 looks like a social security number (SSN).",
+"NormalizedText":"Is this a grabage or crap email abcdef@ abcd. com, phone: 4255550111, IP: 255. 255. 255. 255, 1234 Main Boulevard, Panapolis WA 96555. \r\nThese are all UK phone numbers: +44 123 456 7890 or 0234 567 8901 or 0456 789 0123. \r\nAlso, 999- 99- 9999 looks like a social security number ( SSN) .",
 "Misrepresentation":null,
 "PII":{  
   "Email":[  
@@ -94,33 +92,33 @@ The following response shows the various insights from the API. It contains pote
   "Phone":[  
     {  
       "CountryCode":"US",
-      "Text":"6657789887",
+      "Text":"4255550111",
       "Index":56
     },
     {  
       "CountryCode":"US",
-      "Text":"870 608 4000",
+      "Text":"425 555 0111",
       "Index":211
     },
     {  
       "CountryCode":"UK",
-      "Text":"+44 870 608 4000",
+      "Text":"+44 123 456 7890",
       "Index":207
     },
     {  
       "CountryCode":"UK",
-      "Text":"0344 800 2400",
+      "Text":"0234 567 8901",
       "Index":227
     },
     {  
       "CountryCode":"UK",
-      "Text":"0800 820 3300",
+      "Text":"0456 789 0123",
       "Index":244
     }
   ],
   "Address":[  
     {  
-      "Text":"1 Microsoft Way, Redmond, WA 98052",
+      "Text":"1234 Main Boulevard, Panapolis WA 96555",
       "Index":89
     }
   ],
