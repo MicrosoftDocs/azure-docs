@@ -151,7 +151,7 @@
     - name: Co-location
       href: co-location.md
     - name: Network performance
-      href: ../..//virtual-network/virtual-network-optimize-network-bandwidth.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      href: ../../virtual-network/virtual-network-optimize-network-bandwidth.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: VM types and sizes
     href: sizes.md
     items:
@@ -209,7 +209,7 @@
   - name: Dedicated hosts
     href: dedicated-hosts.md
   - name: Maintenance and updates
-    href: maintenance-and-updates.md
+    href: ../maintenance-and-updates.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Disk storage
     items:
     - name: Introduction to managed disks
@@ -376,18 +376,32 @@
       href: download-template.md
     - name: Azure VM agent
       href: ../extensions/agent-windows.md
-    - name: Planned maintenance
-      href: maintenance-notifications.md
     - name: Mitigating speculative execution
       href: mitigate-se.md
-    - name: Scheduled events
-      href: scheduled-events.md
-    - name: Monitor scheduled events
-      href: scheduled-event-service.md
     - name: Monitor metadata
       href: instance-metadata-service.md
     - name: Enable nested virtualization
       href: nested-virtualization.md
+  - name: Platform maintenance
+    items: 
+    - name: Maintenance notifications
+      items:
+      - name: Overview
+        href: maintenance-notifications.md
+      - name: CLI
+        href: ../maintenance-notifications-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Portal
+        href: ../maintenance-notifications-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: PowerShell
+        href: ../maintenance-notifications-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: Maintenance control
+      items:
+      - name: CLI
+        href: ../maintenance-control-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: Scheduled events
+      href: scheduled-events.md
+    - name: Windows scheduled event service
+      href: scheduled-event-service.md
   - name: Monitor VMs
     items:
     - name: Azure Monitor for VMs
