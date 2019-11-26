@@ -321,7 +321,8 @@ The SDK uses three Azure Monitor exporters to send different types of telemetry 
     ```
 
 6. You can also add custom dimensions to your logs. These will appear as key-value pairs in `customDimensions` in Azure Monitor.
-NOTE: For this feature to work, you need to pass a dictionary as an argument to your logs, any other data structure will be ignored. To maintain string formatting, store them in a dictionary and pass them as arguments.
+> [!NOTE]
+> For this feature to work, you need to pass a dictionary as an argument to your logs, any other data structure will be ignored. To maintain string formatting, store them in a dictionary and pass them as arguments.
 
     ```python
     import logging
