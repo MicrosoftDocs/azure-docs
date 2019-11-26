@@ -48,7 +48,7 @@ You can change the **Data retention time** setting in your Azure Time Series Ins
 Azure Time Series Insights has two modes:
 
 * One mode optimizes for the most up-to-date data. It enforces a policy to **Purge old data** leaving recent data available with the instance. This mode is on, by default. 
-* The other optimizes data to remain below the configured retention limits. **Pause ingress** prevents new data from being ingressed when its selected as the **Storage limit exceeded behavior**. 
+* The other optimizes data to remain below the configured retention limits. **Pause ingress** prevents new data from being ingressed when it's selected as the **Storage limit exceeded behavior**. 
 
 You can adjust retention and toggle between the two modes on the environment’s configuration page in the Azure portal.
 
