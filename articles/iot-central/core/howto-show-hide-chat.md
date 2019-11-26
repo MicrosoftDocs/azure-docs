@@ -27,13 +27,13 @@ You can type a question as shown in the following screenshot:
 
 !["Configure Device Details" form with details for settings and properties](media/howto-show-hide-chat/sample-chat.png)
 
-## Hide Chat
+## Hide chat
 
 To hide the chat, choose **Hide Chat** in the **Help** panel:
 
  ![Hide Chat](media/howto-show-hide-chat/hide-chat.png)
 
-## Enable Chat
+## Enable chat
 
 To show the chat, choose **Show Chat** in the **Help** panel:
 

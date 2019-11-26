@@ -42256,6 +42256,68 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/iot-central/preview/howto-manage-iot-central-from-portal.md",
+      "redirect_url": "/azure/iot-central/core/howto-manage-iot-central-from-portal/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/preview/howto-manage-iot-central-from-powershell.md",
+      "redirect_url": "/azure/iot-central/core/howto-manage-iot-central-from-powershell/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/preview/howto-manage-preferences.md",
+      "redirect_url": "/azure/iot-central/core/howto-manage-preferences/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/preview/howto-manage-users-roles.md",
+      "redirect_url": "/azure/iot-central/core/howto-manage-users-roles/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/preview/howto-run-a-job.md",
+      "redirect_url": "/azure/iot-central/core/howto-run-a-job/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/preview/howto-set-up-template.md",
+      "redirect_url": "/azure/iot-central/core/howto-set-up-template/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/preview/howto-show-hide-chat.md",
+      "redirect_url": "/azure/iot-central/core/howto-show-hide-chat/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/preview/howto-use-action-groups.md",
+      "redirect_url": "/azure/iot-central/core/howto-use-action-groups/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/preview/howto-use-app-templates.md",
+      "redirect_url": "/azure/iot-central/core/howto-use-app-templates/",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path": "articles/iot-central/preview/howto-customize-ui.md",
+      "redirect_url": "/azure/iot-central/core/howto-customize-ui/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/preview/howto-manage-devices.md",
+      "redirect_url": "/azure/iot-central/core/howto-manage-devices/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/preview/howto-manage-iot-central-from-cli.md",
+      "redirect_url": "/azure/iot-central/core/howto-manage-iot-central-from-cli/",
+      "redirect_document_id": true
+    },
+
+    {
       "source_path": "articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md",
       "redirect_url": "/azure/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2",
       "redirect_document_id": false

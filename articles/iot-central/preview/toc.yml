@@ -55,44 +55,20 @@
           href: howto-monitor-devices-azure-cli.md
         - name: Version device template
           href: howto-version-device-template.md
-        - name: Manage your devices
-          href: howto-manage-devices.md
-        - name: Run a job
-          href: howto-run-a-job.md
-        - name: Version device template
-          href: howto-version-device-template.md
     - name: Transform
       items:
         - name: Configure continuous data export
           href: howto-export-data.md
-        - name: Connect Azure Monitor action groups on rules
-          href: howto-use-action-groups.md
     - name: Administration
       items:
         - name: Manage your application
           items:
-            - name: Manage users and roles
-              href: howto-manage-users-roles.md
             - name: Manage your bill
               href: howto-view-bill.md
-            - name: Customize application UI
-              href: howto-customize-ui.md
-            - name: Export your application
-              href: howto-use-app-templates.md
-        - name: Manage from other places
-          items:
-            - name: Manage from the Azure portal
-              href: howto-manage-iot-central-from-portal.md
-            - name: Manage from Azure CLI
-              href: howto-manage-iot-central-from-cli.md
-            - name: Manage from Azure PowerShell
-              href: howto-manage-iot-central-from-powershell.md
         - name: Personalize application
           items:
             - name: Manage your personal preferences
               href: howto-manage-preferences.md
-            - name: Toggle live chat
-              href: howto-show-hide-chat.md
 - name: Related
   items:
     - name: Platform services
