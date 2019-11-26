@@ -378,7 +378,19 @@ public static Task SendMessage(
 
 # [C# Script](#tab/csharp-script)
 
-*function.json* stays the same. Here's the C# Script code:
+Example function.json:
+
+```json
+{
+  "type": "signalR",
+  "name": "signalRMessages",
+  "hubName": "<hub_name>",
+  "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+  "direction": "out"
+}
+```
+
+Here's the C# Script code:
 
 ```cs
 #r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
@@ -401,7 +413,19 @@ public static Task Run(
 
 # [JavaScript](#tab/javascript)
 
-*function.json* stays the same. Here's the JavaScript code:
+Example function.json:
+
+```json
+{
+  "type": "signalR",
+  "name": "signalRMessages",
+  "hubName": "<hub_name>",
+  "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+  "direction": "out"
+}
+```
+
+Here's the JavaScript code:
 
 ```javascript
 module.exports = async function (context, req) {
@@ -464,7 +488,19 @@ public static Task SendMessage(
 
 # [C# Script](#tab/csharp-script)
 
-*function.json* stays the same. Here's the C# Script code:
+Example function.json:
+
+```json
+{
+  "type": "signalR",
+  "name": "signalRMessages",
+  "hubName": "<hub_name>",
+  "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+  "direction": "out"
+}
+```
+
+Here's the C# Script code:
 
 ```cs
 #r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
@@ -487,7 +523,19 @@ public static Task Run(
 
 # [JavaScript](#tab/javascript)
 
-*function.json* stays the same. Here's the JavaScript code:
+Example function.json:
+
+```json
+{
+  "type": "signalR",
+  "name": "signalRMessages",
+  "hubName": "<hub_name>",
+  "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+  "direction": "out"
+}
+```
+
+Here's the JavaScript code:
 
 ```javascript
 module.exports = async function (context, req) {
