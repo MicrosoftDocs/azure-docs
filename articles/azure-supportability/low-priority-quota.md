@@ -17,7 +17,7 @@ Resource Manager supports two types of vCPU quotas for virtual machines. **Pay-a
 
 For **Low priority quota** type, Resource Manager vCPU quotas are enforced across all available VM Series as a single regional limit.
 
-Any time a new Low priority VM is to be deployed, the sum of new and existing vCPUs usage for all Low priority VM instances must not exceed the approved Low priority vCPU quota limit. If the Low priority quota is exceeded, the Low priority VM deployment will not be allowed. You can request an increase of the Low priority vCPUs quota limit from Azure portal. 
+Anytime a new Low priority VM is to be deployed, the sum of new and existing vCPUs usage for all Low priority VM instances must not exceed the approved Low priority vCPU quota limit. If the Low priority quota is exceeded, the Low priority VM deployment will not be allowed. You can request an increase of the Low priority vCPUs quota limit from Azure portal. 
 
 Learn more about standard vCPU quotas on the Virtual machine vCPU quotas page and Azure subscription and service limits page. Learn more about increasing the regional vCPU limit for standard quota on this [page](https://docs.microsoft.com/azure/azure-supportability/regional-quota-requests).
 
@@ -38,15 +38,15 @@ You can also **request Quota for multiple regions** through a single support cas
 
      ![New support request](./media/resource-manager-core-quotas-request/newsupportrequest.png)
 
-3. In the Issue type dropdown, choose **Service and subscription limits (quotas)**.
+3. In the Issue type drop-down, choose **Service and subscription limits (quotas)**.
 
-   ![Issue type dropdown](./media/resource-manager-core-quotas-request/issuetypedropdown.png)
+   ![Issue type drop-down](./media/resource-manager-core-quotas-request/issuetypedropdown.png)
 
 4. Select the subscription that needs an increased quota.
 
    ![Select subscription newSR](./media/resource-manager-core-quotas-request/select-subscription-sr.png)
    
-5. Select **Compute -VM (cores-vCPUs) subscription  limit increases** in **quota type** dropdown. 
+5. Select **Compute -VM (cores-vCPUs) subscription  limit increases** in **quota type** drop-down. 
 
    ![Select quota type](./media/resource-manager-core-quotas-request/select-quota-type.png)
 
@@ -66,7 +66,7 @@ You can also **request Quota for multiple regions** through a single support cas
  
  ![Provide details](./media/resource-manager-core-quotas-request/3-9.png)
 
-10.	To request Quota for more than one location you can check on another location from the drop down and select appropriate VM Type. You can then enter the new limits you would like.
+10.	To request Quota for more than one location you can check on another location from the drop-down and select appropriate VM Type. You can then enter the new limits you would like.
 
 ![Provide details](./media/resource-manager-core-quotas-request/3-10.png)
 
@@ -110,9 +110,9 @@ You can also **request Quota for multiple regions** through a single support cas
 
   ![Fill in form](./media/resource-manager-core-quotas-request/3-2-8.png)
  
-9.	To request Quota for more than one location you can check on another **location** from the drop down and select appropriate VM Type. You can then enter the new limits you would like.
+9.	To request Quota for more than one location you can check on another **location** from the drop-down and select appropriate VM Type. You can then enter the new limits you would like.
 
   ![Fill in form](./media/resource-manager-core-quotas-request/3-2-9.png)
  
-10.	After entering the desired quota, click **Save and Continue** on the Quota details panel to continue with the support request creation.
+10. After entering the desired quota, click **Save and Continue** on the Quota details panel to continue with the support request creation.
 
