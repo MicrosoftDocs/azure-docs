@@ -26,7 +26,7 @@
     - name: Review requirements
       href: azure-stack-edge-r-series-system-requirements.md
     - name: Understand limits
-      href: azure-stack-edge-r-series-edge-limits.md
+      href: azure-stack-edge-r-series-limits.md
     - name: Security overview
       href: azure-stack-edge-r-series-security.md
     - name: Review specifications
