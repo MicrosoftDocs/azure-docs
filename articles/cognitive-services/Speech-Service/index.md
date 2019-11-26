@@ -123,8 +123,8 @@ description: Get started with the Speech Services.
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Documentation</h3>
-                                                    <p>Learn more about the Speech service and how to use it in your apps, tools, and products.</p>
+                                                    <h3>Read the docs</h3>
+                                                    <p>Learn more about the Speech service and how to add speech recognition to your apps, tools, and products. Includes concepts, tutorials, and reference.</p>
                                                 </div>
                                             </div>
                                         </div>
