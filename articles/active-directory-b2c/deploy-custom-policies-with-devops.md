@@ -1,5 +1,6 @@
 ---
 title: Deploy custom policies with Azure DevOps
+titleSuffix: Azure AD B2C
 description: Learn how to deploy Azure AD B2C custom policies in a CI/CD pipeline by using Azure DevOps.
 services: active-directory-b2c
 author: mmacy

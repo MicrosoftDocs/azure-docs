@@ -1,5 +1,6 @@
 ---
-title: Manage Azure AD B2C custom policies with PowerShell
+title: Manage custom policies with PowerShell
+titleSuffix: Azure AD B2C
 description: "Use the Azure Active Directory (Azure AD) PowerShell cmdlet for programmatic management of your Azure AD B2C custom policies: create, read, update, and delete custom policies with PowerShell."
 author: mmacy
 manager: celestedg
@@ -173,4 +174,3 @@ When attempting to publish a custom policy to the Azure AD B2C tenant, there are
 
 
 ## Next steps
-
