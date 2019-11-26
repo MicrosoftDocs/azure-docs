@@ -12,8 +12,6 @@ ms.custom: mvc
 
 This Azure Functions sample script creates a function app, which is a container for your functions. The function app is created using the [consumption plan](../functions-scale.md#consumption-plan), which is ideal for event-driven serverless workloads.
 
-[!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
-
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]

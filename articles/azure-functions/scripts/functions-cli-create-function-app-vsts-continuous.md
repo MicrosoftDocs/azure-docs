@@ -9,8 +9,6 @@ ms.custom: mvc
 
 This topic shows you how to use Azure Functions to create a [serverless](https://azure.microsoft.com/solutions/serverless/) function app using the [consumption plan](../functions-scale.md#consumption-plan). The function app, which is a container for your functions, is continuously deployed from an Azure DevOps repository. 
 
-[!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
-
 To complete this topic, you must have:
 
 * An Azure DevOps repository that contains your function app project and to which you have administrative permissions.
