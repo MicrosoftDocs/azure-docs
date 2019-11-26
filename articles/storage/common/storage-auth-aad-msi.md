@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/17/2019
+ms.date: 11/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
@@ -30,39 +30,92 @@ Before you can use managed identities for Azure Resources to authorize access to
 
 For more information about managed identities, see [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
-## Authenticate with the Azure Identity library (preview)
+## Authenticate with the Azure Identity library
 
-The Azure Identity client library for .NET (preview) authenticates a security principal. When your code is running in Azure, the security principal is a managed identity for Azure resources.
+An advantage of the Azure Identity client library is that it enables you to use the same code to authenticate whether your application is running in the development environment or in Azure. In code running in the Azure environment, the client library authenticates a managed identity for Azure resources. In the development environment, the managed identity does not exist, so the client library authenticates either the user or a service principal for testing purposes.
 
-When your code is running in the development environment, authentication may be handled automatically, or it may require a browser login, depending on which tools you're using. Microsoft Visual Studio supports single sign-on (SSO), so that the active Azure AD user account is automatically used for authentication. For more information about SSO, see [Single sign-on to applications](../../active-directory/manage-apps/what-is-single-sign-on.md).
-
-Other development tools may prompt you to login via a web browser. You can also use a service principal to authenticate from the development environment. For more information, see [Create identity for Azure app in portal](../../active-directory/develop/howto-create-service-principal-portal.md).
+The Azure Identity client library for .NET authenticates a security principal. When your code is running in Azure, the security principal is a managed identity for Azure resources.
 
 After authenticating, the Azure Identity client library gets a token credential. This token credential is then encapsulated in the service client object that you create to perform operations against Azure Storage. The library handles this for you seamlessly by getting the appropriate token credential.
 
 For more information about the Azure Identity client library, see [Azure Identity client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity).
 
-## Assign RBAC roles for access to data
+### Assign role-based access control (RBAC) roles for access to data
 
 When an Azure AD security principal attempts to access blob or queue data, that security principal must have permissions to the resource. Whether the security principal is a managed identity in Azure or an Azure AD user account running code in the development environment, the security principal must be assigned an RBAC role that grants access to blob or queue data in Azure Storage. For information about assigning permissions via RBAC, see the section titled **Assign RBAC roles for access rights** in [Authorize access to Azure blobs and queues using Azure Active Directory](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights).
 
-## Install the preview packages
+### Authenticate the user in the development environment
 
-The examples in this article use the latest preview version of the Azure Storage client library for Blob storage. To install the preview package, run the following command from the NuGet package manager console:
+When your code is running in the development environment, authentication may be handled automatically, or it may require a browser login, depending on which tools you're using. Microsoft Visual Studio supports single sign-on (SSO), so that the active Azure AD user account is automatically used for authentication. For more information about SSO, see [Single sign-on to applications](../../active-directory/manage-apps/what-is-single-sign-on.md).
 
-```powershell
-Install-Package Azure.Storage.Blobs -IncludePrerelease
+Other development tools may prompt you to login via a web browser.
+
+### Authenticate a service principal in the development environment
+
+If your development environment does not support single sign-on or login via a web browser, then you can use a service principal to authenticate from the development environment.
+
+#### Create the service principal
+
+To create a service principal with Azure CLI and assign an RBAC role, call the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command. Provide an Azure Storage data access role to assign to the new service principal. Additionally, provide the scope for the role assignment. For more information about the built-in roles provided for Azure Storage, see [Built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md).
+
+If you do not have sufficient permissions to assign a role to the service principal, you may need to ask the account owner or administrator to perform the role assignment.
+
+The following example uses the Azure CLI to create a new service principal and assign the **Storage Blob Data Reader** role to it with account scope
+
+```azurecli-interactive
+az ad sp create-for-rbac \
+    --name <service-principal> \
+    --role "Storage Blob Data Reader" \
+    --scopes /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
 ```
 
-The examples in this article also use the latest preview version of the [Azure Identity client library for .NET](https://www.nuget.org/packages/Azure.Identity/) to authenticate with Azure AD credentials. To install the preview package, run the following command from the NuGet package manager console:
+The `az ad sp create-for-rbac` command returns a list of service principal properties in JSON format. Copy these values so that you can use them to create the necessary environment variables in the next step.
+
+```json
+{
+    "appId": "generated-app-ID",
+    "displayName": "service-principal-name",
+    "name": "http://service-principal-uri",
+    "password": "generated-password",
+    "tenant": "tenant-ID"
+}
+```
+
+> [!IMPORTANT]
+> RBAC role assignments may take a few minutes to propagate.
+
+#### Set environment variables
+
+The Azure Identity client library reads values from three environment variables at runtime to authenticate the service principal. The following table describes the value to set for each environment variable.
+
+|Environment variable|Value
+|-|-
+|`AZURE_CLIENT_ID`|The app ID for the service principal
+|`AZURE_TENANT_ID`|The service principal's Azure AD tenant ID
+|`AZURE_CLIENT_SECRET`|The password generated for the service principal
+
+> [!IMPORTANT]
+> After you set the environment variables, close and re-open your console window. If you are using Visual Studio or another development environment, you may need to restart the development environment in order for it to register the new environment variables.
+
+For more information, see [Create identity for Azure app in portal](../../active-directory/develop/howto-create-service-principal-portal.md).
+
+## Install client library packages
+
+The examples in this article use the latest version of the Azure Storage client library for Blob storage. To install the package, run the following command from the NuGet package manager console:
 
 ```powershell
-Install-Package Azure.Identity -IncludePrerelease
+Install-Package Azure.Storage.Blobs
+```
+
+The examples in this article also use the latest version of the [Azure Identity client library for .NET](https://www.nuget.org/packages/Azure.Identity/) to authenticate with Azure AD credentials. To install the package, run the following command from the NuGet package manager console:
+
+```powershell
+Install-Package Azure.Identity
 ```
 
 ## .NET code example: Create a block blob
 
-Add the following `using` directives to your code to use the preview versions of the Azure Identity and Azure Storage client libraries.
+Add the following `using` directives to your code to use the Azure Identity and Azure Storage client libraries.
 
 ```csharp
 using System;

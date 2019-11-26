@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 11/26/2019
 ms.author: jingwang
 
 ---
@@ -51,10 +51,11 @@ The Get Metadata activity takes a dataset as an input and returns metadata infor
 | [Azure Files](connector-azure-file-storage.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | [File system](connector-file-system.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
-| [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x	| √/√ | √ | x | √ | √ | √/√ |
+| [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x	| x/x | √ | x | √ | √ | √/√ |
 
 - For Amazon S3 and Google Cloud Storage, `lastModified` applies to the bucket and the key but not to the virtual folder, and `exists` applies to the bucket and the key but not to the prefix or virtual folder.
 - For Azure Blob storage, `lastModified` applies to the container and the blob but not to the virtual folder.
+- `lastModified` filter currently applies to filter child items but not the specified folder/file itself.
 - Wildcard filter on folders/files is not supported for Get Metadata activity.
 
 **Relational database**
