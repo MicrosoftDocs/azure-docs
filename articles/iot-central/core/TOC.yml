@@ -55,8 +55,7 @@
         href: howto-create-custom-analytics.md
       - name: Connect other IoT clouds
         href: howto-build-iotc-device-bridge.md
-
-  - name : Administration
+  - name : Administer
     items:
       - name: Manage your application
         href: howto-administer.md 

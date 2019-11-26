@@ -3,7 +3,7 @@ title: Customize the Azure IoT Central UI | Microsoft Docs
 description: How to customize the theme and help links for your Azure IoT central application
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/26/2019
+ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -13,11 +13,11 @@ manager: philmea
 
 ---
 
-# Customize the Azure IoT Central UI
+# Customize the Azure IoT Central UI (preview features)
 
-[!INCLUDE [iot-central-original-pnp](../../../includes/iot-central-original-pnp-note.md)]
+This article describes how, as an administrator, you can customize the UI of your application by applying custom themes and modifying the help links to point to your own custom help resources. 
 
-This article describes how, as an administrator, you can customize the UI of your application by applying custom themes and modifying the help links to point to your own custom help resources.
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 The following screenshot shows a page using the standard theme:
 
@@ -39,7 +39,7 @@ On this page, you can customize the following aspects of your application:
 
 A PNG image, no larger than 1 MB, with a transparent background. This logo displays to the left on the IoT Central application title bar.
 
-If your logo image includes the name of your application, you can hide the application name text. For more information, see [Manage your Application](./howto-administer.md#change-application-name-and-url).
+If your logo image includes the name of your application, you can hide the application name text. For more information, see [Manage your application](../core/howto-administer.md#change-application-name-and-url).
 
 ### Browser icon (favicon)
 
@@ -76,4 +76,4 @@ You can also add new entries to the help menu and remove default entries:
 Now that you've learned how to customize the UI in your IoT Central application, here are some suggested next steps:
 
 - [Administer your application](./howto-administer.md)
-- [Add tiles to your dashboard](./howto-add-tiles-to-your-dashboard.md)
+- [Add tiles to your dashboard](../core/howto-add-tiles-to-your-dashboard.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json)
