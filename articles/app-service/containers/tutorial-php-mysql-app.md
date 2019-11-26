@@ -8,7 +8,7 @@ ms.service: app-service-web
 ms.workload: web
 ms.devlang: php
 ms.topic: tutorial
-ms.date: 03/27/2019
+ms.date: 11/25/2019
 ms.author: cephalin
 ms.custom: mvc
 ms.custom: seodec18
@@ -265,7 +265,7 @@ Open _config/database.php_ and add the _sslmode_ and _options_ parameters to `co
 'mysql' => [
     ...
     'sslmode' => env('DB_SSLMODE', 'prefer'),
-    'options' => (env('MYSQL_SSL')) ? [
+    'options' => (env('MYSQL_SSL') && extension_loaded('pdo_mysql')) ? [
         PDO::MYSQL_ATTR_SSL_KEY    => '/ssl/BaltimoreCyberTrustRoot.crt.pem',
     ] : []
 ],
