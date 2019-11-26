@@ -31,8 +31,8 @@ To download the *deployer.log* file, do the following:
 
 1. On the [Azure portal](https://portal.azure.com), go to your FarmBeats Datahub resource group.   
 1. Select the **Event Hub** (DatafeedEventHubNamespace), check for the number of incoming messages, and then do either of the following:   
-   * If there are *No Incoming messages*, contact your device partner.  
-   * If there are *Incoming messages*, contact farmbeatssupport@microsoft.com. Attach your Datahub and Accelerator logs and captured telemetry.
+   * If there are *no incoming messages*, contact your device partner.  
+   * If there are *incoming messages*, contact farmbeatssupport@microsoft.com. Attach your Datahub and Accelerator logs and captured telemetry.
 
 To learn how to download logs, go to the ["Collect logs manually"](#collect-logs-manually) section.    
 
@@ -108,7 +108,7 @@ If you've already been granted access and are facing this error, try again by re
 
 If the error persists, add the error message in a post on the FarmBeats forum, or contact FarmBeatsSupport@microsoft.com.
 
-**Issue**: FarmBeats Accelerator isn't showing the latest version, even after you've upgraded the FarmBeatsDeployment.
+**Issue**: FarmBeats Accelerator isn't showing the latest version, even after you've upgraded FarmBeatsDeployment.
 
 **Corrective action**: This error occurs because of service worker persistence in the browser. Do the following:
 1. Close all browser tabs that have Accelerator open, and close the browser window. 
@@ -120,7 +120,7 @@ If the error persists, add the error message in a post on the FarmBeats forum, o
 
 **Job failure message**: "Full authentication is required to access this resource."
 
-**Correction action**: 
+**Corrective action**: 
 
 Do one of the following:
 * Rerun the installer for upgrading Datahub with the correct username and password.
@@ -257,7 +257,7 @@ This issue can occur if any maintenance activities are being done on the Sentine
 
 **Corrective action**: Ask the IT admin (the person with tenant read access) to use our [script](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect/tree/master/AppCreationScripts) for creating the Azure AD app registration. This script automatically takes care of the configuration steps as well.
 
-**Error message**: "Could not create new Active Directory Application 'dummyname' in this tenant: Another object with the same value for property identifier URIs already exists."
+**Error message**: "Could not create new Active Directory Application '\<application name\>' in this tenant: Another object with the same value for property identifier URIs already exists."
 
 **Meaning**: An Azure AD app registration with the same name already exists.
 
