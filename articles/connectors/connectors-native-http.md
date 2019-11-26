@@ -2,7 +2,7 @@
 title: Call HTTP and HTTPS endpoints - Azure Logic Apps
 description: Send outgoing requests to HTTP and HTTPS endpoints by using Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
+
 ms.suite: integration
 author: ecfan
 ms.author: estfan

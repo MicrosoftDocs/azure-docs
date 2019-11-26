@@ -2,7 +2,7 @@
 title: Connect to Dropbox - Azure Logic Apps
 description: Upload and manage files with Dropbox REST APIs and Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
+
 ms.suite: integration
 author: ecfan
 ms.author: estfan

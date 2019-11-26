@@ -193,6 +193,8 @@
     },
     "fileMetadata": {
       "author": {
+        "articles/connectors/*.md": "ecfan",
+        "articles/logic-apps/*.md": "ecfan",
         "articles/governance/*.md": "DCtheGeek",
         "articles/governance/blueprints/**/*.md": "DCtheGeek",
         "articles/governance/policy/**/*.md": "DCtheGeek",
@@ -391,6 +393,8 @@
         "articles/firewall/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=345022"
       },
       "manager": {
+        "articles/connectors/*.md": "carmonm",
+        "articles/logic-apps/*.md": "carmonm",
         "articles/sql-database/**/*.md": "jroth",
         "articles/azure-functions/**/*.md": "gwallace",
         "articles/backup/**/*.md": "carmonm",
@@ -399,6 +403,8 @@
         "articles/notebooks/*.md": "barbkess"
       },
       "ms.author": {
+        "articles/connectors/*.md": "estfan",
+        "articles/logic-apps/*.md": "estfan",
         "articles/governance/*.md": "dacoulte",
         "articles/governance/blueprints/**/*.md": "dacoulte",
         "articles/governance/policy/**/*.md": "dacoulte",
@@ -419,6 +425,8 @@
         "articles/notebooks/*.md": "kraigb"
       },
       "ms.service": {
+        "articles/connectors/*.md": "logic-apps",
+        "articles/logic-apps/*.md": "logic-apps",
         "articles/governance/*.md": "governance",
         "articles/governance/blueprints/**/*.md": "blueprints",
         "articles/governance/policy/**/*.md": "azure-policy",
@@ -469,6 +477,8 @@
         "articles/stream-analytics/**/*.yml": ["Azure","Stream Analytics"]
       },
       "titleSuffix": {
+        "articles/connectors/*.md": "Azure Logic Apps",
+        "articles/logic-apps/*.md": "Azure Logic Apps",
         "articles/governance/blueprints/**/*.md": "Azure Blueprints",
         "articles/governance/policy/**/*.md": "Azure Policy",
         "articles/governance/resource-graph/**/*.md": "Azure Resource Graph",

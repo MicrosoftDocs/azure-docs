@@ -2,7 +2,7 @@
 title: Connect to SharePoint from Azure Logic Apps | Microsoft Docs
 description: Automate tasks and workflows that monitor and manage resources in SharePoint Online or SharePoint Server on premises by using Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
+
 ms.suite: integration
 author: ecfan
 ms.author: estfan

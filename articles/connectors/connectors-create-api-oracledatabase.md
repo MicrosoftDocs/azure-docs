@@ -7,7 +7,7 @@ manager: jeconnoc
 ms.author: estfan
 ms.date: 03/29/2017
 ms.topic: article
-ms.service: logic-apps
+
 services: logic-apps
 
 # optional metadata

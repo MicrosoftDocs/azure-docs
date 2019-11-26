@@ -2,7 +2,7 @@
 title: Connect to REST endpoints from Azure Logic Apps
 description: Monitor REST endpoints in automated tasks, processes, and workflows by using Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
+
 ms.suite: integration
 author: ecfan
 ms.author: estfan

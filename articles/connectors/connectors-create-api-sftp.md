@@ -2,7 +2,7 @@
 title: Connect to SFTP account - Azure Logic Apps
 description: Automate tasks and processes that monitor, create, manage, send, and receive files for an SFTP server through SSH by using Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
+
 ms.suite: integration
 author: ecfan
 ms.author: estfan

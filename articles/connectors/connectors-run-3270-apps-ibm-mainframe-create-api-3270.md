@@ -2,7 +2,7 @@
 title: Connect to 3270 apps on IBM mainframes - Azure Logic Apps
 description: Integrate and automate 3270 screen-driven apps with Azure by using Azure Logic Apps and IBM 3270 connector
 services: logic-apps
-ms.service: logic-apps
+
 ms.suite: integration
 author: ChristopherHouser
 ms.author: chrishou

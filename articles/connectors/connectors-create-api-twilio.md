@@ -2,7 +2,7 @@
 title: Connect to Twilio from Azure Logic Apps | Microsoft Docs
 description: Automate tasks and workflows that manage global SMS, MMS, and IP messages through your Twilio account by using Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
+
 ms.suite: integration
 author: ecfan
 ms.author: estfan
