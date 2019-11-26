@@ -76,9 +76,11 @@ Spark instances in Synapse Analytics enable the following key scenarios:
 
     Spark pools in Synapse Analytics offer rich support for building real-time analytics solutions. While Spark already has connectors to ingest data from many sources like Kafka, Flume, Twitter, ZeroMQ, or TCP sockets, Spark in Synapse Analytics adds first-class support for ingesting data from Azure Event Hubs. Event Hubs is the most widely used queuing service on Azure. Having an out-of-the-box support for Event Hubs makes Spark clusters in Synapse Analytics an ideal platform for building real-time analytics pipeline.
 --->
+
 ## Where do I start
 
 You can use the following articles to learn more about Apache Spark in Synapse Analytics:
+
 * [Quickstart: Create an Apache Spark cluster in HDInsight and run interactive query using Jupyter](./apache-spark-notebook-create-spark-use-sql.md)
 <!---TODO: * [Tutorial: Run an Apache Spark job using Jupyter](./apache-spark-load-data-run-query.md)--->
 * [Tutorial: Machine learning using Apache Spark](./apache-spark-machine-learning-mllib-notebook.md)
