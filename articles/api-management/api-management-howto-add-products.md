@@ -63,7 +63,7 @@ You can continue configuring the product after saving it by choosing the **Setti
 
 View/add subscribers to the product from the **Subscriptions** tab.
 
-Set visibility of a product for developers or guest from the **Access control** tab.
+Set visibility of a product for developers or guests from the **Access control** tab.
 
 ## <a name="add-apis"> </a>Add APIs to a product
 
