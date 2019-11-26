@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 ---
 # How provisioning works
 
-*User account provisioning* refers to creating, updating, or disabling user account records in an application’s local user profile store. Most cloud and SaaS applications store the user's role and permissions in the user's own local user profile store, and presence of such a user record in the user's local store is *required* for single sign-on and access to work. Many applications in the Azure AD gallery support automatic user provisioning, which means an Azure AD provisioning connector has been developed for them. 
+User account provisioning refers to creating, updating, or disabling user account records in an application’s local user profile store. Most cloud and SaaS applications store the user's role and permissions in the user's own local user profile store, and presence of such a user record in the user's local store is *required* for single sign-on and access to work. Many applications in the Azure AD gallery support automatic user provisioning, which means an Azure AD provisioning connector has been developed for them. 
 
 The **Azure AD Provisioning Service** provisions users to SaaS apps and other systems by connecting to user management API endpoints provided by each application vendor. These user management API endpoints allow Azure AD to programmatically create, update, and remove users. For selected applications, the provisioning service can also create, update, and remove additional identity-related objects, such as groups and roles.
 

@@ -60,10 +60,10 @@ landingContent:
             url: configure-automatic-user-provisioning-portal.md
       - linkListType: how-to-guide
         links:
-          - text: Configure provisioning for a gallery app
-            url: configure-automatic-user-provisioning-portal.md
           - text: Customize attribute mappings
             url: customize-application-attributes.md
+          - text: Use scoping filters
+            url: define-conditional-rules-for-provisioning-user-accounts.md
           - text: Check provisioning status
             url: application-provisioning-when-will-provisioning-finish-specific-user.md
           - text: Write expressions for attribute mappings
