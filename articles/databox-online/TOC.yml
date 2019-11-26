@@ -5,7 +5,7 @@
   items:
   - name: Overview
     items:
-    - name: What is Azure Stack Edge?
+    - name: What is Azure Stack Edge Rugged series?
       href: azure-stack-edge-r-series-overview.md
   - name: Tutorials
     items:
@@ -64,11 +64,11 @@
     - name: 1911 - Current
       href: azure-stack-edge-r-series-1911-release-notes.md
 
-- name: Azure Stack Edge
+- name: Azure Stack Edge Commercial
   items:
   - name: Overview
     items:
-    - name: What is Azure Stack Edge?
+    - name: What is Azure Stack Edge Commercial series?
       href: data-box-edge-overview.md
   - name: Tutorials
     items:
