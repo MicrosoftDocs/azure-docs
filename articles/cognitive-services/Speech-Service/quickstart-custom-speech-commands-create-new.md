@@ -105,6 +105,7 @@ Now add a Completion Rule to respond to the user indicating that an action is be
 
    > [!div class="mx-imgBorder"]
    > ![Create a Speech response](media/custom-speech-commands/create-speech-response-action.png)
+
 1. Click **Save** to save the rule
 
 > [!div class="mx-imgBorder"]
@@ -128,5 +129,6 @@ Test the behavior using the Test chat panel.
 - Expected response: "Ok, turning on the tv"
 
 ## Next steps
+
 > [!div class="nextstepaction"]
 > [Quickstart: Create a Custom Command with Parameters (Preview)](./quickstart-custom-speech-commands-create-parameters.md)
