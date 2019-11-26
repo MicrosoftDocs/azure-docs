@@ -255,7 +255,7 @@ Conditional Access is an essential tool for improving the security posture of yo
 - [Azure Active Directory Conditional Access settings reference](https://docs.microsoft.com/azure/active-directory/conditional-access/technical-reference)
 - [Common Conditional Access policies](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policy-common)
 
-## Access Surface Area
+## Access surface area
 
 ### Legacy authentication
 
@@ -345,9 +345,9 @@ Attackers originate from various parts of the world. Manage this risk by using c
 
 If available, use a security information and event management (SIEM) solution to analyze and find patterns of access across regions. If you don’t use a SIEM product, or it isn’t ingesting authentication information from Azure AD, we recommend you use [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) to identify patterns of access across regions.
 
-## Access Usage
+## Access usage
 
-### Azure AD logs archived and integrated with Incident Response Plans
+### Azure AD logs archived and integrated with incident response plans
 
 Having access to sign-in activity, audits and risk events for Azure AD is crucial for troubleshooting, usage analytics, and forensics investigations. Azure AD provides access to these sources through REST APIs that have a limited retention period. A security information and event management (SIEM) system, or equivalent archival technology, is key for long-term storage of audits and supportability. To enable long-term storage of Azure AD Logs, you must either add them to your existing SIEM solution or use [Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-activity-logs-azure-monitor). Archive logs that can be used as part of your incident response plans and investigations.
 
@@ -364,18 +364,18 @@ Having access to sign-in activity, audits and risk events for Azure AD is crucia
 
 There are 12 aspects to a secure Identity infrastructure. This list will help you further secure and manage credentials, define authentication experience, delegate assignment, measure usage, and define access policies based on enterprise security posture.
 
-1. Assign owners to key tasks.
-2. Implement solutions to detect weak or leaked passwords, improve password management and protection, and further secure user access to resources.
-3. Manage the identity of devices to protect your resources at any time and from any location.
-4. Implement passwordless authentication.
-5. Provide a standardized single sign-on mechanism across the organization.
-6. Migrate apps from AD FS to Azure AD to enable better security and more consistent manageability.
-7. Assign users to applications by using groups to allow greater flexibility and ability to manage at scale.
-8. Configure risk-based access policies.
-9. Lock down legacy authentication protocols.
-10. Detect and remediate illicit consent grants.
-11. Lock down user and group settings.
-12. Enable long-term storage of Azure AD logs for troubleshooting, usage analytics, and forensics investigations.
+- Assign owners to key tasks.
+- Implement solutions to detect weak or leaked passwords, improve password management and protection, and further secure user access to resources.
+- Manage the identity of devices to protect your resources at any time and from any location.
+- Implement passwordless authentication.
+- Provide a standardized single sign-on mechanism across the organization.
+- Migrate apps from AD FS to Azure AD to enable better security and more consistent manageability.
+- Assign users to applications by using groups to allow greater flexibility and ability to manage at scale.
+- Configure risk-based access policies.
+- Lock down legacy authentication protocols.
+- Detect and remediate illicit consent grants.
+- Lock down user and group settings.
+- Enable long-term storage of Azure AD logs for troubleshooting, usage analytics, and forensics investigations.
 
 ## Next steps
 
