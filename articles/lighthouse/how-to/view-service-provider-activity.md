@@ -1,11 +1,11 @@
 ---
-title: View actions performed by service providers
-description: Customers can view logged activity including all actions taken by users in a managing tenant.
+title: View service provider activity
+description: Customers can view logged activity, including all actions taken by service providers acting through Azure delegated resource management.
 ms.date: 11/26/2019
 ms.topic: conceptual
 ---
 
-# View actions performed by service providers
+# View service provider activity
 
 Customers who have delegated subscriptions for Azure delegated resource management can [view Azure Activity log](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview) data to see all actions taken. This gives customers full visibility into operations that service providers are performing through Azure delegated resource management, along with those done by users within the customer's own Azure Active Directory (Azure AD) tenant.
 
