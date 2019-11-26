@@ -43,13 +43,13 @@ The default view is a list of the Custom Commands applications you created.
 1. Select **New project** to create a new project
 
    > [!div class="mx-imgBorder"]
-   > ![Create new project](media/custom-speech-commands/create-new-project.png)
+   > ![Create a project](media/custom-speech-commands/create-new-project.png)
 
 1. Enter the project name and language
 1. Select an authoring resource (if there are no valid authoring resources, create one by clicking **Create new resource**)
 
    > [!div class="mx-imgBorder"]
-   > ![Create new resource](media/custom-speech-commands/create-new-resource.png)
+   > ![Create a resource](media/custom-speech-commands/create-new-resource.png)
 
    1. Enter the resource name, group, location, and pricing tier
 
@@ -108,7 +108,7 @@ Now add a Completion Rule to respond to the user indicating that an action is be
 1. Click **Save** to save the rule
 
 > [!div class="mx-imgBorder"]
-> ![Create a Completion rule](media/custom-speech-commands/create-basic-completion-response-rule.png)
+> ![Create a completion rule](media/custom-speech-commands/create-basic-completion-response-rule.png)
 
 
 | Setting    | Suggested value                        | Description                                        |
