@@ -8,7 +8,6 @@ ms.date: 09/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
 ---
 
 # Understand IoT Edge automatic deployments for single devices or at scale
