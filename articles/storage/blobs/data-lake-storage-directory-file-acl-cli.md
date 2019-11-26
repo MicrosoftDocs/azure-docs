@@ -16,7 +16,7 @@ ms.reviewer: prishet
 This article shows you how to use the [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) to create and manage directories, files, and permissions in storage accounts that have a hierarchical namespace. 
 
 > [!IMPORTANT]
-> The the `storage-preview` extension that is featured in this article is currently in public preview.
+> The `storage-preview` extension that is featured in this article is currently in public preview.
 
 [Sample](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#adls-gen2-support) | [Gen1 to Gen2 mapping](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2) | [Give feedback](https://github.com/Azure/azure-cli-extensions/issues)
 ## Prerequisites
