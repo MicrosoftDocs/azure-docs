@@ -22,7 +22,7 @@ Learn how to deploy a model from Azure Machine Learning as a function app in Azu
 > [!IMPORTANT]
 > While both Azure Machine Learning and Azure Functions are generally available, the ability to package a model from the Machine Learning service for Functions is in preview.
 
-With Azure Machine Learning, you can create Docker images from trained machine learning models. Azure Machine Learning now has the preview funcitonality to build these machine learning models into function apps, which can be [deployed into Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-deployment-technologies#docker-container).
+With Azure Machine Learning, you can create Docker images from trained machine learning models. Azure Machine Learning now has the preview functionality to build these machine learning models into function apps, which can be [deployed into Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-deployment-technologies#docker-container).
 
 ## Prerequisites
 
