@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 11/20/2019
+ms.date: 11/26/2019
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
