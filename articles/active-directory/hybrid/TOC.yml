@@ -149,6 +149,8 @@
             href: plan-migrate-adfs-password-hash-sync.md
           - name: Migrate from federation to PTA
             href: plan-migrate-adfs-pass-through-authentication.md
+          - name: Cloud authentication - Staged Rollout (Public Preview)
+            href: how-to-connect-staged-rollout.md
     - name: Hybrid Identity Design Considerations
       items:
           - name: Hybrid Identity Design Considerations Overview

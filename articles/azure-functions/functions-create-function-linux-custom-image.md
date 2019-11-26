@@ -1,13 +1,9 @@
 ---
 title: Create Azure Functions on Linux using a custom image
 description: Learn how to create Azure Functions running on a custom Linux image.
-author: ggailey777
-ms.author: glenga
 ms.date: 09/27/2019
 ms.topic: tutorial
-ms.service: azure-functions
 ms.custom: mvc
-manager: gwallace                                                                                                            
 ---
 
 # Create a function on Linux using a custom image
@@ -31,7 +27,6 @@ In this tutorial, you learn how to:
 > * Enable continuous deployment.
 > * Enable SSH connections to the container.
 > * Add a Queue storage output binding. 
-> * Add Application Insights monitoring.
 
 The following steps are supported on a Mac, Windows, or Linux computer. 
 
@@ -52,7 +47,7 @@ You can also use the [Azure Cloud Shell](https://shell.azure.com/bash).
 
 ## Create the local project
 
-Run the following command from the command line to create a function app project in the `MyFunctionProj` folder of the current local directory. For a Python project, you [must be running in a virtual environment](functions-create-first-function-python.md#create-and-activate-a-virtual-environment-optional).
+Run the following command from the command line to create a function app project in the `MyFunctionProj` folder of the current local directory. For a Python project, you [must be running in a virtual environment](functions-create-first-function-python.md#create-and-activate-a-virtual-environment).
 
 ```bash
 func init MyFunctionProj --docker
@@ -290,11 +285,12 @@ This section shows you how to integrate your function with an Azure Storage queu
 
 Because you are using a Queue storage output binding, you must have the Storage bindings extension installed before you run the project. 
 
-#### JavaScript/Python
+
+# [JavaScript / Python](#tab/nodejs+python)
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
-#### C# class library
+# [C\#](#tab/csharp)
 
 With the exception of HTTP and timer triggers, bindings are implemented as extension packages. Run the following [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in the Terminal window to add the Storage extension package to your project.
 
@@ -305,35 +301,41 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 > [!TIP]
 > When using Visual Studio, you can also use the NuGet package manager to add this package.
 
+---
+
 Now, you can add a Storage output binding to your project.
 
 ### Add an output binding
 
 In Functions, each type of binding requires a `direction`, `type`, and a unique `name` to be defined in the function.json file. The way you define these attributes depends on the language of your function app.
 
-####  JavaScript/Python
+# [JavaScript / Python](#tab/nodejs+python)
 
 [!INCLUDE [functions-add-output-binding-json](../../includes/functions-add-output-binding-json.md)]
 
-#### C# class library
+# [C\#](#tab/csharp)
 
 [!INCLUDE [functions-add-storage-binding-csharp-library](../../includes/functions-add-storage-binding-csharp-library.md)]
+
+---
 
 ### Add code that uses the output binding
 
 After the binding is defined, you can use the `name` of the binding to access it as an attribute in the function signature. By using an output binding, you don't have to use the Azure Storage SDK code for authentication, getting a queue reference, or writing data. The Functions runtime and queue output binding do those tasks for you.
 
-#### JavaScript
+# [JavaScript](#tab/nodejs)
 
 [!INCLUDE [functions-add-output-binding-js](../../includes/functions-add-output-binding-js.md)]
 
-#### Python
+# [Python](#tab/python)
 
 [!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-output-binding-python.md)]
 
-#### C# class library
+# [C\#](#tab/csharp)
 
 [!INCLUDE [functions-add-storage-binding-csharp-library-code](../../includes/functions-add-storage-binding-csharp-library-code.md)]
+
+---
 
 ### Update the hosted container
 
@@ -353,11 +355,7 @@ docker push <docker-id>/mydockerimage:v1.0.0
 
 Use the same URL as before from the browser to trigger your function. You should see the same response. However, this time the string that you pass as the `name` parameter is written to the `outqueue` storage queue.
 
-### Set the Storage account connection
-
 [!INCLUDE [functions-storage-account-set-cli](../../includes/functions-storage-account-set-cli.md)]
-
-### Query the Storage queue
 
 [!INCLUDE [functions-query-storage-cli](../../includes/functions-query-storage-cli.md)]
 

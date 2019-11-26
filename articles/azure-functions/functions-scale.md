@@ -1,14 +1,9 @@
 ---
-title: Azure Functions scale and hosting | Microsoft Docs
+title: Azure Functions scale and hosting 
 description: Learn how to choose between Azure Functions Consumption plan and Premium plan.
-author: ggailey777
-manager: gwallace
-keywords: azure functions, functions,  consumption plan, premium plan, event processing, webhooks, dynamic compute, serverless architecture
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/27/2019
-ms.author: glenga
 
 ms.custom: H1Hack27Feb2017
 
@@ -29,9 +24,6 @@ Premium plan provides additional features, such as premium compute instances, th
 
 App Service plan allows you to take advantage of dedicated infrastructure, which you manage. Your function app doesn't scale based on events, which means is never scales down to zero. (Requires that [Always on](#always-on) is enabled.)
 
-> [!NOTE]
-> You can switch between Consumption and Premium plans by changing the plan property of the function app resource.
-
 ## Hosting plan support
 
 Feature support falls into the following two categories:
@@ -43,8 +35,8 @@ The following table indicates the current level of support for the three hosting
 
 | | Consumption plan | Premium plan | Dedicated plan |
 |-|:----------------:|:------------:|:----------------:|
-| Windows | GA | preview | GA |
-| Linux | GA | preview | GA |
+| Windows | GA | GA | GA |
+| Linux | GA | GA | GA |
 
 ## Consumption plan
 
@@ -61,7 +53,7 @@ Function apps in the same region can be assigned to the same Consumption plan. T
 
 To learn more about how to estimate costs when running in a Consumption plan, see [Understanding Consumption plan costs](functions-consumption-costs.md).
 
-## <a name="premium-plan"></a>Premium plan (preview)
+## <a name="premium-plan"></a>Premium plan
 
 When you're using the Premium plan, instances of the Azure Functions host are added and removed based on the number of incoming events just like the Consumption plan.  Premium plan supports the following features:
 
@@ -74,11 +66,12 @@ When you're using the Premium plan, instances of the Azure Functions host are ad
 
 Information on how you can configure these options can be found in the [Azure Functions premium plan document](functions-premium-plan.md).
 
-Instead of billing per execution and memory consumed, billing for the Premium plan is based on the number of core seconds, execution time, and memory used across needed and reserved instances.  At least one instance must be warm at all times. This means that there is a fixed monthly cost per active plan, regardless of the number of executions.
+Instead of billing per execution and memory consumed, billing for the Premium plan is based on the number of core seconds and memory used across needed and pre-warmed instances. At least one instance must be warm at all times per plan. This means that there is a minimum monthly cost per active plan, regardless of the number of executions. Keep in mind that all function apps in a Premium plan share pre-warmed and active instances.
 
 Consider the Azure Functions premium plan in the following situations:
 
 * Your function apps run continuously, or nearly continuously.
+* You have a high number of small executions and have a high execution bill but low GB second bill in the consumption plan.
 * You need more CPU or memory options than what is provided by the Consumption plan.
 * Your code needs to run longer than the [maximum execution time allowed](#timeout) on the Consumption plan.
 * You require features that are only available on a Premium plan, such as VNET/VPN connectivity.

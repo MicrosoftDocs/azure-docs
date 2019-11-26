@@ -9,6 +9,7 @@ ms.reviewer: barbkess
 
 ms.assetid: bdcf0729-c880-4c95-b739-0f6345b17dd8
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -228,7 +229,7 @@ In order to enable Azure AD users to log in to Bime, they must be provisioned in
     d. Click **Save**.
 
 > [!NOTE]
-> You can use any other Bime user account creation tools or APIs provided by Bime to provision AAD user accounts.
+> You can use any other Bime user account creation tools or APIs provided by Bime to provision Azure AD user accounts.
 
 ### Test single sign-on
 

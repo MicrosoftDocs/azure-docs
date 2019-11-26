@@ -1,11 +1,11 @@
 ---
-title: Set up disaster recovery for Hyper-V VMs between on-premises sites with Azure Site Recovery 
+title: Set up Hyper-V disaster recovery to a secondary site with Azure Site Recovery 
 description: Learn how to set up disaster recovery for Hyper-V VMs between your on-premises sites with Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -22,6 +22,7 @@ This article shows you how to set up disaster recovery to a secondary site, for 
 > * Set up network mapping 
 > * Create a replication policy
 > * Enable replication for a VM
+
 
 ## Prerequisites
 

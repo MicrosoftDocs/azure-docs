@@ -1,6 +1,6 @@
 ---
 title: Azure Kinect body index map
-description: Using body index maps
+description: Understand how to query a body tracking index map in the Azure Kinect DK.
 author: qm13
 ms.author: quentinm
 ms.reviewer: yijwan

@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 11/07/2019
 ---
 
 # Manage logs for an HDInsight cluster
@@ -30,7 +30,7 @@ The first step in creating a HDInsight cluster log management strategy is to gat
 
 ### Cluster details
 
-The following cluster details are useful in helping to gather information in your log management strategy. Gather this information from all HDInsight clusters you have created in a particular Azure account.
+The following cluster details are useful in helping to gather information in your log management strategy. Gather this information from all HDInsight clusters you've created in a particular Azure account.
 
 * Cluster name
 * Cluster region and Azure availability zone
@@ -40,8 +40,8 @@ The following cluster details are useful in helping to gather information in you
 You can get most of this top-level information using the Azure portal.  Alternatively, you can use [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) to get information about your HDInsight cluster(s):
 
 ```azurecli
-    az hdinsight list --resource-group <ResourceGroup>
-    az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
+az hdinsight list --resource-group <ResourceGroup>
+az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
 ```
 
 You can also use PowerShell to view this information.  For more information, see [Apache Manage Hadoop clusters in HDInsight by using Azure PowerShell](hdinsight-administer-use-powershell.md).
@@ -70,7 +70,7 @@ A typical HDInsight cluster uses several services and open-source software packa
 
 ### View cluster configuration settings with the Ambari UI
 
-Apache Ambari simplifies the management, configuration, and monitoring of a HDInsight cluster by providing a web UI and a REST API. Ambari is included on Linux-based HDInsight clusters. Select the **Cluster Dashboard** pane on the Azure portal HDInsight page to open the **Cluster Dashboards** link page.  Next, select the **HDInsight cluster dashboard** pane to open the Ambari UI.  You are prompted for your cluster login credentials.
+Apache Ambari simplifies the management, configuration, and monitoring of a HDInsight cluster by providing a web UI and a REST API. Ambari is included on Linux-based HDInsight clusters. Select the **Cluster Dashboard** pane on the Azure portal HDInsight page to open the **Cluster Dashboards** link page.  Next, select the **HDInsight cluster dashboard** pane to open the Ambari UI.  You're prompted for your cluster login credentials.
 
 To open a list of service views, select the **Ambari Views** pane on the Azure portal page for HDInsight.  This list varies, depending on which libraries you've installed.  For example, you may see YARN Queue Manager, Hive View, and Tez View.  Select any service link to see configuration and service information.  The Ambari UI **Stack and Version** page provides information about the cluster services' configuration and service version history. To navigate to this section of the Ambari UI, select the **Admin** menu and then **Stacks and Versions**.  Select the **Versions** tab to see service version information.
 
@@ -86,7 +86,7 @@ HDInsight [script actions](hdinsight-hadoop-customize-cluster-linux.md) run scri
 
 ## Step 3: Manage the cluster job execution log files
 
-The next step is reviewing the job execution log files for the various services.  Services could include Apache HBase, Apache Spark, and many others. A Hadoop cluster produces a large number of verbose logs, so determining which logs are useful (and which are not) can be time-consuming.  Understanding the logging system is important for targeted management of log files.  The following is an example log file.
+The next step is reviewing the job execution log files for the various services.  Services could include Apache HBase, Apache Spark, and many others. A Hadoop cluster produces a large number of verbose logs, so determining which logs are useful (and which aren't) can be time-consuming.  Understanding the logging system is important for targeted management of log files.  The following is an example log file.
 
 ![HDInsight example log file sample output](./media/hdinsight-log-management/hdi-log-file-example.png)
 
@@ -94,7 +94,7 @@ The next step is reviewing the job execution log files for the various services.
 
 HDInsight stores its log files both in the cluster file system and in Azure storage. You can examine log files in the cluster by opening an [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) connection to the cluster and browsing the file system, or by using the Hadoop YARN Status portal on the remote head node server. You can examine the log files in Azure storage using any of the tools that can access and download data from Azure storage. Examples are [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer), and the Visual Studio Server Explorer. You can also use PowerShell and the Azure Storage Client libraries, or the Azure .NET SDKs, to access data in Azure blob storage.
 
-Hadoop runs the work of the jobs as *task attempts* on various nodes in the cluster. HDInsight can initiate speculative task attempts, terminating any other task attempts that do not complete first. This generates significant activity that is logged to the controller, stderr, and syslog log files on-the-fly. In addition, multiple task attempts are running simultaneously, but a log file can only display results linearly.
+Hadoop runs the work of the jobs as *task attempts* on various nodes in the cluster. HDInsight can initiate speculative task attempts, terminating any other task attempts that don't complete first. This generates significant activity that is logged to the controller, stderr, and syslog log files on-the-fly. In addition, multiple task attempts are running simultaneously, but a log file can only display results linearly.
 
 #### HDInsight logs written to Azure Blob storage
 
@@ -104,21 +104,21 @@ In addition to the core log files generated by HDInsight, installed services suc
 
 ### HDInsight logs generated by YARN
 
-YARN aggregates logs across all containers on a worker node and stores those logs as one aggregated log file per worker node. That log is stored on the default file system after an application finishes. Your application may use hundreds or thousands of containers, but logs for all containers that are run on a single worker node are always aggregated to a single file. There is only one log per worker node used by your application. Log aggregation is enabled by default on HDInsight clusters version 3.0 and above. Aggregated logs are located in default storage for the cluster.
+YARN aggregates logs across all containers on a worker node and stores those logs as one aggregated log file per worker node. That log is stored on the default file system after an application finishes. Your application may use hundreds or thousands of containers, but logs for all containers that are run on a single worker node are always aggregated to a single file. There's only one log per worker node used by your application. Log aggregation is enabled by default on HDInsight clusters version 3.0 and above. Aggregated logs are located in default storage for the cluster.
 
 ```
-    /app-logs/<user>/logs/<applicationId>
+/app-logs/<user>/logs/<applicationId>
 ```
 
-The aggregated logs are not directly readable, as they are written in a TFile binary format indexed by container. Use the YARN ResourceManager logs or CLI tools to view these logs as plain text for applications or containers of interest.
+The aggregated logs aren't directly readable, as they're written in a TFile binary format indexed by container. Use the YARN ResourceManager logs or CLI tools to view these logs as plain text for applications or containers of interest.
 
 #### YARN CLI tools
 
 To use the YARN CLI tools, you must first connect to the HDInsight cluster using SSH. Specify the `<applicationId>`, `<user-who-started-the-application>`, `<containerId>`, and `<worker-node-address>` information when running these commands. You can view the logs as plain text with one of the following commands:
 
 ```bash
-    yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
-    yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
+yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
+yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
 ```
 
 #### YARN ResourceManager UI
@@ -127,7 +127,7 @@ The YARN ResourceManager UI runs on the cluster head node, and is accessed throu
 
 1. In a web browser, navigate to `https://CLUSTERNAME.azurehdinsight.net`. Replace CLUSTERNAME with the name of your HDInsight cluster.
 2. From the list of services on the left, select YARN.
-3. From the Quick Links dropdown, select one of the cluster head nodes and then select **ResourceManager logs**. You are presented with a list of links to YARN logs.
+3. From the Quick Links dropdown, select one of the cluster head nodes and then select **ResourceManager logs**. You're presented with a list of links to YARN logs.
 
 ## Step 4: Forecast log volume storage sizes and costs
 
@@ -135,13 +135,13 @@ After completing the previous steps, you have an understanding of the types and 
 
 Next, analyze the volume of log data in key log storage locations over a period of time. For example, you can analyze volume and growth over 30-60-90 day periods.  Record this information in a spreadsheet or use other tools such as Visual Studio, the Azure Storage Explorer, or Power Query for Excel. For more information, see [Analyze HDInsight logs](hdinsight-debug-jobs.md).  
 
-You now have enough information to create a log management strategy for the key logs.  Use your spreadsheet (or tool of choice) to forecast both log size growth and log storage Azure service costs going forward.  Consider also any log retention requirements for the set of logs that you are examining.  Now you can reforecast future log storage costs, after determining which log files can be deleted (if any) and which logs should be retained and archived to less expensive Azure storage.
+You now have enough information to create a log management strategy for the key logs.  Use your spreadsheet (or tool of choice) to forecast both log size growth and log storage Azure service costs going forward.  Consider also any log retention requirements for the set of logs that you're examining.  Now you can reforecast future log storage costs, after determining which log files can be deleted (if any) and which logs should be retained and archived to less expensive Azure storage.
 
 ## Step 5: Determine log archive policies and processes
 
 After you determine which log files can be deleted, you can adjust logging parameters on many Hadoop services to automatically delete log files after a specified time period.
 
-For certain log files, you can use a lower-priced log file archiving approach. For Azure Resource Manager  activity logs, you can explore this approach using the Azure portal.  Set up archiving of the ARM logs by selecting the **Activity Log**' link in the Azure portal for your HDInsight instance.  On the top of the Activity Log search page, select the **Export** menu item to open the **Export activity log** pane.  Fill in the subscription, region, whether to export to a storage account, and how many days to retain the logs. On this same pane, you can also indicate whether to export to an event hub.
+For certain log files, you can use a lower-priced log file archiving approach. For Azure Resource Manager activity logs, you can explore this approach using the Azure portal.  Set up archiving of the Resource Manager logs by selecting the **Activity Log** link in the Azure portal for your HDInsight instance.  On the top of the Activity Log search page, select the **Export** menu item to open the **Export activity log** pane.  Fill in the subscription, region, whether to export to a storage account, and how many days to retain the logs. On this same pane, you can also indicate whether to export to an event hub.
 
 ![Azure portal export activity log preview](./media/hdinsight-log-management/hdi-export-log-files.png)
 

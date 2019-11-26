@@ -15,7 +15,13 @@
     href: web-query-data.md
 - name: Tutorials
   items:
-  - name: Ingest data without using code
+  - name: E2E programmatic Blob ingestion
+    items:
+      - name: C#
+        href: end-to-end-csharp.md
+      - name: Python
+        href: end-to-end-python.md
+  - name: Ingest and query monitoring data
     href: ingest-data-no-code.md  
   - name: Visualize data in Power BI
     href: visualize-power-bi.md  
@@ -37,17 +43,35 @@
     - name: C#
       href: create-cluster-database-csharp.md
     - name: Python
-      href: create-cluster-database-python.md
+      href: create-cluster-database-python.md  
     - name: Azure Resource Manager template
       href: create-cluster-database-resource-manager.md
   - name: Ingest data
     items:
     - name: Event Hub
-      href: ingest-data-event-hub.md
+      items:
+      - name: Azure portal
+        href: ingest-data-event-hub.md
+      - name: python
+        href: data-connection-event-hub-python.md
+      - name: C#
+        href: data-connection-event-hub-csharp.md
     - name: Event Grid
-      href: ingest-data-event-grid.md
+      items:
+      - name: Azure portal
+        href: ingest-data-event-grid.md
+      - name: python
+        href: data-connection-event-grid-python.md
+      - name: C#
+        href: data-connection-event-grid-csharp.md
     - name: IoT Hub
-      href: ingest-data-iot-hub.md
+      items:
+      - name: Azure portal
+        href: ingest-data-iot-hub.md
+      - name: python
+        href: data-connection-iot-hub-python.md
+      - name: C#
+        href: data-connection-iot-hub-csharp.md
     - name: One-click ingestion
       href: ingest-data-one-click.md
     - name: Streaming ingestion
@@ -63,11 +87,7 @@
     - name: Logstash
       href: ingest-data-logstash.md
     - name: Copy data using Azure Data Factory
-      href: data-factory-load-data.md 
-  - name: Deploy
-    items:
-    - name: DevOps task
-      href: devops.md    
+      href: data-factory-load-data.md   
   - name: Query data
     items:
     - name: Write queries
@@ -112,24 +132,44 @@
       href: tableau.md
     - name: Sisense
       href: sisense.md
+    - name: Redash
+      href: redash.md
   - name: Manage
     items:
-    - name: Check cluster health
-      href: check-cluster-health.md
-    - name: Select cluster VM SKU
-      href: manage-cluster-choose-sku.md
-    - name: Manage cluster horizontal scaling
-      href: manage-cluster-horizontal-scaling.md
-    - name: Manage cluster vertical scaling
-      href: manage-cluster-vertical-scaling.md
-    - name: Manage cluster security
-      href: manage-cluster-security.md
-    - name: Manage database permissions
-      href: manage-database-permissions.md
-    - name: Delete data
-      href: delete-data.md
-    - name: Deal with duplicate data
-      href: dealing-with-duplicates.md
+    - name: Cluster
+      items:
+      - name: Select cluster VM SKU
+        href: manage-cluster-choose-sku.md
+      - name: Manage cluster horizontal scaling
+        href: manage-cluster-horizontal-scaling.md
+      - name: Manage cluster vertical scaling
+        href: manage-cluster-vertical-scaling.md
+      - name: Manage cluster security
+        href: manage-cluster-security.md
+      - name: Check cluster health
+        href: check-cluster-health.md
+    - name: Database
+      items:
+      - name: Follower databases
+        href: follower.md  
+      - name: Manage database permissions
+        href: manage-database-permissions.md
+      - name: Policies
+        items:
+        - name: C#
+          href: database-table-policies-csharp.md
+        - name: Python
+          href: database-table-policies-python.md
+    - name: Data
+      items:
+      - name: Delete data
+        href: delete-data.md
+      - name: Deal with duplicate data
+        href: dealing-with-duplicates.md
+  - name: Deploy
+    items:
+    - name: Deploy your cluster into your VNet
+      href: vnet-deployment.md  
   - name: Monitor
     items:
     - name: Use diagnostic logs to monitor ingestion
@@ -140,6 +180,8 @@
     items:
     - name: Azure Data Factory
       items:
+      - name: Integration with Data Factory 
+        href: data-factory-integration.md 
       - name: Bulk copy data using Azure Data Factory template
         href: data-factory-template.md 
       - name: Run control commands using Azure Data Factory
@@ -150,6 +192,8 @@
       href: connect-from-databricks.md
     - name: Analyze data in Jupyter Notebooks & Kqlmagic
       href: kqlmagic.md
+    - name: Azure Pipelines
+      href: devops.md  
   - name: Troubleshoot
     items:
     - name: Creating a cluster
@@ -184,10 +228,14 @@
       href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureKusto
   - name: Product feedback
     href: https://aka.ms/adefeedback
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/data-explorer/
-  - name: Cost Estimator
-    href: https://aka.ms/adecostestimator
+  - name: Pricing & billing
+    items: 
+    - name: Pricing page
+      href: https://azure.microsoft.com/pricing/details/data-explorer/
+    - name: Cost estimator
+      href: https://aka.ms/adecostestimator
+    - name: Reserved capacity
+      href: pricing-reserved-capacity.md 
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=data-explorer
 

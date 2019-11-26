@@ -73,11 +73,11 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
     ![Create Databricks Spark cluster on Azure](./media/data-lake-storage-quickstart-create-databricks-account/create-databricks-spark-cluster.png "Create Databricks Spark cluster on Azure")
 
-    Accept all other default values other than the following:
+    Fill in values for the following fields, and accept the default values for the other fields:
 
-    * Enter a name for the cluster.
-    * Create a cluster with **5.1** runtime.
-    * Make sure you select the **Terminate after 120 minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
+    - Enter a name for the cluster.
+     
+    - Make sure you select the **Terminate after 120 minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
 
 4. Select **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 

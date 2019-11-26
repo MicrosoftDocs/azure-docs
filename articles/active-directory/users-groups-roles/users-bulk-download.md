@@ -20,10 +20,6 @@ ms.collection: M365-identity-device-management
 
 Azure Active Directory (Azure AD) supports bulk user import (create) operations.
 
-## Bulk download service limits
-
-Each bulk activity to create a list of users can run for up to one hour. This enables creation and download of a list of at least 500,000 users.
-
 ## Required permissions
 
 To download the list of users from the Azure AD admin center, you must be signed in with a user assigned to one or more organization-level administrator roles in Azure AD. Guest inviter and application developer are not considered administrator roles.
@@ -31,16 +27,53 @@ To download the list of users from the Azure AD admin center, you must be signed
 ## To download a list of users
 
 1. [Sign in to your Azure AD organization](https://aad.portal.azure.com) with a User administrator account in the organization.
-1. In Azure AD, select **Users** > **Download users**.
-1. On the **Download users** page, select **Start** to receive a CSV file listing user profile properties. If there are errors, you can download and view the results file on the Bulk operation results page. The file contains the reason for each error.
+2. Navigate to Azure Active Directory > Users. Then select the users you wish to include in the download by ticking the box in the left column next to each user. Note: At this time, there is no way to select all users for export. Each one must be individually selected.
+3. In Azure AD, select **Users** > **Download users**.
+4. On the **Download users** page, select **Start** to receive a CSV file listing user profile properties. If there are errors, you can download and view the results file on the Bulk operation results page. The file contains the reason for each error.
 
    ![Select where you want the list the users you want to download](./media/users-bulk-download/bulk-download.png)
+
+   The download file will contain the filtered list of users.
+
+   The following user attributes will be included: 
+
+   - userPrincipalName
+   - displayName
+   - surname
+   - mail
+   - givenName
+   - objectId
+   - userType
+   - jobTitle
+   - department
+   - manager
+   - accountEnabled
+   - usageLocation
+   - streetAddress
+   - state
+   - country
+   - physicalDeliveryOfficeName
+   - city
+   - postalCode
+   - telephoneNumber
+   - mobile
+   - authenticationPhoneNumber
+   - authenticationAlternativePhoneNumber
+   - authenticationEmail
+   - alternateEmailAddress
+   - ageGroup
+   - consentProvidedForMinor
+   - legalAgeGroupClassification
 
 ## Check status
 
 You can see the status of your pending bulk requests in the **Bulk operation results (preview)** page.
 
    ![Check upload status in the Bulk Operations Results page](./media/users-bulk-download/bulk-center.png)
+
+## Bulk download service limits
+
+Each bulk activity to create a list of users can run for up to one hour. This enables creation and download of a list of at least 500,000 users.
 
 ## Next steps
 

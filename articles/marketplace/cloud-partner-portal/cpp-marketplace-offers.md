@@ -4,6 +4,7 @@ description: Creating and managing offers of the Azure and AppSource Marketplace
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, 
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: pabutler

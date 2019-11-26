@@ -63,7 +63,7 @@ public class Main {
     String endpoint = ("COMPUTER_VISION_ENDPOINT");
 
     private static final String uriBase = endpoint + 
-            "vision/v2.0/analyze";
+            "vision/v2.1/analyze";
     private static final String imageToAnalyze =
             "https://upload.wikimedia.org/wikipedia/commons/" +
                     "1/12/Broadway_and_Times_Square_by_night.jpg";

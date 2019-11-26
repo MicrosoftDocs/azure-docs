@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure traffic analytics frequently asked questions | Microsoft Docs
 description: Get answers to some of the most frequently asked questions about traffic analytics.
 services: network-watcher
@@ -88,19 +88,22 @@ You can use traffic analytics for NSGs in any of the following supported regions
 - Japan East
 - Japan West
 - US Gov Virginia
+- China East 2
 
 The Log Analytics workspace must exist in the following regions:
 - Canada Central
 - West Central US
-- West US
-- West US 2
-- South Central US
-- Central US
 - East US
 - East US 2
+- North Central US
+- South Central US
+- Central US
+- West US
+- West US 2
 - France Central
 - West Europe
 - North Europe
+- UK West
 - UK South
 - Australia East
 - Australia Southeast
@@ -110,6 +113,7 @@ The Log Analytics workspace must exist in the following regions:
 - Central India
 - Japan East
 - US Gov Virginia
+- China East 2
 
 ## Can the NSGs I enable flow logs for be in different regions than my workspace?
 
@@ -140,8 +144,8 @@ Select a supported region. If you select a non-supported region, you receive a "
 The Microsoft.Insights provider must be registered for flow logging to work properly. If you are not sure whether the Microsoft.Insights provider is registered for your subscription, replace *xxxxx-xxxxx-xxxxxx-xxxx* in the following command, and run the following commands from PowerShell:
 
 ```powershell-interactive
-**Select-AzSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
-**Register-AzResourceProvider** -ProviderNamespace Microsoft.Insights
+**Select-AzSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
+**Register-AzResourceProvider** -ProviderNamespace Microsoft.Insights
 ```
 
 ## I have configured the solution. Why am I not seeing anything on the dashboard?

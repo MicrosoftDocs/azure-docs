@@ -1,6 +1,6 @@
 ---
-title: 'Add a gateway to an Azure VNet for ExpressRoute: Portal | Microsoft Docs'
-description: This article walks you through adding a virtual network gateway to an already created Resource Manager VNet for ExpressRoute.
+title: 'Azure ExpressRoute: Add a gateway to a VNet: portal'
+description: This article walks you through adding a virtual network gateway to an already created Resource Manager VNet for ExpressRoute using the Azure portal.
 services: expressroute
 author: cherylmc
 
