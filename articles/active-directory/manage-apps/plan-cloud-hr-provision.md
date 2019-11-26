@@ -1,5 +1,5 @@
 ---
-title: Plan Cloud HR application to Azure Active Directory user provisioning
+title: Plan cloud HR application to Azure Active Directory user provisioning
 description: This article describes the deployment process of integrating cloud HR systems, such as Workday and Sucessfactors with Azure Active Directory. Integrating Azure AD with your cloud HR system results in a complete identity lifecycle management system. 
 services: active-directory
 author: martincoetzer
@@ -14,7 +14,7 @@ ms.author: martinco
 ms.reviewer: arvindha
 ---
 
-# Plan Cloud HR application to Azure Active Directory user provisioning
+# Plan cloud HR application to Azure Active Directory user provisioning
 
 Historically IT staff have relied on manual methods of creating, updating, and deleting employees such as uploading CSV files, or custom scripts to sync employee data. These provisioning processes are error-prone, insecure, and hard to manage.
 
@@ -101,7 +101,7 @@ The following example describes the end-to-end user provisioning solution archit
 - **Authoritative HR data flow – from cloud HR app to AD** - in this flow, the HR event (Joiners-Movers-Leavers process) is initiated in the cloud HR app tenant. The Azure AD provisioning service and Azure AD Connect provisioning agent provisions the user data from the cloud HR app tenant into AD. Depending on the event, it may lead to create/update/enable/disable operations in AD.
 - **Sync with Azure AD and Writeback email and username from on-premises AD to cloud HR app** - once the accounts are updated in AD, it is synced with Azure AD through Azure AD Connect, and the email addresses and username attributes can be written back to the cloud HR app tenant.
 
-> ![Workflow diagram](./media/plan-cloudhr-provisioning/plan-cloudhr-provisioning-img1.png)
+![Workflow diagram](./media/plan-cloudhr-provisioning/plan-cloudhr-provisioning-img1.png)
 
 #### Description of workflow
 
@@ -147,7 +147,7 @@ For example, the image below lists the Workday connector apps available in the A
 
 ![Azure Active Directory portal App Gallery](./media/plan-cloudhr-provisioning/plan-cloudhr-provisioning-img2.png)
 
-### **Decision flowchart**
+### Decision flowchart
 
 Use the decision flow chart below to identify which cloud HR provisioning apps are relevant to your scenario.
 
@@ -166,8 +166,8 @@ The Azure AD Connect provisioning agent deployment topology depends on the numbe
 
 Based on your decision, choose one of the deployment scenarios:
 
-- [Single cloud HR app tenant -> target single or multiple AD child domains in a trusted forest](#Single cloud HR app tenant -> single or multiple target AD child domains in a trusted forest)
-- [Single cloud HR app tenant -> target multiple child domains in a disjoint AD forest](#Single cloud HR app tenant -> disjoint AD forest)
+- Single cloud HR app tenant -> target single or multiple AD child domains in a trusted forest
+- Single cloud HR app tenant -> target multiple child domains in a disjoint AD forest
 
 ### Single Cloud HR app tenant -> single or multiple target AD child domains in a trusted forest
 
@@ -181,7 +181,7 @@ We recommend the following production configuration:
 
 ![Flow to on-premises agents](./media/plan-cloudhr-provisioning/plan-cloudhr-provisioning-img4.png)
 
-### Single cloud HR app tenant -> disjoint AD forest
+### Single cloud HR app tenant -> target multiple child domains in a disjoint AD forest
 
 This scenario involves provisioning users from the cloud HR app to domains in disjoint AD forests.
 
@@ -340,7 +340,7 @@ Once you have configured the cloud HR app to Azure AD user provisioning, you wil
 |HR rehires an employee into a new role.|Behavior depends on how the cloud HR app is configured to generate Employee IDs:</br>- If the old employee ID is reused for rehires, then the connector will enable the existing AD account for the user.</br>- If rehires get a new employee ID, then the connector will create a new AD account for the user.|
 |HR converts the employee to contract worker or vice versa|A new AD account is created for the new persona and the old account gets disabled on the conversion effective date.|
 
-Use the results above to determine how to transition your automatic user provisioning implementation into production based on your [established timelines](#Plan Cloud HR application to Azure Active Directory user provisioning).
+Use the results above to determine how to transition your automatic user provisioning implementation into production based on your established timelines.
 
 > [!TIP]
 > We recommend using techniques such as data reduction and data scrubbing when refreshing the test environment with production data to remove/mask sensitive PII (Personally Identifiable Information) data to comply with privacy and security standards.
