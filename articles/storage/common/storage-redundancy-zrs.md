@@ -35,7 +35,7 @@ For general-purpose v2 accounts, ZRS is generally available in the following reg
 - US East 2
 - US West 2
 
-For FileStorage accounts (premium file shares), ZRS is generally available in the following regions:
+For FileStorage accounts (premium file shares) and BlockBlobStorage accounts (premium block blobs), ZRS is generally available in the following regions:
 
 - Europe West
 - US East
