@@ -70,7 +70,7 @@ Follow these steps to elevate access for a Global Administrator using the Azure 
 
 1. Sign out and sign back in to refresh your access.
 
-    You should now have access to all subscriptions and management groups in your directory. You'll notice that you have been assigned the User Access Administrator role at root scope.
+    You should now have access to all subscriptions and management groups in your directory. When you view the Access control (IAM) pane, you'll notice that you have been assigned the User Access Administrator role at root scope.
 
    ![Subscription role assignments with root scope - screenshot](./media/elevate-access-global-admin/iam-root.png)
 
@@ -79,6 +79,10 @@ Follow these steps to elevate access for a Global Administrator using the Azure 
     For information about assigning roles, see [Manage access using RBAC and the Azure portal](role-assignments-portal.md). If you are using Azure AD Privileged Identity Management (PIM), see [Discover Azure resources to manage in PIM](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) or [Assign Azure resource roles in PIM](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 
 1. When you are done, set the **Access management for Azure resources** toggle back to **No**. Since this is a per-user setting, you must be signed in as the same user as was used to elevate access.
+
+    If you try to remove the User Access Administrator role assignment on the Access control (IAM) pane, you'll see the following message. To remove the role assignment, you must set set the toggle back to **No** or use Azure PowerShell, Azure CLI, or the REST API.
+
+    ![Remove role assignments with root scope](./media/elevate-access-global-admin/iam-root-remove.png)
 
 ## Azure PowerShell
 
