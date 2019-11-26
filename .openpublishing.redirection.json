@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/sql-database/sql-database-feature-restrictions.md",
+      "redirect_url": "/azure/sql-database",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/digital-twins/how-to-use-legacy-aad.md",
       "redirect_url": "/azure/digital-twins/quickstart-view-occupancy-dotnet#set-permissions-for-your-app",
       "redirect_document_id": false
@@ -38,6 +43,26 @@
     {
       "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage.md",
       "redirect_url": "/azure//virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/maintenance-and-updates.md",
+      "redirect_url": "/azure/virtual-machines/maintenance-and-updates?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/maintenance-and-updates.md",
+      "redirect_url": "/azure/virtual-machines/maintenance-and-updates?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json",
+      "redirect_document_id": false
+    },
+	    {
+      "source_path": "articles/virtual-machines/windows/maintenance-notifications.md",
+      "redirect_url": "/azure/virtual-machines/maintenance-notifications?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/maintenance-notifications.md",
+      "redirect_url": "/azure/virtual-machines/maintenance-notifications?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json",
       "redirect_document_id": false
     },
     {
