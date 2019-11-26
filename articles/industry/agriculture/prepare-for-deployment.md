@@ -64,6 +64,9 @@ The Terms of use page appears. Review the standard marketplace terms or select t
 7. You have now successfully signed Azure FarmBeats's End-user License agreement (EULA) on the marketplace.  
 7. To continue with the deployment, follow the next steps in this guide.
 
+> [!NOTE]
+> Completion of the offer in the Azure Marketplace completes only a part of the setup. Follow the instructions below to complete the deployment of Azure FarmBeats in your Azure subscription.
+
 ## Prepare
 
 You need the following permissions for deploying Azure FarmBeats:
