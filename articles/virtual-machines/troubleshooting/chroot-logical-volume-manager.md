@@ -106,7 +106,7 @@ mount /dev/sdc1 /rescue/boot
 
 Verify the file systems of the attached disk are now correctly mounted using the **lsblk** command
 
-![Run lsblk](./media/chroot-logical-volume-manager/lsblk-output.png)
+![Run lsblk](./media/chroot-logical-volume-manager/lsblk-output-1.png)
 
 or the **df -Th** command
 
