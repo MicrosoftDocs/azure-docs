@@ -1,12 +1,12 @@
 ---
-title: Quickstart - Block access when a session risk is detected with Azure Active Directory Conditional Access | Microsoft Docs
+title: Use risk detections with Azure Active Directory Conditional Access
 description: In this quickstart, you learn how you can configure an Azure Active Directory (Azure AD) Conditional Access policy to block sign-ins based on session risks.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: quickstart 
-ms.date: 12/14/2018
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo

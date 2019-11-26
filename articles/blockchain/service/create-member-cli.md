@@ -1,15 +1,9 @@
 ---
 title: Create an Azure Blockchain Service member - Azure CLI
 description: Create an Azure Blockchain Service member for a blockchain consortium using the Azure CLI.
-services: azure-blockchain
-keywords: 
-author: PatAltimore
-ms.author: patricka
 ms.date: 11/20/2019
 ms.topic: quickstart
-ms.service: azure-blockchain
 ms.reviewer: janders
-manager: femila
 #Customer intent: As a network operator, I want use Azure Blockchain Service so that I can create a blockchain member on Azure
 ---
 
@@ -64,7 +58,7 @@ It takes about 10 minutes to create the blockchain member and supporting resourc
 
 ## Clean up resources
 
-You can use the blockchain member you created for the next quickstart or tutorial. When no longer needed, you can delete the resources by deleting the `myResourceGroup` resource group you created by the Azure Blockchain Service.
+You can use the blockchain member you created for the next quickstart or tutorial. When no longer needed, you can delete the resources by deleting the `myResourceGroup` resource group you created for the quickstart.
 
 Run the following command to remove the resource group and all related resources.
 
@@ -79,4 +73,4 @@ az group delete \
 In this quickstart, you deployed an Azure Blockchain Service member and a new consortium. Try the next quickstart to use  Azure Blockchain Development Kit for Ethereum to attach to a consortium on Azure Blockchain Service.
 
 > [!div class="nextstepaction"]
-> [Use Visual Studio Code to connect to an Azure Blockchain Service consortium network](connect-vscode.md)
+> [Use Visual Studio Code to connect to Azure Blockchain Service](connect-vscode.md)
