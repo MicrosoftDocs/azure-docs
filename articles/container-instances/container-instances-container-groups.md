@@ -1,14 +1,8 @@
 ---
-title: Azure Container Instances container groups
-description: Understand how multi-container groups work in Azure Container Instances
-services: container-instances
-author: dlepow
-manager: gwallace
-
-ms.service: container-instances
+title: Introduction to container groups
+description: Learn about container groups in Azure Container Instances, a collection of instances that share a lifecycle and resources such as storage and network
 ms.topic: article
 ms.date: 11/01/2019
-ms.author: danlep
 ms.custom: mvc
 
 ---
@@ -16,7 +10,7 @@ ms.custom: mvc
 
 The top-level resource in Azure Container Instances is the *container group*. This article describes what container groups are and the types of scenarios they enable.
 
-## How a container group works
+## What is a container group?
 
 A container group is a collection of containers that get scheduled on the same host machine. The containers in a container group share a lifecycle, resources, local network, and storage volumes. It's similar in concept to a *pod* in [Kubernetes][kubernetes-pod].
 

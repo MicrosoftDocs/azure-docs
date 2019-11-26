@@ -1,10 +1,10 @@
 ---
-title: About Azure Migrate | Microsoft Docs
-description: Provides an overview of the Azure Migrate service.
+title: About Azure Migrate 
+description: Learn about server assessment and migration with the Azure Migrate service.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 11/05/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
 ---

@@ -62,7 +62,9 @@
       - name: Aha!
         href: aha-tutorial.md
       - name: Airstack
-        href: airstack-tutorial.md  
+        href: airstack-tutorial.md
+      - name: Airtable
+        href: airtable-tutorial.md  
       - name: AirWatch
         href: airwatch-tutorial.md
       - name: Alcumus Info Exchange
@@ -592,6 +594,8 @@
         href: hightail-tutorial.md
       - name: HireVue
         href: hirevue-tutorial.md
+      - name: Hootsuite
+        href: hootsuite-tutorial.md
       - name: Hornbill
         href: hornbill-tutorial.md
       - name: Hosted Graphite
@@ -930,6 +934,8 @@
         href: officespace-tutorial.md
       - name: ON24 Virtual Environment SAML Connection
         href: on24-tutorial.md
+      - name: OneDesk
+        href: onedesk-tutorial.md
       - name: Oneteam
         href: oneteam-tutorial.md
       - name: OneTrust Privacy Management Software
@@ -1406,6 +1412,8 @@
         href: visitorg-tutorial.md
       - name: Visitly
         href: visitly-tutorial.md
+      - name: Visma
+        href: visma-tutorial.md
       - name: Vocoli
         href: vocoli-tutorial.md
       - name: Vodeclic
@@ -1545,6 +1553,8 @@
         href: bonusly-provisioning-tutorial.md
       - name: Box
         href: box-userprovisioning-tutorial.md
+      - name: Brivo Onair Identity Connector
+        href: brivo-onair-identity-connector-provisioning-tutorial.md       
       - name: Cerner Central
         href: cernercentral-provisioning-tutorial.md
       - name: Cisco Webex
@@ -1587,6 +1597,10 @@
         href: citrixgotomeeting-provisioning-tutorial.md
       - name: Harness
         href: harness-provisioning-tutorial.md
+      - name: Infor CloudSuite
+        href: infor-cloudsuite-provisioning-tutorial.md
+      - name: Ideo
+        href: ideo-provisioning-tutorial.md
       - name: Insight4GRC
         href: insight4grc-provisioning-tutorial.md
       - name: iPass SmartConnect
@@ -1603,6 +1617,8 @@
         href: lucidchart-provisioning-tutorial.md
       - name: Leapsome
         href: leapsome-provisioning-tutorial.md
+      - name: Looop
+        href: looop-provisioning-tutorial.md
       - name: Merchlogix
         href: merchlogix-provisioning-tutorial.md
       - name: Meta Networks Connector
@@ -1617,12 +1633,16 @@
       items:
       - name: Netsuite
         href: netsuite-provisioning-tutorial.md
+      - name: OfficeSpace Software
+        href: officespace-software-provisioning-tutorial.md
       - name: Oracle Fusion ERP
         href: oracle-fusion-erp-provisioning-tutorial.md
       - name: Pingboard
         href: pingboard-provisioning-tutorial.md
       - name: Promapp
         href: promapp-provisioning-tutorial.md
+      - name: Priority Matrix
+        href: priority-matrix-provisioning-tutorial.md
       - name: Proxyclick
         href: Proxyclick-provisioning-tutorial.md
       - name: Peakon
@@ -1631,6 +1651,8 @@
         href: reward-gateway-provisioning-tutorial.md
       - name: RFPIO
         href: rfpio-provisioning-tutorial.md
+      - name: RingCentral
+        href: ringcentral-provisioning-tutorial.md
       - name: Robin
         href: robin-provisioning-tutorial.md
       - name: Rollbar
@@ -1651,10 +1673,14 @@
         href: snowflake-provisioning-tutorial.md
       - name: Smartsheet
         href: smartsheet-provisioning-tutorial.md
+      - name: Soloinsight-CloudGate SSO
+        href: soloinsight-cloudgate-sso-provisioning-tutorial.md
       - name: Symantec Web Security Service (WSS)
         href: symantec-web-security-service.md
       - name: Smartfile
         href: smartfile-provisioning-tutorial.md
+      - name: SpaceIQ
+        href: spaceiq-provisioning-tutorial.md
       - name: StarLeaf
         href: starleaf-provisioning-tutorial.md
       - name: Storegate
@@ -1691,6 +1717,8 @@
         href: zscaler-beta-provisioning-tutorial.md
       - name: Zscaler One
         href: zscaler-one-provisioning-tutorial.md
+      - name: Zscaler Private Access
+        href: zscaler-private-access-provisioning-tutorial.md
       - name: Zscaler Two
         href: zscaler-two-provisioning-tutorial.md
       - name: Zscaler Three

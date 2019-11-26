@@ -1,17 +1,17 @@
 ---
-title: 'ExpressRoute: Create and modify a circuit: Azure portal'
-description: Create, provision, verify, update, delete, and deprovision an ExpressRoute circuit.
+title: 'Tutorial - Create and modify a circuit with ExpressRoute'
+description: In this tutorial, learn how to create, provision, verify, update, delete, and deprovision an ExpressRoute circuit.
 services: expressroute
 author: cherylmc
 
 ms.service: expressroute
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/20/2018
 ms.author: cherylmc
 
 ---
 
-# Create and modify an ExpressRoute circuit
+# Tutorial: Create and modify an ExpressRoute circuit
 
 > [!div class="op_single_selector"]
 > * [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)

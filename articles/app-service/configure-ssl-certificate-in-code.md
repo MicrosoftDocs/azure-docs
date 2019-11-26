@@ -138,6 +138,8 @@ If you need to load a certificate file that you upload manually, it's better to 
 > ```azurecli-interactive
 > az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_USER_PROFILE=1
 > ```
+>
+> This approach to using certificates in your code makes use of the SSL functionality in App Service, which requires your app to be in **Basic** tier or above.
 
 The following C# example loads a public certificate from a relative path in your app:
 
