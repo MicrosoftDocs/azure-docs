@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Create a geofence using Azure Maps'
-description: 'Tutorial: Setup a geofence by using Azure Maps.'
+description: 'Tutorial: In this tutorial, learn how to setup a geofence and track devices relative to the geofence by using Azure Maps spatial service.'
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019

@@ -1,6 +1,6 @@
 ---
 title: Mobility Service data structures in Azure Maps| Microsoft Docs
-description: Data structures in Azure Maps Mobility Service
+description: In this article, learn about common fields and data structures returned via the Azure Maps mobility services.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 06/05/2019

@@ -1,6 +1,6 @@
 ---
 title: Supported map styles in Azure Maps| Microsoft Docs
-description: Map styles supported by Azure Maps
+description: Azure Maps supports several different built-in map styles. In this article, learn about Map styles supported by Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 05/06/2019
