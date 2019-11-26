@@ -1,18 +1,9 @@
 ---
-title: Azure CLI Script Sample - Create a Function App for serverless execution | Microsoft Docs
-description: Azure CLI Script Sample - Create a Function App for serverless execution
-services: functions
-documentationcenter: functions
-author: ggailey777
-manager: jeconnoc
-
+title: Create a serverless Python function app - Azure CLI
+description: Create a serverless Python function app using the Azure CLI
 ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
-ms.service: azure-functions
-ms.devlang: azurecli
 ms.topic: sample
-ms.date: 07/03/2018
-ms.author: glenga
-ms.custom: mvc
+ms.date: 11/23/2019
 ---
 
 # Create a serverless Python function app - Azure CLI

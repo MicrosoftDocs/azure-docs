@@ -1,21 +1,14 @@
 ---
-title: Azure CLI Script Sample - Create a Function App for serverless execution | Microsoft Docs
-description: Azure CLI Script Sample - Create a Function App for serverless execution
-services: functions
-documentationcenter: functions
-author: ggailey777
-manager: jeconnoc
-
+title: Create a serverless function app using the Azure CLI
+description: Create a function app for serverless execution in Azure using the Azure CLI
 ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
-ms.service: azure-functions
-ms.devlang: azurecli
 ms.topic: sample
 ms.date: 07/03/2018
 ms.author: glenga
 ms.custom: mvc
 ---
 
-# Create a function app for serverless code execution - Azure CLI
+# Create a function app for serverless code execution 
 
 This Azure Functions sample script creates a function app, which is a container for your functions. The function app is created using the [consumption plan](../functions-scale.md#consumption-plan), which is ideal for event-driven serverless workloads.
 

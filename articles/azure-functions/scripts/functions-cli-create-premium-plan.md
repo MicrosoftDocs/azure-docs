@@ -1,6 +1,6 @@
 ---
-title: Create a Function App in a Premium plan - Azure CLI
-description: Azure CLI Script Sample - Create a Function App in a scalable Premium plan
+title: Create a function app in a Premium plan - Azure CLI
+description: Create a function app in a scalable Premium plan in Azure using the Azure CLI
 ms.service: azure-functions
 ms.topic: sample
 ms.date: 11/23/2019

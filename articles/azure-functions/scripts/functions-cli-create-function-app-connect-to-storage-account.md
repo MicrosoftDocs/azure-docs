@@ -1,16 +1,8 @@
 ---
 title: Create a function app with Azure Storage | Microsoft Docs
 description: Azure CLI Script Sample - Create an Azure Function that connects to an Azure Storage
-services: functions
-documentationcenter: functions
-author: ggailey777
-manager: jeconnoc
-ms.assetid: 
-ms.service: azure-functions
-ms.devlang: azurecli
 ms.topic: sample
 ms.date: 04/20/2017
-ms.author: glenga
 ms.custom: mvc
 ---
 # Create a function app with a named Storage account connection - Azure CLI
@@ -30,11 +22,6 @@ If you use the CLI locally, make sure that you are running the Azure CLI version
 This sample creates an Azure Function app and adds the storage connection string to an app setting.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-storage/create-function-app-connect-to-storage-account.sh "Integrate Function App into Azure Storage Account")]
-
-
-## Clean up deployment
-
-After the script sample has been run, run the following command to remove the resource group and all related resources:
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
