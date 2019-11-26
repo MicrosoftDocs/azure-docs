@@ -1,5 +1,5 @@
 ---
-title: Threat intelligence and Security alert map in Azure Security Center | Microsoft Docs
+title: Threat intelligence & Security alert map - Azure Security Center
 description: Learn how to use the security alert map and threat intelligence capability in Azure Security Center to identify potential threats in your VMs and computers.
 services: security-center
 documentationcenter: na

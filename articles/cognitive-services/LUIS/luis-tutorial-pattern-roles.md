@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 10/14/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use pattern roles. 
 ---
@@ -18,6 +18,7 @@ ms.author: diberry
 
 In this tutorial, use a pattern to extract data from a well-formatted template utterance. The template utterance uses a [simple entity](luis-concept-entity-types.md#simple-entity) and [roles](luis-concept-roles.md) to extract related data such as origin location and destination location.  When using patterns, fewer example utterances are needed for the intent.
 
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **In this tutorial, you learn how to:**
 

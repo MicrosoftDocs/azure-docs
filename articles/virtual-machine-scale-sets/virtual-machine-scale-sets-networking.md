@@ -113,7 +113,7 @@ To set the domain name in an Azure template, add a **dnsSettings** property to t
     {
     "name": "nic1",
     "properties": {
-      "primary": "true",
+      "primary": true,
       "ipConfigurations": [
       {
         "name": "ip1",
@@ -247,7 +247,7 @@ The following example is a scale set network profile showing multiple NIC entrie
         {
         "name": "nic1",
         "properties": {
-            "primary": "true",
+            "primary": true,
             "ipConfigurations": [
             {
                 "name": "ip1",
@@ -279,7 +279,7 @@ The following example is a scale set network profile showing multiple NIC entrie
         {
         "name": "nic2",
         "properties": {
-            "primary": "false",
+            "primary": false,
             "ipConfigurations": [
             {
                 "name": "ip1",
@@ -326,7 +326,7 @@ For example:
         {
             "name": "nic1",
             "properties": {
-                "primary": "true",
+                "primary": true,
                 "ipConfigurations": [
                     {
                         "name": "ip1",

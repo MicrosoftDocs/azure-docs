@@ -1,5 +1,5 @@
 ---
-title: Connect to a Windows Server VM | Microsoft Docs
+title: Connect to a Windows Server VM 
 description: Learn how to connect and sign on to a Windows VM using the Azure portal and the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -52,7 +52,7 @@ To connect to a Windows VM from a Mac, you will need to install an RDP client fo
 
 ## Connect to the virtual machine using PowerShell
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+ 
 
 If you are using PowerShell and have the Azure PowerShell  module installed you may also connect using the `Get-AzRemoteDesktopFile` cmdlet, as shown below.
 

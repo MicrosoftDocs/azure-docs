@@ -26,6 +26,16 @@ Creating a Private Cloud helps you address a variety of common needs for network
 
 When you create a Private Cloud, you get a single vSphere cluster and all the management VMs that are created in that cluster.
 
+## Before you begin
+
+Nodes must be provisioned before you can create your Private Cloud. For more information on provisioning nodes, see [Provision nodes for Azure VMware Solution by CloudSimple](create-nodes.md).
+
+Allocate a CIDR range for vSphere/vSAN subnets for the Private Cloud. A Private Cloud is created as an isolated VMware stack environment (with ESXi hosts, vCenter, vSAN, and NSX) managed by a vCenter server. Management components are deployed in the network that is selected for vSphere/vSAN subnets CIDR. The network CIDR range is divided into different subnets during the deployment. The vSphere/vSAN subnet address space must be unique. It must not overlap with any network that communicates with the CloudSimple environment. The networks that communicate with CloudSimple include on-premises networks and Azure virtual networks. For more information on vSphere/vSAN subnets, see VLANs and subnets overview.
+
+* Minimum vSphere/vSAN subnets CIDR range prefix: /24
+* Maximum vSphere/vSAN subnets CIDR range prefix: /21
+
+
 ## Access the CloudSimple portal
 
 Access the [CloudSimple portal](access-cloudsimple-portal.md).
@@ -41,7 +51,7 @@ Access the [CloudSimple portal](access-cloudsimple-portal.md).
 
 5. In the CloudSimple portal, provide a name for your Private Cloud.
 6. Select **Location** for your Private Cloud.
-7. Select **Node type**, consistent with what you purchased on Azure.  You can choose the [CS28 or CS36 option](cloudsimple-node.md#vmware-solution-by-cloudsimple-nodes-sku). The latter option includes the maximum compute and memory capacity.
+7. Select **Node type**, consistent with what you provisioned on Azure.
 8. Specify **Node count**.  At least three nodes are required to create a Private Cloud.
 
     ![Create Private Cloud - Basic info](media/create-private-cloud-basic-info.png)

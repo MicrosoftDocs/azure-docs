@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 09/26/2019
+ms.date: 10/23/2019
 ms.author: diberry
 #Customer intent: As a developer, I want implement a Personalizer loop so that I can understand how to use the Rank and Reward calls.
 ---
 
-# Quickstart: Personalize client library for Python
+# Quickstart: Personalizer client library for Python
 
 Display personalized content in this python quickstart with the Personalizer service.
 
@@ -35,7 +35,7 @@ Get started with the Personalizer client library for Python. Follow these steps 
 There are several steps to use this quickstart:
 
 * In the Azure portal, create a Personalizer resource
-* In the Azure portal, for the Personalizer resource, on the **Settings** page, change the model update frequency
+* In the Azure portal, for the Personalizer resource, on the **Configuration** page, change the model update frequency
 * In a code editor, create a code file and edit the code file
 * In the command line or terminal, install the SDK from the command line
 * In the command line or terminal, run the code file
@@ -64,11 +64,9 @@ Install the Personalizer client library for Python with the following command:
 pip install azure-cognitiveservices-personalizer
 ```
 
-If you're using the Visual Studio IDE, the client library is available as a downloadable NuGet package.
-
 ## Change the model update frequency
 
-In the Azure portal, in the Personalizer resource on the **Settings** page, change the **Model update frequency** to 10 seconds. This will train the service rapidly, allowing you to see how the top action changes for each iteration.
+In the Azure portal, in the Personalizer resource on the **Configuration** page, change the **Model update frequency** to 10 seconds. This will train the service rapidly, allowing you to see how the top action changes for each iteration.
 
 ![Change model update frequency](./media/settings/configure-model-update-frequency-settings.png)
 
@@ -104,7 +102,9 @@ From the project directory, open the **sample.py** file in your preferred editor
 
 ## Add Personalizer resource information
 
-In the **Program** class, create variables for your resource's Azure key and endpoint pulled from the environment variables, named `PERSONALIZER_RESOURCE_KEY` and `PERSONALIZER_RESOURCE_ENDPOINT`. If you created the environment variables after the application is launched, the editor, IDE, or shell running it will need to be closed and reloaded to access the variable. The methods will be created later in this quickstart.
+Create variables for your resource's Azure key and endpoint pulled from the environment variables, named `PERSONALIZER_RESOURCE_KEY` and `PERSONALIZER_RESOURCE_ENDPOINT`. If you created the environment variables after the application is launched, the editor, IDE, or shell running it will need to be closed and reloaded to access the variable. The methods will be created later in this quickstart.
+
+The resource name is part of the endpoint URL: `https://<your-resource-name>.api.cognitive.microsoft.com/`.
 
 [!code-python[Create variables to hold the Personalizer resource key and endpoint values found in the Azure portal.](~/samples-personalizer/quickstarts/python/sample.py?name=AuthorizationVariables)]
 
@@ -116,7 +116,7 @@ Next, create a method to return a Personalizer client. The parameter to the meth
 
 ## Get content choices represented as actions
 
-Actions represent the content choices you want Personalizer to rank. Add the following methods to the Program class to get a user's input from the command line for the time of day and current food preference.
+Actions represent the content choices you want Personalizer to rank. Add the following methods to get a user's input from the command line for the time of day and current food preference.
 
 [!code-python[Present time out day preference to the user](~/samples-personalizer/quickstarts/python/sample.py?name=getActions)]
 
@@ -128,7 +128,7 @@ Actions represent the content choices you want Personalizer to rank. Add the fol
 
 The Personalizer learning loop is a cycle of [rank](#request-a-rank) and [reward](#send-a-reward) calls. In this quickstart, each rank call, to personalize the content, is followed by a reward call to tell Personalizer how well the service ranked the content. 
 
-The following code in the `main` method of the program loops through a cycle of asking the user their preferences at the command line, sending that information to Personalizer to rank, presenting the ranked selection to the customer to choose from among the list, then sending a reward to Personalizer signaling how well the service did in ranking the selection.
+The following code loops through a cycle of asking the user their preferences at the command line, sending that information to Personalizer to rank, presenting the ranked selection to the customer to choose from among the list, then sending a reward to Personalizer signaling how well the service did in ranking the selection.
 
 [!code-python[The Personalizer learning loop ranks the request.](~/samples-personalizer/quickstarts/python/sample.py?name=mainLoop&highlight=9,10,29)]
 

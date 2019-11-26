@@ -36,9 +36,15 @@ You can embed a map in a web page by using the Map Control client-side Javascrip
     Then add references to the Azure Maps stylesheet and script source references to the `<head>` element of the file:
 
     ```HTML
-    <link rel="stylesheet" href="node_modules/azure-maps-control/dist/css/atlas.min.css" type="text/css">
-    <script src="node_modules/azure-maps-control/dist/js/atlas.min.js"></script>
+    <link rel="stylesheet" href="node_modules/azure-maps-control/dist/atlas.min.css" type="text/css"> 
+    <script src="node_modules/azure-maps-control/dist/atlas.min.js"></script>
     ```
+
+    >[!Note]
+    > Typescript definitions can be imported into your application by adding:
+    > ```Javascript
+    > import * as atlas from 'azure-maps-control';
+    > ```
 
 3. To render the map so that it fills the full body of the page, add the following `<style>` element to the `<head>` element.
 
@@ -97,7 +103,9 @@ You can embed a map in a web page by using the Map Control client-side Javascrip
     </script>
     ```
 
-    For more information, see the [Authentication with Azure Maps](azure-maps-authentication.md) document.
+    A list of samples showing how to integrate Azure Active Directory (AAD) with Azure Maps can be found [here](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples). 
+    
+    For more information, see the [Authentication with Azure Maps](azure-maps-authentication.md) document and also the [Azure Maps Azure AD authentication samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples).
 
 6. Optionally, you may find adding the following meta tag elements to the head of your page helpful:
 
@@ -166,11 +174,11 @@ You can embed a map in a web page by using the Map Control client-side Javascrip
 
 ## Localizing the map
 
-Azure Maps provides two different ways of setting the language and regional view of the map. The first option is to add this information to the global `atlas` namespace, which will result in all map control instances in your app defaulting to these settings. The following sets the language to French ("fr-FR") and the regional view to "auto":
+Azure Maps provides two different ways of setting the language and regional view of the map. The first option is to add this information to the global `atlas` namespace, which will result in all map control instances in your app defaulting to these settings. The following sets the language to French ("fr-FR") and the regional view to "Auto":
 
 ```javascript
 atlas.setLanguage('fr-FR');
-atlas.setView('auto');
+atlas.setView('Auto');
 ```
 
 The second option is to pass this information into the map options when loading the map like:
@@ -178,7 +186,7 @@ The second option is to pass this information into the map options when loading 
 ```javascript
 map = new atlas.Map('myMap', {
     language: 'fr-FR',
-    view: 'auto',
+    view: 'Auto',
 
     authOptions: {
         authType: 'aad',
@@ -192,7 +200,7 @@ map = new atlas.Map('myMap', {
 > [!Note]
 > With the Web SDK it is possible to load multiple map instances on the same page with different language and region settings. Additionally, these settings can be update after the map has loaded by using the `setStyle` function of the map. 
 
-Here is an example of Azure Maps with the language set to "fr-FR" and the regional view set to "auto".
+Here is an example of Azure Maps with the language set to "fr-FR" and the regional view set to "Auto".
 
 ![Map image showing labels in French](./media/how-to-use-map-control/websdk-localization.png)
 
@@ -217,3 +225,8 @@ To add more data to your map:
 
 > [!div class="nextstepaction"]
 > [Code samples](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+
+For a list of samples showing how to integrate Azure Active Directory (AAD) with Azure Maps, see:
+
+> [!div class="nextstepaction"]
+> [Azure AD authentication samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)

@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory Mapping Data Flow Parameters
+title: Azure Data Factory mapping data flow Parameters
 description: Learn how to parameterize a mapping data flow from data factory pipelines
 author: kromerm
 ms.author: makromer
@@ -8,9 +8,9 @@ ms.topic: conceptual
 ms.date: 06/10/2019
 ---
 
-# Mapping Data Flow Parameters
+# Mapping data flow Parameters
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Mapping Data Flows in Azure Data Factory support the use of parameters. You can define parameters inside of your data flow definition, which you can then use throughout your expressions. The parameter values can be set by the calling pipeline via the Execute Data Flow activity. You have three options for setting the values in the data flow activity expressions:
 
@@ -23,7 +23,7 @@ Use this capability to make your data flows general-purpose, flexible, and reusa
 > [!NOTE]
 > To use pipeline control flow expressions, your data flow parameter must be of type string.
 
-## Create parameters in Mapping Data Flow
+## Create parameters in mapping data flow
 
 To add parameters to your data flow, click on the blank portion of the data flow canvas to see the general properties. In the settings pane, you will see a tab called 'Parameters'. Click the 'New' button to generate a new parameter. For each parameter, you must assign a name, select a type, and optionally set a default value.
 
@@ -39,7 +39,7 @@ Parameters can be utilized in any data flow expression. Parameters begin with $ 
 
 * Parameters are also used to configure dynamic values for your Source and Sink transformation settings. When you click inside of configurable fields, you will see the "Add dynamic contect" link appear. Clicking there will take you to an Expression Builder where you can use parameters to use dynamic values. ![Data flow dynamic content](media/data-flow/params6.png "Data flow dynamic content")
 
-## Set Mapping Data Flow parameters from pipeline
+## Set mapping data flow parameters from pipeline
 
 Once you've created your data flow with parameters, you can execute it from a pipeline with the Execute Data Flow Activity. After you add the activity to your pipeline canvas, you will be presented with the available data flow parameters in the activity's 'Parameters' tab.
 
@@ -54,7 +54,7 @@ If your parameter is not of type string, you will always be presented with the D
 * ```toInteger(Role)```
 * ```'this is my static literal string'```
 
-Each Mapping Data Flow can have any combination of pipeline and data flow expression parameters. 
+Each mapping data flow can have any combination of pipeline and data flow expression parameters. 
 
 ![Data flow parameters sample](media/data-flow/parameter-example.png "Data flow parameters sample")
 

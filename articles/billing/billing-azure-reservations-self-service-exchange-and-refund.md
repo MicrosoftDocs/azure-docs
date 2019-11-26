@@ -3,7 +3,7 @@ title: Self-service exchanges and refunds for Azure Reservations
 description: Learn how you can exchange or refund Azure Reservations.
 author: yashesvi
 manager: yashesvi
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -39,7 +39,7 @@ First, Microsoft cancels the existing reservation and refunds the pro-rated amou
 
 ### Enterprise agreement customers
 
-Money is added to the monetary commitment for exchanges and refunds if the original purchase was made using one. Any overage invoices since the original purchases are reopened and rerated to make sure the monetary commitment is used. If the monetary commitment term using the reservation was purchased is no longer active, then credit is added to your current enterprise agreement monetary commitment term.
+Money is added to the monetary commitment for exchanges and refunds if the original purchase was made using one. Any overage invoices since the original purchases are reopened and rerated to make sure the monetary commitment is used. If the monetary commitment term using the reservation was purchased is no longer active, then credit is added to your current enterprise agreement monetary commitment term. The credit is valid for 90 days from the date fo refund. Unused credit expires at the end of 90 days.
 
 If the original purchase was made as an overage, Microsoft issues a credit memo.
 

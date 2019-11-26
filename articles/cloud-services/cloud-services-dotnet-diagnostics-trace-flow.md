@@ -60,7 +60,7 @@ After you complete the steps to add the listener, you can add trace statements t
 
 ### To add trace statement to your code
 1. Open a source file for your application. For example, the \<RoleName>.cs file for the worker role or web role.
-2. Add the following using statement if it has not already been added:
+2. Add the following using directive if it has not already been added:
     ```
         using System.Diagnostics;
     ```

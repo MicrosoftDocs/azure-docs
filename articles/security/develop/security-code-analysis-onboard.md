@@ -47,7 +47,7 @@ Prerequisites to getting started with Microsoft Security Code Analysis:
 
 ## Installing the Microsoft Security Code Analysis extension
 
-1. After the extension is shared with your Azure DevOps organization, go to your Azure DevOps organization page. An example URL for such a page is http://dev.azure.com/contoso.
+1. After the extension is shared with your Azure DevOps organization, go to your Azure DevOps organization page. An example URL for such a page is `https://dev.azure.com/contoso`.
 1. Select the shopping bag icon in the upper-right corner next to your name, then select **Manage extensions**.
 1. Select the Microsoft Security Code Analysis extension, then open the Azure DevOps UI wizard to start installation.
 1. From the drop-down list, choose the Azure DevOps organization to install the extension on.
