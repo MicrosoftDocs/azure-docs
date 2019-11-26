@@ -1,6 +1,6 @@
 ---
 title: View service provider activity
-description: Customers can view logged activity, including all actions taken by service providers acting through Azure delegated resource management.
+description: Customers can view logged activity to see actions performed by service providers through Azure delegated resource management.
 ms.date: 11/26/2019
 ms.topic: conceptual
 ---
