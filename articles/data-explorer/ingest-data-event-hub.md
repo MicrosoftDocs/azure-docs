@@ -134,7 +134,8 @@ Now you connect to the event hub from Azure Data Explorer. When this connection 
     > [!NOTE]
     > * Select **My data includes routing info** to use dynamic routing, where your data includes the necessary routing information as seen in the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) comments. If both static and dynamic properties are set, the dynamic properties override the static ones. 
     > * Only events enqueued after you create the data connection are ingested.
-    > * Enable GZip compression for static routing by opening a [support request in the Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview), Enable GZip compression for dynamic routing as seen in the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest). * Avro format and event system properties aren't supported on compression payload.
+    > * Enable GZip compression for static routing by opening a [support request in the Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Enable GZip compression for dynamic routing as seen in the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest). 
+    > * Avro format and event system properties aren't supported on compression payload.
 
 ## Copy the connection string
 
