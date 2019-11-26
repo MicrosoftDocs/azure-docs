@@ -32,7 +32,7 @@ Typical applications include:
 
 Immutable storage supports the following features:
 
-- **[Time-based retention policy support](#time-based-retention)**: Users can set policies to store data for a specified interval. When a time-based retention policy is set, blobs can be created and read, but not modified or deleted. After the retention period has expired, blobs can be deleted but not overwritten.
+- **[Time-based retention policy support](#time-based-retention-policies)**: Users can set policies to store data for a specified interval. When a time-based retention policy is set, blobs can be created and read, but not modified or deleted. After the retention period has expired, blobs can be deleted but not overwritten.
 
 - **[Legal hold policy support](#legal-holds)**: If the retention interval is not known, users can set legal holds to store immutable data until the legal hold is cleared.  When a legal hold policy is set, blobs can be created and read, but not modified or deleted. Each legal hold is associated with a user-defined alphanumeric tag (such as a case ID, event name, etc.) that is used as an identifier string. 
 
