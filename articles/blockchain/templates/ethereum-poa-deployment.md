@@ -1,307 +1,66 @@
 ---
 title: Deploy Ethereum Proof-of-Authority consortium solution template on Azure
-description: Use the Ethereum Proof-of-Authority Consortium solution to deploy and configure a multi-member consortium Ethereum network on Azure
-ms.date: 04/08/2019
+description: Use the Ethereum Proof-of-Authority consortium solution to deploy and configure a multi-member consortium Ethereum network on Azure
+ms.date: 11/25/2019
 ms.topic: article
 ms.reviewer: coborn
 ---
 # Deploy Ethereum proof-of-authority consortium solution template on Azure
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+You can use [the Ethereum Proof-of-Authority Consortium preview Azure solution template](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-blockchain.azure-blockchain-ethereum) to deploy, configure, and govern a multi-member consortium proof-of-authority Ethereum network with minimal Azure and Ethereum knowledge.
 
-[The Ethereum Proof-of-Authority Consortium Azure solution template](https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium) is designed to make it easier to
-deploy, configure, and govern a multi-member consortium
-Proof-of-authority Ethereum network with minimal Azure and Ethereum
-knowledge.
+The solution template can be used by each consortium member to provision a blockchain network footprint using
+Microsoft Azure compute, networking, and storage services. Each consortium member's network footprint consists of a set of load-balanced validator nodes that an application or user can interact with to submit Ethereum transactions.
 
-With a handful of user inputs and a single-click deployment through the
-Azure portal, each member can provision a network footprint, using
-Microsoft Azure Compute, networking, and storage services across the
-globe. Each member's network footprint consists of a set of
-load-balanced validator nodes with which an application or user can
-interact to submit Ethereum transactions.
+## Choose an Azure Blockchain solution
 
-## Concepts
+Before choosing to use the Ethereum proof-of-authority consortium solution template, compare your scenario with the common use cases of available Azure Blockchain options.
 
-### Terminology
+Option | Service model | Common use case
+-------|---------------|-----------------
+Solution templates | IaaS | Solution templates are Azure Resource Manager templates you can use to provision a fully configured blockchain network topology. The templates deploy and configure Microsoft Azure compute, networking, and storage services for a given blockchain network type.
+[Azure Blockchain Service](../service/overview.md) | PaaS | Azure Blockchain Service Preview simplifies the formation, management, and governance of consortium blockchain networks. Use Azure Blockchain Service for solutions requiring PaaS, consortium management, or contract and transaction privacy.
+[Azure Blockchain Workbench](../workbench/overview.md) | IaaS and PaaS | Azure Blockchain Workbench Preview is a collection of Azure services and capabilities designed to help you create and deploy blockchain applications to share business processes and data with other organizations. Use Azure Blockchain Workbench for prototyping a blockchain solution or a blockchain application proof of concept.
 
--   **Consensus** - The act of synchronizing data across the
-    distributed network through block validation and creation.
+## Solution architecture
 
--   **Consortium member** - An entity that participates in consensus on
-    the Blockchain network.
-
--   **Admin** - An Ethereum account that is used to manage
-    participation for a given consortium member.
-
--   **Validator** - A machine associated with an Ethereum account that
-    participates in consensus on behalf of an Admin.
-
-### Proof-of-authority
-
-For those of you who are new to the blockchain community, the release of
-this solution is a great opportunity to learn about the technology in an
-easy and configurable manner on Azure. Proof-of-work is a
-Sybil-resistance mechanism that leverages computation costs to
-self-regulate the network and allow fair participation. This works great
-in anonymous, open blockchain networks where competition for
-cryptocurrency promotes security on the network. However, in
-private/consortium networks the underlying Ether has no value. An
-alternative protocol, proof-of-authority, is more suitable for
-permitted networks where all consensus participants are known and
-reputable. Without the need for mining, Proof-of-authority is more
-efficient while still retaining Byzantine fault tolerance.
-
-### Consortium governance
-
-Since proof-of-authority relies upon a permitted list of network
-authorities to keep the network healthy, it's important to provide a
-fair mechanism to make modifications to this permission list. Each
-deployment comes with a set of smart-contracts and portal for on-chain
-governance of this permitted list. Once a proposed change reaches a
-majority vote by consortium members, the change is enacted. This allows
-new consensus participants to be added or compromised participants to be
-removed in a transparent way that encourages an honest network.
-
-### Admin account
-
-During the deployment of the proof-of-authority nodes, you'll be asked
-for an Admin Ethereum address. You may use several different mechanisms
-to generate and secure this Ethereum account. Once this address is added
-as an authority on the network, you can use this account to participate
-in governance. This admin account will also be used to delegate
-consensus participation to the validator nodes that are created as part
-of this deployment. Since only the public Ethereum address is used, each
-admin has the flexibility to secure their private keys in a way that
-follows their wanted security model.
-
-### Validator node
-
-In the proof-of-authority protocol, validator nodes take the place of
-traditional miner nodes. Each validator has a unique Ethereum identity
-that gets added to a smart-contract permission list. Once a validator is
-on this list, it can participate in the block creation process. To learn
-more about this process, see Parity's documentation on [Authority Round
-consensus](https://wiki.parity.io/Aura). Each consortium member can
-provision two or more validator nodes across five regions, for
-geo-redundancy. Validator nodes communicate with other validator nodes
-to come to consensus on the state of the underlying distributed ledger.
-To ensure fair participation on the network, each consortium member is
-prohibited from using more validators than the first member on the
-network (if the first member deploys three validators, each member can
-only have up to three validators).
-
-### Identity store
-
-Since each member will have multiple validator nodes running
-simultaneously and each node must have a permitted identity, it's
-important that the validators can safely acquire a unique active
-identity on the network. To make this easier, we've built an Identity
-Store that gets deployed in each member's subscription that securely
-holds the generated Ethereum identities. Upon deployment, the
-orchestration container will generate an Ethereum private key for each
-validator and store it in Azure Key Vault. Before the parity node starts
-up, it first acquires a lease on an unused identity to ensure the
-identity isn't picked up by another node. The identity is provided to
-the client which gives it the authority to start creating blocks. If the
-hosting VM experiences an outage, the identity lease will be released,
-allowing a replacement node to resume its identity in the future.
-
-### Bootnode registrar
-
-To enable the ease of connectivity, each member will host a set of
-connection information at the [data API endpoint](#data-api). This data
-includes a list of bootnodes that are provided as peering nodes for the
-joining member. As part of this data API, we keep this bootnode list
-up-to-date
-
-### Bring your own operator
-
-Often a consortium member will want to participate in network governance
-but don't want to operate and maintain their infrastructure. Unlike
-traditional systems, having a single operator across the network works
-against the decentralized model of blockchain systems. Instead of hiring
-a centralized intermediary to operate a network, each consortium member
-can delegate infrastructure management to the operator of their
-choosing. This allows a hybrid model where each member can choose to
-operate their own infrastructure or delegate operation to a
-different partner. The delegated operation workflow works as follows:
-
-1.  **Consortium Member** generates an Ethereum address (holds private
-    key)
-
-2.  **Consortium Member** provides public Ethereum address to
-    **Operator**
-
-3.  **Operator** deploys and configures the PoA validator nodes using
-    our Azure Resource Manager solution
-
-4.  **Operator** provides the RPC and management endpoint to
-    **Consortium Member**
-
-5.  **Consortium Member** uses their private key to sign a request
-    accepting the validator nodes **Operator** has deployed to
-    participate on their behalf
-
-### Azure Monitor
-
-This solution also comes with Azure Monitor to track node and network
-statistics. For application developers, this provides visibility into
-the underlying blockchain to track block generation statistics. Network
-operators can use Azure Monitor to quickly detect and prevent network
-outages through infrastructure statistics and queryable logs. For more information, see
-[Service monitoring](#service-monitoring).
-
-### Deployment architecture
-
-#### Description
-
-This solution can deploy a single or multi-region based multi-member
-Ethereum consortium network. By default, the RPC and peering endpoints
-are accessible over public IP to enable simplified connectivity across
-subscriptions and clouds. We recommend leveraging [Parity's
-permissioning contracts](https://wiki.parity.io/Permissioning) for
-application level access-controls. We also support networks deployed
-behind VPNs, which leverage VNet gateways for cross-subscription
-connectivity. These deployments are more complex, so it is recommended
-to start with the public IP model first.
-
-#### Consortium member overview
-
-Each consortium member deployment includes:
-
--   Virtual Machines for running the PoA validators
-
--   Azure Load Balancer for distributing RPC, peering, and Governance
-    DApp requests
-
--   Azure Key Vault for securing the validator identities
-
--   Azure Storage for hosting persistent network information and
-    coordinating leasing
-
--   Azure Monitor for aggregating logs and performance statistics
-
--   VNet Gateway (optional) for allowing VPN connections across private
-    VNets
+Using the Ethereum solution template, you can deploy a single or multi-region based multi-member Ethereum consortium network. The following diagram is an example of a multi-region consortium member.
 
 ![deployment architecture](./media/ethereum-poa-deployment/deployment-architecture.png)
 
-We leverage Docker containers for reliability and modularity. We use
-Azure Container Registry to host and serve versioned images as part of
-each deployment. The container images consist of:
+Each consortium member deployment includes:
 
--   Orchestrator
+* Virtual Machines for running the PoA validators
+* Azure Load Balancer for distributing RPC, peering, and governance DApp requests
+* Azure Key Vault for securing the validator identities
+* Azure Storage for hosting persistent network information and coordinating leasing
+* Azure Monitor for aggregating logs and performance statistics
+* VNet Gateway (optional) for allowing VPN connections across private VNets
 
-    -   Runs once during deployment
+By default, the RPC and peering endpoints are accessible over public IP to enable simplified connectivity across
+subscriptions and clouds. For application level access-controls, you can use [Parity's permissioning contracts](https://wiki.parity.io/Permissioning). Networks deployed behind VPNs, which leverage VNet gateways for cross-subscription connectivity are supported. Since VPN and VNet deployments are more complex, when prototyping a solution, you may want to start with a public IP model first.
 
-    -   Generates identities and governance contracts
+Docker containers are used for reliability and modularity. Azure Container Registry is used to host and serve versioned images as part of each deployment. The container images consist of:
 
-    -   Stores identities in Identity Store
+* Orchestrator - Generates identities and governance contracts. Stores identities in an identity store.
+* Parity client - Leases identity from the identity store. Discovers and connects to peers.
+* EthStats Agent - Collects local logs and stats via RPC and pushes information to Azure Monitor.
+* Governance DApp - Web interface for interacting with Governance contracts.
 
--   Parity Client
+## Deploy Ethereum proof-of-authority
 
-    -   Leases identity from Identity Store
+The following is an example of a multi-party deployment:
 
-    -   Discovers and connects to peers
+1. Three members each generate an Ethereum account using MetaMask
+1. *Member A* deploys Ethereum PoA, providing their Ethereum public address
+1. *Member A* provides the consortium URL to *Member B* and *Member C*
+1. *Member B* and *Member C* deploy, Ethereum PoA, providing their Ethereum Public Address and *Member A*'s consortium URL
+1. *Member A* votes in *Member B* as an admin
+1. *Member A* and *Member B* both vote *Member C* as an admin
 
--   EthStats Agent
+The next sections show you how to configure the first member's footprint in the network.
 
-    -   Collects local logs and stats via RPC and pushes to Azure
-        Monitor
-
--   Governance DApp
-
-    -   Web interface for interacting with Governance contracts
-
-## How-to guides
-### Governance DApp
-
-At the heart of proof-of-authority is decentralized governance. The
-governance DApp is a set of pre-deployed [smart contracts](https://github.com/Azure-Samples/blockchain/tree/master/ethereum-on-azure/) and a web
-application that are used to govern the authorities on the network.
-Authorities are broken up into Admin identities and Validator nodes.
-Admins have the power to delegate consensus participation to a set of
-Validator nodes. Admins also may vote other admins into or out of the
-network.
-
-![governance dapp](./media/ethereum-poa-deployment/governance-dapp.png)
-
--   **Decentralized Governance -** Changes in network authorities are
-    administered through on-chain voting by select administrators.
-
--   **Validator Delegation -** Authorities can manage their validator
-    nodes that are set up in each PoA deployment.
-
--   **Auditable Change History -** Each change is recorded on the
-    blockchain providing transparency and auditability.
-
-#### Getting started with governance
-To perform any kind of transactions through the Governance DApp, you'll need to leverage an Ethereum wallet.  The most straightforward approach is to use an in-browser wallet such as [MetaMask](https://metamask.io); however, because these are smart contracts deployed on the network you may also automate your interactions to the Governance contract.
-
-After installing MetaMask, navigate to the Governance DApp in the browser.  You can locate the URL in the deployment confirmation email or through Azure portal in the deployment output.  If you don't have an in-browser wallet installed you'll not be able to perform any actions; however, you still can read the administrator state.  
-
-#### Becoming an admin
-If you're the first member that deployed on the network, then you'll automatically become an Admin and your Parity nodes will be listed as Validators.  If you're joining the network, you'll need to get voted in as an Admin by a majority (greater than 50%) of the existing Admin set.  If you choose not to become an Admin then your nodes will still sync and validate the blockchain; however, they will not participate in the block creation process. To start the voting process to become an Admin, click __Nominate__ and enter your Ethereum address and alias.
-
-![Nominate](./media/ethereum-poa-deployment/governance-dapp-nominate.png)
-
-#### Candidates
-Selecting the __Candidates__ tab will show you the current set of candidate administrators.  Once a Candidate reaches a majority vote by the current Admins, the Candidate will get promoted to an Admin.  To vote on a Candidate, select the row and click "Vote in" at the top.  If you change your mind on a vote, you may select the candidate and click "Rescind vote".
-
-![Candidates](./media/ethereum-poa-deployment/governance-dapp-candidates.png)
-
-
-#### Admins
-The __Admins__ tab will show the current set of Admins and provide you the ability to vote against.  Once an Admin loses more than 50% support, they'll be removed as an Admin on the network.  Any validator nodes that this Admin owns will lose validator status and become transaction nodes on the network.  An Admin may be removed for any number of reasons; however, it's up to the consortium to agree on a policy in advance.
-
-![Admins](./media/ethereum-poa-deployment/governance-dapp-admins.png)
-
-#### Validators
-Selecting the __Validators__ tab in the left menu will display the current deployed Parity nodes for this instance and their current status (Node type).  Each consortium member will have a different set of validators in this list, since this view represents the current deployed consortium member.  If this is a newly deployed instance and you haven't yet added your validators, you'll be shown the option to 'Add Validators'.  Selecting this will automatically choose a regionally balanced set of Parity nodes and assign them to your validator set.  If you have deployed more nodes than the allowed capacity, the remaining nodes will become transaction nodes on the network.
-
-The address of each validator is automatically assigned via the [identity store](#identity-store) in Azure.  If a node goes down, it will relinquish its identity, allowing another node in your deployment to take its place.  This ensures that your consensus participation is highly available.
-
-![Validators](./media/ethereum-poa-deployment/governance-dapp-validators.png)
-
-#### Consortium name
-Any Admin may update the Consortium Name, displayed at the top of the page.  Select the gear icon in the top left to update the Consortium Name.
-
-#### Account menu
-In the top-right is your Ethereum account alias and identicon.  If you're an Admin you'll have the ability to update your alias.
-
-![Account](./media/ethereum-poa-deployment/governance-dapp-account.png)
-
-### Deploy Ethereum Proof-of-Authority
-
-Here's an example of a multi-party deployment flow:
-
-1.  Three members each generate an Ethereum account using MetaMask
-
-2.  *Member A* deploys Ethereum PoA, providing their Ethereum Public
-    Address
-
-3.  *Member A* provides the consortium URL to *Member B* and *Member C*
-
-4.  *Member B* and *Member C* deploy, Ethereum PoA, providing their
-    Ethereum Public Address and *Member A*'s consortium URL
-
-5.  *Member A* votes in *Member B* as an admin
-
-6.  *Member A* and *Member B* both vote *Member C* as an admin
-
-This process requires an Azure subscription that can support deploying
-several virtual machines and managed disks. If necessary,
-[create a free Azure account](https://azure.microsoft.com/free/)
-to begin.
-
-Once a subscription is secured, go to Azure portal. Select '+',
-Marketplace ('See all'), and search for Ethereum PoA Consortium.
-
-The following section will walk you through configuring the first
-member's footprint in the network. The deployment flow is divided into
-five steps: Basics, Deployment regions, Network size and performance,
-Ethereum settings, Azure Monitor.
+Go to Azure portal. Select '+', Marketplace ('See all'), and search for Ethereum PoA Consortium.
 
 #### Basics
 
@@ -970,6 +729,63 @@ additional information
 -   Tutorial from Parity Tech -
     <https://github.com/paritytech/pwasm-tutorial>
 
+### Governance DApp
+
+At the heart of proof-of-authority is decentralized governance. The
+governance DApp is a set of pre-deployed [smart contracts](https://github.com/Azure-Samples/blockchain/tree/master/ethereum-on-azure/) and a web
+application that are used to govern the authorities on the network.
+Authorities are broken up into Admin identities and Validator nodes.
+Admins have the power to delegate consensus participation to a set of
+Validator nodes. Admins also may vote other admins into or out of the
+network.
+
+![governance dapp](./media/ethereum-poa-deployment/governance-dapp.png)
+
+-   **Decentralized Governance -** Changes in network authorities are
+    administered through on-chain voting by select administrators.
+
+-   **Validator Delegation -** Authorities can manage their validator
+    nodes that are set up in each PoA deployment.
+
+-   **Auditable Change History -** Each change is recorded on the
+    blockchain providing transparency and auditability.
+
+#### Getting started with governance
+To perform any kind of transactions through the Governance DApp, you'll need to leverage an Ethereum wallet.  The most straightforward approach is to use an in-browser wallet such as [MetaMask](https://metamask.io); however, because these are smart contracts deployed on the network you may also automate your interactions to the Governance contract.
+
+After installing MetaMask, navigate to the Governance DApp in the browser.  You can locate the URL in the deployment confirmation email or through Azure portal in the deployment output.  If you don't have an in-browser wallet installed you'll not be able to perform any actions; however, you still can read the administrator state.  
+
+#### Becoming an admin
+If you're the first member that deployed on the network, then you'll automatically become an Admin and your Parity nodes will be listed as Validators.  If you're joining the network, you'll need to get voted in as an Admin by a majority (greater than 50%) of the existing Admin set.  If you choose not to become an Admin then your nodes will still sync and validate the blockchain; however, they will not participate in the block creation process. To start the voting process to become an Admin, click __Nominate__ and enter your Ethereum address and alias.
+
+![Nominate](./media/ethereum-poa-deployment/governance-dapp-nominate.png)
+
+#### Candidates
+Selecting the __Candidates__ tab will show you the current set of candidate administrators.  Once a Candidate reaches a majority vote by the current Admins, the Candidate will get promoted to an Admin.  To vote on a Candidate, select the row and click "Vote in" at the top.  If you change your mind on a vote, you may select the candidate and click "Rescind vote".
+
+![Candidates](./media/ethereum-poa-deployment/governance-dapp-candidates.png)
+
+
+#### Admins
+The __Admins__ tab will show the current set of Admins and provide you the ability to vote against.  Once an Admin loses more than 50% support, they'll be removed as an Admin on the network.  Any validator nodes that this Admin owns will lose validator status and become transaction nodes on the network.  An Admin may be removed for any number of reasons; however, it's up to the consortium to agree on a policy in advance.
+
+![Admins](./media/ethereum-poa-deployment/governance-dapp-admins.png)
+
+#### Validators
+Selecting the __Validators__ tab in the left menu will display the current deployed Parity nodes for this instance and their current status (Node type).  Each consortium member will have a different set of validators in this list, since this view represents the current deployed consortium member.  If this is a newly deployed instance and you haven't yet added your validators, you'll be shown the option to 'Add Validators'.  Selecting this will automatically choose a regionally balanced set of Parity nodes and assign them to your validator set.  If you have deployed more nodes than the allowed capacity, the remaining nodes will become transaction nodes on the network.
+
+The address of each validator is automatically assigned via the [identity store](#identity-store) in Azure.  If a node goes down, it will relinquish its identity, allowing another node in your deployment to take its place.  This ensures that your consensus participation is highly available.
+
+![Validators](./media/ethereum-poa-deployment/governance-dapp-validators.png)
+
+#### Consortium name
+Any Admin may update the Consortium Name, displayed at the top of the page.  Select the gear icon in the top left to update the Consortium Name.
+
+#### Account menu
+In the top-right is your Ethereum account alias and identicon.  If you're an Admin you'll have the ability to update your alias.
+
+![Account](./media/ethereum-poa-deployment/governance-dapp-account.png)
+
 ## Reference
 
 ### FAQ
@@ -1025,6 +841,137 @@ The transaction throughput will be highly dependent upon the types of transactio
 #### How do I subscribe to smart contract events?
 
 Ethereum Proof-of-Authority now supports web-sockets.  Check your deployment email or deployment output to locate the web-socket URL and port.
+
+## Concepts
+
+### Terminology
+
+-   **Consensus** - The act of synchronizing data across the
+    distributed network through block validation and creation.
+
+-   **Consortium member** - An entity that participates in consensus on
+    the Blockchain network.
+
+-   **Admin** - An Ethereum account that is used to manage
+    participation for a given consortium member.
+
+-   **Validator** - A machine associated with an Ethereum account that
+    participates in consensus on behalf of an Admin.
+
+### Proof-of-authority
+
+For those of you who are new to the blockchain community, the release of
+this solution is a great opportunity to learn about the technology in an
+easy and configurable manner on Azure. Proof-of-work is a
+Sybil-resistance mechanism that leverages computation costs to
+self-regulate the network and allow fair participation. This works great
+in anonymous, open blockchain networks where competition for
+cryptocurrency promotes security on the network. However, in
+private/consortium networks the underlying Ether has no value. An
+alternative protocol, proof-of-authority, is more suitable for
+permitted networks where all consensus participants are known and
+reputable. Without the need for mining, Proof-of-authority is more
+efficient while still retaining Byzantine fault tolerance.
+
+### Consortium governance
+
+Since proof-of-authority relies upon a permitted list of network
+authorities to keep the network healthy, it's important to provide a
+fair mechanism to make modifications to this permission list. Each
+deployment comes with a set of smart-contracts and portal for on-chain
+governance of this permitted list. Once a proposed change reaches a
+majority vote by consortium members, the change is enacted. This allows
+new consensus participants to be added or compromised participants to be
+removed in a transparent way that encourages an honest network.
+
+### Admin account
+
+During the deployment of the proof-of-authority nodes, you'll be asked
+for an Admin Ethereum address. You may use several different mechanisms
+to generate and secure this Ethereum account. Once this address is added
+as an authority on the network, you can use this account to participate
+in governance. This admin account will also be used to delegate
+consensus participation to the validator nodes that are created as part
+of this deployment. Since only the public Ethereum address is used, each
+admin has the flexibility to secure their private keys in a way that
+follows their wanted security model.
+
+### Validator node
+
+In the proof-of-authority protocol, validator nodes take the place of
+traditional miner nodes. Each validator has a unique Ethereum identity
+that gets added to a smart-contract permission list. Once a validator is
+on this list, it can participate in the block creation process. To learn
+more about this process, see Parity's documentation on [Authority Round
+consensus](https://wiki.parity.io/Aura). Each consortium member can
+provision two or more validator nodes across five regions, for
+geo-redundancy. Validator nodes communicate with other validator nodes
+to come to consensus on the state of the underlying distributed ledger.
+To ensure fair participation on the network, each consortium member is
+prohibited from using more validators than the first member on the
+network (if the first member deploys three validators, each member can
+only have up to three validators).
+
+### Identity store
+
+Since each member will have multiple validator nodes running
+simultaneously and each node must have a permitted identity, it's
+important that the validators can safely acquire a unique active
+identity on the network. To make this easier, we've built an Identity
+Store that gets deployed in each member's subscription that securely
+holds the generated Ethereum identities. Upon deployment, the
+orchestration container will generate an Ethereum private key for each
+validator and store it in Azure Key Vault. Before the parity node starts
+up, it first acquires a lease on an unused identity to ensure the
+identity isn't picked up by another node. The identity is provided to
+the client which gives it the authority to start creating blocks. If the
+hosting VM experiences an outage, the identity lease will be released,
+allowing a replacement node to resume its identity in the future.
+
+### Bootnode registrar
+
+To enable the ease of connectivity, each member will host a set of
+connection information at the [data API endpoint](#data-api). This data
+includes a list of bootnodes that are provided as peering nodes for the
+joining member. As part of this data API, we keep this bootnode list
+up-to-date
+
+### Bring your own operator
+
+Often a consortium member will want to participate in network governance
+but don't want to operate and maintain their infrastructure. Unlike
+traditional systems, having a single operator across the network works
+against the decentralized model of blockchain systems. Instead of hiring
+a centralized intermediary to operate a network, each consortium member
+can delegate infrastructure management to the operator of their
+choosing. This allows a hybrid model where each member can choose to
+operate their own infrastructure or delegate operation to a
+different partner. The delegated operation workflow works as follows:
+
+1.  **Consortium Member** generates an Ethereum address (holds private
+    key)
+
+2.  **Consortium Member** provides public Ethereum address to
+    **Operator**
+
+3.  **Operator** deploys and configures the PoA validator nodes using
+    our Azure Resource Manager solution
+
+4.  **Operator** provides the RPC and management endpoint to
+    **Consortium Member**
+
+5.  **Consortium Member** uses their private key to sign a request
+    accepting the validator nodes **Operator** has deployed to
+    participate on their behalf
+
+### Azure Monitor
+
+This solution also comes with Azure Monitor to track node and network
+statistics. For application developers, this provides visibility into
+the underlying blockchain to track block generation statistics. Network
+operators can use Azure Monitor to quickly detect and prevent network
+outages through infrastructure statistics and queryable logs. For more information, see
+[Service monitoring](#service-monitoring).
 
 ## Next steps
 
