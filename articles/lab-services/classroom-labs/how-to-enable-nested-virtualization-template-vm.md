@@ -43,14 +43,14 @@ Before setting up a lab with nested virtualization, here are a few things to tak
 
 ## Enable nested virtualization on a template VM
 
-The steps in this section focus on setting up nested virtualization for Windows Server 2016 or Windows Server 2019. You will use a script to set up template machine with Hyper-V. For an automated solution, see scripts at [Lab Services Hyper-V Scripts](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/HyperV).
-
 This article assumes that you have created a lab account and lab.  For more information about creating a new lab account, see [tutorial to set up a Lab Account](tutorial-setup-lab-account.md). For more information how to create  lab, see [set up a classroom lab tutorial](tutorial-setup-classroom-lab.md).
 
 >[!IMPORTANT]
 >Select **Large (nested virtualization)** or **Medium (nested virtualization)** for the virtual machine size when creating the lab.  Nested virtualization will not work otherwise.  
 
-To connect to the template machine, see [create and manage a classroom template](how-to-create-manage-template.md). The following steps will walk you through how to use the [Lab Services Hyper-V Scripts](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/HyperV).
+To connect to the template machine, see [create and manage a classroom template](how-to-create-manage-template.md). 
+
+The steps in this section focus on setting up nested virtualization for Windows Server 2016 or Windows Server 2019. You will use a script to set up template machine with Hyper-V.  The following steps will guide you through how to use the [Lab Services Hyper-V scripts](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/HyperV).
 
 1. If you're using Internet Explorer, you may have to add `https://github.com` to the trusted sites list.
     1. Open Internet Explorer.
