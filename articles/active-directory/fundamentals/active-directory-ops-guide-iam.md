@@ -18,7 +18,7 @@ ms.author: martinco
 This section of the [Azure AD operations reference guide](active-directory-ops-guide-intro.md) describes the checks and actions you should consider to secure and manage the lifecycle of identities and their assignments.
 
 > [!NOTE]
-> These recommendations are current as of the date of publishing but can change over time. Organizations should continuously evaluate their IAM practices as Microsoft products and services evolve over time.
+> These recommendations are current as of the date of publishing but can change over time. Organizations should continuously evaluate their identity practices as Microsoft products and services evolve over time.
 
 ## Key operational processes
 
@@ -43,7 +43,7 @@ As you review your list, you may find you need to either assign an owner for tas
 - [Assigning administrator roles in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal)
 - [Governance in Azure](https://docs.microsoft.com/azure/security/governance-in-azure)
 
-## On-premises Identity synchronization
+## On-premises identity synchronization
 
 ### Identify and resolve synchronization issues
 
@@ -53,7 +53,7 @@ Microsoft recommends you have a good baseline and understanding of the issues in
 
 To enable all hybrid experiences, device-based security posture, and integration with Azure AD, it is required that you synchronize user accounts that your employees use to login to their desktops.
 
-If you don’t synchronize the forest users log into, then you should immediately remediate the synchronization to come from the proper forest.
+If you don’t synchronize the forest users log into, then you should change the synchronization to come from the proper forest.
 
 #### Synchronization scope and object filtering
 
@@ -81,7 +81,7 @@ Ideally, you will want to reach a balance between reducing the number of objects
 > [!IMPORTANT]
 > If you use group filtering in production, you should transition to another filtering approach.
 
-#### Sync Failover / Disaster Recovery
+#### Sync failover or disaster recovery
 
 Azure AD Connect plays a key role in the provisioning process. If the Sync Server goes offline for any reason, changes to on-premises cannot be updated in the cloud and can result in access issues for users. Therefore, it is important to define a failover strategy that allows administrators to quickly resume synchronization after the sync server goes offline. Such strategies may fall into the following categories:
 
@@ -98,13 +98,13 @@ Microsoft updates Azure AD Connect regularly. Stay current to take advantage of 
 
 If your Azure AD Connect version is more than six months behind, you should upgrade to the most recent version.
 
-#### Source Anchor
+#### Source anchor
 
 Using **ms-DS-consistencyguid** as the [source anchor](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-design-concepts) allows an easier migration of objects across forests and domains, which is common in AD Domain consolidation/cleanup, mergers, acquisitions, and divestitures.
 
 If you’re currently using **ObjectGuid** as the source anchor, we recommend you switch to using **ms-DS-ConsistencyGuid**.
 
-#### Custom Rules
+#### Custom rules
 
 Azure AD Connect custom rules provide the ability to control the flow of attributes between on-premises objects and cloud objects. However, overusing or misusing custom rules can introduce the following risks:
 
@@ -121,7 +121,7 @@ Examples of misusing custom rules include:
 - **One-off remediation of individual users** - It is common to find rules that special case outliers, usually because of an issue with a specific user.
 - **Overcomplicated "CloudFiltering"** - While reducing the number of objects is a good practice, there is a risk of creating and overcomplicated sync scope using many sync rules. If there is complex logic to include/exclude objects beyond the OU filtering, it is recommended to deal with this logic outside of sync and label the objects with a simple "cloudFiltered" attribute that can flow with a simple Sync Rule.
 
-#### Azure AD Connect Configuration Documenter
+#### Azure AD Connect configuration documenter
 
 The [Azure AD Connect Configuration Documenter](https://github.com/Microsoft/AADConnectConfigDocumenter) is a tool you can use to generate documentation of an Azure AD Connect installation to enable a better understanding of the sync configuration, build confidence in getting things right, and to know what was changed when you applied a new build or configuration of Azure AD Connect or added or updated custom sync rules. The current capabilities of the tool include:
 
@@ -137,9 +137,9 @@ Azure Active Directory streamlines the management of licenses through [group-bas
 
 - **Synchronized from on-premises** - Groups can come from on-premises directories, which could be a good fit for organizations that have established group management processes that can be extended to assign licenses in office 365.
 
-- **Attribute-Based / Dynamic** - Groups can be created in the cloud based on an expression based on user attributes, for example, Department equals "sales". Azure AD maintains the members of the group, keeping it consistent with the expression defined. Using this kind of group for license assignment enables an attribute-based license assignment, which is a good fit for organizations that have high data quality in their directory.
+- **Attribute-based / dynamic** - Groups can be created in the cloud based on an expression based on user attributes, for example, Department equals "sales". Azure AD maintains the members of the group, keeping it consistent with the expression defined. Using this kind of group for license assignment enables an attribute-based license assignment, which is a good fit for organizations that have high data quality in their directory.
 
-- **Delegated Ownership** - Groups can be created in the cloud and can be designated owners. This way, you can empower business owners, for example, Collaboration team or BI team, to define who should have access.
+- **Delegated ownership** - Groups can be created in the cloud and can be designated owners. This way, you can empower business owners, for example, Collaboration team or BI team, to define who should have access.
 
 If you are currently using a manual process to assign licenses and components to users, we recommend you implement group-based licensing. If your current process does not monitor licensing errors or what is Assigned versus Available, you should define improvements to the process to address licensing errors and monitor licensing assignment.
 
@@ -190,11 +190,11 @@ The [default delta sync](https://docs.microsoft.com/azure/active-directory/hybri
 
 There are five aspects to a secure Identity infrastructure. This list will help you quickly find and take the necessary actions to secure and manage the lifecycle of identities and their entitlements in your organization.
 
-1. Assign owners to key tasks.
-2. Find and resolve synchronization issues.
-3. Define a failover strategy for disaster recovery.
-4. Streamline the management of licenses and assignment of apps.
-5. Automate user provisioning to apps.
+- Assign owners to key tasks.
+- Find and resolve synchronization issues.
+- Define a failover strategy for disaster recovery.
+- Streamline the management of licenses and assignment of apps.
+- Automate user provisioning to apps.
 
 ## Next steps
 

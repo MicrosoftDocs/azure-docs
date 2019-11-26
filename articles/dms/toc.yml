@@ -10,6 +10,8 @@
   items:
   - name: Create service - Portal
     href: quickstart-create-data-migration-service-portal.md
+  - name: Create service in hybrid mode - Portal
+    href: quickstart-create-data-migration-service-hybrid-portal.md
 
 - name: Tutorials
   items:

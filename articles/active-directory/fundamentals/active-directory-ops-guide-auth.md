@@ -18,7 +18,7 @@ ms.author: martinco
 This section of the [Azure AD operations reference guide](active-directory-ops-guide-intro.md) describes the checks and actions you should take to secure and manage credentials, define authentication experience, delegate assignment, measure usage, and define access policies based on enterprise security posture.
 
 > [!NOTE]
-> These recommendations are current as of the date of publishing but can change over time. Organizations should continuously evaluate their IAM practices as Microsoft products and services evolve over time.
+> These recommendations are current as of the date of publishing but can change over time. Organizations should continuously evaluate their identity practices as Microsoft products and services evolve over time.
 
 ## Key operational processes
 
@@ -122,7 +122,7 @@ Like a user in your organization, a device is a core identity you want to protec
 
 You can carry out this goal by bringing device identities and managing them in Azure AD by using one of the following methods:
 
-- Organizations can use [Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune) to manage the device and enforce compliance policies, attest device health, and set conditional access policies based on whether the device is compliant. Microsoft Intune can manage iOS devices, Mac desktops (Via JAMF integration), Windows desktops (natively using Mobile Device Management for Windows 10, and co-management with System Center Configuration Manager) and Android mobile devices.
+- Organizations can use [Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune) to manage the device and enforce compliance policies, attest device health, and set conditional access policies based on whether the device is compliant. Microsoft Intune can manage iOS devices, Mac desktops (Via JAMF integration), Windows desktops (natively using Mobile Device Management for Windows 10, and co-management with Microsoft Endpoint Manager/System Center Configuration Manager) and Android mobile devices.
 - [Hybrid Azure AD join](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-managed-domains) provides management with Group Policies, System Center Configuration Manager, or Microsoft Endpoint Manager in an environment with Active Directory domain-joined computers devices. Organizations can deploy a managed environment either through PHS or PTA with Seamless SSO. Bringing your devices to Azure AD maximizes user productivity through SSO across your cloud and on-premises resources while enabling you to secure access to your cloud and on-premises resources with [Conditional Access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) at the same time.
 
 If you have domain-joined Windows devices that aren’t registered in the cloud, or domain-joined Windows devices that are registered in the cloud but without conditional access policies, then you should register the unregistered devices and, in either case, [use Hybrid Azure AD join as a control](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices) in your conditional access policies.
@@ -131,7 +131,7 @@ If you have domain-joined Windows devices that aren’t registered in the cloud,
 
 If you are managing devices with MDM or Microsoft Intune, but not using device controls in your conditional access policies, then we recommend using [Require device to be marked as compliant](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices#require-device-to-be-marked-as-compliant) as a control in those policies.
 
-![A screenshot of grant in conditional access policy requiring device compliace](./media/active-directory-ops-guide/active-directory-ops-img7.png)
+![A screenshot of grant in conditional access policy requiring device compliance](./media/active-directory-ops-guide/active-directory-ops-img7.png)
 
 #### Device trust access policies recommended reading
 
@@ -255,7 +255,7 @@ Conditional Access is an essential tool for improving the security posture of yo
 - [Azure Active Directory Conditional Access settings reference](https://docs.microsoft.com/azure/active-directory/conditional-access/technical-reference)
 - [Common Conditional Access policies](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policy-common)
 
-## Access Surface Area
+## Access surface area
 
 ### Legacy authentication
 
@@ -266,7 +266,7 @@ Legacy authentication is a term that refers to authentication protocols used by 
 - Older Office clients that don’t use modern authentication (for example, Office 2010 client)
 - Clients that use mail protocols such as IMAP/SMTP/POP
 
-Attackers strongly prefer these protocols - in fact, nearly 100% of password spray attacks use legacy authentication protocols! Hackers use legacy authentication protocols, because they don't support interactive sign-in, which is needed for additional security challenges like multi-factor authentication and device authentication.
+Attackers strongly prefer these protocols - in fact, nearly [100% of password spray attacks](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984) use legacy authentication protocols! Hackers use legacy authentication protocols, because they don't support interactive sign-in, which is needed for additional security challenges like multi-factor authentication and device authentication.
 
 If legacy authentication is widely used in your environment, you should plan to migrate legacy clients to clients that support [modern authentication](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) as soon as possible. In the same token, if you have some users already using modern authentication but others that still use legacy authentication, you should take the following steps to lock down legacy authentication clients:
 
@@ -316,14 +316,14 @@ Below are the user and group settings that can be locked down if there isn’t a
 
 #### User settings
 
-- **External Users** - external collaboration can happen organically in the enterprise with services like Teams, Power BI, Sharepoint Online, and Azure Information Protection. If you have explicit constraints to block user-initiated external collaboration, it is recommended you enable external users by using [Azure AD Entitlement management](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) or a controlled operation such as through your help desk.
+- **External Users** - external collaboration can happen organically in the enterprise with services like Teams, Power BI, Sharepoint Online, and Azure Information Protection. If you have explicit constraints to control user-initiated external collaboration, it is recommended you enable external users by using [Azure AD Entitlement management](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) or a controlled operation such as through your help desk. If you don't want to allow organic external collaboration for services, you can [block members from inviting external users completely](https://docs.microsoft.com/azure/active-directory/b2b/delegate-invitations). Alternatively, you can also [allow or block specific domains](https://docs.microsoft.com/azure/active-directory/b2b/allow-deny-list) in external user invitations.
 - **App Registrations** - when App registrations are enabled, end users can onboard applications themselves and grant access to their data. A typical example of App registration is users enabling Outlook plug-ins, or voice assistants such as Alexa and Siri to read their email and calendar or send emails on their behalf. If the customer decides to turn off App registration, the InfoSec and IAM teams must be involved in the management of exceptions (app registrations that are needed based on business requirements), as they would need to register the applications with an admin account, and most likely require designing a process to operationalize the process.
-- **Administration Portal** - organizations should lock down the Azure portal so that non-administrators can’t log in to the Azure AD management portal. Administrators can go to the user settings in the Azure AD management portal to restrict access.
+- **Administration Portal** - organizations can lock down the Azure AD blade in the Azure portal so that non-administrators can’t access Azure AD management in the Azure portal and get confused. Go to the user settings in the Azure AD management portal to restrict access:
 
 ![Administration portal restricted access](./media/active-directory-ops-guide/active-directory-ops-img13.png)
 
 > [!NOTE]
-> Non-admin can still access to the Azure AD management interfaces via command-line and other programmatic interfaces.
+> Non-adminstrators can still access to the Azure AD management interfaces via command-line and other programmatic interfaces.
 
 #### Group settings
 
@@ -345,9 +345,9 @@ Attackers originate from various parts of the world. Manage this risk by using c
 
 If available, use a security information and event management (SIEM) solution to analyze and find patterns of access across regions. If you don’t use a SIEM product, or it isn’t ingesting authentication information from Azure AD, we recommend you use [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) to identify patterns of access across regions.
 
-## Access Usage
+## Access usage
 
-### Azure AD logs archived and integrated with Incident Response Plans
+### Azure AD logs archived and integrated with incident response plans
 
 Having access to sign-in activity, audits and risk events for Azure AD is crucial for troubleshooting, usage analytics, and forensics investigations. Azure AD provides access to these sources through REST APIs that have a limited retention period. A security information and event management (SIEM) system, or equivalent archival technology, is key for long-term storage of audits and supportability. To enable long-term storage of Azure AD Logs, you must either add them to your existing SIEM solution or use [Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-activity-logs-azure-monitor). Archive logs that can be used as part of your incident response plans and investigations.
 
@@ -364,18 +364,18 @@ Having access to sign-in activity, audits and risk events for Azure AD is crucia
 
 There are 12 aspects to a secure Identity infrastructure. This list will help you further secure and manage credentials, define authentication experience, delegate assignment, measure usage, and define access policies based on enterprise security posture.
 
-1. Assign owners to key tasks.
-2. Implement solutions to detect weak or leaked passwords, improve password management and protection, and further secure user access to resources.
-3. Manage the identity of devices to protect your resources at any time and from any location.
-4. Implement passwordless authentication.
-5. Provide a standardized single sign-on mechanism across the organization.
-6. Migrate apps from AD FS to Azure AD to enable better security and more consistent manageability.
-7. Assign users to applications by using groups to allow greater flexibility and ability to manage at scale.
-8. Configure risk-based access policies.
-9. Lock down legacy authentication protocols.
-10. Detect and remediate illicit consent grants.
-11. Lock down user and group settings.
-12. Enable long-term storage of Azure AD logs for troubleshooting, usage analytics, and forensics investigations.
+- Assign owners to key tasks.
+- Implement solutions to detect weak or leaked passwords, improve password management and protection, and further secure user access to resources.
+- Manage the identity of devices to protect your resources at any time and from any location.
+- Implement passwordless authentication.
+- Provide a standardized single sign-on mechanism across the organization.
+- Migrate apps from AD FS to Azure AD to enable better security and more consistent manageability.
+- Assign users to applications by using groups to allow greater flexibility and ability to manage at scale.
+- Configure risk-based access policies.
+- Lock down legacy authentication protocols.
+- Detect and remediate illicit consent grants.
+- Lock down user and group settings.
+- Enable long-term storage of Azure AD logs for troubleshooting, usage analytics, and forensics investigations.
 
 ## Next steps
 

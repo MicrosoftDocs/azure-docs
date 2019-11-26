@@ -152,6 +152,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $rgName `
 $vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName 
 $disk = Get-AzDisk -DiskName $diskName -ResourceGroupName $rgName
 $vm = Add-AzVMDataDisk -VM $vm -Name $diskName -CreateOption Attach -ManagedDiskId $disk.Id -Lun 1
+Update-AzVM -ResourceGroupName $rgName -VM $vm
 ```
 
 

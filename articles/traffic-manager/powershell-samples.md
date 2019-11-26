@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell samples for Traffic Manager| Microsoft Docs
-description: Azure PowerShell samples for Traffic Manager
+description: With this sample, use Azure PowerShell to deploy and configure Azure Traffic Manager.
 services: traffic-manager
 documentationcenter: traffic-manager
 author: asudbring

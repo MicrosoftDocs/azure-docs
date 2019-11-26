@@ -1,5 +1,5 @@
 ---
-title: Azure ExpressRoute circuits and peering | Microsoft Docs
+title: 'Azure ExpressRoute: circuits and peering'
 description: This page provides an overview of ExpressRoute circuits and routing domains/peering.
 services: expressroute
 author: mialdrid
@@ -8,7 +8,6 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: mialdrid 
-ms.custom: seodec18
 
 ---
 # ExpressRoute circuits and peering

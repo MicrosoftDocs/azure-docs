@@ -1,13 +1,9 @@
 ---
-title: Failover and patching - Azure Cache for Redis | Microsoft Docs
+title: Failover and patching - Azure Cache for Redis
 description: Learn about failover, patching, and the update process for Azure Cache for Redis.
-services: cache
 author: asasine
 
-ms.assetid: 928b9b9c-d64f-4252-884f-af7ba8309af6
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: adsasine
@@ -15,67 +11,75 @@ ms.author: adsasine
 
 # Failover and patching for Azure Cache for Redis
 
-Understanding what a failover is in context with the Azure Cache for Redis service is critical to building resilient and successful client applications. A common cause for a cache failover comes from the management service patching the Redis binaries. This article covers what a failover is, how they occur during patching, and how to build a resilient client application.
+To build resilient and successful client applications, it's critical to understand failover in the context of the Azure Cache for Redis service. A failover can be a part of planned management operations, or might be caused by unplanned hardware or network failures. A common use of cache failover comes when the management service patches the Azure Cache for Redis binaries. This article covers what a failover is, how it occurs during patching, and how to build a resilient client application.
 
 ## What is a failover?
 
-### A quick summary of our architecture
+Let's start with an overview of failover for Azure Cache for Redis.
 
-A cache is constructed of multiple virtual machines with separate private IPs. Each virtual machine, also known as a node, is connected to a shared load balancer with a single virtual IP. Each node runs the Redis server process and is accessible through the host name and the Redis ports. Each node is either considered a master or a replica node. When a client application connects to a cache, its traffic goes through this load balancer and is automatically routed to the master node.
+### A quick summary of cache architecture
 
-In a Basic cache, the single node is always a master. In a Standard or Premium cache, there are two nodes where one is chosen the master and the other is the replica. Because Standard and Premium caches have multiple nodes, one node may be unavailable while the other continues to process requests. Clustered caches are made of many shards, each with distinct master and replica nodes. One shard may be down while the others remain available.
+A cache is constructed of multiple virtual machines with separate, private IP addresses. Each virtual machine, also known as a node, is connected to a shared load balancer with a single virtual IP address. Each node runs the Redis server process and is accessible by means of the host name and the Redis ports. Each node is considered either a master or a replica node. When a client application connects to a cache, its traffic goes through this load balancer and is automatically routed to the master node.
+
+In a Basic cache, the single node is always a master. In a Standard or Premium cache, there are two nodes: one is chosen as the master and the other is the replica. Because Standard and Premium caches have multiple nodes, one node might be unavailable while the other continues to process requests. Clustered caches are made of many shards, each with distinct master and replica nodes. One shard might be down while the others remain available.
 
 > [!NOTE]
-> A Basic cache doesn't have multiple nodes and doesn't offer an SLA on availability. Basic caches are only recommended for development and testing purposes. Use a Standard or Premium cache for a multi-node deployment to increase availability.
+> A Basic cache doesn't have multiple nodes and doesn't offer a service-level agreement (SLA) for its availability. Basic caches are recommended only for development and testing purposes. Use a Standard or Premium cache for a multi-node deployment, to increase availability.
 
-### A failover explained
+### Explanation of a failover
 
-A failover occurs when a replica node promotes itself to become a master node and the old master node closes existing connections. After the master node comes back up, it will notice the change in roles and demote itself to become a replica. It will then connect to the new master and synchronize data. A failover may be planned or unplanned.
+A failover occurs when a replica node promotes itself to become a master node, and the old master node closes existing connections. After the master node comes back up, it notices the change in roles and demotes itself to become a replica. It then connects to the new master and synchronizes data. A failover might be planned or unplanned.
 
-A planned failover takes place during system updates such as Redis patching or OS upgrades and management operations such as scaling and rebooting. Because the nodes are given advanced notice of the update, they can cooperatively swap roles and quickly update the load balancer of the change. A planned failover should complete in less than 1 second.
+A *planned failover* takes place during system updates, such as Redis patching or OS upgrades, and management operations, such as scaling and rebooting. Because the nodes receive advance notice of the update, they can cooperatively swap roles and quickly update the load balancer of the change. A planned failover typically finishes in less than 1 second.
 
-An unplanned failover may happen because of hardware failure, network failure, or other unexpected outages to the master node. The replica node will promote itself to master but the process takes longer. A replica node must first detect its master node is not available before it can initiate the failover process. The replica node must also verify this unplanned failure is not transient or local to avoid an overeager failover. This delay in detection means an unplanned failover typically completes within 10 to 15 seconds.
+An *unplanned failover* might happen because of hardware failure, network failure, or other unexpected outages to the master node. The replica node  promotes itself to master, but the process takes longer. A replica node must first detect that its master node is not available before it can initiate the failover process. The replica node must also verify that this unplanned failure is not transient or local, to avoid an unnecessary failover. This delay in detection means that an unplanned failover typically finishes within 10 to 15 seconds.
 
 ## How does patching occur?
 
-The Azure Cache for Redis service regularly does maintenance to update your cache with the latest platform features and fixes. To patch a cache, the service follows the following steps:
+The Azure Cache for Redis service regularly updates your cache with the latest platform features and fixes. To patch a cache, the service follows these steps:
 
 1. The management service selects one node to be patched.
-1. If the selected node is a master node, its replica node cooperatively promotes itself. This promotion is considered a planned failover.
-1. The selected node reboots to take the new changes and comes back up as a replica node. Replica nodes connect to the master node and synchronize data.
-1. When data sync completes, the patching process repeats for the remaining nodes.
+1. If the selected node is a master node, the corresponding replica node cooperatively promotes itself. This promotion is considered a planned failover.
+1. The selected node reboots to take the new changes and comes back up as a replica node.
+1. The replica node connects to the master node and synchronizes data.
+1. When the data sync is complete, the patching process repeats for the remaining nodes.
 
-Since patching is a planned failover, the replica node quickly promotes itself to become a master and begins servicing requests and new connections. Basic caches don't have a replica node and are unavailable until the update completes. Each shard of a clustered cache is patched separately and won't close connections to another shard.
+Because patching is a planned failover, the replica node quickly promotes itself to become a master and begins servicing requests and new connections. Basic caches don't have a replica node and are unavailable until the update is complete. Each shard of a clustered cache is patched separately and won't close connections to another shard.
 
 > [!IMPORTANT]
 > Nodes are patched one at a time to prevent data loss. Basic caches will have data loss. Clustered caches are patched one shard at a time.
 
-Multiple caches in the same resource group and region are also patched one at a time.  Caches that are in different resource groups or different regions may be patched simultaneously.
+Multiple caches in the same resource group and region are also patched one at a time.  Caches that are in different resource groups or different regions might be patched simultaneously.
 
-Because full data synchronization happens before the process repeats, data loss is unlikely to occur when using a Standard or Premium cache. You can further guard against data loss by using [exporting](cache-how-to-import-export-data.md#export) data and enabling [persistence](cache-how-to-premium-persistence.md).
+Because full data synchronization happens before the process repeats, data loss is unlikely to occur when you use a Standard or Premium cache. You can further guard against data loss by [exporting](cache-how-to-import-export-data.md#export) data and enabling [persistence](cache-how-to-premium-persistence.md).
 
-### Additional cache load
+## Additional cache load
 
-Whenever a failover occurs, the Standard and Premium caches need to replicate data from one node to the other. This replication causes some load increase in both server memory and CPU. If the cache instance is already heavily loaded, client applications may experience increased latency. In extreme cases, client applications may receive timeout exceptions. [Configure](cache-configure.md#memory-policies) the cache's `maxmemory-reserved` setting to help mitigate the impact of this additional load.
+Whenever a failover occurs, the Standard and Premium caches need to replicate data from one node to the other. This replication causes some load increase in both server memory and CPU. If the cache instance is already heavily loaded, client applications might experience increased latency. In extreme cases, client applications might receive time-out exceptions. To help mitigate the impact of this additional load, [configure](cache-configure.md#memory-policies) the cache's `maxmemory-reserved` setting.
 
-## How does a failover impact my client application?
+## How does a failover affect my client application?
 
-The number of errors seen by the client application will depend on how many operations were pending on that connection at the time of the failover. Any connection that is routed through the node that closed connections will see errors. Many client libraries can throw different types of errors including timeout exceptions, connection exceptions, or socket exceptions when connections break. The number and type of exceptions depends on where in the code path the request is when the cache closes its connections. For instance, an operation that sends a request but hasn't received a response when the failover occurs may get a timeout exception. New requests on the closed connection object will receive connection exceptions until the reconnection happens successfully.
+The number of errors seen by the client application depends on how many operations were pending on that connection at the time of the failover. Any connection that's routed through the node that closed its connections will see errors. Many client libraries can throw different types of errors when connections break, including time-out exceptions, connection exceptions, or socket exceptions. The number and type of exceptions depends on where in the code path the request is when the cache closes its connections. For instance, an operation that sends a request but hasn't received a response when the failover occurs might get a time-out exception. New requests on the closed connection object receive connection exceptions until the reconnection happens successfully.
 
-Most client libraries will attempt to reconnect to the cache if configured to do so but unforeseen bugs can occasionally place the library objects into an unrecoverable state. If errors persist for longer than a pre-configured amount of time, the connection object should be recreated. In .NET and other object oriented languages, recreating the connection without restarting the application can be accomplished using [a Lazy\<T\> pattern](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#reconnecting-with-lazyt-pattern).
+Most client libraries attempt to reconnect to the cache if they're configured to do so. However, unforeseen bugs can occasionally place the library objects into an unrecoverable state. If errors persist for longer than a preconfigured amount of time, the connection object should be recreated. In Microsoft.NET and other object-oriented languages, recreating the connection without restarting the application can be accomplished by using [a Lazy\<T\> pattern](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#reconnecting-with-lazyt-pattern).
 
-### What should I do in my application?
+### How do I make my application resilient?
 
-Since a failover cannot be completely avoided, client applications should be written for resiliency to connection breaks and failed requests. Despite most client libraries automatically reconnecting to the cache endpoint, few client libraries attempt to retry failed requests. Depending on the application scenario, retry logic with back-off may make sense.
+Because you can't avoid failovers completely, write your client applications for resiliency to connection breaks and failed requests. Although most client libraries automatically reconnect to the cache endpoint, few of them attempt to retry failed requests. Depending on the application scenario, it might make sense to use retry logic with backoff.
 
-To test a client application's resiliency, use a [reboot](cache-administration.md#reboot) as a manual trigger for connection breaks. Additionally, it's recommended to [schedule updates](cache-administration.md#schedule-updates) on a cache to tell the management service to have the Redis runtime patches apply during specified weekly windows. These windows are typically chosen to periods when client application traffic is lower to avoid potential incidents.
+To test a client application's resiliency, use a [reboot](cache-administration.md#reboot) as a manual trigger for connection breaks. Additionally, we recommend that you [schedule updates](cache-administration.md#schedule-updates) on a cache. Tell the management service to apply Redis runtime patches during specified weekly windows. These windows are typically periods when client application traffic is low, to avoid potential incidents.
 
-### Client network configuration changes
+### Client network-configuration changes
 
-Certain client-side network configuration changes can trigger "No connection available" errors.  Swapping a client application's virtual IP address between staging and production slots or scaling the size/number of instances of your application can cause a connectivity issue that last less than one minute. Your client application will likely lose connection to other external network resources in addition to Redis.
+Certain client-side network-configuration changes can trigger "No connection available" errors. Such changes might include:
+
+- Swapping a client application's virtual IP address between staging and production slots.
+- Scaling the size or number of instances of your application.
+
+Such changes can cause a connectivity issue that lasts less than one minute. Your client application will probably lose its connection to other external network resources in addition to the Azure Cache for Redis service.
 
 ## Next steps
 
 - [Schedule updates](cache-administration.md#schedule-updates) for your cache.
-- Test application resiliency using a [reboot](cache-administration.md#reboot).
+- Test application resiliency by using a [reboot](cache-administration.md#reboot).
 - [Configure](cache-configure.md#memory-policies) memory reservations and policies.

@@ -1,5 +1,5 @@
 ---
-title: 'Configure P2S - Azure SQL Database Managed Instance | Microsoft Docs'
+title: Configure P2S - Managed instance
 description: Connect to an Azure SQL Database Managed Instance using SQL Server Management Studio using a point-to-site connection from an on-premises client computer.
 services: sql-database
 ms.service: sql-database

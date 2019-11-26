@@ -1,6 +1,6 @@
 ---
-title: Performance tuning with result set caching | Microsoft Docs
-description: Feature overview  
+title: Performance tuning with result set caching 
+description: Result set caching feature overview for Azure SQL Data Warehouse 
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg 
@@ -9,7 +9,8 @@ ms.topic: conceptual
 ms.subservice: development
 ms.date: 10/10/2019
 ms.author: xiaoyul
-ms.reviewer: nidejaco;  
+ms.reviewer: nidejaco;
+ms.custom: seo-lt-2019  
 ---
 
 # Performance tuning with result set caching  

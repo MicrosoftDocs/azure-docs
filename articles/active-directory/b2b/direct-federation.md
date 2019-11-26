@@ -1,5 +1,5 @@
 ---
-title: Set up direct federation with an identity provider for B2B - Azure Active Directory | Microsoft Docs
+title: Direct federation with an identity provider for B2B - Azure AD
 description: Directly federate with a SAML or WS-Fed identity provider so guests can sign in to your Azure AD apps
 
 services: active-directory

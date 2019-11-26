@@ -1,6 +1,6 @@
 ---
 title: Manage Azure Analysis Services | Microsoft Docs
-description: Learn how to manage an Analysis Services server in Azure.
+description: This article describes the tools used to manage administration and management tasks for an Azure Analysis Services server.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual

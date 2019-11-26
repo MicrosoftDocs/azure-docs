@@ -7,7 +7,7 @@ ms.author: danlep
 ---
 | Resource | Default limit |
 | --- | :--- |
-| Container groups per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) | 100<sup>1</sup> |
+| Container groups per region per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) | 100<sup>1</sup> |
 | Number of containers per container group | 60 |
 | Number of volumes per container group | 20 |
 | Ports per IP | 5 |

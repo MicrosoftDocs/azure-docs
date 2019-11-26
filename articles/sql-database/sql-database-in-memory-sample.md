@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database In-Memory sample | Microsoft Docs
+title: In-Memory sample
 description: Try Azure SQL Database In-Memory technologies with OLTP and columnstore sample. 
 services: sql-database
 ms.service: sql-database

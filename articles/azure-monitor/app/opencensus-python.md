@@ -20,8 +20,6 @@ Azure Monitor supports distributed tracing, metric collection, and logging of Py
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - Python installation. This article uses [Python 3.7.0](https://www.python.org/downloads/), though earlier versions will likely work with minor changes.
 
-
-
 ## Sign in to the Azure portal
 
 Sign in to the [Azure portal](https://portal.azure.com/).
@@ -51,6 +49,8 @@ Install the OpenCensus Azure Monitor exporters:
 ```console
 python -m pip install opencensus-ext-azure
 ```
+
+For a full list of packages and integrations, see [OpenCensus packages](https://docs.microsoft.com/azure/azure-monitor/app/nuget#common-packages-for-python-using-opencensus).
 
 > [!NOTE]
 > The `python -m pip install opencensus-ext-azure` command assumes that you have a `PATH` environment variable set for your Python installation. If you haven't configured this variable, you need to give the full directory path to where your Python executable is located. The result is a command like this: `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus-ext-azure`.
@@ -105,7 +105,6 @@ The SDK uses three Azure Monitor exporters to send different types of telemetry 
     tracer = Tracer(
         exporter=AzureExporter(
             connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000'),
-        ),
         sampler=ProbabilitySampler(1.0),
     )
 
@@ -123,6 +122,10 @@ The SDK uses three Azure Monitor exporters to send different types of telemetry 
     ```
 
 4. Now when you run the Python script, you should still be prompted to enter values, but only the value is being printed in the shell. The created `SpanData` will be sent to Azure Monitor. You can find the emitted span data under `dependencies`.
+
+5. For information on sampling in OpenCensus, take a look at [sampling in OpenCensus](https://docs.microsoft.com/azure/azure-monitor/app/sampling#configuring-fixed-rate-sampling-in-opencensus-python).
+
+6. For details on telemetry correlation in your trace data, take a look at OpenCensus [telemetry correlation](https://docs.microsoft.com/azure/azure-monitor/app/correlation#telemetry-correlation-in-opencensus-python).
 
 ### Metrics
 
@@ -207,7 +210,7 @@ The SDK uses three Azure Monitor exporters to send different types of telemetry 
     # TODO: replace the all-zero GUID with your instrumentation key.
     exporter = metrics_exporter.new_metrics_exporter(
         connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
-    )
+
     view_manager.register_exporter(exporter)
 
     def prompt():
@@ -288,29 +291,7 @@ The SDK uses three Azure Monitor exporters to send different types of telemetry 
 
 4. The exporter will send log data to Azure Monitor. You can find the data under `traces`.
 
-## Start monitoring in the Azure portal
-
-1. You can now reopen the Application Insights **Overview** pane in the Azure portal, to view details about your currently running application. Select **Live Metrics Stream**.
-
-   ![Screenshot of the overview pane with "Live Metrics Stream" selected in a red box](./media/opencensus-python/0005-overview-live-metrics-stream.png)
-
-2. Go back to the **Overview** pane. Select **Application map** for a visual layout of the dependency relationships and call timing between your application components.
-
-   ![Screenshot of a basic application map](./media/opencensus-python/0007-application-map.png)
-
-   Because we were tracing only one method call, our application map isn't interesting. But an application map can scale to visualize far more distributed applications:
-
-   ![Application map](media/opencensus-python/application-map.png)
-
-3. Select **Investigate performance** to analyze performance in detail and determine the root cause of slow performance.
-
-   ![Screenshot of performance details](./media/opencensus-python/0008-performance.png)
-
-4. To open the end-to-end experience for transaction details, select **Samples**, and then select any of the samples that appear in the right pane. 
-
-   Although our sample app shows just a single event, a more complex application would allow you to explore the end-to-end transaction down to level of an individual event's call stack.
-
-   ![Screenshot of the end-to-end transaction interface](./media/opencensus-python/0009-end-to-end-transaction.png)
+5. For details on how to enrich your logs with trace context data, see OpenCensus Python [logs integration](https://docs.microsoft.com/azure/azure-monitor/app/correlation#logs-correlation).
 
 ## View your data with queries
 

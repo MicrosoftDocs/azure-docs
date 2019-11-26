@@ -1,5 +1,5 @@
 ---
-title: Extended Spark History Server to debug Spark applications - Azure HDInsight
+title: Extended Spark History Server to debug apps - Azure HDInsight
 description: Use extended Spark History Server to debug and diagnose Spark applications - Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
