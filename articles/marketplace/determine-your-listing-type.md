@@ -3,7 +3,7 @@ title: Determine Your Publishing Option in Azure Marketplace | Azure
 description: This article describes the eligibility criteria and publishing requirements partners trying to understand how to publish apps to the Azure Marketplace.
 services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 
-author: jm-aditi-ms
+author: ellacroi
 manager: pabutler
 
 
