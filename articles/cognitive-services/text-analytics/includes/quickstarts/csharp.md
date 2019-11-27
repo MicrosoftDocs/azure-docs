@@ -16,7 +16,6 @@ ms.author: aahi
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
-* The current version of the [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core).
 * The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/)
 
 ## Setting up
