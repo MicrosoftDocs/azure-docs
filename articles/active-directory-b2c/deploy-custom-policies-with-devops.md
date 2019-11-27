@@ -16,32 +16,31 @@ ms.subservice: B2C
 
 # Deploy custom policies from an Azure DevOps pipeline
 
-By using a continuous integration and delivery (CI/CD) pipeline that you set up in [Azure DevOps](https://azure.microsoft.com/overview/devops/), you can include your Azure AD B2C custom policies in your software delivery and code control automation. As you deploy different Azure AD B2C environments, for example dev, test, and production, we recommend that you remove manual processes and perform automated testing by using Azure DevOps.
+By using a continuous integration and delivery (CI/CD) pipeline that you set up in [Azure DevOps](https://azure.microsoft.com/overview/devops/), you can include your Azure AD B2C custom policies in your software delivery and code control automation. As you deploy to different Azure AD B2C environments, for example dev, test, and production, we recommend that you remove manual processes and perform automated testing by using Azure DevOps.
 
-Deployment scripts can be integrated by making use of Service-to-Service calls between Azure DevOps and Azure AD via the [Client Credential Grant Flow](../active-directory/develop/v1-oauth2-client-creds-grant-flow).
+There are three primary steps required for enabling Azure DevOps to manage custom policies within Azure AD B2C:
 
-The OAuth 2.0 Client Credentials Grant Flow permits a web service, the confidential client, to use its own credentials instead of impersonating a user to authenticate when calling another web service. In this scenario, the client, Azure DevOps, is acting as a middle-tier web service. Using these instructions will allow you to use the client credential flow to obtain a token and make requests to the Microsoft Graph API.  For more information about OAuth 2.0 client credentials grant visit [Service to service calls using client credentials (shared secret or certificate)](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md)
-
-There are three steps to configure Azure DevOps to manage custom policies within Azure AD B2C:
-
-1. Create a web application in Azure Active Directory within the Azure AD B2C tenant
+1. Create a web application registration in your Azure AD B2C tenant
 1. Configure your Azure DevOps Git repository
 1. Configure your Azure DevOps release pipeline
+
+> [!IMPORTANT]
+> Managing Azure AD B2C custom policies currently uses **preview operations** available on Microsoft Graph API `/beta` endpoint. Use of these APIs in production applications is not supported. For more information, see the [Microsoft Graph REST API beta endpoint reference](https://docs.microsoft.com/graph/api/overview?toc=./ref/toc.json&view=graph-rest-beta).
 
 ## Prerequisites
 
 * [Azure AD B2C tenant](tutorial-create-tenant.md), and credentials for a user in the directory with the *Global Admin* role
 * [Azure DevOps pipeline](https://azure.microsoft.com/services/devops/pipelines/), and access to an Azure DevOps project
 
-## Microsoft Graph API versions
+## Client credentials grant flow
 
-Performing Create, Read, Update, Delete (CRUD) operations against Azure AD B2C custom policies uses the `/beta` endpoint of the [Microsoft Graph API](https://docs.microsoft.com/graph/overview?view=graph-rest-beta).
+The scenario described here makes use of service-to-service calls between Azure DevOps and Azure AD B2C by using the OAuth 2.0 [client credentials grant flow](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md). This grant flow permits a web service like Azure DevOps (the confidential client) to use its own credentials instead of impersonating a user to authenticate when calling another web service, which is the Microsoft Graph API in this case.
 
-Microsoft Graph APIs that are available on the `beta` endpoint currently in preview and are subject to change. Use of these APIs in production applications is not supported. For more information, see [Microsoft Graph REST API Beta](https://docs.microsoft.com/graph/api/overview?toc=./ref/toc.json&view=graph-rest-beta) reference.
+Azure DevOps obtains a token non-interactively, then makes requests to the Microsoft Graph API.
 
 ## Register an application for management tasks
 
-Start by creating an application registration that your PowerShell scripts can use for communicating with Azure AD B2C. If you already have an application registration that you use for automation tasks, you can skip this section.
+Start by creating an application registration that your PowerShell scripts executed by Azure DevOps will use for communicating with Azure AD B2C. If you already have an application registration that you use for automation tasks, you can skip this section.
 
 ### Register application
 
@@ -52,6 +51,8 @@ Start by creating an application registration that your PowerShell scripts can u
 [!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
 ## Configure an Azure DevOps Git repository
+
+With a management application registration completed, you're ready to configure a repository for your policy files.
 
 1. Sign in to your Azure DevOps organization and navigate to your project.
 1. In your project, navigate to **Repos** and select the **Files** page. Select an existing Repo or create one for this exercise.
