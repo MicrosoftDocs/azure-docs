@@ -1,5 +1,5 @@
 ---
-title: CAF Migration landing zone blueprint sample - Deploy steps
+title:  Deploy CAF Migration landing zone blueprint sample
 description: Deploy steps for the CAF Migration landing zone blueprint sample including blueprint artifact parameter details.
 ms.date: 08/20/2019
 ms.topic: sample
