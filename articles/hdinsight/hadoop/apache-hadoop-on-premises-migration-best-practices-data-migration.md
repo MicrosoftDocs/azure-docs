@@ -18,14 +18,14 @@ This article gives recommendations for data migration to Azure HDInsight. It's p
 
 There are two main options to migrate data from on-premises to Azure environment:
 
-1. Transfer data over network with TLS
-    1. Over internet - You can transfer data to Azure storage over a regular internet connection using any one of several tools such as: Azure Storage Explorer, AzCopy, Azure Powershell, and Azure CLI. For more information, see [Moving data to and from Azure Storage](../../storage/common/storage-moving-data.md).
+* Transfer data over network with TLS
+    * Over internet - You can transfer data to Azure storage over a regular internet connection using any one of several tools such as: Azure Storage Explorer, AzCopy, Azure Powershell, and Azure CLI. For more information, see [Moving data to and from Azure Storage](../../storage/common/storage-moving-data.md).
 
-    1. Express Route - ExpressRoute is an Azure service that lets you create private connections between Microsoft datacenters and infrastructure that’s on your premises or in a colocation facility. ExpressRoute connections don't go over the public Internet, and offer higher security, reliability, and speeds with lower latencies than typical connections over the Internet. For more information, see [Create and modify an ExpressRoute circuit](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
+    * Express Route - ExpressRoute is an Azure service that lets you create private connections between Microsoft datacenters and infrastructure that’s on your premises or in a colocation facility. ExpressRoute connections don't go over the public Internet, and offer higher security, reliability, and speeds with lower latencies than typical connections over the Internet. For more information, see [Create and modify an ExpressRoute circuit](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
 
-    1. Data Box online data transfer - Data Box Edge and Data Box Gateway are online data transfer products that act as network storage gateways to manage data between your site and Azure. Data Box Edge, an on-premises network device, transfers data to and from Azure and uses artificial intelligence (AI)-enabled edge compute to process data. Data Box Gateway is a virtual appliance with storage gateway capabilities. For more information, see [Azure Data Box Documentation - Online Transfer](https://docs.microsoft.com/azure/databox-online/).
+    * Data Box online data transfer - Data Box Edge and Data Box Gateway are online data transfer products that act as network storage gateways to manage data between your site and Azure. Data Box Edge, an on-premises network device, transfers data to and from Azure and uses artificial intelligence (AI)-enabled edge compute to process data. Data Box Gateway is a virtual appliance with storage gateway capabilities. For more information, see [Azure Data Box Documentation - Online Transfer](https://docs.microsoft.com/azure/databox-online/).
 
-1. Shipping data Offline
+* Shipping data Offline
 
     Data Box offline data transfer - Data Box, Data Box Disk, and Data Box Heavy devices help you transfer large amounts of data to Azure when the network isn’t an option. These offline data transfer devices are shipped between your organization and the Azure datacenter. They use AES encryption to help protect your data in transit, and they undergo a thorough post-upload sanitization process to delete your data from the device. For more information on the Data Box offline transfer devices, see [Azure Data Box Documentation - Offline Transfer](https://docs.microsoft.com/azure/databox/). For more information on migration of Hadoop clusters, see [Use Azure Data Box to migrate from an on-premises HDFS store to Azure Storage](../../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md).
 
@@ -54,9 +54,9 @@ DistCp is an Apache project that uses a MapReduce Map job to transfer data, hand
 
 DistCp tries to create map tasks so that each one copies roughly the same number of bytes. By default, DistCp jobs use 20 mappers. Using more Mappers for Distcp (with the 'm' parameter at command line) increases parallelism during the data transfer process and decreases the length of the data transfer. However, there are two things to consider while increasing the number of Mappers:
 
-1. DistCp's lowest granularity is a single file. Specifying a number of Mappers more than the number of source files doesn't help and will waste the available cluster resources.
+* DistCp's lowest granularity is a single file. Specifying a number of Mappers more than the number of source files doesn't help and will waste the available cluster resources.
 
-1. Consider the available Yarn memory on the cluster to determine the number of Mappers. Each Map task is launched as a Yarn container. Assuming that no other heavy workloads are running on the cluster, the number of Mappers can be determined by the following formula: m = (number of worker nodes \* YARN memory for each worker node) / YARN container size. However, If other applications are using memory, then choose to only use a portion of YARN memory for DistCp jobs.
+* Consider the available Yarn memory on the cluster to determine the number of Mappers. Each Map task is launched as a Yarn container. Assuming that no other heavy workloads are running on the cluster, the number of Mappers can be determined by the following formula: m = (number of worker nodes \* YARN memory for each worker node) / YARN container size. However, If other applications are using memory, then choose to only use a portion of YARN memory for DistCp jobs.
 
 ### Use more than one DistCp job
 
