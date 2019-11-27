@@ -4,6 +4,12 @@
   items:
   - name: What is Azure IoT Central
     href: overview-iot-central.md
+  - name: Get connected
+    href: overview-iot-central-get-connected.md
+  - name: Stay connected
+    href: overview-iot-central-stay-connected.md
+  - name: Transform
+    href: overview-iot-central-transform.md
   - name: IoT Solution options
     href: overview-iot-options.md
   - name: Tour of the UI
