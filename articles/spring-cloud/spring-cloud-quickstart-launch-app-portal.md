@@ -122,7 +122,7 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
 
 1. Select the `gateway` application to show the **Overview** page.
 
-1. Select **Assign Domain** to assign a public endpoint to gateway. This can a few minutes.
+1. Select **Assign Domain** to assign a public endpoint to gateway. This can take a few minutes.
 
     ![Screenshot of ASC portal](media/spring-cloud-quickstart-launch-app-portal/portal-endpoint.png)
 
