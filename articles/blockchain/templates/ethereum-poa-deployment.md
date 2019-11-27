@@ -222,7 +222,7 @@ For a private network, the different members are connected via VNet gateway conn
 
 After the new member deploys, the existing member must complete the bi-directional connection by setting up a VNet gateway connection to the new member. The existing member needs:
 
-* The VNet gateway ResourceID of the connecting member. See [deployment output](#post-deployment).
+* The VNet gateway ResourceID of the connecting member. See [deployment output](#deployment-output).
 * The shared connection key.
 
 The existing member must run the following PowerShell script to complete the connection. You can use Azure Cloud Shell located in the top-right navigation bar in the portal.
