@@ -48,7 +48,7 @@ conceptualContent:
           itemType: tutorial
           text: Connect an IoT Plug and Play device
       footerLink: 
-        url: ./preview/index.yml
+        url: ./core/index.yml
         text: See more
 
     - title: Stay connected (preview features)
@@ -66,7 +66,7 @@ conceptualContent:
           itemType: how-to-guide
           text: Analyze your device data
       footerLink: 
-        url: ./preview/index.yml
+        url: ./core/index.yml
         text: See more
 
     - title: Transform (preview features)
@@ -78,7 +78,7 @@ conceptualContent:
           itemType: how-to-guide
           text: Configure continuous data export
       footerLink: 
-        url: ./preview/index.yml
+        url: ./core/index.yml
         text: See more
 
 # productDirectory section (optional)
