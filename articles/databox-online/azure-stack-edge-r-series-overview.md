@@ -7,22 +7,22 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 11/15/2019
+ms.date: 11/26/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge is and how it works so I can use it to process and transform data before sending to Azure.
 ---
-# What is Azure Stack Edge?
+# What is Azure Stack Edge Rugged series?
 
-Azure Stack Edge is an AI-enabled edge computing device with network data transfer capabilities. This article provides you an overview of the Azure Stack Edge solution, benefits, key capabilities, and the scenarios where you can deploy this device.
+Azure Stack Edge Rugged series comprises of an AI-enabled edge computing device with network data transfer capabilities. This article provides you an overview of the Azure Stack Edge Rugged series solution, benefits, key capabilities, and the scenarios where you can deploy this device.
 
-Azure Stack Edge is a Hardware-as-a-service solution. Microsoft ships you a cloud-managed device with a built-in Field Programmable Gate Array (FPGA) or a Graphics Processing Unit (GPU) that enables accelerated AI-inferencing and has all the capabilities of a network storage gateway.
+Azure Stack Edge Rugged series is a Hardware-as-a-service solution. Microsoft ships you a rugged, cloud-managed device with a built-in Field Programmable Gate Array (FPGA) or a Graphics Processing Unit (GPU) that enables accelerated AI-inferencing and has all the capabilities of a network storage gateway.
 
 ## Available SKUs
 
 Azure Stack Edge is offered as:
 
 - **Azure Stack Edge commercial series** - The commercial series is tailored for most commercial scenarios, such as retail stores and datacenters.
-- **Azure Stack Edge rugged series** - The rugged series is tailored for harsh environmental or field conditions, such as in defense, disaster relief, geological surveys, and energy. Rugged and portable form factors are also available. The rugged series is available as the following SKUs:
+- **Azure Stack Edge rugged series** - The rugged series is tailored for harsh environmental or field conditions, such as in defense, disaster relief, geological surveys, and energy. Rugged and portable form factors are available. The rugged series is available as the following SKUs:
 
 
 |SKU description  |Cluster |Configuration |
@@ -51,7 +51,7 @@ Here are the various scenarios where Azure Stack Edge can be used for rapid Mach
 
 ## Key capabilities
 
-Azure Stack Edge has the following capabilities:
+Azure Stack Edge Rugged series has the following capabilities:
 
 |Capability |Description  |
 |---------|---------|
@@ -64,6 +64,7 @@ Azure Stack Edge has the following capabilities:
 |Rugged hardware| Rugged hardware designed to meet military standards MIL-STD-810G and MIL-STD-461.|
 |Portable| A battery operated, portable form factor is also available.|
 |Offline upload     |Disconnected mode supports offline upload scenarios.|
+|Scale out file server| Available as 1-node and 4-node cluster configurations|
 |Supported protocols     |Support for standard SMB, NFS, and REST protocols for data ingestion. <br> For more information on supported versions, go to [Azure Stack Edge system requirements](azure-stack-edge-r-series-system-requirements.md).|
 |Data refresh     | Ability to refresh local files with the latest from cloud.|
 |Dual encryption    | Use of self-encrypting drives provides the first layer of encryption. VPN provides the second layer of encryption. BitLocker support to locally encrypt data and secure data transfer to cloud over *https* .|
@@ -72,19 +73,21 @@ Azure Stack Edge has the following capabilities:
 
 ## Components
 
-The Azure Stack Edge solution comprises of an Azure Stack Edge resource, Azure Stack Edge physical device, and a local web UI.
+The Azure Stack Edge solution comprises of an Azure Stack Edge resource, Azure Stack Edge rugged, physical device, and a local web UI.
 
-* **Azure Stack Edge physical device** - A 1U server with a rugged encasing supplied by Microsoft that can be configured to send data to Azure. Optionally, the server is available with a UPS and a heater.
-    
-* **Azure Stack Edge resource** – A resource in the Azure portal that lets you manage an Azure Stack Edge device from a web interface that you can access from different geographical locations. Use the Azure Stack Edge resource to create and manage resources, view, and manage devices and alerts, and manage shares.  
+* **Azure Stack Edge physical device** - A 1U server with a rugged encasing supplied by Microsoft that can be configured to send data to Azure. Optionally, the server is available with a UPS (also 1U) and a heater.
 
-    <!--![The Azure Stack Edge service in Azure portal](media/azure-stack-edge-r-series-overview/data-box-Edge-service1.png)-->
+    ![The Azure Stack Edge service in Azure portal](media/azure-stack-edge-r-series-overview/device-image-1.png)
+
+* **Azure Stack Edge resource** – A resource in the Azure portal that lets you manage a rugged, Azure Stack Edge device from a web interface that you can access from different geographical locations. Use the Azure Stack Edge resource to create and manage resources, view, and manage devices and alerts, and manage shares.  
+
+    <!--![The Azure Stack Edge service in Azure portal](media/azure-stack-edge-r-series-overview/service-image-1.png)-->
 
     For more information, go to [Create an order for your Azure Stack Edge device](azure-stack-edge-r-series-placeholder.md).
 
-* **Azure Stack Edge local web UI** - Use the local web UI to run diagnostics, shut down and restart the Azure Stack Edge device, view copy logs, and contact Microsoft Support to file a service request.
+* **Azure Stack Edge local web UI** - Use the local web UI for initial device configuration, to run diagnostics, shut down and restart the Azure Stack Edge device, view copy logs, and contact Microsoft Support to file a service request.
 
-    <!--![The Azure Stack Edge local web UI](media/azure-stack-edge-r-series-overview/azure-stack-edge-local-web-ui.png)-->
+    <!--![The Azure Stack Edge local web UI](media/azure-stack-edge-r-series-overview/local-web-ui-image-1.png)-->
 
     For information about using the web-based UI, go to [Use the web-based UI to administer your Azure Stack Edge](azure-stack-edge-r-series-placeholder.md).
 
