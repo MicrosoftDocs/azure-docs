@@ -9,7 +9,7 @@ ms.date: 11/25/2019
 ms.author: thvankra
 ---
 
-# Change Feed in Azure Cosmos DB’s API for Cassandra
+# Change feed in Azure Cosmos DB’s API for Cassandra
 
 [Change feed](change-feed.md) support in Azure Cosmos DB’s API for Cassandra is available through the query predicates in the Cassandra Query Language (CQL). By using these predicates, you can query the change feed API. Your applications can then get the changes made to a table, or to a single row within a table by using the primary key (also known as the partition key). You can then take further actions based on the results. Changes to the rows in the table are captured in the order of their modification time and the sort order is guaranteed per partition key.
 
