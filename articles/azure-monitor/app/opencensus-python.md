@@ -57,6 +57,12 @@ For a full list of packages and integrations, see [OpenCensus packages](https://
 
 The SDK uses three Azure Monitor exporters to send different types of telemetry to Azure Monitor: trace, metrics, and logs. For more information on these telemetry types, see [the data platform overview](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform). Use the following instructions to send these telemetry types via the three exporters.
 
+## Telemetry type mappings
+
+Here are the exporters that OpenCensus provides mapped to the types of telemetry that you will see in Azure Monitor.
+
+![Screenshot of mapping of telemetry types from OpenCensus to Azure Monitor](./media/opencensus-python/0012-telemetry-types.png)
+
 ### Trace
 
 > [!NOTE]
