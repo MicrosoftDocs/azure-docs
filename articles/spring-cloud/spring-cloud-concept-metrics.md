@@ -15,9 +15,9 @@ Azure Monitor metrics explorer is a component of the Azure portal. It features c
 
 ## Application Overview page
 
-Each application's **Application Overview** page presents a metrics chart. With that chart, you can quickly check the applications' status.  To see the metrics chart, go to your Azure Spring Cloud service page, select **Application Dashboard**, then select an application from the list.  
+Each application's **Application Overview** page presents a metrics chart. With that chart, you can quickly check an application's status.  To see the metrics chart, go to your Azure Spring Cloud service page, select **Application Dashboard**, then select an application from the list.  
 
-Azure Spring Cloud provides these five charts with metrics that updated every minute:
+Azure Spring Cloud provides these five charts with metrics that are updated every minute:
 
 * **Http Server Errors**: Error count for HTTP requests to your app
 * **Data In**: Bytes received by your app
@@ -47,9 +47,9 @@ Either select a default time range or define your own.
 
 ### Modifying the granularity of your metric query
 
-By default, Azure aggregates metrics for all of an Azure Spring Cloud service's applications. To review metrics at the application or instance level, use the filter function.
+By default, Azure aggregates metrics for all applications of an Azure Spring Cloud service. To review metrics at the application or instance level, use the filter function.
 
-To use this function, select **Add filter**, set the property to **App**, and select the target application you want to monitor. Optionally, use the **Apply splitting** option to draw separate lines for each app in the chart.
+To use this function, select **Add filter**, set the property to **App**, and select the target application you want to monitor. Optionally, use the **Apply splitting** option to draw separate lines in the chart for each app.
 
 >[!TIP]
 > You can build your own charts on the metrics page and pin them to your dashboard. Start by naming your chart. Next, select **Pin to dashboard** in the upper-right corner. You can now check your application on your dashboard.
