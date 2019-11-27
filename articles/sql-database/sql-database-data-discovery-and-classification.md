@@ -122,8 +122,9 @@ An important aspect of the information protection paradigm is the ability to mon
 
 ![Audit log](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
 
-## <a id="subheading-4"></a>Manage data classification using T-SQL
+### Manage classifications
 
+# [T-SQL](#tab/azure-t-sql)
 You can use T-SQL to add/remove column classifications, as well as retrieve all classifications for the entire database.
 
 > [!NOTE]
@@ -133,8 +134,7 @@ You can use T-SQL to add/remove column classifications, as well as retrieve all 
 - Remove the classification from one or more columns: [DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
 - View all classifications on the database: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
-### Manage classifications using Rest APIs
-
+# [Rest APIs](#tab/azure-rest-api)
 You can also use REST APIs to programmatically manage classifications. The published REST APIs support the following operations:
 
 - [Create Or Update](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) - Creates or updates the sensitivity label of a given column
@@ -146,12 +146,8 @@ You can also use REST APIs to programmatically manage classifications. The publi
 
 - [List Recommended By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) - Gets the recommended sensitivity labels of a given database
 
-## Manage data discovery and classification using Azure PowerShell
-
-You can use PowerShell to get all the recommended columns in an Azure SQL database and a managed instance.
-
-### PowerShell Cmdlets for Azure SQL database
-
+# [PowerShell Cmdlet for Azure SQL](#tab/azure-portal-sqldb)
+You can use PowerShell to get all the recommended columns in an Azure SQL database.
 - [Get-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasesensitivityclassification)
 - [Set-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasesensitivityclassification)
 - [Remove-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasesensitivityclassification)
@@ -159,8 +155,8 @@ You can use PowerShell to get all the recommended columns in an Azure SQL databa
 - [Enable-AzSqlDatabaSesensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/enable-azsqldatabasesensitivityrecommendation)
 - [Disable-AzSqlDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/disable-azsqldatabasesensitivityrecommendation)
 
-### PowerShell Cmdlets for managed instance
-
+# [PowerShell Cmdlets for Managed Instance](#tab/azure-powershell-mi)
+You can use PowerShell to get all the recommended columns in a managed instance.
 - [Get-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityclassification)
 - [Set-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasesensitivityclassification)
 - [Remove-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabasesensitivityclassification)
