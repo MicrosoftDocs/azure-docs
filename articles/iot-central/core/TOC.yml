@@ -41,10 +41,14 @@
         href: howto-version-device-template.md
   - name: Monitoring and analytics
     items:
+      - name: Monitor devices
+        href: howto-monitor-devices-azure-cli.md
       - name: Analyze your device data
         href: howto-create-analytics.md 
   - name: Actions and extensibility
     items:
+      - name: Export data
+        href: howto-export-data.md
       - name: Group multiple actions on rules
         href: howto-use-action-groups.md
       - name: Create webhook actions on rules

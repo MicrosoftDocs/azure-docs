@@ -77,14 +77,14 @@ Now that you have a destination to export data to, follow these steps to set up 
 
 3. Select the **+ New** button in the top right. Choose one of **Azure Event Hubs**, **Azure Service Bus**, or **Azure Blob storage** as the destination of your export. The maximum number of exports per application is five.
 
-    ![Create new continuous data export](media/howto-export-data/export-new2.png)
+    ![Create new continuous data export](media/howto-export-data/new-export-definition.png)
 
 4. In the drop-down list box, select your **Event Hubs namespace**, **Service Bus namespace**, **Storage Account namespace**, or **Enter a connection string**.
 
     - You only see Storage Accounts, Event Hubs namespaces, and Service Bus namespaces in the same subscription as your IoT Central application. If you want to export to a destination outside of this subscription, choose **Enter a connection string** and see step 5.
     - For seven-day trial apps, the only way to configure continuous data export is through a connection string. Seven-day trial apps don't have an associated Azure subscription.
 
-    ![Create new Event Hub](media/howto-export-data/export-eh.png)
+    ![Create new Event Hub](media/howto-export-data/export-event-hub.png)
 
 5. (Optional) If you chose **Enter a connection string**, a new box appears for you to paste your connection string. To get the connection string for your:
     - Event Hubs or Service Bus, go to the namespace in the Azure portal.
