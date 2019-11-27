@@ -1,5 +1,5 @@
 ---
-title: High availability - Azure SQL Database service | Microsoft Docs
+title: High availability
 description: Learn about the Azure SQL Database service high availability capabilities and features
 services: sql-database
 ms.service: sql-database

@@ -2,8 +2,6 @@
 title: Azure Functions Premium plan 
 description: Details and configuration options (VNet, no cold start, unlimited execution duration) for the Azure Functions Premium plan.
 author: jeffhollan
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
@@ -27,7 +25,7 @@ az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> 
 
 In this example, replace `<RESOURCE_GROUP>` with your resource group and `<PLAN_NAME>` with a name for your plan that is unique in the resource group. Specify a [supported `<REGION>`](#regions). To create a Premium plan that supports Linux, include the `--is-linux` option.
 
-With the plan created, you can use [az functionapp create](/cli/azure/functionapp#az-functionapp-create) to create your function app. In the portal, both the plan and the app are created at the same time. 
+With the plan created, you can use [az functionapp create](/cli/azure/functionapp#az-functionapp-create) to create your function app. In the portal, both the plan and the app are created at the same time. For an example of a complete Azure CLI script, see [Create a function app in a Premium plan](scripts/functions-cli-create-premium-plan.md).
 
 ## Features
 
@@ -61,9 +59,9 @@ Fore more information, see [integrate your function app with a VNet](functions-c
 
 Additional compute instances are automatically added for your app using the same rapid scaling logic as the Consumption plan.  To learn more about how scaling works, see [Function scale and hosting](./functions-scale.md#how-the-consumption-and-premium-plans-work).
 
-### Unbounded run duration
+### Longer run duration
 
-Azure Functions in a Consumption plan are limited to 10 minutes for a single execution.  In the Premium plan, the run duration defaults to 30 minutes to prevent runaway executions. However, you can [modify the host.json configuration](./functions-host-json.md#functiontimeout) to make this unbounded for Premium plan apps.
+Azure Functions in a Consumption plan are limited to 10 minutes for a single execution.  In the Premium plan, the run duration defaults to 30 minutes to prevent runaway executions. However, you can [modify the host.json configuration](./functions-host-json.md#functiontimeout) to make this 60 minutes for Premium plan apps.
 
 ## Plan and SKU settings
 
@@ -122,6 +120,7 @@ Below are the currently supported regions for each OS.
 |West Europe| ✔ | ✔ |
 |West India| ✔ |  |
 |West US| ✔ | ✔ |
+|West US 2| ✔ |  |
 
 <sup>1</sup>Maximum scale out limited to 20 instances.  
 <sup>2</sup>Maximum scale out limited to 60 instances.

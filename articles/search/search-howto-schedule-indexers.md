@@ -1,5 +1,5 @@
 ---
-title: How to schedule indexers
+title: Schedule indexer execution
 titleSuffix: Azure Cognitive Search
 description: Schedule Azure Cognitive Search indexers to index content periodically or at specific times.
 

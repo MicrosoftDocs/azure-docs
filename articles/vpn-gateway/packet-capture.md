@@ -1,5 +1,5 @@
 ﻿---
-title: Azure VPN Gateway packet captures| Microsoft Docs
+title: 'Azure VPN Gateway: Configure packet captures'
 description: Learn about packet capture functionalities that you can use on VPN gateways.
 services: vpn-gateway
 author: radwiv

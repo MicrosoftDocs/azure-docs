@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 08/26/2019
+ms.date: 11/07/2019
 ms.author: aahi
 ---
 
@@ -21,7 +21,7 @@ The API is a part of [Azure Cognitive Services](https://docs.microsoft.com/azure
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Understanding-Text-using-Cognitive-Services/player]
 
-Text analysis can mean different things, but in Cognitive Services, the Text Analytics API provides four types of analysis as described below. You can use these features with the [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/), or a client library for [.NET](quickstarts/csharp.md), [Python](quickstarts/python-sdk.md), [Node.js](quickstarts/nodejs-sdk.md), [Go](quickstarts/go-sdk.md), or [Ruby](quickstarts/ruby-sdk.md).
+Text analysis can mean different things, but in Cognitive Services, the Text Analytics API provides four types of analysis as described below. You can use these features with the [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/), or the [client library](quickstarts/text-analytics-sdk.md).
 
 ## Sentiment Analysis
 Use [sentiment analysis](how-tos/text-analytics-how-to-sentiment-analysis.md) to find out what customers think of your brand or topic by analyzing raw text for clues about positive or negative sentiment. This API returns a sentiment score between 0 and 1 for each document, where 1 is the most positive.<br /> The analysis models are pretrained using an extensive body of text and natural language technologies from Microsoft. For [selected languages](text-analytics-supported-languages.md), the API can analyze and score any raw text that you provide, directly returning results to the calling application.
@@ -106,7 +106,7 @@ The Text Analytics API uses Unicode encoding for text representation and charact
 
 + [Create an Azure resource](../cognitive-services-apis-create-account.md) for Text Analytics to get a key and endpoint for your applications.
 
-+ [Quickstart](quickstarts/csharp.md) is a walkthrough of the REST API calls written in C#. Learn how to submit text, choose an analysis, and view results with minimal code. If you prefer, you can start with the [Python quickstart](quickstarts/python.md) instead.
++ Use the [quickstart](quickstarts/text-analytics-sdk.md) to start sending API calls. Learn how to submit text, choose an analysis, and view results with minimal code.
 
 + See [what's new in the Text Analytics API](whats-new.md) for information on new releases and features.
 

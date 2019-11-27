@@ -1,5 +1,5 @@
 ---
-title: Enable automatic user provisioning for Azure Active Directory multi-tenant applications
+title: Enable automatic user provisioning for multi-tenant applications - Azure AD
 description: A guide for independent software vendors for enabling automated provisioning
 services: active-directory
 documentationcenter: 'azure'

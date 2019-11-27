@@ -193,6 +193,29 @@ To disconnect a machine from Azure Arc for servers, you need to perform two step
 1. Select the machine in [Portal](https://aka.ms/hybridmachineportal), click the ellipsis (`...`) and select **Delete**.
 1. Uninstall the agent from the machine.
 
+   On Windows, you can use the "Apps & Features" control panel to uninstall the agent.
+  
+  ![Apps & Features](./media/quickstart-onboard/apps-and-features.png)
+
+   If you would like to script the uninstall, you can use the following example which retrieves the **PackageId** and uninstall the agent using `msiexec /X`.
+
+   look under the registry key `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall` and find the **PackageId**. You can then uninstall the agent using `msiexec`.
+
+   The example below demonstrates uninstalling the agent.
+
+   ```powershell
+   Get-ChildItem -Path HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall | `
+   Get-ItemProperty | `
+   Where-Object {$_.DisplayName -eq "Azure Connected Machine Agent"} | `
+   ForEach-Object {MsiExec.exe /Quiet /X "$($_.PsChildName)"}
+   ```
+
+   On Linux, execute the following command to uninstall the agent.
+
+   ```bash
+   sudo apt purge hybridagent
+   ```
+
 ## Next steps
 
 > [!div class="nextstepaction"]

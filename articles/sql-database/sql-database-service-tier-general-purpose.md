@@ -1,5 +1,5 @@
 ---
-title: General-purpose service tier - Azure SQL Database | Microsoft Docs
+title: General-purpose service tier
 description: Learn about the Azure SQL Database general-purpose tier
 services: sql-database
 ms.service: sql-database

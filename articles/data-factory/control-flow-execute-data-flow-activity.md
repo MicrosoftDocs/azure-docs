@@ -1,5 +1,5 @@
 ---
-title: Data Flow activity in Azure Data Factory | Microsoft Docs
+title: Data Flow activity in Azure Data Factory 
 description: How to execute data flows from inside a data factory pipeline. 
 services: data-factory
 documentationcenter: ''

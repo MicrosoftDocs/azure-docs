@@ -1,11 +1,7 @@
 ---
-title: Tutorial - Export Azure Resource Manager template from the Azure portal
+title: Tutorial - Export template from the Azure portal
 description: Learn how to use an exported template to complete your template development.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
@@ -21,7 +17,7 @@ We recommend that you complete the [tutorial about outputs](template-tutorial-ad
 
 You must have Visual Studio Code with the Resource Manager Tools extension, and either Azure PowerShell or Azure CLI. For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
 
-## Review your template
+## Review template
 
 At the end of the previous tutorial, your template had the following JSON:
 
@@ -48,7 +44,7 @@ This template works well for deploying storage accounts, but you might want to a
 1. Select **Review and create**.
 1. Select **Create**. It takes a few moments to create the resource.
 
-## Export the template
+## Export template
 
 1. Select **Go to resource**.
 
@@ -67,7 +63,7 @@ This template works well for deploying storage accounts, but you might want to a
 > [!IMPORTANT]
 > Typically, the exported template is more verbose than you might want when creating a template. For example, the SKU object in the exported template has five properties. This template works, but you could just use the **name** property. You can start with the exported template, and then modify it as you like to fit your requirements.
 
-## Revise the existing template
+## Revise existing template
 
 The exported template gives you most of the JSON you need, but you need to customize it for your template. Pay particular attention to differences in parameters and variables between your template and the exported template. Obviously, the export process doesn't know the parameters and variables that you've already defined in your template.
 
@@ -77,7 +73,7 @@ Copy the whole file and replace your template with its contents.
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/export-template/azuredeploy.json?range=1-77&highlight=28-31,50-69)]
 
-## Deploy the template
+## Deploy template
 
 Use either Azure CLI or Azure PowerShell to deploy a template.
 

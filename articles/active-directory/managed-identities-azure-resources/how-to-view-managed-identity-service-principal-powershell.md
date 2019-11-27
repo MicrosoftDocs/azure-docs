@@ -1,5 +1,5 @@
 ---
-title: How to view the service principal of a managed identity using PowerShell
+title: View the service principal of a managed identity using PowerShell - Azure AD
 description: Step-by-step instructions for viewing the service principal of a managed identity using PowerShell.
 services: active-directory
 documentationcenter: ''

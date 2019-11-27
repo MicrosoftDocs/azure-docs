@@ -1,17 +1,9 @@
 ---
-title: Tutorial for creating a Web App with Azure Cache for Redis that uses the Cache-Aside pattern | Microsoft Docs
+title: Tutorial for creating a Web App with Azure Cache for Redis that uses the Cache-Aside pattern
 description: Learn how to create a Web App with Azure Cache for Redis that uses the Cache-Aside pattern
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
 
-ms.assetid: 
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
@@ -669,7 +661,7 @@ In this section, you will provision a new SQL Azure database for the app to use 
 
    | Setting       | Suggested value | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+   | **Server name** | Any globally unique name | For valid server names, see [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming). |
    | **Server admin login** | Any valid name | For valid login names, see [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
    | **Password** | Any valid password | Your password must have at least 8 characters and must contain characters from three of the following categories: upper case characters, lower case characters, numbers, and non-alphanumeric characters. |
    | **Location** | *East US* | Select the same region where you created the cache and App Service. |

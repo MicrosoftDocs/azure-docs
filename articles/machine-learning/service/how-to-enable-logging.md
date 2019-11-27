@@ -1,6 +1,5 @@
 ---
 title: Enable logging in Azure Machine Learning
-titleSuffix: Azure Machine Learning
 description: Learn how to enable logging in Azure Machine Learning using both the default Python logging package, as well as using SDK-specific functionality.
 ms.author: trbye
 author: trevorbye
