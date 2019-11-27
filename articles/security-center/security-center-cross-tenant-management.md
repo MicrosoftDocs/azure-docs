@@ -1,6 +1,6 @@
 ---
 title: Cross-tenant management in Azure Security Center | Microsoft Docs
-description: " Learn how to enable data collection in Azure Security Center. "
+description: Learn how to set up cross-tenant management to manage the security posture of multiple tenants in Security Center using Azure delegated resource management.
 services: security-center
 documentationcenter: na
 author: memildin
