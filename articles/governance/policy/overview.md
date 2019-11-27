@@ -1,10 +1,10 @@
 ---
 title: Overview of Azure Policy
 description: Azure Policy is a service in Azure, that you use to create, assign and, manage policy definitions in your Azure environment.
-ms.date: 11/21/2019
+ms.date: 11/25/2019
 ms.topic: overview
 ---
-# Overview of the Azure Policy service
+# What is Azure Policy?
 
 Governance validates that your organization can achieve its goals through effective and efficient
 use of IT. It meets this need by creating clarity between business goals and IT projects.
@@ -232,5 +232,3 @@ next steps:
 - [Assign a policy definition using the portal](./assign-policy-portal.md).
 - [Assign a policy definition using the Azure CLI](./assign-policy-azurecli.md).
 - [Assign a policy definition using PowerShell](./assign-policy-powershell.md).
-- Review what a management group is with [Organize your resources with Azure management groups](../management-groups/overview.md).
-- View [Govern your Azure environment through Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) on Channel 9.

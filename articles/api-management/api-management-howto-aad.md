@@ -107,6 +107,9 @@ In the developer portal, sign-in with AAD is possible with the **OAuth buttons**
 
 Although a new account will be automatically created whenever a new user signs in with AAD, you may consider adding the same widget to the sign-up page.
 
+> [!IMPORTANT]
+> You need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the AAD changes to take effect.
+
 ## Legacy developer portal - how to sign in with Azure AD
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]

@@ -1,6 +1,6 @@
 ---
 title: How to render custom data on a raster map in Azure Maps | Microsoft Docs
-description: Render custom data on a raster map in Azure Maps.
+description: In this article, you'll learn how to render custom data on a raster map by using Azure Maps static image service.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 07/29/2019
@@ -43,7 +43,7 @@ To render pushpins with labels and a custom image, complete these steps:
 3. Select the GET HTTP method on the builder tab and enter the following URL to create a GET request.
 
     ```HTTP
-    https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.98,%2040.77&pins=custom%7Cla15+50%7Cls12%7Clc003b61%7C%7C%27CentralPark%27-73.9657974+40.781971%7C%7Chttp%3A%2F%2Fazuremapscodesamples.azurewebsites.net%2FCommon%2Fimages%2Fpushpins%2Fylw-pushpin.png
+    https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.98,%2040.77&pins=custom%7Cla15+50%7Cls12%7Clc003b61%7C%7C%27CentralPark%27-73.9657974+40.781971%7C%7Chttps%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FAzureMapsCodeSamples%2Fmaster%2FAzureMapsCodeSamples%2FCommon%2Fimages%2Ficons%2Fylw-pushpin.png
     ```
     Here's the resulting image:
 
