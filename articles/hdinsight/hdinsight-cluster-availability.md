@@ -102,7 +102,7 @@ Once Azure Monitor log integration is enabled (this may take a few minutes), nav
 
 ![Log Analytics workspace logs](media/hdinsight-cluster-availability/hdinsight-portal-logs.png)
 
-**Logs list a number of sample queries, such as:
+Logs list a number of sample queries, such as:
 
 | Query Name                      | Description                                                               |
 |---------------------------------|---------------------------------------------------------------------------|
