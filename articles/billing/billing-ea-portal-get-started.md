@@ -1,6 +1,6 @@
 ---
-title: Get started with the Azure EA portal
-description: This article explains how Azure EA customers use the Azure EA portal.
+title: Get started with the Azure Enterprise portal
+description: This article explains how Azure Enterprise Agreement (Azure EA) customers use the Azure Enterprise portal.
 keywords:
 author: bandersmsft
 ms.author: banders
@@ -10,32 +10,30 @@ ms.service: cost-management-billing
 manager: boalcsva
 ---
 
-# Get started with the Azure EA portal
+# Get started with the Azure Enterprise portal
 
-This article helps direct and indirect Azure EA customers to start using the [Azure EA portal](https://ea.azure.com) with basic information about:
+This article helps direct and indirect Azure Enterprise Agreement (Azure EA) customers to start using the [Azure Enterprise portal](https://ea.azure.com) with basic information about:
 
-- How the Azure EA portal is structured.
-- Roles used in the Azure EA portal.
-- How to start creating subscriptions.
-- Analyze costs in the Azure EA portal and the Azure portal.
+- Structure of the Azure Enterprise portal
+- Roles used in the Azure Enterprise portal
+- Subscription creation
+- Cost analysis in the Azure Enterprise portal and the Azure portal
 
-Here's a video that shows a full Azure EA portal onboarding session:
+View this video to watch a full Azure Enterprise portal onboarding session:
 
-[Azure EA portal onboarding video ](https://www.youtube.com/watch?v=OiZ1GdBpo-I)
+> [!VIDEO https://www.youtube.com/embed/OiZ1GdBpo-I]
 
->[!VIDEO https://www.youtube.com/embed/OiZ1GdBpo-I]
+## Azure Enterprise portal hierarchy
 
-## Azure EA portal hierarchy
+The Azure Enterprise portal hierarchy consists of:
 
-The Azure EA portal hierarchy consists of:
-
-**Microsoft Azure EA portal** - The Azure EA portal is an online management portal that helps you manage costs for your Azure EA services. You use it to create an Azure EA hierarchy including departments, accounts, and subscriptions. You also use it to reconcile the costs of your consumed services, download usage reports, and view price lists. And, you create API keys for your enrollment.
+**Microsoft Azure Enterprise portal** - The Azure Enterprise portal is an online management portal that helps you manage costs for your Azure EA services. You use it to create an Azure EA hierarchy including departments, accounts, and subscriptions. You also use it to reconcile the costs of your consumed services, download usage reports, and view price lists. And, you create API keys for your enrollment.
 
 **Departments** - You create departments to help segment costs into logical groupings and then set a budget or quota at the department level.
 
-**Accounts** – Accounts are organizational units in the Azure EA portal and they're used to manage subscriptions. Accounts also used for reporting.
+**Accounts** – Accounts are organizational units in the Azure Enterprise portal and they're used to manage subscriptions. Accounts also used for reporting.
 
-**Subscriptions** – Subscriptions are the smallest unit in the Azure EA portal. They're containers for Azure services managed by the service administrator.
+**Subscriptions** – Subscriptions are the smallest unit in the Azure Enterprise portal. They're containers for Azure services managed by the service administrator.
 
 The following diagram illustrates simple Azure EA hierarchies.
 
@@ -50,7 +48,7 @@ To administer the Azure services in your enrollment, there are four distinct ent
 - Account owner
 - Service administrator
 
-Roles are used to complete tasks in two different Microsoft Azure portals. The Azure EA portal (https://ea.azure.com) is used to help you to manage billing and costs. The Azure portal (https://portal.azure.com) is used to manage Azure services.
+Roles are used to complete tasks in two different Microsoft Azure portals. The Azure Enterprise portal (https://ea.azure.com) is used to help you to manage billing and costs. The Azure portal (https://portal.azure.com) is used to manage Azure services.
 
 User roles are associated with a user account. To validate user authenticity, each user must have a valid Work, School, or Microsoft Account. Ensure that each account is associated with an email address that's actively monitored. Account notifications are sent to the email address.
 
@@ -98,9 +96,9 @@ The service administrator has permissions to manage services in the Azure portal
 
 ## Activate your enrollment
 
-To activate your service, the initial enterprise administrator opens the Azure EA portal at [https://ea.azure.com](https://ea.azure.com) and signs in using the email address from the invitation email.
+To activate your service, the initial enterprise administrator opens the Azure Enterprise portal at [https://ea.azure.com](https://ea.azure.com) and signs in using the email address from the invitation email.
 
-If you have more than one enrollment, choose one to activate. By default, only active enrollments are shown. To view enrollment history, clear the **Active** option in the top right of the Azure EA portal.
+If you have more than one enrollment, choose one to activate. By default, only active enrollments are shown. To view enrollment history, clear the **Active** option in the top right of the Azure Enterprise portal.
 
 Under Enrollment, the status shows **Active**.
 
@@ -110,13 +108,13 @@ Only existing Azure enterprise administrators can create other enterprise admins
 
 ### Create another enterprise admin
 
-- Sign in to [Azure EA portal](https://ea.azure.com)  and navigate to **Manage** > **Enrollment Detail** and click **+ Add Administrator** in the top-right corner of the page.
+- Sign in to [Azure Enterprise portal](https://ea.azure.com)  and navigate to **Manage** > **Enrollment Detail** and click **+ Add Administrator** in the top-right corner of the page.
 
 Make sure that you have the user's email addresses and preferred authentication method, such as Work or School authentication or Microsoft account. You need the information to add a user.
 
 If you're not the EA administrator, contact an EA administrator to request that they add you to an enrollment. After you're added to an enrollment, you receive an activation email.
 
-If your EA administrator can't assist you, create an [Azure EA portal support request](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c). Provide the following information:
+If your EA administrator can't assist you, create an [Azure Enterprise portal support request](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c). Provide the following information:
 
 - Enrollment number
 - Email address to add and authentication type (Work, School, or Microsoft account)
@@ -186,7 +184,7 @@ Account and subscription structure impact how they're administered and how they 
 
 To add an account:
 
-1. In the Azure EA portal, click **Manage** in the left navigation area.
+1. In the Azure Enterprise portal, click **Manage** in the left navigation area.
 2. Click the **Account** tab and then on the **Account** page, click **+Add Account**.
 3. Select a department, or leave it as unassigned, and then select desired authentication type.
 4. Type a friendly name to use to identify the account in reporting.
@@ -199,21 +197,21 @@ You can add another account by clicking **Add Another Account**, or you can clic
 
 To confirm account ownership:
 
-1. Sign in to the Azure EA portal.
+1. Sign in to the Azure Enterprise portal.
 1. Confirm account ownership by viewing the status. The status should change from **Pending** to **Start/End date**. The Start/End date is the date the user first signed in and the agreement end date.
-1. When the 'Warning' message pops up, an account owner needs to click **Continue** to activate the account the first time they sign in to the Azure EA portal.
+1. When the 'Warning' message pops up, an account owner needs to click **Continue** to activate the account the first time they sign in to the Azure Enterprise portal.
 
 
 ## Change account owner
 
-Enterprise administrators can use the Azure EA portal to transfer subscription account ownership in an enrollment. The action moves all subscriptions from a source user account a destination user account.
+Enterprise administrators can use the Azure Enterprise portal to transfer subscription account ownership in an enrollment. The action moves all subscriptions from a source user account a destination user account.
 
 Important points about transferring user account information:
 
 - Transfers from a Work or School account to another Work or School account are supported.
 - Transfers from a Microsoft account to a Work or School account are supported.
 - Transfers from a Work or School account to a Microsoft account are not supported.
-- Transfers from a Microsoft account to another Microsoft account are supported. The target account must be a valid Azure Commerce account to be a valid target for transfers. For new accounts, you are asked to create an Azure Commerce account when signing in to the Azure EA portal. For existing accounts, you must first create a new Azure subscription before the account is eligible.
+- Transfers from a Microsoft account to another Microsoft account are supported. The target account must be a valid Azure Commerce account to be a valid target for transfers. For new accounts, you are asked to create an Azure Commerce account when signing in to the Azure Enterprise portal. For existing accounts, you must first create a new Azure subscription before the account is eligible.
 - When you complete a subscription transfer, Microsoft updates the account owner.
 
 Role-based access control policies:
@@ -246,9 +244,9 @@ To transfer account ownership for a single subscription:
 
 ![Image showing the Transfer Subscriptions symbol](./media/billing-ea-portal-get-started/ea-transfer-subscriptions.png)
 
-Here's a video that shows Azure EA portal user management:
+Here's a video that shows Azure Enterprise portal user management:
 
-[Azure EA portal user management video](https://www.youtube.com/watch?v=621jVkvmwm8)
+[Azure Enterprise portal user management video](https://www.youtube.com/watch?v=621jVkvmwm8)
 
 >[!VIDEO https://www.youtube.com/embed/621jVkvmwm8]
 
@@ -266,7 +264,7 @@ All new subscriptions are created with the default subscription name of _Microso
 
 To add a subscription:
 
-1. In the Azure EA portal, sign in to the account.
+1. In the Azure Enterprise portal, sign in to the account.
 2. Click the **Admin** tab and then click **Subscription** at the top of the page.
 2. Verify that you're signed in as the account owner of the account.
 3. Click **+Add Subscription** and then click **Purchase**.
@@ -282,7 +280,7 @@ New subscriptions can take up to 24 hours to appear in the subscriptions list. A
 
 ## Transfer EA subscription to pay as you go subscription
 
-To transfer an EA subscription to an individual subscription with pay-as-you-go rates, you must create a new support request in the Azure EA portal. To create a support request, click **+ New support request** in the Help and Support area.
+To transfer an EA subscription to an individual subscription with pay-as-you-go rates, you must create a new support request in the Azure Enterprise portal. To create a support request, click **+ New support request** in the Help and Support area.
 
 ## Associate an existing account with your pay as you go subscription
 
@@ -335,7 +333,7 @@ When adding existing accounts to the Enterprise Portal that have a support subsc
 
 ## View usage summary and download reports
 
-Enterprise administrators can view a summary of their usage data, monetary commitment consumed, and charges associated with additional usage in the Azure EA portal. Charges are presented at the summary level across all accounts and subscriptions.
+Enterprise administrators can view a summary of their usage data, monetary commitment consumed, and charges associated with additional usage in the Azure Enterprise portal. Charges are presented at the summary level across all accounts and subscriptions.
 
 To view detailed usage for specific accounts:
 
@@ -345,7 +343,7 @@ The report doesn't include any applicable taxes. There may be a latency of up to
 
 To view the usage summary reports and graphs:
 
-1. In the Azure EA portal, in the left navigation area, click **Reports** and view the **Usage Summary** tab.  
+1. In the Azure Enterprise portal, in the left navigation area, click **Reports** and view the **Usage Summary** tab.  
   ![Create and view usage summary and download reports](./media/billing-ea-portal-get-started/create-ea-view-usage-summary-and-download-reports.png)
 2. Select a commitment term.
 3. Toggle between **M** (Monthly) and **C** (Custom) on the top right of the page to view the **Usage Summary** with custom start and end dates.  
@@ -358,7 +356,7 @@ To view the usage summary reports and graphs:
 
 Here's a video that shows how to view usage:
 
-[Azure EA portal usage video](https://www.youtube.com/watch?v=Cv2IZ9QCn9E)
+[Azure Enterprise portal usage video](https://www.youtube.com/watch?v=Cv2IZ9QCn9E)
 
 >[!VIDEO https://www.youtube.com/embed/Cv2IZ9QCn9E]
 
@@ -374,7 +372,7 @@ Enterprise Administrators use the Monthly Report Download page to download sever
 To download reports:
 
 
-1. In the Azure EA portal, click **Reports**.
+1. In the Azure Enterprise portal, click **Reports**.
 2. Click **Download Usage** at the top of the page.
 3. Select **Download** next to the month's report.
 
@@ -386,7 +384,7 @@ Users downloading CSV files with Safari to Excel may experience formatting error
 
 Here's a video that shows how to download usage information:
 
-[Azure EA portal usage video](https://www.youtube.com/watch?v=eY797htT1qg)
+[Azure Enterprise portal usage video](https://www.youtube.com/watch?v=eY797htT1qg)
 
 >[!VIDEO https://www.youtube.com/embed/eY797htT1qg]
 
@@ -527,7 +525,7 @@ Yes. With the Microsoft Azure Enterprise content pack for Power BI, you can quic
     - Number of Months: choose between 1 and 36.
     - Enrollment Number: enter the enrollment number.
     - Click **Next**.
- 1. Enter the API Key in the Authentication Key Box. You can get the API key in the Azure EA portal under “Download Usage” tab, click **API Access Key**.
+ 1. Enter the API Key in the Authentication Key Box. You can get the API key in the Azure Enterprise portal under “Download Usage” tab, click **API Access Key**.
     - Copy and paste the key into "Account Key" box.
     - The data will take approximately 5-30 minutes to load in Power BI, depending on the dataset size.
 
@@ -535,6 +533,6 @@ Power BI Reporting is available for EA direct, partner, and indirect customers w
 
 ## Next steps
 
-- Azure EA portal administrators should read [Azure EA portal administration](billing-ea-portal-administration.md) to learn about common administrative tasks.
-- If you need help with troubleshooting Azure EA portal issues, see [Troubleshoot Azure EA portal access](billing-ea-portal-troubleshoot.md).
+- Azure Enterprise portal administrators should read [Azure Enterprise portal administration](billing-ea-portal-administration.md) to learn about common administrative tasks.
+- If you need help with troubleshooting Azure Enterprise portal issues, see [Troubleshoot Azure Enterprise portal access](billing-ea-portal-troubleshoot.md).
 - For an Azure EA onboarding guide, see [Azure EA Onboarding Guide](https://ea.azure.com/api/v3Help/v2AzureEAOnboardingGuide).
