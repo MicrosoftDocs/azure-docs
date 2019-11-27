@@ -28,7 +28,7 @@ Here are related topics:
 ## 1.5.1007.0 
 ### Release status 
 1/22/2019: Released for download  
-###New features and improvements 
+### New features and improvements 
 - Added support for Service Bus reliable channels to add another layer of connection resiliency for outbound connections 
 - Enforce TLS 1.2 during agent registration 
 
@@ -48,19 +48,19 @@ Here are related topics:
 - Updated the Azure Service Bus version, which includes a bug fix for connector timeout issues. 
  
 ## 1.5.405.0 
-###Release status 
+### Release status 
 11/26/2017: Released for download  
-###New features and improvements 
+### New features and improvements 
 - Added support for websocket based connections between the agent and Azure AD services to improve connection resiliency 
 
 ## 1.5.402.0 
-###Release status 
+### Release status 
 11/25/2017: Released for download  
-###Fixed issues 
+### Fixed issues 
 - Fixed bugs related to the DNS cache for default proxy scenarios 
  
 ## 1.5.389.0 
-###Release status 
+### Release status 
 10/17/2017: Released for download  
 ### New features and improvements 
 - Added DNS cache functionality for outbound connections to add resiliency from DNS failures 
