@@ -174,7 +174,7 @@ Select **Create** to deploy.
 
 If the deployment includes VNet Gateways, the deployment can take up 45 to 50 minutes.
 
-## Post deployment
+## Deployment output
 
 Once the deployment has completed, you can access the necessary parameters via the confirmation email or through the Azure portal.
 
@@ -543,9 +543,133 @@ On the top-right, is your Ethereum account alias and identicon.  If you're an ad
 
 ![Account](./media/ethereum-poa-deployment/governance-dapp-account.png)
 
-## Using smart contracts
+## Tutorials
 
-To compile, deploy, and test smart contracts, the Truffle Suite is a good option for Ethereum development. For more information, see [Truffle overview](https://www.trufflesuite.com/docs/truffle/overview).
+To compile, deploy, and test smart contracts, the Truffle Suite is a good option for Ethereum development. For more information, see [Truffle Suite](https://www.trufflesuite.com/docs/truffle/overview) documentation.
+
+### Programmatically interacting with a smart contract
+
+> [!WARNING]
+> Never send your Ethereum private key over the network! Ensure that each transaction is signed locally first and the signed transaction is sent over the network.
+
+In the following example, you use *ethereumjs-wallet* to generate an Ethereum address, *ethereumjs-tx* to sign locally, and *web3* to send the raw transaction to the Ethereum RPC endpoint.
+
+You use this simple Hello-World smart contract for the example:
+
+```javascript
+pragma solidity ^0.4.11;
+contract postBox {
+    string message;
+    function postMsg(string text) public {
+        message = text;
+    }
+    function getMsg() public view returns (string) {
+        return message;
+    }
+}
+```
+
+This example assumes the contract is already deployed. You can use *solc* and *web3* for deploying a contract programmatically. First, install the following node modules:
+
+``` bash
+sudo npm install web3@0.20.2
+sudo npm install ethereumjs-tx@1.3.6
+sudo npm install ethereumjs-wallet@0.6.1
+```
+
+Run the nodeJS script to perform the following:
+
+* Construct a raw transaction: postMsg
+* Sign the transaction using the generated private key
+* Submit the signed transaction to the Ethereum network
+
+``` javascript
+var ethereumjs = require('ethereumjs-tx')
+var wallet = require('ethereumjs-wallet')
+var Web3 = require('web3')
+
+// TODO Replace with your contract address
+var address = "0xfe53559f5f7a77125039a993e8d5d9c2901edc58";
+var abi = [{"constant": false,"inputs": [{"name": "text","type": "string"}],"name": "postMsg","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": true,"inputs": [],"name": "getMsg","outputs": [{"name": "","type": "string"}],"payable": false,"stateMutability": "view","type": "function"}];
+
+// Generate a new Ethereum account
+var account = wallet.generate();
+var accountAddress = account.getAddressString()
+var privateKey = account.getPrivateKey();
+
+// TODO Replace with your RPC endpoint
+var web3 = new Web3(new Web3.providers.HttpProvider(
+    "http://testzvdky-dns-reg1.eastus.cloudapp.azure.com:8545"));
+
+// Get the current nonce of the account
+web3.eth.getTransactionCount(accountAddress, function (err, nonce) {
+   var data = web3.eth.contract(abi).at(address).postMsg.getData("Hello World");
+   var rawTx = {
+     nonce: nonce,
+     gasPrice: '0x00',
+     gasLimit: '0x2FAF080',
+     to: address,
+     value: '0x00',
+     data: data
+   }
+   var tx = new ethereumjs(rawTx);
+
+   tx.sign(privateKey);
+
+   var raw = '0x' + tx.serialize().toString('hex');
+   web3.eth.sendRawTransaction(raw, function (txErr, transactionHash) {
+     console.log("TX Hash: " + transactionHash);
+     console.log("Error: " + txErr);
+   });
+ });
+```
+
+### Deploy smart contract with Truffle
+
+First, install the necessary libraries.
+
+```javascript
+npm init
+
+npm install truffle-hdwallet-provider --save
+```
+
+In `truffle.js`, add following code to unlock your MetaMask account and configure the PoA node as entry point by providing the mnemonic phrase (MetaMask / Settings / Reveal Seed Words)
+
+```javascript
+var HDWalletProvider = require("truffle-hdwallet-provider");
+
+var rpc_endpoint = "XXXXXX";
+var mnemonic = "twelve words you can find in metamask/settings/reveal seed words";
+
+module.exports = {
+  networks: {
+    development: {
+      host: "localhost",
+      port: 8545,
+      network_id: "*" // Match any network id
+    },
+    poa: {
+      provider: new HDWalletProvider(mnemonic, rpc_endpoint),
+      network_id: 3,
+      gasPrice : 0
+    }
+  }
+};
+
+```
+
+Next, deploy to PoA network.
+
+```javascript
+$ truffle migrate --network poa
+```
+
+### Debug smart contract with Truffle
+
+Truffle has a local develop network that is available for debugging
+smart contract. You can find the full tutorial
+[here](https://truffleframework.com/tutorials/debugging-a-smart-contract).
 
 ## WebAssembly (WASM) support
 
