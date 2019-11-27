@@ -66,7 +66,7 @@ In each iteration, the query resumes at the last point changes were read, using 
 
 ```
 
-In order to get the changes to single row (by primary key), you can add the primary key in the query. Here, we are tracking the row where user_id = 1
+In order to get the changes to a single row by primary key, you can add the primary key in the query. The following example shows how to track changes for the row where "user_id = 1"
 
 ```C#
     //Return the latest change for all row in 'user' table where user_id = 1
