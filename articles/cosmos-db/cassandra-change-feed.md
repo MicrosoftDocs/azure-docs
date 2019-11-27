@@ -85,7 +85,7 @@ The following limitations are applicable when using change feed with Cassandra A
 
 ## Error handling
 
-The following error codes and messages are supported when using change change feed in Cassandra API:
+The following error codes and messages are supported when using change feed in Cassandra API:
 
 * **HTTP error code 429** - When the change feed is throttled, it returns an empty page.
 
