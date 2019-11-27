@@ -59,7 +59,7 @@
   items:
   - name: 1 - Set up cloud resources
     href: tutorial-set-up-cloud.md
-  - name: 2 - Set up device
+  - name: 2 - Set up a device
     href: tutorial-set-up-device.md
   - name: 3 - Provision a device to an IoT hub
     items:
@@ -69,7 +69,7 @@
         href: tutorial-net-provision-device-to-hub.md
   - name: 4 - Provision devices to multiple hubs
     href: tutorial-provision-multiple-hubs.md
-  - name: 5 - Provision group enrollments
+  - name: 5 - Set up group enrollments
     href: tutorial-group-enrollments.md
 - name: Concepts
   items:
@@ -121,7 +121,7 @@
     - name: Windows
       href: ../iot-edge/how-to-auto-provision-simulated-device-windows.md
       maintainContext: true
-  - name: Provision Simulated TPM devices
+  - name: Provision simulated TPM devices
     items:
     - name: C
       href: quick-create-simulated-device.md
