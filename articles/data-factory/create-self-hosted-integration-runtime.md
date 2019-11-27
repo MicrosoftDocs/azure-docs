@@ -228,7 +228,7 @@ Here are the requirements for the TLS/SSL certificate that you use to secure com
 
 - The certificate must be a publicly trusted X509 v3 certificate. We recommend that you use certificates that are issued by a public partner certification authority (CA).
 - Each integration runtime node must trust this certificate.
-- We don't recommend Subject Alternative Name (SAN) certificates because only the last SAN item is used. All others SAN items are ignored. For example, if you have a SAN certificate whose SANs are **node1.domain.contoso.com** and **node2.domain.contoso.com**, you can use this certificate only on a machine whose fully qualified domain name (FQDN) is **node2.domain.contoso.com**.
+- We don't recommend Subject Alternative Name (SAN) certificates because only the last SAN item is used. All other SAN items are ignored. For example, if you have a SAN certificate whose SANs are **node1.domain.contoso.com** and **node2.domain.contoso.com**, you can use this certificate only on a machine whose fully qualified domain name (FQDN) is **node2.domain.contoso.com**.
 - The certificate can use any key size supported by Windows Server 2012 R2 for SSL certificates.
 - Certificates that use CNG keys aren't supported.  
 
@@ -313,7 +313,7 @@ At the Windows firewall level or machine level, these outbound ports are normall
 > [!NOTE]
 > Based on your source and sinks, you might need to allow additional domains and outbound ports in your corporate firewall or Windows firewall.
 >
-> For some cloud databases like Azure SQL Database and Azure Data Lake, you might need to allow IP addresses of self-hosted integration runtime machines on their firewall configuration.
+> For some cloud databases, such as Azure SQL Database and Azure Data Lake, you might need to allow IP addresses of self-hosted integration runtime machines on their firewall configuration.
 
 ### Copy data from a source to a sink
 
@@ -357,7 +357,7 @@ You can use the configuration manager tool to view and update the HTTP proxy.
 ![View and update the proxy](media/create-self-hosted-integration-runtime/view-proxy.png)
 
 > [!NOTE]
-> If you set up a proxy server with NTLM authentication, the integration runtime host service runs under the domain account. If you later change the password for the domain account, remember to update the configuration settings for the service and restart the service. Because of this requirement, we suggest that the dedicated domain account you use to access the proxy server doesn't require you to frequently update the password.
+> If you set up a proxy server with NTLM authentication, the integration runtime host service runs under the domain account. If you later change the password for the domain account, remember to update the configuration settings for the service and restart the service. Because of this requirement, we suggest that you access the proxy server by using a dedicated domain account that doesn't require you to update the password frequently.
 
 ### Configure proxy server settings
 
@@ -411,7 +411,7 @@ If you see error messages like the following ones, the likely reason is improper
 	A component of Integration Runtime has become unresponsive and restarts automatically. Component name: Integration Runtime (Self-hosted).
 	```
 
-### Enabling remote access from an intranet
+### Enable remote access from an intranet
 
 If you use PowerShell to encrypt credentials from a networked machine other than where you installed the self-hosted integration runtime, you can enable the **Remote Access from Intranet** option. If you run PowerShell to encrypt credentials on the machine where you installed the self-hosted integration runtime, you can't enable **Remote Access from Intranet**.
 
