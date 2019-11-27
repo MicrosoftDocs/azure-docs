@@ -128,7 +128,7 @@
     {
       "source_path": "articles/machine-learning/service/quickstart-run-local-notebook.md",
       "redirect_url": "/azure/machine-learning/service/how-to-configure-environment#local",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/service/quickstart-run-cloud-notebook.md",
@@ -288,7 +288,7 @@
     {
       "source_path": "articles/machine-learning/service/quickstart-create-workspace-with-python.md",
       "redirect_url": "/azure/machine-learning/service/how-to-configure-environment#local",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/service/concept-accelerate-inferencing-with-gpus.md",
@@ -31552,67 +31552,67 @@
     {
       "source_path": "articles/security/blueprints/pci-dss-requirements-overview.md",
       "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/security/blueprints/pci-dss-requirement-1-firewall.md",
       "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/security/blueprints/pci-dss-requirement-2-password.md",
       "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/security/blueprints/pci-dss-requirement-3-chd.md",
       "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/security/blueprints/pci-dss-requirement-4-encryption.md",
       "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/security/blueprints/pci-dss-requirement-5-malware.md",
       "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/security/blueprints/pci-dss-requirement-6-secure-system.md",
       "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/security/blueprints/pci-dss-requirement-7-access.md",
       "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/security/blueprints/pci-dss-requirement-8-identity.md",
       "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/security/blueprints/pci-dss-requirement-9-physical-access.md",
       "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/security/blueprints/pci-dss-requirement-10-monitoring.md",
       "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/security/blueprints/pci-dss-requirement-11-testing.md",
       "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/security/blueprints/pci-dss-requirement-12-policy.md",
       "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/security/blueprints/uk-official-three-tier-applications-overview.md",
@@ -31622,7 +31622,7 @@
     {
       "source_path": "articles/security/blueprints/uk-official-three-tier-applications-principles-overview.md",
       "redirect_url": "/azure/security/blueprints/ukofficial-iaaswa-overview#compliance-documentation",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md",
