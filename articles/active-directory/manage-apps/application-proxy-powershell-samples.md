@@ -32,7 +32,7 @@ For more information about the cmdlets used in these samples, see [Application P
 | [Move all apps assigned to a connector group to another connector group](scripts/powershell-move-all-apps-to-a-connector-group.md) | Moves all applications currently assigned to a connector group to a different connector group. |
 |**Users and group assigned**||
 | [Display users and groups assigned to an Application Proxy application](scripts/powershell-display-users-group-of-an-app.md) | Lists the users and groups assigned to a specific Application Proxy application. |
-| [Assign users to applications](scripts/powershell-assign-user-groups-to-apps.md) | Assigns specific users to applications. |
+| [Assign users to applications](scripts/powershell-assign-user-to-app.md) | Assigns specific users to applications. |
 | [Assign groups to applications](scripts/powershell-assign-group-to-app.md) | Assigns specific groups to applications. |
 |**External URL configuration**||
 | [Get all Application Proxy apps using default domains (.msappproxy.net)](scripts/powershell-get-all-default-domain-apps.md)  | Lists all the Application Proxy applications using default domains (.msappproxy.net). |

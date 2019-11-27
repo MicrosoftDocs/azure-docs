@@ -28,7 +28,7 @@ This sample requires the Azure Active Directory (Azure AD) PowerShell Module Ver
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/application-proxy/assign-user-groups-to-apps.ps1 "Assign a user to an application")]
+[!code-powershell[main](../../../powershell_scripts/application-proxy/assign-user-to-app.ps1 "Assign a user to an application")]
 
 ## Script explanation
 
