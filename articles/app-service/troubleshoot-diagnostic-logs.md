@@ -185,7 +185,7 @@ With the new [Azure Monitor integration](https://aka.ms/appsvcblog-azmon), you c
 
 The following table shows the supported log types and descriptions: 
 
-| Log type | Windows support | Linux support | Description |
+| Log type | Windows support | Linux (Docker) support | Description |
 |-|-|-|
 | AppServiceConsoleLogs | TBA | Yes | Standard output and standard error |
 | AppServiceHTTPLogs | Yes | Yes | Web server logs |
