@@ -10,7 +10,12 @@
  ms.custom: include
 ---
 
-The examples shown here use the latest version of the Azure Storage client library for Blob storage. To install the package, run the following command from the NuGet package manager console:
+## Install client library packages
+
+> [!NOTE]
+> The examples shown here use the Azure Storage client library version 12. The version 12 client library is part of the Azure SDK. For more information about the Azure SDK, see the Azure SDK repository on [GitHub](https://github.com/Azure/azure-sdk).
+
+To install the Blob storage package, run the following command from the NuGet package manager console:
 
 ```powershell
 Install-Package Azure.Storage.Blobs
