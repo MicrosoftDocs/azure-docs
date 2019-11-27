@@ -68,7 +68,7 @@ You can use Hive to output data to a variety of targets including:
 * Excel.
 * Azure table and blob storage.
 * Applications or services that require data to be processed into specific formats, or as files that contain specific types of information structure.
-* A JSON Document Store like [CosmosDB](https://azure.microsoft.com/services/cosmos-db/).
+* A JSON Document Store like [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
 ## Considerations
 
