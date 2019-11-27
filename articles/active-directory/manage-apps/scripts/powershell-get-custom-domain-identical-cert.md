@@ -1,6 +1,6 @@
 ---
-title: PowerShell sample for Azure AD Application Proxy | Microsoft Docs
-description: PowerShell example that bulk replaces a certificate across Azure AD Application Proxy applications.
+title: PowerShell sample - List Application Proxy apps with same certs
+description: PowerShell example that lists all Azure Active Directory (Azure AD) Application Proxy applications that are published with the identical certificate.
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 11/26/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ---
 
-# Get all Application Proxy applications published with the identical certificate and replace it
+# Get all Azure AD Proxy application apps that are published with the identical certificate
 
-This PowerShell script example lists all the Azure Active Directory (Azure AD) Application Proxy applications that are published with the identical certificate and allows you to replace the certificate in bulk with a new one.
+This PowerShell script example lists all Azure Active Directory (Azure AD) Application Proxy applications that are published with the identical certificate.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -28,7 +28,7 @@ This sample requires the Azure AD PowerShell Module Version for Graph. If needed
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/application-proxy/get-custom-domain-replace-cert.ps1 "Get all Application Proxy applications published with the identical certificate and replace it")]
+[!code-powershell[main](../../../powershell_scripts/application-proxy/get-custom-domain-identical-cert.ps1 "Get all Azure AD Proxy application apps published with the identical certificate")]
 
 ## Script explanation
 
@@ -37,7 +37,6 @@ This sample requires the Azure AD PowerShell Module Version for Graph. If needed
 |[Get-AzureADServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) | Gets a service principal. |
 |[Get-AzureADApplication](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) | Gets an Azure AD application. |
 |[Get-AzureADApplicationProxyApplication](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplicationproxyapplication?view=azureadps-2.0) | Retrieves an application configured for Application Proxy in Azure AD. |
-|[Set-AzureADApplicationProxyApplicationCustomDomainCertificate](https://docs.microsoft.com/powershell/module/azuread/set-azureadapplicationproxyapplicationcustomdomaincertificate?view=azureadps-2.0) | Assigns a certificate to an application configured for Application Proxy in Azure AD. This command uploads the certificate and allows the application to use Custom Domains. |
 
 # Next steps
 

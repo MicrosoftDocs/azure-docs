@@ -1,6 +1,6 @@
 ---
-title: PowerShell sample - List Application Proxy default domain apps
-description: PowerShell example that lists all Azure Active Directory (Azure AD) Application Proxy applications that are using default domains (.msappproxy.net).
+title: PowerShell sample - Move Application Proxy app to another group
+description: PowerShell example that lists Azure Active Directory (Azure AD) Application Proxy applications along with the application ID (AppId), name (DisplayName), and object ID (OjbId).
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -14,9 +14,9 @@ ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ---
 
-# Get all Application Proxy apps using default domains (.msappproxy.net)
+# Get all Application Proxy apps and list basic information
 
-This PowerShell script example lists all the Azure Active Directory (Azure AD) Application Proxy applications that are using default domains (.msappproxy.net).
+This PowerShell script example lists information about all Azure Active Directory (Azure AD) Application Proxy applications, including the application ID (AppId), name (DisplayName), and object ID (OjbId).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -28,15 +28,13 @@ This sample requires the Azure AD PowerShell Module Version for Graph. If needed
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/application-proxy/get-all-default-domain-apps.ps1 "Get all Application Proxy apps using default domains (.msappproxy.net)")]
+[!code-powershell[main](../../../powershell_scripts/application-proxy/get-all-appproxy-apps-basic.ps1 "Get all Application Proxy apps")]
 
 ## Script explanation
 
 | Command | Notes |
 |---|---|
 |[Get-AzureADServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) | Gets a service principal. |
-|[Get-AzureADApplication](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) | Gets an Azure AD application. |
-|[Get-AzureADApplicationProxyApplication](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplicationproxyapplication?view=azureadps-2.0) | Retrieves an application configured for Application Proxy in Azure AD. |
 
 # Next steps
 

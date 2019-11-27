@@ -1,6 +1,6 @@
 ---
-title: PowerShell samples for Azure AD Application Proxy | Microsoft Docs
-description: Azure AD Application Proxy PowerShell example used to move all applications currently assigned to a connector group to a different connector group.
+title: PowerShell sample - List all Application Proxy apps
+description: PowerShell example that lists all Azure Active Directory (Azure AD) Application Proxy applications along with the application ID (AppId), name (DisplayName), external URL (ExternalUrl), internal URL (InternalUrl), and authentication type (ExternalAuthenticationType).
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 11/26/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ---
 
-# Move all apps assigned to a connector group to another connector group
+# Get all Application Proxy apps and list extended information
 
-This PowerShell script example moves all Azure Active Directory (Azure AD) Application Proxy applications currently assigned to a connector group to a different connector group.
+This PowerShell script example lists information about all Azure Active Directory (Azure AD) Application Proxy applications, including the application ID (AppId), name (DisplayName), external URL (ExternalUrl), internal URL (InternalUrl), and authentication type (ExternalAuthenticationType).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -28,7 +28,7 @@ This sample requires the Azure AD PowerShell Module Version for Graph. If needed
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/application-proxy/move-all-apps-to-a-connector-group.ps1 "Move all apps assigned to a connector group to another connector group")]
+[!code-powershell[main](../../../powershell_scripts/application-proxy/get-all-appproxy-apps-extended.ps1 "Get all Application Proxy apps")]
 
 ## Script explanation
 
@@ -36,8 +36,7 @@ This sample requires the Azure AD PowerShell Module Version for Graph. If needed
 |---|---|
 |[Get-AzureADServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) | Gets a service principal. |
 |[Get-AzureADApplication](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) | Gets an Azure AD application. |
-| [Get-AzureADApplicationProxyConnectorGroup](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplicationproxyconnectorgroup?view=azureadps-2.0) | Retrieves a list of all connector groups, or if specified, details of the specified connector group. |
-| [Set-AzureADApplicationProxyConnectorGroup](https://docs.microsoft.com/powershell/module/azuread/set-azureadapplicationproxyapplicationconnectorgroup?view=azureadps-2.0) | Assigns the given connector group to a specified application.|
+|[Get-AzureADApplicationProxyApplication](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplicationproxyapplication?view=azureadps-2.0) | Retrieves an application configured for Application Proxy in Azure AD. |
 
 # Next steps
 
