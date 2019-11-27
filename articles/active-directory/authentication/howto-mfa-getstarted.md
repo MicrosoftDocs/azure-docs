@@ -77,7 +77,7 @@ Some of the risk detections detected by Azure Active Directory Identity Protecti
 
 ## Define network locations
 
-We recommended that organizations use Conditional Access to define their network using [named locations](../conditional-access/location-condition.md#named-locations). If your organization is using Identity Protection, consider using risk-based policies instead of named locations.
+We recommend that organizations use Conditional Access to define their network using [named locations](../conditional-access/location-condition.md#named-locations). If your organization is using Identity Protection, consider using risk-based policies instead of named locations.
 
 ### Configuring a named location
 
