@@ -194,6 +194,38 @@ If a situation occurs where the DC agent service is causing problems, the DC age
 
 Another remediation measure would be to set the Enable mode to No in the Azure AD Password Protection portal. Once the updated policy has been downloaded, each DC agent service will go into a quiescent mode where all passwords are accepted as-is. For more information, see [Enforce mode](howto-password-ban-bad-on-premises-operations.md#enforce-mode).
 
+## Server Decommissioning
+
+If you need to decommission a server on which you have installed the Azure AD password protection software then the following steps apply. If you want to remove all the components, that is covered in the next section.
+
+> [!IMPORTANT]
+> It is important to perform these steps in order. If any instance of the Proxy service is left running it will periodically re-create its serviceConnectionPoint object. If any instance of the DC agent service is left running it will periodically re-create its serviceConnectionPoint object and the sysvol state.
+
+1. If the server you are decommissioning contains the Proxy software then optionally install the Proxy software on a replacement machine.
+2. Uninstall the Proxy software from the server you are decommisioning. This step does **not** require a reboot.
+3. If the server you are decommissioning is a domain controller, uninstall the DC Agent software from it. This step **requires** a reboot.
+4. Manually remove the Proxy service connection point that refers to the server you are decommissioning. The location of these objects may be discovered with the following Active Directory PowerShell command:
+
+   ```powershell
+   $scp = "serviceConnectionPoint"
+   $keywords = "{ebefb703-6113-413d-9167-9f8dd4d24468}*"
+   Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
+   ```
+
+   Do not omit the asterisk (“*”) at the end of the $keywords variable value.
+
+5. Remove the Proxy service connection point manually or by running `Remove-ADObject <serviceConnectionPoint>`
+6. Manually remove the DC agent connection point that refers to the server you are decommissioning. The location of that object may be discovered with the following Active Directory PowerShell command:
+
+   ```powershell
+   $scp = "serviceConnectionPoint"
+   $keywords = "{2bac71e6-a293-4d5b-ba3b-50b995237946}*"
+   Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
+   ```
+   Do not omit the asterisk (“*”) at the end of the $keywords variable value.
+   
+7. The resulting objects show all the DC Agents installed. Remove the one that relates to the server being decommissioned manually or via  `Remove-ADObject <serviceConnectionPoint>`.
+
 ## Removal
 
 If it is decided to uninstall the Azure AD password protection software and cleanup all related state from the domain(s) and forest, this task can be accomplished using the following steps:
