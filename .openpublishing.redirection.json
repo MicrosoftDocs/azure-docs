@@ -43836,6 +43836,11 @@
       "source_path": "articles/media-services/previous/media-services-azure-media-clipper-overview.md",
       "redirect_url": "/azure/media-services/latest",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/classroom-labs/how-to-enable-multi-vm-environment.md",
+      "redirect_url": "/azure/lab-services/classroom-labs/how-to-enable-nested-virtualization-template-vm",
+      "redirect_document_id": false
     }
   ]
 }
