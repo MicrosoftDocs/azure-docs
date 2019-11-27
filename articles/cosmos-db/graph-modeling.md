@@ -42,7 +42,7 @@ The following are the best practices for the properties in the graph objects:
 
 | Object | Property | Type | Notes |
 | --- | --- | --- |  --- |
-| Vertex | ID | String | Uniquely enforced per partition. If a value isn't supplied upon insertion, and auto-generated GUID will be stored. |
+| Vertex | ID | String | Uniquely enforced per partition. If a value isn't supplied upon insertion, an auto-generated GUID will be stored. |
 | Vertex | label | String | This property is used to define the type of entity that the vertex represents. If a value isn't supplied, a default value "vertex" will be used. |
 | Vertex | properties | String, Boolean, Numeric | A list of separate properties stored as key-value pairs in each vertex. |
 | Vertex | partition key | String, Boolean, Numeric | This property defines where the vertex and its outgoing edges will be stored. Read more about [graph partitioning](graph-partitioning.md). |
