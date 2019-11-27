@@ -16,7 +16,7 @@ It is important to start planning for a migration off of StorSimple right away.
 The default and strategic long-term Azure service StorSimple appliances can be migrated to, is Azure File Sync.
 It is a generally available Azure service with a super-set of features over StorSimple.
 
-## Full cloud-side migration with very limited downtime
+## Full cloud-side migration with limited downtime
 This article describes the concept of how a migration will commence.
 It is imperative to note that customers in need of migration off of StorSimple and onto Azure File Sync do not need to proceed on their own.
 
@@ -41,8 +41,8 @@ Reach out to AzureFiles@microsoft.com and we will help you organize an appropria
 
 ## Minimizing downtime
 After step 3 above, the StorSimple on-premises appliance is still actively used by users and applications. So the set of files that synced from the initial volume clone is slightly outdated at the time sync completes.
-The approach to minimizing downtime is to repeat the sync from volume clone process, such that sync finishes faster and faster with each iteration which in turn is enabled by the changes between volume clones become fewer and fewer.
-You should repeat this process, until the sync from a volume clone can finish in the amount of time you find acceptable for downtime.
+The approach to minimizing downtime is to repeat the sync from volume clone process, such that sync finishes faster and faster with each iteration, which in turn is enabled by the changes between volume clones become fewer and fewer.
+You can repeat this process, until the sync from a volume clone can finish in the amount of time you find acceptable for downtime.
 Once that is the case, block users and applications from making any changes to your StorSimple appliance. Downtime begins.
 Take another volume clone and let it sync to the server(s) connected.
 Establish access to your users and applications to your new, Azure File Sync backed, Windows Server.
@@ -54,7 +54,7 @@ After the migration is complete, the temporary StorSimple virtual appliance and 
 
 Furthermore the StorSimple on-premises appliance can be deprovisioned as your users and applications are already accessing the Windows Server instead.
 What you are left with is depicted in the image below. A standard Azure File Sync deployment features a number of Azure file shares and Windows Servers connected to them via Azure File Sync. Remember that a single server can connect different local folders to different file shares at the same time.
-Also, one Azure file share can sync to many different servers, in the case you need data cached in branch offices. You should also check if you can optimize your cloud tiering policies for more efficient use of your on-premises storage space.
+Also, one Azure file share can sync to many different servers, in the case you need data cached in branch offices. Also check if you can optimize your cloud tiering policies for more efficient use of your on-premises storage space.
 
 ![Alt](media/storage-sync-files-storsimple-migration/StorSimple_docs_goal.PNG "An illustration showing the goal after the migration is complete. It depicts a number of file shares syncing to an on-premises Windows Server with users and applications accessing files in the cloud or on the Windows Server.")
 
