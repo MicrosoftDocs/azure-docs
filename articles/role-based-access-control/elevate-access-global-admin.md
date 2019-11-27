@@ -45,6 +45,8 @@ You should remove this elevated access once you have made the changes you need t
 
 ## Azure portal
 
+### Elevate access for a Global Administrator
+
 Follow these steps to elevate access for a Global Administrator using the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or the [Azure Active Directory admin center](https://aad.portal.azure.com) as a Global Administrator.
@@ -78,7 +80,15 @@ Follow these steps to elevate access for a Global Administrator using the Azure 
 
     For information about assigning roles, see [Manage access using RBAC and the Azure portal](role-assignments-portal.md). If you are using Azure AD Privileged Identity Management (PIM), see [Discover Azure resources to manage in PIM](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) or [Assign Azure resource roles in PIM](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 
-1. When you are done, set the **Access management for Azure resources** toggle back to **No**. Since this is a per-user setting, you must be signed in as the same user as was used to elevate access.
+### Remove elevated access
+
+To remove the User Access Administrator role assignment at root scope (`/`), follow these steps.
+
+1. Sign in as the same user that was used to elevate access.
+
+1. In the navigation list, click **Azure Active Directory** and then click **Properties**.
+
+1. Set the **Access management for Azure resources** toggle back to **No**. Since this is a per-user setting, you must be signed in as the same user as was used to elevate access.
 
     If you try to remove the User Access Administrator role assignment on the Access control (IAM) pane, you'll see the following message. To remove the role assignment, you must set set the toggle back to **No** or use Azure PowerShell, Azure CLI, or the REST API.
 
