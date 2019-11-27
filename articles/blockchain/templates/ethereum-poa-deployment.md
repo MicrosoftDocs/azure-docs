@@ -170,7 +170,7 @@ Select **OK**.
 
 Click through the summary blade to review the inputs specified and run basic pre-deployment validation. Before deploying, you can download the template and parameters.
 
-Select **OK** to deploy.
+Select **Create** to deploy.
 
 If the deployment includes VNet Gateways, the deployment can take up 45 to 50 minutes.
 
