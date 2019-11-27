@@ -155,7 +155,7 @@ The synchronization of a password has no impact on the Azure user who is signed 
 
 ## Password hash sync process for Azure AD Domain Services
 
-If you use Azure AD Domain Services to provide legacy authentication for applications and services that need to use Keberos, LDAP, or NTLM, some additional processes are part of the password hash synchronization flow. Azure AD Connect uses the additional following process to synchronize password hashes to Azure AD for use in Azure AD Domain Services:
+If you use Azure AD Domain Services to provide legacy authentication for applications and services that need to use Kerberos, LDAP, or NTLM, some additional processes are part of the password hash synchronization flow. Azure AD Connect uses the additional following process to synchronize password hashes to Azure AD for use in Azure AD Domain Services:
 
 > [!IMPORTANT]
 > Azure AD Connect should only be installed and configured for synchronization with on-premises AD DS environments. It's not supported to install Azure AD Connect in an Azure AD DS managed domain to synchronize objects back to Azure AD.
