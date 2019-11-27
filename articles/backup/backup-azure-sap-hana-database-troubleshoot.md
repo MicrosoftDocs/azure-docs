@@ -36,14 +36,14 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 | Error Message      | The specified SAP HANA operation isn't supported             |
 | ------------------ | ------------------------------------------------------------ |
 | Possible causes    | Azure backup for SAP HANA doesn't support incremental backup and actions performed on SAP HANA native clients (Studio/ Cockpit/ DBA Cockpit) |
-| Recommended action | For more information, refer [here](https://docs.microsoft.com/en-us/azure/backup/sap-hana-backup-support-matrix#scenario-support). |
+| Recommended action | For more information, refer [here](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support). |
 
 ###  UserErrorHANAPODoesNotSupportBackupType 
 
 | Error Message      | This SAP HANA database doesn't support the requested backup type |
 | ------------------ | ------------------------------------------------------------ |
 | Possible causes    | Azure backup doesn't support incremental backup and backup using snapshots |
-| Recommended action | For more information, refer [here](https://docs.microsoft.com/en-us/azure/backup/sap-hana-backup-support-matrix#scenario-support). |
+| Recommended action | For more information, refer [here](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support). |
 
 ###  UserErrorHANALSNValidationFailure 
 
@@ -64,14 +64,14 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 | Error Message      | SDC to MDC upgrade detected                                  |
 | ------------------ | ------------------------------------------------------------ |
 | Possible causes    | The SAP HANA instance has been upgraded from SDC to MDC. Backups will fail after the update. |
-| Recommended action | Follow the steps listed in the [Upgrading from SAP HANA 1.0 to 2.0 section](https://docs.microsoft.com/en-us/azure/backup/backup-azure-sap-hana-database-troubleshoot#upgrading-from-sap-hana-10-to-20) to resolve the issue |
+| Recommended action | Follow the steps listed in the [Upgrading from SAP HANA 1.0 to 2.0 section](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#upgrading-from-sap-hana-10-to-20) to resolve the issue |
 
 ###  UserErrorInvalidBackintConfiguration 
 
 | Error Message      | Detected invalid backint configuration                       |
 | ------------------ | ------------------------------------------------------------ |
 | Possible causes    | The backing parameters are incorrectly specified for Azure backup |
-| Recommended action | Check if the following (backint) parameters are set:<br/>\* [catalog_backup_using_backint:true]<br/>\* [enable_accumulated_catalog_backup:false]<br/>\* [parallel_data_backup_backint_channels:1]<br/>\* [log_backup_timeout_s:900)]<br/>\* [backint_response_timeout:7200]<br/>If backint-based parameters are present in HOST, remove them. If parameters aren't present at HOST level but have been manually modified at a database level, revert them to the appropriate values as described earlier. Or, run [stop protection and retain backup data](https://docs.microsoft.com/en-us/azure/backup/sap-hana-db-manage#stop-protection-for-an-sap-hana-database) from the Azure portal, and then select **Resume backup**. |
+| Recommended action | Check if the following (backint) parameters are set:<br/>\* [catalog_backup_using_backint:true]<br/>\* [enable_accumulated_catalog_backup:false]<br/>\* [parallel_data_backup_backint_channels:1]<br/>\* [log_backup_timeout_s:900)]<br/>\* [backint_response_timeout:7200]<br/>If backint-based parameters are present in HOST, remove them. If parameters aren't present at HOST level but have been manually modified at a database level, revert them to the appropriate values as described earlier. Or, run [stop protection and retain backup data](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#stop-protection-for-an-sap-hana-database) from the Azure portal, and then select **Resume backup**. |
 
 ## Restore checks
 
