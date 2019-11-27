@@ -249,7 +249,6 @@ Learn how to use Azure Dev Spaces and GitHub Actions to test changes from a pull
 [azure-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
 [bike-sharing-github]: https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp
 [gh-actions]: github-actions.md
-[helm-installed]: https://helm.sh/docs/using_helm/#installing-helm
 [supported-regions]: ../about.md#supported-regions-and-configurations
 [team-quickstart]: ../quickstart-team-development.md
 [vs-code]: https://code.visualstudio.com/download
