@@ -2,8 +2,8 @@
 title: Migrate from StorSimple to Azure File Sync
 author: fauhse
 ms.service: storage
-ms.topic: migration
-ms.date: 07/19/2018
+ms.topic: conceptual
+ms.date: 11/26/2019
 ms.author: fauhse
 ms.subservice: files
 ---
