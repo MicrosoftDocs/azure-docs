@@ -22,7 +22,7 @@ This article shows how to specify a customer-provided key on a request with .NET
 
 [!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
 
-## Example: Use a customer-provided key to upload a blob in .NET
+## Example: Use a customer-provided key to upload a blob
 
 The following example creates a customer-provided key and uses that key to upload a blob. The code uploads a block, then commits the block list to write the blob to Azure Storage.
 

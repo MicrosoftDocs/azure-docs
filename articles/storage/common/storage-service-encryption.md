@@ -26,9 +26,7 @@ Storage accounts are encrypted regardless of their performance tier (standard or
 
 Encryption does not affect Azure Storage performance. There is no additional cost for Azure Storage encryption.
 
-Every block blob, append blob, or page blob that was written to Azure Storage after October 20, 2017 is encrypted. Blobs created prior to this date continue to be encrypted by a background process. To determine whether a given blob has been encrypted, you may use REST API or PowerShell as described below.
-
-To force the encryption of a blob that was created before October 20, 2017, you can rewrite the blob.
+Every block blob, append blob, or page blob that was written to Azure Storage after October 20, 2017 is encrypted. Blobs created prior to this date continue to be encrypted by a background process. To force the encryption of a blob that was created before October 20, 2017, you can rewrite the blob. For information about how to check the encryption status of a blob, see [Check the encryption status of a blob](../blobs/storage-blob-encryption-status.md).
 
 For more information about the cryptographic modules underlying Azure Storage encryption, see [Cryptography API: Next Generation](https://docs.microsoft.com/windows/desktop/seccng/cng-portal).
 
