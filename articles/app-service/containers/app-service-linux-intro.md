@@ -64,7 +64,12 @@ Based on a current limitation, for the same resource group you cannot mix Window
 
 ## Troubleshooting
 
-When your application fails to start or you want to check the logging from your app, check the Docker logs in the LogFiles directory. You can access this directory either through your SCM site or via FTP. To log the `stdout` and `stderr` from your container, you need to enable **Docker Container logging** under **App Service Logs**. The setting takes effect immediately. App Service detects the change and restarts the container automatically.
+> [!NOTE]
+> There's new integrated logging capability with [Azure Monitoring (preview)](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs#send-logs-to-azure-monitor-preview) . 
+>
+>
+
+When your application fails to start or you want to check the logging from your app, check the Docker logs in the LogFiles directory. You can access this directory either through your SCM site or via FTP. To log the `stdout` and `stderr` from your container, you need to enable **Application Logging** under **App Service Logs**. The setting takes effect immediately. App Service detects the change and restarts the container automatically.
 
 You can access the SCM site from **Advanced Tools** in the **Development Tools** menu.
 

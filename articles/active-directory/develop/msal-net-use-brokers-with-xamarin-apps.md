@@ -180,7 +180,7 @@ The portal has a new experience app registration portal to help you compute the 
 
 MSAL.NET only support the Xamarin.iOS platform at the moment. It doesn't yet support brokers for the Xamarin.Android platform.
 
-The MSAL Android native library already supports it. For details see [Brokered auth in Android](https://docs.microsoft.com/azure/active-directory/develop/brokered-auth.md)
+The MSAL Android native library already supports it. For details see [Brokered auth in Android](brokered-auth.md)
 
 ## Next steps
 
