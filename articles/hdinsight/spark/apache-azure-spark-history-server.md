@@ -308,9 +308,9 @@ If you want to upgrade with hotfix, use the script below which will upgrade spar
 
 ## Known issues
 
-1. Currently, it only works for Spark 2.3 and 2.4 cluster.
++ Currently, it only works for Spark 2.3 and 2.4 cluster.
 
-2. Input/output data using RDD won't show in data tab.
++ Input/output data using RDD won't show in data tab.
 
 ## Next steps
 
