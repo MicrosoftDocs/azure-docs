@@ -101,6 +101,10 @@ In the Approval section, you specify whether an approval is required when users 
 - Approval from every selected approver isn't required for single or 2-stage approval.
 - The approval decision is based on whichever approver reviews the request first.
 
+The following video provides more information about adding approvers to a request policy:
+
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4cZfg]
+
 Follow these steps to specify the approval settings for requests for the access package:
 
 1. To require approval for requests from the selected users, set the **Require approval** toggle to **Yes**. Or, to have requests automatically approved, set the toggle to **No**.
@@ -111,6 +115,9 @@ Follow these steps to specify the approval settings for requests for the access 
 
     ![Access package - Requests - Approval settings](./media/active-directory-entitlement-management-request-policy/approval.png)
 
+For a demonstration of adding multi-stage approval to a request policy, watch the following video:
+
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4d1Jw]
 
 Use the following steps to add approvers after selecting how many stages you require: 
 

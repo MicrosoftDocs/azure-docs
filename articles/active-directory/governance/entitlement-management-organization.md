@@ -42,6 +42,10 @@ How users from the Azure AD directory or domain will authenticate depends on the
 - [Direct federation](../b2b/direct-federation.md)
 - [One-time passcode](../b2b/one-time-passcode.md) (domain)
 
+The following video provides a demonstration of adding connected organizations to your directory:
+
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4dskS]
+
 ## Add a connected organization
 
 Follow these steps to add an external Azure AD directory or domain as a connected organization.
