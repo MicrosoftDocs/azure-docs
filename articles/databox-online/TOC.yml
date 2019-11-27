@@ -61,18 +61,18 @@
       href: azure-stack-edge-r-series-placeholder.md
     - name: Deploy on Azure Stack Edge
       items:
-      - name:Cognitive services module (Custom vision)
-        href:https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-custom-vision
-      - name:Azure Functions module
-        href:https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-function
-      - name:Stream Analytics module
-        href:https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics
-      - name:Azure ML module
-        href:https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning
-      - name:Azure SQL module
-        href:https://docs.microsoft.com/azure/iot-edge/tutorial-store-data-sql-server
-      - name:Custom module (third party software) 
-        href:azure-stack-edge-r-series-placeholder.md
+      - name: Cognitive services module (Custom vision)
+        href: https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-custom-vision
+      - name: Azure Functions module
+        href: https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-function
+      - name: Stream Analytics module
+        href: https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics
+      - name: Azure ML module
+        href: https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning
+      - name: Azure SQL module
+        href: https://docs.microsoft.com/azure/iot-edge/tutorial-store-data-sql-server
+      - name: Custom module (third party software) 
+        href: azure-stack-edge-r-series-placeholder.md
       - name: Azure ML hardware accelerated models for FPGA
         href: https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server
 
