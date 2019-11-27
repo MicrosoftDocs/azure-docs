@@ -56,6 +56,10 @@ If password hash sync is enabled in cloud provisioning and the synced user is re
 
 No, cloud provisioning does not support writeback of ms-ds-consistencyGUID for any object (including user objects). 
 
+**Q. I am provisioning users using cloud provisioning. I deleted the configuration. Why do I still see the old synced objects in Azure AD?** 
+
+When you delete the configuration, cloud provisioning does not cleanup the synced objects in Azure AD. To ensure you do not have the old objects, change the scope of the configuration to an empty group or Organizational Units. Once the provisioning runs and cleans up the objects, disable and delete the  configuration. 
+
 ## Next Steps 
 
 - [What is Azure AD Connect cloud provisioning?](whatis-cloud-prov.md)
