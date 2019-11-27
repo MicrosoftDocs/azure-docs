@@ -10,17 +10,17 @@
   - name: Tutorials
     items:
     - name: 1 - Prepare
-      href: azure-stack-edge-r-series-deploy-prep.md
+      href: azure-stack-edge-r-series-placeholder.md
     - name: 2 - Install
-      href: azure-stack-edge-r-series-deploy-install.md
+      href: azure-stack-edge-r-series-placeholder.md
     - name: 3 - Connect, set up, activate
-      href: azure-stack-edge-r-series-deploy-connect-setup-activate.md
+      href: azure-stack-edge-r-series-placeholder.md
     - name: 4 - Add, connect to share
-      href: azure-stack-edge-r-series-deploy-add-shares.md
+      href: azure-stack-edge-r-series-placeholder.md
     - name: 5A - Configure compute (simple)
-      href: azure-stack-edge-r-series-deploy-configure-compute.md
+      href: azure-stack-edge-r-series-placeholder.md
     - name: 5B - Configure compute (advanced)
-      href: azure-stack-edge-r-series-deploy-configure-compute-advanced.md
+      href: azure-stack-edge-r-series-placeholder.md
   - name: Concepts
     items:
     - name: Review requirements
@@ -34,35 +34,35 @@
   - name: How to
     items:
     - name: Develop C# module
-      href: azure-stack-edge-r-series-create-iot-edge-module.md
+      href: azure-stack-edge-r-series-placeholder.md
     - name: Manage 
       items:
       - name: Edge compute
-        href: azure-stack-edge-r-series-manage-compute.md
+        href: azure-stack-edge-r-series-placeholder.md
       - name: Edge compute network
-        href: azure-stack-edge-r-series-extend-compute-access-modules.md
+        href: azure-stack-edge-r-series-placeholder.md
       - name: Shares
-        href: azure-stack-edge-r-series-manage-shares.md
+        href: azure-stack-edge-r-series-placeholder.md
       - name: Users
-        href: azure-stack-edge-r-series-manage-users.md
+        href: azure-stack-edge-r-series-placeholder.md
       - name: Bandwidth schedules
-        href: azure-stack-edge-r-series-manage-bandwidth-schedules.md
+        href: azure-stack-edge-r-series-placeholder.md
       - name: Power, access, connectivity
-        href: azure-stack-edge-r-series-manage-access-power-connectivity-mode.md
+        href: azure-stack-edge-r-series-placeholder.md
       - name: Via PowerShell
-        href: azure-stack-edge-r-series-connect-powershell-interface.md
+        href: azure-stack-edge-r-series-placeholder.md
     - name: Troubleshoot 
-      href: azure-stack-edge-r-series-troubleshoot.md
+      href: azure-stack-edge-r-series-placeholder.md
     - name: Contact Microsoft Support
-      href: azure-stack-edge-r-series-contact-microsoft-support.md
+      href: azure-stack-edge-r-series-placeholder.md
     - name: Monitor
-      href: azure-stack-edge-r-series-monitor.md
+      href: azure-stack-edge-r-series-placeholder.md
     - name: Return or replace device
-      href: azure-stack-edge-r-series-return-device.md
+      href: azure-stack-edge-r-series-placeholder.md
   - name: Release notes
     items:
     - name: 1911 - Current
-      href: azure-stack-edge-r-series-1911-release-notes.md
+      href: azure-stack-edge-r-series-placeholder.md
 
 - name: Azure Stack Edge Commercial
   items:
