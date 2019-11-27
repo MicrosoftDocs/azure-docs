@@ -18,8 +18,6 @@ Clients making requests against Azure Blob storage have the option to provide an
 
 This article shows how to specify a customer-provided key on a request with .NET.
 
-## Install client library packages
-
 [!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
 
 ## Example: Use a customer-provided key to upload a blob
