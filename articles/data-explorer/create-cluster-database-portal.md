@@ -120,7 +120,6 @@ If you plan to follow other quickstarts and tutorials, keep the resources you cr
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Quickstart: Ingest data from Event Hub into Azure Data Explorer](ingest-data-event-hub.md)
+[Quickstart: Ingest data from Event Hub into Azure Data Explorer](ingest-data-event-hub.md)
 
 
