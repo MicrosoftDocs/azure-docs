@@ -1,4 +1,6 @@
 ---
+
+
 title: Troubleshoot SAP HANA databases backup errors
 description: Describes how to troubleshoot common errors that might occur when you use Azure Backup to back up SAP HANA databases.
 ms.topic: conceptual
@@ -15,16 +17,61 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 
 ## Common user errors
 
-| Error                                | Error message                    | Possible causes                                              | Recommended action                                           |
-| ------------------------------------ | -------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| UserErrorInOpeningHanaOdbcConnection | Failed to connect to HANA system | The SAP HANA instance may be down. <br> The required permissions for Azure backup to interact with the HANA  database aren't set. | Check if the SAP HANA database is  up. If the database is up and running, check if all the required permissions are set. If any of the permissions are missing run the [preregistration script](https://aka.ms/scriptforpermsonhana) to add the missing permissions. |
-| UserErrorHanaInstanceNameInvalid | The specified SAP HANA instance is either invalid or can't be found | Multiple SAP HANA instances on a single  Azure VM can't be backed up. | Run the [preregistration script](https://aka.ms/scriptforpermsonhana) on the SAP HANA instance you  want to back up. If the issue still persists, contact Microsoft support. |
-| UserErrorHanaUnsupportedOperation | The specified SAP HANA operation isn't supported | Azure backup for SAP HANA doesn't support incremental backup and actions performed on SAP HANA native clients  (Studio/ Cockpit/ DBA Cockpit) | For more information, refer [here](sap-hana-backup-support-matrix.md#scenario-support). |
-| UserErrorHANAPODoesNotSupportBackupType | This SAP HANA database doesn't support the requested backup  type | Azure backup doesn't support  incremental backup and backup using snapshots | For more information, refer [here](sap-hana-backup-support-matrix.md#scenario-support). |
-| UserErrorHANALSNValidationFailure | Backup log chain is broken | The log backup destination may have  been updated from backint to file system or the backint executable may have  been changed | Trigger a full backup to resolve the  issue |
-| UserErrorIncomaptibleSrcTargetSystsemsForRestore | The source and target systems for restore are incompatible | The target system for restore is  incompatible with the source | Refer to the SAP Note [1642148](https://launchpad.support.sap.com/#/notes/1642148) to learn  about the restore types supported today |
-| UserErrorSDCtoMDCUpgradeDetected | SDC to MDC upgrade detected | The SAP HANA instance has been upgraded  from SDC to MDC. Backups will fail after the update. | Follow the steps listed in the [Upgrading from SAP HANA 1.0 to 2.0 section](#upgrading-from-sap-hana-10-to-20) to resolve the issue |
-| UserErrorInvalidBackintConfiguration | Detected invalid backint configuration | The backing parameters are incorrectly  specified for Azure backup | Check if the following (backint) parameters are set: <br> * [catalog_backup_using_backint:true] <br>  * [enable_accumulated_catalog_backup:false] <br> * [parallel_data_backup_backint_channels:1] <br>* [log_backup_timeout_s:900)] <br> * [backint_response_timeout:7200] <br> If backint-based parameters are present in HOST, remove  them. If parameters aren't present at HOST level but have been manually  modified at a database level, revert them to the appropriate values as  described earlier. Or, run  [stop protection and retain backup data](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) from the Azure portal, and then select **Resume backup**. |
+###  UserErrorInOpeningHanaOdbcConnection 
+
+| Error Message      | Failed to connect to HANA system                             |
+| ------------------ | ------------------------------------------------------------ |
+| Possible causes    | The SAP HANA instance may be down.<br/>The required permissions for Azure backup to interact with the HANA database aren't set. |
+| Recommended action | Check if the SAP HANA database is up. If the database is up and running, check if all the required permissions are set. If any of the permissions are missing run the [preregistration script](https://aka.ms/scriptforpermsonhana) to add the missing permissions. |
+
+###  UserErrorHanaInstanceNameInvalid 
+
+| Error Message      | The specified SAP HANA instance is either invalid or can't be found |
+| ------------------ | ------------------------------------------------------------ |
+| Possible causes    | Multiple SAP HANA instances on a single Azure VM can't be backed up. |
+| Recommended action | Run the [preregistration script](https://aka.ms/scriptforpermsonhana) on the SAP HANA instance you want to back up. If the issue still persists, contact Microsoft support. |
+
+###  UserErrorHanaUnsupportedOperation 
+
+| Error Message      | The specified SAP HANA operation isn't supported             |
+| ------------------ | ------------------------------------------------------------ |
+| Possible causes    | Azure backup for SAP HANA doesn't support incremental backup and actions performed on SAP HANA native clients (Studio/ Cockpit/ DBA Cockpit) |
+| Recommended action | For more information, refer [here](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support). |
+
+###  UserErrorHANAPODoesNotSupportBackupType 
+
+| Error Message      | This SAP HANA database doesn't support the requested backup type |
+| ------------------ | ------------------------------------------------------------ |
+| Possible causes    | Azure backup doesn't support incremental backup and backup using snapshots |
+| Recommended action | For more information, refer [here](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support). |
+
+###  UserErrorHANALSNValidationFailure 
+
+| Error Message      | Backup log chain is broken                                   |
+| ------------------ | ------------------------------------------------------------ |
+| Possible causes    | The log backup destination may have been updated from backint to file system or the backint executable may have been changed |
+| Recommended action | Trigger a full backup to resolve the issue                   |
+
+###  UserErrorIncomaptibleSrcTargetSystsemsForRestore 
+
+| Error Message      | The source and target systems for restore are incompatible   |
+| ------------------ | ------------------------------------------------------------ |
+| Possible causes    | The target system for restore is incompatible with the source |
+| Recommended action | Refer to the SAP Note [1642148](https://launchpad.support.sap.com/#/notes/1642148) to learn about the restore types supported today |
+
+###  UserErrorSDCtoMDCUpgradeDetected 
+
+| Error Message      | SDC to MDC upgrade detected                                  |
+| ------------------ | ------------------------------------------------------------ |
+| Possible causes    | The SAP HANA instance has been upgraded from SDC to MDC. Backups will fail after the update. |
+| Recommended action | Follow the steps listed in the [Upgrading from SAP HANA 1.0 to 2.0 section](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#upgrading-from-sap-hana-10-to-20) to resolve the issue |
+
+###  UserErrorInvalidBackintConfiguration 
+
+| Error Message      | Detected invalid backint configuration                       |
+| ------------------ | ------------------------------------------------------------ |
+| Possible causes    | The backing parameters are incorrectly specified for Azure backup |
+| Recommended action | Check if the following (backint) parameters are set:<br/>\* [catalog_backup_using_backint:true]<br/>\* [enable_accumulated_catalog_backup:false]<br/>\* [parallel_data_backup_backint_channels:1]<br/>\* [log_backup_timeout_s:900)]<br/>\* [backint_response_timeout:7200]<br/>If backint-based parameters are present in HOST, remove them. If parameters aren't present at HOST level but have been manually modified at a database level, revert them to the appropriate values as described earlier. Or, run [stop protection and retain backup data](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#stop-protection-for-an-sap-hana-database) from the Azure portal, and then select **Resume backup**. |
 
 ## Restore checks
 
