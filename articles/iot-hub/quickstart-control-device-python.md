@@ -25,6 +25,13 @@ The quickstart uses two pre-written Python applications:
 
 * A back-end application that calls the direct methods on the simulated device. To call a direct method on a device, this application connects to service-side endpoint on your IoT hub.
 
+> [!IMPORTANT]
+> In this article, the back-end application uses the Python V1 service client (the device application uses the Python V2 device client). The V1 service client has platform-specific requirements for the version of Python installed on your development machine. These are noted in the prerequisites section.
+>
+> **Additionally, pip installation of the V1 service client is only supported for Windows.**
+>
+>For this reason, on non-Windows platforms, you need to build the SDK to use the V1 service client. Code for the V1 service client is in the [v1-deprecated branch](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated) of the Azure IoT Python SDK. Follow the [devbox setup instructions](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md) for your platform to build the V1 service client. We recommend building for the Python 3.x version specified for your platform in the instructions.
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -38,6 +45,12 @@ az extension add --name azure-cli-iot-ext
 ```
 
 If you haven't already done so, download the sample Python project from https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip and extract the ZIP archive.
+
+The following prerequisites are required for the V1 IoT Hub service client on Windows. For other platforms, see the **Important** note at the beginning of this article.
+
+* Make sure you have [Python version **3.6.x**](https://www.python.org/downloads/) installed. **This specific version is required for the V1 IoT Hub service client on Windows.**
+
+* Make sure you have the [Microsoft Visual C++ Redistributable for Visual Studio](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) installed.
 
 ## Create an IoT hub
 
@@ -105,7 +118,7 @@ The simulated device application connects to a device-specific endpoint on your 
 1. In the local terminal window, run the following commands to install the required libraries for the simulated device application:
 
     ```cmd/sh
-    pip install azure-iothub-device-client
+    pip install azure-iot-device
     ```
 
 1. In the local terminal window, run the following commands to run the simulated device application:
@@ -121,6 +134,9 @@ The simulated device application connects to a device-specific endpoint on your 
 ## Call the direct method
 
 The back-end application connects to a service-side endpoint on your IoT Hub. The application makes direct method calls to a device through your IoT hub and listens for acknowledgments. An IoT Hub back-end application typically runs in the cloud.
+
+> [!NOTE]
+> **Pip installation of the V1 service client is only supported for Windows.** For other platforms, you need to build the SDK to use the V1 service client. For more information, see the **Important** note at the beginning of this article.
 
 1. In another local terminal window, navigate to the root folder of the sample Python project. Then navigate to the **iot-hub\Quickstarts\back-end-application** folder.
 
