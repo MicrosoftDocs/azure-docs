@@ -118,14 +118,13 @@ Install-Package Azure.Identity
 Add the following `using` directives to your code to use the Azure Identity and Azure Storage client libraries.
 
 ```csharp
+using Azure;
+using Azure.Identity;
+using Azure.Storage.Blobs;
 using System;
 using System.IO;
+using System.Text;
 using System.Threading.Tasks;
-using Azure.Identity;
-using Azure.Storage;
-using Azure.Storage.Sas;
-using Azure.Storage.Blobs;
-using Azure.Storage.Blobs.Models;
 ```
 
 To get a token credential that your code can use to authorize requests to Azure Storage, create an instance of the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class. The following code example shows how to get the authenticated token credential and use it to create a service client object, then use the service client to upload a new blob:
@@ -156,7 +155,7 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
             await containerClient.UploadBlobAsync(blobName, stream);
         }
     }
-    catch (StorageRequestFailedException e)
+    catch (RequestFailedException e)
     {
         Console.WriteLine(e.Message);
         Console.ReadLine();

@@ -87,20 +87,6 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
     cd piggymetrics
     mvn clean package -DskipTests
     ```
-
-1. Login to Azure CLI and set your active subscription.
-
-    ```azurecli
-    # Login to Azure CLI
-    az login
-
-    # List all subscriptions
-    az account list -o table
-
-    # Set active subscription
-    az account set --subscription <target subscription ID>
-    ```
-
 1. Assign names to your resource group and your service. Be sure to substitute the placeholders below with the resource group name and service name that you provisioned earlier in this tutorial.
 
     ```azurecli
