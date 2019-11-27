@@ -41956,11 +41956,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-central/core/tutorial-add-edge-as-leaf-device.md",
-      "redirect_url": "/azure/iot-central/preview/tutorial-add-edge-as-leaf-device/",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/iot-central/core/tutorial-use-device-groups-pnp.md",
       "redirect_url": "/azure/iot-central/preview/tutorial-use-device-groups/",
       "redirect_document_id": false
@@ -42323,6 +42318,21 @@
     },
 
     {
+      "source_path": "articles/iot-central/preview/tutorial-add-edge-as-leaf-device.md",
+      "redirect_url": "/azure/iot-central/core/tutorial-add-edge-as-leaf-device/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/preview/tutorial-define-edge-device-type.md",
+      "redirect_url": "/azure/iot-central/core/tutorial-define-edge-device-type/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/preview/tutorial-define-iot-device-type.md",
+      "redirect_url": "/azure/iot-central/core/tutorial-define-iot-device-type/",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/iot-central/preview/howto-version-device-template.md",
       "redirect_url": "/azure/iot-central/core/howto-version-device-template/",
       "redirect_document_id": true
@@ -42409,6 +42419,11 @@
     {
       "source_path": "articles/iot-central/preview/howto-configure-rules.md",
       "redirect_url": "/azure/iot-central/core/howto-configure-rules/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/preview/index.yml",
+      "redirect_url": "/azure/iot-central/core/",
       "redirect_document_id": true
     },
     {

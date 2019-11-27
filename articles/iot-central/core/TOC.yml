@@ -27,12 +27,18 @@
     href: quick-monitor-devices.md
 - name: Tutorials
   items:
+  - name: Define a device type
+    href: tutorial-define-iot-device-type.md
   - name: Connect a device
     href: tutorial-connect-pnp-device.md
   - name: Create rules
     href: tutorial-create-telemetry-rules.md
   - name: Use device groups
     href: tutorial-use-device-groups.md
+  - name: Define a new Azure IoT Edge device type
+    href: tutorial-define-iot-device-type.md
+  - name: Add an Azure IoT Edge device
+    href: tutorial-add-edge-as-leaf-device.md
 - name: Concepts
   items:
   - name: Architecture
