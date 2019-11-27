@@ -51,8 +51,6 @@
   items:
     - name: Stay connected
       items:
-        - name: Monitor device connectivity using Azure CLI
-          href: howto-monitor-devices-azure-cli.md
         - name: Version device template
           href: howto-version-device-template.md
     - name: Transform
