@@ -184,7 +184,7 @@ The **grep** command lists the kernels that **grub.cfg** is aware of.
 
 
 
-### Example 2 - upgrade packages
+### Example 2 - remove packages
 
 A failed kernel upgrade can render the VM non-bootable.
 Mount all the Logical Volumes to allow packages to be removed or reinstalled
@@ -207,7 +207,7 @@ Query the installed **kernel**
 
 ![Advanced](./media/chroot-logical-volume-manager/rpm-kernel.png)
 
-If needed upgrade the **kernel**
+If needed remove the **kernel**
 ![Advanced](./media/chroot-logical-volume-manager/rpm-remove-kernel.png)
 
 
