@@ -36,7 +36,7 @@ Manual scale is the default setting during cluster creation. The cluster has a s
 
    ![Manual scale method](media/manage-cluster-horizontal-scaling/manual-scale-method.png)
 
-### Optimized autoscale
+### Optimized autoscale (Preview)
 
 Optimized autoscale is the recommended autoscale method. This method optimizes cluster performance and costs. If the cluster approaches a state of under-utilization, it will be scaled in. This action lowers costs but keeps performance level. If the cluster approaches a state of over-utilization, it will be scaled out to maintain optimal performance. To configure Optimized autoscale:
 
