@@ -269,5 +269,5 @@ def list_directory_contents():
 * [Package (Python Package Index)](https://pypi.org/project/azure-storage-file-datalake/)
 * [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples)
 * [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
-* [Known capability gaps](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
+* [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [Give Feedback](https://github.com/Azure/azure-sdk-for-python/issues)

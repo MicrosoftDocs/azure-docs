@@ -60,7 +60,7 @@ For more information on Azure Container Instances, see [About Azure Container In
 
 4. After the session is connected, run the following command to retrieve the initial admin password:
 
-   ```
+   ```bash
    sudo cat /var/lib/jenkins/secrets/initialAdminPassword
    ```
 
