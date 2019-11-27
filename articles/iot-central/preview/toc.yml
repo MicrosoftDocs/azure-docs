@@ -53,10 +53,6 @@
       items:
         - name: Version device template
           href: howto-version-device-template.md
-    - name: Transform
-      items:
-        - name: Configure continuous data export
-          href: howto-export-data.md
     - name: Administration
       items:
         - name: Manage your application

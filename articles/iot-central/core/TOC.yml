@@ -47,6 +47,8 @@
         href: howto-create-analytics.md 
   - name: Actions and extensibility
     items:
+      - name: Export data
+        href: howto-export-data.md
       - name: Group multiple actions on rules
         href: howto-use-action-groups.md
       - name: Create webhook actions on rules

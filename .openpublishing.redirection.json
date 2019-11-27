@@ -42312,6 +42312,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/iot-central/preview/howto-export-data.md",
+      "redirect_url": "/azure/iot-central/core/howto-export-data/",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/iot-central/preview/howto-manage-devices.md",
       "redirect_url": "/azure/iot-central/core/howto-manage-devices/",
       "redirect_document_id": true
