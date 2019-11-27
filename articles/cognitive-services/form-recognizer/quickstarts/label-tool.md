@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Label forms, train a model, and analyze a form using the sample labeling tool - Form Recognizer"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll use the Form Recognizer sample labeling tool to manually label form documents. Then you'll train a custom model with the labeled documents and use the model to extract key/value pairs and tables.
+description: In this quickstart, you'll use the Form Recognizer sample labeling tool to manually label form documents. Then you'll train a custom model with the labeled documents and use the model to extract key/value pairs.
 author: PatrickFarley
 manager: nitinme
 
@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 To complete this quickstart, you must have:
 - Access to the Form Recognizer limited-access preview. To get access to the preview, fill out and submit the [Form Recognizer access request form](https://aka.ms/FormRecognizerRequestAccess). You'll receive an email with a link to create a Form Recognizer resource.
 - Access to the Form Recognizer sample labeling tool. To get access, fill out and submit the [Form Recognizer label tool request form](https://aka.ms/LabelToolRequestAccess). You'll receive an email with instructions on how to obtain your credentials and access the private container registry. 
-- A set of at least 11 forms of the same type. You will use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Upload the training files to the root of a blob storage container in an Azure Storage account.
+- A set of at least six forms of the same type. You will use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Upload the training files to the root of a blob storage container in an Azure Storage account.
 
 ## Set up the sample labeling tool
 
@@ -105,12 +105,12 @@ Next, you'll create labels and apply them to the text elements that you want the
 
     > [!NOTE]
     > You cannot currently select text that spans across multiple pages.
-1. Click on the tag you want to apply, or press corresponding keyboard key. You can only apply one tag for each selected text element, and each tag can only be applied once per page.
+1. Click on the tag you want to apply, or press corresponding keyboard key. You can only apply one tag to each selected text element, and each tag can only be applied once per page.
 
     > [!TIP]
     > The number keys are assigned as hotkeys for the first ten tags. You can reorder your tags using the up and down arrow icons in the tag editor pane.
 
-Follow the above steps to label 10 of your forms, and then move on to the next step.
+Follow the above steps to label five of your forms, and then move on to the next step.
 
 ![Main editor window of sample labeling tool](../media/label-tool/main-editor.png)
 
@@ -120,18 +120,22 @@ Follow the above steps to label 10 of your forms, and then move on to the next s
 Click the Train icon (the train car) on the left pane to open the Training page. Then click the **Train** button to begin training the model. Once the training process completes you'll see the following information:
 
 * **Model ID** - The ID of the model that was just created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you'll need it if you want to do prediction calls through the REST API.
-* **Average Accuracy** - The model's average accuracy. You can improve model accuracy by labeling additional forms and training again to create a new model. We recommend starting by labeling 10 forms and adding more forms as needed.
+* **Average Accuracy** - The model's average accuracy. You can improve model accuracy by labeling additional forms and training again to create a new model. We recommend starting by labeling five forms and adding more forms as needed.
 * The list of tags, and the estimated accuracy per tag.
 
 ![training view](../media/label-tool/train-screen.png)
 
 After training finishes, examine the **Average Accuracy** value. If it's low, you should add more input documents and repeat the steps above. The documents you've already labeled will remain in the project index.
 
-## Get training results
+> [!TIP]
+> You can also run the training process with a REST API call. To learn how to do this, see [Train with labels using Python](./python-labeled-data.md).
 
 ## Analyze a form
 
 Click on the Predict (rectangles) icon on the left to test your model. Upload a form document that you didn't use in the training process. Then click the **Predict** button on the right to get key/value predictions for the form. The tool will apply tags in bounding boxes and will report the confidence of each tag.
+
+> [!TIP]
+> You can also run the Analyze API with a REST call. To learn how to do this, see [Train with labels using Python](./python-labeled-data.md).
 
 ## Improve results
 
@@ -141,7 +145,7 @@ The reported average accuracy, confidence scores, and actual accuracy can be inc
 
 ## Next steps
 
-In this quickstart, you learned how to use the Form Recognizer sample labeling tool to train a model with manually labeled data. If you'd like to implement your own labeling tool, learn the REST APIs that deal with labeled data training.
+In this quickstart, you learned how to use the Form Recognizer sample labeling tool to train a model with manually labeled data. If you'd like to integrate the labeling tool into your own application, use the REST APIs that deal with labeled data training.
 
 > [!div class="nextstepaction"]
 > [Train with labels using Python](./python-labeled-data.md)

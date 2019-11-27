@@ -26,19 +26,19 @@ Form Recognizer is made up of the following services:
 
 ## Custom models
 
-The Form Recognizer custom model trains to your own data, and you only need five sample input forms to start. When you submit your input data, the algorithm clusters the forms by type, discovers what keys and tables are present, and associates values to keys and entries to tables. It then outputs structured data that includes the relationships in the original file. After you train the model, you can test and retrain it and eventually use it to reliably extract data from more forms according to your needs.
+Form Recognizer custom models train to your own data, and you only need five sample input forms to start. A trained model can output structured data that includes the relationships in the original form document. After you train the model, you can test and retrain it and eventually use it to reliably extract data from more forms according to your needs.
 
 You have the following options when you train custom models: training with labeled data and without labeled data.
 
 ### Train without labels
 
-By default, Form Recognizer uses unsupervised learning to understand the layout and relationships between fields and entries in your forms. This doesn't require manual data labeling or intensive coding and maintenance.
+By default, Form Recognizer uses unsupervised learning to understand the layout and relationships between fields and entries in your forms. When you submit your input forms, the algorithm clusters the forms by type, discovers what keys and tables are present, and associates values to keys and entries to tables. This doesn't require manual data labeling or intensive coding and maintenance, and we recommend you try this method first.
 
 ### Train with labels
 
 When you train with labeled data, the model does supervised learning to extract values of interest, using the labeled forms you provide. This results in better-performing models and can produce models that work with complex forms or forms containing values without keys.
 
-The Form Recognizer labelled data feature uses the document [Layout API](#layout-api) to learn the expected sizes and positions of printed and handwritten text elements. Then it uses specially-formatted JSON documents that reflect the labels you have manually applied to different fields. We recommend that you use five manually labeled forms of the same type to get started when training a new model and add more labled data as needed to improve the model accuracy.
+Form Recognizer uses the [Layout API](#layout-api) to learn the expected sizes and positions of printed and handwritten text elements. Then it uses user-specified labels to learn the key/value associations in the documents. We recommend that you use five manually labeled forms of the same type to get started when training a new model and add more labeled data as needed to improve the model accuracy.
 
 ## Prebuilt receipt model
 
@@ -46,7 +46,7 @@ Form Recognizer also includes a model for reading USA sales receipts [(sample re
 
 ## Layout API
 
-Form Recognizer can also extract text and table structure (row and column numbers) using high-definition optical character recognition (OCR). 
+Form Recognizer can also extract text and table structure (associated row and column numbers) using high-definition optical character recognition (OCR). 
 
 ## Where do I start?
 
@@ -62,12 +62,11 @@ When you're granted access to use Form Recognizer, you'll receive a Welcome emai
 
 * Custom - train a model to your forms
   * Train without labels
-    * [Quickstart: Train without labels a Form Recognizer model and extract form data by using the REST API with cURL](quickstarts/curl-train-extract.md)
-    * [Quickstart: Train without labels a Form Recognizer model and extract form data by using the REST API with Python](quickstarts/python-train-extract.md)
+    * [Quickstart: Train a Form Recognizer model and extract form data by using the REST API with cURL](quickstarts/curl-train-extract.md)
+    * [Quickstart: Train a Form Recognizer model and extract form data by using the REST API with Python](quickstarts/python-train-extract.md)
   * Train with labels 
-    * [Quickstart: Train with labels a Form Recognizer model and extract form data by using the sample labeling tool](quickstarts/label-tool.md)
-    * [Quickstart: Train with labels a Form Recognizer model and extract form data by using the REST API with Python](quickstarts/python-labeled-data.md)
-    * [Quickstart: Train with labels a Form Recognizer model and extract form data by using the REST API with cURL](quickstarts/curl-train-extract.md)   
+    * [Train a Form Recognizer model with labels using the sample labeling tool](quickstarts/label-tool.md)
+    * [Train a Form Recognizer model with labels using REST API and Python](quickstarts/python-labeled-data.md) 
 * Prebuilt receipts - extract data from USA sales receipts
   * [Quickstart: Extract receipt data using cURL](quickstarts/curl-receipts.md)
   * [Quickstart: Extract receipt data using Python](quickstarts/python-receipts.md)
@@ -82,10 +81,10 @@ You'll use the following APIs to train models and extract structured data from f
 
 |Name |Description |
 |---|---|
-| **Train Custom Model**| Train a new model to analyze your forms by using five forms of the same type. Use the 'useLabelFile' parameter to train with our without labels |
+| **Train Custom Model**| Train a new model to analyze your forms by using five forms of the same type. Set the _useLabelFile_ parameter to `true` to train with manually labeled data. |
 | **Analyze Form** |Analyze a single document passed in as a stream to extract text, key/value pairs and tables from the form with your custom model.  |
 | **Analyze Receipt** |Analyze a single receipt document to extract key information and other receipt text.|
-| **Analyze Layout** |Analyze the layout of a form to extract text and table strcutre.|
+| **Analyze Layout** |Analyze the layout of a form to extract text and table structure.|
 
 Explore the [REST API reference documentation](https://aka.ms/form-recognizer/api) to learn more. If you're familiar with a previous version of the API, see the [What's new](./whats-new.md) article to learn about recent changes.
 

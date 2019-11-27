@@ -24,7 +24,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 To complete this quickstart, you must have:
 - Access to the Form Recognizer limited-access preview. To get access to the preview, fill out and submit the [Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form.
 - [Python](https://www.python.org/downloads/) installed (if you want to run the sample locally).
-- A set of at least 11 forms of the same type. You will use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Upload the training files to the root of a blob storage container in an Azure Storage account.
+- A set of at least six forms of the same type. You will use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Upload the training files to the root of a blob storage container in an Azure Storage account.
 
 ## Set up training data
 
@@ -94,7 +94,7 @@ You need OCR result files in order for the service to consider the corresponding
 
 ### Create the label files
 
-Label files contain key-value associations that a user has entered manually. They are needed for labeled data training, but not every source file needs to have a corresponding label file. Source files without labels will be treated as ordinary training documents. We recommend 10 or more labeled files for reliable training.
+Label files contain key-value associations that a user has entered manually. They are needed for labeled data training, but not every source file needs to have a corresponding label file. Source files without labels will be treated as ordinary training documents. We recommend five or more labeled files for reliable training.
 
 When you create a label file, you can optionally specify regions&mdash;exact positions of values on the document. This will give the training even higher accuracy. Regions are formatted as a set of eight values corresponding to four X,Y coordinates: top-left, top-right, bottom-right, and bottom-left. Coordinate values are between zero and one, scaled to the dimensions of the page.
 
@@ -143,13 +143,17 @@ For each source form, the corresponding label file should have the original file
         },
 ```
 
+> [!NOTE]
+> You can only apply one label to each text element, and each label can only be applied once per page. You cannot currently apply a label across multiple pages.
+
+
 ## Train a model using labeled data
 
 To train a model with labeled data, call the **Train Custom Model** API by running the following python code. Before you run the code, make these changes:
 
 1. Replace `<Endpoint>` with the endpoint URL for your Form Recognizer resource.
 1. Replace `<SAS URL>` with the Azure Blob storage container's shared access signature (SAS) URL. To retrieve the SAS URL, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
-1. Replace `<prefix>` with the folder name in your blob container where the input data is located
+1. Replace `<prefix>` with the folder name in your blob container where the input data is located. Or, if your data is at the root, leave this blank and remove the `"prefix"` field from the body of the HTTP request.
 
 ```python
 ########### Python Form Recognizer Labeled Async Train #############
