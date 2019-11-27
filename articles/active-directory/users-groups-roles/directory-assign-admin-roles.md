@@ -181,7 +181,7 @@ This role is available for assignment only as an additional local administrator 
 
 Users in this role can read basic directory information. This role should be used for:
 * Granting a specific set of guest users read access instead of granting it to all guest users.
-* Granting a specific set of non-admin users access to Azure Portal when “Restrict access to Azure AD portal to admins only” is set to “Yes”.
+* Granting a specific set of non-admin users access to Azure portal when “Restrict access to Azure AD portal to admins only” is set to “Yes”.
 * Granting service principals access to directory where Directory.Read.All is not an option.
 
 ### [Directory Synchronization Accounts](#directory-synchronization-accounts-permissions)
@@ -244,7 +244,7 @@ Users in this role can read settings and administrative information across Micro
 
 ### [Group Administrator](#group-administrator)
 
-Users in this role can create/manage groups and its settings like naming and expiration policies. It is important to understand that assigning a user to this role gives them the ability to manage all groups in the tenant across various workloads like Teams, SharePoint, Yammer in addition to Outlook. Also the user will be able to manage the various groups settings across various admin portals like Microsoft Admin Center, Azure Portal, as well as workload specific ones like Teams and SharePoint Admin Centers.
+Users in this role can create/manage groups and its settings like naming and expiration policies. It is important to understand that assigning a user to this role gives them the ability to manage all groups in the tenant across various workloads like Teams, SharePoint, Yammer in addition to Outlook. Also the user will be able to manage the various groups settings across various admin portals like Microsoft Admin Center, Azure portal, as well as workload specific ones like Teams and SharePoint Admin Centers.
 
 ### [Guest Inviter](#guest-inviter-permissions)
 
