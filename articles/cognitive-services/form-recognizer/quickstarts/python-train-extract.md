@@ -416,6 +416,10 @@ When the process is completed, you'll receive a `200 (Success)` response with JS
 }
 ```
 
+## Improve results
+
+[!INCLUDE [improve results](../includes/improve-results-unlabeled.md)]
+
 ## Next steps
 
 In this quickstart, you used the Form Recognizer REST API with Python to train a model and run it in a sample scenario. Next, see the reference documentation to explore the Form Recognizer API in more depth.

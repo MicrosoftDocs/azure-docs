@@ -46,7 +46,7 @@ Form Recognizer also includes a model for reading USA sales receipts [(sample re
 
 ## Layout API
 
-Form Recognizer can also extract text and table structure (associated row and column numbers) using high-definition optical character recognition (OCR). 
+Form Recognizer can also extract text and table structure (the row and column numbers associated with the text) using high-definition optical character recognition (OCR). 
 
 ## Where do I start?
 

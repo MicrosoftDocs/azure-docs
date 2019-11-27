@@ -412,6 +412,10 @@ The main key/value associations are in the `"pageResults"` node. If you also spe
 }
 ```
 
+## Improve results
+
+[!INCLUDE [improve results](../includes/improve-results-unlabeled.md)]
+
 ## Next steps
 
 In this quickstart, you used the Form Recognizer REST API with cURL to train a model and run it in a sample scenario. Next, see the reference documentation to explore the Form Recognizer API in more depth.
