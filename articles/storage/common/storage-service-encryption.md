@@ -74,7 +74,11 @@ The following list explains the numbered steps in the diagram:
 4. Azure Storage wraps the account encryption key with the customer key in Azure Key Vault.
 5. For read/write operations, Azure Storage sends requests to Azure Key Vault to wrap and unwrap the account encryption key to perform encryption and decryption operations.
 
-To revoke access to customer-managed keys on the storage account, use PowerShell or Azure CLI. For more information, see [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) or [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). Revoking access effectively blocks access to all data in the storage account, as the encryption key is inaccessible by Azure Storage.
+### Enable customer-managed keys for a storage account
+
+When you enable encryption with customer-managed keys for a storage account, Azure Storage wraps the account encryption key with the customer key in the associated key vault. Enabling customer-managed keys does not impact performance, and the account is encrypted with the new key immediately, without any time delay.
+
+A new storage account is always encrypted using Microsoft-managed keys. It's not possible to enable customer-managed keys at the time that the account is created. Customer-managed keys are stored in Azure Key Vault, and the key vault must be provisioned with access policies that grant key permissions to the managed identity that is associated with the storage account. The managed identity is available only after the storage account is created.
 
 To learn how to use customer-managed keys with Azure Key Vault for Azure Storage encryption, see one of these articles:
 
@@ -82,12 +86,26 @@ To learn how to use customer-managed keys with Azure Key Vault for Azure Storage
 - [Configure customer-managed keys with Key Vault for Azure Storage encryption from PowerShell](storage-encryption-keys-powershell.md)
 - [Configure customer-managed keys with Key Vault for Azure Storage encryption from Azure CLI](storage-encryption-keys-cli.md)
 
-A new storage account is always encrypted using Microsoft-managed keys. It's not possible to enable customer-managed keys at the time that the account is created. Customer-managed keys are stored in Azure Key Vault, and the key vault must be provisioned with access policies that grant key permissions to the managed identity that is associated with the storage account. The managed identity is available only after the storage account is created. 
-
-When you enable encryption with customer-managed keys for a storage account, Azure Storage wraps the account encryption key with the customer key in the associated key vault. Enabling customer-managed keys does not impact performance, and the account is encrypted with the new key immediately, without any time delay.
-
 > [!IMPORTANT]
 > Customer-managed keys rely on managed identities for Azure resources, a feature of Azure Active Directory (Azure AD). When you configure customer-managed keys in the Azure portal, a managed identity is automatically assigned to your storage account under the covers. If you subsequently move the subscription, resource group, or storage account from one Azure AD directory to another, the managed identity associated with the storage account is not transferred to the new tenant, so customer-managed keys may no longer work. For more information, see **Transferring a subscription between Azure AD directories** in [FAQs and known issues with managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).  
+
+### Store customer-managed keys in Azure Key Vault
+
+To enable customer-managed keys on a storage account, you must use an Azure Key Vault to store your keys. You must enable both the **Soft Delete** and **Do Not Purge** properties on the key vault.
+
+The key vault must be located in the same subscription as the storage account. Azure Storage uses managed identities for Azure resources to authenticate to the key vault for encryption and decryption operations. Managed identities do not currently support cross-directory scenarios.
+
+### Rotate customer-managed keys
+
+You can rotate a customer-managed key in Azure Key Vault according to your compliance policies. When the key is rotated, you must update the storage account to use the new key URI. To learn how to update the storage account to use a new version of the key in the Azure portal, see the section titled **Update the key version** in [Configure customer-managed keys for Azure Storage by using the Azure portal](storage-encryption-keys-portal.md).
+
+Rotating the key does not trigger re-encryption of data in the storage account. There is no further action required from the user.
+
+### Revoke access to customer-managed keys
+
+To revoke access to customer-managed keys, use PowerShell or Azure CLI. For more information, see [Azure Key Vault PowerShell](/powershell/module/az.keyvault//) or [Azure Key Vault CLI](/cli/azure/keyvault). Revoking access effectively blocks access to all data in the storage account, as the encryption key is inaccessible by Azure Storage.
+
+### Customer-managed keys for Azure managed disks (preview)
 
 Customer-managed keys are also available for managing encryption of Azure managed disks (preview). Customer-managed keys behave differently for managed disks than for Azure Storage resources. For more information, see [Server side encryption of Azure managed disks](../../virtual-machines/windows/disk-encryption.md) for Windows or [Server side encryption of Azure managed disks](../../virtual-machines/linux/disk-encryption.md) for Linux.
 
