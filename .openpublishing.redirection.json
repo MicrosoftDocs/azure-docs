@@ -42417,6 +42417,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/iot-central/preview/howto-configure-rules.md",
+      "redirect_url": "/azure/iot-central/core/howto-configure-rules/",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/iot-central/preview/index.yml",
       "redirect_url": "/azure/iot-central/core/",
       "redirect_document_id": true

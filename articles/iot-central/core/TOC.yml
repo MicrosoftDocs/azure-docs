@@ -61,6 +61,8 @@
         href: howto-set-up-template.md
       - name: Manage your devices
         href: howto-manage-devices.md
+      - name: Configure rules
+        href: howto-configure-rules.md
       - name: Run a job
         href: howto-run-a-job.md
       - name: Version device template
