@@ -36031,11 +36031,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-central/core/overview-iot-central-transform.md",
-      "redirect_url": "/azure/iot-central/preview/overview-iot-central-transform",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/iot-central/core/howto-create-event-rules-pnp.md",
       "redirect_url": "/azure/iot-central/preview/tutorial-create-telemetry-rules",
       "redirect_document_id": false

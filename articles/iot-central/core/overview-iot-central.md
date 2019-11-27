@@ -144,4 +144,4 @@ Now that you have an overview of IoT Central, here are suggested next steps:
 - Familiarize yourself with the [Azure IoT Central UI](overview-iot-central-tour.md).
 - Get started by [creating an Azure IoT Central application](quick-deploy-iot-central.md).
 - Learn more about [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md)
-- Learn how to [Create Azure IoT Edge Device template](./tutorial-define-edge-device-type.md)
+- Learn how to [Create Azure IoT Edge Device template](../preview/tutorial-define-edge-device-type.md)
