@@ -381,8 +381,8 @@ When you enable the **Allow trusted Microsoft services...** setting, resources o
 
 The **Allow trusted Microsoft services...** setting also allows a particular instance of the below services to access the storage account, if you explicitly [assign an RBAC role](storage-auth-aad.md#assign-rbac-roles-for-access-rights) to the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for that resource instance. In this case, the scope of access for the instance corresponds to the RBAC role assigned to the managed identity.
 
-| Service                        | Resource Provider Name          | Purpose                            |
-| :----------------------------- | :------------------------------------- | :--------------------------------- |
+| Service                        | Resource Provider Name          | Purpose            |
+| :----------------------------- | :------------------------------------- | :---------- |
 | Azure Container Registry Tasks | Microsoft.ContainerRegistry/registries | ACR Tasks can access storage accounts when building container images. |
 | Azure Data Factory             | Microsoft.DataFactory/factories        | Allows access to storage accounts through the ADF runtime. |
 | Azure Logic Apps               | Microsoft.Logic/workflows              | Enables logic apps to access storage accounts. [Learn more](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity.md). |
