@@ -55,33 +55,34 @@ Data sources and connectors shown in Get Data or Table Import Wizard in Visual S
 |OData Feed      |  Yes | No | <sup>[6](#tab1400b)</sup> |
 |ODBC query     | Yes | No |  |
 |OLE DB     |   Yes | No |  |
-|Oracle  | Yes  |Yes  | <sup>[8](#oracle)</sup> |
+|Oracle  | Yes  |Yes  | <sup>[9](#oracle)</sup> |
 |PostgreSQL Database   | Yes | No | <sup>[6](#tab1400b)</sup> |
 |Salesforce Objects|  Yes | No | <sup>[6](#tab1400b)</sup> |
 |Salesforce Reports |Yes | No | <sup>[6](#tab1400b)</sup> |
 |SAP HANA     |  Yes | No |  |
 |SAP Business Warehouse    |  Yes | No | <sup>[6](#tab1400b)</sup> |
-|SharePoint List      |   Yes | No | <sup>[6](#tab1400b)</sup>, <sup>[10](#filesSP)</sup> |
-|SQL Server |Yes   | Yes  | <sup>[7](#sqlim)</sup> | 
-|SQL Server Data Warehouse |Yes   | Yes  | <sup>[7](#sqlim)</sup> |
+|SharePoint List      |   Yes | No | <sup>[6](#tab1400b)</sup>, <sup>[11](#filesSP)</sup> |
+|SQL Server |Yes   | Yes  | <sup>[7](#sqlim)</sup>, <sup>[8](#instgw)</sup> | 
+|SQL Server Data Warehouse |Yes   | Yes  | <sup>[7](#sqlim)</sup>, <sup>[8](#instgw)</sup> |
 |Sybase Database     |  Yes | No |  |
-|Teradata | Yes  | Yes  | <sup>[9](#teradata)</sup> |
+|Teradata | Yes  | Yes  | <sup>[10](#teradata)</sup> |
 |TXT file  |Yes | No |  |
 |XML table    |  Yes | No | <sup>[6](#tab1400b)</sup> |
 | | | |
 
 **Notes:**   
 <a name="tab1400b">6</a> - Tabular 1400 and higher models only.  
-<a name="sqlim">7</a> - When specified as a *provider* data source in tabular 1200 and higher models, specify Microsoft OLE DB Driver for SQL Server MSOLEDBSQL (recommended), SQL Server Native Client 11.0, or .NET Framework Data Provider for SQL Server.   
-<a name="oracle">8</a> - For tabular 1200 models, or as a *provider* data source in tabular 1400+ models, specify Oracle Data Provider for .NET.   
-<a name="teradata">9</a> - For tabular 1200 models, or as a *provider* data source in tabular 1400+ models, specify Teradata Data Provider for .NET.   
-<a name="filesSP">10</a> - Files in on-premises SharePoint are not supported.
+<a name="sqlim">7</a> - When specified as a *provider* data source in tabular 1200 and higher models, specify Microsoft OLE DB Driver for SQL Server MSOLEDBSQL (recommended), SQL Server Native Client 11.0, or .NET Framework Data Provider for SQL Server.  
+<a name="instgw">8</a> - If specifying MSOLEDBSQL as the data provider, it may be necessary to download and install the [Microsoft OLE DB Driver for SQL Server](https://docs.microsoft.com/sql/connect/oledb/oledb-driver-for-sql-server) on the computer same computer as the On-premises data gateway.  
+<a name="oracle">9</a> - For tabular 1200 models, or as a *provider* data source in tabular 1400+ models, specify Oracle Data Provider for .NET.  
+<a name="teradata">10</a> - For tabular 1200 models, or as a *provider* data source in tabular 1400+ models, specify Teradata Data Provider for .NET.   
+<a name="filesSP">11</a> - Files in on-premises SharePoint are not supported.
 
-Connecting to on-premises data sources from an Azure Analysis Services server require an On-premises gateway. When using a gateway, 64-bit providers are required. 
+Connecting to on-premises data sources from an Azure Analysis Services server require an [On-premises gateway](analysis-services-gateway.md). When using a gateway, 64-bit providers are required. 
 
 ## Understanding providers
 
-When creating tabular 1400 and higher model projects in Visual Studio, by default you do not specify a data provider when connecting to a data source by using **Get Data**. Tabular 1400 and higher models use [Power Query](/power-query/power-query-what-is-power-query.md) connectors to manage connections, data queries, and mashups between the data source and Analysis Services. These are sometimes referred to as *structured* data source connections in that connection property settings are set for you. You can, however, enable legacy data sources. When enabled, you can use **Table Import Wizard** to connect to certain data sources traditionally supported in tabular 1200 and lower models as *legacy*, or *provider* data sources. When specified as a provider data source, you can specify a particular data provider and other advanced connection properties. For example, you can connect to an on-premises SQL Server Data Warehouse or even an Azure SQL Database as a legacy data source. You can select the OLE DB Driver for SQL Server MSOLEDBSQL data provider. In this case, selecting an OLE DB data provider may provide improved performance over the Power Query connector. 
+When creating tabular 1400 and higher model projects in Visual Studio, by default you do not specify a data provider when connecting to a data source by using **Get Data**. Tabular 1400 and higher models use [Power Query](/power-query/power-query-what-is-power-query.md) connectors to manage connections, data queries, and mashups between the data source and Analysis Services. These are sometimes referred to as *structured* data source connections in that connection property settings are set for you. You can, however, enable legacy data sources. When enabled, you can use **Table Import Wizard** to connect to certain data sources traditionally supported in tabular 1200 and lower models as *legacy*, or *provider* data sources. When specified as a provider data source, you can specify a particular data provider and other advanced connection properties. For example, you can connect to an on-premises SQL Server Data Warehouse or even an Azure SQL Database as a legacy data source. You can then select the OLE DB Driver for SQL Server MSOLEDBSQL data provider. In this case, selecting an OLE DB data provider may provide improved performance over the Power Query connector. 
 
 When using the Table Import Wizard in Visual Studio, connections to any data source require a data provider. A default data provider is selected for you. You can change the data provider if needed. The type of provider you choose can depend on performance, whether or not the model is using in-memory storage or DirectQuery, and which Analysis Services platform you deploy your model to.
 
@@ -95,7 +96,7 @@ With legacy data sources enabled, in **Tabular Model Explorer**, right-click **D
 
 ![Legacy data sources in Tabular Model Explorer](media/analysis-services-datasource/aas-import-legacy-datasources.png)
 
-Just like with tabular 1200 model projects, use **Table Import Wizard** to connect to a data source. On the connect page, click **Advanced**. You can specify data provider and other connection settings in **Set Advanced Properties**.
+Just like with tabular 1200 model projects, use **Table Import Wizard** to connect to a data source. On the connect page, click **Advanced**. Specify data provider and other connection settings in **Set Advanced Properties**.
 
 ![Legacy data sources Advanced properties](media/analysis-services-datasource/aas-import-legacy-advanced.png)
 
