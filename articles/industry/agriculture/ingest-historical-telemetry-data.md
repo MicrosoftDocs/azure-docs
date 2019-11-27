@@ -1,6 +1,6 @@
 ---
-title: Ingest Historical Telemetry Data
-description: Describes how to ingest historical telemetry data
+title: Ingest historical telemetry data
+description: This article describes how to ingest historical telemetry data.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
@@ -15,13 +15,13 @@ Ingesting historical data from Internet of Things (IoT) resources such as device
 
 ## Before you begin
 
-Before you proceed with this article, make sure that you've installed FarmBeats and collected historical data from IoT.
+Before you proceed with this article, make sure that you've installed FarmBeats and collected historical data from the IoT.
 
 ## Enable partner access
 
 You need to enable partner integration to your Azure FarmBeats instance. This step creates a client that has access to your Azure FarmBeats instance as your device partner and provides you with the following values that are required in the subsequent steps:
 
-- API endpoint: This is the data hub URL, for example, https://<datahub>.azurewebsites.net.
+- API endpoint: This is the Datahub URL, for example, https://<datahub>.azurewebsites.net.
 - Tenant ID
 - Client ID
 - Client secret
@@ -48,7 +48,7 @@ Follow these steps.
 5. Go to the directory where the files were uploaded.
 
    >[!NOTE]
-   > By default, files get uploaded to the home directory/home/username/.
+   > By default, files get uploaded to the home directory/home/username.
 6. Run the script by using this command: 
 
     ```azurepowershell-interactive
@@ -63,9 +63,9 @@ Follow these steps.
 
  FarmBeats Datahub has the following APIs that enable creation and management of device or sensor metadata. 
 
-- /**DeviceModel**: DeviceModel corresponds to the metadata of the device, such as the manufacturer and the type of device, which is either gateway or node. 
+- /**DeviceModel**: DeviceModel corresponds to the metadata of the device, such as the manufacturer and the type of device, which is either a gateway or a node. 
 - /**Device**: Device corresponds to a physical device present on the farm. 
-- /**SensorModel**: SensorModel corresponds to the metadata of the sensor, such as the manufacturer, the type of sensor, which is either analog or digital, and the sensor measurement, such as ambient temperature or pressure.
+- /**SensorModel**: SensorModel corresponds to the metadata of the sensor, such as the manufacturer, the type of sensor, which is either analog or digital, and the sensor measurement, such as ambient temperature and pressure.
 - /**Sensor**: Sensor corresponds to a physical sensor that records values. A sensor is typically connected to a device with a device ID.  
 
 
@@ -82,7 +82,7 @@ Follow these steps.
 |   DeviceModelId     |     ID of the associated device model.  |
 |  HardwareId	       | Unique ID for the device, such as the MAC address.
 |  ReportingInterval        |   Reporting interval in seconds.
-|  Location            |  Device latitude (-90 to +90)/Longitude (-180 to 180)/Elevation (in meters).   
+|  Location            |  Device latitude (-90 to +90), longitude (-180 to 180), and elevation (in meters).   
 |ParentDeviceId       |    ID of the parent device to which this device is connected. For example, a node that's connected to a gateway. A node has parentDeviceId as the gateway.  |
 |    Name            | A name to identify the resource. Device partners must send a name that's consistent with the device name on the partner side. If the partner device name is user defined, then the same user-defined name should be propagated to FarmBeats.|
 |     Description       |      Provide a meaningful description. |
@@ -102,7 +102,7 @@ Follow these steps.
 |    **Sensor**      |          |
 | HardwareId          |   Unique ID for the sensor set by the manufacturer. |
 |  SensorModelId     |    ID of the associated sensor model.   |
-| Location          |  Sensor latitude (-90 to +90)/Longitude (-180 to 180)/Elevation (in meters).|
+| Location          |  Sensor latitude (-90 to +90), longitude (-180 to 180), and elevation (in meters).|
 |   Port > name	       |  Name and type of the port that the sensor is connected to on the device. This needs to be the same name as defined in the device model. |
 |    DeviceID  |    ID of the device that the sensor is connected to.     |
 | Name	          |   Name to identify resource. For example, sensor name or product name and model number or product code.|
@@ -113,7 +113,7 @@ For more information about objects, see [Swagger](https://aka.ms/FarmBeatsDatahu
 
 ### API request to create metadata
 
-To make an API request, you combine the HTTP (POST) method, the URL to the API service, and the URI to a resource to query. Then you submit data to create or delete a request and add one or more HTTP request headers. The URL to the API service is the API endpoint, that is, the data hub URL (https://<yourdatahub>.azurewebsites.net). 
+To make an API request, you combine the HTTP (POST) method, the URL to the API service, and the URI to a resource to query, submit data to, create, or delete a request, and then add one or more HTTP request headers. The URL to the API service is the API endpoint, that is, the Datahub URL (https://<yourdatahub>.azurewebsites.net). 
 
 ### Authentication
 
@@ -123,7 +123,7 @@ FarmBeats Datahub uses bearer authentication, which needs the following credenti
 - Client secret
 - Tenant ID
 
-Using these credentials, the caller can request an access token, which must be sent in the subsequent API requests, in the header section, as follows:
+Using these credentials, the caller can request an access token. The token must be sent in the subsequent API requests, in the header section, as follows:
 
 ```
 headers = *{"Authorization": "Bearer " + access_token, …}*
@@ -241,7 +241,7 @@ Sensor
   }
 }
 ```
-The following sample request is to create a device. This request has an input JSON as payload with the request body. 
+The following sample request creates a device. This request has input JSON as payload with the request body. 
 
 ```bash
 curl -X POST "https://<datahub>.azurewebsites.net/Device" -H  
