@@ -99,8 +99,6 @@ The Azure Identity client library reads values from three environment variables 
 
 For more information, see [Create identity for Azure app in portal](../../active-directory/develop/howto-create-service-principal-portal.md).
 
-## Install client library packages
-
 [!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
 
 ## .NET code example: Create a block blob
