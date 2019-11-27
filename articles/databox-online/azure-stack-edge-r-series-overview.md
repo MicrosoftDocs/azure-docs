@@ -80,7 +80,7 @@ The Azure Stack Edge solution comprises of an Azure Stack Edge resource, Azure S
 
     <!--![The Azure Stack Edge service in Azure portal](media/azure-stack-edge-r-series-overview/data-box-Edge-service1.png)-->
 
-    For more information, go to [Create an order for your Azure Stack Edge device](azure-stack-edge-r-series-deploy-prep.md#create-a-new-resource).
+    For more information, go to [Create an order for your Azure Stack Edge device](azure-stack-edge-r-series-placeholder.md).
 
 * **Azure Stack Edge local web UI** - Use the local web UI to run diagnostics, shut down and restart the Azure Stack Edge device, view copy logs, and contact Microsoft Support to file a service request.
 
