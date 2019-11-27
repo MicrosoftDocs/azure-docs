@@ -36031,11 +36031,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/iot-central/core/overview-iot-central-transform.md",
-      "redirect_url": "/azure/iot-central/preview/overview-iot-central-transform",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/iot-central/core/howto-create-event-rules-pnp.md",
       "redirect_url": "/azure/iot-central/preview/tutorial-create-telemetry-rules",
       "redirect_document_id": false
@@ -42327,6 +42322,90 @@
       "redirect_document_id": true
     },
 
+    {
+      "source_path": "articles/iot-central/preview/howto-version-device-template.md",
+      "redirect_url": "/azure/iot-central/core/howto-version-device-template/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/preview/howto-view-bill.md",
+      "redirect_url": "/azure/iot-central/core/howto-view-bill/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/preview/iot-central-customer-data-requests.md",
+      "redirect_url": "/azure/iot-central/core/iot-central-customer-data-requests/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/preview/iot-central-supported-browsers.md",
+      "redirect_url": "/azure/iot-central/core/iot-central-supported-browsers/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/preview/quick-configure-rules.md",
+      "redirect_url": "/azure/iot-central/core/quick-configure-rules/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/preview/quick-create-pnp-device.md",
+      "redirect_url": "/azure/iot-central/core/quick-create-pnp-device/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/preview/quick-deploy-iot-central.md",
+      "redirect_url": "/azure/iot-central/core/quick-deploy-iot-central/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/preview/quick-monitor-devices.md",
+      "redirect_url": "/azure/iot-central/core/quick-monitor-devices/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/preview/tutorial-connect-pnp-device.md",
+      "redirect_url": "/azure/iot-central/core/tutorial-connect-pnp-device/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/preview/tutorial-create-telemetry-rules.md",
+      "redirect_url": "/azure/iot-central/core/tutorial-create-telemetry-rules/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/preview/tutorial-use-device-groups.md",
+      "redirect_url": "/azure/iot-central/core/tutorial-use-device-groups/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/preview/overview-iot-central-get-connected.md",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central-get-connected/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/preview/overview-iot-central-stay-connected.md",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central-stay-connected/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/preview/overview-iot-central-tour.md",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central-tour/",
+      "redirect_document_id": true
+    },{
+      "source_path": "articles/iot-central/preview/overview-iot-central-transform.md",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central-transform/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/preview/overview-iot-central.md",
+      "redirect_url": "/azure/iot-central/core/overview-iot-central/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-central/preview/overview-iot-options.md",
+      "redirect_url": "/azure/iot-central/core/overview-iot-options/",
+      "redirect_document_id": true
+    },
     {
       "source_path": "articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md",
       "redirect_url": "/azure/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2",
