@@ -77,7 +77,7 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
 
 ## Build and deploy microservice applications
 
-1. Open an [Azure Cloudshell](https://shell.azure.com)  and clone the sample app repository to your local machine.  Here, we first create a temporary directory called `source-code` before cloning the app.
+1. Open an [Azure Cloud Shell](https://shell.azure.com)  and clone the sample app repository to your local machine.  Here, we first create a temporary directory called `source-code` before cloning the app.
 
     ```azurecli
     mkdir source-code
