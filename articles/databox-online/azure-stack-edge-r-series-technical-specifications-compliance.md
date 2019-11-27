@@ -132,4 +132,4 @@ This section lists the specifications related to the enclosure environment such 
 
 ## Next steps
 
-- [Deploy your Azure Stack Edge](azure-stack-edge-r-series-deploy-prep.md)
+- [Deploy your Azure Stack Edge](azure-stack-edge-r-series-placeholder.md)

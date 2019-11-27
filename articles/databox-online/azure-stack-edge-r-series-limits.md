@@ -51,4 +51,4 @@ The following table describes the limits for the Azure Stack Edge device.
 
 ## Next steps
 
-- [Prepare to deploy Azure Stack Edge](azure-stack-edge-r-series-deploy-prep.md)
+- [Prepare to deploy Azure Stack Edge](azure-stack-edge-r-series-placeholder.md)

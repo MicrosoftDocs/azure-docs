@@ -39,7 +39,7 @@ The Azure Stack Edge device is an on-premises device that helps transform your d
 - Has secure boot enabled that ensures the device boots up only using the trusted software provided by Microsoft.
 - Runs Windows Defender Device Guard. Device Guard lets you run only trusted applications that you define in your code-integrity policies.
 - Has a Trusted Platform Module (TPM) that performs hardware-based, security-related functions. Specifically, the TPM manages and protects secrets and data that needs to be persisted on the device.
-- Only the required ports are opened on the device and all the other ports are blocked. For more information, see the list of [Port requirements for Azure Stack Edge appliance](azure-stack-edge-r-series-system-requirements.md#port-requirements-for-Azure-Stack-Edge) .
+- Only the required ports are opened on the device and all the other ports are blocked. For more information, see the list of [Port requirements for Azure Stack Edge appliance](azure-stack-edge-r-series-placeholder.md) .
 
 ### Protect the device via activation key
 
@@ -56,11 +56,11 @@ Passwords ensure that only authorized users can access your data. Azure Stack Ed
 You can:
 
 - Connect to the local web UI of the device via a browser and then provide a password to sign in to the device.
-- Remotely connect to the device PowerShell interface over HTTP. Remote management is turned on by default. Remote management is also configured to use Just Enough Administration (JEA) to limit what the users can do. You can then provide the device password to sign in to the device. For more information, see [Connect remotely to your Azure Stack Edge device](azure-stack-edge-r-series-connect-powershell-interface.md#connect-to-the-powershell-interface).
+- Remotely connect to the device PowerShell interface over HTTP. Remote management is turned on by default. Remote management is also configured to use Just Enough Administration (JEA) to limit what the users can do. You can then provide the device password to sign in to the device. For more information, see [Connect remotely to your Azure Stack Edge device](azure-stack-edge-r-series-placeholder.md).
 - The local Edge user on the device has limited access to the device for initial configuration, and troubleshooting. The compute workloads running on the device, data transfer, and the storage can all be accessed from the Azure public or government portal for the resource in the cloud.
 
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-password-best-practices.md)]
-- Use the local web UI to [change the password](data-box-edge-manage-access-power-connectivity-mode.md#manage-device-access). If you change the password, be sure to notify all remote access users so they don't have problems signing in.
+- Use the local web UI to [change the password](azure-stack-edge-r-series-placeholder.md). If you change the password, be sure to notify all remote access users so they don't have problems signing in.
 
 ### Protect the device via certificates
 
@@ -113,7 +113,7 @@ When the device undergoes a hard reset, a secure wipe is performed on the device
 ### Protect data via storage accounts
 
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-protect-data-storage-accounts.md)]
-- Rotate and then [sync your storage account keys](data-box-edge-manage-shares.md#sync-storage-keys) regularly to help protect your storage account from unauthorized users.
+- Rotate and then [sync your storage account keys](azure-stack-edge-r-series-placeholder.md) regularly to help protect your storage account from unauthorized users.
 
 ## Manage personal information
 
@@ -121,10 +121,10 @@ The Azure Stack Edge service collects personal information in the following scen
 
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-manage-personal-data.md)]
 
-To view the list of users who can access or delete a share, follow the steps in [Manage shares on the Azure Stack Edge](azure-stack-edge-r-series-manage-shares.md).
+To view the list of users who can access or delete a share, follow the steps in [Manage shares on the Azure Stack Edge](azure-stack-edge-r-series-placeholder.md).
 
 For more information, review the Microsoft privacy policy on the [Trust Center](https://www.microsoft.com/trustcenter).
 
 ## Next steps
 
-[Deploy your Azure Stack Edge device](azure-stack-edge-r-series-deploy-prep.md)
+[Deploy your Azure Stack Edge device](azure-stack-edge-r-series-placeholder.md)

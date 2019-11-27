@@ -86,7 +86,7 @@ The Azure Stack Edge solution comprises of an Azure Stack Edge resource, Azure S
 
     <!--![The Azure Stack Edge local web UI](media/azure-stack-edge-r-series-overview/azure-stack-edge-local-web-ui.png)-->
 
-    For information about using the web-based UI, go to [Use the web-based UI to administer your Azure Stack Edge](azure-stack-edge-r-series-manage-access-power-connectivity-mode.md).
+    For information about using the web-based UI, go to [Use the web-based UI to administer your Azure Stack Edge](azure-stack-edge-r-series-placeholder.md).
 
 
 ## Region availability
@@ -102,5 +102,5 @@ Azure Stack Edge physical device, Azure resource, and target storage account to 
 
 - Review the [Azure Stack Edge system requirements](azure-stack-edge-r-series-system-requirements.md).
 - Understand the [Azure Stack Edge limits](azure-stack-edge-r-series-limits.md).
-- Deploy [Azure Azure Stack Edge](azure-stack-edge-r-series-deploy-prep.md) in Azure portal.
+- Deploy [Azure Azure Stack Edge](azure-stack-edge-r-series-placeholder.md) in Azure portal.
 
