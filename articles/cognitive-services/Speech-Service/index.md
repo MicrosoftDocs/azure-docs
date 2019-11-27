@@ -242,8 +242,8 @@ description: Get started with the Speech Services.
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Documentation</h3>
-                                                    <p>Learn more about the Speech service and how to use it in your apps, tools, and products.</p>
+                                                    <h3>Read the docs</h3>
+                                                    <p>Learn how to add speech synthesis to your apps, tools, and products. Includes concepts, tutorials, API reference, and release notes.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -423,8 +423,8 @@ description: Get started with the Speech Services.
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Documentation</h3>
-                                                    <p>Learn more about the Speech service and how to use it in your apps, tools, and products.</p>
+                                                    <h3>Read the docs</h3>
+                                                    <p>Learn how to add speech translation to your apps, tools, and products. Includes concepts, tutorials, API reference, and release notes.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -886,7 +886,7 @@ description: Get started with the Speech Services.
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Call center transcription</h3>
-                                                    <p>Learn how to use the appropriate technologies available from Speech Services for telephony data application scenarios.</p>
+                                                    <p>A common scenario for speech-to-text is transcribing large volumes of telephony data that may come from sources like an Interactive Voice Response (IVR) system. </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -928,27 +928,8 @@ description: Get started with the Speech Services.
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Deploy Docker containers</h3>
-                                                    <p>Learn how to use the Speech service with containers.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>                            
-                            <li>
-                                <a href="speech-container-howto-on-premises.md">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="https://docs.microsoft.com/media/illustrations/virtualization-containers-samples.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Orchestration with Kubernetes & Helm</h3>
-                                                    <p>Leverage industry-leading container orchestration, with on-premises Kubernetes clusters and Speech containers.</p>
+                                                    <h3>Deploy Speech service to containers</h3>
+                                                    <p>Use Docker to deploy the Speech service to a container instance.</p>
                                                 </div>
                                             </div>
                                         </div>
