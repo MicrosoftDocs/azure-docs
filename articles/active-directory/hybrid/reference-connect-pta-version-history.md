@@ -70,3 +70,7 @@ Here are related topics:
 08/31/2017: Released for download  
 ### New features and improvements 
 - GA version of the Azure AD Pass-through authentication agent 
+
+## Next steps
+
+- [User sign-in with Azure Active Directory Pass-through Authentication](how-to-connect-pta.md)
