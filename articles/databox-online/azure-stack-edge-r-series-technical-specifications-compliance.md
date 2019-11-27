@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 11/18/2019
+ms.date: 11/26/2019
 ms.author: alkohli
 ---
 # Azure Stack Edge technical specifications
@@ -89,12 +89,14 @@ The device package weighs XX lbs. and requires two persons to handle it. The wei
 
 |     Enclosure                                 |     Weight          |
 |-----------------------------------------------|---------------------|
-|    Total weight including the rugged case     |    61 lbs.          |
-|    Weight of the device                       |    35 lbs.          |
+|    Total weight including the rugged case     |    XX lbs.          |
+|    Weight of the device                       |    XX lbs.          |
 
 ## Enclosure environment specifications
 
-This section lists the specifications related to the enclosure environment such as temperature, humidity, and altitude.
+TBD
+<!--This section lists the specifications related to the enclosure environment such as temperature, humidity, and altitude.
+
 
 ### Temperature and humidity
 
@@ -107,7 +109,7 @@ This section lists the specifications related to the enclosure environment such 
 
 |     Enclosure                           |     Operational specifications                                                                                                                                                                                         |
 |-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    Airflow                              |    System airflow is front to rear. System must be operated with a low-pressure, rear-exhaust installation. <!--Back pressure created by rack doors and obstacles should not exceed 5 pascals (0.5 mm water gauge).-->    |
+|    Airflow                              |    System airflow is front to rear. System must be operated with a low-pressure, rear-exhaust installation. <!--Back pressure created by rack doors and obstacles should not exceed 5 pascals (0.5 mm water gauge).   |
 |    Maximum altitude, operational        |    3048 meters (10,000 feet) with maximum operating temperature de-rated determined by [Operating temperature de-rating specifications](#operating-temperature-de-rating-specifications).                                                                                |
 |    Maximum altitude, non-operational    |    12,000 meters (39,370 feet)                                                                                                                                                                                         |
 |    Shock, operational                   |    6 G for 11 milliseconds in 6 orientations                                                                                                                                                                         |
@@ -128,7 +130,7 @@ This section lists the specifications related to the enclosure environment such 
 |    Up to 35°C (95°F)                       |    Maximum temperature is reduced by 1°C/300 m (1°F/547 ft) above 950 m (3,117 ft).    |
 |    35°C to 40°C (95°F to 104°F)            |    Maximum temperature is reduced by 1°C/175 m (1°F/319 ft) above 950 m (3,117 ft).    |
 |    40°C to 45°C (104°F to 113°F)           |    Maximum temperature is reduced by 1°C/125 m (1°F/228 ft) above 950 m (3,117 ft).    |
-
+End of this section-->
 
 ## Next steps
 

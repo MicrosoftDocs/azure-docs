@@ -7,19 +7,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 11/18/2019
+ms.date: 11/26/2019
 ms.author: alkohli
 ---
-# Azure Stack Edge security and data protection
+# Security and data protection for Azure Stack Edge Rugged series 
 
-Security is a major concern when you're adopting a new technology, especially if the technology is used with confidential or proprietary data. Azure Stack Edge helps you ensure that only authorized entities can view, modify, or delete your data.
+Security is a major concern when you're adopting a new technology, especially if the technology is used with confidential or proprietary data. Azure Stack Edge Rugged series helps you ensure that only authorized entities can view, modify, or delete your data.
 
-This article describes the Azure Stack Edge security features that help protect each of the solution components and the data stored in them.
+This article describes the Azure Stack Edge Rugged series security features that help protect each of the solution components and the data stored in them.
 
 Azure Stack Edge consists of four main components that interact with each other:
 
 - **Azure Stack Edge service, hosted in Azure public or Azure Government cloud**. The management resource that you use to create the device order, configure the device, and then track the order to completion.
-- **Azure Stack Edge device**. The transfer device that's shipped to you so you can import your on-premises data into Azure public or Azure Government cloud.
+- **Azure Stack Edge device**. The rugged, physical device that's shipped to you so you can import your on-premises data into Azure public or Azure Government cloud.
 - **Clients/hosts connected to the device**. The clients in your infrastructure that connect to the Azure Stack Edge device and contain data that needs to be protected.
 - **Cloud storage**. The location in the Azure cloud platform where data is stored. This location is typically the storage account linked to the Azure Stack Edge resource that you create.
 
@@ -47,7 +47,7 @@ Only an authorized Azure Stack Edge device is allowed to join the Azure Stack Ed
 
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-activation-key.md)]
 
-For more information, see [Get an activation key](data-box-edge-deploy-prep.md#get-the-activation-key).
+For more information, see [Get an activation key](azure-stack-edge-r-series-placeholder.md).
 
 ### Protect the device via password
 
