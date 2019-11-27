@@ -1,14 +1,8 @@
 ---
-title: 'Azure Backup: Back up Azure VMs using REST API'
+title: Back up Azure VMs using REST API
 description: In this article, learn how to configure, initiate, and manage backup operations of Azure VM Backup using REST API.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: REST API; Azure VM backup; Azure VM restore;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.author: dacurwin
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
 ---
 

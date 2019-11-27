@@ -104,7 +104,7 @@
         - name: Manage users and roles
           href: how-to-assign-roles.md
         - name: Use virtual networks
-          displayName: vnet
+          displayName: vnet, blob
           href: how-to-enable-virtual-network.md
         - name: Secure web services with SSL
           href: how-to-secure-web-service.md
@@ -194,7 +194,7 @@
       - name: "Predict flight delays"
         displayName: classification, studio
         href:  how-to-designer-sample-classification-flight-delay.md
-      - name: "Test classification"
+      - name: "Text classification"
         displayName: classification, studio
         href:  how-to-designer-sample-text-classification.md
     - name: Use estimators for ML
@@ -281,6 +281,9 @@
     - name: Azure App Service
       displayName: web app
       href: how-to-deploy-app-service.md
+    - name: Azure Functions
+      displayName: functions app
+      href: how-to-deploy-functions.md
     - name: Notebook VMs
       href: how-to-deploy-local-container-notebook-vm.md
     - name: Use custom Docker image
@@ -299,8 +302,8 @@
       displayName: score scoring asynchronous consume pipeline parallelrunstep inference
       href: how-to-run-batch-predictions.md
     - name: Use the designer for batch predictions
-      displayName: score scoring asynchronous consume pipeline parallelrunstep inference
-      href: how-to-run-batch-predictions-ui.md
+      displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
+      href: how-to-run-batch-predictions-designer.md
   - name: Monitor models
     items:
     - name: Collect & evaluate model data

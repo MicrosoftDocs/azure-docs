@@ -1,12 +1,12 @@
 ---
 title: Azure Private DNS FAQ
-description: Frequently asked questions about Azure Private DNS
+description: In this article, learn frequently asked questions about Azure Private DNS
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: article
 ms.date: 10/05/2019
-ms.author: victorh
+ms.author: allensu
 ---
 # Azure Private DNS FAQ
 

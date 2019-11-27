@@ -1,11 +1,7 @@
 ---
 title: Using Chef with Azure
 description: Introduction to using Chef to configure and test your Azure infrastructure
-ms.service: virtual-machines-linux
 keywords:  azure, chef, devops, virtual machines, overview, automate
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
 ---

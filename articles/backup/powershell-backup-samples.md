@@ -1,12 +1,8 @@
 ---
-title: Azure Backup PowerShell Samples
+title: PowerShell Samples
 description: This article provides links to PowerShell script samples that use Azure Backup to back up and restore data.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: sample
 ms.date: 01/31/2019
-ms.author: dacurwin
 ms.custom: mvc
 ---
 # Azure Backup PowerShell samples

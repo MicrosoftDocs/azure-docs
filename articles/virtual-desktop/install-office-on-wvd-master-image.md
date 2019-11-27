@@ -32,10 +32,9 @@ The Office Deployment Tool requires a configuration XML file. To customize the f
 
 This sample configuration XML we've provided will do the following things:
 
-- Install Office from the Insiders Channel and deliver updates from the Insiders Channel when they’re executed.
+- Install Office from the monthly channel and deliver updates from the monthly channel when they’re executed.
 - Use the x64 architecture.
 - Disable automatic updates.
-- Install Visio and Project.
 - Remove any existing installations of Office and migrate their settings.
 - Enable shared computer activation.
 
@@ -58,40 +57,26 @@ Setup.exe /configure configuration.xml
 
 #### Sample configuration.xml
 
-The following XML sample will install the Insiders release.
+The following XML sample will install the monthly release.
 
 ```xml
 <Configuration>
-    <Add OfficeClientEdition="64" SourcePath="https://officecdn.microsoft.com/pr/5440fd1f-7ecb-4221-8110-145efaa6372f">
-        <Product ID="O365ProPlusRetail">
-            <Language ID="en-US" />
-            <Language ID="MatchOS" Fallback = "en-US"/>
-            <Language ID="MatchPreviousMSI" />
-            <ExcludeApp ID="Groove" />
-            <ExcludeApp ID="Lync" />
-            <ExcludeApp ID="OneDrive" />
-            <ExcludeApp ID="Teams" />
-        </Product>
-        <Product ID="VisioProRetail">
-            <Language ID="en-US" />
-            <Language ID="MatchOS" Fallback = "en-US"/>
-            <Language ID="MatchPreviousMSI" />
-            <ExcludeApp ID="Teams" /> 
-        </Product>
-        <Product ID="ProjectProRetail">
-            <Language ID="en-US" />
-            <Language ID="MatchOS" Fallback = "en-US"/>
-            <Language ID="MatchPreviousMSI" />
-            <ExcludeApp ID="Teams" />
-        </Product>
-    </Add>
-    <RemoveMSI All="True" />
-    <Updates Enabled="FALSE" UpdatePath="https://officecdn.microsoft.com/pr/5440fd1f-7ecb-4221-8110-145efaa6372f" />
-    <Display Level="None" AcceptEULA="TRUE" />
-    <Logging Level="Verbose" Path="%temp%\WVDOfficeInstall" />
-    <Property Value="TRUE" Name="FORCEAPPSHUTDOWN"/>
-    <Property Value="1" Name="SharedComputerLicensing"/>
-    <Property Value="TRUE" Name="PinIconsToTaskbar"/>
+  <Add OfficeClientEdition="64" Channel="Monthly">
+    <Product ID="O365ProPlusRetail">
+      <Language ID="en-US" />
+      <Language ID="MatchOS" />
+      <ExcludeApp ID="Groove" />
+      <ExcludeApp ID="Lync" />
+      <ExcludeApp ID="OneDrive" />
+      <ExcludeApp ID="Teams" />
+    </Product>
+  </Add>
+  <RemoveMSI/>
+  <Updates Enabled="FALSE"/>
+  <Display Level="None" AcceptEULA="TRUE" />
+  <Logging Level=" Standard" Path="%temp%\WVDOfficeInstall" />
+  <Property Name="FORCEAPPSHUTDOWN" Value="TRUE"/>
+  <Property Name="SharedComputerLicensing" Value="1"/>
 </Configuration>
 ```
 

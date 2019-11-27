@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: Overview of Azure Blueprints
+  - name: What is Azure Blueprints?
     displayName: templates, policy, definition, assignment, rbac
     href: overview.md
 - name: Quickstarts
@@ -71,6 +71,9 @@
     - name: Control mapping
       displayName: standards, irs, 1075
       href: ./samples/irs-1075/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, irs, 1075
+      href: ./samples/irs-1075/deploy.md
   - name: ISO 27001
     items:
     - name: Overview
@@ -200,7 +203,7 @@
 - name: Troubleshoot
   displayName: errors, violation
   href: ./troubleshoot/general.md
-- name: References
+- name: Reference
   items:
   - name: Azure PowerShell
     href: /powershell/module/az.blueprint/#blueprint

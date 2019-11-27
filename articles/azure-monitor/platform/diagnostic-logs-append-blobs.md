@@ -1,6 +1,6 @@
 ---
 title: Prepare for format change to Azure Monitor diagnostic logs
-description: Azure Diagnostic Logs will be moved to use append blobs on November 1, 2018.
+description: Describes the impact and how to update your tooling to handle the new Azure Diagnostic logs that was changed to use append blobs on November 1, 2018.
 author: johnkemnetz
 services: monitoring
 ms.service: azure-monitor

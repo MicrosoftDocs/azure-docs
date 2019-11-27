@@ -18,12 +18,15 @@ ms.author: tomfitz
 ---
 
 # Microsoft.Common.TextBox UI element
+
 A control that can be used to edit unformatted text.
 
 ## UI sample
+
 ![Microsoft.Common.TextBox](./media/managed-application-elements/microsoft.common.textbox.png)
 
 ## Schema
+
 ```json
 {
   "name": "element1",
@@ -40,18 +43,20 @@ A control that can be used to edit unformatted text.
 }
 ```
 
-## Remarks
-- If `constraints.required` is set to **true**, then the text box must have a value to validate successfully. The default value is **false**.
-- `constraints.regex` is a JavaScript regular expression pattern. If specified, then the text box's value must match the pattern to validate successfully. The default value is **null**.
-- `constraints.validationMessage` is a string to display when the text box's value fails validation. If not specified, then the text box's built-in validation messages are used. The default value is **null**.
-- It's possible to specify a value for `constraints.regex` when `constraints.required` is set to **false**. In this scenario, a value isn't required for the text box to validate successfully. If one is specified, it must match the regular expression pattern.
-
 ## Sample output
 
 ```json
 "my text value"
 ```
 
+## Remarks
+
+- If `constraints.required` is set to **true**, then the text box must have a value to validate successfully. The default value is **false**.
+- `constraints.regex` is a JavaScript regular expression pattern. If specified, then the text box's value must match the pattern to validate successfully. The default value is **null**.
+- `constraints.validationMessage` is a string to display when the text box's value fails validation. If not specified, then the text box's built-in validation messages are used. The default value is **null**.
+- It's possible to specify a value for `constraints.regex` when `constraints.required` is set to **false**. In this scenario, a value isn't required for the text box to validate successfully. If one is specified, it must match the regular expression pattern.
+
 ## Next steps
+
 * For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).
 * For a description of common properties in UI elements, see [CreateUiDefinition elements](create-uidefinition-elements.md).
