@@ -40,7 +40,9 @@ Today, you see all operations in the change feed. The functionality where you ca
 
 ## Change feed in Azure Cosmos DB's APIs for Cassandra and MongoDB
 
-The Change Feed feature works differently for these APIs. For the MongoDB API, this is exposed via Change Streams. You can learn about how this feature works [here](mongodb-change-streams.md). For the Cassandra API, because Change Feed is not a feature available in native Cassandra databases, the Azure Cosmos DB Change Feed capability is exposed as a predicate that can be included in a CQL query. You can learn how this implementation works [here](cassandra-change-feed.md).
+The change feed feature works differently in Azure Cosmos DB's APIs for Cassandra and MongoDB what compared to the SQL API. For the MongoDB API, change feed is exposed via change streams. To learn more about the implementation details, see the [Change streams in Azure Cosmos DB’s API](mongodb-change-streams.md). 
+
+Because change feed is not a feature available in native Apache Cassandra databases, the Azure Cosmos DB's change feed capability is exposed as a predicate that you can include in the CQL query. To learn more about the implementation details, see [Change feed in Azure Cosmos DB’s API for Cassandra](cassandra-change-feed.md).
 
 ### Sort order of items in change feed
 

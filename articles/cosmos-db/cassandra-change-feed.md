@@ -66,7 +66,7 @@ In each iteration, the query resumes at the last point changes were read, using 
 
 ```
 
-In order to get the changes to single row (by primary key), you can add the primary key in the query. Here, we are tracking the row where user_id = 1
+In order to get the changes to a single row by primary key, you can add the primary key in the query. The following example shows how to track changes for the row where "user_id = 1"
 
 ```C#
     //Return the latest change for all row in 'user' table where user_id = 1
@@ -85,7 +85,7 @@ The following limitations are applicable when using change feed with Cassandra A
 
 ## Error handling
 
-The following error codes and messages are supported when using change change feed in Cassandra API:
+The following error codes and messages are supported when using change feed in Cassandra API:
 
 * **HTTP error code 429** - When the change feed is throttled, it returns an empty page.
 
