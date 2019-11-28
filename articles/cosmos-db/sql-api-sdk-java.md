@@ -39,6 +39,9 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 
 ## Release notes
 
+### <a name="2.4.5"/>2.4.5
+* Avoiding retry on invalid partition key range error, if user provides pkRangeId.
+
 ### <a name="2.4.4"/>2.4.4
 * Optimized partition key range cache refreshes.
 
