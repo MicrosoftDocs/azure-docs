@@ -42,9 +42,11 @@ In the function chaining pattern, a sequence of functions executes in a specific
 
 ![A diagram of the function chaining pattern](./media/durable-functions-concepts/function-chaining.png)
 
-You can use Durable Functions to implement the function chaining pattern concisely as shown in the following example:
+You can use Durable Functions to implement the function chaining pattern concisely as shown in the following example.
 
-#### C#
+In this example, the values `F1`, `F2`, `F3`, and `F4` are the names of other functions in the function app. You can implement control flow by using normal imperative coding constructs. Code executes from the top down. The code can involve existing language control flow semantics, like conditionals and loops. You can include error handling logic in `try`/`catch`/`finally` blocks.
+
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("Chaining")]
@@ -65,7 +67,9 @@ public static async Task<object> Run(
 }
 ```
 
-#### JavaScript (Functions 2.0 only)
+You can use the `context` parameter [IDurableOrchestrationContext] to invoke other functions by name, pass parameters, and return function output. Each time the code calls `await`, the Durable Functions framework checkpoints the progress of the current function instance. If the process or virtual machine recycles midway through the execution, the function instance resumes from the preceding `await` call. For more information, see the next section, Pattern #2: Fan out/fan in.
+
+# [JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -78,12 +82,12 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-In this example, the values `F1`, `F2`, `F3`, and `F4` are the names of other functions in the function app. You can implement control flow by using normal imperative coding constructs. Code executes from the top down. The code can involve existing language control flow semantics, like conditionals and loops. You can include error handling logic in `try`/`catch`/`finally` blocks.
-
-You can use the `context` parameter [IDurableOrchestrationContext] \(.NET\) and the `context.df` object (JavaScript) to invoke other functions by name, pass parameters, and return function output. Each time the code calls `await` (C#) or `yield` (JavaScript), the Durable Functions framework checkpoints the progress of the current function instance. If the process or VM recycles midway through the execution, the function instance resumes from the preceding `await` or `yield` call. For more information, see the next section, Pattern #2: Fan out/fan in.
+You can use the `context.df` object to invoke other functions by name, pass parameters, and return function output. Each time the code calls `yield`, the Durable Functions framework checkpoints the progress of the current function instance. If the process or virtual machine recycles midway through the execution, the function instance resumes from the preceding `yield` call. For more information, see the next section, Pattern #2: Fan out/fan in.
 
 > [!NOTE]
-> The `context` object in JavaScript represents the entire [function context](../functions-reference-node.md#context-object), not only the [IDurableOrchestrationContext] parameter.
+> The `context` object in JavaScript represents the entire [function context](../functions-reference-node.md#context-object). Access the Durable Functions context using the `df` property on the main context.
+
+---
 
 ### <a name="fan-in-out"></a>Pattern #2: Fan out/fan in
 
