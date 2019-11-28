@@ -189,7 +189,7 @@ The certificates that you created in the previous step will be in the Personal s
 
 The certificates that you created in the previous step must be imported on your Windows client into the appropriate certificate store.
 
-1. The root certificate that you exported as the *.cer* should now be imported in the Trusted Root Certificate Authorities on your client system. For detailed steps, see Import certificates into the Trusted Root Certificate Authorities store.
+1. The root certificate that you exported as the *.cer* should now be imported in the Trusted Root Certificate Authorities on your client system. For detailed steps, see [Import certificates into the Trusted Root Certificate Authorities store](azure-stack-edge-r-series-placeholder.md).
 
 2. The endpoint certificates that you exported as the *.pfx* must be exported as *.cer*. This *.cer* is then imported in the Personal certificate store on your system. For detailed steps, see [Import certificates into the Personal certificate store](azure-stack-edge-r-series-placeholder.md).
 
