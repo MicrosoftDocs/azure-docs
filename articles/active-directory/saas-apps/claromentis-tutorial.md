@@ -169,11 +169,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     b. In the **Entity ID** textbox, enter the Entity ID value.
 
-    c. Upload the **Fereration Metadata XML** file, which you have downloaded from the Azure portal.
+    c. Upload the **Federation Metadata XML** file, which you have downloaded from the Azure portal.
 
     d. Click **Save**.
 
-1. You will now notice all URL’s have been populated within the **Identity Provider** section in the **SAML Config** section.
+1. You will now notice all URLs have been populated within the **Identity Provider** section in the **SAML Config** section.
 
     ![Claromentis Configuration](./media/claromentis-tutorial/config6.png)
 
