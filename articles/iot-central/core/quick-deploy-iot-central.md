@@ -11,7 +11,7 @@ ms.custom: mvc
 manager: corywink
 ---
 
-# Create an Azure IoT Central application (preview features)
+# Create an Azure IoT Central application
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 

@@ -11,7 +11,7 @@ ms.custom: mvc
 manager: philmea
 ---
 
-# Extend Azure IoT Central with custom rules using Stream Analytics, Azure Functions, and SendGrid (preview features)
+# Extend Azure IoT Central with custom rules using Stream Analytics, Azure Functions, and SendGrid
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 

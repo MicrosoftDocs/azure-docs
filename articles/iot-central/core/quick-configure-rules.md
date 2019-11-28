@@ -11,7 +11,7 @@ ms.custom: mvc
 manager: philmea
 ---
 
-# Quickstart: Configure rules and actions for your device in Azure IoT Central (preview features)
+# Quickstart: Configure rules and actions for your device in Azure IoT Central
 
 *This article applies to operators, builders, and administrators.*
 

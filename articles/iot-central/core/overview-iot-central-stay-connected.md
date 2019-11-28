@@ -11,7 +11,7 @@ manager:
 ---
 
 
-# Stay connected with Azure IoT Central (preview features)
+# Stay connected with Azure IoT Central
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 

@@ -10,7 +10,7 @@ services: iot-central
 manager: peterpr
 ---
 
-# Set up and manage a device template (preview features)
+# Set up and manage a device template
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 

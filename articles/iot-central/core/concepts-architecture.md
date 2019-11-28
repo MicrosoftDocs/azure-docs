@@ -10,7 +10,7 @@ services: iot-central
 manager: philmea
 ---
 
-# Azure IoT Central architecture (preview features)
+# Azure IoT Central architecture
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 

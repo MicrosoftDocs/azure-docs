@@ -11,7 +11,7 @@ ms.custom: mvc
 manager: philmea
 ---
 
-# Extend Azure IoT Central with custom analytics using Azure Databricks (preview features)
+# Extend Azure IoT Central with custom analytics using Azure Databricks
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 

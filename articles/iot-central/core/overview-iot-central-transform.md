@@ -10,7 +10,7 @@ services: iot-central
 manager: corywink
 ---
 
-# Transform your IoT data (preview features)
+# Transform your IoT data
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 

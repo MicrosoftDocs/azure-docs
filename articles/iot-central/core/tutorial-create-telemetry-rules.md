@@ -10,7 +10,7 @@ services: iot-central
 manager: philmea
 ---
 
-# Tutorial: Create a rule and set up notifications in your Azure IoT Central application (preview features)
+# Tutorial: Create a rule and set up notifications in your Azure IoT Central application
 
 *This article applies to operators, builders, and administrators.*
 

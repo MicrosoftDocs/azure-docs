@@ -11,7 +11,7 @@ ms.custom: mvc
 manager: corywink
 ---
 
-# Take a tour of the Azure IoT Central UI (preview features)
+# Take a tour of the Azure IoT Central UI
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 

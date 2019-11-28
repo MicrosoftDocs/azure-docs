@@ -10,7 +10,7 @@ services: iot-central
 manager: peterpr
 ---
 
-# Manage devices in your Azure IoT Central application (preview features)
+# Manage devices in your Azure IoT Central application
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 

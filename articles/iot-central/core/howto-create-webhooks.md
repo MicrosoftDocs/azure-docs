@@ -10,7 +10,7 @@ services: iot-central
 manager: corywink
 ---
 
-# Create webhook actions on rules in Azure IoT Central (preview features)
+# Create webhook actions on rules in Azure IoT Central
 
 *This topic applies to builders and administrators.*
 

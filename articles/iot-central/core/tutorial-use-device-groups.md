@@ -10,7 +10,7 @@ services: iot-central
 manager: peterpfr
 ---
 
-# Tutorial: Use device groups to analyze device telemetry (preview features)
+# Tutorial: Use device groups to analyze device telemetry
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 

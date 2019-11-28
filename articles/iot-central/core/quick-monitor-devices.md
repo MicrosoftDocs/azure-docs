@@ -11,7 +11,7 @@ ms.custom: mvc
 manager: philmea
 ---
 
-# Quickstart: Use Azure IoT Central to monitor your devices (preview features)
+# Quickstart: Use Azure IoT Central to monitor your devices
 
 *This article applies to operators, builders, and administrators.*
 

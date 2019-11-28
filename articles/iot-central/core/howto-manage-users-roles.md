@@ -10,7 +10,7 @@ services: iot-central
 manager: corywink
 ---
 
-# Manage users and roles in your IoT Central application (preview features)
+# Manage users and roles in your IoT Central application
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 

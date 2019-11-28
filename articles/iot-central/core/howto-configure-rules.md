@@ -10,7 +10,7 @@ services: iot-central
 manager: philmea
 ---
 
-# Configure rules (preview features)
+# Configure rules
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 

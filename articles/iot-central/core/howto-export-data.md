@@ -10,7 +10,7 @@ ms.service: iot-central
 manager: corywink
 ---
 
-# Export your Azure IoT Central data (preview features)
+# Export your Azure IoT Central data
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
