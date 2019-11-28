@@ -252,7 +252,7 @@ This feature is useful when you want to keep a user session on the same server. 
 
 ### Connection draining
 
-Connection draining helps you gracefully remove back-end pool members during planned service updates. You can apply this setting to all members of a back-end pool during rule creation. It ensures that all de-registering instances of a back-end pool don't receive any new requests. Meanwhile, existing requests are allowed to complete within a configured time limit. Connection draining applies to back-end instances that are explicitly removed from the back-end pool.
+Connection draining helps you gracefully remove back-end pool members during planned service updates. You can apply this setting to all members of a back-end pool during rule creation. It ensures that all de-registering instances of a back-end pool don't receive any new connections. Meanwhile, existing connections are allowed to complete within a configured time limit. Connection draining applies to back-end instances that are explicitly removed from the back-end pool.
 
 ### Protocol
 
