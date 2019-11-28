@@ -74,5 +74,5 @@ For frequently asked questions, see [Peering Service - FAQ](peering-service-faqs
 
 ## Next steps
 
-* Learn more about customer benefits with [Peering Service](https://docs.microsoft.com/en-us/azure/peering-service/).
-* Learn about some of the other Azure key [networking capabilities](https://docs.microsoft.com/en-us/azure/networking/networking-overview).
+* Learn more about customer benefits with [Peering Service](https://docs.microsoft.com/azure/peering-service/).
+* Learn about some of the other Azure key [networking capabilities](https://docs.microsoft.com/azure/networking/networking-overview).

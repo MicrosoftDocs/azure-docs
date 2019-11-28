@@ -56,7 +56,7 @@ We interconnect in as many diverse locations as possible. Traffic from your netw
 | LATAM           | N/A                            |
 
 
-# Additional requirements for Direct Peering
+## Additional requirements for Direct Peering
 
-## Physical connection requirements:
+### Physical connection requirements:
 * Each Direct Peering consists of two connections to two Microsoft edge routers from the Peer's routers located in Peer's edge. Microsoft requires dual BGP sessions across these connections. The peer may choose not to deploy redundant devices at their end.

@@ -56,4 +56,4 @@ For frequently asked questions about Peering, see [Peering - FAQ](peering-faqs.m
     * [Convert a legacy Direct Peering to Azure Resource using Portal](peering-howto-legacydirect-arm-portal.md)
     * [Create or modify Exchange Peering using Portal](peering-howto-exchangepeering-arm-portal.md)
     * [Convert a legacy Exchange Peering to Azure Resource using Portal](peering-howto-legacyexchange-arm-portal.md)
-* Learn about some of the other Azure key [networking capabilities](https://docs.microsoft.com/en-us/azure/networking/networking-overview).
+* Learn about some of the other Azure key [networking capabilities](https://docs.microsoft.com/azure/networking/networking-overview).

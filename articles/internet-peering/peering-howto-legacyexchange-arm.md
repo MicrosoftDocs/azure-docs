@@ -95,7 +95,7 @@ Get-Help Get-AzPeering -detailed
 ```
 For more information, please visit [Peering FAQs](peering-faqs.md)
 
-[!INCLUDE [./includes/peering-feedback](peering-feedback.md)]
+[!INCLUDE [peering-feedback](./includes/peering-feedback.md)]
 
 ## Next steps
 

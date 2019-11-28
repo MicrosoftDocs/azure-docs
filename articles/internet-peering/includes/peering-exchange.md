@@ -68,7 +68,7 @@ Tags              : {}
 
 > [!IMPORTANT]
 > Microsoft will start provisioning the requested peering and the `ConnectionState` will reflect the progress.
-> Please refer to the [Exchange Peering Walkthrough](peering-workflows-exchange.md) document for provisioning related steps.
+> Please refer to the [Exchange Peering Walkthrough](../peering-workflows-exchange.md) document for provisioning related steps.
 
 You can check the ConnectionState as shown below:
 

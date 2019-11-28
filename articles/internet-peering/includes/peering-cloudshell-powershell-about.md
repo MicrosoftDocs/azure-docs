@@ -15,8 +15,8 @@ To run the cmdlets, you can use Azure Cloud Shell, a free interactive shell. It 
 
 |  |   |
 |-----------------------------------------------|---|
-| Open Cloud Shell in your browser. | [![https://shell.azure.com/powershell](./media/launchcloudshell.png)](https://shell.azure.com/powershell) |
-| Click the **Cloud Shell** button on the menu in the upper right of the Azure portal. | [![Cloud Shell in the portal](./media/cloud-shell-menu.png)](https://portal.azure.com) |
+| Open Cloud Shell in your browser. | [![https://shell.azure.com/powershell](../media/launchcloudshell.png)](https://shell.azure.com/powershell) |
+| Click the **Cloud Shell** button on the menu in the upper right of the Azure portal. | [![Cloud Shell in the portal](../media/cloud-shell-menu.png)](https://portal.azure.com) |
 |  |  |
 
 
