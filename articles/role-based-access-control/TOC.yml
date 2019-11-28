@@ -34,7 +34,7 @@
     href: conditional-access-azure-management.md
 - name: How-to guides
   items:
-  - name: Role definitions
+  - name: List role definitions
     items:
     - name: Overview
       href: role-definitions.md
@@ -68,7 +68,7 @@
       href: role-assignments-template.md
   - name: List deny assignments
     items:
-    - name: Deny assignments
+    - name: Overview
       href: deny-assignments.md
     - name: Portal
       href: deny-assignments-portal.md
