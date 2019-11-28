@@ -135,7 +135,7 @@ If VPN is configured on your Azure Stack Edge device, then you will also need a 
 - The VPN certificate must be provided in a *.cer* format.
 - Use the following guidance when creating VPN certificates.
 
-## Create and upload certificates on your device
+## Create and upload certificates
 
 The following section describes the procedure to create signing chain and endpoint certificates, import these certificates on your Windows client, and finally upload these certificates on the device.
 
@@ -158,7 +158,7 @@ You will have a defined way to create the certificates for the devices operating
 Once the certificates are created, the next step is to upload the certificates on your Azure Stack Edge device
 
 
-### Upload certificates on the device
+### Upload certificates 
 
 The certificates that you created in the previous step will be in the Personal store on your client. These certificates need to be exported on your client into appropriate format files that can then be uploaded to your device.
 

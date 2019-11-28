@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 11/26/2019
+ms.date: 11/28/2019
 ms.author: alkohli
 ---
 # Security and data protection for Azure Stack Edge Rugged series 
@@ -40,6 +40,12 @@ The Azure Stack Edge device is an on-premises device that helps transform your d
 - Runs Windows Defender Device Guard. Device Guard lets you run only trusted applications that you define in your code-integrity policies.
 - Has a Trusted Platform Module (TPM) that performs hardware-based, security-related functions. Specifically, the TPM manages and protects secrets and data that needs to be persisted on the device.
 - Only the required ports are opened on the device and all the other ports are blocked. For more information, see the list of [Port requirements for Azure Stack Edge appliance](azure-stack-edge-r-series-placeholder.md) .
+- All the access to the device hardware as well as software is logged. 
+    - For the device software, default firewall logs are collected for inbound and outbound traffic from the device. These logs are bundled in the support package.
+    - For the device hardware, all the device chassis events such as opening and closing of the device chassis, are logged in the device.
+
+    For more information on the specific logs that contain the hardware and software intrusion events and how to get the logs, go to [Gather advanced security logs](azure-stack-edge-r-series-troubleshoot.md). 
+
 
 ### Protect the device via activation key
 
@@ -64,7 +70,7 @@ You can:
 
 ### Protect the device via certificates
 
-Azure Stack Edge appliance lets you Bring Your Own Certificates (BYOC) and install those to be used for all public endpoints. For more information, go to [Upload your certificate](). For a list of all the certificates that can be installed on your device, go to [Manage certificates on your Azure Stack Edge appliance]().
+Azure Stack Edge appliance lets you Bring Your Own Certificates (BYOC) and install those to be used for all public endpoints. For more information, go to [Upload your certificate](azure-stack-edge-r-series-manage-certificates.md#upload-certificates). For a list of all the certificates that can be installed on your device, go to [Manage certificates on your Azure Stack Edge appliance](azure-stack-edge-r-series-manage-certificates.md).
 
 - When you configure compute on your Azure Stack Edge device, an IoT device and an IoT Edge device are created. These devices are automatically assigned symmetric access keys. As a security best practice, these keys are rotated regularly via the IoT Hub service.
 
