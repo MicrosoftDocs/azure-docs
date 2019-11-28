@@ -24,24 +24,24 @@ This article describes how to create a Microsoft Direct Peering by using Azure P
 ## Create and provision a Direct Peering
 
 ### 1. Sign in to Azure portal and select your subscription
-[!INCLUDE [Account](peering-account-portal.md)]
+[!INCLUDE [Account](./includes/peering-account-portal.md)]
 
 ### <a name=create></a> 2. Create a Direct Peering
-[!INCLUDE [direct-peering-basic](peering-direct-portal-basic.md)]
+[!INCLUDE [direct-peering-basic](./includes/peering-direct-portal-basic.md)]
 
-[!INCLUDE [direct-peering-configuration](peering-direct-portal-configuration.md)]
+[!INCLUDE [direct-peering-configuration](./includes/peering-direct-portal-configuration.md)]
 
 ### <a name=get></a> 3. Verify Direct Peering
-[!INCLUDE [peering-direct-get-portal](peering-direct-portal-get.md)]
+[!INCLUDE [peering-direct-get-portal](./includes/peering-direct-portal-get.md)]
 
 ## <a name="modify"></a>Modify a Direct Peering
-[!INCLUDE [peering-direct-modify-portal](peering-direct-portal-modify.md)]
+[!INCLUDE [peering-direct-modify-portal](./includes/peering-direct-portal-modify.md)]
 
 ## <a name="delete"></a> Deprovision a Direct Peering
-[!INCLUDE [peering-direct-delete-portal](peering-direct-portal-delete.md)]
+[!INCLUDE [peering-direct-delete-portal](./includes/peering-direct-portal-delete.md)]
 
 ## Additional Resources
 
 For more information, please visit [Peering FAQs](peering-faqs.md)
 
-[!INCLUDE [peering-feedback](peering-feedback.md)]
+[!INCLUDE [peering-feedback](./includes/peering-feedback.md)]

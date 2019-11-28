@@ -24,24 +24,24 @@ This article describes how to create a Microsoft Exchange Peering by using Azure
 ## Create and provision an Exchange Peering
 
 ### 1. Sign in to Azure portal and select your subscription
-[!INCLUDE [Account](peering-account-portal.md)]
+[!INCLUDE [Account](./includes/peering-account-portal.md)]
 
 ### <a name=create></a> 2. Create an Exchange Peering
-[!INCLUDE [exchange-peering-basic](peering-direct-portal-basic.md)]
+[!INCLUDE [exchange-peering-basic](./includes/peering-direct-portal-basic.md)]
 
-[!INCLUDE [exchange-peering-configuration](peering-exchange-portal-configuration.md)]
+[!INCLUDE [exchange-peering-configuration](./includes/peering-exchange-portal-configuration.md)]
 
 ### <a name=get></a> 3. Verify an Exchange Peering
-[!INCLUDE [peering-exchange-get-portal](peering-exchange-portal-get.md)]
+[!INCLUDE [peering-exchange-get-portal](./includes/peering-exchange-portal-get.md)]
 
 ## <a name="modify"></a>Modify an Exchange Peering
-[!INCLUDE [peering-exchange-modify-portal](peering-exchange-portal-modify.md)]
+[!INCLUDE [peering-exchange-modify-portal](./includes/peering-exchange-portal-modify.md)]
 
 ## <a name="delete"></a> Deprovision an Exchange Peering
-[!INCLUDE [peering-exchange-delete-portal](peering-exchange-portal-delete.md)]
+[!INCLUDE [peering-exchange-delete-portal](./includes/peering-exchange-portal-delete.md)]
 
 ## Additional Resources
 
 For more information, please visit [Peering FAQs](peering-faqs.md)
 
-[!INCLUDE [peering-feedback](peering-feedback.md)]
+[!INCLUDE [peering-feedback](./includes/peering-feedback.md)]

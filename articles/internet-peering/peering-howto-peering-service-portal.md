@@ -26,12 +26,12 @@ This article describes how to Enable Peering Service [Peering Service](peering-s
 ## Enable Peering Service on a Direct Peering
 
 ### <a name= get></a>1. View Direct Peering
-[!INCLUDE [peering-direct-get-portal](peering-direct-portal-get.md)]
+[!INCLUDE [peering-direct-get-portal](./includes/peering-direct-portal-get.md)]
 
 ### <a name= get></a>2. Enable the Direct Peering for Peering Service
 
 After opening Direct Peering in the previous step, enable it for Peering Service.
-[!INCLUDE [peering-direct-modify](peering-direct-peeringservice-portal.md)]
+[!INCLUDE [peering-direct-modify](./includes/peering-direct-peeringservice-portal.md)]
 
 ## Modify a Direct Peering connection
 

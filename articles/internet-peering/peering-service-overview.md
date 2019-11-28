@@ -21,7 +21,7 @@ The target segment for Peering Service is SaaS connectivity, SD-WAN customers wi
 
 The primary goal when connecting to Microsoft Cloud should be to minimize latency by reducing the round-trip time (RTT) from a user site to the Microsoft Global Network ,which is Microsoft's public network backbone that interconnects all of Microsoft's datacenters and multiple cloud application entry points. See [Getting the best connectivity and performance in Office 365](https://techcommunity.microsoft.com/t5/Office-365-Blog/Getting-the-best-connectivity-and-performance-in-Office-365/ba-p/124694).
 
-![Image of distributed access](../media/distributed-access.png)
+![Image of distributed access](./media/distributed-access.png)
 
 In the figure above each branch office of a global enterprise connects to the nearest possible Microsoft edge location possible through hte partner's network.
 

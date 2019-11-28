@@ -22,28 +22,28 @@ This article describes how to create a Microsoft Exchange Peering by using Power
 * In case you have Exchange Peerings with Microsoft already, which are not converted to Azure resources, please refer to [Convert a legacy Exchange Peering to Azure resource using PowerShell](peering-howto-legacyexchange-arm.md)
 
 ### Working with Azure PowerShell
-[!INCLUDE [CloudShell](peering-cloudshell-powershell-about.md)]
+[!INCLUDE [CloudShell](./includes/peering-cloudshell-powershell-about.md)]
 
 ## Create and provision an Exchange Peering
 
 ### 1. Sign in to your Azure account and select your subscription
-[!INCLUDE [Account](peering-account.md)]
+[!INCLUDE [Account](./includes/peering-account.md)]
 
 ### <a name=exchange-location></a> 2. Get the list of supported peering locations for Exchange Peering
-[!INCLUDE [exchange-location](peering-exchange-location.md)]
+[!INCLUDE [exchange-location](./includes/peering-exchange-location.md)]
 
 ### <a name=create></a> 3. Create an Exchange Peering
-[!INCLUDE [exchange-peering](peering-exchange.md)]
+[!INCLUDE [exchange-peering](./includes/peering-exchange.md)]
 
 ### <a name=get></a> 4. Get Exchange Peering
-[!INCLUDE [peering-exchange-get](peering-exchange-get.md)]
+[!INCLUDE [peering-exchange-get](./includes/peering-exchange-get.md)]
 
 ## <a name="modify"></a>Modify an Exchange Peering
-[!INCLUDE [peering-exchange-modify](peering-exchange-modify.md)]
+[!INCLUDE [peering-exchange-modify](./includes/peering-exchange-modify.md)]
 
 ## <a name=delete></a>Deprovision an Exchange Peering
 
-[!INCLUDE [peering-exchange-delete](peering-exchange-delete.md)]
+[!INCLUDE [peering-exchange-delete](./includes/peering-exchange-delete.md)]
 
 ## Additional Resources
 You can get detailed descriptions of all the parameters by running the following command:
@@ -54,4 +54,4 @@ Get-Help Get-AzPeering -detailed
 
 For more information, please visit [Peering FAQs](peering-faqs.md)
 
-[!INCLUDE [peering-feedback](peering-feedback.md)]
+[!INCLUDE [peering-feedback](./includes/peering-feedback.md)]

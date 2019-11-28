@@ -1,3 +1,14 @@
+---
+title: include file
+description: include file
+services: internet-peering
+author: prmitiki
+ms.service: internet-peering
+ms.topic: include
+ms.date: 11/27/2019
+ms.author: prmitiki
+---
+
 The following example shows how to create an Exchange connection at Equinix Internet Exchange in Seattle . If you're using a different provider and different settings, substitute that information when you make your request.
 
 Use the PowerShell cmdlet **New-AzPeeringExchangeConnectionObject** to create PowerShell Connection Objects which will be used to generate the new Peering service request:

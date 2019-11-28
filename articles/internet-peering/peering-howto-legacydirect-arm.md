@@ -22,12 +22,12 @@ This article describes how to convert an existing legacy Direct Peering to Azure
 * Review [Prerequisites](peering-prerequisites.md) and [Direct Peering Walkthrough](peering-workflows-direct.md) before you begin configuration.
 
 ### Working with Azure PowerShell
-[!INCLUDE [CloudShell](peering-cloudshell-powershell-about.md)]
+[!INCLUDE [CloudShell](./includes/peering-cloudshell-powershell-about.md)]
 
 ## Convert legacy Direct Peering to Azure Resource
 
 ### 1. Sign in to your Azure account and select your subscription
-[!INCLUDE [Account](peering-account.md)]
+[!INCLUDE [Account](./includes/peering-account.md)]
 
 ### <a name= get></a>2. Get legacy Direct Peering for Conversion
 Below is an example to get legacy Direct Peering at Seattle peering location
@@ -118,7 +118,7 @@ Get-Help Get-AzPeering -detailed
 
 For more information, please visit [Peering FAQs](peering-faqs.md)
 
-[!INCLUDE [peering-feedback](peering-feedback.md)]
+[!INCLUDE [peering-feedback](./includes/peering-feedback.md)]
 
 ## Next steps
 

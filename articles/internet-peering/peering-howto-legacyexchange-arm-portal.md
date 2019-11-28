@@ -24,21 +24,21 @@ This article describes how to convert an existing legacy Exchange Peering to Azu
 ## Convert a legacy Exchange Peering to Azure resource
 
 ### 1. Sign in to Azure portal and select your subscription
-[!INCLUDE [Account](peering-account-portal.md)]
+[!INCLUDE [Account](./includes/peering-account-portal.md)]
 
 ### <a name=create></a> 2. Convert legacy Exchange Peering
-[!INCLUDE [exchange-peering-basic](peering-direct-portal-basic.md)]
+[!INCLUDE [exchange-peering-basic](./includes/peering-direct-portal-basic.md)]
 
-[!INCLUDE [exchange-peering-configuration](peering-exchange-portal-configuration-legacy.md)]
+[!INCLUDE [exchange-peering-configuration](./includes/peering-exchange-portal-configuration-legacy.md)]
 
 ### <a name=get></a> 3. Verify Exchange Peering
-[!INCLUDE [peering-exchange-get-portal](peering-exchange-portal-get.md)]
+[!INCLUDE [peering-exchange-get-portal](./includes/peering-exchange-portal-get.md)]
 
 ## Additional Resources
 
 For more information, please visit [Peering FAQs](peering-faqs.md)
 
-[!INCLUDE [peering-feedback](peering-feedback.md)]
+[!INCLUDE [peering-feedback](./includes/peering-feedback.md)]
 
 ## Next steps
 

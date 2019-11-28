@@ -22,27 +22,27 @@ This article describes how to create a Microsoft Direct Peering by using PowerSh
 * In case you have Direct Peering with Microsoft already, which are not converted to Azure resources, please refer to [Convert a legacy Direct Peering to Azure resource using PowerShell](peering-howto-legacydirect-arm.md)
 
 ### Working with Azure PowerShell
-[!INCLUDE [CloudShell](peering-cloudshell-powershell-about.md)]
+[!INCLUDE [CloudShell](./includes/peering-cloudshell-powershell-about.md)]
 
 ## Create and provision a Direct Peering
 
 ### 1. Sign in to your Azure account and select your subscription
-[!INCLUDE [Account](peering-account.md)]
+[!INCLUDE [Account](./includes/peering-account.md)]
 
 ### <a name=direct-location></a> 2. Get the list of supported peering locations for Direct Peering
-[!INCLUDE [direct-location](peering-direct-location.md)]
+[!INCLUDE [direct-location](./includes/peering-direct-location.md)]
 
 ### <a name=create></a> 3. Create a Direct Peering
-[!INCLUDE [direct-peering](peering-direct.md)]
+[!INCLUDE [direct-peering](./includes/peering-direct.md)]
 
 ### <a name=get></a> 4. Verify Direct Peering
-[!INCLUDE [peering-direct-get](peering-direct-get.md)]
+[!INCLUDE [peering-direct-get](./includes/peering-direct-get.md)]
 
 ## <a name="modify"></a>Modify a Direct Peering
-[!INCLUDE [peering-direct-modify](peering-direct-modify.md)]
+[!INCLUDE [peering-direct-modify](./includes/peering-direct-modify.md)]
 
 ## <a name="delete"></a> Deprovision a Direct Peering
-[!INCLUDE [peering-direct-delete](peering-direct-delete.md)]
+[!INCLUDE [peering-direct-delete](./includes/peering-direct-delete.md)]
 
 ## Additional Resources
 You can get detailed descriptions of all the parameters by running the following command:
@@ -53,5 +53,5 @@ Get-Help Get-AzPeering -detailed
 
 For more information, please visit [Peering FAQs](peering-faqs.md)
 
-[!INCLUDE [peering-feedback](peering-feedback.md)]
+[!INCLUDE [peering-feedback](./includes/peering-feedback.md)]
 

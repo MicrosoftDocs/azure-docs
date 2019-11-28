@@ -14,15 +14,12 @@ ms.author: prmitiki
 Please ensure the prerequisites below are met before you request for a new peering or convert a legacy peering to Azure resource.
 
 ## 1. Microsoft Azure account
-If you don't have a Microsoft Azure account, create a [Microsoft Azure account](https://azure.microsoft.com/en-us/free/search/?&OCID=AID719825_SEM_GTagl4Ym&lnkd=Bing_Azure_Brand&msclkid=7aa1d28df2491a06cf438e0ab2917ecd&dclid=CNjP9uns--ACFWsmrQYdPYEAyw). A valid and active Microsoft Azure subscription is required to setup peering, as the peerings are modeled as resources within Azure subscriptions.
+If you don't have a Microsoft Azure account, create a [Microsoft Azure account](https://azure.microsoft.com/free). A valid and active Microsoft Azure subscription is required to setup peering, as the peerings are modeled as resources within Azure subscriptions.
 
 It is important to note that:
-1. The Azure resource types used to setup Peering are always-free Azure products, i.e., you are not charged for creating an Azure account or creating a subscription or accessing these Azure resources to setup Peering.
-    1. Peering
-    1. PeerASN
-This is not to be confused with Peering agreement for Direct Peering between you and Microsoft, the terms for which are explicitly discussed with our Peering team. Please contact [Microsoft Peering](mailto:peering@microsoft.com) for more questions in this regard.
+1. The Azure resource types used to setup Peering are always-free Azure products, i.e., you are not charged for creating an Azure account or creating a subscription or accessing the Azure resources **PeerAsn** and **Peering** to setup Peering. This is not to be confused with Peering agreement for Direct Peering between you and Microsoft, the terms for which are explicitly discussed with our Peering team. Please contact [Microsoft Peering](mailto:peering@microsoft.com) if any questions in this regard.
 1. You can use the same Azure subscription to access other Azure products or cloud services which may be free or paid. When you access a paid product you will incur charges.
-1. If you are creating a new Azure account and/or subscription, you may be eligible for a 12-month trial-period during which you will free access to some paid products. You may utilize this to try Azure Cloud services if you are interested in services other than Peering. Please visit [Microsoft Azure account](https://azure.microsoft.com/en-us/free/search/?&OCID=AID719825_SEM_GTagl4Ym&lnkd=Bing_Azure_Brand&msclkid=7aa1d28df2491a06cf438e0ab2917ecd&dclid=CNjP9uns--ACFWsmrQYdPYEAyw) for more info.
+1. If you are creating a new Azure account and/or subscription, you may be eligible for free Azure credit during a trial period which you may utilize to try Azure Cloud services. If interested, please visit [Microsoft Azure account](https://azure.microsoft.com/free) for more info.
 
 <!--
 ## 2. Install the required Modules

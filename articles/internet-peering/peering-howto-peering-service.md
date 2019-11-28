@@ -24,17 +24,17 @@ This article describes how to enable Peering Service [Peering Service](peering-s
     * To create a new Direct Peering, follow the instructions in [Create or modify a Direct Peering using PowerShell](peering-howto-directpeering-arm.md).
 
 ### Working with Azure PowerShell
-[!INCLUDE [CloudShell](peering-cloudshell-powershell-about.md)]
+[!INCLUDE [CloudShell](./includes/peering-cloudshell-powershell-about.md)]
 
 ## Enable Peering Service on a Direct Peering
 
 ### <a name= get></a>1. View Direct Peering
-[!INCLUDE [peering-direct-get](peering-direct-get.md)]
+[!INCLUDE [peering-direct-get](./includes/peering-direct-get.md)]
 
 ### <a name= get></a>2. Enable the Direct Peering for Peering Service
 
 After getting Direct Peering in the previous step, enable it for Peering Service.
-[!INCLUDE [peering-direct-modify](peering-direct-peeringservice.md)]
+[!INCLUDE [peering-direct-modify](./includes/peering-direct-peeringservice.md)]
 
 ## Modify a Direct Peering connection
 

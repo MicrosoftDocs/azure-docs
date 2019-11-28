@@ -1,3 +1,14 @@
+---
+title: include file
+description: include file
+services: internet-peering
+author: prmitiki
+ms.service: internet-peering
+ms.topic: include
+ms.date: 11/27/2019
+ms.author: prmitiki
+---
+
 Following modification operation are supported for Exchange Peering
 1. Add Exchange Peering connections
 1. Remove Exchange Peering connections

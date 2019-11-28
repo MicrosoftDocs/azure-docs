@@ -12,7 +12,7 @@ ms.author: prmitiki
 # Direct Peering Walkthrough
 
 ## Create a Direct Peering
-![Direct Peering workflow and connection states](../media/direct_peering.png)
+![Direct Peering workflow and connection states](./media/direct_peering.png)
 
 The following steps must be followed in order to provision a Direct Peering:
 1. Please review Microsoft [Peering Policy](https://peering.azurewebsites.net/peering) to understand requirements for Direct Peering.

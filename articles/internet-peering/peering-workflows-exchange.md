@@ -13,7 +13,7 @@ ms.author: prmitiki
 # Exchange Peering Walkthrough
 
 ## Create an Exchange Peering
-![Exchange Peering workflow and connection states](../media/exchange_peering.png)
+![Exchange Peering workflow and connection states](./media/exchange_peering.png)
 
 The following steps must be followed in order to provision an Exchange Peering:
 1. Please review Microsoft [Peering Policy](https://peering.azurewebsites.net/peering) to understand requirements for Exchange Peering.

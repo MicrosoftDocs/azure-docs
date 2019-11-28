@@ -16,12 +16,12 @@ ms.author: prmitiki
 >
 
 ### Working with Azure PowerShell
-[!INCLUDE [CloudShell](peering-cloudshell-powershell-about.md)]
+[!INCLUDE [CloudShell](./includes/peering-cloudshell-powershell-about.md)]
 
 ## Create PeerASN to associate your ASN with Azure Subscription
 
 ### 1. Sign in to your Azure account and select your subscription
-[!INCLUDE [Account](peering-account.md)]
+[!INCLUDE [Account](./includes/peering-account.md)]
 
 ### 2. Register for Peering feature flag
 Register Peering feature flag for your subscription using the command below. This is required because Peering setup using Azure PowerShell is currently under Preview.
@@ -149,5 +149,5 @@ Deleting a PeerASN is not currently supported. If you need to delete PeerASN, pl
 
 For more information, please visit [Peering FAQs](peering-faqs.md)
 
-[!INCLUDE [peering-feedback](peering-feedback.md)]
+[!INCLUDE [peering-feedback](./includes/peering-feedback.md)]
 
