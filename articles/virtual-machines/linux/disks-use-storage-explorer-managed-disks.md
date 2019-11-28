@@ -10,6 +10,7 @@ ms.tgt_pltfrm: linux
 ms.subservice: disks
 ---
 
+# Use Azure Storage Explorer to manage Azure managed disks
 [!INCLUDE [disks-upload-vhd-to-managed-disk-storage-explorer](../../../includes/disks-upload-vhd-to-managed-disk-storage-explorer.md)]
 
 Learn how to [Create a VM from a VHD by using the Azure portal](../windows/create-vm-specialized-portal.md).

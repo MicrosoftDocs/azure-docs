@@ -2,11 +2,11 @@
 title: Azure HDInsight virtual network architecture
 description: Learn the resources available when you create an HDInsight cluster in an Azure Virtual Network.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/26/2019
-ms.author: hrasheed
+ms.date: 10/31/2019
 ---
 
 # Azure HDInsight virtual network architecture
@@ -69,4 +69,4 @@ Public IP addresses are also provided to the two endpoints that allow connection
 
 ## Next steps
 
-* [Secure incoming traffic to HDInsight clusters in a virtual network with private endpoint](https://azure.microsoft.com/blog/secure-incoming-traffic-to-hdinsight-clusters-in-a-vnet-with-private-endpoint/)
+- [Secure incoming traffic to HDInsight clusters in a virtual network with private endpoint](https://azure.microsoft.com/blog/secure-incoming-traffic-to-hdinsight-clusters-in-a-vnet-with-private-endpoint/)

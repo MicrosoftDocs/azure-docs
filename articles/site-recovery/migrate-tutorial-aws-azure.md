@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 
 > [!NOTE]
-    > You can now use the Azure Migrate service to migrate AWS instances to Azure. [Learn more](../migrate/tutorial-migrate-physical-virtual-machines.md).
+> You can now use the Azure Migrate service to migrate AWS instances to Azure. [Learn more](../migrate/tutorial-migrate-physical-virtual-machines.md).
 
 ## Prerequisites
 - Ensure that the VMs that you want to migrate are running a supported OS version. Supported versions include: 

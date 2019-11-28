@@ -1,12 +1,12 @@
 ---
-title: Quickstart - Require multi-factor authentication (MFA) for specific apps with Azure Active Directory Conditional Access | Microsoft Docs
+title: Require Azure MFA with Conditional Access -Azure Active Directory
 description: In this quickstart, you learn how you can tie your authentication requirements to the type of accessed cloud app using Azure Active Directory (Azure AD) Conditional Access.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: quickstart 
-ms.date: 01/30/2019
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -64,7 +64,7 @@ In your policy, set:
 **To configure your Conditional Access policy:**
 
 1. Sign in to your [Azure portal](https://portal.azure.com) as global administrator, security administrator, or a Conditional Access administrator.
-1. In the Azure portal, on the left navbar, click **Azure Active Directory**.
+1. In the Azure portal, search for and select **Azure Active Directory**.
 
    ![Azure Active Directory](./media/app-based-mfa/02.png)
 

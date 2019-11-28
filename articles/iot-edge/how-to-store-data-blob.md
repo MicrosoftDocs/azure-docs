@@ -9,7 +9,6 @@ ms.date: 08/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
 ---
 
 # Store data at the edge with Azure Blob Storage on IoT Edge
@@ -135,8 +134,8 @@ Example:<br>
 If you need to run the service as a user other than **absie**, you can specify your custom user ID in createOptions under "User" property in your deployment manifest. In such case you need to use default or root group ID `0`.
 
 ```json
-“createOptions”: { 
-  “User”: “<custom user ID>:0” 
+"createOptions": { 
+  "User": "<custom user ID>:0" 
 } 
 ```
 Now, grant the container user access to the directory
@@ -255,6 +254,12 @@ Supported:
 Unsupported:
 
 - Put block from URL
+
+## Event Grid on IoT Edge Integration
+> [!CAUTION]
+> The integration with Event Grid on IoT Edge is in preview
+
+This Azure Blob Storage on IoT Edge module now provides integration with Event Grid on IoT Edge. For detailed information on this integration, see the [tutorial to deploy the modules, publish events and verify event delivery](../event-grid/edge/react-blob-storage-events-locally.md).
 
 ## Release Notes
 

@@ -8,7 +8,7 @@ ms.author: mjbrown
 ms.date: 06/20/2019
 ---
 
-# Use the Azure Cosmos Emulator for local development and testing
+# Azure Cosmos Emulator - Release notes and download information
 
 This article shows the Azure Cosmos emulator release notes with a list of feature updates that were made in each release. It also lists the latest version of emulator to download and use.
 
@@ -20,6 +20,10 @@ This article shows the Azure Cosmos emulator release notes with a list of featur
 |**Get started**|[Develop locally with Azure Cosmos emulator](local-emulator.md)|
 
 ## Release notes
+
+### 2.7.0
+
+- This release fixes a regression which prevented users from executing queries against the SQL API account from the emulator when using .NET core or x86 .NET based clients.
 
 ### 2.4.6
 

@@ -1,5 +1,5 @@
 ---
-title: Configure user consent to an application - Azure Active Directory | Microsoft Docs
+title: Configure user consent to an application - Azure Active Directory
 description: Learn how to manage the way users consent to application permissions. You can simplify the user experience by granting admin consent. These methods apply to all end users in your Azure Active Directory (Azure AD) tenant. 
 services: active-directory
 author: msmimart
@@ -60,12 +60,16 @@ To grant admin consent when registering an app:
 To grant admin consent through a URL request:
 
 1. Construct a request to *login.microsoftonline.com* with your app configurations and append on `&prompt=admin_consent`. 
+This URL will look like: 
+`https://login.microsoftonline.com/<tenant-id>/oauth2/authorize?client_id=<client id>&response_type=code&redirect_uri=<Your-Redirect-URI-Https-Encoded>&nonce=1234&resource=<your-resource-Https-encoded>&prompt=admin_consent`
 2. After signing in with admin credentials, the app has been granted consent for all users.
 
 
 ## Force user consent through a URL request
 
 To require end users to consent to an application each time they authenticate, append `&prompt=consent` to the authentication request URL.
+This URL will look like:
+`https://login.microsoftonline.com/<tenant-id>/oauth2/authorize?client_id=<client id>&response_type=code&redirect_uri=<Your-Redirect-URI-Https-Encoded>&nonce=1234&resource=<your-resource-Https-encoded>&prompt=consent`
 
 ## Next steps
 

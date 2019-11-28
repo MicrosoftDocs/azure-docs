@@ -28,7 +28,7 @@ Service Fabric provides multiple ways to get the aggregated health of the entiti
 * Health queries (through PowerShell, API, or REST)
 * General queries that return a list of entities that have health as one of the properties (through PowerShell, API, or REST)
 
-To demonstrate these options, let's use a local cluster with five nodes and the [fabric:/WordCount application](https://aka.ms/servicefabric-wordcountapp). The **fabric:/WordCount** application contains two default services, a stateful service of type `WordCountServiceType`, and a stateless service of type `WordCountWebServiceType`. I changed the `ApplicationManifest.xml` to require seven target replicas for the stateful service and one partition. Because there are only five nodes in the cluster, the system components report a warning on the service partition because it is below the target count.
+To demonstrate these options, let's use a local cluster with five nodes and the [fabric:/WordCount application](https://github.com/Azure-Samples/service-fabric-wordcount/raw/master/WordCountV1.sfpkg). The **fabric:/WordCount** application contains two default services, a stateful service of type `WordCountServiceType`, and a stateless service of type `WordCountWebServiceType`. I changed the `ApplicationManifest.xml` to require seven target replicas for the stateful service and one partition. Because there are only five nodes in the cluster, the system components report a warning on the service partition because it is below the target count.
 
 ```xml
 <Service Name="WordCountService">
