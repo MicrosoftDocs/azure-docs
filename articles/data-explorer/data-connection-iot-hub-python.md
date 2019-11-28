@@ -15,6 +15,7 @@ ms.date: 10/07/2019
 > * [Portal](ingest-data-iot-hub.md)
 > * [C#](data-connection-iot-hub-csharp.md)
 > * [Python](data-connection-iot-hub-python.md)
+> * [Azure Resource Manager template](data-connection-iot-hub-resource-manager.md)
 
 Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer offers ingestion (data loading) from Event Hubs, IoT Hubs, and blobs written to blob containers. In this article, you create an IoT Hub data connection for Azure Data Explorer by using Python.
 
@@ -28,7 +29,7 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 
 * Set [database and table policies](database-table-policies-csharp.md) (optional)
 
-* Create an [IoT hub with a shared access policy configured](ingest-data-iot-hub.md#create-an-iot-hub).
+* Create an [IoT Hub with a shared access policy configured](ingest-data-iot-hub.md#create-an-iot-hub).
 
 [!INCLUDE [data-explorer-data-connection-install-package-python](../../includes/data-explorer-data-connection-install-package-python.md)]
 
