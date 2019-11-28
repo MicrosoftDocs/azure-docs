@@ -206,11 +206,11 @@ An example of the monitor pattern is to reverse the earlier async HTTP API scena
 
 ![A diagram of the monitor pattern](./media/durable-functions-concepts/monitor.png)
 
-In a few lines of code, you can use Durable Functions to create multiple monitors that observe arbitrary endpoints. The monitors can end execution when a condition is met, or the `IDurableOrchestrationClient` can terminate the monitors. You can change a monitor's `wait` interval based on a specific condition (for example, exponential backoff.) 
+In a few lines of code, you can use Durable Functions to create multiple monitors that observe arbitrary endpoints. The monitors can end execution when a condition is met, or another function can use the durable orchestration client to terminate the monitors. You can change a monitor's `wait` interval based on a specific condition (for example, exponential backoff.) 
 
 The following code implements a basic monitor:
 
-#### C#
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("MonitorJobStatus")]
@@ -240,7 +240,7 @@ public static async Task Run(
 }
 ```
 
-#### JavaScript (Functions 2.0 only)
+# [JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -268,7 +268,9 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-When a request is received, a new orchestration instance is created for that job ID. The instance polls a status until a condition is met and the loop is exited. A durable timer controls the polling interval. Then, more work can be performed, or the orchestration can end. When the `context.CurrentUtcDateTime` (.NET) or `context.df.currentUtcDateTime` (JavaScript) exceeds the `expiryTime` value, the monitor ends.
+---
+
+When a request is received, a new orchestration instance is created for that job ID. The instance polls a status until a condition is met and the loop is exited. A durable timer controls the polling interval. Then, more work can be performed, or the orchestration can end. When `nextCheck` exceeds `expiryTime`, the monitor ends.
 
 ### <a name="human"></a>Pattern #5: Human interaction
 
