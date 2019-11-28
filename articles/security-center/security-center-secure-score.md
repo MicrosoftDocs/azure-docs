@@ -15,8 +15,11 @@ ms.date: 01/15/2019
 ms.author: memildin
 
 ---
+
 # Improve your secure score in Azure Security Center
 
+> [!NOTE]
+> There is an enhanced Secure Score available in preview. To take part in the preview, contact your Microsoft through the usual channels. For details of the benefits of the enhanced Secure Score, see [here](secure-score-and-controls.md).
 
 With so many services offering security benefits, it's often hard to know what steps to take first to secure and harden your workload. The Azure secure score reviews your security recommendations and prioritizes them for you, so you know which recommendations to perform first. This helps you find the most serious security vulnerabilities so you can prioritize investigation. Secure score is a tool that helps you assess your workload security posture.
 
@@ -29,13 +32,12 @@ Security Center also provides you with an **Overall secure score**.
 
 **Overall secure score** is an accumulation of all your recommendation scores. You can view your overall secure score across your subscriptions or management groups, depending on what you select. The score will vary based on subscription selected and the active recommendations on these subscriptions.
 
- 
 To check which recommendations impact your secure score most, you can view the top three most impactful recommendations in the Security Center dashboard or you can sort the recommendations in the recommendations list blade using the **Secure score impact** column.
-
 
 To view your overall secure score:
 
 1. In the Azure dashboard, click **Security Center** and then click **Secure score**.
+
 2. At the top you can see Secure score highlights:
    - The **Overall secure score** represents the score per policies, per selected subscription
    - **Secure score by category** shows you which resources need the most attention
