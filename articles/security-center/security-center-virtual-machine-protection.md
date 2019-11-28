@@ -18,7 +18,7 @@ ms.author: memildin
 # Protect your machines and applications
 When Security Center identifies potential security vulnerabilities, it creates recommendations that guide you through the process of configuring the necessary controls. 
 
-This article explains the **Compute and apps** page of the resource security section of Azure Security Center and some of the recommendations you'll see there.
+This article explains the **Compute and apps** page of the Azure Security Center's resource security section. It also describes some of the recommendations you'll see there.
 
 For a full list of the recommendations for Compute and App services, see [Compute and App recommendations](recommendations-compute-and-apps.md).
 
@@ -26,9 +26,7 @@ For a full list of the recommendations for Compute and App services, see [Comput
 
 ![Security Center dashboard](./media/security-center-virtual-machine-recommendations/overview.png)
 
-### To view the status of your compute and apps resources
-
-Select **Compute & apps** under **Resources** in the Security Center sidebar. The following tabs are available:
+To view the status of your compute and apps resources, select **Compute & apps** under **Resources** in the Security Center sidebar. The following tabs are available:
 
 * **Overview**: lists the recommendations for all the compute and apps resources as well as their current security status 
 
@@ -48,7 +46,7 @@ Select **Compute & apps** under **Resources** in the Security Center sidebar. Th
 
 Each tab has multiple sections, and in each section, you can drill down to see additional details about the item shown.
 
-In each tab you will also see recommendations for the relevant resources in your monitored environment. The first column lists the recommendation. The second column shows the total number of resources that are affected by that recommendation. The third column shows the severity of the issue.
+In each tab, you will also see recommendations for the relevant resources in your monitored environment. The first column lists the recommendation, the second shows the total number of resources affected, and the third shows the severity of the issue.
 
 Each recommendation has a set of actions that you can perform after you select it. For example, if you select **Missing system updates**, the number of VMs and computers that are missing patches, and the severity of the missing update appears.
 
@@ -57,7 +55,7 @@ Each recommendation has a set of actions that you can perform after you select i
 >
 
 ### <a name="vms-and-computers"></a>VMs and computers
-In the VMs and computers section gives you an overview of all security recommendations for your VMs and computers. Four types of machines are included:
+The VMs and computers section gives you an overview of all security recommendations for your VMs and computers. Four types of machines are included:
 
 ![Non-Azure computer](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon1.png) Non-Azure computer.
 
@@ -108,7 +106,7 @@ If you select a web application, a summary view opens with three tabs:
 
 Select a recommendation to see a description of the recommendation and a list of unhealthy resources, healthy resources, and unscanned resources.
 
-   - Under the **Passed assessments** column is a list of passed assessments. Severity of these assessments is always green.
+   - The **Passed assessments** column shows a list of passed assessments. Severity of these assessments is always green.
 
    - Select a passed assessment from the list for a description of the assessment, a list of unhealthy and healthy resources, and a list of unscanned resources. There is a tab for unhealthy resources but that list is always empty since the assessment passed.
 
@@ -136,7 +134,7 @@ If you want to set all existing scale sets to install the Microsoft Monitoring A
 
 
 ## Next steps
-To learn more about recommendations that apply to other Azure resource types, see the following:
+To learn more about recommendations that apply to other Azure resource types, see the following articles:
 
 * [Monitor identity and access in Azure Security Center](security-center-identity-access.md)
 * [Protecting your network in Azure Security Center](security-center-network-recommendations.md)
