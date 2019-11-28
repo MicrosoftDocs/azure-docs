@@ -99,7 +99,7 @@ With normal functions, you can fan out by having the function send multiple mess
 
 The Durable Functions extension handles this pattern with relatively simple code:
 
-#### C#
+# [C#](#tab/csharp)
 
 ```csharp
 [FunctionName("FanOutFanIn")]
@@ -124,7 +124,11 @@ public static async Task Run(
 }
 ```
 
-#### JavaScript (Functions 2.0 only)
+The fan-out work is distributed to multiple instances of the `F2` function. The work is tracked by using a dynamic list of tasks. `Task.WhenAll` is called to wait for all the called functions to finish. Then, the `F2` function outputs are aggregated from the dynamic task list and passed to the `F3` function.
+
+The automatic checkpointing that happens at the `await` call on `Task.WhenAll` ensures that a potential midway crash or reboot doesn't require restarting an already completed task.
+
+# [JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -146,9 +150,11 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-The fan-out work is distributed to multiple instances of the `F2` function. The work is tracked by using a dynamic list of tasks. The .NET `Task.WhenAll` API or JavaScript `context.df.Task.all` API is called, to wait for all the called functions to finish. Then, the `F2` function outputs are aggregated from the dynamic task list and passed to the `F3` function.
+The fan-out work is distributed to multiple instances of the `F2` function. The work is tracked by using a dynamic list of tasks. `context.df.Task.all` API is called to wait for all the called functions to finish. Then, the `F2` function outputs are aggregated from the dynamic task list and passed to the `F3` function.
 
-The automatic checkpointing that happens at the `await` or `yield` call on `Task.WhenAll` or `context.df.Task.all` ensures that a potential midway crash or reboot doesn't require restarting an already completed task.
+The automatic checkpointing that happens at the `yield` call on `context.df.Task.all` ensures that a potential midway crash or reboot doesn't require restarting an already completed task.
+
+---
 
 > [!NOTE]
 > In rare circumstances, it's possible that a crash could happen in the window after an activity function completes but before its completion is saved into the orchestration history. If this happens, the activity function would re-run from the beginning after the process recovers.
