@@ -43,13 +43,13 @@ az extension add --name azure-cli-iot-ext
 
 If you haven't already done so, download the sample Python project from https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip and extract the ZIP archive.
 
-The following prerequisites are required to install V1 IoT Hub service client Pip package on Windows.
+The following prerequisites are required to install the V1 IoT Hub service client Pip package on Windows.
 
 * Make sure you have [Python version **3.6.x**](https://www.python.org/downloads/) installed.
 
 * Make sure you have the [Microsoft Visual C++ Redistributable for Visual Studio](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) installed.
 
-For other platforms, see the [Python Pip package distribution table](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md#python-pip-package-distribution-table) in the V1 SDK documentation. Make sure the Python 3.x version specified for your platform and any associated requirements are installed on your development machine. Installing Python 3.x rather than 2.7 enables async operations in the V2 device client.
+For other platforms, see the [Python Pip package distribution table](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md#python-pip-package-distribution-table) in the V1 SDK documentation. Make sure the Python 3.x version specified for your platform and any associated requirements are installed on your development machine. Installing Python 3.x rather than 2.7 enables async operations in the V2 device client, which is also used in this quickstart.
 
 ## Create an IoT hub
 
