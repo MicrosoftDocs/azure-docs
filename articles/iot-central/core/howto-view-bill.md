@@ -12,7 +12,7 @@ manager: philmea
 
 # Manage your bill in an IoT Central application
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 This article describes how, as an administrator, you can manage your bill in Azure IoT Central application in the administration section and also how you can convert your trial version to pay-as-you-go.
 

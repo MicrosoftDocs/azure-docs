@@ -15,7 +15,7 @@ manager: philmea
 
 *This article applies to operators, builders, and administrators.*
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 This quickstart shows you, as an operator, how to use your Microsoft Azure IoT Central application to monitor your devices and change settings.
 

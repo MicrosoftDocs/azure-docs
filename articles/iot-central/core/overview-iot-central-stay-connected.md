@@ -13,7 +13,7 @@ manager:
 
 # Stay connected with Azure IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 This article provides an overview of the how Azure IoT Central helps keep your devices connected and healthy.
 

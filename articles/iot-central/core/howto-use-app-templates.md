@@ -13,7 +13,7 @@ manager: philmea
 
 # Export your application
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 This article describes how, as a solution manager, to export an IoT Central application to be able to reuse it.
 

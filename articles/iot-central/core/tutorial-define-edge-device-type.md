@@ -13,7 +13,7 @@ manager: peterpr
 
 # Tutorial: Define a new Azure IoT Edge device type in your Azure IoT Central application
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 This tutorial shows you, as a builder, how to use a device template to define a new type of Azure IoT Edge device in your Azure IoT Central application. 
 

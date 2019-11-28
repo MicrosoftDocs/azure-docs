@@ -12,7 +12,7 @@ manager: philmea
 
 # Configure rules
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 *This article applies to operators, builders, and administrators.*
 
