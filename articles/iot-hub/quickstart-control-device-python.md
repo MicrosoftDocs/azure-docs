@@ -43,7 +43,7 @@ az extension add --name azure-cli-iot-ext
 
 If you haven't already done so, download the sample Python project from https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip and extract the ZIP archive.
 
-The following prerequisites are required to install the V1 IoT Hub service client Pip package on Windows.
+For Windows, the following prerequisites are required to install the V1 IoT Hub service client Pip package:
 
 * Make sure you have [Python version **3.6.x**](https://www.python.org/downloads/) installed.
 
