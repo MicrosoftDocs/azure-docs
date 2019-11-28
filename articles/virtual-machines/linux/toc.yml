@@ -126,7 +126,7 @@
   - name: Dedicated hosts
     href: dedicated-hosts.md
   - name: Maintenance and updates
-    href: maintenance-and-updates.md
+    href: ../maintenance-and-updates.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Disk storage
     items:
     - name: Introduction to managed disks
@@ -298,16 +298,30 @@
         href: ../extensions/agent-linux.md
       - name: Agent update
         href: update-agent.md
-    - name: Planned maintenance
-      href: maintenance-notifications.md
     - name: Mitigating speculative execution
       href: mitigate-se.md
-    - name: Scheduled events
-      href: scheduled-events.md
     - name: Monitor metadata
       href: instance-metadata-service.md
     - name: Get usage metrics with REST
       href: metrics-vm-usage-rest.md
+  - name: Platform maintenance
+    items: 
+    - name: Maintenance notifications
+      items:
+      - name: Overview
+        href: maintenance-notifications.md
+      - name: CLI
+        href: ../maintenance-notifications-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      - name: Portal
+        href: ../maintenance-notifications-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      - name: PowerShell
+        href: ../maintenance-notifications-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    - name: Maintenance control
+      items:
+      - name: CLI
+        href: ../maintenance-control-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    - name: Scheduled events
+      href: scheduled-events.md
   - name: Monitor VMs
     items:
     - name: Azure Monitor for VMs

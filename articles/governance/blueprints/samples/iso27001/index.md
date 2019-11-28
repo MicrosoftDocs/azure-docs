@@ -1,5 +1,5 @@
 ---
-title: ISO 27001 blueprint sample - Overview
+title: ISO 27001 blueprint sample overview
 description: Overview of the ISO 27001 blueprint sample. This blueprint sample helps customers assess specific ISO 27001 controls.
 ms.date: 07/22/2019
 ms.topic: sample
