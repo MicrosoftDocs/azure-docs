@@ -56,6 +56,8 @@
         href: data-connection-event-hub-python.md
       - name: C#
         href: data-connection-event-hub-csharp.md
+      - name: Azure Resource Manager template
+        href: data-connection-event-hub-resource-manager.md
     - name: Event Grid
       items:
       - name: Azure portal
@@ -64,6 +66,8 @@
         href: data-connection-event-grid-python.md
       - name: C#
         href: data-connection-event-grid-csharp.md
+      - name: Azure Resource Manager template
+        href: data-connection-event-grid-resource-manager.md
     - name: IoT Hub
       items:
       - name: Azure portal
@@ -72,6 +76,8 @@
         href: data-connection-iot-hub-python.md
       - name: C#
         href: data-connection-iot-hub-csharp.md
+      - name: Azure Resource Manager template
+        href: data-connection-iot-hub-resource-manager.md
     - name: One-click ingestion
       href: ingest-data-one-click.md
     - name: Streaming ingestion
