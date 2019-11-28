@@ -61,6 +61,7 @@ Follow these steps if you want to allow users not in your directory to request t
     | --- | --- |
     | **Specific connected organizations** | Choose this option if you want to select from a list of organizations that your administrator previously added. All users from the selected organizations can request this access package. |
     | **All connected organizations** | Choose this option if all users from all your connected organizations can request this access package. |
+    | **All users (All connected organizations + any new external users)** | Choose this option if all users from all your connected organizations can request this access package and that the B2B allow or deny list settings should take precedence for any new external user. |
 
     A connected organization is an external Azure AD directory or domain that you have a relationship with.
 
