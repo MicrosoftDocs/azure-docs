@@ -13,7 +13,7 @@ ms.date: 11/12/2019
 
 # Tutorial: Create an in-store analytics application in Azure IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 The tutorial shows solution builders how to create an Azure IoT Central in-store analytics application. The sample application is for a retail store. It's a solution to the common business need to monitor and adapt to occupancy and environmental conditions.
 

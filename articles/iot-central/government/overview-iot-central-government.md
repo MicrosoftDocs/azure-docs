@@ -11,7 +11,7 @@ services: iot-central
 
 # Building government solutions with Azure IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Get started with building smart city solutions leveraging Azure IoT Central application templates. Start now with **water quality monitoring**, **water consumption monitoring**, and **connected waste management**.
 
