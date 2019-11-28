@@ -28,7 +28,7 @@ The change feed processor library hides complexity and still gives you a complet
 
 With the SDK, you get a low-level control of the change feed. You can manage the checkpoint, access a particular logical partition key, etc. If you have multiple readers, you can use `ChangeFeedOptions` to distribute read load to different threads or different clients.
 
-## Change feed in Azure Cosmos DB's APIs for Cassandra and MongoDB
+## Change feed in APIs for Cassandra and MongoDB
 
 The Change Feed feature works differently for these APIs. For the MongoDB API, this is exposed via Change Streams. You can learn about how this feature works [here](mongodb-change-streams.md). For the Cassandra API, because Change Feed is not a feature available in native Cassandra databases, the Azure Cosmos DB Change Feed capability is exposed as a predicate that can be included in a CQL query. You can learn how this implementation works [here](cassandra-change-feed.md).
 

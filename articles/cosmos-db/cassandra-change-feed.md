@@ -1,6 +1,6 @@
 ---
-title: Change Feed in Azure Cosmos DB’s API for Cassandra
-description: Learn how to use change feed in Azure Cosmos DB’s API for Cassandra to get the changes made to your data.
+title: Change feed in the Azure Cosmos DB API for Cassandra
+description: Learn how to use change feed in the Azure Cosmos DB API for Cassandra to get the changes made to your data.
 author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
@@ -9,11 +9,11 @@ ms.date: 11/25/2019
 ms.author: thvankra
 ---
 
-# Change Feed in Azure Cosmos DB’s API for Cassandra
+# Change feed in the Azure Cosmos DB API for Cassandra
 
-[Change feed](change-feed.md) support in Azure Cosmos DB’s API for Cassandra is made available through query predicates you can specify in the Cassandra Query Language (CQL). By querying the Change Feed API using these predicates, your applications can get the changes made to a table, or to a single row within a table using the primary key (partition key). You can then take further actions based on the results. Changes to the rows in the table are captured in the order of their modification time and the sort order is guaranteed per partition key.
+[Change feed](change-feed.md) support in the Azure Cosmos DB API for Cassandra is made available through query predicates you can specify in the Cassandra Query Language (CQL). By querying the Change Feed API using these predicates, your applications can get the changes made to a table, or to a single row within a table using the primary key (partition key). You can then take further actions based on the results. Changes to the rows in the table are captured in the order of their modification time and the sort order is guaranteed per partition key.
 
-The following example shows how to get a change feed on all the rows in a Cassandra API Keyspace table using .NET. The predicate COSMOS_CHANGEFEED_START_TIME() is used directly within CQL to query items in the change feed from a specified start time (in this case current datetime). You can download the full sample [here](https://docs.microsoft.com/en-gb/samples/azure-samples/azure-cosmos-db-cassandra-change-feed/cassandra-change-feed/).
+The following example shows how to get a change feed on all the rows in a Cassandra API Keyspace table using .NET. The predicate COSMOS_CHANGEFEED_START_TIME() is used directly within CQL to query items in the change feed from a specified start time (in this case current datetime). You can download the full sample [here](https://docs.microsoft.com/samples/azure-samples/azure-cosmos-db-cassandra-change-feed/cassandra-change-feed/).
 
 In each iteration, the query resumes at the last point changes were read, using paging state. We can see a continuous stream of new changes to the user table in the uprofile Keyspace. We will see changes to rows that are inserted, or updated. Watching for delete operations using change feed in Cassandra API is currently not supported.
 
