@@ -1,6 +1,6 @@
 ---
 title: Create custom alerts for Azure Security Center for IoT| Microsoft Docs
-description: Create and assign custom device alerts for Azure Security Center for IoT.
+description: Understand, create and assign custom device alerts for the Azure Security Center for IoT security service.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na

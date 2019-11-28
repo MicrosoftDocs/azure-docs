@@ -1,7 +1,7 @@
 ---
 
 title: Enable Azure Security Center for IoT service in IoT Hub| Microsoft Docs
-description: Learn how to enable Azure Security Center for IoT service in your IoT Hub.
+description: Learn how to onboard and enable the Azure Security Center for IoT security service in your Azure IoT Hub.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
