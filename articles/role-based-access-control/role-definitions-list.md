@@ -1,5 +1,5 @@
 ---
-title: List roles in Azure RBAC using Azure portal, Azure PowerShell, or Azure CLI | Microsoft Docs
+title: List role definitions in Azure RBAC using Azure portal, Azure PowerShell, or Azure CLI | Microsoft Docs
 description: Learn how to list built-in and custom roles in Azure RBAC using Azure portal, Azure PowerShell, or Azure CLI.
 services: active-directory
 documentationcenter: ''
@@ -17,9 +17,9 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ---
 
-# List roles in Azure RBAC
+# List role definitions in Azure RBAC
 
-A role is a collection of permissions that can be performed, such as read, write, and delete. [Azure role-based access control (RBAC)](overview.md) has over 120 [built-in roles](built-in-roles.md) or you can create your own custom roles. This article describes how to list the built-in and custom roles that you can use to grant access to Azure resources.
+A role definition is a collection of permissions that can be performed, such as read, write, and delete. It's typically just called a role. [Azure role-based access control (RBAC)](overview.md) has over 120 [built-in roles](built-in-roles.md) or you can create your own custom roles. This article describes how to list the built-in and custom roles that you can use to grant access to Azure resources.
 
 To see the list of administrator roles for Azure Active Directory, see [Administrator role permissions in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
@@ -27,7 +27,7 @@ To see the list of administrator roles for Azure Active Directory, see [Administ
 
 ### List all roles
 
-Follow these steps to list the available roles in the Azure portal.
+Follow these steps to list all roles in the Azure portal.
 
 1. In the Azure portal, click **All services** and then select any scope. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
 
@@ -65,7 +65,7 @@ Automation Operator                               Automation Operators are able 
 ...
 ```
 
-### List a role
+### List a role definition
 
 To list the details of a specific role, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
@@ -88,7 +88,7 @@ NotDataActions   : {}
 AssignableScopes : {/}
 ```
 
-### List a role in JSON format
+### List a role definition in JSON format
 
 To list a role in JSON format, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
@@ -122,7 +122,7 @@ PS C:\> Get-AzRoleDefinition "Contributor" | ConvertTo-Json
 }
 ```
 
-### List permissions of a role
+### List permissions of a role definition
 
 To list the permissions for a specific role, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
@@ -217,7 +217,7 @@ az role definition list --custom-role-only false --output json | jq '.[] | {"rol
 ...
 ```
 
-### List a role
+### List a role definition
 
 To list details of a role, use [az role definition list](/cli/azure/role/definition#az-role-definition-list).
 
@@ -263,7 +263,7 @@ az role definition list --name "Contributor"
 ]
 ```
 
-### List permissions of a role
+### List permissions of a role definition
 
 The following example lists just the *actions* and *notActions* of the *Contributor* role.
 
