@@ -78,27 +78,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file**, perform the following steps:
+1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-	a. Click **Upload metadata file**.
-
-    ![Upload metadata file](common/upload-metadata.png)
-
-	b. Click on **folder logo** to select the metadata file and click **Upload**.
-
-	![choose metadata file](common/browse-upload-metadata.png)
-
-	c. After the metadata file is successfully uploaded, the **Identifier** value gets auto populated in Basic SAML Configuration section.
-
-	![Jisc Student Voter Registration Domain and URLs single sign-on information](common/sp-identifier.png)
-
-	In the **Sign-on URL** text box, type a URL:
-	`https://www.studentvoterregistration.ac.uk/consent`
-
-	> [!Note]
-	> If the **Identifier** value does not get auto polulated, then please fill in the value manually according to your requirement. The Sign-on URL value is not real. Update this value with the actual Sign-on URL. Contact [Jisc Student Voter Registration Client support team](mailto:studentvote@jisc.ac.uk) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
-
-1. Click **Save**.
+    In the **Sign-on URL** text box, type a URL:
+    `https://www.studentvoterregistration.ac.uk/consent`
 
 1. Jisc Student Voter Registration application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
