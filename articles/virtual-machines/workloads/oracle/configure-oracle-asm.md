@@ -100,7 +100,7 @@ For more information about installing Oracle ASM, see [Oracle ASMLib Downloads f
     yum list | grep oracleasm 
     yum -y install kmod-oracleasm.x86_64 
     yum -y install oracleasm-support.x86_64 
-    wget https://download.oracle.com/otn_software/asmlib/oracleasmlib-2.0.12-1.el6.x86_64.rpm 
+    wget https://download.oracle.com/otn_software/asmlib/oracleasmlib-2.0.12-1.el7.x86_64.rpm 
     yum -y install oracleasmlib-2.0.12-1.el6.x86_64.rpm 
     rm -f oracleasmlib-2.0.12-1.el6.x86_64.rpm
    ```
@@ -546,7 +546,7 @@ The Oracle database software is already installed on the Azure Marketplace image
 
    ```bash
    su - oracle
-   cd /u01/app/oracle/product/12.1.0/dbhome_1/bin
+   cd /u01/app/oracle/product/12.2.0/dbhome_1/bin
    ./dbca
    ```
    Database Configuration Assistant opens.
