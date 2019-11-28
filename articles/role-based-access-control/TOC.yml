@@ -28,16 +28,20 @@
     href: tutorial-custom-role-cli.md
 - name: Concepts
   items:
-  - name: Understand role definitions
-    href: role-definitions.md
   - name: PIM for Azure resources
     href: pim-azure-resource.md
   - name: Conditional Access for Azure management
     href: conditional-access-azure-management.md
 - name: How-to guides
   items:
-  - name: List roles
-    href: roles-list.md
+  - name: Role definitions
+    items:
+    - name: Overview
+      href: role-definitions.md
+    - name: List role definitions
+      href: role-defintions-list.md
+    - name: Built-in roles
+      href: built-in-roles.md
   - name: List role assignments
     items:
     - name: Portal
@@ -72,7 +76,7 @@
       href: deny-assignments-powershell.md
     - name: REST API
       href: deny-assignments-rest.md
-  - name: Create custom roles
+  - name: Create or update custom roles
     items:
     - name: Overview
       href: custom-roles.md
@@ -92,8 +96,6 @@
     href: troubleshooting.md
 - name: Reference
   items:
-  - name: Built-in roles
-    href: built-in-roles.md
   - name: Resource provider operations
     href: resource-provider-operations.md
   - name: RBAC limits
