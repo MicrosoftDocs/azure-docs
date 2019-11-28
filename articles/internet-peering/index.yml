@@ -1,0 +1,74 @@
+### YamlMime:Landing
+
+title: Peering Documentation
+summary: Learn about Peering with Microsoft.
+
+metadata:
+  title: Peering Documentation
+  description: Learn about Peering with Microsoft.
+  services: Peering
+  ms.service: Peering
+  ms.subservice: Peering
+  ms.topic: landing-page
+  author: prmitiki
+  ms.author: prmitiki
+  ms.date: 11/27/2019
+  
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Peering
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Peering Overview
+            url: peering-overview.md
+          - text: What is Peering Service?
+            url: peering-service-overview.md
+      - linkListType: concept
+        links:
+          - text: Peering Policy
+            url: peering-policy.md
+          - text: Prerequisites to setup peering with Microsoft
+            url: peering-prerequisites.md
+
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Associate Peer ASN to Azure Subscription using Portal
+            url: peering-subscription-registration-portal.md
+          - text: Enable Peering Service on a Direct Peering using Portal
+            url: peering-howto-peering-service-portal.md
+          - text: Create or modify a Direct Peering using Portal
+            url: peering-howto-directpeering-arm-portal.md
+          - text: Convert a legacy Direct Peering to Azure resource using Portal
+            url: peering-howto-legacydirect-arm-portal.md
+          - text: Create or modify an Exchange Peering using Portal
+            url: peering-howto-exchangepeering-arm-portal.md
+          - text: Convert a legacy Exchange Peering to Azure resource using Portal
+            url: peering-howto-legacyexchange-arm-portal.md
+
+  # Card
+  - title: Workflows
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Direct Peering Walkthrough
+            url: peering-workflows-direct.md
+          - text: Exchange Peering Walkthrough
+            url: peering-workflows-exchange.md
+            
+  # Card
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Peering FAQs
+            url: peering-faqs.md
+          - text: Peering Service FAQs
+            url: peering-service-faqs.md
