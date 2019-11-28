@@ -2,12 +2,12 @@
   href: index.yml
 - name: Overview
   items:
-  - name: About IoT Device Provisioning Service
+  - name: What is IoT Hub Device Provisioning Service?
     href: about-iot-dps.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create and set up Azure IoT Device Provisioning Service
+  - name: Manage Azure IoT Device Provisioning Service without code
     items:
     - name: Azure Portal
       href: quick-setup-auto-provision.md
