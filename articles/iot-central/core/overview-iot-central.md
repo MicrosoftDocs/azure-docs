@@ -16,7 +16,7 @@ manager: timlt
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 > [!WARNING]
-> The [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) capabilities in Azure IoT Central are currently in public preview. Don't use an IoT Plug and Play enabled IoT Central [application template](../core/concepts-app-templates.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json) for production workloads. For production environments use an IoT central application created from a current, generally available, [application template](../core/concepts-app-templates.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json).
+> The [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) capabilities in Azure IoT Central are currently in public preview. Don't use an IoT Plug and Play enabled IoT Central [application template](concepts-app-templates.md) for production workloads. For production environments use an IoT central application created from a current, generally available, [application template](concepts-app-templates.md).
 
 IoT Central is an IoT application platform that reduces the burden and cost of developing, managing, and maintaining enterprise-grade IoT solutions. Choosing to build with IoT Central gives you the opportunity to focus time, money, and energy on transforming your business with IoT data, rather than just maintaining and updating a complex and continually evolving IoT infrastructure.
 
@@ -120,7 +120,7 @@ As well as devices created using the [Azure IoT SDKs](https://github.com/Azure/a
 - Report module health to the cloud for remote monitoring.
 - Manage communication between downstream leaf devices and an IoT Edge device, between modules on an IoT Edge device, and between an IoT Edge device and the cloud.
 
-For more information, see [Azure IoT Edge devices and IoT Central](../core/concepts-architecture.md#azure-iot-edge-devices).
+For more information, see [Azure IoT Edge devices and IoT Central](concepts-architecture.md#azure-iot-edge-devices).
 
 ## Manage your application
 
@@ -140,8 +140,8 @@ Administrators manage access to your application with [user roles and permission
 
 Now that you have an overview of IoT Central, here are suggested next steps:
 
-- Understand the differences between [IoT Central and Azure IoT solution accelerators](../core/overview-iot-options.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json).
+- Understand the differences between [IoT Central and Azure IoT solution accelerators](overview-iot-options.md).
 - Familiarize yourself with the [Azure IoT Central UI](overview-iot-central-tour.md).
 - Get started by [creating an Azure IoT Central application](quick-deploy-iot-central.md).
 - Learn more about [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md)
-- Learn how to [Create Azure IoT Edge Device template](../preview/tutorial-define-edge-device-type.md)
+- Learn how to [Create Azure IoT Edge Device template](tutorial-define-edge-device-type.md)

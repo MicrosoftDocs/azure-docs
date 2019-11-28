@@ -140,7 +140,7 @@ To bulk export devices from your application:
     * IOTC_X509THUMBPRINT_PRIMARY
     * IOTC_X509THUMBPRINT_SECONDARY
 
-For more information about connection strings and connecting real devices to your IoT Central application, see [Device connectivity in Azure IoT Central](../preview/overview-iot-central-get-connected.md).
+For more information about connection strings and connecting real devices to your IoT Central application, see [Device connectivity in Azure IoT Central](overview-iot-central-get-connected.md).
 
 ## Delete a device
 
@@ -174,6 +174,6 @@ Cloud properties are the device metadata associated with the device, such as cit
 Now that you've learned how to manage devices in your Azure IoT Central application, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [How to use device groups](../preview/tutorial-use-device-groups.md)
+> [How to use device groups](tutorial-use-device-groups.md)
 
 <!-- Next how-tos in the sequence -->
