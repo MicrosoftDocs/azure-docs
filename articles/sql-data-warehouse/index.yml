@@ -32,6 +32,8 @@ landingContent:
             url: massively-parallel-processing-mpp-architecture.md
           - text: Tips and best practices
             url: cheat-sheet.md
+          - text: Reference Architecture
+            url: https://docs.microsoft.com/azure/architecture/reference-architectures/data/enterprise-bi-synapse
 
   # Card
   - title: Getting started

@@ -99,33 +99,20 @@ The Azure Identity client library reads values from three environment variables 
 
 For more information, see [Create identity for Azure app in portal](../../active-directory/develop/howto-create-service-principal-portal.md).
 
-## Install client library packages
-
-The examples in this article use the latest version of the Azure Storage client library for Blob storage. To install the package, run the following command from the NuGet package manager console:
-
-```powershell
-Install-Package Azure.Storage.Blobs
-```
-
-The examples in this article also use the latest version of the [Azure Identity client library for .NET](https://www.nuget.org/packages/Azure.Identity/) to authenticate with Azure AD credentials. To install the package, run the following command from the NuGet package manager console:
-
-```powershell
-Install-Package Azure.Identity
-```
+[!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
 
 ## .NET code example: Create a block blob
 
 Add the following `using` directives to your code to use the Azure Identity and Azure Storage client libraries.
 
 ```csharp
+using Azure;
+using Azure.Identity;
+using Azure.Storage.Blobs;
 using System;
 using System.IO;
+using System.Text;
 using System.Threading.Tasks;
-using Azure.Identity;
-using Azure.Storage;
-using Azure.Storage.Sas;
-using Azure.Storage.Blobs;
-using Azure.Storage.Blobs.Models;
 ```
 
 To get a token credential that your code can use to authorize requests to Azure Storage, create an instance of the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class. The following code example shows how to get the authenticated token credential and use it to create a service client object, then use the service client to upload a new blob:
@@ -156,7 +143,7 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
             await containerClient.UploadBlobAsync(blobName, stream);
         }
     }
-    catch (StorageRequestFailedException e)
+    catch (RequestFailedException e)
     {
         Console.WriteLine(e.Message);
         Console.ReadLine();
