@@ -58,6 +58,8 @@ The total number of IP addresses:
 
 [Azure Service Endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) enables you to secure your Azure multi-tenant resources to your virtual network.
 Deploying Azure Data Explorer cluster into your subnet allows you to setup data connections with [Event Hub](/azure/event-hubs/event-hubs-about) or [Event Grid](/azure/event-grid/overview) while restricting the underlying resources for Azure Data Explorer subnet.
+> [!IMPORTANT]
+> When using EventGrid setup with subscription between [Storage](/azure/storage/common/storage-introduction) and [Event Hub](/azure/event-hubs/event-hubs-about), the storage account used in the subscription can be locked with Service Endpoints to ADX's subnet while allowing trusted Azure platform services in the Firewall configuration (see [more](/azure/storage/common/storage-network-security)), but the event hub can not enable Service Endpoint in that case since it does not support trusted Azure platform services (see [more](/azure/event-hubs/event-hubs-service-endpoints)).
 
 ## Dependencies for VNet deployment
 
