@@ -38,12 +38,6 @@ This feature is currently supported by the following Azure Cosmos DB APIs and cl
 
 Today, you see all operations in the change feed. The functionality where you can control change feed, for specific operations such as updates only and not inserts is not yet available. You can add a “soft marker” on the item for updates and filter based on that when processing items in the change feed. Currently change feed doesn’t log deletes. Similar to the previous example, you can add a soft marker on the items that are being deleted, for example, you can add an attribute in the item called "deleted" and set it to "true" and set a TTL on the item, so that it can be automatically deleted. You can read the change feed for historic items (the most recent change corresponding to the item, it doesn't include the intermediate changes), for example, items that were added five years ago. If the item is not deleted you can read the change feed as far as the origin of your container.
 
-## Change feed in Azure Cosmos DB's APIs for Cassandra and MongoDB
-
-The change feed feature works differently in Azure Cosmos DB's APIs for Cassandra and MongoDB what compared to the SQL API. For the MongoDB API, change feed is exposed via change streams. To learn more about the implementation details, see the [Change streams in the Azure Cosmos DB API for MongoDB](mongodb-change-streams.md). 
-
-Because change feed is not a feature available in native Apache Cassandra databases, the Azure Cosmos DB's change feed capability is exposed as a predicate that you can include in the CQL query. To learn more about the implementation details, see [Change feed in Azure Cosmos DB API for Cassandra](cassandra-change-feed.md).
-
 ### Sort order of items in change feed
 
 Change feed items come in the order of their modification time. This sort order is guaranteed per   logical partition key.
@@ -120,6 +114,12 @@ Change feed is available for each logical partition key within the container, an
 * Changes are available in parallel for all logical partition keys of an Azure Cosmos container. This capability allows changes from large containers to be processed in parallel by multiple consumers.
 
 * Applications can request multiple change feeds on the same container simultaneously. ChangeFeedOptions.StartTime can be used to provide an initial starting point. For example, to find the continuation token corresponding to a given clock time. The ContinuationToken, if specified, wins over   the StartTime and StartFromBeginning values. The precision of ChangeFeedOptions.StartTime is ~5 secs. 
+
+## Change feed in Cassandra and MongoDB API
+
+The change feed feature works differently in the Azure Cosmos DB APIs for Cassandra and MongoDB when compared to the SQL API. For the MongoDB API, change feed is exposed via change streams. To learn more about the implementation details, see the [Change streams in the Azure Cosmos DB API for MongoDB](mongodb-change-streams.md). 
+
+Because change feed is not a feature available in native Apache Cassandra databases, the Azure Cosmos DB's change feed capability is exposed as a predicate that you can include in the CQL query. To learn more about the implementation details, see [Change feed in the Azure Cosmos DB API for Cassandra](cassandra-change-feed.md).
 
 ## Next steps
 
