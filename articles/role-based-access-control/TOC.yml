@@ -39,7 +39,7 @@
     - name: Overview
       href: role-definitions.md
     - name: List role definitions
-      href: role-defintions-list.md
+      href: role-definitions-list.md
     - name: Built-in roles
       href: built-in-roles.md
   - name: List role assignments
