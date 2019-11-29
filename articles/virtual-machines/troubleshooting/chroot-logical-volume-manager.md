@@ -207,7 +207,7 @@ Query the installed **kernel**
 
 ![Advanced](./media/chroot-logical-volume-manager/rpm-kernel.png)
 
-If needed upgrade the **kernel**
+If needed remove or upgrade the **kernel**
 ![Advanced](./media/chroot-logical-volume-manager/rpm-remove-kernel.png)
 
 
