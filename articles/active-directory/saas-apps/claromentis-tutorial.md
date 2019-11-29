@@ -81,7 +81,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
     a. In the **Identifier** text box, type a URL using the following pattern:
-    `Random string, similar to Azure's own Entity IDs. E.g. bad0e086-8b88-4a42-8c09-bb44f2b80f86 Numbers and lowercased characters separated by hyphens`.
+
+    `Enter the identifier value as per your organization requirement`.
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<customer_site_url>/custom/loginhandler/simplesaml/www/module.php/saml/sp/saml2-acs.php/claromentis`
@@ -89,6 +90,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
+
     | | |
     |-|-|
     | `https://<customer_site_url>/login`|
