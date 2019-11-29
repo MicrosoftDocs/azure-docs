@@ -133,104 +133,97 @@ For more information about the internal details of Table storage, and in particu
 cloud storage service with strong consistency](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
 
 ### Entity group transactions
-In the Table service, Entity Group Transactions (EGTs) are the only built-in mechanism for performing atomic updates across multiple entities. EGTs are also referred to as *batch transactions* in some documentation. EGTs can only operate on entities stored in the same partition (share the same partition key in a given table), so anytime you need atomic transactional behavior across multiple entities you need to ensure that those entities are in the same partition. This is often a reason for keeping multiple entity types in the same table (and partition) and not using multiple tables for different entity types. A single EGT can operate on at most 100 entities.  If you submit multiple concurrent EGTs for processing, it is important to ensure  those EGTs do not operate on entities that are common across EGTs as otherwise processing can be delayed.
+In Table storage, entity group transactions (EGTs) are the only built-in mechanism for performing atomic updates across multiple entities. EGTs are also referred to as *batch transactions*. EGTs can only operate on entities stored in the same partition (sharing the same partition key in a particular table), so anytime you need atomic transactional behavior across multiple entities, ensure that those entities are in the same partition. This is often a reason for keeping multiple entity types in the same table (and partition), and not using multiple tables for different entity types. A single EGT can operate on at most 100 entities.  If you submit multiple concurrent EGTs for processing, it's important to ensure that those EGTs don't operate on entities that are common across EGTs. Otherwise, you risk delaying processing.
 
-EGTs also introduce a potential trade-off for you to evaluate in your design: using more partitions will increase the scalability of your application because Azure has more opportunities for load-balancing requests across nodes, but this might limit the ability of your application to perform atomic transactions and maintain strong consistency for your data. Furthermore, there are specific scalability targets at the level of a partition that might limit the throughput of transactions you can expect for a single node: for more information about the scalability targets for Azure storage accounts and the table service, see [Azure Storage Scalability and Performance Targets](../storage/common/storage-scalability-targets.md). Later sections of this guide discuss various design strategies that help you manage trade-offs such as this one, and discuss how best to choose your partition key based on the specific requirements of your client application.  
+EGTs also introduce a potential trade-off for you to evaluate in your design. Using more partitions increases the scalability of your application, because Azure has more opportunities for load-balancing requests across nodes. But this might limit the ability of your application to perform atomic transactions and maintain strong consistency for your data. Furthermore, there are specific scalability targets at the level of a partition that might limit the throughput of transactions you can expect for a single node.
+
+For more information about the scalability targets for Azure storage accounts and Table storage, see [Azure Storage scalability and performance targets](../storage/common/storage-scalability-targets.md). Later sections of this guide discuss various design strategies that help you manage trade-offs such as this one, and discuss how best to choose your partition key based on the specific requirements of your client application.  
 
 ### Capacity considerations
-The following table includes some of the key values to be aware of when you are designing a Table service solution:  
+The following table includes some of the key values to be aware of when you're designing a Table storage solution:  
 
 | Total capacity of an Azure storage account | 500 TB |
 | --- | --- |
-| Number of tables in an Azure storage account |Limited only by the capacity of the storage account |
-| Number of partitions in a table |Limited only by the capacity of the storage account |
-| Number of entities in a partition |Limited only by the capacity of the storage account |
-| Size of an individual entity |Up to 1 MB with a maximum of 255 properties (including the **PartitionKey**, **RowKey**, and **Timestamp**) |
-| Size of the **PartitionKey** |A string up to 1 KB in size |
-| Size of the **RowKey** |A string up to 1 KB in size |
-| Size of an Entity Group Transaction |A transaction can include at most 100 entities and the payload must be less than 4 MB in size. An EGT can only update an entity once. |
+| Number of tables in an Azure storage account |Limited only by the capacity of the storage account. |
+| Number of partitions in a table |Limited only by the capacity of the storage account. |
+| Number of entities in a partition |Limited only by the capacity of the storage account. |
+| Size of an individual entity |Up to 1 MB, with a maximum of 255 properties (including the `PartitionKey`, `RowKey`, and `Timestamp`). |
+| Size of the `PartitionKey` |A string up to 1 KB in size. |
+| Size of the `RowKey` |A string up to 1 KB in size. |
+| Size of an Entity Group Transaction |A transaction can include at most 100 entities, and the payload must be less than 4 MB in size. An EGT can only update an entity once. |
 
-For more information, see [Understanding the Table Service Data Model](https://msdn.microsoft.com/library/azure/dd179338.aspx).  
+For more information, see [Understanding the Table service data model](https://msdn.microsoft.com/library/azure/dd179338.aspx).  
 
 ### Cost considerations
-Table storage is relatively inexpensive, but you should include cost estimates for both capacity usage and the quantity of transactions as part of your evaluation of any solution that uses the Table service. However, in many scenarios storing denormalized or duplicate data in order to improve the performance or scalability of your solution is a valid approach to take. For more information about pricing, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/).  
+Table storage is relatively inexpensive, but you should include cost estimates for both capacity usage and the quantity of transactions as part of your evaluation of any solution that uses Table storage. In many scenarios, however, storing denormalized or duplicate data in order to improve the performance or scalability of your solution is a valid approach to take. For more information about pricing, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/).  
 
 ## Guidelines for table design
-These lists summarize some of the key guidelines you should keep in mind when you are designing your tables, and this guide will address them all in more detail later in. These guidelines are different from the guidelines you would typically follow for relational database design.  
+These lists summarize some of the key guidelines you should keep in mind when you're designing your tables. This guide addresses them all in more detail later on. These guidelines are different from the guidelines you'd typically follow for relational database design.  
 
-Designing your Table service solution to be *read* efficient:
+Designing your Table storage to be *read* efficient:
 
-* ***Design for querying in read-heavy applications.*** When you are designing your tables, think about the queries (especially the latency sensitive ones) that you will execute before you think about how you will update your entities. This typically results in an efficient and performant solution.  
-* ***Specify both PartitionKey and RowKey in your queries.*** *Point queries* such as these are the most efficient table service queries.  
-* ***Consider storing duplicate copies of entities.*** Table storage is cheap so consider storing the same entity multiple times (with different keys) to enable more efficient queries.  
-* ***Consider denormalizing your data.*** Table storage is cheap so consider denormalizing your data. For example, store summary entities so that queries for aggregate data only need to access a single entity.  
-* ***Use compound key values.*** The only keys you have are **PartitionKey** and **RowKey**. For example, use compound key values to enable alternate keyed access paths to entities.  
-* ***Use query projection.*** You can reduce the amount of data that you transfer over the network by using queries that select just the fields you need.  
+* **Design for querying in read-heavy applications.** When you're designing your tables, think about the queries (especially the latency-sensitive ones) you'll run before you think about how you'll update your entities. This typically results in an efficient and performant solution.  
+* **Specify both `PartitionKey` and `RowKey` in your queries.** *Point queries* such as these are the most efficient table service queries.  
+* **Consider storing duplicate copies of entities.** Table storage is cheap, so consider storing the same entity multiple times (with different keys), to enable more efficient queries.  
+* **Consider denormalizing your data.** Table storage is cheap, so consider denormalizing your data. For example, store summary entities so that queries for aggregate data only need to access a single entity.  
+* **Use compound key values.** The only keys you have are `PartitionKey` and `RowKey`. For example, use compound key values to enable alternate keyed access paths to entities.  
+* **Use query projection.** You can reduce the amount of data that you transfer over the network by using queries that select just the fields you need.  
 
-Designing your Table service solution to be *write* efficient:  
+Designing your Table storage to be *write* efficient:  
 
-* ***Do not create hot partitions.*** Choose keys that enable you to spread your requests across multiple partitions at any point of time.  
-* ***Avoid spikes in traffic.*** Smooth the traffic over a reasonable period of time and avoid spikes in traffic.
-* ***Don't necessarily create a separate table for each type of entity.*** When you require atomic transactions across entity types, you can store these multiple entity types in the same partition in the same table.
-* ***Consider the maximum throughput you must achieve.*** You must be aware of the scalability targets for the Table service and ensure that your design will not cause you to exceed them.  
+* **Don't create hot partitions.** Choose keys that enable you to spread your requests across multiple partitions at any point of time.  
+* **Avoid spikes in traffic.** Distribute the traffic over a reasonable period of time, and avoid spikes in traffic.
+* **Don't necessarily create a separate table for each type of entity.** When you require atomic transactions across entity types, you can store these multiple entity types in the same partition in the same table.
+* **Consider the maximum throughput you must achieve.** You must be aware of the scalability targets for Table storage, and ensure that your design won't cause you to exceed them.  
 
-As you read this guide, you will see examples that put all of these principles into practice.  
+Later in this guide, you'll see examples that put all of these principles into practice.  
 
 ## Design for querying
-Table service solutions may be read intensive, write intensive, or a mix of the two. This section focuses on the things to bear in mind when you are designing your Table service to support read operations efficiently. Typically, a design that supports read operations efficiently is also efficient for write operations. However, there are additional considerations to bear in mind when designing to support write operations, discussed in the next section, [Design for data modification](#design-for-data-modification).
+Table storage can be read intensive, write intensive, or a mix of the two. This section considers designing to support read operations efficiently. Typically, a design that supports read operations efficiently is also efficient for write operations. However, there are additional considerations when designing to support write operations. These are discussed in the next section, [Design for data modification](#design-for-data-modification).
 
-A good starting point for designing your Table service solution to enable you to read data efficiently is to ask "What queries will my application need to execute to retrieve the data it needs from the Table service?"  
+A good starting point to enable you to read data efficiently is to ask "What queries will my application need to run to retrieve the data it needs?"  
 
 > [!NOTE]
-> With the Table service, it's important to get the design correct up front because it's difficult and expensive to change it later. For example, in a relational database it's often possible to address performance issues simply by adding indexes to an existing database: this is not an option with the Table service.  
-> 
-> 
+> With Table storage, it's important to get the design correct up front, because it's difficult and expensive to change it later. For example, in a relational database, it's often possible to address performance issues simply by adding indexes to an existing database. This isn't an option with Table storage.  
 
-This section focuses on the key issues you must address when you design your tables for querying. The topics covered in this section include:
+### How your choice of `PartitionKey` and `RowKey` affects query performance
+The following examples assume Table storage is storing employee entities with the following structure (most of the examples omit the `Timestamp` property for clarity):  
 
-* [How your choice of PartitionKey and RowKey impacts query performance](#how-your-choice-of-partitionkey-and-rowkey-impacts-query-performance)
-* [Choosing an appropriate PartitionKey](#choosing-an-appropriate-partitionkey)
-* [Optimizing queries for the Table service](#optimizing-queries-for-the-table-service)
-* [Sorting data in the Table service](#sorting-data-in-the-table-service)
-
-### How your choice of PartitionKey and RowKey impacts query performance
-The following examples assume the table service is storing employee entities with the following structure (most of the examples omit the **Timestamp** property for clarity):  
-
-| *Column name* | *Data type* |
+| Column name | Data type |
 | --- | --- |
-| **PartitionKey** (Department Name) |String |
-| **RowKey** (Employee Id) |String |
-| **FirstName** |String |
-| **LastName** |String |
-| **Age** |Integer |
-| **EmailAddress** |String |
+| `PartitionKey` (Department name) |String |
+| `RowKey` (Employee ID) |String |
+| `FirstName` |String |
+| `LastName` |String |
+| `Age` |Integer |
+| `EmailAddress` |String |
 
-The earlier section Azure Table service overview describes some of the key features of the Azure Table service that have a direct influence on designing for query. These result in the following general guidelines for designing Table service queries. The filter syntax used in the examples below is from the Table service REST API, for more information, see [Query Entities](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+Here are some general guidelines for designing Table storage queries. The filter syntax used in the following examples is from the Table storage REST API. For more information, see [Query entities](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
-* A ***Point Query*** is the most efficient lookup to use and is recommended to be used for high-volume lookups or lookups requiring lowest latency. Such a query can use the indexes to locate an individual entity efficiently by specifying both the **PartitionKey** and **RowKey** values. For example:
-  $filter=(PartitionKey eq 'Sales') and (RowKey eq '2')  
-* Second best is a ***Range Query*** that uses the **PartitionKey** and filters on a range of **RowKey** values to return more than one entity. The **PartitionKey** value identifies a specific partition, and the **RowKey** values identify a subset of the entities in that partition. For example:
-  $filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'  
-* Third best is a ***Partition Scan*** that uses the **PartitionKey** and filters on another non-key property and that may return more than one entity. The **PartitionKey** value identifies a specific partition, and the property values select for a subset of the entities in that partition. For example:
-  $filter=PartitionKey eq 'Sales' and LastName eq 'Smith'  
-* A ***Table Scan*** does not include the **PartitionKey** and is inefficient because it searches all of the partitions that make up your table in turn for any matching entities. It will perform a table scan regardless of whether or not your filter uses the **RowKey**. For example:
-  $filter=LastName eq 'Jones'  
-* Azure Table Storage Queries that return multiple entities return them sorted in **PartitionKey** and **RowKey** order. To avoid resorting the entities in the client, choose a **RowKey** that defines the most common sort order. Query results returned by the Azure Table API in Azure Cosmos DB are not sorted by partition key or row key. For a detailed list of feature differences, see [differences between Table API in Azure Cosmos DB and Azure Table storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+* A *point query* is the most efficient lookup to use, and is recommended for high-volume lookups or lookups requiring the lowest latency. Such a query can use the indexes to locate an individual entity efficiently by specifying both the `PartitionKey` and `RowKey` values. For example:
+  `$filter=(PartitionKey eq 'Sales') and (RowKey eq '2')`.  
+* Second best is a *range query*. It uses the `PartitionKey`, and filters on a range of `RowKey` values to return more than one entity. The `PartitionKey` value identifies a specific partition, and the `RowKey` values identify a subset of the entities in that partition. For example:
+  `$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'`.  
+* Third best is a *partition scan*. It uses the `PartitionKey`, and filters on another non-key property and might return more than one entity. The `PartitionKey` value identifies a specific partition, and the property values select for a subset of the entities in that partition. For example:
+  `$filter=PartitionKey eq 'Sales' and LastName eq 'Smith'`.  
+* A *table scan* doesn't include the `PartitionKey`, and is inefficient because it searches all of the partitions that make up your table for any matching entities. It performs a table scan regardless of whether or not your filter uses the `RowKey`. For example:
+  `$filter=LastName eq 'Jones'`.  
+* Azure Table storage queries that return multiple entities sort them in `PartitionKey` and `RowKey` order. To avoid resorting the entities in the client, choose a `RowKey` that defines the most common sort order. Query results returned by the Azure Table API in Azure Cosmos DB aren't sorted by partition key or row key. For a detailed list of feature differences, see [differences between Table API in Azure Cosmos DB and Azure Table storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
-Using an "**or**" to specify a filter based on **RowKey** values results in a partition scan and is not treated as a range query. Therefore, you should avoid queries that use filters such as:
-$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')  
+Using an "**or**" to specify a filter based on `RowKey` values results in a partition scan, and isn't treated as a range query. Therefore, avoid queries that use filters such as:
+`$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')`.  
 
-For examples of client-side code that use the Storage Client Library to execute efficient queries, see:  
+For examples of client-side code that use the Storage Client Library to run efficient queries, see:  
 
-* [Executing a point query using the Storage Client Library](#executing-a-point-query-using-the-storage-client-library)
-* [Retrieving multiple entities using LINQ](#retrieving-multiple-entities-using-linq)
+* [Executing a point query by using the Storage Client Library](#executing-a-point-query-using-the-storage-client-library)
+* [Retrieving multiple entities by using LINQ](#retrieving-multiple-entities-using-linq)
 * [Server-side projection](#server-side-projection)  
 
 For examples of client-side code that can handle multiple entity types stored in the same table, see:  
 
 * [Working with heterogeneous entity types](#working-with-heterogeneous-entity-types)  
 
-### Choosing an appropriate PartitionKey
+### Choose an appropriate `PartitionKey`
 Your choice of **PartitionKey** should balance the need to enable the use of EGTs (to ensure consistency) against the requirement to distribute your entities across multiple partitions (to ensure a scalable solution).  
 
 At one extreme, you could store all your entities in a single partition, but this may limit the scalability of your solution and would prevent the table service from being able to load-balance requests. At the other extreme, you could store one entity per partition, which would be highly scalable and which enables the table service to load-balance requests, but that would prevent you from using entity group transactions.  
@@ -244,7 +237,7 @@ An ideal **PartitionKey** is one that enables you to use efficient queries and t
 
 There are additional considerations in your choice of **PartitionKey** that relate to how you will insert, update, and delete entities: see the section [Design for data modification](#design-for-data-modification) below.  
 
-### Optimizing queries for the Table service
+### Optimize queries for the Table service
 The Table service automatically indexes your entities using the **PartitionKey** and **RowKey** values in a single clustered index, hence the reason that point queries are the most efficient to use. However, there are no indexes other than that on the clustered index on the **PartitionKey** and **RowKey**.
 
 Many designs must meet requirements to enable lookup of entities based on multiple criteria. For example, locating employee entities based on email, employee id, or last name. The following patterns in the section [Table Design Patterns](#table-design-patterns) address these types of requirement and describe ways of working around the fact that the Table service does not provide secondary indexes:  
