@@ -79,7 +79,7 @@ In order to get the changes to a single row by primary key, you can add the prim
 
 The following limitations are applicable when using change feed with Cassandra API:
 
-* Integration with Azure functions is not yest supported, this planned for a future release.
+* Integration with Azure functions is not yet supported, this is planned for a future release.
 * Inserts and updates are currently supported. Delete operation is not yet supported. As a workaround, you can add a soft marker on rows that are being deleted. For example, add a field in the row called "deleted" and set it to "true".
 * Last update is persisted as in core SQL API and intermediate updates to the entity are not available.
 
