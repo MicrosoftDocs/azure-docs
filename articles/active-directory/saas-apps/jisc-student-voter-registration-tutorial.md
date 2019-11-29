@@ -78,7 +78,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, enter the values for the following field:
 
     In the **Sign-on URL** text box, type a URL:
     `https://www.studentvoterregistration.ac.uk/consent`
