@@ -66,13 +66,33 @@ In addition to the Azure portal, you can also use [Azure PowerShell](hdinsight-h
 
 ## Validate the installation
 
-You can check the application status on the Azure portal to validate the application installation. In addition, you can also validate all HTTP endpoints came up as expected and the webpage if there's one. For **Hue**, you can use the following steps:
+You can check the application status on the Azure portal to validate the application installation. In addition, you can also validate all HTTP endpoints came up as expected and the webpage if there's one.
+
+For **Hue**, you can use the following steps:
+
+### Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the cluster where you installed the application.
 1. From the **Settings** menu, select **Applications**.
 1. Select **hue** from the list to view the properties.  
 1. Select the Webpage link to validate the website.
+
+### Azure CLI
+
+Replace `CLUSTERNAME`, and `RESOURCEGROUP` with the relevant values and then enter the commands below:
+
+* To lists all of the applications for the HDInsight cluster.
+
+    ```azurecli
+    az hdinsight application list --cluster-name CLUSTERNAME --resource-group RESOURCEGROUP
+    ```
+
+* To retrieve properties of the specified application.
+
+    ```azurecli
+    az hdinsight application show --name hue --cluster-name CLUSTERNAME --resource-group RESOURCEGROUP
+    ```
 
 ## Troubleshoot the installation
 
@@ -98,11 +118,21 @@ If an application installation failed, you can see the error messages and debug 
 
 ## Remove HDInsight applications
 
+### Azure portal
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the cluster where you installed the application.
 1. From the **Settings** menu, select **Applications**.
 1. Right-click the application you want to remove, and then select **Delete**.
 1. Select **Yes** to confirm.
+
+### Azure CLI
+
+Replace `NAME`, `CLUSTERNAME`, and `RESOURCEGROUP` with the relevant values and then enter the command below:
+
+```azurecli
+az hdinsight application delete --name NAME --cluster-name CLUSTERNAME --resource-group RESOURCEGROUP
+```
 
 ## Next steps
 
