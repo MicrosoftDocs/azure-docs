@@ -53,7 +53,7 @@ Then you can configure the deployment, run the maven command in the Command Prom
 ```cmd
 mvn com.microsoft.azure:azure-webapp-maven-plugin:1.8.0:config
 ```
-An example process looks like:
+A sample process looks like:
 
 ```cmd
 ~@Azure:~/helloworld$ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.8.0:config
