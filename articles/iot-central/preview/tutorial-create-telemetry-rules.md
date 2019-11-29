@@ -104,11 +104,6 @@ Choose the rule you want to enable or disable. Add a filter in the **Scopes** se
 
 ## Next steps
 
-Now that you have learned how to create rules in your Azure IoT Central application, the suggested next step is to learn [How to manage your devices](howto-manage-devices.md)
-
-## Next steps
-
->>>>>>> fa07415cf19e8cdb02d570edb3785780bfa97a7c:articles/iot-central/preview/tutorial-create-telemetry-rules.md
 In this tutorial, you learned how to:
 
 * Create a telemetry-based rule
@@ -117,5 +112,4 @@ In this tutorial, you learned how to:
 Now that you've defined a threshold-based rule the suggested next step is to learn how to:
 
 > [!div class="nextstepaction"]
-
 > [Configure continuous data export](./howto-export-data.md).

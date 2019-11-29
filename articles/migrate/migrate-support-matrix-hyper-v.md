@@ -1,11 +1,11 @@
 ---
-title: Azure Migrate support matrix for Hyper-V assessment and migration
-description: Summarizes settings and limitations for Hyper-V assessment and migration using the Azure Migrate service.
+title: Support for Hyper-V assessment/migration in Azure Migrate
+description: Learn about support for Hyper-V assessment/migration with Azure Migrate.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ---
 

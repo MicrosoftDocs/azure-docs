@@ -79,6 +79,30 @@ If you request access to an access package that has multiple policies that apply
 
 ![My Access portal - Request access - multiple policies](./media/entitlement-management-request-access/my-access-multiple-policies.png)
 
+## Resubmit a request
+
+When you request access to an access package, your request might be denied or your request might expire if approvers don't respond in time. If you need access, you can try again and resubmit your request. The following procedure explains how to resubmit an access request:
+
+**Prerequisite role:** Requestor
+
+1. Sign in to the **My Access** portal.
+
+1. Click **Request history** from the navigation menu to the left.
+
+1. Find the access package for which you are resubmitting a request.
+
+1. Click the check mark to select the access package.
+
+1. Click the blue **View** link to the right of the selected access package.
+    
+    ![Select access package and view link](./media/entitlement-management-request-access/resubmit-request-select-request-and-view.png)
+
+    A pane will open to the right with the request history for the access package.
+    
+    ![Select resubmit button](./media/entitlement-management-request-access/resubmit-request-select-resubmit.png)
+
+1. Click the **Resubmit** button at the bottom of the pane.
+
 ## Cancel a request
 
 If you submit an access request and the request is still in the **pending approval** state, you can cancel the request.

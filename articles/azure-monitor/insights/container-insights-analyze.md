@@ -315,3 +315,5 @@ You access these workbooks by selecting each one from the **View Workbooks** dro
 - Review [Create performance alerts with Azure Monitor for containers](container-insights-alerts.md) to learn how to create alerts for high CPU and memory utilization to support your DevOps or operational processes and procedures.
 
 - View [log query examples](container-insights-log-search.md#search-logs-to-analyze-data) to see predefined queries and examples to evaluate or customize to alert, visualize, or analyze your clusters.
+
+- View [monitor cluster health](container-insights-health.md) to learn about viewing the health status your Kubernetes cluster.

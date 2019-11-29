@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Machine Agent Overview | Microsoft Docs
+title: Azure Virtual Machine Agent Overview 
 description: Azure Virtual Machine Agent Overview
 services: virtual-machines-windows
 documentationcenter: virtual-machines

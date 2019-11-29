@@ -1,7 +1,7 @@
 ---
 title: OData logical operator reference
 titleSuffix: Azure Cognitive Search
-description: OData logical operators, and, or, and not, in Azure Cognitive Search queries.
+description: Syntax and reference documentation for using OData logical operators, and, or, and not, in Azure Cognitive Search queries.
 
 manager: nitinme
 author: brjohnstmsft

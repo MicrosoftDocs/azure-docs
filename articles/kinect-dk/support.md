@@ -1,6 +1,6 @@
 ---
 title: Azure Kinect support options and resources
-description: Azure Kinect different support options and resources
+description: Understand the different support options and resources for the Azure Kinect.
 author: tesych
 ms.author: tesych
 ms.prod: kinect-dk

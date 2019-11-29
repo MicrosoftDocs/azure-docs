@@ -43,6 +43,7 @@ The items that appear in this table will change over time as support for Blob st
 |---|---|
 |[Cool access tier](storage-blob-storage-tiers.md)|Generally available|
 |Blob SDKs |Generally available|
+|Blob REST APIs|Generally avaliable|
 |[PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-powershell) |Generally available|
 |[CLI](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-cli) |Generally available|
 |[Diagnostic logs](../common/storage-analytics-logging.md)| Preview|

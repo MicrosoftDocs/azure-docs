@@ -9,8 +9,7 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 08/22/2019
-ROBOTS: NOINDEX
+ms.date: 11/19/2019
 ---
 
 # Multiclass Boosted Decision Tree

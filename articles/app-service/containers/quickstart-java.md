@@ -49,7 +49,11 @@ The deploy process to Azure App Service uses account credentials from the Azure 
 az login
 ```
 
-Then you can configure the deployment, run the maven command `mvn com.microsoft.azure:azure-webapp-maven-plugin:1.8.0:config` in the Command Prompt and use the default configurations by pressing **ENTER** until you get the **Confirm (Y/N)** prompt, then press **'y'** and the configuration is done.
+Then you can configure the deployment, run the maven command in the Command Prompt and use the default configurations by pressing **ENTER** until you get the **Confirm (Y/N)** prompt, then press **'y'** and the configuration is done. 
+```cmd
+mvn com.microsoft.azure:azure-webapp-maven-plugin:1.8.0:config
+```
+A sample process looks like:
 
 ```cmd
 ~@Azure:~/helloworld$ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.8.0:config
@@ -101,6 +105,9 @@ Navigate to `pom.xml` again to see the plugin configuration is updated,  You can
 [`<runtime>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#runtimesetting) | true | The runtime environment configuration, you could see the detail [here](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#runtimesetting). | 0.1.0+
 [`<deployment>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#deploymentsetting) | true | The deployment configuration, you could see the details [here](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#deploymentsetting). | 0.1.0+
 
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=app-service-linux-quickstart&step=config)
+
 ## Deploy the app
 
 Deploy your Java app to Azure using the following command:
@@ -115,9 +122,12 @@ Once deployment has completed, browse to the deployed application using the foll
 
 **Congratulations!** You've deployed your first Java app to App Service on Linux.
 
+> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=app-service-linux-quickstart&step=deploy)
+
 ## Clean up resources
 
-In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group by running the following command in the Cloud Shell:
+In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group from portal, or by running the following command in the Cloud Shell:
 
 ```azurecli-interactive
 az group delete --name <your resource group name; for example: helloworld-1558400876966-rg> --yes
@@ -138,3 +148,6 @@ This command may take a minute to run.
 
 > [!div class="nextstepaction"]
 > [Other Azure for Java Developers Resources](/java/azure/)
+
+> [!div class="nextstepaction"]
+> [Learn More about Maven plugins for Azure](https://github.com/microsoft/azure-maven-plugins)

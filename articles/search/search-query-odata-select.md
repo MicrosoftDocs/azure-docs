@@ -1,7 +1,7 @@
 ---
 title: OData select reference
 titleSuffix: Azure Cognitive Search
-description: OData language reference for select syntax in Azure Cognitive Search queries.
+description: Syntax and language reference for explicit selection of fields to return in the search results of Azure Cognitive Search queries.
 
 manager: nitinme
 author: brjohnstmsft

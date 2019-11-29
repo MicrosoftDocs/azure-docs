@@ -48,7 +48,7 @@ The common helloworld project contains platform-independent implementations for 
 
    [!code-csharp[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/xamarin/helloworld/helloworld/Services/IMicrophoneService.cs)]
 
-#### [Android](#tab/android)
+#### [Android](#tab/x-android)
 ## Add sample code for the `helloworld.Android` project
 
 Now add the C# code that defines the Android-specific part of the application.

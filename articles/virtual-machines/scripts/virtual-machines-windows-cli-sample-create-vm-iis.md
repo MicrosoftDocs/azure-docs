@@ -1,5 +1,5 @@
 ---
-title: Azure CLI Script Sample - Install IIS | Microsoft Docs
+title: Azure CLI Script Sample - Install IIS 
 description: Azure CLI Script Sample - Install IIS
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
