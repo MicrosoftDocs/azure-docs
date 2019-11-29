@@ -30,7 +30,9 @@ With the SDK, you get a low-level control of the change feed. You can manage the
 
 ## Change feed in APIs for Cassandra and MongoDB
 
-The Change Feed feature works differently for these APIs. For the MongoDB API, this is exposed via Change Streams. You can learn about how this feature works [here](mongodb-change-streams.md). For the Cassandra API, because Change Feed is not a feature available in native Cassandra databases, the Azure Cosmos DB Change Feed capability is exposed as a predicate that can be included in a CQL query. You can learn how this implementation works [here](cassandra-change-feed.md).
+Change feed functionality is surfaced as change stream in MongoDB API and Query with predicate in Cassandra API. To learn more about the implementation details for MongoDB API, see the [Change streams in the Azure Cosmos DB API for MongoDB](mongodb-change-streams.md).
+
+Native Apache Cassandra provides change data capture (CDC), a mechanism to flag specific tables for archival as well as rejecting writes to those tables once a configurable size-on-disk for the CDC log is reached. The change feed feature in Azure Cosmos DB API for Cassandra enhances the ability to query the changes with predicate via CQL. To learn more about the implementation details, see [Change feed in the Azure Cosmos DB API for Cassandra](cassandra-change-feed.md).
 
 ## Next steps
 

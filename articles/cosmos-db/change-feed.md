@@ -115,11 +115,11 @@ Change feed is available for each logical partition key within the container, an
 
 * Applications can request multiple change feeds on the same container simultaneously. ChangeFeedOptions.StartTime can be used to provide an initial starting point. For example, to find the continuation token corresponding to a given clock time. The ContinuationToken, if specified, wins over   the StartTime and StartFromBeginning values. The precision of ChangeFeedOptions.StartTime is ~5 secs. 
 
-## Change feed in Cassandra and MongoDB API
+## Change feed in APIs for Cassandra and MongoDB
 
-The change feed feature works differently in the Azure Cosmos DB APIs for Cassandra and MongoDB when compared to the SQL API. For the MongoDB API, change feed is exposed via change streams. To learn more about the implementation details, see the [Change streams in the Azure Cosmos DB API for MongoDB](mongodb-change-streams.md). 
+Change feed functionality is surfaced as change stream in MongoDB API and Query with predicate in Cassandra API. To learn more about the implementation details for MongoDB API, see the [Change streams in the Azure Cosmos DB API for MongoDB](mongodb-change-streams.md).
 
-Because change feed is not a feature available in native Apache Cassandra databases, the Azure Cosmos DB's change feed capability is exposed as a predicate that you can include in the CQL query. To learn more about the implementation details, see [Change feed in the Azure Cosmos DB API for Cassandra](cassandra-change-feed.md).
+Native Apache Cassandra provides change data capture (CDC), a mechanism to flag specific tables for archival as well as rejecting writes to those tables once a configurable size-on-disk for the CDC log is reached. The change feed feature in Azure Cosmos DB API for Cassandra enhances the ability to query the changes with predicate via CQL. To learn more about the implementation details, see [Change feed in the Azure Cosmos DB API for Cassandra](cassandra-change-feed.md).
 
 ## Next steps
 
