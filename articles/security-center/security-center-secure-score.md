@@ -19,7 +19,7 @@ ms.author: memildin
 # Improve your secure score in Azure Security Center
 
 > [!NOTE]
-> There is an enhanced Secure Score available in preview. To take part in the preview, contact your Microsoft through the usual channels. For details of the benefits of the enhanced Secure Score, see [here](secure-score-and-controls.md).
+> There is an enhanced Secure Score available in preview. To take part in the preview, contact Microsoft through the usual channels. For details of the benefits of the enhanced Secure Score, see [here](secure-score-and-controls.md).
 
 With so many services offering security benefits, it's often hard to know what steps to take first to secure and harden your workload. The Azure secure score reviews your security recommendations and prioritizes them for you, so you know which recommendations to perform first. This helps you find the most serious security vulnerabilities so you can prioritize investigation. Secure score is a tool that helps you assess your workload security posture.
 

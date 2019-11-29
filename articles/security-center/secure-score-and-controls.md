@@ -1,6 +1,6 @@
 ---
-title: Azure secure score enhancements | Microsoft Docs
-description: "Azure secure score enhancements (Preview)"
+title: Azure Secure Score enhancements | Microsoft Docs
+description: "Azure Secure Score enhancements (Preview)"
 services: security-center
 documentationcenter: na
 author: memildin
@@ -15,7 +15,12 @@ ms.date: 11/04/2019
 ms.author: memildin
 
 ---
-# An introduction to Secure Score (Preview)
+
+# Security Center's enhanced Secure Score (Preview) 
+
+This article introduces the enhanced Secure Score (currently in preview), the accompanying Security Controls, and the advantages they bring.
+
+## An introduction to Secure Score
 
 Azure Security Center has two main goals:
 
@@ -26,12 +31,12 @@ The central aspect of Security Center that enables you to achieve those goals is
 
 Security Center continually assesses your resources, subscriptions, and organization for security issues. It then aggregates all the findings into a single score so that you can tell, at a glance, your current security situation: the higher the score, the lower the identified risk level.
 
-You can also use this score to track your security posture over time and track security efforts and projects in your organization. The enhanced Secure Score (currently in preview) adds a percentage to the display to make it even simpler to track over time:
+You can also use this score to track your security posture over time, and track security efforts and projects in your organization. The enhanced Secure Score (currently in preview) adds a percentage to the display to make it even simpler to track over time:
 
 [![The enhanced Secure Score (preview) now includes a percentage](media/secure-score-and-controls/secure-score-with-percentage.png)](media/secure-score-and-controls/secure-score-with-percentage.png#lightbox)
 
 
-## Where is your secure score? 
+## Where is your Secure Score? 
 
 Security Center displays your score prominently: it's the first thing shown in the Overview page. If you click through to the dedicated Secure Score page, you'll see the score broken down by subscription. If you then click a single subscription, you'll see the detailed list of prioritized recommendations and the potential impact that remediating them will have on the subscription’s score. 
 
@@ -41,31 +46,31 @@ Before this preview, Security Center considered each recommendation individually
 
 As part of the enhancements to the Secure Score, recommendations are now grouped into **controls**. These are a logical grouping of related recommendations. Points are no longer awarded at the recommendation level; instead your score will only improve when you remediate *all* of the recommendations for a single resource within a control. 
 
-The contribution of each security control towards the overall Secure Score is shown clearly on the recommendations page.
+The contribution of each Security Control towards the overall Secure Score is shown clearly on the recommendations page.
 
 [![The enhanced Secure Score (preview) introduces Security Controls](media/secure-score-and-controls/security-controls.png)](media/secure-score-and-controls/security-controls.png#lightbox)
 
-To get all the possible points for a security control, all your resources must comply with all of the security recommendations within the security control. For example, Security Center has multiple recommendations regarding how to secure your management ports. In the past, you could remediate some of those related and interdependent recommendations while leaving others unsolved, and your secure score would improve. When looked at objectively, it's easy to argue that your security hadn't improved until you had resolved them all. Now, you must remediate them all to make a difference to your secure score.  
+To get all the possible points for a Security Control, all your resources must comply with all of the security recommendations within the Security Control. For example, Security Center has multiple recommendations regarding how to secure your management ports. In the past, you could remediate some of those related and interdependent recommendations while leaving others unsolved, and your Secure Score would improve. When looked at objectively, it's easy to argue that your security hadn't improved until you had resolved them all. Now, you must remediate them all to make a difference to your Secure Score.  
 
-For example, the security control Apply system updates has a maximum score of 6: 
+For example, the Security Control Apply system updates has a maximum score of 6: 
 
 ![The enhanced Secure Score (preview) introduces Security Controls](media/secure-score-and-controls/apply-system-updates-control.png)
 
 If you have three virtual machines, each one can potentially contribute a score of 0 or 2 (since it must meet all recommendations). 
 
-## How to improve your secure score? 
+## How to improve your Secure Score? 
 
-To improve your secure score, remediate the security recommendations from your recommendations list. You can remediate each recommendation manually for each resource, or by using the **quick fix** label (when available) to quickly apply a remediation for a recommendation to a group of resources. For more information, see [Remediate recommendations](security-center-remediate-recommendations.md). 
+To improve your Secure Score, remediate the security recommendations from your recommendations list. You can remediate each recommendation manually for each resource, or by using the **quick fix** label (when available) to quickly apply a remediation for a recommendation to a group of resources. For more information, see [Remediate recommendations](security-center-remediate-recommendations.md). 
 
 
-## Security controls and their recommendations
+## Security Controls and their recommendations
 
-The table below lists the security controls in Azure Security Center. For each control, you can see the maximum number of points you can add to your secure score if you remediate *all* of the recommendations listed in the control, for *all* of your resources. 
+The table below lists the Security Controls in Azure Security Center. For each control, you can see the maximum number of points you can add to your Secure Score if you remediate *all* of the recommendations listed in the control, for *all* of your resources. 
 
 > [!TIP]
 > If you'd like to filter or sort this list differently, copy and paste it into Excel.
 
-|Security Control|Maximum secure score points|Recommendations|
+|Security Control|Maximum Secure Score points|Recommendations|
 |----------------|-------------------|---------------|
 |**Enable MFA**|10|MFA should be enabled on accounts with owner permissions on your subscription<br>MFA should be enabled on accounts with read permissions on your subscription<br>MFA should be enabled accounts with write permissions on your subscription|
 |**Apply system updates**|6|Monitoring agent health issues should be resolved on your machines<br>Monitoring agent should be installed on virtual machine scale sets<br>Monitoring agent should be installed on your machines<br>OS version should be updated for your cloud service roles<br>System updates on virtual machine scale sets should be installed<br>System updates should be installed on your machines<br>Your machines should be restarted to apply system updates<br>Kubernetes Services should be upgraded to a non-vulnerable Kubernetes version<br>Monitoring agent should be installed on your virtual machines|
@@ -82,6 +87,23 @@ The table below lists the security controls in Azure Security Center. For each c
 |**Enable auditing and logging**|1|Auditing on SQL server should be enabled<br>Diagnostic logs in App Services should be enabled<br>Diagnostic logs in Azure Data Lake Store should be enabled<br>Diagnostic logs in Azure Stream Analytics should be enabled<br>Diagnostic logs in Batch accounts should be enabled<br>Diagnostic logs in Data Lake Analytics should be enabled<br>Diagnostic logs in Event Hub should be enabled<br>Diagnostic logs in IoT Hub should be enabled<br>Diagnostic logs in Key Vault should be enabled<br>Diagnostic logs in Logic Apps should be enabled<br>Diagnostic logs in Search service should be enabled<br>Diagnostic logs in Service Bus should be enabled<br>Diagnostic logs in Virtual Machine Scale Sets should be enabled<br>Metric alert rules should be configured on Batch accounts<br>SQL Auditing settings should have Action-Groups configured to capture critical activities<br>SQL servers should be configured with auditing retention days greater than 90 days.|
 |**Additional best practices**|0|Access to storage accounts with firewall and virtual network configurations should be restricted<br>All authorization rules except RootManageSharedAccessKey should be removed from Event Hub namespace<br>An Azure Active Directory administrator should be provisioned for SQL servers<br>Authorization rules on the Event Hub instance should be defined<br>Storage accounts should be migrated to new Azure Resource Manager resources<br>Virtual machines should be migrated to new Azure Resource Manager resources<br>Advanced data security settings for SQL server should contain an email address to receive security alerts<br>Advanced data security should be enabled on your managed instances<br>Advanced data security should be enabled on your SQL servers<br>All advanced threat protection types should be enabled in SQL managed instance advanced data security settings<br>Email notifications to admins and subscription owners should be enabled in SQL server advanced data security settings<br>Advanced Threat Protection types should be set to 'All' in SQL server Advanced Data Security settings<br>Subnets should be associated with a Network Security Group<br>All advanced threat protection types should be enabled in SQL server advanced data security settings|
 ||||
+
+## Secure Score FAQ
+
+### Why has my Secure Score gone down?
+With the changes introduced in this enhanced Secure Score, you must solve all recommendation for a resource to receive points. The scores also changed to a scale of 0-10.
+
+### If I address only 3 out of 4 recommendations on a Security Control, will my Secure Score change?
+No; it won't change until you remediate all of the recommendation for a single resource. To get the maximum score for a control, you must remediate all recommendations, for all resources.
+
+### Will this enhanced Secure Score replace the old Secure Score? 
+Yes, but for a while they will be running side-by-side to ease the transition.
+
+### If a recommendation is not applicable to me, and I disable it in the policy, will my Security Control be considered fulfilled and my Secure Score updated?
+Yes. We recommend disabling recommendations when they're inapplicable in your environment.
+
+### If a Security Control offers me zero points towards my Secure Score, should I ignore it?
+In some cases you will see a control max score greater than zero, but the impact is zero. This is because the incremental score for fixing some resources is negligible, so it is rounded to zero. However, don't ignore these recommendations as they still bring security improvements. The only exception is the “Additional Best Practice” control. Remediating these recommendations won't increase your score, but it will enhance your overall security.
 
 ## Next steps
 
