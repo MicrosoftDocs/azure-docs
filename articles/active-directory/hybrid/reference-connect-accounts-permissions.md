@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 09/25/2019
+ms.date: 10/03/2019
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -43,10 +43,10 @@ In addition to these three accounts used to run Azure AD Connect, you will also 
 
 - **SQL SA account (optional)**:     used to create the ADSync database when using the full version of SQL Server.  This SQL Server may be local or remote to the Azure AD Connect installation.  This account may be the same account as the Enterprise Administrator.  Provisioning the database can now be performed out of band by the SQL administrator and then installed by the Azure AD Connect administrator with database owner rights.  For information on this see [Install Azure AD Connect using SQL delegated administrator permissions](how-to-connect-install-sql-delegation.md)
 
-<<<<<<< HEAD
+
 >[!IMPORTANT]
 > As of build 1.4.###.# it is no longer supported to use an enterprise admin or a domain admin account as the AD DS Connector account.  If you attempt to enter an account that is an enterprise admin or domain admin when specifying **use existing account**, you will receive an error.
-=======
+
 > [!NOTE]
 > It is supported to manage the administrative accounts used in Azure AD Connect from an ESAE Administrative Forest (also know as "Red forest").
 > Dedicated administrative forests allow organizations to host administrative accounts, workstations, and groups in an environment that has stronger security controls than the production environment.

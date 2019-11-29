@@ -1,4 +1,4 @@
----
+﻿---
 title: Investigate alerts with Azure Sentinel| Microsoft Docs
 description: Use this tutorial to learn how to investigate alerts with Azure Sentinel.
 services: sentinel
@@ -35,7 +35,7 @@ This tutorial helps you detect threats with Azure Sentinel:
 
 ## About out-of-the-box detections
 
-To view all the out-of-the-box detections, go to **Analytics** and then **Rule templates**. This tab contains all the Azure Sentinel built-in rules.
+To view all the out-of-the-box detections, go to **Analytics** and then **Rule templates**. This tab contains all the Azure Sentinel built-in rules.
 
    ![Use built-in detections to find threats with Azure Sentinel](media/tutorial-detect-built-in/view-oob-detections.png)
 

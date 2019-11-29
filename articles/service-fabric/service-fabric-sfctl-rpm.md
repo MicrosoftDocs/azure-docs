@@ -3,17 +3,18 @@ title: Azure Service Fabric CLI- sfctl rpm| Microsoft Docs
 description: Describes the Service Fabric CLI sfctl rpm commands.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 
 ms.assetid: 
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
+ms.date: 9/17/2019
+ms.author: jejarry
 
 ---
 
@@ -97,5 +98,5 @@ This API supports the Service Fabric platform; it is not meant to be used direct
 
 
 ## Next steps
-- [Set up](service-fabric-cli.md) the Service Fabric CLI.
+- [Setup](service-fabric-cli.md) the Service Fabric CLI.
 - Learn how to use the Service Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

@@ -1,18 +1,15 @@
 ---
-title: Azure Resource Manager template structure and syntax | Microsoft Docs
+title: Template structure and syntax
 description: Describes the structure and properties of Azure Resource Manager templates using declarative JSON syntax.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/30/2019
-ms.author: tomfitz
+ms.date: 11/12/2019
 ---
 
 # Understand the structure and syntax of Azure Resource Manager templates
 
 This article describes the structure of an Azure Resource Manager template. It presents the different sections of a template and the properties that are available in those sections.
 
-This article is intended for users who have some familiarity with Resource Manager templates. It provides detailed information about the structure of the template. If you want an introduction to creating a template, see [Azure Resource Manager templates](template-deployment-overview.md).
+This article is intended for users who have some familiarity with Resource Manager templates. It provides detailed information about the structure of the template. For a step-by-step tutorial that guides you through the process of creating a template, see [Tutorial: Create and deploy your first Azure Resource Manager template](template-tutorial-create-first-template.md).
 
 ## Template format
 
@@ -61,7 +58,7 @@ The available properties for a parameter are:
     "minLength": <minimum-length-for-string-or-array>,
     "maxLength": <maximum-length-for-string-or-array-parameters>,
     "metadata": {
-      "description": "<description-of-the parameter>" 
+      "description": "<description-of-the parameter>"
     }
   }
 }
@@ -102,8 +99,8 @@ The following example shows the available options for defining a variable:
 ```json
 "variables": {
   "<variable-name>": "<variable-value>",
-  "<variable-name>": { 
-    <variable-complex-type-value> 
+  "<variable-name>": {
+    <variable-complex-type-value>
   },
   "<variable-object-name>": {
     "copy": [
@@ -247,7 +244,7 @@ You define resources with the following structure:
 | properties |No |Resource-specific configuration settings. The values for the properties are the same as the values you provide in the request body for the REST API operation (PUT method) to create the resource. You can also specify a copy array to create several instances of a property. To determine available values, see [template reference](/azure/templates/). |
 | sku | No | Some resources allow values that define the SKU to deploy. For example, you can specify the type of redundancy for a storage account. |
 | kind | No | Some resources allow a value that defines the type of resource you deploy. For example, you can specify the type of Cosmos DB to create. |
-| plan | No | Some resources allow values that define the plan to deploy. For example, you can specify the marketplace image for a virtual machine. | 
+| plan | No | Some resources allow values that define the plan to deploy. For example, you can specify the marketplace image for a virtual machine. |
 | resources |No |Child resources that depend on the resource being defined. Only provide resource types that are permitted by the schema of the parent resource. Dependency on the parent resource isn't implied. You must explicitly define that dependency. See [Set name and type for child resources](child-resource-name-type.md). |
 
 ## Outputs
@@ -280,6 +277,31 @@ For examples of how to use outputs, see [Outputs in Azure Resource Manager templ
 ## Comments and metadata
 
 You have a few options for adding comments and metadata to your template.
+
+### Comments
+
+For inline comments, you can use either `//` or `/* ... */` but this syntax doesn't work with all tools. You can't use the portal template editor to work on templates with inline comments. If you add this style of comment, be sure the tools you use support inline JSON comments.
+
+> [!NOTE]
+> To deploy templates with comments by using Azure CLI, you must use the `--handle-extended-json-format` switch.
+
+```json
+{
+  "type": "Microsoft.Compute/virtualMachines",
+  "name": "[variables('vmName')]", // to customize name, change it in variables
+  "location": "[parameters('location')]", //defaults to resource group location
+  "apiVersion": "2018-10-01",
+  "dependsOn": [ /* storage account and network interface must be deployed first */
+    "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
+    "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+  ],
+```
+
+In Visual Studio Code, the [Azure Resource Manager Tools extension](./resource-manager-tools-vs-code.md#install-resource-manager-tools-extension) can automatically detect Resource Manager template and change the language mode accordingly. If you see **Azure Resource Manager Template** at the bottom right corner of VS Code, you can use the inline comments. The inline comments are no longer marked as invalid.
+
+![Visual Studio Code Azure Resource Manager template mode](./media/resource-group-authoring-templates/resource-manager-template-editor-mode.png)
+
+### Metadata
 
 You can add a `metadata` object almost anywhere in your template. Resource Manager ignores the object, but your JSON editor may warn you that the property isn't valid. In the object, define the properties you need.
 
@@ -350,27 +372,29 @@ For **outputs**, add a metadata object to the output value.
 
 You can't add a metadata object to user-defined functions.
 
-For inline comments, you can use `//` but this syntax doesn't work with all tools. You can't use Azure CLI to deploy the template with inline comments. And, you can't use the portal template editor to work on templates with inline comments. If you add this style of comment, be sure the tools you use support inline JSON comments.
+## Multi-line strings
+
+You can break a string into multiple lines. For example the location property and one of the comments in the following JSON example.
 
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines",
   "name": "[variables('vmName')]", // to customize name, change it in variables
-  "location": "[parameters('location')]", //defaults to resource group location
+  "location": "[
+    parameters('location')
+    ]", //defaults to resource group location
   "apiVersion": "2018-10-01",
-  "dependsOn": [ // storage account and network interface must be deployed first
+  /*
+    storage account and network interface
+    must be deployed first
+  */
+  "dependsOn": [
     "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
     "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
   ],
 ```
 
-In VS Code, you can set the language mode to JSON with comments. The inline comments are no longer marked as invalid. To change the mode:
-
-1. Open language mode selection (Ctrl+K M)
-
-1. Select **JSON with Comments**.
-
-   ![Select language mode](./media/resource-group-authoring-templates/select-json-comments.png)
+To deploy templates with multi-line strings by using Azure CLI, you must use the `--handle-extended-json-format` switch.
 
 ## Next steps
 

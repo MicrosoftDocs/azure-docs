@@ -70,7 +70,7 @@ table_service = TableService(account_name='myaccount', account_key='mykey')
 To connect to Azure Cosmos DB, copy your primary connection string from the Azure portal, and create a [TableService][py_TableService] object using your copied connection string:
 
 ```python
-table_service = TableService(connection_string='DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;TableEndpoint=myendpoint;)
+table_service = TableService(connection_string='DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;TableEndpoint=myendpoint;')
 ```
 
 ## Create a table

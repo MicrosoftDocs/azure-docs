@@ -1,11 +1,11 @@
 ---
 title: Azure Kinect DK recorder
-description: Azure Kinect recorder options and functionality
+description: Understand how to record data streams from the sensor SDK to a file using the Azure Kinect recorder.
 author: tesych
 ms.author: tesych
 ms.prod: kinect-dk
 ms.date: 06/26/2019
-ms.topic: article
+ms.topic: conceptual
 keywords: kinect, record, playback, reader, matroska, mkv, streams, depth, rgb, camera, color, imu, audio
 ---
 

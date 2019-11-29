@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Publish knowledge base, REST, Go - QnA Maker"
 titleSuffix: Azure Cognitive Services 
-description: This Go REST-based quickstart walks you through publishing your knowledge base which pushes the latest version of the tested knowledge base to a dedicated Azure Search index representing the published knowledge base. It also creates an endpoint that can be called in your application or chat bot.
+description: This Go REST-based quickstart publishes your knowledge base and creates an endpoint that can be called in your application or chat bot.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,13 +9,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 10/02/2019
 ms.author: diberry
 ---
 
 # Quickstart: Publish a knowledge base in QnA Maker using Go
 
-This REST-based quickstart walks you through programmatically publishing your knowledge base (KB). Publishing pushes the latest version of the knowledge base to a dedicated Azure Search index and creates an endpoint that can be called in your application or chat bot.
+This REST-based quickstart walks you through programmatically publishing your knowledge base (KB). Publishing pushes the latest version of the knowledge base to a dedicated Azure Cognitive Search index and creates an endpoint that can be called in your application or chat bot.
 
 This quickstart calls QnA Maker APIs:
 * [Publish](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) - this API doesn't require any information in the body of the request.

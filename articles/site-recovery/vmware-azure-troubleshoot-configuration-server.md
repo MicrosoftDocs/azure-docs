@@ -120,7 +120,7 @@ If you install applications other than the configuration server on the virtual m
 
 The configuration server must be a single purpose server and using it as a shared server is unsupported. 
 
-For more information, see the configuration FAQ in [Deploy a configuration server](vmware-azure-deploy-configuration-server.md#faq). 
+For more information, see the configuration FAQ in [Deploy a configuration server](vmware-azure-deploy-configuration-server.md#faqs). 
 
 ## Remove the stale entries for protected items from the configuration server database 
 
@@ -183,7 +183,7 @@ To update the configuration server, run the [unified setup](service-updates-how-
 
 ## Azure Active Directory application creation failure
 
-You have insufficient permissions to create an application in Azure Active Directory (AAD) using the [Open Virtualization Application (OVA)](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template
+You have insufficient permissions to create an application in Azure Active Directory (AAD) using the [Open Virtualization Application (OVA)](vmware-azure-deploy-configuration-server.md#deploy-a-configuration-server-through-an-ova-template
 ) template.
 
 To resolve the issue, sign in to the Azure portal and do one of the following:

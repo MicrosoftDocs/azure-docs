@@ -91,7 +91,7 @@ You don't get charged for using the App Service features that are available to y
 
 Your App Service plan can be scaled up and down at any time. It is as simple as changing the pricing tier of the plan. You can choose a lower pricing tier at first and scale up later when you need more App Service features.
 
-For example, you can start testing your web app in a **Free** App Service plan and pay nothing. When you want to add your [custom DNS name](app-service-web-tutorial-custom-domain.md) to the web app, just scale your plan up to **Shared** tier. Later, when you want to add a [custom SSL certificate](app-service-web-tutorial-custom-ssl.md), scale your plan up to **Basic** tier. When you want to have [staging environments](deploy-staging-slots.md), scale up to **Standard** tier. When you need more cores, memory, or storage, scale up to a bigger VM size in the same tier.
+For example, you can start testing your web app in a **Free** App Service plan and pay nothing. When you want to add your [custom DNS name](app-service-web-tutorial-custom-domain.md) to the web app, just scale your plan up to **Shared** tier. Later, when you want to [create an SSL binding](configure-ssl-bindings.md), scale your plan up to **Basic** tier. When you want to have [staging environments](deploy-staging-slots.md), scale up to **Standard** tier. When you need more cores, memory, or storage, scale up to a bigger VM size in the same tier.
 
 The same works in the reverse. When you feel you no longer need the capabilities or features of a higher tier, you can scale down to a lower tier, which saves you money.
 

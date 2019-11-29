@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 11/17/2019
 ---
 
 # Read replicas in Azure Database for PostgreSQL - Single Server
@@ -155,7 +155,9 @@ A replica is created by using the same compute and storage settings as the maste
 
 PostgreSQL requires the value of the `max_connections` parameter on the read replica to be greater than or equal to the master value; otherwise, the replica won't start. In Azure Database for PostgreSQL, the `max_connections` parameter value is based on the SKU. For more information, see [Limits in Azure Database for PostgreSQL](concepts-limits.md). 
 
-If you try to update the server values, but don't adhere to the limits, you receive an error.
+If you try to update the server values described above, but don't adhere to the limits, you receive an error.
+
+Firewall rules, virtual network rules, and parameter settings are not inherited from the master server to the replica when the replica is created or afterwards.
 
 ### max_prepared_transactions
 [PostgreSQL requires](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) the value of the `max_prepared_transactions` parameter on the read replica to be greater than or equal to the master value; otherwise, the replica won't start. If you want to change `max_prepared_transactions` on the master, first change it on the replicas.

@@ -3,7 +3,7 @@ title: 'Best practices for using Power BI to query and visualize Azure Data Expl
 description: 'In this article, you learn best practices for using Power BI to query and visualize Azure Data Explorer data.'
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
@@ -25,13 +25,13 @@ When working with terabytes of fresh raw data, follow these guidelines to keep P
 
 * **Import mode versus DirectQuery mode** - Use **Import** mode for interaction of smaller data sets. Use **DirectQuery** mode for large, frequently updated data sets. For example, create dimension tables using **Import** mode since they're small and don't change often. Set the refresh interval according to the expected rate of data updates. Create fact tables using **DirectQuery** mode since these tables are large and contain raw data. Use these tables to present filtered data using Power BI [drillthrough](https://docs.microsoft.com/power-bi/desktop-drillthrough).
 
-* **Parallelism** – Azure Data explorer is a linearly scalable data platform, therefore, you can improve the performance of dashboard rendering by increasing the parallelism of the end-to-end flow as follows:
+* **Parallelism** – Azure Data Explorer is a linearly scalable data platform, therefore, you can improve the performance of dashboard rendering by increasing the parallelism of the end-to-end flow as follows:
 
    * Increase the number of [concurrent connections in DirectQuery in Power BI](https://docs.microsoft.com/power-bi/desktop-directquery-about#maximum-number-of-connections-option-for-directquery).
 
    * Use [weak consistency to improve parallelism](/azure/kusto/concepts/queryconsistency). This may have an impact on the freshness of the data.
 
-* **Effective slicers** – you can use [sync slicers](https://docs.microsoft.com/power-bi/visuals/power-bi-visualization-slicers#sync-and-use-slicers-on-other-pages) to prevent reports from loading data before you're ready. After you structure the data set, place all visuals, and mark all the slicers, you can select the sync slicer to load only the data needed.
+* **Effective slicers** – Use [sync slicers](https://docs.microsoft.com/power-bi/visuals/power-bi-visualization-slicers#sync-and-use-slicers-on-other-pages) to prevent reports from loading data before you're ready. After you structure the data set, place all visuals, and mark all the slicers, you can select the sync slicer to load only the data needed.
 
 * **Use filters** - Use as many Power BI filters as possible to focus the Azure Data Explorer search on the relevant data shards.
 
@@ -43,9 +43,9 @@ The following section includes tips and tricks for using Kusto query language wi
 
 ### Complex queries in Power BI
 
-Complex queries are more easily expressed in Kusto than in Power Query. They should be implemented as [Kusto functions](/azure/kusto/query/functions), and invoked in Power BI. This method is required when using **DirectQuery** with `let` statements in your Kusto query. Since Power BI joins two queries, and `let` statements can't be used with the `join` operator, syntax errors may occur. Therefore, save each portion of the join as a Kusto function and allow Power BI to join these two functions together.
+Complex queries are more easily expressed in Kusto than in Power Query. They should be implemented as [Kusto functions](/azure/kusto/query/functions), and invoked in Power BI. This method is required when using **DirectQuery** with `let` statements in your Kusto query. Because Power BI joins two queries, and `let` statements can't be used with the `join` operator, syntax errors may occur. Therefore, save each portion of the join as a Kusto function and allow Power BI to join these two functions together.
 
-### How to simulate a relative data-time operator
+### How to simulate a relative date-time operator
 
 Power BI doesn't contain a *relative* date-time operator such as `ago()`.
 To simulate `ago()`, use a combination of `DateTime.FixedLocalNow()` and `#duration` Power BI functions.
@@ -101,7 +101,7 @@ In **Edit Queries** window, **Home** > **Advanced Editor**
     Source = Kusto.Contents("Help", "Samples", "StormEvents | where State == 'ALABAMA' | take 100", [])
     ```
 
-1. Replace the relevant part of the query with your parameter. Splitting the query into multiple parts, and concatenate them back using the & sign, along with the parameter.
+1. Replace the relevant part of the query with your parameter. Split the query into multiple parts, and concatenate them back using an ampersand (&), along with the parameter.
 
    For example, in the query above, we'll take the `State == 'ALABAMA'` part, and split it to: `State == '` and `'` and we'll place the `State` parameter between them:
    
@@ -136,7 +136,7 @@ You can use a query parameter in any query step that supports it. For example, f
 ### Don't use Power BI data refresh scheduler to issue control commands to Kusto
 
 Power BI includes a data refresh scheduler that can periodically issue
-queries against a data source. This mechanism shouldn't be used to schedule control commands to Kusto, since Power BI assumes all queries are read-only.
+queries against a data source. This mechanism shouldn't be used to schedule control commands to Kusto because Power BI assumes all queries are read-only.
 
 ### Power BI can send only short (&lt;2000 characters) queries to Kusto
 

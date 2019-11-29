@@ -7,10 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
-author: nacharya1
-ms.author: nilesha
-ms.date: 06/20/2019
-ms.custom: seodec18
+author: cartacioS
+ms.author: sacartac
+ms.date: 11/04/2019
 ---
 
 # What is automated machine learning?
@@ -32,6 +31,13 @@ Data scientists, analysts and developers across industries can use automated ML 
 + Leverage data science best practices
 + Provide agile problem-solving
 
+The following table lists common automated ML use cases. 
+
+Classification| Regression | Time series forecasting
+---|---|---
+[Fraud Detection](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb)|[CPU Performance Prediction](https://github.com/Azure/MachineLearningNotebooks/blob/37541b10714f9337dbbae721bea494272dc7d151/how-to-use-azureml/automated-machine-learning/regression-hardware-performance-explanation-and-featurization/auto-ml-regression-hardware-performance-explanation-and-featurization.ipynb) |[Demand Forecasting](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)|
+[Marketing Prediction](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)|[Material Durability Prediction](https://github.com/Azure/MachineLearningNotebooks/blob/37541b10714f9337dbbae721bea494272dc7d151/how-to-use-azureml/automated-machine-learning/regression-concrete-strength/auto-ml-regression-concrete-strength.ipynb)|[Sales Forecasting](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb)
+
 ## How automated ML works
 
 Using **Azure Machine Learning**, you can design and run your automated ML training experiments with these steps:
@@ -42,7 +48,9 @@ Using **Azure Machine Learning**, you can design and run your automated ML train
 
 1. **Configure the compute target for model training**, such as your [local computer, Azure Machine Learning Computes, remote VMs, or Azure Databricks](how-to-set-up-training-targets.md).  Learn about automated training [on a remote resource](how-to-auto-train-remote.md).
 
-1. **Configure the automated machine learning parameters** that determine how many iterations over different models, hyperparameter settings, advanced preprocessing/featurization, and what metrics to look at when determining the best model.  You can configure the settings for automatic training experiment in [Azure portal](how-to-create-portal-experiments.md), [the workspace landing page (preview)](https://ml.azure.com), or [with the SDK](how-to-configure-auto-train.md). 
+1. **Configure the automated machine learning parameters** that determine how many iterations over different models, hyperparameter settings, advanced preprocessing/featurization, and what metrics to look at when determining the best model.  You can configure the settings for automatic training experiment in [Azure Machine Learning studio](https://ml.azure.com), or [with the SDK](how-to-configure-auto-train.md). 
+
+    [!INCLUDE [aml-applies-to-enterprise-sku](../../../includes/aml-applies-to-enterprise-sku-inline.md)]
 
 1. **Submit the training run.**
 
@@ -86,9 +94,9 @@ In every automated machine learning experiment, your data is automatically scale
 
 Additional advanced preprocessing and featurization are also available, such as missing values imputation, encoding, and transforms. [Learn more about what featurization is included](how-to-create-portal-experiments.md#preprocess). Enable this setting with:
 
-+ Azure portal: Selecting the **Preprocess** checkbox in the **Advanced settings** [with these steps](how-to-create-portal-experiments.md).
++ Azure Machine Learning studio : Selecting the **View featurization settings** in the **Configuration Run** section [with these steps](how-to-create-portal-experiments.md).
 
-+ Python SDK: Specifying `"preprocess": True` for the [`AutoMLConfig` class](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
++ Python SDK: Specifying `"feauturization": auto' / 'off' / FeaturizationConfig` for the [`AutoMLConfig` class](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
 
 ## Time-series forecasting
@@ -99,6 +107,8 @@ An automated time-series experiment is treated as a multivariate regression prob
 Learn more and see an example of [automated machine learning for time series forecasting](how-to-auto-train-forecast.md). Or, see the [energy demand notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) for detailed code examples of advanced forecasting configuration including:
 
 * holiday detection and featurization
+* time-series and DNN learners (Auto-ARIMA, Prophet, ForecastTCN)
+* many model support through grouping
 * rolling-origin cross validation
 * configurable lags
 * rolling window aggregate features
@@ -166,7 +176,7 @@ See examples and learn how to build models using automated machine learning:
 + Follow the [Tutorial: Automatically train a regression model with Azure Automated Machine Learning](tutorial-auto-train-models.md)
 
 + Configure the settings for automatic training experiment:
-  + In Azure portal interface or  the workspace landing page (preview), [use these steps](how-to-create-portal-experiments.md).
+  + In Azure Machine Learning studio, [use these steps](how-to-create-portal-experiments.md).
   + With the Python SDK, [use these steps](how-to-configure-auto-train.md).
 
 + Learn how to auto train using time series data, [use these steps](how-to-auto-train-forecast.md).

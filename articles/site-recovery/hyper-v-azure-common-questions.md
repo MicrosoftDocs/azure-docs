@@ -1,11 +1,10 @@
 ---
-title: 'Common questions - Hyper-V to Azure disaster recovery with Azure Site Recovery | Microsoft Docs'
+title: Common questions for Hyper-V disaster recovery with Azure Site Recovery 
 description: This article summarizes common questions about setting up disaster recovery for on-premises Hyper-V VMs to Azure using the Azure Site Recovery site.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 08/07/2019
+ms.date: 11/12/2019
 ms.topic: conceptual
 ms.author: raynew
 
@@ -142,16 +141,16 @@ You can replicate any app or workload running a Hyper-V VM that complies with [r
 
 ### Can I replicate to Azure with a site-to-site VPN?
 
-Site Recovery replicates data from on-premises to Azure storage over a public endpoint, or using ExpressRoute public peering. Replication over a site-to-site VPN network isn't supported.
+Site Recovery replicates data from on-premises to Azure storage over a public endpoint, or using ExpressRoute Microsoft peering. Replication over a site-to-site VPN network isn't supported.
 
 ### Can I replicate to Azure with ExpressRoute?
 
-Yes, ExpressRoute can be used to replicate VMs to Azure. Site Recovery replicates data to an Azure Storage Account over a public endpoint, and you need to set up [public peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) for Site Recovery replication. After VMs fail over to an Azure virtual network, you can access them using [private peering](../expressroute/expressroute-circuit-peerings.md#privatepeering).
+Yes, ExpressRoute can be used to replicate VMs to Azure. Site Recovery replicates data to an Azure Storage Account over a public endpoint, and you need to set up [Microsoft peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) for Site Recovery replication. After VMs fail over to an Azure virtual network, you can access them using [private peering](../expressroute/expressroute-circuit-peerings.md#privatepeering).
 
 
 ### Why can't I replicate over VPN?
 
-When you replicate to Azure, replication traffic reaches the public endpoints of an Azure Storage account. Thus you can only replicate over the public internet with ExpressRoute (public peering), and VPN doesn't work. 
+When you replicate to Azure, replication traffic reaches the public endpoints of an Azure Storage account. Thus you can only replicate over the public internet with ExpressRoute (Microsoft peering), and VPN doesn't work. 
 
 ### What are the replicated VM requirements?
 

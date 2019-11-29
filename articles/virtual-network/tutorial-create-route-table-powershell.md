@@ -271,7 +271,7 @@ mstsc /v:myVmPublic
 Enable ICMP through the Windows firewall by entering the following command from PowerShell on the *myVmPublic* VM:
 
 ```powershell
-New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
 ```
 
 To test routing of network traffic to the *myVmPrivate* VM  from the *myVmPublic* VM, enter the following command from PowerShell on the *myVmPublic* VM:

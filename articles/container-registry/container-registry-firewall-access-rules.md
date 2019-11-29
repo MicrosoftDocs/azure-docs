@@ -1,14 +1,8 @@
 ---
-title: Firewall rules to access Azure Container Registry
+title: Firewall access rules
 description: Configure rules to access an Azure container registry from behind a firewall.
-services: container-registry
-author: dlepow
-manager: gwallace
-
-ms.service: container-registry
 ms.topic: article
 ms.date: 07/17/2019
-ms.author: danlep
 ---
 
 # Configure rules to access an Azure container registry behind a firewall
