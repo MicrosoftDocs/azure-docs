@@ -103,7 +103,7 @@ When the device is activated, you are prompted to save a file that contains reco
 Access to data stored in shares and storage accounts is restricted.
 - SMB clients that access share data need user credentials associated with the share. These credentials are defined when the share is created.
 - The IP addresses of NFS clients that access a share need to be added when the share is created.
-- The Edge storage accounts that are created on the device are local and are protected by the encryption on the data disks. The Azure storage accounts that these Edge storage accounts are mapped to are protected by subscription and two 512-bit storage access keys associated with the Edge storage account (these keys are different than those associated with your Azure Storage accounts). For more information, see [Protect data via storage accounts](#protect-data-via-storage-accounts).
+- The Edge storage accounts that are created on the device are local and are protected by the encryption on the data disks. The Azure storage accounts that these Edge storage accounts are mapped to are protected by subscription and two 512-bit storage access keys associated with the Edge storage account (these keys are different than those associated with your Azure Storage accounts). For more information, see [Protect data in storage accounts](#protect-data-in-storage-accounts).
 
 #### Secure data erasure
 
@@ -116,7 +116,7 @@ When the device undergoes a hard reset, a secure wipe is performed on the device
 
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-data-flight.md)]
 
-### Protect data via storage accounts
+### Protect data in storage accounts
 
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-protect-data-storage-accounts.md)]
 - Rotate and then [sync your storage account keys](azure-stack-edge-r-series-placeholder.md) regularly to help protect your storage account from unauthorized users.
