@@ -68,7 +68,7 @@ You can:
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-password-best-practices.md)]
 - Use the local web UI to [change the password](azure-stack-edge-r-series-placeholder.md). If you change the password, be sure to notify all remote access users so they don't have problems signing in.
 
-### Protect the device via certificates
+### Establish trust with the device via certificates
 
 Azure Stack Edge appliance lets you Bring Your Own Certificates (BYOC) and install those to be used for all public endpoints. For more information, go to [Upload your certificate](azure-stack-edge-r-series-manage-certificates.md#upload-certificates). For a list of all the certificates that can be installed on your device, go to [Manage certificates on your Azure Stack Edge appliance](azure-stack-edge-r-series-manage-certificates.md).
 
@@ -93,7 +93,7 @@ When the device is activated, you are prompted to save a file that contains reco
 - Second key is to unlock the BitLocker on the data disks.
 - Third key unlocks the hardware encryption in the data disks.
     
-    **Important**: Save the recovery key in a secure location. If the device doesn’t boot up, and you don’t have the key, it could potentially result in data loss.
+    **Important**: Save the recovery key in a secure location outside the device istelf. If the device doesn’t boot up, and you don’t have the key, it could potentially result in data loss.
 - If a node isn’t booting up, then you need to provide this recovery key.
 - Certain recovery scenarios will prompt you for the key file that you have saved.
 - If the device fails, Microsoft Support will be able to help boot the device to a USB device. With the above recovery keys, you can recover and transfer data from the failed device.
@@ -102,7 +102,7 @@ When the device is activated, you are prompted to save a file that contains reco
 
 Access to data stored in shares and storage accounts is restricted.
 - SMB clients that access share data need user credentials associated with the share. These credentials are defined when the share is created.
-- The IP addresses of NFS clients that access a share need to be added when the share is created.
+- NFS clients that access a share need to have their IP address added explicitly when the share is created.
 - The Edge storage accounts that are created on the device are local and are protected by the encryption on the data disks. The Azure storage accounts that these Edge storage accounts are mapped to are protected by subscription and two 512-bit storage access keys associated with the Edge storage account (these keys are different than those associated with your Azure Storage accounts). For more information, see [Protect data in storage accounts](#protect-data-in-storage-accounts).
 
 #### Secure data erasure
