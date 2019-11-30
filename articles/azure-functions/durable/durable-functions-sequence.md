@@ -21,11 +21,6 @@ This article explains the following functions in the sample app:
 * `E1_SayHello`: An activity function that prepends a string with "Hello".
 * `HttpStart`: An HTTP triggered function that starts an instance of the orchestrator.
 
-The following sections explain the configuration and code that is used for C# scripting and JavaScript. The code for Visual Studio development is shown at the end of the article.
-
-> [!NOTE]
-> JavaScript Durable Functions are available for the Functions 2.0 runtime only.
-
 ### E1_HelloSequence orchestrator
 
 # [C#](#tab/csharp)
@@ -37,6 +32,9 @@ All C# orchestration functions must have a parameter of type `DurableOrchestrati
 The code calls `E1_SayHello` three times in sequence with different parameter values. The return value of each call is added to the `outputs` list, which is returned at the end of the function.
 
 # [JavaScript](#tab/javascript)
+
+> [!NOTE]
+> JavaScript Durable Functions are available for the Functions 2.0 runtime only.
 
 #### function.json
 
