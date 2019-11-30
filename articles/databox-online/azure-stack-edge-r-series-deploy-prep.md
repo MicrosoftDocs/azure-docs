@@ -33,7 +33,7 @@ To deploy Azure Stack Edge, refer to the following tutorials in the prescribed s
 | --- | --- | --- | 
 | 1. |**[Prepare the Azure portal for Azure Stack Edge](azure-stack-edge-r-series-deploy-prep.md)** |Create and configure your Azure Stack Edge resource before you install an Azure Stack Edge physical device. |
 | 2. |**[Install Azure Stack Edge](azure-stack-edge-r-series-deploy-install.md)**|Unpack and cable the Azure Stack Edge physical device.  |
-| 3. |**[Connect, set up, and activate Azure Stack Edge](azure-stack-edge-r-series-deploy-connect-setup-activate.md)** |Connect to the local web UI, complete the device setup, and activate the device. The device is ready to set up SMB, NFS, or REST shares.  |
+| 3. |**[Connect, set up, and activate Azure Stack Edge](azure-stack-edge-r-series-placeholder.md)** |Connect to the local web UI, complete the device setup, and activate the device. The device is ready to set up SMB, NFS, or REST shares.  |
 | 4A. |**[Transfer data with Azure Stack Edge](azure-stack-edge-r-series-placeholder.md)** |Add shares and connect to shares via SMB or NFS. |
 | 4B. |**[Transfer data with Azure Stack Edge](azure-stack-edge-r-series-placeholder.md)** |Add storage accounts and connect to blob storage via REST APIs. |
 | 5. |**[Transform data with Azure Stack Edge](azure-stack-edge-r-series-placeholder.md)** |Configure compute modules on the device to transform the data before it moves to Azure. |
@@ -96,7 +96,7 @@ To create a Azure Stack Edge resource, take the following steps in the Azure por
     
     In the **Azure Stack Edge** option, select **Create**.
 
-    ![Search Azure Stack Edge service](media/azure-stack-edge-r-series-deploy-prep/data-box-edge-sku.png)
+    ![Search Azure Stack Edge service](media/data-box-edge-deploy-prep/data-box-edge-sku.png)
 
 3. On the **Basics** tab, enter or select the following **Project details**.
     
