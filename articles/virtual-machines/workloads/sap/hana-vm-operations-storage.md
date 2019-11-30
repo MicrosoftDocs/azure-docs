@@ -40,9 +40,9 @@ The minimum SAP HANA certified conditions for the different storage types are:
 - Azure Ultra disk at least for the /hana/log volume. The /hana/data volume can be placed on either Premium SSD without Azure Write Accelerator or in order to get faster restart times Ultra disk
 - **NFS v4.1** volumes on top of Azure NetApp Files for /hana/log **and** /hana/data. The volume of /hana/shared can use NFS v3 or NFS v4.1 protocol. The NFS v4.1 protocol is mandatory for /hana/data and/hana/log volumes.
 
-Some of the storage types can be combined. E.g., it is possible to put /hana/data onto Premium Storage and /hana/log can be placed on Ultra disk storage in order to get the required low latency. However, if you use a NFS v4.1 volume based on ANF for /hana/data, you are required to use another NFS v4.1 volume based on ANF for /hana/log. Using NFS on top of ANF for one of the volumes (like /hana/data) and Azure Premium Storage or Ultra disk for the other volume (like /hana/log) is **not supported**.
+Some of the storage types can be combined. E.g., it is possible to put /hana/data onto Premium Storage and /hana/log can be placed on Ultra disk storage in order to get the required low latency. However, if you use an NFS v4.1 volume based on ANF for /hana/data, you are required to use another NFS v4.1 volume based on ANF for /hana/log. Using NFS on top of ANF for one of the volumes (like /hana/data) and Azure Premium Storage or Ultra disk for the other volume (like /hana/log) is **not supported**.
 
-In the on-premises world, you rarely had to care about the I/O subsystems and its capabilities. Reason was that the appliance vendor needed to make sure that the minimum storage requirements are met for SAP HANA. As you build the Azure infrastructure yourself, you should be aware of some of those SAP issued requirements. Some of the minimum throughput characteristics that are required from SAP, are resulting in the need to:
+In the on-premises world, you rarely had to care about the I/O subsystems and its capabilities. Reason was that the appliance vendor needed to make sure that the minimum storage requirements are met for SAP HANA. As you build the Azure infrastructure yourself, you should be aware of some of these SAP issued requirements. Some of the minimum throughput characteristics that are required from SAP, are resulting in the need to:
 
 - Enable read/write on **/hana/log** of a 250 MB/sec with 1 MB I/O sizes
 - Enable read activity of at least 400 MB/sec for **/hana/data** for 16 MB and 64 MB I/O sizes
@@ -210,7 +210,7 @@ The values listed are intended to be a starting point and need to be evaluated a
 > [!NOTE]
 > So far, storage snapshots with Ultra disk storage is not available. This blocks the usage of VM snapshots with Azure Backup Services
 
-### Cost concious storage solution with pure Ultra disk configuration
+### Cost conscious storage solution with pure Ultra disk configuration
 In this configuration, you the /hana/data and /hana/log volumes on the same disk. The suggested values are derived out of the KPIs that SAP has to certify VM types for SAP HANA and storage configurations as recommended in the [SAP TDI Storage Whitepaper](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). 
 
 The recommendations are often exceeding the SAP minimum requirements as stated earlier in this article. The listed recommendations are a compromise between the size recommendations by SAP and the maximum storage throughput the different VM types provide.
@@ -233,7 +233,7 @@ The recommendations are often exceeding the SAP minimum requirements as stated e
 The values listed are intended to be a starting point and need to be evaluated against the real demands. The advantage with Azure Ultra disk is that the values for IOPS and throughput can be adapted without the need to shut down the VM or halting the workload applied to the system.  
 
 ## NFS v4.1 volumes on Azure NetApp Files
-Azure NetApp Files provides native NFS shares that can be used for /hana/shared, /hana/data and /hana/log volumes. Using ANF based NFS shares for the /hana/data and /hana/log volumes requires the usage of the v4.1 NFS protocol. The NFS protocol v3 is not supported for the usage of /hana/data and /hana/log volumes when basing the shares on ANF. 
+Azure NetApp Files provides native NFS shares that can be used for /hana/shared, /hana/data, and /hana/log volumes. Using ANF based NFS shares for the /hana/data and /hana/log volumes requires the usage of the v4.1 NFS protocol. The NFS protocol v3 is not supported for the usage of /hana/data and /hana/log volumes when basing the shares on ANF. 
 
 > [!IMPORTANT]
 > The NFS v3 protocol implemented on Azure NetApp Files is **not** supported to be used for /hana/data and /hana/log. The usage of the NFS 4.1 is mandatory for /hana/data and /hana/log volumes from a functional point of view. Whereas for the /hana/shared volume the NFS v3 or the NFS v4.1 protocol can be used from a functional point of view.
@@ -248,11 +248,11 @@ When considering Azure NetApp Files for the SAP Netweaver and SAP HANA, be aware
 - The throughput of an Azure NetApp volume is a function of the volume quota and Service level, as documented in [Service level for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels). When sizing the HANA Azure NetApp volumes, make sure the resulting throughput meets the HANA system requirements.  
 - Azure NetApp Files offers [export policy](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): you can control the allowed clients, the access type (Read&Write, Read Only, etc.). 
 - Azure NetApp Files feature isn't zone aware yet. Currently Azure NetApp Files feature isn't deployed in all Availability zones in an Azure region. Be aware of the potential latency implications in some Azure regions.  
-- It is important to have the virtual machines deployed in close proximity to the Azure NetApp storage for low latency. For SAP HANA workloads low latency is critical. Work with your Microsoft representative to ensure that the virtual machines and the Azure NetApp Files volumes are deployed in close proximity.  
+- It is important to have the virtual machines deployed in close proximity to the Azure NetApp storage for low latency. 
 - The User ID for <b>sid</b>adm and the Group ID for `sapsys` on the virtual machines must match the configuration in Azure NetApp Files. 
 
 > [!IMPORTANT]
-> For SAP HANA workloads low latency is critical. Work with your Microsoft representative to ensure that the virtual machines and the Azure NetApp Files volumes are deployed in close proximity.  
+> For SAP HANA workloads, low latency is critical. Work with your Microsoft representative to ensure that the virtual machines and the Azure NetApp Files volumes are deployed in close proximity.  
 
 > [!IMPORTANT]
 > If there is a mismatch between User ID for <b>sid</b>adm and the Group ID for `sapsys` between the virtual machine and the Azure NetApp configuration, the permissions for files on Azure NetApp volumes, mounted on virtual machines, will be displayed as `nobody`. Make sure to specify the correct User ID for <b>sid</b>adm and the Group ID for `sapsys`, when [on-boarding a new system](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxjSlHBUxkJBjmARn57skvdUQlJaV0ZBOE1PUkhOVk40WjZZQVJXRzI2RC4u) to Azure NetApp Files.
@@ -288,7 +288,7 @@ Therefore you could consider to deploy similar throughput for the ANF volumes as
 > [!TIP]
 > You can re-size Azure NetApp Files volumes dynamically, without the need to `unmount` the volumes, stop the virtual machines or stop SAP HANA. That allows flexibility to meet your application both expected and unforeseen throughput demands.
 
-Documentation on how to deploy a SAP HANA scale-out configuration with standby node using NFS v4.1 volumes that are hosted in ANF is published in [SAP HANA scale-out with standby node on Azure VMs with Azure NetApp Files on SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse).
+Documentation on how to deploy an SAP HANA scale-out configuration with standby node using NFS v4.1 volumes that are hosted in ANF is published in [SAP HANA scale-out with standby node on Azure VMs with Azure NetApp Files on SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse).
 
 
 ## Next steps
