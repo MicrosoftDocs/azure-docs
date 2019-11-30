@@ -1,6 +1,6 @@
 ---
 title: Azure managed application sample projects | Microsoft Docs
-description: Summarizes sample projects available for Azure managed applications
+description: Provides a summary of sample projects that are available for Azure Managed Applications.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac

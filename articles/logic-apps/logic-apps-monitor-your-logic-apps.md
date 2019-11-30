@@ -1,5 +1,5 @@
 ---
-title: Check status, set up logging, and get alerts - Azure Logic Apps | Microsoft Docs
+title: Check status, set up logging, and get alerts - Azure Logic Apps
 description: Monitor status, log diagnostics data, and set up alerts for Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
@@ -8,7 +8,6 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
 ---
 

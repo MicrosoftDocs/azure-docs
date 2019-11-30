@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/24/2019
+ms.date: 10/25/2019
 ms.author: barclayn
 
 ---
@@ -256,10 +256,10 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 
 |                                  |                    | **Encryption Model and Key Management** |                    |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
-|                                  | **Server-Side Using Service-Managed Key**     | **Server-Side Using Customer-Managed Key**             | **Client-Side Using Client-Managed**      |
+|                                  | **Server-Side Using Service-Managed Key**     | **Server-Side Using Customer-Managed Key**             | **Client-Side Using Client-Managed Key**      |
 | **AI and Machine Learning**      |                    |                    |                    |
-| Azure Search                     | Yes                | Preview            | -                  |
-| Azure Machine Learning Service   | Yes                | -                  | -                  |
+| Azure Cognitive Search                     | Yes                | Preview            | -                  |
+| Azure Machine Learning   | Yes                | -                  | -                  |
 | Azure Machine Learning Studio    | Yes                | Preview, RSA 2048-bit | -               |
 | Power BI                         | Yes                | Preview, RSA 2048-bit | -                  |
 | **Analytics**                    |                    |                    |                    |
@@ -269,7 +269,7 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 | Azure Data Catalog               | Yes                | -                  | -                  |
 | Apache Kafka on Azure HDInsight  | Yes                | All RSA Lengths.   | -                  |
 | Azure Data Explorer              | Yes                | -                  | -                  |
-| Azure Data Factory               | Yes                | -                  | -                  |
+| Azure Data Factory               | Yes                | Yes                | -                  |
 | Azure Data Lake Store            | Yes                | Yes, RSA 2048-bit  | -                  |
 | **Containers**                   |                    |                    |                    |
 | Azure Kubernetes Service         | Yes                | -                  | -                  |

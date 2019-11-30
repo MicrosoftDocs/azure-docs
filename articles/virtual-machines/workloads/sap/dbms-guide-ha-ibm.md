@@ -37,7 +37,7 @@ ms.author: juergent
 [sles-pacemaker]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker
 [sap-instfind]:https://help.sap.com/viewer/9e41ead9f54e44c1ae1a1094b0f80712/ALL/en-US/576f5c1808de4d1abecbd6e503c9ba42.html
 [nfs-ha]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs
-[sles-ha-guide]:https://www.suse.com/releasenotes/x86_64/SLE-HA/12-SP3/
+[sles-ha-guide]:https://www.suse.com/releasenotes/x86_64/SLE-HA/12-SP4/
 [ascs-ha]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse
 
 [dbms-guide]:dbms-guide.md
@@ -79,8 +79,8 @@ Before you begin an installation, see the following SAP notes and documentation:
 | [Azure Virtual Machines deployment for SAP on Linux][deployment-guide] (this article) |
 | [Azure Virtual Machines database management system(DBMS) deployment for SAP on Linux][dbms-guide] guide |
 | [SAP workload on Azure planning and deployment checklist][azr-sap-plancheck] |
-| [SUSE Linux Enterprise Server for SAP Applications 12 SP3 best practices guides][sles-for-sap-bp] |
-| [SUSE Linux Enterprise High Availability Extension 12 SP3][sles-ha-guide] |
+| [SUSE Linux Enterprise Server for SAP Applications 12 SP4 best practices guides][sles-for-sap-bp] |
+| [SUSE Linux Enterprise High Availability Extension 12 SP4][sles-ha-guide] |
 | [IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload][dbms-db2] |
 | [IBM Db2 HADR 11.1][db2-hadr-11.1] |
 | [IBM Db2 HADR R 10.5][db2-hadr-10.5] |
@@ -148,7 +148,7 @@ Make a list of all host names, including virtual host names, and update your DNS
 
 ### Manual deployment
 
-Make sure that the selected OS is supported by IBM/SAP for IBM Db2 LUW. The list of supported OS versions for Azure VMs and Db2 releases is available in SAP note [1928533]. The list of OS releases by individual Db2 release is available in the SAP Product Availability Matrix. We highly recommend a minimum of SLES 12 SP3 because of Azure-related performance improvements in this or later SUSE Linux versions.
+Make sure that the selected OS is supported by IBM/SAP for IBM Db2 LUW. The list of supported OS versions for Azure VMs and Db2 releases is available in SAP note [1928533]. The list of OS releases by individual Db2 release is available in the SAP Product Availability Matrix. We highly recommend a minimum of SLES 12 SP4 because of Azure-related performance improvements in this or later SUSE Linux versions.
 
 1. Create or select a resource group.
 1. Create or select a virtual network and subnet.
@@ -346,6 +346,10 @@ The following items are prefixed with either:
 
 ### Pacemaker configuration
 
+> [!IMPORTANT]
+> Recent testing revealed situations, where netcat stops responding to requests due to backlog and its limitation of handling only one connection. The netcat resource stops listening to the Azure Load balancer requests and the floating IP becomes unavailable.  
+> For existing Pacemaker clusters, we recommend replacing netcat with socat, following the instructions in [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128). Note that the change will require brief downtime.  
+
 **[1]** IBM Db2 HADR-specific Pacemaker configuration:
 <pre><code># Put Pacemaker into maintenance mode
 sudo crm configure property maintenance-mode=true
@@ -370,7 +374,7 @@ sudo crm configure primitive rsc_ip_db2ptr_<b>PTR</b> IPaddr2 \
 
 # Configure probe port for Azure load Balancer
 sudo crm configure primitive rsc_nc_db2ptr_<b>PTR</b> anything \
-        params binfile="/usr/bin/nc" cmdline_options="-l -k <b>62500</b>" \
+        params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:<b>62500</b>,backlog=10,fork,reuseaddr /dev/null" \
         op monitor timeout="20s" interval="10" depth="0"
 
 sudo crm configure group g_ip_db2ptr_<b>PTR</b> rsc_ip_db2ptr_<b>PTR</b> rsc_nc_db2ptr_<b>PTR</b>

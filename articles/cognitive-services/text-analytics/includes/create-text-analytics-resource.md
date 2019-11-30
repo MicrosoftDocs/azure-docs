@@ -6,8 +6,8 @@ services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: include 
-ms.date: 06/26/2019
+ms.topic: include
+ms.date: 11/21/2019
 ms.author: dapine
 ---
 

@@ -14,11 +14,11 @@ ms.author: rhurey
 
 # Phrase Lists for speech-to-text
 
-By providing the Speech Services with a Phrase List, you can improve the accuracy of speech recognition. Phrase Lists are used to identify known phrases in audio data, like a person's name or a specific location.
+By providing the Speech Services with a list of phrases, you can improve the accuracy of speech recognition. Phrase Lists are used to identify known phrases in audio data, like a person's name or a specific location.
 
 As an example, if you have a command "Move to" and a possible destination of "Ward" that may be spoken, you can add an entry of "Move to Ward". Adding a phrase will increase the probability that when the audio is recognized that "Move to Ward" will be recognized instead of "Move toward".
 
-Single words or complete phrases can be added to a Phrase List. During recognition, an entry in a phrase list is used if an exact match is included in the audio. Building on the previous example, if the Phrase List includes "Move to Ward", and the phrase captured is "Move toward slowly", then the recognition result will be "Move to Ward slowly".
+Single words or complete phrases can be added to a Phrase List. During recognition, an entry in a phrase list is used if an exact match is included in the audio. Building on the previous example, if the Phrase List includes "Move to Ward", and the audio captured sounds similar enough to both "Move toward" and "Move to Ward", then the recognition result will more likely be recognized as "Move to Ward slowly".
 
 >[!Note]
 > Currently, Phrase Lists supports only English for speech-to-text.
@@ -88,7 +88,7 @@ phraseListGrammar.clear();
 ```
 
 > [!NOTE]
-> Changes to a `PhraseListGrammar` object take affect on the next recognition or following a reconnection to the Speech Services.
+> Changes to a `PhraseListGrammar` object take effect on the next recognition or following a reconnection to the Speech Services.
 
 ## Next steps
 

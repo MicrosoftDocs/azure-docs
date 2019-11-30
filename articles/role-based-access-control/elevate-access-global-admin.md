@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/02/2019
+ms.date: 10/17/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -61,6 +61,9 @@ Follow these steps to elevate access for a Global Administrator using the Azure 
 
    When you set the toggle to **No**, the User Access Administrator role in Azure RBAC is removed from your user account. You can no longer assign roles in all Azure subscriptions and management groups that are associated with this Azure AD directory. You can view and manage only the Azure subscriptions and management groups to which you have been granted access.
 
+    > [!NOTE]
+    > If you're using [Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md), deactivating your role assignment does not change this toggle to **No**. To maintain least privileged access, we recommend that you set this toggle to **No** before you deactivate your role assignment.
+    
 1. Click **Save** to save your setting.
 
    This setting is not a global property and applies only to the currently signed in user. You can't elevate access for all members of the Global Administrator role.

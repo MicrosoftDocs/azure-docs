@@ -1,5 +1,5 @@
 ---
-title: Manage Mobility agent on servers for disaster recovery of VMware VMs and physical servers with Azure Site Recovery | Microsoft Docs
+title: Manage the Mobility agent for VMware/physical servers with Azure Site Recovery 
 description: Manage Mobility Service agent for disaster recovery of VMware VMs and physical servers to Azure using the  Azure Site Recovery service.
 author: Rajeswari-Mamilla
 manager: rochakm
@@ -9,7 +9,7 @@ ms.date: 03/25/2019
 ms.author: ramamill
 ---
 
-# Manage mobility agent on protected machines
+# Manage the Mobility agent 
 
 You set up mobility agent on your server when you use Azure Site Recovery for disaster recovery of VMware VMs and physical servers to Azure. Mobility agent coordinates communications between your protected machine, configuration server/scale-out process server and manages data replication. This article summarizes common tasks for managing mobility agent after it's deployed.
 
