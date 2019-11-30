@@ -51,9 +51,9 @@ Run enterprise applications in Azure on supported Oracle operating systems. The 
 
 ## Backup Oracle Workloads
 
-* Back-up your Oracle VMs using [Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-overview)
+* Back-up your Oracle VMs using [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview)
 
-* Back-up your Oracle Database using Oracle RMAN and optionally use [Azure Blob Fuse](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-how-to-mount-container-linux) to mount a [highly redudant Azure Blob Storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy) and write your RMAN backups to it for added resiliency.
+* Back-up your Oracle Database using Oracle RMAN and optionally use [Azure Blob Fuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux) to mount a [highly redudant Azure Blob Storage account](https://docs.microsoft.com/azure/storage/common/storage-redundancy) and write your RMAN backups to it for added resiliency.
 
 ## Integration of Azure with OCI (preview)
 

@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 
 ms.topic: article
-ms.date: 05/04/2018
+ms.date: 11/25/2019
 ms.author: szark
 
 ---
@@ -168,7 +168,7 @@ This article assumes that you have already installed a CentOS (or similar deriva
     sudo yum install microsoft-hyper-v
     ```
 
-    Alternatively, you can follow the manual installation instructions on the [LIS download page](https://go.microsoft.com/fwlink/?linkid=403033) to install the RPM onto your VM.
+    Alternatively, you can follow the manual installation instructions on the [LIS download page](https://www.microsoft.com/download/details.aspx?id=51612) to install the RPM onto your VM.
 
 12. Install the Azure Linux Agent and dependencies. Start and enable waagent service:
 
@@ -352,7 +352,7 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
     Edit `/etc/dracut.conf`, add content:
 
 	```console
-	add_drivers+=”hv_vmbus hv_netvsc hv_storvsc”
+	add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
 	```
 
     Rebuild the initramfs:

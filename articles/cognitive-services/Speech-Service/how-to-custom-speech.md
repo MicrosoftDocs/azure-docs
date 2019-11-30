@@ -20,7 +20,7 @@ ms.author: erhopf
 
 Before you can do anything with Custom Speech, you'll need an Azure account and a Speech Services subscription. Once you've got an account, you can prep your data, train and test your models, inspect recognition quality, evaluate accuracy, and ultimately deploy and use the custom speech-to-text model.
 
-This diagram highlights the pieces that make up the [Custom Speech portal](https://speech.microsoft.com/customspeech). Use the links below to learn more about each step.
+This diagram highlights the pieces that make up the [Custom Speech portal](https://aka.ms/customspeech). Use the links below to learn more about each step.
 
 ![Highlights the different components that make up the Custom Speech portal.](./media/custom-speech/custom-speech-overview.png)
 
@@ -38,7 +38,7 @@ This diagram highlights the pieces that make up the [Custom Speech portal](https
 
 ## Set up your Azure account
 
-A Speech Services subscription is required before you can use the [Custom Speech portal](https://speech.microsoft.com/customspeech) to create a custom model. Follow these instructions to create a standard Speech Services subscription: [Create a Speech Subscription](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account).
+A Speech Services subscription is required before you can use the [Custom Speech portal](https://speech.microsoft.com/customspeech) to create a custom model. Follow these instructions to create a standard Speech Services subscription: [Create a Speech Subscription](get-started.md#try-the-speech-service-using-a-new-azure-account).
 
 > [!NOTE]
 > Please be sure to create standard (S0) subscriptions, free trial (F0) subscriptions are not supported.

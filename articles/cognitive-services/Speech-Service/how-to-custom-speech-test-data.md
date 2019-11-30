@@ -89,7 +89,7 @@ To address issues like word deletion or substitution, a significant amount of da
 > [!NOTE]
 > Transcription should be encoded as UTF-8 byte order mark (BOM).
 
-The transcriptions are text-normalized so they can be processed by the system. However, there are some important normalizations that must be done by the user _prior_ to uploading the data to the Custom Speech Service. For the appropriate language to use when you prepare your transcriptions, see [How to create a human-labeled transcription](how-to-custom-speech-human-labeled-transcriptions.md)
+The transcriptions are text-normalized so they can be processed by the system. However, there are some important normalizations that must be done by the user _prior_ to uploading the data to the Speech Studio. For the appropriate language to use when you prepare your transcriptions, see [How to create a human-labeled transcription](how-to-custom-speech-human-labeled-transcriptions.md)
 
 After you've gathered your audio files and corresponding transcriptions, they should be packaged as a single .zip file before uploading to the [Custom Speech portal](https://speech.microsoft.com/customspeech). This is an example dataset with three audio files and a human-labeled transcription file:
 

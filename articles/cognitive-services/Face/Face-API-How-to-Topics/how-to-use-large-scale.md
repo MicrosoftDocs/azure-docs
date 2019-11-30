@@ -1,7 +1,7 @@
 ---
 title: "Example: Use the Large-Scale feature - Face API"
 titleSuffix: Azure Cognitive Services
-description: Use the large-scale feature in the Face API.
+description: This guide is an article on how to scale up from existing PersonGroup and FaceList objects to LargePersonGroup and LargeFaceList objects.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme

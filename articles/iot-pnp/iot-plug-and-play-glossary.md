@@ -3,7 +3,7 @@ title: Glossary of terms - IoT Plug and Play Preview | Microsoft Docs
 description: Concepts - a glossary of common terms relating to IoT Plug and Play Preview.
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 08/29/2019
+ms.date: 10/10/2019
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp
@@ -41,9 +41,9 @@ Azure IoT Central is a fully managed software-as-a-service solution that makes i
 
 The Azure IoT certification service runs a set of certification tests when you submit an [IoT Plug and Play device](#iot-plug-and-play-device) for certification through the [Azure Certified for IoT portal](#azure-certified-for-iot-portal). Before you can add a device to the [Certified for IoT device catalog](#certified-for-iot-device-catalog), the device must be certified.
 
-## Azure IoT Device Workbench extension
+## Azure IoT Tools extension
 
-Azure IoT Device Workbench is a [Visual Studio code](#visual-studio-code) extension that provides an integrated environment to:
+Azure IoT Tools is a a collection of extensions in [Visual Studio code](#visual-studio-code) that help you interact with IoT Hub and develop IoT devices. For IoT Plug and Play device development, it helps you to:
 
 - Author [device capability models](#device-capability-model) and [interfaces](#interface).
 - Publish to [model repositories](#model-repository).
@@ -92,6 +92,7 @@ A connection string encapsulates the information required to connect to an endpo
 
 - Device connection strings enable [IoT Plug and Play devices](#iot-plug-and-play-device) to connect to the device-facing endpoints on an IoT hub. Client code on a device uses the connection string to establish a secure connection with an IoT hub.
 - IoT Hub connection strings enable back-end solutions and tools to connect securely to the service-facing endpoints on an IoT hub. These solutions and tools manage the IoT hub and the devices connected to it.
+- Company model repository connection strings enable back-end solutions and tools to connect securely to a [Company model repository](#company-model-repository). These solutions and tools consume or manage the [device capability models](#device-capability-model) and [interfaces](#interface) in the repository.
 
 ## Device capability model
 
@@ -111,7 +112,7 @@ A [device developer](#device-developer) uses the [Digital Twin Definition Langua
 
 ## Device Provisioning Service
 
-[Azure IoT Central](#azure-iot-central) uses the Device Provisioning Service to manage all device registration and connection. For more information, see [Device connectivity in Azure IoT Central](../iot-central/concepts-connectivity-pnp.md). You can also use the Device Provisioning Service to manage device registration and connection to your IoT Hub-based IoT solution. For more information, see [Provisioning devices with Azure IoT Hub Device Provisioning Service](../iot-dps/about-iot-dps.md).
+[Azure IoT Central](#azure-iot-central) uses the Device Provisioning Service to manage all device registration and connection. For more information, see [Device connectivity in Azure IoT Central](../iot-central/preview/overview-iot-central-get-connected.md). You can also use the Device Provisioning Service to manage device registration and connection to your IoT Hub-based IoT solution. For more information, see [Provisioning devices with Azure IoT Hub Device Provisioning Service](../iot-dps/about-iot-dps.md).
 
 ## Device registration
 
@@ -195,4 +196,4 @@ Telemetry fields defined in an [interface](#interface) represent measurements. T
 
 ## Visual Studio code
 
-Visual Studio code is a modern code editor available for multiple platforms. Extensions, such as the [Azure IoT Device Workbench extension](#azure-iot-device-workbench-extension) enable you to customize it to support a wide range of development scenarios.
+Visual Studio code is a modern code editor available for multiple platforms. Extensions, such as those in the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) pack, enable you to customize the editor to support a wide range of development scenarios.

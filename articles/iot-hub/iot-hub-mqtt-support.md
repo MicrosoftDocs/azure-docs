@@ -42,7 +42,7 @@ The following table contains links to code samples for each supported language a
 | [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |IotHubClientProtocol.MQTT |
 | [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) |MQTT_Protocol |
 | [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) |TransportType.Mqtt |
-| [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/device/samples) |IoTHubTransportProvider.MQTT |
+| [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) |Always supports MQTT by default |
 
 ### Migrating a device app from AMQP to MQTT
 
@@ -53,6 +53,8 @@ When doing so, make sure to check the following items:
 * AMQP returns errors for many conditions, while MQTT terminates the connection. As a result your exception handling logic might require some changes.
 
 * MQTT does not support the *reject* operations when receiving [cloud-to-device messages](iot-hub-devguide-messaging.md). If your back-end app needs to receive a response from the device app, consider using [direct methods](iot-hub-devguide-direct-methods.md).
+
+* AMQP is not supported in the Python SDK
 
 ## Using the MQTT protocol directly (as a device)
 
@@ -108,6 +110,38 @@ If a device cannot use the device SDKs, it can still connect to the public devic
 For MQTT connect and disconnect packets, IoT Hub issues an event on the **Operations Monitoring** channel. This event has additional information that can help you to troubleshoot connectivity issues.
 
 The device app can specify a **Will** message in the **CONNECT** packet. The device app should use `devices/{device_id}/messages/events/` or `devices/{device_id}/messages/events/{property_bag}` as the **Will** topic name to define **Will** messages to be forwarded as a telemetry message. In this case, if the network connection is closed, but a **DISCONNECT** packet was not previously received from the device, then IoT Hub sends the **Will** message supplied in the **CONNECT** packet to the telemetry channel. The telemetry channel can be either the default **Events** endpoint or a custom endpoint defined by IoT Hub routing. The message has the **iothub-MessageType** property with a value of **Will** assigned to it.
+
+### An example of C code using MQTT without Azure IoT C SDK
+In this [repository](https://github.com/Azure-Samples/IoTMQTTSample), you'll find a couple of C/C++ demo projects showing how to send telemetry messages, receive events with an IoT hub without using the Azure IoT C SDK. 
+
+These samples use the Eclipse Mosquitto library to send message to the MQTT Broker implemented in the IoT hub.
+
+This repository contains:
+
+**For Windows:**
+
+•	TelemetryMQTTWin32: contains code to send a telemetry message to an Azure IoT hub, built and run on a Windows machine.
+
+•	SubscribeMQTTWin32: contains code to subscribe to events of a given IoT hub on a Windows machine.
+
+•	DeviceTwinMQTTWin32: contains code to query and subscribe to the device twin events of a device in the Azure IoT hub on a Windows machine.
+
+•	PnPMQTTWin32: contains code to send a telemetry message with IoT Plug & Play preview Device capabilities to an Azure IoT hub, built and run on a Windows machine. More on IoT Plug & Play [here](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)
+
+**For Linux:**
+
+•	MQTTLinux: contains code and build script to run on Linux (WSL, Ubuntu and Raspbian have been tested so far).
+
+•	LinuxConsoleVS2019: contains the same code but in a VS2019 project targeting WSL (Windows Linux sub system). This project allows you to debug the code running on Linux step by step from Visual Studio.
+
+**For mosquito_pub:**
+
+•	This folder contains two samples commands used with mosquitto_pub utility tool provided by Mosquitto.org.
+
+Mosquitto_sendmessage: to send a simple text message to an Azure IoT hub acting as a device.
+
+Mosquitto_subscribe: to see events occurring in an Azure IoT hub.
+
 
 ## Using the MQTT protocol directly (as a module)
 
@@ -181,7 +215,7 @@ client.username_pw_set(username=iot_hub_name+".azure-devices.net/" +
                        device_id + "/?api-version=2018-06-30", password=sas_token)
 
 client.tls_set(ca_certs=path_to_root_cert, certfile=None, keyfile=None,
-               cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1, ciphers=None)
+               cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1_2, ciphers=None)
 client.tls_insecure_set(False)
 
 client.connect(iot_hub_name+".azure-devices.net", port=8883)
@@ -208,7 +242,7 @@ client.username_pw_set(username=iot_hub_name+".azure-devices.net/" +
 cert_file = "<local path to your certificate file>"
 key_file = "<local path to your device key file>"
 client.tls_set(ca_certs=path_to_root_cert, certfile=cert_file, keyfile=key_file,
-               cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1, ciphers=None)
+               cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1_2, ciphers=None)
 
 # Connect as before
 client.connect(iot_hub_name+".azure-devices.net", port=8883)

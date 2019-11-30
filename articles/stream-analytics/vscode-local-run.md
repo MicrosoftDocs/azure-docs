@@ -1,5 +1,5 @@
 ---
-title: Test Azure Stream Analytics queries locally with Visual Studio Code (Preview)
+title: Test Azure Stream Analytics queries with Visual Studio Code
 description: This article describes how to test queries locally with Azure Stream Analytics Tools for Visual Studio Code.
 ms.service: stream-analytics
 author: su-jie
@@ -14,6 +14,10 @@ You can use Azure Stream Analytics tools for Visual Studio Code to test your Str
 
 Use this [quickstart](quick-create-vs-code.md) to learn how to create a Stream Analytics job using Visual Studio Code.
 
+## Prerequisites
+* Install [.NET core SDK](https://dotnet.microsoft.com/download).
+* Restart Visual Studio Code.
+ 
 ## Run queries locally
 
 You can use the Azure Stream Analytics extension for Visual Studio Code to test your Stream Analytics jobs locally with sample data.

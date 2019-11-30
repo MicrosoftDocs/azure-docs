@@ -1,17 +1,13 @@
 ---
-title: "Use Azure Dev Spaces to interact with Windows containers"
-titleSuffix: Azure Dev Spaces
+title: "Interact with Windows containers"
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 07/25/2019
 ms.topic: "conceptual"
 description: "Learn how to run Azure Dev Spaces on an existing cluster with Windows containers"
 keywords: "Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Windows containers"
 ---
 
-# Use Azure Dev Spaces to interact with Windows containers
+# Interact with Windows containers using Azure Dev Spaces
 
 You can enable Azure Dev Spaces on both new and existing Kubernetes namespaces. Azure Dev Spaces will run and instrument services that run on Linux containers. Those services can also interact with applications that run on Windows containers in the same namespace. This article shows you how to use Dev Spaces to run services in a namespace with existing Windows containers.
 
@@ -45,6 +41,9 @@ Apply a [taint][using-taints] to your Windows nodes. The taint on your Windows n
 kubectl taint node aksnpwin987654 sku=win-node:NoSchedule
 ```
 
+> [!IMPORTANT]
+> When you apply a taint to a node, you must configure a matching toleration in your service's deployment template to run your service on that node. The sample application is already configured with a [matching toleration][sample-application-toleration-example] to the taint you configured in the previous command.
+
 ## Run your Windows service
 
 Run your Windows service on your AKS cluster and verify it is in a *Running* state. This article uses a [sample application][sample-application] to demonstrate a Windows and Linux service running on your cluster.
@@ -56,7 +55,7 @@ git clone https://github.com/Azure/dev-spaces
 cd dev-spaces/samples/existingWindowsBackend/mywebapi-windows
 ```
 
-The sample application uses [Helm][helm-installed] to run the Windows service on your cluster. Install Helm on your cluster and grant it the correct permissions:
+The sample application uses [Helm 2][helm-installed] to run the Windows service on your cluster. Install Helm on your cluster and grant it the correct permissions:
 
 ```console
 helm init --wait
@@ -173,10 +172,10 @@ Learn how Azure Dev Spaces helps you develop more complex applications across mu
 
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[helm-installed]: https://github.com/helm/helm/blob/master/docs/install.md
+[helm-installed]: https://v2.helm.sh/docs/using_helm/#installing-helm
 [sample-application]: https://github.com/Azure/dev-spaces/tree/master/samples/existingWindowsBackend
+[sample-application-toleration-example]: https://github.com/Azure/dev-spaces/blob/master/samples/existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml#L24-L27
 [team-development-qs]: ../quickstart-team-development.md
-
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [team-development]: ../team-development-netcore.md
 [using-taints]: ../../aks/use-multiple-node-pools.md#schedule-pods-using-taints-and-tolerations

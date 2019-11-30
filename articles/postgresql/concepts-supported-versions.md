@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 10/25/2019
 ms.custom: fasttrack-edit
 ---
 # Supported PostgreSQL database versions
@@ -14,16 +14,16 @@ Microsoft aims to support n-2 versions of the PostgreSQL engine in Azure Databas
 Azure Database for PostgreSQL currently supports the following major versions:
 
 ## PostgreSQL version 11
-The current minor version is 11.4. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/11/static/release-11-4.html) to learn more about improvements and fixes in this minor version.
+The current minor version is 11.5. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/11/static/release-11-5.html) to learn more about improvements and fixes in this minor version.
 
 ## PostgreSQL version 10
-The current minor version is 10.9. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/10/static/release-10-9.html) to learn more about improvements and fixes in this minor version.
+The current minor version is 10.10. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/10/static/release-10-10.html) to learn more about improvements and fixes in this minor version.
 
 ## PostgreSQL version 9.6
-The current minor version is 9.6.14. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/9.6/static/release-9-6-14.html) to learn more about improvements and fixes in this minor version.
+The current minor version is 9.6.15. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/9.6/static/release-9-6-15.html) to learn more about improvements and fixes in this minor version.
 
 ## PostgreSQL version 9.5
-The current minor version is 9.5.18. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/9.5/static/release-9-5-18.html) to learn about improvements and fixes in this minor version.
+The current minor version is 9.5.19. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/9.5/static/release-9-5-19.html) to learn about improvements and fixes in this minor version.
 
 ## Managing upgrades
 Azure Database for PostgreSQL automatically manages minor version upgrades. 

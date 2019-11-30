@@ -3,13 +3,13 @@ title: Bing Speech WebSocket Protocol | Microsoft Docs
 titlesuffix: Azure Cognitive Services
 description: Protocol documentation for Bing Speech based on WebSockets
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 # Bing Speech WebSocket protocol

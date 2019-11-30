@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 10/11/2019
 ---
 
 # Use Spark & Hive Tools for Visual Studio Code
@@ -14,7 +14,6 @@ ms.date: 05/30/2019
 Learn how to use Spark & Hive Tools for Visual Studio Code to create and submit Apache Hive batch jobs, interactive Hive queries, and PySpark scripts for Apache Spark. First we'll describe how to install Spark & Hive Tools in Visual Studio Code, and then we'll walk through how to submit jobs to Spark & Hive Tools.  
 
 Spark & Hive Tools can be installed on platforms that are supported by Visual Studio Code, which include Windows, Linux, and macOS. Note the following prerequisites for different platforms.
-
 
 ## Prerequisites
 
@@ -24,7 +23,7 @@ The following items are required for completing the steps in this article:
 - [Visual Studio Code](https://code.visualstudio.com/).
 - [Mono](https://www.mono-project.com/docs/getting-started/install/). Mono is required only for Linux and macOS.
 - [A PySpark interactive environment for Visual Studio Code](set-up-pyspark-interactive-environment.md).
-- A local directory named **HDexample**.  This article uses  **C:\HD\HDexample**.
+- A local directory. This article uses  **C:\HD\HDexample**.
 
 ## Install Spark & Hive Tools
 
@@ -32,7 +31,7 @@ After you meet the prerequisites, you can install Spark & Hive Tools for Visual 
 
 1. Open Visual Studio Code.
 
-2. From the menu bar, go to **View** > **Extensions**.
+2. From the menu bar, navigate to **View** > **Extensions**.
 
 3. In the search box, enter **Spark & Hive**.
 
@@ -42,25 +41,24 @@ After you meet the prerequisites, you can install Spark & Hive Tools for Visual 
 
 5. Select **Reload** when necessary.
 
-
 ## Open a work folder
 
 To open a work folder and to create a file in Visual Studio Code, follow these steps:
 
-1. From the menu bar, go to **File** > **Open Folder** > **C:\HD\HDexample**, and then select the **Select Folder** button. The folder appears in the **Explorer** view on the left.
+1. From the menu bar, navigate to to **File** > **Open Folder...** > **C:\HD\HDexample**, and then select the **Select Folder** button. The folder appears in the **Explorer** view on the left.
 
 2. In **Explorer** view, select the **HDexample** folder, and then select the **New File** icon next to the work folder:
 
-   ![New file](./media/hdinsight-for-vscode/new-file.png)
+   ![visual studio code new file icon](./media/hdinsight-for-vscode/visual-studio-code-new-file.png)
 
 3. Name the new file by using either the `.hql` (Hive queries) or the `.py` (Spark script) file extension. This example uses **HelloWorld.hql**.
 
 ## Set the Azure environment
 
 For a national cloud user, follow these steps to set the Azure environment first, and then use the **Azure: Sign In** command to sign in to Azure:
-   
-1. Select **File\Preferences\Settings**.
-2. Search on the following string: **Azure: Cloud**
+
+1. Navigate to  **File** > **Preferences** > **Settings**.
+2. Search on the following string: **Azure: Cloud**.
 3. Select the national cloud from the list:
 
    ![Set default login entry configuration](./media/hdinsight-for-vscode/set-default-login-entry-configuration.png)
@@ -69,12 +67,11 @@ For a national cloud user, follow these steps to set the Azure environment first
 
 Before you can submit scripts to your clusters from Visual Studio Code, you must either connect to your Azure account or link a cluster (using Apache Ambari username and password credentials or a domain-joined account). Follow these steps to connect to Azure:
 
-1. From the menu bar, go to **View** > **Command Palette**, and enter **Azure: Sign In**:
+1. From the menu bar, navigate to **View** > **Command Palette...**, and enter **Azure: Sign In**:
 
     ![Spark & Hive Tools for Visual Studio Code login](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
 2. Follow the sign-in instructions to sign in to Azure. After you're connected, your Azure account name is shown on the status bar at the bottom of the Visual Studio Code window.  
-  
 
 ## Link a cluster
 
@@ -82,9 +79,9 @@ Before you can submit scripts to your clusters from Visual Studio Code, you must
 
 You can link a normal cluster by using an [Apache Ambari](https://ambari.apache.org/)-managed username, or you can link an Enterprise Security Pack secure Hadoop cluster by using a domain username (such as: `user1@contoso.com`).
 
-1. From the menu bar, go to **View** > **Command Palette**, and enter **Spark / Hive: Link a Cluster**.
+1. From the menu bar, navigate to **View** > **Command Palette...**, and enter **Spark / Hive: Link a Cluster**.
 
-   ![link cluster command](./media/hdinsight-for-vscode/link-cluster-command.png)
+   ![Command Palette link cluster command](./media/hdinsight-for-vscode/link-cluster-command.png)
 
 2. Select linked cluster type **Azure HDInsight**.
 
@@ -103,10 +100,9 @@ You can link a normal cluster by using an [Apache Ambari](https://ambari.apache.
    > [!NOTE]  
    > The linked username and password are used if the cluster both logged in to the Azure subscription and linked a cluster.  
 
-
 ### Link: Generic Livy endpoint
 
-1. From the menu bar, go to **View** > **Command Palette**, and enter **Spark / Hive: Link a Cluster**.
+1. From the menu bar, navigate to **View** > **Command Palette...**, and enter **Spark / Hive: Link a Cluster**.
 
 2. Select linked cluster type **Generic Livy Endpoint**.
 
@@ -120,13 +116,13 @@ You can link a normal cluster by using an [Apache Ambari](https://ambari.apache.
 
 ## List clusters
 
-1. From the menu bar, go to **View** > **Command Palette**, and enter **Spark / Hive: List Cluster**.
+1. From the menu bar, navigate to **View** > **Command Palette...**, and enter **Spark / Hive: List Cluster**.
 
 2. Select the subscription that you want.
 
 3. Review the **OUTPUT** view. This view shows your linked cluster (or clusters) and all the clusters under your Azure subscription:
 
-    ![Set a default cluster configuration](./media/hdinsight-for-vscode/list-cluster-result.png)
+    ![Set a default cluster configuration](./media/hdinsight-for-vscode/list-cluster-result1.png)
 
 ## Set the default cluster
 
@@ -142,7 +138,6 @@ You can link a normal cluster by using an [Apache Ambari](https://ambari.apache.
 
    ![Set default cluster configuration](./media/hdinsight-for-vscode/set-default-cluster-configuration.png)
 
-
 ## Submit interactive Hive queries and Hive batch scripts
 
 With Spark & Hive Tools for Visual Studio Code, you can submit interactive Hive queries and Hive batch scripts to your clusters.
@@ -150,7 +145,6 @@ With Spark & Hive Tools for Visual Studio Code, you can submit interactive Hive 
 1. Reopen the **HDexample** folder that was discussed [earlier](#open-a-work-folder), if closed.  
 
 2. Select the **HelloWorld.hql** file that was created [earlier](#open-a-work-folder). It opens in the script editor.
-
 
 3. Copy and paste the following code into your Hive file, and then save it:
 
@@ -164,7 +158,7 @@ With Spark & Hive Tools for Visual Studio Code, you can submit interactive Hive 
 
 6. If you haven't specified a default cluster, select a cluster. The tools also let you submit a block of code instead of the whole script file by using the context menu. After a few moments, the query results appear in a new tab:
 
-   ![Interactive Hive result](./media/hdinsight-for-vscode/interactive-hive-result.png)
+   ![Interactive Apache Hive query result](./media/hdinsight-for-vscode/interactive-hive-result.png)
 
     - **RESULTS** panel: You can save the whole result as a CSV, JSON, or Excel file to a local path or just select multiple lines.
 
@@ -179,6 +173,7 @@ To submit interactive PySpark queries, follow these steps:
 2. Create a new **HelloWorld.py** file, following the [earlier](#open-a-work-folder) steps.
 
 3. Copy and paste the following code into the script file:
+
    ```python
    from operator import add
    lines = spark.read.text("/HdiSamples/HdiSamples/FoodInspectionData/README").rdd.map(lambda r: r[0])
@@ -201,11 +196,11 @@ To submit interactive PySpark queries, follow these steps:
 
 6. Select the cluster, if you haven't specified a default cluster. After a few moments, the **Python Interactive** results appear in a new tab. The tools also let you submit a block of code instead of the whole script file by using the context menu:
 
-   ![pyspark interactive python interactive window](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png) 
+   ![pyspark interactive python interactive window](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png)
 
 7. Enter **%%info**, and then press Shift+Enter to view the job information (optional):
 
-   ![view job information](./media/hdinsight-for-vscode/pyspark-interactive-view-job-information.png)
+   ![pyspark interactive view job information](./media/hdinsight-for-vscode/pyspark-interactive-view-job-information.png)
 
 8. The tool also supports the **Spark SQL** query:
 
@@ -213,12 +208,11 @@ To submit interactive PySpark queries, follow these steps:
 
    The submission status appears on the left of the lower status bar when you're running queries. Don't submit other queries when the status is **PySpark Kernel (busy)**.  
 
-   > [!NOTE] 
+   > [!NOTE]
    >
    > When **Python Extension Enabled** is cleared in the settings (it's selected by default), the submitted pyspark interaction results will use the old window:
    >
    > ![pyspark interactive python extension disabled](./media/hdinsight-for-vscode/pyspark-interactive-python-extension-disabled.png)
-
 
 ## Submit PySpark batch job
 
@@ -251,11 +245,11 @@ To submit interactive PySpark queries, follow these steps:
 
 4. [Connect](#connect-to-an-azure-account) to your Azure account, or link a cluster if you haven't yet done so.
 
-5. Right-click the script editor, and then select **Spark: PySpark Batch**, or use the Ctrl+Alt+H keyboard shortcut. 
+5. Right-click the script editor, and then select **Spark: PySpark Batch**, or use the Ctrl+Alt+H keyboard shortcut.
 
 6. Select a cluster to submit your PySpark job to:
 
-   ![Submit Python job result](./media/hdinsight-for-vscode/submit-pythonjob-result.png) 
+   ![Submit Python job result output](./media/hdinsight-for-vscode/submit-pythonjob-result.png)
 
 After you submit a Python job, submission logs appear in the **OUTPUT** window in Visual Studio Code. The Spark UI URL and Yarn UI URL are also shown. You can open the URL in a web browser to track the job status.
 
@@ -266,27 +260,27 @@ After you submit a Python job, submission logs appear in the **OUTPUT** window i
 <a id="triggerlivyconf"></a>**How to trigger Livy configuration**
 
 Method 1  
-1. From the menu bar, go to **File** > **Preferences** > **Settings**.  
+1. From the menu bar, navigate to **File** > **Preferences** > **Settings**.
 2. In the **Search settings** box, enter **HDInsight Job Submission: Livy Conf**.  
 3. Select **Edit in settings.json** for the relevant search result.
 
-Method 2   
+Method 2
 Submit a file, and notice that the .vscode folder is automatically added to the work folder. You can see the Livy configuration by selecting **.vscode\settings.json**.
 
 + The project settings:
 
-    ![Livy configuration](./media/hdinsight-for-vscode/hdi-livyconfig.png)
+    ![HDInsight Apache Livy configuration](./media/hdinsight-for-vscode/hdi-apache-livy-config.png)
 
     >[!NOTE]
     >For the **driverMemory** and **executorMemory** settings, set the value and unit. For example: 1g or 1024m.
 
-+ Supported Livy configurations:   
++ Supported Livy configurations:
 
-    **POST /batches**   
+    **POST /batches**
     Request body
 
-    | name | description | type | 
-    | :- | :- | :- | 
+    | name | description | type |
+    | :- | :- | :- |
     | file | File containing the application to execute | Path (required) |
     | proxyUser | User to impersonate when running the job | String |
     | className | Application Java/Spark main class | String |
@@ -304,55 +298,40 @@ Submit a file, and notice that the .vscode folder is automatically added to the 
     | name | Name of this session | String |
     | conf | Spark configuration properties | Map of key=val |
 
-    Response body   
+    Response body
     The created Batch object.
 
     | name | description | type |
-    | :- | :- | :- | 
-    | id | Session id | Int | 
+    | :- | :- | :- |
+    | id | Session id | Int |
     | appId | Application id of this session | String |
     | appInfo | Detailed application info | Map of key=val |
     | log | Log lines | List of strings |
     | state |Batch state | String |
 
-    >[!NOTE]
-    >The assigned Livy config is displayed in the output pane when you submit the script.
+    > [!NOTE]
+    > The assigned Livy config is displayed in the output pane when you submit the script.
 
 ## Integrate with Azure HDInsight from Explorer
 
-**Azure HDInsight** has been added to Explorer view. You can browse and manage your clusters directly through **Azure HDInsight**.
-
-1. [Connect](#connect-to-an-azure-account) to your Azure account, or link a cluster if you haven't yet done so.
-
-2. From the menu bar, go to **View** > **Explorer**.
-
-3. From the left pane, expand **AZURE HDINSIGHT**.  The available subscriptions and clusters (Spark, Hadoop, and HBase are supported) are listed:
-
-   ![Azure HDInsight Subscription](./media/hdinsight-for-vscode/hdi-azure-hdinsight-subscription.png)
-
-4. Expand the cluster to view hive metadata database and table schema:
-
-   ![Azure HDInsight cluster](./media/hdinsight-for-vscode/hdi-azure-hdinsight-cluster.png)
-
-
-## Preview Hive Table
 You can preview Hive Table in your clusters directly through the **Azure HDInsight** explorer:
+
 1. [Connect](#connect-to-an-azure-account) to your Azure account if you haven't yet done so.
 
 2. Select the **Azure** icon from leftmost column.
 
-3. From the left pane, expand **AZURE HDINSIGHT**. The available subscriptions and clusters are listed.
+3. From the left pane, expand **AZURE: HDINSIGHT**. The available subscriptions and clusters are listed.
 
 4. Expand the cluster to view the Hive metadata database and table schema.
 
-5. Right-click the Hive table. For example: **hivesampletable**. Select **Preview**. 
+5. Right-click the Hive table. For example: **hivesampletable**. Select **Preview**.
 
    ![Spark & Hive for Visual Studio Code preview hive table](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-hive-table.png)
 
 6. The **Preview Results** window opens:
 
    ![Spark & Hive for Visual Studio Code preview results window](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-results-window.png)
-   
+
 - RESULTS panel
 
    You can save the whole result as a CSV, JSON, or Excel file to a local path, or just select multiple lines.
@@ -367,13 +346,15 @@ You can preview Hive Table in your clusters directly through the **Azure HDInsig
         >In Linux, install xclip to enable copy-table data.
         >
         >![Spark & Hive for Visual Studio code in Linux](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-linux-install-xclip.png)
-    ## Additional features
+
+## Additional features
 
 Spark & Hive for Visual Studio Code also supports the following features:
 
 - **IntelliSense autocomplete**. Suggestions pop up for keywords, methods, variables, and other programming elements. Different icons represent different types of objects:
 
-    ![Spark & Hive Tools for Visual Studio Code IntelliSense object types](./media/hdinsight-for-vscode/hdinsight-for-vscode-auto-complete-objects.png)
+    ![Spark & Hive Tools for Visual Studio Code IntelliSense objects](./media/hdinsight-for-vscode/hdinsight-for-vscode-auto-complete-objects.png)
+
 - **IntelliSense error marker**. The language service underlines editing errors in the Hive script.     
 - **Syntax highlights**. The language service uses different colors to differentiate variables, keywords, data type, functions, and other programming elements:
 
@@ -385,7 +366,7 @@ Users who are assigned the reader-only role for the cluster can no longer submit
 
 ### Browse the HDInsight cluster  
 
-When you select the Azure HDInsight explorer to expand an HDInsight cluster, you're prompted to link the cluster if you have the reader-only role for the cluster. Use the following method to link to the cluster by using your Ambari credentials. 
+When you select the Azure HDInsight explorer to expand an HDInsight cluster, you're prompted to link the cluster if you have the reader-only role for the cluster. Use the following method to link to the cluster by using your Ambari credentials.
 
 ### Submit the job to the HDInsight cluster
 
@@ -393,8 +374,8 @@ When submitting job to an HDInsight cluster, you're prompted to link the cluster
 
 ### Link to the cluster
 
-1.	Enter a valid Ambari username.
-2.	Enter a valid password.
+1. Enter a valid Ambari username.
+2. Enter a valid password.
 
    ![Spark & Hive Tools for Visual Studio Code Username](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-username.png)
 
@@ -404,7 +385,7 @@ When submitting job to an HDInsight cluster, you're prompted to link the cluster
   >
   >You can use `Spark / Hive: List Cluster` to check the linked cluster:
   >
-  >![Spark & Hive Tools for Visual Studio Code Reader Linked](./media/hdinsight-for-vscode/list-cluster-result.png)
+  >![Spark & Hive Tools for Visual Studio Code Reader Linked](./media/hdinsight-for-vscode/list-cluster-result1.png)
 
 ## Azure Data Lake Storage Gen2
 
@@ -416,11 +397,11 @@ When you select the Azure HDInsight explorer to expand a Data Lake Storage Gen2 
 
 When you submit a job to an HDInsight cluster by using Data Lake Storage Gen2, you're prompted to enter the storage access key if your Azure account has no write access to Gen2 storage. After the access key is validated, the job will be successfully submitted.
 
-![Spark & Hive Tools for Visual Studio Code AccessKey](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-accesskey.png)   
+![Spark & Hive Tools for Visual Studio Code AccessKey](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-accesskey.png)
 
 > [!NOTE]
-> 
->You can get the access key for the storage account from the Azure portal. For more information, see [View and copy access keys](https://docs.microsoft.com/azure/storage/common/storage-account-manage#access-keys).
+>
+> You can get the access key for the storage account from the Azure portal. For more information, see [View and copy access keys](https://docs.microsoft.com/azure/storage/common/storage-account-manage#access-keys).
 
 ## Unlink cluster
 
@@ -434,6 +415,6 @@ When you submit a job to an HDInsight cluster by using Data Lake Storage Gen2, y
 
 From the menu bar, go to **View** > **Command Palette**, and then enter **Azure: Sign Out**.
 
-
 ## Next steps
+
 For a video that demonstrates using Spark & Hive for Visual Studio Code, see [Spark & Hive for Visual Studio Code](https://go.microsoft.com/fwlink/?linkid=858706).

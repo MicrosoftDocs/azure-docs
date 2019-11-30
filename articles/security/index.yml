@@ -40,11 +40,11 @@ conceptualContent:
         - url: https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91
           itemType: concept
           text: Shared responsibilities for cloud computing
-        - url: ./fundamentals/common-security-attributes.md
+        - url: ./fundamentals/security-controls.md
           itemType: concept
           text: Security controls for Azure services
       footerLink: 
-        url: ./fundamentals/index.md
+        url: ./fundamentals/index.yml
         text: See more
 
     - title: Developers
@@ -98,7 +98,7 @@ conceptualContent:
           itemType: concept
           text:  Storage security
       footerLink: 
-        url: azure-security-disk-encryption-overview.md
+        url: ./fundamentals/encryption-overview.md
         text: See more
 
     - title: Identity management
@@ -184,9 +184,6 @@ conceptualContent:
         - url: ./fundamentals/management-monitoring-overview.md
           itemType: overview
           text:  Management and monitoring overivew
-        - url: ./fundamentals/azure-log-integration-overview.md
-          itemType: overview
-          text:  Introduction to Azure Log Integration
       footerLink: 
         url: https://docs.microsoft.com/search/?search=security+audit+log&scope=azure&category=Documentation
         text: Search for more 
@@ -244,9 +241,6 @@ conceptualContent:
 
     - title: Governance and compliance
       links: 
-        - url: ./blueprints/au-protected-iaaswa-overview.md
-          itemType: tutorial
-          text:  Compliance solutions
         - url: ../governance/policy/overview.md
           itemType: overview
           text:  Azure Policy service

@@ -1,5 +1,5 @@
 ---
-title: Azure Windows VM sizes - previous generations | Microsoft Docs
+title: Azure Windows VM sizes - previous generations 
 description: Lists the previous generations of sizes available for Windows virtual machines in Azure. 
 services: virtual-machines-windows
 documentationcenter: ''

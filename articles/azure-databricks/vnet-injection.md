@@ -1,5 +1,5 @@
 ---
-title: Deploy Azure Databricks in your virtual network (Preview)
+title: Deploy Azure Databricks in your virtual network
 description: This article describes how to deploy Azure Databricks to your virtual network, also known as VNet injection.
 services: azure-databricks
 author: mamccrea
@@ -7,10 +7,10 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 10/10/2019
 ---
 
-# Deploy Azure Databricks in your virtual network (Preview)
+# Deploy Azure Databricks in your virtual network
 
 The default deployment of Azure Databricks is a fully managed service on Azure: all data plane resources, including a virtual network (VNet), are deployed to a locked resource group. If you require network customization, however, you can deploy Azure Databricks resources in your own virtual network (also called VNet injection), when enables you to:
 
@@ -96,7 +96,7 @@ When you use this template, you do not need to do any manual whitelisting of sub
 
 ### Network security groups
 
-To create network security groups with the required rules for an existing virtual network, use the [Network Security Group Template for Databricks VNet Injection](https://azure.microsoft.com/resources/templates/101-databricks-nsg-for-vnet-injection).
+To create network security groups with the required rules for an existing virtual network, use the [Network Security Group Template for Databricks VNet Injection](https://azure.microsoft.com/resources/templates/101-databricks-all-in-one-template-for-vnet-injection/).
 
 When you use this template, you do not need to do any manual whitelisting of subnet traffic.
 
@@ -114,7 +114,7 @@ If you use this template without also using the network security groups template
 
 ## Whitelisting subnet traffic
 
-If you do not use the [Azure portal](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-portal) or [Azure Resource Manager templates](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced) to create your network security groups, you must manually whitelist the following traffic on your subnets.
+If you do not use the [Azure portal](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject#vnet-inject-portal) or [Azure Resource Manager templates](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject#vnet-inject-advanced) to create your network security groups, you must manually whitelist the following traffic on your subnets.
 
 |Direction|Protocol|Source|Source Port|Destination|Destination Port|
 |---------|--------|------|-----------|-----------|----------------|

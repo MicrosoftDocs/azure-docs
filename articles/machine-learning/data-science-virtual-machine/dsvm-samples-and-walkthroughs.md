@@ -21,6 +21,10 @@ Azure Data Science Virtual Machines (DSVMs) include a comprehensive set of sampl
 > [!NOTE]
 > For more information about how to run Jupyter notebooks on your data science virtual machines, see the [Access Jupyter](#access-jupyter) section.
 
+## Prerequisites
+
+In order to run these samples, you must have provisioned a Data Science Virtual Machine. See the quickstarts for [Windows](./provision-vm.md) and [Ubuntu](./dsvm-ubuntu-intro.md).
+
 ## Available samples
 | Samples category | Description | Locations |
 | ------------- | ------------- | ------------- |

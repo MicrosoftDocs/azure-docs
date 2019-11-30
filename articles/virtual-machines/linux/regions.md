@@ -1,5 +1,5 @@
 ---
-title: Azure regions for Linux VMs | Microsoft Docs
+title: Azure regions for Linux VMs 
 description: Learn about the regions for running Linux virtual machines in Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -17,5 +17,6 @@ ms.author: cynthn
 
 ---
 
+# Regions for virtual machines in Azure
 [!INCLUDE [virtual-machines-common-regions](../../../includes/virtual-machines-common-regions.md)]
 

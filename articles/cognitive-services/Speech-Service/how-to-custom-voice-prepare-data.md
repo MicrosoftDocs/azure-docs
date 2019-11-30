@@ -8,9 +8,10 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 11/04/2019
 ms.author: erhopf
 ---
+
 
 # Prepare data to create a custom voice
 
@@ -28,9 +29,9 @@ This table lists data types and how each is used to create a custom text-to-spee
 
 | Data type | Description | When to use | Additional service required | Quantity for training a model | Locale(s) |
 | --------- | ----------- | ----------- | --------------------------- | ----------------------------- | --------- |
-| **Individual utterances + matching transcript** | A collection (.zip) of audio files (.wav) as individual utterances. Each audio file should be 15 seconds or less in length, paired with a formatted transcript (.txt). | Professional recordings with matching transcripts | Ready for training. | No hard requirement for en-US and zh-CN. More than 2,000+ distinct utterances for other locales. | All Custom Voice locales |
-| **Long audio + transcript (beta)** | A collection (.zip) of long, unsegmented audio files (longer than 20 seconds), paired with a transcript (.txt) that contains all spoken words. | You have audio files and matching transcripts, but they are not segmented into utterances. | Segmentation (using batch transcription).<br>Audio format transformation where required. | No hard requirement for en-US and zh-CN. | `en-US` and `zh-CN` |
-| **Audio only (beta)** | A collection (.zip) of audio files without a transcript. | You only have audio files available, without transcripts. | Segmentation + transcript generation (using batch transcription).<br>Audio format transformation where required.| No hard requirement for `en-US` and `zh-CN`. | `en-US` and `zh-CN` |
+| **Individual utterances + matching transcript** | A collection (.zip) of audio files (.wav) as individual utterances. Each audio file should be 15 seconds or less in length, paired with a formatted transcript (.txt). | Professional recordings with matching transcripts | Ready for training. | No hard requirement for en-US and zh-CN. More than 2,000+ distinct utterances for other locales. | [All Custom Voice locales](language-support.md#customization) |
+| **Long audio + transcript (beta)** | A collection (.zip) of long, unsegmented audio files (longer than 20 seconds), paired with a transcript (.txt) that contains all spoken words. | You have audio files and matching transcripts, but they are not segmented into utterances. | Segmentation (using batch transcription).<br>Audio format transformation where required. | No hard requirement  | [All Custom Voice locales](language-support.md#customization) |
+| **Audio only (beta)** | A collection (.zip) of audio files without a transcript. | You only have audio files available, without transcripts. | Segmentation + transcript generation (using batch transcription).<br>Audio format transformation where required.| No hard requirement | [All Custom Voice locales](language-support.md#customization) |
 
 Files should be grouped by type into a dataset and uploaded as a zip file. Each dataset can only contain a single data type.
 
@@ -60,7 +61,7 @@ Follow these guidelines when preparing audio.
 | File name | Numeric, with .wav extension. No duplicate file names allowed. |
 | Audio length | Shorter than 15 seconds |
 | Archive format | .zip |
-| Maximum archive size | 200 MB |
+| Maximum archive size | 2048 MB |
 
 > [!NOTE]
 > .wav files with a sampling rate lower than 16,000 Hz will be rejected. If a .zip file contains .wav files with different sample rates, only those equal to or higher than 16,000 Hz will be imported. The portal currently imports .zip archives up to 200 MB. However, multiple archives can be uploaded.
@@ -74,7 +75,7 @@ The transcription file is a plain text file. Use these guidelines to prepare you
 | File format | Plain text (.txt) |
 | Encoding format | ANSI/ASCII, UTF-8, UTF-8-BOM, UTF-16-LE, or UTF-16-BE. For zh-CN, ANSI/ASCII and UTF-8 encodings are not supported. |
 | # of utterances per line | **One** - Each line of the transcription file should contain the name of one of the audio files, followed by the corresponding transcription. The file name and transcription should be separated by a tab (\t). |
-| Maximum file size | 50 MB |
+| Maximum file size | 2048 MB |
 
 Below is an example of how the transcripts are organized utterance by utterance in one .txt file:
 
@@ -102,12 +103,12 @@ Follow these guidelines when preparing audio for segmentation.
 | Property | Value |
 | -------- | ----- |
 | File format | RIFF (.wav) with a sampling rate of at least 16 khz-16-bit in PCM or .mp3 with a bit rate of at least 256 KBps, grouped into a .zip file |
-| File name	| ASCII characters only. Unicode characters in the name will fail (for example, the Chinese characters, or symbols like "—"). No duplicate names allowed. |
+| File name	| ASCII and Unicode characters supported. No duplicate names allowed. |
 | Audio length | Longer than 20 seconds |
 | Archive format | .zip |
-| Maximum archive size | 200 MB |
+| Maximum archive size | 2048 MB |
 
-All audio files should be grouped into a zip file. It’s OK to put .wav files and .mp3 files into one audio zip, but no subfolder is allowed in the zip file. For example, you can upload a zip file containing an audio file named ‘kingstory.wav’, 45-second-long, and another one named ‘queenstory.mp3’, 200-second-long, without any subfolders. All .mp3 files will be transformed into the .wav format after processing.
+All audio files should be grouped into a zip file. It’s OK to put .wav files and .mp3 files into one audio zip. For example, you can upload a zip file containing an audio file named ‘kingstory.wav’, 45-second-long, and another audio named ‘queenstory.mp3’, 200-second-long. All .mp3 files will be transformed into the .wav format after processing.
 
 ### Transcripts
 
@@ -119,9 +120,9 @@ Transcripts must be prepared to the specifications listed in this table. Each au
 | File name | Use the same name as the matching audio file |
 | Encoding format | UTF-8-BOM only |
 | # of utterances per line | No limit |
-| Maximum file size | 50 MB |
+| Maximum file size | 2048 MB |
 
-All transcripts files in this data type should be grouped into a zip file. No subfolder is allowed in the zip file. For example, you have uploaded a zip file containing an audio file named ‘kingstory.wav’, 45 seconds long, and another one named ‘queenstory.mp3’, 200 seconds long. You will need to upload another zip file containing two transcripts, one named ‘kingstory.txt’, the other one ‘queenstory.txt’. Within each plain text file, you will provide the full correct transcription for the matching audio.
+All transcripts files in this data type should be grouped into a zip file. For example, you have uploaded a zip file containing an audio file named ‘kingstory.wav’, 45 seconds long, and another one named ‘queenstory.mp3’, 200 seconds long. You will need to upload another zip file containing two transcripts, one named ‘kingstory.txt’, the other one ‘queenstory.txt’. Within each plain text file, you will provide the full correct transcription for the matching audio.
 
 After your dataset is successfully uploaded, we will help you segment the audio file into utterances based on the transcript provided. You can check the segmented utterances and the matching transcripts by downloading the dataset. Unique IDs will be assigned to the segmented utterances automatically. It’s important that you make sure the transcripts you provide are 100% accurate. Errors in the transcripts can reduce the accuracy during the audio segmentation and further introduce quality loss in the training phase that comes later.
 
@@ -137,12 +138,12 @@ Follow these guidelines when preparing audio.
 | Property | Value |
 | -------- | ----- |
 | File format | RIFF (.wav) with a sampling rate of at least 16 khz-16-bit in PCM or .mp3 with a bit rate of at least 256 KBps, grouped into a .zip file |
-| File name | ASCII characters only. Unicode characters in the name will fail (for example, the Chinese characters, or symbols like "—"). No duplicate name allowed. |
+| File name | ASCII and Unicode characters supported. No duplicate name allowed. |
 | Audio length | Longer than 20 seconds |
 | Archive format | .zip |
-| Maximum archive size | 200 MB |
+| Maximum archive size | 2048 MB |
 
-All audio files should be grouped into a zip file. No subfolder is allowed in the zip file. Once your dataset is successfully uploaded, we will help you segment the audio file into utterances based on our speech batch transcription service. Unique IDs will be assigned to the segmented utterances automatically. Matching transcripts will be generated through speech recognition. All .mp3 files will be transformed into the .wav format after processing. You can check the segmented utterances and the matching transcripts by downloading the dataset.
+All audio files should be grouped into a zip file. Once your dataset is successfully uploaded, we will help you segment the audio file into utterances based on our speech batch transcription service. Unique IDs will be assigned to the segmented utterances automatically. Matching transcripts will be generated through speech recognition. All .mp3 files will be transformed into the .wav format after processing. You can check the segmented utterances and the matching transcripts by downloading the dataset.
 
 ## Next steps
 
