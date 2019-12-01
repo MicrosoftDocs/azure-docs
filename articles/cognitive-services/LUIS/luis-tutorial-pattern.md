@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 07/16/2019
+ms.date: 10/14/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use patterns. 
 ---
@@ -17,6 +17,8 @@ ms.author: diberry
 # Tutorial: Add common pattern template utterance formats
 
 In this tutorial, use patterns to increase intent and entity prediction while providing fewer example utterances. The pattern is provided by way of a template utterance example, which includes syntax to identify entities and ignorable text. A pattern is a combination of expression matching and machine learning.  The template utterance example, along with the intent utterances, give LUIS a better understanding of what utterances fit the intent. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **In this tutorial, you learn how to:**
 

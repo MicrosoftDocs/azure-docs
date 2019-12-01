@@ -1,11 +1,11 @@
 ---
-title: Create an application gateway with HTTP to HTTPS redirection using the Azure portal
+title: HTTP to HTTPS redirection in portal - Azure Application Gateway
 description: Learn how to create an application gateway with redirected traffic from HTTP to HTTPS using the Azure portal.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 12/7/2018
+ms.date: 11/13/2019
 ms.author: victorh
 
 ---

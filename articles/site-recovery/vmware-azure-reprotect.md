@@ -1,11 +1,11 @@
 ---
-title: Reprotect VMs from Azure to an on-premises site during disaster recovery of VMware VMs and physical servers | Microsoft Docs
+title: Reprotect VMware VMs/physical servers to an on-premises site with Azure Site Recovery
 description: After failover to Azure during disaster recovery of VMware VMs and physical servers, learn how to fail back from Azure to the on-premises site.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 10/22/2019
 ms.author: mayg
 ---
 
@@ -29,6 +29,7 @@ If you used a template to create your virtual machines, ensure that each virtual
 - If a vCenter server manages the virtual machines to which you'll fail back, make sure that you have the [required permissions](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) for discovery of VMs on vCenter servers.
 - Delete snapshots on the master target server before you reprotect. If snapshots are present on the on-premises master target or on the virtual machine, reprotection fails. The snapshots on the virtual machine are automatically merged during a reprotect job.
 - All virtual machines of a replication group must be of the same operating system type (either all Windows or all Linux). A replication group with mixed operating systems currently isn't supported for reprotect and failback to on-premises. This is because the master target must be of the same operating system as the virtual machine. All the virtual machines of a replication group must have the same master target. 
+- The master target must have same or higher OS version than the OS versions of the replicated items.
 - A configuration server is required on-premises when you fail back. During failback, the virtual machine must exist in the configuration server database. Otherwise, failback is unsuccessful. Make sure that you make regularly scheduled backups of your configuration server. If there's a disaster, restore the server with the same IP address so that failback works. 
 - Reprotection and failback require a site-to-site (S2S) VPN or ExpressRoute private peering to replicate data. Provide the network so that the failed-over virtual machines in Azure can reach (ping) the on-premises configuration server. You need to deploy a process server in the Azure network of the failed-over virtual machine(s). This process server must also be able to communicate with the on-premises Configuration Server and Master Target Server.
 - In case the IP addresses of replicated items were retained on failover, S2S or ExpressRoute connectivity should be established between Azure virtual machines and the failback NIC of the configuration server. Note that IP address retention requires configuration server to have two NICs - one for source machines connectivity and one for Azure failback connectivity. This is to avoid overlap of subnet address ranges of the source and failed over virtual machines.

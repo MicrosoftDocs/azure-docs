@@ -1,18 +1,13 @@
 ---
 title: Collect custom logs in Azure Monitor | Microsoft Docs
 description: Azure Monitor can collect events from text files on both Windows and Linux computers.  This article describes how to define a new custom log and details of the records they create in Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: aca7f6bb-6f53-4fd4-a45c-93f12ead4ae1
-ms.service: log-analytics
+ms.service:  azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/26/2019
+author: bwren
 ms.author: bwren
+ms.date: 09/26/2019
+
 ---
 
 # Custom logs in Azure Monitor

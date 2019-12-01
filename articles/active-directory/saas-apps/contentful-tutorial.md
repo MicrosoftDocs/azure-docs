@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/17/2019
+ms.date: 10/22/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -45,18 +45,18 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * Contentful supports **Just In Time** user provisioning
 
 > [!NOTE]
-> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+> The identifier of this application is a fixed string value. Only one instance can be configured in one tenant.
 
 ## Adding Contentful from the gallery
 
 To configure the integration of Contentful into Azure AD, you need to add Contentful from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
-1. On the left navigation pane, select the **Azure Active Directory** service.
+1. In the left navigation pane, select the **Azure Active Directory** service.
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
-1. To add new application, select **New application**.
+1. To add a new application, select **New application**.
 1. In the **Add from the gallery** section, type **Contentful** in the search box.
-1. Select **Contentful** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+1. Select **Contentful** in the results, and then add the app. Wait a few seconds while the app is added to your tenant.
 
 ## Configure and test Azure AD single sign-on for Contentful
 
@@ -81,32 +81,32 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+1. In the **Basic SAML Configuration** section, if you want to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
-    In the **Reply URL** text box, type a URL using the following pattern:
+    - In the **Reply URL** text box, copy the ACS (Assertion Consumer Service) URL from the SSO setup page in Contentful. It will look like this:
     `https://be.contentful.com/sso/<organization_id>/consume`
 
-1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
+1. Click **Set additional URLs** and perform the following step if you want to configure the application in **SP** initiated mode:
 
-    In the **Sign-on URL** text box, type a URL using the following pattern:
+    - In the **Sign-on URL** text box, copy the same ACS (Assertion Consumer Service) URL. It will look like this:
     `https://be.contentful.com/sso/<organization_id>/login`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Reply URL and Sign-On URL. Contact [Contentful Client support team](mailto:support@contentful.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Reply URL and Sign-On URL by copying the ACS (Assertion Consumer Service) URL from the SSO setup page in Contentful.
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Raw)** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/certificateraw.png)
+	![The Certificate download link](common/certificatebase64.png)
 
-1. On the **Set up Contentful** section, copy the appropriate URL(s) based on your requirement.
+1. In the **Set up Contentful** section, copy the login URL to configure Contentful SSO.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+	![Copy configuration URLs](media/contentful-tutorial/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
 
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. In the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
 1. Select **New user** at the top of the screen.
 1. In the **User** properties, follow these steps:
    1. In the **Name** field, enter `B.Simon`.  
@@ -120,21 +120,30 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **Contentful**.
-1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. On the app's overview page, find the **Manage** section and select **Users and groups**.
 
    ![The "Users and groups" link](common/users-groups-blade.png)
 
-1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog box.
 
 	![The Add User link](common/add-assign-user.png)
 
-1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
-1. In the **Add Assignment** dialog, click the **Assign** button.
+1. In the **Users and groups** dialog box, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the page.
+1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the page.
+1. In the **Add Assignment** dialog box, click the **Assign** button.
 
 ## Configure Contentful SSO
 
-To configure single sign-on on **Contentful** side, you need to send the downloaded **Certificate (Raw)** and appropriate copied URLs from Azure portal to [Contentful support team](mailto:support@contentful.com). They set this setting to have the SAML SSO connection set properly on both sides.
+Follow these steps to configure single sign-on on the **Contentful** side.
+
+1. In [Contentful](https://app.contentful.com), navigate to the SSO setup page in **Organization Settings**.
+1. Click on **Set up SSO**.
+1. Copy and paste the login URL from the **Set up Contentful** section in Azure AD.
+1. Copy and paste the certificate from the Base64 certificate file you downloaded from Azure AD.
+1. Set up an SSO name for SP-initiated login.
+1. Click on **Enable SSO**.
+
+If that doesn't work, reach out to the [Contentful support team](mailto:support@contentful.com).
 
 ### Create Contentful test user
 
@@ -148,9 +157,9 @@ When you click the Contentful tile in the Access Panel, you should be automatica
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

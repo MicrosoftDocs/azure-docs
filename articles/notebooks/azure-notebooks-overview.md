@@ -1,17 +1,8 @@
 ---
 title: Overview of Azure Notebooks
 description: Run Jupyter notebooks in the cloud using the free Azure Notebooks service, where no setup or configuration is required.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: 9cea5a8e-c52d-4bdc-9e4a-cecdc1ad02c1
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 04/05/2019
-ms.author: kraigb
 ---
 
 # Overview of Azure Notebooks
@@ -113,4 +104,4 @@ To discuss your questions about Azure Notebooks, file an issue on the [GitHub re
   - [Present a slide show](present-jupyter-notebooks-slideshow.md)
   - [Work with data files](work-with-project-data-files.md)
   - [Access data resources](access-data-resources-jupyter-notebooks.md)
-  - [Use Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)
+  - [Use Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)

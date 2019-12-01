@@ -1,5 +1,6 @@
 ---
-title: How to add app roles in your Azure Active Directory-registered application and receive them in the token
+title: Add app roles in your Azure Active Directory-registered app and receive them in the token 
+titleSuffix: Microsoft identity platform
 description: Learn how to add app roles in an application registered in Azure Active Directory, assign users and groups to these roles and receive them in the `roles` claim in the token.
 services: active-directory
 documentationcenter: ''
@@ -39,11 +40,7 @@ These application roles are defined in the [Azure portal](https://portal.azure.c
 1. Once the **Directory + subscription** pane opens, choose the Active Directory tenant where you wish to register your application, from the **Favorites** or **All Directories** list.
 1. Select **All services** in the left-hand nav, and choose **Azure Active Directory**.
 1. In the  **Azure Active Directory** pane, select **App registrations** to view a list of all your applications.
-
-     If you do not see the application you want show up here, use the various filters at the top of the **App registrations** list to restrict the list or scroll down the list to locate your application.
-
-1. Select the application you want to define app roles in.
-1. In the blade for your application, select **Manifest**.
+1. Select the application you want to define app roles in. Then select **Manifest**.
 1. Edit the app manifest by locating the `appRoles` setting and adding all your Application Roles.
 
      > [!NOTE]

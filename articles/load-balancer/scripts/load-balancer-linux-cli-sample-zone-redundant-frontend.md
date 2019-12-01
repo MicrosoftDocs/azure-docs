@@ -1,5 +1,5 @@
 ---
-title: CLI Example - Load Balancer VMs across availability zones - Azure | Microsoft Docs
+title: Load balance VMs across availability zones - Azure CLI - Azure Load Balancer
 description: This Azure CLI script example shows how to load balance traffic to VMs across availability zones
 services: load-balancer
 documentationcenter: load-balancer

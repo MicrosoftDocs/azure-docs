@@ -1,5 +1,5 @@
 ---
-title: Move data from MySQL using Azure Data Factory | Microsoft Docs
+title: Move data from MySQL using Azure Data Factory 
 description: Learn about how to move data from MySQL database using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -40,10 +40,10 @@ Gateway is required even if the MySQL database is hosted in an Azure IaaS virtua
 > See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) for tips on troubleshooting connection/gateway related issues.
 
 ## Supported versions and installation
-For Data Management Gateway to connect to the MySQL Database, you need to install the [MySQL Connector/Net for Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) (version between 6.6.5 and 6.10.7) on the same system as the Data Management Gateway. This 32 bit driver is compatible with 64 bit Data Management Gateway. MySQL version 5.1 and above is supported.
+For Data Management Gateway to connect to the MySQL Database, you need to install the [MySQL Connector/NET for Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) (version between 6.6.5 and 6.10.7) on the same system as the Data Management Gateway. This 32 bit driver is compatible with 64 bit Data Management Gateway. MySQL version 5.1 and above is supported.
 
 > [!TIP]
-> If you hit error on "Authentication failed because the remote party has closed the transport stream.", consider to upgrade the MySQL Connector/Net to higher version.
+> If you hit error on "Authentication failed because the remote party has closed the transport stream.", consider to upgrade the MySQL Connector/NET to higher version.
 
 ## Getting started
 You can create a pipeline with a copy activity that moves data from an on-premises Cassandra data store by using different tools/APIs. 

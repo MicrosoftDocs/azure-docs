@@ -1,12 +1,8 @@
 ---
-title: Roll back on error to successful Azure deployment 
+title: Roll back on error to successful deployment 
 description: Specify that a failed deployment should roll back to a successful deployment.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.author: tomfitz
-
 ---
 # Rollback on error to successful deployment
 

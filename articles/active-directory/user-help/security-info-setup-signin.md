@@ -1,6 +1,6 @@
 ---
-title: Set up security info (preview) from your sign-in prompt - Azure Active Directory | Microsoft Docs
-description: How to set up security info for your work or school account, if you're prompted from your organization's sign-in page.
+title: Set up your Security info (preview) from a sign-in prompt - Azure AD
+description: How to set up your Security info (preview) for your work or school account, after you're prompted from your organization's sign-in page.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -15,7 +15,7 @@ ms.author: lizross
 ms.collection: M365-identity-device-management
 ---
 
-# Set up your security info (preview) from the sign-in page prompt
+# Set up your Security info (preview) from a sign-in prompt
 
 You can follow these steps if you're prompted to set up your security info immediately after you sign-in to your work or school account.
 
@@ -148,6 +148,6 @@ When using app passwords, it's important to remember:
 
 - For information about how to sign in using your specified method, see [How to sign in](user-help-sign-in.md).
 
-- Reset your password if you've lost or forgotten it, from the [Password reset portal](https://passwordreset.microsoftonline.com/) or follow the steps in the [Reset your work or school password](user-help-reset-password.md) article.
+- Reset your password if you've lost or forgotten it, from the [Password reset portal](https://passwordreset.microsoftonline.com/) or follow the steps in the [Reset your work or school password](active-directory-passwords-update-your-own-password.md) article.
 
 - Get troubleshooting tips and help for sign-in problems in the [Can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) article.

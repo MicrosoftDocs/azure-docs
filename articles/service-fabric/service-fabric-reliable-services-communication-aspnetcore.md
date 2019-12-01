@@ -336,6 +336,9 @@ new KestrelCommunicationListener(serviceContext, (url, listener) => ...
 
 In this configuration, `KestrelCommunicationListener` will automatically select an unused port from the application port range.
 
+For HTTPS, it should have the Endpoint configured with HTTPS protocol without a port specified in ServiceManifest.xml and pass the endpoint name to KestrelCommunicationListener constructor.
+
+
 ## Service Fabric configuration provider
 App configuration in ASP.NET Core is based on key-value pairs established by the configuration provider. Read [Configuration in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/) to understand more on general ASP.NET Core configuration support.
 

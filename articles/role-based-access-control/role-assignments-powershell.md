@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/11/2019
+ms.date: 11/21/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -152,6 +152,40 @@ Microsoft.Network/loadBalancers/backendAddressPools/join/action
 
 In RBAC, to list access, you list the role assignments.
 
+### List all role assignments in a subscription
+
+The easiest way to get a list of all the role assignments in the current subscription (including inherited role assignments from root and management groups) is to use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) without any parameters.
+
+```azurepowershell
+Get-AzRoleAssignment
+```
+
+```Example
+PS C:\> Get-AzRoleAssignment
+
+RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleAssignments/11111111-1111-1111-1111-111111111111
+Scope              : /subscriptions/00000000-0000-0000-0000-000000000000
+DisplayName        : Alain
+SignInName         : alain@example.com
+RoleDefinitionName : Storage Blob Data Reader
+RoleDefinitionId   : 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1
+ObjectId           : 44444444-4444-4444-4444-444444444444
+ObjectType         : User
+CanDelegate        : False
+
+RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales/providers/Microsoft.Authorization/roleAssignments/33333333-3333-3333-3333-333333333333
+Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
+DisplayName        : Marketing
+SignInName         :
+RoleDefinitionName : Contributor
+RoleDefinitionId   : b24988ac-6180-42a0-ab88-20f7382dd24c
+ObjectId           : 22222222-2222-2222-2222-222222222222
+ObjectType         : Group
+CanDelegate        : False
+
+...
+```
+
 ### List role assignments for a user
 
 To list all the roles that are assigned to a specified user, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
@@ -234,33 +268,40 @@ To list role assignments for the classic subscription administrator and co-admin
 Get-AzRoleAssignment -IncludeClassicAdministrators
 ```
 
-## Grant access
+## Get object IDs
 
-In RBAC, to grant access, you create a role assignment.
+To list, add, or remove role assignments, you might need to specify the unique ID of an object. The ID has the format: `11111111-1111-1111-1111-111111111111`. You can get the ID using the Azure portal or Azure PowerShell.
 
-### Search for object IDs
+### User
 
-To assign a role, you need to identify both the object (user, group, or application) and the scope.
-
-To get the subscription ID, you can find it on the **Subscriptions** blade in the Azure portal or you can use [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription).
-
-To get the object ID for an Azure AD user, use [Get-AzADUser](/powershell/module/az.resources/get-azaduser).
+To get the object ID for an Azure AD user, you can use [Get-AzADUser](/powershell/module/az.resources/get-azaduser).
 
 ```azurepowershell
 Get-AzADUser -StartsWith <string_in_quotes>
+(Get-AzADUser -DisplayName <name_in_quotes>).id
 ```
 
-To get the object ID for an Azure AD group, use [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup).
+### Group
+
+To get the object ID for an Azure AD group, you can use [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup).
 
 ```azurepowershell
 Get-AzADGroup -SearchString <group_name_in_quotes>
+(Get-AzADGroup -DisplayName <group_name_in_quotes>).id
 ```
 
-To get the object ID for an Azure AD service principal or application, use [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal).
+### Application
+
+To get the object ID for an Azure AD service principal (identity used by an application), you can use [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal). For a service principal, use the object ID and **not** the application ID.
 
 ```azurepowershell
 Get-AzADServicePrincipal -SearchString <service_name_in_quotes>
+(Get-AzADServicePrincipal -DisplayName <service_name_in_quotes>).id
 ```
+
+## Grant access
+
+In RBAC, to grant access, you create a role assignment.
 
 ### Create a role assignment for a user at a resource group scope
 
@@ -305,7 +346,7 @@ To create a role assignment using the unique role ID instead of the role name, u
 New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionId <role_id> -ResourceGroupName <resource_group_name>
 ```
 
-The following example assigns the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role to *alain@example.com* user at the *pharma-sales* resource group scope. To get the unique role ID, you can use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) or see [Built-in roles for Azure resources](built-in-roles.md).
+The following example assigns the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role to *alain\@example.com* user at the *pharma-sales* resource group scope. To get the unique role ID, you can use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) or see [Built-in roles for Azure resources](built-in-roles.md).
 
 ```Example
 PS C:\> New-AzRoleAssignment -ObjectId 44444444-4444-4444-4444-444444444444 -RoleDefinitionId 9980e02c-c2be-4d73-94e8-173b1dc7cf3c -Scope /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
@@ -323,7 +364,7 @@ CanDelegate        : False
 
 ### Create a role assignment for a group at a resource scope
 
-To grant access to a group at a resource scope, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
+To grant access to a group at a resource scope, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). For information about how to get the object ID of the group, see [Get object IDs](#get-object-ids).
 
 ```azurepowershell
 New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -ResourceName <resource_name> -ResourceType <resource_type> -ParentResource <parent resource> -ResourceGroupName <resource_group_name>
@@ -354,10 +395,10 @@ CanDelegate        : False
 
 ### Create a role assignment for an application at a subscription scope
 
-To grant access to an application at a subscription scope, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
+To grant access to an application at a subscription scope, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). For information about how to get the object ID of the application, see [Get object IDs](#get-object-ids).
 
 ```azurepowershell
-New-AzRoleAssignment -ObjectId <application_id> -RoleDefinitionName <role_name> -Scope /subscriptions/<subscription_id>
+New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -Scope /subscriptions/<subscription_id>
 ```
 
 ```Example

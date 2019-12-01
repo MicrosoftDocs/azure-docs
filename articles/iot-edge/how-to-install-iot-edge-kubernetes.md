@@ -8,7 +8,6 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
 ---
 
 # How to install IoT Edge on Kubernetes (Preview)
@@ -57,7 +56,7 @@ Every component of the edge deployment is scoped to a Kubernetes namespace speci
     helm repo update
     ```
 
-1. [Create an IoT Hub](../iot-hub/iot-hub-create-through-portal.md), [register an IoT Edge device](how-to-register-device-portal.md), and note its connection string.
+1. [Create an IoT Hub](../iot-hub/iot-hub-create-through-portal.md), [register an IoT Edge device](how-to-register-device.md), and note its connection string.
 
 1. Install iotedged and IoT Edge agent into your cluster
 

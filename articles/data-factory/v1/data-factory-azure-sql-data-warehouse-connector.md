@@ -1,5 +1,5 @@
 ---
-title: Copy data to/from Azure SQL Data Warehouse | Microsoft Docs
+title: Copy data to/from Azure SQL Data Warehouse 
 description: Learn how to copy data to/from Azure SQL Data Warehouse using Azure Data Factory
 services: data-factory
 documentationcenter: ''

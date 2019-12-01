@@ -1,13 +1,8 @@
 ---
 title: Event Grid trigger for Azure Functions
 description: Understand how to handle Event Grid events in Azure Functions.
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords:
 
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
@@ -248,7 +243,6 @@ The following examples show trigger binding in a *function.json* file and [Java 
     ) 
     String content, 
     final ExecutionContext context) {
-      // log 
       context.getLogger().info("Event content: " + content);      
   }
 ```
@@ -285,7 +279,6 @@ Upon arrival, the event's JSON payload is de-serialized into the ```EventSchema`
     ) 
     EventSchema event, 
     final ExecutionContext context) {
-      // log 
       context.getLogger().info("Event content: ");
       context.getLogger().info("Subject: " + event.subject);
       context.getLogger().info("Time: " + event.eventTime); // automatically converted to Date by the runtime

@@ -8,7 +8,6 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
 ---
 
 # Common issues and resolutions for Azure IoT Edge

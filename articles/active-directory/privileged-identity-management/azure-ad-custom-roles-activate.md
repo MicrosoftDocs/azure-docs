@@ -39,6 +39,9 @@ When you need to activate an Azure AD custom role, request activation by selecti
 
    ![See the list of eligible Azure AD custom role assignments](./media/azure-ad-custom-roles-activate/view-preview-roles.png)
 
+> [!Note] 
+>  Before assigning a role, you must create/configure a role. For further information regarding configuring AAD Custom Roles see [here] (https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-ad-custom-roles-configure)
+
 1. On the **Azure AD custom roles (Preview)** page, find the assignment you need.
 1. Select **Activate your role** to open the **Activate** page.
 1. If your role requires multi-factor authentication, select **Verify your identity before proceeding**. You are required to authenticate only once per session.

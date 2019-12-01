@@ -60,7 +60,7 @@ For other application stacks (Node.js, PHP, etc.), the client cert is available 
 
     namespace ClientCertificateUsageSample
     {
-        public partial class cert : System.Web.UI.Page
+        public partial class Cert : System.Web.UI.Page
         {
             public string certHeader = "";
             public string errorString = "";

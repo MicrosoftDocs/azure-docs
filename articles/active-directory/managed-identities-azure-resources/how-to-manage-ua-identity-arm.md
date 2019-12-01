@@ -1,5 +1,5 @@
 ---
-title: How to create and delete a user-assigned managed identity using Azure Resource Manager
+title: Create & delete a user-assigned managed identity using Azure Resource Manager
 description: Step by step instructions on how to create and delete user-assigned managed identities using Azure Resource Manager.
 services: active-directory
 documentationcenter: 
@@ -32,7 +32,7 @@ It is not possible to list and delete a user-assigned managed identity using an 
 - [Delete user-assigned managed identity](how-to-manage-ua-identity-cli.md#delete-a-user-assigned-managed-identity)
   ## Prerequisites
 
-- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#how-does-it-work)**.
+- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#how-does-the-managed-identities-for-azure-resources-work)**.
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
 
 ## Template creation and editing

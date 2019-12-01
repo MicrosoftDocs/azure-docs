@@ -118,7 +118,7 @@ Every Azure Cosmos item has the following system-defined properties. Depending o
 |\_etag | System-generated | Entity tag used for optimistic concurrency control | Yes | No | No | No | No |
 |\_ts | System-generated | Timestamp of the last update of the item | Yes | No | No | No | No |
 |\_self | System-generated | Addressable URI of the item | Yes | No | No | No | No |
-|id | Either | User-defined unique name in a logical partition. If the user doesn’t specify the ID, the system automatically generates one. | Yes | Yes | Yes | Yes | Yes |
+|id | Either | User-defined unique name in a logical partition. | Yes | Yes | Yes | Yes | Yes |
 |Arbitrary user-defined properties | User-defined | User-defined properties represented in API-native representation (including JSON, BSON, and CQL) | Yes | Yes | Yes | Yes | Yes |
 
 > [!NOTE]
