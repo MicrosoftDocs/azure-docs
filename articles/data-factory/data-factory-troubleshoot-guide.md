@@ -40,7 +40,7 @@ For connector issues e.g. encounter error using copy activity, refer to [Trouble
 
 <br/>    
               
-- **Message**: `Cluster   ... does not exist.`
+- **Message**: `Cluster... does not exist.`
 
 - **Cause**: `Authoring error: Databricks cluster does not exist or has been deleted.`
 
@@ -48,7 +48,7 @@ For connector issues e.g. encounter error using copy activity, refer to [Trouble
 
 <br/>  
 
-- **Message**: `Invalid Python file URI.... Please visit Databricks user guide for supported URI schemes.`
+- **Message**: `Invalid Python file URI... Please visit Databricks user guide for supported URI schemes.`
 
 - **Cause**: `Bad authoring.`
 
@@ -517,7 +517,7 @@ The following table applies to Azure Batch.
 
 ### Error code:  2507
 
-- **Message**: `The folder path does not exist or is empty: ....`
+- **Message**: `The folder path does not exist or is empty: ...`
 
 - **Cause**: No files are in the storage account at the specified path.
 
