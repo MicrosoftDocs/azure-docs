@@ -24,8 +24,6 @@ landingContent:
         links:
           - text: What is Azure Backup?
             url: backup-overview.md
-          - text: linktext2
-            url: file2.md
       - linkListType: concept
         links:
           - text: Azure Backup support matrix
