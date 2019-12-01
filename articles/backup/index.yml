@@ -38,7 +38,7 @@ landingContent:
         links:
           - text: Back up a VM with the Azure Portal
             url: quick-backup-vm-portal.md
-          - text: Back up a VM with Powershell
+          - text: Back up a VM with PowerShell
             url: quick-backup-vm-powershell.md
           - text: Back up a VM with Azure CLI
             url: quick-backup-vm-cli.md
@@ -115,7 +115,7 @@ landingContent:
         links:
           - text: Back up and restore Azure file shares
             url: backup-azure-files.md
-          - text: FAQ - Backup Azure Files
+          - text: FAQ - Back up Azure Files
             url: backup-azure-files-faq.md
  # Card
   - title: Back up with Microsoft Azure Recovery Services (MARS) agent
