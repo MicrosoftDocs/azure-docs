@@ -159,7 +159,7 @@ You will have a defined way to create the certificates for the devices operating
 
 ### Create signing chain certificate
 
-Create these certificates via Windows PowerShell running in administrator mode. **The certificates created this way should be used ror development or test purposes only.**
+Create these certificates via Windows PowerShell running in administrator mode. **The certificates created this way should be used for development or test purposes only.**
 
 The signing chain certificate needs to be crated only once. The other end point certificates will refer to this certificate for signing.
  
@@ -279,19 +279,24 @@ To import certificates on a Windows client, take the following steps:
 ### Export certificates as .pfx format with private key
 
 Take the following steps to export an SSL certificate with private key on a Windows machine. 
-Important: Perform these steps on the same machine that you used to create the certificate. 
+
+> [!IMPORTANT]
+> Perform these steps on the same machine that you used to create the certificate. 
 
 In MMC, double-click on Certificates (Local Computer) in the center window.
 
-1. Double click on the Personal folder, and then on Certificates.
+1. Double click on the **Personal** folder, and then on **Certificates**.
  
-2. Right-click on the certificate you would like to back up and choose > All tasks > Export..
+2. Right-click on the certificate you would like to back up and choose **All tasks > Export...**
  
 3. Follow the Certificate Export Wizard to back up your certificate to a .pfx file.
  
-4. Choose Yes, export the private key.
+4. Choose **Yes, export the private key**.
  
-5. Choose Include all certificates in certificate path if possible, Export all extended properties and Enable certificate privacy. Do NOT select the Delete Private Key option if export is successful.
+5. Choose **Include all certificates in certificate path if possible**, **Export all extended properties** and **Enable certificate privacy**. 
+
+    > [!IMPORTANT]
+    > DO NOT select the **Delete Private Key option if export is successful**.
  
 6. Enter a password you will remember. Confirm the password. The password protects the private key.
  
