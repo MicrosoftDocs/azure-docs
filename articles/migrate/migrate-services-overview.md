@@ -4,7 +4,7 @@ description: Learn about server assessment and migration with the Azure Migrate 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 11/19/2019
+ms.date: 11/30/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -45,7 +45,7 @@ In addition to native Azure tools, Azure Migrate integrates with a number of ISV
 [Corent Technology](https://www.corenttech.com/AzureMigrate/) | Assess and migrate servers
 [Device 42](https://docs.device42.com/) | Assess servers
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Assess VDI
-[RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | Migrate servers
+[RackWare](https://www.rackwareinc.com/cloud-migration) | Migrate servers
 [Turbonomic](https://learn.turbonomic.com/azure-migrate-portal-free-trial) | Assess servers
 [UnifyCloud](https://www.cloudatlasinc.com/cloudrecon/) | Assess servers and databases
 
