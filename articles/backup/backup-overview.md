@@ -9,7 +9,7 @@ ms.custom: mvc
 
 The Azure Backup service provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud.
 
-> [!VIDEO https://www.youtube.com/watch?v=elODShatt-c]
+> [!VIDEO https://www.youtube.com/embed/elODShatt-c]
 
 ## What can I back up?
 
