@@ -341,13 +341,23 @@ The .pfx file backup is now saved in the location you selected and is ready to b
 ### Export certificates as .cer format
 
 1. In the Personal certificate store, select the root certificate. Right-click and select **All Tasks > Export...**
- 
+
+    ![Export certificate 1](media/azure-stack-edge-series-manage-certificates/export-cert-cer-1.png)
+
 2. The certificate wizard opens up. Select the format as **DER encoded binary X.509 (.cer)**. Select **Next**.
- 
+
+    ![Export certificate 2](media/azure-stack-edge-series-manage-certificates/export-cert-cer-2.png)
+
 3. Browse and select the location where you want to export the .cer format file.
- 
+
+    ![Export certificate 3](media/azure-stack-edge-series-manage-certificates/export-cert-cer-3.png)
+
+
 4. Select **Finish**.
- 
+
+    ![Export certificate 4](media/azure-stack-edge-series-manage-certificates/export-cert-cer-4.png)
+
+
 ## Supported certificate algorithms
 
 Certificate algorithms are cryptographic algorithms that describe the mathematical procedures that are used for creating key pairs and performing digital signature operations. The Elliptic Curve Cryptographic (ECC) and RSA algorithms are the supported public key algorithms from which you can choose to generate the public-private key pair. 
