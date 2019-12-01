@@ -38,8 +38,8 @@ For connector issues e.g. encounter error using copy activity, refer to [Trouble
 
 - **Recommendation**: Specify the notebook path in the Databricks activity.
 
-<br/>    
-              
+<br/>  
+
 - **Message**: `Cluster... does not exist.`
 
 - **Cause**: `Authoring error: Databricks cluster does not exist or has been deleted.`
