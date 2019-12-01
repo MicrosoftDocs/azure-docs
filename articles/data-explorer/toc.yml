@@ -52,7 +52,7 @@
       items:
       - name: Azure portal
         href: ingest-data-event-hub.md
-      - name: python
+      - name: Python
         href: data-connection-event-hub-python.md
       - name: C#
         href: data-connection-event-hub-csharp.md
@@ -62,7 +62,7 @@
       items:
       - name: Azure portal
         href: ingest-data-event-grid.md
-      - name: python
+      - name: Python
         href: data-connection-event-grid-python.md
       - name: C#
         href: data-connection-event-grid-csharp.md
@@ -72,7 +72,7 @@
       items:
       - name: Azure portal
         href: ingest-data-iot-hub.md
-      - name: python
+      - name: Python
         href: data-connection-iot-hub-python.md
       - name: C#
         href: data-connection-iot-hub-csharp.md

@@ -22,11 +22,8 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
-
 * Create [a cluster and database](create-cluster-database-portal.md)
-
 * Create [a table and column mapping](ingest-data-iot-hub.md#create-a-target-table-in-azure-data-explorer)
-
 * Create [an IoT Hub with a shared access policy configured](ingest-data-iot-hub.md#create-an-iot-hub).
 
 ## Azure Resource Manager template for adding an Iot Hub data connection

@@ -24,11 +24,8 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
-
 * Create [a test cluster and database](create-cluster-database-portal.md) with database name *testdb*.
-
 * [A sample app](https://github.com/Azure-Samples/azure-iot-samples-csharp) and documentation for simulating a device.
-
 * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) to run the sample app.
 
 ## Create an Iot Hub
