@@ -89,4 +89,4 @@ To update your application template, change the template name or description on 
 
 ## Next steps
 
-Now that you've learned how to use application templates, the suggested next step is to learn how to [Manage IoT Central from the Azure portal](../core/howto-manage-iot-central-from-portal.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json)
+Now that you've learned how to use application templates, the suggested next step is to learn how to [Manage IoT Central from the Azure portal](howto-manage-iot-central-from-portal.md)

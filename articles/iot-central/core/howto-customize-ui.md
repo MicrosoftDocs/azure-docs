@@ -39,7 +39,7 @@ On this page, you can customize the following aspects of your application:
 
 A PNG image, no larger than 1 MB, with a transparent background. This logo displays to the left on the IoT Central application title bar.
 
-If your logo image includes the name of your application, you can hide the application name text. For more information, see [Manage your application](../core/howto-administer.md#change-application-name-and-url).
+If your logo image includes the name of your application, you can hide the application name text. For more information, see [Manage your application](howto-administer.md#change-application-name-and-url).
 
 ### Browser icon (favicon)
 
@@ -76,4 +76,4 @@ You can also add new entries to the help menu and remove default entries:
 Now that you've learned how to customize the UI in your IoT Central application, here are some suggested next steps:
 
 - [Administer your application](./howto-administer.md)
-- [Add tiles to your dashboard](../core/howto-add-tiles-to-your-dashboard.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json)
+- [Add tiles to your dashboard](howto-add-tiles-to-your-dashboard.md)

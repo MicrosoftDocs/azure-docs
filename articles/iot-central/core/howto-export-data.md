@@ -188,7 +188,7 @@ Each message or record in a snapshot represents one or more changes to a device 
 
 - `@id` of the device in IoT Central
 - `name` of the device
-- `deviceId` from [Device Provisioning Service](../core/howto-connect-nodejs.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json)
+- `deviceId` from [Device Provisioning Service](howto-connect-nodejs.md)
 - Device template information
 - Property values
 
@@ -608,4 +608,4 @@ This is an example snapshot containing devices and properties data in Blob Stora
 Now that you know how to export your data to Azure Event Hubs, Azure Service Bus, and Azure Blob Storage, continue to the next step:
 
 > [!div class="nextstepaction"]
-> [How to trigger Azure Functions](../core/howto-trigger-azure-functions.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json)
+> [How to trigger Azure Functions](howto-trigger-azure-functions.md)

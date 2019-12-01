@@ -48,9 +48,9 @@ To connect devices to IoT Central at scale using SAS, you need to register and t
 
 ### Register devices in bulk
 
-To register a large number of devices with your IoT Central application, use a CSV file to [import device IDs and device names](../core/howto-manage-devices.md#import-devices).
+To register a large number of devices with your IoT Central application, use a CSV file to [import device IDs and device names](howto-manage-devices.md#import-devices).
 
-To retrieve the connection information for the imported devices, [export a CSV file from your IoT Central application](../core/howto-manage-devices.md#export-devices).
+To retrieve the connection information for the imported devices, [export a CSV file from your IoT Central application](howto-manage-devices.md#export-devices).
 
 > [!NOTE]
 > To learn how you can connect devices without first registering them in IoT Central, see [Connect without first registering devices](#connect-without-registering-devices).

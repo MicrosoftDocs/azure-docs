@@ -96,9 +96,9 @@ The top menu appears on every page:
 > ![Toolbar](media/overview-iot-central-tour/toolbar-pnp.png)
 
 * To search for device templates and devices, enter a **Search** value.
-* To change the UI language or theme, choose the **Settings** icon. Learn more about [managing your application preferences](../core/howto-manage-preferences.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json)
+* To change the UI language or theme, choose the **Settings** icon. Learn more about [managing your application preferences](howto-manage-preferences.md)
 * To sign out of the application, choose the **Account** icon.
-* To get help and support, choose the **Help** drop-down for a list of resources. In a trial application, the support resources include access to [live chat](../core/howto-show-hide-chat.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json).
+* To get help and support, choose the **Help** drop-down for a list of resources. In a trial application, the support resources include access to [live chat](howto-show-hide-chat.md).
 
 You can choose between a light theme or a dark theme for the UI:
 
@@ -112,9 +112,9 @@ You can choose between a light theme or a dark theme for the UI:
 > [!div class="mx-imgBorder"]
 > ![Dashboard](media/overview-iot-central-tour/dashboard-pnp.png)
 
-* The dashboard is the first page you see when you sign in to your Azure IoT Central application. As a *solution builder*, you can create and customize multiple global application dashboards for other users. Learn more about [adding tiles to your dashboard](../core/howto-add-tiles-to-your-dashboard.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json)
+* The dashboard is the first page you see when you sign in to your Azure IoT Central application. As a *solution builder*, you can create and customize multiple global application dashboards for other users. Learn more about [adding tiles to your dashboard](howto-add-tiles-to-your-dashboard.md)
 
-* As an *operator*, if your user role allows it, you can create personal dashboards to monitor what you care about. To learn more, see the [Create Azure IoT Central personal dashboards](../core/howto-create-personal-dashboards.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json) how-to article.
+* As an *operator*, if your user role allows it, you can create personal dashboards to monitor what you care about. To learn more, see the [Create Azure IoT Central personal dashboards](howto-create-personal-dashboards.md) how-to article.
 
 ### Devices
 
@@ -153,7 +153,7 @@ The analytics lets you create custom views on top of device data to derive insig
 > [!div class="mx-imgBorder"]
 > ![Jobs page](media/overview-iot-central-tour/jobs-pnp.png)
 
-The jobs page lets you run bulk device management operations on your devices. You can update device properties, settings, and execute commands against device groups. To learn more, see the [Run a job](../core/howto-run-a-job.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json) article.
+The jobs page lets you run bulk device management operations on your devices. You can update device properties, settings, and execute commands against device groups. To learn more, see the [Run a job](howto-run-a-job.md) article.
 
 ### Device templates
 

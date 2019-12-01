@@ -228,4 +228,4 @@ In this how-to guide, you learned how to:
 * Stream telemetry from an IoT Central application using *continuous data export*.
 * Create an Azure Databricks environment to analyze and plot telemetry data.
 
-Now that you know how to create custom analytics, the suggested next step is to learn how to [Visualize and analyze your Azure IoT Central data in a Power BI dashboard](../core/howto-connect-powerbi.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json).
+Now that you know how to create custom analytics, the suggested next step is to learn how to [Visualize and analyze your Azure IoT Central data in a Power BI dashboard](howto-connect-powerbi.md).
