@@ -99,19 +99,7 @@ The Azure Identity client library reads values from three environment variables 
 
 For more information, see [Create identity for Azure app in portal](../../active-directory/develop/howto-create-service-principal-portal.md).
 
-## Install client library packages
-
-The examples in this article use the latest version of the Azure Storage client library for Blob storage. To install the package, run the following command from the NuGet package manager console:
-
-```powershell
-Install-Package Azure.Storage.Blobs
-```
-
-The examples in this article also use the latest version of the [Azure Identity client library for .NET](https://www.nuget.org/packages/Azure.Identity/) to authenticate with Azure AD credentials. To install the package, run the following command from the NuGet package manager console:
-
-```powershell
-Install-Package Azure.Identity
-```
+[!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
 
 ## .NET code example: Create a block blob
 
