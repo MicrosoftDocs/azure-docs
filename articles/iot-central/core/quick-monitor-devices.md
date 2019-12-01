@@ -11,11 +11,11 @@ ms.custom: mvc
 manager: philmea
 ---
 
-# Quickstart: Use Azure IoT Central to monitor your devices (preview features)
+# Quickstart: Use Azure IoT Central to monitor your devices
 
 *This article applies to operators, builders, and administrators.*
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 This quickstart shows you, as an operator, how to use your Microsoft Azure IoT Central application to monitor your devices and change settings.
 

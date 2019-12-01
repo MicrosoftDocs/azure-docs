@@ -13,7 +13,7 @@ manager: peterpr
 
 # Tutorial: Add an Azure IoT Edge device to your Azure IoT Central application
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 This tutorial shows you how to add and configure an Azure IoT Edge device to your Azure IoT Central application. In this tutorial, we chose an IoT Edge-enabled Linux VM from Azure Marketplace.
 

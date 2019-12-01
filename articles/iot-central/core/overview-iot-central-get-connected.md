@@ -10,9 +10,9 @@ services: iot-central
 manager: philmea
 ---
 
-# Get connected to Azure IoT Central (preview features)
+# Get connected to Azure IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 This article introduces key concepts relating to device connectivity in Microsoft Azure IoT Central.
 

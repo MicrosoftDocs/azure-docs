@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Tutorial: Use a device capability model to create an IoT Plug and Play device and connect it to your IoT Central application
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 A _device capability model_ (DCM) describes the capabilities of an [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) device. IoT Central can use a DCM to create a device template and visualizations for a device when the device connects for the first time.
 
@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Complete the [Create an Azure IoT Central application (preview features)](./quick-deploy-iot-central.md) quickstart to create an IoT Central application using the **Custom app > Preview application** template.
+Complete the [Create an Azure IoT Central application](./quick-deploy-iot-central.md) quickstart to create an IoT Central application using the **Custom app > Preview application** template.
 
 To complete this tutorial, you need to install the following software on your local machine:
 
@@ -79,7 +79,7 @@ In this tutorial, you use the [Vcpkg](https://github.com/microsoft/vcpkg) librar
 
 To connect a device to an IoT Central application, you need a device key. To generate a device key:
 
-1. Sign in to the IoT Central application you created using the **Custom app > Preview application** template in the [Create an Azure IoT Central application (preview features)](./quick-deploy-iot-central.md) quickstart.
+1. Sign in to the IoT Central application you created using the **Custom app > Preview application** template in the [Create an Azure IoT Central application](./quick-deploy-iot-central.md) quickstart.
 
 1. Go to the **Administration** page and select **Device Connection**.
 

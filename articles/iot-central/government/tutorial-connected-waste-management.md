@@ -12,7 +12,7 @@ services: iot-central
 
 # Tutorial: Create a connected waste management application in IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 This tutorial guides you to create an Azure IoT Central connected waste management application from the IoT Central **Connected waste management** application template. 
 

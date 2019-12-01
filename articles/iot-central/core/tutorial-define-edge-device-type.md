@@ -11,13 +11,13 @@ ms.custom: mvc
 manager: peterpr
 ---
 
-# Tutorial: Define a new Azure IoT Edge device type in your Azure IoT Central application (preview features)
+# Tutorial: Define a new Azure IoT Edge device type in your Azure IoT Central application
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 This tutorial shows you, as a builder, how to use a device template to define a new type of Azure IoT Edge device in your Azure IoT Central application. 
 
-For an overview, see [What is Azure IoT Central (preview features)?](overview-iot-central.md). 
+For an overview, see [What is Azure IoT Central?](overview-iot-central.md). 
 
 IoT Edge is made up of three components:
 * **IoT Edge modules** are containers that run Azure services, partner services, or your own code. Modules are deployed to IoT Edge devices, and run locally on those devices.

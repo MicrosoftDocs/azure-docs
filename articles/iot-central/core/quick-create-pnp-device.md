@@ -12,11 +12,11 @@ ms.custom: mvc
 # As a builder, I want to try out creating a device template and adding a simulated device to my IoT Central application.
 ---
 
-# Quickstart: Add a simulated device to your IoT Central application (preview features)
+# Quickstart: Add a simulated device to your IoT Central application
 
 *This article applies to operators, builders, and administrators.*
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 A device template defines the capabilities of a device that connects to your IoT Central application. Capabilities include telemetry the device sends, device properties, and the commands a device responds to. From a device template, a builder or operator can add both real and simulated devices to an application. Simulated devices are useful for testing the behavior of your IoT Central application before you connect real devices.
 
@@ -29,7 +29,7 @@ In this quickstart, you create an **Environmental Sensor** device template and a
 
 ## Prerequisites
 
-Complete the [Create an Azure IoT Central application (preview features)](./quick-deploy-iot-central.md) quickstart to create an IoT Central application using the **Custom app > Preview application** template.
+Complete the [Create an Azure IoT Central application](./quick-deploy-iot-central.md) quickstart to create an IoT Central application using the **Custom app > Preview application** template.
 
 You also need a local copy of the **EnvironmentalSensorInline.capabilitymodel.json** file that contains the [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) device capability model. You can download it from [here](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/master/samples/EnvironmentalSensorInline.capabilitymodel.json). Right-click on the page and select **Save as**.
 

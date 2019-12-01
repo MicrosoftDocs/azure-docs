@@ -11,9 +11,9 @@ ms.custom: mvc
 manager: peterpr
 ---
 
-# Tutorial: Define a new IoT device type in your Azure IoT Central application (preview features)
+# Tutorial: Define a new IoT device type in your Azure IoT Central application
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 A device template is a blueprint that defines the characteristics and behaviors of a type of device that connects to an Azure IoT Central application.
 
@@ -255,9 +255,9 @@ To publish a device template, go to you your device template, and select **Publi
 
 After you publish a device template, an operator can go to the **Devices** page, and add either real or simulated devices that use your device template. You can continue to modify and save your device template as you're making changes. When you want to push these changes out to the operator to view under the **Devices** page, you must select **Publish** each time.
 
-## Define a new IoT gateway device type (preview features)
+## Define a new IoT gateway device type
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 This tutorial shows you, as a builder, how to use a gateway device template to define a new type of IoT device in your IoT Central application. 
 

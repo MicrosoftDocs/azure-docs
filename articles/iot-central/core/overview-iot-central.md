@@ -11,9 +11,9 @@ ms.custom: mvc
 manager: timlt
 ---
 
-# What is Azure IoT Central (preview features)?
+# What is Azure IoT Central?
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 > [!WARNING]
 > The [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) capabilities in Azure IoT Central are currently in public preview. Don't use an IoT Plug and Play enabled IoT Central [application template](concepts-app-templates.md) for production workloads. For production environments use an IoT central application created from a current, generally available, [application template](concepts-app-templates.md).

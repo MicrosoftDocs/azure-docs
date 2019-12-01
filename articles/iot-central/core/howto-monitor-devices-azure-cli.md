@@ -10,7 +10,7 @@ services: iot-central
 manager: corywink
 ---
 
-# Monitor device connectivity using Azure CLI (preview features)
+# Monitor device connectivity using Azure CLI
 
 *This topic applies to builders and administrators.*
 

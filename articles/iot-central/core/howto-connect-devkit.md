@@ -10,7 +10,7 @@ services: iot-central
 manager: jeffya
 ---
 
-# Connect an MXChip IoT DevKit device to your Azure IoT Central application (preview features)
+# Connect an MXChip IoT DevKit device to your Azure IoT Central application
 
 This article shows you how to connect an MXChip IoT DevKit (DevKit) device to an Azure IoT Central application. The device uses the certified IoT Plug and Play model for the DevKit device to configure its connection to IoT Central.
 

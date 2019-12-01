@@ -12,7 +12,7 @@ manager: abjork
 
 # Tutorial: Create and walk-through the smart meter monitoring app template 
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 This tutorial guides you through the process of creating the smart meter monitoring application, which includes a sample device model with simulated data. In this tutorial, you'll learn:
 

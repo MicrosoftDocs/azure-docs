@@ -13,7 +13,7 @@ ms.date: 11/12/2019
 
 # Tutorial:  Customize the operator dashboard and manage devices in Azure IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 This tutorial shows you, as a builder, how to customize the operator dashboard in your Azure IoT Central in-store analytics application. Application operators can use the customized dashboard to run the application and manage the attached devices.
 
