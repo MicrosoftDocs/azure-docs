@@ -12,7 +12,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ### Clean up resources using the Azure portal
 
-Delete the resources in the Azure portal by following the steps in [clean up resources](create-cluster-database-portal.md#clean-up-resources).
+Delete the resources in the Azure portal by following the steps in [clean up resources](../articles/data-explorer/create-cluster-database-portal.md#clean-up-resources).
 
 ### Clean up resources using PowerShell
 
