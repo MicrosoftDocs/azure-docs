@@ -1,18 +1,13 @@
 ---
 title: Writing efficient log queries in Azure Monitor | Microsoft Docs
 description: References to resources for learning how to write queries in Log Analytics.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: 
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service:  azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 01/17/2019
+author: bwren
 ms.author: bwren
+ms.date: 01/17/2019
+
 ---
 
 # Writing efficient log queries in Azure Monitor

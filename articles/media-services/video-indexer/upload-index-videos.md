@@ -1,6 +1,6 @@
 ---
 title: Upload and index videos with Video Indexer
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: This topic demonstrates how to use APIs to upload and index your videos with Video Indexer.
 services: media-services
 author: Juliako
@@ -9,7 +9,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 11/29/2019
 ms.author: juliako
 ---
 
@@ -25,8 +25,9 @@ The article shows how to use the [Upload video](https://api-portal.videoindexer.
 
 Once your video has been uploaded, Video Indexer, optionally encodes the video (discussed in the article). When creating a Video Indexer account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you are not limited by the quota). With free trial, Video Indexer provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With paid option, you create a Video Indexer account that is [connected to your Azure subscription and an Azure Media Services account](connect-to-azure.md). You pay for minutes indexed as well as the Media Account related charges. 
 
-## Uploading considerations
+## Uploading considerations and limitations
  
+- A name of the video must be no greater than 80 characters.
 - When uploading your video based on the URL (preferred) the endpoint must be secured with TLS 1.2 (or higher).
 - The upload size with the URL option is limited to 30GB.
 - The request URL length is limited to 6144 characters where the query string URL length is limited to 4096 characters .
@@ -82,9 +83,10 @@ A URL that is used to notify the customer (using a POST request) about the follo
 
 Use this parameter if raw or external recordings contain background noise. This parameter is used to configure the indexing process. You can specify the following values:
 
-- `Default` – Index and extract insights using both audio and video
 - `AudioOnly` – Index and extract insights using audio only (ignoring video)
+- `Default` – Index and extract insights using both audio and video
 - `DefaultWithNoiseReduction` – Index and extract insights from both audio and video, while applying noise reduction algorithms on audio stream
+- `VideoOnly` - Index and extract insights using video only 
 
 Price depends on the selected indexing option.  
 

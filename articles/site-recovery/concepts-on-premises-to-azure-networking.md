@@ -1,11 +1,11 @@
 ---
-title: Connect to Azure VMs after failover from on-premises to Azure with Azure Site Recovery
+title: Connect to Azure VMs on-premises failover with Azure Site Recovery
 description: Describes how to connect to Azure VMs after failover from on-premises to Azure using Azure Site Recovery
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 10/13/2019
 ms.author: mayg
 
 ---
@@ -86,7 +86,7 @@ Site Recovery lets you retain the same IP addresses when failing over to Azure. 
 
 Retaining IP addresses requires the following steps:
 
-- In the on-premises machine properties, set network and IP addressing for the target Azure VM to mirror the on-premises setting.
+- In the Compute & Network properties of the replicated item, set network and IP addressing for the target Azure VM to mirror the on-premises setting.
 - Subnets must be managed as part of the disaster recovery process. You need an Azure VNet to match the on-premises network, and after failover network routes must be modified to reflect that the subnet has moved to Azure, and new IP address locations.  
 
 ### Failover example
@@ -115,7 +115,7 @@ In order to retain the addresses, here's what they do.
     > Depending on application requirements, a VNet-to-VNet connection could be set up before failover, as a manual step/scripted step/Azure automation runbook in a Site Recovery [recovery plan](site-recovery-create-recovery-plans.md), or after failover is complete.
 
 4. Before failover, on the machine properties in Site Recovery, they set the target IP address to the address of the on-premises machine, as described in the next procedure.
-5. After failover, the Azure VMs are created with the same IP address. Woodgrove connects from **Azure Network** to **Recovery Network** VNet using a 
+5. After failover, the Azure VMs are created with the same IP address. Woodgrove connects from **Azure Network** to **Recovery Network** VNet using VNet peering (with transit connectivity enabled).
 6. On-premises, Woodgrove needs to make network changes, including modifying routes to reflect that 192.168.1.0/24 has moved to Azure.  
 
 **Infrastructure before failover**

@@ -40,7 +40,7 @@ To enable sign-in for users with a Microsoft account, you need to register an ap
 1. Select **Certificates & secrets**
 1. Click **New client secret**
 1. Enter a **Description** for the secret, for example *MSA Application Client Secret*, and then click **Add**.
-1. Record the application password shown in the **VALUE** column. You use this value in the next section.
+1. Record the application password shown in the **Value** column. You use this value in the next section.
 
 ## Create a policy key
 

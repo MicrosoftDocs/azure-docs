@@ -1,5 +1,5 @@
 ---
-title: Azure Storage queues and Service Bus queues compared and contrasted | Microsoft Docs
+title: Compare Azure Storage queues and Service Bus queues
 description: Analyzes differences and similarities between two types of queues offered by Azure.
 services: service-bus-messaging
 documentationcenter: na

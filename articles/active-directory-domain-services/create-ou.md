@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 10/31/2019
 ms.author: iainfou
 
 ---
@@ -19,6 +19,8 @@ ms.author: iainfou
 Organizational units (OUs) in Active Directory Domain Services (AD DS) let you logically group objects such as user accounts, service accounts, or computer accounts. You can then assign administrators to specific OUs, and apply group policy to enforce targeted configuration settings.
 
 Azure AD DS managed domains include two built-in OUs - *AADDC Computers* and *AADDC Users*. The *AADDC Computers* OU contains computer objects for all computers that are joined to the managed domain. The *AADDC Users* OU includes users and groups synchronized in from the Azure AD tenant. As you create and run workloads that use Azure AD DS, you may need to create service accounts for applications to authenticate themselves. To organize these service accounts, you often create a custom OU in the Azure AD DS managed domain and then create service accounts within that OU.
+
+In a hybrid environment, OUs created in an on-premises AD DS environment aren't synchronized to Azure AD DS. Azure AD DS managed domains use a flat OU structure. All user accounts and groups are stored in the *AADDC Users* container, despite being synchronized from different on-premises domains or forests, even if you've configured a hierarchical OU structure there.
 
 This article shows you how to create an OU in your Azure AD DS managed domain.
 
@@ -45,7 +47,7 @@ When you create custom OUs in an Azure AD DS managed domain, you gain additional
 * To create custom OUs, users must be a member of the *AAD DC Administrators* group.
 * A user that creates a custom OU is granted administrative privileges (full control) over that OU and is the resource owner.
     * By default, the *AAD DC Administrators* group also has full control of the custom OU.
-* A default OU for *AADDC Users* is created that contains the synchronized user accounts from your Azure AD tenant.
+* A default OU for *AADDC Users* is created that contains all the synchronized user accounts from your Azure AD tenant.
     * You can't move users or groups from the *AADDC Users* OU to custom OUs that you create. Only user accounts or resources created in the Azure AD DS managed domain can be moved into custom OUs.
 * User accounts, groups, service accounts, and computer objects that you create under custom OUs aren't available in your Azure AD tenant.
     * These objects don't show up using the Azure AD Graph API or in the Azure AD UI; they're only available in your Azure AD DS managed domain.
@@ -57,6 +59,7 @@ To create a custom OU, you use the Active Directory Administrative Tools from a 
 > [!NOTE]
 > To create a custom OU in an Azure AD DS managed domain, you must be signed in to a user account that's a member of the *AAD DC Administrators* group.
 
+1. Sign in to your management VM. For steps on how to connect using the Azure portal, see [Connect to a Windows Server VM][connect-windows-server-vm].
 1. From the Start screen, select **Administrative Tools**. A list of available management tools is shown that were installed in the tutorial to [create a management VM][tutorial-create-management-vm].
 1. To create and manage OUs, select **Active Directory Administrative Center** from the list of administrative tools.
 1. In the left pane, choose your Azure AD DS managed domain, such as *contoso.com*. A list of existing OUs and resources is shown:
@@ -87,3 +90,4 @@ For more information on using the administrative tools or creating and using ser
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [tutorial-create-management-vm]: tutorial-create-management-vm.md
+[connect-windows-server-vm]: join-windows-vm.md#connect-to-the-windows-server-vm

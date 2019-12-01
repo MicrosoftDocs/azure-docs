@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/14/2019
+ms.date: 10/30/2019
 ms.author: iainfou
 
 #Customer intent: As an identity administrator, I want to secure access to an Azure Active Directory Domain Services managed domain using secure lightweight directory access protocol (LDAPS)
@@ -66,7 +66,7 @@ The certificate you request or create must meet the following requirements. Your
 * **Key usage** - The certificate must be configured for *digital signatures* and *key encipherment*.
 * **Certificate purpose** - The certificate must be valid for SSL server authentication.
 
-In this tutorial, let's create a self-signed certificate for secure LDAP using PowerShell. Open a PowerShell window as **Administrator** and run the following commands. Replace the *$dnsName* variable with the DNS name used by your own managed domain, such as *contoso.com*:
+In this tutorial, let's create a self-signed certificate for secure LDAP using the [New-SelfSignedCertificate][New-SelfSignedCertificate] cmdlet. Open a PowerShell window as **Administrator** and run the following commands. Replace the *$dnsName* variable with the DNS name used by your own managed domain, such as *contoso.com*:
 
 ```powershell
 # Define your own DNS name used by your Azure AD DS managed domain
@@ -174,7 +174,7 @@ The *.CER* certificate file can now be distributed to client computers that need
 
 With a digital certificate created and exported that includes the private key, and the client computer set to trust the connection, now enable secure LDAP on your Azure AD DS managed domain. To enable secure LDAP on an Azure AD DS managed domain, perform the following configuration steps:
 
-1. In the [Azure portal](https://portal.azure.com), search for *domain services* in the **Search resources** box. Select **Azure AD Domain Services** from the search result.
+1. In the [Azure portal](https://portal.azure.com), enter *domain services* in the **Search resources** box. Select **Azure AD Domain Services** from the search result.
 
     ![Search for and select your Azure AD DS managed domain in the Azure portal](./media/tutorial-configure-ldaps/search-for-domain-services.png)
 
@@ -205,8 +205,8 @@ When you enable secure LDAP access over the internet to your Azure AD DS managed
 Let's create a rule to allow inbound secure LDAP access over TCP port 636 from a specified set of IP addresses. A default *DenyAll* rule with a lower priority applies to all other inbound traffic from the internet, so only the specified addresses can reach your Azure AD DS managed domain using secure LDAP.
 
 1. In the Azure portal, select *Resource groups* on the left-hand side navigation.
-1. Choose you resource group, such as *myResourceGroup*, then select your network security group, such as *AADDS-contoso.com-NSG*.
-1. The list of existing inbound and outbound security rules are displayed. On the left-hand side of the network security group windows, choose **Security > Inbound security rules**.
+1. Choose you resource group, such as *myResourceGroup*, then select your network security group, such as *aaads-nsg*.
+1. The list of existing inbound and outbound security rules are displayed. On the left-hand side of the network security group windows, choose **Settings > Inbound security rules**.
 1. Select **Add**, then create a rule to allow *TCP* port *636*. For improved security, choose the source as *IP Addresses* and then specify your own valid IP address or range for your organization.
 
     | Setting                           | Value        |
@@ -241,7 +241,7 @@ The following example DNS entry, either with your external DNS provider or in th
 
 ## Test queries to the managed domain
 
-To connect and bind to your Azure AD DS managed domain and search over LDAP, you use the *LDP.exe* too. This tool is included in the Remote Server Administration Tools (RSAT) package. For more information, see [install Remote Server Administration Tools][rsat].
+To connect and bind to your Azure AD DS managed domain and search over LDAP, you use the *LDP.exe* tool. This tool is included in the Remote Server Administration Tools (RSAT) package. For more information, see [install Remote Server Administration Tools][rsat].
 
 1. Open *LDP.exe* and connect to the managed domain. Select **Connection**, then choose **Connect...**.
 1. Enter the secure LDAP DNS domain name of your managed domain created in the previous step, such as *ldaps.contoso.com*. To use secure LDAP, set **Port** to *636*, then check the box for **SSL**.
@@ -295,3 +295,4 @@ In this tutorial, you learned how to:
 <!-- EXTERNAL LINKS -->
 [rsat]: /windows-server/remote/remote-server-administration-tools
 [ldap-query-basics]: /windows/desktop/ad/creating-a-query-filter
+[New-SelfSignedCertificate]: /powershell/module/pkiclient/new-selfsignedcertificate

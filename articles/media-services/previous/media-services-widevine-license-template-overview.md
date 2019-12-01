@@ -26,31 +26,31 @@ A Widevine license request is formatted as a JSON message.
 > You can create an empty message with no values, just "{}." Then a license template is created with defaults. The default works for most cases. Microsoft-based license-delivery scenarios should always use the defaults. If you need to set the "provider" and "content_id" values, a provider must match Widevine credentials.
 
     {  
-       “payload”:“<license challenge>”,
-       “content_id”: “<content id>” 
-       “provider”: ”<provider>”
-       “allowed_track_types”:“<types>”,
-       “content_key_specs”:[  
+       "payload": "<license challenge>",
+       "content_id": "<content id>" 
+       "provider": "<provider>"
+       "allowed_track_types": "<types>",
+       "content_key_specs": [  
           {  
-             “track_type”:“<track type 1>”
+             "track_type": "<track type 1>"
           },
           {  
-             “track_type”:“<track type 2>”
+             "track_type": "<track type 2>"
           },
           …
        ],
-       “policy_overrides”:{  
-          “can_play”:<can play>,
-          “can persist”:<can persist>,
-          “can_renew”:<can renew>,
-          “rental_duration_seconds”:<rental duration>,
-          “playback_duration_seconds”:<playback duration>,
-          “license_duration_seconds”:<license duration>,
-          “renewal_recovery_duration_seconds”:<renewal recovery duration>,
-          “renewal_server_url”:”<renewal server url>”,
-          “renewal_delay_seconds”:<renewal delay>,
-          “renewal_retry_interval_seconds”:<renewal retry interval>,
-          “renew_with_usage”:<renew with usage>
+       "policy_overrides": {  
+          "can_play": <can play>,
+          "can persist": <can persist>,
+          "can_renew": <can renew>,
+          "rental_duration_seconds": <rental duration>,
+          "playback_duration_seconds": <playback duration>,
+          "license_duration_seconds": <license duration>,
+          "renewal_recovery_duration_seconds": <renewal recovery duration>,
+          "renewal_server_url": "<renewal server url>",
+          "renewal_delay_seconds": <renewal delay>,
+          "renewal_retry_interval_seconds": <renewal retry interval>,
+          "renew_with_usage": <renew with usage>
        }
     }
 

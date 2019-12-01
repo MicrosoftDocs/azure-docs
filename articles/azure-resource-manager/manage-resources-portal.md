@@ -1,12 +1,7 @@
 ---
-title: Manage Azure resources by using the Azure portal | Microsoft Docs
-description: Use the Azure portal and Azure Resource Manage to manage your resources. 
-services: azure-resource-manager,azure-portal
-documentationcenter: ''
+title: Manage resources - Azure portal
+description: Use the Azure portal and Azure Resource Manager to manage your resources. Shows how to deploy and delete resources. 
 author: mumian
-
-
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
@@ -76,7 +71,7 @@ For more information about how Azure Resource Manager orders the deletion of res
 2. Select **Move**. The following screenshot shows the management options for a storage account.
 
     ![move azure resource](./media/manage-resources-portal/manage-azure-resources-portal-move-resource.png)
-3. Select **Move to another resource group** or **Moeve to another subscription** depending on your needs.
+3. Select **Move to another resource group** or **Move to another subscription** depending on your needs.
 
 For more information, see [Move resources to new resource group or subscription](resource-group-move-resources.md).
 

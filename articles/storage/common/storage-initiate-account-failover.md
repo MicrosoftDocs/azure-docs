@@ -40,7 +40,7 @@ After the failover, your storage account type is automatically converted to loca
 
 After you re-enable GRS for your storage account, Microsoft begins replicating the data in your account to the new secondary region. Replication time is dependent on the amount of data being replicated.  
 
-## Azure portal
+## [Portal](#tab/azure-portal)
 
 To initiate an account failover from the Azure portal, follow these steps:
 
@@ -56,7 +56,7 @@ To initiate an account failover from the Azure portal, follow these steps:
 
     ![Screenshot showing confirmation dialog for an account failover](media/storage-initiate-account-failover/portal-failover-confirm.png)
 
-## PowerShell
+## [PowerShell](#tab/azure-powershell)
 
 To use PowerShell to initiate an account failover, you must first install the 6.0.1 preview module. Follow these steps to install the module:
 
@@ -93,7 +93,7 @@ To initiate an account failover from PowerShell, execute the following command:
 Invoke-AzStorageAccountFailover -ResourceGroupName <resource-group-name> -Name <account-name> 
 ```
 
-## Azure CLI
+## [Azure CLI](#tab/azure-cli)
 
 To use Azure CLI to initiate an account failover, execute the following commands:
 
@@ -101,6 +101,8 @@ To use Azure CLI to initiate an account failover, execute the following commands
 az storage account show \ --name accountName \ --expand geoReplicationStats
 az storage account failover \ --name accountName
 ```
+
+---
 
 ## Next steps
 

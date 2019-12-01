@@ -15,6 +15,7 @@ ms.custom: seodec18
 ---
 
 # Tutorial: Deploy an image classification model in Azure Container Instances
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 This tutorial is **part two of a two-part tutorial series**. In the [previous tutorial](tutorial-train-models-with-aml.md), you trained machine learning models and then registered a model in your workspace on the cloud.  
 
@@ -36,9 +37,15 @@ Container Instances is a great solution for testing and understanding the workfl
 
 ## Prerequisites
 
-To run the notebook, first complete the model training in [Tutorial (part 1): Train an image classification model](tutorial-train-models-with-aml.md).   Then open the  **tutorials/img-classification-part2-deploy.ipynb** notebook using the same notebook server.
+To run the notebook, first complete the model training in [Tutorial (part 1): Train an image classification model](tutorial-train-models-with-aml.md).   Then open the  **img-classification-part2-deploy.ipynb** notebook in your cloned **tutorials** folder.
 
 This tutorial is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to use it on your own [local environment](how-to-configure-environment.md#local).  Make sure you have installed `matplotlib` and `scikit-learn` in your environment. 
+
+> [!Important]
+> The rest of this article contains the same content as you see in the notebook.  
+>
+> Switch to the Jupyter notebook now if you want to read along as you run the code.
+> To run a single code cell in a notebook, click the code cell and hit **Shift+Enter**. Or, run the entire notebook by choosing **Run all** from the top toolbar.
 
 ## <a name="start"></a>Set up the environment
 

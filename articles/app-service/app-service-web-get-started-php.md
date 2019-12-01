@@ -179,17 +179,19 @@ Once deployment has completed, return to the browser window that opened during t
 
 ## Manage your new Azure app
 
-Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the web app you created.
+1. Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the web app you created. Search for and select **App Services**.
 
-From the left menu, click **App Services**, and then click the name of your Azure app.
+    ![Search for App Services, Azure portal, create PHP web app](media/app-service-web-get-started-php/navigate-to-app-services-in-the-azure-portal.png)
 
-![Portal navigation to Azure app](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
+2. Select the name of your Azure app.
 
-Your web app's Overview page will be displayed. Here, you can perform basic management tasks like browse, stop, start, restart, and delete.
+    ![Portal navigation to Azure app](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
 
-![App Service page in Azure portal](media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
+    Your web app's **Overview** page will be displayed. Here, you can perform basic management tasks like **Browse**, **Stop**, **Restart**, and **Delete**.
 
-The left menu provides different options for configuring your app. 
+    ![App Service page in Azure portal](media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
+
+    The web app menu provides different options for configuring your app. 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 

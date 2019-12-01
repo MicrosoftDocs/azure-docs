@@ -1,21 +1,19 @@
 ---
 title: Azure Application Insights telemetry correlation | Microsoft Docs
 description: Application Insights telemetry correlation
-services: application-insights
-documentationcenter: .net
-author: lgayhardt
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 06/07/2019
-ms.reviewer: sergkanz
+author: lgayhardt
 ms.author: lagayhar
+ms.date: 06/07/2019
+
+ms.reviewer: sergkanz
 ---
+
 # Telemetry correlation in Application Insights
 
-In the world of microservices, every logical operation requires work to be done in various components of the service. Each of these components can be monitored separately by [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). The web-app component communicates with the authentication provider component to validate user credentials, and with the API component to get data for visualization. The API component can query data from other services and use cache-provider components to notify the billing component about this call. Application Insights supports distributed telemetry correlation, which you use to detect which component is responsible for failures or performance degradation.
+In the world of microservices, every logical operation requires work to be done in various components of the service. Each of these components can be monitored separately by [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). Application Insights supports distributed telemetry correlation, which you use to detect which component is responsible for failures or performance degradation.
 
 This article explains the data model used by Application Insights to correlate telemetry sent by multiple components. It covers context-propagation techniques and protocols. It also covers the implementation of correlation concepts on different languages and platforms.
 
@@ -213,6 +211,85 @@ For more information, see the [Application Insights telemetry data model](../../
 
 For definitions of OpenTracing concepts, see the OpenTracing [specification](https://github.com/opentracing/specification/blob/master/specification.md) and [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md).
 
+## Telemetry correlation in OpenCensus Python
+
+OpenCensus Python follows the `OpenTracing` data model specifications outlined above. It also supports the [W3C Trace-Context](https://w3c.github.io/trace-context/) without the need of any configuration.
+
+### Incoming request correlation
+
+OpenCensus Python correlates W3C Trace Context headers from incoming requests to the spans that are generated from the requests themselves. OpenCensus will do this automatically with integrations for the following popular web application frameworks: `flask`, `django` and `pyramid`. The W3C Trace Context headers simply need to be populated with the [correct format](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format) and sent with the request. Below is an example `flask` application demonstrating this.
+
+```python
+from flask import Flask
+from opencensus.ext.azure.trace_exporter import AzureExporter
+from opencensus.ext.flask.flask_middleware import FlaskMiddleware
+from opencensus.trace.samplers import ProbabilitySampler
+
+app = Flask(__name__)
+middleware = FlaskMiddleware(
+    app,
+    exporter=AzureExporter(),
+    sampler=ProbabilitySampler(rate=1.0),
+)
+
+@app.route('/')
+def hello():
+    return 'Hello World!'
+
+if __name__ == '__main__':
+    app.run(host='localhost', port=8080, threaded=True)
+```
+
+This runs a sample `flask` application on your local machine, listening to port `8080`. To correlate trace context, we send a request to the endpoint. In this example, we can use a `curl` command.
+```
+curl --header "traceparent: 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01" localhost:8080
+```
+Looking at the [Trace Context Header Format](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format), we derive the following information:
+`version`: `00`
+`trace-id`: `4bf92f3577b34da6a3ce929d0e0e4736`
+`parent-id/span-id`: `00f067aa0ba902b7`
+`trace-flags`: `01`
+
+If we take a look at the request entry that was sent to Azure Monitor, we can see fields populated with the trace header information. You can find this data under Logs(Analytics) in Azure Monitor Application Insights resource.
+
+![Screenshot of request telemetry in Logs(Analytics) with trace header fields highlighted in red box](./media/opencensus-python/0011-correlation.png)
+
+The `id` field is in the format `<trace-id>.<span-id>`, where the `trace-id` is taken from the trace header that was passed in the request and the `span-id` is a generated 8-byte array for this span. 
+
+The `operation_ParentId` field is in the format `<trace-id>.<parent-id>`, where both the `trace-id` and `parent-id` are taken from the trace header that was passed in the request.
+
+### Logs correlation
+
+OpenCensus Python allows correlation of logs by enriching log records with trace ID, span ID and sampling flag. This is done by installing the OpenCensus [logging integration](https://pypi.org/project/opencensus-ext-logging/). The following attributes will be added to Python `LogRecord`s: `traceId`, `spanId` and `traceSampled`. Note that this only takes effect for loggers created after the integration.
+Below is a sample application demonstrating this.
+
+```python
+import logging
+
+from opencensus.trace import config_integration
+from opencensus.trace.samplers import AlwaysOnSampler
+from opencensus.trace.tracer import Tracer
+
+config_integration.trace_integrations(['logging'])
+logging.basicConfig(format='%(asctime)s traceId=%(traceId)s spanId=%(spanId)s %(message)s')
+tracer = Tracer(sampler=AlwaysOnSampler())
+
+logger = logging.getLogger(__name__)
+logger.warning('Before the span')
+with tracer.span(name='hello'):
+    logger.warning('In the span')
+logger.warning('After the span')
+```
+When this code is run, we get the following in the console:
+```
+2019-10-17 11:25:59,382 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=0000000000000000 Before the span
+2019-10-17 11:25:59,384 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=70da28f5a4831014 In the span
+2019-10-17 11:25:59,385 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=0000000000000000 After the span
+```
+Observe how there is a spanId present for the log message that is within the span, which is the same spanId that belongs to the span named `hello`.
+
+You can export the log data using the `AzureLogHandler`. More information can be found [here](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python#logs)
+
 ## Telemetry correlation in .NET
 
 Over time, .NET defined several ways to correlate telemetry and diagnostics logs:
@@ -254,25 +331,23 @@ In order to correlate telemetry in Asynchronous Spring Boot application, please 
 
 At times, you might want to customize the way component names are displayed in the [Application Map](../../azure-monitor/app/app-map.md). To do so, you can manually set the `cloud_RoleName` by doing one of the following:
 
+- Starting with Application Insights Java SDK 2.5.0, you can specify the cloud role name
+  by adding `<RoleName>` to your `ApplicationInsights.xml` file, e.g.
+
+  ```XML
+  <?xml version="1.0" encoding="utf-8"?>
+  <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
+     <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
+     <RoleName>** Your role name **</RoleName>
+     ...
+  </ApplicationInsights>
+  ```
+
 - If you use Spring Boot with the Application Insights Spring Boot starter, the only required change is to set your custom name for the application in the application.properties file.
 
   `spring.application.name=<name-of-app>`
 
   The Spring Boot starter automatically assigns `cloudRoleName` to the value you enter for the `spring.application.name` property.
-
-- If you're using the `WebRequestTrackingFilter`, the `WebAppNameContextInitializer` sets the application name automatically. Add the following to your configuration file (ApplicationInsights.xml):
-
-  ```XML
-  <ContextInitializers>
-    <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebAppNameContextInitializer" />
-  </ContextInitializers>
-  ```
-
-- If you use the cloud context class:
-
-  ```Java
-  telemetryClient.getContext().getCloud().setRole("My Component Name");
-  ```
 
 ## Next steps
 
