@@ -33,11 +33,12 @@ There are various methods you can use to attach a database. In this article, we 
 
 ### Attach a database using C#
 
-**Needed NuGets**
+####Needed NuGets
 
 * Install [Microsoft.Azure.Management.kusto](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
 * Install [Microsoft.Rest.ClientRuntime.Azure.Authentication for authentication](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication).
 
+####Code Example
 
 ```Csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -73,11 +74,14 @@ var attachedDatabaseConfigurations = resourceManagementClient.AttachedDatabaseCo
 
 ### Attach a database using Python
 
-**Needed Modules**
+####Needed Modules
+
 ```
 pip install azure-common
 pip install azure-mgmt-kusto
 ```
+
+####Code Example
 
 ```python
 from azure.mgmt.kusto import KustoManagementClient
@@ -112,13 +116,9 @@ cluster_resource_id = "/subscriptions/" + leader_subscription_id + "/resourceGro
 
 attached_database_configuration_properties = AttachedDatabaseConfiguration(cluster_resource_id = cluster_resource_id, database_name = database_name, default_principals_modification_kind = default_principals_modification_kind, location = location)
 
-
 #Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
 poller = kusto_management_client.attached_database_configurations.create_or_update(follower_resource_group_name, follower_cluster_name, attached_database_Configuration_name, attached_database_configuration_properties)
 ```
-
-
-
 
 ### Attach a database using an Azure Resource Manager template
 
@@ -239,7 +239,7 @@ Alternatively:
 
 ### Detach the attached follower database from the follower cluster
 
-Follower cluster can detach any attached database as follows:
+The follower cluster can detach any attached database as follows:
 
 ```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -295,7 +295,7 @@ resourceManagementClient.Clusters.DetachFollowerDatabases(leaderResourceGroupNam
 
 ### Detach the attached follower database from the follower cluster
 
-Follower cluster can detach any attached database as follows:
+The follower cluster can detach any attached database as follows:
 
 ```python
 from azure.mgmt.kusto import KustoManagementClient
@@ -322,7 +322,6 @@ attached_database_configurationName = "adc"
 
 #Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
 poller = kusto_management_client.attached_database_configurations.delete(follower_resource_group_name, follower_cluster_name, attached_database_configurationName)
-
 ```
 
 ### Detach the attached follower database from the leader cluster
@@ -362,7 +361,6 @@ cluster_resource_id = "/subscriptions/" + follower_subscription_id + "/resourceG
 
 #Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
 poller = kusto_management_client.clusters.detach_follower_databases(resource_group_name = leader_resource_group_name, cluster_name = leader_cluster_name, cluster_resource_id = cluster_resource_id, attached_database_configuration_name = attached_database_configuration_name)
-
 ```
 
 ## Manage principals, permissions, and caching policy
