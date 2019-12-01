@@ -39,7 +39,7 @@ The following example shows an Azure Resource Manager template for adding an IoT
             "type": "string",
 			"defaultValue": "iothubdemo",
             "metadata": {
-                "description": "Specifies the event hub name."
+                "description": "Specifies the IoT Hub name."
             }
         },
 		"iothubpolices_iothubowner_name": {
@@ -47,6 +47,13 @@ The following example shows an Azure Resource Manager template for adding an IoT
 			"defaultValue": "iothubowner",
             "metadata": {
                 "description": "Specifies the shared access policy name."
+            }
+        },
+        "consumergroup_default_name": {
+            "type": "string",
+			"defaultValue": "$Default",
+            "metadata": {
+                "description": "Specifies the consumer group of the IoT Hub."
             }
         },
         "Clusters_kustocluster_name": {
@@ -77,7 +84,7 @@ The following example shows an Azure Resource Manager template for adding an IoT
                 "description": "Specifies the name of the mapping rule"
             }
         },
-		"dataformat_csv_type": {
+		"dataformat_type": {
             "type": "string",
             "defaultValue": "csv",
             "metadata": {
@@ -89,6 +96,20 @@ The following example shows an Azure Resource Manager template for adding an IoT
             "defaultValue": "kustodc",
             "metadata": {
                 "description": "Name of the data connection to create"
+            }
+        },
+		"subscriptionId": {
+            "type": "string",
+            "defaultValue": "[subscription().subscriptionId]",
+            "metadata": {
+                "description": "Specifies the subscriptionId of the IoT Hub"
+            }
+        },
+		"resourceGroup": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().name]",
+            "metadata": {
+                "description": "Specifies the resourceGroup of the IoT Hub"
             }
         },
         "location": {
@@ -108,12 +129,12 @@ The following example shows an Azure Resource Manager template for adding an IoT
             "location": "[parameters('location')]",
             "kind": "IotHub",
             "properties": {
-                "iotHubResourceId": "[resourceId('Microsoft.Devices/IotHubs', parameters('IotHubs_iothubdemo_name'))]",
-                "consumerGroup": "$Default",
+                "iotHubResourceId": "[resourceId(parameters('subscriptionId'), parameters('resourceGroup'), 'Microsoft.Devices/IotHubs', parameters('IotHubs_iothubdemo_name'))]",
+                "consumerGroup": "[parameters('consumergroup_default_name')]",
 				"sharedAccessPolicyName": "[parameters('iothubpolices_iothubowner_name')]",
                 "tableName": "[parameters('tables_kustotable_name')]",
                 "mappingRuleName": "[parameters('mapping_kustomapping_name')]",
-                "dataFormat": "[parameters('dataformat_csv_type')]"
+                "dataFormat": "[parameters('dataformat_type')]"
             }
         }
     ]

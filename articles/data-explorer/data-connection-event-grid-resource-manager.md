@@ -41,14 +41,21 @@ The following example shows an Azure Resource Manager template for adding an Eve
             "type": "string",
 			"defaultValue": "eventhubns",
             "metadata": {
-                "description": "Specifies the event hub Namespace name."
+                "description": "Specifies the Event Hub Namespace name."
             }
         },
         "EventHubs_eventhubdemo_name": {
             "type": "string",
 			"defaultValue": "eventhubdemo",
             "metadata": {
-                "description": "Specifies the event hub name."
+                "description": "Specifies the Event Hub name."
+            }
+        },
+        "consumergroup_default_name": {
+            "type": "string",
+			"defaultValue": "$Default",
+            "metadata": {
+                "description": "Specifies the consumer group of the Event Hub."
             }
         },
 		"StorageAccounts_storagedemo_name": {
@@ -86,7 +93,7 @@ The following example shows an Azure Resource Manager template for adding an Eve
                 "description": "Specifies the name of the mapping rule"
             }
         },
-		"dataformat_csv_type": {
+		"dataformat_type": {
             "type": "string",
             "defaultValue": "csv",
             "metadata": {
@@ -98,6 +105,20 @@ The following example shows an Azure Resource Manager template for adding an Eve
             "defaultValue": "kustodc",
             "metadata": {
                 "description": "Name of the data connection to create"
+            }
+        },
+        "subscriptionId": {
+            "type": "string",
+            "defaultValue": "[subscription().subscriptionId]",
+            "metadata": {
+                "description": "Specifies the subscriptionId of the resources"
+            }
+        },
+		"resourceGroup": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().name]",
+            "metadata": {
+                "description": "Specifies the resourceGroup of the resources"
             }
         },
         "location": {
@@ -117,12 +138,12 @@ The following example shows an Azure Resource Manager template for adding an Eve
             "location": "[parameters('location')]",
             "kind": "EventGrid",
             "properties": {
-				"storageAccountResourceId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('StorageAccounts_storagedemo_name'))]",
-                "eventHubResourceId": "[resourceId('Microsoft.EventHub/namespaces/eventhubs', parameters('namespaces_eventhubns_name'), parameters('EventHubs_eventhubdemo_name'))]",
-                "consumerGroup": "$Default",
+				"storageAccountResourceId": "[resourceId(parameters('subscriptionId'), parameters('resourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('StorageAccounts_storagedemo_name'))]",
+                "eventHubResourceId": "[resourceId(parameters('subscriptionId'), parameters('resourceGroup'), 'Microsoft.EventHub/namespaces/eventhubs', parameters('namespaces_eventhubns_name'), parameters('EventHubs_eventhubdemo_name'))]",
+                "consumerGroup": "[parameters('consumergroup_default_name')]",
                 "tableName": "[parameters('tables_kustotable_name')]",
                 "mappingRuleName": "[parameters('mapping_kustomapping_name')]",
-                "dataFormat": "[parameters('dataformat_csv_type')]"
+                "dataFormat": "[parameters('dataformat_type')]"
             }
         }
     ]
