@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Concur Travel and Expense | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Concur Travel and Expense.
 services: active-directory
@@ -141,17 +141,19 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 In this section, you create a user called B.Simon in Concur Travel and Expense. Work with Concur support team to add the users in the Concur Travel and Expense platform. Users must be created and activated before you use single sign-on. 
 
 > [!NOTE]
-> B.Simon's Concur login id needs to match B.Simon's unique identifier at Azure AD. For example, if B.Simon's Azure AD unique identifer is `B.Simon@contoso.com`. B.Simon's Concur login id needs to be `B.Simon@contoso.com` as well. 
+> B.Simon's Concur login ID needs to match B.Simon's unique identifier at Azure AD. For example, if B.Simon's Azure AD unique identifer is `B.Simon@contoso.com`. B.Simon's Concur login id needs to be `B.Simon@contoso.com` as well. 
 
-## Configure Concur Mobile SSO
-To enable Concur mobile SSO, you need to give Concur support team **User access URL**. Follow steps below to get **User access URL** from Azure AD:
-1. Go to **Enterprise applications**
-1. Click **Concur Travel and Expense**
-1. Click **Properties**
-1. Copy **User access URL** and give this URL to Concur support
+## Configure Concur mobile SSO
+
+To enable Concur mobile SSO, you need to give the Concur support team the **User access URL**. Follow these steps to get the **User access URL** from Azure AD:
+
+1. Go to **Enterprise applications**.
+1. Click **Concur Travel and Expense**.
+1. Click **Properties**.
+1. Copy the value for **User access URL** and give this URL to Concur support.
 
 > [!NOTE]
-> Self-Service option to configure Mobile SSO is not available so work with Concur support team to enable mobile SSO. 
+> The self-service option to configure Concur mobile SSO isn't available. Work with the Concur support team to enable Concur mobile SSO. 
 
 ## Test SSO 
 
