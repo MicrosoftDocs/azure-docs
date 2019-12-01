@@ -135,13 +135,15 @@ If VPN is configured on your Azure Stack Edge device, then you will also need a 
 - The VPN certificate must be provided in a *.cer* format.
 - Use the following guidance when creating VPN certificates.
 
-## Create and upload certificates
+## Create certificates (optional)
 
-The following section describes the procedure to create signing chain and endpoint certificates, import these certificates on your Windows client, and finally upload these certificates on the device.
+The following section describes the procedure to create signing chain and endpoint certificates.
 
-### Create certificates
+### Certificate workflow
 
-You will have a defined way to create the certificates for the devices operating in your environment. **For development or test purposes only, you can also use Windows PowerShell to create certificates on your local system.** While creating the certificates for the client, follow these guidelines:
+You will have a defined way to create the certificates for the devices operating in your environment. You can use the certificates provided to you by your IT administrator. 
+
+**For development or test purposes only, you can also use Windows PowerShell to create certificates on your local system.** While creating the certificates for the client, follow these guidelines:
 
 1. You can create any of the following types of certificates:
 
@@ -155,12 +157,78 @@ You will have a defined way to create the certificates for the devices operating
 
 4. Whether you are creating 3 separate certificates or one certificate, specify the subject names (SN) and subject alternative names (SAN) as per the guidance provided for each certificate type. 
 
+### Create signing chain certificate
+
+Create these certificates via Windows PowerShell running in administrator mode. **The certificates created this way should be used ror development or test purposes only.**
+
+The signing chain certificate needs to be crated only once. The other end point certificates will refer to this certificate for signing.
+ 
+
+```azurepowershell
+$cert = New-SelfSignedCertificate -Type Custom -KeySpec Signature -Subject "CN=RootCert" -HashAlgorithm sha256 -KeyLength 2048 -CertStoreLocation "Cert:\LocalMachine\My" -KeyUsageProperty Sign -KeyUsage CertSign
+```
+
+
+### Create signed endpoint certificates
+
+Create these certificates via Windows PowerShell running in administrator mode.
+
+In these examples, endpoints certificates are created for a device with:
+    - Device name: `DBE-HWDC1T2`
+    - DNS domain: `microsoftdatabox.com`
+
+Replace with the name and DNS domain for your device to create certificates for your device.
+ 
+**Blob endpoint certificate**
+
+Create a certificate for the Blob endpoint in your personal store.
+
+```azurepowershell
+$AppName = "DBE-HWDC1T2"
+$domain = "microsoftdatabox.com"
+
+$blobcert = New-SelfSignedCertificate -Type Custom -DnsName *.blob.$AppName.$domain -Subject "CN=*.blob.$AppName.$domain" -KeyExportPolicy Exportable  -HashAlgorithm sha256 -KeyLength 2048  -CertStoreLocation "Cert:\LocalMachine\My" -Signer $cert -KeySpec KeyExchange -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.1")
+```
+
+**Azure Resource Manager endpoint certificate**
+
+Create a certificate for the Azure Resource Manager endpoints in your personal store.
+
+```azurepowershell
+$AppName = "DBE-HWDC1T2"
+$domain = "microsoftdatabox.com"
+
+$armcert = New-SelfSignedCertificate -Type Custom -DnsName "management.$AppName.$domain","login.$AppName.$domain" -Subject "CN=$AppName.$domain" -KeyExportPolicy Exportable  -HashAlgorithm sha256 -KeyLength 2048  -CertStoreLocation "Cert:\LocalMachine\My" -Signer $cert -KeySpec KeyExchange -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.1")
+```
+
+**Device local web UI certificate**
+
+Create a certificate for the local web UI of the device in your personal store.
+
+```azurepowershell
+$AppName = "DBE-HWDC1T2"
+$domain = "microsoftdatabox.com"
+
+$localuicert = New-SelfSignedCertificate -Type Custom -DnsName $AppName.$domain -Subject "CN=$AppName.$domain" -KeyExportPolicy Exportable  -HashAlgorithm sha256 -KeyLength 2048  -CertStoreLocation "Cert:\LocalMachine\My" -Signer $cert -KeySpec KeyExchange -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.1")
+```
+
+**Single multi-SAN certificate for all endpoints**
+
+Create a single certificate for all the endpoints in your personal store.
+
+```azurepowershell
+$AppName = "DBE-HWDC1T2"
+$domain = "microsoftdatabox.com"
+
+$multisancert = New-SelfSignedCertificate -Type Custom -DnsName "$AppName.$domain","*.$AppName.$domain","*.blob.$AppName.$domain" -Subject "CN=$AppName.$domain" -KeyExportPolicy Exportable  -HashAlgorithm sha256 -KeyLength 2048  -CertStoreLocation "Cert:\LocalMachine\My" -Signer $cert -KeySpec KeyExchange -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.1")
+```
+
 Once the certificates are created, the next step is to upload the certificates on your Azure Stack Edge device
 
 
-### Upload certificates 
+## Upload certificates 
 
-The certificates that you created in the previous step will be in the Personal store on your client. These certificates need to be exported on your client into appropriate format files that can then be uploaded to your device.
+The certificates that you created for your device by default reside in the **Personal store** on your client. These certificates need to be exported on your client into appropriate format files that can then be uploaded to your device.
 
 1. The root certificate must be exported as a *.cer* format file. For detailed steps, see [Export certificates as a *.cer* format file](azure-stack-edge-r-series-placeholder.md).
 2. The endpoint certificates must be exported as *.pfx* files with private keys. For detailed steps, see [Export certificates as *.pfx* file with private keys](azure-stack-edge-r-series-placeholder.md). 
@@ -185,14 +253,67 @@ The certificates that you created in the previous step will be in the Personal s
 > [!IMPORTANT]
 > If the device name or the DNS domain are changed, new certificates must be created. The client certificates and the device certificates should then be updated with the new device name and DNS domain. 
 
-### Import certificates on the client accessing the device
+## Import certificates on the client accessing the device
 
-The certificates that you created in the previous step must be imported on your Windows client into the appropriate certificate store.
+The certificates that you created and uploaded to your device must be imported on your Windows client (accessing the device) into the appropriate certificate store.
 
-1. The root certificate that you exported as the *.cer* should now be imported in the Trusted Root Certificate Authorities on your client system. For detailed steps, see [Import certificates into the Trusted Root Certificate Authorities store](azure-stack-edge-r-series-placeholder.md).
+1. The root certificate that you exported as the *.cer* should now be imported in the **Trusted Root Certificate Authorities** on your client system. For detailed steps, see [Import certificates into the Trusted Root Certificate Authorities store](#import-certificates-as-cer-format).
 
-2. The endpoint certificates that you exported as the *.pfx* must be exported as *.cer*. This *.cer* is then imported in the Personal certificate store on your system. For detailed steps, see [Import certificates into the Personal certificate store](azure-stack-edge-r-series-placeholder.md).
+2. The endpoint certificates that you exported as the *.pfx* must be exported as *.cer*. This *.cer* is then imported in the **Personal certificate store** on your system. For detailed steps, see [Import certificates into the Personal certificate store](#import-certificates-as-cer-format).
 
+### Import certificates as .cer format
+
+To import certificates on a Windows client, take the following steps:
+
+1. Right-click the `.cer` file and select **Install certificate**. This action starts the Certificate Import Wizard.
+ 
+2. For **Store location**, select **Local Machine**, and then select **Next**.
+ 
+3. Select **Place all certificates in the following store**, and then select **Browse**. 
+
+    - To import into personal store, navigate to the Personal store of your remote host, and then select **Next**.
+    - To import into trusted store, navigate to the Trusted Root Certificate Authority, and then select **Next**.
+ 
+4. Select **Finish**. A message that tells you that the import was successful appears.
+
+### Export certificates as .pfx format with private key
+
+Take the following steps to export an SSL certificate with private key on a Windows machine. 
+Important: Perform these steps on the same machine that you used to create the certificate. 
+
+In MMC, double-click on Certificates (Local Computer) in the center window.
+
+1. Double click on the Personal folder, and then on Certificates.
+ 
+2. Right-click on the certificate you would like to back up and choose > All tasks > Export..
+ 
+3. Follow the Certificate Export Wizard to back up your certificate to a .pfx file.
+ 
+4. Choose Yes, export the private key.
+ 
+5. Choose Include all certificates in certificate path if possible, Export all extended properties and Enable certificate privacy. Do NOT select the Delete Private Key option if export is successful.
+ 
+6. Enter a password you will remember. Confirm the password. The password protects the private key.
+ 
+7. Choose to save file on a set location.
+  
+8. Select **Finish**.
+ 
+9. You receive a message The export was successful. Select **OK**.
+ 
+The .pfx file backup is now saved in the location you selected and is ready to be moved or stored for your safe keeping.
+
+
+### Export certificates as .cer format
+
+1. In the Personal certificate store, select the root certificate. Right-click and select **All Tasks > Export...**
+ 
+2. The certificate wizard opens up. Select the format as **DER encoded binary X.509 (.cer)**. Select **Next**.
+ 
+3. Browse and select the location where you want to export the .cer format file.
+ 
+4. Select **Finish**.
+ 
 ## Supported certificate algorithms
 
 Certificate algorithms are cryptographic algorithms that describe the mathematical procedures that are used for creating key pairs and performing digital signature operations. The Elliptic Curve Cryptographic (ECC) and RSA algorithms are the supported public key algorithms from which you can choose to generate the public-private key pair. 
@@ -214,4 +335,4 @@ View the certificate expiration date on the **Certificates** page in the local w
 
 ## Next steps
 
-[Deploy your Azure Stack Edge device](azure-stack-edge-r-series-placeholder.md)
+[Deploy your Azure Stack Edge device](azure-stack-edge-r-series-deploy-prep.md)
