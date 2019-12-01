@@ -151,9 +151,9 @@ You will have a defined way to create the certificates for the devices operating
     - Create a wildcard certificate to secure the main domain name and multiple sub domains as well. For example, **.mydomain.com*.
     - Create a subject alternative name (SAN) certificate that will cover multiple domain names in a single certificate. 
 
-2. If you are bringing your own certificate, you will need a root certificate for the signing chain. See steps to [Create signing chain and endpoint certificates](azure-stack-edge-r-series-placeholder.md).
+2. If you are bringing your own certificate, you will need a root certificate for the signing chain. See steps to [Create signing chain certificates](#create-signing-chain-certificate).
 
-3. You can next create the endpoint certificates for the local UI of the appliance, blob, and Azure Resource Manager. You can create 3 separate certificates for the appliance, blob, and ARM or you can create one certificate for all the 3 endpoints. For detailed steps, see [Create signing and endpoint certificates](azure-stack-edge-r-series-placeholder.md).
+3. You can next create the endpoint certificates for the local UI of the appliance, blob, and Azure Resource Manager. You can create 3 separate certificates for the appliance, blob, and ARM or you can create one certificate for all the 3 endpoints. For detailed steps, see [Create signing and endpoint certificates](#create-signed-endpoint-certificate).
 
 4. Whether you are creating 3 separate certificates or one certificate, specify the subject names (SN) and subject alternative names (SAN) as per the guidance provided for each certificate type. 
 
@@ -230,8 +230,8 @@ Once the certificates are created, the next step is to upload the certificates o
 
 The certificates that you created for your device by default reside in the **Personal store** on your client. These certificates need to be exported on your client into appropriate format files that can then be uploaded to your device.
 
-1. The root certificate must be exported as a *.cer* format file. For detailed steps, see [Export certificates as a *.cer* format file](azure-stack-edge-r-series-placeholder.md).
-2. The endpoint certificates must be exported as *.pfx* files with private keys. For detailed steps, see [Export certificates as *.pfx* file with private keys](azure-stack-edge-r-series-placeholder.md). 
+1. The root certificate must be exported as a *.cer* format file. For detailed steps, see [Export certificates as a *.cer* format file](#export-certificates-as-cer-format).
+2. The endpoint certificates must be exported as *.pfx* files with private keys. For detailed steps, see [Export certificates as *.pfx* file with private keys](#export-certificates-as-pfx-format-with-private-key). 
 3. The root and endpoint certificates are then uploaded on the device using the **+ Add certificate** option on the Certificates page in the local web UI. 
 
     1. Upload the root certificates first. In the local web UI, go to **Certificates > + Add certificate**.
@@ -266,15 +266,26 @@ The certificates that you created and uploaded to your device must be imported o
 To import certificates on a Windows client, take the following steps:
 
 1. Right-click the `.cer` file and select **Install certificate**. This action starts the Certificate Import Wizard.
- 
+
+    ![Import certificate 1](media/azure-stack-edge-series-manage-certificates/import-cert-1.png)
+
 2. For **Store location**, select **Local Machine**, and then select **Next**.
- 
+
+    ![Import certificate 2](media/azure-stack-edge-series-manage-certificates/import-cert-2.png)
+
 3. Select **Place all certificates in the following store**, and then select **Browse**. 
 
     - To import into personal store, navigate to the Personal store of your remote host, and then select **Next**.
+
+        ![Import certificate 4](media/azure-stack-edge-series-manage-certificates/import-cert-4.png)
+
+
     - To import into trusted store, navigate to the Trusted Root Certificate Authority, and then select **Next**.
+
+        ![Import certificate 3](media/azure-stack-edge-series-manage-certificates/import-cert-3.png)
+
  
-4. Select **Finish**. A message that tells you that the import was successful appears.
+4. Select **Finish**. A message to the effect that the import was successful appears.
 
 ### Export certificates as .pfx format with private key
 
@@ -286,26 +297,44 @@ Take the following steps to export an SSL certificate with private key on a Wind
 In MMC, double-click on Certificates (Local Computer) in the center window.
 
 1. Double click on the **Personal** folder, and then on **Certificates**.
+
+    ![Export certificate 1](media/azure-stack-edge-series-manage-certificates/export-cert-pfx-1.png)
  
 2. Right-click on the certificate you would like to back up and choose **All tasks > Export...**
- 
+
+    ![Export certificate 2](media/azure-stack-edge-series-manage-certificates/export-cert-pfx-2.png)
+
 3. Follow the Certificate Export Wizard to back up your certificate to a .pfx file.
- 
+
+    ![Export certificate 3](media/azure-stack-edge-series-manage-certificates/export-cert-pfx-3.png)
+
 4. Choose **Yes, export the private key**.
- 
+
+    ![Export certificate 4](media/azure-stack-edge-series-manage-certificates/export-cert-pfx-4.png)
+
 5. Choose **Include all certificates in certificate path if possible**, **Export all extended properties** and **Enable certificate privacy**. 
 
     > [!IMPORTANT]
     > DO NOT select the **Delete Private Key option if export is successful**.
- 
+
+    ![Export certificate 5](media/azure-stack-edge-series-manage-certificates/export-cert-pfx-5.png)
+
 6. Enter a password you will remember. Confirm the password. The password protects the private key.
- 
+
+    ![Export certificate 6](media/azure-stack-edge-series-manage-certificates/export-cert-pfx-6.png)
+
 7. Choose to save file on a set location.
+
+    ![Export certificate 7](media/azure-stack-edge-series-manage-certificates/export-cert-pfx-7.png)
   
 8. Select **Finish**.
- 
+
+    ![Export certificate 8](media/azure-stack-edge-series-manage-certificates/export-cert-pfx-8.png)
+
 9. You receive a message The export was successful. Select **OK**.
- 
+
+    ![Export certificate 9](media/azure-stack-edge-series-manage-certificates/export-cert-pfx-9.png)
+
 The .pfx file backup is now saved in the location you selected and is ready to be moved or stored for your safe keeping.
 
 
