@@ -18,7 +18,7 @@ It's important to keep your clusters secure. Securing your clusters can include 
 
 ### Azure Disk Encryption
 
-[Azure Disk Encryption](/azure/security/azure-security-disk-encryption-overview) helps protect and safeguard your data to meet your organizational security and compliance commitments. It provides volume encryption for the OS and data disks of your cluster virtual machines. It also integrates with [Azure Key Vault](/azure/key-vault/) which allows us to control and manage the disk encryption keys and secrets, and ensure all data on the VM disks is encrypted. 
+[Azure Disk Encryption](/azure/security/azure-security-disk-encryption-overview) helps protect and safeguard your data to meet your organizational security and compliance commitments. It provides volume encryption for the OS and data disks of your cluster virtual machines. Azure Disk Encryption also integrates with [Azure Key Vault](/azure/key-vault/) which allows us to control and manage the disk encryption keys and secrets, and ensure all data on the VM disks is encrypted. 
 
 ## Managed identities for Azure resources
 

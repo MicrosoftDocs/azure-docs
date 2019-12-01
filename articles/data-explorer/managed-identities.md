@@ -46,7 +46,7 @@ To set up a managed identity using the Azure Data Explorer C# client, you will n
 * Install the [Microsoft.IdentityModel.Clients.ActiveDirectory NuGet package](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) for authentication.
 * To run the following example, you need an Azure Active Directory (Azure AD) application and service principal that can access resources. To create a free Azure AD application and add role assignment at the subscription level, see [Create an Azure AD application](/azure/active-directory/develop/howto-create-service-principal-portal). You also need the directory (tenant) ID, application ID, and client secret.
 
-1. Create or update your cluster by with the `Identity` propery:
+1. Create or update your cluster by with the `Identity` property:
 
     ```csharp
     var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -165,7 +165,8 @@ Any resource of type `Microsoft.Kusto/clusters` can be created with an identity 
 
 Adding the system-assigned type tells Azure to create and manage the identity for your cluster.
 
-For example, a cluster might look like the following:
+For example, a cluster might look like the following json:
+
 ```json
 {
     "apiVersion": "2019-09-07",
