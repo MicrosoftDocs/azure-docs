@@ -45,7 +45,7 @@ In addition to native Azure tools, Azure Migrate integrates with a number of ISV
 [Corent Technology](https://www.corenttech.com/AzureMigrate/) | Assess and migrate servers
 [Device 42](https://docs.device42.com/) | Assess servers
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Assess VDI
-[RackWare](https://www.rackwareinc.com/cloud-migration) | Migrate servers
+[RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | Migrate servers
 [Turbonomic](https://learn.turbonomic.com/azure-migrate-portal-free-trial) | Assess servers
 [UnifyCloud](https://www.cloudatlasinc.com/cloudrecon/) | Assess servers and databases
 
