@@ -28,7 +28,7 @@ landingContent:
         links:
           - text: What is Studio (classic)?
             url: what-is-ml-studio.md
-          - text: Create your first Machine Learning experiment
+          - text: Create your first machine learning experiment
             url: create-experiment.md
           - text: Create a predictive solution
             url: tutorial-part1-credit-risk.md                     

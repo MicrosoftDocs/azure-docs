@@ -150,7 +150,7 @@ See the [package website](https://azure.github.io/azureml-sdk-for-r) for complet
     + Added a guardrail for forecasting tasks, to check whether a specified max_horizon will cause a memory issue on the given machine or not. If it will, a guardrail message will be displayed.
     + Added support for complex frequencies like 2 years and 1 month. -Added comprehensible error message if frequency can not be determined.
     + Add azureml-defaults to auto generated conda env to solve the model deployment failure
-    + Allow intermediate data in Azure Machine Learning Pipeline to be converted to tabular dataset and used in `AutoMLStep`.
+    + Allow intermediate data in the Azure Machine Learning pipeline to be converted to tabular dataset and used in `AutoMLStep`.
     + Implemented column purpose update for streaming.
     + Implemented transformer parameter update for Imputer and HashOneHotEncoder for streaming.
     + Added the current data size and the minimum required data size to the validation error messages.
@@ -169,11 +169,11 @@ See the [package website](https://azure.github.io/azureml-sdk-for-r) for complet
     + Change [`Dataset.get_by_id`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29#get-by-id-workspace--id-) to return registration name and version if the dataset is registered.
     + Fix a bug that ScriptRunConfig with dataset as argument cannot be used repeatedly to submit experiment run.
     + Datasets retrieved during a run will be tracked and can be seen in the run details page or by calling [`run.get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29#get-details--) after the run is complete.
-    + Allow intermediate data in Azure Machine Learning Pipeline to be converted to tabular dataset and used in [`AutoMLStep`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlstep).
+    + Allow intermediate data in the Azure Machine Learning pipeline to be converted to tabular dataset and used in [`AutoMLStep`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlstep).
     + Added support for deploying and packaging supported models (ONNX, scikit-learn, and TensorFlow) without an InferenceConfig instance.
     + Added overwrite flag for service deployment (ACI and AKS) in SDK and CLI. If provided, will overwrite the existing service if service with name already exists. If service doesn't exist, will create new service.
     +  Models can be registered with two new frameworks, Onnx and Tensorflow. Model registration accepts sample input data, sample output data and resource configuration for the model.
-    + Added new datastore for Azure Database for MySQL. Added example for using Azure Database for MySQL in DataTransferStep in Azure Machine Learning Pipelines.
+    + Added new datastore for Azure Database for MySQL. Added example for using Azure Database for MySQL in DataTransferStep in Azure Machine Learning pipelines.
     + Added functionality to add and remove tags from experiments Added functionality to remove tags from runs
     + Added overwrite flag for service deployment (ACI and AKS) in SDK and CLI. If provided, will overwrite the existing service if service with name already exists. If service doesn't exist, will create new service.
   + [**azureml-datadrift**](https://docs.microsoft.com/python/api/azureml-datadrift)
@@ -185,7 +185,7 @@ See the [package website](https://azure.github.io/azureml-sdk-for-r) for complet
     + Support backfill of data monitor metrics to analyze historical data for dataset monitors. 
     + Various bug fixes 
   + [**azureml-pipeline-core**](https://docs.microsoft.com/python/api/azureml-pipeline-core)
-    + azureml-dataprep is no longer needed to submit an Azure Machine Learning Pipeline run from the pipeline `yaml` file.
+    + azureml-dataprep is no longer needed to submit the Azure Machine Learning pipeline run from the pipeline `yaml` file.
   + [**azureml-train-automl**](https://docs.microsoft.com/python/api/azureml-train-automl)
     + Add azureml-defaults to auto generated conda env to solve the model deployment failure
     + AutoML remote training now includes azureml-defaults to allow reuse of training env for inference.
@@ -233,9 +233,9 @@ See the [package website](https://azure.github.io/azureml-sdk-for-r) for complet
   + **[azureml-core](https://docs.microsoft.com/python/api/azureml-core)**
     + Added API to unregister datasets. dataset.[unregister_all_versions()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.abstract_datastore.abstractdatastore#unregister--).
     + Added Dataset API to check data changed time. `dataset.data_changed_time`.
-    + Being able to consume `FileDataset` and `TabularDataset` as inputs to `PythonScriptStep`, `EstimatorStep`, and `HyperDriveStep` in Azure Machine Learning Pipeline
+    + Being able to consume `FileDataset` and `TabularDataset` as inputs to `PythonScriptStep`, `EstimatorStep`, and `HyperDriveStep` in the Azure Machine Learning pipeline
     + Performance of `FileDataset.mount` has been improved for folders with a large number of files
-    + Being able to consume [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset) and [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset) as inputs to [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep), [EstimatorStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimatorstep), and [HyperDriveStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.hyperdrivestep) in Azure Machine Learning Pipeline.
+    + Being able to consume [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset) and [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset) as inputs to [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep), [EstimatorStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimatorstep), and [HyperDriveStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.hyperdrivestep) in the Azure Machine Learning pipeline.
     + Performance of FileDataset.[mount()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset#mount-mount-point-none-) has been improved for folders with a large number of files
     + Added URL to known error recommendations in run details.
     + Fixed a bug in run.get_metrics where requests would fail if a run had too many children
@@ -450,7 +450,7 @@ The new web experience enables data scientists and data engineers to complete th
 
 Using this new Azure Machine Learning interface, you can now:
 + Manage your notebooks or link out to Jupyter
-+ [Run automated Machine Learning experiments](tutorial-first-experiment-automated-ml.md)
++ [Run automated machine learning experiments](tutorial-first-experiment-automated-ml.md)
 + [Create datasets from local files, datastores, & web files](how-to-create-register-datasets.md)
 + Explore & prepare datasets for model creation
 + Monitor data drift for your models 
@@ -465,7 +465,7 @@ At the time of this release, the following browsers are supported: Chrome, Firef
 1. Can’t delete or rename file in Notebooks and Files. During Public Preview you can use Jupyter UI or Terminal in Notebook VM to perform update file operations. Because it is a mounted network file system all changes you make on Notebook VM are immediately reflected in the Notebook Workspace. 
 
 1. To SSH into the Notebook VM:
-   1. Find the SSH keys that were created during VM setup. Or, find the keys in the Machine Learning Azure portal > open Compute tab > locate Notebook VM in the list > open it’s properties : copy the keys from the dialog.
+   1. Find the SSH keys that were created during VM setup. Or, find the keys in the Azure Machine Learning workspace > open Compute tab > locate Notebook VM in the list > open it’s properties : copy the keys from the dialog.
    1. Import those public and private SSH keys to your local machine.
    1. Use them to SSH into the Notebook VM. 
 
@@ -793,7 +793,7 @@ At the time of this release, the following browsers are supported: Chrome, Firef
     + Fixed the bug to allow y_query to be an object type containing None(s) at the beginning. 
     + Fixed the issue in the Ensemble selection procedure which was unnecessarily growing the resulting ensemble even if the scores remained constant.
     + Fixed the issue with whitelist_models and blacklist_models settings in AutoMLStep.
-    + Fixed the issue that prevented the usage of preprocessing when AutoML would have been used in the context of Azure Machine Learning Pipelines.
+    + Fixed the issue that prevented the usage of preprocessing when AutoML would have been used in the context of Azure Machine Learning pipelines.
   + **azureml-opendatasets**
     + Moved azureml-contrib-opendatasets to azureml-opendatasets.
     + Allowed open dataset classes to be registered to Azure Machine Learning workspace and leverage Azure Machine Learning Dataset capabilities seamlessly.
@@ -979,7 +979,7 @@ We reverted a change that improved performance, as it was causing issues for som
 ### Azure portal
 
 In Azure portal, you can now:
-+ Create and run automated Machine Learning experiments 
++ Create and run automated machine learning experiments 
 + Create a Notebook VM to try out sample Jupyter notebooks or your own.
 + Brand new Authoring section (Preview) in the Azure Machine Learning workspace, which includes Automated Machine Learning, Visual Interface and Hosted Notebook VMs
 	+ Automatically create a model using Automated machine learning 
@@ -1026,7 +1026,7 @@ Use a Notebook VM as a secure, enterprise-ready hosting environment for Jupyter
 ### Automated Machine Learning
 
 + Feature sweeping to enable dynamically adding :::no-loc text="featurizers"::: for performance optimization. New :::no-loc text="featurizers":::: work embeddings, weight of evidence, target encodings, text target encoding, cluster distance
-+ Smart CV to handle train/valid splits inside automated Machine Learning
++ Smart CV to handle train/valid splits inside automated machine learning
 + Few memory optimization changes and runtime performance improvement
 + Performance improvement in model explanation
 + ONNX model conversion for local run
@@ -1043,11 +1043,11 @@ Use a Notebook VM as a secure, enterprise-ready hosting environment for Jupyter
 
 + Azure Databricks
   + Enabled time series forecasting and model explainabilty/interpretability capability
-  + You can now cancel and resume (continue) automated Machine Learning experiments
+  + You can now cancel and resume (continue) automated machine learning experiments
   + Added support for multicore processing
 
 ### MLOps
-+ **Local deployment & debugging for scoring containers**<br/> You can now deploy an Machine Learning model locally and iterate quickly on your scoring file and  dependencies to ensure they behave as expected.
++ **Local deployment & debugging for scoring containers**<br/> You can now deploy an machine learning model locally and iterate quickly on your scoring file and  dependencies to ensure they behave as expected.
 
 + **Introduced InferenceConfig & Model.deploy()**<br/> Model deployment now supports specifying a source folder with an entry script, the same as a RunConfig.  Additionally, model deployment has been simplified to a single command.
 
@@ -1059,7 +1059,7 @@ Use a Notebook VM as a secure, enterprise-ready hosting environment for Jupyter
 
 + **Improved Swagger schema generation experience**<br/> Our previous swagger generation method was error prone and impossible to automate. We have a new in-line way of generating swagger schemas from any Python function via decorators. We have open-sourced this code and our schema generation protocol is not coupled to the Azure Machine Learning platform.
 
-+ **Azure Machine Learning CLI is generally available (GA)**<br/> Models can now be deployed with a single CLI command. We got common customer feedback that no one deploys a Machine Learning model from a Jupyter notebook. The [**CLI reference documentation**](https://aka.ms/azmlcli) has been updated.
++ **Azure Machine Learning CLI is generally available (GA)**<br/> Models can now be deployed with a single CLI command. We got common customer feedback that no one deploys a machine learning model from a Jupyter notebook. The [**CLI reference documentation**](https://aka.ms/azmlcli) has been updated.
 
 
 ## 2019-04-22
@@ -1188,10 +1188,10 @@ Note: Data Prep Python SDK will no longer install `numpy` and `pandas` packages.
   + Azure Machine Learning now provides first class support for popular DNN framework Chainer. Using [`Chainer`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) class users can easily train and deploy Chainer models.
     + Learn how to [run distributed training with ChainerMN](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/distributed-chainer/distributed-chainer.ipynb)
     + Learn how to [run hyperparameter tuning with Chainer using HyperDrive](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb)
-  + Azure Machine Learning Pipelines added ability trigger a Pipeline run based on datastore modifications. The pipeline [schedule notebook](https://aka.ms/pl-schedule) is updated to showcase this feature.
+  + Azure Machine Learning pipelines added ability to trigger a pipeline run based on datastore modifications. The pipeline [schedule notebook](https://aka.ms/pl-schedule) is updated to showcase this feature.
 
 + **Bug fixes and improvements**
-  + We have added support Azure Machine Learning Pipelines for setting the source_directory_data_store property to a desired datastore (such as a blob storage) on [RunConfigurations](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) that are supplied to the [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py). By default Steps use Azure File store as the backing datastore, which may run into throttling issues when a large number of steps are executed concurrently.
+  + We have added support in Azure Machine Learning pipelines for setting the source_directory_data_store property to a desired datastore (such as a blob storage) on [RunConfigurations](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) that are supplied to the [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py). By default Steps use Azure File store as the backing datastore, which may run into throttling issues when a large number of steps are executed concurrently.
 
 ### Azure portal
 
@@ -1217,7 +1217,7 @@ Note: Data Prep Python SDK will no longer install `numpy` and `pandas` packages.
 ### Azure Machine Learning SDK for Python v1.0.15
 
 + **New features**
-  + Azure Machine Learning Pipelines added AzureBatchStep ([notebook](https://aka.ms/pl-azbatch)), HyperDriveStep (notebook), and time-based scheduling functionality ([notebook](https://aka.ms/pl-schedule)).
+  + Azure Machine Learning pipelines added AzureBatchStep ([notebook](https://aka.ms/pl-azbatch)), HyperDriveStep (notebook), and time-based scheduling functionality ([notebook](https://aka.ms/pl-schedule)).
   +  DataTranferStep updated to work with Azure SQL Server and Azure database for PostgreSQL ([notebook](https://aka.ms/pl-data-trans)).
 
 + **Changes**
@@ -1360,7 +1360,7 @@ Azure Machine Learning Compute can be created in Python, using Azure portal, or 
   * [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk)
 
 ### Docs and notebooks
-+ Machine Learning Pipelines
++ Machine learning pipelines
   + New and updated notebooks for getting started with pipelines, batch scoping,  and style transfer examples: https://aka.ms/aml-pipeline-notebooks
   + Learn how to [create your first pipeline](how-to-create-your-first-pipeline.md)
   + Learn how to [run batch predictions using pipelines](how-to-run-batch-predictions.md)
@@ -1431,7 +1431,7 @@ The Azure portal for Azure Machine Learning has the following updates:
   * *PipelineData* class now expects a datastore object as a parameter rather than datastore_name. Similarly, *Pipeline* accepts default_datastore rather than default_datastore_name.
 
 + **New features**
-  * The Azure Machine Learning Pipelines [sample notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/pipeline-mpi-batch-prediction.ipynb) now uses MPI steps.
+  * The Azure Machine Learning pipelines [sample notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/pipeline-mpi-batch-prediction.ipynb) now uses MPI steps.
   * The RunDetails widget for Jupyter notebooks is updated to show a visualization of the pipeline.
 
 ### Azure Machine Learning Data Prep SDK v0.4.0 

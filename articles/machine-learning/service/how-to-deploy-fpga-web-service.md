@@ -428,9 +428,9 @@ To secure your FPGA web services, see the [Secure web services](how-to-secure-we
 
 Check out these notebooks, videos, and blogs:
 
-+ Several [sample notebooks](https://aka.ms/aml-accel-models-notebooks).
++ Several [sample notebooks](https://aka.ms/aml-accel-models-notebooks)
 
-+ [Hyperscale hardware: Machine Learning at scale on top of Azure + FPGA : Build 2018 (video)](https://channel9.msdn.com/events/Build/2018/BRK3202)
++ [Hyperscale hardware: Machine learning at scale on top of Azure + FPGA: Build 2018 (video)](https://channel9.msdn.com/events/Build/2018/BRK3202)
 
 + [Inside the Microsoft FPGA-based configurable cloud (video)](https://channel9.msdn.com/Events/Build/2017/B8063)
 

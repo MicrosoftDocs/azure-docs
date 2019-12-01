@@ -217,7 +217,7 @@ To create a compute target:
 
 Here's an example of how to create and edit an Azure Machine Learning compute (AMLCompute):
 
-[![Create AML compute in Visual Studio Code](./media/vscode-tools-for-ai/create-remote-compute.gif)](./media/vscode-tools-for-ai/create-remote-compute.gif#lightbox)
+[![Create an Azure Machine Learning compute in Visual Studio Code](./media/vscode-tools-for-ai/create-remote-compute.gif)](./media/vscode-tools-for-ai/create-remote-compute.gif#lightbox)
 
 #### The run configuration file
 

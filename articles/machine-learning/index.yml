@@ -53,7 +53,7 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Create your first Machine Learning experiment
+          - text: Create your first machine learning experiment
             url: service/tutorial-1st-experiment-sdk-setup.md
           - text: Classify images 
             url: service/tutorial-train-models-with-aml.md                     
@@ -71,11 +71,11 @@ landingContent:
             url: service/how-to-train-keras.md
 
   # Pipelines
-  - title: 'Use Machine Learning Pipelines'
+  - title: 'Use machine learning pipelines'
     linkLists:
     - linkListType: overview
       links:
-      - text: What are Machine Learning pipelines?
+      - text: What are machine learning pipelines?
         url: service/concept-ml-pipelines.md   
       - text: The 'drag-n-drop' designer
         url: service/concept-designer.md   
@@ -83,7 +83,7 @@ landingContent:
       links:
       - text: Linear regression to predict prices (designer)
         url: service/tutorial-designer-automobile-price-train-score.md
-      - text: Create Machine Learning pipelines (Python SDK)
+      - text: Create machine learning pipelines (Python SDK)
         url: service/tutorial-pipeline-batch-scoring-classification.md     
     - linkListType: how-to-guide
       links:

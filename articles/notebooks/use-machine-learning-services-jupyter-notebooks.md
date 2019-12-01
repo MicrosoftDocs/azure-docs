@@ -7,7 +7,7 @@ ms.date: 12/04/2018
 
 # Use Azure Machine Learning in a notebook
 
-Azure Notebooks comes pre-configured with the necessary environment to work with [Azure Machine Learning](/azure/machine-learning/service/). You can easily clone a sample project into your Notebooks account to explore a variety of Machine Learning scenarios.
+Azure Notebooks comes pre-configured with the necessary environment to work with [Azure Machine Learning](/azure/machine-learning/service/). You can easily clone a sample project into your Notebooks account to explore a variety of machine learning scenarios.
 
 ## Clone the sample into your account
 
@@ -30,7 +30,7 @@ Azure Notebooks comes pre-configured with the necessary environment to work with
 
 ## Next steps
 
-The Azure Machine Learning documentation contains a variety of other resources that guide you through working with Machine Learning within notebooks:
+The Azure Machine Learning documentation contains a variety of other resources that guide you through working with machine learning within notebooks:
 
 - [Quickstart: Use Python to get started with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/quickstart-create-workspace-with-python)
 - [Tutorial #1: Train an image classification model with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)

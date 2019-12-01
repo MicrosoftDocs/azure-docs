@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Your first ML model with R"
+title: "Tutorial: Your first machine learning model with R"
 titleSuffix: Azure Machine Learning
 description: In this tutorial, you learn the foundational design patterns in Azure Machine Learning, and train a logistic regression model model using R packages azuremlsdk and caret to predict likelihood of a fatality in an automobile accident. 
 services: machine-learning
@@ -162,7 +162,7 @@ For this tutorial, fit a logistic regression model on your uploaded data using y
 A training script called `accidents.R` has been provided for you in the same directory as this tutorial. Notice the following details **inside the training script** that have been done to leverage Azure Machine Learning for training:
 
 * The training script takes an argument `-d` to find the directory that contains the training data. When you define and submit your job later, you point to the datastore for this argument. Azure Machine Learning will mount the storage folder to the remote cluster for the training job.
-* The training script logs the final accuracy as a metric to the run record in Azure Machine Learning using `log_metric_to_run()`. The Azure Machine Learning SDK provides a set of logging APIs for logging various metrics during training runs. These metrics are recorded and persisted in the experiment run record. The metrics can then be accessed at any time or viewed in the run details page in [Azure Machine Learning studio](https://ml.azure.com). See the [reference](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation) for the full set of logging methods `log_*()`.
+* The training script logs the final accuracy as a metric to the run record in Azure Machine Learning using `log_metric_to_run()`. The Azure Machine Learning SDK provides a set of logging APIs for logging various metrics during training runs. These metrics are recorded and persisted in the experiment run record. The metrics can then be accessed at any time or viewed in the run details page in [studio](https://ml.azure.com). See the [reference](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation) for the full set of logging methods `log_*()`.
 * The training script saves your model into a directory named **outputs**. The `./outputs` folder receives special treatment by Azure Machine Learning. During training, files written to `./outputs` are automatically uploaded to your run record by Azure Machine Learning and persisted as artifacts. By saving the trained model to `./outputs`, you'll be able to access and retrieve your model file even after the run is over and you no longer have access to your remote training environment.
 
 ### Create an estimator

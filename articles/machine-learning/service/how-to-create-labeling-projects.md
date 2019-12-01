@@ -12,7 +12,7 @@ ms.date: 11/04/2019
 
 # Get labels for data
 
-Labeling large amounts of data has often been a headache in machine learning projects. Machine Learning projects with a computer vision component, such as image classification or object detection, generally require thousands of images and corresponding labels. 
+Labeling large amounts of data has often been a headache in machine learning projects. Machine learning projects with a computer vision component, such as image classification or object detection, generally require thousands of images and corresponding labels. 
  
 Azure Machine Learning gives you a central location to create, manage, and monitor labeling projects. Labeling projects help coordinate the data, labels, and team members, allowing you to more efficiently manage the labeling tasks. Currently supported tasks are image classification, either multi-label or multi-class, and object identification using bounded boxes.
 

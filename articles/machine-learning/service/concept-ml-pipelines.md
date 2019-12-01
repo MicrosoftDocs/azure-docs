@@ -1,5 +1,5 @@
 ---
-title: 'What are Machine Learning Pipelines'
+title: 'What are machine learning pipelines'
 titleSuffix: Azure Machine Learning
 description: In this article, learn the advantages of the machine learning pipelines you can build with the Azure Machine Learning SDK for Python. Machine learning pipelines are used by data scientists to build, optimize, and manage their machine learning workflows.
 services: machine-learning
@@ -62,11 +62,11 @@ In short, all of the complex tasks of the machine learning lifecycle can be help
 
 ## What are Azure Machine Learning pipelines?
 
-An Azure Machine Learning pipeline performs a complete logical workflow with an ordered sequence of steps. Each step is a discrete processing action. Pipelines run in the context of an Azure Machine Learning [Experiment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py).
+An Azure Machine Learning pipeline performs a complete logical workflow with an ordered sequence of steps. Each step is a discrete processing action. Pipelines run in the context of an Azure Machine Learning [experiment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py).
 
-In the very early stages of a Machine Learning project, it's fine to have a single Jupyter notebook or Python script that does all the work of Azure workspace and resource configuration, data preparation, run configuration, training, and validation. But just as functions and classes quickly become preferable to a single imperative block of code, Machine Learning workflows quickly become preferable to a monolithic notebook or script. 
+In the very early stages of a machine learning project, it's fine to have a single Jupyter notebook or Python script that does all the work of Azure workspace and resource configuration, data preparation, run configuration, training, and validation. But just as functions and classes quickly become preferable to a single imperative block of code, machine learning workflows quickly become preferable to a monolithic notebook or script. 
 
-By modularizing Machine Learning tasks, pipelines support the Computer Science imperative that a component should "do (only) one thing well." Modularity is clearly vital to project success when programming in teams, but even when working alone, even a small Machine Learning project involves separate tasks, each with a good amount of complexity. Tasks include: workspace configuration and data access, data preparation, model definition and configuration, and deployment. While the outputs of one or more tasks form the inputs to another, the exact implementation details of any one task are, at best, irrelevant distractions in the next. At worst, the computational state of one task can cause a bug in another. 
+By modularizing machine learning tasks, pipelines support the Computer Science imperative that a component should "do (only) one thing well." Modularity is clearly vital to project success when programming in teams, but even when working alone, even a small machine learning project involves separate tasks, each with a good amount of complexity. Tasks include: workspace configuration and data access, data preparation, model definition and configuration, and deployment. While the outputs of one or more tasks form the inputs to another, the exact implementation details of any one task are, at best, irrelevant distractions in the next. At worst, the computational state of one task can cause a bug in another. 
 
 ### Analyzing dependencies
 
@@ -80,7 +80,7 @@ Pipelines solve this problem. Azure Machine Learning automatically orchestrates 
 
 Additionally, the output of a step may, if you choose, be reused. If you specify reuse as a possibility and there are no upstream dependencies triggering recalculation, the pipeline service will use a cached version of the step's results. Such reuse can dramatically decrease development time. If you have a complex data preparation task, you probably rerun it more often than is strictly necessary. Pipelines relieve you of that worry: if necessary, the step will run, if not, it won't.
 
-All of this dependency analysis, orchestration, and activation are handled by Azure Machine Learning when you instantiate a [Pipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline(class)?view=azure-ml-py) object, pass it to an `Experiment`, and call `submit()`. 
+All of this dependency analysis, orchestration, and activation are handled by Azure Machine Learning when you instantiate a [pipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline(class)?view=azure-ml-py) object, pass it to an `Experiment`, and call `submit()`. 
 
 ### Coordinating the steps involved
 
@@ -106,11 +106,11 @@ In the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api
 
 An Azure Machine Learning pipeline is associated with an Azure Machine Learning workspace and a pipeline step is associated with a compute target available within that workspace. For more information, see [Create and manage Azure Machine Learning workspaces in the Azure portal](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-workspace) or [What are compute targets in Azure Machine Learning?](https://docs.microsoft.com/azure/machine-learning/service/concept-compute-target).
 
-In Azure Machine Learning, a compute target is the environment in which a Machine Learning phase occurs. The software environment may be a Remote VM, Azure Machine Learning Compute, Azure Databricks, Azure Batch, and so on. The hardware environment can also vary greatly, depending on GPU support, memory, storage, and so forth. You may specify the compute target for each step, which gives you fine-grained control over costs. You can use more- or less- powerful resources for the specific action, data volume, and performance needs of your project. 
+In Azure Machine Learning, a compute target is the environment in which a machine learning phase occurs. The software environment may be a Remote VM, Azure Machine Learning compute, Azure Databricks, Azure Batch, and so on. The hardware environment can also vary greatly, depending on GPU support, memory, storage, and so forth. You may specify the compute target for each step, which gives you fine-grained control over costs. You can use more- or less- powerful resources for the specific action, data volume, and performance needs of your project. 
 
 ## Building pipelines with the designer
 
-Developers who prefer a visual design surface can use the Azure Machine Learning designer to create pipelines. You can access this tool from the **Designer** selection on the homepage of your workspace.  The designer allows you to drag and drop steps onto the design surface. For rapid development, you can use existing modules across the spectrum of Machine Learning tasks; existing modules cover everything from data transformation to algorithm selection to training to deployment. Or you can create a fully custom pipeline by combining your own steps defined in Python scripts.
+Developers who prefer a visual design surface can use the Azure Machine Learning designer to create pipelines. You can access this tool from the **Designer** selection on the homepage of your workspace.  The designer allows you to drag and drop steps onto the design surface. For rapid development, you can use existing modules across the spectrum of machine learning tasks; existing modules cover everything from data transformation to algorithm selection to training to deployment. Or you can create a fully custom pipeline by combining your own steps defined in Python scripts.
 
 When you visually design pipelines, the inputs and outputs of a step are displayed visibly. You can drag and drop data connections, allowing you to quickly understand and modify the dataflow of your pipeline.
  
@@ -118,16 +118,16 @@ When you visually design pipelines, the inputs and outputs of a step are display
 
 ### Understanding the execution graph
 
-The steps within a pipeline may have dependencies on other steps. The Azure Machine Learning pipeline service does the work of analyzing and orchestrating these dependencies. The nodes in the resulting "execution graph" are processing steps. Each step may involve creating or reusing a particular combination of hardware and software, reusing cached results, and so on. The service's orchestration and optimization of this execution graph can significantly speed up a Machine Learning phase and reduce costs. 
+The steps within a pipeline may have dependencies on other steps. The Azure Machine Learning pipeline service does the work of analyzing and orchestrating these dependencies. The nodes in the resulting "execution graph" are processing steps. Each step may involve creating or reusing a particular combination of hardware and software, reusing cached results, and so on. The service's orchestration and optimization of this execution graph can significantly speed up a machine learning phase and reduce costs. 
 
 Because steps run independently, objects to hold the input and output data that flows between steps must be defined externally. This is the role of [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py), and associated classes. These data objects are associated with a [Datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore%28class%29?view=azure-ml-py) object that encapsulates their storage configuration. The `PipelineStep` base class is always created with a `name` string, a list of `inputs`, and a list of `outputs`. Usually, it also has a list of `arguments` and often it will have a list of `resource_inputs`. Subclasses will generally have additional arguments as well (for instance, `PythonScriptStep` requires the filename and path of the script to run). 
 
-The execution graph is acyclic, but pipelines can be run on a recurring schedule and can run Python scripts that can write state information to the file system, making it possible to create complex profiles. If you design your pipeline so that certain steps may run in parallel or asynchronously, Azure Machine Learning transparently handles the dependency analysis and coordination of fan-out and fan-in. You generally don't have to concern yourself with the details of the execution graph, but it's available via the [Pipeline.graph](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline.pipeline?view=azure-ml-py#attributes) attribute. 
+The execution graph is acyclic, but pipelines can be run on a recurring schedule and can run Python scripts that can write state information to the file system, making it possible to create complex profiles. If you design your pipeline so that certain steps may run in parallel or asynchronously, Azure Machine Learning transparently handles the dependency analysis and coordination of fan-out and fan-in. You generally don't have to concern yourself with the details of the execution graph, but it's available via the [pipeline.graph](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline.pipeline?view=azure-ml-py#attributes) attribute. 
 
 
-### A simple Python Pipeline
+### A simple Python pipeline
 
-This snippet shows the objects and calls needed to create and run a basic `Pipeline`:
+This snippet shows the objects and calls needed to create and run a basic `pipeline`:
 
 ```python
 ws = Workspace.from_config() 
@@ -168,11 +168,11 @@ As you can see, creating an Azure Machine Learning pipeline is a little more com
 
 Some situations that suggest using a pipeline:
 
-* In a team environment: divide Machine Learning tasks into multiple independent steps so that developers can work and evolve their programs independently. 
+* In a team environment: divide machine learning tasks into multiple independent steps so that developers can work and evolve their programs independently. 
 
 * When in or near deployment: nail down the configuration and use scheduled and event-driven operations to stay on top of changing data.
 
-* In the early stages of a Machine Learning project or working alone: use pipelines to automate the build. If you've started worrying about recreating the configuration and computational state before implementing a new idea, that's a signal that you might consider using a pipeline to automate the workflow. 
+* In the early stages of a machine learning project or working alone: use pipelines to automate the build. If you've started worrying about recreating the configuration and computational state before implementing a new idea, that's a signal that you might consider using a pipeline to automate the workflow. 
 
 It's easy to become enthusiastic about reusing cached results, fine-grained control over compute costs, and process isolation, but pipelines do have costs. Some anti-patterns include:
 
@@ -182,7 +182,7 @@ It's easy to become enthusiastic about reusing cached results, fine-grained cont
 
 * Prematurely optimizing compute resources. For instance, there are often several stages to data preparation and one can often see "Oh, here's a place where I could use an `MpiStep` for parallel-programming but here's a place where I could use a `PythonScriptStep` with a less-powerful compute target," and so forth. And maybe, in the long run, creating fine-grained steps like that might prove worthwhile, especially if there's a possibility to use cached results rather than always recalculating. But pipelines are not intended to be a substitute for the `multiprocessing` module. 
 
-Until a project gets large or nears deployment, your pipelines should be coarser rather than fine-grained. If you think of your Machine Learning project as involving _stages_ and a pipeline as providing a complete workflow to move you through a particular stage, you're on the right path. 
+Until a project gets large or nears deployment, your pipelines should be coarser rather than fine-grained. If you think of your machine learning project as involving _stages_ and a pipeline as providing a complete workflow to move you through a particular stage, you're on the right path. 
 
 ## Key advantages
 

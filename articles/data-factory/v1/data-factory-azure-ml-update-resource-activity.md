@@ -34,7 +34,7 @@ ms.date: 01/22/2018
 This article complements the main Azure Data Factory - Azure Machine Learning integration article: [Create predictive pipelines using Azure Machine Learning and Azure Data Factory](data-factory-azure-ml-batch-execution-activity.md). If you haven't already done so, review the main article before reading through this article. 
 
 ## Overview
-Over time, the predictive models in the Azure Machine Learning scoring experiments need to be retrained using new input datasets. After you are done with retraining, you want to update the scoring web service with the retrained Machine Learning model. The typical steps to enable retraining and updating Azure Machine Learning models via web services are:
+Over time, the predictive models in the Azure Machine Learning scoring experiments need to be retrained using new input datasets. After you are done with retraining, you want to update the scoring web service with the retrained machine learning model. The typical steps to enable retraining and updating Azure Machine Learning models via web services are:
 
 1. Create an experiment in [Azure Machine Learning Studio (classic)](https://studio.azureml.net).
 2. When you are satisfied with the model, use Azure Machine Learning Studio (classic) to publish web services for both the **training experiment** and scoring/**predictive experiment**.
@@ -90,7 +90,7 @@ You can get values for place holders in the URL when querying the web service on
     "name": "AzureMLLinkedService",
     "properties": {
         "type": "AzureML",
-        "description": "The linked service for AML web service.",
+        "description": "The linked service for Azure Machine Learning web service.",
         "typeProperties": {
             "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/0000000000000000000000000000000000000/services/0000000000000000000000000000000000000/jobs?api-version=2.0",
             "apiKey": "xxxxxxxxxxxx",
@@ -208,7 +208,7 @@ In **Azure Machine Learning Studio (classic)**, do the following to get values f
 1. Click **WEB SERVICES** on the left menu.
 2. Click the **training web service** in the list of web services.
 3. Click copy next to **API key** text box. Paste the key in the clipboard into the Data Factory JSON editor.
-4. In the **Azure Machine Learning studio**, click **BATCH EXECUTION** link.
+4. In the **Azure Machine Learning Studio (classic)**, click **BATCH EXECUTION** link.
 5. Copy the **Request URI** from the **Request** section and paste it into the Data Factory JSON editor.   
 
 ### Linked Service for Azure Machine Learning updatable scoring endpoint:
@@ -294,7 +294,7 @@ The pipeline has two activities: **AzureMLBatchExecution** and **AzureMLUpdateRe
             {
                 "type": "AzureMLUpdateResource",
                 "typeProperties": {
-                    "trainedModelName": "Training Exp for ADF ML [trained model]",
+                    "trainedModelName": "Training Exp for Azure Data Factory Machine Learning [trained model]",
                     "trainedModelDatasetName" :  "trainedModelBlob"
                 },
                 "inputs": [
@@ -312,7 +312,7 @@ The pipeline has two activities: **AzureMLBatchExecution** and **AzureMLUpdateRe
                     "concurrency": 1,
                     "retry": 3
                 },
-                "name": "AzureML Update Resource",
+                "name": "Azure Machine Learning Update Resource",
                 "linkedServiceName": "updatableScoringEndpoint2"
             }
         ],

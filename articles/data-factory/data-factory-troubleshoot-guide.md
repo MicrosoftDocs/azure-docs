@@ -378,7 +378,7 @@ The following table applies to U-SQL.
 
 - **Cause**: Azure Machine Learning pipeline run failed.
 
-- **Recommendation**:  Please check in Azure Machine Learning for more error logs and fix the Machine Learning pipeline
+- **Recommendation**:  Please check in Azure Machine Learning for more error logs and fix the machine learning pipeline.
 
 
 

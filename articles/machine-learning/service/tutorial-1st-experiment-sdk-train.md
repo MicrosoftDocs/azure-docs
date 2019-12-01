@@ -12,7 +12,7 @@ ms.reviewer: trbye
 ms.date: 11/04/2019
 ---
 
-# Tutorial: Train your first Machine Learning model
+# Tutorial: Train your first machine learning model
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 

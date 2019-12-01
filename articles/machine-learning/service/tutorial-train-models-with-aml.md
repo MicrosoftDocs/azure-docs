@@ -425,10 +425,10 @@ print(model.name, model.id, model.version, sep='\t')
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
-You can also delete just the Azure Machine Learning Compute cluster. However, autoscale is turned on, and the cluster minimum is zero. So this particular resource won't incur additional compute charges when not in use:
+You can also delete just the Azure Machine Learning compute cluster. However, autoscale is turned on, and the cluster minimum is zero. So this particular resource won't incur additional compute charges when not in use:
 
 ```python
-# optionally, delete the Azure Machine Learning Compute cluster
+# Optionally, delete the Azure Machine Learning compute cluster
 compute_target.delete()
 ```
 

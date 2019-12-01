@@ -59,9 +59,9 @@ conda create -n <env-name> python=3.7.3
 ```
 Which creates a Conda Environment using Python 3.7.3, which doesn't have the install issue present in 3.7.4.
 
-## Trouble creating Azure Machine Learning Compute
+## Trouble creating the Azure Machine Learning compute
 
-There is a rare chance that some users who created their Azure Machine Learning workspace from the Azure portal before the GA release might not be able to create Azure Machine Learning Compute in that workspace. You can either raise a support request against the service or create a new workspace through the Portal or the SDK to unblock yourself immediately.
+There is a rare chance that some users who created their Azure Machine Learning workspace from the Azure portal before the GA release might not be able to create the Azure Machine Learning compute in that workspace. You can either raise a support request against the service or create a new workspace through the Portal or the SDK to unblock yourself immediately.
 
 ## Image building failure
 
@@ -126,7 +126,7 @@ When you use automated machine learning capabilities on Azure Databricks, to can
 
 In automated machine learning settings, if you have more than 10 iterations, set `show_output` to `False` when you submit the run.
 
-### Widget for the Azure Machine Learning SDK/automated machine learning
+### Widget for the Azure Machine Learning SDK and automated machine learning
 
 The Azure Machine Learning SDK widget isn't supported in a Databricks notebook because the notebooks can't parse HTML widgets. You can view the widget in the portal by using this Python code in your Azure Databricks notebook cell:
 
@@ -190,7 +190,7 @@ If you perform a management operation on a compute target from a remote job, you
 {"error":{"code":"AuthenticationFailed","message":"Authentication failed."}}
 ```
 
-For example, you will receive an error if you try to create or attach a compute target from a Machine Learning Pipeline that is submitted for remote execution.
+For example, you will receive an error if you try to create or attach a compute target from a machine learning pipeline that is submitted for remote execution.
 
 ## Overloaded AzureFile storage
 

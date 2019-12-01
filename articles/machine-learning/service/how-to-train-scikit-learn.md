@@ -1,7 +1,7 @@
 ---
 title: Train scikit-learn machine learning models 
 titleSuffix: Azure Machine Learning
-description: Learn how to run your scikit-learn training scripts at enterprise scale using Azure Machine Learning's SKlearn estimator class. The example scripts classify iris flower images to build a machine learning model based on scikit-learn's iris dataset.
+description: Learn how to run your scikit-learn training scripts at enterprise scale by using the Azure Machine Learning SKlearn estimator class. The example scripts classify iris flower images to build a machine learning model based on scikit-learn's iris dataset.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -17,7 +17,7 @@ ms.custom: seodec18
 # Build scikit-learn models at scale with Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, learn how to run your scikit-learn training scripts at enterprise scale using Azure Machine Learning's [SKlearn estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) class. 
+In this article, learn how to run your scikit-learn training scripts at enterprise scale by using the Azure Machine Learning [SKlearn estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) class. 
 
 The example scripts in this article are used to classify iris flower images to build a machine learning model based on scikit-learn's [iris dataset](https://archive.ics.uci.edu/ml/datasets/iris).
 

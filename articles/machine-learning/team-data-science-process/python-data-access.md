@@ -50,13 +50,13 @@ If you have git installed on your machine, you can use pip to install directly f
     pip install git+https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python.git
 
 
-## <a name="datasetAccess"></a>Use Studio Code snippets to access datasets
+## <a name="datasetAccess"></a>Use code snippets to access datasets
 The Python client library gives you programmatic access to your existing datasets from experiments that have been run.
 
-From the Studio web interface, you can generate code snippets that include all the necessary information to download and deserialize datasets as pandas DataFrame objects on your local machine.
+From the Azure Machine Learning Studio (classic) web interface, you can generate code snippets that include all the necessary information to download and deserialize datasets as pandas DataFrame objects on your local machine.
 
 ### <a name="security"></a>Security for data access
-The code snippets provided by Studio for use with the Python client library includes your workspace ID and authorization token. These provide full access to your workspace and must be protected, like a password.
+The code snippets provided by Azure Machine Learning Studio (classic) for use with the Python client library includes your workspace ID and authorization token. These provide full access to your workspace and must be protected, like a password.
 
 For security reasons, the code snippet functionality is only available to users that have their role set as **Owner** for the workspace. Your role is displayed in Azure Machine Learning Studio (classic) on the **USERS** page under **Settings**.
 
@@ -66,7 +66,7 @@ If your role is not set as **Owner**, you can either request to be reinvited as 
 
 To obtain the authorization token, you can do one of the following:
 
-* Ask for a token from an owner. Owners can access their authorization tokens from the Settings page of their workspace in Studio. Select **Settings** from the left pane and click **AUTHORIZATION TOKENS** to see the primary and secondary tokens. Although either the primary or the secondary authorization tokens can be used in the code snippet, it is recommended that owners only share the secondary authorization tokens.
+* Ask for a token from an owner. Owners can access their authorization tokens from the Settings page of their workspace in Azure Machine Learning Studio (classic). Select **Settings** from the left pane and click **AUTHORIZATION TOKENS** to see the primary and secondary tokens. Although either the primary or the secondary authorization tokens can be used in the code snippet, it is recommended that owners only share the secondary authorization tokens.
 
    ![Authorization tokens](./media/python-data-access/ml-python-access-settings-tokens.png)
 
@@ -89,7 +89,7 @@ Authorization tokens are managed on the **AUTHORIZATION TOKENS** page under **SE
    
     ![Paste code into the notebook][ipython-dataset]
 
-## <a name="accessingIntermediateDatasets"></a>Access intermediate datasets from Machine Learning experiments
+## <a name="accessingIntermediateDatasets"></a>Access intermediate datasets from machine learning experiments
 After an experiment is run in the classic version of Machine Learning Studio, it is possible to access the intermediate datasets from the output nodes of modules. Intermediate datasets are data that has been created and used for intermediate steps when a model tool has been run.
 
 Intermediate datasets can be accessed as long as the data format is compatible with the Python client library.

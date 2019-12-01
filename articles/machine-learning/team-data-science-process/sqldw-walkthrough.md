@@ -564,13 +564,13 @@ The needed Azure SQL DW information in the sample IPython Notebook and the Pytho
 
 If you have already set up an Azure Machine Learning workspace, you can directly upload the sample IPython Notebook to the Azure Machine Learning IPython Notebook service and start running it. Here are the steps to upload to the Azure Machine Learning IPython Notebook service:
 
-1. Log in to your Azure Machine Learning workspace, click "Studio" at the top, and click "NOTEBOOKS" on the left side of the web page.
+1. Log in to your Azure Machine Learning workspace, click **Studio"** at the top, and click **NOTEBOOKS** on the left side of the web page.
 
     ![Click Studio then NOTEBOOKS][22]
-2. Click "NEW" on the left bottom corner of the web page, and select "Python 2". Then, provide a name to the notebook and click the check mark to create the new blank IPython Notebook.
+2. Click **NEW** on the left bottom corner of the web page, and select **Python 2**. Then, provide a name to the notebook and click the check mark to create the new blank IPython Notebook.
 
     ![Click NEW then select Python 2][23]
-3. Click the "Jupyter" symbol on the left top corner of the new IPython Notebook.
+3. Click the **Jupyter** symbol on the left top corner of the new IPython Notebook.
 
     ![Click Jupyter symbol][24]
 4. Drag and drop the sample IPython Notebook to the **tree** page of your Azure Machine Learning IPython Notebook service, and click **Upload**. Then, the sample IPython Notebook will be uploaded to the Azure Machine Learning IPython Notebook service.
@@ -810,12 +810,12 @@ To begin the modeling exercise, log in to your **Azure Machine Learning (classic
 
 1. To get started with Azure Machine Learning, see [What is Azure Machine Learning Studio (classic)?](../studio/what-is-ml-studio.md)
 2. Log in to [Azure Machine Learning Studio (classic)](https://studio.azureml.net).
-3. The Studio Home page provides a wealth of information, videos, tutorials, links to the Modules Reference, and other resources. For more information about Azure Machine Learning, consult the [Azure Machine Learning Documentation Center](https://azure.microsoft.com/documentation/services/machine-learning/).
+3. The Machine Learning Studio (classic) Home page provides a wealth of information, videos, tutorials, links to the Modules Reference, and other resources. For more information about Azure Machine Learning, consult the [Azure Machine Learning Documentation Center](https://azure.microsoft.com/documentation/services/machine-learning/).
 
 A typical training experiment consists of the following steps:
 
 1. Create a **+NEW** experiment.
-2. Get the data into Azure Machine Learning studio.
+2. Get the data into Azure Machine Learning Studio (classic).
 3. Pre-process, transform and manipulate the data as needed.
 4. Generate features as needed.
 5. Split the data into training/validation/testing datasets(or have separate datasets for each).
@@ -825,7 +825,7 @@ A typical training experiment consists of the following steps:
 9. Evaluate the model(s) to compute the relevant metrics for the learning problem.
 10. Fine tune the model(s) and select the best model to deploy.
 
-In this exercise, we have already explored and engineered the data in SQL Data Warehouse, and decided on the sample size to ingest in Azure Machine Learning studio. Here is the procedure to build one or more of the prediction models:
+In this exercise, we have already explored and engineered the data in SQL Data Warehouse, and decided on the sample size to ingest in Azure Machine Learning Studio (classic). Here is the procedure to build one or more of the prediction models:
 
 1. Get the data into Azure Machine Learning Studio (classic) using the [Import Data][import-data] module, available in the **Data Input and Output** section. For more information, see the [Import Data][import-data] module reference page.
 

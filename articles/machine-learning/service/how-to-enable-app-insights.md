@@ -1,5 +1,5 @@
 ---
-title: Monitor and collect data from Machine Learning web service endpoints
+title: Monitor and collect data from machine learning web service endpoints
 titleSuffix: Azure Machine Learning
 description: Monitor web services deployed with Azure Machine Learning using Azure Application Insights
 services: machine-learning
@@ -13,7 +13,7 @@ ms.date: 11/12/2019
 ms.custom: seoapril2019
 ---
 
-# Monitor and collect data from Machine Learning web service endpoints
+# Monitor and collect data from machine learning web service endpoints
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you learn how to collect data from and monitor models deployed to web service endpoints in Azure Kubernetes Service (AKS) or Azure Container Instances (ACI) by enabling Azure Application Insights. In addition to collecting an endpoint's input data and response, you can monitor:
