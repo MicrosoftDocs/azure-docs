@@ -33,12 +33,12 @@ There are various methods you can use to attach a database. In this article, we 
 
 ### Attach a database using C#
 
-####Needed NuGets
+#### Needed NuGets
 
 * Install [Microsoft.Azure.Management.kusto](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
 * Install [Microsoft.Rest.ClientRuntime.Azure.Authentication for authentication](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication).
 
-####Code Example
+#### Code Example
 
 ```Csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -74,14 +74,14 @@ var attachedDatabaseConfigurations = resourceManagementClient.AttachedDatabaseCo
 
 ### Attach a database using Python
 
-####Needed Modules
+#### Needed Modules
 
 ```
 pip install azure-common
 pip install azure-mgmt-kusto
 ```
 
-####Code Example
+#### Code Example
 
 ```python
 from azure.mgmt.kusto import KustoManagementClient
