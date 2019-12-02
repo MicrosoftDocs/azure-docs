@@ -1,13 +1,8 @@
 ---
-title: Key Vault references - Azure App Service | Microsoft Docs
-description: Conceptual reference and setup guide for Azure Key Vault references in Azure App Service and Azure Functions
-services: app-service
+title: Use Key Vault references
+description: Learn how to set up Azure App Service and Azure Functions to use Azure Key Vault references. Make Key Vault secrets available to your application code.
 author: mattchenderson
-manager: jeconnoc
-editor: ''
 
-ms.service: app-service
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: mahender
