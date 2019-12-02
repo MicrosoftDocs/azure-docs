@@ -124,6 +124,9 @@ In your policy, set:
 
 1. Click **Create**.
 
+> [!NOTE]
+> Just as you can have a conditional access policy apply to include certain cloud applications, it is also possible to configure the rule to apply globally, but to exclude certain cloud applications. When you do this, you may be blocking or restricting access to services and functionality beyond what you expect. (For example, if you have a virtual machine running on Azure, and that is the only application you can access without MFA, integrated authentication won't work on that VM! That's because all the cloud services you're trying to access require MFA credentials, but you didn't provide MFA credentials when signing into the VM.) Be careful when selecting options like "All cloud apps".
+
 ## Evaluate a simulated sign in
 
 Now that you have configured your Conditional Access policy, you probably want to know whether it works as expected. As a first step, use the Conditional Access what if policy tool to simulate a sign in of your test user. The simulation estimates the impact this sign in has on your policies and generates a simulation report.  
