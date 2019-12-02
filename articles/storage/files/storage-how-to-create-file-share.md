@@ -30,7 +30,7 @@ To create an Azure file share, you can use a storage account that already exists
     ![The add File share button](./media/storage-how-to-create-file-share/create-file-share-portal2.png)
 
 1. Enter a **Name** and **Quota**.
-    ![The name and desired quota for the new file share](./media/storage-how-to-create-file-share/create-file-share-portal3.png)
+    ![The name and quota for the new file share](./media/storage-how-to-create-file-share/create-file-share-portal3.png)
 
 1. View your new file share.
     ![The new file share in the UI](./media/storage-how-to-create-file-share/create-file-share-portal4.png)
@@ -49,7 +49,7 @@ Download and install the Azure PowerShell cmdlets. See [How to install and conf
 > We recommend that you download and install, or upgrade to, the latest Azure PowerShell module.
 
 1. **Create a new storage account.**
-    A storage account is a shared pool of storage where you can deploy shares in Azure Files as well as in other storage resources, such as blobs or queues.
+    A storage account is a shared pool of storage where you can deploy shares in Azure Files, blobs, or queues.
 
     ```PowerShell
     $resourceGroup = "myresourcegroup"
