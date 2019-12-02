@@ -92,7 +92,7 @@ The V3 Translator API is neural by default and statistical systems are only avai
 |Spanish|	`es`	|Neural available|	Neural|
 |Swedish|	`sv`	|Neural available	|Neural|
 |Tahitian|	`ty`	|Statistical only|	Statistical|
-|Tamil|	`ta`	|Statistical only|	Statistical|
+|Tamil|	`ta`	|Neural available |	Neural|
 |Telugu|	`te`	|Neural only|	Neural|
 |Thai|	`th`	|Neural available|	Neural|
 |Tongan|	`to`	|Statistical only|	Statistical|
