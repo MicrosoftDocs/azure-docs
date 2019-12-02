@@ -37,7 +37,7 @@ Storm on HDInsight provides the following features:
 
 * **Create streaming pipelines using multiple Azure services**: Storm on HDInsight integrates with other Azure services such as Event Hubs, SQL Database, Azure Storage, and Azure Data Lake Storage.
 
-    For an example solution that integrates with Azure services, see [Process events from Event Hubs with Apache Storm on HDInsight](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/).
+    For an example solution that integrates with Azure services, see [Process events from Event Hubs with Apache Storm on HDInsight](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub).
 
 For a list of companies that are using Apache Storm for their real-time analytics solutions, see [Companies using Apache Storm](https://storm.apache.org/documentation/Powered-By.html).
 
@@ -75,7 +75,7 @@ You can create a new Storm cluster on HDInsight in minutes. For more information
 
 * __Web connectivity__: All HDInsight clusters provide the Ambari web UI. You can easily monitor, configure, and manage services on your cluster by using the Ambari web UI. Storm clusters also provide the Storm UI. You can monitor and manage running Storm topologies from your browser by using the Storm UI.
 
-  For more information, see the [Manage HDInsight using the Apache Ambari Web UI](../hdinsight-hadoop-manage-ambari.md) and [Monitor and manage using the Apache Storm UI](apache-storm-deploy-monitor-topology-linux.md#monitor-and-manage-storm-ui) documents.
+  For more information, see the [Manage HDInsight using the Apache Ambari Web UI](../hdinsight-hadoop-manage-ambari.md) and [Monitor and manage using the Apache Storm UI](apache-storm-deploy-monitor-topology-linux.md#monitor-and-manage-a-topology-using-the-storm-ui) documents.
 
 * __Azure PowerShell and Azure Classic CLI__: PowerShell and classic CLI both provide command-line utilities that you can use from your client system to work with HDInsight and other Azure services.
 
@@ -89,7 +89,7 @@ You can create a new Storm cluster on HDInsight in minutes. For more information
 
 * __Event Hubs__: For an example of using Event Hubs with a Storm cluster, see the following examples:
 
-    * [Process events from Azure Event Hubs with Apache Storm on HDInsight (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/)
+    * [Process events from Azure Event Hubs with Apache Storm on HDInsight (Java)](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub)
 
     * [Process events from Azure Event Hubs with Apache Storm on HDInsight (C#)](apache-storm-develop-csharp-event-hub-topology.md)
 
@@ -113,7 +113,7 @@ The following are some common scenarios for which you might use Storm on HDInsig
 * Search
 * Mobile engagement
 
-For information about real-world scenarios, see the [How companies are using Apache Storm](https://storm.apache.org/documentation/Powered-By.html) document.
+For information about real-world scenarios, see the [How companies are using Apache Storm](https://storm.apache.org/Powered-By.html) document.
 
 ## Development
 

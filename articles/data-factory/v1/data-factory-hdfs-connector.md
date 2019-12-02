@@ -1,5 +1,5 @@
 ---
-title: Move data from on-premises HDFS | Microsoft Docs
+title: Move data from on-premises HDFS 
 description: Learn about how to move data from on-premises HDFS using Azure Data Factory.
 services: data-factory
 documentationcenter: ''

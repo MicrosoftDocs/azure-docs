@@ -1,5 +1,5 @@
 ---
-title: Overview for two-factor verification and your work or school account - Azure Active Directory | Microsoft Docs
+title: Security verification & your work or school account - Azure AD
 description: Learn about how to set up your security verification methods to use two-factor verification with your work or school account.
 services: active-directory
 author: eross-msft
@@ -16,7 +16,7 @@ ms.reviewer: richagi
 ms.collection: M365-identity-device-management
 ---
 
-# Overview for two-factor verification and your work or school account
+# Two-factor verification and your work or school account
 
 You've gotten an email from someone in IT or your boss saying that the organization has added additional security verification to your account. So what does that mean? It means your organization is taking extra steps to make sure you are who you say you are when you sign in. This extra verification, also known as two-factor verification, is done through a combination of your user name, your password, and a mobile device or phone.
 

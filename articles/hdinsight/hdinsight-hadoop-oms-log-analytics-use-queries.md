@@ -2,13 +2,12 @@
 title: Query Azure Monitor logs to monitor Azure HDInsight clusters 
 description: Learn how to run queries on Azure Monitor logs to monitor jobs running in an HDInsight cluster.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
-
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.author: hrasheed
 ---
 
 # Query Azure Monitor logs to monitor HDInsight clusters
@@ -23,38 +22,38 @@ Learn some basic scenarios on how to use Azure Monitor logs to monitor Azure HDI
 
 ## Prerequisites
 
-* You must have configured an HDInsight cluster to use Azure Monitor logs, and added the HDInsight cluster-specific Azure Monitor logs monitoring solutions to the workspace. For instructions, see [Use Azure Monitor logs with HDInsight clusters](hdinsight-hadoop-oms-log-analytics-tutorial.md).
+You must have configured an HDInsight cluster to use Azure Monitor logs, and added the HDInsight cluster-specific Azure Monitor logs monitoring solutions to the workspace. For instructions, see [Use Azure Monitor logs with HDInsight clusters](hdinsight-hadoop-oms-log-analytics-tutorial.md).
 
 ## Analyze HDInsight cluster metrics
 
 Learn how to look for specific metrics for your HDInsight cluster.
 
 1. Open the Log Analytics workspace that is associated to your HDInsight cluster from the Azure portal.
-2. Select the **Log Search** tile.
-3. Type the following query in the search box to search for all metrics for all available metrics for all HDInsight clusters configured to use Azure Monitor logs, and then select **RUN**.
+1. Select the **Log Search** tile.
+1. Type the following query in the search box to search for all metrics for all available metrics for all HDInsight clusters configured to use Azure Monitor logs, and then select **RUN**.
 
         search *
 
-    ![Search all metrics](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics.png "Search all metrics")
+    ![Apache Ambari analytics search all metrics](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics.png "Search all metrics")
 
     The output shall look like:
 
-    ![Search all metrics output](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics-output.png "Search all metrics output")
+    ![log analytics search all metrics](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics-output.png "Search all metrics output")
 
-5. From the left pane, under **Type**, select a metric that you want to dig deep into, and then select **Apply**. The following screenshot shows the `metrics_resourcemanager_queue_root_default_CL` type is selected.
+1. From the left pane, under **Type**, select a metric that you want to dig deep into, and then select **Apply**. The following screenshot shows the `metrics_resourcemanager_queue_root_default_CL` type is selected.
 
     > [!NOTE]  
     > You may need to select the **[+]More** button to find the metric you are looking for. Also, the **Apply** button is at the bottom of the list so you must scroll down to see it.
 
     Notice that the query in the text box changes to one shown in the highlighted box in the following screenshot:
 
-    ![Search for specific metrics](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-metrics.png "Search for specific metrics")
+    ![log analytics search specific metrics](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-metrics.png "Search for specific metrics")
 
-6. To dig deeper into this specific metric. For example, you can refine the existing output based on the average of resources used in a 10-minute interval, categorized by cluster name using the following query:
+1. To dig deeper into this specific metric. For example, you can refine the existing output based on the average of resources used in a 10-minute interval, categorized by cluster name using the following query:
 
         search in (metrics_resourcemanager_queue_root_default_CL) * | summarize AggregatedValue = avg(UsedAMResourceMB_d) by ClusterName_s, bin(TimeGenerated, 10m)
 
-7. Instead of refining based on the average of resources used, you can use the following query to refine the results based on when the maximum resources were used (as well as 90th and 95th percentile) in a 10-minute window:
+1. Instead of refining based on the average of resources used, you can use the following query to refine the results based on when the maximum resources were used (as well as 90th and 95th percentile) in a 10-minute window:
 
         search in (metrics_resourcemanager_queue_root_default_CL) * | summarize ["max(UsedAMResourceMB_d)"] = max(UsedAMResourceMB_d), ["pct95(UsedAMResourceMB_d)"] = percentile(UsedAMResourceMB_d, 95), ["pct90(UsedAMResourceMB_d)"] = percentile(UsedAMResourceMB_d, 90) by ClusterName_s, bin(TimeGenerated, 10m)
 
@@ -64,15 +63,16 @@ Learn how to  look error messages during a specific time window. The steps here 
 
 1. Open the Log Analytics workspace that is associated to your HDInsight cluster from the Azure portal.
 2. Select the **Log Search** tile.
-3. Type the following query to search for all error messages for all HDInsight clusters configured to use Azure Monitor logs, and then select **RUN**. 
+3. Type the following query to search for all error messages for all HDInsight clusters configured to use Azure Monitor logs, and then select **RUN**.
 
          search "Error"
 
     You shall see an output like the following output:
 
-    ![Search all errors output](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-errors-output.png "Search all errors output")
+    ![Azure portal log search errors](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-errors-output.png "Search all errors output")
 
 4. From the left pane, under **Type** category, select an error type that you want to dig deep into, and then select **Apply**.  Notice the results are refined to only show the error of the type you selected.
+
 5. You can dig deeper into this specific error list by using the options available in the left pane. For example:
 
     - To see error messages from a specific worker node:

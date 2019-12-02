@@ -1,5 +1,5 @@
 ---
-title: Use tools provided in the Azure IoT Hub Device Provisioning Service SDKs to simplify development
+title: Use Azure IoT Hub Device Provisioning Service SDKs tools
 description: This document reviews the tools provided in Azure IoT Hub Device Provisioning Service SDKs for development
 author: robinsh
 ms.author: robinsh

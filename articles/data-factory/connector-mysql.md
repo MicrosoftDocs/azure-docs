@@ -1,5 +1,5 @@
 ---
-title: Copy data from MySQL using Azure Data Factory | Microsoft Docs
+title: Copy data from MySQL using Azure Data Factory 
 description: Learn about MySQL connector in Azure Data Factory that lets you copy data from a MySQL database to a data store supported as a sink.
 services: data-factory
 documentationcenter: ''
@@ -30,7 +30,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 
 This MySQL connector is supported for the following activities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source matrix](copy-activity-overview.md)
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)
 
 You can copy data from MySQL database to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.

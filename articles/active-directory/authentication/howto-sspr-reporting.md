@@ -36,10 +36,6 @@ The following questions can be answered by the reports that exist in the [Azure 
 * What admins are resetting their own passwords frequently?
 * Is there any suspicious activity going on with password reset?
 
-## Power BI content pack
-
-If you're a Power BI user, there is a content pack for Azure AD that includes easy-to-use reporting for SSPR. For more information on how to use and deploy the content pack, see [How to use the Azure Active Directory Power BI content pack](../reports-monitoring/howto-power-bi-content-pack.md). With the content pack, you can create your own dashboards and share them with others in your organization.
-
 ## How to view password management reports in the Azure portal
 
 In the Azure portal experience, we have improved the way that you can view password reset and password reset registration activity. Use the following the steps to find the password reset and password reset registration events:

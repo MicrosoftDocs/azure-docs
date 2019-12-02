@@ -1,13 +1,13 @@
 ---
 title: Use Application Insights to monitor your Azure Kubernetes Service (AKS) or other Kubernetes hosted applications - Azure Monitor | Microsoft Docs
 description: Azure Monitor uses service mesh technology, Istio, on your Kubernetes cluster to provide application monitoring for any Kubernetes hosted application. This allows you to collect Application Insights telemetry pertaining to incoming and outgoing requests to and from pods running in your cluster.
-services: application-insights
-author: tokaplan
-manager: carmonm
-ms.service: application-insights
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 04/25/2019
+author: tokaplan
 ms.author: alkaplan
+ms.date: 04/25/2019
+
 ---
 
 # Zero instrumentation application monitoring for Kubernetes hosted applications

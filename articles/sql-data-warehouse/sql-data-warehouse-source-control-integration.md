@@ -1,5 +1,5 @@
 ---
-title: Source Control Integration| Microsoft Docs
+title: Source Control Integration
 description: Enterprise-class Database DevOps experience for SQL Data Warehouse with native source control integration using Azure Repos (Git and GitHub).
 services: sql-data-warehouse
 author: kevinvngo 

@@ -6,7 +6,7 @@ author: chenyl
 
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 11/13/2019
 ms.author: chenyl
 ---
 

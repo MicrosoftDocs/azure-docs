@@ -71,7 +71,7 @@ azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 Kubernetes supports [horizontal pod autoscaling][kubernetes-hpa] to adjust the number of pods in a deployment depending on CPU utilization or other select metrics. The [Metrics Server][metrics-server] is used to provide resource utilization to Kubernetes, and is automatically deployed in AKS clusters versions 1.10 and higher. To see the version of your AKS cluster, use the [az aks show][az-aks-show] command, as shown in the following example:
 
 ```azurecli
-az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion
+az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion --output table
 ```
 
 > [!NOTE]
@@ -111,7 +111,7 @@ After a few minutes, with minimal load on the Azure Vote app, the number of pod 
 
 ## Manually scale AKS nodes
 
-If you created your Kubernetes cluster using the commands in the previous tutorial, it has one node. You can adjust the number of nodes manually if you plan more or fewer container workloads on your cluster.
+If you created your Kubernetes cluster using the commands in the previous tutorial, it has two nodes. You can adjust the number of nodes manually if you plan more or fewer container workloads on your cluster.
 
 The following example increases the number of nodes to three in the Kubernetes cluster named *myAKSCluster*. The command takes a couple of minutes to complete.
 

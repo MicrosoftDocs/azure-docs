@@ -335,11 +335,12 @@ Service pacemaker stop
 ```
 Now, stop the pacemaker service on **node2** and resources failed over to **node1**
 
-**Before failover**
-![Before-failover.png](media/HowToHLI/HASetupWithStonith/Before-failover.png)
-**After failover**
-![after-failover.png](media/HowToHLI/HASetupWithStonith/after-failover.png)
-![crm-mon-after-failover.png](media/HowToHLI/HASetupWithStonith/crm-mon-after-failover.png)
+**Before failover**  
+![Before-failover.png](media/HowToHLI/HASetupWithStonith/Before-failover.png)  
+
+**After failover**  
+![after-failover.png](media/HowToHLI/HASetupWithStonith/after-failover.png)  
+![crm-mon-after-failover.png](media/HowToHLI/HASetupWithStonith/crm-mon-after-failover.png)  
 
 
 ## 9. Troubleshooting

@@ -9,10 +9,11 @@ ms.topic: conceptual
 ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
-ms.date: 07/24/2019
+ms.date: 10/25/2019
 ---
 
 # Deploy a deep learning model for inference with GPU
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 This article teaches you how to use Azure Machine Learning to deploy a GPU-enabled model as a web service. The information in this article is based on deploying a model on Azure Kubernetes Service (AKS). The AKS cluster provides a GPU resource that is used by the model for inference.
 
@@ -109,7 +110,7 @@ from azureml.core.model import Model
 def init():
     global X, output, sess
     tf.reset_default_graph()
-    model_root = Model.get_model_path('tf-dnn-mnist')
+    model_root = os.getenv('AZUREML_MODEL_DIR')
     saver = tf.train.import_meta_graph(
         os.path.join(model_root, 'mnist-tf.model.meta'))
     X = tf.get_default_graph().get_tensor_by_name("network/X:0")

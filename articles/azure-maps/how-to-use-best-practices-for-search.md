@@ -249,7 +249,7 @@ query=1st Avenue & E 111th St, New York
  shall be encoded as:
 
 ```
-query"=1st%20Avenue%20%26%20E%20111th%20St%2C%20New%20York
+query=1st%20Avenue%20%26%20E%20111th%20St%2C%20New%20York
 ```
 
 

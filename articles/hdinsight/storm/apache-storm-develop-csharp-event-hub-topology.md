@@ -15,7 +15,7 @@ ROBOTS: NOINDEX
 Learn how to work with Azure Event Hubs from [Apache Storm](https://storm.apache.org/) on HDInsight. This document uses a C# Storm topology to read and write data from Event Hubs
 
 > [!NOTE]  
-> For a Java version of this project, see [Process events from Azure Event Hubs with Apache Storm on HDInsight (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/).
+> For a Java version of this project, see [Process events from Azure Event Hubs with Apache Storm on HDInsight (Java)](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub).
 
 ## SCP.NET
 

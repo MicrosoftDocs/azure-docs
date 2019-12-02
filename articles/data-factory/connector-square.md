@@ -1,5 +1,5 @@
 ---
-title: Copy data from Square using Azure Data Factory (Preview) | Microsoft Docs
+title: Copy data from Square using Azure Data Factory (Preview) 
 description: Learn how to copy data from Square to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
@@ -27,7 +27,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 
 This Square connector is supported for the following activities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source matrix](copy-activity-overview.md)
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)
 
 

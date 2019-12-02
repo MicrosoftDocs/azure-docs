@@ -1,5 +1,5 @@
 ---
-title: Copy data from an SAP table by using Azure Data Factory | Microsoft Docs
+title: Copy data from an SAP table by using Azure Data Factory 
 description: Learn how to copy data from an SAP table to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
@@ -27,7 +27,7 @@ This article outlines how to use the copy activity in Azure Data Factory to copy
 
 This SAP table connector is supported for the following activities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source matrix](copy-activity-overview.md)
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)
 
 You can copy data from an SAP table to any supported sink data store. For a list of the data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.

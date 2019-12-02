@@ -172,7 +172,7 @@ mstsc /v:<publicIpAddress>
 1. To allow *myVm2* to ping *myVm1* in a later step, enter this command:
 
     ```powershell
-    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
     ```
 
     That command lets ICMP inbound through the Windows firewall.

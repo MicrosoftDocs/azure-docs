@@ -1,13 +1,13 @@
 ---
 title: Manage alert instances in Azure Monitor
 description: Managing alert instances across Azure
-author: anantr
-services: monitoring
-ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 09/24/2018
-ms.author: anantr
+ms.service:  azure-monitor
 ms.subservice: alerts
+ms.topic: conceptual
+author: anantr
+ms.author: robb
+ms.date: 09/24/2018
+
 ---
 
 # Manage alert instances with unified alerts

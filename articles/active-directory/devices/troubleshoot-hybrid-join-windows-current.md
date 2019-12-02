@@ -1,12 +1,12 @@
 ---
-title: Troubleshooting hybrid Azure Active Directory joined devices - Azure Active Directory
+title: Troubleshooting hybrid Azure Active Directory joined devices
 description: Troubleshooting hybrid Azure Active Directory joined Windows 10 and Windows Server 2016 devices.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: troubleshooting
-ms.date: 06/28/2019
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -110,7 +110,7 @@ Proceed to next steps for further troubleshooting.
 
 #### Windows 10 1803 and above
 
-Look for 'Previous Registration' subsection in the 'Diagnostic Data' section of the join status output.
+Look for 'Previous Registration' subsection in the 'Diagnostic Data' section of the join status output. This section is displayed only if the device is domain joined and is unable to hybrid Azure AD join.
 The 'Error Phase' field denotes the phase of the join failure while 'Client ErrorCode' denotes the error code of the Join operation.
 
 ```
@@ -181,7 +181,7 @@ To find the suberror code for the discovery error code, use one of the following
 
 ##### Windows 10 1803 and above
 
-Look for 'DRS Discovery Test' in the 'Diagnostic Data' section of the join status output.
+Look for 'DRS Discovery Test' in the 'Diagnostic Data' section of the join status output. This section is displayed only if the device is domain joined and is unable to hybrid Azure AD join.
 
 ```
 +----------------------------------------------------------------------+
@@ -305,7 +305,7 @@ Find the registration type and look for the error code from the list below.
 
 #### Windows 10 1803 and above
 
-Look for 'Previous Registration' subsection in the 'Diagnostic Data' section of the join status output.
+Look for 'Previous Registration' subsection in the 'Diagnostic Data' section of the join status output. This section is displayed only if the device is domain joined and is unable to hybrid Azure AD join.
 'Registration Type' field denotes the type of join performed.
 
 ```

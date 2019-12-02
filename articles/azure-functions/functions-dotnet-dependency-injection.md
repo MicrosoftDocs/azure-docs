@@ -1,14 +1,8 @@
 ---
 title: Use dependency injection in .NET Azure Functions
 description: Learn how to use dependency injection for registering and using services in .NET functions
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords: azure functions, functions, serverless architecture
 
-ms.service: azure-functions
-ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
@@ -152,7 +146,9 @@ Overriding services provided by the host is currently not supported.  If there a
 
 Values defined in [app settings](./functions-how-to-use-azure-function-app-settings.md#settings) are available in an `IConfiguration` instance, which allows you to read app settings values in the startup class.
 
-You can extract values from the `IConfiguration` instance into a custom type. Copying the app settings values to a custom type makes it easy test your services by making these values injectable. Consider the following class that includes a property named consistent with an app setting.
+You can extract values from the `IConfiguration` instance into a custom type. Copying the app settings values to a custom type makes it easy test your services by making these values injectable. Settings read into the configuration instance must be simple key/value pairs.
+
+Consider the following class that includes a property named consistent with an app setting.
 
 ```csharp
 public class MyOptions
@@ -185,13 +181,15 @@ public class HttpTrigger
 
     public HttpTrigger(IOptions<MyOptions> options)
     {
-        _service = service;
         _settings = options.Value;
     }
 }
 ```
 
 Refer to [Options pattern in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options) for more details regarding working with options.
+
+> [!WARNING]
+> Avoid attempting to read values from files like *local.settings.json* or *appsettings.{environment}.json* on the Consumption plan. Values read from these files related to trigger connections aren't available as the app scales because the hosting infrastructure has no access to the configuration information.
 
 ## Next steps
 
