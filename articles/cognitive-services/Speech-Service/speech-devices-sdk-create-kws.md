@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 11/18/2019
 ms.author: erhopf
 ---
 
@@ -41,7 +41,7 @@ Consider the following guidelines when you choose a keyword:
 
 ## Create your keyword
 
-Before you can use a custom keyword with your device, you'll need to create a keyword with the Microsoft Custom Keyword Generation service. After you provide a keyword, the service produces a file that you deploy to your development kit to enable the keyword on your device.
+Before you can use a custom keyword, you'll need to create a keyword using the [Custom Keyword](https://aka.ms/sdsdk-wakewordportal) page on [Speech Studio](https://aka.ms/sdsdk-speechportal). After you provide a keyword, it produces a file that you deploy to your device.
 
 1. Go to the [Speech Studio](https://aka.ms/sdsdk-speechportal) and **Sign in** or, if you do not yet have a speech subscription, choose [**Create a subscription**](https://go.microsoft.com/fwlink/?linkid=2086754).
 
@@ -57,7 +57,7 @@ Before you can use a custom keyword with your device, you'll need to create a ke
 
     ![Download your keyword](media/speech-devices-sdk/custom-kws-portal-download-keyword.png)
 
-1. Save the .zip file to your computer. You will need this file to deploy your custom keyword to the development kit.
+1. Save the .zip file to your computer. You will need this file to deploy your custom keyword to your device.
 
 ## Next steps
 

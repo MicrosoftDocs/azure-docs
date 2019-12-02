@@ -1,11 +1,8 @@
 ---
-title: Create resources at management group - Azure Resource Manager template
+title: Deploy resources to management group
 description: Describes how to deploy resources at the management group scope in an Azure Resource Manager template.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.author: tomfitz
 ---
 
 # Create resources at the management group level
