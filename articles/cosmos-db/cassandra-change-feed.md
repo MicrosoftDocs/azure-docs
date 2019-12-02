@@ -15,7 +15,7 @@ ms.author: thvankra
 
 The following example shows how to get a change feed on all the rows in a Cassandra API Keyspace table using .NET. The predicate COSMOS_CHANGEFEED_START_TIME() is used directly within CQL to query items in the change feed from a specified start time (in this case current datetime). You can download the full sample [here](https://docs.microsoft.com/samples/azure-samples/azure-cosmos-db-cassandra-change-feed/cassandra-change-feed/).
 
-In each iteration, the query resumes at the last point changes were read, using paging state. We can see a continuous stream of new changes to the user table in the uprofile Keyspace. We will see changes to rows that are inserted, or updated. Watching for delete operations using change feed in Cassandra API is currently not supported. 
+In each iteration, the query resumes at the last point changes were read, using paging state. We can see a continuous stream of new changes to the table in the Keyspace. We will see changes to rows that are inserted, or updated. Watching for delete operations using change feed in Cassandra API is currently not supported. 
 
 ```C#
     //set initial start time for pulling the change feed
@@ -79,7 +79,6 @@ In order to get the changes to a single row by primary key, you can add the prim
 
 The following limitations are applicable when using change feed with Cassandra API:
 
-* Integration with Azure functions is not yet supported, this is planned for a future release.
 * Inserts and updates are currently supported. Delete operation is not yet supported. As a workaround, you can add a soft marker on rows that are being deleted. For example, add a field in the row called "deleted" and set it to "true".
 * Last update is persisted as in core SQL API and intermediate updates to the entity are not available.
 
