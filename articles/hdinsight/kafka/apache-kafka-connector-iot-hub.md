@@ -227,7 +227,7 @@ To configure the source to work with your IoT Hub, perform the following actions
     |`IotHub.StartTime=PLACEHOLDER`|Replace `PLACEHOLDER` with a UTC date. This date is when the connector starts checking for messages. The date format is `yyyy-mm-ddThh:mm:ssZ`.|
     |`BatchSize=100`|Replace `100` with `5`. This change causes the connector to read messages into Kafka once there are five new messages in IoT hub.|
 
-    For an example configuration, see [sample file](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md).
+    For an example configuration, see [Kafka Connect Source Connector for Azure IoT Hub](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md).
 
 1. To save changes, use __Ctrl + X__, __Y__, and then __Enter__.
 
@@ -256,7 +256,7 @@ To configure the sink connection to work with your IoT Hub, perform the followin
     |`topics=PLACEHOLDER`|Replace `PLACEHOLDER` with `iotout`. Messages written to `iotout` topic are forwarded to the IoT hub.|
     |`IotHub.ConnectionString=PLACEHOLDER`|Replace `PLACEHOLDER` with the connection string for the `service` policy.|
 
-    For an example configuration, see [example configuration](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
+    For an example configuration, see [Kafka Connect Sink Connector for Azure IoT Hub](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
 
 1. To save changes, use __Ctrl + X__, __Y__, and then __Enter__.
 
