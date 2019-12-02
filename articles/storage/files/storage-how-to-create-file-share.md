@@ -29,7 +29,7 @@ To create an Azure file share, you can use a storage account that already exists
 1. Select the **+ File share** button.
     ![The add File share button](./media/storage-how-to-create-file-share/create-file-share-portal2.png)
 
-1. Enter a **Name** and **Quota**.
+1. Enter your information for **Name** and **Quota**.
     ![The name and quota for the new file share](./media/storage-how-to-create-file-share/create-file-share-portal3.png)
 
 1. View your new file share.
@@ -48,8 +48,8 @@ Download and install the Azure PowerShell cmdlets. See [How to install and conf
 > [!Note]  
 > We recommend that you download and install, or upgrade to, the latest Azure PowerShell module.
 
-1. **Create a new storage account.**
-    A storage account is a shared pool of storage where you can deploy shares in Azure Files, blobs, or queues.
+1. Create a new storage account.
+    A storage account is a shared pool of storage where you can deploy Azure file shares and storage resources like blobs or queues.
 
     ```PowerShell
     $resourceGroup = "myresourcegroup"
@@ -58,7 +58,7 @@ Download and install the Azure PowerShell cmdlets. See [How to install and conf
     $storAcct = New-AzStorageAccount -ResourceGroupName $resourceGroup -Name $storAcctName -SkuName Standard_LRS -Location $region -Kind StorageV2
     ```
 
-1. **Create a new file share.**        
+1. Create a new file share.        
     ```PowerShell
     $shareName = "myshare"
     $share = New-AzStorageShare -Context $storAcct.Context -Name $shareName
@@ -69,10 +69,10 @@ Download and install the Azure PowerShell cmdlets. See [How to install and conf
 
 ## Create a file share through the CLI
 
-1. **Download and install the Azure CLI.**
+1. Download and install the Azure CLI.
     See [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) and [Get started with the Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
 
-1. **Create a connection string to the storage account where you want to create the share.**  
+1. Create a connection string to the storage account where you want to create the share.
     Replace ```<storage-account>``` and ```<resource_group>``` with your storage account name and resource group in the following example:
 
    ```azurecli
@@ -83,7 +83,7 @@ Download and install the Azure PowerShell cmdlets. See [How to install and conf
     fi
     ```
 
-1. **Create the file share.**
+1. Create the file share.
     ```azurecli
     az storage share create --name files --quota 2048 --connection-string $current_env_conn_string > /dev/null
     ```
@@ -94,7 +94,7 @@ Download and install the Azure PowerShell cmdlets. See [How to install and conf
 * [Connect and mount a file share on Linux](storage-how-to-use-files-linux.md)
 * [Connect and mount a file share on macOS](storage-how-to-use-files-mac.md)
 
-See these links for more information about Azure Files.
+See these links for more information about Azure Files:
 
 * [Storage files FAQ](storage-files-faq.md)
 * [Troubleshoot Azure Files on Windows](storage-troubleshoot-windows-file-connection-problems.md)
