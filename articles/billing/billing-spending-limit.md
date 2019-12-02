@@ -9,7 +9,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/28/2019
+ms.date: 12/02/2019
 ms.author: banders
 
 ---
@@ -42,7 +42,7 @@ To remove your spending limit, follow these steps:
 1. Select **Remove spending limit** from the top of the page.
 1. Select an option that is appropriate for you.
 
-![Selecting an option for remove spending limit](./media/billing-spending-limit/remove-spending-limit.PNG)
+![Selecting an option for remove spending limit](./media/billing-spending-limit/remove-spending-limit01.png)
 
 | Option | Effect |
 | --- | --- |
@@ -73,7 +73,7 @@ Custom spending limits aren't available.
 
 [Some external services published in the Azure Marketplace](billing-understand-your-azure-marketplace-charges.md) can't be used with your subscription credits, and can incur separate charges even when your spending limit is set. Examples include Visual Studio licenses, Azure Active Directory premium, support plans, and most third-party branded services. When you provision a new external service, a warning is shown to let you know the services are billed separately:
 
-![Marketplace purchase warning](./media/billing-understand-your-azure-marketplace-charges/marketplace-warning.PNG)
+![Marketplace purchase warning](./media/billing-understand-your-azure-marketplace-charges/marketplace-warning01.png)
 
 ## Need help? Contact us.
 

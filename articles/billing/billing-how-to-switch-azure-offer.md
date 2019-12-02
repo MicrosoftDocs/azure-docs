@@ -9,7 +9,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/30/2019
+ms.date: 12/02/2019
 ms.author: banders
 ---
 
@@ -64,7 +64,7 @@ The following sections answer commonly asked questions.
 
 An Azure offer is the *type* of the Azure subscription you have. For example, [an subscription with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/), [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p/), and [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) are all Azure offers. Each offer has different [terms](https://azure.microsoft.com/support/legal/offer-details/) and some have special benefits. The offer of your subscription can be found in the Account Center subscription page. Click the offer name to get more details.
 
-   ![Click the Offer link in Account Center to get more details](./media/billing-how-to-switch-azure-offer/offerlink.png)
+   ![Click the Offer link in Account Center to get more details](./media/billing-how-to-switch-azure-offer/offerlink01.png)
 
 ### Why don't I see the button?
 

@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/01/2019
+ms.date: 12/02/2019
 ms.author: banders
 ---
 
@@ -47,15 +47,15 @@ Your usage charges are displayed at the meter level. The following terms mean th
 
 The **Usage Charges** section of your invoice shows the total value for each meter that was consumed during your billing period. For example, the following image shows a usage charge for the Azure Scheduler service.
 
-![Invoice usage charges](./media/billing-understand-your-bill/1.png)
+![Invoice usage charges](./media/billing-understand-your-bill/invoice-usage-charges.png)
 
 The **Statement** section of your detailed usage CSV shows the same charge. Both the *Consumed* amount and *Value* match the invoice.
 
-![CSV usage charges](./media/billing-understand-your-bill/2.png)
+![CSV usage charges](./media/billing-understand-your-bill/csv-usage-charges.png)
 
 To see a daily breakdown of the charge, go to the **Daily Usage** section of the CSV file. Filter for *Scheduler* under *Meter Category*. You can see which days the meter was used and how much was consumed. The *Resource* and *Resource group* information is also shown for comparison. The *Consumed* values should add up to and match what's shown on the invoice.
 
-![Daily Usage section in the CSV](./media/billing-understand-your-bill/3.png)
+![Daily Usage section in the CSV](./media/billing-understand-your-bill/daily-usage-section.png)
 
 To get the cost per day, multiply the *Consumed* amounts with the *Rate* value from the **Statement** section.
 
@@ -73,11 +73,11 @@ The Azure portal can also help you verify your charges. To get a quick overview 
 1. Filter by **Timespan**.
 1. To continue the previous example, you see a usage charge for the Azure Scheduler service.
 
-   ![Cost analysis view in Azure portal](./media/billing-understand-your-bill/4.png)
+   ![Cost analysis view in Azure portal](./media/billing-understand-your-bill/cost-analysis.png)
 
 1. Select the row that shows the charge to see the daily cost breakdown.
 
-   ![Cost history view in Azure portal](./media/billing-understand-your-bill/5.png)
+   ![Cost history view in Azure portal](./media/billing-understand-your-bill/cost-history-view.png)
 
 To learn more, see [Prevent unexpected costs with Azure billing and cost management](billing-getting-started.md#costs).
 

@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 12/02/2019
 ms.author: banders
 
 ---
@@ -83,15 +83,15 @@ You can opt in and configure additional recipients to receive your Azure invoice
 
 1. Select your subscription from the [Subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Opt in for each subscription you own. Click **Invoices** then **Email my invoice**.
 
-    ![Screenshot that shows the opt-in flow](./media/billing-download-azure-invoice-daily-usage-date/InvoicesDeepLink.PNG)
+    ![Screenshot that shows the opt-in flow](./media/billing-download-azure-invoice-daily-usage-date/invoicesdeeplink01.png)
 
 2. Click **Opt in** and accept the terms.
 
-    ![Screenshot that shows the opt-in flow step 2](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
+    ![Screenshot that shows the opt-in flow step 2](./media/billing-download-azure-invoice-daily-usage-date/invoicearticlestep02.png)
 
 3. Once you've accepted the agreement, you can configure additional recipients. When a recipient is removed, the email address is no longer stored. If you change your mind, you need to re-add them.
 
-    ![Screenshot that shows the opt-in flow step 3](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
+    ![Screenshot that shows the opt-in flow step 3](./media/billing-download-azure-invoice-daily-usage-date/invoicearticlestep03.png)
 
 If you don't get an email after following the steps, make sure your email address is correct in the [communication preferences on your profile](https://account.windowsazure.com/profile).
 
@@ -99,7 +99,7 @@ If you don't get an email after following the steps, make sure your email addres
 
 You can opt out of getting your invoice by email by following the steps above and clicking **Opt out of emailed invoices**. This option removes any email addresses set to receive invoices in email. You can reconfigure recipients if you opt back in.
 
- ![Screenshot that shows the opt-out flow](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep4.PNG)
+ ![Screenshot that shows the opt-out flow](./media/billing-download-azure-invoice-daily-usage-date/invoicearticlestep04.png)
 
 ### Get your Microsoft Customer Agreement invoices in email
 

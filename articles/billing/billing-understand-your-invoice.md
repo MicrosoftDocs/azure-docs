@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 12/02/2019
 ms.author: banders
 
 ---
@@ -47,7 +47,7 @@ invoice and descriptions for each term.
 The account information section of the invoice is on the top of the
 first page and shows information about your profile and subscription.
 
-![Account information section of invoice](./media/billing-understand-your-invoice/1.png)
+![Account information section of invoice](./media/billing-understand-your-invoice/account-information-section.png)
 
 | Term | Description |
 | --- | --- |
@@ -65,7 +65,7 @@ The **Invoice Summary** section of the invoice lists the total
 transaction amounts since your last billing period, and your current
 usage charges.
 
-![Invoice summary section](./media/billing-understand-your-invoice/2.png)
+![Invoice summary section](./media/billing-understand-your-invoice/invoice-summary-section.png)
 
 The Subscription name (“Production Storage”) is the name of the
 subscription for this invoice.
@@ -105,7 +105,7 @@ on the second page of your Invoice.
 The Usage charges section of the invoice displays meter level
 information on your charges.
 
-![Usage charges section](./media/billing-understand-your-invoice/3.png)
+![Usage charges section](./media/billing-understand-your-invoice/usage-charges-section.png)
 
 The following table describes the usage charges column headers shown on
 your Invoice.

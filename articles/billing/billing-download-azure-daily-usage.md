@@ -10,7 +10,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 12/02/2019
 ms.author: banders
 ---
 
@@ -55,7 +55,7 @@ If you have a Microsoft Customer Agreement, you can download month-to-date usage
 4. In the **Overview** area, find the download links beneath the month-to-date charges.
 5. Select **Azure usage and charges**.
 
-    ![Screenshot that shows download from Overview](./media/billing-download-azure-usage/open-usage.png)
+    ![Screenshot that shows download from Overview](./media/billing-download-azure-usage/open-usage01.png)
 
 ## Check your billing account type
 [!INCLUDE [billing-check-account-type](../../includes/billing-check-account-type.md)]
