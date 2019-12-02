@@ -547,13 +547,13 @@ For more information about setting up Azure Monitor, see [Azure AD activity logs
 
 On September 25, 2019, we'll be turning off the old, non-enhanced security info experience for registering and managing user security info and only turning on the new, [enhanced version](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Cool-enhancements-to-the-Azure-AD-combined-MFA-and-password/ba-p/354271). This means that your users will no longer be able to use the old experience.
 
-For more information about the enhanced security info experience, see our [admin documentation](https://aka.ms/securityinfodocs) and our [user documentation](https://aka.ms/securityinfoguide).
+For more information about the enhanced security info experience, see our [admin documentation](https://aka.ms/securityinfodocs) and our [user documentation](https://aka.ms/securityinfoguide).
 
 #### To turn on this new experience, you must:
 
 1. Sign in to the Azure portal as a Global Administrator or User Administrator.
 
-2. Go to **Azure Active Directory > User settings > Manage settings for access panel preview features**.
+2. Go to **Azure Active Directory > User settings > Manage settings for access panel preview features**.
 
 3. In the **Users can use preview features for registering and managing security info - enhanced** area, select **Selected**, and then either choose a group of users or choose **All** to turn this feature on for all users in the tenant.
 
