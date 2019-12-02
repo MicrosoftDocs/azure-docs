@@ -1,6 +1,6 @@
 ---
-title: Use spot VMs (Preview) in Azure | Microsoft Docs
-description: Learn how to use spot VMs to save on costs
+title: Use Azure Spot VMs (Preview) 
+description: Learn how to use Azure Spot VMs to save on costs
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -18,7 +18,7 @@ ms.author: cynthn
 ---
 
 
-# Preview: Use spot VMs in Azure
+# Preview: Use Spot VMs in Azure
 
 
 [!INCLUDE [common-spot-vms](../../../includes/virtual-machines-common-spot-vms.md)]  
@@ -26,4 +26,4 @@ ms.author: cynthn
 
 
 ## Next steps
-You can also deploy a [scale set with spot VM instances](../../virtual-machine-scale-sets/use-spot.md).
+You can also deploy a [scale set with Spot VM instances](../../virtual-machine-scale-sets/use-spot.md).
