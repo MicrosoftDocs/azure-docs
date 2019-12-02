@@ -65,13 +65,13 @@
 - name: Concepts
   items:
   - name: Remote monitoring
-      items:
-      - name: Archticture
-        href: iot-accelerators-remote-monitoring-architectural-choices.md
-      - name: Device model schema
-        href: iot-accelerators-remote-monitoring-device-schema.md
-      - name: Device model behavior
-        href: iot-accelerators-remote-monitoring-device-behavior.md
+    items:
+    - name: Archticture
+      href: iot-accelerators-remote-monitoring-architectural-choices.md
+    - name: Device model schema
+      href: iot-accelerators-remote-monitoring-device-schema.md
+    - name: Device model behavior
+      href: iot-accelerators-remote-monitoring-device-behavior.md
   - name: Industrial IoT
     items:
     - name: OPC Twin Architecture
