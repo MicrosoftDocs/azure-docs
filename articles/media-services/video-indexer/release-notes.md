@@ -11,7 +11,7 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 10/27/2019
+ms.date: 12/02/2019
 ms.author: juliako
 ---
 
@@ -24,11 +24,23 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Bug fixes
 * Deprecated functionality
 
+## November 2019
+ 
+* Korean custom language models support
+
+    Video indexer now support custom language models in Korean in both the API and portal
+
 ## October 2019
  
 * Search for animated characters in the gallery
 
     When indexing animated characters, you can now search for them in the account’s video galley. For more information, see [Animated characters recognition](animated-characters-recognition.md).
+
+* New languages supported for STT
+
+    Video Indexer APIs now support STT in Arabic Levantine (ar-SY), English UK dialect (en-GB), and English Australian dialect (en-AU).
+    
+    For video upload, we replaced zh-HANS to zh-CN, both are supported but zh-CN is recommended and more accurate.
 
 ## September 2019
  
