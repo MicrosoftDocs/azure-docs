@@ -55,4 +55,4 @@ Based on your chosen product and approach, the suggested next steps are:
 
 * **Azure IoT Central**: [What is Azure IoT Central?](overview-iot-central.md)
 * **IoT solution accelerators**: [What are Azure IoT solution accelerators?](../../iot-accelerators/about-iot-accelerators.md)
-* **IoT Hub**: [What is Azure IoT Hub?](../iot-hub/iot-hub-what-is-iot-hub.md)
+* **IoT Hub**: [What is Azure IoT Hub?](../../iot-hub/about-iot-hub.md)
