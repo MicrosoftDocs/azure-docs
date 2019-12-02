@@ -41,7 +41,7 @@ When you have access to the customer's resources, use the Azure portal, PowerShe
 
 3. Enter the Microsoft partner ID. The partner ID is the [Microsoft Partner Network](https://partner.microsoft.com/) ID for your organization.
 
-   ![Screenshot that shows Link to a partner ID](./media/billing-link-partner-id/link-partner-ID.PNG)
+   ![Screenshot that shows Link to a partner ID](./media/billing-link-partner-id/link-partner-id01.png)
 
 4. To link a partner ID for another customer, switch the directory. Under **Switch directory**, select your directory.
 

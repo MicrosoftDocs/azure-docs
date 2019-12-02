@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/01/2018
+ms.date: 12/02/2018
 ms.author: banders
 ms.custom: seodec18
 ---
@@ -62,11 +62,11 @@ After an Account administrator has assigned the appropriate roles to other users
 
 1. Select **Invoices** and then **Access to invoice**.
 
-    ![Screenshot shows how to delegate access to invoices](./media/billing-manage-access/AA-optin.png)
+    ![Screenshot shows how to delegate access to invoices](./media/billing-manage-access/aa-optin01.png)
 
 1. Select **On** and save.
 
-    ![Screenshot shows on-off to delegate access to invoice](./media/billing-manage-access/AA-optinAllow.png)
+    ![Screenshot shows on-off to delegate access to invoice](./media/billing-manage-access/a-optinallow01.png)
 
 The Account Administrator can also configure to have invoices sent via email. To learn more, see [Get your invoice in email](billing-download-azure-invoice-daily-usage-date.md).
 
