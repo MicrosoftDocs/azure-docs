@@ -44,6 +44,10 @@ Start by creating an application registration that your PowerShell scripts execu
 
 [!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
 
+### Grant permissions
+
+TODO (Microsoft Graph: *Read and write your organization's trust framework policies*)
+
 ### Create client secret
 
 Next, create a client secret for your PowerShell script to use when authenticating.
@@ -131,39 +135,43 @@ With your repository initialized and populated with your custom policy files, yo
     | `clientSecret` | The value of the **client secret** that you created earlier. <br /> Change the variable type to **secret** (select the lock icon). |
     | `tenantId` | `your-b2c-tenant.onmicrosoft.com`, where *your-b2c-tenant* is the name of your Azure AD B2C tenant. |
 
-### Configure pipeline tasks
+1. Select **Save** to save the variables.
 
-1. Switch to **Tasks** tab.
-1. Select Agent job, and then select '+' to add a task to the Agent job. From right side search for 'PowerShell' and add it. There might be multiple 'PowerShell' tasks, such as Azure PowerShell etc. Please choose the one which says just **PowerShell** and select **Add**.
-    1. Select newly added 'PowerShell Script' task.
-    1. Enter following values
-        * **Task Version:** 1.* or 2.* Decide the correct version based on [release notes](https://docs.microsoft.com/windows/win32/taskschd/what-s-new-in-task-scheduler).
-        * **Display Name:** 'name of the specific policy that you are targeting to upload Example: 'B2C_1A_TrustFrameworkBase'
-        * **Type:** File Path
-        * **Script Path:** Click on the "..." icon and Navigate to the 'DeployToB2C.ps1' file. Select this file.
-        * **Arguments:**
+### Add pipeline tasks
 
-            ```
-            -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -PolicyId B2C_1A_TrustFrameworkBase -PathToFile $(System.DefaultWorkingDirectory)/B2CAssets/TrustFrameworkBase.xml
-            ```
-            PolicyId is not the filename and instead is a value stored with the XML policy. This is located at the beginning of policy file. See Example:
+1. Select the **Tasks** tab.
+1. Select **Agent job**, and then select the plus sign (**+**) to add a task to the Agent job.
+1. Search for and select **PowerShell**. Do not select "Azure PowerShell," "PowerShell on target machines," or another PowerShell entry.
+1. Select newly added **PowerShell Script** task.
+1. Enter following values for the PowerShell Script task:
+    * **Task Version**: 2.*
+    * **Display Name**: 'name of the specific policy that you are targeting to upload Example: 'B2C_1A_TrustFrameworkBase'
+    * **Type**: File Path
+    * **Script Path**: Select the ellipsis (***...***), navigate to the *Scripts* folder, and then select the *DeployToB2C.ps1* file.
+    * **Arguments:**
 
-            ```XML
-            <TrustFrameworkPolicy
-            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-            xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
-            PolicySchemaVersion="0.3.0.0"
-            TenantId="contoso.onmicrosoft.com"
-            PolicyId= "B2C_1A_TrustFrameworkBase"
-            PublicPolicyUri="http://contoso.onmicrosoft.com/B2C_1A_TrustFrameworkBase">
-            ```
+        ```PowerShell
+        -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -PolicyId B2C_1A_TrustFrameworkBase -PathToFile $(System.DefaultWorkingDirectory)/B2CAssets/TrustFrameworkBase.xml
+        ```
 
-1. Save the Agent job.
+1. Select **Save** to save the Agent job.
 
-This example uploads only one policy. Update the **Arguments** for each **Agent job** between the different policies. Specifically, the '-PolicyId' and '-PathToFile' parameters.
+This example tasks uploads one policy to Azure AD B2C. Before proceeding, try running the **Agent job** to ensure that it completes successfully before creating additional tasks.
 
-Try running one Agent job successfully before creating new ones.
+If the task completes successfully, add deployment tasks by perform the preceding steps each of the custom policy files. Modify the `-PolicyId` and `-PathToFile` argument values for each policy.
+
+The `PolicyId` is not the filename, and is instead a value found within the start of an XML policy file. For example, the `PolicyId` in the following policy XML is *B2C_1A_TrustFrameworkBase*:
+
+```XML
+<TrustFrameworkPolicy
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
+PolicySchemaVersion="0.3.0.0"
+TenantId="contoso.onmicrosoft.com"
+PolicyId= "B2C_1A_TrustFrameworkBase"
+PublicPolicyUri="http://contoso.onmicrosoft.com/B2C_1A_TrustFrameworkBase">
+```
 
 When running the agents and uploading the policy files, ensure they're uploaded in this order:
 
