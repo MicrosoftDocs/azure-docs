@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 12/02/2019
 ---
 # HDInsight cluster management best practices
 
