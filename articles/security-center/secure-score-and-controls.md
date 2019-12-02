@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 12/02/2019
 ms.author: memildin
 
 ---
@@ -100,7 +100,7 @@ No; it won't change until you remediate all of the recommendation for a single r
 Yes, but for a while they will be running side-by-side to ease the transition.
 
 ### If a recommendation is not applicable to me, and I disable it in the policy, will my Security Control be considered fulfilled and my Secure Score updated?
-Yes. We recommend disabling recommendations when they're inapplicable in your environment.
+Yes. We recommend disabling recommendations when they're inapplicable in your environment. For instructions on how to disable a specific recommendation, see [Disable security policies](https://docs.microsoft.com/azure/security-center/tutorial-security-policy#disable-security-policies).
 
 ### If a Security Control offers me zero points towards my Secure Score, should I ignore it?
 In some cases you will see a control max score greater than zero, but the impact is zero. This is because the incremental score for fixing some resources is negligible, so it is rounded to zero. However, don't ignore these recommendations as they still bring security improvements. The only exception is the “Additional Best Practice” control. Remediating these recommendations won't increase your score, but it will enhance your overall security.
