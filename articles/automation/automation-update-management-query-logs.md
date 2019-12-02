@@ -101,19 +101,43 @@ View update agent details populated in the `UpdateAgent` record. These records h
 
 ### UpdateStatus 
 
-View update deployment status populated in the `UpdateStatus` record.  These records have the properties in the following table:
+View update deployment status populated in the `UpdateRunProgress` record.  These records have the properties in the following table:
+
+| Property | Description | 
+|----------|-------------|
+| Computer | Fully-qualified domain name of reporting machine. |
+| ComputerEnvironment | *Azure* | 
+| CorrelationId | |
+| EndTime | The time when the synchronization process ended. | 
+| ErrorResult | Windows Update error code generated if an update fails to install. | 
+| InstallationStatus | The possible installation states of an update on the client computer, *In progress*, *Succeeded*, *Partially failed*. |
+| KBID | Knowledge base article ID for the Windows update. | 
+| ManagementGroupName | Name of the Operations Manager management group or Log Analytics workspace. |
+| OSType | Specifies the type of operating system. | 
+| Product | The products for which the update is applicable for. |
+| Resource | | Resource | Name of the resource. | 
+| ResourceId | Unique identifier for the resource that the record is associated with. |
+| ResourceProvider | Specifies the resource provider. | 
+| ResourceType | Name of the resource type. | 
+| SourceComputerId | Unique identifier representing the source computer. | 
+| SourceSystem | *OperationsManager* |
+| StartTime | Time time when the update is scheduled to be installed. |
+| SubscriptionId | Unique identifier for the Azure subscription. | 
+| SucceededOnRetry | |
+| TimeGenerated | Date and time that the record was created. |
+| Title | The title of the update. |
+| Type | *Update* |
+| UpdateId | Unique identifier of the software update. |
+| VMUUID | Unique identifier for the virtual machine. |
+| _ResourceId | Unique identifier for the resource that the record is associated with. |
+
+### UpdateSummary 
+
+View update summary by computer populated in the `UpdateSummary` record.  These records have the properties in the following table:
 
 | Property | Description | 
 |----------|-------------|
 
-
-
-
-
-
-
-
-| Update deployment status | `UpdateStatus` | Computer, ComputerEnvironment, CorrelationId, EndTime, ErrorResult, InstallationStatus, KBID, ManagementGroupName, OSType, Product, Resource, ResourceGroup, ResourceId, ResourceProvider, ResourceType, SourceComputerId, SourceSystem, StartTime, SubscriptionId, SucceededOnRetry, TimeGenerated, Title, Type, UpdateId, UpdateRunName, VMUUID, _ResourceId | 
 | Update summary by computer | `UpdateSummary` | Computer, ComputerEnvironment, CriticalUpdatesMissing, ManagementGroupName, NETRuntimeVersion, OldestMissingSecurityUpdateBucket, OldestMIssingSecurityUpdateInDays, OsVersion, OtherUpdatesMissing, Resource, ResourceGroup, ResourceId, ResourceProvider, ResourceType, RestartPending, SecurityUpdatesMissing, SourceComputerId, SourceSystem, SubscriptionId, TimeGenerated, TotalUpdateMissing, Type, VMUUID, WindowsUpdateAgentVersion, WindowsUpdateAgentVersion, WSUSServer, _ResourceId |
 
 ## Sample queries
