@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Use Distributed Tracing with Azure Spring Cloud | Microsoft Docs"
-description: Learn how to use Spring Cloud's Distributed Tracing through Azure Application Insights
+title: "Tutorial - Use Distributed Tracing with Azure Spring Cloud"
+description: This tutorial shows how to use Spring Cloud's Distributed Tracing through Azure Application Insights
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: tutorial
