@@ -3,8 +3,8 @@ title: Azure AD Connect cloud provisioning troubleshooting
 description:  This document describes how to troubleshoot issues that may arise with the cloud provisioning agent.
 author: billmath
 ms.author: billmath
-manager: mtillman
-ms.date: 11/21/2019
+manager: daveba
+ms.date: 12/02/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs

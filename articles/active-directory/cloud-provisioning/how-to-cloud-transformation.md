@@ -3,8 +3,8 @@ title: Azure AD Connect cloud provisioning transformations
 description:  This document describes how to use transformations to alter the default attribute mappings.
 author: billmath
 ms.author: billmath
-manager: mtillman
-ms.date: 11/21/2019
+manager: davba
+ms.date: 12/02/2019
 ms.topic: article
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
