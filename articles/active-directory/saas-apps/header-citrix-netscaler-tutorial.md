@@ -292,7 +292,7 @@ You will need to modify the 2 sections of the Authentication Virtual Server.
     >[!NOTE]
     >Ensure you click **Done** on the Authentication Virtual Server Configuration page as well.
 
-3. Verify the changes. Browse to the application URL. You should see your tenanted login page instead of unauthenticated access previously.
+3. Verify the changes. Browse to the application URL. You should see your tenant login page instead of unauthenticated access previously.
 
     ![Citrix NetScaler configuration](./media/header-citrix-netscaler-tutorial/virtual05.png)
 
