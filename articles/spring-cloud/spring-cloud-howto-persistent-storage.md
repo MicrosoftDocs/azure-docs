@@ -13,12 +13,12 @@ ms.author: jeconnoc
 
 Azure Spring Cloud provides two types of storage for your application: persistent and temporary.
 
-By default, Azure Spring Cloud provides temporary storage for each application instance. Temporary storage is limited to 5 GB per instance with the default mount path `/tmp`.
+By default, Azure Spring Cloud provides temporary storage for each application instance. Temporary storage is limited to 5 GB per instance with the default mount path /tmp.
 
 > [!WARNING]
 > If you restart an application instance, the associated temporary storage is permanently deleted.
 
-Persistent storage is a file-share container managed by Azure and allocated per application. Data stored in persistent storage is shared by all instances of an application. An Azure Spring Cloud instance can have a maximum of 10 applications with persistent storage enabled. Each application is allocated 50 GB of persistent storage. The default mount path for persistent storage is `/persistent`.
+Persistent storage is a file-share container managed by Azure and allocated per application. Data stored in persistent storage is shared by all instances of an application. An Azure Spring Cloud instance can have a maximum of 10 applications with persistent storage enabled. Each application is allocated 50 GB of persistent storage. The default mount path for persistent storage is /persistent.
 
 > [!WARNING]
 > If you disable an applications's persistent storage, all of that storage is deallocated and all of the stored data is lost.
