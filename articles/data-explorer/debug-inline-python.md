@@ -36,7 +36,8 @@ However, Kusto query language tools aren't convenient for developing and debuggi
 
         1. Right-click *debug_python.py* and open with VS code. 
 
-The *debug_python.py* script contains the inline Python code (from the KQL query), prefixed by the template code to initialize the input dataframe from *df.txt* and the dictionary of parameters from *kargs.txt*.
+        The *debug_python.py* script contains the inline Python code (from the KQL query), prefixed by the template code to initialize the input dataframe from *df.txt* and the dictionary of parameters from *kargs.txt*.    
+            
 1. In VS code, launch the VS code debugger: **Debug** > **Start Debugging (F5)**, select **Python** configuration. The debugger will launch and automatically breakpoint to debug the inline code.
 
 ### How does inline Python debugging in VS Code work?
@@ -70,15 +71,15 @@ The *debug_python.py* script contains the inline Python code (from the KQL query
     
 1. Run the same KQL query in your client application using `set query_python_debug;`:
 
-```kusto
-set query_python_debug;
-range x from 1 to 4 step 1
-| evaluate python(typeof(*, x4:int), 
-'exp = kargs["exp"]\n'
-'result = df\n'
-'result["x4"] = df["x"].pow(exp)\n'
-, pack('exp', 4))
-```
+    ```kusto
+    set query_python_debug;
+    range x from 1 to 4 step 1
+    | evaluate python(typeof(*, x4:int), 
+    'exp = kargs["exp"]\n'
+    'result = df\n'
+    'result["x4"] = df["x"].pow(exp)\n'
+    , pack('exp', 4))
+    ```
 
 1. VS Code is launched:
 
