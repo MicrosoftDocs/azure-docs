@@ -1,11 +1,6 @@
 ---
-title: Resource logs for container groups - Azure Container Instances
+title: Resource logs for container groups
 description: Learn how to send resource logs and event data from container groups in Azure Container Instances to Azure Monitor logs
-services: container-instances
-author: dlepow
-manager: gwallace
-
-ms.service: container-instances
 ms.topic: article
 ms.date: 09/02/2019
 ms.author: danlep

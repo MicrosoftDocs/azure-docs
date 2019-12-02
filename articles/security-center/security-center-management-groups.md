@@ -1,6 +1,6 @@
 ---
 title: Gain tenant-wide visibility for Azure Security Center | Microsoft Docs
-description: Learn about gaining tenant-wide visibility in Azure Security Center.
+description: This article explains how to manage your security posture at scale by applying policies to all subscriptions linked to your Azure Active Directory tenant.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -17,8 +17,7 @@ ms.author: memildin
 ---
 
 # Gain tenant-wide visibility for Azure Security Center
-This article helps you get started by doing several actions that maximize the benefits Azure Security Center provides. Performing these actions enables you to gain visibility on all the Azure subscriptions that are linked to your Azure Active Directory tenant and effectively manage your organization’s security posture at scale by applying security policies across multiple subscriptions in an aggregative manner.
-
+This article explains how to manage your organization’s security posture at scale by applying security policies to all Azure subscriptions linked to your Azure Active Directory tenant.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
