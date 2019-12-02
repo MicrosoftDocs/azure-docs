@@ -20,61 +20,57 @@ Once you have installed the agent, you need to sign-in to the Azure portal and c
 ## Configure provisioning
 To configure provisioning, use the following steps:
 
-1.  In the Azure AD portal.
-2.  Click **Azure Active Directory**
-3.  Click **Azure AD Connect**
-4.  Select **Manage provisioning (Preview)**
+1.  In the Azure AD portal, click **Azure Active Directory**
+2.  Click **Azure AD Connect**
+3.  Select **Manage provisioning (Preview)**
 ![](media/how-to-cloud-prov-manage/manage1.png)
 
-5.  Click on **New configuration**.
-6.  On the configuration screen, the on-premises domain is pre-populated
-8. Enter a **Notification email**. This email will be notified 
-9. when provisioning is not healthy.  
-9. Move the selector to **Enable** and click **Save**.
+4.  Click on **New configuration**.
+5.  On the configuration screen, the on-premises domain is pre-populated
+6. Enter a **Notification email**. This email will be notified 
+7. when provisioning is not healthy.  
+8. Move the selector to **Enable** and click **Save**.
 ![](media/tutorial-single-forest/newconfig2.png)
 
 ## Scoping provisioning to specific users and groups
 If you want to scope the agent to only synchronize specific users and groups, you can do this. You can scope using on-premises AD groups or Organizational Units. You cannot configure groups and Organizational Units within a configuration. 
 
-1.  In the Azure AD portal.
-2.  Click **Azure Active Directory**
-3.  Click **Azure AD Connect**
-4.  Select **Manage provisioning (Preview)**
-5.  Under **Configuration** click on your configuration.  
+1.  In the Azure AD portal, click **Azure Active Directory**
+2.  Click **Azure AD Connect**
+3.  Select **Manage provisioning (Preview)**
+4.  Under **Configuration** click on your configuration.  
 ![](media/how-to-cloud-prov-manage/scope1.png)
 
-6.  Under **Configure**, select **All users** to change the scope of the configuration rule.
+5.  Under **Configure**, select **All users** to change the scope of the configuration rule.
 ![](media/how-to-cloud-prov-manage/scope2.png)
 
-7. On the right, you can change the scope to include only security groups by entering the distinguished name of the group and clicking **Add**.
+6. On the right, you can change the scope to include only security groups by entering the distinguished name of the group and clicking **Add**.
 ![](media/how-to-cloud-prov-manage/scope3.png)
 
-8. Or change it to include only specific OUs. Click **Done** and **Save**.
+7. Or change it to include only specific OUs. Click **Done** and **Save**.
 ![](media/how-to-cloud-prov-manage/scope4.png)
 
 
 ## Restart provisioning 
 If you do not want to wait for the next scheduled run, you can trigger the provisioning run using the restart provisioning button. 
-1.  In the Azure AD portal.
-2.  Click **Azure Active Directory**
-3.  Click **Azure AD Connect**
-4.  Select **Manage provisioning (Preview)**
-5.  Under **Configuration** click on your configuration.  
+1.  In the Azure AD portal, click **Azure Active Directory**
+2.  Click **Azure AD Connect**
+3.  Select **Manage provisioning (Preview)**
+4.  Under **Configuration** click on your configuration.  
 ![](media/how-to-cloud-prov-manage/scope1.png)
 
-6.  At the top, click **Restart provisioning**.
+5.  At the top, click **Restart provisioning**.
 
 ## Removing a configuration
 If you want to delete a configuration you can do that by using the following steps.
 
-1.  In the Azure AD portal.
-2.  Click **Azure Active Directory**
-3.  Click **Azure AD Connect**
-4.  Select **Manage provisioning (Preview)**
-5.  Under **Configuration** click on your configuration.  
+1.  In the Azure AD portal, click **Azure Active Directory**
+2.  Click **Azure AD Connect**
+3.  Select **Manage provisioning (Preview)**
+4.  Under **Configuration** click on your configuration.  
 ![](media/how-to-cloud-prov-manage/scope1.png)
 
-6.  At the top, click **Delete**.
+5.  At the top, click **Delete**.
 ![](media/how-to-cloud-prov-manage/remove1.png)
 
 >[!IMPORTANT]

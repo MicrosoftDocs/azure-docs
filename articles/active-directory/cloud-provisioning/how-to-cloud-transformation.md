@@ -89,9 +89,10 @@ To add a custom attribute mapping, use the following procedure.
  6.  Now, in the Azure portal, navigate to the cloud provisioning configuration and **Restart Provisioning**.
 ![](media/how-to-cloud-prov-transformation/transform3.png)</br>
  7.  After a little while, verify the attributes are being populated by running the following query in Graph Explorer.
- ```
- https://graph.microsoft.com/beta/users/{Azure AD user UPN}
- ```
+    
+   ```
+    https://graph.microsoft.com/beta/users/{Azure AD user UPN}
+   ```
  8.  You should now see the value.
  ![](media/how-to-cloud-prov-transformation/transform4.png)</br>
 

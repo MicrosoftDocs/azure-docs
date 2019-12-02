@@ -54,7 +54,7 @@ On-premises provisioning involves provisioning from on-premises sources (like Ac
 
 The most common scenario would be, when a user in Active Directory (AD) is provisioned into Azure AD.
 
-This has been accomplished by Azure AD Connect sync, Azure AD Connect cloud provisioning and Microsoft Identity Manger. 
+This has been accomplished by Azure AD Connect sync, Azure AD Connect cloud provisioning and Microsoft Identity Manager. 
  
 ## Next steps 
 
