@@ -29,7 +29,7 @@ Make sure to sign up for a [free Azure subscription](https://azure.microsoft.com
 ## Prerequisites
 
 * Download and install the latest version of [Power BI Desktop](https://powerbi.microsoft.com/downloads/)
-* Have or create a [Azure Time Series Insights Preview instance](time-series-insights-update-how-to-manage.md)
+* Have or create an [Azure Time Series Insights Preview instance](time-series-insights-update-how-to-manage.md)
 
 ## Connect data from Time Series Insights to Power BI
 
