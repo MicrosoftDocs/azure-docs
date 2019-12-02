@@ -1,5 +1,5 @@
 ---
-title: Security recommendations for machines and applications
+title: Azure Security Center recommendations for machines & apps
 description: Azure Security Center's security recommendations that help you protect your virtual machines, computers, web apps, and App Service environments.
 services: security-center
 documentationcenter: na

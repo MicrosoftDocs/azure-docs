@@ -1,5 +1,5 @@
 ---
-title: Security recommendations for networking
+title: Azure Security Center recommendations for networking
 description: This article lists Azure Security Center's security recommendations that help you protect your network resources.
 services: security-center
 documentationcenter: na
