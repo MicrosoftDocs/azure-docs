@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/15/2019
+ms.date: 12/02/2019
 ---
 
 # Connect to Azure Database for MySQL with redirection
@@ -74,7 +74,8 @@ Redirection is currently only supported when SSL is enabled. For details on how 
     php -i | findstr "Thread"
     ```
    
-   If you cannot determine the x86/x64 vesion of your PHP, you may use following script to figure out:
+   If you cannot determine the x86/x64 version of PHP, use following script to determine the configuration:
+   
    ```php
    switch(PHP_INT_SIZE) {
         case 4:
@@ -88,7 +89,7 @@ Redirection is currently only supported when SSL is enabled. For details on how 
     }
     ```
 
-2. Download the corresponding version of the [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) DLL from [PECL](https://pecl.php.net/package/mysqlnd_azure) that matches your version of PHP. 
+2. Download the corresponding version of the [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) DLL from [PECL](https://pecl.php.net/package/mysqlnd_azure) that matches your version of PHP, thread safety configuration, and x64/x86-bit configuration.
 
 3. Extract the zip file and find the DLL named `php_mysqlnd_azure.dll`.
 
