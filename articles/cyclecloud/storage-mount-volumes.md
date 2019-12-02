@@ -39,7 +39,7 @@ By defining volumes with a `Mountpoint` attribute, the device names will be auto
   Azure.LUN=0
 ```
 
-In Azure, devices are assigned using [Logical Unit Numbers (LUN)](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure/add-azuredatadisk?view=azuresmps-4.0.0). The `devices` parameter is used to manually specify each underlying device that is part of the mountpoint configuration.
+In Azure, devices are assigned using [Logical Unit Numbers (LUN)](https://docs.microsoft.com/powershell/module/servicemanagement/azure/add-azuredatadisk?view=azuresmps-4.0.0). The `devices` parameter is used to manually specify each underlying device that is part of the mountpoint configuration.
 
 In most cases, Azure CycleCloud will automatically assign devices for you. Specifying devices manually is advanced usage, and useful in cases where the image you are using for your node has volumes that will be automatically attached because their attachment was baked into the image. Specifying the devices by hand can also be useful when the ordering of devices has special meaning.
 

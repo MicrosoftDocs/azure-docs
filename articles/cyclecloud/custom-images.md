@@ -30,7 +30,7 @@ The `ImageName` attribute is used to specify that a cluster node should use a pr
   ImageName = /subscriptions/xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/images/MyCustomImage
 ```
 
-The URN or Resource ID defines the marketplace image to be used. The easiest way to retrieve URN or ID is through the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/vm/image?view=azure-cli-latest#az-vm-image-list).
+The URN or Resource ID defines the marketplace image to be used. The easiest way to retrieve URN or ID is through the [Azure CLI](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az-vm-image-list).
 
 You can also specify a Marketplace or Gallery image by using the URN:
 
@@ -61,7 +61,7 @@ az vm image accept-terms --publisher PUBLISHER --offer OFFER --plan SKU
 
 ## Create a Custom Image
 
-Custom Azure Images can be created for [Windows](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-custom-images) or for [Linux](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-custom-images).
+Custom Azure Images can be created for [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-custom-images) or for [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images).
 
 <a name="custom-image-notation-prior-7-7-0"></a>
 ## Custom Images on prior CycleCloud versions (<7.7.0)

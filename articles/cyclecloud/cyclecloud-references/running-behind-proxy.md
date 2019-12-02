@@ -32,7 +32,7 @@ restart CycleCloud, run the following command:
 
 CycleCloud requires access to a Blob Storage container in your subscription 
 in order to cache installation files for nodes. When operating behind a proxy
-or on a locked down network, you should configure a [Virtual Network Service Endpoint](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview)
+or on a locked down network, you should configure a [Virtual Network Service Endpoint](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)
 to the storage service. This will route requests to the storage container through
 the Azure backbone network instead of through the public management URLs.
 
