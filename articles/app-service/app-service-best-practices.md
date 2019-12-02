@@ -1,16 +1,9 @@
 ---
-title: Best Practices - Azure App Service
-description: Learn best practices and troubleshooting for Azure App Service.
-services: app-service
-documentationcenter: ''
+title: Best Practices
+description: Learn best practices and the common troubleshooting scenarios for your app running in Azure App Service.
 author: dariagrigoriu
-manager: erikre
-editor: mollybos
 
 ms.assetid: f3359464-fa44-4f4a-9ea6-7821060e8d0d
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariac

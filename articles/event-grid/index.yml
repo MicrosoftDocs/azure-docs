@@ -88,7 +88,7 @@ landingContent:
             url: geo-disaster-recovery.md    
       - linkListType: architecture
         links:
-          - text: Reference Architecture for Queues and Events
+          - text: Reference architecture for queues and events
             url: https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/queues-events
 
   # Card
