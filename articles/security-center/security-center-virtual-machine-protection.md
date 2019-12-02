@@ -32,7 +32,7 @@ To view the status of your compute and apps resources, select **Compute & apps**
 
 * [**VMs and computers**](#vms-and-computers): lists the recommendations for your VMs, computers, and current security state of each
 
-* [**VM Scale Sets**](#vmscale-sets): lists the recommendations for your scale sets, 
+* [**Virtual machine scale sets**](#vmscale-sets): lists the recommendations for your scale sets, 
 
 * [**Cloud Services**](#cloud-services): lists the recommendations for your web and worker roles monitored by Security Center
 
