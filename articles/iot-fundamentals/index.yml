@@ -69,7 +69,7 @@ conceptualContent:
         - url: ../iot-central/core/quick-deploy-iot-central.md
           itemType: quickstart
           text: Create an IoT Central application
-        - url: ../iot-central/core/tutorial-define-device-type.md
+        - url: ../iot-central/core/tutorial-define-iot-device-type.md
           itemType: tutorial
           text: Define the type for your device
       # footerLink
