@@ -39,7 +39,7 @@ Follow these steps to list all roles in the Azure portal.
 
    You can see the number of users and groups that are assigned to each role at the current scope.
 
-   ![Roles list](./media/roles-list/roles-list.png)
+   ![Roles list](./media/role-definitions-list/roles-list.png)
 
 ## Azure PowerShell
 
