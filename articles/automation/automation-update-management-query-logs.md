@@ -97,7 +97,7 @@ View update agent details populated in the `UpdateAgent` record. These records h
 | TimeGenerated | Date and time that the record was created. |
 | Type | *Update* | 
 | WindowsUpdateAgentVersion | Version of the Windows Update agent. |
-| WSUSServer | Name of the Windows Server Update Services (WSUS) server that the target computer is using when scanning for, downloading, and installing updates. | 
+| WSUSServer | Shows errors if the Windows Update client cannot synchronize with Windows Update. | 
 
 ### UpdateStatus 
 
@@ -162,7 +162,7 @@ View update summary by computer populated in the `UpdateSummary` record.  These 
 | VMUUID | Unique identifier for the virtual machine. |
 | WindowsUpdateAgentVersion | Version of the Windows Update agent. |
 | WindowsUpdateSetting | | 
-| WSUSServer | Name of the Windows Server Update Services (WSUS) server that the target computer is using when scanning for, downloading, and installing updates. |
+| WSUSServer | Shows errors if the Windows Update client cannot synchronize with Windows Update. |
 | _ResourceId | Unique identifier for the resource that the record is associated with. |
 
 ## Sample queries
