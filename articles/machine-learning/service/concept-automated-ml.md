@@ -101,7 +101,7 @@ Additional advanced preprocessing and featurization are also available, such as 
 
 ## Prevent over-fitting
 
-Over-fitting in machine learning occurs when a model over-generalizes the training data, and as a result can't accurately predict on unseen test data. In other words, the model has simply memorized specific patterns in the training data, but is not flexible enough to make predictions on real data. In the most egregious cases, an over-fitted model will assume that the feature value combinations seen during training will always result in the exact same output for the target. 
+Over-fitting in machine learning occurs when a model fits the training data too well, and as a result can't accurately predict on unseen test data. In other words, the model has simply memorized specific patterns in the training data, but is not flexible enough to make predictions on real data. In the most egregious cases, an over-fitted model will assume that the feature value combinations seen during training will always result in the exact same output for the target. 
 
 The best way to prevent over-fitting is to follow ML best-practices including:
 
