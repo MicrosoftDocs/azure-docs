@@ -5,7 +5,7 @@ author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 12/02/2019
 ms.author: bwren
 ms.subservice: logs
 ---
@@ -38,10 +38,8 @@ You can send platform logs to one or more of the destinations in the following t
 | Event hub | Stream the logs to third-party logging and telemetry systems.  |[Resource logs](resource-logs-stream-event-hubs.md)<br>[Activity log](activity-log-export.md)<br>[Azure Activity Directory logs](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) |
 
 
-## Diagnostic settings and log profiles
-Configure destinations for Resource logs and Azure Active Directory logs by [creating a Diagnostic setting](diagnostic-settings.md). Configure destinations for the Activity log by [creating a log profile](activity-log-export.md) or by [connecting it to a Log Analytics workspace](activity-log-collect.md).
-
-The diagnostic setting and log profile define the following:
+## Diagnostic settings
+Configure destinations for platform logs by [creating a Diagnostic setting](diagnostic-settings.md). Diagnostic settings define the following:
 
 - One or more destinations to send selected logs and metrics.
 - Which log categories and metrics from the resource are sent to the destinations.
