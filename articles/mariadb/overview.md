@@ -48,7 +48,7 @@ Azure's industry-leading 99.99% availability SLA is powered by a global network 
 
 ## Secure your data
 
-Azure database services have a tradition of data security that Azure Database for MariaDB upholds. Azure Database for MariaDB offers features that limit access, protect data at rest and in motion, and help you monitor activity. Visit the [Azure Trust Center](https://www.microsoft.com/trustcenter/security) for information about Azure's platform security. For more information about Azure Database for MySQL security features, see the [security overview](concepts-security.md).
+Azure database services have a tradition of data security that Azure Database for MariaDB upholds. Azure Database for MariaDB offers features that limit access, protect data at rest and in motion, and help you monitor activity. Visit the [Azure Trust Center](https://www.microsoft.com/trustcenter/security) for information about Azure's platform security. For more information about Azure Database for MariaDB security features, see the [security overview](concepts-security.md).
 
 ## Contacts
 

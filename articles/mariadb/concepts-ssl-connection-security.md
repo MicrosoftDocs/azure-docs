@@ -1,5 +1,5 @@
 ---
-title: SSL connectivity - Azure Database for MySQL
+title: SSL connectivity - Azure Database for MariaDB
 description: Information for configuring Azure Database for MariaDB and associated applications to properly use SSL connections
 author: ajlam
 ms.author: andrela
