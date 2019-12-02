@@ -1124,6 +1124,9 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |---|---|---|---|---|---|
 |ApplicationRuleHit|Application rules hit count|Count|Total|Number of times Application rules were hit|Status, Reason, Protocol|
 |NetworkRuleHit|Network rules hit count|Count|Total|Number of times Network rules were hit|Status, Reason, Protocol|
+|DataProcessed|Data Processed|Bytes|Total|Amount of data traversing the firewall|No Dimensions|
+|FirewallHealthState|Firewall Health State|Percent|Average|Indicates the health of the firewall|Status, Reason|
+|SNATPortUtilization|SNAT Port Utilization|Percent|Average|The percentage of SNAT ports that have been utilized by the firewall|No Dimensions|
 
 ## Microsoft.Network/applicationGateways
 

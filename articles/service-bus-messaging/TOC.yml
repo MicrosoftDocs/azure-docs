@@ -182,8 +182,6 @@
       href: service-bus-end-to-end-tracing.md
     - name: Build a multi-tier Service Bus application
       href: service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
-    - name: Migrate Java Enterprise Edition application to Azure
-      href: migrate-java-apps-wild-fly.md
   - name: Manage
     items:
     - name: Use Azure PowerShell to provision entities
