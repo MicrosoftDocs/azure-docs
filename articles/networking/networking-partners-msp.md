@@ -30,6 +30,7 @@ Use the links in this section for more information about managed cloud networkin
 |[ANS Group UK](https://www.ans.co.uk/)|Yes|Yes||||
 |[Aryaka Networks](https://www.aryaka.com/azure-msp-vwan-managed-service-provider-launch-partner-aryaka/)|Yes |Yes |Yes | | |
 |[BT](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)|Yes|Yes|Yes|||
+|[Coevolve](https://www.coevolve.com/services/azure-networking-services/)|Yes||Yes|Yes||
 |[Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/msp/)|Yes|||||
 |[Dimension Data](https://www.dimensiondata.com/)|Yes|||||
 |[Equinix](https://www.equinix.com/)|Yes|Yes||||
