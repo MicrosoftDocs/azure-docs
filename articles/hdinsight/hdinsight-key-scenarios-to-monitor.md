@@ -28,7 +28,7 @@ To get a high-level look at the nodes of your cluster and their loading, sign in
 | Orange | At least one secondary component on the host is down. Hover to see a tooltip that lists affected components. |
 | Yellow | Ambari Server hasn't received a heartbeat from the host for more than 3 minutes. |
 | Green | Normal running state. |
-
+ 
 You'll also see columns showing the number of cores and amount of RAM for each host, and the disk usage and load average.
 
 ![Apache Ambari hosts tab overview](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-hosts-tab.png)
