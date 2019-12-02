@@ -36,6 +36,7 @@ The Application Insights SDKs for .NET, .NET Core, Java, Node.js, and JavaScript
 * [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-get-started)
 * [Node.js](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start)
 * [JavaScript](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
+* [Python (preview)](opencensus-python.md)
 
 With the proper Application Insights SDK installed and configured, tracing information is automatically collected for popular frameworks, libraries, and technologies by SDK dependency auto-collectors. The full list of supported technologies is available in [the Dependency auto-collection documentation](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies).
 
@@ -45,7 +46,7 @@ With the proper Application Insights SDK installed and configured, tracing infor
 
 In addition to the Application Insights SDKs, Application Insights also supports distributed tracing through [OpenCensus](https://opencensus.io/). OpenCensus is an open source, vendor-agnostic, single distribution of libraries to provide metrics collection and distributed tracing for services. It also enables the open source community to enable distributed tracing with popular technologies like Redis, Memcached, or MongoDB. [Microsoft collaborates on OpenCensus with several other monitoring and cloud partners](https://open.microsoft.com/2018/06/13/microsoft-joins-the-opencensus-project/).
 
-To add distributed tracing capabilities to an application with OpenCensus, first [install and configure the Application Insights Local Forwarder](./../../azure-monitor/app/opencensus-local-forwarder.md). From there, configure OpenCensus to route distributed trace data through the Local Forwarder. Both [Python](./../../azure-monitor/app/opencensus-python.md) and [Go](./../../azure-monitor/app/opencensus-go.md) are supported.
+[Python (preview)](opencensus-python.md) 
 
 The OpenCensus website maintains API reference documentation for [Python](https://opencensus.io/api/python/trace/usage.html) and [Go](https://godoc.org/go.opencensus.io), as well as various different guides for using OpenCensus. 
 

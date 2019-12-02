@@ -29,7 +29,7 @@
   - name: Sign up for password reset
     href: active-directory-passwords-reset-register.md
   - name: Reset your password
-    href: user-help-reset-password.md
+    href: active-directory-passwords-update-your-own-password.md
 - name: Microsoft Authenticator app help
   items:
   - name: Overview
@@ -54,18 +54,22 @@
     href: user-help-auth-app-backup-recovery.md
   - name: FAQ
     href: user-help-auth-app-faq.md
-- name: My Profile (preview) portal help
+- name: My Account portal help
   items:
   - name: Overview
-    href: myprofile-portal-overview.md
+    href: my-account-portal-overview.md
   - name: Manage your security info
     href: user-help-security-info-overview.md
-  - name: Manage your organizations
-    href: myprofile-portal-organizations-page.md
   - name: Manage your connected devices
-    href: myprofile-portal-devices-page.md
+    href: my-account-portal-devices-page.md
+  - name: Change your password
+    href: my-account-change-password-page.md
+  - name: Manage your organizations
+    href: my-account-portal-organizations-page.md
   - name: View your privacy-related info
-    href: myprofile-portal-privacy-page.md
+    href: my-account-portal-privacy-page.md
+  - name: View your recent sign-in activity
+    href: my-account-portal-sign-ins-page.md
 - name: Security info (preview) help
   items:
   - name: Overview
@@ -116,3 +120,13 @@
     href: my-apps-portal-end-user-access-reviews.md
   - name: Troubleshoot issues
     href: my-apps-portal-end-user-troubleshoot.md
+- name: My Apps (preview) portal help
+  items:
+  - name: Overview
+    href: my-applications-portal-overview.md
+  - name: Access and use the My Apps portal
+    href: my-applications-portal-access.md
+  - name: Access and use workspaces
+    href: my-applications-portal-workspaces.md
+  - name: Edit or revoke app permissions
+    href: my-applications-portal-permissions-saved-accounts.md

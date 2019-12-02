@@ -295,7 +295,7 @@ The question here is: "What is the remaining useful life (RUL) of the equipment?
 ![Figure 4. Labeling for regression](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-regression.png)
 Figure 4. Labeling for regression
 
-For regression, labeling is done with reference to a failure point. Its calculation is not possible without knowing how long the asset has survived before a failure. So in contrast to binary classification, assets without any failures in the data cannot be used for modeling. This issue is best addressed by another statistical technique called [Survival Analysis](https://en.wikipedia.org/wiki/Survival_analysis). But potential complications may arise when applying this technique to PdM use cases that involve time-varying data with frequent intervals. For more information on Survival Analysis, see [this one-pager](https://www.cscu.cornell.edu/news/statnews/stnews78.pdf).
+For regression, labeling is done with reference to a failure point. Its calculation is not possible without knowing how long the asset has survived before a failure. So in contrast to binary classification, assets without any failures in the data cannot be used for modeling. This issue is best addressed by another statistical technique called [Survival Analysis](https://en.wikipedia.org/wiki/Survival_analysis). But potential complications may arise when applying this technique to PdM use cases that involve time-varying data with frequent intervals. For more information on Survival Analysis, see [this one-pager](https://www.cscu.cornell.edu/news/news.php/stnews78.pdf).
 
 ### Multi-class classification for predictive maintenance
 Multi-class classification techniques can be used in PdM solutions for two scenarios:

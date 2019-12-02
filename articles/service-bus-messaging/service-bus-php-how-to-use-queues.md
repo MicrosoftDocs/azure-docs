@@ -1,6 +1,6 @@
 ---
-title: Quickstart: How to use Service Bus queues with PHP
-description: Quickstart: Learn how to use Service Bus queues in Azure. Code samples written in PHP.
+title: 'Quickstart: How to use Service Bus queues with PHP'
+description: 'Quickstart: Learn how to use Service Bus queues in Azure. Code samples written in PHP.'
 services: service-bus-messaging
 documentationcenter: php
 author: axisc
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: quickstart
-ms.date: 10/24/2019
+ms.date: 11/05/2019
 ms.author: aschhab
 
 ---

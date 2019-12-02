@@ -4,7 +4,7 @@ description: This article describes how an Azure spending limit works and how to
 author: bandersmsft
 manager: amberb
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na

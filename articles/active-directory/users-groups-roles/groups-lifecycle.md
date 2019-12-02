@@ -25,7 +25,7 @@ This article tells you how to manage the lifecycle of Office 365 groups by setti
 
 Once you set a group to expire:
 
-- Groups with user activities are automatically renewed as the expiration nears (preview)
+- Groups with user activities are automatically renewed as the expiration nears
 - Owners of the group are notified to renew the group, if the group is not auto-renewed
 - Any group that is not renewed is deleted
 - Any Office 365 group that is deleted can be restored within 30 days by the group owners or the administrator
@@ -37,7 +37,7 @@ Currently only one expiration policy can be configured for all Office 365 groups
 
 For information on how to download and install the Azure AD PowerShell cmdlets, see [Azure Active Directory PowerShell for Graph 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
-## Activity-based automatic renewal (preview)
+## Activity-based automatic renewal
 
 With Azure AD intelligence, groups are now automatically renewed based on whether they have been in recent used. This feature eliminates the need for manual action by group owners, because it based on user activity in groups across Office 365 services like Outlook, SharePoint, Teams, or Yammer. For example, if an owner or a group member does something like upload a document in SharePoint, visit a Teams channel, or send an email to the group in Outlook, the group is automatically renewed and the owner does not get any renewal notifications.
 

@@ -12,7 +12,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/04/2019
 ms.author: apimpm
 ---
 # Product templates in Azure API Management
@@ -27,6 +27,8 @@ Azure API Management provides you the ability to customize the content of develo
   
 > [!NOTE]
 >  Sample default templates are included in the following documentation, but are subject to change due to continuous improvements. You can view the live default templates in the developer portal by navigating to the desired individual templates. For more information about working with templates, see [How to customize the API Management developer portal using templates](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
@@ -201,7 +203,7 @@ Azure API Management provides you the ability to customize the content of develo
 |--------------|----------|-----------------|  
 |Product|[Product](api-management-template-data-model-reference.md#Product)|The specified product.|  
 |IsDeveloperSubscribed|boolean|Whether the current user is subscribed to this product.|  
-|SubscriptionState|number|The state of the subscription. Possible states are:<br /><br /> -   `0 - suspended` – the subscription is blocked, and the subscriber cannot call any APIs of the product.<br />-   `1 - active` – the subscription is active.<br />-   `2 - expired` – the subscription reached its expiration date and was deactivated.<br />-   `3 - submitted` – the subscription request has been made by the developer, but has not yet been approved or rejected.<br />-   `4 - rejected` – the subscription request has been denied by an administrator.<br />-   `5 - cancelled` – the subscription has been cancelled by the developer or administrator.|  
+|SubscriptionState|number|The state of the subscription. Possible states are:<br /><br /> -   `0 - suspended` – the subscription is blocked, and the subscriber cannot call any APIs of the product.<br />-   `1 - active` – the subscription is active.<br />-   `2 - expired` – the subscription reached its expiration date and was deactivated.<br />-   `3 - submitted` – the subscription request has been made by the developer, but has not yet been approved or rejected.<br />-   `4 - rejected` – the subscription request has been denied by an administrator.<br />-   `5 - cancelled` – the subscription has been canceled by the developer or administrator.|  
 |Limits|array|This property is deprecated and should not be used.|  
 |DelegatedSubscriptionEnabled|boolean|Whether [delegation](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/) is enabled for this subscription.|  
 |DelegatedSubscriptionUrl|string|If delegation is enabled, the delegated subscription URL.|  

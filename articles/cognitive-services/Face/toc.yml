@@ -102,7 +102,7 @@
   - name: Samples
     items:
     - name: Face API samples
-      href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face
+      href: https://docs.microsoft.com/samples/browse/?products=azure&term=face
   - name: Pricing and limits
     href: https://azure.microsoft.com/pricing/details/cognitive-services/face-api
   - name: UserVoice

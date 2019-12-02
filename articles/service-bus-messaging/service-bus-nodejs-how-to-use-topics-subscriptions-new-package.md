@@ -1,6 +1,6 @@
 ---
-title: Quickstart: How to use Azure Service Bus topics and subscriptions with Node.js
-description: Quickstart: Learn how to use Service Bus topics and subscriptions in Azure from a Node.js app.
+title: 'Quickstart: How to use Azure Service Bus topics and subscriptions with Node.js'
+description: 'Quickstart: Learn how to use Service Bus topics and subscriptions in Azure from a Node.js app.'
 services: service-bus-messaging
 documentationcenter: nodejs
 author: axisc
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 10/24/2019
+ms.date: 11/05/2019
 ms.author: aschhab
 
 ---

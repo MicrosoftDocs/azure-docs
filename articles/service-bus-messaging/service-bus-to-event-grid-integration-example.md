@@ -1,6 +1,6 @@
 ---
-title: Tutorial: Azure Service Bus to Event Grid integration examples
-description: Tutorial: This article provides examples of Service Bus messaging and Event Grid integration.
+title: 'Tutorial: Azure Service Bus to Event Grid integration examples'
+description: 'Tutorial: This article provides examples of Service Bus messaging and Event Grid integration.'
 services: service-bus-messaging
 documentationcenter: .net
 author: spelluru
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: tutorial
-ms.date: 10/23/2019
+ms.date: 11/05/2019
 ms.author: spelluru
 
 ---

@@ -7,7 +7,7 @@ author: bandersmsft
 ms.author: banders
 ms.date: 10/24/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: dougeby
 ms.custom: seodec18
 ---

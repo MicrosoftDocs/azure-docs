@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 09/21/2019
+ms.date: 10/28/2019
 ---
 
 # Tutorial: Migrate RDS MySQL to Azure Database for MySQL online using DMS
@@ -53,9 +53,6 @@ To complete this tutorial, you need to:
 * Create an Azure Virtual Network (VNet) for Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). For more information about creating a VNet, see the [Virtual Network Documentation](https://docs.microsoft.com/azure/virtual-network/), and especially the quickstart articles with step-by-step details.
 * Ensure that your VNet Network Security Group rules don't block the following inbound communication ports to Azure Database Migration Service: 443, 53, 9354, 445, and 12000. For more detail on Azure VNet NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 * Configure your [Windows Firewall](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) (or your Linux firewall) to allow for database engine access. For MySQL server, allow port 3306 for connectivity.
-* Open your Windows firewall to allow Azure Database Migration Service to access the source MySQL server (the  default TCP port is 3306).
-* When using a firewall appliance in front of your source database(s), you may need to add firewall rules to allow the Azure Database Migration Service to access the source database(s) for migration.
-* Create a server-level [firewall rule](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) for the Azure Database for MySQL server to allow Azure Database Migration Service access to the target databases. Provide the subnet range of the VNet used for Azure Database Migration Service.
 
 > [!NOTE]
 > Azure Database for MySQL only supports InnoDB tables. To convert MyISAM tables to InnoDB, please see the article [Converting Tables from MyISAM to InnoDB](https://dev.mysql.com/doc/refman/5.7/en/converting-tables-to-innodb.html) .
@@ -67,6 +64,7 @@ To complete this tutorial, you need to:
     * binlog_format = row
     * binlog_checksum = NONE
 3. Save the new parameter group.
+4. Associate the new parameter group with the RDS MySQL instance. A reboot might be required.
 
 ## Migrate the schema
 

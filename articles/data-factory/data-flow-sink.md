@@ -1,16 +1,16 @@
 ---
-title:  Set up a sink transformation in the mapping data flow feature of Azure Data Factory 
+title: Set up a sink transformation in the mapping data flow feature
 description: Learn how to set up a sink transformation in the mapping data flow.
 author: kromerm
 ms.author: makromer
+manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 02/03/2019
 ---
 
 # Sink transformation for a data flow
-
-
 
 After you transform your data flow, you can sink the data into a destination dataset. In the sink transformation, choose a dataset definition for the destination output data. You can have as many sink transformations as your data flow requires.
 
@@ -25,7 +25,7 @@ To sink all incoming fields, turn on **Auto Map**. To choose the fields to sink 
 ## Output 
 For Azure Blob storage or Data Lake Storage sink types, output the transformed data into a folder. Spark generates partitioned output data files based on the partitioning scheme that the sink transformation uses. 
 
-You can set the partitioning scheme from the **Optimize** tab. If you want Data Factory to merge your output into a single file, select **Single partition**.
+You can set the partitioning scheme from the **Optimize** tab. If you want Data Factory to merge your output into a single file, select **Single partition**. If you wish to maintain or create partitioned folders, use **Key partitioning** and set the keys you wish to use for partitioned folder structures.
 
 ![Options on the Optimize tab](media/data-flow/opt001.png "sink options")
 
@@ -102,6 +102,13 @@ Choose database settings:
 
 > [!NOTE]
 > When you update or delete rows in your database sink, you must set the key column. This setting allows the alter-row transformation to determine the unique row in the data movement library (DML).
+
+### CosmosDB specific settings
+
+When landing data in CosmosDB, you will need to consider these additional options:
+
+* Partition Key: This is a required field. Enter a string that represents the partition key for your collection. Example: ```/movies/title```
+* Throughput: Set an optional value for the number of RUs you'd like to apply to your CosmosDB collection for each execution of this data flow. Minimum is 400.
 
 ## Next steps
 Now that you've created your data flow, add a [Data Flow activity to your pipeline](concepts-data-flow-overview.md).

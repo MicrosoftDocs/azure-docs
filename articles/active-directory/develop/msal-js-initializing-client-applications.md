@@ -43,7 +43,7 @@ For authentication methods with redirect flows (`loginRedirect` and `acquireToke
 // Configuration object constructed
 const config = {
     auth: {
-        clientId: “abcd-ef12-gh34-ikkl-ashdjhlhsdg”
+        clientId: "abcd-ef12-gh34-ikkl-ashdjhlhsdg"
     }
 }
 

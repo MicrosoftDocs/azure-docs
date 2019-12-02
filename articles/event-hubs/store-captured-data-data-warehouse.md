@@ -1,17 +1,16 @@
 ---
-title: Tutorial: Migrate event data to SQL Data Warehouse - Azure Event Hubs
+title: 'Tutorial: Migrate event data to SQL Data Warehouse - Azure Event Hubs'
 # event-hubs-tutorial-visualize-anomalies.md
-description: This tutorial shows you how to capture data from your event hub into a SQL data warehouse by using an Azure function triggered by an event grid. 
+description: 'Tutorial: This tutorial shows you how to capture data from your event hub into a SQL data warehouse by using an Azure function triggered by an event grid.' 
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: 
 ms.author: shvija
 ms.custom: seodec18
-ms.date: 10/23/2019
+ms.date: 11/05/2019
 ms.topic: tutorial
 ms.service: event-hubs
 ---
-
 
 # Tutorial: Migrate captured Event Hubs data to a SQL Data Warehouse using Event Grid and Azure Functions
 

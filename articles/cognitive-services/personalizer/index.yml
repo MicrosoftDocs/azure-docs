@@ -64,7 +64,7 @@ landingContent:
           - text: NuGet package
             url: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/0.8.0-preview
           - text: NuGet reference documentation
-            url: https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.personalizer?view=azure-dotnet-preview&viewFallbackFrom=azure-dotnet   
+            url: https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer?view=azure-dotnet-preview&viewFallbackFrom=azure-dotnet   
       - linkListType: get-started
         links:      
           - text: Develop Personalizer loop with Node.js
@@ -95,7 +95,7 @@ landingContent:
             url: concepts-exploration.md
           - text: Features, action, and context
             url: concepts-features.md
-          - text: Active learning
+          - text: Active and inactive events
             url: concept-active-learning.md
           - text: Rewards
             url: concept-rewards.md
@@ -105,7 +105,7 @@ landingContent:
         links:
           - text: Improve loop with offline evaluations
             url: concepts-offline-evaluation.md
-          - text: Active learning
+          - text: Active and inactive events
             url: concept-active-learning.md
           - text: Scalability and performance
             url: concepts-scalability-performance.md 

@@ -1,6 +1,6 @@
 ---
-title: Quickstart: Create Azure Service Bus namespace and queue using Azure Resource Manager template
-description: Quickstart: Create a Service Bus namespace and a queue using Azure Resource Manager template
+title: 'Quickstart: Create Azure Service Bus namespace and queue using Azure Resource Manager template'
+description: 'Quickstart: Create a Service Bus namespace and a queue using Azure Resource Manager template'
 services: service-bus-messaging
 documentationcenter: .net
 author: spelluru
@@ -13,7 +13,7 @@ ms.devlang: tbd
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 10/24/2019
+ms.date: 11/05/2019
 ms.author: spelluru
 
 ---
@@ -90,16 +90,17 @@ The Service Bus API version of the template.
 Creates a standard Service Bus namespace of type **Messaging**, with a queue.
 
 ```json
-"resources ": [{
-        "apiVersion": "[variables('sbVersion')]",
-        "name": "[parameters('serviceBusNamespaceName')]",
-        "type": "Microsoft.ServiceBus/Namespaces",
-        "location": "[variables('location')]",
-        "kind": "Messaging",
-        "sku": {
-            "name": "Standard",
-        },
-        "resources": [{
+{
+	"resources": [{
+		"apiVersion": "2017-04-01",
+		"name": "[parameters('serviceBusNamespaceName')]",
+		"type": "Microsoft.ServiceBus/namespaces",
+		"location": "[parameters('location')]",
+		"sku": {
+			"name": "Standard"
+		},
+		"properties": {},
+		"resources": [{
             "apiVersion": "[variables('sbVersion')]",
             "name": "[parameters('serviceBusQueueName')]",
             "type": "Queues",
@@ -107,10 +108,11 @@ Creates a standard Service Bus namespace of type **Messaging**, with a queue.
                 "[concat('Microsoft.ServiceBus/namespaces/', parameters('serviceBusNamespaceName'))]"
             ],
             "properties": {
-                "path": "[parameters('serviceBusQueueName')]",
+                "path": "[parameters('serviceBusQueueName')]"
             }
         }]
-    }]
+	}]
+}
 ```
 
 For JSON syntax and properties, see [namespaces](/azure/templates/microsoft.servicebus/namespaces) and [queues](/azure/templates/microsoft.servicebus/namespaces/queues).

@@ -213,18 +213,18 @@ For more information about managing Kubernetes application deployments with Helm
 
 <!-- LINKS - external -->
 [helm]: https://github.com/kubernetes/helm/
-[helm-documentation]: https://docs.helm.sh/
-[helm-init]: https://docs.helm.sh/helm/#helm-init
-[helm-install]: https://docs.helm.sh/using_helm/#installing-helm
+[helm-documentation]: https://v2.helm.sh/docs/
+[helm-init]: https://v2.helm.sh/docs/helm/#helm-init
+[helm-install]: https://v2.helm.sh/docs/using_helm/#installing-helm
 [helm-install-options]: https://github.com/kubernetes/helm/blob/master/docs/install.md
-[helm-list]: https://docs.helm.sh/helm/#helm-list
-[helm-history-max]: https://helm.sh/docs/using_helm/#initialize-helm-and-install-tiller
-[helm-rbac]: https://docs.helm.sh/using_helm/#role-based-access-control
-[helm-repo-update]: https://docs.helm.sh/helm/#helm-repo-update
-[helm-search]: https://docs.helm.sh/helm/#helm-search
-[tiller-rbac]: https://docs.helm.sh/using_helm/#tiller-namespaces-and-rbac
-[helm-ssl]: https://docs.helm.sh/using_helm/#using-ssl-between-helm-and-tiller
-
+[helm-list]: https://v2.helm.sh/docs/helm/#helm-list
+[helm-history-max]: https://v2.helm.sh/docs/using_helm/#initialize-helm-and-install-tiller
+[helm-rbac]: https://v2.helm.sh/docs/using_helm/#role-based-access-control
+[helm-repo-update]: https://v2.helm.sh/docs/helm/#helm-repo-update
+[helm-search]: https://v2.helm.sh/docs/helm/#helm-search
+[tiller-rbac]: https://v2.helm.sh/docs/using_helm/#tiller-namespaces-and-rbac
+[helm-ssl]: https://v2.helm.sh/docs/using_helm/#using-ssl-between-helm-and-tiller
+            
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md

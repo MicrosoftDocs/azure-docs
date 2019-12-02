@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/22/2019
+ms.date: 10/25/2019
 ---
 
 # Azure Database for MariaDB server firewall rules
@@ -38,10 +38,13 @@ To allow applications from Azure to connect to your Azure Database for MariaDB s
 
 ![Configure Allow access to Azure services in the portal](./media/concepts-firewall-rules/allow-azure-services.png)
 
+### Connecting from a VNet
+To connect securely to your Azure Database for MariaDB server from a VNet, consider using [VNet service endpoints](./concepts-data-access-security-vnet.md). 
+
 ## Programmatically managing firewall rules
 In addition to the Azure portal, firewall rules can be managed programmatically by using the Azure CLI. 
 
-<!--See also [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md)-->
+See also [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](./howto-manage-firewall-cli.md).
 
 ## Troubleshooting firewall issues
 Consider the following points when access to the Microsoft Azure Database for MariaDB server service does not behave as expected:
@@ -61,6 +64,5 @@ Connections to the Azure Database for MariaDB server are routed through a public
 
 ## Next steps
 - [Create and manage Azure Database for MariaDB firewall rules using the Azure portal](./howto-manage-firewall-portal.md)
-
-<!--
-- [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md) -->
+- [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](./howto-manage-firewall-cli.md)
+- [VNet service endpoints in Azure Database for MariaDB](./concepts-data-access-security-vnet.md)

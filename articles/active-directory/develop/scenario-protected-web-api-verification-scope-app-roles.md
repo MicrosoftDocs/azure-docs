@@ -1,5 +1,5 @@
 ---
-title: Protected web API - app code configuration  Active Directory
+title: Verify scopes and app roles with protected web API
 titleSuffix: Microsoft identity platform
 description: Learn how to build a protected web API and configure your application's code.
 services: active-directory
@@ -21,7 +21,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Protected web API: Adding authorization to your API
+# Protected web API: Verify scopes and app roles
 
 This article describes how you can add authorization to your web API. This protection ensures that the API is called only by:
 

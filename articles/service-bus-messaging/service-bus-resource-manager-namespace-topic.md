@@ -1,6 +1,6 @@
 ---
-title: Quickstart: Create Azure Service Bus namespace topic subscription using Azure Resource Manager template
-description: Quickstart: Create a Service Bus namespace with topic and subscription using Azure Resource Manager template
+title: 'Quickstart: Create Azure Service Bus namespace topic subscription using Azure Resource Manager template'
+description: 'Quickstart: Create a Service Bus namespace with topic and subscription using Azure Resource Manager template'
 services: service-bus-messaging
 documentationcenter: .net
 author: spelluru
@@ -13,7 +13,7 @@ ms.devlang: tbd
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 1/24/2019
+ms.date: 11/05/2019
 ms.author: spelluru
 
 ---

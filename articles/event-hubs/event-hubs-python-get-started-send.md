@@ -1,6 +1,6 @@
 ---
-title: Quickstart: Send and receive events using Python - Azure Event Hubs
-description: Quickstart: This walkthrough shows how to create and run Python scripts that send events to or receive events from Azure Event Hubs.
+title: 'Quickstart: Send and receive events using Python - Azure Event Hubs'
+description: 'Quickstart: This walkthrough shows how to create and run Python scripts that send events to or receive events from Azure Event Hubs.'
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: femila
@@ -8,7 +8,7 @@ manager: femila
 ms.service: event-hubs
 ms.workload: core
 ms.topic: quickstart
-ms.date: 10/24/2019
+ms.date: 11/05/2019
 ms.author: shvija
 
 ---

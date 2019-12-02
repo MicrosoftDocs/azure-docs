@@ -1,5 +1,6 @@
 ---
-title: Automate NSG auditing with Azure Network Watcher Security group view | Microsoft Docs
+title: Automate NSG auditing - Security group view
+titleSuffix: Azure Network Watcher
 description: This page provides instructions on how to configure auditing of a Network Security Group
 services: network-watcher
 documentationcenter: na

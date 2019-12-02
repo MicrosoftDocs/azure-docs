@@ -1,6 +1,6 @@
 ---
-title: Quickstart: Create an event hub with consumer group - Azure Event Hubs
-description: Quickstart: Create an Event Hubs namespace with an event hub and a consumer group using Azure Resource Manager templates
+title: 'Quickstart: Create an event hub with consumer group - Azure Event Hubs'
+description: 'Quickstart: Create an Event Hubs namespace with an event hub and a consumer group using Azure Resource Manager templates'
 services: event-hubs
 documentationcenter: .net
 author: ShubhaVijayasarathy
@@ -13,7 +13,7 @@ ms.devlang: tbd
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 10/24/2019
+ms.date: 11/05/2019
 ms.author: shvija
 
 ---

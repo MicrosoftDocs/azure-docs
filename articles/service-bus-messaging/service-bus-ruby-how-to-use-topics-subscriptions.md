@@ -1,6 +1,6 @@
 ---
-title: Quickstart: How to use Service Bus topics (Ruby)
-description: Quickstart: Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Ruby applications.
+title: 'Quickstart: How to use Service Bus topics (Ruby)'
+description: 'Quickstart: Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Ruby applications.'
 services: service-bus-messaging
 documentationcenter: ruby
 author: axisc
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 10/24/2019
+ms.date: 11/05/2019
 ms.author: aschhab
 
 ---

@@ -30,7 +30,7 @@ The .NET Feature Management libraries extend the framework with comprehensive fe
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
 - [.NET Framework 4.7.2](https://dotnet.microsoft.com/download)
 
-## Create an app configuration store
+## Create an App Configuration store
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
@@ -42,7 +42,7 @@ The .NET Feature Management libraries extend the framework with comprehensive fe
 
 1. In **Configure your new project**, enter a project name. Under **Framework**, select **.NET Framework 4.7.1** or higher. Click **Create**.
 
-## Connect to an app configuration store
+## Connect to an App Configuration store
 
 1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search and add the following NuGet packages to your project. If you can't find them, select the **Include prerelease** check box.
 
@@ -88,7 +88,7 @@ The .NET Feature Management libraries extend the framework with comprehensive fe
 
 ## Build and run the app locally
 
-1. Set an environment variable named **ConnectionString** to the connection string of your app configuration store. If you use the Windows command prompt, run the following command:
+1. Set an environment variable named **ConnectionString** to the connection string of your App Configuration store. If you use the Windows command prompt, run the following command:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 

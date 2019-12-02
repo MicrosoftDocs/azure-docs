@@ -1,19 +1,19 @@
 ---
-title: Facet filters for search navigation in apps - Azure Search
-description: Filter criteria by user security identity, geo-location, or numeric values to reduce search results on queries in Azure Search, a hosted cloud search service on Microsoft Azure.
-author: HeidiSteen
+title: Facet filters for search navigation in apps
+titleSuffix: Azure Cognitive Search
+description: Filter criteria by user security identity, geo-location, or numeric values to reduce search results on queries in Azure Cognitive Search, a hosted cloud search service on Microsoft Azure.
+
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 5/13/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
 
-# How to build a facet filter in Azure Search 
+# How to build a facet filter in Azure Cognitive Search 
 
-Faceted navigation is used for self-directed filtering on query results in a search app, where your application offers UI controls for scoping search to groups of documents (for example, categories or brands), and Azure Search provides the data structure to back the experience. In this article, quickly review the basic steps for creating a faceted navigation structure backing the search experience you want to provide. 
+Faceted navigation is used for self-directed filtering on query results in a search app, where your application offers UI controls for scoping search to groups of documents (for example, categories or brands), and Azure Cognitive Search provides the data structure to back the experience. In this article, quickly review the basic steps for creating a faceted navigation structure backing the search experience you want to provide. 
 
 > [!div class="checklist"]
 > * Choose fields for filtering and faceting
@@ -26,7 +26,7 @@ Facets are dynamic and returned on a query. Search responses bring with them the
 
   ![](./media/search-filters-facets/facet-nav.png)
 
-New to faceted navigation and want more detail? See [How to implement faceted navigation in Azure Search](search-faceted-navigation.md).
+New to faceted navigation and want more detail? See [How to implement faceted navigation in Azure Cognitive Search](search-faceted-navigation.md).
 
 ## Choose fields
 
@@ -73,7 +73,7 @@ Index attributes that control how a field is used are added to individual field 
 ```
 
 > [!Note]
-> This index definition is copied from [Create an Azure Search index using the REST API](https://docs.microsoft.com/azure/search/search-create-index-rest-api). It is identical except for superficial differences in the field definitions. The `filterable` and `facetable` attributes are explicitly added on `category`, `tags`, `parkingIncluded`, `smokingAllowed`, and `rating` fields. In practice, `filterable` and `facetable` would be enabled by default on these fields when using the REST API. When using the .NET SDK, these attributes must be enabled explicitly.
+> This index definition is copied from [Create an Azure Cognitive Search index using the REST API](https://docs.microsoft.com/azure/search/search-create-index-rest-api). It is identical except for superficial differences in the field definitions. The `filterable` and `facetable` attributes are explicitly added on `category`, `tags`, `parkingIncluded`, `smokingAllowed`, and `rating` fields. In practice, `filterable` and `facetable` would be enabled by default on these fields when using the REST API. When using the .NET SDK, these attributes must be enabled explicitly.
 
 ## Build and load an index
 
@@ -113,12 +113,12 @@ If you want to initialize a page with facets in place, you can send a query as p
 
 ### Preserve a facet navigation structure asynchronously of filtered results
 
-One of the challenges with facet navigation in Azure Search is that facets exist for current results only. In practice, it's common to retain a static set of facets so that the user can navigate in reverse, retracing steps to explore alternative paths through search content. 
+One of the challenges with facet navigation in Azure Cognitive Search is that facets exist for current results only. In practice, it's common to retain a static set of facets so that the user can navigate in reverse, retracing steps to explore alternative paths through search content. 
 
 Although this is a common use case, it's not something the facet navigation structure currently provides out-of-the-box. Developers who want static facets typically work around the limitation by issuing two filtered queries: one scoped to the results, the other used to create a static list of facets for navigation purposes.
 
 ## See also
 
-+ [Filters in Azure Search](search-filters.md)
++ [Filters in Azure Cognitive Search](search-filters.md)
 + [Create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)
 + [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)

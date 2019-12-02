@@ -115,7 +115,7 @@ Earlier, it was mentioned that MSAL added the $(AppIdentifierPrefix) whenever yo
 Your application can use Microsoft Authenticator (a broker) to enable:
 
 - Single Sign On (SSO). Your users won't need to sign-in to each application.
-- Device identification. By accessing the device certificate, which was created on the device when it was workplace joined. Your application will be ready if the tenant admins enable conditional access related to the devices.
+- Device identification. By accessing the device certificate, which was created on the device when it was workplace joined. Your application will be ready if the tenant admins enable Conditional Access related to the devices.
 - Application identification verification. When an application calls the broker, it passes its redirect url, and the broker verifies it.
 
 For details on how to enable the broker, see [Use Microsoft Authenticator or Microsoft Intune company portal on Xamarin iOS and Android applications](msal-net-use-brokers-with-xamarin-apps.md).

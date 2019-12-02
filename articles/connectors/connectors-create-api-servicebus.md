@@ -78,7 +78,7 @@ Confirm that your logic app has permissions for accessing your Service Bus names
 
    All Service Bus triggers are *long-polling* triggers. This description means that when the trigger fires, the trigger processes all the messages and then waits 30 seconds for more messages to appear in the queue or topic subscription. If no messages appear in 30 seconds, the trigger run is skipped. Otherwise, the trigger continues reading messages until the queue or topic subscription is empty. The next trigger poll is based on the recurrence interval specified in the trigger's properties.
 
-   Some triggers, such as the **When one or more messages arrive in a queue (auto-complete)** trigger, can return one or messages. When these triggers fire, they return between one and the number of messages that's specified by the trigger's **Maximum message count** property.
+   Some triggers, such as the **When one or more messages arrive in a queue (auto-complete)** trigger, can return one or more messages. When these triggers fire, they return between one and the number of messages that's specified by the trigger's **Maximum message count** property.
 
 1. If your trigger is connecting to your Service Bus namespace for the first time, follow these steps when the Logic App Designer prompts you for connection information.
 
