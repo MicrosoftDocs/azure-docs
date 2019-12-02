@@ -46,18 +46,20 @@ Start by creating an application registration that your PowerShell scripts execu
 
 ### Create client secret
 
+Next, create a client secret for your PowerShell script to use when authenticating.
+
 [!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
 ## Configure an Azure DevOps Git repository
 
-With a management application registration completed, you're ready to configure a repository for your policy files.
+With a management application registered an a client secret created, you're ready to configure a repository for your policy files.
 
 1. Sign in to your Azure DevOps organization and navigate to your project.
-1. In your project, navigate to **Repos** and select the **Files** page. Select an existing Repo or create one for this exercise.
-1. Create a folder named *B2CAssets*. You can remove the required README.md later, if you like.
+1. In your project, navigate to **Repos** and select the **Files** page. Select an existing repository or create one for this exercise.
+1. Create a folder named *B2CAssets*. Name the required placeholder file *README.md* and **Commit** the file. You can remove this file later, if you like.
 1. Add your Azure AD B2C policy files to the *B2CAssets* folder. This includes the *TrustFrameworkBase.xml*, *TrustFrameWorkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml*, *PasswordReset.xml*, and any other policies you've created. Record the filename of each Azure AD B2C policy file for use in a later step (they're used as PowerShell script arguments).
-1. Create a folder named *Scripts* in the root directory of the repository.
-1. Paste the following PowerShell script into a file named *DeployToB2c.ps1* in the newly created *Scripts* folder. The script acquires a token from Azure AD and calls the Microsoft Graph API to upload the policies within the B2CAssets folder to your Azure AD B2C tenant.
+1. Create a folder named *Scripts* in the root directory of the repository, name the placeholder file *DeployToB2c.ps1*. Don't commit the file at this point, you'll do so in a later step.
+1. Paste the following PowerShell script into *DeployToB2c.ps1*, then **Commit** the file. The script acquires a token from Azure AD and calls the Microsoft Graph API to upload the policies within the *B2CAssets* folder to your Azure AD B2C tenant.
 
     ```PowerShell
     [Cmdletbinding()]
@@ -104,39 +106,49 @@ With a management application registration completed, you're ready to configure 
 
 ## Configure your Azure DevOps release pipeline
 
+With your repository initialized and populated with your custom policy files, you're ready to set up the release pipeline.
+
+### Create pipeline
+
 1. Sign in to your Azure DevOps organization and navigate to your project.
-1. In your project, navigate to the **Releases** page under **Pipelines**. Then choose the action to create a new pipeline.
-    - Select **New** then Select **New release pipeline**
+1. In your project, select **Pipelines** > **Releases** > **New pipeline**.
 1. Select **Empty Job** at the top of navigation pane to choose a template.
-1. In the next screen, enter a name for the stage such as 'DeployCustomPolicies' and close window.
-1. Select **Add an artifact** to the pipeline. For this guide, follow prompts and choose your repo.
-    - Under **Select repository**, choose the repo that you generated the previous **Scripts** folder
-    - Choose the correct branch for **Default branch**
-    - You may leave default value for **"Default version** for 'Latest form the default branch'
-1. Once complete, select **Add**
-1. Switch to **Variables** tab.
-1. Add following variables under **Pipeline variables**:
-    - **Name:** clientId <br/>
-    **Value:** 'applicationId of the app you created earlier'
-    - **Name:** clientSecret <br/>
-    **Value:** 'password of the app you created earlier' from the application **Keys**.
-        - Please make sure to change variable type to 'Secret' by selecting the lock icon next to Value field.
-    - **Name:** tenantId <br/>
-    **Value:** 'yourtenant.onmicrosoft.com'
-        - Also known as the default domain name
+1. Enter a **Stage name**, for example *DeployCustomPolicies*, then close the pane.
+1. Select **Add an artifact**, and under **Source type**, select **Azure Repository**.
+    1. Choose the source repository containing the *Scripts* folder that you populated with the PowerShell script.
+    1. Choose a **Default branch**. If you created a new repository in the previous section, the default branch is *master*.
+    1. Leave the **Default version** setting of *Latest form the default branch*.
+1. Select **Add**, and then select **Save** to save the pipeline configuration.
+
+### Configure pipeline variables
+
+1. Select the **Variables** tab.
+1. Add following variables under **Pipeline variables** and set their values as specified:
+
+    | Name | Value |
+    | ---- | ----- |
+    | `clientId` | **Application (client) ID** of the application you registered earlier. |
+    | `clientSecret` | The value of the **client secret** that you created earlier. <br /> Change the variable type to **secret** (select the lock icon). |
+    | `tenantId` | `your-b2c-tenant.onmicrosoft.com`, where *your-b2c-tenant* is the name of your Azure AD B2C tenant. |
+
+### Configure pipeline tasks
 
 1. Switch to **Tasks** tab.
 1. Select Agent job, and then select '+' to add a task to the Agent job. From right side search for 'PowerShell' and add it. There might be multiple 'PowerShell' tasks, such as Azure PowerShell etc. Please choose the one which says just **PowerShell** and select **Add**.
     1. Select newly added 'PowerShell Script' task.
     1. Enter following values
-        - **Task Version:** 1.* or 2.* Decide the correct version based on [release notes](https://docs.microsoft.com/windows/win32/taskschd/what-s-new-in-task-scheduler).
-        - **Display Name:** 'name of the specific policy that you are targeting to upload Example: 'B2C_1A_TrustFrameworkBase'
-        - **Type:** File Path
-        - **Script Path:** Click on the "..." icon and Navigate to the 'DeployToB2C.ps1' file. Select this file.
-        - **Arguments:** <br/>
-        -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -PolicyId B2C_1A_TrustFrameworkBase -PathToFile $(System.DefaultWorkingDirectory)/B2CAssets/TrustFrameworkBase.xml <br/>
+        * **Task Version:** 1.* or 2.* Decide the correct version based on [release notes](https://docs.microsoft.com/windows/win32/taskschd/what-s-new-in-task-scheduler).
+        * **Display Name:** 'name of the specific policy that you are targeting to upload Example: 'B2C_1A_TrustFrameworkBase'
+        * **Type:** File Path
+        * **Script Path:** Click on the "..." icon and Navigate to the 'DeployToB2C.ps1' file. Select this file.
+        * **Arguments:**
+
+            ```
+            -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -PolicyId B2C_1A_TrustFrameworkBase -PathToFile $(System.DefaultWorkingDirectory)/B2CAssets/TrustFrameworkBase.xml
+            ```
             PolicyId is not the filename and instead is a value stored with the XML policy. This is located at the beginning of policy file. See Example:
-            ```xml
+
+            ```XML
             <TrustFrameworkPolicy
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
@@ -146,6 +158,7 @@ With a management application registration completed, you're ready to configure 
             PolicyId= "B2C_1A_TrustFrameworkBase"
             PublicPolicyUri="http://contoso.onmicrosoft.com/B2C_1A_TrustFrameworkBase">
             ```
+
 1. Save the Agent job.
 
 This example uploads only one policy. Update the **Arguments** for each **Agent job** between the different policies. Specifically, the '-PolicyId' and '-PathToFile' parameters.
@@ -172,7 +185,7 @@ To test your release pipeline:
 
 ## Next steps
 
-* Learn more about the [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
-* Learn more about [Azure AD Graph API permission scopes](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
-* Learn more about [Service to service calls using client credentials](https://docs.microsoft.com/en-us/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
-* Learn how to get started with [Azure DevOps](https://docs.microsoft.com/azure/devops/user-guide/?view=azure-devops)
+Learn more about:
+
+* [Service-to-service calls using client credentials](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
+* [Azure DevOps](https://docs.microsoft.com/azure/devops/user-guide/?view=azure-devops)
