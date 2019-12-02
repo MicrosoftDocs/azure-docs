@@ -28,7 +28,7 @@ When you're ready to use the data in your storage, we recommend you
 
     1. Consuming it directly in Azure Machine Learning solutions like automated machine learning (automated ML) experiment runs, machine learning pipelines, and the designer.
 4. Create dataset monitors for your model input and output datasets to detect for data drift. 
-5. If data drift is detected, retrain your model accordingly.
+5. If data drift is detected, update your dataset and retrain your model accordingly.
 
 The following diagram provides a visual demonstration of this recommended data access workflow.
 
@@ -36,15 +36,25 @@ The following diagram provides a visual demonstration of this recommended data a
 
 ## Access data in storage
 
-To access your data in your storage account, Azure Machine Learning offers datastores and datasets. Datastores provide a layer of abstraction over your storage service, this aids in security and ease of access to your storage, since connection information is kept in the datastore and not exposed in scripts. Datasets point to the specific file or files in your underlying storage that you want to use for your machine learning experiment. Together these offer a secure, scalable, and reproducible data delivery workflow for your machine learning tasks.
+To access your data in your storage account, Azure Machine Learning offers datastores and datasets. Datastores provide a layer of abstraction over your storage service, this aids in security and ease of access to your storage, since connection information is kept in the datastore and not exposed in scripts. Datasets point to the specific file or files in your underlying storage that you want to use for your machine learning experiment. Together, datastores and datasets offer a secure, scalable, and reproducible data delivery workflow for your machine learning tasks.
 
 ### Datastores
 
-An Azure Machine Learning datastore is a storage abstraction over an Azure  storage services account. [Register and create a datastore](how-to-access-data.md) to easily connect to your Azure storage account, and access the data in your underlying Azure storage services. 
+An Azure Machine Learning datastore is a storage abstraction over your Azure storage services. [Register and create a datastore](how-to-access-data.md) to easily connect to your Azure storage account, and access the data in your underlying Azure storage services.
+
+Supported Azure storage services that can be registered as datastores:
++ Azure Blob Container
++ Azure File Share
++ Azure Data Lake
++ Azure Data Lake Gen2
++ Azure SQL Database
++ Azure Database for PostgreSQL
++ Databricks File System
++ Azure Database for MySQL
 
 ### Datasets
 
-[Create an Azure Machine Learning dataset](how-to-create-register-datasets.md) to interact with data in your datastores or to package your data into a consumable object for machine learning tasks. Register the dataset to your workspace to share and reuse it across different experiments without data ingestion complexities.
+[Create an Azure Machine Learning dataset](how-to-create-register-datasets.md) to interact with data in your datastores and package your data into a consumable object for machine learning tasks. Register the dataset to your workspace to share and reuse it across different experiments without data ingestion complexities.
 
 Datasets can be created from local files, public urls, [Azure Open Datasets](#open), or specific file(s) in your datastores. They aren't copies of your data, but are references that point to the data in your storage service, so no extra storage cost is incurred. 
 
@@ -52,7 +62,7 @@ The following diagram shows that if you don't have an Azure storage service, you
 
 ![Data-concept-diagram](media/concept-data/dataset-workflow.svg)
 
-Additional datasets capabilities can be found in the following articles.
+Additional datasets capabilities can be found in the following documentation:
 
 + [Version and track](how-to-version-track-datasets.md) dataset lineage.
 + [Monitor your dataset](how-to-monitor-datasets.md) to help with data drift detection.
@@ -68,8 +78,8 @@ With datasets, you can accomplish a number of machine learning tasks through sea
 + [Train machine learning models](how-to-train-with-datasets.md).
 + Consume datasets in 
      + [automated ML experiments](how-to-create-portal-experiments.md)
-     + [machine learning pipelines](how-to-create-your-first-pipeline.md)
-     + the [designer](tutorial-designer-automobile-price-train-score.md#import-data)
+     + the [designer](tutorial-designer-automobile-price-train-score.md#import-data) 
++ Access datasets for scoring with batch inference in [machine learning pipelines](how-to-create-your-first-pipeline.md).
 + Create a [data labeling project](#label).
 + Set up a dataset monitor for [data drift](#drift) detection.
 
