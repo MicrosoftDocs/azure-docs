@@ -1,6 +1,6 @@
 ---
 title: Security recommendations for machines and applications
-description: This article lists Security Center's security recommendations that help you protect your virtual machines, computers, web apps, and App Service environments.
+description: Azure Security Center's security recommendations that help you protect your virtual machines, computers, web apps, and App Service environments.
 services: security-center
 documentationcenter: na
 author: memildin
