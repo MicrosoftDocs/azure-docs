@@ -8,7 +8,8 @@ ms.author: aahi
 
 Start using the Text Analytics API by creating one of the Azure resources below.
 
-* A [trial resource](https://azure.microsoft.com/try/cognitive-services/#lang) (no Azure subscription needed): 
+* A [trial resource](https://azure.microsoft.com/try/cognitive-services/#lang) 
+    * No Azure subscription needed. 
     * Valid for seven days, for free. After signing up, a trial key and endpoint will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/). 
     * This is a great option if you want to try the Text Analytics API, but don’t have an Azure subscription.
 
