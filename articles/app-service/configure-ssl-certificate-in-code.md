@@ -1,18 +1,8 @@
 ---
-title: Use SSL certificate in code - Azure App Service | Microsoft Docs
-description: Learn how to use client certificates to connect to remote resources that require them.
-services: app-service
-documentationcenter: 
-author: cephalin
-manager: gwallace
-editor: ''
-
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
+title: Use SSL certificate in code
+description: Learn how to use client certificates in your code. Authenticate with remote resources with a client certificate, or run cryptographic tasks with them.
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
 
@@ -37,7 +27,7 @@ To follow this how-to guide:
 
 In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, from the left menu, select **App Services** > **\<app-name>**.
 
-From the left navigation of your app, select **TLS/SSL settings**, then select **Private Key Certificates (.pfx)** or **Public Key Certificates (.cer)**.
+From the left navigation of your app, select **TLS/SSL settings**, then select **Private Key Certificates (.pfx)** or **Publicey Certificates (.cer)**.
 
 Find the certificate you want to use and copy the thumbprint.
 
