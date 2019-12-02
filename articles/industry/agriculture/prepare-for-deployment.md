@@ -54,11 +54,7 @@ To create an Azure FarmBeats offer in Azure Marketplace, do the following:
 
 1. Sign in to the Azure portal, select your account at the top right, and then switch to the Azure Active Directory (Azure AD) tenant where you want to deploy Azure FarmBeats.
 1. Azure FarmBeats is available in Azure Marketplace. On the **Azure Marketplace** page, select **Get it Now**.
-<<<<<<< HEAD
 1. Select **Create**.
-=======
-1. Select **Create**.  
->>>>>>> 3c92a535184e492d4d1423f5b0cca6838864da5e
 
 > [!NOTE]
 > Completion of the offer in Azure Marketplace is only a part of the setup. To complete the deployment of Azure FarmBeats in your Azure subscription, follow the instructions in the next sections.
