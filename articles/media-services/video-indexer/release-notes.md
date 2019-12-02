@@ -28,19 +28,18 @@ To stay up-to-date with the most recent developments, this article provides you 
  
 * Korean custom language models support
 
-    Video indexer now support custom language models in Korean in both the API and portal
+    Video indexer now supports custom language models in Korean (`ko-KR`) in both the API and portal. 
+* New languages supported for speech-to-text (STT)
 
+    Video Indexer APIs now support STT in Arabic Levantine (ar-SY), English UK dialect (en-GB), and English Australian dialect (en-AU).
+    
+    For video upload, we replaced zh-HANS to zh-CN, both are supported but zh-CN is recommended and more accurate.
+    
 ## October 2019
  
 * Search for animated characters in the gallery
 
     When indexing animated characters, you can now search for them in the account’s video galley. For more information, see [Animated characters recognition](animated-characters-recognition.md).
-
-* New languages supported for STT
-
-    Video Indexer APIs now support STT in Arabic Levantine (ar-SY), English UK dialect (en-GB), and English Australian dialect (en-AU).
-    
-    For video upload, we replaced zh-HANS to zh-CN, both are supported but zh-CN is recommended and more accurate.
 
 ## September 2019
  
