@@ -69,7 +69,7 @@ To configure an **Alert**, navigate back to the **Alerts** page, and click **Man
 
 1. On the **Create rule** page, specify the **RESOURCE**, **CONDITION**, and **ACTIONS**.  From **ACTIONS** pane select the previously defined **Action Group**.
 
-1. Under **OTHER DETAILS**, Name the alert rule.
+1. Under **ALERT DETAILS**, Name the alert rule.
 
 1. Click **Create alert rule**.
 
