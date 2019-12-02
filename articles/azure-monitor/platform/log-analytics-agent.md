@@ -19,23 +19,27 @@ The Azure Log Analytics agent collects monitoring data from the guest operating 
 ## Virtual machines supported
 THe Log Analytics agent can be used with any Windows or Linux virtual machine in Azure, in another cloud, or on-premises. See [Supported operating system](#supported-operating-systems) for specific versions supported.
 
+
 ## Data collected
 
 | Data Source | Description |
 | --- | --- |
 | [Windows Event logs](data-sources-windows-events.md) | Information sent to the Windows event logging system. |
-| [Syslog](data-sources-syslog.md)
-| Performance
-| IIS logs
-| Custom logs
-| Data from solutions
+| [Syslog](data-sources-syslog.md)                     | Information sent to the Linux event logging system. |
+| [Performance](data-sources-performance-counters.md)  | Numerical values measuring performance of different aspects of operating system and workloads. |
+| [IIS logs](data-sources-iis-logs.md)                 | Usage information for IIS web sites running on the guest operating system. |
+| [Custom logs](data-sources-custom-logs.md)           | Events from text files on both Windows and Linux computers. |
+| [Data from solutions](../insights/solutions.md)      | Data collected by monitoring solutions. |
 
 
 ## Services supported
 The Log Analytics agent is required for virtual machines managed by the following services:
 
-Azure Security Center
-Azure Monitor for VMs
+| Service | Description |
+|:---|:---|
+| Azure Automation       | The Log Analytics agent is required to support the [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) feature of Azure Automation. This allows you to run runbooks on agent computers. |
+| Azure Security Center  | |
+| Azure Monitor for VMs  |  |
 
 
 ## Data destination
