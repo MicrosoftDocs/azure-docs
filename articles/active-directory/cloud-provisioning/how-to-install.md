@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 This document will walk you through the installation process for the Azure AD Connect provisioning agent and how to initially configure it in the Azure portal.
 
 >[!IMPORTANT]
->The following installation instructions assume that all of the [Pre-requisites](how-to-cloud-prov-prereq.md) have been met.
+>The following installation instructions assume that all of the [Pre-requisites](how-to-prerequisites.md) have been met.
 
 Installing and configuring Azure AD Connect provisioning is accomplished in the following steps:
 	
@@ -81,7 +81,7 @@ To verify that the agent is running follow these steps:
 ![Services](media/how-to-cloud-prov-tshoot/tshoot1.png)
 
 >[!IMPORTANT]
->The agent has been installed but must be configured and enabled before it will start synchronizing users.  To configure a new agent see [Azure AD Connect provisioning new agent configuration](how-to-cloud-prov-manage.md).
+>The agent has been installed but must be configured and enabled before it will start synchronizing users.  To configure a new agent see [Azure AD Connect provisioning new agent configuration](how-to-configure.md).
 
 
 

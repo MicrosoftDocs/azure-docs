@@ -177,7 +177,7 @@ By clicking on the status, you can see additional information about the quaranti
 - Use the Azure portal to restart the provisioning job. On the agent configuration page select **Restart provisioning**.
 
 
- ![Quarantine](media/how-to-cloud-provisioning-tshoot/quarantine3.png)
+ ![Quarantine](media/how-to-cloud-prov-tshoot/quarantine3.png)
 
 - Use Microsoft Graph to [restart the provisioning job](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). You'll have full control over what you restart. You can choose to clear escrows (to restart the escrow counter that accrues toward quarantine status), clear quarantine (to remove the application from quarantine), or clear watermarks. Use the following request:
  

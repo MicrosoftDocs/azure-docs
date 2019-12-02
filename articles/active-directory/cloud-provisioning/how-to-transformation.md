@@ -16,11 +16,11 @@ A transformation allows you to change the default behavior of how an attribute i
 
 To do this task, you need to edit the schema and then resubmit it via a web request.
 
-For more information on cloud provisioning attributes, see [Understanding the Azure AD Schema](concept-cloud-prov-attributes.md).
+For more information on cloud provisioning attributes, see [Understanding the Azure AD Schema](concept-attributes.md).
 
 
 ## Retrieve the schema
-To retrieve the schema, use the steps outlined in [Viewing the schema](concept-cloud-prov-attributes.md#viewing-the-schema). 
+To retrieve the schema, use the steps outlined in [Viewing the schema](concept-attributes.md#viewing-the-schema). 
 
 
 ## Custom attribute mapping

@@ -25,7 +25,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure AD Connect cloud provisioning?
-            url: whatis-cloud-prov.md
+            url: what-is-cloud-provisioning.md
  
   # Card
   - title: Determine the best solution to manage the lifecycle of your users and groups
@@ -46,15 +46,15 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Pre-requisties for Azure AD Connect cloud provisioning 
-            url: how-to-cloud-prov-prereq.md
+            url: how-to-prerequisites.md
           - text: Install Azure AD Connect cloud provisioning
-            url: how-to-cloud-prov-install.md
-          - text: Azure AD Connect cloud provisioning agent management
-            url: how-to-cloud-prov-agent.md
+            url: how-to-install.md
+          - text: Azure AD Connect cloud provisioning agent configuration
+            url: how-to-configure.md
       - linkListType: reference
         links:
           - text: Supported topologies and scenarios
-            url: plan-cloud-prov-topologies.md
+            url: plan-cloud-provisioning-topologies.md
 
  
 
