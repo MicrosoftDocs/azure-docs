@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/03/2019
 ms.author: ryanwi
-ms.reviewer: paulgarn, hirsin
+ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
@@ -234,7 +234,7 @@ This section covers the configuration options under optional claims for changing
 **Configuring groups optional claims through the UI:**
 1. In the portal -> Azure Active Directory -> Application Registrations -> Select Application -> Token Configuration (preview)
 2. Select <b>Add groups claim </b>
-3. Select the group types to return (SecurityGroup, DistributionList, DirectoryRole)
+3. Select the group types to return (All Groups, SecurityGroup, DirectoryRole). Note: the 'All Groups' option includes SecurityGroup, DirectoryRole and DistributionList
 4. Click on the specific token type properties to modify the groups claim value to contain on premises group attributes or to change the claim type to a role
 5. Click <b>Save </b>
 
@@ -245,9 +245,8 @@ This section covers the configuration options under optional claims for changing
 
    The valid values are:
 
-   - "All"
+   - "All" (this option includes SecurityGroup, DirectoryRole and DistributionList)
    - "SecurityGroup"
-   - "DistributionList"
    - "DirectoryRole"
 
    For example:
