@@ -43,7 +43,7 @@ Azure Container Instances allocates resources such as CPUs, memory, and optional
 
 ### Resource usage by instances
 
-Each container instance is allocated the resources specified in its resource request. However, the resource usage by a container instance in a group depends on how you configure its optional [resource limit][resource-limits] property. The resource limit must be less than than the mandetory [resource request][resource-requests] property.
+Each container instance is allocated the resources specified in its resource request. However, the resource usage by a container instance in a group depends on how you configure its optional [resource limit][resource-limits] property. The resource limit must be less than than the mandatory [resource request][resource-requests] property.
 
 * If you don't specify a resource limit, the instance's maximum resource usage is the same as its resource request.
 
