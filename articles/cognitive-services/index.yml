@@ -113,9 +113,36 @@ conceptualContent:
     - title: Search
       summary: Add Bing Search APIs to your apps and harness the ability to comb billions of webpages, images, videos, and news with a single API call.
       links:
-        - url: ./bing-web-search/index.yml
+        - url: ./Bing-Autosuggest/get-suggested-search-terms.md
           itemType: overview
-          text: Bing search APIs
+          text: Autosuggest Search
+        - url: ./bing-custom-search/overview.md
+          itemType: overview
+          text: Custom Search
+        - url: ./bing-entities-search/overview.md
+          itemType: overview
+          text: Entity Search
+        - url: ./bing-image-search/overview.md
+          itemType: overview
+          text: Image Search
+        - url: ./bing-local-business-search/overview.md
+          itemType: overview
+          text: Local Business Search (Preview)
+        - url: ./bing-news-search/search-the-web.md
+          itemType: overview
+          text: News Search
+        - url: ./bing-spell-check/overview.md
+          itemType: overview
+          text: Spell Check
+        - url: ./Bing-Video-Search/overview.md
+          itemType: overview
+          text: Video Search
+        - url: ./bing-visual-search/overview.md
+          itemType: overview
+          text: Visual Search
+        - url: ./bing-web-search/overview.md
+          itemType: overview
+          text: Web Search
     - title: Cognitive Service Containers
       summary: Container support in Azure Cognitive Services allows developers to use the same rich APIs that are available in Azure, and enables flexibility in where to deploy and host the services that come with Docker containers.
       links:
@@ -134,9 +161,6 @@ conceptualContent:
         - url: ./containers/docker-compose-recipe.md
           itemType: get-started
           text: Use Docker Compose to deploy multiple containers
-        - url: ./containers/container-image-tags.md
-          itemType: reference
-          text: Cognitive Services container image tags
         - url: ./containers/container-faq.md
           itemType: reference
           text: Cognitive Services containers FAQ
@@ -146,12 +170,10 @@ additionalContent:
     - items:
       - title: Additional resources
         links:
-          - text: Support & help options
-            url: cognitive-services-support-options.md
           - text: Azure CLI
             url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
           - text: PowerShell
-            url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-3.0.0#cognitive_services
+            url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.5.0#cognitive_services
       - title: REST APIs
         links:
           - text: Cognitive Services Management
@@ -161,7 +183,7 @@ additionalContent:
           - text: .NET
             url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
           - text: Go
-            url: https://godoc.org/github.com/azure/azure-sdk-for-go/services/cognitiveservices
+            url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices
           - text: Java
             url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client?view=azure-java-stable
           - text: Node.js
