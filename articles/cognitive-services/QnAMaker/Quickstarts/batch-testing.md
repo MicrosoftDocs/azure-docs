@@ -54,7 +54,7 @@ In order to use the batch test tool, create a file named `batch-test-data-1.tsv`
 |--|--|--|
 |KBID|Your KB ID found on the Publish page.|`e906af8d-YYYY-YYYY-YYYY-2c0ea7b1376e` (36 character string shown as part of `POST`) |
 |Question|The question text a user would enter.|`How do I sign out?`|
-|Metadata tags|optional||
+|Metadata tags|optional|`topic:power`|
 |Top parameter|optional|`25`|
 |Expected answer ID|optional|`13`|
 
@@ -75,7 +75,7 @@ These questions are the exact wording from the knowledge base and should return 
 |`What features are in Windows 10?`|
 
 > [!CAUTION]
-> Make sure that each column is separate by a tab delimiter only. Leading or trailing spaces are added to column data and will cause the program to throw exceptions when the type or size is incorrect.
+> Make sure that each column is separated by a tab delimiter only. Leading or trailing spaces are added to column data and will cause the program to throw exceptions when the type or size is incorrect.
 
 ## Run the test against the batch file
 
@@ -93,8 +93,14 @@ The test completes and generates the `out.tsv` file:
 > ![Output .tsv file from batch test](../media/batch-test/output-tsv-format-batch-test.png)
 
 
-## Export app to get question IDs
+## Using optional fields in the input batch test file
 
-From the **Settings** page, export the knowledge base. This file provides information you will need to create the batch test input file.
+Use the following chart to understand how to find the field values for optional data.
+
+|Column number|Optional column|Data location|
+|--|--|--|
+|3|metadata|Export existing knowledge base for values.|
+|4|top|Default value of `25` is recommended.|
+|5|QnA set ID|Export existing knowledge base for values.|
 
 ## Next steps
