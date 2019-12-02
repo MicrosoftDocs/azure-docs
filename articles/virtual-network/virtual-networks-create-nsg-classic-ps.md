@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/02/2019
+ms.date: 2/02/2019
 ms.author: genli
 
 ---
@@ -61,7 +61,7 @@ The sample PowerShell commands below expect a simple environment already created
       -SourceAddressPrefix Internet  -SourcePortRange '*' `
       -DestinationAddressPrefix '*' -DestinationPortRange '80'
     ```
-5. Associate an Azure network security group to a subnet:
+5. Associate the network security group to a subnet:
 
     ```powershell   
     Get-AzureNetworkSecurityGroup -Name "NSG-Frontend" `
@@ -96,7 +96,7 @@ The sample PowerShell commands below expect a simple environment already created
       -SourceAddressPrefix '*'  -SourcePortRange '*' `
       -DestinationAddressPrefix Internet -DestinationPortRange '*'
    ```
-4. Associate an Azure network security group to a subnet:
+4. Associate the network security group to a subnet:
     ```powershell   
     Get-AzureNetworkSecurityGroup -Name "NSG-Backend" `
     | Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName "TestVNet" `
