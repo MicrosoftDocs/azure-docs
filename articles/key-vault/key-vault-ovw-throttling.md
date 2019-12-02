@@ -30,17 +30,16 @@ Key Vault was originally created with the limits specified in [Azure Key Vault s
 1. Cache the secrets you retrieve from Azure Key Vault in memory, and reuse from memory whenever possible.  Re-read from Azure Key Vault only when the cached copy stops working (e.g. because it got rotated at the source). 
 1. Key Vault is designed for your own services secrets.   If you are storing your customers' secrets (especially for high-throughput key storage scenarios), consider putting the keys in a database or storage account with encryption, and storing just the master key in Azure Key Vault.  A sample for this is coming soon.
 1. Encrypt, wrap, and verify  public-key operations can be performed with no access to Key Vault - This not only reduces risk of throttling but also improves reliability, as long as you properly cache the public key material
-1. If you use Key Vault to store credentials for a service, check if that service supports AAD Authentication to authenticate directly. This reduces the load on Key Vault, improves reliability and simplifies your code since Key Vault can now use the AAD token.  Many services have moved to using AAD Auth.  See the current list at [Services that support managed identities for Azure resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities#azure-services-that-support-managed-identities-for-azure-resources.md).
+1. If you use Key Vault to store credentials for a service, check if that service supports AAD Authentication to authenticate directly. This reduces the load on Key Vault, improves reliability and simplifies your code since Key Vault can now use the AAD token.  Many services have moved to using AAD Auth.  See the current list at [Services that support managed identities for Azure resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources).
 1. Consider staggering your load/deployment over a longer period of time to stay under the current RPS limits
 1. If your app comprises multiple nodes that need to read the same secret(s), then consider using a fan out pattern, where one entity reads the secret from Key Vault, and fans out to all nodes.   Cache the retrieved secrets only in memory.
 If you find that the above still does not meet your needs, please fill out the below table and contact us to determine what additional capacity can be added (example put below for illustrative purposes only)
 
-| Vault name | Vault Region | Object type (Secret, Key, or Cert) | Operation(s) – Create, Update, Delete, etc* | Key Type | Key Length or Curve | HSM key?| Steady state RPS needed | Peak RPS needed |
+| Vault name | Vault Region | Object type (Secret, Key, or Cert) | Operation(s)* | Key Type | Key Length or Curve | HSM key?| Steady state RPS needed | Peak RPS needed |
 |--|--|--|--|--|--|--|--|--|
 | https://mykeyvault.vault.azure.net/ | | Key | Sign | EC | P-256 | No | 200 | 1000 |
 
-*Key Vault Operations:
-https://docs.microsoft.com/en-us/rest/api/keyvault/key-operations
+* For a full list of possible values, see [Azure Key Vault operations](/rest/api/keyvault/key-operations).
 
 If additional capacity is approved, please note the following as result of the capacity increases:
 1. Data consistency model changes.  Once a vault is whitelisted with additional throughput capacity, the Key Vault service data consistency guarantee changes (necessary to meet higher volume RPS since the underlying Azure Storage service cannot keep up).  In a nutshell:
