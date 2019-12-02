@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/28/2019
+ms.date: 12/02/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -80,9 +80,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
-
-    `Enter the identifier value as per your organization requirement`.
+    a. In the **Identifier** text box, enter the identifier value as per your organization requirement.
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<customer_site_url>/custom/loginhandler/simplesaml/www/module.php/saml/sp/saml2-acs.php/claromentis`
