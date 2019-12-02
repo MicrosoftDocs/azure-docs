@@ -305,7 +305,7 @@ You will need to modify the 2 sections of the Authentication Virtual Server.
  
     ![Citrix NetScaler configuration](./media/citrix-netscaler-tutorial/kerberos02.png)
 
-    >[NOTE]
+    >[!NOTE]
     >In the example above the Internal Webserver name running WIA Site is cweb2
 
 ### Citrix AAA KCD ( Kerberos Delegation Accounts)
