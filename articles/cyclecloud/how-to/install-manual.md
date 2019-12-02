@@ -64,7 +64,7 @@ sudo apt -y install cyclecloud
 First, configure a _cyclecloud.repo_ file.
 
 ```CMD
-$ sudo cat > /etc/yum.repos.d/cyclecloud.repo <<EOF
+sudo cat > /etc/yum.repos.d/cyclecloud.repo <<EOF
 [cyclecloud]
 name=cyclecloud
 baseurl=https://packages.microsoft.com/yumrepos/cyclecloud
