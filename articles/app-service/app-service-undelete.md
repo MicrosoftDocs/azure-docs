@@ -1,11 +1,10 @@
 ---
-title: Restore deleted App Service apps - Azure App Service
-description: Learn how to restore a deleted App Service app using PowerShell.
+title: Restore deleted apps
+description: Learn how to restore a deleted app in Azure App Service. Avoid the headache of an accidentally deleted app.
 author: btardif
 ms.author: byvinyal
 ms.date: 9/23/2019
 ms.topic: article
-ms.service: app-service
 ---
 
 # Restore deleted App Service app Using PowerShell

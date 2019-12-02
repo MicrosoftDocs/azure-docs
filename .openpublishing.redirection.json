@@ -11463,6 +11463,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/event-hubs/event-hubs-create-kafka-enabled.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-create",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/event-hubs/event-hubs-csharp-ephcs-getstarted.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
       "redirect_document_id": false
