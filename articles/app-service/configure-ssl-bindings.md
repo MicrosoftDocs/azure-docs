@@ -1,17 +1,10 @@
 ---
-title: Secure a custom DNS name with an SSL binding - Azure App Service | Microsoft Docs
-description: Learn how to buy an App Service certificate and bind it to your App Service app
-services: app-service
-author: cephalin
-manager: gwallace
+title: Secure a custom DNS with an SSL binding
+description: Secure HTTPS access to your custom domain by creating a TLS/SSL binding with a certificate. Improve your website's security by enforcing HTTPS or TLS 1.2.
 tags: buy-ssl-certificates
 
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 10/25/2019
-ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
 ---

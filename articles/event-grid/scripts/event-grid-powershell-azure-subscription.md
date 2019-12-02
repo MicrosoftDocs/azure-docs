@@ -20,9 +20,6 @@ This script creates an Event Grid subscription to the events for an Azure subscr
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-The preview sample script requires the Event Grid module. To install, run
-`Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`
-
 ## Sample script - stable
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -30,6 +27,9 @@ The preview sample script requires the Event Grid module. To install, run
 [!code-powershell[main](../../../powershell_scripts/event-grid/subscribe-to-azure-subscription/subscribe-to-azure-subscription.ps1 "Subscribe to Azure subscription")]
 
 ## Sample script - preview module
+
+This preview sample script requires the Event Grid module. To install, run
+`Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`
 
 [!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 
