@@ -161,7 +161,7 @@ View update summary by computer populated in the `UpdateSummary` record.  These 
 | Type | *UpdateSummary* |
 | VMUUID | Unique identifier for the virtual machine. |
 | WindowsUpdateAgentVersion | Version of the Windows Update agent. |
-| WindowsUpdateSetting | *ScheduledInstallation* | 
+| WindowsUpdateSetting | | 
 | WSUSServer | Name of the Windows Server Update Services (WSUS) server that the target computer is using when scanning for, downloading, and installing updates. |
 | _ResourceId | Unique identifier for the resource that the record is associated with. |
 
