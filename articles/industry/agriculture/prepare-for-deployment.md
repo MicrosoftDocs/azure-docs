@@ -54,38 +54,44 @@ To create an Azure FarmBeats offer in Azure Marketplace, do the following:
 
 1. Sign in to the Azure portal, select your account at the top right, and then switch to the Azure Active Directory (Azure AD) tenant where you want to deploy Azure FarmBeats.
 1. Azure FarmBeats is available in Azure Marketplace. On the **Azure Marketplace** page, select **Get it Now**.
+<<<<<<< HEAD
 1. Select **Create**.
+=======
+1. Select **Create**.  
+>>>>>>> 3c92a535184e492d4d1423f5b0cca6838864da5e
 
-To continue with the deployment, follow the instructions in the next sections.
+> [!NOTE]
+> Completion of the offer in Azure Marketplace is only a part of the setup. To complete the deployment of Azure FarmBeats in your Azure subscription, follow the instructions in the next sections.
 
 ## Prepare
 
 Before you can deploy Azure FarmBeats, you need the following permissions:
 
 - **Tenant**: Read access
-- **Subscription**: contributor or owner
-- **Resource group**: owner
+- **Subscription**: Contributor or owner
+- **Resource group**: Owner
 
 ## Before you begin
 
-Before you begin the deployment, ensure that the following prerequisites are in place:
+Before you start the deployment, ensure that the following prerequisites are in place:
 
 - An Azure Sentinel account
 - An Azure AD app registration
 
 ## Create an Azure Sentinel account    
 
-An account with Azure Sentinel helps you to download the Sentinel satellite imagery from their official website to your device. Follow these steps to create a free account:
+An account with Azure Sentinel helps you to download the Sentinel satellite imagery from their official website to your device. To create a free account, do the following:
 
-Go to the [Sentinel account registration page] https://scihub.copernicus.eu/dhus/#/self-registration. On the registration form, provide your first name, last name, username, password, and email address.
+1. Go to the [Sentinel account registration page](https://scihub.copernicus.eu/dhus/#/self-registration). 
+1. On the registration form, provide your first name, last name, username, password, and email address.
 
-A verification email will be sent to the registered email address for confirmation. Select the link and confirm. Your registration process is complete.
+A verification email will be sent to the registered email address for confirmation. Select the link to confirm your email address. Your registration process is complete.
 
 ## Create an Azure AD app registration
 
 For authentication and authorization on Azure FarmBeats, you must have an Azure AD app registration. You can create it in either of two ways:
 
-* **Option 1**: Installer can create the registration automatically, provided that you have the required tenant, subscription, and resource group access permissions. If these permissions are in place, continue to the ["Prepare the input.json file"](#prepare-the-input-json-file) section.
+* **Option 1**: Installer can create the registration automatically, provided that you have the required tenant, subscription, and resource group access permissions. If these permissions are in place, continue to the ["Prepare the input.json file"](#prepare-the-inputjson-file) section.
 
 * **Option 2**: You can create and configure the registration manually before you deploy Azure FarmBeats. We recommend this method when you don't have the required permissions to create and configure an Azure AD app registration within your subscription. Ask your administrator to use the [custom script](https://aka.ms/FarmBeatsAADScript), which will help the IT admin automatically generate and configure the Azure AD app registration on the Azure portal. As an output to running this custom script using PowerShell environment the IT admin needs to share an Azure AD Application Client ID and password secret with you. Make a note of these values.
 
@@ -132,19 +138,19 @@ As part of the installation, create an *input.json* file, as shown here:
 
 This file is your input file to Azure Cloud Shell. It contains the parameters whose values are used during the installation. All parameters in the JSON file need to be replaced with appropriate values or removed. It they're removed, the installer will prompt you during installation.
 
-Review the parameters before you prepare the file.
+Before you prepare the file, review the parameters in the following table:
 
 |Command | Description|
 |--- | ---|
-|sku  | Provides a choice to download either or both of the components of Azure FarmBeats. It specifies which components to download. To install only Datahub, use “onlydatabhub”. To install Datahub and Accelerator, use “both”.|
+|sku  | Provides a choice to download either or both of the components of Azure FarmBeats. It specifies which components to download. To install only Datahub, use "onlydatabhub". To install Datahub and Accelerator, use "both".|
 |subscriptionId | Specifies the subscription for installing Azure FarmBeats.|
-|datahubResourceGroup| The resource group name for Datahub resources.|
+|datahubResourceGroup| The resource group name for your Datahub resources.|
 |location |The location where you want to create the resources.|
-|acceleratorWebsiteName |The unique URL prefix to name your Datahub.|
-|acceleratorResourceGroup  | The Unique URL prefix to name your accelerator website.|
+|acceleratorWebsiteName |The unique URL prefix to name your Datahub instance.|
+|acceleratorResourceGroup  | The unique URL prefix to name your Accelerator website.|
 |datahubWebsiteName  | The unique URL prefix to name your Datahub website. |
-|sentinelUsername | The user name to sign into (for example, `https://scihub.copernicus.eu/dhus/#/self-registration`).|
-|notificationEmailAddress  | The email address to receive the notifications for any alerts that you configure within Datahub.|
+|sentinelUsername | The username to sign in with (for example, `https://scihub.copernicus.eu/dhus/#/self-registration`).|
+|notificationEmailAddress  | The email address to receive the notifications for any alerts that you configure within your Datahub instance.|
 |updateIfExists| (Optional) A parameter to include within the *input.json* file only if you want to upgrade an existing Azure FarmBeats instance. For an upgrade, other details, such as the resource group names and locations, need to be the same.|
 |aadAppClientId | (Optional) A parameter to include within the *input.json* file only if the Azure AD app already exists.  |
 |aadAppClientSecret  | (Optional) A parameter to include within the *input.json* file only if the Azure AD app already exists.|
