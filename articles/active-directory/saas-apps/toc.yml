@@ -1637,6 +1637,8 @@
         href: miro-provisioning-tutorial.md
     - name: N - Z
       items:
+      - name: Netskope Administrator Console
+        href: netskope-administrator-console-provisioning-tutorial.md
       - name: Netsuite
         href: netsuite-provisioning-tutorial.md
       - name: OfficeSpace Software
