@@ -290,7 +290,7 @@ This architecture features two clusters in different resource groups and virtual
 
 The steps in this document created clusters in different Azure resource groups. To delete all of the resources created, you can delete the two resource groups created: **kafka-primary-rg** and **kafka-secondary_rg**. Deleting the resource groups removes all of the resources created by following this document, including clusters, virtual networks, and storage accounts.
 
-## Next Steps
+## Next steps
 
 In this document, you learned how to use [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) to create a replica of an [Apache Kafka](https://kafka.apache.org/) cluster. Use the following links to discover other ways to work with Kafka:
 
