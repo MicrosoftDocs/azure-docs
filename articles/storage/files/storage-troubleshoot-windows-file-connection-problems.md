@@ -305,13 +305,13 @@ Enable AAD DS on the AAD tenant of the subscription that your storage account is
 
 ### Cause
 
-Error 'System error 1359 has occurred. An internal error' happens when you try to connect to your file share with AAD DS authentication enabled against an AAD DS with domain DNS name starting with a numeric character. For example, if your AAD DS Domain DNS name is "1domain", you will get this error when attempting to mount the file using AAD credentials. 
+Error 'System error 1359 has occurred. An internal error' happens when you try to connect to your file share with AAD DS authentication enabled against an AAD DS with domain DNS name starting with a numeric character. For example, if your AAD DS Domain DNS name is "1domain", you will get this error when attempting to mount the file share using AAD credentials. 
 
 ### Solution
 
-Currently, you can consider redeploying your AAD DS using a new domain DNS name that applies with the rules below.
-1. Names cannot begin with a numeric character.
-2. Names must be from 3 to 63 characters long.
+Currently, you can consider redeploying your AAD DS using a new domain DNS name that applies with the rules below:
+- Names cannot begin with a numeric character.
+- Names must be from 3 to 63 characters long.
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.

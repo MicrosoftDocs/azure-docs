@@ -1,16 +1,9 @@
 ---
-title: Introduction to App Service Environment v1 - Azure
-description: Learn about the App Service Environment v1 feature that provides secure, VNet-joined, dedicated scale units for running all of your apps.
-services: app-service
-documentationcenter: ''
+title: Introduction to ASE v1
+description: Learn about the App Service Environment v1 features. This doc is provided only for customers who use the legacy v1 ASE. 
 author: stefsch
-manager: erikre
-editor: ''
 
 ms.assetid: 78e6d4f5-da46-4eb5-a632-b5fdc17d2394
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
