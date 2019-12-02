@@ -17,37 +17,37 @@ This article explores common troubleshooting methods for self-hosted integration
 
 ### Error message: Self-hosted integration runtime is unable to connect to cloud service.
 
-- **Symptom**: 
+- **Symptom**:
 
     ![Self-Hosted IR connection issue](media/self-hosted-integration-runtime-troubleshoot-guide/unable-to-connect-to-cloud-service.png)
 
-- **Cause**: The self-hosted integration runtime isn't able to connect to data factory service (backend). Most often than not it's caused due to network settings in Firewall.
+- **Cause**: The self-hosted integration runtime can't connect to the Data Factory service (backend). This issue is typically caused by network settings in the firewall.
 
 - **Resolution**: 
 
-    1. Check if the windows service "Integration Runtime Service" is running.
+    1. Check whether the integration runtime Service is running.
     
         ![Self-Hosted IR service running status](media/self-hosted-integration-runtime-troubleshoot-guide/integration-runtime-service-running-status.png)
     
-    2. If the windows service as shown in [1] is running, follow below instructions as appropriate:
+    2. If the service is running, go on to step 3.
 
-        1. If "proxy" is not configured on self-hosted integration runtime (default settings is no proxy configuration), run the below PowerShell command on the machine where self-hosted integration runtime is installed: 
+        1. If there's no proxy configured on the self-hosted integration runtime (the default settings is no proxy configuration), run the following PowerShell command on the machine where self-hosted integration runtime is installed:
             
             ```powershell
             (New-Object System.Net.WebClient).DownloadString("https://wu2.frontend.clouddatahub.net/")
             ```
             > [!NOTE] 
-            > The service URL may vary based on your data factory location. You can find the service URL under ADF UI -> Connections -> Integration runtimes -> Edit Self-hosted IR -> Nodes -> View Service URLs.
+            > The service URL may vary dpending on your Data Factory location. You can find the service URL under **ADF UI** > **Connections** > **Integration runtimes** > **Edit Self-hosted IR** > **Nodes** > **View Service URLs**.
             
-            Below is the expected response:
+            The following is the expected response:
             
             ![Powershell command response](media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png)
             
-            If the response is different, then follow the below instructions as appropriate:
+            If you don't receive this response, use one of the following methods as appropriate to your situation:
             
-            * If you get error "the remote name could not be resolved", there is an issue with DNS. Please get in touch with network team to get the DNS resolution issue fixed! 
-            * If you get error "ssl/tls cert is not trusted", please check if the Certificate for "https://wu2.frontend.clouddatahub.net/" is trusted on the machine, install the public certificate using cert manager, which should mitigate this issue.
-            * Check Windows -> Event viewer (logs) -> Applications and Services Logs -> Integration Runtime for any failure, mostly caused by DNS, firewall rule, and network settings of the company (Forcedly close the connection). For this issue, please engage your network team for further troubleshot, because every company has customized network settings.
+            * If you receive a "Remote name could not be resolved" message, there's a Domain Name System (DNS) issue. Contact your network team to get this issue fixed.
+            * If you receive an "ssl/tls cert is not trusted" message, check whether the certificate for https://wu2.frontend.clouddatahub.net/ is trusted on the machine, and then install the public certificate using by using Certificate Manager. This action should mitigate the issue.
+            * Check **Windows** > **Event viewer (logs)** > **Applications and Services Logs** > **Integration Runtime** and look for any failure that's caused by DNS, a firewall rule, or company network settings (forcibly close the connection). For these issues, contact your network team for troubleshooting, because every company has customized network settings.
 
         2. If "proxy" has been configured on the self-hosted integration runtime, verify whether your proxy server is able to access our service endpoint. For a sample command, refer [this](https://stackoverflow.com/questions/571429/powershell-web-requests-and-proxies).    
                 
