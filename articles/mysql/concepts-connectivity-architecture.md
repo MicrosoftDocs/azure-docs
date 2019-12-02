@@ -1,11 +1,11 @@
 ---
-title: Connectivity architecture in Azure Database for MySQL
+title: Connectivity architecture - Azure Database for MySQL
 description: Describes the connectivity architecture for your Azure Database for MySQL server.
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/15/2019
+ms.date: 12/02/2019
 ---
 
 # Connectivity architecture in Azure Database for MySQL

@@ -1,11 +1,11 @@
 ---
-title: Security in Azure Database for MySQL - Single Server
-description: An overview of the security features in Azure Database for MySQL - Single Server.
+title: Security - Azure Database for MySQL
+description: An overview of the security features in Azure Database for MySQL
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/25/2019
+ms.date: 12/02/2019
 ---
 
 # Security in Azure Database for MySQL - Single Server
