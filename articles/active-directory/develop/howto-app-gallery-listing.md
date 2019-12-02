@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/16/2019
+ms.date: 12/02/2019
 ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
@@ -61,6 +61,26 @@ Our team reviews the details and gives you access accordingly. After your reques
 
 ![Submit Request (ISV) tile on home page](./media/howto-app-gallery-listing/homepage.png)
 
+## Issues on logging into portal
+
+If you are seeing this error while logging in then here are the detail on the issue and this is how you can fix it.
+
+* If your sign-in was blocked as shown below:
+
+  ![issues resolving application in the gallery](./media/howto-app-gallery-listing/blocked.png)
+
+* We have detected something unusual about this sign-in. For example, you might be signing in from a new location, device, or app. Before you can continue, we need to verify your identity. Please contact your admin.
+
+* **What’s happening:** The guest user is federated to a home tenant which is also an Azure AD. The guest user is at High risk. Microsoft doesn’t allow High risk users to access its resources. All High risk users (employees or guests / vendors) must remediate / close their risk to access Microsoft resources. For guest users, this user risk comes from the home tenant and the policy comes from the resource tenant (Microsoft in this case).
+ 
+**Secure solutions:**
+
+* MFA registered guest users remediate their own user risk. This can be done by the guest user performing a secured password change or reset (https://aka.ms/sspr) at their home tenant (this needs MFA and SSPR at the home tenant). The secured password change or reset must be initiated on Azure AD and not on-prem.
+
+* Guest users have their admins remediate their risk. In this case, the admin will perform a password reset (temporary password generation). This does not need Identity Protection. The guest user’s admin can go to https://aka.ms/RiskyUsers and click on ‘Reset password’.
+
+* Guest users have their admins close / dismiss their risk. Again, this does not need Identity Protection. The admin can go to https://aka.ms/RiskyUsers and click on ‘Dismiss user risk’. However, the admin must do the due diligence to ensure this was a false positive risk assessment before closing the user risk. Otherwise, they are putting their and Microsoft’s resources at risk by suppressing a risk assessment without investigation.
+
 > [!NOTE]
 > If you have any issues with access, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
@@ -80,6 +100,7 @@ To list an application in the Azure AD app gallery, you first need to implement 
   ![Listing a SAML 2.0 or WS-Fed application in the gallery](./media/howto-app-gallery-listing/saml.png)
 
   * If you want to add your application to list in the gallery by using **SAML 2.0** or **WS-Fed**, select **SAML 2.0/WS-Fed** as shown.
+
   * If you have any issues with access, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ## Implement SSO by using the password SSO
