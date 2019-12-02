@@ -22,6 +22,8 @@ Before you get started, make sure to:
 > * [Setup your development environment](../../../../quickstarts/setup-platform.md)
 > * [Create an empty sample project](../../../../quickstarts/create-project.md)
 
+[!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
+
 ## Support and updates
 
 Updates to the Speech SDK Python package are distributed via PyPI and announced in the [Release notes](~/articles/cognitive-services/Speech-Service/releasenotes.md).
