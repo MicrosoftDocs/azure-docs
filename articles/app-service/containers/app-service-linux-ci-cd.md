@@ -1,17 +1,10 @@
 ---
-title: Continuous deployment with Web App for Containers - Azure App Service | Microsoft Docs
-description: How to set up continuous deployment in Web App for Containers.
+title: CI/CD to custom Linux containers
+description: Learn how to set up continuous deployment to a custom Linux container in Azure App Service. Continuous deployment is supported for Docker Hub and ACR.
 keywords: azure app service, linux, docker, acr,oss
-services: app-service
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+author: msangapu-msft
 
 ms.assetid: a47fb43a-bbbd-4751-bdc1-cd382eae49f8
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/08/2018
 ms.author: msangapu
