@@ -51,3 +51,7 @@ A session should be initiated only from the Azure portal. Sign in to the Azure p
 
 Azure Bastion currently supports en-us-qwerty keyboard layout inside the VM.  Support for other locales for keyboard layout is work in progress.
 
+### <a name="udr"></a>Is user-defined routing (UDR) supported on Azure Bastion subnet?
+No. UDR is not supported in Azure Bastion subnet. 
+
+For scenarios that include both Azure Bastion and Azure Firewall/Network Virtual Appliance (NVA) in the same virtual network, you don’t need to force traffic from Azure Bastion subnet to Azure Firewall since the communication between Azure Bastion to your VMs is private.  For more details, see [Accessing VMs behind Azure Firewall with Bastion]( https://azure.microsoft.com/en-us/blog/accessing-virtual-machines-behind-azure-firewall-with-azure-bastion/).
