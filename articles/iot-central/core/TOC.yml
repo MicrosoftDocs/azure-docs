@@ -57,12 +57,16 @@
   items:
     - name: Get connected
       items:
+        - name: Setup a device template
+          href: howto-set-up-template.md
         - name: Prepare and connect an MXChip IoT DevKit
           href: howto-connect-devkit.md
         - name: Prepare and connect a RuuviTag device
           href: howto-connect-ruuvi.md
         - name: Prepare and connect a Rigado Cascade 500
           href: howto-connect-rigado-cascade-500.md
+        - name: Connect other IoT clouds
+          href: howto-build-iotc-device-bridge.md
     - name: Stay connected
       items:
         - name: Monitor device connectivity using Azure CLI
