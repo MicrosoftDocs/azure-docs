@@ -10,7 +10,7 @@ ms.date: 11/04/2019
 
 ---
 
-# How to tag images in a labeling project
+# Tag images in a labeling project
 
 After your project administrator creates a labeling project in Azure Machine Learning, you can use the labeling tool to rapidly prepare data for a Machine Learning project. This article describes:
 
