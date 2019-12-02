@@ -71,12 +71,12 @@ Before you can deploy Azure FarmBeats, you need the following permissions:
 
 Before you start the deployment, ensure that the following prerequisites are in place:
 
-- An Azure Sentinel account
+- A Sentinel account
 - An Azure AD app registration
 
-## Create an Azure Sentinel account    
+## Create a Sentinel account    
 
-An account with Azure Sentinel helps you to download the Sentinel satellite imagery from their official website to your device. To create a free account, do the following:
+An account with Sentinel helps you to download the Sentinel satellite imagery from their official website to your device. To create a free account, do the following:
 
 1. Go to the [Sentinel account registration page](https://scihub.copernicus.eu/dhus/#/self-registration). 
 1. On the registration form, provide your first name, last name, username, password, and email address.
@@ -211,7 +211,7 @@ In this scenario, which is described earlier in "Option 1," Installer creates th
 
    After the deployment finishes successfully, you'll receive the following output links:
 
-    - **Datahub URL**: The swagger link for trying Azure FarmBeats APIs.
+    - **Datahub URL**: The Swagger link for trying Azure FarmBeats APIs.
     - **Accelerator URL**: The user interface for exploring Azure FarmBeats Smart Farm Accelerator.
     - **Deployer log file**: The log file that's created during deployment. You can use it for troubleshooting, if necessary.
 
@@ -263,7 +263,7 @@ In this scenario, which is described earlier in "Option 2," you use your existin
 
    After the deployment finishes successfully, you'll receive the following output links:
 
-    - **Datahub URL**: The swagger link for trying Azure FarmBeats APIs.
+    - **Datahub URL**: The Swagger link for trying Azure FarmBeats APIs.
     - **Accelerator URL**: The user interface for exploring Azure FarmBeats Smart Farm Accelerator.
     - **Deployer log file**: The log file that's created during deployment. You can use it for troubleshooting, if necessary.
 
@@ -316,7 +316,7 @@ The instructions for upgrade are similar to those for the first-time installatio
    The installer now validates and starts creating the resources, which can take about 20 minutes.
 
    After the deployment finishes successfully, you'll receive the following output links:
-    - **Datahub URL**: The swagger link for trying Azure FarmBeats APIs.
+    - **Datahub URL**: The Swagger link for trying Azure FarmBeats APIs.
     - **Accelerator URL**: The user interface for exploring Azure FarmBeats Smart Farm Accelerator.
     - **Deployer log file**: The log file that's created during deployment. You can use it for troubleshooting, if necessary.
 
