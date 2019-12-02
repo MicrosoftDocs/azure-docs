@@ -13,6 +13,8 @@ ms.author: erhopf
 > * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=jre)
 > * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=jre)
 
+[!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
+
 ## Add sample code
 
 1. To add a new empty class to your Java project, select **File** > **New** > **Class**.
