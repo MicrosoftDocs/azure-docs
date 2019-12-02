@@ -41,7 +41,7 @@ using statement 2;
 ```
 ## Retrieve data by using a filter
 
-Quick query can retrieve CSV, Json and Parquet formatted data. In this section, we'll parse a CSV file by using the [TinyCsvParser](https://www.nuget.org/packages/TinyCsvParser/) library that is available on NuGet.  The following code defines a class that holds the data for each returned row, and a class that provides a way to map each column in the CSV file with a class member.  
+Quick query can retrieve CSV and Json formatted data. In this section, we'll parse a CSV file by using the [TinyCsvParser](https://www.nuget.org/packages/TinyCsvParser/) library that is available on NuGet.  The following code defines a class that holds the data for each returned row, and a class that provides a way to map each column in the CSV file with a class member.  
 
 ```csharp
 class Person 
