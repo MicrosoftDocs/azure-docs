@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Azure Queue storage library v12 - .NET"
-description: In this quickstart, you learn how to use the Azure Queue storage client library version 12 for .NET to create a queue and add messages to it. Next, you learn how to read and delete messages from the queue. You will also learn how to delete a queue.
+description: Learn how to use the Azure Queue .NET v12 library to create a queue and add messages to the queue. Next, you learn how to read and delete messages from the queue. You'll also learn how to delete a queue.
 author: mhopkins-msft
 
 ms.author: mhopkins
@@ -12,7 +12,7 @@ ms.topic: quickstart
 
 # Quickstart: Azure Queue storage client library v12 for .NET
 
-Get started with the Azure Queue storage client library version 12 for .NET. Azure Queue storage is Microsoft's object storage solution for the cloud. Follow steps to install the package and try out example code for basic tasks. Azure Queue storage is a service for storing large numbers of messages for later retrieval and processing.
+Get started with the Azure Queue storage client library version 12 for .NET. Azure Queue storage is a service for storing large numbers of messages for later retrieval and processing. Follow steps to install the package and try out example code for basic tasks.
 
 > [!NOTE]
 > To get started with the previous SDK version, see [Quickstart: Use the Azure Storage SDK v11 for .NET to manage a queue](storage-quickstart-queues-dotnet-legacy.md).
@@ -115,7 +115,7 @@ Use the following .NET classes to interact with these resources:
 
 ## Code examples
 
-These example code snippets show you how to perform the following with the Azure Queue storage client library for .NET:
+These example code snippets show you how to do the following actions with the Azure Queue storage client library for .NET:
 
 * [Get the connection string](#get-the-connection-string)
 * [Create a queue](#create-a-queue)
@@ -127,7 +127,7 @@ These example code snippets show you how to perform the following with the Azure
 
 ### Get the connection string
 
-The code below retrieves the connection string for the storage account from the environment variable created in the [Configure your storage connection string](#configure-your-storage-connection-string) section.
+The code below retrieves the connection string for the storage account. The connection string is stored the environment variable created in the [Configure your storage connection string](#configure-your-storage-connection-string) section.
 
 Add this code inside the `Main` method:
 
@@ -135,17 +135,17 @@ Add this code inside the `Main` method:
 Console.WriteLine("Azure Queue storage v12 - .NET quickstart sample\n");
 
 // Retrieve the connection string for use with the application. The storage
-// connection string is stored in an environment variable on the machine
-// running the application called CONNECT_STR. If the
-// environment variable is created after the application is launched in a
-// console or with Visual Studio, the shell or application needs to be closed
-// and reloaded to take the environment variable into account.
+// connection string is stored in an environment variable called CONNECT_STR
+//  on the machine running the application. If the environment variable is 
+// created after the application is launched in a console or with Visual Studio,
+// the shell or application needs to be closed and reloaded to take the 
+// environment variable into account.
 string connectionString = Environment.GetEnvironmentVariable("CONNECT_STR");
 ```
 
 ### Create a queue
 
-Decide on a name for the new queue. The code below appends a GUID value to the queue name to ensure that it is unique.
+Decide on a name for the new queue. The code below appends a GUID value to the queue name to ensure that it's unique.
 
 > [!IMPORTANT]
 > Queue names may only contain lowercase letters, numbers, and hyphens, and must begin with a letter or a number. Each hyphen must be preceded and followed by a non-hyphen character. The name must also be between 3 and 63 characters long. For more information about naming containers and blobs, see [Naming Queues and Metadata](/rest/api/storageservices/naming-queues-and-metadata).
@@ -187,7 +187,7 @@ Response<SendReceipt> receipt = await queueClient.SendMessageAsync("Third messag
 
 ### List messages in a queue
 
-List the messages in the queue by calling the [PeekMessagesAsync](/dotnet/api/azure.storage.queues.queueclient.peekmessagesasync) method. The `PeekMessagesAsync` method retrieves one or more messages from the front of the queue but does not alter the visibility of the message.
+List the messages in the queue by calling the [PeekMessagesAsync](/dotnet/api/azure.storage.queues.queueclient.peekmessagesasync) method. The `PeekMessagesAsync` method retrieves one or more messages from the front of the queue but doesn't alter the visibility of the message.
 
 Add this code to the end of the `Main` method:
 
@@ -206,7 +206,7 @@ foreach (PeekedMessage peekedMessage in peekedMessages.Value)
 
 ### Update a message in a queue
 
-Update the contents of a message by calling the [UpdateMessageAsync](/dotnet/api/azure.storage.queues.queueclient.updatemessageasync) method. The `UpdateMessageAsync` method can change a message's visibility timeout and contents. The message content must be a UTF-8 encoded string that is up to 64KB in size. In addition to the new content for the message, pass in the values from the `SendReceipt` that was saved earlier in the code. The `SendReceipt` values identify which message to update.
+Update the contents of a message by calling the [UpdateMessageAsync](/dotnet/api/azure.storage.queues.queueclient.updatemessageasync) method. The `UpdateMessageAsync` method can change a message's visibility timeout and contents. The message content must be a UTF-8 encoded string that is up to 64 KB in size. Along with the new content for the message, pass in the values from the `SendReceipt` that was saved earlier in the code. The `SendReceipt` values identify which message to update.
 
 ```csharp
 Console.WriteLine("\nUpdating the third message in the queue...");
@@ -217,9 +217,9 @@ await queueClient.UpdateMessageAsync(receipt.Value.MessageId, receipt.Value.PopR
 
 ### Receive and delete messages from a queue
 
-Download previously added messages by calling the [ReceiveMessagesAsync](/dotnet/api/azure.storage.queues.queueclient.receivemessagesasync) method. The example code also deletes messages from the queue after they are received and processed. In this case, processing is just displaying the message on the console.
+Download previously added messages by calling the [ReceiveMessagesAsync](/dotnet/api/azure.storage.queues.queueclient.receivemessagesasync) method. The example code also deletes messages from the queue after they're received and processed. In this case, processing is just displaying the message on the console.
 
-The app pauses for user input by calling `Console.ReadLine` before it receives and deletes the messages. This is a good chance to verify in your [Azure portal](https://portal.azure.com) that the resources were created correctly, before they are deleted.
+The app pauses for user input by calling `Console.ReadLine` before it receives and deletes the messages. Verify in your [Azure portal](https://portal.azure.com) that the resources were created correctly, before they're deleted.
 
 Add this code to the end of the `Main` method:
 
@@ -260,9 +260,9 @@ Console.WriteLine("Done");
 
 ## Run the code
 
-This app creates an Azure queue and adds three messages to it. The example then lists the messages in the queue, then retrieves and deletes them, before finally deleting the queue.
+This app creates and adds three messages to an Azure queue. The code lists the messages in the queue, then retrieves and deletes them, before finally deleting the queue.
 
-Navigate to your application directory, then build and run the application.
+In your console window, navigate to your application directory, then build and run the application.
 
 ```console
 dotnet build
@@ -302,7 +302,7 @@ Done
 
 When the app pauses before receiving messages, check your storage account in the [Azure portal](https://portal.azure.com). Verify the messages are in the queue.
 
-After you've verified the messages, press the **Enter** key to receive and delete the messages. When prompted, press the **Enter** key again to delete the queue and finish the demo.
+Press the **Enter** key to receive and delete the messages. When prompted, press the **Enter** key again to delete the queue and finish the demo.
 
 ## Next steps
 
