@@ -35,11 +35,11 @@ CycleCloud requires outbound access to:
 * _https://login.microsoftonline.com_ (Azure AD)
 
 The management API is hosted regionally, and the public ip address ranges can be
-found [here](https://www.microsoft.com/en-us/download/confirmation.aspx?id=41653).
+found [here](https://www.microsoft.com/download/confirmation.aspx?id=41653).
 The Azure AD login is part of the Microsoft 365 common APIs and ip ranges for the
-service can be found [here](https://docs.microsoft.com/en-us/office365/enterprise/urls-and-ip-address-ranges). 
+service can be found [here](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges). 
 
 Cluster nodes must be able to access Azure Storage accounts. The recommended way 
 to provide private access to this service and any other supported Azure service is 
-[Virtual Network Service Endpoints](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview).
+[Virtual Network Service Endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview).
 

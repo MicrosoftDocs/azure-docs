@@ -118,8 +118,8 @@ the default location to the new *cyclecloud* home directory.
 ## Capturing the Custom Image and Using it with CycleCloud
 
 After installing Jetpack and performing any other custom image configurations the
-VM is ready for image capture. Note the instructions differ between [Windows](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource)
-and [Linux](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/capture-image) VMs.
+VM is ready for image capture. Note the instructions differ between [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource)
+and [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/capture-image) VMs.
 
 Using these instructions a VM image will be available in the subscription
 and location where the image was capture. To use the image

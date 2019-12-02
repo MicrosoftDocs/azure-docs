@@ -1,7 +1,7 @@
 # (beta) Environment
 
 
-Environment is rank 1.  An environment corresponds to a [Resource Manager Deployment](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy).
+Environment is rank 1.  An environment corresponds to a [Resource Manager Deployment](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
 
 CycleCloud can now manage Azure Resource Manager deployments with ARM templates.
 These environments can be 
