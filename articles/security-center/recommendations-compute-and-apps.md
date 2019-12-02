@@ -21,7 +21,7 @@ ms.author: memildin
 This article provides the full list of the recommendations you might see in Azure Security Center regarding the following resource types:
 
 * VMs and computers
-* VM Scale Sets
+* Virtual machine scale sets
 * Cloud Services
 * App services
 * Containers
