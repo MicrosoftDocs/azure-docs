@@ -1,6 +1,6 @@
 ---
 title: Sensor partner integration
-description: Describes sensor partner integration
+description: This article describes sensor partner integration.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
@@ -13,7 +13,7 @@ This article provides information about the Azure FarmBeats Translator component
 
 Using this component, partners can develop sensors that integrate with FarmBeats to use the API and send customer device data and telemetry to the FarmBeats data hub. Data is visualized by using the FarmBeats Accelerator. Data can be used for data fusion and for building machine learning/artificial intelligence models.
 
-## Link FarmBeats account
+## Link a FarmBeats account
 
 After you've purchased and deployed devices or sensors, you can access the device data and telemetry on your device partners' software as a service (SaaS) portal. Device partners enable you to link your account to your FarmBeats instance on Azure. The following credentials must be filled in by you or your system integrator:
 
@@ -67,7 +67,7 @@ FarmBeats uses Microsoft Azure Active Directory authentication. Azure App Serv
 
 For more information, see [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).
 
-The FarmBeats data hub uses bearer authentication, which needs the following credentials:
+FarmBeats Datahub uses bearer authentication, which needs the following credentials:
    - Client ID
    - Client secret
    - Tenant ID
@@ -102,7 +102,7 @@ access_token = token_response.get('accessToken') 
 
 **HTTP request headers**
 
-Here are the most common request headers that need to be specified when you make an API call to the FarmBeats data hub.
+Here are the most common request headers that need to be specified when you make an API call to FarmBeats Datahub.
 
 
 **Header** | **Description and example**
@@ -136,7 +136,7 @@ JSON is a common language-independent data format that provides a simple text re
 
 ## Metadata specifications
 
-The FarmBeats data hub has the following APIs that enable device partners to create and manage device or sensor metadata. 
+FarmBeats datahub has the following APIs that enable device partners to create and manage device or sensor metadata. 
 
 - /**DeviceModel**: DeviceModel corresponds to the metadata of the device, such as the manufacturer and the type of the device, which is either gateway or node. 
 - /**Device**: Device corresponds to a physical device present on the farm.
@@ -156,7 +156,7 @@ The FarmBeats data hub has the following APIs that enable device partners to cre
 DeviceModelId  |ID of the associated device model. |
 HardwareId   |Unique ID for the device, such as a MAC address.  |
 reportingInterval |Reporting interval in seconds. |
-Location    |Device latitude (-90 to +90)/longitude (-180 to 180)/elevation (in meters). |
+Location    |Device latitude (-90 to +90), longitude (-180 to 180), and elevation (in meters). |
 ParentDeviceId | ID of the parent device to which this device is connected. For example, if a node is connected to a gateway, the node has parentDeviceID as the gateway. |
   Name  | Name to identify the resource. Device partners need to send a name that's consistent with the device name on the device partner side. If the device name is user defined on the device partner side, the same user-defined name should be propagated to FarmBeats.  |
   Description  | Provide a meaningful description.  |
@@ -178,7 +178,7 @@ ParentDeviceId | ID of the parent device to which this device is connected. For 
   **Sensor**  | Sensor corresponds to a physical sensor that records values. A sensor is typically connected to a device with a device ID. |
   hardwareId  | Unique ID for the sensor set by the manufacturer.
   sensorModelId  | ID of the associated sensor model.
-  Location  | Sensor latitude (-90 to +90)/longitude (-180 to 180)/elevation (in meters).
+  Location  | Sensor latitude (-90 to +90), longitude (-180 to 180), and elevation (in meters).
   port > name  |Name and type of the port that the sensor is connected to on the device. This needs to be the same name as defined in the device model.
   deviceId  | ID of the device that the sensor is connected to.
   Name  | Name to identify the resource. For example, the sensor name or product name and model number or product code.
@@ -260,7 +260,7 @@ The canonical message format is as follows:
 ```
 All key names in the telemetry JSON should be lowercase. Examples are deviceid and sensordata.
 
-For example, here's a telemetry message.
+For example, here's a telemetry message:
 
 
 ```json

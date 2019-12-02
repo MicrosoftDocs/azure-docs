@@ -1,6 +1,6 @@
 ---
 title: Imagery partner integration
-description: Describes imagery partner integration
+description: This article describes imagery partner integration.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
@@ -53,7 +53,7 @@ Using the previous credentials, the caller can request an access token, which 
 headers = {"Authorization": "Bearer " + access_token, …} 
 ```
 
-The following Python code sample retrieves the access token. You can then use the token for subsequent API calls to FarmBeat: import azure
+The following Python code sample retrieves the access token. You can then use the token for subsequent API calls to FarmBeats.
 
 ```python
 from azure.common.credentials import ServicePrincipalCredentials 
@@ -87,7 +87,7 @@ Accept  | The response format. For FarmBeats Datahub APIs, the format is JSON. A
 
 To make a REST API request, you combine:
 
-- The HTTP method (GET/POST/PUT).
+- The HTTP method (GET, POST, and PUT).
 - The URL to the API service.
 - The resource URI (to query, submit data, update, or delete).
 - One or more HTTP request headers.
@@ -121,9 +121,9 @@ JSON is a common language-independent data format that provides a simple text re
 
 ## Ingest imagery into FarmBeats
 
-After the partner has credentials to connect to the FarmBeats data hub, the partner does the following in the Translator component.
+After the partner has credentials to connect to FarmBeats Datahub, the partner does the following in the Translator component.
 
-1.	Create a new extended type for the following fields, in accordance with the type of imagery that will be uploaded:
+1.	Create a new extended type for the following fields, in accordance with the type of imagery to be uploaded:
 
     - **Scene Source**: For example, <drone_partner_name>
     - **Scene Type**: For example, <drone>
@@ -326,9 +326,9 @@ Following are the system-defined values:
 }
 ```
 
-This is a one-time setup. The scope of this new scene type is limited to the subscription in which the FarmBeats project is deployed.
+This step is a one-time setup. The scope of this new scene type is limited to the subscription in which the FarmBeats project is deployed.
 
-For example, to add SceneSource: “SlantRange,” you do PUT on the ID of the /ExtendedType with the key “SceneSource” Input payload:
+For example, to add SceneSource: “SlantRange,” you do PUT on the ID of the /ExtendedType with the key "SceneSource" input payload.
 
 ```json
 {
@@ -348,11 +348,11 @@ For example, to add SceneSource: “SlantRange,” you do PUT on the ID of the /
 
 The green field is the new addition to the system-defined scene source values.
 
-### Step 2: Get FarmDetails
+### Step 2: Get farm details
 
-The scenes (.tiff or .csv files) are in the context of a farm. You need to get the farm details by doing a get on /Farm API. The API returns you the list of farms that are available in FarmBeats. You can select the farm you want to ingest the data for.
+The scenes (.tiff or .csv files) are in the context of a farm. You need to get the farm details by doing a GET on the /Farm API. The API returns the list of farms that are available in FarmBeats. You can select the farm you want to ingest the data for.
 
-Get /Farm response:
+GET /Farm response:
 
 ```json
 {
@@ -398,13 +398,13 @@ Get /Farm response:
 }
  ```
 
-### Step 3: Create a /scene ID (Post call)
+### Step 3: Create a scene ID (POST call)
 
 Create a new scene (.tiff or .csv file) with the given information, which provides the date, sequence, and farm ID with which the scene is associated. The metadata associated with the scene can be defined under properties, which includes the duration and type of measure.
 
 Creating a new scene creates a new scene ID, which is associated with the farm. After the scene ID is created, the user can use the same to create a new file (.tiff or .csv) and store the contents of the file.
 
-Example input payload for the Post call on the /Scene API:
+Example input payload for the POST call on the /Scene API:
 
 ```json
 {
@@ -440,13 +440,13 @@ API response:
 
 ```
 
-**Create/SceneFile**
+**Create a scene file**
 
 The scene ID returned in step 3 is the input for the scene file. The scene file returns an SAS URL token, which is valid for 24 hours.
 
 If the user requires a programmatic way of uploading a stream of images, the blob storage SDK can be used to define a method by using the scene file ID, location, and URL.
 
-Example input payload for the Post call on the /Scenefile API:
+Example input payload for the POST call on the /Scenefile API:
 
 ```json
 {
@@ -482,7 +482,7 @@ API response:
 
 ```
 
-The Post call to the /SceneFile API returns an SAS upload URL, which can be used to upload the .csv or .tiff file by using the Azure Blob storage client or library.
+The POST call to the /SceneFile API returns an SAS upload URL, which can be used to upload the .csv or .tiff file by using the Azure Blob storage client or library.
 
 
 ## Next steps
