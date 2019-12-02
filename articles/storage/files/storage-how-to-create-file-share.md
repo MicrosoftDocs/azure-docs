@@ -11,9 +11,9 @@ ms.subservice: files
 
 # Create a share in Azure Files
 You can create a share in Azure Files by using the [Azure portal](https://portal.azure.com/), the Azure Storage PowerShell cmdlets, the Azure Storage client libraries, or the Azure Storage REST API. In this tutorial, you'll learn how to:
-- [Create an Azure file share by using the Azure portal](#create-a-file-share-through-the-azure-portal)
-- [Create an Azure file share by using PowerShell](#create-a-file-share-through-powershell)
-- [Create an Azure file share by using the Azure CLI](#create-a-file-share-through-the-cli)
+- Create an Azure file share by using the Azure portal
+- Create an Azure file share by using PowerShell
+- Create an Azure file share by using the Azure CLI
 
 ## Prerequisites
 To create an Azure file share, you can use a storage account that already exists or [create a new Azure storage account](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). To create an Azure file share with PowerShell, you'll need the account key and name of your storage account. You'll need a storage account key if you plan to use PowerShell or the CLI.
