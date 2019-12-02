@@ -35,7 +35,7 @@ This topic shows you how to perform these tasks:
 
 ## Create integration account
 
-For this task, you can use either the Azure portal by following the steps in this section, [Azure PowerShell](https://docs.microsoft.com//powershell/module/azurerm.logicapp/New-AzureRmIntegrationAccount), or [Azure CLI](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-create).
+For this task, you can use either the Azure portal by following the steps in this section, [Azure PowerShell](/powershell/module/Az.LogicApp/New-AzIntegrationAccount), or [Azure CLI](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-create).
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
 
@@ -250,7 +250,7 @@ For this task, you can use either the Azure portal by following the steps in thi
 
 ## Delete integration account
 
-For this task, you can use either the Azure portal by following the steps in this section, [Azure CLI](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-delete), or [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/Remove-AzureRmIntegrationAccount).
+For this task, you can use either the Azure portal by following the steps in this section, [Azure CLI](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-delete), or [Azure PowerShell](/powershell/module/az.logicapp/remove-azintegrationaccount).
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
 

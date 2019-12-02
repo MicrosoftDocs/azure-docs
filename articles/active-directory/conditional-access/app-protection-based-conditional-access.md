@@ -1,13 +1,12 @@
 ---
-title: Require app protection policy for cloud app access with Conditional Access in Azure Active Directory | Microsoft Docs
+title: App protection policies with Conditional Access - Azure Active Directory
 description: Learn how to require app protection policy for cloud app access with Conditional Access in Azure Active Directory.
-
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 4/4/2019
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo

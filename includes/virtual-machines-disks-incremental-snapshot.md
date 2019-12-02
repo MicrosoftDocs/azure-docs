@@ -22,7 +22,7 @@ If you haven't yet signed up for the preview and you'd like to start using incre
 
 ## Restrictions
 
-- Incremental snapshots are currently only available in West Central US and North Europe.
+- Incremental snapshots are currently only available in East US, Central US, Canada Central, West Central US and North Europe.
 - Incremental snapshots currently cannot be created after you've changed the size of a disk.
 - Incremental snapshots currently cannot be moved between subscriptions.
 - You can currently only generate SAS URIs of up to five snapshots of a particular snapshot family at any given time.
@@ -75,11 +75,13 @@ $incrementalSnapshots
 
 ## CLI
 
-You can create an incremental snapshot with the Azure CLI, you will need the latest version of Azure CLI. The following command will either install or update your existing installation to the latest version:
+You can create an incremental snapshot with the Azure CLI, you will need the latest version of Azure CLI. 
 
+On Windows, the following command will either install or update your existing installation to the latest version:
 ```PowerShell
 Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi; Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'
 ```
+On Linux, the CLI installation will vary depending on operating system version.  See [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) for your particular Linux version.
 
 To create an incremental snapshot, use [az snapshot create](https://docs.microsoft.com/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create) with the `--incremental` parameter.
 
@@ -151,4 +153,8 @@ You can also use Azure Resource Manager templates to create an incremental snaps
 
 ## Next steps
 
-If you haven't yet signed up for the preview and you'd like to start using incremental snapshots, email us at AzureDisks@microsoft.com to get access to the public preview.
+1. If you haven't yet signed up for the preview and you'd like to start using incremental snapshots, email us at AzureDisks@microsoft.com to get access to the public preview. 
+
+2. Explore the following samples for cross-region copy of incremental snapshots using differential capability   
+
+    - [Using Azure .Net SDKs](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots)

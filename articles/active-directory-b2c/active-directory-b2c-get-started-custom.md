@@ -30,7 +30,7 @@ ms.subservice: B2C
 1. Sign in to the [Azure portal](https://portal.azure.com)
 1. Use the **Directory + subscription** filter in the top menu to select the directory that contains your Azure AD B2C tenant.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
-1. On the Overview page, select **Identity Experience Framework**.
+1. On the Overview page, select **Identity Experience Framework** from the **Policies** pane.
 
 ### Create the signing key
 

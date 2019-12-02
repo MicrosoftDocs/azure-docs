@@ -20,7 +20,7 @@ Before you get started, make sure to:
 > [!div class="checklist"]
 >
 > * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Create a LUIS application and get an endpoint key](../../../../quickstarts/create-luis.md)
+> * [Create a Language Understanding (LUIS) application and get an endpoint key](../../../../quickstarts/create-luis.md)
 > * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=jre)
 > * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=jre)
 
