@@ -34,7 +34,17 @@ For additional help, write to us at farmbeatssupport@microsoft.com, include depl
 3. In case there are **NO Incoming messages**, contact your device partner.  
 4. In case there are **Incoming messages**, contact farmbeatssupport@microsoft.com with Data hub and Accelerator logs and captured telemetry.
 
-See [Logs section](#collect-logs-manually) of the document to understand how to download Logs.    
+See [Logs section](#collect-logs-manually) of the document to understand how to download Logs.  
+
+### Don't have the Eventhub Connection String
+
+**Corrective action**: Visit the Datahub swagger and follow these steps:
+1. Navigate to Partner API
+2. Click on GET -> Try it Out -> Execute
+3. Make a note of the partner id of the sensor partner you are interested in
+4. Go back to the Partner API and click of GET/{id}
+5. Specify the id from step 3 and click on Execute
+6. The API response should have the EventHub Connection String
 
 ### Device appears offline
 

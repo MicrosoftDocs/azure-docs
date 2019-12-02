@@ -1,5 +1,5 @@
 ---
-title: CIS Microsoft Azure Foundations Benchmark blueprint sample - Recommendation mapping
+title: CIS Microsoft Azure Foundations Benchmark blueprint sample controls
 description: Recommendation mapping of the CIS Microsoft Azure Foundations Benchmark blueprint sample to Azure Policy.
 ms.date: 10/01/2019
 ms.topic: sample
