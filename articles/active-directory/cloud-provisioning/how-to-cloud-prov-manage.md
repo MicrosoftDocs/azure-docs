@@ -49,10 +49,9 @@ If you want to scope the agent to only synchronize specific users and groups, yo
 7. On the right, you can change the scope to include only security groups by entering the distinguished name of the group and clicking **Add**.
 ![](media/how-to-cloud-prov-manage/scope3.png)
 
-8. Or change it to include only specific OUs.
+8. Or change it to include only specific OUs. Click **Done** and **Save**.
 ![](media/how-to-cloud-prov-manage/scope4.png)
 
-9.  Click **Done** and **Save**.
 
 ## Restart provisioning 
 If you do not want to wait for the next scheduled run, you can trigger the provisioning run using the restart provisioning button. 

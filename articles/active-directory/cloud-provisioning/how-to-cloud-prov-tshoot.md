@@ -56,8 +56,8 @@ This test will verify that your agents are able to communicate with Azure over p
 ### On the local server
 To verify that the agent is running follow these steps:
 
-2.  On the server with the agent installed, open **Services** by either navigating to it or by going to Start/Run/Services.msc.
-3.  Under **Services**, make sure **Microsoft Azure AD Connect Agent Updater** and **Microsoft Azure AD Connect Provisioning Agent** are there and the status is **Running**.
+1.  On the server with the agent installed, open **Services** by either navigating to it or by going to Start/Run/Services.msc.
+2.  Under **Services**, make sure **Microsoft Azure AD Connect Agent Updater** and **Microsoft Azure AD Connect Provisioning Agent** are there and the status is **Running**.
  ![Services](media/how-to-cloud-prov-tshoot/tshoot1.png)
 
 ### Common agent installation issues
