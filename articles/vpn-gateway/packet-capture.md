@@ -32,7 +32,7 @@ See the examples below for PowerShell commands to start and stop packet captures
 Start-AzVirtualnetworkGatewayPacketCapture -ResourceGroupName "YourResourceGroupName" -Name "YourVPNGatewayName"
 ```
 
-Optional parameter **-FilterData** can be used to apply filters.
+Optional parameter **-FilterData** can be used to apply filter.
 
 ### Stop packet capture for a VPN gateway
 
@@ -46,7 +46,7 @@ Stop-AzVirtualNetworkGatewayPacketCapture -ResourceGroupName "YourResourceGroupN
 Start-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourResourceGroupName" -Name "YourVPNGatewayConnectionName"
 ```
 
-Optional parameter **-FilterData** can be used to apply filters.
+Optional parameter **-FilterData** can be used to apply filter.
 
 ### Stop packet capture on a VPN gateway connection
 
@@ -58,7 +58,7 @@ Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourReso
 
 - Running packet captures may affect performance. Remember to stop the packet capture when it is not needed.
 - Suggested minimum packet capture duration is 600 seconds. Having shorter packet capture duration may not provide complete data due to sync up issues among multiple components on the path.
-- Packet capture data files are generated in PCAP or ETL formats. You may need Netmon parser to understand the data.
+- Packet capture data files are generated in PCAP formats. You may need Netmon parser to understand the data.
 
 ## Next steps
 
