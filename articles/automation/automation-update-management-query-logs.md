@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: update-management
 author: bobbytreed
 ms.author: robreed
-ms.date: 11/21/2019
+ms.date: 12/02/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -18,13 +18,101 @@ You can also learn how to customize the queries or use them from different clien
 
 ## Update records
 
-Records that are collected by Update Management for Windows and Linux VMs and the data types that appear in log search results are displayed in the following table:
+Records that are collected by Update Management for Windows and Linux VMs and the data types that appear in log search results. The following sections describe those records.
 
-| Data type | Data type in Log Search | Fields |
-| --- | --- | --- |
-| Updates required by computer | `RequiredUpdate` | Computer, KBID, ManagementGroupName, Product, PublishDate, Server, SourceHealthServiceId, SourceSystem, TenantId, TimeGenerated, Type, UpdateClassification, UpdateSeverity, UpdateTitle | 
-| View updates available and their installation status | `Update` | ApprovalSource, Approved, BulletinID, BulletinUrl, Classification, Computer, ComputerEnvironment, CVENumbers, InstallTimeAvailable, InstallTimeDeviationRangeSeconds, KBID, ManagementGroupName, MSRCBUlletinID, MSRCSeverity | 
-| Update agent details | `UpdateAgent` | AgeofOldestMissingRequiredUpdate, AutomaticUpdateEnabled, AutomaticUpdateValue, Computer, DaySinceLastUpdateBucket, ManagementGroupName, OSVersion, Server, SourceHealthServiceId, SourceSystem, TenantId, TimeGenerated, Type, WindowsUpdateAgentVersion, WSUSServer | 
+### Required updates
+
+Updates required by a computer are populated in the `RequiredUpdate` record. These records have the properties in the following table:
+
+| Property | Description | 
+|----------|-------------|
+| Computer | Fully-qualified domain name of reporting machine. |
+| KBID | Knowledge base article ID for the Windows update. |
+| ManagementGroupName | Name of the Operations Manager management group or Log Analytics workspace. | 
+| Product | The products for which the update is applicable for. | 
+| PublishDate | The date the update is ready to be downloaded and installed from Windows Update. |
+| Server | | 
+| SourceHealthServiceId | Unique identifier representing the Log Analytics Windows agent ID. |
+| SourceSystem | *OperationsManager* | 
+| TenantId | Unique identifier representing your organizations instance of Azure Active Directory. | 
+| TimeGenerated | Date and time that the record was created. | 
+| Type | *Update* | 
+| UpdateClassification | Indicates the type of updates that can be applied. For Windows:<br> *Critical updates*<br> *Security updates*<br> *Update rollups*<br> *Feature packs*<br> *Service packs*<br> *Definition updates*<br> *Tools*<br> *Updates*. For Linux:<br> *Critical and security updates*<br> *Other* |
+| UpdateSeverity | Severity rating for the vulnerability. Values are:<br> *Critical*<br> *Important*<br> *Moderate*<br> *Low* |
+| UpdateTitle | The title of the update.|
+
+### Update
+
+View updates available and their installation status are populated in the `Update` record. These records have the properties in the following table:
+
+| Property | Description | 
+|----------|-------------|
+| ApprovalSource | Applies to Windows operating system only. Value is *Microsoft Update*. |
+| Approved | *True* or *False* |
+| Classification | *Updates* |
+| Computer | Fully-qualified domain name of reporting machine. |
+| ComputerEnvironment | *Azure* |
+| MSRCBulletinID | Security bulletin ID number | 
+| MSRCSeverity | Severity rating for the vulnerability. Values are:<br> *Critical*<br> *Important*<br> *Moderate*<br> *Low* |  
+| KBID | Knowledge base article ID for the Windows update. |
+| ManagementGroupName | Name of the Operations Manager management group or Log Analytics workspace. |
+| UpdateID | Unique identifier of the software update. |
+| RevisionNumber | The revision number of a specific revision of an update. |
+| Optional | *True* or *False* | 
+| RebootBehavior | The reboot behavior after installing/uninstalling an update. |
+| _ResourceId | Unique identifier for the resource that the record is associated with. |
+| Type | *Update* |
+| VMUUID | Unique identifier for the virtual machine. |
+| MG | Unique identifier for the management group or Log Analytics workspace. | 
+| TenantId | Unique identifier representing your organizations instance of Azure Active Directory. | 
+| SourceSystem | *OperationsManager* | 
+| TimeGenerated | Date and time that the record was created. | 
+| SourceComputerId | Unique identifier representing the source computer. | 
+| Title | The title of the update. |
+| PublishedDate (UTC) | The date the update is ready to be downloaded and installed from Windows Update.  |
+| UpdateState | The current state of the update. | 
+| Product | The products for which the update is applicable for. |
+| SubscriptionId | Unique identifier for the Azure subscription. | 
+| ResourceGroup | Name of the resource group the resource is a member of. | 
+| ResourceProvider | Specifies the resource provider. | 
+| Resource | Name of the resource. | 
+| ResourceType | Name of the resource type. | 
+
+### UpdateAgent
+
+View update agent details populated in the `UpdateAgent` record. These records have the properties in the following table:
+
+| Property | Description | 
+|----------|-------------|
+| AgeofOldestMissingRequiredUpdate | | 
+| AutomaticUpdateEnabled | | 
+| Computer | Fully-qualified domain name of reporting machine. |
+| DaySinceLastUpdateBucket | | 
+| ManagementGroupName | Name of the Operations Manager management group or Log Analytics workspace. |
+| OSVersion | The version of the operating system. |
+| Server | |
+| SourceHealthServiceId | Unique identifier representing the Log Analytics Windows agent ID. |
+| SourceSystem | *OperationsManager* | 
+| TenantId | Unique identifier representing your organizations instance of Azure Active Directory. |
+| TimeGenerated | Date and time that the record was created. |
+| Type | *Update* | 
+| WindowsUpdateAgentVersion | Version of the Windows Update agent. |
+| WSUSServer | Name of the Windows Server Update Services (WSUS) server that the target computer is using when scanning for, downloading, and installing updates. | 
+
+### UpdateStatus 
+
+View update deployment status populated in the `UpdateStatus` record.  These records have the properties in the following table:
+
+| Property | Description | 
+|----------|-------------|
+
+
+
+
+
+
+
+
 | Update deployment status | `UpdateStatus` | Computer, ComputerEnvironment, CorrelationId, EndTime, ErrorResult, InstallationStatus, KBID, ManagementGroupName, OSType, Product, Resource, ResourceGroup, ResourceId, ResourceProvider, ResourceType, SourceComputerId, SourceSystem, StartTime, SubscriptionId, SucceededOnRetry, TimeGenerated, Title, Type, UpdateId, UpdateRunName, VMUUID, _ResourceId | 
 | Update summary by computer | `UpdateSummary` | Computer, ComputerEnvironment, CriticalUpdatesMissing, ManagementGroupName, NETRuntimeVersion, OldestMissingSecurityUpdateBucket, OldestMIssingSecurityUpdateInDays, OsVersion, OtherUpdatesMissing, Resource, ResourceGroup, ResourceId, ResourceProvider, ResourceType, RestartPending, SecurityUpdatesMissing, SourceComputerId, SourceSystem, SubscriptionId, TimeGenerated, TotalUpdateMissing, Type, VMUUID, WindowsUpdateAgentVersion, WindowsUpdateAgentVersion, WSUSServer, _ResourceId |
 
