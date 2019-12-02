@@ -70,3 +70,8 @@ client.OnBeforeRequest += (object sender, BeforeRequestEventArgs e) =>
 };
 client.Get("Patient");
 ```
+## Next steps
+In this article, you learned how to add data to audit logs by using custom headers in the Azure API for FHIR. Next, learn about other additional settings you can configure in the Azure API for FHIR.
+ 
+>[!div class="nextstepaction"]
+>[Additional Settings](azure-api-for-fhir-additional-settings.md)

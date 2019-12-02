@@ -1,17 +1,15 @@
 ---
-title: Configure Linux Java apps - Azure App Service | Microsoft Docs
-description: Learn how to configure Java apps running in Azure App Service on Linux.
+title: Configure Linux Java apps
+description: Learn how to configure a pre-built Java container for your app. This article shows the most common configuration tasks. 
 keywords: azure app service, web app, linux, oss, java, java ee, jee, javaee
-services: app-service
 author: bmitchell287
 manager: barbkess
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
+
 ms.devlang: java
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
+ms.reviewer: cephalin
 ms.custom: seodec18
 ---
 

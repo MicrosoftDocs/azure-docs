@@ -1,19 +1,12 @@
 ---
-title: How to use the Azure Mobile Apps SDK for Android | Microsoft Docs
+title: How to use the SDK for Android
 description: How to use the Azure Mobile Apps SDK for Android
-services: app-service\mobile
-documentationcenter: android
-author: elamalani
-manager: crdun
 
 ms.assetid: 5352d1e4-7685-4a11-aaf4-10bd2fa9f9fc
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
 ---
 
 # How to use the Azure Mobile Apps SDK for Android

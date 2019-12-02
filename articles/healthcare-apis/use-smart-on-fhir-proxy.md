@@ -85,7 +85,7 @@ You can clone the GitHub repository and navigate to the application with:
 
 ```PowerShell
 git clone https://github.com/Microsoft/fhir-server
-cd samples/apps/SmartLauncher
+cd fhir-server/samples/apps/SmartLauncher
 ```
 
 The application needs a few configuration settings, which you can set in `appsettings.json`:
