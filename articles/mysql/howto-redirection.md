@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/15/2019
+ms.date: 12/02/2019
 ---
 
 # Connect to Azure Database for MySQL with redirection
@@ -68,20 +68,35 @@ Redirection is currently only supported when SSL is enabled. For details on how 
 - php-mysql
 - Azure Database for MySQL server with SSL enabled
 
-1. Determine if you are running a x64 or x86 version of PHP by running the following command:
+1. Check the thread safety setting of your PHP by running the following command:
 
     ```cmd
     php -i | findstr "Thread"
     ```
+   
+   If you cannot determine the x86/x64 version of PHP, use following script to determine the configuration:
+   
+   ```php
+   switch(PHP_INT_SIZE) {
+        case 4:
+            echo '32-bit version of PHP', "\n";
+            break;
+        case 8:
+            echo '64-bit version of PHP', "\n";
+            break;
+        default:
+            echo 'PHP_INT_SIZE is ' . PHP_INT_SIZE, "\n";
+    }
+    ```
 
-2. Download the corresponding x64 or x86 version of the [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) DLL from [PECL](https://pecl.php.net/package/mysqlnd_azure) that matches your version of PHP. 
+2. Download the corresponding version of the [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) DLL from [PECL](https://pecl.php.net/package/mysqlnd_azure) that matches your version of PHP, thread safety configuration, and x64/x86-bit configuration.
 
 3. Extract the zip file and find the DLL named `php_mysqlnd_azure.dll`.
 
 4. Locate the extension directory (`extension_dir`) by running the below command:
 
     ```cmd
-    php -i | find "extension_dir"s
+    php -i | find "extension_dir"
     ```
 
 5. Copy the `php_mysqlnd_azure.dll` file into the directory returned in step 4. 
