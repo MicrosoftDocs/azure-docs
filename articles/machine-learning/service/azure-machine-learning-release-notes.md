@@ -35,11 +35,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-automl-core**
     + Removed featurizationConfig to be logged
       + Updated logging to log "auto"/"off"/"customized" only.
-    + Added support for pandas. Series and pandas.Categorical for detecting column data type. Previously only supported numpy.ndarray
-      + Added related code changes to handle categorical dtype correctly.
-    + The forecast function interface was improved: the y_pred parameter was made optional. -The docstrings were improved.
   + **azureml-automl-runtime**
-    + Removed featurizationConfig to be logged - Updated logging to log "auto"/"off"/"customized" only.
     + Added support for pandas. Series and pandas.Categorical for detecting column data type. Previously only supported numpy.ndarray
       + Added related code changes to handle categorical dtype correctly.
     + The forecast function interface was improved: the y_pred parameter was made optional. -The docstrings were improved.
@@ -50,9 +46,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Changed time series-related Datasets methods to `include_boundary=True` by default.
   + **azureml-train-automl-client**
     + Fixed issue where validation results are not printed when show output is set to false.
-    + Removed featurizationConfig to be logged - Updated logging to log "auto"/"off"/"customized" only.
-  + **azureml-train-automl-runtime**
-    + The forecast function interface was improved: the y_pred parameter was made optional. -The docstrings were improved.
 
   
 ## 2019-11-25
