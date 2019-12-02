@@ -113,6 +113,9 @@ conceptualContent:
     - title: Search
       summary: Add Bing Search APIs to your apps and harness the ability to comb billions of webpages, images, videos, and news with a single API call.
       links:
+        - url: ./Bing-web-search/index.yml
+          itemType: overview
+          text: Bing Search APIs hub page
         - url: ./Bing-Autosuggest/get-suggested-search-terms.md
           itemType: overview
           text: Autosuggest Search
