@@ -41,7 +41,7 @@ The designer gives you a visual canvas to build, test, and deploy machine learni
     + Publish a **batch inference pipeline** to make predictions on new data by using a previously trained model.
 + [Deploy](#deploy) a **real-time inference pipeline** to a real-time endpoint to make predictions on new data in real time.
 
-![Workflow diagram for training, batch inference, and real-time inference in the designer](media/ui-concept-visual-interface/designer-workflow-diagram.png)
+![Workflow diagram for training, batch inference, and real-time inference in the designer](media/concept-designer/designer-workflow-diagram.png)
 
 ## Pipeline
 
@@ -76,7 +76,7 @@ A module is an algorithm that you can perform on your data. The designer has a n
 
 A module may have a set of parameters that you can use to configure the module's internal algorithms. When you select a module on the canvas, the module's parameters are displayed in the Properties pane to the right of the canvas. You can modify the parameters in that pane to tune your model. You can set the compute resources for individual modules in the designer. 
 
-![Module properties](media/ui-concept-visual-interface/properties.png)
+![Module properties](media/concept-designer/properties.png)
 
 For some help navigating through the library of machine learning algorithms available, see [Algorithm & module reference overview](../algorithm-module-reference/module-reference.md)
 
