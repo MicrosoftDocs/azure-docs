@@ -8,8 +8,8 @@ manager: Chris Wendt
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 10/25/2019
-ms.author: moelghaz
+ms.date: 12/2/2019
+ms.author: swmachan
 #Customer intent: As a Custom Translator, I want to be informed on upcoming new features, bug fixes,
 ---
 
