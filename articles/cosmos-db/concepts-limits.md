@@ -112,7 +112,6 @@ There are no restrictions on the item payloads like number of properties and nes
 
 Cosmos DB supports [CRUD and query operations](https://docs.microsoft.com/rest/api/cosmos-db/) against resources like containers, items, and databases. It also supports [transactional batch requests](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.transactionalbatch) against multiple items with the same partition key in a container.
 
-
 | Resource | Default limit |
 | --- | --- |
 | Maximum execution time for a single operation (like a stored procedure execution or a single query page retrieval)| 5 sec |
