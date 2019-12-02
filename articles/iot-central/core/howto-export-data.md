@@ -122,7 +122,7 @@ You can browse the exported files in the Azure portal by navigating to the file 
 
 For Event Hubs and Service Bus, a new message is exported quickly after IoT Central receives the message from a device, and each exported message contains the full message the device sent in the body property in JSON format.
 
-For Blob Storage, messages are batched and exported once per minute. The exported files use the same format as the message files exported by [IoT Hub message routing](../../iot-hub/iot-hub-csharp-csharp-process-d2c.md) to blob storage. 
+For Blob Storage, messages are batched and exported once per minute. The exported files use the same format as the message files exported by [IoT Hub message routing](../../iot-hub/tutorial-routing.md) to blob storage. 
 
 > [!NOTE]
 > For Blob Storage, ensure that your devices are sending messages that have `contentType: application/JSON` and `contentEncoding:utf-8` (or `utf-16`, `utf-32`). See the [IoT Hub documentation](../../iot-hub/iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-body) for an example.
@@ -188,7 +188,7 @@ Each message or record in a snapshot represents one or more changes to a device 
 
 - `@id` of the device in IoT Central
 - `name` of the device
-- `deviceId` from [Device Provisioning Service](howto-connect-nodejs.md)
+- `deviceId` from the Device Provisioning Service
 - Device template information
 - Property values
 
@@ -608,4 +608,4 @@ This is an example snapshot containing devices and properties data in Blob Stora
 Now that you know how to export your data to Azure Event Hubs, Azure Service Bus, and Azure Blob Storage, continue to the next step:
 
 > [!div class="nextstepaction"]
-> [How to trigger Azure Functions](howto-trigger-azure-functions.md)
+> [How to create webhooks](./howto-create-webhooks.md)
