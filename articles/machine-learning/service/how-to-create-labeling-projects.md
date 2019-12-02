@@ -59,7 +59,7 @@ If you already created a dataset that contains your data, select it from the **S
 
 ### Create a dataset from an Azure datastore
 
-In many cases, it's fine to just upload local files. But [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) provides a faster and more robust way to transfer a large amount of data. We recommend Azure Storage Explorer as the default way to move files.
+In many cases, it's fine to just upload local files. But [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) provides a faster and more robust way to transfer a large amount of data. We recommend Storage Explorer as the default way to move files.
 
 To create a dataset from data that you've already stored in Azure blob storage:
 
@@ -125,9 +125,9 @@ By default, each labeling project that you create gets a new team with you as a 
 
 You manage people on the **People** page. Add and remove people by email address. Each labeler has to authenticate through your Microsoft account or Azure Active Directory, if you use it.  
 
-After you add a person, you can assign them to one or more teams: Go to the **Teams** page, select the team, and then select **Assign people** or **Remove people**.
+After you add a person, you can assign that person to one or more teams: Go to the **Teams** page, select the team, and then select **Assign people** or **Remove people**.
 
-To send an email to the team, select the team to bring up the **Team details** page. On this page, select **Email team** to open an email draft with the addresses of everyone on the team.
+To send an email to the team, select the team to view the **Team details** page. On this page, select **Email team** to open an email draft with the addresses of everyone on the team.
 
 ## Run and monitor the project
 

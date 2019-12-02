@@ -35,13 +35,13 @@ Go to the labeling portal URL that's provided by the project administrator. Sign
 
 After you sign in, you'll see the project's overview page.
 
-Go to **View detailed instructions**. These instructions are specific to your project. They explain the type of data you're facing, how you should make your decisions, and other relevant information. After you read this information, return to the project page and select **Start labeling**.
+Go to **View detailed instructions**. These instructions are specific to your project. They explain the type of data that you're facing, how you should make your decisions, and other relevant information. After you read this information, return to the project page and select **Start labeling**.
 
 ## Common features of the labeling task
 
 In all image-labeling tasks, you choose an appropriate tag or tags from a set that's specified by the project administrator. You can select the first nine tags by using the number keys on your keyboard.  
 
-In image-classification tasks, you can choose to view multiple images simultaneously. Use the icons above the image area to select the layout. To select all the displayed images simultaneously, use the **Select all** button. To select individual images, use the circular selection button in the upper-right corner of the image. You must select at least one image to apply a tag. If you select multiple images, any tag that you select will be applied to all the selected images.
+In image-classification tasks, you can choose to view multiple images simultaneously. Use the icons above the image area to select the layout. To select all the displayed images simultaneously, use **Select all**. To select individual images, use the circular selection button in the upper-right corner of the image. You must select at least one image to apply a tag. If you select multiple images, any tag that you select will be applied to all the selected images.
 
 Here we've chosen a two-by-two layout and are about to apply the tag "Mammal" to the images of the bear and orca. The image of the shark was already tagged as "Cartilaginous fish," and the iguana hasn't been tagged yet.
 
@@ -58,7 +58,7 @@ After you submit tags for the data at hand, Azure refreshes the page with a new 
 
 If your project is of type "Image Classification Multi-Class," you'll assign a single tag to the entire image. To review the directions at any time, go to the **Instructions** page and select **View detailed instructions**.
 
-If you realize that you made a mistake after you assign a tag to an image, you can fix it. Select the "**X**" on the label that's displayed below the image to clear the tag. Or, select the image and choose another class, and the newly selected value will replace the previously applied tag.
+If you realize that you made a mistake after you assign a tag to an image, you can fix it. Select the "**X**" on the label that's displayed below the image to clear the tag. Or, select the image and choose another class. The newly selected value will replace the previously applied tag.
 
 ## Tag images for multi-label classification
 
@@ -72,11 +72,11 @@ Select the image that you want to label and then select the tag. The tag is appl
 
 ![Animation shows multilabel flow](media/how-to-label-images/multilabel.gif)
 
-To correct a mistake, click the "**X**" to clear an individual tag or select the images and then choose the tag, which clears the tag from all the selected images. This scenario is shown here. Clicking on "Land" will clear that tag from the two selected images.
+To correct a mistake, click the "**X**" to clear an individual tag or select the images and then select the tag, which clears the tag from all the selected images. This scenario is shown here. Clicking on "Land" will clear that tag from the two selected images.
 
 ![A screenshot shows multiple deselections](media/how-to-label-images/multiple-deselection.png)
 
-Azure will only enable the **Submit** button after you've applied at least one tag to each image. Press **Submit** to save your work.
+Azure will only enable the **Submit** button after you've applied at least one tag to each image. Select **Submit** to save your work.
 
 ## Tag images and specify bounding boxes for object detection
 
@@ -96,17 +96,17 @@ By default, you can edit existing bounding boxes. The **Lock/unlock regions** to
 
 Use the **Regions manipulation** tool ![Regions manipulation tool](media/how-to-label-images/regions-tool.png) or "M" to adjust an existing bounding box. Drag the edges or corners to adjust the shape. Click in the interior to be able to drag the whole bounding box. If you can't edit a region, you've probably toggled the **Lock/unlock regions** tool.
 
-Use the **Template-based box** tool ![Template-box tool](media/how-to-label-images/template-box-tool.png) or "T" to create multiple bounding boxes of the same size. If the image has no bounding boxes and you activate template-based boxes, the tool will produce 50-x-50 pixel boxes. If you create a bounding box and then activate template-based boxes, any new bounding boxes will be the size of the last one that you created. Template-based boxes can be resized after placement. Resizing a template-based box only resizes that particular box.
+Use the **Template-based box** tool ![Template-box tool](media/how-to-label-images/template-box-tool.png) or "T" to create multiple bounding boxes of the same size. If the image has no bounding boxes and you activate template-based boxes, the tool will produce 50-by-50-pixel boxes. If you create a bounding box and then activate template-based boxes, any new bounding boxes will be the size of the last box that you created. Template-based boxes can be resized after placement. Resizing a template-based box only resizes that particular box.
 
-To delete *all* the bounding boxes in the current image, select the **Delete all regions** tool ![Delete regions tool](media/how-to-label-images/delete-regions-tool.png).
+To delete *all* bounding boxes in the current image, select the **Delete all regions** tool ![Delete regions tool](media/how-to-label-images/delete-regions-tool.png).
 
 After you create the bounding boxes for an image, select **Submit** to save your work, or your work in progress won't be saved.
 
 ## Finish up
 
-When you submit a page of tagged data, Azure assigns you new unlabeled data from a work queue. If there's no more unlabeled data available, you'll get a message noting this along with a link to the portal home page.
+When you submit a page of tagged data, Azure new unlabeled data to you from a work queue. If there's no more unlabeled data available, you'll get a message noting this along with a link to the portal home page.
 
-When you're done labeling, select your name in the upper-right corner of the labeling portal and then select **Signout**. If you don't sign out, eventually Azure will "time you out" and assign your data to another labeler.
+When you're done labeling, select your name in the upper-right corner of the labeling portal and then select **sign-out**. If you don't sign out, eventually Azure will "time you out" and assign your data to another labeler.
 
 ## Next steps
 
