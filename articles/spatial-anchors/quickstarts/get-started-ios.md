@@ -1,16 +1,14 @@
 ---
-title: Quickstart - Create iOS app with Azure Spatial Anchors | Microsoft Docs
+title: 'Quickstart: Create an iOS app'
 description: In this quickstart, you learn how to build an iOS app using Spatial Anchors.
 author: craigktreasure
-manager: aliemami
+manager: vriveras
 services: azure-spatial-anchors
 
 ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-# ms.reviewer: MSFT-alias-of-reviewer
-#Customer intent: As a mixed reality developer, I want to learn how to use Azure Spatial Anchors in my iOS app (in either Swift or Objective-C) that can place and locate a 3D object that persists across devices and platforms.
 ---
 # Quickstart: Create an iOS app with Azure Spatial Anchors, in either Swift or Objective-C
 

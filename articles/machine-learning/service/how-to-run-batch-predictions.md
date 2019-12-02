@@ -1,5 +1,5 @@
 ---
-title: Run batch inference on large amounts of data 
+title: Run batch predictions on big data 
 titleSuffix: Azure Machine Learning
 description: Learn how to get inferences asynchronously on large amounts of data by using batch inference in Azure Machine Learning. Batch inference provides parallel processing capabilities out of the box and optimizes for high-throughput, fire-and-forget inference for big-data use cases.
 services: machine-learning
@@ -251,7 +251,7 @@ batch_conda_deps = CondaDependencies.create(pip_packages=["tensorflow==1.13.1", 
 batch_env = Environment(name="batch_environment")
 batch_env.python.conda_dependencies = batch_conda_deps
 batch_env.docker.enabled = True
-batch_env.docker.base_image = DEFAULT_CPU_IMAGE
+batch_env.docker.base_image = DEFAULT_GPU_IMAGE
 batch_env.spark.precache_packages = False
 ```
 

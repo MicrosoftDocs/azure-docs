@@ -1,11 +1,8 @@
 ---
-title: Child resources - Azure Resource Manager templates
+title: Child resources in templates
 description: Describes how to set the name and type for child resources in an Azure Resource Manager template.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.author: tomfitz
 ---
 # Set name and type for child resources
 

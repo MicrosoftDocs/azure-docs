@@ -161,6 +161,9 @@ conceptualContent:
         - url: ./containers/docker-compose-recipe.md
           itemType: get-started
           text: Use Docker Compose to deploy multiple containers
+        - url: ./containers/container-image-tags.md
+          itemType: reference
+          text: Cognitive Services container image tags
         - url: ./containers/container-faq.md
           itemType: reference
           text: Cognitive Services containers FAQ
@@ -170,10 +173,12 @@ additionalContent:
     - items:
       - title: Additional resources
         links:
+          - text: Support & help options
+            url: cognitive-services-support-options.md
           - text: Azure CLI
             url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
           - text: PowerShell
-            url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.5.0#cognitive_services
+            url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-3.0.0#cognitive_services
       - title: REST APIs
         links:
           - text: Cognitive Services Management
