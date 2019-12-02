@@ -65,7 +65,7 @@ If you have an MCA, you can download pricing for the current billing period.
 1. Select a billing profile. Depending on your access, you might need to select a billing account first.
 1. In the **Overview** area, find the download links beneath the month-to-date charges.
 1. Select **Azure price sheet**.
-![Screenshot that shows download from Overview](./media/billing-ea-pricing/open-pricing.png)
+![Screenshot that shows download from Overview](./media/billing-ea-pricing/open-pricing01.png)
 
 ## Estimate costs with the Azure pricing calculator
 

@@ -66,7 +66,7 @@ After an Account administrator has assigned the appropriate roles to other users
 
 1. Select **On** and save.
 
-    ![Screenshot shows on-off to delegate access to invoice](./media/billing-manage-access/a-optinallow01.png)
+    ![Screenshot shows on-off to delegate access to invoice](./media/billing-manage-access/aa-optinallow01.png)
 
 The Account Administrator can also configure to have invoices sent via email. To learn more, see [Get your invoice in email](billing-download-azure-invoice-daily-usage-date.md).
 
