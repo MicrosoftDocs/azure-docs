@@ -61,7 +61,7 @@ If you already created a dataset that contains your data, select it from the **S
 
 In many cases, it's fine to just upload local files. But [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) provides a faster and more robust way to transfer a large amount of data. We recommend Storage Explorer as the default way to move files.
 
-To create a dataset from data that you've already stored in Azure blob storage:
+To create a dataset from data that you've already stored in Azure Blob storage:
 
 1. Select **Create a dataset** > **From datastore**.
 1. Assign a **Name** to your dataset.
@@ -152,4 +152,4 @@ The COCO file is created in the default blob store of the Azure Machine Learning
 ## Next steps
 
 * Label images for [image classification or object detection](how-to-label-images.md)
-* Learn more about [Azure Machine Learning and ML Studio (Classic)](../compare-azure-ml-to-studio-classic.md)
+* Learn more about [Azure Machine Learning and Machine Learning Studio (classic)](../compare-azure-ml-to-studio-classic.md)
