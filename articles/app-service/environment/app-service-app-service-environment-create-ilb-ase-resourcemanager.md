@@ -1,6 +1,6 @@
 ---
 title: Create ILB ASE v1
-description: Create an App Service environment with an internal load balancer (ILB ASE) using ARM templates. This doc is provided only for customers who use the legacy v1 ASE.
+description: Create an App Service environment with an internal load balancer (ILB ASE). This doc is provided only for customers who use the legacy v1 ASE.
 author: stefsch
 
 ms.assetid: 091decb6-b0de-42a1-9f2f-c18d9b2e67df

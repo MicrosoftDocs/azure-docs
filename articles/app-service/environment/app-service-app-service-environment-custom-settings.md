@@ -1,6 +1,6 @@
 ---
 title: Configure custom settings
-description: Configure settings that apply to the entire App Service environment. Learn how to do it with ARM templates.
+description: Configure settings that apply to the entire Azure App Service environment. Learn how to do it with Azure Resource Manager templates.
 author: stefsch
 
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
