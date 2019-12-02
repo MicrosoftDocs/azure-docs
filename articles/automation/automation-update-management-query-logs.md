@@ -115,7 +115,7 @@ View update deployment status populated in the `UpdateRunProgress` record.  Thes
 | ManagementGroupName | Name of the Operations Manager management group or Log Analytics workspace. |
 | OSType | Specifies the type of operating system. | 
 | Product | The products for which the update is applicable for. |
-| Resource | | Resource | Name of the resource. | 
+| Resource | Name of the resource. | 
 | ResourceId | Unique identifier for the resource that the record is associated with. |
 | ResourceProvider | Specifies the resource provider. | 
 | ResourceType | Name of the resource type. | 
@@ -137,8 +137,33 @@ View update summary by computer populated in the `UpdateSummary` record.  These 
 
 | Property | Description | 
 |----------|-------------|
-
-| Update summary by computer | `UpdateSummary` | Computer, ComputerEnvironment, CriticalUpdatesMissing, ManagementGroupName, NETRuntimeVersion, OldestMissingSecurityUpdateBucket, OldestMIssingSecurityUpdateInDays, OsVersion, OtherUpdatesMissing, Resource, ResourceGroup, ResourceId, ResourceProvider, ResourceType, RestartPending, SecurityUpdatesMissing, SourceComputerId, SourceSystem, SubscriptionId, TimeGenerated, TotalUpdateMissing, Type, VMUUID, WindowsUpdateAgentVersion, WindowsUpdateAgentVersion, WSUSServer, _ResourceId |
+| Computer | Fully-qualified domain name of reporting machine. |
+| ComputerEnvironment | *Azure* | 
+| CriticalUpdatesMissing | Number of critical updates missing that are applicable. | 
+| ManagementGroupName | Name of the Operations Manager management group or Log Analytics workspace. |
+| NETRuntimeVersion | Version of .NET Framework installed on the Windows computer. |
+| OldestMissingSecurityUpdateBucket | | 
+| OldestMissingSecurityUpdateInDays | |
+| OsVersion | The version of the operating system. |
+| OtherUpdatesMissing | Count of detected updates missing. |
+| Resource |  Name of the resource. | 
+| ResourceGroup | Name of the resource group the resource is a member of. |
+| ResourceId | Unique identifier for the resource that the record is associated with. |
+| ResourceProvider | Specifies the resource provider. |
+| ResourceType | Name of the resource type. |
+| RestartPending | *True* or *False*. |
+| SecurityUpdatesMissing | Count of missing security updates applicable.| 
+| SourceComputerId | Unique identifier for the virtual machine. |
+| SourceSystem | *OpsManager* | 
+| SubscriptionId | Unique identifier for the Azure subscription. |
+| TimeGenerated | Date and time that the record was created. |
+| TotalUpdatesMissing | Total number of missing updates applicable. | 
+| Type | *UpdateSummary* |
+| VMUUID | Unique identifier for the virtual machine. |
+| WindowsUpdateAgentVersion | Version of the Windows Update agent. |
+| WindowsUpdateSetting | *ScheduledInstallation* | 
+| WSUSServer | Name of the Windows Server Update Services (WSUS) server that the target computer is using when scanning for, downloading, and installing updates. |
+| _ResourceId | Unique identifier for the resource that the record is associated with. |
 
 ## Sample queries
 
