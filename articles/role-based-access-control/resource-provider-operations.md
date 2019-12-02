@@ -5566,7 +5566,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.StorSimple/managers/devices/deactivate/action | Deactivates a device. |
 > | Action | Microsoft.StorSimple/managers/devices/delete | Deletes the Devices |
 > | Action | Microsoft.StorSimple/managers/devices/disks/read | Lists or gets the Disks |
-> | Action | Microsoft.StorSimple/managers/devices/download/action | Dowload updates for a device. |
+> | Action | Microsoft.StorSimple/managers/devices/download/action | Download updates for a device. |
 > | Action | Microsoft.StorSimple/managers/devices/failover/action | Failover of the device. |
 > | Action | Microsoft.StorSimple/managers/devices/failover/operationResults/read | Lists or gets the Operation Results |
 > | Action | Microsoft.StorSimple/managers/devices/failoverTargets/read | Lists or gets the Failover targets of the devices |
