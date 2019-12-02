@@ -11463,6 +11463,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/event-hubs/event-hubs-create-kafka-enabled.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-create",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/event-hubs/event-hubs-csharp-ephcs-getstarted.md",
       "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
       "redirect_document_id": false
@@ -43840,6 +43845,11 @@
     {
       "source_path": "articles/lab-services/classroom-labs/how-to-enable-multi-vm-environment.md",
       "redirect_url": "/azure/lab-services/classroom-labs/how-to-enable-nested-virtualization-template-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-bus-messaging/migrate-java-apps-wild-fly.md",
+      "redirect_url": "/azure/app-service/containers/configure-language-java#use-service-bus-as-a-message-broker",
       "redirect_document_id": false
     }
   ]
