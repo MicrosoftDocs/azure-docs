@@ -191,25 +191,25 @@ If you want to create Hyperscale database in a region that is not listed as supp
 
 To request the ability to create Hyperscale databases in regions not listed:
 
-1. Navigate to [Azure Help and Support Blade](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+1. From the Azure portal menu, select **Help + support**, or search for and select **Help + support** from any page.
 
-2. Click on [**New support request**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+2. In [Azure Help and Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview), select [**New support request**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-    ![Azure Help and Support Blade](media/sql-database-service-tier-hyperscale/request-screen-1.png)
+3. For **Issue Type**, select **Service and subscription limits (quotas)**.
 
-3. For **Issue Type**, select **Service and subscription limits (quotas)**
+4. Choose the subscription you would use to create the database(s).
 
-4. Choose the subscription you would use to create the database(s)
+5. For **Quota Type**, select **SQL database**.
 
-5. For **Quota Type**, select **SQL database**
+    ![Azure Help and Support Blade](media/sql-database-service-tier-hyperscale/new-support-request-screen.png)
 
-6. Click **Next: Solutions**
+6. Click **Next: Solutions**.
 
-1. Click **Provide Details**
+7. Click **Provide Details**.
 
     ![Problem details](media/sql-database-service-tier-hyperscale/request-screen-2.png)
 
-8. Choose **SQL Database quota type**: **Other quota request**
+8. Choose **SQL Database quota type**: **Other quota request**.
 
 9. Fill in the following template:
 
@@ -223,11 +223,11 @@ To request the ability to create Hyperscale databases in regions not listed:
     > Number of TB estimated 
     >
 
-10. Choose **Severity C**
+10. Choose **Severity C**.
 
 11. Choose the appropriate contact method and fill in details.
 
-12. Click **Save** and **Continue**
+12. Click **Save** and **Continue**.
 
 ## Known limitations
 These are the current limitations to the Hyperscale service tier as of GA.  We are actively working to remove as many of these limitations as possible.
