@@ -1,15 +1,10 @@
 ---
-title: Azure Resource Manager template samples - App Service | Microsoft Docs
-description: Azure Resource Manager template samples for App Service
-services: app-service
-documentationcenter: app-service
+title: Azure Resource Manager template samples
+description: Find Azure Resource Manager template samples for some of the common App Service scenarios. Learn how to automate your App Service deployment or management tasks.
 author: tfitzmac
 tags: azure-service-management
 
-ms.service: app-service
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: app-service
 ms.date: 01/04/2019
 ms.author: tomfitz
 ms.custom: mvc

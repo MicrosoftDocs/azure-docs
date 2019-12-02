@@ -8,7 +8,6 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: kgremban
-ms.custom: seodec18
 ---
 
 # Connect Modbus TCP devices through an IoT Edge device gateway

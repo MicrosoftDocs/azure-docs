@@ -133,6 +133,9 @@
     - name: Process Event Hubs data
       href: ../event-hubs/process-data-azure-stream-analytics.md
       maintainContext: true
+    - name: Process Azure SQL Database
+      href: ../sql-database/sql-database-stream-analytics.md
+      maintainContext: true
     - name: Geospatial scenarios
       href: geospatial-scenarios.md
   - name: Monitor

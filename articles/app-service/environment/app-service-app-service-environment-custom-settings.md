@@ -1,16 +1,9 @@
 ---
-title: Custom settings for App Service Environments - Azure
-description: Custom configuration settings for App Service Environments
-services: app-service
-documentationcenter: ''
+title: Configure custom settings
+description: Configure settings that apply to the entire Azure App Service environment. Learn how to do it with Azure Resource Manager templates.
 author: stefsch
-manager: nirma
-editor: ''
 
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/16/2018
 ms.author: stefsch
