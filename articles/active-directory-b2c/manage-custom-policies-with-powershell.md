@@ -23,7 +23,7 @@ In this article, you learn how to use the Azure AD PowerShell module to:
 * Download a policy from a tenant
 * Update an existing policy by overwriting its content
 * Upload a new policy to your Azure AD B2C tenant
-* Delete a custom policy from Azure AD B2C
+* Delete a custom policy from a tenant
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ In this article, you learn how to use the Azure AD PowerShell module to:
 
 To work with custom policies in your Azure AD B2C tenant, you first need to connect your PowerShell session to the tenant by using the [Connect-AzureAD][Connect-AzureAD] command.
 
-Execute the following command, substituting `{b2c-tenant-name}` with the name of your Azure AD B2C tenant, and then sign in with an account that's assigned the *Global Admin* role in the directory:
+Execute the following command, substituting `{b2c-tenant-name}` with the name of your Azure AD B2C tenant. Sign in with an account that's assigned the *Global Admin* role in the directory.
 
 ```PowerShell
 Connect-AzureAD -Tenant "{b2c-tenant-name}.onmicrosoft.com"
@@ -80,7 +80,7 @@ After reviewing the list of policy IDs, you can target a specific policy with [G
 Get-AzureADMSTrustFrameworkPolicy [-Id <policyId>]
 ```
 
-In this example, the policy with ID **B2C_1A_signup_signin** is downloaded:
+In this example, the policy with ID *B2C_1A_signup_signin* is downloaded:
 
 ```Console
 PS C:\> Get-AzureADMSTrustFrameworkPolicy -Id B2C_1A_signup_signin
@@ -109,17 +109,20 @@ PS C:\> Get-AzureADMSTrustFrameworkPolicy -Id B2C_1A_signup_signin
 </TrustFrameworkPolicy>
 ```
 
-To edit the policy content locally, pipe the command output to a file with the `-OutputFilePath` argument, and then open the file in your favorite editor:
+To edit the policy content locally, pipe the command output to a file with the `-OutputFilePath` argument, and then open the file in your favorite editor.
 
-```Console
-PS C:\> Get-AzureADMSTrustFrameworkPolicy -Id B2C_1A_signup_signin -OutputFilePath C:\RPPolicy.xml
+Example command sending output to a file:
+
+```PowerShell
+# Download and send policy output to a file
+Get-AzureADMSTrustFrameworkPolicy -Id B2C_1A_signup_signin -OutputFilePath C:\RPPolicy.xml
 ```
 
 ## Update an existing policy
 
-After completing your changes, you can publish the updated policy to Azure AD B2C by using the [Set-AzureADMSTrustFrameworkPolicy][Set-AzureADMSTrustFrameworkPolicy] command.
+After editing a policy file you've created or downloaded, you can publish the updated policy to Azure AD B2C by using the [Set-AzureADMSTrustFrameworkPolicy][Set-AzureADMSTrustFrameworkPolicy] command.
 
-When you issue the `Set-AzureADMSTrustFrameworkPolicy` command with the ID of a policy that already exists in your Azure AD B2C tenant, the contents of that policy is overwritten.
+If you issue the `Set-AzureADMSTrustFrameworkPolicy` command with the ID of a policy that already exists in your Azure AD B2C tenant, the content of that policy is overwritten.
 
 ```PowerShell
 Set-AzureADMSTrustFrameworkPolicy [-Id <policyId>] -InputFilePath <inputpolicyfilePath> [-OutputFilePath <outputFilePath>]
@@ -127,8 +130,9 @@ Set-AzureADMSTrustFrameworkPolicy [-Id <policyId>] -InputFilePath <inputpolicyfi
 
 Example command:
 
-```Console
-PS C:\> Set-AzureADMSTrustFrameworkPolicy -Id B2C_1A_signup_signin -InputFilePath C:\B2C_1A_signup_signin.xml
+```PowerShell
+# Update an existing policy from file
+Set-AzureADMSTrustFrameworkPolicy -Id B2C_1A_signup_signin -InputFilePath C:\B2C_1A_signup_signin.xml
 ```
 
 For additional examples, see the [Set-AzureADMSTrustFrameworkPolicy][Set-AzureADMSTrustFrameworkPolicy] command reference.
@@ -145,8 +149,9 @@ New-AzureADMSTrustFrameworkPolicy -InputFilePath <inputpolicyfilePath> [-OutputF
 
 Example command:
 
-```Console
-PS C:\> New-AzureADMSTrustFrameworkPolicy -InputFilePath C:\SignUpOrSignInv2.xml
+```PowerShell
+# Add new policy from file
+New-AzureADMSTrustFrameworkPolicy -InputFilePath C:\SignUpOrSignInv2.xml
 ```
 
 ## Delete a custom policy
@@ -161,13 +166,16 @@ Remove-AzureADMSTrustFrameworkPolicy -Id <policyId>
 
 Example command:
 
-```Console
-PS C:\> Remove-AzureADMSTrustFrameworkPolicy -Id B2C_1A_signup_signin
+```PowerShell
+# Delete an existing policy
+Remove-AzureADMSTrustFrameworkPolicy -Id B2C_1A_signup_signin
 ```
 
 ## Troubleshoot policy upload
 
-When you try to publish a new custom policy or update an existing policy, improper XML formatting and errors in the policy file inheritance chain can cause validation failures. For example, here's an attempt at updating a policy containing malformed XML (output is truncated for brevity):
+When you try to publish a new custom policy or update an existing policy, improper XML formatting and errors in the policy file inheritance chain can cause validation failures.
+
+For example, here's an attempt at updating a policy with content that contains malformed XML (output is truncated for brevity):
 
 ```Console
 PS C:\> Set-AzureADMSTrustFrameworkPolicy -Id B2C_1A_signup_signin -InputFilePath C:\B2C_1A_signup_signin.xml
@@ -184,7 +192,9 @@ For information about troubleshooting custom policies, see [Troubleshoot Azure A
 
 ## Next steps
 
-PowerShell support for Azure AD B2C means that you can execute scripts in Azure DevOps pipelines. For information about managing your custom policies in a CI/CD pipeline, see [Deploy custom policies from an Azure DevOps pipeline](deploy-custom-policies-with-devops.md).
+PowerShell support for Azure AD B2C means that you can execute policy management scripts in Azure DevOps pipelines.
+
+For information about managing your custom policies in a CI/CD pipeline, see [Deploy custom policies from an Azure DevOps pipeline](deploy-custom-policies-with-devops.md).
 
 <!-- LINKS - External -->
 [Connect-AzureAD]: https://docs.microsoft.com/powershell/module/azuread/get-azureadmstrustframeworkpolicy

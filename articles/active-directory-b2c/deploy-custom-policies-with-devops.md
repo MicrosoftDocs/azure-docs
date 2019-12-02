@@ -25,7 +25,7 @@ There are three primary steps required for enabling Azure DevOps to manage custo
 1. Configure your Azure DevOps release pipeline
 
 > [!IMPORTANT]
-> Managing Azure AD B2C custom policies currently uses **preview operations** available on Microsoft Graph API `/beta` endpoint. Use of these APIs in production applications is not supported. For more information, see the [Microsoft Graph REST API beta endpoint reference](https://docs.microsoft.com/graph/api/overview?toc=./ref/toc.json&view=graph-rest-beta).
+> Managing Azure AD B2C custom policies currently uses **preview** operations available on Microsoft Graph API `/beta` endpoint. Use of these APIs in production applications is not supported. For more information, see the [Microsoft Graph REST API beta endpoint reference](https://docs.microsoft.com/graph/api/overview?toc=./ref/toc.json&view=graph-rest-beta).
 
 ## Prerequisites
 
