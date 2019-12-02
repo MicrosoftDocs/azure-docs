@@ -13,7 +13,7 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Prerequisites for Azure AD Connect cloud provisioning in Azure AD
+# Prerequisites for Azure AD Connect cloud provisioning
 This topic provides guidance on choosing and using Azure AD Connect cloud provisioning as your identity solution.
 
 

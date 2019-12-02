@@ -326,7 +326,11 @@
     href:  reference-connect-version-history.md
   - name: Azure AD Connect Health version history
     href: reference-connect-health-version-history.md
+<<<<<<< HEAD
   - name: Azure AD Pass-through Authentication version history
+=======
+  - name: Azure AD Pass-through Authentication agent version history
+>>>>>>> e315b2d5fac007b5fa52d7ee84af5514b7f00a03
     href: reference-connect-pta-version-history.md
   - name: Connector version history
     href: reference-connect-sync-connector-version-history.md
