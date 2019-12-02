@@ -34,11 +34,23 @@ To download the *deployer.log* file, do the following:
    * If there are *No Incoming messages*, contact your device partner.  
    * If there are *Incoming messages*, contact farmbeatssupport@microsoft.com. Attach your Datahub and Accelerator logs and captured telemetry.
 
-To learn how to download logs, go to the ["Collect logs manually"](#collect-logs-manually) section.    
+To understand how to download logs, go to the ["Collect logs manually"](#collect-logs-manually) section.  
+
+### Don't have the Azure Event Hubs connection string
+
+**Corrective action**: 
+
+1. In Datahub Swagger, go to the Partner API.
+1. Select **Get** > **Try it out** > **Execute**.
+1. Note the partner ID of the sensor partner you're interested in.
+1. Go back to the Partner API, and select **Get/\<ID>**.
+1. Specify the partner ID from step 3, and then select **Execute**.
+   
+   The API response should have the Event Hubs connection string.
 
 ### Device appears offline
 
-**Symptoms**: Devices are installed, and you have linked FarmBeats with your device partner. The devices are online and sending telemetry data, but they appear offline.
+**Symptoms**: Devices are installed, and you've linked FarmBeats with your device partner. The devices are online and sending telemetry data, but they appear offline.
 
 **Corrective action**: The reporting interval isn't configured for this device. To set the reporting interval, contact your device manufacturer. 
 
