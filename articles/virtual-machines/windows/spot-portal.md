@@ -18,18 +18,18 @@ Using [Spot VMs](spot-vms.md) allows you to take advantage of our unused capacit
 
 Pricing for Spot VMs is variable, based on region and SKU. For more information, see VM pricing for [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) and [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). For more information about setting the max price, see [Spot VMs - Pricing](spot-vms.md#pricing).
 
-You have option to set a max price you are willing to pay, per hour, for the VM. The max price for a Spot VM can be set in USD, using up to 5 decimal places. For example, the value `0.05701`would be a max price of $0.05701 USD per hour. If you set the max price to be `-1`, the VM won't be evicted based on price. The price for the VM will be the current price for spot or the price for an on-demand VM, which ever is less, as long as there is capacity and quota available.
+You have option to set a max price you are willing to pay, per hour, for the VM. The max price for a Spot VM can be set in US dollars (USD), using up to 5 decimal places. For example, the value `0.05701`would be a max price of $0.05701 USD per hour. If you set the max price to be `-1`, the VM won't be evicted based on price. The price for the VM will be the current price for spot or the price for a standard VM, which ever is less, as long as there is capacity and quota available.
 
 > [!IMPORTANT]
-> Spot VMs are currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> Spot instances are currently in public preview.
+> This preview version is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> For the early part of the public preview, you can set a max price, but it will be ignored. Spot VMs will have a fixed price, so there will not be any price-based evictions.
+> For the early part of the public preview, Spot instances will have a fixed price, so there will not be any price-based evictions.
 
 ## Create the VM
 
-The process to create a VM that uses low-priority VMs is the same as detailed in the [quickstart](quick-create-portal.md). When you are deploying a VM, you can choose to use an Azure spot instance.
+The process to create a VM that uses Spot VMs is the same as detailed in the [quickstart](quick-create-portal.md). When you are deploying a VM, you can choose to use an Azure spot instance.
 
 
 On the **Basics** tab, in the **Instance details** section, **No** is the default for using an Azure spot instance.
