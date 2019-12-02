@@ -148,8 +148,8 @@
     - name: Use VS Code extension
       displayName: Visual Studio Code, VSCode, tools, ai, vs
       href: how-to-vscode-tools.md
-    - name: Connect Instance to VS Code Remote
-      displayName: Visual Studio Code, VSCode, remote, compute, instance
+    - name: Interactive debugging
+      displayName: Visual Studio Code, VSCode, debug, bugs, remote, compute, instance
       href: ../how-to-set-up-vs-code-remote.md
     - name: Git integration
       displayName: github gitlab
