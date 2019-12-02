@@ -3,8 +3,8 @@ title: Release Notes - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: See a running log of feature releases, improvements, bug fixes, and known issues for the Custom Translator.
 services: cognitive-services
-author: MohamedElghazali
-manager: Chris Wendt
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
