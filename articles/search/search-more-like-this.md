@@ -24,22 +24,44 @@ By default, the contents of all top-level searchable fields are considered. If y
 
 You cannot use moreLikeThis on searchable sub-fields in a [complex type](search-howto-complex-data-types.md).
 
-## Examples 
+## Examples
 
-Below is an example of a moreLikeThis query. The query finds documents whose description fields are most similar to the field of the source document as specified by the `moreLikeThis` parameter.
+All examples below uses [hotels sample from Quickstart](search-get-started-portal.md).
+
+### Simple query
+
+The following query finds documents whose description fields are most similar to the field of the source document as specified by the `moreLikeThis` parameter:
 
 ```
-Get /indexes/hotels/docs?moreLikeThis=1002&searchFields=description&api-version=2019-05-06-Preview
+GET /indexes/hotels-sample-index/docs?moreLikeThis=29&searchFields=Description&api-version=2019-05-06-Preview
 ```
 
+In this example, it was searched similar hotels to `HotelId=29`.
+Besides doing a HTTP GET, it also can always be sent as a HTTP POST:
+
 ```
-POST /indexes/hotels/docs/search?api-version=2019-05-06-Preview
+POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06-Preview
     {
-      "moreLikeThis": "1002",
-      "searchFields": "description"
+      "moreLikeThis": "29",
+      "searchFields": "Description"
     }
 ```
 
+### Applying Filters
+
+moreLikeThis can be combined with other common query parameters like `$filter`. For instance, the query can be restricted to only hotels which category is Budget and the rating is higher than 3.5:
+
+```
+GET /indexes/hotels-sample-index/docs?moreLikeThis=20&searchFields=Description&$filter=(Category eq 'Budget' and Rating gt 3.5)&api-version=2019-05-06-Preview
+```
+
+### Selecting fields and Limiting Results
+
+The `$top` selector can be used to limit how many results should be returned in a moreLikeThis query. Also, fields can be selected with `$select`. Here the top 3 hotels are selected along with their Id, Name and Rating: 
+
+```
+GET /indexes/hotels-sample-index/docs?moreLikeThis=20&searchFields=Description&$filter=(Category eq 'Budget' and Rating gt 3.5)&$top=3&$select=HotelId,HotelName,Rating&api-version=2019-05-06-Preview
+```
 
 ## Next steps
 
