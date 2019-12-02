@@ -1,23 +1,16 @@
 ---
-title: How to Scale an App in an App Service Environment - Azure
-description: Scaling an app in an App Service Environment
-services: app-service
-documentationcenter: ''
+title: Scale an app in ASE v1
+description: Scaling an app in an App Service Environment. This doc is provided only for customers who use the legacy v1 ASE.
 author: ccompy
-manager: stefsch
-editor: jimbe
 
 ms.assetid: 78eb1e49-4fcd-49e7-b3c7-f1906f0f22e3
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: ccompy
 ms.custom: seodec18
 
 ---
-# Scaling apps in an App Service Environment
+# Scaling apps in an App Service Environment v1
 In the Azure App Service there are normally three things you can scale:
 
 * pricing plan
