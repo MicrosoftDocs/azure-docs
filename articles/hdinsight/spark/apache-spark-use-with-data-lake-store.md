@@ -25,7 +25,7 @@ In this article, you use [Jupyter Notebook](https://jupyter.org/) available with
 > [!NOTE]  
 > You do not need to perform this step if you have created the HDInsight cluster with Data Lake Storage as default storage. The cluster creation process adds some sample data in the Data Lake Storage account that you specify while creating the cluster. Skip to the section Use HDInsight Spark cluster with Data Lake Storage.
 
-If you created an HDInsight cluster with Data Lake Storage as additional storage and Azure Storage Blob as default storage, you should first copy over some sample data to the Data Lake Storage account. You can use the sample data from the Azure Storage Blob associated with the HDInsight cluster. You can use the [ADLCopy tool](https://aka.ms/downloadadlcopy) to do so. Download and install the tool from the link.
+If you created an HDInsight cluster with Data Lake Storage as additional storage and Azure Storage Blob as default storage, you should first copy over some sample data to the Data Lake Storage account. You can use the sample data from the Azure Storage Blob associated with the HDInsight cluster. You can use the [ADLCopy tool](https://www.microsoft.com/download/details.aspx?id=50358) to do so. Download and install the tool from the link.
 
 1. Open a command prompt and navigate to the directory where AdlCopy is installed, typically `%HOMEPATH%\Documents\adlcopy`.
 

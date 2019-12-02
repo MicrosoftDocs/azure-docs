@@ -1,6 +1,6 @@
 ---
 title: Sentiment analysis use case
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: How to create text analytics models in Azure Machine Learning Studio (classic) using modules for text preprocessing, N-grams or feature hashing
 services: machine-learning
 ms.service: machine-learning

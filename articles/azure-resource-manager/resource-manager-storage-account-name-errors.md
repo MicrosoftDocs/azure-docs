@@ -1,20 +1,8 @@
 ---
-title: Azure storage account name errors | Microsoft Docs
+title: Storage account name errors
 description: Describes the errors you may encounter when specifying a storage account name.
-services: azure-resource-manager
-documentationcenter: ''
-author: tfitzmac
-manager: timlt
-editor: ''
-
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 03/09/2018
-ms.author: tomfitz
-
 ---
 # Resolve errors for storage account names
 

@@ -43,6 +43,7 @@ The items that appear in this table will change over time as support for Blob st
 |---|---|
 |[Cool access tier](storage-blob-storage-tiers.md)|Generally available|
 |Blob SDKs |Generally available|
+|Blob REST APIs|Generally avaliable|
 |[PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-powershell) |Generally available|
 |[CLI](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-cli) |Generally available|
 |[Diagnostic logs](../common/storage-analytics-logging.md)| Preview|
@@ -73,7 +74,7 @@ Just like the list of supported Blob storage features, the items that appear in 
 |[Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal)|Generally available|
 |[IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c)|Generally available|
 |[Logic apps](https://azure.microsoft.com/services/logic-apps/)|Generally available|
-|[Azure Search](https://docs.microsoft.com/azure/search/search-blob-storage-integration)|Preview|
+|[Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-howto-index-azure-data-lake-storage)|Preview|
 
 For the complete list of Azure ecosystem support for Data Lake Storage Gen2, see [Integrate Azure Data Lake Storage with Azure services](data-lake-storage-integrate-with-azure-services.md).
 

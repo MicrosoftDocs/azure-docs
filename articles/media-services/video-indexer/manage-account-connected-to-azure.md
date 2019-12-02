@@ -1,6 +1,6 @@
 ---
 title: Manage a Video Indexer account
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: This article shows how to manage a Video Indexer account connected to Azure.
 services: media-services
 author: Juliako

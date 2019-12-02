@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: lobrien
 ms.author: laobri
-ms.date: 05/02/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
 ---
 # Export or delete your Machine Learning service workspace data 
@@ -238,17 +238,16 @@ In the designer where you created your experiment, delete individual assets:
 
 1. In the list, select the individual pipeline draft to delete.
 
-1. On the bottom, select **Delete**.
+1. Select **Delete**.
 
-## Unregister data in the designer
+### Delete datasets in the designer
+
+To delete datasets in the designer, use the Azure portal or Storage Explorer to navigate to connected storage accounts and delete datasets there. Unregistering datasets in the designer only removes the reference point in storage. 
+
+## Export data in the designer
 
 In the designer where you created your experiment, export data you have added:
 
 1. On the left, select **Datasets**.
 
-
-
     ![Download data](media/how-to-export-delete-data.md/unregister-dataset.png)
-
-1. In the list, select the individual dataset and click Unregister
-

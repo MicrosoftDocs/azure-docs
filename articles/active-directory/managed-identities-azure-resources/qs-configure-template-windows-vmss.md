@@ -1,5 +1,5 @@
 ---
-title: Configure managed identities for Azure resources on a virtual machine scale set using a template
+title: Configure template to use managed identities on virtual machine scale sets - Azure AD
 description: Step-by-step instructions for configuring managed identities for Azure resources on a virtual machine scale set, using an Azure Resource Manager template.
 services: active-directory
 documentationcenter: ''
@@ -30,7 +30,7 @@ In this article, you learn how to perform the following managed identities for A
 
 ## Prerequisites
 
-- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#how-does-it-work)**.
+- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#how-does-the-managed-identities-for-azure-resources-work)**.
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
 - To perform the management operations in this article, your account needs the following Azure role based access control assignments:
 

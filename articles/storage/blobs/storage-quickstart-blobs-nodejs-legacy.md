@@ -1,6 +1,6 @@
 ---
-title: Create a blob in Azure Storage for Node.js
-description: Create a storage account and a container in object (Blob) storage. Then use the Azure Storage client library for Node.js v2 to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
+title: "Quickstart: Azure Blob storage client library v2 for JavaScript"
+description: Create a storage account and a container in object (Blob) storage. Use the Azure Storage client library for Node.js v2 to upload a blob, download a blob, and list the blobs in a container.
 author: mhopkins-msft
 
 ms.author: mhopkins
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.custom: seo-javascript-september2019
 ---
 
-# Upload, download, and list blobs using the client library for Node.js
+# Quickstart: Azure Blob storage client library v2 for JavaScript
 
 In this how-to guide, you learn how to use the client library for Node.js v2 to upload, download, and list blobs with Azure Blob storage.
 

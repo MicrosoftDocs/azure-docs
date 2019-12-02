@@ -1,10 +1,10 @@
 ---
-title: Azure SQL Database DTU resource limits elastic pools| Microsoft Docs
+title: DTU resource limits elastic pools
 description: This page describes some common DTU resource limits for elastic pools in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
-ms.custom: 
+ms.custom: seo-lt-2019
 ms.devlang:
 ms.topic: conceptual
 author: sachinpMSFT

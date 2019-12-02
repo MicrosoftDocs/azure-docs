@@ -1,7 +1,7 @@
 ---
 title: Introduction to knowledge store (preview)
 titleSuffix: Azure Cognitive Search
-description: Send enriched documents to Azure storage where you can view, reshape, and consume enriched documents in Azure Cognitive Search and in other applications.
+description: Send enriched documents to Azure storage where you can view, reshape, and consume enriched documents in Azure Cognitive Search and in other applications. This feature is in public preview.
 
 author: HeidiSteen
 manager: nitinme
@@ -13,9 +13,9 @@ ms.date: 11/04/2019
 
 # Introduction to knowledge stores in Azure Cognitive Search
 
-> [!Note]
-> Knowledge store is in preview and not intended for production use. The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.
->
+> [!IMPORTANT] 
+> Knowledge store is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> The [REST API version 2019-05-06-Preview](search-api-preview.md) provides preview features. There is currently limited portal support, and no .NET SDK support.
 
 Knowledge store is a feature of Azure Cognitive Search that persists output from an [AI enrichment pipeline](cognitive-search-concept-intro.md) for later analysis or other downstream processing. An *enriched document* is a pipeline's output, created from content that has been extracted, structured, and analyzed using AI processes. In a standard AI pipeline, enriched documents are transitory, used only during indexing and then discarded. With knowledge store, enriched documents are preserved. 
 
@@ -147,7 +147,7 @@ Only two APIs have the extensions required for creating a knowledge store (Creat
 |--------|----------|-------------|
 | data source | [Create Data Source](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | A resource identifying an external Azure data source providing source data used to create enriched documents.  |
 | skillset | [Create Skillset (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | A resource coordinating the use of [built-in skills](cognitive-search-predefined-skills.md) and [custom cognitive skills](cognitive-search-custom-skill-interface.md) used in an enrichment pipeline during indexing. A skillset has a `knowledgeStore` definition as a child element. |
-| index | [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index)  | A schema expressing an search index. Fields in the index map to fields in source data or to fields manufactured during the enrichment phase (for example, a field for organization names created by entity recognition). |
+| index | [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index)  | A schema expressing a search index. Fields in the index map to fields in source data or to fields manufactured during the enrichment phase (for example, a field for organization names created by entity recognition). |
 | indexer | [Create Indexer (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | A resource defining components used during indexing: including a data source, a skillset, field associations from source and intermediary data structures to target index, and the index itself. Running the indexer is the trigger for data ingestion and enrichment. The output is a search index based on the index schema, populated with source data, enriched through skillsets.  |
 
 ### Physical composition of a knowledge store

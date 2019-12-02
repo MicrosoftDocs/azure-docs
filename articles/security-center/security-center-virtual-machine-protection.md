@@ -1,5 +1,5 @@
 ---
-title: Protecting your machines and applications in Azure Security Center  | Microsoft Docs
+title: Protect your machines and applications in Azure Security Center
 description: This document addresses recommendations in Security Center that help you protect your virtual machines and computers and your web apps and App Service environments.
 services: security-center
 documentationcenter: na
@@ -138,7 +138,7 @@ There are three types of icons represented in this list:
 
 1. Select a web application. A summary view opens with three tabs:
 
-   - **Recommendations**:  based on assessments performed by Security Center that failed.
+   - **Recommendations**: based on assessments performed by Security Center that failed.
    - **Passed assessments**: list of assessments performed by Security Center that passed.
    - **Unavailable assessments**: list of assessments that failed to run due to an error or the recommendation is not relevant for the specific App service
 
@@ -148,7 +148,7 @@ There are three types of icons represented in this list:
 
 2. Select a recommendation to see a description of the recommendation and a list of unhealthy resources, healthy resources, and unscanned resources.
 
-   - Under the **Passed assessments** column is a list of passed assessments.  Severity of these assessments is always green.
+   - Under the **Passed assessments** column is a list of passed assessments. Severity of these assessments is always green.
 
    - Select a passed assessment from the list for a description of the assessment, a list of unhealthy and healthy resources, and a list of unscanned resources. There is a tab for unhealthy resources but that list is always empty since the assessment passed.
 
@@ -193,7 +193,7 @@ If you want to set all existing scale sets to install the Microsoft Monitoring A
 |Compute resources (batch)|5|Enable diagnostic logs in Batch accounts|Enable logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. |
 |Compute resources (event hub)|5|Diagnostics logs in Event Hub should be enabled|Enable logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. |
 |Compute resources (logic apps)|5|Enable diagnostics logs in Logic Apps|Enable logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. |
-|Compute resources (service fabric)|15|Set the ClusterProtectionLevel property to EncryptAndSign in Service Fabric|Service Fabric provides three levels of protection (None, Sign and EncryptAndSign) for node-to-node communication using a primary cluster certificate.  Set the protection level to ensure that all node-to-node messages are encrypted and digitally signed. |
+|Compute resources (service fabric)|15|Set the ClusterProtectionLevel property to EncryptAndSign in Service Fabric|Service Fabric provides three levels of protection (None, Sign and EncryptAndSign) for node-to-node communication using a primary cluster certificate. Set the protection level to ensure that all node-to-node messages are encrypted and digitally signed. |
 |Compute resources (service bus)|1|Remove all authorization rules except RootManageSharedAccessKey from Service Bus namespace |Service Bus clients should not use a namespace level access policy that provides access to all queues and topics in a namespace. To align with the least privilege security model, you should create access policies at the entity level for queues and topics to provide access to only the specific entity.|
 |Compute resources (event hub)|1|All authorization rules except RootManageSharedAccessKey should be removed from Event Hub namespace|Event Hub clients should not use a namespace level access policy that provides access to all queues and topics in a namespace. To align with the least privilege security model, you should create access policies at the entity level for queues and topics to provide access to only the specific entity.|
 |Compute resources (event hub)|5|Authorization rules on the Event Hub entity should be defined|Audit authorization rules on the Event Hub entity to grant least-privileged access.|
@@ -215,7 +215,7 @@ If you want to set all existing scale sets to install the Microsoft Monitoring A
 |Machine|15|Add a web application firewall| Deploy a web application firewall (WAF) solution to secure your web applications. |
 |Machine|30|Vulnerabilities should be remediated by a Vulnerability Assessment solution|Virtual machines for which a vulnerability assessment 3rd party solution is deployed are being continuously assessed against application and OS vulnerabilities. Whenever such vulnerabilities are found, these are available for more information as part of the recommendation.|
 |Machine|30|Install a vulnerability assessment solution on your virtual machines|Install a vulnerability assessment solution on your virtual machines|
-|Machine|1|Virtual machines should be migrated to new AzureRM resources|Use  Azure Resource Manager for your virtual machines to provide security enhancements such as: stronger access control (RBAC), better auditing, Resource Manager-based deployment and governance, access to managed identities, access to key vault for secrets, Azure AD-based authentication and support for tags and resource groups for easier security management. |
+|Machine|1|Virtual machines should be migrated to new AzureRM resources|Use Azure Resource Manager for your virtual machines to provide security enhancements such as: stronger access control (RBAC), better auditing, Resource Manager-based deployment and governance, access to managed identities, access to key vault for secrets, Azure AD-based authentication and support for tags and resource groups for easier security management. |
 |Machine|30|Vulnerabilities should be remediated by a Vulnerability Assessment solution|Virtual machines for which a vulnerability assessment 3rd party solution is deployed are being continuously assessed against application and OS vulnerabilities. Whenever such vulnerabilities are found, these are available for more information as part of the recommendation.|
 |Virtual machine scale set |4|Diagnostics logs in Virtual Machine Scale Sets should be enabled|Enable logs and retain them for up to a year. This enables you to recreate activity trails for investigation purposes. This is useful when a security incident occurs, or your network is compromised.|
 |Virtual machine scale set|35|Vulnerabilities in security configuration on your virtual machine scale sets should be remediated|Remediate vulnerabilities in security configuration on your virtual machine scale sets to protect them from attacks. |

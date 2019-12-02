@@ -1,11 +1,7 @@
 ---
-title: Tutorial - add tags to resources in an Azure Resource Manager template
+title: Tutorial - add tags to resources in template
 description: Add tags to resources that you deploy in your Azure Resource Manager template. Tags let you logically organize resources.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
@@ -21,7 +17,7 @@ We recommend that you complete the [tutorial about Quickstart templates](templat
 
 You must have Visual Studio Code with the Resource Manager Tools extension, and either Azure PowerShell or Azure CLI. For more information, see [template tools](template-tutorial-create-first-template.md#get-tools).
 
-## Review your template
+## Review template
 
 Your previous template deployed a storage account, App Service plan, and web app.
 
@@ -37,7 +33,7 @@ The following example highlights the changes to the template. Copy the whole fil
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json?range=1-118&highlight=46-52,64,78,100)]
 
-## Deploy the template
+## Deploy template
 
 It's time to deploy the template and look at the results.
 
@@ -67,7 +63,7 @@ az group deployment create \
 
 ---
 
-## Verify the deployment
+## Verify deployment
 
 You can verify the deployment by exploring the resource group from the Azure portal.
 
