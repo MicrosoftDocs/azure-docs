@@ -1,17 +1,9 @@
 ---
-title: Deploy custom image, multi-container, or built-in image - Azure App Service | Microsoft Docs
-description: How to decide between custom Docker container deployment, multi-container and a built-in application framework for App Service on Linux
+title: Deployment options for Linux containers
+description: Decide between custom Docker container deployment, multi-container and a built-in application framework for App Service on Linux.
 keywords: azure app service, web app, linux, oss
-services: app-service
-documentationCenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+author: msangapu-msft
 
-ms.assetid: 
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: msangapu
