@@ -56,7 +56,7 @@ Personalizer is not a service to persist and manage user profile information, or
 
 Personalizer Service has two APIs:
 
-* *Rank*: Use the Rank API to determine which (_action_) to show, in the current (_context_). Actions are sent as an array of JSON objects with an Id and information (_features_) about each, and context is sent as another JSON object. The API will return which actionId your application should render to the user.
+* *Rank*: Use the Rank API to determine which _action_ to show, in the current _context_. Actions are sent as an array of JSON objects, with an ID and information (_features_) about each; context is sent as another JSON object. The API returns the actionId that your application should render to the user.
 * *Reward*: After your user interacts with your application, you measure how well the personalization worked as a number between 0 and 1 and send it as a [reward score](concept-rewards.md). 
 
 ![Basic sequence of events for Personalization](media/what-is-personalizer/personalization-intro.png)
