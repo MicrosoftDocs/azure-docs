@@ -25,7 +25,7 @@ There are three primary steps required for enabling Azure DevOps to manage custo
 1. Configure your Azure DevOps release pipeline
 
 > [!IMPORTANT]
-> Managing Azure AD B2C custom policies currently uses **preview** operations available on Microsoft Graph API `/beta` endpoint. Use of these APIs in production applications is not supported. For more information, see the [Microsoft Graph REST API beta endpoint reference](https://docs.microsoft.com/graph/api/overview?toc=./ref/toc.json&view=graph-rest-beta).
+> Managing Azure AD B2C custom policies currently uses **preview** operations available on the Microsoft Graph API `/beta` endpoint. Use of these APIs in production applications is not supported. For more information, see the [Microsoft Graph REST API beta endpoint reference](https://docs.microsoft.com/graph/api/overview?toc=./ref/toc.json&view=graph-rest-beta).
 
 ## Prerequisites
 
@@ -34,13 +34,11 @@ There are three primary steps required for enabling Azure DevOps to manage custo
 
 ## Client credentials grant flow
 
-The scenario described here makes use of service-to-service calls between Azure DevOps and Azure AD B2C by using the OAuth 2.0 [client credentials grant flow](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md). This grant flow permits a web service like Azure DevOps (the confidential client) to use its own credentials instead of impersonating a user to authenticate when calling another web service, which is the Microsoft Graph API in this case.
-
-Azure DevOps obtains a token non-interactively, then makes requests to the Microsoft Graph API.
+The scenario described here makes use of service-to-service calls between Azure DevOps and Azure AD B2C by using the OAuth 2.0 [client credentials grant flow](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md). This grant flow permits a web service like Azure DevOps (the confidential client) to use its own credentials instead of impersonating a user to authenticate when calling another web service (the Microsoft Graph API, in this case). Azure DevOps obtains a token non-interactively, then makes requests to the Microsoft Graph API.
 
 ## Register an application for management tasks
 
-Start by creating an application registration that your PowerShell scripts executed by Azure DevOps will use for communicating with Azure AD B2C. If you already have an application registration that you use for automation tasks, you can skip this section.
+Start by creating an application registration that your PowerShell scripts executed by Azure DevOps will use to communicate with Azure AD B2C. If you already have an application registration that you use for automation tasks, you can skip this section.
 
 ### Register application
 

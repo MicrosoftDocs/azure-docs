@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 Whether you're doing one-off custom policy management in your Azure AD B2C tenant or adding it your continuous integration/continuous delivery (CI/CD) pipeline, PowerShell is a powerful tool you can use for performing and automating management tasks.
 
-In this article, you learn how to use the Azure AD PowerShell module to:
+In this article, you learn how to use the Azure AD PowerShell module to interactively:
 
 * List the custom policies in an Azure AD B2C tenant
 * Download a policy from a tenant
@@ -192,9 +192,7 @@ For information about troubleshooting custom policies, see [Troubleshoot Azure A
 
 ## Next steps
 
-PowerShell support for Azure AD B2C means that you can execute policy management scripts in Azure DevOps pipelines.
-
-For information about managing your custom policies in a CI/CD pipeline, see [Deploy custom policies from an Azure DevOps pipeline](deploy-custom-policies-with-devops.md).
+For information about using PowerShell to deploy custom policies as part of a CI/CD pipeline, see [Deploy custom policies from an Azure DevOps pipeline](deploy-custom-policies-with-devops.md).
 
 <!-- LINKS - External -->
 [Connect-AzureAD]: https://docs.microsoft.com/powershell/module/azuread/get-azureadmstrustframeworkpolicy
