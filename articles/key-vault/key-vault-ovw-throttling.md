@@ -42,9 +42,9 @@ If you find that the above still does not meet your needs, please fill out the b
 * For a full list of possible values, see [Azure Key Vault operations](/rest/api/keyvault/key-operations).
 
 If additional capacity is approved, please note the following as result of the capacity increases:
-1. Data consistency model changes.  Once a vault is whitelisted with additional throughput capacity, the Key Vault service data consistency guarantee changes (necessary to meet higher volume RPS since the underlying Azure Storage service cannot keep up).  In a nutshell:
-  1. Without whitelisting: The Key Vault service will reflect the results of a write operation (eg. SecretSet, CreateKey) immediately in subsequent calls (eg. SecretGet, KeySign).
-  1. With whitelist: The Key Vault service will reflect the results of a write operation (eg. SecretSet, CreateKey) within 60 seconds in subsequent calls (eg. SecretGet, KeySign).
+1. Data consistency model changes. Once a vault is whitelisted with additional throughput capacity, the Key Vault service data consistency guarantee changes (necessary to meet higher volume RPS since the underlying Azure Storage service cannot keep up).  In a nutshell:
+  1. **Without whitelisting**: The Key Vault service will reflect the results of a write operation (eg. SecretSet, CreateKey) immediately in subsequent calls (eg. SecretGet, KeySign).
+  1. **With whitelist**: The Key Vault service will reflect the results of a write operation (eg. SecretSet, CreateKey) within 60 seconds in subsequent calls (eg. SecretGet, KeySign).
 1. Client code must honor back-off policy for 429 retries. The client code calling the Key Vault service must not immediately retry Key Vault requests when it receives a 429 response code.  The Azure Key Vault throttling guidance published here recommends applying exponential backoff when receiving a 429 Http response code.
 
 If you have a valid business case for higher throttle limits, please contact us.
