@@ -44,6 +44,35 @@ The following release notes are for version 9.0.0.0 of the Azure File Sync agent
 
 ### Improvements and issues that are fixed
 
+- Self-service restore support
+	- Users can now restore their files by using the previous version feature. Prior to the v9 release, the previous version feature was not supported on volumes that had cloud tiering enabled. This feature must be enabled for each volume separately, on which an endpoint with cloud tiering enabled exists. To learn more, see  
+[Self-service restore through Previous Versions and VSS (Volume Shadow Copy Service)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service). 
+ 
+- Support for larger file share sizes 
+	- Azure File Sync now supports up to 64TiB and 100 million files in a single, syncing namespace.  
+ 
+- Data Deduplication support on Server 2019 
+	- Data Deduplication is now supported with cloud tiering enabled on Windows Server 2019. To support Data Deduplication on volumes with cloud tiering, Windows update [KB4520062](https://support.microsoft.com/help/4520062) must be installed. 
+ 
+- Improved minimum file size for a file to tier 
+	- The minimum file size for a file to tier is now based on the file system cluster size (double the file system cluster size). For example, by default, the NTFS file system cluster size is 4KB, the resulting minimum file size for a file to tier is 8KB. 
+ 
+- Network connectivity test cmdlet 
+	- As part of Azure File Sync configuration, multiple service endpoints must be contacted. They each have their own DNS name that needs to be accessible to the server. These URLs are also specific to the region a server is registered to. Once a server is registered, the connectivity test cmdlet (PowerShell and Server Registration Utility) can be used to test communications with all URLs specific to this server. This cmdlet can help troubleshoot when incomplete communication prevents the server from fully working with Azure File Sync and it can be used to fine tune proxy and firewall configurations.  
+ 
+		To run the network connectivity test, run the following PowerShell commands: 
+ 
+		Import-Module ‘<SyncAgentInstallPath>\StorageSync.Management.ServerCmdlets.dll’  
+		Test-StorageSyncNetworkConnectivity 
+ 
+- Remove server endpoint improvement when cloud tiering is enabled 
+	- As before, removing a sever endpoint does not result in removing files in the Azure file share. However, behavior for reparse points on the local server has changed. Reparse points (pointers to files that are not local on the server) are now deleted when removing a server endpoint. The fully cached files will remain on the server. This improvement was made to prevent [orphaned tiered files](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) when removing a server endpoint. If the server endpoint is recreated, the reparse points for the tiered files will be recreated on the server.  
+ 
+- Performance and reliability improvements 
+	- Reduced recall failures. Recall size is now automatically adjusted based on network bandwidth. 
+	- Improved download performance when adding a new server to a sync group. 
+	- Reduced files not syncing due to constraint conflicts. 
+
 ### Evaluation Tool
 Before deploying Azure File Sync, you should evaluate whether it is compatible with your system using the Azure File Sync evaluation tool. This tool is an Azure PowerShell cmdlet that checks for potential issues with your file system and dataset, such as unsupported characters or an unsupported OS version. For installation and usage instructions, see [Evaluation Tool](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet) section in the planning guide. 
 
