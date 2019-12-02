@@ -10,11 +10,11 @@ ms.author: jeconnoc
 ---
 # How to start, stop, and delete your Azure Spring Cloud application
 
-This guide explains how to change the state of an application in Azure Spring Cloud by using either the Azure portal or Azure CLI.
+This guide explains how to change an application's state in Azure Spring Cloud by using either the Azure portal or Azure CLI.
 
 ## Using the Azure portal
 
-Once you deploy an application, you can start, stop, and delete it using the Azure portal.
+After you deploy an application, you can start, stop, and delete it by using the Azure portal.
 
 1. Go to your Azure Spring Cloud service instance in the Azure portal.
 1. Select the **Application Dashboard** tab.
@@ -24,32 +24,36 @@ Once you deploy an application, you can start, stop, and delete it using the Azu
 ## Using Azure CLI
 
 > [!NOTE]
-> You can use optional parameters and configure defaults with Azure CLI. Learn more about Azure CLI by reading our [reference documentation](spring-cloud-cli-reference.md).  
+> You can use optional parameters and configure defaults with Azure CLI. Learn more about Azure CLI by reading [our reference documentation](spring-cloud-cli-reference.md).  
 
-First, install the Spring Cloud extension for Azure CLI:
+First, install the Azure Spring Cloud extension for Azure CLI as follows:
 
 ```azurecli
 az extension add --name spring-cloud
 ```
 
-Next, perform your desired Azure CLI operation:
+Next, select any of these Azure CLI operations:
 
 * To start your application:
+
     ```azurecli
     az spring-cloud app start -n <application name> -g <resource group> -s <Azure Spring Cloud name>
     ```
 
 * To stop your application:
+
     ```azurecli
     az spring-cloud app stop -n <application name> -g <resource group> -s <Azure Spring Cloud name>
     ```
 
 * To restart your application:
+
     ```azurecli
     az spring-cloud app restart -n <application name> -g <resource group> -s <Azure Spring Cloud name>
     ```
 
 * To delete your application:
+
     ```azurecli
     az spring-cloud app delete -n <application name> -g <resource group> -s <Azure Spring Cloud name>
     ```
