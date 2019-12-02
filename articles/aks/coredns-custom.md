@@ -174,6 +174,21 @@ data:
           }
 ```
 
+## Enable Logging for DNS Query Debugging 
+
+Applying the following configuration within your coredns-custom configmap will enable DNS query logging:
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: coredns-custom
+  namespace: kube-system
+data:
+  log.override: |
+        log
+```
+
 ## Next steps
 
 This article showed some example scenarios for CoreDNS customization. For information on the CoreDNS project, see [the CoreDNS upstream project page][coredns].
