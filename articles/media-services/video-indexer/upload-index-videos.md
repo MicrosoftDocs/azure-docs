@@ -9,7 +9,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 11/29/2019
 ms.author: juliako
 ---
 
@@ -83,9 +83,10 @@ A URL that is used to notify the customer (using a POST request) about the follo
 
 Use this parameter if raw or external recordings contain background noise. This parameter is used to configure the indexing process. You can specify the following values:
 
-- `Default` – Index and extract insights using both audio and video
 - `AudioOnly` – Index and extract insights using audio only (ignoring video)
+- `Default` – Index and extract insights using both audio and video
 - `DefaultWithNoiseReduction` – Index and extract insights from both audio and video, while applying noise reduction algorithms on audio stream
+- `VideoOnly` - Index and extract insights using video only 
 
 Price depends on the selected indexing option.  
 

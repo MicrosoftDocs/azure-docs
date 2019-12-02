@@ -1,19 +1,8 @@
 ---
 title: Configure Ruby apps - Azure App Service
-description: This tutorial describes options for authoring and configuring Ruby apps for Azure App Service on Linux.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
-
-ms.assetid: 
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
+description: Learn how to configure a pre-built Ruby container for your app. This article shows the most common configuration tasks. 
 ms.topic: quickstart
 ms.date: 03/28/2019
-ms.author: cephalin
 ms.reviewer: astay; kraigb
 ms.custom: mvc
 ms.custom: seodec18
