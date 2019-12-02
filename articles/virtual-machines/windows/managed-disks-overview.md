@@ -10,9 +10,9 @@ ms.subservice: disks
 ---
 # Introduction to Azure managed disks
 
-Managed disks, which can be thought of like block-level storage volumes, are managed by Azure and used with Azure Virtual Machines. You can think of a managed disk as if it were a physical disk in an on-premises server but, virtualized. Azure managed disks are stored as page blobs, which are a random IO storage object in Azure. We call a managed disk ‘managed’ because it is an abstraction over page blobs, blob containers, and Azure storage accounts. With managed disks, all you have to do is provision the disk, and Azure handles the rest.
+Azure managed disks are like block-level storage volumes that are managed by Azure and used with Azure Virtual Machines as virtual drives. You can think of a managed disk as if it were a physical disk in an on-premises server but, virtualized. With managed disks, all you have to do is specify the disk size, the disk type, and provision the disk, Azure handles the rest.
 
-When you select to use Azure managed disks with your workloads, Azure creates and manages the disk for you. The available types of disks are Ultra disk, Premium solid state drive (SSD), Standard SSD, and Standard hard disk drive (HDD). For more information about each individual disk type, see [Select a disk type for IaaS VMs](disks-types.md).
+The available types of disks are ultra disk, premium solid state drive (SSD), standard SSD, and standard hard disk drive (HDD). For more information about each individual disk type, see [Select a disk type for IaaS VMs](disks-types.md).
 
 [!INCLUDE [virtual-machines-managed-disks-overview.md](../../../includes/virtual-machines-managed-disks-overview.md)]
 
