@@ -28,9 +28,6 @@ A subnet must be delegated to Azure NetApp Files.
 
 ## Considerations 
 
-> [!IMPORTANT] 
-> Access to the NFSv4.1 feature requires whitelisting.  To request whitelisting, submit a request to <anffeedback@microsoft.com>. 
-
 * Deciding which NFS version to use  
   NFSv3 can handle a wide variety of use cases and is commonly deployed in most enterprise applications. You should validate what version (NFSv3 or NFSv4.1) your application requires and create your volume using the appropriate version. For example, if you use [Apache ActiveMQ](https://activemq.apache.org/shared-file-system-master-slave), file locking with NFSv4.1 is recommended over NFSv3. 
 
