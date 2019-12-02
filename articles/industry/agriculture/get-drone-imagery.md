@@ -1,6 +1,6 @@
 ---
 title: Get drone imagery
-description: Describes how to get the drone imagery from the partners
+description: This article describes how to get drone imagery from the partners.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
@@ -9,7 +9,7 @@ ms.author: v-umha
 
 # Get drone imagery from drone partners
 
-This article describes how you can bring in orthomosaic data from your drone imagery partners to the Azure FarmBeats data hub. An orthomosaic is an aerial illustration or image that's geometrically corrected and stitched from data collected by a drone.
+This article describes how you can bring in orthomosaic data from your drone imagery partners to Azure FarmBeats Datahub. An orthomosaic is an aerial illustration or image that's geometrically corrected and stitched from data collected by a drone.
 
 Currently, the following imagery partners are supported.
 
@@ -45,7 +45,7 @@ Follow these steps.
 
     ![Upload files](./media/get-drone-imagery-from-drone-partner/power-shell-two-1.png)
 
-5. Go to the directory where the files were uploaded. By default, they're uploaded to the home directory under the user name. 
+5. Go to the directory where the files were uploaded. By default, they're uploaded to the home directory under the username. 
 6. Run the following script:
 
     ```azurepowershell-interactive 
@@ -62,7 +62,7 @@ Follow these steps.
 
 ## View drone imagery
 
-After the data is sent to the FarmBeats data hub, you can query the Scene Store by using the FarmBeats data hub APIs.
+After the data is sent to the FarmBeats data hub, you can query the Scene Store by using FarmBeats Datahub APIs.
 
 Alternatively, you can view the latest drone image on the **Farm Details** page. To view the image, follow the steps. 
 
@@ -86,4 +86,4 @@ Files and images uploaded by the drone provider appear in the **Maps** section. 
 
 ## Next steps
 
-Learn how to use the FarmBeats data hub [APIs](references-for-farmbeats.md#rest-api) to get your drone imagery.
+Learn how to use FarmBeats Datahub [APIs](references-for-farmbeats.md#rest-api) to get your drone imagery.

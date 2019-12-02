@@ -1,6 +1,6 @@
 ---
 title: Get sensor data from the partners
-description: Describes how to get sensor data from partners
+description: This article describes how to get sensor data from partners.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
@@ -9,11 +9,11 @@ ms.author: v-umha
 
 # Get sensor data from sensor partners
 
-Azure FarmBeats helps you to bring streaming data from your IoT devices and sensors into the data hub. Currently, the following sensor device partners are supported.
+Azure FarmBeats helps you to bring streaming data from your IoT devices and sensors into Datahub. Currently, the following sensor device partners are supported.
 
   ![FarmBeats partners](./media/get-sensor-data-from-sensor-partner/partner-information-1.png)
 
-Integrating device data with Azure FarmBeats helps you get ground data from the IoT sensors deployed in your farm to the data hub. The data, once available, can be visualized through the FarmBeats accelerator. The data can be used for data fusion and AI/ML model building by using FarmBeats.
+Integrating device data with Azure FarmBeats helps you get ground data from the IoT sensors deployed in your farm to the data hub. The data, once available, can be visualized through the FarmBeats accelerator. The data can be used for data fusion and machine learning/artificial intelligence (ML/AI) model building by using FarmBeats.
 
 To start sensor data streaming, ensure the following:
 
@@ -22,7 +22,7 @@ To start sensor data streaming, ensure the following:
 -  If you plan on using soil moisture sensors, use the FarmBeats Soil Moisture Sensor Placement map to get a recommendation on the number of sensors and where exactly you should place them. For more information, see [Generate maps](generate-maps.md).
 - You purchase and deploy devices or sensors from your device partner on your farm. Make sure you can access the sensor data via your device partners' solution.
 
-### Enable device integration with FarmBeats 
+## Enable device integration with FarmBeats 
 
 After you start the streaming of sensor data, you can begin the process of getting the data into your FarmBeats system. Provide the following information to your device provider to enable the integration to FarmBeats:
 
@@ -49,7 +49,7 @@ Alternatively, you can generate the credentials by running this script from Azur
 
     ![Upload toolbar button](./media/get-sensor-data-from-sensor-partner/power-shell-two-1.png)
 
-5. Go to the directory where the files were uploaded. By default, they're uploaded to the home directory under the user name.
+5. Go to the directory where the files were uploaded. By default, they're uploaded to the home directory under the username.
 6. Run the following script:
 
     ```azurepowershell-interactive 
@@ -57,9 +57,9 @@ Alternatively, you can generate the credentials by running this script from Azur
     ./generateCredentials.ps1   
 
     ```
-7. Follow the onscreen instructions to capture the values for **API Endpoint**, **Tenant ID**, **Client ID**, **Client Secret**, and **EventHub Connection String**. The EventHub connection string is available as part of the API response in the swagger.
+7. Follow the onscreen instructions to capture the values for **API Endpoint**, **Tenant ID**, **Client ID**, **Client Secret**, and **EventHub Connection String**. The EventHub connection string is available as part of the API response in Swagger.
 
-**Integrate device data by using the generated credentials**
+### Integrate device data by using the generated credentials
 
 Go to the device partner portal to link FarmBeats by using the set of credentials you generated in the previous section:
 
@@ -133,7 +133,7 @@ Follow these steps.
 Follow these steps.
 
 1. On the home page, select **Sensors** from the menu to view the **Sensors** page.
-2. Select the device you want to delete, and select **Delete** from the confirmation window.
+2. Select the device you want to delete, and select **Delete** in the confirmation window.
 
     ![Delete button](./media/get-sensor-data-from-sensor-partner/delete-sensors-1.png)
 
@@ -144,7 +144,7 @@ A confirmation message shows that the sensor is successfully deleted.
 Follow these steps.
 
 1. On the home page, select **Devices** from the menu to view the **Devices** page.
-2. Select the device you want to delete, and select **Delete** from the confirmation window.
+2. Select the device you want to delete, and select **Delete** in the confirmation window.
 
     ![Delete button](./media/get-sensor-data-from-sensor-partner/delete-device-1.png)
 
