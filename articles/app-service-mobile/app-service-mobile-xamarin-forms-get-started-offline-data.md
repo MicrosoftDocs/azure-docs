@@ -1,20 +1,12 @@
 ---
-title: Enable offline sync for your Azure Mobile App (Xamarin.Forms) | Microsoft Docs
-description: Learn how to use App Service Mobile App to cache and sync offline data in your Xamarin.Forms application
-documentationcenter: xamarin
-author: elamalani
-manager: yochayk
-editor: ''
-services: app-service\mobile
+title: Enable offline sync (Xamarin.Forms) | Microsoft Docs
+description: Learn how to use App Service Mobile App to cache and sync offline data in your Xamarin.Forms application.
 
 ms.assetid: acf0f874-3ea5-4410-bd22-b0e72140f3b5
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
 ---
 # Enable offline sync for your Xamarin.Forms mobile app
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
