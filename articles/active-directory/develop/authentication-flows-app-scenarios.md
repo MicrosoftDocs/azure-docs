@@ -258,7 +258,7 @@ Scenarios that involve acquiring tokens also map to OAuth 2.0 authentication flo
 
   <tr>
    <td><a href="scenario-daemon-overview.md"><img alt="Daemon app that calls web APIs" src="media/scenarios/daemon-app.svg"></a></td>
-   <td><a href=scenario-daemon-overview.md">A daemon app that calls web APIs</a></td>
+   <td><a href="scenario-daemon-overview.md">A daemon app that calls web APIs</a></td>
    <td><a href="v2-oauth2-client-creds-grant-flow.md">Client credentials</a></td>
    <td>App-only permissions with no user and used only in Azure AD organizations</td>
  </tr>

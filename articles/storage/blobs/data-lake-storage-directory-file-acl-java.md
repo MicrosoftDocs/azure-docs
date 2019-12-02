@@ -321,5 +321,5 @@ static public void ListFilesInDirectory(DataLakeFileSystemClient fileSystemClien
 * [Package (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake/12.0.0-preview.6/jar)
 * [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake)
 * [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
-* [Known capability gaps](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
+* [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [Give Feedback](https://github.com/Azure/azure-sdk-for-java/issues)
