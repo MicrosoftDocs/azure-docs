@@ -29,7 +29,7 @@
   items:
     - name: Get connected
       items:
-      - name: Build and manage a IoT device template
+      - name: Build and manage an IoT device template
         href: tutorial-define-iot-device-type.md
       - name: Connect a device
         href: tutorial-connect-pnp-device.md
