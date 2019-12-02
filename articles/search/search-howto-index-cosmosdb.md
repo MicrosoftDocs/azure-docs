@@ -47,7 +47,7 @@ and [Gremlin API (preview)](https://docs.microsoft.com/azure/cosmos-db/graph-int
 
 The easiest method for indexing Azure Cosmos DB items is to use a wizard in the [Azure portal](https://portal.azure.com/). By sampling data and reading metadata on the container, the [**Import data**](search-import-data-portal.md) wizard in Azure Cognitive Search can create a default index, map source fields to target index fields, and load the index in a single operation. Depending on the size and complexity of source data, you could have an operational full text search index in minutes.
 
-We recommend using the same Azure subscription for both Azure Cognitive Search and Azure Cosmos DB, preferably in the same region.
+We recommend using the same region or location for both Azure Cognitive Search and Azure Cosmos DB for lower latency and to avoid bandwidth charges.
 
 ### 1 - Prepare source data
 
