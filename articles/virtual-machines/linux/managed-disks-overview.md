@@ -4,7 +4,7 @@ description: Overview of Azure managed disks, which handle the storage accounts 
 author: roygara
 ms.service: virtual-machines-linux
 ms.topic: overview
-ms.date: 11/06/2019
+ms.date: 12/02/2019
 ms.author: rogarana
 ms.subservice: disks
 ---
