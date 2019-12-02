@@ -808,6 +808,5 @@ Based on the user's first name, middle name and last name, you need to generate 
 
 ## Next steps 
 
-- [What is Azure AD Connect cloud provisioning?](whatis-cloud-prov.md)
-- [Transformations](how-to-cloud-transformation.md)
-
+- [What is provisioning?](what-is-provisioning.md)
+- [What is Azure AD Connect cloud provisioning?](what-is-cloud-provisioning.md)

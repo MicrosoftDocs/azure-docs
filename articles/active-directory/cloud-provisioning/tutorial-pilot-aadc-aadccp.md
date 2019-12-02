@@ -222,6 +222,8 @@ In case the pilot does not work as expected, you can go back to the Azure AD Con
 1.	Disable provisioning configuration in the Azure portal. 
 2.	Disable all the custom sync rules created for Cloud Provisioning using the Sync Rule Editor tool. Disabling should cause full sync on all the connectors.
 
-## Next steps
-- [What is Azure AD Connect cloud provisioning?](whatis-cloud-prov.md)
+## Next steps 
+
+- [What is provisioning?](what-is-provisioning.md)
+- [What is Azure AD Connect cloud provisioning?](what-is-cloud-provisioning.md)
 

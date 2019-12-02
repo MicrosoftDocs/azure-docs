@@ -404,5 +404,7 @@ Now that you have our Active Directory environment, you need to a test account. 
 ## Conclusion
 Now you have an environment that can be used for existing tutorials and to test additional features cloud provisioning provides.
 
-## Next steps
-- [What is Azure AD Connect cloud provisioning?](whatis-cloud-prov.md)
+## Next steps 
+
+- [What is provisioning?](what-is-provisioning.md)
+- [What is Azure AD Connect cloud provisioning?](what-is-cloud-provisioning.md)

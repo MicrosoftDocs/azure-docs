@@ -85,9 +85,8 @@ To verify that the agent is running follow these steps:
 
 
 
-## Next Steps 
+## Next steps 
 
-- [Azure AD Connect provisioning new agent configuration](how-to-cloud-prov-manage.md)
-- [cloud provisioning pre-requisites](how-to-cloud-prov-prereq.md) 
-- [What is Azure AD Connect cloud provisioning?](whatis-cloud-prov.md)
+- [What is provisioning?](what-is-provisioning.md)
+- [What is Azure AD Connect cloud provisioning?](what-is-cloud-provisioning.md)
  

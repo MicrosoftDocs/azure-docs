@@ -177,7 +177,7 @@ By clicking on the status, you can see additional information about the quaranti
 - Use the Azure portal to restart the provisioning job. On the agent configuration page select **Restart provisioning**.
 
 
- ![Quarantine](media/how-to-cloud-prov-tshoot/quarantine3.png)
+ ![Quarantine](media/how-to-cloud-provisioning-tshoot/quarantine3.png)
 
 - Use Microsoft Graph to [restart the provisioning job](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). You'll have full control over what you restart. You can choose to clear escrows (to restart the escrow counter that accrues toward quarantine status), clear quarantine (to remove the application from quarantine), or clear watermarks. Use the following request:
  
@@ -185,8 +185,8 @@ By clicking on the status, you can see additional information about the quaranti
 
 ## Next steps 
 
-- [What is Azure AD Connect cloud provisioning?](whatis-cloud-prov.md)
-- [Azure AD Connect cloud provisioning installation](how-to-cloud-prov-install.md)
-- [Azure AD Connect cloud provisioning pre-requisites](how-to-cloud-prov-prereq.md) 
-- [What is Azure AD Connect cloud provisioning?](whatis-cloud-prov.md) 
+- [What is provisioning?](what-is-provisioning.md)
+- [What is Azure AD Connect cloud provisioning?](what-is-cloud-provisioning.md)
+
+
 

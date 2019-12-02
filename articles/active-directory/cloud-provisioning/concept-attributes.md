@@ -244,6 +244,7 @@ In order to view the schema and verify it, do the following steps:
 9. This query will return the schema.
   ![](media/concept-cloud-prov-attributes/schema1.png)
  
-## Next steps
-- [What is Azure AD Connect cloud provisioning?](whatis-cloud-prov.md)
-- [Azure AD Connect cloud provisioning installation](how-to-cloud-prov-install.md)
+## Next steps 
+
+- [What is provisioning?](what-is-provisioning.md)
+- [What is Azure AD Connect cloud provisioning?](what-is-cloud-provisioning.md)

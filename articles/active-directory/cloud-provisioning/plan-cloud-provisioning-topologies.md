@@ -52,6 +52,8 @@ For an example of this scenario see [Tutorial: Pilot Azure AD Connect cloud prov
 
 The simplest topology is a single on-premises forest, with one or multiple domains, and a single Azure AD tenant.  For an example of this scenario see [Tutorial: A single forest with a single Azure AD tenant](tutorial-single-forest.md)
 
-## Next steps
-- [What is Azure AD Connect cloud provisioning?](whatis-cloud-prov.md)
+## Next steps 
+
+- [What is provisioning?](what-is-provisioning.md)
+- [What is Azure AD Connect cloud provisioning?](what-is-cloud-provisioning.md)
 

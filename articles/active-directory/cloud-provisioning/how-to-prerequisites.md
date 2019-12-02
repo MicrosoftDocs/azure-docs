@@ -82,9 +82,8 @@ To enable TLS 1.2:
 1. Restart the server.
 
 
-## Next Steps 
+## Next steps 
 
-- [What is identity provisioning?](whatis-prov.md) 
-- [What is Azure AD Connect cloud provisioning?](whatis-cloud-prov.md) 
-- [Cloud provisioning installation](how-to-cloud-prov-install.md)
+- [What is provisioning?](what-is-provisioning.md)
+- [What is Azure AD Connect cloud provisioning?](what-is-cloud-provisioning.md)
 

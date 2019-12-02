@@ -106,5 +106,5 @@ For information on the syntax and examples of expressions, see [Writing Expressi
 
 ## Next steps 
 
-- [What is Azure AD Connect cloud provisioning?](whatis-cloud-prov.md)
-- [Expressions](reference-expressions.md)
+- [What is provisioning?](what-is-provisioning.md)
+- [What is Azure AD Connect cloud provisioning?](what-is-cloud-provisioning.md)

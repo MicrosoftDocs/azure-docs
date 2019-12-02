@@ -123,5 +123,7 @@ You will now verify that the users that you had in our on-premises directory hav
 
 You have now successfully set up a hybrid identity environment that you can use to test and familiarize yourself with what Azure has to offer.
 
-## Next steps
-- [What is Azure AD Connect cloud provisioning?](whatis-cloud-prov.md)
+## Next steps 
+
+- [What is provisioning?](what-is-provisioning.md)
+- [What is Azure AD Connect cloud provisioning?](what-is-cloud-provisioning.md)

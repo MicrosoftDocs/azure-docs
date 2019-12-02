@@ -79,6 +79,5 @@ If you want to delete a configuration you can do that by using the following ste
 
 ## Next steps 
 
-- [cloud provisioning installation](how-to-cloud-prov-install.md)
-- [cloud provisioning pre-requisites](how-to-cloud-prov-prereq.md) 
-- [What is Azure AD Connect cloud provisioning?](whatis-cloud-prov.md)
+- [What is provisioning?](what-is-provisioning.md)
+- [What is Azure AD Connect cloud provisioning?](what-is-cloud-provisioning.md)

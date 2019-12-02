@@ -60,9 +60,7 @@ No, cloud provisioning does not support writeback of ms-ds-consistencyGUID for a
 
 When you delete the configuration, cloud provisioning does not cleanup the synced objects in Azure AD. To ensure you do not have the old objects, change the scope of the configuration to an empty group or Organizational Units. Once the provisioning runs and cleans up the objects, disable and delete the  configuration. 
 
-## Next Steps 
+## Next steps 
 
-- [What is Azure AD Connect cloud provisioning?](whatis-cloud-prov.md)
-- [Azure AD Connect cloud provisioning installation](how-to-cloud-prov-install.md)
-- [Azure AD Connect cloud provisioning pre-requisites](how-to-cloud-prov-prereq.md) 
-- [What is Azure AD Connect cloud provisioning?](whatis-cloud-prov.md) 
+- [What is provisioning?](what-is-provisioning.md)
+- [What is Azure AD Connect cloud provisioning?](what-is-cloud-provisioning.md)

@@ -42,8 +42,8 @@ To remove the agent, navigate to **Uninstall or change a program** and uninstall
 
 ![Agent removal](media/how-to-cloud-prov-agent/agent3.png)
 
-## Next steps
-- [What is Azure AD Connect cloud provisioning?](whatis-cloud-prov.md)
-- [Azure AD Connect cloud provisioning installation](how-to-cloud-prov-install.md)
-- [Azure AD Connect cloud provisioning pre-requisites](how-to-cloud-prov-prereq.md) 
+## Next steps 
+
+- [What is provisioning?](what-is-provisioning.md)
+- [What is Azure AD Connect cloud provisioning?](what-is-cloud-provisioning.md)
 
