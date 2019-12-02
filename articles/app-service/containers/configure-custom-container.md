@@ -1,19 +1,9 @@
 ---
-title: Configure custom container - Azure App Service | Microsoft Docs 
-description: Learn how to configure Node.js apps to work in Azure App Service
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: jpconnock
-editor: ''
+title: Configure a custom Linux container
+description: Learn how to configure a custom Linux container in Azure App Service. This article shows the most common configuration tasks. 
 
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
-ms.author: cephalin
 ---
 
 # Configure a custom Linux container for Azure App Service

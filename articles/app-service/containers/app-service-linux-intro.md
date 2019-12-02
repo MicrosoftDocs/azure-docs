@@ -1,17 +1,10 @@
 ---
-title: Introduction to App Service on Linux - Azure | Microsoft Docs
-description: Learn about Azure App Service on Linux.
+title: Run code on default Linux containers
+description: Azure App Service can run your code on pre-built Linux containers. Find out how you can run your Linux web applications on Azure.
 keywords: azure app service, linux, oss
-services: app-service
-documentationcenter: ''
 author: msangapu-msft
-manager: gwallace
-editor: ''
 
 ms.assetid: bc85eff6-bbdf-410a-93dc-0f1222796676
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu
