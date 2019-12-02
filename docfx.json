@@ -199,6 +199,8 @@
         "articles/governance/management-groups/**/*.md": "rthorn17",
         "articles/governance/resource-graph/**/*.md": "DCtheGeek",
         "articles/azure-functions/**/*.md": "ggailey777",
+        "articles/app-service/**/*.md": "cephalin",
+        "articles/app-service-mobile/**/*.md": "elamalani",
         "articles/ansible/**/*.md": "TomArcherMsft",
         "articles/backup/**/*.md": "dcurwin",
         "articles/blockchain/**/*.md": "PatAltimore",
@@ -395,6 +397,8 @@
       "manager": {
         "articles/sql-database/**/*.md": "jroth",
         "articles/azure-functions/**/*.md": "gwallace",
+        "articles/app-service/**/*.md": "gwallace",
+        "articles/app-service-mobile/**/*.md": "crdun",
         "articles/backup/**/*.md": "carmonm",
         "articles/site-recovery/**/*.md": "carmonm",
         "articles/migrate/**/*.md": "carmonm",
@@ -407,6 +411,8 @@
         "articles/governance/management-groups/**/*.md": "rithorn",
         "articles/governance/resource-graph/**/*.md": "dacoulte",
         "articles/azure-functions/**/*.md": "glenga",
+        "articles/app-service/**/*.md": "cephalin",
+        "articles/app-service-mobile/**/*.md": "emalani",
         "articles/ansible/**/*.md": "tarcher",
         "articles/backup/**/*.md": "dacurwin",
         "articles/blockchain/**/*.md": "patricka",
@@ -429,6 +435,8 @@
         "articles/governance/management-groups/**/*.md": "governance",
         "articles/governance/resource-graph/**/*.md": "resource-graph",
         "articles/azure-functions/**/*.md": "azure-functions",
+        "articles/app-service/**/*.md": "app-service",
+        "articles/app-service-mobile/**/*.md": "app-service-mobile",
         "articles/industry/**/*.md": "azure-industry",
         "articles/ansible/**/*.md": "ansible",
         "articles/backup/**/*.md": "backup",
@@ -502,7 +510,11 @@
         "articles/migrate/**/*.md": "Azure Migrate",
         "articles/spatial-anchors/**/*.md": "Azure Spatial Anchors",
         "articles/spatial-anchors/**/*.yml": "Azure Spatial Anchors",
-        "articles/dev-spaces/**/*.md": "Azure Dev Spaces"
+        "articles/dev-spaces/**/*.md": "Azure Dev Spaces",
+        "articles/app-service/**/*.md": "Azure App Service",
+        "articles/app-service/**/*.yml": "Azure App Service",
+        "articles/app-service-mobile/**/*.md": "Azure Mobile Apps",
+        "articles/app-service-mobile/**/*.yml": "Azure Mobile Apps"
       },
       "featureFlags": {
         "articles/**/*.md": [

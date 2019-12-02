@@ -74,6 +74,10 @@
          href: how-provisioning-works.md
        - name: Plan an automatic user provisioning deployment
          href: plan-auto-user-provisioning.md
+    - name: Cloud HR provisioning
+      items:
+       - name: Plan cloud HR user provisioning deployment
+         href: plan-cloud-hr-provision.md
     - name: Application Proxy for on-premises apps
       items:
        - name: Application Proxy
