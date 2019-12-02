@@ -9,31 +9,30 @@ ms.topic: conceptual
 ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
-ms.date: 11/27/2019
+ms.date: 12/09/2019
 
 ---
 
 # Data access in Azure Machine Learning
 
-In this article, learn about Azure Machine Learning's data management and integration solutions for your machine learning tasks. This article describes a data access workflow that assumes you've already created an [Azure storage account](https://docs.microsoft.comazure/storage/common/storage-quickstart-create-account?tabs=azure-portal) and [Azure storage service](https://docs.microsoft.com/azure/storage/common/storage-introduction).
-
+In this article, learn about Azure Machine Learning's data management and integration solutions for your machine learning tasks. This article assumes you've already created an [Azure storage account](https://docs.microsoft.comazure/storage/common/storage-quickstart-create-account?tabs=azure-portal) and [Azure storage service](https://docs.microsoft.com/azure/storage/common/storage-introduction).
 
 When you're ready to use the data in your storage, we recommend you
 
 1. Create an Azure Machine Learning datastore.
 2. From that datastore, create an Azure Machine Learning dataset. 
-3. Use that dataset in your machine learning (ML) experiment by either 
-    1. Mounting it to your ML experiment's compute target for model training
+3. Use that dataset in your machine learning experiment by either 
+    1. Mounting it to your experiment's compute target for model training
 
         **OR** 
 
-    1. Consuming it directly in Azure Machine Learning solutions like automated machine learning (automated ML) experiment runs, ML pipelines, and the designer.
+    1. Consuming it directly in Azure Machine Learning solutions like automated machine learning (automated ML) experiment runs, machine learning pipelines, and the designer.
 4. Create dataset monitors for your model input and output datasets to detect for data drift. 
 5. If data drift is detected, retrain your model accordingly.
 
 The following diagram provides a visual demonstration of this recommended data access workflow.
 
-![Data-concept-diagram](media/concept-data/data-concept-diagram.png)
+![Data-concept-diagram](media/concept-data/data-concept-diagram.svg)
 
 ## Access data in storage
 
@@ -41,30 +40,26 @@ To access your data in your storage account, Azure Machine Learning offers datas
 
 ### Datastores
 
-An Azure Machine Learning datastore is a storage abstraction over an Azure  storage services account. Datastores allow you to easily connect to your Azure storage account, and access the data in your underlying Azure storage services. This ease of connection is facilitated by storing security information, like your subscription ID and token authorization, as part of the datastore object so you aren't hard coding that information in your scripts.
-
-+ [Register and create datastores](how-to-access-data.md)
+An Azure Machine Learning datastore is a storage abstraction over an Azure  storage services account. [Register and create a datastore](how-to-access-data.md) to easily connect to your Azure storage account, and access the data in your underlying Azure storage services. 
 
 ### Datasets
 
-Create an Azure Machine Learning dataset to interact with data in your datastores or to package your data into a consumable object for machine learning tasks. 
+[Create an Azure Machine Learning dataset](how-to-create-register-datasets.md) to interact with data in your datastores or to package your data into a consumable object for machine learning tasks. Register the dataset to your workspace to share and reuse it across different experiments without data ingestion complexities.
 
 Datasets can be created from local files, public urls, [Azure Open Datasets](#open), or specific file(s) in your datastores. They aren't copies of your data, but are references that point to the data in your storage service, so no extra storage cost is incurred. 
 
-The following articles demonstrate additional datasets capabilities.
+The following diagram shows that if you don't have an Azure storage service, you can create a dataset directly from local files, public urls, or an Azure Open Dataset. Doing so connects your dataset to the default datastore automatically created with your experiment's [Azure Machine Learning workspace](concept-workspace.md).
 
-+ [Create and register datasets](how-to-create-register-datasets.md) to your workspace to share and reuse it across different experiments without data ingestion complexities.
+![Data-concept-diagram](media/concept-data/dataset-workflow.svg)
+
+Additional datasets capabilities can be found in the following articles.
+
 + [Version and track](how-to-version-track-datasets.md) dataset lineage.
 + [Monitor your dataset](how-to-monitor-datasets.md) to help with data drift detection.
-+ See the [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) and [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py) class reference documentation for available data exploration methods. 
++  There are two different types of datasets:
+    + [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) represents data in a tabular format by parsing the provided file or list of files. Which lets you materialize the data into a Pandas or Spark DataFrame for further manipulation and cleansing. For a complete list of files you can create TabularDatasets from, see the [TabularDatasetFactory class](https://aka.ms/tabulardataset-api-reference).
 
-#### Types of datasets
-
-There are two different types of datasets:
-
-+ [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) represents data in a tabular format by parsing the provided file or list of files. This provides you with the ability to materialize the data into a Pandas or Spark DataFrame for further manipulation and cleansing. For a complete list of files you can create TabularDatasets from, see the [TabularDatasetFactory class](https://aka.ms/tabulardataset-api-reference).
-
-+ [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) references single or multiple files in your datastores or public URLs. By this method, you can download or mount files of your choosing to your compute target as a FileDataset object.
+    + [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) references single or multiple files in your datastores or public URLs. By this method, you can download or mount files of your choosing to your compute target as a FileDataset object.
 
 ## Work with your data
 
@@ -73,7 +68,7 @@ With datasets, you can accomplish a number of machine learning tasks through sea
 + [Train machine learning models](how-to-train-with-datasets.md).
 + Consume datasets in 
      + [automated ML experiments](how-to-create-portal-experiments.md)
-     + [ML pipelines](how-to-create-your-first-pipeline.md)
+     + [machine learning pipelines](how-to-create-your-first-pipeline.md)
      + the [designer](tutorial-designer-automobile-price-train-score.md#import-data)
 + Create a [data labeling project](#label).
 + Set up a dataset monitor for [data drift](#drift) detection.
@@ -90,7 +85,7 @@ Azure Open Datasets include public-domain data for weather, census, holidays, pu
 
 ## Data labeling
 
-Labeling large amounts of data has often been a headache in machine learning projects. ML projects with a computer vision component, such as image classification or object detection, generally require thousands of images and corresponding labels.
+Labeling large amounts of data has often been a headache in machine learning projects. Machine learning projects with a computer vision component, such as image classification or object detection, generally require thousands of images and corresponding labels.
 
 Azure Machine Learning gives you a central location to create, manage, and monitor labeling projects. Labeling projects help coordinate the data, labels, and team members, allowing you to more efficiently manage the labeling tasks. Currently supported tasks are image classification, either multi-label or multi-class, and object identification using bounded boxes.
 
